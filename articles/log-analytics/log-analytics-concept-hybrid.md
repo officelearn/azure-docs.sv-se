@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 85fde471f0d99b976e319d552c6a031d63854cf4
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9346e9a9ad310a21c6d6ce388b76ce491041289c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Samla in data från datorer i din miljö med logganalys
 
@@ -77,14 +77,14 @@ Följande Linux-distributioner stöds officiellt.  Linux-agenten kan också kör
 * SUSE Linux Enterprise Server 11 och 12 (x86/x64)
 
 #### <a name="network-configuration"></a>Nätverkskonfiguration
-Informationen nedan lista över proxy- och brandväggsinställningarna configuration information som krävs för Linux-agenten kan kommunicera med logganalys. Trafiken är utgående från nätverket till logganalys-tjänsten. 
+Informationen nedan lista över proxy- och brandväggsinställningarna configuration information som krävs för Linux-agenten kan kommunicera med logganalys.  
 
-|Agentresurs| Portar |  
-|------|---------|  
-|*.ods.opinsights.azure.com | Port 443|   
-|*.oms.opinsights.azure.com | Port 443|   
-|*.blob.core.windows.net | Port 443|   
-|*.azure-automation.net | Port 443|  
+|Agentresurs| Portar | Riktning |  
+|------|---------|--------|  
+|*.ods.opinsights.azure.com | Port 443 | Inkommande och utgående|  
+|*.oms.opinsights.azure.com | Port 443 | Inkommande och utgående|  
+|*.blob.core.windows.net | Port 443 | Inkommande och utgående|  
+|*.azure-automation.net | Port 443 | Inkommande och utgående|  
 
 Linux-agenten stöder kommunikation via en proxyserver eller OMS Gateway till Log Analytics-tjänsten med hjälp av HTTPS-protokollet.  Stöd för både anonyma och grundläggande autentisering (användarnamn/lösenord).  Proxyservern kan anges under installationen eller genom att ändra konfigurationsfilen proxy.conf efter installationen.  
 

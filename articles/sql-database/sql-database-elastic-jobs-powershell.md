@@ -2,29 +2,24 @@
 title: "Skapa och hantera elastiska jobb med hjälp av PowerShell | Microsoft Docs"
 description: "PowerShell som används för att hantera Azure SQL Database-pooler"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: sstein
+ms.openlocfilehash: 17e4176129da747925596c66ca9df936a3828c2d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Skapa och hantera SQL Database: elastiska jobb med hjälp av PowerShell (förhandsgranskning)
 
 PowerShell-APIs för **elastisk databas jobb** (under förhandsgranskning) gör att du kan definiera en grupp databaser mot vilken skript körs. Den här artikeln visar hur du skapar och hanterar **elastisk databas jobb** med PowerShell-cmdlets. Se [elastiska jobb översikt](sql-database-elastic-jobs-overview.md). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * En Azure-prenumeration. För en kostnadsfri utvärderingsversion finns [kostnadsfri utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 * En uppsättning databaser som skapats med elastiska Databasverktyg. Se [Kom igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
@@ -50,7 +45,7 @@ I följande tabell visas ut alla objekttyper för **elastisk databas jobb** till
     <td>Autentiseringsuppgift</td>
     <td>Användarnamn och lösenord för att ansluta till databaser för körning av skript eller ett program av DACPACs. <p>Lösenordet krypteras innan du skickar till och lagra i databasen för den elastiska databasen jobb.  Lösenordet dekrypteras av tjänsten elastiska databasen jobb via autentiseringsuppgifter skapas och som överförts från ett installationsskript.</td>
     <td><p>Get-AzureSqlJobCredential</p>
-    <p>Ny AzureSqlJobCredential</p><p>Ange AzureSqlJobCredential</p></td></td>
+    <p>New-AzureSqlJobCredential</p><p>Set-AzureSqlJobCredential</p></td></td>
   </tr>
 
   <tr>
@@ -60,8 +55,8 @@ I följande tabell visas ut alla objekttyper för **elastisk databas jobb** till
     <td>
     <p>Get-AzureSqlJobContent</p>
     <p>Get-AzureSqlJobContentDefinition</p>
-    <p>Ny AzureSqlJobContent</p>
-    <p>Ange AzureSqlJobContentDefinition</p>
+    <p>New-AzureSqlJobContent</p>
+    <p>Set-AzureSqlJobContentDefinition</p>
     </td>
   </tr>
 
@@ -71,8 +66,8 @@ I följande tabell visas ut alla objekttyper för **elastisk databas jobb** till
     </td>
     <td>
     <p>Get-AzureSqlJobContent</p>
-    <p>Ny AzureSqlJobContent</p>
-    <p>Ange AzureSqlJobContentDefinition</p>
+    <p>New-AzureSqlJobContent</p>
+    <p>Set-AzureSqlJobContentDefinition</p>
     </td>
   </tr>
   <tr>
@@ -81,7 +76,7 @@ I följande tabell visas ut alla objekttyper för **elastisk databas jobb** till
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
-    <p>Ny AzureSqlJobTarget</p>
+    <p>New-AzureSqlJobTarget</p>
     </td>
   </tr>
   <tr>
@@ -90,8 +85,8 @@ I följande tabell visas ut alla objekttyper för **elastisk databas jobb** till
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
-    <p>Ny AzureSqlJobTarget</p>
-    <p>Ange AzureSqlJobTarget</p>
+    <p>New-AzureSqlJobTarget</p>
+    <p>Set-AzureSqlJobTarget</p>
     </td>
   </tr>
 <tr>
@@ -99,15 +94,15 @@ I följande tabell visas ut alla objekttyper för **elastisk databas jobb** till
     <td>Angiven grupp databaser som ska användas tillsammans för att köras.</td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
-    <p>Ny AzureSqlJobTarget</p>
+    <p>New-AzureSqlJobTarget</p>
     </td>
   </tr>
 <tr>
     <td>Anpassad samling underordnade mål</td>
     <td>Mål för databasen som refereras från en anpassad samling.</td>
     <td>
-    <p>Lägg till AzureSqlJobChildTarget</p>
-    <p>Ta bort AzureSqlJobChildTarget</p>
+    <p>Add-AzureSqlJobChildTarget</p>
+    <p>Remove-AzureSqlJobChildTarget</p>
     </td>
   </tr>
 
@@ -118,8 +113,8 @@ I följande tabell visas ut alla objekttyper för **elastisk databas jobb** till
     </td>
     <td>
     <p>Get-AzureSqlJob</p>
-    <p>Ny AzureSqlJob</p>
-    <p>Ange AzureSqlJob</p>
+    <p>New-AzureSqlJob</p>
+    <p>Set-AzureSqlJob</p>
     </td>
   </tr>
 
@@ -131,8 +126,8 @@ I följande tabell visas ut alla objekttyper för **elastisk databas jobb** till
     <td>
     <p>Get-AzureSqlJobExecution</p>
     <p>Start-AzureSqlJobExecution</p>
-    <p>Stoppa AzureSqlJobExecution</p>
-    <p>Vänta AzureSqlJobExecution</p>
+    <p>Stop-AzureSqlJobExecution</p>
+    <p>Wait-AzureSqlJobExecution</p>
   </tr>
 
 <tr>
@@ -144,8 +139,8 @@ I följande tabell visas ut alla objekttyper för **elastisk databas jobb** till
     <td>
     <p>Get-AzureSqlJobExecution</p>
     <p>Start-AzureSqlJobExecution</p>
-    <p>Stoppa AzureSqlJobExecution</p>
-    <p>Vänta AzureSqlJobExecution</p>
+    <p>Stop-AzureSqlJobExecution</p>
+    <p>Wait-AzureSqlJobExecution</p>
   </tr>
 
 <tr>
@@ -156,8 +151,8 @@ I följande tabell visas ut alla objekttyper för **elastisk databas jobb** till
     </td>
     <td>
     <p>Get-AzureSqlJobExecutionPolicy</p>
-    <p>Ny AzureSqlJobExecutionPolicy</p>
-    <p>Ange AzureSqlJobExecutionPolicy</p>
+    <p>New-AzureSqlJobExecutionPolicy</p>
+    <p>Set-AzureSqlJobExecutionPolicy</p>
     </td>
   </tr>
 
@@ -168,8 +163,8 @@ I följande tabell visas ut alla objekttyper för **elastisk databas jobb** till
     </td>
     <td>
     <p>Get-AzureSqlJobSchedule</p>
-    <p>Ny AzureSqlJobSchedule</p>
-    <p>Ange AzureSqlJobSchedule</p>
+    <p>New-AzureSqlJobSchedule</p>
+    <p>Set-AzureSqlJobSchedule</p>
     </td>
   </tr>
 
@@ -179,8 +174,8 @@ I följande tabell visas ut alla objekttyper för **elastisk databas jobb** till
     <p>En mappning mellan ett jobb och ett schema för att utlösaren jobb enligt schemat.</p>
     </td>
     <td>
-    <p>Ny AzureSqlJobTrigger</p>
-    <p>Ta bort AzureSqlJobTrigger</p>
+    <p>New-AzureSqlJobTrigger</p>
+    <p>Remove-AzureSqlJobTrigger</p>
     </td>
   </tr>
 </table>

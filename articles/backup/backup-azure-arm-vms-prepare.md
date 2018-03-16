@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 62e047d706bdc42abbe44340c87267e59eb84369
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Förbereda din miljö för att säkerhetskopiera Resource Manager-distribuerade virtuella datorer
 
@@ -49,12 +49,6 @@ Om dessa villkor finns redan i din miljö, fortsätter du till den [säkerhetsko
 Innan du förbereder din miljö måste du förstå följande begränsningar:
 
 * Säkerhetskopiera virtuella datorer med fler än 16 datadiskar stöds inte.
-* Säkerhetskopiering av virtuella datorer med data storlekar för diskar som är större än 1,023 GB stöds inte.
-
-  > [!NOTE]
-  > Vi har en privat förhandsgranskning för att stödja säkerhetskopieringar för virtuella datorer med mer än en TB diskar. Mer information finns i [privat förhandsgranskning för stora diskstöd för säkerhetskopiering av VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
-  >
-
 * Säkerhetskopiering av virtuella datorer med en reserverad IP-adress och ingen definierad slutpunkt stöds inte.
 * Säkerhetskopiera virtuella Linux-datorer krypterade via Linux Unified nyckeln installationsprogrammet (LUKS)-kryptering stöds inte.
 * Vi rekommenderar inte att du säkerhetskopierar virtuella datorer som innehåller konfiguration för klusterdelade volymer (CSV) eller en skalbar filserver. De kräver som omfattar alla virtuella datorer som ingår i klusterkonfigurationen under en ögonblicksbilden. Azure-säkerhetskopiering har inte stöd för flera Virtuella datorer. 

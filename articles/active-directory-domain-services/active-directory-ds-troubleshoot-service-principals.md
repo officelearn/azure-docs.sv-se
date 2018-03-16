@@ -12,22 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2018
+ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 7388bb291f665f195355a01d19a82cba9ed453eb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e1be075ba2d3e6ae7512ccc030073fd7f1862502
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Felsökning av ogiltig konfiguration för tjänstens huvudnamn för din hanterade domän
 
 Den här artikeln hjälper dig att felsöka och lösa service principal-relaterade konfigurationsfel som resulterar i följande varningsmeddelande:
 
 ## <a name="alert-aadds102-service-principal-not-found"></a>Varning AADDS102: Tjänstens huvudnamn saknas
+
 **Varningsmeddelande:** *A Service Principal krävs för Azure AD Domain Services ska fungera korrekt har tagits bort från Azure AD-katalogen. Den här konfigurationen påverkar Microsofts möjlighet att övervaka, hantera, korrigering, och synkronisera din hanterade domän.*
 
-[Tjänsten säkerhetsobjekt](../active-directory/develop/active-directory-application-objects.md) är program som Microsoft använder för att hantera, uppdatera och underhålla din hanterade domän. Om de tas bort, bryts Microsofts möjlighet att underhålla din domän. 
+[Tjänsten säkerhetsobjekt](../active-directory/develop/active-directory-application-objects.md) är program som Microsoft använder för att hantera, uppdatera och underhålla din hanterade domän. Om de tas bort, bryts Microsofts möjlighet att underhålla din domän.
 
 
 ## <a name="check-for-missing-service-principals"></a>Sök efter tjänstens huvudnamn saknas
@@ -47,35 +48,35 @@ Använd följande steg för att fastställa vilken tjänst som säkerhetsobjekt 
 ## <a name="recreate-a-missing-service-principal-with-powershell"></a>Skapa en saknas tjänstens huvudnamn med PowerShell
 Följ dessa steg om ett huvudnamn för tjänsten med ID ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` saknas i Azure AD-katalogen.
 
-**Reparation:** du behöver Azure AD PowerShell för att slutföra dessa steg. Information om hur du installerar Azure AD PowerShell finns i [i den här artikeln](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+**Lösning:** du behöver Azure AD PowerShell för att slutföra dessa steg. Information om hur du installerar Azure AD PowerShell finns i [i den här artikeln](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 Skriv följande kommandon i PowerShell-fönstret för att lösa problemet:
 1. Installera Azure AD PowerShell-modulen och importera den.
-    
-    ```powershell 
+
+    ```powershell
     Install-Module AzureAD
     Import-Module AzureAD
     ```
-    
+
 2. Kontrollera om tjänstens huvudnamn som krävs för Azure AD Domain Services saknas i din katalog genom att köra följande PowerShell-kommando:
-    
+
     ```powershell
     Get-AzureAdServicePrincipal -filter "AppId eq '2565bd9d-da50-47d4-8b85-4c97f669dc36'"
     ```
-    
+
 3. Skapa tjänstens huvudnamn genom att skriva följande PowerShell-kommando:
 
     ```powershell
     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     ```
-    
+
 4. När du har skapat en saknad tjänst huvudnamn, vänta två timmar och kontrollera hälsan för din hanterade domän.
 
 
 ## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Registrera till Microsoft AAD-namnområdet med hjälp av Azure portal
 Följ dessa steg om ett huvudnamn för tjänsten med ID ```443155a6-77f3-45e3-882b-22b3a8d431fb``` eller ```abba844e-bc0e-44b0-947a-dc74e5d09022``` saknas i Azure AD-katalogen.
 
-**Reparation:** Använd följande steg för att återställa Domain Services på din katalog:
+**Lösning:** Använd följande steg för att återställa Domain Services på din katalog:
 
 1. Navigera till den [prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) sida i Azure-portalen.
 2. Välj prenumerationen från tabellen som är associerad med din hanterade domän
@@ -87,7 +88,32 @@ Följ dessa steg om ett huvudnamn för tjänsten med ID ```443155a6-77f3-45e3-88
 ## <a name="service-principals-that-self-correct"></a>Tjänstens huvudnamn self rätta
 Följ dessa steg om ett huvudnamn för tjänsten med ID ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` saknas i Azure AD-katalogen.
 
-**Reparation:** Azure AD Domain Services kan identifiera när den här specifika tjänstens huvudnamn saknas, är felkonfigurerad eller tas bort. Tjänsten skapar automatiskt den här tjänstens huvudnamn. Kontrollera hälsotillståndet för din hanterade domän efter två timmar att säkerställa att tjänstens huvudnamn har återskapats.
+**Lösning:** Azure AD Domain Services kan identifiera när den här specifika tjänstens huvudnamn saknas, är felkonfigurerad eller tas bort. Tjänsten skapar automatiskt den här tjänstens huvudnamn. Dock måste du ta bort programmet och objekt som har arbetat med borttagna programmet som när certifikatutfärdaren rullar över, program och objekt kommer inte längre att kunna ändras med den nya tjänsten huvudnamn. Detta leder till en ny fel på din domän. Följ stegen som beskrivs i den [avsnittet AADDS105](#alert-aadds105-password-synchronization-application-is-out-of-date) att förhindra det här problemet. När, kontrollera din hanterade domän hälsa efter två timmar att säkerställa att nytt huvudnamn för tjänsten har återskapats.
+
+
+## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Varning AADDS105: Programmet för synkronisering av lösenord är inaktuell
+
+**Varningsmeddelande:** tjänstens huvudnamn med program-ID ”d87dcbc6-a371-462e-88e3-28ad15ec4e64” har tagits bort och Microsoft gick att skapa den på nytt. Den här tjänstens huvudnamn hanterar en annan tjänstens huvudnamn och ett program som används för synkronisering av lösenord. Den hanterade tjänstens huvudnamn program tillåts inte under nyligen skapade tjänstens huvudnamn och kommer att bli inaktuell när synkroniseringen certifikatet upphör att gälla. Detta innebär att nyligen skapade tjänstens huvudnamn inte kommer att uppdatera gamla hanterade program och synkronisering av objekt från AAD kommer att påverkas.
+
+
+**Lösning:** du behöver Azure AD PowerShell för att slutföra dessa steg. Information om hur du installerar Azure AD PowerShell finns i [i den här artikeln](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+
+Skriv följande kommandon i PowerShell-fönstret för att lösa problemet:
+1. Installera Azure AD PowerShell-modulen och importera den.
+
+    ```powershell
+    Install-Module AzureAD
+    Import-Module AzureAD
+    ```
+2. Ta bort den gamla program och objekt med följande PowerShell-kommandon
+
+    ```powershell
+    $app = Get-AzureADApplication -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
+    Remove-AzureADApplication -ObjectId $app.ObjectId
+    $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
+    Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
+    ```
+3. När du har tagit bort båda kan reparera sig själv och återskapa de program som behövs för synkronisering av lösenord. För att säkerställa att aviseringen har åtgärdats, vänta två timmar och kontrollera hälsan för din domän.
 
 
 ## <a name="contact-us"></a>Kontakta oss

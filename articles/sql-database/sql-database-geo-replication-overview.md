@@ -2,24 +2,18 @@
 title: Redundans grupper och aktiv geo-replikering - Azure SQL Database | Microsoft Docs
 description: "Använda grupper för automatisk växling vid fel med aktiv geo-replikering och aktivera autoomatic växling vid fel vid ett avbrott."
 services: sql-database
-documentationcenter: na
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: 2a29f657-82fb-4283-9a83-e14a144bfd93
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 45ddc4070e2162715eefab21841d75f1fa2a29e5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Översikt: Redundans grupper och aktiv geo-replikering
 Aktiv geo-replikering kan du konfigurera upp till fyra läsbara sekundära databaser på samma eller olika data center platser (regioner). Sekundära databaser är tillgängliga för frågor och växling vid fel om det finns ett avbrott för data center eller oförmåga att ansluta till den primära databasen. Växling vid fel måste initieras manuellt med hjälp av användaren. Efter växling vid fel har den nya primärt en annan anslutning slutpunkt. 
@@ -92,14 +86,14 @@ Automatisk redundans grupper funktion tillhandahåller en kraftfull abstraktion 
    > När du lägger till en databas som redan har en sekundär databas på en server som inte ingår i gruppen växling vid fel, skapas en ny sekundär i den sekundära servern. 
    >
 
-* **Redundans skrivskyddad lyssnare**: skapas från en DNS CNAME-post  **&lt;redundans gruppnamn&gt;. database.windows.net** som pekar på den aktuella primära server-URL. Det gör att läsa / skriva SQL programmen transparent återansluta till den primära databasen när primärt ändras efter växling vid fel. 
-* **Redundans skrivskyddad lyssnare**: skapas från en DNS CNAME-post  **&lt;redundans gruppnamn&gt;. secondary.database.windows.net** som pekar på den sekundära servern URL. Det gör att skrivskyddad SQL programmen transparent ansluta till den sekundära databasen med hjälp av de angivna reglerna för belastningsutjämning. Alternativt kan du ange om du vill att skrivskyddad trafik dirigeras automatiskt till den primära servern när den sekundära servern inte är tillgänglig.
+* **Redundans skrivskyddad lyssnare**: skapas från en DNS CNAME-post ** &lt;redundans gruppnamn&gt;. database.windows.net** som pekar på den aktuella primära server-URL. Det gör att läsa / skriva SQL programmen transparent återansluta till den primära databasen när primärt ändras efter växling vid fel. 
+* **Redundans skrivskyddad lyssnare**: skapas från en DNS CNAME-post ** &lt;redundans gruppnamn&gt;. secondary.database.windows.net** som pekar på den sekundära servern URL. Det gör att skrivskyddad SQL programmen transparent ansluta till den sekundära databasen med hjälp av de angivna reglerna för belastningsutjämning. Alternativt kan du ange om du vill att skrivskyddad trafik dirigeras automatiskt till den primära servern när den sekundära servern inte är tillgänglig.
 * **Princip för automatisk redundans**: som standard failover-grupp har konfigurerats med en princip för automatisk redundans. Systemet utlöser växling vid fel när felet har identifierats. Om du vill styra redundans arbetsflödet från programmet, kan du inaktivera automatisk redundans. 
 * **Manuell växling**: du kan initiera redundans manuellt när som helst oavsett automatisk redundans-konfiguration. Om automatisk redundans principen inte är konfigurerad krävs manuell växling för att återställa databaser i gruppen växling vid fel. Du kan initiera framtvingad eller eget redundansväxling (med Fullständig datasynkronisering). Dessa kan användas för att flytta den aktiva servern till den primära regionen. När redundansväxlingen är klar uppdateras automatiskt DNS-poster för att kontrollera nätverksanslutningen till rätt server.
 * **Grace-period med dataförlust**: eftersom de primära och sekundära databaserna är synkroniserad med hjälp av asynkron replikering, redundans kan resultera i förlust av data. Du kan anpassa principen för automatisk redundans för att återspegla programmets tolerans för dataförlust. Genom att konfigurera **GracePeriodWithDataLossHours**, du kan styra hur länge systemet ska vänta innan du utför redundans som troligen kommer att resultatet dataförlust. 
 
    > [!NOTE]
-   > När systemet identifierar att databaserna i gruppen är online (exempelvis avbrottet endast påverkas service control plan), redundans med Fullständig datasynkronisering (eget failover) aktiveras omedelbart oavsett värdet av  **GracePeriodWithDataLossHours**. Det här beteendet garanteras att det finns inga data går förlorade under återställningen. Respittiden gäller endast när ett eget failover inte är möjligt. Om avbrottet minskas innan respittiden upphör att gälla, aktiveras inte för växling vid fel.
+   > När systemet identifierar att databaserna i gruppen är online (exempelvis avbrottet endast påverkas service control plan), redundans med Fullständig datasynkronisering (eget failover) aktiveras omedelbart oavsett värdet av ** GracePeriodWithDataLossHours**. Det här beteendet garanteras att det finns inga data går förlorade under återställningen. Respittiden gäller endast när ett eget failover inte är möjligt. Om avbrottet minskas innan respittiden upphör att gälla, aktiveras inte för växling vid fel.
    >
 
 * **Flera grupper för växling vid fel**: du kan konfigurera flera redundans grupper för samma par av servrar för att styra omfattningen av växling vid fel. Varje grupp flyttas över oberoende av varandra. Om ditt program med flera innehavare använder elastiska pooler, kan du använda den här funktionen för att blanda primära och sekundära databaser i varje pool. Det här sättet kan du minska effekten av ett avbrott för att endast hälften av innehavarna.
@@ -109,9 +103,9 @@ Automatisk redundans grupper funktion tillhandahåller en kraftfull abstraktion 
 Om du vill skapa en tjänst med hög tillgänglighet som använder Azure SQL database, bör du följa dessa riktlinjer:
 
 - **Använd failover grupp**: en eller flera grupper för växling vid fel kan skapas mellan två servrar i olika regioner (primära och sekundära servrar). Varje grupp kan innehålla en eller flera databaser som återställs som en enhet om alla eller vissa av de databaser som primär blir otillgänglig på grund av ett avbrott i den primära regionen. Gruppen redundans skapar geo sekundär databas med samma tjänstmålet som primärt. Om du lägger till en befintlig relation geo-replikering gruppen växling vid fel, kontrollera geo-sekundär har konfigurerats med samma servicenivåmålet som primärt.
-- **Använda läsa / skriva-lyssnare för OLTP-arbetsbelastning**: när du utför OLTP-åtgärder, Använd  **&lt;redundans gruppnamn&gt;. database.windows.net** som servern är URL och anslutningar omdirigeras automatiskt till den primära servern. URL: en ändras inte efter växling vid fel.  
+- **Använda läsa / skriva-lyssnare för OLTP-arbetsbelastning**: när du utför OLTP-åtgärder, Använd ** &lt;redundans gruppnamn&gt;. database.windows.net** som servern är URL och anslutningar omdirigeras automatiskt till den primära servern. URL: en ändras inte efter växling vid fel.  
 Obs växling vid fel innebär att uppdatera DNS-posten så klientanslutningarna omdirigeras till den nya primärt förrän klienten DNS-cachen uppdateras.
-- **Använd endast Läs-lyssnaren för skrivskyddad arbetsbelastning**: Om du har en logiskt isolerade skrivskyddad arbetsbelastning som är feltolerant till vissa föråldrad av data kan du använda den sekundära databasen i programmet. Skrivskyddad sessioner, Använd  **&lt;redundans gruppnamn&gt;. secondary.database.windows.net** som server URL: en och anslutningen automatiskt omdirigeras till sekundärt. Vi rekommenderar också att du anger i anslutningssträngen läsa avsikten med hjälp av **ApplicationIntent ReadOnly =**. 
+- **Använd endast Läs-lyssnaren för skrivskyddad arbetsbelastning**: Om du har en logiskt isolerade skrivskyddad arbetsbelastning som är feltolerant till vissa föråldrad av data kan du använda den sekundära databasen i programmet. Skrivskyddad sessioner, Använd ** &lt;redundans gruppnamn&gt;. secondary.database.windows.net** som server URL: en och anslutningen automatiskt omdirigeras till sekundärt. Vi rekommenderar också att du anger i anslutningssträngen läsa avsikten med hjälp av **ApplicationIntent ReadOnly =**. 
 - **Förberedas för prestanda försämras**: SQL redundans beslut är fristående från resten av programmet eller andra tjänster som används. Programmet får ”blandas” med vissa komponenter i en region och en del i en annan. För att undvika nedbrytning, kontrollera redundant programdistributionen i DR region och Följ riktlinjerna i den här artikeln.  
 Observera programmet i DR region behöver inte använda en annan anslutningssträng.  
 - **Förbereda för förlust av data**: om ett avbrott har upptäckts SQL automatiskt utlöser skrivskyddad växling vid fel om det finns ingen dataförlust till vår kännedom. I annat fall det väntar på den period som du angett med **GracePeriodWithDataLossHours**. Om du har angett **GracePeriodWithDataLossHours**, att förbereda för förlust av data. I allmänhet prioriterar Azure under avbrott, tillgänglighet. Om du inte har råd dataförlust, se till att ange **GracePeriodWithDataLossHours** till tillräckligt många, till exempel 24 timmar. 
@@ -157,8 +151,8 @@ Som beskrivits tidigare, automatisk redundans grupper (i förhandsversion) och a
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Hämtar en eller flera databaser. |
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Skapar en sekundär databas för en befintlig databas och startar datareplikeringen. |
-| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Växlar en sekundär databas för att vara primär initiera växling vid fel. |
-| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Avbryter datareplikering mellan en SQL-databas och den angivna sekundära databasen. |
+| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Växlar en sekundär databas till att vara primär för att initiera redundans. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Avslutar datareplikering mellan en SQL Database och den angivna sekundära databasen. |
 | [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Hämtar geo-replikeringslänkar mellan en Azure SQL Database och en resursgrupp eller SQL Server. |
 | [New-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Det här kommandot skapar en redundansväxlingsgrupp och registrerar den på både primära och sekundära servrar|
 | [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Tar bort gruppen växling vid fel från servern och tar bort alla sekundära databaser ingår i gruppen |

@@ -2,23 +2,18 @@
 title: Hotidentifiering - Azure SQL Database | Microsoft Docs
 description: "Hotidentifiering identifierar avvikande databasaktiviteter som indikerar potentiella säkerhetshot mot databasen."
 services: sql-database
-documentationcenter: 
 author: rmatchoro
-manager: shaik
-editor: v-romcal
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat
-ms.openlocfilehash: a01721b10305ac45082943fbe4fb7fb199a0e49f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4cb31eef4ba4b85ea28a58bb9b947b4e07cb0b58
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-database-threat-detection"></a>Hotidentifiering för SQL-databas
 
@@ -33,7 +28,7 @@ Till exempel är SQL injection en av säkerhetsproblem för vanliga Web program 
 SQL-Hotidentifiering integreras med [Azure Security Center](https://azure.microsoft.com/services/security-center/), och varje skyddade SQL Database-server faktureras till samma pris som Azure Security Center Standard nivå på $15/nod/månad, där var och en skyddad SQL-databas Server räknas som en nod.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Ställ in hotidentifiering för din databas i Azure-portalen
-1. Starta Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+1. Starta Azure-portalen på [ https://portal.azure.com ](https://portal.azure.com).
 2. Gå till sidan för konfiguration av SQL-databas som du vill övervaka. På sidan Välj **granskning och Hotidentifiering**. 
     ![Navigeringsfönstret][1]
 3. I den **granskning och Hotidentifiering** konfigurationssidan, aktivera **ON** granskning som visar inställningarna för identifiering av hot.

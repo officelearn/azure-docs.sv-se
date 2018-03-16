@@ -13,29 +13,30 @@ ms.devlang: azurecli
 ms.topic: 
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/06/2018
+ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: df56f2e3e13f80e7ce2c2b6c9cffeac3d03776e5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bbf2e757e2d9ad76c59394ba0138a61fd4029d15
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Ansluta virtuella nätverk med virtuella nätverk peering med hjälp av Azure CLI
 
-Du kan ansluta virtuella nätverk till varandra med virtuella nätverk peering. När virtuella nätverk är peerkopplat kan resurser i båda virtuella nätverken kommunicera med varandra, med samma svarstid och bandbredd som om resurserna som fanns i samma virtuella nätverk. Den här artikeln beskriver skapandet och peering av två virtuella nätverk. Lär dig att:
+Du kan ansluta virtuella nätverk till varandra med virtuella nätverk peering. När virtuella nätverk är peerkopplat kan resurser i båda virtuella nätverken kommunicera med varandra, med samma svarstid och bandbredd som om resurserna som fanns i samma virtuella nätverk. I den här artikeln får du lära dig hur du:
 
 > [!div class="checklist"]
 > * Skapa två virtuella nätverk
-> * Skapa en peering mellan virtuella nätverk
-> * Testa peering
+> * Ansluta två virtuella nätverk med ett virtuellt nätverk som peering
+> * Distribuera en virtuell dator (VM) i varje virtuellt nätverk
+> * Kommunikation mellan virtuella datorer
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt denna Snabbstart kräver att du använder Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="create-virtual-networks"></a>Skapa virtuella nätverk
 
@@ -56,7 +57,7 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-Skapa ett virtuellt nätverk med namnet *myVirtualNetwork2* med adressprefixet *10.1.0.0/16*. Adressprefixet inte överlappa adressprefixet för den *myVirtualNetwork1* virtuellt nätverk. Du kan inte peer-virtuella nätverk med överlappande adressprefix.
+Skapa ett virtuellt nätverk med namnet *myVirtualNetwork2* med adressprefixet *10.1.0.0/16*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -120,17 +121,13 @@ az network vnet peering show \
 
 Resurser i ett virtuellt nätverk inte kan kommunicera med resurser i det andra virtuella nätverket förrän den **peeringState** för peerkopplingar i båda virtuella nätverken är *ansluten*. 
 
-Peerkopplingar mellan två virtuella nätverk, men är inte transitiva. I så fall till exempel om du ville peer *myVirtualNetwork2* till *myVirtualNetwork3*, måste du skapa en ytterligare peering mellan virtuella nätverk *myVirtualNetwork2* och *myVirtualNetwork3*. Även om *myVirtualNetwork1* peerkopplat med *myVirtualNetwork2*, resurser inom *myVirtualNetwork1* kan bara komma åt resurser i  *myVirtualNetwork3* om *myVirtualNetwork1* också är peerkopplat med *myVirtualNetwork3*. 
+## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-Innan peering produktion virtuella nätverk, rekommenderas att du noggrant bekanta dig med de [peering översikt](virtual-network-peering-overview.md), [hantera peering](virtual-network-manage-peering.md), och [gränser för virtuellt nätverk ](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Även om den här artikeln beskrivs en peering mellan två virtuella nätverk på samma prenumeration och plats, kan du också peer virtuella nätverk i [olika regioner](#register) och [olika Azure-prenumerationer](create-peering-different-subscriptions.md#cli). Du kan också skapa [NAV och ekrar nätverk Designer](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) med peering.
+Skapa en virtuell dator i varje virtuellt nätverk så att du kan kommunicera mellan dem i ett senare steg.
 
-## <a name="test-peering"></a>Testa peering
+### <a name="create-the-first-vm"></a>Skapa den första virtuella datorn
 
-Distribuera en virtuell dator till varje undernät och sedan kommunicera mellan de virtuella datorerna för att testa nätverkskommunikation mellan virtuella datorer i olika virtuella nätverk via en peering. 
-
-### <a name="create-virtual-machines"></a>Skapa virtuella datorer
-
-Skapa en virtuell dator med [az vm skapa](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVm1* i den *myVirtualNetwork1* virtuellt nätverk. Om SSH-nycklar inte redan finns en nyckel standardplatsen, skapar dem i kommandot. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`. Den `--no-wait` alternativet skapar den virtuella datorn i bakgrunden så du kan fortsätta till nästa steg.
+Skapa en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVm1* i den *myVirtualNetwork1* virtuellt nätverk. Om SSH-nycklar inte redan finns en nyckel standardplatsen, skapar dem i kommandot. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`. Den `--no-wait` alternativet skapar den virtuella datorn i bakgrunden så du kan fortsätta till nästa steg.
 
 ```azurecli-interactive
 az vm create \
@@ -143,7 +140,7 @@ az vm create \
   --no-wait
 ```
 
-Azure automatiskt ska tilldelas 10.0.0.4 som privata IP-adressen för den virtuella datorn, eftersom 10.0.0.4 är den första tillgängliga IP-adressen i *Undernät1* av *myVirtualNetwork1*. 
+### <a name="create-the-second-vm"></a>Skapa den andra virtuella datorn
 
 Skapa en virtuell dator i den *myVirtualNetwork2* virtuellt nätverk.
 
@@ -172,11 +169,11 @@ Det tar några minuter att skapa den virtuella datorn. När du har skapat den vi
 }
 ```
 
-Exempel på utdata visas i som den **privateIpAddress** är *10.1.0.4*. Azure DHCP för 10.1.0.4 tilldelas automatiskt till den virtuella datorn eftersom det är den första tillgängliga adressen i *Undernät1* av *myVirtualNetwork2*. Anteckna den **publicIpAddress**. Den här adressen används för åtkomst till den virtuella datorn från Internet i ett senare steg.
+Anteckna den **publicIpAddress**. Den här adressen används för åtkomst till den virtuella datorn från Internet i ett senare steg.
 
-### <a name="test-virtual-machine-communication"></a>Testa virtuell dator-kommunikation
+## <a name="communicate-between-vms"></a>Kommunikation mellan virtuella datorer
 
-Använd följande kommando för att skapa en SSH-session med den *myVm2* virtuella datorn. Ersätt `<publicIpAddress>` med offentliga IP-adressen för den virtuella datorn. I föregående exempel är den offentliga IP-adressen är *13.90.242.231*.
+Använd följande kommando för att skapa en SSH-session med den *myVm2* VM. Ersätt `<publicIpAddress>` med offentliga IP-adressen för den virtuella datorn. I föregående exempel är den offentliga IP-adressen är *13.90.242.231*.
 
 ```bash 
 ssh <publicIpAddress>
@@ -188,9 +185,9 @@ Pinga den virtuella datorn i *myVirtualNetwork1*.
 ping 10.0.0.4 -c 4
 ```
 
-Du får fyra svar. Om du pinga den virtuella datorns namn (*myVm1*), i stället för dess IP-adress pingningen misslyckas eftersom *myVm1* är en okänd värdnamnet. Azures standard namnmatchningen fungerar mellan virtuella datorer i samma virtuella nätverk, men inte mellan virtuella datorer i olika virtuella nätverk. Om du vill matcha namnen på virtuella nätverk, måste du [Distribuera DNS-servern](virtual-networks-name-resolution-for-vms-and-role-instances.md) eller använda [privata Azure DNS-domäner](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Du får fyra svar. 
 
-Stäng SSH-session till den *myVm2* virtuella datorn. 
+Stäng SSH-session till den *myVm2* VM. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -221,9 +218,9 @@ VNET-peering i samma region är allmänt sett tillgängligt. Peering virtuella n
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln beskrivs hur du ansluter två nätverk med virtuella nätverk peering. Du kan [ansluta datorn till ett virtuellt nätverk](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) via en VPN-anslutning och interagera med resurser i ett virtuellt nätverk eller i peerkoppla virtuella nätverk.
+I den här artikeln beskrivs hur du ansluter två nätverk med virtuella nätverk peering. I den här artikeln beskrivs hur du ansluter två nätverk i samma Azure-plats, med virtuella nätverk peering. Du kan också peer-virtuella nätverk i [olika regioner](#register)i [olika Azure-prenumerationer](create-peering-different-subscriptions.md#portal) och du kan skapa [NAV och ekrar nätverk Designer](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) med peering. Innan du peering produktion virtuella nätverk, rekommenderas att du noggrant bekanta dig med de [peering översikt](virtual-network-peering-overview.md), [hantera peering](virtual-network-manage-peering.md), och [virtuellt nätverk gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Fortsätta att skriptexempel för återanvändbara skript att utföra många av de uppgifter som beskrivs i artiklarna virtuellt nätverk.
+Du kan [ansluta datorn till ett virtuellt nätverk](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) via en VPN-anslutning och interagera med resurser i ett virtuellt nätverk eller i peerkoppla virtuella nätverk. Fortsätta att skriptexempel för återanvändbara skript att utföra många av de uppgifter som beskrivs i artiklarna virtuellt nätverk.
 
 > [!div class="nextstepaction"]
 > [Skriptexempel för virtuellt nätverk](../networking/cli-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

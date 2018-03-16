@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: bb5361022e4c9693812753ae33df5aeb037b5aaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01e85290f00dc70323a16056ca8e73bfba72c975
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API: er i varaktiga funktioner (Azure-funktioner)
 
@@ -28,7 +28,8 @@ Beständiga Task-tillägget visar en uppsättning HTTP-APIs som kan användas f�
 * Skicka en händelse till en väntande orchestration-instans.
 * Avsluta en orchestration-instans som körs.
 
-Var och en av dessa HTTP APIs är webhook-åtgärder som hanteras direkt av beständiga Task-tillägget. De är inte specifik för en funktion i appen funktion.
+
+Var och en av dessa HTTP APIs är en webhook-åtgärd som hanteras direkt av beständiga Task-tillägget. De är inte specifik för en funktion i appen funktion.
 
 > [!NOTE]
 > Dessa åtgärder kan också anropas direkt med instanshantering API: er på den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klass. Mer information finns i [Instanshantering](durable-functions-instance-management.md).
@@ -78,7 +79,7 @@ HTTP-svar som tidigare nämnts är utformade för att implementera tidskrävande
 Det här protokollet kan samordna tidskrävande processer med externa klienter eller tjänster som stöder avsöka en HTTP-slutpunkt och följa den `Location` rubrik. Grundläggande uppgifter är redan inbyggd i varaktiga funktioner http-API: erna.
 
 > [!NOTE]
-> Som standard är alla HTTP-baserade åtgärder som tillhandahålls av [Azure Logikappar](https://azure.microsoft.com/services/logic-apps/) standard asynkron åtgärd mönster. Detta gör det möjligt att bädda in en tidskrävande varaktiga funktion som en del av ett arbetsflöde för Logic Apps. Mer information om Logic Apps stöd för asynkron HTTP mönster kan hittas i den [Azure Logikappar åtgärder och utlösare dokumentationen](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
+> Som standard är alla HTTP-baserade åtgärder som tillhandahålls av [Azure Logikappar](https://azure.microsoft.com/services/logic-apps/) standard asynkron åtgärd mönster. Den här funktionen gör det möjligt att bädda in en tidskrävande varaktiga funktion som en del av ett arbetsflöde för Logic Apps. Mer information om Logic Apps stöd för asynkron HTTP mönster kan hittas i den [Azure Logikappar åtgärder och utlösare dokumentationen](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
 
 ## <a name="http-api-reference"></a>HTTP-API-referens
 
@@ -86,12 +87,14 @@ Alla HTTP APIs som implementerats av tillägget vidta följande parametrar. Data
 
 | Parameter  | Parametertypen  | Beskrivning |
 |------------|-----------------|-------------|
-| InstanceId | URL: EN             | ID för orchestration-instans. |
+| instanceId | URL             | ID för orchestration-instans. |
 | taskHub    | Frågesträng    | Namnet på den [aktivitet hubb](durable-functions-task-hubs.md). Om inget annat anges, antas hubbnamnet för den aktuella funktionsapp aktivitet. |
 | anslutning | Frågesträng    | Den **namn** av anslutningssträngen för lagringskontot. Om inget annat anges, antas standardanslutningssträngen för funktionen appen. |
 | systemKey  | Frågesträng    | Auktoriseringsnyckeln som krävs för att anropa API: et. |
+| showHistory| Frågesträng    | Valfri parameter. Om värdet `true`, körningstiden orchestration ska inkluderas i svaret nyttolast.| 
+| showHistoryOutput| Frågesträng    | Valfri parameter. Om värdet `true`, aktiviteten matar ut tas med i historiken för orchestration-körning.| 
 
-`systemKey`är auktoriseringsnyckel genereras automatiskt av Azure Functions-värden. Den mer specifikt ger åtkomst till varaktiga Task-tillägget API: er och kan hanteras på samma sätt som [andra auktorisering nycklar](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Det enklaste sättet att identifiera den `systemKey` värdet är med hjälp av den `CreateCheckStatusResponse` API tidigare nämnts.
+`systemKey` är auktoriseringsnyckel genereras automatiskt av Azure Functions-värden. Den mer specifikt ger åtkomst till varaktiga Task-tillägget API: er och kan hanteras på samma sätt som [andra auktorisering nycklar](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Det enklaste sättet att identifiera den `systemKey` värdet är med hjälp av den `CreateCheckStatusResponse` API tidigare nämnts.
 
 De följande avsnitten upp det specifika HTTP APIs stöds av tillägget och innehåller exempel på hur de kan användas.
 
@@ -110,7 +113,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 Funktioner 2.0-format har samma parametrar, men har ett något annorlunda URL-prefix:
 
 ```http
-GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### <a name="response"></a>Svar
@@ -122,29 +125,68 @@ Flera möjliga kod statusvärden kan returneras.
 * **HTTP 400 (felaktig begäran)**: den angivna instansen misslyckades eller avbröts.
 * **HTTP 404 (inget hittas)**: den angivna instansen finns inte eller har inte startats.
 
-Nyttolasten i svar för den **HTTP 200** och **HTTP 202** fall är en JSON-objekt med följande fält.
+Nyttolasten i svar för den **HTTP 200** och **HTTP 202** fall är en JSON-objekt med följande fält:
 
 | Fält           | Datatyp | Beskrivning |
 |-----------------|-----------|-------------|
-| runtimeStatus   | Sträng    | Körningsstatus för instansen. Värden är *kör*, *väntande*, *misslyckades*, *avbruten*, *Uppsagd*, *Slutförts*. |
+| runtimeStatus   | sträng    | Körningsstatus för instansen. Värden är *kör*, *väntande*, *misslyckades*, *avbruten*, *Uppsagd*, *Slutförts*. |
 | Indata           | JSON      | JSON-data som används för att initiera instansen. |
-| Utdata          | JSON      | JSON-utdata för instansen. Det här fältet är `null` om instansen inte är i slutfört tillstånd. |
-| createdTime     | Sträng    | Tiden då instansen har skapats. Använder ISO 8601 utökad notation. |
-| LastUpdatedTime | Sträng    | Tiden då instansen senast sparade. Använder ISO 8601 utökad notation. |
+| utdata          | JSON      | JSON-utdata för instansen. Det här fältet är `null` om instansen inte är i slutfört tillstånd. |
+| createdTime     | sträng    | Tiden då instansen har skapats. Använder ISO 8601 utökad notation. |
+| lastUpdatedTime | sträng    | Tiden då instansen senast sparade. Använder ISO 8601 utökad notation. |
+| historyEvents   | JSON      | En JSON-matris som innehåller körningstiden orchestration. Det här fältet är `null` såvida inte den `showHistory` frågesträngparametern är inställd på `true`.  | 
 
-Här är ett exempel svar nyttolasten (formaterad för att läsa):
+Här är ett exempel svar nyttolast inklusive orchestration körning historik och aktivitet utdata (formaterad för att läsa):
 
 ```json
 {
-  "runtimeStatus": "Completed",
-  "input": null,
-  "output": [
-    "Hello Tokyo!",
-    "Hello Seattle!",
-    "Hello London!"
+  "createdTime": "2018-02-28T05:18:49Z",
+  "historyEvents": [
+      {
+          "EventType": "ExecutionStarted",
+          "FunctionName": "E1_HelloSequence",
+          "Timestamp": "2018-02-28T05:18:49.3452372Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Tokyo!",
+          "ScheduledTime": "2018-02-28T05:18:51.3939873Z",
+          "Timestamp": "2018-02-28T05:18:52.2895622Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Seattle!",
+          "ScheduledTime": "2018-02-28T05:18:52.8755705Z",
+          "Timestamp": "2018-02-28T05:18:53.1765771Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello London!",
+          "ScheduledTime": "2018-02-28T05:18:53.5170791Z",
+          "Timestamp": "2018-02-28T05:18:53.891081Z"
+      },
+      {
+          "EventType": "ExecutionCompleted",
+          "OrchestrationStatus": "Completed",
+          "Result": [
+              "Hello Tokyo!",
+              "Hello Seattle!",
+              "Hello London!"
+          ],
+          "Timestamp": "2018-02-28T05:18:54.3660895Z"
+      }
   ],
-  "createdTime": "2017-10-06T18:30:24Z",
-  "lastUpdatedTime": "2017-10-06T18:30:30Z"
+  "input": null,
+  "lastUpdatedTime": "2018-02-28T05:18:54Z",
+  "output": [
+      "Hello Tokyo!",
+      "Hello Seattle!",
+      "Hello London!"
+  ],
+  "runtimeStatus": "Completed"
 }
 ```
 
@@ -168,11 +210,11 @@ Funktioner 2.0-format har samma parametrar, men har ett något annorlunda URL-pr
 POST /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
-Begäran om parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parametrar.
+Parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parametrar för begäran:
 
 | Fält       | Parametertypen  | Data tType | Beskrivning |
 |-------------|-----------------|-----------|-------------|
-| EventName   | URL: EN             | Sträng    | Namnet på den händelse som orchestration målinstansen väntar på. |
+| eventName   | URL             | sträng    | Namnet på den händelse som orchestration målinstansen väntar på. |
 | {innehåll}   | Begär innehåll | JSON      | JSON-formaterad händelsenyttolasten. |
 
 #### <a name="response"></a>Svar
@@ -218,7 +260,7 @@ Begäran om parametrar för detta API innehåller en standarduppsättning som ti
 
 | Fält       | Parametertypen  | Datatyp | Beskrivning |
 |-------------|-----------------|-----------|-------------|
-| Orsak      | Frågesträng    | Sträng    | Valfri. Orsak till avslutar orchestration-instans. |
+| reason      | Frågesträng    | sträng    | Valfri. Orsak till avslutar orchestration-instans. |
 
 #### <a name="response"></a>Svar
 

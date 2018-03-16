@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c5fb7bdd88691c9aeab6b348507901c34502b28b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Mobile Apps bindningar för Azure Functions 
 
@@ -28,6 +28,12 @@ Den här artikeln förklarar hur du arbetar med [Azure Mobile Apps](../app-servi
 Mobile Apps-bindningar kan du läsa och uppdatera datatabeller i mobila appar.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Paket
+
+Bindningar för Mobile Apps finns i den [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet-paketet. Källkoden för paketet är i den [azure-webjobs-sdk-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/) GitHub-lagringsplatsen.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="input"></a>Indata
 
@@ -128,7 +134,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Indata - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribut.
 
 Information om egenskaper för attribut som du kan konfigurera finns [konfigurationsavsnittet följande](#input---configuration).
 
@@ -138,13 +144,13 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-| **typ**|| Måste anges till ”mobileTable”|
-| **riktning**||Måste anges till ”i”|
+| **Typ**|| Måste anges till ”mobileTable”|
+| **Riktning**||Måste anges till ”i”|
 | **Namn**|| Namnet på Indataparametern i funktionssignaturen.|
-|**tableName** |**TableName**|Namnet på den mobila appen datatabell|
-| **ID**| **ID** | Identifierare för att hämta posten. Kan vara statiska eller baserat på utlösaren som anropar funktionen. Om du sedan använda en kö utlösare för din funktion, till exempel `"id": "{queueTrigger}"` använder strängvärdet för kön meddelandet som post-ID för att hämta.|
-|**anslutning**|**Anslutning**|Namnet på en app som har mobila app-URL. URL: en använder funktionen för att skapa nödvändiga REST-åtgärder mot din mobila app. Skapa en appinställning i funktionen appen som innehåller URL för den mobila appen och sedan ange namnet på appinställningen i den `connection` egenskap i den inkommande bindningen. URL-Adressen ser ut som `http://<appname>.azurewebsites.net`.
-|**apiKey**|**ApiKey**|Namnet på en appinställning med din mobila app API-nyckel. Ange API nyckel om du [implementera en API-nyckel i din mobila app Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), eller [implementera en API-nyckel i din mobila app .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Skapa en appinställning i funktionen appen som innehåller API-nyckeln för att ge nyckeln, och lägger till den `apiKey` egenskap i den inkommande bindningen med namnet för appinställningen. |
+|**tableName** |**tableName**|Namnet på den mobila appen datatabell|
+| **id**| **Id** | Identifierare för att hämta posten. Kan vara statiska eller baserat på utlösaren som anropar funktionen. Om du sedan använda en kö utlösare för din funktion, till exempel `"id": "{queueTrigger}"` använder strängvärdet för kön meddelandet som post-ID för att hämta.|
+|**Anslutning**|**Anslutning**|Namnet på en app som har mobila app-URL. URL: en använder funktionen för att skapa nödvändiga REST-åtgärder mot din mobila app. Skapa en appinställning i funktionen appen som innehåller URL för den mobila appen och sedan ange namnet på appinställningen i den `connection` egenskap i den inkommande bindningen. URL-Adressen ser ut som `http://<appname>.azurewebsites.net`.
+|**apiKey**|**apiKey**|Namnet på en appinställning med din mobila app API-nyckel. Ange API nyckel om du [implementera en API-nyckel i din mobila app Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), eller [implementera en API-nyckel i din mobila app .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Skapa en appinställning i funktionen appen som innehåller API-nyckeln för att ge nyckeln, och lägger till den `apiKey` egenskap i den inkommande bindningen med namnet för appinställningen. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -274,7 +280,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>Utdata - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribut.
 
 Information om egenskaper för attribut som du kan konfigurera finns [utdata - konfiguration](#output---configuration). Här är en `MobileTable` attributet exempel i en signatur:
 
@@ -297,11 +303,11 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-| **typ**|| Måste anges till ”mobileTable”|
-| **riktning**||Måste anges till ”out”|
+| **Typ**|| Måste anges till ”mobileTable”|
+| **Riktning**||Måste anges till ”out”|
 | **Namn**|| Namn på Utdataparametern i funktionssignatur.|
-|**tableName** |**TableName**|Namnet på den mobila appen datatabell|
-|**anslutning**|**MobileAppUriSetting**|Namnet på en app som har mobila app-URL. URL: en använder funktionen för att skapa nödvändiga REST-åtgärder mot din mobila app. Skapa en appinställning i funktionen appen som innehåller URL för den mobila appen och sedan ange namnet på appinställningen i den `connection` egenskap i den inkommande bindningen. URL-Adressen ser ut som `http://<appname>.azurewebsites.net`.
+|**tableName** |**tableName**|Namnet på den mobila appen datatabell|
+|**Anslutning**|**MobileAppUriSetting**|Namnet på en app som har mobila app-URL. URL: en använder funktionen för att skapa nödvändiga REST-åtgärder mot din mobila app. Skapa en appinställning i funktionen appen som innehåller URL för den mobila appen och sedan ange namnet på appinställningen i den `connection` egenskap i den inkommande bindningen. URL-Adressen ser ut som `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKeySetting**|Namnet på en appinställning med din mobila app API-nyckel. Ange API nyckel om du [implementera en API-nyckel i mobilappsserverdelen Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), eller [implementera en API-nyckel i mobilappsserverdelen .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Skapa en appinställning i funktionen appen som innehåller API-nyckeln för att ge nyckeln, och lägger till den `apiKey` egenskap i den inkommande bindningen med namnet för appinställningen. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -313,9 +319,9 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 I C# skript funktion, använder en namngiven output-parameter av typen `out object` åtkomst till utdata-posten. I C#-klassbibliotek, den `MobileTable` attributet kan användas med någon av följande typer:
 
-* `ICollector<T>`eller `IAsyncCollector<T>`, där `T` är antingen `JObject` eller någon typ med en `public string Id` egenskap.
+* `ICollector<T>` eller `IAsyncCollector<T>`, där `T` är antingen `JObject` eller någon typ med en `public string Id` egenskap.
 * `out JObject`
-* `out T`eller `out T[]`, där `T` är valfri typ med en `public string Id` egenskap.
+* `out T` eller `out T[]`, där `T` är valfri typ med en `public string Id` egenskap.
 
 I Node.js-funktion, använda `context.bindings.<name>` till utdata-posten.
 

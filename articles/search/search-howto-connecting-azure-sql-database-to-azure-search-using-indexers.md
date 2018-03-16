@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/13/2017
+ms.date: 08/12/2018
 ms.author: eugenesh
-ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 5f85b81e894cba7354fb146d6e9a1aa987be7dc5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Ansluta Azure SQL Database till Azure Search med indexerare
 
@@ -57,6 +57,9 @@ Beroende på flera faktorer som är relaterade till dina data, användning av Az
 | Datatyperna är kompatibla | De flesta, men inte alla SQL typer stöds i ett Azure Search-index. En lista, se [mappning datatyper](#TypeMapping). |
 | Realtidsdata synkronisering krävs inte | En indexerare kan indexera tabellen högst var femte minut. Om data ändras ofta och ändringarna måste återspeglas i indexet inom några sekunder eller minuter som enda, bör du använda den [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) eller [.NET SDK](search-import-data-dotnet.md) att skicka uppdaterade rader direkt. |
 | Det är möjligt att stegvis indexering | Om du har stora datamängder och planerar att köra indexeraren enligt ett schema, måste Azure Search vara ett effektivt sätt identifiera nya, ändrade eller borttagna rader. Icke-inkrementell indexering tillåts endast om du indexering på begäran (inte på schema), eller indexering färre än 100 000 rader. Mer information finns i [fånga ändras och ta bort rader](#CaptureChangedRows) nedan. |
+
+> [!NOTE] 
+> Azure Search har stöd för SQL Server-autentisering. Om du behöver support för Azure Active Directory-lösenordsautentisering rösta för den här [UserVoice förslag](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica).
 
 ## <a name="create-an-azure-sql-indexer"></a>Skapa en Azure SQL-indexerare
 
@@ -221,7 +224,7 @@ Princip för den här ändringen är beroende av ett ”vattenmärke” kolumn f
 * Alla infogningar ange ett värde för kolumnen.
 * Alla uppdateringar till ett objekt kan du också ändra värdet för kolumnen.
 * Värdet för den här kolumnen ökar med varje insert eller update.
-* Frågor med följande där och ORDER BY-satser kan köras effektivt:`WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
+* Frågor med följande där och ORDER BY-satser kan köras effektivt: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
 > [!IMPORTANT] 
 > Vi rekommenderar starkt med hjälp av den [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) datatypen för kolumnen vattenmärke. Om-datatypen används är ändringsspårning inte säkert att samla in alla ändringar med transaktioner som körs samtidigt med en indexerare fråga. När du använder **rowversion** i en konfiguration med skrivskyddade repliker, måste du peka indexeraren på den primära repliken. Endast en primär replik kan användas för scenarier för synkronisering av data.
@@ -285,16 +288,16 @@ Den **softDeleteMarkerValue** måste vara en sträng – Använd strängrepresen
 ## <a name="mapping-between-sql-and-azure-search-data-types"></a>Mappning mellan datatyperna SQL och Azure Search
 | SQL-datatypen | Tillåtna målindexet fälttyp | Anteckningar |
 | --- | --- | --- |
-| bitar |Edm.Boolean Edm.String | |
-| int, smallint, tinyint |Edm.Int32 Edm.Int64, Edm.String | |
-| bigint |Edm.Int64 Edm.String | |
-| verkliga, float |Edm.Double Edm.String | |
+| bitar |Edm.Boolean, Edm.String | |
+| int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
+| bigint |Edm.Int64, Edm.String | |
+| verkliga, float |Edm.Double, Edm.String | |
 | smallmoney pengar decimal numeriskt |Edm.String |Azure Search har inte stöd för konvertering av decimaltyper till Edm.Double eftersom detta skulle förlora precision |
-| char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |En SQL-sträng kan användas för att fylla i ett fält för Collection(Edm.String) om strängen som representerar en JSON-matris med strängar:`["red", "white", "blue"]` |
-| smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset Edm.String | |
+| char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |En SQL-sträng kan användas för att fylla i ett fält för Collection(Edm.String) om strängen som representerar en JSON-matris med strängar: `["red", "white", "blue"]` |
+| smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | geografisk plats |Edm.GeographyPoint |Stöds endast geografi instanser av typen plats med SRID 4326 (som är standard) |
-| ROWVERSION |Gäller inte |Radversioner kolumner kan inte lagras i sökindexet, men de kan användas för ändringsspårning |
+| rowversion |Gäller inte |Radversioner kolumner kan inte lagras i sökindexet, men de kan användas för ändringsspårning |
 | tid, timespan, binary, varbinary, image, xml, geometry, CLR-typer |Gäller inte |Stöds inte |
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
@@ -303,7 +306,7 @@ SQL-indexeraren visar flera konfigurationsinställningar:
 | Inställning | Datatyp | Syfte | Standardvärde |
 | --- | --- | --- | --- |
 | queryTimeout |sträng |Anger timeout för körning av SQL-fråga |5 minuter (”00: 05:00”) |
-| disableOrderByHighWaterMarkColumn |bool |Gör att SQL-fråga som används av vattenmärke för principen för att utelämna ORDER BY-satsen. Se [vattenmärke för principen](#HighWaterMarkPolicy) |falskt |
+| disableOrderByHighWaterMarkColumn |bool |Gör att SQL-fråga som används av vattenmärke för principen för att utelämna ORDER BY-satsen. Se [vattenmärke för principen](#HighWaterMarkPolicy) |false |
 
 De här inställningarna används i den `parameters.configuration` objekt i indexeraren definitionen. Om du vill ange timeout-värde till 10 minuter, till exempel skapa eller uppdatera indexeraren med följande konfiguration:
 

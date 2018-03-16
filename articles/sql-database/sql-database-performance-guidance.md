@@ -2,24 +2,18 @@
 title: "Azure SQL Database prestandajustering vägledning | Microsoft Docs"
 description: "Lär dig mer om hur du använder rekommendationer för att förbättra prestanda för Azure SQL Database-frågor."
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: dd8d95fa-24b2-4233-b3f1-8e8952a7a22b
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 0a7bce49a73d60785f09f270894afc4037661e10
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 63a8b9f8c81ad3dc122bf25d8a06cdf242a0f35b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Justera prestanda i Azure SQL Database
 
@@ -262,7 +256,7 @@ Till exempel om en databas har kundnamn, ordning och orderinformationen (till ex
 
 Horisontell partitionering databasen inte minska sammanställda resursdata kapacitet för en lösning, är men högeffektiv stöd för mycket stora lösningar som kan sträcka sig över flera databaser. Varje databas kan köra på en annan prestandanivå som stöd för mycket stora ”effektiva” databaser med höga resurskrav.
 
-### <a name="functional-partitioning"></a>Funktionella partitionering
+### <a name="functional-partitioning"></a>Funktionell partitionering
 SQL Server-användare kombinera ofta många funktioner i en enskild databas. Till exempel om ett program har logik för att hantera lager för en butik, kanske databasen logiken som är associerad med inventering, spårning inköps, lagrade procedurer och indexerade eller materialiserade vyer som hanterar rapportering sista månad. Den här tekniken gör det lättare att administrera databasen för åtgärder som säkerhetskopiering, men det kräver att maskinvara för att hantera den extra belastningen över alla funktioner i ett program du också.
 
 Om du använder en skalbar arkitektur i Azure SQL Database är en bra idé att dela olika funktioner för ett program till en annan databas. Med den här tekniken kan skalas varje program oberoende av varandra. Som ett program blir busier (och ökar belastningen på databasen), kan administratören välja oberoende prestandanivåer för varje funktion i programmet. Ett program kan vara större än en enskild vara dator kan hantera eftersom belastningen är fördelade på flera datorer på gränsen med den här arkitekturen.

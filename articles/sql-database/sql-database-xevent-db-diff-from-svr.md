@@ -2,25 +2,19 @@
 title: "Utökade händelser i SQL-databas | Microsoft Docs"
 description: "Beskriver utökade händelser (XEvents) i Azure SQL-databas och hur händelsesessioner skiljer sig från händelsesessioner i Microsoft SQL Server."
 services: sql-database
-documentationcenter: 
 author: MightyPen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 3b28cf15-f820-4b3c-8310-908d6d5b9d0c
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-ms.openlocfilehash: f4e41d340b38a5f29387d75b8f65b68c5fb31eb9
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: dc4660b33d8df28fd59929838e054f6703c48107
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="extended-events-in-sql-database"></a>Utökade händelser i SQL-databas
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -38,7 +32,7 @@ Mer information om utökade händelser för Azure SQL Database och Microsoft SQL
 - [Snabbstart: Utökade händelser i SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
 - [Utökade händelser](http://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det här avsnittet förutsätter att du redan har viss erfarenhet av:
 
@@ -204,7 +198,7 @@ Den **händelsefilen** mål kan uppleva Nätverksfördröjningen eller fel vid s
 
 
 - Azure *tjänstuppdateringar* webbsidan, begränsats av parametern till Azure SQL Database:
-    - [https://Azure.microsoft.com/Updates/?Service=SQL-Database](https://azure.microsoft.com/updates/?service=sql-database)
+    - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
 
 
 Andra exempel avsnitt i koden för utökade händelser finns på följande länkar. Du måste regelbundet kontrollera varje prov för att se om exemplet riktar sig till Microsoft SQL Server jämfört med Azure SQL Database. Sedan kan du bestämma om mindre ändringar behövs för att köra exemplet.

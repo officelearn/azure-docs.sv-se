@@ -3,7 +3,7 @@ title: SMTP-anslutaren i Azure Logic Apps | Microsoft Docs
 description: "Skapa logikappar med Azure App service. Ansluta till SMTP för att skicka e-post."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 6544a8e81a1c84fbd09e60b3f06c5fd308a18dcf
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 9bf7c9b7c3e775ab03b071d13d792f4b2d8fb3e3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-smtp-connector"></a>Kom igång med SMTP-koppling
 Ansluta till SMTP för att skicka e-post.
@@ -37,13 +37,13 @@ Innan din logikapp kan komma åt någon tjänst, måste du först skapa en *ansl
 ## <a name="use-an-smtp-trigger"></a>Använda en SMTP-utlösare
 En utlösare är en händelse som kan användas för att starta arbetsflödet som definierats i en logikapp. [Mer information om utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-I det här exemplet SMTP har inte en utlösare egna, använder vi den **Salesforce - när ett objekt skapas** utlösare. Den här utlösaren aktiveras när ett nytt objekt skapas i Salesforce. I vårt exempel vi ska konfigurera den så att varje gång en ny lead skapas i Salesforce, en *skicka e-post* sker via SMTP-anslutningen med ett meddelande för ny lead håller på att skapas.
+I det här exemplet har inte SMTP en utlösare egna. Så, Använd den **Salesforce - när ett objekt skapas** utlösare. Den här utlösaren aktiveras när ett nytt objekt skapas i Salesforce. I det här exemplet den har konfigurerat den så att varje gång en ny lead skapas i Salesforce, en *skicka e-post* sker med ett meddelande för ny lead skapas SMTP-anslutaren.
 
 1. Ange *salesforce* i sökrutan på logic apps designer väljer den **Salesforce - när ett objekt skapas** utlösare.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
 2. Den **när ett objekt skapas** kontrollen visas.
    ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
-3. Välj den **objekttyp** Välj *leda* från listan över objekt. I det här steget anger du att du skapar en utlösare som meddelar logikappen när en ny lead skapas i Salesforce.  
+3. Välj den **objekttyp** Välj *leda* från listan över objekt. I det här steget skapar du en utlösare som meddelar logikappen när en ny lead skapas i Salesforce.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
 4. Utlösaren har skapats.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
@@ -51,7 +51,7 @@ I det här exemplet SMTP har inte en utlösare egna, använder vi den **Salesfor
 ## <a name="use-an-smtp-action"></a>Använda en SMTP-åtgärden
 En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Mer information om åtgärder](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-Nu när utlösaren har lagts till, Följ dessa steg för att lägga till en SMTP-åtgärden som utförs när en ny lead skapas i Salesforce.
+Nu när utlösaren har lagts till, Använd följande steg för att lägga till en SMTP-åtgärd som utförs när en ny lead skapas i Salesforce.
 
 1. Välj **+ nytt steg** att lägga till den åtgärd som ska vidtas när en ny lead skapas.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  

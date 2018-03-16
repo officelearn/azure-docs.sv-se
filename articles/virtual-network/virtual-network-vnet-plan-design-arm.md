@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planera och utforma Azure-nätverk
 Det är enkelt att skapa ett virtuellt nätverk om du vill experimentera med, men troligen har du ska distribuera flera virtuella nätverk över tid för att stödja produktion behoven för din organisation. Med lite planering och design, kommer du att kunna distribuera Vnet och ansluta de resurser du behöver mer effektivt. Om du inte är bekant med VNets rekommenderar vi som du [Lär dig mer om Vnet](virtual-networks-overview.md) och [hur du distribuerar](quick-create-portal.md) något innan du fortsätter.
@@ -248,7 +248,7 @@ Följande krav är relaterade till åtkomstkontroll:
 Baserat på dessa krav, kan du lägga till användare från nätverk teamet till inbyggt **Network-deltagare** roll i varje prenumeration, och skapa en anpassad roll för programutvecklare i varje prenumeration som ger dem behörighet att lägga till virtuella datorer till befintliga undernät.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Distribuera ett virtuellt nätverk](virtual-networks-create-vnet-arm-template-click.md) baserat på ett scenario.
+* [Distribuera ett virtuellt nätverk](quick-create-portal.md).
 * Förstå hur du [belastningsutjämna](../load-balancer/load-balancer-overview.md) IaaS-VM och [hantera routning över flera Azure-regioner](../traffic-manager/traffic-manager-overview.md).
-* Lär dig mer om [NSG: er och hur du planerar och utformar](virtual-networks-nsg.md) en NSG-lösning.
+* Lär dig mer om [nätverkssäkerhetsgrupper](security-overview.md) en NSG-lösning.
 * Lär dig mer om din [mellan platser och VNet anslutningsalternativ](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).

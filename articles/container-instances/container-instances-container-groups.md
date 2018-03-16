@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a42c01917926a4297c97cf9c5dfd1333dbef6793
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 7e8a5014ce9168ba3d67d175935649bfd9fec511
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Behållargrupper i Azure Container instanser
 
@@ -35,7 +35,11 @@ Det här exemplet behållaren grupp:
 * Innehåller två Azure filresurser som volym monteringar och varje behållare monterar en resurs lokalt.
 
 > [!NOTE]
-> Flera behållare grupper är för närvarande begränsad till Linux-behållare. När vi arbetar för att göra alla funktioner till Windows-behållare, hittar du den aktuella plattformen skillnader i [kvoter och regional tillgänglighet för Azure-Behållarinstanser](container-instances-quotas.md).
+> Flera behållare grupper är för närvarande begränsad till Linux-behållare. Under tiden som vi arbetar för att göra alla funktioner tillgängliga för Windows-behållare kan du se de nuvarande skillnaderna mellan plattformarna i informationen om [kvoter och regional tillgänglighet för Azure Container Instances](container-instances-quotas.md).
+
+### <a name="deployment"></a>Distribution
+
+**Behållargrupper** har en minsta resursallokering 1 vCPU och 1 GB minne. Enskilda **behållare** kan etableras med mindre än 1 vCPU och 1 GB minne. Fördelningen av resurser kan anpassas till flera behållare inom de gränser som anges på gruppnivå behållare i en grupp i behållaren. Till exempel tilldelas två behållare varje med 0,5 vCPU som finns i en behållare grupp 1 vCPU.
 
 ### <a name="networking"></a>Nätverk
 

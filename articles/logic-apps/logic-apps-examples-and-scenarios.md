@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 02690284e5487dba8e5fb5d973958f944bfa339f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Vanliga scenarier, exempel, självstudier och genomgång för Azure Logic Apps
 
@@ -81,7 +81,7 @@ Logikappar innehåller omfattande funktioner för avancerad Kontrollflöde som v
 
 Du kan fullständigt utveckla och distribuera logikappar med Visual Studio, Visual Studio Team Services eller andra källkontrollen och automatiserade verktyg. För att stödja distribution för arbetsflöden och beroende anslutningar i en resursmall för, Använd logikappar mallar för distribution av Azure-resurs. Visual Studio tools generera automatiskt dessa mallar som du kan checka in till källkontroll för versionshantering.
 
-* [Skapa och distribuera logikappar från Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Skapa och distribuera logikappar med Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Aktivera övervakning, loggning och aviseringar för befintliga logikappar](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Skapa en mall för automatisk distribution](../logic-apps/logic-apps-create-deploy-template.md)
 
@@ -91,7 +91,7 @@ Du kan använda, konvertera och omvandla flera typer av innehåll med många fun
 
 * [Hur arbetsflödesuttryck fungerar i logikappar](../logic-apps/logic-apps-author-definitions.md)
 * [Hantera icke JSON innehållstyper](../logic-apps/logic-apps-content-type.md), till exempel `application/xml`, `application/octet-stream`, och `multipart/formdata`
-* [Referens: Språk i Arbetsflödesdefinitionen för Azure Logikappar](http://aka.ms/logicappsdocs)
+* [Arbetsflödet Definition Language schemat för Azure Logic Apps](http://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Andra integreringar och funktioner
 

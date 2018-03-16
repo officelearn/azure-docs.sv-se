@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: d6a0b945bad36842142d16a4840c9c3d69e1564e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ee04fc3338dec7893f9f33322bd6b9af932199e7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostisera undantag i ditt webbprogram med Application Insights
 Undantag i livewebbappar rapporteras av [Programinsikter](app-insights-overview.md). Du kan jämföra misslyckade begäranden med undantag och andra händelser på både klienten och servern, så att du snabbt kan diagnostisera orsaker.
@@ -102,7 +102,7 @@ Information om begäran innehåller inte data som skickas till din app i en POST
 
 ![Detaljvisning](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
-## <a name="exceptions"></a>Fånga undantag och relaterade diagnostikdata
+## <a name="exceptions"></a> Fånga undantag och relaterade diagnostikdata
 Först visas inte i portalen alla undantag som orsakar fel i din app. Du ser alla webbläsarundantag (om du använder den [JavaScript SDK](app-insights-javascript.md) på webbsidorna). Men de flesta undantag fångas av IIS och du måste skriva koden för att se dem lite.
 
 Du kan:
@@ -113,8 +113,7 @@ Du kan:
 ## <a name="reporting-exceptions-explicitly"></a>Rapportering undantag uttryckligen
 Det enklaste sättet är att infoga ett anrop till TrackException() i en undantagshanterare.
 
-JavaScript
-
+```javascript
     try
     { ...
     }
@@ -124,9 +123,9 @@ JavaScript
         {Game: currentGame.Name,
          State: currentGame.State.ToString()});
     }
+```
 
-C#
-
+```csharp
     var telemetry = new TelemetryClient();
     ...
     try
@@ -144,9 +143,9 @@ C#
        // Send the exception telemetry:
        telemetry.TrackException(ex, properties, measurements);
     }
+```
 
-VB
-
+```VB
     Dim telemetry = New TelemetryClient
     ...
     Try
@@ -162,6 +161,7 @@ VB
       ' Send the exception telemetry:
       telemetry.TrackException(ex, properties, measurements)
     End Try
+```
 
 Egenskaper och mätningar parametrar är valfria, men är användbara för [filtrering och lägga till](app-insights-diagnostic-search.md) extra information. Om du har en app som kan köra flera spel hitta du till exempel alla undantag rapporter som hör till ett visst spel. Du kan lägga till så många objekt som du vill att varje ordlista.
 
@@ -175,8 +175,7 @@ HTTP-modul kommer att kunna samla in undantag när det finns inga omdirigeringar
 
 Men om du har active omdirigeringar, lägger du till följande rader funktionen Application_Error i Global.asax.cs. (Lägg till en Global.asax-fil om du inte redan har ett.)
 
-*C#*
-
+```csharp
     void Application_Error(object sender, EventArgs e)
     {
       if (HttpContext.Current.IsCustomErrorEnabled && Server.GetLastError  () != null)
@@ -186,11 +185,28 @@ Men om du har active omdirigeringar, lägger du till följande rader funktionen 
          ai.TrackException(Server.GetLastError());
       }
     }
-
+```
 
 ## <a name="mvc"></a>MVC
+Från och med Application Insights Web SDK version 2.6 (beta3 och senare), Application Insights samlar in ohanterat undantag i MVC 5 + domänkontrollanter metoder automatiskt. Om du har nyligen lagt till en anpassad hanterare för att spåra sådana undantag (som beskrivs i följande exempel), kan du ta bort det för att förhindra dubbla spårning av undantag.
+
+Det finns ett antal fall som undantagsfilter inte kan hantera. Exempel:
+
+* Undantag från domänkontrollanten konstruktorer.
+* Undantag från meddelandehanterare.
+* Undantag under routning.
+* Undantag under innehåll serialiseringssvar.
+* Ett undantag uppstod under start av program.
+* Ett undantag uppstod i bakgrundsaktiviteter.
+
+Alla undantag *hanteras* av programmet fortfarande måste spåras manuellt. Ohanterat undantag från domänkontrollanter vanligtvis ger 500 ”Internt serverfel” svar. Om svaret skapas manuellt på grund av hanterade undantag (eller inget undantag alls) spåras i motsvarande begärandetelemetri med `ResultCode` 500, men Application Insights SDK kan inte spåra motsvarande undantag.
+
+### <a name="prior-versions-support"></a>Stöd för tidigare versioner
+Om du använder MVC 4 (och tidigare) med Application Insights Web SDK 2.5 (och tidigare), finns i följande exempel för att spåra undantag.
+
 Om den [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) konfigurationen är `Off`, undantag ska vara tillgängliga för den [HTTP-modul](https://msdn.microsoft.com/library/ms178468.aspx) att samla in. Men om det är `RemoteOnly` (standard), eller `On`, undantaget ska vara avmarkerad och inte tillgängliga för Application Insights att automatiskt samla in. Du kan åtgärda detta genom att åsidosätta den [System.Web.Mvc.HandleErrorAttribute klassen](http://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx), och tillämpa åsidosatt klassen som visas för de olika MVC-versionerna nedan ([github-källan](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
+```csharp
     using System;
     using System.Web.Mvc;
     using Microsoft.ApplicationInsights;
@@ -215,22 +231,26 @@ Om den [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) konfigur
         }
       }
     }
+```
 
 #### <a name="mvc-2"></a>MVC 2
 Ersätt attributet HandleError med din nya attribut i dina domänkontrollanter.
 
+```csharp
     namespace MVC2App.Controllers
     {
        [AiHandleError]
        public class HomeController : Controller
        {
     ...
+```
 
-[Exempel](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
+[exempel](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
 Registrera `AiHandleErrorAttribute` som ett globalt filter i Global.asax.cs:
 
+```csharp
     public class MyMvcApplication : System.Web.HttpApplication
     {
       public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -238,12 +258,14 @@ Registrera `AiHandleErrorAttribute` som ett globalt filter i Global.asax.cs:
          filters.Add(new AiHandleErrorAttribute());
       }
      ...
+```
 
-[Exempel](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
+[exempel](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
 #### <a name="mvc-4-mvc5"></a>MVC 4, MVC5
 Registrera AiHandleErrorAttribute som ett globalt filter i FilterConfig.cs:
 
+```csharp
     public class FilterConfig
     {
       public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -252,12 +274,31 @@ Registrera AiHandleErrorAttribute som ett globalt filter i FilterConfig.cs:
         filters.Add(new AiHandleErrorAttribute());
       }
     }
+```
 
-[Exempel](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
+[exempel](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
-## <a name="web-api-1x"></a>Webb-API 1.x
+## <a name="web-api"></a>Webb-API
+Från och med Application Insights Web SDK version 2.6 (beta3 och senare), Application Insights samlar in ohanterat undantag i metoderna domänkontrollant automatiskt för WebAPI 2 +. Om du har nyligen lagt till en anpassad hanterare för att spåra sådana undantag (som beskrivs i följande exempel), kan du ta bort det för att förhindra dubbla spårning av undantag.
+
+Det finns ett antal fall som undantagsfilter inte kan hantera. Exempel:
+
+* Undantag från domänkontrollanten konstruktorer.
+* Undantag från meddelandehanterare.
+* Undantag under routning.
+* Undantag under innehåll serialiseringssvar.
+* Ett undantag uppstod under start av program.
+* Ett undantag uppstod i bakgrundsaktiviteter.
+
+Alla undantag *hanteras* av programmet fortfarande måste spåras manuellt. Ohanterat undantag från domänkontrollanter vanligtvis ger 500 ”Internt serverfel” svar. Om svaret skapas manuellt på grund av hanterade undantag (eller inget undantag alls) spåras i en motsvarande begärandetelemetri med `ResultCode` 500, men Application Insights SDK kan inte spåra motsvarande undantag.
+
+### <a name="prior-versions-support"></a>Stöd för tidigare versioner
+Om du använder WebAPI 1 (och tidigare) med Application Insights Web SDK 2.5 (och tidigare), finns i följande exempel för att spåra undantag.
+
+#### <a name="web-api-1x"></a>Webb-API 1.x
 Åsidosätt System.Web.Http.Filters.ExceptionFilterAttribute:
 
+```csharp
     using System.Web.Http.Filters;
     using Microsoft.ApplicationInsights;
 
@@ -276,9 +317,11 @@ Registrera AiHandleErrorAttribute som ett globalt filter i FilterConfig.cs:
         }
       }
     }
+```
 
 Du kan lägga till den här åsidosatt attribut till specifika domänkontrollanter eller lägga till den globala filterkonfiguration i klassen WebApiConfig:
 
+```csharp
     using System.Web.Http;
     using WebApi1.x.App_Start;
 
@@ -298,19 +341,14 @@ Du kan lägga till den här åsidosatt attribut till specifika domänkontrollant
         }
       }
     }
+```
 
-[Exempel](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
+[exempel](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-Det finns ett antal fall som undantagsfilter inte kan hantera. Exempel:
-
-* Undantag från domänkontrollanten konstruktorer.
-* Undantag från meddelandehanterare.
-* Undantag under routning.
-* Undantag under innehåll serialiseringssvar.
-
-## <a name="web-api-2x"></a>Webb-API 2.x
+#### <a name="web-api-2x"></a>Webb-API 2.x
 Lägg till en implementering av IExceptionLogger:
 
+```csharp
     using System.Web.Http.ExceptionHandling;
     using Microsoft.ApplicationInsights;
 
@@ -329,9 +367,11 @@ Lägg till en implementering av IExceptionLogger:
         }
       }
     }
+```
 
 Lägg till det här tjänsterna i WebApiConfig:
 
+```csharp
     using System.Web.Http;
     using System.Web.Http.ExceptionHandling;
     using ProductsAppPureWebAPI.App_Start;
@@ -355,9 +395,10 @@ Lägg till det här tjänsterna i WebApiConfig:
             config.Services.Add(typeof(IExceptionLogger), new AiExceptionLogger());
         }
       }
-  }
+     }
+```
 
-[Exempel](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
+[exempel](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
 
 Alternativt kan du:
 
@@ -367,6 +408,7 @@ Alternativt kan du:
 ## <a name="wcf"></a>WCF
 Lägg till en klass som utökar Attribute och implementerar IErrorHandler och IServiceBehavior.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -416,7 +458,7 @@ Lägg till en klass som utökar Attribute och implementerar IErrorHandler och IS
       }
     }
 
-Lägg till attributet implementeringar tjänsten:
+Add the attribute to the service implementations:
 
     namespace WcfService4
     {
@@ -424,8 +466,9 @@ Lägg till attributet implementeringar tjänsten:
         public class Service1 : IService1
         {
          ...
+```
 
-[Exempel](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
+[exempel](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## <a name="exception-performance-counters"></a>Prestandaräknare för undantag
 Om du har [installerat Application Insights Agent](app-insights-monitor-performance-live-website-now.md) på servern, du kan få ett diagram över undantag hastighet, mätt av .NET. Detta inkluderar både hanterade och ohanterade undantag för .NET.

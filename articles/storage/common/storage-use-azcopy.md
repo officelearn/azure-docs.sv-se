@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 13e09a3081c9dfa2d88625489a82c687d6722f20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Överföra data med AzCopy i Windows
 AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Microsoft Azure Blob-, fil- och Table storage med hjälp av enkla kommandon som utformats för optimala prestanda. Du kan kopiera data mellan ett filsystem och ett lagringskonto eller mellan lagringskonton.  
@@ -56,7 +56,7 @@ Observera att om mappen `C:\myfolder` finns inte, AzCopy skapar den och ladda ne
 ### <a name="download-a-single-blob-from-the-secondary-region"></a>Hämta en enda blob från den sekundära regionen
 
 ```azcopy
-AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
 Observera att du måste ha läsbehörighet geo-redundant lagring aktiverad för att få åtkomst till den sekundära regionen.
@@ -106,7 +106,7 @@ När hämtningen mappen `C:\myfolder` innehåller följande filer:
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-Prefixet som gäller för den virtuella katalogen, som utgör den första delen av blobbnamnet. I exemplet ovan, matchar den virtuella katalogen inte det angivna prefixet så inte laddas ned. Dessutom, om alternativet `\S` anges AzCopy inte hämta alla blobbar.
+Prefixet som gäller för den virtuella katalogen, som utgör den första delen av blobbnamnet. I exemplet ovan, matchar den virtuella katalogen inte det angivna prefixet så inte laddas ned. Dessutom, om alternativet `/S` anges AzCopy inte hämta alla blobbar.
 
 ### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>Ange last-modified-tid med exporterade filer som ska vara densamma som källan BLOB
 
@@ -276,7 +276,7 @@ Den `/SyncCopy` alternativet ser du till att kopieringen hämtar konsekvent hast
 AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
 ```
 
-`/SyncCopy`kan skapa ytterligare utgång kostnaden jämfört med asynkron kopia, den rekommenderade metoden är att använda det här alternativet i en virtuell Azure-dator som är i samma region som ditt källa storage-konto för att undvika kostnader för utgående trafik.
+`/SyncCopy` kan skapa ytterligare utgång kostnaden jämfört med asynkron kopia, den rekommenderade metoden är att använda det här alternativet i en virtuell Azure-dator som är i samma region som ditt källa storage-konto för att undvika kostnader för utgående trafik.
 
 ## <a name="download-files-from-file-storage"></a>Hämta filer från File storage
 
@@ -614,9 +614,9 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 
 Parametrar för AzCopy beskrivs nedan. Du kan också ange något av följande kommandon från kommandoraden för att få hjälp med AzCopy:
 
-* För detaljerad hjälp för AzCopy:`AzCopy /?`
-* För detaljerad hjälp om någon AzCopy-parameter:`AzCopy /?:SourceKey`
-* Kommandoradsverktyget exempel:`AzCopy /?:Samples`
+* För detaljerad hjälp för AzCopy: `AzCopy /?`
+* För detaljerad hjälp om någon AzCopy-parameter: `AzCopy /?:SourceKey`
+* Kommandoradsverktyget exempel: `AzCopy /?:Sample`
 
 ### <a name="sourcesource"></a>/ Source: ”källa”
 

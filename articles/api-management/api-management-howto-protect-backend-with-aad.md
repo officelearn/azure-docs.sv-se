@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b7fc48412799aea0c4bba971102b4912dbb18e05
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Hur du skyddar en webb-API-serverdel med Azure Active Directory och API-hantering
 
@@ -179,7 +179,7 @@ API: er konfigureras från publisher-portalen API som öppnas via Azure Portal. 
 
 ![Utgivarportalen][api-management-management-console]
 
-Åtgärder kan vara [lagts till API: er manuellt](api-management-howto-add-operations.md), eller kan importeras. I det här videoklippet importeras åtgärder i Swagger-format som börjar på 6:40.
+Åtgärder kan vara [lagts till API: er manuellt](api-management-howto-add-operations.md), eller kan importeras.
 
 Skapa en fil med namnet `calcapi.json` med följande innehåll och spara den på datorn. Se till att den `host` attributet pekar till din Web API-serverdel. I det här exemplet `"host": "apimaaddemo.azurewebsites.net"` används.
 

@@ -3,7 +3,7 @@ title: "Lägg till Oracle-databas-koppling i dina Logic Apps i Azure | Microsoft
 description: "Använda anslutningstjänsten Oracle-databas i en logikapp"
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
-ms.author: mandia; ladocs
-ms.openlocfilehash: 4119e72abd568c9b53245a872691f06329b040de
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 57931b6c2f96debeb9ab7f1a3b6700f23e7d2a7e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Kom igång med kopplingen Oracle-databas
 
@@ -28,7 +28,7 @@ Med kopplingen Oracle-databas kan skapa du organisationens arbetsflöden som anv
 * Skapa ditt arbetsflöde genom att lägga till en ny kund till en databas för kunder eller uppdatera en ordning i en order-databas.
 * Använd åtgärder för att hämta en rad med data, infoga en ny rad och även ta bort. Till exempel när en post har skapats i Dynamics CRM Online (en utlösare), sedan infoga en rad i en Oracle-databas (en åtgärd). 
 
-Det här avsnittet visar hur du använder kopplingen Oracle-databas i en logikapp.
+Den här artikeln visar hur du använder kopplingen Oracle-databas i en logikapp.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -46,7 +46,7 @@ Det här avsnittet visar hur du använder kopplingen Oracle-databas i en logikap
   [64-bitars ODAC 12c version 4 (12.1.0.2.4) för Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
-    > Om Oracle-klienten inte är installerad, inträffar ett fel vid försök att skapa eller använda anslutningen. Finns de vanliga fel i det här avsnittet.
+    > Om Oracle-klienten inte är installerad, inträffar ett fel vid försök att skapa eller använda anslutningen. Finns de vanliga fel i den här artikeln.
 
 
 ## <a name="add-the-connector"></a>Lägg till anslutningen
@@ -104,7 +104,7 @@ Det här avsnittet visar hur du använder kopplingen Oracle-databas i en logikap
 
 **Minskning**: Kontrollera att din gateway körs på den lokala datorn där du installerade dem och att den kan ansluta till internet.  Vi rekommenderar att du inte installerar gateway på en dator som kan stängas av eller i viloläge. Du kan också starta om tjänsten lokala data gateway (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-please-visit-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Fel**: den leverantör som används är föråldrad: ' System.Data.OracleClient kräver Oracle klientprogramversionen 8.1.7 eller senare.'. Besök [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) att installera den officiella leverantören.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Fel**: den leverantör som används är föråldrad: ' System.Data.OracleClient kräver Oracle klientprogramversionen 8.1.7 eller senare.'. Se [ https://go.microsoft.com/fwlink/p/?LinkID=272376 ](https://go.microsoft.com/fwlink/p/?LinkID=272376) att installera den officiella leverantören.
 
 **Orsak**: Oracle-klient-SDK inte är installerad på datorn där lokala datagateway körs.  
 
@@ -130,8 +130,8 @@ Visa alla utlösare och åtgärder som definierats i swagger och även se några
 
 Den [Logikappar i Azure-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) är det bra att ställa frågor, besvara frågor och se vad andra användare med Logic Apps gör. 
 
-Du kan förbättra Logic Apps och kopplingar genom röstning och skicka dina idéer på [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
+Du kan förbättra Logic Apps och kopplingar genom röstning och skicka dina idéer på [ http://aka.ms/logicapps-wish ](http://aka.ms/logicapps-wish). 
 
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md), och utforska de tillgängliga kopplingarna i Logic Apps på vår [API: er listan](apis-list.md).
+[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md), och utforska de tillgängliga kopplingarna i Logic Apps på [API: er listan](apis-list.md).

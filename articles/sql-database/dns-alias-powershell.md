@@ -3,24 +3,19 @@ title: "PowerShell för DNS-alias Azure SQL | Microsoft Docs"
 description: "PowerShell-cmdlets som ny AzureRMSqlServerDNSAlias kan du omdirigera nya klientanslutningar till en annan Azure SQL Database-server utan att behöva touch klientkonfiguration."
 keywords: DNS-sql-databas
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: 
 ms.service: sql-database
-ms.custom: 
-ms.workload: 
-ms.tgt_pltfrm: 
 ms.devlang: PowerShell
 ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi;amagarwa;maboja
 ms.author: dmalik
-ms.openlocfilehash: ec638d7b48b443cda5755e3077c6304b0c5ad78e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2aae669364c3de2e9b00ffe8e28b1521d3a781e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell för DNS-Alias till Azure SQL-databas
 
@@ -50,7 +45,7 @@ För att ansluta en viss Azure SQL Database-server, kan en klient, till exempel 
 
 Om du vill köra den PowerShell-skript som anges i den här artikeln gäller följande krav:
 
-- En Azure-prenumeration och konto. För en kostnadsfri utvärderingsversion klickar du på [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/].
+- En Azure-prenumeration och konto. För en kostnadsfri utvärderingsversion klickar du på [ https://azure.microsoft.com/free/ ] [ https://azure.microsoft.com/free/].
 
 - Azure PowerShell-modul, med cmdlet **ny AzureRMSqlServerDNSAlias**.
     - Om du vill installera eller uppgradera, se [installera Azure PowerShell-modulen][install-azurerm-ps-84p].

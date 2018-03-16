@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 631557e0ad712827bb3375c4f152c0e2185fda18
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b06144e6ad3df1626022edd856e14d6c47494336
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Information om icke-godkända distributioner
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -50,7 +50,7 @@ Resten av den här artikeln fokuserar på allmänna riktlinjer för att köra Li
 * Kernel-stöd för att montera UDF-filsystem krävs. Vid första start på Azure skickas etablering konfigurationen för Linux-VM via UDF-formaterad media som är anslutna till gästen. Azure Linux-agenten måste kunna montera UDF-filsystemet för att läsa konfigurationen och etablera den virtuella datorn.
 * Linux kernel-versioner än 2.6.37 stöder inte NUMA på Hyper-V med större VM-storlekar. Det här problemet påverkar huvudsakligen äldre distributioner med hjälp av den överordnade Red Hat 2.6.32 kernel och åtgärdades i RHEL 6.6 (kernel-2.6.32-504). System som kör anpassade kernlar som är äldre än 2.6.37 eller RHEL-baserade kernlar som är äldre än 2.6.32-504 måste ange parametern Start `numa=off` på kommandoraden i grub.conf kernel. Mer information finns i Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Konfigurera inte en byte-partition på OS-disk. Linux-agenten kan konfigureras för att skapa en växlingsfil på tillfällig disken.  Mer information om detta finns i stegen nedan.
-* Alla de virtuella hårddiskarna måste ha storlekar som multiplar av 1 MB.
+* Alla virtuella hårddiskar på Azure måste ha en virtuell storlek justeras till 1MB. Vid konvertering från en rå disk till virtuell Hårddisk måste du kontrollera att rådata diskens storlek är en multipel av 1MB innan konverteringen. Mer information finns i stegen nedan.
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>Installera kernel moduler utan Hyper-V
 Azure körs på Hyper-V-hypervisor så Linux kräver att vissa kernel-moduler är installerade för att kunna köras i Azure. Om du har en virtuell dator som har skapats utanför Hyper-V, Linux-installationsprogram kanske inte med drivrutiner för Hyper-V inledande ramdisk (initrd eller initramfs) såvida inte den upptäcker att den körs en Hyper-V-miljö. När du använder ett system med olika virtualisering (d.v.s. Virtualbox, KVM osv.) för att förbereda avbildningen Linux, du kan behöva återskapa initrd för att säkerställa att åtminstone `hv_vmbus` och `hv_storvsc` kernel-moduler är tillgängliga på den första ramdisk.  Detta är ett känt problem minst på system baserat på den överordnade Red Hat-distributionen.

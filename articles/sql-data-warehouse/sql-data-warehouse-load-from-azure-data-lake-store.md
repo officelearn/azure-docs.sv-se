@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 12/14/2017
+ms.date: 3/14/2018
 ms.author: cakarst;barbkess
-ms.openlocfilehash: a2a7d15eb51374b828d1d641e0e6754115f7aaf6
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: f8cd293236255e227f80a42e78d25aebd8789bdd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Läs in data från Azure Data Lake Store till SQL Data Warehouse
 Det här dokumentet får du alla steg som du behöver läsa in data från Azure Data Lake Store (ADLS) i SQL Data Warehouse med PolyBase.
-När du ska kunna köra ad hoc-frågor över data som lagras i ADLS med hjälp av externa tabeller som bästa praxis rekommenderar vi att importera data till SQL Data Warehouse.
+När du ska kunna köra ad hoc-frågor över data som lagras i ADLS med hjälp av externa tabeller rekommenderar vi att importera data till SQL Data Warehouse för bästa prestanda.
 
 I den här kursen får du lära dig hur du:
 
-1. Skapa extern databas objekt att läsa in från Azure Data Lake Store.
+1. Skapa databasobjekt som krävs för att läsa in från Azure Data Lake Store.
 2. Ansluta till ett Azure Data Lake Store-katalogen.
 3. Läs in data till Azure SQL Data Warehouse.
 
@@ -42,14 +42,14 @@ Om du vill köra den här kursen behöver du:
 
 * SQL Server Management Studio eller SQL Server Data Tools för att hämta SSMS och ansluta finns [fråga SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
-* Ett Azure SQL Data Warehouse, skapa en Följ: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision _
+* Ett Azure SQL Data Warehouse, skapa en Följ: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
 
 * Ett Azure Data Lake Store, skapa en Följ: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 ###  <a name="create-a-credential"></a>Skapa en autentiseringsuppgift
 För att komma åt din Azure Data Lake Store, behöver du skapa en huvudnyckel för databasen om du vill kryptera dina autentiseringsuppgifter hemlighet som används i nästa steg.
-Sedan kan du skapa en Databasbegränsade autentiseringsuppgift som lagrar huvudnamn autentiseringsuppgifterna för tjänsten i AAD. Observera att credential-syntax är olika för de som har använt PolyBase för att ansluta till Windows Azure Storage-Blobbar.
+Sedan kan du skapa en Databasomfattande autentisering, som lagrar huvudnamn autentiseringsuppgifterna för tjänsten i AAD. Observera att credential-syntax är olika för de som har använt PolyBase för att ansluta till Windows Azure Storage-Blobbar.
 Om du vill ansluta till Azure Data Lake Store, måste du **första** skapa ett Azure Active Directory-program, skapa en snabbtangent och ge programmet åtkomst till Azure Data Lake-resursen. Anvisningar för att utföra de här stegen finns [här](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
 
 ```sql
@@ -82,7 +82,7 @@ WITH
 
 
 ### <a name="create-the-external-data-source"></a>Skapa den externa datakällan
-Använd den här [Skapa extern DATAKÄLLA] [ CREATE EXTERNAL DATA SOURCE] kommando för att lagra platsen för data. Hitta ADL URI i Azure portal, gå till din Azure Data Lake Store och titta sedan på panelen Essentials.
+Använd den här [Skapa extern DATAKÄLLA] [ CREATE EXTERNAL DATA SOURCE] kommando för att lagra platsen för data. 
 
 ```sql
 -- C: Create an external data source
@@ -99,8 +99,8 @@ WITH (
 ```
 
 ## <a name="configure-data-format"></a>Konfigurera dataformat
-Du måste ange det externa filformatet om du vill importera data från ADLS. Det här kommandot har format-specifika alternativ för att beskriva dina data.
-Titta på vår T-SQL-dokumentation för en fullständig lista över [skapa externt FILFORMAT][CREATE EXTERNAL FILE FORMAT]
+Du måste ange det externa filformatet om du vill importera data från ADLS. Det här objektet definierar hur filerna skrivs i ADLS.
+Titta på vår T-SQL-dokumentation för en fullständig lista [skapa externt FILFORMAT][CREATE EXTERNAL FILE FORMAT]
 
 ```sql
 -- D: Create an external file format
@@ -157,7 +157,7 @@ Om en rad inte matchar schemadefinitionen avvisas raden från belastningen.
 
 Alternativen REJECT_TYPE och REJECT_VALUE kan du definiera hur många rader eller vilken procentandel av data måste finnas i den slutliga tabellen. Om värdet avvisa uppnås under belastning misslyckas belastningen. Den vanligaste orsaken Avvisade rader stämmer inte schemat definition. Till exempel om en kolumn anges felaktigt schemat för int när data i filen är en sträng varje rad inte laddas.
 
- Azure Data Lake store använder rollbaserad åtkomstkontroll (RBAC) för att styra åtkomsten till data. Detta innebär att tjänstens huvudnamn måste ha läsbehörighet till kataloger som anges i platsparametern och underordnade slutliga katalogen och filerna. Detta gör att PolyBase för att autentisera och läsa in läsa data. 
+ Azure Data Lake store använder rollbaserad åtkomstkontroll (RBAC) för att styra åtkomsten till data. Detta innebär att tjänstens huvudnamn måste ha läsbehörighet till kataloger som anges i platsparametern och underordnade slutliga katalogen och filerna. Detta gör att PolyBase för att autentisera och läsa in data. 
 
 ## <a name="load-the-data"></a>Läs in data
 Att läsa in data från Azure Data Lake Store användning av [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instruktionen. 
@@ -201,7 +201,7 @@ I följande exempel är en bra utgångspunkt för att skapa statistik. Den skapa
 Data har lästs in Azure SQL Data Warehouse. Bra jobbat!
 
 ## <a name="next-steps"></a>Nästa steg
-Data läses in är det första steget för att utveckla en lösning för data warehouse med hjälp av SQL Data Warehouse. Kolla in våra development resurser på [tabeller](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) och [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
+Data läses in är det första steget för att utveckla en lösning för data warehouse med hjälp av SQL Data Warehouse. Kolla in våra development resurser på [tabeller](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) och [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops).
 
 
 <!--Image references-->

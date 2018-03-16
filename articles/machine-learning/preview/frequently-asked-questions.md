@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 86ef8acf46cef2b057596d8224c6c29f3a0f534d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6146e1ce98144a05bef2ca29705f451aa3f5fb50
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Machine Learning
 
@@ -32,7 +32,7 @@ När vi utvecklar produkten läggs flera områden.  Du kan hjälpa oss att prior
 
 **Vilka andra Azure-tjänster krävs?**
 
-Om du vill utnyttja alla funktioner i Azure Machine Learning, använder Azure datorn Learnign Visual Studio VSTS konto, Azure Blob Storage, Azure Container registret, datavetenskap VM eller HDInsight beräkning och Azure Container Service.
+Azure Blob Storage och Azure Container register som används av Azure Machine Learning. Dessutom behöver du etablera beräkningsresurser, till exempel ett datavetenskap VM eller HDInsight-kluster. Beräknings- och värd krävs också när du distribuerar din webbtjänster som [Azure Container Service](https://docs.microsoft.com/azure/aks).
 
 **Hur Azure Machine Learning är relaterade till Microsoft Machine Learning-tjänster i SQL Server 2017?**   
 
@@ -46,7 +46,7 @@ Vi stöder för närvarande Python endast. Vi arbetar på R-integrering och tror
 
 MMLSpark ger djup learning och datavetenskap tools för Apache Spark med betoning på produktiviteten, enkel undersökningar och den senaste algoritmer. MMLSpark möjliggör integrering av Spark Machine Learning rörledningar med Microsoft kognitiva Toolkit och OpenCV. Du kan skapa kraftfulla skalbara förutsägbara och analysdata modeller för bilden och texten data. MMLSpark är tillgänglig under en licens för öppen källkod och ingår i AML arbetsstationen som en uppsättning konsumeras modeller och algoritmer. Mer information om MMLSpark finns i vår produktdokumentation. 
 
-**Vilka versioner av Spark stöds av de nya verktyg och tjänster? Överst**
+**Vilka versioner av Spark stöds av de nya verktyg och tjänster?**
 
 Arbetsstationen innehåller för närvarande och stöder MMLSpark version 0,8, som är kompatibel med Apache Spark 2.1. Du har också ett alternativ för att använda GPU-aktiverade Docker-bild av MMLSpark 0,8 på Linux virtuella datorer.
 
@@ -119,7 +119,7 @@ Azure Machine Learning-arbetsstationen är ett tillhörande program som skapats 
 
 **Är arbetsstationen IDE-miljö?**
 
-Nej. Machine Learning-arbetsstationen har utformats som en tillhörande till populära IDEs, till exempel Jupyter-anteckningsböcker och Visual Studio Code PyCharm men det är inte en fullt fungerande IDE. Machine Learning-arbetsstationen erbjuder vissa grundläggande text redigera funktioner, men felsökning, intellisense och andra ofta använda IDE-funktioner inte stöds. Vi rekommenderar att du använder din favorit IDE för koden utveckling, redigera och felsökning. 
+Nej. Machine Learning-arbetsstationen har utformats som en tillhörande till populära IDEs, till exempel Jupyter-anteckningsböcker och Visual Studio Code PyCharm men det är inte en fullt fungerande IDE. Machine Learning-arbetsstationen erbjuder vissa grundläggande text redigera funktioner, men felsökning, intellisense och andra ofta använda IDE-funktioner inte stöds. Vi rekommenderar att du använder din favorit IDE för koden utveckling, redigera och felsökning. Du kan också försöka [Visual Studio Code Tools för AI](https://www.visualstudio.com/downloads/ai-tools-vscode).
 
 **Finns det en avgift för att använda Azure Machine Learning arbetsstationen?**
 

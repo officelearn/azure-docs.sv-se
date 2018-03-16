@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2018
+ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 64c424ee7045ae20b3fba6433166039580387d76
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7b7028a92b93f29af10c5e4bc9ab4f671ca23961
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Ange program åtkomst till Azure-stacken
 
@@ -51,14 +51,14 @@ I det här avsnittet skapar du ett program (tjänstens huvudnamn) i Azure AD som
 Du har skapat ett huvudnamn för tjänsten för ditt program.
 
 ### <a name="get-credentials"></a>Hämta autentiseringsuppgifter
-Vid inloggning programmässigt, kan du använda ID: T för ditt program och en autentiseringsnyckel. Använd följande steg för att få dessa värden:
+När programmässigt inloggningen du använda ID: T för programmet och för en webbapp / API, en autentiseringsnyckel. Använd följande steg för att få dessa värden:
 
 1. Från **App registreringar** Markera programmet i Active Directory.
 
 2. Kopiera den **program-ID** och lagra den i din programkod. Program i den [programexempel](#sample-applications) avsnittet refererar till det här värdet som klient-ID.
 
      ![klient-ID](./media/azure-stack-create-service-principal/image12.png)
-3. Om du vill generera en autentiseringsnyckel, Välj **nycklar**.
+3. Att generera en autentiseringsnyckel för en webbapp / API, Välj **inställningar** > **nycklar**. 
 
 4. Ange en beskrivning av nyckeln och varaktighet för nyckeln. När du är klar väljer **spara**.
 

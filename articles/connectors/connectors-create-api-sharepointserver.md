@@ -3,7 +3,7 @@ title: "Använda SharePoint Server-anslutningen i dina Logic Apps | Microsoft Do
 description: "Komma igång med den SharePoint-Server-anslutningen i dina Logic apps"
 services: logic-apps
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: da863e0249cb46e4e569812a851f3199d57b2107
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: d342b3c4f84c5dab212b9327d6a72759934d0ae5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>Kom igång med SharePoint-koppling
 SharePoint-kopplingen innehåller ett sätt att arbeta med listor i SharePoint.
@@ -31,11 +31,11 @@ Om du vill använda SharePoint-anslutningstjänsten måste du först skapa en **
 
 | Egenskap | Krävs | Beskrivning |
 | --- | --- | --- |
-| Token |Ja |Tillhandahåll autentiseringsuppgifter för SharePoint |
+| Token |Ja |Ange autentiseringsuppgifter för SharePoint |
 
-Att ansluta till **SharePoint**, ange din identitet (användarnamn och lösenord, smartkort autentiseringsuppgifter osv) till SharePoint. När du har autentiserats, kan du fortsätta att använda SharePoint-kopplingen i din logikapp. 
+Att ansluta till **SharePoint**, ange din identitet (användarnamn och lösenord, autentiseringsuppgifter för smartkort och så vidare). När du har autentiserats, kan du fortsätta att använda SharePoint-kopplingen i din logikapp. 
 
-Följ dessa steg att logga in på SharePoint att skapa anslutningen på designer av din logikapp **anslutning** för användning i din logikapp:
+Använd följande steg när du är på din logikapp kan logga in och skapa den **anslutning** för användning i din logikapp:
 
 1. Ange SharePoint i sökrutan och vänta tills sökning för att returnera alla poster med SharePoint i namnet:   
    ![Konfigurera SharePoint][1]  
@@ -44,10 +44,10 @@ Följ dessa steg att logga in på SharePoint att skapa anslutningen på designer
    ![Konfigurera SharePoint][2]    
 4. Ange din SharePoint-autentiseringsuppgifter för att logga in att autentisera med SharePoint   
    ![Konfigurera SharePoint][3]     
-5. När autentiseringen har slutförts ska du omdirigeras till din logikapp för att slutföra den genom att konfigurera SharePoint- **när en fil skapas** dialogrutan.          
+5. När autentiseringen är klar är du omdirigeras till din logikapp för att slutföra den genom att konfigurera SharePoint- **när en fil skapas** dialogrutan.          
    ![Konfigurera SharePoint][4]  
 6. Du kan sedan lägga till andra utlösare och åtgärder som behövs för att slutföra din logikapp.   
-7. Spara ditt arbete genom att välja **spara** på menyraden ovan.  
+7. Spara ditt arbete genom att välja **spara** på menyn (mot upp).
 
 ## <a name="connector-specific-details"></a>Connector-specifik information
 

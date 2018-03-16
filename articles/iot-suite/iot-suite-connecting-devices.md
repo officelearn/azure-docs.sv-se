@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: a6453c8d84b7025f1f510db5e675cde8685c23ed
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 83d0427a3ba8c634699608c38ab22efb1f275e52
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>Ansluta enheten till den fjärranslutna förkonfigurerade övervakningslösning (Windows)
 
@@ -95,7 +95,7 @@ Lägg till Parson JSON-biblioteket till det **RMDevice** projekt och Lägg till 
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
     > [!NOTE]
@@ -103,7 +103,7 @@ Lägg till Parson JSON-biblioteket till det **RMDevice** projekt och Lägg till 
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
-## <a name="build-and-run-the-sample"></a>Skapa och köra exemplet
+## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
 
 Lägg till kod för att anropa den **remote\_övervakning\_kör** fungera, och sedan skapa och köra programmet enhet:
 
@@ -117,7 +117,7 @@ Lägg till kod för att anropa den **remote\_övervakning\_kör** fungera, och s
     }
     ```
 
-1. Välj **skapa** och sedan **skapa lösning** att bygga enhetsprogram. Ignorera varningen om den **gmtime** funktion.
+1. Välj **skapa** och sedan **skapa lösning** att bygga enhetsprogram.
 
 1. I **Solution Explorer**, högerklicka på den **RMDevice** projekt, Välj **felsöka**, och välj sedan **Starta ny instans** att köra exemplet . Konsolen visar meddelanden som:
 

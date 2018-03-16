@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 81d08d3d3d08e9cc96b39cbdf2d639e939fdf3d4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0c6a0c43eb7d0187120c3264f1f439af66d73978
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg är tillämpliga på alla målgrupper.
@@ -36,8 +36,19 @@ Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppd
 
 Hämta | [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="117500"></a>1.1.750.0
+Status: Publicerat för att välja den här versionen är för närvarande har distribuerats till en liten och slumpmässiga urval av AADConnect-klienter som har aktiverat Automatiska uppgradering kunder. Vi kommer att expandera den här gruppen av klienter under de kommande veckorna tills 100% av våra kunder uppgradera automatiskt har tagit emot den här versionen. Efter det att vi bygga för allmän hämtning på länken ovan.
+>[!NOTE]
+>När uppgraderingen till den här nya versionen är klar utlöser automatiskt en fullständig synkronisering och fullständig import för Azure AD-koppling och en fullständig synkronisering för AD-koppling. Kontrollera att du har vidtagit nödvändiga åtgärder för att stödja detta eller håll om att uppgradera förrän du har hittat en lämplig tidpunkt gör detta kan ta en stund, beroende på storleken på din Azure AD Connect-miljö.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>Fast problem
+
+* Cmdlet Set-ADSyncAutoUpgrade skulle tidigare blockerar Autoupgrade uppgradera automatiskt status är inställd på pausad. Detta är nu ändrats så att den inte blockerar AutoUpgrade i framtida versioner.
+
 ## <a name="117490"></a>1.1.749.0
-Status: Publicerat för att välja den här versionen är för närvarande har distribuerats till en liten och slumpmässiga på AADConnect-klienter som har aktiverat Automatiska uppgradering kunder. Vi kommer att expandera den här gruppen av klienter under de kommande veckorna tills 100% av våra kunder uppgradera automatiskt har tagit emot den här versionen. Efter det att vi bygga för allmän hämtning på länken ovan hämta - är planerad för mitten av mars 2018.
+Status: Publicerat för att välja kunder
+
 >[!NOTE]
 >När uppgraderingen till den här nya versionen är klar utlöser automatiskt en fullständig synkronisering och fullständig import för Azure AD-koppling och en fullständig synkronisering för AD-koppling. Detta kan ta en stund, beroende på storleken på din Azure AD Connect-miljö, kontrollera att du har vidtagit nödvändiga åtgärder för att stödja detta eller håll om att uppgradera förrän du har hittat en lämplig tidpunkt gör.
 
@@ -45,15 +56,15 @@ Status: Publicerat för att välja den här versionen är för närvarande har d
 #### <a name="fixed-issues"></a>Fast problem
 * Åtgärda tidsinställning fönster på bakgrundsaktiviteter för filtrering av Partition sida när du växlar till nästa sida.
 
-* Ett fel som orsakade åtkomstfel när den anpassade åtgärden ConfigDB fast
+* Fast ett fel som orsakade åtkomstfel när den anpassade åtgärden ConfigDB.
 
 * Fast ett programfel att återställa från timeout för SQL-anslutningen.
 
-* Fast ett programfel där certifikat med jokertecken SAN misslyckades kontrollen av förutsättningar
+* Fast ett programfel där certifikat med jokertecken SAN misslyckades kontrollen av förutsättningar.
 
 * Fast ett programfel som orsakar miiserver.exe kraschar under en Azure AD connector export.
 
-* Fast ett programfel som felaktiga lösenord-försök loggas på domänkontrollanten när du kör Azure AD Connect-guiden för att ändra konfigurationen
+* Fasta ett programfel som felaktiga lösenord-försök loggas på domänkontrollanten när du kör Azure AD Connect-guiden för att ändra konfigurationen.
 
 
 #### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
@@ -223,7 +234,7 @@ Status: Oktober 19 2017
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
 >[!NOTE]
-> Obs: Synkroniseringstjänsten har ett WMI-gränssnitt som du kan utveckla din egen anpassade scheduler. Det här gränssnittet är nu föråldrad och kommer att tas bort från framtida versioner av Azure AD Connect levererats efter den 30 juni 2018. Kunder som vill anpassa synkroniseringsschema ska använda [inbyggda Schemaläggaren (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+> Obs: Synkroniseringstjänsten har ett WMI-gränssnitt som du kan utveckla din egen anpassade scheduler. Det här gränssnittet är nu föråldrad och kommer att tas bort från framtida versioner av Azure AD Connect levererats efter den 30 juni 2018. Kunder som vill anpassa synkroniseringsschema ska använda den [inbyggda Schemaläggaren (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
 
 #### <a name="fixed-issues"></a>Fast problem
 * När Azure AD Connect-guiden skapar ett konto för AD-koppling som krävs för att synkronisera ändringar från lokala Active Directory, tilldelar den korrekt inte kontot behörighet att läsa PublicFolder objekt. Det här problemet påverkar både Snabbinstallation och anpassad installation. Den här ändringen åtgärdar problemet.
@@ -787,8 +798,8 @@ Utgiven: Februari 2016
 
 * [Automatisk uppgradering](active-directory-aadconnect-feature-automatic-upgrade.md) funktion för snabb inställningar kunder.
 * Stöd för den globala administratören med Azure Multi-Factor Authentication och Privileged Identity Management i installationsguiden.
-  * Du måste tillåta proxyservern för att tillåta trafik till https://secure.aadcdn.microsoftonline-p.com också om du använder multi-Factor Authentication.
-  * Du behöver lägga till https://secure.aadcdn.microsoftonline-p.com i listan över betrodda platser för multi-Factor Authentication ska fungera korrekt.
+  * Du måste tillåta att också tillåta trafik till proxyservern https://secure.aadcdn.microsoftonline-p.com om du använder multi-Factor Authentication.
+  * Du måste lägga till https://secure.aadcdn.microsoftonline-p.com till listan över betrodda platser för multi-Factor Authentication ska fungera korrekt.
 * Tillåt ändrar användarens inloggningsmetod efter den första installationen.
 * Tillåt [domän och Organisationsenhet filtrering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) i installationsguiden. Detta kan också ansluta till skogar där inte alla domäner som är tillgängliga.
 * [Schemaläggaren](active-directory-aadconnectsync-feature-scheduler.md) är inbyggd i Synkroniseringsmotorn.

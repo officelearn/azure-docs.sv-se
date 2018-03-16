@@ -1,10 +1,10 @@
 ---
 title: "Skapa mallar för distribution för Azure Logic Apps | Microsoft Docs"
-description: "Skapa Azure Resource Manager-mallar för logic apps för hantering av distribution och version"
+description: "Skapa mallar för Azure Resource Manager för att distribuera logikappar"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: anneta
+author: ecfan
+manager: SyntaxC4
 editor: 
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.service: logic-apps
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 9cfbb294010d48deaf4b4c78c6a6bcd59a387d87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: LADocs; estfan
+ms.openlocfilehash: 91d93a02bb9bf48c5bda0304c9d3d52c22e30209
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="create-templates-for-logic-apps-deployment-and-release-management"></a>Skapa mallar för logikappar för hantering av distribution och version
+# <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Skapa mallar för Azure Resource Manager för att distribuera logikappar
 
 När du har skapat en logikapp kanske du vill skapa den som en Azure Resource Manager-mall.
 På så sätt kan du kan enkelt distribuera logikappen till miljö eller resursgrupp som du kanske behöver.
@@ -46,7 +46,7 @@ Eller så kanske du vill distribuera i olika prenumerationer eller resursgrupper
 
 ## <a name="create-a-logic-app-deployment-template"></a>Skapa en logik app Distributionsmall
 
-Det enklaste sättet att ha en giltig logik app Distributionsmall är att använda den [Visual Studio Tools för Logic Apps](logic-apps-deploy-from-vs.md).
+Det enklaste sättet att ha en giltig logik app Distributionsmall är att använda den [Visual Studio Tools för Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites).
 Visual Studio-verktygen Generera en giltig Distributionsmall som kan användas på alla prenumerationen eller platsen.
 
 Några andra verktyg kan hjälpa dig när du skapar en logik app Distributionsmall.
@@ -74,10 +74,106 @@ När du har installerat PowerShell kan du generera en mall med hjälp av följan
 
 `armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp MyApp -ResourceGroup MyRG -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json`
 
-`$SubscriptionId`är Azure prenumerations-ID. Den här raden först hämtar en åtkomst-token via ARMClient, och sedan kommer det via till PowerShell-skript och skapar sedan mallen i en JSON-fil.
+`$SubscriptionId` är Azure prenumerations-ID. Den här raden först hämtar en åtkomst-token via ARMClient, och sedan kommer det via till PowerShell-skript och skapar sedan mallen i en JSON-fil.
 
 ## <a name="add-parameters-to-a-logic-app-template"></a>Lägga till parametrar till en app logik-mall
 Du kan fortsätta att lägga till eller ändra parametrarna som du kan behöva när du har skapat mallen logik app. Om din definition innehåller en resurs-ID till en Azure-funktion eller inkapslat arbetsflöde som du planerar att distribuera i en enkel distribution, kan du lägga till fler resurser i mallen och parameterstyra ID: N efter behov. Detsamma gäller för alla referenser till anpassade API: er eller Swagger slutpunkter som du förväntar dig att distribuera med varje resursgrupp.
+
+### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Lägg till referenser för beroende resurser till mallar för distribution av Visual Studio
+
+När du vill att din logikapp för att referera till beroende resurser, kan du använda [Azure Resource Manager Mallfunktioner](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions) i mallen för logik app-distribution. Exempelvis kanske du vill logikappen att referera till ett Azure-funktion eller integreringspaket konto som du vill distribuera tillsammans med din logikapp. Följ dessa riktlinjer om hur du använder parametrar i mallen för distribution så att logik App Designern återger korrekt. 
+
+Du kan använda logik app parametrar i dessa typer av utlösare och åtgärder:
+
+*   Underordnat arbetsflöde
+*   Funktionsapp
+*   APIM anrop
+*   API-anslutning runtime-URL
+*   Sökväg för API-anslutning
+
+Och du kan använda Mallfunktioner, till exempel parametrar, variabler, resourceId, concat osv. Här är exempelvis hur du kan ersätta resurs-ID för Azure-funktion:
+
+```
+"parameters":{
+    "functionName": {
+        "type":"string",
+        "minLength":1,
+        "defaultValue":"<FunctionName>"
+    }
+},
+```
+
+Och där du ska använda parametrarna:
+
+```
+"MyFunction": {
+    "type": "Function",
+    "inputs": {
+        "body":{},
+        "function":{
+            "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
+        }
+    },
+    "runAfter":{}
+}
+```
+Ett annat exempel parameterstyra du Service Bus skicka meddelandet igen:
+
+```
+"Send_message": {
+    "type": "ApiConnection",
+        "inputs": {
+            "host": {
+                "connection": {
+                    "name": "@parameters('$connections')['servicebus']['connectionId']"
+                }
+            },
+            "method": "post",
+            "path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
+            "body": {
+                "ContentData": "@{base64(triggerBody())}"
+            },
+            "queries": {
+                "systemProperties": "None"
+            }
+        },
+        "runAfter": {}
+    }
+```
+> [!NOTE] 
+> host.runtimeUrl är valfritt och kan tas bort från din mall om det finns.
+> 
+
+
+> [!NOTE] 
+> För logik App Designer ska fungera när du använder parametrar måste du ange standardvärden, till exempel:
+> 
+> ```
+> "parameters": {
+>     "IntegrationAccount": {
+>     "type":"string",
+>     "minLength":1,
+>     "defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
+>     }
+> },
+> ```
+
+## <a name="add-your-logic-app-to-an-existing-resource-group-project"></a>Lägg till din logikapp till ett befintligt projekt i resursgruppen.
+
+Om du har en befintlig resursgrupp-projekt kan du lägga till din logikapp projektet i fönstret JSON-disposition. Du kan också lägga till en annan logikapp tillsammans med den app som du skapade tidigare.
+
+1. Öppna filen `<template>.json`.
+
+2. Om du vill öppna fönstret JSON-disposition, gå till **visa** > **andra fönster** > **JSON-disposition**.
+
+3. Klicka på Lägg till en resurs i mallen, **Lägg till resurs** längst upp i fönstret JSON-disposition. Eller högerklicka i fönstret JSON-disposition **resurser**, och välj **Lägg till ny resurs**.
+
+    ![JSON-disposition](./media/logic-apps-create-deploy-template/jsonoutline.png)
+    
+4. I den **Lägg till resurs** dialogrutan, lokaliserar och markerar **Logikapp**. Namnge din logikapp och välj **Lägg till**.
+
+    ![Lägg till resurs](./media/logic-apps-create-deploy-template/addresource.png)
+
 
 ## <a name="deploy-a-logic-app-template"></a>Distribuera en app logik-mall
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/06/2018
+ms.date: 03/12/2018
 ms.author: danis
-ms.openlocfilehash: 5497c0151117c26e66e9669ed8da1ab7f9506b5a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5174e599f12314a657d142304ffec18fbff847b1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>OMS tillägg för virtuell dator för Linux
 
@@ -43,10 +43,11 @@ Tillägget OMS-Agent kan köras mot dessa Linux-distributioner.
 | SUSE Linux Enterprise Server | 11 och 12 |
 
 ### <a name="agent-and-vm-extension-version"></a>Agent och VM-tillägget version
-Följande tabell innehåller en mappning av versionen av OMS-VM-tillägget och OMS-Agent paket för varje version. En länk till viktig information om OMS paket agentversionen ingår.  
+Följande tabell innehåller en mappning av versionen av OMS-VM-tillägget och OMS-Agent paket för varje version. En länk till viktig information om OMS paket agentversionen ingår. Viktig information innehåller information om felkorrigeringar och nya funktioner som är tillgängliga för en viss agent-version.  
 
 | Version för OMS Linux VM-tillägg | OMS-Agent paket version | 
 |--------------------------------|--------------------------|
+| 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
 | 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
 | 1.4.58.7 | [14.2-125](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-125)|
 | 1.4.56.5 | [1.4.2-124](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-124)|

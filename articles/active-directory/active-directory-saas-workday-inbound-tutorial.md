@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 976d7e7cb304a24f235e51952ce04826776e2789
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -35,7 +35,7 @@ Den [Azure Active Directory-användare som etableras](active-directory-saas-app-
 
 * **Tillbakaskrivning av e-post-adresser till Workday** -Azure AD etableras kan skriva vald användarattribut för Azure AD tillbaka till Workday, till exempel e-postadress.
 
-### <a name="scenarios-covered"></a>Scenarier som tas upp
+### <a name="what-human-resources-scenarios-does-it-cover"></a>Vilka scenarier för personalavdelningen omfattar den?
 
 Workday användaren etablering arbetsflöden stöds av Azure AD-användaren etablering tjänsten aktivera automatisering av följande personal och identitet livscykel scenarier:
 
@@ -46,6 +46,20 @@ Workday användaren etablering arbetsflöden stöds av Azure AD-användaren etab
 * **Medarbetare uppsägningar** – när en anställd avslutas i arbetsdagen, sitt användarkonto inaktiveras automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](active-directory-saas-app-provisioning.md).
 
 * **Medarbetare nytt anlitar** – när en anställd rehired i Workday, sina gamla kontot kan automatiskt återaktivera eller etablerats igen (beroende på dina inställningar) till Active Directory, Azure Active Directory, och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](active-directory-saas-app-provisioning.md).
+
+### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Vem är den här användaren etablering lösning som bäst passar för?
+
+Workday användaren etablering lösningen är för närvarande i förhandsversion och är idealisk för:
+
+* Organisationer som vill ha en förskapad, molnbaserad lösning för Workday användaretablering
+
+* Organisationer som kräver direkt användarförsörjning från Workday till Active Directory eller Azure Active Directory
+
+* Organisationer som kräver att användare som ska etableras med hjälp av data som hämtats från Workday HCM-modul (se [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)) 
+
+* Organisationer som behöver ansluta till flyttar, och så att användarna ska synkroniseras till en eller flera Active Directory-skogar, domäner och organisationsenheter baserat bara på Ändra användarinformation i Workday HCM-modul (se [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
+
+* Organisationer som använder Office 365 för e-post
 
 
 ## <a name="planning-your-solution"></a>Planerar din lösning
@@ -62,10 +76,9 @@ Det scenario som beskrivs i den här kursen förutsätter att du redan har följ
 * För användaretablering till Active Directory, en domänansluten server som kör tjänsten Windows 2012 eller senare krävs för att värden i [lokalt lösenordssynkroniseringsagenten](https://go.microsoft.com/fwlink/?linkid=847801)
 * [Azure AD Connect](connect/active-directory-aadconnect.md) för synkronisering mellan Active Directory och Azure AD
 
-
 ### <a name="solution-architecture"></a>Lösningsarkitektur
 
-Azure AD innehåller en omfattande uppsättning etablering kopplingar för att lösa etablering och livscykel Identitetshantering från Workday till Active Directory, Azure AD, SaaS-appar och framåt. Vilka funktioner du använder och hur du ställer in lösningen varierar beroende på din organisations miljö och behov. Går igenom hur många av följande är närvarande och distribuerade i din organisation som ett första steg:
+Azure AD innehåller en omfattande uppsättning etablering kopplingar för att hjälpa dig att lösa etablering och identitet livscykeln för hantering från Workday till Active Directory, Azure AD, SaaS-appar, och utöver. Vilka funktioner du använder och hur du ställer in lösningen varierar beroende på din organisations miljö och behov. Går igenom hur många av följande är närvarande och distribuerade i din organisation som ett första steg:
 
 * Hur många Active Directory-skogar finns i använda?
 * Hur många Active Directory-domäner finns i använda?
@@ -74,6 +87,7 @@ Azure AD innehåller en omfattande uppsättning etablering kopplingar för att l
 * Finns det användare som behöver etableras både Active Directory och Azure Active Directory (t.ex. ”hybrid” användare)?
 * Finns det användare som ska etableras på Azure Active Directory, men inte Active Directory (t.ex. ”endast molnbaserad” användare)?
 * Behöver användare e-postadresser som ska skrivas tillbaka till Workday?
+
 
 När du har svaren på dessa frågor kan planera du din arbetsdag etablering distributionen genom att följa anvisningarna nedan.
 
@@ -144,7 +158,7 @@ Du måste skapa en säkerhetsgrupp för obegränsad integration system och tilld
    
     ![CreateSecurity grupp](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "CreateSecurity grupp")
 2. Slutför den **skapa säkerhetsgrupp** aktivitet.  
-3. Välj Integration Systemsäkerhetsgrupp – obegränsad från den **typ av innehavare säkerhetsgrupp** listrutan.
+3. Välj **integrering Systemsäkerhetsgrupp (obegränsat)** från den **typ av innehavare säkerhetsgrupp** listrutan.
 4. Skapa en säkerhetsgrupp som medlemmar uttryckligen läggs. 
    
     ![CreateSecurity grupp](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "CreateSecurity grupp")
@@ -164,21 +178,11 @@ Du måste skapa en säkerhetsgrupp för obegränsad integration system och tilld
     ![Systemsäkerhetsgrupp](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "Systemsäkerhetsgrupp")  
 
 ### <a name="configure-security-group-options"></a>Konfigurera alternativ för säkerhet
-I det här steget ska du ge domänens säkerhet princip behörigheter för worker-data som skyddas av säkerhetsprinciper för följande domän:
-
-
-| Åtgärd | Domain Security Policy |
-| ---------- | ---------- | 
-| Hämta och skicka |  Externa konto-etablering |
-| Hämta och skicka | Worker Data: Public Worker rapporter |
-| Hämta och skicka | Worker Data: Alla positioner |
-| Hämta och skicka | Worker Data: Current bemanning Information |
-| Hämta och skicka | Worker Data: Business titel på Worker profil |
-| Visa och ändra | Worker Data: E-post |
+I det här steget ska du ge domänens säkerhet princip behörigheter för worker-data i gruppen.
 
 **Konfigurera alternativ för säkerhet:**
 
-1. Ange säkerhetsprinciper för domänen i sökrutan och klicka på länken **domän säkerhetsprinciper för funktionsområde**.  
+1. Ange **domän säkerhetsprinciper** i sökrutan och klicka på länken **domän säkerhetsprinciper för funktionsområde**.  
    
     ![Domän säkerhetsprinciper](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "säkerhetsprinciper för domänen")  
 2. Sök efter system och välj den **System** funktionsområde.  Klicka på **OK**.  
@@ -190,23 +194,17 @@ I det här steget ska du ge domänens säkerhet princip behörigheter för worke
 4. Klicka på **Redigera behörigheter**, och klicka sedan på den **Redigera behörigheter** dialogrutan sidan lägger till den nya säkerhetsgruppen i listan säkerhetsgrupper med **hämta** och **placera**  integrering behörigheter. 
    
     ![Redigera behörighet](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "redigera behörighet")  
-5. Upprepa steg 1 ovan för att återgå till skärmen för att välja huvudområden och nu, Sök efter personal, Välj den **bemanning funktionsområde** och på **OK**.
+    
+5. Upprepa steg 1 – 4 ovan för var och en av dessa återstående säkerhetsprinciper:
+
+| Åtgärd | Domain Security Policy |
+| ---------- | ---------- | 
+| Hämta och skicka | Worker Data: Public Worker rapporter |
+| Hämta och skicka | Worker Data: Kontakta arbetsinformation |
+| Hämta | Worker Data: Alla positioner |
+| Hämta | Worker Data: Current bemanning Information |
+| Hämta | Worker Data: Business titel på Worker profil |
    
-    ![Domän säkerhetsprinciper](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "säkerhetsprinciper för domänen")  
-6. I listan över säkerhetsprinciper för funktionsområdet Staffing, expanderar **Worker Data: Staffing** och upprepa ovanstående steg 4 för varje återstående säkerhetsprinciper:
-
-   * Worker Data: Public Worker rapporter
-   * Worker Data: Alla positioner
-   * Worker Data: Current bemanning Information
-   * Worker Data: Business titel på Worker profil
-   
-7. Upprepa steg 1, ovan, för att återgå till skärmen för att välja funktionella områden och den här tiden kan söka efter **kontaktinformation**, Välj funktionsområdet Staffing och på **OK**.
-
-8.  I listan över säkerhetsprinciper för funktionsområdet Staffing, expanderar **Worker Data: Kontakta arbetsinformation**, och upprepa steg 4 ovan för säkerhetsprinciper nedan:
-
-    * Worker Data: E-post
-
-    ![Domän säkerhetsprinciper](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "säkerhetsprinciper för domänen")  
     
 ### <a name="activate-security-policy-changes"></a>Aktivera ändringar i säkerhet
 
@@ -225,6 +223,41 @@ I det här steget ska du ge domänens säkerhet princip behörigheter för worke
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Konfigurering av användarförsörjning från Workday till Active Directory
 Följ instruktionerna för att konfigurera användarkonto etablering från Workday till varje Active Directory-skog som du behöver etablering till.
 
+### <a name="planning"></a>Planering
+
+Beakta följande frågor innan du konfigurerar användaretablering till en Active Directory-skog. Svaren på dessa frågor avgör hur din målgrupp filter och attributmappning måste anges. 
+
+* **Vad användare i Workday behöver etableras för Active Directory-skog?**
+
+   * *Exempel: Användare där attributet ”företagets” Workday innehåller värdet ”Contoso” och attributet ”Worker_Type” innehåller ”vanlig”*
+
+* **Hur användare att dirigeras till olika organisationsenheter (OU)?**
+
+   * *Exempel: Användare dirigeras till organisationsenheter som motsvarar en arbetsplats, som definieras i Workday ”namnet” och ”Country_Region_Reference”-attribut*
+
+* **Hur ska du fylls följande attribut i Active Directory?**
+
+   * Nätverksnamn (cn)
+      * *Exempel: Använd Workday User_ID-värdet som angetts av personal*
+      
+   * Anställnings-ID (employeeId)
+      * *Exempel: Använd Workday Worker_ID värdet*
+      
+   * SAM-kontonamn (SAM)
+      * *Exempel: Använd värdet Workday User_ID filtreras via en Azure AD som etablerar uttryck för att ta bort ogiltiga tecken*
+      
+   * User Principal Name (userPrincipalName)
+      * *Exempel: Använda Workday User_ID-värde med en Azure AD som etablering uttryck för att lägga till ett domännamn*
+
+* **Hur ska användarna matchas mellan Workday och Active Directory?**
+
+  * *Exempel: Användare med en arbetsdag ”Worker_ID” värde matchas med Active Directory-användare där ”employeeID” har samma värde. Om Worker_ID-värdet inte finns i Active Directory, skapar du en ny användare.*
+  
+* **Innehåller Active Directory-skogen redan användar-ID krävs för logiken i matchande ska fungera?**
+
+  * *Exempel: Om det här är en ny Workday-distribution, rekommenderas att Active Directory vara förifyllda med rätt Workday Worker_ID värden (eller unika ID-värdet val) att hålla matchande logiken så enkel som möjligt.*
+    
+    
 ### <a name="part-1-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Del 1: Lägga till appen etablering koppling och skapa anslutningen till Workday
 
 **Konfigurera Workday för Active Directory-etablering:**
@@ -320,39 +353,38 @@ I det här avsnittet ska du konfigurera hur informationen flödar från Workday 
 
 **Här följer några exempel attributmappning mellan Workday och Active Directory med vissa vanliga uttryck**
 
--   Det uttryck som mappar till parentDistinguishedName AD-attributet kan användas för att etablera en användare till en viss Organisationsenhet baserat på en eller flera Workday källa attribut. Det här exemplet placerar användare i olika organisationsenheter beroende på deras stad data i Workday.
+-   Det uttryck som mappar till attributet parentDistinguishedName används för att etablera en användare till olika organisationsenheter baserat på en eller flera Workday källa attribut. Det här exemplet här placerar användare i olika organisationsenheter baserat på vilken stad de finns i.
 
--   Det uttryck som mappar till attributet userPrincipalName AD skapa ett UPN för firstName.LastName@contoso.com. Den ersätter också ogiltiga specialtecken.
+-   Attributet userPrincipalName i Active Directory har genererats av sammanbinda Workday användar-ID med ett domänsuffix
 
--   [Det finns dokumentationen om hur du skriver här uttryck](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+-   [Det finns dokumentationen om hur du skriver här uttryck](active-directory-saas-writing-expressions-for-attribute-mappings.md). Det finns exempel på hur du tar bort specialtecken.
 
   
 | ARBETSDAGAR ATTRIBUT | ACTIVE DIRECTORY-ATTRIBUT |  MATCHANDE ID? | SKAPA / UPPDATERA |
 | ---------- | ---------- | ---------- | ---------- |
-|  **WorkerID**  |  EmployeeID | **Ja** | Skrivas i Skapa endast | 
-|  **Namnet**   |   l   |     | Skapa och uppdatera |
-|  **Företag**         | Företag   |     |  Skapa och uppdatera |
-|  **CountryReferenceTwoLetter**      |   CO |     |   Skapa och uppdatera |
-| **CountryReferenceTwoLetter**    |  c  |     |         Skapa och uppdatera |
-| **SupervisoryOrganization**  | Avdelning  |     |  Skapa och uppdatera |
-|  **PreferredNameData**  |  displayName |     |   Skapa och uppdatera |
-| **EmployeeID**    |  cn    |   |   Skrivas i Skapa endast |
-| **Fax**      | facsimileTelephoneNumber     |     |    Skapa och uppdatera |
-| **Förnamn**   | givenName       |     |    Skapa och uppdatera |
+| **WorkerID**  |  EmployeeID | **Ja** | Skrivas i Skapa endast | 
+| **Användar-ID**    |  cn    |   |   Skrivas i Skapa endast |
+| **Ansluta till (”@”, [användarnamn] ”contoso.com”)**   | userPrincipalName     |     | Skrivas i Skapa endast 
+| **Ersätt (Mid (Ersätt (\[UserID\]”, (\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[ \\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) ””, ”,), 1, 20)”, ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Skrivas i Skapa endast |
 | **Växel (\[Active\],, ”0”, ”True”, ”1”)** |  accountDisabled      |     | Skapa och uppdatera |
-| **Mobile**  |    mobila       |     |       Skapa och uppdatera |
-| **E-postadress**    | E-post    |     |     Skapa och uppdatera |
+| **Förnamn**   | givenName       |     |    Skapa och uppdatera |
+| **Efternamn**   |   SN   |     |  Skapa och uppdatera |
+| **PreferredNameData**  |  displayName |     |   Skapa och uppdatera |
+| **Företag**         | Företag   |     |  Skapa och uppdatera |
+| **SupervisoryOrganization**  | Avdelning  |     |  Skapa och uppdatera |
 | **ManagerReference**   | manager  |     |  Skapa och uppdatera |
+| **BusinessTitle**   |  rubrik     |     |  Skapa och uppdatera | 
+| **AddressLineData**    |  streetAddress  |     |   Skapa och uppdatera |
+| **Namnet**   |   l   |     | Skapa och uppdatera |
+| **CountryReferenceTwoLetter**      |   CO |     |   Skapa och uppdatera |
+| **CountryReferenceTwoLetter**    |  c  |     |         Skapa och uppdatera |
+| **CountryRegionReference** |  St     |     | Skapa och uppdatera |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Skapa och uppdatera |
 | **PostalCode**  |   Postnummer  |     | Skapa och uppdatera |
-| **LocalReference** |  preferredLanguage  |     |  Skapa och uppdatera |
-| **Ersätt(Mid(Ersätt(\[EmployeeID\]”, (\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])”” , ”,), 1, 20)”, ([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Skrivas i Skapa endast |
-| **Efternamn**   |   SN   |     |  Skapa och uppdatera |
-| **CountryRegionReference** |  St     |     | Skapa och uppdatera |
-| **AddressLineData**    |  streetAddress  |     |   Skapa och uppdatera |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Skapa och uppdatera |
-| **BusinessTitle**   |  rubrik     |     |  Skapa och uppdatera |
-| **Ansluta (”@”, Ersätt (Ersätt (ersätta (Ersätt (ersätta (Ersätt (ersätta (ersätta (Ersätt ((Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt ( Ersätt (ansluta till (””., [Förnamn], [Efternamn]), ”([Øø])”, ”Outlook Express”,), ”[Ææ]”, ”ae”,), ”([äãàâãåáąÄÃÀÂÃÅÁĄA])”, ”a”,), ”[B]”, ”b”,), ”([CçčćÇČĆ])”, ”c”,), ”([ďĎD])”, ”d”,), ”([ëèéêęěËÈÉÊĘĚE])”, ”e”,), ”[F]”, ”f”,), ”([G])” ”g”,), ”[H]”, ”h”,), ”([ïîìíÏÎÌÍI])”, ”i”,), ”[J]”, ”j”,), ”([K])”, ”k”,), ”([ľłŁĽL])”, ”l”,), ”([M])”, ”m”,), ”([ñńňÑŃŇN])”, ”n”,), ”([öòőõôóÖÒŐÕÔÓO])”, ”o”,), ”([P])”, ”p”,), ”([Q])”, ”q”,),  ”([ŘŘR])”, ”r”,), ”([ßšśŠŚS])”, ”s”,), ”([TŤť])”, ”t”,), ”([üùûúůűÜÙÛÚŮŰU])”, ”u”,), ”([V])”, ”v”,), ”([B])”, ”b”,), ”([ýÿýŸÝY])”, ”y”,), ”([źžżŹŽŻZ])”, ”z”,) ”,”, ””,), ”contoso.com”)**   | userPrincipalName     |     | Skrivas i Skapa endast                                                   
+| **Fax**      | facsimileTelephoneNumber     |     |    Skapa och uppdatera |
+| **Mobile**  |    mobila       |     |       Skapa och uppdatera |
+| **LocalReference** |  preferredLanguage  |     |  Skapa och uppdatera |                                               
 | **Växel (\[namnet\]”, OU standardanvändare, OU = = användare, OU = standard, OU = platser, DC = contoso, DC = com”, ”Dallas” ”, OU standardanvändare, OU = = användare, OU Dallas, OU = platser, DC = = contoso, DC = com”, ”Austin” ”OU standardanvändare, OU = = Användare, OU Austin, OU = platser, DC = = contoso, DC = com ”,” Seattle ””, OU standardanvändare, OU = = användare, OU Seattle, OU = = platser, DC = contoso, DC = com ”,” London ””, OU standardanvändare, OU = = användare, OU London, OU = platser, DC = = contoso, DC = com ”)**  | parentDistinguishedName     |     |  Skapa och uppdatera |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>Del 3: Konfigurera lokal synkronisering agent
@@ -696,6 +728,7 @@ Om du vill göra detta måste du använda [Workday Studio](https://community.wor
             <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
             <wd:Include_Photo>true</wd:Include_Photo>
             <wd:Include_User_Account>true</wd:Include_User_Account>
+            <wd:Include_Roles>true</wd:Include_Roles>
           </wd:Response_Group>
         </wd:Get_Workers_Request>
       </env:Body>

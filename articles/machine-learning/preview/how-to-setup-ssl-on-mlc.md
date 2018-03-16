@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: b76fe7c0caa4a9aca76a9a3f50d1fced0ab67cba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 444803eeb77e79a8bfe3271ddf27bd428042c875
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>Aktivera SSL på ett kluster i Azure Machine Learning beräkna (MLC) 
 
@@ -31,7 +31,7 @@ Dessa instruktioner kan du konfigurera SSL för poäng anrop på ett kluster med
 
 Du har två filer när du har slutfört krav:
 
-* En fil för certifikat, t.ex. `cert.pem`
+* En fil för certifikat, till exempel `cert.pem`. Kontrollera att filen har fullständig certifikatkedjan.
 * En fil för nyckeln, t.ex. `key.pem`
 
 
@@ -55,7 +55,7 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## <a name="map-the-cname-and-the-ip-address"></a>Mappa CNAME och IP-adress
 
-Skapa en mappning mellan CNAME som du valde i krav och IP-adressen för den realtid frontend (FE). För att identifiera IP-adressen för FE, kör du kommandot nedan. Utdata visar ett fält med namnet ”publicIpAddress” som innehåller IP-adressen i realtid frontend klustret. Läser du anvisningarna för din DNS-leverantör för att konfigurera en CNAME-post.
+Skapa en mappning mellan CNAME som du valde i krav och IP-adressen för den realtid frontend (FE). För att identifiera IP-adressen för FE, kör du kommandot nedan. Utdata visar ett fält med namnet ”publicIpAddress” som innehåller IP-adressen i realtid frontend klustret. Läser du anvisningarna för din DNS-leverantör för att ställa in en post från FQDN som används i CNAME-post till den offentliga IP-adressen.
 
 
 

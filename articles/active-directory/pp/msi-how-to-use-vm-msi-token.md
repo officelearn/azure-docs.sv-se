@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a9513a59ec4540c6d63236519873c6e1e177b65a
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Skaffa en åtkomst-token för en virtuell dator Användartilldelad hanteras Service identitet (MSI)
 
@@ -26,9 +26,7 @@ ms.lasthandoff: 02/03/2018
 Den här artikeln innehåller olika exempel på kod och skript för token förvärv, samt information om viktiga ämnen, till exempel hantering token upphör att gälla och HTTP-fel.
 
 ## <a name="prerequisites"></a>Förutsättningar
-
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
-
 Om du planerar att använda Azure PowerShell-exemplen i den här artikeln bör du installera den senaste versionen av [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM).
 
 > [!IMPORTANT]
@@ -48,21 +46,28 @@ Ett klientprogram kan begära en MSI [endast app-åtkomst-token](~/articles/acti
 
 ## <a name="get-a-token-using-http"></a>Hämta en token med HTTP 
 
-Det grundläggande gränssnittet för att erhålla en åtkomst-token baseras på REST, vilket gör den tillgänglig för alla klientprogram som körs på den virtuella datorn som kan göra HTTP-REST-anrop. Detta liknar Azure AD-programmodellen, men klienten använder en localhost-slutpunkt på den virtuella datorn (jämfört med en Azure AD-slutpunkten).
+Det grundläggande gränssnittet för att erhålla en åtkomst-token baseras på REST, vilket gör den tillgänglig för alla klientprogram som körs på den virtuella datorn som kan göra HTTP-REST-anrop. Detta liknar Azure AD-programmodellen, men klienten använder en slutpunkt på den virtuella datorn (jämfört med en Azure AD-slutpunkten).
 
-Exempel på begäran:
+Exempel på begäran med hjälp av slutpunkten instans Metadata Service (IMDS):
 
 ```
-GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1
-Metadata: true
+GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
+```
+
+Exempel på begäran med hjälp av MSI VM-tillägget slutpunkten (kommande utfasningen):
+
+```
+GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
 ```
 
 | Element | Beskrivning |
 | ------- | ----------- |
 | `GET` | HTTP-verbet, vilket innebär att du vill hämta data från slutpunkten. I det här fallet en OAuth åtkomst-token. | 
-| `http://localhost:50342/oauth2/token` | MSI slutpunkten, där 50342 är standardporten och kan konfigureras. |
-| `resource` | En frågesträngsparameter som anger App-ID-URI för målresursen. Den visas också i den `aud` (målgrupp) anspråk för Utfärdad token. Det här exemplet begär en token för åtkomst till Azure Resource Manager, som har en https://management.azure.com/ App-ID-URI. |
-| `client_id` | En frågesträngsparameter som anger klient-ID (även kallat App-ID) för tjänstens huvudnamn som representerar Användartilldelad MSI-filerna. Detta värde returneras den `clientId` egenskapen under skapandet av en Användartilldelad MSI. Det här exemplet begär en token för klient-ID ”712eac09-e943-418c-9be6-9fd5c91078bl”. |
+| `http://169.254.169.254/metadata/identity/oauth2/token` | MSI-slutpunkten för tjänsten instans Metadata. |
+| `http://localhost:50342/oauth2/token` | MSI-slutpunkt för VM-tillägget, där 50342 är standardporten och kan konfigureras. |
+| `api-version`  | En frågesträngsparameter som anger API-version för IMDS slutpunkten.  |
+| `resource` | En frågesträngsparameter som anger App-ID-URI för målresursen. Den visas också i den `aud` (målgrupp) anspråk för Utfärdad token. Det här exemplet begär en token för åtkomst till Azure Resource Manager, som har en App-ID-URI för https://management.azure.com/. |
+| `client_id` |  En *valfria* frågesträngparametern, som anger klient-ID (även kallat App-ID) för tjänstens huvudnamn som representerar en Användartilldelad MSI. Den här parametern är inte obligatoriskt om du använder automatiskt tilldelade MSI. Detta värde returneras den `clientId` egenskapen under skapandet av en Användartilldelad MSI. Det här exemplet begär en token för klient-ID ”712eac09-e943-418c-9be6-9fd5c91078bl”. |
 | `Metadata` | En HTTP-begäran huvudfältet, krävs av MSI som en lösning mot angrepp Server Side begäran förfalskning (SSRF). Det här värdet måste anges till ”true”, alla med gemener.
 
 Exempelsvar:
@@ -94,6 +99,16 @@ Content-Type: application/json
 ## <a name="get-a-token-using-curl"></a>Hämta en token med CURL
 
 Se till att ersätta klient-ID (även kallat App-ID) för din Användartilldelad MSI-tjänstens huvudnamn, för den <MSI CLIENT ID> värdet för den `client_id` parameter. Detta värde returneras den `clientId` egenskapen under skapandet av en Användartilldelad MSI.
+  
+Exempel på begäran med hjälp av slutpunkten instans Metadata Service (IMDS):
+
+   ```bash
+   response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>")
+   access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
+   echo The MSI access token is $access_token
+   ```
+   
+Exempel på begäran med hjälp av MSI VM-tillägget slutpunkten (kommande utfasningen):
 
    ```bash
    response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=<MSI CLIENT ID>" -H Metadata:true -s)
@@ -104,7 +119,7 @@ Se till att ersätta klient-ID (även kallat App-ID) för din Användartilldelad
    Exempel på svar:
 
    ```bash
-   user@vmLinux:~$ response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl" -H Metadata:true -s)
+   user@vmLinux:~$ response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl")
    user@vmLinux:~$ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
    user@vmLinux:~$ echo The MSI access token is $access_token
    The MSI access token is eyJ0eXAiOiJKV1QiLCJhbGciO...
@@ -112,7 +127,7 @@ Se till att ersätta klient-ID (även kallat App-ID) för din Användartilldelad
 
 ## <a name="handling-token-expiration"></a>Hantera token upphör att gälla
 
-Lokala MSI-undersystemet cachelagrar token. Därför kan anropa du den så ofta du vill och ett under överföring anrop till Azure AD resultatet bara om:
+MSI-undersystemet cachelagrar token. Därför kan anropa du den så ofta du vill och ett under överföring anrop till Azure AD resultatet bara om:
 - en cache-miss inträffar på grund av att inga token i cacheminnet
 - token har upphört att gälla
 
@@ -142,7 +157,7 @@ Det här avsnittet beskrivs möjliga felsvar. En ”200 OK” status är ett lyc
 | ----------- | ----- | ----------------- | -------- |
 | 400 Felaktig förfrågan | invalid_resource | AADSTS50001: Programmet heter  *\<URI\>*  hittades inte i klient med namnet  *\<klient-ID\>*. Detta kan inträffa om programmet inte har installerats av administratör för klienten eller godkänt för av alla användare i klienten. Du har kanske skickar din begäran om autentisering fel klienten. \ | (Endast Linux) |
 | 400 Felaktig förfrågan | bad_request_102 | Metadata som krävs huvud har inte angetts | Antingen den `Metadata` begäran huvudfältet saknas från begäran, eller är felaktigt formaterad. Värdet måste anges som `true`, alla med gemener. Se ”exempelbegäran” i den [hämta en token som använder HTTP](#get-a-token-using-http) avsnittet ett exempel.|
-| 401 obehörig | unknown_source | Okänd källa  *\<URI\>* | Kontrollera att din HTTP GET-begäran URI är korrekt formaterad. Den `scheme:host/resource-path` del måste anges som `http://localhost:50342/oauth2/token`. Se ”exempelbegäran” i den [hämta en token som använder HTTP](#get-a-token-using-http) avsnittet ett exempel.|
+| 401 obehörig | unknown_source | Okänd källa  *\<URI\>* | Kontrollera att din HTTP GET-begäran URI är korrekt formaterad. Den `scheme:host/resource-path` del måste anges som `http://169.254.169.254/metadata/identity/oath2/token` eller `http://localhost:50342/oauth2/token`. Se ”exempelbegäran” i den [hämta en token som använder HTTP](#get-a-token-using-http) avsnittet ett exempel.|
 |           | invalid_request | Begäran saknar en obligatorisk parameter, innehåller ett ogiltigt parametervärde, innehåller en parameter mer än en gång eller på annat sätt är felaktig. |  |
 |           | unauthorized_client | Klienten har inte behörighet att begära en åtkomst-token med den här metoden. | På grund av en begäran som inte använder lokal loopback för att anropa tillägget eller på en virtuell dator som inte har en MSI som konfigurerats på rätt sätt. Se [konfigurera en virtuell dator hanteras Service identitet (MSI) med hjälp av Azure portal](msi-qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfiguration. |
 |           | access_denied | Resursägare eller auktorisering servern nekade begäran. |  |

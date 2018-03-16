@@ -56,12 +56,12 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 Det här kommandot ger resultat som liknar följande tabell:
 
-| användar-ID | användarnamn | Partition | rowkey |
+| användar-ID | användarnamn | partition | rowkey |
 |----|---------|---------------|----|
-| 1 | Chris | Partition1 | CERTIFIKATUTFÄRDARE |
-| 3 | Christina | Partition1 | WA |
-| 2 | Jessie | Partition2 | NM |
-| 4 | Stefan | Partition2 | TX |
+| 1 | Chris | partition1 | CA |
+| 3 | Christine | partition1 | WA |
+| 2 | Jessie | partition2 | NM |
+| 4 | Stefan | partition2 | TX |
 
 #### <a name="retrieve-entities-for-a-specific-partition"></a>Hämta entiteter för en specifik partition
 
@@ -72,10 +72,10 @@ Get-AzureStorageTableRowByPartitionKey -table $storageTable -partitionKey $parti
 ```
 Resultatet liknar följande tabell:
 
-| användar-ID | användarnamn | Partition | rowkey |
+| användar-ID | användarnamn | partition | rowkey |
 |----|---------|---------------|----|
-| 1 | Chris | Partition1 | CERTIFIKATUTFÄRDARE |
-| 3 | Christina | Partition1 | WA |
+| 1 | Chris | partition1 | CA |
+| 3 | Christine | partition1 | WA |
 
 #### <a name="retrieve-entities-for-a-specific-value-in-a-specific-column"></a>Hämta entiteter för ett specifikt värde i en viss kolumn
 
@@ -94,8 +94,8 @@ Den här frågan returnerar en post.
 |----|----|
 | användar-ID | 1 |
 | användarnamn | Chris |
-| PartitionKey | Partition1 |
-| RowKey      | CERTIFIKATUTFÄRDARE |
+| PartitionKey | partition1 |
+| RowKey      | CA |
 
 #### <a name="retrieve-entities-using-a-custom-filter"></a>Hämta entiteter med ett anpassat filter 
 
@@ -104,7 +104,7 @@ Använd för att hämta entiteter med ett anpassat filter, **Get-AzureStorageTab
 ```powershell
 Get-AzureStorageTableRowByCustomFilter `
     -table $storageTable `
-    -customFilter "(userid eq '1')"
+    -customFilter "(userid eq 1)"
 ```
 
 Den här frågan returnerar en post.
@@ -113,12 +113,12 @@ Den här frågan returnerar en post.
 |----|----|
 | användar-ID | 1 |
 | användarnamn | Chris |
-| PartitionKey | Partition1 |
-| RowKey      | CERTIFIKATUTFÄRDARE |
+| PartitionKey | partition1 |
+| RowKey      | CA |
 
 ### <a name="updating-entities"></a>Uppdatera entiteter 
 
-Det finns tre steg för att uppdatera entiteter. Först hämta entiteten som ska ändras. Därefter kontrollera ändringen. Tredje kan genomföra ändringen med **uppdatering AzureStorageTableRow**.
+Det finns tre steg för att uppdatera entiteter. Först hämta entiteten att ändra. Därefter kontrollera ändringen. Tredje kan genomföra ändringen med **uppdatering AzureStorageTableRow**.
 
 Uppdatera entiteten med användarnamn = 'Jessie' om du vill ha användarnamn = 'Jessie2'. Det här exemplet visar också ett annat sätt att skapa ett anpassat filter med hjälp av .NET-typer. 
 
@@ -148,7 +148,7 @@ Resultaten visar Jessie2 posten.
 |----|----|
 | användar-ID | 2 |
 | användarnamn | Jessie2 |
-| PartitionKey | Partition2 |
+| PartitionKey | partition2 |
 | RowKey      | NM |
 
 ### <a name="deleting-table-entities"></a>Ta bort tabellentiteter
@@ -177,10 +177,10 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 #### <a name="delete-all-entities-in-the-table"></a>Ta bort alla entiteter i tabellen 
 
-Om du vill ta bort alla entiteter i tabellen måste du hämta dem pipe-resultaten till cmdleten remove. 
+Om du vill ta bort alla entiteter i tabellen, hämta dem och skicka resultatet till cmdleten remove. 
 
 ```powershell
-# Get all rows and pipe it into the remove cmdlet.
+# Get all rows and pipe the result into the remove cmdlet.
 Get-AzureStorageTableRowAll `
     -table $storageTable | Remove-AzureStorageTableRow -table $storageTable 
 

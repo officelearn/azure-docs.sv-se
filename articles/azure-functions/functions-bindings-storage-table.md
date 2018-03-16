@@ -15,17 +15,23 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 7f82083cd18f762d1037da2ccf43e9d0c220fe09
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8c028bd20518a07a5fb35e36d0819c001eb2a7d5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage bindningar för Azure Functions
 
 Den här artikeln förklarar hur du arbetar med Azure Table storage bindningar i Azure Functions. Azure Functions stöder indata och utdata bindningar för Azure Table storage.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Paket
+
+Table storage bindningar finns i den [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet. Källkoden för paketet är i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/) GitHub-lagringsplatsen.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="input"></a>Indata
 
@@ -288,7 +294,7 @@ module.exports = function (context, myQueueItem) {
  
 I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attribut för att konfigurera en tabell indatabindning:
 
-* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)
 
   Attributets konstruktorn har tabellnamn, partitionsnyckel och radnyckel. Den kan användas på en out-parameter eller returvärdet för funktionen, som visas i följande exempel:
 
@@ -318,7 +324,7 @@ I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attr
 
   En komplett exempel finns [indata - C#-exempel](#input---c-example).
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
   Ger ett annat sätt att ange storage-konto som ska användas. Konstruktorn får samma namn som en appinställning som innehåller en anslutningssträng för lagring. Attributet kan användas i parametern, metoden eller klassnivå. I följande exempel visas klassnivå och metoden:
 
@@ -567,7 +573,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Utdata - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs).
 
 Attributets konstruktorn har tabellens namn. Den kan användas på ett `out` parametern eller returvärdet för funktionen som visas i följande exempel:
 
@@ -625,7 +631,7 @@ Table storage utdata bindningen stöder följande scenarier:
 
 * **Skriv en eller flera rader i C# eller C#**
 
-  Få åtkomst till utdata tabellentiteten i C# och C# skript, med hjälp av en metodparameter `ICollector<T> paramName` eller `ICollectorAsync<T> paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. `T` Anger schemat för de enheter som du vill lägga till. Normalt `T` härleds från `TableEntity` eller implementerar `ITableEntity`, men det behöver inte. Partitionsnyckeln och rad nyckeln värden i *function.json* eller `Table` Attributkonstruktorn används inte i det här scenariot.
+  Få åtkomst till utdata tabellentiteten i C# och C# skript, med hjälp av en metodparameter `ICollector<T> paramName` eller `IAsyncCollector<T> paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. `T` Anger schemat för de enheter som du vill lägga till. Normalt `T` härleds från `TableEntity` eller implementerar `ITableEntity`, men det behöver inte. Partitionsnyckeln och rad nyckeln värden i *function.json* eller `Table` Attributkonstruktorn används inte i det här scenariot.
 
   Ett alternativ är att använda en `CloudTable paramName` Metodparametern att skriva till tabellen med hjälp av Azure Storage SDK: N.
 

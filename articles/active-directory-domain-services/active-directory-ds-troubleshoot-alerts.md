@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 2f2ebb1dcc8bed86348389d6a5a7c274194efde0
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: e4b8f31fe3eb79f9b38ae01af598290582a2cde3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - felsökning av aviseringar
 Den här artikeln innehåller felsökning guider för alla aviseringar som kan uppstå på din hanterade domän.
 
 
-Välj felsökningssteg som motsvarar eller avisering ID eller meddelande som du får.
+Välj felsökningsstegen som är kopplade till ID eller meddelande i aviseringen.
 
 | **Varnings-ID.** | **Aviseringsmeddelande** | **Lösning** |
 | --- | --- | :--- |
@@ -34,12 +34,12 @@ Välj felsökningssteg som motsvarar eller avisering ID eller meddelande som du 
 | AADDS102 | *Ett huvudnamn för tjänsten som krävs för Azure AD Domain Services ska fungera korrekt har tagits bort från Azure AD-katalogen. Den här konfigurationen påverkar Microsofts möjlighet att övervaka, hantera, korrigering, och synkronisera din hanterade domän.* | [Tjänstens huvudnamn saknas](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *IP-adressintervall för det virtuella nätverket som du har aktiverat Azure AD Domain Services är i en offentlig IP-adressintervallet. Azure AD Domain Services måste aktiveras i ett virtuellt nätverk med en privat IP-adressintervall. Den här konfigurationen påverkar Microsofts möjlighet att övervaka, hantera, korrigeringsfil och synkronisera din hanterade domän.* | [Adressen är i en offentlig IP-adressintervall](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft kan inte nå domänkontrollanterna för den här hanterade domänen. Detta kan inträffa om en nätverkssäkerhetsgrupp (NSG) som har konfigurerats på din virtuella nätverk blockerar åtkomst till den hanterade domänen. En annan möjlig orsak är att om det finns en användardefinierad väg som blockerar inkommande trafik från internet.* | [Nätverksfel](active-directory-ds-troubleshoot-nsg.md) |
-| AADDS500 | *Den hanterade domänen senast synkroniserades med Azure AD på {0}. Användare kan inte logga in på den hanterade domänen eller gruppmedlemskap kanske inte är synkroniserad med Azure AD.* | [Synkronisering har inte utförts på ett tag](#aadds500-synchronization-has-not-completed-in-a-while) |
-| AADDS501 | *Den hanterade domänen senast säkerhetskopierades på XX.* | [En säkerhetskopiering har inte utförts på ett tag](#aadds501-a-backup-has-not-been-taken-in-a-while) |
+| AADDS105 | *Tjänstens huvudnamn med program-ID ”d87dcbc6-a371-462e-88e3-28ad15ec4e64” har tagits bort och Microsoft gick att skapa den på nytt. Den här tjänstens huvudnamn hanterar en annan tjänstens huvudnamn och ett program som används för synkronisering av lösenord. Den hanterade tjänstens huvudnamn program tillåts inte under nyligen skapade tjänstens huvudnamn och kommer att bli inaktuell när synkroniseringen certifikatet upphör att gälla. Detta innebär att nyligen skapade tjänstens huvudnamn inte kommer att uppdatera gamla hanterade program och synkronisering av objekt från AAD kommer att påverkas.* | [Programmet för synkronisering av lösenord är inaktuell](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
+| AADDS500 | *Den hanterade domänen senast synkroniserades med Azure AD [dag]. Användare kan inte logga in på den hanterade domänen eller gruppmedlemskap kanske inte är synkroniserad med Azure AD.* | [Synkronisering har inte utförts på ett tag](#aadds500-synchronization-has-not-completed-in-a-while) |
+| AADDS501 | *Den hanterade domänen senast säkerhetskopierades [dag].* | [En säkerhetskopiering har inte utförts på ett tag](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | *Säkert LDAP-certifikatet för den hanterade domänen upphör XX.* | [Att säkra LDAP-certifikat](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *Den hanterade domänen har pausats eftersom Azure-prenumerationen som är kopplade till domänen inte är aktiv.* | [Upphävande på grund av inaktiverad prenumeration](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | *Den hanterade domänen har pausats på grund av en ogiltig konfiguration. Tjänsten har inte kan hantera, korrigering, eller uppdatera domänkontrollanterna för din hanterade domän under en längre tid.* | [Upphävande på grund av en ogiltig konfiguration](#aadds504-suspension-due-to-an-invalid-configuration) |
-
 
 
 ## <a name="aadds100-missing-directory"></a>AADDS100: Saknas directory
@@ -47,7 +47,7 @@ Välj felsökningssteg som motsvarar eller avisering ID eller meddelande som du 
 
 *Azure AD-katalog som är associerade med din hanterade domän kan ha tagits bort. Den hanterade domänen inte längre i en konfiguration som stöds. Microsoft kan övervaka, hantera, korrigera och synkronisera din hanterade domän.*
 
-**Reparation:**
+**Lösning:**
 
 Det här felet beror vanligtvis på felaktigt flyttar din Azure-prenumeration till en ny Azure AD-katalog och ta bort gammalt Azure AD-katalog som fortfarande är associerat med Azure AD Domain Services.
 
@@ -58,7 +58,7 @@ Det här felet är oåterkalleligt. Lös, måste du [ta bort den befintliga Hant
 
 *Azure AD Domain Services kan inte aktiveras i en Azure AD B2C-katalog.*
 
-**Reparation:**
+**Lösning:**
 
 >[!NOTE]
 >För att fortsätta använda Azure AD Domain Services, måste du återskapa din Azure AD Domain Services-instans i en icke - Azure AD B2C-katalog.
@@ -75,7 +75,7 @@ Följ dessa steg om du vill återställa din tjänst:
 
 *IP-adressintervall för det virtuella nätverket som du har aktiverat Azure AD Domain Services är i en offentlig IP-adressintervallet. Azure AD Domain Services måste aktiveras i ett virtuellt nätverk med en privat IP-adressintervall. Den här konfigurationen påverkar Microsofts möjlighet att övervaka, hantera, korrigeringsfil och synkronisera din hanterade domän.*
 
-**Reparation:**
+**Lösning:**
 
 > [!NOTE]
 > Om du vill åtgärda det här problemet måste du ta bort den befintliga Hantera domänen och skapa den igen i ett virtuellt nätverk med en privat IP-adressintervall. Den här processen är störande.
@@ -104,9 +104,9 @@ I det virtuella nätverket kan datorer gör förfrågningar till Azure-resurser 
 
 **Varningsmeddelande:**
 
-*Den hanterade domänen senast synkroniserades med Azure AD på {0}. Användare kan inte logga in på den hanterade domänen eller gruppmedlemskap kanske inte är synkroniserad med Azure AD.*
+*Den hanterade domänen senast synkroniserades med Azure AD [dag]. Användare kan inte logga in på den hanterade domänen eller gruppmedlemskap kanske inte är synkroniserad med Azure AD.*
 
-**Reparation:**
+**Lösning:**
 
 [Kontrollera din domän hälsa](active-directory-ds-check-health.md) för eventuella aviseringar som kan tyda på problem i konfigurationen för din hanterade domän. Problem med konfigurationen kan ibland blockera Microsofts möjlighet att synkronisera din hanterade domän. Om du ska kunna lösa alla aviseringar, vänta tillbaka två timmar och kontrollera om du vill se om synkroniseringen har slutförts.
 
@@ -115,9 +115,9 @@ I det virtuella nätverket kan datorer gör förfrågningar till Azure-resurser 
 
 **Varningsmeddelande:**
 
-*Den hanterade domänen senast säkerhetskopierades på XX.*
+*Den hanterade domänen senast säkerhetskopierades [dag].*
 
-**Reparation:**
+**Lösning:**
 
 [Kontrollera din domän hälsa](active-directory-ds-check-health.md) för eventuella aviseringar som kan tyda på problem i konfigurationen för din hanterade domän. Problem med konfigurationen kan ibland blockera Microsofts möjlighet att synkronisera din hanterade domän. Om du ska kunna lösa alla aviseringar, vänta tillbaka två timmar och kontrollera om du vill se om synkroniseringen har slutförts.
 
@@ -128,7 +128,7 @@ I det virtuella nätverket kan datorer gör förfrågningar till Azure-resurser 
 
 *Den hanterade domänen har pausats eftersom Azure-prenumerationen som är kopplade till domänen inte är aktiv.*
 
-**Reparation:**
+**Lösning:**
 
 Att återställa din tjänst [förnya prenumerationen Azure](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable) som är associerade med din hanterade domän.
 
@@ -138,7 +138,7 @@ Att återställa din tjänst [förnya prenumerationen Azure](https://docs.micros
 
 *Den hanterade domänen har pausats på grund av en ogiltig konfiguration. Tjänsten har inte kan hantera, korrigering, eller uppdatera domänkontrollanterna för din hanterade domän under en längre tid.*
 
-**Reparation:**
+**Lösning:**
 
 [Kontrollera din domän hälsa](active-directory-ds-check-health.md) för eventuella aviseringar som kan tyda på problem i konfigurationen för din hanterade domän. Om du kan lösa några av dessa varningar, göra det. Kontakta supporten om du vill aktivera prenumerationen igen efter.
 

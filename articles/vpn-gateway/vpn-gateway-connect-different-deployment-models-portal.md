@@ -1,6 +1,6 @@
 ---
 title: "Ansluta klassiska virtuella nätverk till Azure Resource Manager VNets: Portal | Microsoft Docs"
-description: "Skapa en VPN-anslutning mellan klassiska Vnet och Resource Manager VNets med hjälp av VPN-Gateway och -portalen"
+description: "Steg för att ansluta klassiska Vnet till Resource Manager VNets med hjälp av VPN-Gateway och -portalen"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/13/2018
+ms.date: 03/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 90a3c51fa9acbcd9701d4c2b135688ef5148bbf8
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ad6b33b5411d3e38f099726df01fcafc8dc90d38
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Ansluta virtuella nätverk från olika distributionsmodeller med hjälp av portalen
 
@@ -157,9 +157,9 @@ Om du inte har ett VNet Resource Manager och kör de här stegen som Övning, sk
 
 Innan du skapar en virtuell nätverksgateway, behöver du först skapa gateway-undernätet. Skapa en gateway-undernät med CIDR-antal för /28 eller större (/ 27/26, etc.). Om du skapar detta som en del av en uppgift kan använda du exempelvärden.
 
-[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
-
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
+
+[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ### <a name="creategw"></a>3. Skapa en virtuell nätverksgateway
 

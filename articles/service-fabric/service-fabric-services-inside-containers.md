@@ -14,21 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/04/2017
 ms.author: anmola
-ms.openlocfilehash: 6f8ad0bad8d1ae861e6b72f7e1a32ab0675813c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e66e488d8e547e828c014b105a816a14726e5005
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-containerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a>Så här containerize Service Fabric tillförlitliga tjänster och Reliable Actors (förhandsgranskning)
 
 Service Fabric stöder containerizing Service Fabric-mikrotjänster (Reliable Services och tillförlitlig baserat aktörstjänster). Mer information finns i [service fabric-behållare](service-fabric-containers-overview.md).
 
-
- Den här funktionen är i förhandsversionen och den här artikeln innehåller de olika stegen för att få din tjänst som körs i en behållare.  
+Den här funktionen är i förhandsversionen och den här artikeln innehåller de olika stegen för att få din tjänst som körs i en behållare.  
 
 > [!NOTE]
-> Den här funktionen är i förhandsvisning och stöds inte i produktion. Den här funktionen fungerar för närvarande endast för Windows.
+> Den här funktionen är i förhandsvisning och stöds inte i produktion. Den här funktionen fungerar för närvarande endast för Windows. Om du vill köra behållare körs klustret på Windows Server 2016 med behållare.
 
 ## <a name="steps-to-containerize-your-service-fabric-application"></a>Steg för att containerize tillämpningsprogrammet Service Fabric
 

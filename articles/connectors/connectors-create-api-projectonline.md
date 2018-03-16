@@ -3,7 +3,7 @@ title: ProjectOnline connector i Azure Logic Apps | Microsoft Docs
 description: "Skapa logikappar med Azure App service. Project Online är en flexibel lösning för online för projekthantering portfölj (PPM) och dagliga arbete från Microsoft. Levereras via Office 365 Project Online gör det möjligt att snabbt komma igång med funktioner för hantering av kraftfulla projekt du planerar, prioritera och hantera projekt och projekt portfölj investeringar – från valfri plats på nästan vilken enhet."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: be1fc1dd5b9122a62bfb1810ff29f6a38900c9b3
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: d1fe1707fc71e91436e51ad29c20500dab88957d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-projectonline-connector"></a>Kom igång med ProjectOnline-koppling
 Project Online är en flexibel lösning för online för projekthantering portfölj (PPM) och dagliga arbete från Microsoft. Levereras via Office 365 Project Online gör det möjligt att snabbt komma igång med funktioner för hantering av kraftfulla projekt du planerar, prioritera och hantera projekt och projekt portfölj investeringar – från valfri plats på nästan vilken enhet.

@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: 795d9ec0b0cac5d74673404f1d0d851393336df0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: saveenr
+ms.openlocfilehash: 5b283e91daf25d4fad3e92c69f8ddde9ddb097b4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-java-sdk"></a>Kom igång med Azure Data Lake Analytics med hjälp av Java SDK
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -27,7 +27,7 @@ Lär dig hur du använder Azure Data Lake Analytics Java SDK för att skapa ett 
 
 I de här självstudierna utvecklar du ett Java-konsolprogram som innehåller exempel på vanliga administrativa uppgifter som att skapa testdata och skickar ett jobb.  Klicka på flikarna överst i det här avsnittet om du vill gå igenom samma självstudier med andra verktyg.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Java Development Kit (JDK) 8 (med Java version 1.8).
 * IntelliJ eller en annan lämplig Java Development Environment. Det här är valfritt men rekommenderas. Instruktionerna nedan använder IntelliJ
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -342,7 +342,7 @@ Du måste ge ditt program behörighet att skapa resurser i Azure för att dessa 
 
 1. Följ anvisningarna för att köra och slutföra programmet.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * Klicka på flikväljarna överst på sidan om du vill se samma självstudier med andra verktyg.
 * Om du vill se en mer komplex fråga, se [Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Information om att utveckla U-SQL-program finns i [Utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).

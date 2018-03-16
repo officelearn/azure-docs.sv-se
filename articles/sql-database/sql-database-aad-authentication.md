@@ -3,17 +3,17 @@ title: "Azure Active Directory-auth - Azure SQL (översikt) | Microsoft Docs"
 description: "Lär dig mer om hur du använder Azure Active Directory för autentisering med SQL-databas, hanterade-instans och SQL Data Warehouse"
 services: sql-database
 author: GithubMirek
-manager: johammer
+manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 9745fef33bf00e7249c1cb550c5164474bf5c3ee
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: cfad53a3f86450163b2e29d5e4d4ed2726ecb0bc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Använda Azure Active Directory-autentisering för autentisering med SQL-databas, hanteras instans eller SQL Data Warehouse
 Azure Active Directory-autentisering är en mekanism för anslutning till Microsoft Azure SQL Database och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure Active Directory (AD Azure). Med Azure AD-autentisering kan du centralt hantera identiteter för databasanvändare och andra Microsoft-tjänster på en central plats. Central hantering av ID innehåller en enda plats för att hantera användare och förenklar hantering av behörighet. Följande: fördelar

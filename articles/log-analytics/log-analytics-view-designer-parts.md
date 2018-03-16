@@ -4,7 +4,7 @@ description: "Du kan skapa anpassade vyer i Azure portal som visar olika datavis
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
 ms.service: log-analytics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 03/12/2018
 ms.author: bwren
-ms.openlocfilehash: 6fd19cce955e1f06c9b6f5a9ef5d85d9fd63c1c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a2573eef3c90c1840c0d53b2f8aa2cfe2d3a7242
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Referenshandboken Vydesigner visualiseringen delar i logganalys
 Du kan skapa anpassade vyer i Azure-portalen som presenterar en mängd olika datavisualiseringar från logganalys-arbetsytan med hjälp av Vydesigner i Azure logganalys. Den här artikeln är en referens guide till inställningar för visualisering delar som är tillgängliga i din anpassade vyer.
@@ -28,21 +28,19 @@ Mer information om Vydesigner finns:
 * [Visa Designer](log-analytics-view-designer.md): ger en översikt över Vydesigner och procedurer för att skapa och redigera anpassade vyer.
 * [Panelen referens](log-analytics-view-designer-tiles.md): innehåller en referens till inställningarna för varje bricka som är tillgängliga i anpassade vyer.
 
->[!NOTE]
-> Om ditt arbetsområde har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), frågor i alla visningslägen måste skrivas den [nya frågespråket](https://go.microsoft.com/fwlink/?linkid=856078). Alla vyer som skapades före uppgraderingen arbetsytan konverteras automatiskt.
 
 I följande tabell beskrivs tillgängliga Vydesigner panelen typer:
 
 | Typ av vy | Beskrivning |
 |:--- |:--- |
 | [Listan med frågor](#list-of-queries-part) |Visar en lista över loggen sökfrågor. Du kan välja varje fråga för att visa dess resultat. |
-| [Antal och lista](#number-amp-list-part) |Huvudet visar ett tal som visar antalet poster från en sökfråga för loggen. I listan visas översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess förändringar över tid. |
-| [Två tal och lista](#two-numbers-amp-list-part) |Rubriken visas två siffror som visar antalet poster från separat loggen sökfrågor. I listan visas översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess förändringar över tid. |
-| [Ring och lista](#donut-amp-list-part) |Huvudet visar ett tal som sammanfattar en med en kolumn i en fråga i loggen. Ringen visar grafiskt resultaten av de tre översta posterna. |
-| [Två tidslinjer och lista](#two-timelines-amp-list-part) |Rubriken visas resultatet av två loggen frågor när kolumndiagram med en uppmaning som visar ett tal som sammanfattar en med en kolumn i en fråga i loggen. I listan visas översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess förändringar över tid. |
+| [Antal och lista](#number-and-list-part) |Huvudet visar ett tal som visar antalet poster från en sökfråga för loggen. I listan visas översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess förändringar över tid. |
+| [Två tal och lista](#two-numbers-and-list-part) |Rubriken visas två siffror som visar antalet poster från separat loggen sökfrågor. I listan visas översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess förändringar över tid. |
+| [Ring och lista](#donut-and-list-part) |Huvudet visar ett tal som sammanfattar en med en kolumn i en fråga i loggen. Ringen visar grafiskt resultaten av de tre översta posterna. |
+| [Två tidslinjer och lista](#two-timelines-and-list-part) |Rubriken visas resultatet av två loggen frågor när kolumndiagram med en uppmaning som visar ett tal som sammanfattar en med en kolumn i en fråga i loggen. I listan visas översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess förändringar över tid. |
 | [Information](#information-part) |Rubriken visas statisk text och en valfri länk. I listan visas ett eller flera objekt med en statisk rubrik och text. |
-| [Linjediagram och callout lista](#line-chart-callout-amp-list-part) |Huvudet visar ett linjediagram med flera serier från en fråga logg över tid och en kommentar med ett summerat värde. I listan visas översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess förändringar över tid. |
-| [Linjediagram och lista](#line-chart-amp-list-part) |Huvudet visar ett linjediagram med flera serier från en fråga logg över tid. I listan visas översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess förändringar över tid. |
+| [Linjediagram och callout lista](#line-chart-callout-and-list-part) |Huvudet visar ett linjediagram med flera serier från en fråga logg över tid och en kommentar med ett summerat värde. I listan visas översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess förändringar över tid. |
+| [Linjediagram och lista](#line-chart-and-list-part) |Huvudet visar ett linjediagram med flera serier från en fråga logg över tid. I listan visas översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess förändringar över tid. |
 | [Stacken för rad diagram del](#stack-of-line-charts-part) |Visar tre separata linjediagram med flera serier från en fråga logg över tid. |
 
 I nästa avsnitt beskrivs sida vid sida-typer och deras egenskaper i detalj.
@@ -78,13 +76,14 @@ Huvudet visar ett tal som visar antalet poster från en sökfråga för loggen. 
 | **Rubrik** | |
 | Förklaring |Den text som visas överst i huvudet. |
 | Fråga |Frågan ska köras för sidhuvudet. Antalet poster som returneras av frågan visas. |
+| Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **lista** | |
 | Fråga |Frågan ska köras för listan. Första två egenskaperna för de första tio posterna i resultatet visas. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Staplar skapas automatiskt som baseras på det relativa värdet för numerisk kolumn.<br><br>Använd den `Sort` i frågan för att sortera posterna i listan. Du kan välja om du vill köra frågan och alla poster **se alla**. |
 | Dölj diagram |Välj den här länken för att inaktivera diagrammet till höger i numerisk kolumn. |
 | Aktivera miniatyrdiagram |Välj den här länken för att visa ett miniatyrdiagram i stället för ett vågrätt fält. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Färg |Färgen på staplarna eller miniatyrdiagram. |
 | Namn och värde avgränsare |Avgränsaren du använder för att parsa textegenskapen till flera värden. Mer information finns i [gemensamma inställningar för](#sparklines). |
-| Navigering fråga |Frågan ska köras när du markerar ett objekt i listan. Mer information finns i [gemensamma inställningar för](#navigation-query). |
+| Klicka igenom navigering | Åtgärd när du klickar på ett objekt i listan.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **lista** |**> Kolumnrubriker** |
 | Namn |Den text som visas överst i den första kolumnen. |
 | Värde |Den text som visas överst i den andra kolumnen. |
@@ -103,6 +102,8 @@ Rubriken har två tal som visar antalet poster från separat loggen sökfrågor.
 | Ny grupp |Välj den här länken för att skapa en ny grupp i vyn med början vid den aktuella vyn. |
 | Ikon |Avbildningsfilen som visas bredvid resultatet i huvudet. |
 | Använd ikon |Välj den här länken för att visa ikonen. |
+| **Rubrik navigering** | |
+| Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Rubrik** | |
 | Förklaring |Den text som visas överst i huvudet. |
 | Fråga |Frågan ska köras för sidhuvudet. Antalet poster som returneras av frågan visas. |
@@ -113,7 +114,7 @@ Rubriken har två tal som visar antalet poster från separat loggen sökfrågor.
 | Färg |Färgen på staplarna eller miniatyrdiagram. |
 | Åtgärd |Åtgärden för miniatyrdiagrammet. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Namn och värde avgränsare |Avgränsaren du använder för att parsa textegenskapen till flera värden. Mer information finns i [gemensamma inställningar för](#sparklines). |
-| Navigering fråga |Frågan ska köras när du markerar ett objekt i listan. Mer information finns i [gemensamma inställningar för](#navigation-query). |
+| Klicka igenom navigering | Åtgärd när du klickar på ett objekt i listan.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **lista** |**> Kolumnrubriker** |
 | Namn |Den text som visas överst i den första kolumnen. |
 | Värde |Den text som visas överst i den andra kolumnen. |
@@ -137,6 +138,7 @@ Huvudet visar ett tal som sammanfattar en med en kolumn i en fråga i loggen. Ri
 | Underrubrik |Den text som visas under rubriken överst i huvudet. |
 | **Ring** | |
 | Fråga |Frågan ska köras under ringen. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. |
+| Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Ring** |**> Center** |
 | Text |Den text som visas under värdet i ringen. |
 | Åtgärd |Åtgärden att utföra på egenskapen value för att sammanfatta som ett enskilt värde.<ul><li>Sum: Lägger till värdena för alla poster.</li><li>Procent: Förhållandet mellan posterna som returneras av värdena i **leda till att värden som används i center åtgärden** för totalt antal poster i frågan.</li></ul> |
@@ -153,7 +155,7 @@ Huvudet visar ett tal som sammanfattar en med en kolumn i en fråga i loggen. Ri
 | Färg |Färgen på staplarna eller miniatyrdiagram. |
 | Åtgärd |Åtgärden för miniatyrdiagrammet. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Namn och värde avgränsare |Avgränsaren du använder för att parsa textegenskapen till flera värden. Mer information finns i [gemensamma inställningar för](#sparklines). |
-| Navigering fråga |Frågan ska köras när du markerar ett objekt i listan. Mer information finns i [gemensamma inställningar för](#navigation-query). |
+| Klicka igenom navigering | Åtgärd när du klickar på ett objekt i listan.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **lista** |**> Kolumnrubriker** |
 | Namn |Den text som visas överst i den första kolumnen. |
 | Värde |Den text som visas överst i den andra kolumnen. |
@@ -172,6 +174,8 @@ Rubriken visas resultatet av två loggen frågor när kolumndiagram med en uppma
 | Ny grupp |Välj den här länken för att skapa en ny grupp i vyn med början vid den aktuella vyn. |
 | Ikon |Avbildningsfilen som visas bredvid resultatet i huvudet. |
 | Använd ikon |Välj den här länken för att visa ikonen. |
+| **Rubrik navigering** | |
+| Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Först diagrammets<br>andra diagram** | |
 | Förklaring |Den text som visas under callout för den första serien. |
 | Färg |Färgen som ska användas för kolumner i serien. |
@@ -183,7 +187,7 @@ Rubriken visas resultatet av två loggen frågor när kolumndiagram med en uppma
 | Aktivera miniatyrdiagram |Välj den här länken för att visa ett miniatyrdiagram i stället för ett vågrätt fält. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Färg |Färgen på staplarna eller miniatyrdiagram. |
 | Åtgärd |Åtgärden för miniatyrdiagrammet. Mer information finns i [gemensamma inställningar för](#sparklines). |
-| Navigering fråga |Frågan ska köras när du markerar ett objekt i listan. Mer information finns i [gemensamma inställningar för](#navigation-query). |
+| Klicka igenom navigering | Åtgärd när du klickar på ett objekt i listan.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **lista** |**> Kolumnrubriker** |
 | Namn |Den text som visas överst i den första kolumnen. |
 | Värde |Den text som visas överst i den andra kolumnen. |
@@ -228,6 +232,7 @@ Huvudet visar ett linjediagram med flera serier från en fråga logg över tid o
 | Underrubrik |Den text som visas under rubriken överst i huvudet. |
 | **Linjediagram** | |
 | Fråga |Frågan ska köras under linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord för att sammanfatta resultat. Om frågan använder den *intervall* nyckelordet x-axeln i diagrammet använder detta tidsintervall. Om frågan inte innehåller den *intervall* nyckelord, x-axeln använder timvis intervall. |
+| Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Linjediagram** |**> Callout** |
 | Callout-rubrik |Den text som visas ovanför callout-värdet. |
 | Serienamn |Egenskapsvärdet för serien ska användas för callout-värdet. Om inga serier anges, används alla poster från frågan. |
@@ -243,7 +248,7 @@ Huvudet visar ett linjediagram med flera serier från en fråga logg över tid o
 | Färg |Färgen på staplarna eller miniatyrdiagram. |
 | Åtgärd |Åtgärden för miniatyrdiagrammet. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Namn och värde avgränsare |Avgränsaren du använder för att parsa textegenskapen till flera värden. Mer information finns i [gemensamma inställningar för](#sparklines). |
-| Navigering fråga |Frågan ska köras när du markerar ett objekt i listan. Mer information finns i [gemensamma inställningar för](#navigation-query). |
+| Klicka igenom navigering | Åtgärd när du klickar på ett objekt i listan.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **lista** |**> Kolumnrubriker** |
 | Namn |Den text som visas överst i den första kolumnen. |
 | Värde |Den text som visas överst i den andra kolumnen. |
@@ -267,6 +272,7 @@ Huvudet visar ett linjediagram med flera serier från en fråga logg över tid. 
 | Underrubrik |Den text som visas under rubriken överst i huvudet. |
 | **Linjediagram** | |
 | Fråga |Frågan ska köras under linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord för att sammanfatta resultat. Om frågan använder den *intervall* nyckelordet x-axeln i diagrammet använder detta tidsintervall. Om frågan inte innehåller den *intervall* nyckelord, x-axeln använder timvis intervall. |
+| Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Linjediagram** |**> Y-axeln** |
 | Använd en logaritmisk skala |Välj den här länken för att använda en logaritmisk skala för y-axeln. |
 | Enheter |Ange enheter för värden som returneras av frågan. Den här informationen används för att visa dataetiketter som visar värdetyperna och du kan också konvertera värden. Den *enhet* typ anger kategorin för enheten och definierar de tillgängliga *aktuell enhet* Skriv värden. Om du väljer ett värde i *omvandla till*, numeriska värden konverteras från den *aktuell enhet* typ till den *konvertera till* typen. |
@@ -278,7 +284,7 @@ Huvudet visar ett linjediagram med flera serier från en fråga logg över tid. 
 | Färg |Färgen på staplarna eller miniatyrdiagram. |
 | Åtgärd |Åtgärden för miniatyrdiagrammet. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Namn och värde avgränsare |Avgränsaren du använder för att parsa textegenskapen till flera värden. Mer information finns i [gemensamma inställningar för](#sparklines). |
-| Navigering fråga |Frågan ska köras när du markerar ett objekt i listan. Mer information finns i [gemensamma inställningar för](#navigation-query). |
+| Klicka igenom navigering | Åtgärd när du klickar på ett objekt i listan.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **lista** |**> Kolumnrubriker** |
 | Namn |Den text som visas överst i den första kolumnen. |
 | Värde |Den text som visas överst i den andra kolumnen. |
@@ -301,6 +307,7 @@ Stacken linjediagram visar tre separata linjediagram med flera serier från en f
 | Underrubrik |Den text som visas under rubriken överst i diagrammet. |
 | **Diagram 1<br>diagram 2<br>diagram 3** |**Linjediagram** |
 | Fråga |Frågan ska köras under linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord för att sammanfatta resultat. Om frågan använder den *intervall* nyckelordet x-axeln i diagrammet använder detta tidsintervall. Om frågan inte innehåller den *intervall* nyckelord, x-axeln använder timvis intervall. |
+| Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Diagrammet** |**> Y-axeln** |
 | Använd en logaritmisk skala |Välj den här länken för att använda en logaritmisk skala för y-axeln. |
 | Enheter |Ange enheter för värden som returneras av frågan. Den här informationen används för att visa dataetiketter som visar värdetyperna och du kan också konvertera värden. Den *enhet* typ anger kategorin för enheten och definierar de tillgängliga *aktuell enhet* Skriv värden. Om du väljer ett värde i *omvandla till*, numeriska värden konverteras från den *aktuell enhet* typ till den *konvertera till* typen. |
@@ -314,10 +321,18 @@ Avgränsaren som namn och värde är den du använder för att parsa textegenska
 
 Anta till exempel att en egenskap som kallas *plats* som ingår värden såsom *Redmond byggnad 41* och *Bellevue byggnad 12*. Du kan ange ett streck (-) för name och value avgränsare och *Stad Byggnad* för namnet. Den här metoden Parsar varje värde i två egenskaper kallas *Stad* och *byggnad*.
 
-### <a name="navigation-query"></a>Navigering fråga
-Navigering frågan är frågan ska köras när du markerar ett objekt i listan. Använd *{valda objektet}* med syntaxen för ett objekt som användaren har valt.
+### <a name="click-through-navigation"></a>Klicka på via navigering
+Klicka igenom navigering definierar vilken åtgärd som ska vidtas när du klickar på ett sidhuvud eller en lista över objekt i en vy.  Då öppnas antingen en fråga i den [loggen Sök portal](log-analytics-log-search-portals.md#log-search) eller starta en annan vy.
 
-Om exempelvis frågan har en kolumn med namnet *datorn* och navigering frågan *{valda objektet}*, en fråga som *datorn = ”den här datorn”* körs när du väljer en dator. Om frågan navigering är *typ = händelsen {valda objektet}*, frågan *typ = händelse datorn = ”den här datorn”* körs.
+I följande tabell beskrivs inställningarna för klicka igenom navigering.
+
+| Inställning           | Beskrivning |
+|:--|:--|
+| Loggen Sök (Auto) | Logg-sökning för att köras när du väljer en rubrikobjektet.  Det här är samma loggen sökning som objektet baseras på.
+| Loggsökning        | Log-sökning för att köras när du markerar ett objekt i en lista.  Skriv frågan i den **navigering frågan** rutan.   Använd *{valda objektet}* med syntaxen för ett objekt som användaren har valt.  Om exempelvis frågan har en kolumn med namnet *datorn* och navigering frågan *{valda objektet}*, en fråga som *datorn = ”den här datorn”* körs när du väljer en dator. Om frågan navigering är *typ = händelsen {valda objektet}*, frågan *typ = händelse datorn = ”den här datorn”* körs. |
+| Visa              | Visa öppna när du väljer en rubrik eller ett objekt i en lista.  Välj namnet på en vy i arbetsytan i den **vynamn** rutan. |
+
+
 
 ### <a name="sparklines"></a>Miniatyrdiagram
 Ett miniatyrdiagram är ett litet linjediagram som illustrerar värdet för en lista över tid. Du kan välja om du vill visa en vågräta fältet som anger relativa värdet för en numerisk kolumn eller ett miniatyrdiagram som anger dess värde över tid för visualisering delar med en lista.

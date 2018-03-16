@@ -3,8 +3,8 @@ title: "Skapa en avbildning av virtuell dator för Azure Marketplace | Microsoft
 description: "Detaljerade anvisningar om hur du skapar en avbildning av virtuell dator på Azure Marketplace för andra att köpa."
 services: Azure Marketplace
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mbaldwin
+ms.openlocfilehash: f7b19066ca3fa156456766ff82afeadadc6b1efa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guide för att skapa en avbildning av virtuell dator för Azure Marketplace
 Den här artikeln **steg 2**, vägleder dig genom förbereder de virtuella hårddiskar (VHD) som du ska distribuera till Azure Marketplace. De virtuella hårddiskarna är grunden för dina SKU: N. Processen skiljer sig åt beroende på om du tillhandahåller en Linux- eller Windows-baserade SKU. Den här artikeln täcker båda scenarierna. Den här processen kan utföras parallellt med [skapande av konton och registrering][link-acct-creation].
@@ -29,7 +29,7 @@ I det här avsnittet kan du lära dig att definiera vilka erbjudanden och deras 
 Ett erbjudande är överordnat alla sina SKU:er. Du kan ha flera erbjudanden. Hur du väljer att strukturera dina erbjudanden är upp till dig. När ett erbjudande skickas till mellanlagringen, skickas det tillsammans med alla SKU:er. Du noga överväga din SKU-identifierare, eftersom de kommer att vara synliga i URL-Adressen:
 
 * Azure.com: http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
-* Azure preview portal: https://portal.azure.com/#gallery/ {PublisherNamespace}. {OfferIdentifier} {SKUIDdentifier}  
+* Azure preview portal: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
 En SKU är kommersiella namnet för en VM-avbildning. En VM-avbildning som innehåller en operativsystemdisk och noll eller flera datadiskar. Det är i grund och botten den fullständiga lagringsprofilen för en virtuell dator. En virtuell Hårddisk krävs per disk. Även tomt datadiskar kräver en virtuell Hårddisk som ska skapas.
 
@@ -372,7 +372,7 @@ Nedan följer stegen för att generera SAS-URL med hjälp av Azure Lagringsutfor
 
 Nedan följer stegen för att generera SAS-URL genom att använda Microsoft Azure Lagringsutforskaren
 
-1.  Ladda ned Microsoft Azure Lagringsutforskaren formuläret [http://storageexplorer.com/](http://storageexplorer.com/) webbplats. Gå till [Microsoft Azure Lagringsutforskaren](http://storageexplorer.com/releasenotes.html) och på **”hämta för Windows”**.
+1.  Ladda ned Microsoft Azure Lagringsutforskaren formuläret [ http://storageexplorer.com/ ](http://storageexplorer.com/) webbplats. Gå till [Microsoft Azure Lagringsutforskaren](http://storageexplorer.com/releasenotes.html) och på **”hämta för Windows”**.
 
     ![Rita](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 
@@ -474,7 +474,7 @@ Nedan följer stegen för att generera SAS-URL med hjälp av Azure CLI
 
     Exempel:
 
-    TestRGVM201631920152.vhd är den virtuella Hårddiskens namn sedan VHD SAS-URL kommer att 
+    TestRGVM201631920152.vhd är den virtuella Hårddiskens namn sedan VHD SAS-URL kommer att
 
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 

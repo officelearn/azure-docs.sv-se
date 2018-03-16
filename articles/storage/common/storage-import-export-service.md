@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2b53dc5eeb2e5f25a0714af778ef3db1d5a79dc1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Använda tjänsten Microsoft Azure Import/Export för att överföra data till Azure Storage
 I den här artikeln får stegvisa instruktioner om hur du använder Azure Import/Export service att säkert överföra stora mängder data till Azure Blob storage och Azure filer av leverans diskenheterna till ett Azure-datacenter. Den här tjänsten kan också användas för att överföra data från Azure storage hårddiskar och levereras till dina lokala platser. Du kan importera data från en enskild interna SATA-disk till Azure Blob storage eller Azure-filer. 
@@ -37,7 +37,7 @@ Följ de nedanstående steg om data på disken som ska importeras till Azure Sto
 10. Kopiera följande kommandorad till en textredigerare och redigera det för att skapa en kommandorad:
 
     ```
-    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite 
     ```
     
     I följande tabell beskrivs dessa alternativ:
@@ -50,13 +50,13 @@ Följ de nedanstående steg om data på disken som ska importeras till Azure Sto
     |/bk:     |BitLocker-nyckel för enheten.         |
     |/srcdir:     |Enhetsbeteckningen för disken som ska levereras följt av `:\`. Till exempel `D:\`.         |
     |/dstdir:     |Namnet på målbehållare i Azure Storage         |
-
+    |/skipwrite:     |Det alternativ som anger att det finns inga nya data som krävs för att kopieras och befintliga data på disken är att vara förberedd         |
 1. Upprepa steg 10 för varje disk som ska levereras.
 2. En journal-fil med namnet som angetts med parametern /j: skapas för varje körning av kommandoraden.
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>Steg 2: Skapa ett importjobb på Azure-portalen.
 
-1. Logga in på https://portal.azure.com/ och under fler tjänster -> STORAGE -> ”Import/export jobb” klickar du på **skapa Import-/ exportjobb**.
+1. Logga in på https://portal.azure.com/ och -> lagring under fler tjänster -> ”Import/export jobb” klickar du på **skapa Import-/ exportjobb**.
 
 2. Grunderna under Välj ”Import i Azure”, ange en sträng för jobbnamn, välja en prenumeration, ange eller välj en resursgrupp. Ange ett beskrivande namn för importjobbet. Observera att det namn som du anger kan innehålla endast små bokstäver, siffror, bindestreck och understreck, måste börja med en bokstav och får inte innehålla blanksteg. Du använder det namn du väljer att spåra dina jobb när de pågår och när de har slutförts.
 

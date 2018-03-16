@@ -4,7 +4,7 @@ description: "Använda referensdata i en Stream Analytics-fråga"
 keywords: uppslagstabellen referensdata
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 06103be5-553a-4da1-8a8d-3be9ca2aff54
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 438ec565f3c6e06ab7ec92cf1bbfbdde88f99b6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: f7366b4b7d78add47ebab4a6fc72717107814f1f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Med hjälp av data- eller lookup register i en Stream Analytics Indataströmmen
 Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statisk eller saktas ändra karaktär används för att utföra en sökning eller att korrelera med din dataström. För att använda referensdata i Azure Stream Analytics-jobbet, använder du normalt en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. Stream Analytics använder Azure Blob storage som lagringsskikt för referensdata med Azure Data Factory-referensen kan data omvandlas eller kopieras till Azure Blob storage för användning som referensdata från [valfritt antal molnbaserade och lokalt datalager](../data-factory/copy-activity-overview.md). Referensdata modelleras som en serie blobbar (definieras i den inkommande configuration) i stigande ordning efter datum/tid som anges i blob-namn. Den **endast** har stöd för att lägga till i slutet av sekvensen med hjälp av ett datum/tid **större** än den som angetts av den senaste blobben i sekvensen.
@@ -67,7 +67,7 @@ Om du vill konfigurera din referensdata måste du först skapa indata som är av
 </tr>
 <tr>
 <td>Händelsen serialiseringsformat</td>
-<td>Om du vill kontrollera att dina frågor fungerar som förväntat, Stream Analytics behöver veta vilka serialiseringsformat använder för inkommande dataströmmar. För referens är format som stöds csv- och JSON.</td>
+<td>För att vara säker på att dina frågor fungerar som du vill, behöver Stream Analytics veta vilket serialiseringsformat du använder för inkommande dataströmmar. För referens är format som stöds csv- och JSON.</td>
 </tr>
 <tr>
 <td>Encoding</td>
@@ -95,7 +95,7 @@ Om din referensdata är en långsamt föränderliga datauppsättning, sedan stö
 ## <a name="tips-on-refreshing-your-reference-data"></a>Tips om att uppdatera referensdata
 1. Skriver över referens data-blobs inte ska orsaka Stream Analytics att läsa in blob och i vissa fall kan det orsaka jobb misslyckas. Det rekommenderade sättet att ändra referensdata är att lägga till en ny blob med samma behållare och sökvägen mönstret som definieras i jobbet indata och använda en datum/tid **större** än den som angetts av den senaste blobben i sekvensen.
 2. Referens för data-blobs är **inte** sorteras i blob ”senaste” modifierades men endast av datum och tid som anges i blob med {date} och {time} ersättningar.
-3. På några tillfällen ett jobb måste gå tillbaka i tiden, därför referens data-blobs måste inte kan ändras eller tas bort.
+3. Om du vill undvika att behöva listan stort antal blobbar, Överväg att ta bort gamla mycket blobbar som bearbetningen inte längre kommer att ske. Observera att ASA kan gå har Ombearbeta lite i vissa scenarier, t.ex. en omstart.
 
 ## <a name="get-help"></a>Få hjälp
 Om du behöver mer hjälp kan du besöka vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)

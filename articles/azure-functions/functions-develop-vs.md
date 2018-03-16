@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 03/13/2018
 ms.author: glenga
-ms.openlocfilehash: 26df11bb010414ba979077c45d01e66f17f6b12e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: dddb35ea2ba1c02f78234fe33cdb832e9aacbff5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools för Visual Studio  
 
@@ -38,9 +38,13 @@ Det här avsnittet visar hur du använder Azure Functions-verktyg för Visual St
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Azure Functions-verktyg ingår i Azure-utveckling arbetsbelastning [Visual Studio 2017 version 15,4](https://www.visualstudio.com/vs/), eller en senare version. Kontrollera att du inkluderar den **Azure-utveckling** arbetsbelastning i Visual Studio 2017 installationen:
+Azure Functions-verktyg ingår i Azure-utveckling arbetsbelastning [Visual Studio 2017 version 15,5](https://www.visualstudio.com/vs/), eller en senare version. Kontrollera att du inkluderar den **Azure-utveckling** arbetsbelastning i Visual Studio 2017 installationen:
 
 ![Installera Visual Studio 2017 med arbetsbelastningen Azure Development](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+Kontrollera att din Visual Studio är uppdaterad och att du använder den [senaste versionen](#check-your-tools-version) Azure Functions-verktyg.
+
+### <a name="other-requirements"></a>Andra krav
 
 Om du vill skapa och distribuera funktioner, måste du också:
 
@@ -48,11 +52,33 @@ Om du vill skapa och distribuera funktioner, måste du också:
 
 * Ett Azure Storage-konto. Om du vill skapa ett lagringskonto finns [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
+### <a name="check-your-tools-version"></a>Kontrollera din verktyg-version
+
+1. Från den **verktyg** -menyn, Välj **tillägg och uppdateringar**. Expandera **installerad** > **verktyg** och välj **Azure Functions och jobb Webbverktyg**.
+
+    ![Verifiera funktioner verktyg version](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
+
+2. Observera den installerade **Version**. Du kan jämföra den här versionen med den senaste versionen visas [i dokumentet](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
+
+3. Om din version är äldre, uppdatera din verktyg i Visual Studio som visas i följande avsnitt.
+
+### <a name="update-your-tools"></a>Uppdatera dina verktyg
+
+1. I den **tillägg och uppdateringar** dialogrutan Expandera **uppdateringar** > **Visual Studio Marketplace**, Välj **Azure Functions och Webbverktyg jobb**  och välj **uppdatering**.
+
+    ![Uppdatera funktioner verktyg version](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
+
+2. Stäng Visual Studio att utlösa verktygen uppdatera med hjälp av installationsprogrammet VSIX när verktyg uppdateringen laddas ned.
+
+3. I installationsprogrammet, väljer **OK** att starta och sedan **ändra** att uppdatera verktygen. 
+
+4. När uppdateringen är klar väljer **Stäng** och starta om Visual Studio.
+
 ## <a name="create-an-azure-functions-project"></a>Skapa ett Azure Functions-projekt 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-Projektmallen skapar ett C#-projekt, installerar den `Microsoft.NET.Sdk.Functions` NuGet-paketet och anger Målversionen av framework. Fungerar 1.x mål .NET Framework och fungerar 2.x mål .NET Standard. Det nya projektet innehåller följande filer:
+Projektmallen skapar ett C#-projekt, installerar den `Microsoft.NET.Sdk.Functions` NuGet-paketet och anger Målversionen av framework. Fungerar 1.x mål .NET Framework och fungerar 2.x mål .NET Standard. Det nya projektet har följande filer:
 
 * **Host.JSON**: kan du konfigurera funktioner värden. Dessa inställningar gäller både när du kör lokalt och i Azure. Mer information finns i [host.json referens](functions-host-json.md).
     

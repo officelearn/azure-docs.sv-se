@@ -2,24 +2,18 @@
 title: "Gränserna för Azure SQL Database | Microsoft Docs"
 description: "Den här sidan beskrivs några vanliga gränserna för Azure SQL Database."
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 02/28/2018
+ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: eea4362e33ff2587758601758db463ffa82382b3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6e6aaeea0375e92d7913e47c6b929a469ceb5c94
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Gränserna för Azure SQL-databas
 
@@ -64,7 +58,7 @@ Hur lång tid processen att skala upp tar beror på databasens storlek och tjän
 
 ## <a name="single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>Databas: begränsningar av P11 och P15 när maximalt storleken större än 1 TB
 
-En maximal storlek som är större än 1 TB för databas P11 och P15 stöds i följande områden: oss East2, västra USA, oss Gov Virginia, Västeuropa, Tyskland Central, söder Östasien, östra, Östra Australien, Kanada Central och Kanada Öst. Följande överväganden och begränsningar gäller för P11 och P15 databaser med en maximal storlek som är större än 1 TB:
+En maximal storlek som är större än 1 TB för databas P11 och P15 stöds i följande områden: oss East2, västra USA, oss Gov Virginia, Västeuropa, Tyskland Central, söder Östasien, östra, Kanada Central och Kanada Öst. Följande överväganden och begränsningar gäller för P11 och P15 databaser med en maximal storlek som är större än 1 TB:
 
 - Om du väljer en maximal storlek som är större än 1 TB när du skapar en databas (med ett värde på 4 TB eller 4096 GB) misslyckas create-kommandot med ett fel om databasen har etablerats i en region som stöds inte.
 - För befintliga P11 och P15 databaser finns i någon av regionerna som stöds, kan du öka maximalt lagringsutrymme till utöver 1 TB i steg om 256 GB upp till 4 TB. Om en större stöds i din region, Använd den [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) fungera eller kontrollera databasens storlek i Azure-portalen. Uppgradera en befintlig P11 eller P15 kan databasen endast utföras av en huvudsaklig inloggning på servernivå eller av medlemmar i rollen dbmanager-databasen. 

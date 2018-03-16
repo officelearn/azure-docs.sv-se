@@ -22,7 +22,7 @@ sql-database-single-database-resources.md
 | Max dtu: er ** | 10 | 20 | 50 | 100 |
 | Ingår lagringsutrymme (GB) | 250 | 250 | 250 | 250 |
 | Maximalt antal lagringsalternativ (GB) * | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| Maximal InMemory-OLTP-lagring (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte |
+| Maximal InMemory-OLTP-lagring (GB) | Gäller inte | Saknas | Saknas | Gäller inte |
 | Maximalt antal samtidiga arbetare (antal begäranden)| 60 | 90 | 120 | 200 |
 | Maximalt antal samtidiga inloggningar | 60 | 90 | 120 | 200 |
 | Maximalt antal samtidiga sessioner |600 | 900 | 1200 | 2400 |
@@ -34,7 +34,7 @@ sql-database-single-database-resources.md
 | Max dtu: er ** | 200 | 400 | 800 | 1600 | 3000 |
 | Ingår lagringsutrymme (GB) | 250 | 250 | 250 | 250 | 250 |
 | Maximalt antal lagringsalternativ (GB) * | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| Maximal InMemory-OLTP-lagring (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte |Gäller inte |
+| Maximal InMemory-OLTP-lagring (GB) | Gäller inte | Saknas | Saknas | Saknas |Gäller inte |
 | Maximalt antal samtidiga arbetare (antal begäranden)| 400 | 800 | 1600 | 3200 |6000 |
 | Maximalt antal samtidiga inloggningar | 400 | 800 | 1600 | 3200 |6000 |
 | Maximalt antal samtidiga sessioner |4800 | 9600 | 19200 | 30000 |30000 |
@@ -55,7 +55,7 @@ sql-database-single-database-resources.md
 > [!IMPORTANT]
 > \*Lagringsstorlekar som är större än mängden lagringsutrymme som ingår finns i förhandsversionen, och extra kostnader tillkommer. Mer information finns i [Priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
->\* På Premium-nivån är mer än 1 TB lagringsutrymme för närvarande tillgängligt i följande regioner: Australien, östra, Australien, sydöstra, Brasilien, södra, Kanada, centrala, Kanada, östra, USA, centrala, Frankrike, centrala, Tyskland, centrala, Japan, östra, Japan, västra, Korea, centrala, USA, norra centrala, Nordeuropa, USA, södra centrala, Sydostasien, Storbritannien, södra, Storbritannien, västra, USA, östra 2, USA, västra, Virginia (USA-förvaltad region) och Europa, västra. Se [sidan 11-15 i Aktuella begränsningar](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+>\* Premium-nivån mer än 1 TB lagringsutrymme är tillgängliga i följande regioner: södra, Kanada Central, Kanada, Öst, centrala USA, Central Frankrike, Tyskland Central, östra, västra Japan, Korea Central, norra centrala USA, Nordeuropa, söder Centrala USA, Sydostasien, Storbritannien, Syd, Storbritannien, Väst, East2 USA, västra USA, USA Gov Virginia och västra Europa. Se [sidan 11-15 i Aktuella begränsningar](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 >\*\* Max Dtu per databas startar 200 dtu: er och högre i Standard finns i förhandsgranskningen.
 >

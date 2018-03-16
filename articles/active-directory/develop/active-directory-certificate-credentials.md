@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Autentiseringsuppgifter för certifikat för autentisering
 
@@ -32,7 +32,7 @@ Om du vill beräkna kontrollen, vill du förmodligen använda en av många [JSON
 #### <a name="header"></a>Sidhuvud
 
 | Parameter |  Kommentar |
-| --- | --- | --- |
+| --- | --- |
 | `alg` | Bör vara **RS256** |
 | `typ` | Bör vara **JWT** |
 | `x5t` | Ska vara tumavtrycket för X.509-certifikat SHA-1 |
@@ -40,8 +40,8 @@ Om du vill beräkna kontrollen, vill du förmodligen använda en av många [JSON
 #### <a name="claims-payload"></a>Anspråk (Payload)
 
 | Parameter |  Kommentar |
-| --- | --- | --- |
-| `aud` | Målgrupp: Bör vara **https://login.microsoftonline.com/*tenant_Id*  /oauth2/token** |
+| --- | --- |
+| `aud` | Målgrupp: Bör vara  **https://login.microsoftonline.com/ *tenant_Id*  /oauth2/token** |
 | `exp` | Förfallodatum: det datum då token upphör att gälla. Tiden representeras som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills giltigheten token upphör att gälla.|
 | `iss` | Utgivare: bör vara client_id (program-Id för klient-tjänst) |
 | `jti` | GUID: JWT ID |
@@ -49,9 +49,11 @@ Om du vill beräkna kontrollen, vill du förmodligen använda en av många [JSON
 | `sub` | Ämne: som för `iss`, bör vara client_id (program-Id för klient-tjänst) |
 
 #### <a name="signature"></a>Signatur
+
 Signaturen beräknas tillämpa certifikatet som beskrivs i den [JSON Web Token RFC7519 specifikation](https://tools.ietf.org/html/rfc7519)
 
 ### <a name="example-of-a-decoded-jwt-assertion"></a>Exempel på en avkodade JWT-kontrollen
+
 ```
 {
   "alg": "RS256",
@@ -73,6 +75,7 @@ Signaturen beräknas tillämpa certifikatet som beskrivs i den [JSON Web Token R
 ```
 
 ### <a name="example-of-an-encoded-jwt-assertion"></a>Exempel på en kodad JWT-kontrollen
+
 Följande sträng är ett exempel på kodade kontrollen. Om du ser noggrant kan se du tre avsnitt avgränsade med punkter (.).
 Det första avsnittet kodar rubriken, den andra nyttolasten och sist är signaturen som beräknats med certifikat från innehållet i de två första avsnitten.
 ```
@@ -81,14 +84,17 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Registrera ditt certifikat med Azure AD
+
 Om du vill associera certifikat-autentiseringsuppgifter med klientprogrammet i Azure AD, måste du redigera programmanifestet.
 Med undantag för ett certifikat, måste du beräkna:
+
 - `$base64Thumbprint`, vilket är base64-kodning av certifikat-Hash
 - `$base64Value`, vilket är base64-kodning av certifikatets rådata
 
-Du måste också ange ett GUID för att identifiera nyckeln i programmanifestet (`$keyId`)
+Du måste också ange ett GUID för att identifiera nyckeln i programmanifestet (`$keyId`).
 
 Öppna programmanifestet i Azure-app-registrering för klientprogrammet och Ersätt den *keyCredentials* egenskap med information för din nya certifikat med hjälp av följande schema:
+
 ```
 "keyCredentials": [
     {

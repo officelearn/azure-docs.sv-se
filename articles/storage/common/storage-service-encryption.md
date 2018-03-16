@@ -6,13 +6,13 @@ author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: 6b56cbb4220ce1c8767724938dd531b8ae5c3920
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage-tjänstens kryptering av vilande data
 
@@ -62,17 +62,13 @@ S: Storage Service-kryptering är aktiverat som standard vid tidpunkten för att
 
 S: finns utan extra kostnad.
 
-**F: som hanterar krypteringsnycklarna?**
-
-S: Microsoft hanterar nycklarna.
-
 **F: kan jag använda min egen krypteringsnycklar?**
 
-S: inte just nu.
+S: Ja, kan du använda dina egna krypteringsnycklar. Mer information finns i [Lagringstjänstens kryptering med kundhanterad nycklar i Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 **F: kan jag återkalla åtkomst till krypteringsnycklarna?**
 
-S: inte just nu. Microsoft hanterar fullständigt nycklarna.
+S: Ja, om du [använder egna krypteringsnycklar](storage-service-encryption-customer-managed-keys.md) i Azure Key Vault.
 
 **F: är Lagringstjänstens kryptering aktiverat som standard när jag skapar ett lagringskonto?**
 

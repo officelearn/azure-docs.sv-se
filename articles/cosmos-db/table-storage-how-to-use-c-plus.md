@@ -1,5 +1,5 @@
 ---
-title: "Hur du använder Azure Table storage med C++ | Microsoft Docs"
+title: "Hur du använder Azure Table Storage och Azure Cosmos DB med C++ | Microsoft Docs"
 description: "Lagra strukturerade data i molnet med hjälp av Azure Table Storage, en NoSQL-databas."
 services: cosmos-db
 documentationcenter: .net
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/12/2018
 ms.author: mimig
-ms.openlocfilehash: a71098583af8722f2e191e0e665ac87ebd30f355
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 69d56c79320931419ff8d71373ec578af2dec921
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="how-to-use-azure-table-storage-with-c"></a>Hur du använder Azure Table storage med C++
+# <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Hur du använder Azure Cosmos DB tabell API: er och Azure Table storage med C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Översikt
-Den här guiden visar hur du utför vanliga scenarier med hjälp av Azure Table storage-tjänsten. Exemplen är skrivna i C++ och Använd den [Azure Storage-klientbibliotek för C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Scenarier som tas upp inkluderar **skapa och ta bort en tabell** och **arbeta med tabellentiteter**.
+Den här guiden visar hur du utför vanliga scenarier med hjälp av Azure Table storage-tjänst eller Azure Cosmos DB tabell API. Exemplen är skrivna i C++ och Använd den [Azure Storage-klientbibliotek för C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Scenarier som tas upp inkluderar **skapa och ta bort en tabell** och **arbeta med tabellentiteter**.
 
 > [!NOTE]
 > Den här handboken riktar sig mot Azure Storage-klientbibliotek för C++ version 1.0.0 och senare. Den rekommenderade versionen är Storage-klientbibliotek 2.2.0, som är tillgängliga via [NuGet](http://www.nuget.org/packages/wastorage) eller [GitHub](https://github.com/Azure/azure-storage-cpp/).
@@ -46,7 +46,7 @@ Om du vill installera Azure Storage-klientbibliotek för C++ kan du använda fö
   
      Install-Package wastorage
 
-## <a name="configure-your-application-to-access-table-storage"></a>Konfigurera programmet att komma åt Table storage
+## <a name="configure-access-to-the-table-client-library"></a>Konfigurera åtkomst till tabellen klientbiblioteket
 Lägga till följande uttryck överst i filen C++ där du vill använda Azure storage API: er för att komma åt tabeller:  
 
 ```cpp
@@ -54,13 +54,24 @@ Lägga till följande uttryck överst i filen C++ där du vill använda Azure st
 #include <was/table.h>
 ```
 
-## <a name="set-up-an-azure-storage-connection-string"></a>Ställ in en anslutningssträng för Azure storage
-Ett Azure storage-klienten använder en anslutningssträng för lagring för att lagra slutpunkter och autentiseringsuppgifter för åtkomst till data management services. Du måste ange anslutningssträngen för lagring i följande format när du kör ett klientprogram. Använd namnet på ditt lagringskonto eller åtkomstnyckel för lagring för lagringskontot som anges i den [Azure Portal](https://portal.azure.com) för den *AccountName* och *AccountKey* värden. Information om lagringskonton och snabbtangenterna finns [om Azure storage-konton](../storage/common/storage-create-storage-account.md). Det här exemplet visar hur du kan deklarera statiska fält att lagra anslutningssträngen:  
+En Azure Storage-klient eller en Cosmos-DB-klient använder en anslutningssträng för att lagra slutpunkter och autentiseringsuppgifter för åtkomst till data management-tjänster. När du kör ett klientprogram, måste du ange anslutningssträngen för lagring eller Azure Cosmos DB-anslutningssträngen i rätt format.
+
+## <a name="set-up-an-azure-storage-connection-string"></a>Ställ in en anslutningssträng för Azure Storage
+ Använd namnet på ditt lagringskonto och åtkomstnyckeln för lagringskontot som anges i den [Azure Portal](https://portal.azure.com) för den *AccountName* och *AccountKey* värden. Information om lagringskonton och snabbtangenterna finns [om Azure Storage-konton](../storage/common/storage-create-storage-account.md). Det här exemplet visar hur du kan deklarera statiska fält för anslutningssträngen för Azure Storage:  
 
 ```cpp
-// Define the connection string with your values.
+// Define the Storage connection string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
+
+## <a name="set-up-an-azure-cosmos-db-connection-string"></a>Ställ in en anslutningssträng för Azure Cosmos DB
+Använd namnet på ditt konto i Azure Cosmos DB, din primärnyckel och slutpunkt som anges i den [Azure Portal](https://portal.azure.com) för den *kontonamn*, *primärnyckel*, och  *Slutpunkten* värden. Det här exemplet visar hur du kan deklarera statiska fält för Azure Cosmos DB-anslutningssträngen:
+
+```cpp
+// Define the Azure Cosmos DB connection string with your values.
+const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_cosmos_db_account;AccountKey=your_cosmos_db_account_key;TableEndpoint=your_cosmos_db_endpoint"));
+```
+
 
 Om du vill testa ditt program i den lokala Windows-baserade datorn du använder Azure [lagringsemulatorn](../storage/common/storage-use-emulator.md) som installeras med den [Azure SDK](https://azure.microsoft.com/downloads/). Storage-emulatorn är ett verktyg som simulerar Azure Blob, köer och tabellen tjänster som är tillgängliga på utvecklingsdatorn lokala. I följande exempel visas hur du kan deklarera statiska fält för anslutningssträngen till din lokala storage-emulatorn:  
 
@@ -74,7 +85,7 @@ Starta Azure storage-emulatorn, klicka på den **starta** knappen eller tryck p�
 Följande exempel förutsätter att du har använt ett av dessa två sätt för att hämta anslutningssträngen för lagring.  
 
 ## <a name="retrieve-your-connection-string"></a>Hämta anslutningssträngen
-Du kan använda den **cloud_storage_account** klass för att representera kontoinformationen lagring. Du kan använda parse-metod för att hämta information om ditt lagringskonto från anslutningssträngen för lagring.
+Du kan använda den **cloud_storage_account** klass för att representera kontoinformationen lagring. Du kan använda för att hämta information om ditt lagringskonto från anslutningssträngen för lagring av **parsa** metod.
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -198,6 +209,9 @@ Några saker att tänka på batchåtgärder:
 ## <a name="retrieve-all-entities-in-a-partition"></a>Hämta alla entiteter i en partition
 Om du vill fråga en tabell efter alla entiteter i en partition använder en **table_query** objekt. I följande kodexempel anges ett filter för entiteter där partitionsnyckeln är ”Smith”. Det här exemplet skriver ut fälten för varje entitet i frågeresultatet till konsolen.  
 
+> [!NOTE]
+> Dessa metoder stöds inte för C++ i Azure Cosmos-databasen.
+
 ```cpp
 // Retrieve the storage account from the connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -232,6 +246,9 @@ Frågan i det här exemplet ger alla entiteter som matchar filterkriterierna. Om
 
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Hämta ett intervall med enheter i en partition
 Om du inte vill fråga efter alla entiteter i en partition kan du ange ett intervall genom att kombinera partitionsnyckelfiltret med ett radnyckelfilter. I följande kodexempel används två filter för att hämta alla entiteter i partitionen ”Smith” där radnyckeln (förnamn) börjar med en bokstav som kommer före ”E” i alfabetet, varefter frågeresultatet skrivs ut.  
+
+> [!NOTE]
+> Dessa metoder stöds inte för C++ i Azure Cosmos-databasen.
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -436,23 +453,30 @@ azure::storage::cloud_table_client table_client = storage_account.create_cloud_t
 // Create a cloud table object for the table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
-azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
-azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
-
-// Create an operation to delete the entity.
-azure::storage::table_operation delete_operation = azure::storage::table_operation::delete_entity(retrieve_result.entity());
-
-// Submit the delete operation to the Table service.
-azure::storage::table_result delete_result = table.execute(delete_operation);
+// Delete the table if it exists
+if (table.delete_table_if_exists())
+    {
+        std::cout << "Table deleted!";
+    }
+    else
+    {
+        std::cout << "Table didn't exist";
+    }
 ```
 
-## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig grunderna i table storage kan du följa dessa länkar om du vill veta mer om Azure Storage:  
+## <a name="troubleshooting"></a>Felsökning
+* Skapa fel i Visual Studio 2017 Community Edition
 
+  Om ditt projekt hämtar build-fel på grund av inkludera filer storage_account.h och table.h, ta bort den **/ Tillåtande-** kompileraren växel. 
+  - I **Solution Explorer**, högerklicka på projektet och välj **egenskaper**.
+  - I den **egenskapssidor** dialogrutan Expandera **konfigurationsegenskaper**, expandera **C/C++**, och välj **språk**.
+  - Ange **överensstämmelse läge** till **nr**.
+   
+## <a name="next-steps"></a>Nästa steg
+Du kan följa dessa länkar om du vill veta mer om Azure Storage och tabell-API: et i Azure Cosmos-databasen: 
+
+* [Introduktion till tabellen API](table-introduction.md)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.
-* [Hur du använder Blob storage från C++](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [Använda Queue storage från C++](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
 * [Visa en lista med Azure Storage-resurser i C++](../storage/common/storage-c-plus-plus-enumeration.md)
 * [Storage-klientbibliotek för C++-referens](http://azure.github.io/azure-storage-cpp)
 * [Azure Storage-dokumentation](https://azure.microsoft.com/documentation/services/storage/)

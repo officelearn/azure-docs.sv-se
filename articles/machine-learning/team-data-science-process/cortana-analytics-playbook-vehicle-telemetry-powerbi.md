@@ -12,22 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 626987ec0648f9e770499b4a48bc4ca2d175d2b4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Vehicle telemetri Analytics lösning mallen Power BI dashboard instruktioner
 Den här menyn innehåller länkar till kapitlen i den här playbook: 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
-Vehicle telemetri Analytics lösningen visar hur bil hos återförsäljarna, bil tillverkare och försäkringsbolag kan använda funktionerna i Cortana Intelligence. De kan få i realtid och förutsägbara insikter om vehicle hälsa och köra vanor att förbättra kundupplevelsen, forskning och utveckling och marknadsföringskampanjer. Dessa stegvisa anvisningar visar hur du kan konfigurera en Power BI-rapporter och instrumentpanelen när du distribuerar lösningen i din prenumeration. 
+Vehicle telemetri Analytics lösning showcases använda hur bil hos återförsäljarna, bil tillverkare och försäkringsbolag kan funktionerna i Cortana Intelligence. De kan hämta i realtid och förutsägbara insikter om vehicle hälsa och köra vanor att förbättra kundupplevelsen, forskning och utveckling och marknadsföringskampanjer. Dessa stegvisa anvisningar visar hur du konfigurerar Power BI-rapporter och instrumentpanelen när du distribuerar lösningen i din prenumeration. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Distribuera den [Vehicle telemetri Analytics](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) lösning. 
 * [Installera Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
 * Hämta en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/). Om du inte har en Azure-prenumeration, komma igång med den kostnadsfria Azure-prenumerationen.
@@ -42,7 +42,7 @@ Som en del av Vehicle telemetri Analytics lösning mallen kan distribueras följ
 * **Azure HDInsight** omvandlar data i större skala.
 * **Azure Data Factory** hanterar orchestration, schemaläggning, resurshantering och övervakning av batch-bearbetning-pipeline.
 
-**Power BI** ger den här lösningen en omfattande instrumentpanel för data i realtid och förutsägelseanalys visualiseringar. 
+**Power BI** ger den här lösningen en omfattande instrumentpanel för data och förutsägelseanalys visualiseringar. 
 
 Lösningen använder två olika datakällor:
 
@@ -101,7 +101,7 @@ Tre realtid rapporter finns i den här lösningen:
 * Fordon kräver Underhåll
 * Vehicle hälsostatistik
 
-Du kan konfigurera alla tre av realtidsskyddet rapporter eller du kan stoppa efter någon gång. Du kan sedan fortsätta till nästa avsnitt om hur du konfigurerar batch-rapporter. Vi rekommenderar att du skapar alla tre rapporter att visualisera fullständig insikter i realtid sökvägen för lösningen.  
+Du kan konfigurera alla tre rapporterna eller du kan stoppa efter någon gång. Du kan sedan fortsätta till nästa avsnitt om hur du konfigurerar batch-rapporter. Vi rekommenderar att du skapar alla tre rapporter att visualisera fullständig insikter i realtid sökvägen för lösningen.  
 
 ### <a name="vehicles-in-operation-report"></a>Fordon i rapporten igen
 1. Dubbelklicka på **sida 1**, och byta namn på den **fordon i åtgärden**.
@@ -160,7 +160,7 @@ Du kan konfigurera alla tre av realtidsskyddet rapporter eller du kan stoppa eft
 
     ![Instrumentpanel med grafik](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
 
-Du har konfigurerat ”fordon i åtgärden” realtid rapporten. Du kan skapa nästa realtid rapport eller du kan stoppa här och konfigurera instrumentpanelen. 
+Du har konfigurerat ”fordon i åtgärden” rapporten. Du kan skapa nästa realtid rapport eller du kan stoppa här och konfigurera instrumentpanelen. 
 
 ### <a name="vehicles-requiring-maintenance-report"></a>Fordon kräver Underhåll rapport
 
@@ -192,13 +192,13 @@ Du har konfigurerat ”fordon i åtgärden” realtid rapporten. Du kan skapa n�
 
 5. På den **visualiseringar** väljer den **grupperat stående stapeldiagram** visualiseringen. 
 
-    ![Vin-kort](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4o.png)
+    ![Vin Card](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4o.png)
 
     ![Grupperat stående stapeldiagram](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4p.png)
 
 6. På den **fält** fliken genom att dra **modellen** till den **axel** område. Dra **vin** till den **värdet** område. Sortera visualisering av **antal vin**. Ändra diagrammet **rubrik** till **fordon kräver underhåll av modell**. 
 
-7. På den **fält** ![fält](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) avsnitt i den **visualiseringar** fliken genom att dra **vin** till **färgmättnad**.
+7. På den **fält** ![fält avbildningen](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) avsnitt i den **visualiseringar** fliken genom att dra **vin** till **färgmättnad**.
 
     ![Färgmättnad](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)  
 
@@ -298,13 +298,13 @@ Du har konfigurerat rapporten ”fordon kräver Underhåll” realtid. Du kan sk
 
     ![Sammansättningstyp](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ff.png)
 
-22. Ändra diagrammet **rubrik** till **genomsnittlig motorolja, tröttnar sannolikheten för hög belastning, hastighet och underhåll av modell**.
+22. Ändra diagrammet **rubrik** till **genomsnittlig motorolja, däck tryck, hastighet och sannolikheten för underhåll av modell**.
 
     ![Området diagrammets rubrik](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4gg.png)
 
 23. Välj det tomma utrymmet för att lägga till en ny visualisering.
 
-24. På den **visualiseringar** väljer den **punktdiagram** visualiseringen. Dra **modellen** till den **information** och **förklaring** områden. Dra **bränsle** till den **X-axeln** område. Ändra aggregering till **genomsnittlig**. Dra **engineTemperature** till den **Y-axeln** område. Ändra aggregering till **genomsnittlig**. Dra **vin** till den **storlek** område.
+24. På den **visualiseringar** väljer den **punktdiagram** visualiseringen. Dra **modellen** till den **information** och **förklaring** områden. Dra **bränsle** till den **x-axeln** område. Ändra aggregering till **genomsnittlig**. Dra **engineTemperature** till den **y-axeln** område. Ändra aggregering till **genomsnittlig**. Dra **vin** till den **storlek** område.
 
     ![Information, förklaring och axelns storlek områden](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
@@ -333,7 +333,7 @@ Du har skapat realtid instrumentpanelen. När du fortsätter att köra CarEventG
 
 ## <a name="set-up-the-power-bi-batch-processing-dashboard"></a>Ställ in Power BI-instrumentpanel batch bearbetning
 > [!NOTE]
-> Det tar ca två timmar (från distributionen lyckades) för slutpunkt till slutpunkt-pipelinen för att avsluta körningen och bearbeta ett år som skapas för batchbearbetning. Vänta tills bearbetningen måste slutföras innan du går vidare med följande steg. 
+> Det tar ca två timmar (från distributionen lyckades) för slutpunkt till slutpunkt-pipelinen för att avsluta körningen och bearbeta ett år som skapas för batchbearbetning. Vänta tills bearbetningen måste slutföras innan du går vidare med följande steg:
 > 
 > 
 

@@ -2,24 +2,18 @@
 title: "Använd Azure-portalen för att skapa SQL-databas aviseringar | Microsoft Docs"
 description: "Använd Azure-portalen för att skapa SQL-databas aviseringar som kan utlösa meddelanden eller automation när angivna villkor uppfylls."
 author: aamalvea
-manager: jhubbard
-editor: 
+manager: craigg
 services: sql-database
-documentationcenter: 
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
 ms.service: sql-database
 ms.custom: monitor and tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: aamalvea
-ms.openlocfilehash: fd21c9b5e573ac6a47fef88c2a9d31c52618ecb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 611b88c540902bc7a72d53671dacd098d9798b48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Använd Azure-portalen för att skapa aviseringar för Azure SQL Database och datalagret
 
@@ -41,8 +35,8 @@ Du kan konfigurera och få information om aviseringen regler med hjälp av
 
 * [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [kommandoradsgränssnittet (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
-* [Azure-Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Kommandoradsgränssnittet (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Skapa en aviseringsregel på ett mått med Azure-portalen
 1. I den [portal](https://portal.azure.com/), leta upp den resurs som du är intresserad av övervakning och markera den.
@@ -78,45 +72,45 @@ När du har skapat en avisering, kan du välja den och:
 
 ## <a name="sql-database-alert-values"></a>Aviseringen värden för SQL-databas
 
-| Resurstyp | Måttnamnet | Eget namn | Sammansättningstyp | Minsta avisering tidsfönstret|
+| Resurstyp | Måttnamn | Eget namn | Sammansättningstyp | Minsta avisering tidsfönstret|
 | --- | --- | --- | --- | --- |
-| SQL-databas | cpu_percent | CPU-procent | Genomsnittlig | 5 minuter |
-| SQL-databas | physical_data_read_percent | Data IO-procent | Genomsnittlig | 5 minuter |
-| SQL-databas | log_write_percent | Loggen IO-procent | Genomsnittlig | 5 minuter |
-| SQL-databas | dtu_consumption_percent | DTU-procent | Genomsnittlig | 5 minuter |
-| SQL-databas | Lagring | Totalt antal databasens storlek | Maximalt | 30 minuter |
+| SQL-databas | cpu_percent | CPU-procent | Medel | 5 minuter |
+| SQL-databas | physical_data_read_percent | Data IO-procent | Medel | 5 minuter |
+| SQL-databas | log_write_percent | Loggen IO-procent | Medel | 5 minuter |
+| SQL-databas | dtu_consumption_percent | DTU-procent | Medel | 5 minuter |
+| SQL-databas | lagring | Totalt antal databasens storlek | Maximal | 30 minuter |
 | SQL-databas | connection_successful | Lyckade anslutningar | Totalt | 10 minuter |
 | SQL-databas | connection_failed | Misslyckade anslutningar | Totalt | 10 minuter |
 | SQL-databas | blocked_by_firewall | Blockeras av brandvägg | Totalt | 10 minuter |
 | SQL-databas | deadlock | Deadlocks | Totalt | 10 minuter |
-| SQL-databas | storage_percent | Databasstorlek i procent | Maximalt | 30 minuter |
-| SQL-databas | xtp_storage_percent | Minnesintern OLTP lagring percent(Preview) | Genomsnittlig | 5 minuter |
-| SQL-databas | workers_percent | Procentsatsen för arbetare | Genomsnittlig | 5 minuter |
-| SQL-databas | sessions_percent | Sessioner procent | Genomsnittlig | 5 minuter |
-| SQL-databas | dtu_limit | DTU gräns | Genomsnittlig | 5 minuter |
-| SQL-databas | dtu_used | DTU används | Genomsnittlig | 5 minuter |
+| SQL-databas | storage_percent | Databasstorlek i procent | Maximal | 30 minuter |
+| SQL-databas | xtp_storage_percent | Minnesintern OLTP lagring percent(Preview) | Medel | 5 minuter |
+| SQL-databas | workers_percent | Procentsatsen för arbetare | Medel | 5 minuter |
+| SQL-databas | sessions_percent | Sessioner procent | Medel | 5 minuter |
+| SQL-databas | dtu_limit | DTU gräns | Medel | 5 minuter |
+| SQL-databas | dtu_used | DTU används | Medel | 5 minuter |
 ||||||
-| Elastisk pool | cpu_percent | CPU-procent | Genomsnittlig | 10 minuter |
-| Elastisk pool | physical_data_read_percent | Data IO-procent | Genomsnittlig | 10 minuter |
-| Elastisk pool | log_write_percent | Loggen IO-procent | Genomsnittlig | 10 minuter |
-| Elastisk pool | dtu_consumption_percent | DTU-procent | Genomsnittlig | 10 minuter |
-| Elastisk pool | storage_percent | Lagringsprocent | Genomsnittlig | 10 minuter |
-| Elastisk pool | workers_percent | Procentsatsen för arbetare | Genomsnittlig | 10 minuter |
-| Elastisk pool | eDTU_limit | eDTU gräns | Genomsnittlig | 10 minuter |
-| Elastisk pool | storage_limit | Lagringsgränsen | Genomsnittlig | 10 minuter |
-| Elastisk pool | eDTU_used | eDTU används | Genomsnittlig | 10 minuter |
-| Elastisk pool | storage_used | Använt lagringsutrymme | Genomsnittlig | 10 minuter |
+| Elastisk pool | cpu_percent | CPU-procent | Medel | 10 minuter |
+| Elastisk pool | physical_data_read_percent | Data IO-procent | Medel | 10 minuter |
+| Elastisk pool | log_write_percent | Loggen IO-procent | Medel | 10 minuter |
+| Elastisk pool | dtu_consumption_percent | DTU-procent | Medel | 10 minuter |
+| Elastisk pool | storage_percent | Lagringsprocent | Medel | 10 minuter |
+| Elastisk pool | workers_percent | Procentsatsen för arbetare | Medel | 10 minuter |
+| Elastisk pool | eDTU_limit | eDTU gräns | Medel | 10 minuter |
+| Elastisk pool | storage_limit | Lagringsgränsen | Medel | 10 minuter |
+| Elastisk pool | eDTU_used | eDTU används | Medel | 10 minuter |
+| Elastisk pool | storage_used | Använt lagringsutrymme | Medel | 10 minuter |
 ||||||               
-| SQL data warehouse | cpu_percent | CPU-procent | Genomsnittlig | 10 minuter |
-| SQL data warehouse | physical_data_read_percent | Data IO-procent | Genomsnittlig | 10 minuter |
-| SQL data warehouse | Lagring | Totalt antal databasens storlek | Maximalt | 10 minuter |
-| SQL data warehouse | connection_successful | Lyckade anslutningar | Totalt | 10 minuter |
-| SQL data warehouse | connection_failed | Misslyckade anslutningar | Totalt | 10 minuter |
-| SQL data warehouse | blocked_by_firewall | Blockeras av brandvägg | Totalt | 10 minuter |
-| SQL data warehouse | service_level_objective | Servicenivåmålet för databasen | Totalt | 10 minuter |
-| SQL data warehouse | dwu_limit | dwu gräns | Maximalt | 10 minuter |
-| SQL data warehouse | dwu_consumption_percent | DWU-procent | Genomsnittlig | 10 minuter |
-| SQL data warehouse | dwu_used | DWU används | Genomsnittlig | 10 minuter |
+| SQL Data Warehouse | cpu_percent | CPU-procent | Medel | 10 minuter |
+| SQL Data Warehouse | physical_data_read_percent | Data IO-procent | Medel | 10 minuter |
+| SQL Data Warehouse | lagring | Totalt antal databasens storlek | Maximal | 10 minuter |
+| SQL Data Warehouse | connection_successful | Lyckade anslutningar | Totalt | 10 minuter |
+| SQL Data Warehouse | connection_failed | Misslyckade anslutningar | Totalt | 10 minuter |
+| SQL Data Warehouse | blocked_by_firewall | Blockeras av brandvägg | Totalt | 10 minuter |
+| SQL Data Warehouse | service_level_objective | Servicenivåmålet för databasen | Totalt | 10 minuter |
+| SQL Data Warehouse | dwu_limit | dwu gräns | Maximal | 10 minuter |
+| SQL Data Warehouse | dwu_consumption_percent | DWU-procent | Medel | 10 minuter |
+| SQL Data Warehouse | dwu_used | DWU används | Medel | 10 minuter |
 ||||||
 
 

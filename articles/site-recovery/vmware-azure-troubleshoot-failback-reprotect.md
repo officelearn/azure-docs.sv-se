@@ -1,6 +1,6 @@
 ---
 title: "Felsökning av fel vid återställning av virtuella datorer i Azure till lokala VMware med Azure Site Recovery | Microsoft Docs"
-description: "Den här artikeln beskrivs olika sätt att felsöka vanliga återställning och återaktivera skydd vid återställning till VMware från Azure med Azure Site Recovery."
+description: "Den här artikeln beskrivs olika sätt att felsöka vanliga återställning och återaktivera skydd vid återställning till VMware från Azure med hjälp av Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rajani-janaki-ram
@@ -9,17 +9,17 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: rajanaki
-ms.openlocfilehash: 6dcecce78de3caaefb40cb3fe4853d5d550163b4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 480c3524ad4fb8a8c6ea02f09b8d27f254da9b08
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-failback-from-azure-to-vmware"></a>Felsöka återställning från Azure till VMware
 
 Den här artikeln beskriver hur du felsöker problem som kan uppstå när du växlar tillbaka Azure virtuella datorer till lokala VMware-infrastrukturen, efter en redundansväxling till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 
-Återställning innebär i stort sett två steg. När växling vid fel behöver du skyddar virtuella datorer i Azure till lokala, så att de startar replikering. Det andra steget är att köra en växling vid fel från Azure till växla tillbaka till den lokala platsen.
+Återställning innebär i stort sett två steg. För det första steget behöver när växling vid fel, du skyddar virtuella datorer i Azure till lokala så att de startar replikering. Det andra steget är att köra en växling vid fel från Azure för att växla tillbaka till den lokala platsen.
 
 ## <a name="troubleshoot-reprotection-errors"></a>Felsöka återaktivera skydd
 
@@ -31,32 +31,36 @@ Det här avsnittet beskrivs vanliga återaktivera skydd fel och åtgärda dem.
 
 Det här felet uppstår när:
 
-1. Den virtuella Azure-datorn kan inte nå konfigurationsservern lokalt. Den virtuella datorn kan identifieras och registrerade på konfigurationsservern.
-2. InMage Scout Application service körs inte på Azure VM efter växling vid fel. Tjänsten krävs för kommunikation med konfigurationsservern lokalt.
+* Den virtuella Azure-datorn kan inte nå konfigurationsservern lokalt. Den virtuella datorn kan inte identifieras och registrerade på konfigurationsservern.
+* InMage Scout application service körs inte på Azure VM efter växling vid fel. Tjänsten krävs för kommunikation med konfigurationsservern lokalt.
 
 Så här löser du problemet:
 
-1. Kontrollera att det Virtuella Azure-nätverket tillåter virtuella Azure-datorn kan kommunicera med konfigurationsservern lokalt. Anger en plats-till-plats-VPN till ditt lokala datacenter för att göra detta, eller konfigurera en ExpressRoute-anslutning med privat peering på Azure VM virtuella nätverk.
-2. Logga sedan in på den virtuella datorn och kontrollera 'InMage Scout Application Service, om den virtuella datorn kan kommunicera med konfigurationsservern lokalt. Om du ser att den inte körs starta tjänsten manuellt och kontrollera att starttypen för tjänsten är inställd på automatisk.
+* Kontrollera att det Virtuella Azure-nätverket tillåter virtuella Azure-datorn kan kommunicera med konfigurationsservern lokalt. Du kan konfigurera en plats-till-plats VPN-anslutning till ditt lokala datacenter, eller så kan du konfigurera en Azure ExpressRoute-anslutning med privat peering på Azure VM virtuella nätverk.
+* Om den virtuella datorn kan kommunicera med konfigurationsservern lokalt, kan du logga in på den virtuella datorn. Kontrollera sedan InMage Scout application service. Om du ser att den inte körs kan du starta tjänsten manuellt. Kontrollera att tjänsten starttypen är inställd på **automatisk**.
 
 ### <a name="error-code-78052"></a>Felkoden 78052
 
 **Att det gick inte slutföra skyddet för den virtuella datorn.**
 
-Detta kan inträffa om det finns redan en virtuell dator med samma namn på huvudmålservern som du växlar tillbaka.
+Det här problemet kan inträffa om det finns redan en virtuell dator med samma namn på huvudmålservern som du växlar tillbaka.
 
-Så här löser detta problem genom att göra följande:
-1. Välj en annan huvudmålserver på en annan värd, så att återaktivera skydd skapar datorn på en annan värd, där namnen inte hamnar i konflikt.
-2. Du kan också vMotion huvudmålservern till en annan värd där namnet kollisionen inte sker. Om den befintliga virtuella datorn är en avvikande dator, byta namn på den så att den nya virtuella datorn kan skapas på samma ESXi-värd.
+Så här löser du problemet:
+
+* Välj en annan huvudmålserver på en annan värd så att återaktivera skydd skapar datorn på en annan värd, där namnen inte hamnar i konflikt.
+* Du kan också använda vMotion flytta huvudmålservern till en annan värd där namnet kollisionen inte sker. Om den befintliga virtuella datorn är en avvikande dator, byta namn på den så att den nya virtuella datorn kan skapas på samma ESXi-värd.
+
 
 ### <a name="error-code-78093"></a>Felkoden 78093
 
 **Den virtuella datorn körs inte i låst tillstånd, eller är inte tillgänglig.**
 
-Om du vill skydda igen en misslyckad över VM, måste du köra Azure VM. Detta är så att mobilitetstjänsten registrerar med den konfiguration av server lokalt, och börja replikering genom att kommunicera med processervern. Om datorn är i ett felaktigt nätverk, eller inte körs (låst tillstånd eller avstängning), kan inte konfigurationsservern nå mobilitetstjänsten på den virtuella datorn ska börja återaktivera skydd.
+Så här löser du problemet:
 
-1. Starta om den virtuella datorn så att den kan starta kommunikation tillbaka lokalt.
-2. Starta om jobbet skydda igen när du har startat den virtuella Azure-datorn
+Om du vill skydda igen en virtuell dator misslyckades över måste virtuella Azure-datorn köras så att Mobilitetstjänsten registreras med configuration server lokalt och kan starta replikering genom att kommunicera med processervern. Om datorn är på en felaktig nätverks- eller inte körs (avstannat tillstånd eller stänga ned), kan inte konfigurationsservern nå Mobilitetstjänsten på den virtuella datorn ska börja återaktivera skydd.
+
+* Starta om den virtuella datorn så att den kan starta kommunikation tillbaka lokalt.
+* Starta om jobbet skydda igen när du startar den virtuella Azure-datorn.
 
 ### <a name="error-code-8061"></a>Felkoden 8061
 
@@ -71,9 +75,11 @@ Det här avsnittet beskrivs vanliga fel som kan uppstå under återställning ef
 
 ### <a name="error-code-8038"></a>Felkoden 8038
 
-**Det gick inte att öppna den lokala virtuella datorn på grund av fel**
+**Det gick inte att öppna den lokala virtuella datorn på grund av fel.**
 
-Detta händer när den lokala virtuella datorn tas på en värd som inte har tillräckligt med minne som har etablerats. Så här löser du problemet:
+Det här problemet inträffar när den lokala virtuella datorn tas på en värd som inte har tillräckligt med minne som har etablerats. 
 
-1. Etablera mer minne på ESXi-värd.
-2. Du kan dessutom vMotion den virtuella datorn till en annan ESXi-värd som har tillräckligt med minne för att starta den virtuella datorn.
+Så här löser du problemet:
+
+* Etablera mer minne på ESXi-värd.
+* Du kan dessutom använda vMotion för att flytta den virtuella datorn till en annan ESXi-värd som har tillräckligt med minne för att starta den virtuella datorn.

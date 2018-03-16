@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 931dfae740996325cc62071a861e81ef5f67548b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 89f95753248f74c7f6cb9ca1f680a01b07dd43d1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-model-management"></a>Azure Machine Learning-modellhantering
 
@@ -99,27 +99,27 @@ Fullständig arbetsflödet som beskriver de här koncepten avbildas i följande 
 ![](media/model-management-overview/modelmanagementworkflow.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ) 
-- Vilka datatyper stöds? Kan jag skicka NumPy matriser direkt som indata till webbtjänsten?
+- **Vilka datatyper stöds? Kan jag skicka NumPy matriser direkt som indata till webbtjänsten?**
 
    Om du tillhandahåller schemafilen som skapades med generate_schema SDK sedan överföra du NumPy och/eller Pandas DF. Du kan också skicka alla serialiserbara JSON-indata. Du kan överföra avbildningen som samt binär kodad sträng.
 
-- Stöder webbtjänsten flera indata eller analysera olika indata? 
+- **Stöder webbtjänsten flera indata eller analysera olika indata?**
 
    Ja, du kan ta flera inmatningar paketeras i en JSON-begäran som en ordlista. Varje indata skulle motsvarar en enda unika ordlistans nyckel.
 
-- Anropet aktiveras av en begäran till webbservern som tjänsten en blockerande samtal eller ett asynkront anrop
+- **Anropet aktiveras av en begäran till webbservern som tjänsten en blockerande samtal eller ett asynkront anrop**
 
    Om tjänsten har skapats med alternativet i realtid som en del av CLI eller API, är det ett blockerar/synkrona anrop. Det förväntas vara snabb standarddatakällan i realtid. Även om blockering klienttråden på klientsidan kan du anropa den med async HTTP-biblioteket för att undvika.
 
-- Hur många förfrågningar kan webbtjänsten hantera samtidigt?
+- **Hur många förfrågningar kan webbtjänsten hantera samtidigt?**
 
    Det beror på klustret och web service skalan. Du kan skala ut tjänsten till 100 x av repliker och sedan den kan hantera många begäranden samtidigt. Du kan också konfigurera maximalt antal samtidiga begäranden per repliken att öka genomflödet för tjänsten.
 
-- Hur många förfrågningar kan webbtjänsten köa?
+- **Hur många förfrågningar kan webbtjänsten köa?**
 
    Den kan konfigureras. Som standard anges till 10 ~ per enskild replik, men du kan öka/minska det till kraven för application. Vanligtvis ökar den antalet begäranden i kö ökar genomströmningen för tjänsten men gör svarstiderna worse på högre percentiler. Om du vill behålla latens konsekvent, kan du ange queuing till ett lågt värde (1-5) och öka antalet repliker för att hantera genomflödet. Du kan också aktivera autoskalning kan göra antal repliker Justera automatiskt utifrån belastningen. 
 
-- Kan användas på samma dator eller kluster för flera slutpunkter för webbtjänster?
+- **Kan användas på samma dator eller kluster för flera slutpunkter för webbtjänster?**
 
    Absolut. Du kan köra 100 x över services-slutpunkter på samma kluster. 
 

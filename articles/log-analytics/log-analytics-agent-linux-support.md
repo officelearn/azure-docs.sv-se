@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 03/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 895a77a66f50b4c5217ec7d672f6441b85bf1856
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 80d7e39b284554ebfa8cac4488e1663b3e3648e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Felsökning av problem med Linux-agent för logganalys
 
@@ -37,12 +37,12 @@ Du får hjälp med att felsöka fel som du kan uppleva med Linux-agent för Log 
 2. Läs avsnittet [uppdatera proxyinställningar](log-analytics-agent-manage.md#update-proxy-settings) att verifiera att du har konfigurerat agenten för kommunikation via en proxyserver korrekt.    
 * Kontrollera att följande slutpunkter för Log Analytics-tjänsten är godkända:
 
-    |Agentresurs| Portar |  
-    |------|---------|  
-    |*.ods.opinsights.azure.com | Port 443|   
-    |*.oms.opinsights.azure.com | Port 443|   
-    |ods.systemcenteradvisor.com | Port 443|   
-    |*.blob.core.windows.net/ | Port 443|   
+    |Agentresurs| Portar | Riktning |
+    |------|---------|----------|  
+    |*.ods.opinsights.azure.com | Port 443| Inkommande och utgående |  
+    |*.oms.opinsights.azure.com | Port 443| Inkommande och utgående |  
+    |*.blob.core.windows.net | Port 443| Inkommande och utgående |  
+    |*.azure-automation.net | Port 443| Inkommande och utgående | 
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problem: Du får ett 403-fel vid försök att publicera
 
@@ -68,7 +68,7 @@ Detta är ett känt problem som uppstår på första uppladdning av Linux-data i
 - OMS-Agent för Linux data säkerhetskopieras
 
 ### <a name="resolutions"></a>Lösningar
-1. Kontrollera om onboarding Log Analytics-tjänsten lyckades genom att kontrollera om det finns följande fil:`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
+1. Kontrollera om onboarding Log Analytics-tjänsten lyckades genom att kontrollera om det finns följande fil: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. Reonboard med hjälp av den `omsadmin.sh` kommandoradsinstruktioner
 3. Om du använder en proxyserver, referera till proxy upplösning stegen ovan.
 4. I vissa fall när OMS-Agent för Linux inte kan kommunicera med tjänsten, data på agenten är i kö på den fullständiga buffertstorleken, vilket är 50 MB. OMS-Agent för Linux ska startas om genom att köra följande kommando: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 

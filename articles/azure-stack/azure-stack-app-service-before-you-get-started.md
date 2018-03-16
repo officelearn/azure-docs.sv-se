@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5323fe505adfd9b3495dd85ce41d6f141125184b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Innan du börjar med App Service på Azure-stacken
 
@@ -47,7 +47,7 @@ Innan du distribuerar Azure App Service på Azure-stacken måste du slutföra kr
 
 ## <a name="high-availability"></a>Hög tillgänglighet
 
-På grund av 1802-versionen av Azure-stacken, vilket lägger till stöd för feldomäner nya distributioner av Azure App Service på Azure-stacken ska distribueras över feldomäner och ge feltolerans.  Uppdatera för befintliga distributioner av Azure App Service på Azure-stacken som har distribuerats innan lanseringen av 1802, läser du dokumentationen (azure-stack-app-service-fault-domain-update.md) att balansera om distributionen.
+På grund av 1802-versionen av Azure-stacken, vilket lägger till stöd för feldomäner nya distributioner av Azure App Service på Azure-stacken ska distribueras över feldomäner och ge feltolerans.  För befintliga distributioner av Azure App Service på Azure-stacken som har distribuerats innan lanseringen av 1802 uppdatera, se den [dokumentationen](azure-stack-app-service-fault-domain-update.md) att balansera om distributionen.
 
 Dessutom distribuera Azure App Service på Azure-stacken för hög tillgänglighet krävs file server och SQL Server-instans i en konfiguration med hög tillgänglighet. 
 

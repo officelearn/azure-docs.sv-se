@@ -2,23 +2,18 @@
 title: "Klientbibliotek för elastisk databas med Dapper | Microsoft Docs"
 description: "Med Dapper klientbibliotek för elastisk databas."
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-ms.assetid: 463d2676-3b19-47c2-83df-f8c50492c9d2
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
-ms.author: torsteng
-ms.openlocfilehash: c258b1859e14d9783a3dfa75431b69bef4d640fd
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 192e9fa52f3829a18bbccc9c5fb3b953d74569c4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Med Dapper klientbibliotek för elastisk databas
 Det här dokumentet är för utvecklare som förlitar sig på Dapper att bygga program, men också att omfatta [elastisk databas-tooling](sql-database-elastic-scale-introduction.md) att skapa program att implementera horisontell partitionering att skala ut datanivå sina.  Det här dokumentet visar ändringarna i Dapper-baserade program som är nödvändiga för att integrera med elastiska Databasverktyg. Vår fokus ligger på fastställdes elastisk databas Fragmentera hanterings- och data-beroende routning med Dapper. 
@@ -160,7 +155,7 @@ De metoder som beskrivs i det här dokumentet medför några begränsningar:
 * Exempelkod för det här dokumentet visar inte hur du hanterar schemat över shards.
 * Ges en begäran om antar vi att dess databasbearbetning ingår i en enda Fragmentera som identifieras av horisontell partitionering-nyckel som tillhandahålls av begäran. Men innehåller detta antagande inte alltid, till exempel när det inte är möjligt att tillhandahålla en nyckel för horisontell partitionering. För att lösa det klientbibliotek för elastisk databas innehåller den [MultiShardQuery klassen](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx). Klassen implementerar en anslutning abstraktion för frågor över flera delar. Använda MultiShardQuery i kombination med Dapper är utanför omfattningen för det här dokumentet.
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Program med hjälp av Dapper och DapperExtensions kan enkelt utnyttja elastisk Databasverktyg för Azure SQL Database. Via de steg som beskrivs i det här dokumentet programmen kan använda verktyget kapaciteten för data-beroende routning genom att ändra skapandet och öppna i nytt [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) objekt som ska använda den [ OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) anrop av klientbiblioteket för elastisk databas. Detta begränsar programändringar som krävs för att de platser där nya anslutningar skapas och öppnas. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

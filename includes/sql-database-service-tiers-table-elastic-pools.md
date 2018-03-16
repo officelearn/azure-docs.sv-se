@@ -87,6 +87,6 @@ sql-database-elastic-pool.md
 > [!IMPORTANT]
 > \*Lagringsstorlekar som är större än mängden lagringsutrymme som ingår finns i förhandsversionen, och extra kostnader tillkommer. Mer information finns i [SQL-databas sida med priser](https://azure.microsoft.com/pricing/details/sql-database/). Lagringsstorlekar större än mängden lagringsutrymme som ingår finns i förhandsgranskningen och tillämpa extra kostnader. Mer information finns i [SQL-databas sida med priser](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* På Premium-nivån är mer än 1 TB lagringsutrymme för närvarande tillgängligt i följande regioner: östra Australien, sydöstra Australien, centrala Kanada, östra Kanada, centrala Frankrike, centrala Tyskland, östra Japan, centrala Korea, södra centrala USA, Sydostasien, östra USA 2, västra USA, Virginia (USA-förvaltad region) och Västeuropa. 
+> \* Premium-nivån mer än 1 TB lagringsutrymme är tillgängliga i följande regioner: Kanada Central, Kanada, Öst, Frankrike Central, Tyskland Central, östra, Korea Central, södra centrala USA, södra Östasien, USA East2, västra USA, oss Gov Virginia och Väst Europa. 
 >
 

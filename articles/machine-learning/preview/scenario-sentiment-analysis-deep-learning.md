@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ead8edcefa8705af82f4b223512a671c1245718a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Sentiment analys med djup Learning med Azure Machine Learning
 
 Sentiment analys är en välkänd uppgift i sfären av naturligt språk bearbetning. Med en uppsättning texter är syftet att avgöra sentiment av texten. Syftet med den här lösningen är att använda djupgående utbildning för att förutsäga sentiment från film granskningar.
 
-Lösningen finns på https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
+Lösningen finns i https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
 
 ## <a name="link-to-the-gallery-github-repository"></a>Länka till galleriet GitHub-lagringsplatsen
 
@@ -37,7 +37,7 @@ Följ länken till offentliga GitHub-lagringsplatsen:
 
 Nedbrytning av data och den ökande mängden av mobila enheter har skapat många möjligheter för kunder att uttrycka sina känslor och attityder om något och allt när som helst. Den här åsikt eller ”sentiment” skapas ofta via sociala kanaler i form av granskningar, Chat, delar, gillar tweets osv. Sentiment kan vara ovärderlig för företag som vill förbättra produkter och tjänster, fatta välgrundade beslut och bättre befordra sina varumärken.
 
-Om du vill hämta värdet från sentiment analys har företag möjlighet att min stora datalager Ostrukturerade sociala för tillämplig insikter. I det här exemplet ska vi utvecklar djup learning-modeller för att utföra sentiment analys av film granskningar med AMLWorkbench
+Om du vill hämta värdet från sentiment analys har företag möjlighet att min stora datalager Ostrukturerade sociala för tillämplig insikter. I det här exemplet utvecklar vi djup learning-modeller för att utföra sentiment analys av film granskningar med AMLWorkbench
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -69,7 +69,7 @@ Ordningen praktiska övningar för att utföra lösningen är följande:
 |--|-----------|------|
 | 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt' |
 | 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | 'SentimentExtraction.py' |
-| 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
+| 3 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
 
 ## <a name="conclusion"></a>Sammanfattning
 

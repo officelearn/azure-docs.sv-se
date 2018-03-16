@@ -1,6 +1,6 @@
 ---
 title: "Skapa en identitet för Azure-app med PowerShell | Microsoft Docs"
-description: "Beskriver hur du använder Azure PowerShell för att skapa ett Azure Active Directory-program och tjänstens huvudnamn och bevilja åtkomst till resurser via rollbaserad åtkomstkontroll. Den visar hur du autentiserar program med ett lösenord eller ett certifikat."
+description: "Beskriver hur du använder Azure PowerShell för att skapa ett Azure Active Directory-program och tjänstens huvudnamn och bevilja åtkomst till resurser via rollbaserad åtkomstkontroll. Den visar hur du autentiserar program med ett certifikat."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,157 +12,53 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 03/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 103e4ca5ffd6c9dfe5043af9d8f75763705eb939
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 175d95c16484b90b13936c3be39b67749f0c3238
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten för att få åtkomst till resurser
+# <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Skapa ett huvudnamn för tjänsten med ett certifikat med hjälp av Azure PowerShell
 
 När du har en app eller skript som behöver åtkomst till resurser, kan du ställa in en identitet för appen och autentisera appen med sina egna autentiseringsuppgifter. Den här identiteten kallas ett huvudnamn för tjänsten. Den här metoden kan du:
 
 * Tilldela behörigheter till app-identitet som skiljer sig från din egen behörighet. Dessa behörigheter normalt begränsad till exakt vad appen behöver göra.
 * Använda ett certifikat för autentisering när du kör ett oövervakat skript.
 
-Den här artikeln visar hur du använder [Azure PowerShell](/powershell/azure/overview) att ställa in allt du behöver för att program ska köras under sina egna autentiseringsuppgifter och identitet.
+> [!IMPORTANT]
+> Överväg att använda Azure AD hanterade tjänstidentiteten för tillämpningsprogrammets identitet i stället för att skapa ett huvudnamn för tjänsten. Azure AD-MSI är en funktion för förhandsversion av Azure Active Directory som gör det enklare att skapa en identitet för koden. Om din kod körs på en tjänst som stöder Azure AD MSI och har åtkomst till resurser som stöder Azure Active Directory-autentisering, är ett bättre alternativ för Azure AD-MSI. Läs mer om Azure AD MSI, inklusive tjänster som stöds för närvarande, [hanterade tjänstidentiteten för Azure-resurser](../active-directory/managed-service-identity/overview.md).
+
+Den här artikeln visar hur du skapar ett huvudnamn för tjänsten som autentiserar med ett certifikat. Om du vill konfigurera ett huvudnamn för tjänsten med lösenord finns [skapa en Azure tjänstens huvudnamn med Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
-Du måste ha tillräckliga behörigheter i både din Azure Active Directory och Azure-prenumerationen för att slutföra den här artikeln. Mer specifikt måste du att kunna skapa en app i Azure Active Directory och tilldela en roll tjänstens huvudnamn. 
+
+Du måste ha tillräckliga behörigheter i Azure Active Directory och Azure-prenumeration för att slutföra den här artikeln. Mer specifikt måste du att kunna skapa en app i Azure Active Directory och tilldela en roll tjänstens huvudnamn.
 
 Det enklaste sättet att kontrollera om kontot har tillräcklig behörighet är via portalen. Se [Kontrollera behörighet](resource-group-create-service-principal-portal.md#required-permissions).
 
-Nu kan du gå vidare till ett avsnitt för att autentisera med:
-
-* [Lösenord](#create-service-principal-with-password)
-* [självsignerat certifikat](#create-service-principal-with-self-signed-certificate)
-* [certifikat från certifikatutfärdare](#create-service-principal-with-certificate-from-certificate-authority)
-
-## <a name="powershell-commands"></a>PowerShell-kommandon
-
-Om du vill konfigurera ett huvudnamn för tjänsten måste använda du:
-
-| Kommando | Beskrivning |
-| ------- | ----------- | 
-| [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Skapar ett Azure Active Directory-tjänstens huvudnamn |
-| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Tilldelar den angivna RBAC-rollen till den angivna säkerhetsobjekt i det specificerade omfånget. |
-
-
-## <a name="create-service-principal-with-password"></a>Skapa tjänstens huvudnamn med lösenord
-
-Använd för att skapa ett huvudnamn för tjänsten med deltagarrollen för din prenumeration: 
-
-```powershell
-Login-AzureRmAccount
-$password = convertto-securestring {provide-password} -asplaintext -force
-$sp = New-AzureRmADServicePrincipal -DisplayName exampleapp -Password $password
-Sleep 20
-New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
-```
-
-Exemplet i viloläge i 20 sekunder att tillåta lite tid för den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge visas ett felmeddelande om: ”Principal {ID} finns inte i katalogen {DIR-ID}”.
-
-Följande skript kan du ange en omfattning än standard-prenumeration och försöker rolltilldelningen om ett fel uppstår:
-
-```powershell
-Param (
-
- # Use to set scope to resource group. If no value is provided, scope is set to subscription.
- [Parameter(Mandatory=$false)]
- [String] $ResourceGroup,
-
- # Use to set subscription. If no value is provided, default subscription is used. 
- [Parameter(Mandatory=$false)]
- [String] $SubscriptionId,
-
- [Parameter(Mandatory=$true)]
- [String] $ApplicationDisplayName,
-
- [Parameter(Mandatory=$true)]
- [String] $Password
-)
-
- Login-AzureRmAccount
- Import-Module AzureRM.Resources
-
- if ($SubscriptionId -eq "") 
- {
-    $SubscriptionId = (Get-AzureRmContext).Subscription.Id
- }
- else
- {
-    Set-AzureRmContext -SubscriptionId $SubscriptionId
- }
-
- if ($ResourceGroup -eq "")
- {
-    $Scope = "/subscriptions/" + $SubscriptionId
- }
- else
- {
-    $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
- }
-
- $SecurePassword = convertto-securestring $Password -asplaintext -force
- 
- # Create Service Principal for the AD app
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $SecurePassword
- Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
-
- $NewRole = $null
- $Retries = 0;
- While ($NewRole -eq $null -and $Retries -le 6)
- {
-    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
-    Sleep 15
-    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
-    $Retries++;
- }
-```
-
-Några objekt att notera skriptet:
-
-* Om du vill ge åtkomst identitet till standard-prenumeration, behöver inte ange parametrarna ResourceGroup eller prenumerations-ID.
-* Ange parametern ResourceGroup bara när du vill begränsa omfattningen av rolltilldelningen i en resursgrupp.
-*  I det här exemplet du lägga till tjänstens huvudnamn i deltagarrollen. Andra roller, se [RBAC: inbyggda roller](../active-directory/role-based-access-built-in-roles.md).
-* Skriptet i viloläge under 15 sekunder till en stund innan den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge visas ett felmeddelande om: ”Principal {ID} finns inte i katalogen {DIR-ID}”.
-* Om du behöver ge service principal åtkomst till flera prenumerationer eller resursgrupper kör den `New-AzureRMRoleAssignment` cmdleten igen med olika omfång.
-
-
-### <a name="provide-credentials-through-powershell"></a>Ange autentiseringsuppgifter med hjälp av PowerShell
-Nu kan behöva du logga in som programmet för att utföra åtgärder. Användarnamnet, använda den `ApplicationId` som du skapade för programmet. Lösenordet kan du använda du angav när du skapar kontot. 
-
-```powershell   
-$creds = Get-Credential
-Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId {tenant-ID}
-```
-
-Klient-ID är inte skiftlägeskänslig, så du kan bädda in den direkt i skriptet. Använd om du behöver hämta klient-ID:
-
-```powershell
-(Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
-```
-
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Skapa tjänstens huvudnamn med självsignerade certifikat
 
-Använd för att skapa ett huvudnamn för tjänsten med ett självsignerat certifikat och deltagarrollen för din prenumeration: 
+I följande exempel innehåller ett enkelt scenario. Den använder [ny AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) att skapa ett huvudnamn för tjänsten med ett självsignerat certifikat och använder [ny AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) att tilldela den [deltagare](../active-directory/role-based-access-built-in-roles.md#contributor)rollen till tjänstens huvudnamn. Rolltilldelningen är begränsad till din valda Azure-prenumeration. Välj en annan prenumeration genom att använda [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
-Login-AzureRmAccount
-$cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleappScriptCert" -KeySpec KeyExchange
+$cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
+  -Subject "CN=exampleappScriptCert" `
+  -KeySpec KeyExchange
 $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
-$sp = New-AzureRMADServicePrincipal -DisplayName exampleapp -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+$sp = New-AzureRMADServicePrincipal -DisplayName exampleapp `
+  -CertValue $keyValue `
+  -EndDate $cert.NotAfter `
+  -StartDate $cert.NotBefore
 Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Exemplet i viloläge i 20 sekunder att tillåta lite tid för den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge visas ett felmeddelande om: ”Principal {ID} finns inte i katalogen {DIR-ID}”.
+Exemplet i viloläge i 20 sekunder att tillåta lite tid för den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge, visas ett felmeddelande om: ”Principal {ID} finns inte i katalogen {DIR-ID}”. Lös det här felet genom att vänta ett ögonblick som kör den **ny AzureRmRoleAssignment** kommandot igen.
 
-Följande skript kan du ange en omfattning än standard-prenumeration och försöker rolltilldelningen om ett fel inträffar. Du måste ha Azure PowerShell 2.0 på Windows 10 eller Windows Server 2016.
+I nästa exempel är mer komplicerad eftersom du kan ange omfånget för den rolltilldelning som skiljer sig från din aktuella Azure-prenumeration. Ange parametern ResourceGroup bara när du vill begränsa omfattningen av rolltilldelningen i en resursgrupp. Om ett fel inträffar under rolltilldelningen återförsök tilldelningen. Du måste ha Azure PowerShell 2.0 på Windows 10 eller Windows Server 2016.
 
 ```powershell
 Param (
@@ -188,7 +84,7 @@ Param (
  }
  else
  {
-    Set-AzureRmContext -SubscriptionId $SubscriptionId
+    Set-AzureRmContext -Subscription $SubscriptionId
  }
 
  if ($ResourceGroup -eq "")
@@ -218,30 +114,27 @@ Param (
  }
 ```
 
-Några objekt att notera skriptet:
+Om du **inte har Windows 10 eller Windows Server 2016**, måste du hämta den [självsignerat certifikat generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) från Microsoft Script Center. Extrahera innehållet och importera den cmdlet som du behöver.
 
-* Om du vill ge åtkomst identitet till standard-prenumeration, behöver inte ange parametrarna ResourceGroup eller prenumerations-ID.
-* Ange parametern ResourceGroup bara när du vill begränsa omfattningen av rolltilldelningen i en resursgrupp.
-* I det här exemplet du lägga till tjänstens huvudnamn i deltagarrollen. Andra roller, se [RBAC: inbyggda roller](../active-directory/role-based-access-built-in-roles.md).
-* Skriptet i viloläge under 15 sekunder till en stund innan den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge visas ett felmeddelande om: ”Principal {ID} finns inte i katalogen {DIR-ID}”.
-* Om du behöver ge service principal åtkomst till flera prenumerationer eller resursgrupper kör den `New-AzureRMRoleAssignment` cmdleten igen med olika omfång.
-
-Om du **inte har Windows 10 eller Windows Server 2016 Technical Preview**, måste du hämta den [självsignerat certifikat generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) från Microsoft Script Center. Extrahera innehållet och importera den cmdlet som du behöver.
-
-```powershell  
+```powershell
 # Only run if you could not use New-SelfSignedCertificate
 Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
 ```
-  
+
 Ersätt följande två rader om du vill generera certifikatet i skriptet.
-  
+
 ```powershell
-New-SelfSignedCertificateEx  -StoreLocation CurrentUser -StoreName My -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+New-SelfSignedCertificateEx -StoreLocation CurrentUser `
+  -StoreName My `
+  -Subject "CN=exampleapp" `
+  -KeySpec "Exchange" `
+  -FriendlyName "exampleapp"
 $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'CN=exampleapp' }
 ```
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Ange certifikat via automatisk PowerShell-skript
-När du loggar in som ett huvudnamn för tjänsten som du behöver ange klient-ID för katalogen för din AD-app. En klient är en instans av Azure Active Directory. Om du bara har en prenumeration kan du använda:
+
+När du loggar in som ett huvudnamn för tjänsten som du behöver ange klient-ID för katalogen för din AD-app. En klient är en instans av Azure Active Directory.
 
 ```powershell
 Param (
@@ -257,10 +150,13 @@ Param (
  )
 
  $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match $CertSubject }).Thumbprint
- Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
+ Login-AzureRmAccount -ServicePrincipal `
+  -CertificateThumbprint $Thumbprint `
+  -ApplicationId $ApplicationId `
+  -TenantId $TenantId
 ```
 
-Program-ID och klient-ID är inte skiftlägeskänslig, så du kan bädda in dem direkt i skriptet. Använd om du behöver hämta klient-ID:
+Program-ID och klient-ID inte skiftlägeskänslig, så du kan bädda in dem direkt i skriptet. Använd om du behöver hämta klient-ID:
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
@@ -273,7 +169,8 @@ Använd om du behöver hämta program-ID:
 ```
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Skapa tjänstens huvudnamn med certifikat från certifikatutfärdare
-Om du vill använda ett certifikat som utfärdats från en certifikatutfärdare för att skapa tjänstens huvudnamn, använder du följande skript:
+
+I följande exempel används ett certifikat som utfärdats från en certifikatutfärdare för att skapa tjänstens huvudnamn. Tilldelningen begränsas till angivna Azure-prenumerationen. Huvudnamn för tjänsten läggs den [deltagare](../active-directory/role-based-access-built-in-roles.md#contributor) roll. Om ett fel inträffar under rolltilldelningen återförsök tilldelningen.
 
 ```powershell
 Param (
@@ -292,7 +189,7 @@ Param (
 
  Login-AzureRmAccount
  Import-Module AzureRM.Resources
- Set-AzureRmContext -SubscriptionId $SubscriptionId
+ Set-AzureRmContext -Subscription $SubscriptionId
  
  $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
 
@@ -317,13 +214,6 @@ Param (
  $NewRole
 ```
 
-Några objekt att notera skriptet:
-
-* Åtkomst är begränsad till prenumerationen.
-* I det här exemplet du lägga till tjänstens huvudnamn i deltagarrollen. Andra roller, se [RBAC: inbyggda roller](../active-directory/role-based-access-built-in-roles.md).
-* Skriptet i viloläge under 15 sekunder till en stund innan den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge visas ett felmeddelande om: ”Principal {ID} finns inte i katalogen {DIR-ID}”.
-* Om du behöver ge service principal åtkomst till flera prenumerationer eller resursgrupper kör den `New-AzureRMRoleAssignment` cmdleten igen med olika omfång.
-
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Ange certifikat via automatisk PowerShell-skript
 När du loggar in som ett huvudnamn för tjänsten som du behöver ange klient-ID för katalogen för din AD-app. En klient är en instans av Azure Active Directory.
 
@@ -344,13 +234,18 @@ Param (
  )
 
  $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
- $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPassword)
+ $PFXCert = New-Object `
+  -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 `
+  -ArgumentList @($CertPath, $CertPassword)
  $Thumbprint = $PFXCert.Thumbprint
 
- Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
+ Login-AzureRmAccount -ServicePrincipal `
+  -CertificateThumbprint $Thumbprint `
+  -ApplicationId $ApplicationId `
+  -TenantId $TenantId
 ```
 
-Program-ID och klient-ID är inte skiftlägeskänslig, så du kan bädda in dem direkt i skriptet. Använd om du behöver hämta klient-ID:
+Program-ID och klient-ID inte skiftlägeskänslig, så du kan bädda in dem direkt i skriptet. Använd om du behöver hämta klient-ID:
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
@@ -372,59 +267,25 @@ Ta bort alla autentiseringsuppgifter för ett program med:
 Remove-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -All
 ```
 
-Om du vill lägga till ett lösenord, använder du:
-
-```powershell
-New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
-```
-
 Skapa ett självsignerat certifikat för att lägga till ett Certifikatvärde som visas i den här artikeln. Använd sedan:
 
 ```powershell
-New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 `
+  -CertValue $keyValue `
+  -EndDate $cert.NotAfter `
+  -StartDate $cert.NotBefore
 ```
-
-## <a name="save-access-token-to-simplify-log-in"></a>Spara åtkomst-token för att förenkla logga in
-För att undvika att tillhandahålla service principal autentiseringsuppgifterna varje gång som behövs för att logga in, kan du spara den åtkomst-token.
-
-Spara profilen om du vill använda den aktuella åtkomst-token i en senare session.
-   
-```powershell
-Save-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
-```
-   
-Öppna profilen och undersöka dess innehåll. Observera att den innehåller en åtkomst-token. I stället för att manuellt logga in igen, läsa in profilen.
-   
-```powershell
-Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
-```
-
-> [!NOTE]
-> Åtkomst-token upphör att gälla, så att använda en sparad profil fungerar bara för så länge token är giltig.
->  
-
-Alternativt kan du anropa REST-åtgärder från PowerShell för att logga in. Du kan hämta åtkomsttoken för användning med andra åtgärder från autentiseringssvaret. Ett exempel för att hämta åtkomsttoken genom att anropa REST-åtgärder finns [skapa begäran](/rest/api/#create-the-request).
 
 ## <a name="debug"></a>Felsökning
 
-Följande fel kan uppstå när du skapar ett huvudnamn för tjänsten:
+Du får följande fel när du skapar ett huvudnamn för tjänsten:
 
 * **”Authentication_Unauthorized”** eller **”ingen prenumeration hittades i kontexten”.** – Du ser det här felet när ditt konto inte har den [nödvändiga behörigheter](#required-permissions) på Azure Active Directory att registrera en app. Normalt ser du det här felet när endast administrativa användare i Azure Active Directory kan du registrera appar och ditt konto är inte en administratör. Fråga din administratör antingen tilldela dig en administratör eller så att användarna kan registrera appar.
 
 * Ditt konto **”har inte behörighet att utföra åtgärden 'Microsoft.Authorization/roleAssignments/write' över område '/subscriptions/ {guid}'”.**  -Det här felet visas när ditt konto inte har tillräcklig behörighet för att tilldela en roll till en identitet. Be administratören att lägga till dig till rollen Administratör för användaråtkomst prenumeration.
 
-## <a name="sample-applications"></a>Exempelprogram
-För information om att logga in som programmet via olika plattformar, se:
-
-* [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
-* [Java](/java/azure/java-sdk-azure-authenticate)
-* [Node.js](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
-* [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
-* [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
-
 ## <a name="next-steps"></a>Nästa steg
+* Om du vill konfigurera ett huvudnamn för tjänsten med lösenord finns [skapa en Azure tjänstens huvudnamn med Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 * Detaljerade anvisningar för att integrera ett program i Azure för att hantera resurser, se [Utvecklarhandbok tillstånd med Azure Resource Manager API](resource-manager-api-authentication.md).
 * En mer detaljerad förklaring av program och tjänstens huvudnamn finns [program och tjänstens huvudnamn objekt](../active-directory/active-directory-application-objects.md). 
 * Läs mer om Azure Active Directory-autentisering, [Autentiseringsscenarier för Azure AD](../active-directory/active-directory-authentication-scenarios.md).
-* En lista över tillgängliga åtgärder som kan beviljas eller nekas till användare finns [Azure Resource Manager Resource Provider operations](../active-directory/role-based-access-control-resource-provider-operations.md).
-

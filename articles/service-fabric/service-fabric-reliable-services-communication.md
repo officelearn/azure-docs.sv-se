@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 204280c8b81e5f751f3f0b609e04aba0a1cec381
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eacb4b7d0e33768e0da6ecd43ce1458a4a3bfaa8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Hur du använder Reliable Services kommunikationen API: er
 Azure Service Fabric en plattform som är helt oberoende om kommunikation mellan tjänster. Alla protokoll och stackar är acceptabla, från UDP till HTTP. Är det upp till tjänsten utvecklaren kan välja hur tjänster ska kommunicera. Application framework Reliable Services tillhandahåller inbyggd kommunikation stackar samt API: er som du kan använda för att skapa anpassade kommunikationskomponenter.
@@ -54,7 +54,7 @@ Du kan sedan lägga till din kommunikation lyssnare implementering returneras i 
 För tillståndslösa tjänster:
 
 ```csharp
-class MyStatelessService : StatelessService
+public class MyStatelessService : StatelessService
 {
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
@@ -85,7 +85,7 @@ För tillståndskänsliga tjänster:
 ```
 
 ```csharp
-class MyStatefulService : StatefulService
+public class MyStatefulService : StatefulService
 {
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
@@ -275,7 +275,7 @@ Kommunikation factory biblioteket implementerar ett typiskt försök mönster f�
 Kommunikation klienten bara tar emot en adress och används för att ansluta till en tjänst. Klienten kan använda det protokoll som den vill.
 
 ```csharp
-class MyCommunicationClient : ICommunicationClient
+public class MyCommunicationClient : ICommunicationClient
 {
     public ResolvedServiceEndpoint Endpoint { get; set; }
 

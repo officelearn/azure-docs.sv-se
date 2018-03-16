@@ -3,7 +3,7 @@ title: Wunderlist koppling i n Azure logikappar | Microsoft Docs
 description: "Skapa en anslutning till Wunderlist och använda den här anslutningen för att skapa ditt arbetsflöde i logikappar."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 3657955ca4280fecd3a0fb1ea64b90e0a5c5c765
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 4d1ae30724faa59dcdeffd21be9c67d280d574f6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-wunderlist-connector"></a>Kom igång med Wunderlist-koppling
-Wunderlist ger en todo list- och hanterare som hjälper användare att få sina saker som är klar.  Om du delar en privata lista med en loved, gör fungerar på ett projekt eller planera en ledighet Wunderlist det enkelt att samla in, dela och slutföra din to¬dos. Wunderlist synkroniserar direkt mellan din telefon, surfplatta och datorn, så du kan komma åt alla aktiviteter från var som helst.
+Wunderlist är en todo list- och manager för att hjälpa användare att utföra sina uppgifter.  Om du delar en privata lista fungerar på ett projekt eller planera en ledighet kan enkelt Wunderlist att samla in, dela och slutföra din listobjekt. Wunderlist synkroniserar direkt mellan din telefon, surfplatta och datorn, så du kan komma åt alla aktiviteter från var som helst.
 
 Kom igång genom att skapa en logikapp nu. Se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

@@ -3,7 +3,7 @@ title: "Lägg till Azure SQL Database-koppling i dina Logic Apps | Microsoft Doc
 description: "Översikt över Azure SQL Database-anslutningen med REST API-parametrar"
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: def2b65f009c377233c45356f8fa661b86d73f51
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 4313ead0c31ab2e72238701d58dc2f321f116fa6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Kom igång med Azure SQL Database-koppling
 Med Azure SQL Database-kopplingen kan skapa arbetsflöden för din organisation som hanterar data i tabeller. 
@@ -29,7 +29,7 @@ Med SQL-databas måste du:
 * Skapa ditt arbetsflöde genom att lägga till en ny kund till en databas för kunder eller uppdatera en ordning i en order-databas.
 * Använd åtgärder för att hämta en rad med data, infoga en ny rad och även ta bort. Till exempel när en post har skapats i Dynamics CRM Online (en utlösare), sedan infoga en rad i en Azure SQL Database (en åtgärd). 
 
-Det här avsnittet beskrivs hur du använder SQL Database-anslutningen i en logikapp och visar även åtgärderna.
+Den här artikeln visar hur du använder SQL Database-anslutningen i en logikapp och visar även åtgärderna.
 
 Läs mer om Logic Apps i [vad är logic apps](../logic-apps/logic-apps-overview.md) och [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -54,11 +54,11 @@ En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en lo
 3. I rutan skriver du ”sql” om du vill hämta en lista över alla tillgängliga åtgärder.
    
     ![](./media/connectors-create-api-sqlazure/sql-1.png) 
-4. I vårt exempel väljer **SQL Server - Get-raden**. Om det finns redan en anslutning, väljer du den **tabellnamn** från nedrullningsbara listan, och ange den **rad-ID** du vill återställa.
+4. I det här exemplet väljer **SQL Server - Get-raden**. Om det finns redan en anslutning, väljer du den **tabellnamn** från nedrullningsbara listan, och ange den **rad-ID** du vill återställa.
    
     ![](./media/connectors-create-api-sqlazure/sample-table.png)
    
-    Om du uppmanas att ange anslutningsinformation anger du information för att skapa anslutningen. [Skapa anslutningen](connectors-create-api-sqlazure.md#create-the-connection) i det här avsnittet beskriver dessa egenskaper. 
+    Om du uppmanas att ange anslutningsinformation anger du information för att skapa anslutningen. [Skapa anslutningen](connectors-create-api-sqlazure.md#create-the-connection) i den här artikeln beskriver dessa egenskaper. 
    
    > [!NOTE]
    > I det här exemplet returnerar vi en rad från en tabell. Lägg till en annan åtgärd som skapar en fil med hjälp av fälten från tabellen om du vill se data i den här raden. Till exempel lägga till en OneDrive-åtgärd som fälten Förnamn och efternamn används för att skapa en ny fil i molnet storage-konto. 
@@ -71,5 +71,5 @@ En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en lo
 Visa alla utlösare och åtgärder som definierats i swagger och även se några gränser i den [connector information](/connectors/sql/). 
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Utforska andra tillgängliga kopplingar i Logic Apps på vår [API: er listan](apis-list.md).
+[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Utforska andra tillgängliga kopplingar i Logic Apps på [API: er listan](apis-list.md).
 

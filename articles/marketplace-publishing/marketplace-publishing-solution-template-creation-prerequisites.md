@@ -3,8 +3,8 @@ title: "Tekniska krav för att skapa en lösningsmall för Marketplace | Microso
 description: "Förstå kraven för att skapa en lösningsmall för för att distribuera och sälja på Azure Marketplace"
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: bbcc12dd-1c2f-4ce6-830c-f0e06524aa38
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 0aa9ab99aea08f5e368efbb97d8a1be7fbb79552
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.author: mbaldwin
+ms.openlocfilehash: 4de9f66b4632f2573299757b2e40fae65f86f7d6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>Tekniska krav för att skapa en lösningsmall för Azure Marketplace
 Läs noggrant innan du börjar processen och förstå varför och där varje steg utförs. Så mycket som möjligt du ska förbereda företagets information och annan information, hämta nödvändiga verktyg och skapa tekniska komponenter innan du börjar skapa erbjudande.  

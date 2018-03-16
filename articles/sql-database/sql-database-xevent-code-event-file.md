@@ -2,25 +2,18 @@
 title: "XEvent-händelsefilen koden för SQL-databas | Microsoft Docs"
 description: "Tillhandahåller PowerShell och Transact-SQL för en tvåfasmigrering kodexempel som visar händelsefilen målet i en utökad händelse på Azure SQL Database. Azure Storage är en obligatorisk del av det här scenariot."
 services: sql-database
-documentationcenter: 
 author: MightyPen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: bbb10ecc-739f-4159-b844-12b4be161231
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: genemi
-ms.openlocfilehash: abf660e3fafd1a5020cdf9a6beb5b73252b72cfc
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 630e0ca84479757d3bb4397aa63ee8a440e69427
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Händelsekod filen mål för utökade händelser i SQL-databas
 
@@ -38,7 +31,7 @@ Det här avsnittet presenteras ett kodexempel som två faser:
   * Tilldela Azure Storage-behållare till en målfil för händelsen.
   * Att skapa och starta händelsesessionen och så vidare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto och prenumeration. Registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 * Alla databaser som du kan skapa en tabell i.
@@ -531,7 +524,7 @@ Anta att du vill köra föregående Transact-SQL-exemplet på Microsoft SQL Serv
 Mer information om konton och behållare i Azure Storage-tjänsten finns:
 
 * [Använda Blob storage från .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-* [Namnge och referera till behållare, Blobbar och Metadata](http://msdn.microsoft.com/library/azure/dd135715.aspx)
+* [Namnge och referera till behållare, blobar och metadata](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 * [Arbeta med Root-behållaren](http://msdn.microsoft.com/library/azure/ee395424.aspx)
 * [Lektionen 1: Skapa en princip för lagrade åtkomst och en signatur för delad åtkomst på en Azure-behållare](http://msdn.microsoft.com/library/dn466430.aspx)
   * [Lektionen 2: Skapa en SQL Server-autentiseringsuppgifter med hjälp av en signatur för delad åtkomst](http://msdn.microsoft.com/library/dn466435.aspx)

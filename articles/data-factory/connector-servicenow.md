@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4d05d816b43e04c2c2e88cab33b8e4c623ab9185
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e04de7cb3fad1ba651d0ce21be7f244a89753c1a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Kopiera data från ServiceNow med hjälp av Azure Data Factory
 
@@ -112,7 +112,7 @@ Om du vill kopiera data från ServiceNow, anger du källa i kopieringsaktivitete
 Observera följande när du anger schemat och kolumnen för ServiceNow i frågan:
 
 - **Schema:** ange scheman som `Actual` eller `Display` i ServiceNow-frågan som du kan se det som parameter för `sysparm_display_value` som SANT eller FALSKT när du anropar [ServiceNow restful-API:](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Kolumn:** kolumnnamn för faktiska värden under `Actual` scehma är `[columne name]_value`, medan för visningsvärde under `Display` schemat är `[columne name]_display_value`. Observera kolumnnamnet måste mappas till schemat som används i frågan.
+- **Kolumn:** kolumnnamn för faktiska värden under `Actual` schemat är `[columne name]_value`, medan för visningsvärde under `Display` schemat är `[columne name]_display_value`. Observera kolumnnamnet måste mappas till schemat som används i frågan.
 
 **Exempelfråga:** 
  `SELECT col_value FROM Actual.alm_asset` eller `SELECT col_display_value FROM Display.alm_asset`

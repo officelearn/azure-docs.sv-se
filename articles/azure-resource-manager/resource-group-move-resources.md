@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
@@ -123,7 +123,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * HDInsight-kluster - finns [HDInsight begränsningar](#hdinsight-limitations)
 * IoT-hubbar
 * Key Vault
-* Belastningsutjämning
+* Belastningsutjämnare - Se [belastningsutjämnaren begränsningar](#lb-limitations)
 * Logic Apps
 * Machine Learning
 * Media Services
@@ -132,6 +132,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Åtgärdsinformation
 * Operations Management
 * Power BI
+* Offentliga IP - finns [offentliga IP-begränsningar](#pip-limitations)
 * Redis Cache
 * Scheduler
 * Search
@@ -161,8 +162,10 @@ De tjänster som för närvarande inte aktiverar flytta en resurs är:
 * Express Route
 * DevTest Labs - flyttar till en ny resursgrupp i samma prenumeration har aktiverats men flytta mellan prenumeration har inte aktiverats.
 * Dynamics LCS
+* Belastningsutjämnare - Se [belastningsutjämnaren begränsningar](#lb-limitations)
 * Hanterade program
 * Hanterade diskar - Se [begränsningar för virtuella datorer](#virtual-machines-limitations)
+* Offentliga IP - finns [offentliga IP-begränsningar](#pip-limitations)
 * Recovery Services-ventilen - också vill inte flytta beräknings-, nätverks- och resurser som är associerade med Recovery Services-valvet finns [återställningstjänster begränsningar](#recovery-services-limitations).
 * Säkerhet
 * StorSimple Device Manager
@@ -320,6 +323,16 @@ När du flyttar ett HDInsight-kluster till en ny prenumeration kan du först fly
 
 Du kan inte flytta flera Sök efter resurser placeras i olika regioner på samma gång.
 I sådana fall behöver du flytta dem separat.
+
+## <a name="lb-limitations"></a> Läsa in belastningsutjämning begränsningar
+
+Grundläggande SKU belastningsutjämnare kan flyttas.
+Standard-SKU belastningsutjämnare kan inte flyttas.
+
+## <a name="pip-limitations"></a> Den offentliga IP-begränsningar
+
+Grundläggande SKU offentlig IP kan flyttas.
+Standard-SKU offentliga IP-Adressen kan inte flyttas.
 
 ## <a name="use-portal"></a>Använda portalen
 

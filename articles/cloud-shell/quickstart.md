@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/12/2018
 ms.author: juluk
-ms.openlocfilehash: 3f605645e7a53f285cb7e508034ebab0daa0d335
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e48c54216c5c4ae8e53d4802aafce8883ee97c11
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Snabbstart för Bash i Azure-molnet Shell
 
@@ -28,53 +28,74 @@ Det här dokumentet beskriver hur du använder Bash i Azure Cloud-gränssnittet 
 > En [PowerShell Azure Cloud Shell](quickstart-powershell.md) Quickstart är också tillgänglig.
 
 ## <a name="start-cloud-shell"></a>Starta molnet Shell
-1. Starta **moln Shell** från det övre navigeringsfältet i Azure-portalen <br>
+1. Starta **moln Shell** från det övre navigeringsfältet i Azure-portalen. <br>
 ![](media/quickstart/shell-icon.png)
-2. Välj en prenumeration för att skapa ett lagringskonto och dela filer som Microsoft Azure
+
+2. Välj en prenumeration för att skapa ett lagringskonto och dela Microsoft Azure-filer.
 3. Välj ”Skapa lagring”
 
 > [!TIP]
-> Du autentiseras automatiskt i varje sesssion för Azure CLI 2.0.
+> Du autentiseras automatiskt för Azure CLI 2.0 i varje session.
 
 ### <a name="select-the-bash-environment"></a>Välj Bash-miljö
-1. Välj den miljö nedrullningsbara från vänster sida av fönstret shell <br>
+Kontrollera att miljön nedrullningsbara från den vänstra sidan av fönstret shell `Bash`. <br>
 ![](media/quickstart/env-selector.png)
-2. Välj Bash
 
 ### <a name="set-your-subscription"></a>Ange din prenumeration
-1. Lista över prenumerationer som du har åtkomst till: <br>
-`az account list`
+1. Lista över prenumerationer som du har åtkomst till.
+```azurecli-interactive
+az account list
+```
+
 2. Ange din önskade prenumeration: <br>
-`az account set --subscription my-subscription-name`
+```azurecli-interactive
+az account set --subscription my-subscription-name`
+```
 
 > [!TIP]
 > Prenumerationen kommer att sparas för framtida sessioner med hjälp av `/home/<user>/.azure/azureProfile.json`.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
-Skapa en ny resursgrupp i WestUS med namnet ”MyRG”: <br>
-`az group create -l westus -n MyRG` <br>
+Skapa en ny resursgrupp i WestUS med namnet ”MyRG”.
+```azurecli-interactive
+az group create --location westus --name MyRG
+```
 
 ### <a name="create-a-linux-vm"></a>Skapa en virtuell Linux-dator
 Skapa en Ubuntu VM i din nya resursgrupp. Azure CLI 2.0 skapar SSH-nycklar och konfigurera den virtuella datorn med dem. <br>
-`az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
+
+```azurecli-interactive
+az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
+```
 
 > [!NOTE]
-> Offentliga och privata nycklar som används för att autentisera den virtuella datorn placeras i `/home/<user>/.ssh/id_rsa` och `/home/<user>/.ssh/id_rsa.pub` av Azure CLI 2.0 som standard. .Ssh-mappen är kvar i din bifogade filer för Azure-resursens 5 GB avbildningen.
+> Med hjälp av `--generate-ssh-keys` instruerar Azure CLI 2.0 för att skapa och konfigurera offentliga och privata nycklar i den virtuella datorn och `$Home` directory. Som standard nycklarna är placerade i molnet Shell på `/home/<user>/.ssh/id_rsa` och `/home/<user>/.ssh/id_rsa.pub`. Din `.ssh` mappen kvar i din bifogade filresurs 5 GB bild som används för att bevara `$Home`.
 
 Ditt användarnamn på den här virtuella datorn kommer att ditt användarnamn som används i molnet Shell ($User@Azure:).
 
 ### <a name="ssh-into-your-linux-vm"></a>SSH till den virtuella Linux-datorn
-1. Sök efter ditt namn på virtuell dator i Azure portal sökfältet
-2. Klicka på ”Anslut” och kör: `ssh username@ipaddress`
-
+1. Sök efter ditt namn på virtuell dator i Azure portal sökfältet.
+2. Klicka på ”Anslut” för att få ditt VM-namn och en offentlig IP-adress. <br>
 ![](media/quickstart/sshcmd-copy.png)
+
+3. SSH till den virtuella datorn med den `ssh` cmd.
+```
+ssh username@ipaddress
+```
 
 Du bör se Ubuntu Välkommen prompt vid upprätta SSH-anslutningen. <br>
 ![](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Rensa 
-Ta bort resursgruppen och alla resurser i den: <br>
-Kör `az group delete -n MyRG`
+1. Avsluta din ssh session.
+```azurecli-interactive
+exit
+```
+
+2. Ta bort resursgruppen och alla resurser i den.
+```azurecli-interactive
+Run `az group delete -n MyRG`
+```
 
 ## <a name="next-steps"></a>Nästa steg
 [Läs mer om spara filer för Bash i molnet Shell](persisting-shell-storage.md) <br>

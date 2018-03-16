@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: e19833cb58f37f5f8b83d5558d74255583137684
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8dfb664c7041d70f3ece812edb76df38a35e41f1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuera flera instanser av en resurs eller en egenskap i Azure Resource Manager-mallar
 Den här artikeln visar hur du distribuerar villkorligt en resurs och hur du iterera i Azure Resource Manager-mall för att skapa flera instanser av en resurs.
@@ -72,7 +72,7 @@ Resursen ska skapa flera gånger tar följande format:
 }
 ```
 
-Observera att varje resurs ingår i `copyIndex()` som returnerar den aktuella upprepningen i en slinga. `copyIndex()`är nollbaserade. Det, i följande exempel:
+Observera att varje resurs ingår i `copyIndex()` som returnerar den aktuella upprepningen i en slinga. `copyIndex()` är nollbaserade. Det, i följande exempel:
 
 ```json
 "name": "[concat('storage', copyIndex())]",
@@ -344,6 +344,8 @@ Du anger att en resurs distribueras efter en annan resurs med hjälp av den `dep
     "outputs": {}
 }
 ```
+
+<a id="looping-on-a-nested-resource" />
 
 ## <a name="iteration-for-a-child-resource"></a>Upprepningen för en underordnad-resurs
 Du kan inte använda en kopia skapas för en underordnad resurs. Du måste i stället skapa resursen som översta resurs för att skapa flera instanser av en resurs som du vanligtvis definiera som kapslad i en annan resurs. Du definierar relationen med den överordnade resursen via egenskaperna typ och namn.

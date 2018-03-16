@@ -3,24 +3,18 @@ title: "Övervaka prestanda för många Azure SQL-databaser i en app för flera 
 description: "Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app för flera innehavare"
 keywords: sql database tutorial
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: 289f1f99b1661e499fa7132887e2f65e086ad689
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 352b0d48ab223a236b96c633526f792b6f8a703d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app för flera innehavare
 
@@ -107,7 +101,7 @@ Wingtip biljetter SaaS databas Per klient är en SaaS-app och verkliga belastnin
 
 Öppna portal till poolen innehåller klient-databaser för att övervaka Resursanvändning som resultat av belastningen tillämpas:
 
-1. Öppna den [Azure-portalen](https://portal.azure.com) och bläddra till den *tenants1-dpt -&lt;användare&gt;*  server.
+1. Öppna den [Azure-portalen](https://portal.azure.com) och bläddra till den *tenants1-dpt -&lt;användare&gt; * server.
 1. Bläddra ned och hitta elastiska pooler och klicka på **Pool1**. Den här poolen innehåller alla klientdatabaser som skapats än så länge.
 
 Se den **elastisk pool övervakning** och **elastisk databas övervakning** diagram.
@@ -125,7 +119,7 @@ Eftersom det finns ytterligare databaser i poolen utöver fem, visar aktivitet s
 
 Ange en avisering i den pool som utlösare på \>75% användning på följande sätt:
 
-1. Öppna *Pool1* (på den *tenants1-dpt -\<användare\>*  server) i den [Azure-portalen](https://portal.azure.com).
+1. Öppna *Pool1* (på den *tenants1-dpt -\<användare\> * server) i den [Azure-portalen](https://portal.azure.com).
 1. Klicka på **aviseringsregler** och därefter på **+ lägg till avisering**:
 
    ![lägg till avisering](media/saas-dbpertenant-performance-monitoring/add-alert.png)
@@ -170,7 +164,7 @@ Databaserna är online och fullt tillgängliga under hela processen. Under det s
 
 Som ett alternativ till att skala upp poolen, kan du skapa en andra pool och flytta databaserna till den för att balansera belastningen mellan de två poolerna. Det gör du genom att skapa den nya poolen på samma server som den första.
 
-1. I den [Azure-portalen](https://portal.azure.com)öppnar den **tenants1-dpt -&lt;användare&gt;**  server.
+1. I den [Azure-portalen](https://portal.azure.com)öppnar den **tenants1-dpt -&lt;användare&gt; ** server.
 1. Klicka på **+ ny pool** att skapa en pool på den aktuella servern.
 1. På den **elastisk databaspool** mallen:
 
@@ -181,14 +175,14 @@ Som ett alternativ till att skala upp poolen, kan du skapa en andra pool och fly
     1. Klicka på **lägga till databaser** att se en lista över databaser på den server som kan läggas till *Pool2*.
     1. Välj alla 10 databaser att flytta dem till den nya poolen och klickar sedan på **Välj**. Om du har kört belastningen generator, vet tjänsten redan att profilen prestanda kräver en pool som är större än 50 eDTU standardstorleken och rekommenderar att du börjar med en 100 eDTU-inställning.
 
-    ![Rekommendation](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+    ![rekommendation](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
     1. Låt standardvärdet på 50 edtu: er för den här självstudien och klicka på **Välj** igen.
     1. Välj **OK** att skapa den nya poolen och flytta valda databaserna till den.
 
 Skapa poolen och Flytta databaserna tar några minuter. När databaser flyttas de fortfarande är online och tillgängliga fullständigt tills sista, då alla öppna anslutningar stängs. Så länge som du har några logik ansluter klienter sedan till databasen i den nya poolen.
 
-Bläddra till **Pool2** (på den *tenants1-dpt -\<användare\>*  server) att öppna poolen och övervaka dess prestanda. Om du inte ser det, vänta tills etableringen av den nya poolen för att slutföra.
+Bläddra till **Pool2** (på den *tenants1-dpt -\<användare\> * server) att öppna poolen och övervaka dess prestanda. Om du inte ser det, vänta tills etableringen av den nya poolen för att slutföra.
 
 Du ser nu att resursanvändningen på *Pool1* har tagits bort och att *Pool2* läses nu på samma sätt.
 
@@ -204,7 +198,7 @@ Den här övningen simulerar effekten av att Contosos konserthall upplever en h�
 1. Kör skriptet med **F5**.
 
 
-1. I den [Azure-portalen](https://portal.azure.com), bläddra till listan över databaser på den *tenants1-dpt -\<användare\>*  server. 
+1. I den [Azure-portalen](https://portal.azure.com), bläddra till listan över databaser på den *tenants1-dpt -\<användare\> * server. 
 1. Klicka på den **contosoconcerthall** databas.
 1. Klicka på poolen som **contosoconcerthall** finns i. Hitta poolen i den **elastisk databaspool** avsnitt.
 
@@ -234,7 +228,7 @@ I de fall där sammanställd klientanvändning följer förutsägbara mönster, 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Simulerar användning på klientdatabaserna genom att köra en angiven belastningsgenerator

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 04b542bf1f77b75c1c92b147b578df630b86d0ac
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 510f9ac95245580cb7f2f51487b5aeacc2a4825c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Webbaktivitet i Azure Data Factory
 Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en Data Factory-pipeline. Du kan överföra datauppsättningar och länkade tjänster så att de förbrukas och används av aktiviteten. 
@@ -69,7 +69,7 @@ Egenskap | Beskrivning | Tillåtna värden | Krävs
 namn | Namnet på aktiviteten web | Sträng | Ja
 typ | Måste anges till **WebActivity**. | Sträng | Ja
 metod | REST API-metoden för mål-slutpunkten. | Sträng. <br/><br/>Typer som stöds: ”GET”, ”publicera”, ”PLACERA” | Ja
-url | Mål-slutpunkten och sökvägen | Sträng (eller uttrycket resultType av sträng) | Ja
+url | Mål-slutpunkten och sökvägen | Sträng (eller uttryck med resultType av sträng). Aktiviteten kommer timeout på 1 minut med ett fel om det inte får något svar från slutpunkten. | Ja
 rubriker | Huvuden som skickas till begäran. Till exempel ange språk och typ för en begäran: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Sträng (eller uttrycket resultType av sträng) | Ja, Content-type-huvudet måste anges. `"headers":{ "Content-Type":"application/json"}`
 brödtext | Representerar nyttolasten som skickas till slutpunkten. Krävs för POST/PUT metoder.  | Sträng (eller uttryck med resultType av sträng). <br/><br/>Visa schemat för nyttolasten i begäran i [begäran nyttolast schemat](#request-payload-schema) avsnitt. | Nej
 autentisering | Autentiseringsmetod som används för att anropa slutpunkten. Typer som stöds är ”Basic eller ClientCertificate”. Mer information finns i [autentisering](#authentication) avsnitt. Undanta den här egenskapen om verifiering inte krävs. | Sträng (eller uttrycket resultType av sträng) | Nej
@@ -77,7 +77,7 @@ Datauppsättningar | Lista över datauppsättningar som skickas till slutpunkten
 linkedServices | Lista över länkade tjänster skickas till slutpunkten. | Matris med länkade tjänsten refererar till. Kan vara en tom matris. | Ja
 
 > [!NOTE]
-> REST-slutpunkter som aktiviteten web anropar måste returnera ett svar av typen JSON.
+> REST-slutpunkter som aktiviteten web anropar måste returnera ett svar av typen JSON. Aktiviteten kommer timeout på 1 minut med ett fel om det inte får något svar från slutpunkten.
 
 ## <a name="authentication"></a>Autentisering
 

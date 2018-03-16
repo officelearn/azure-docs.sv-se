@@ -3,7 +3,7 @@ title: "Lägg till Office 365 Outlook connector i dina Logic Apps | Microsoft Do
 description: "Skapa logikappar med Office 365-kopplingen för att aktivera samverkan med Office 365. Exempel: skapa, redigera och uppdatera kontakter och Kalender-objekt."
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 51b8e3de639b5cce954547adb77ff13b79ad6747
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: ea0b2f657f808bb6ba4bf427497955b9e520c669
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Kom igång med Office 365 Outlook connector
 Office 365 Outlook connector kan interaktion med Outlook i Office 365. Använd den här anslutningen för att skapa, redigera och uppdatera kontakter och kalenderobjekt, och också få, skicka och svara på e-post.
@@ -30,7 +30,7 @@ Med Office 365 Outlook kan du:
 * Använd utlösare för att starta arbetsflödet när det finns en ny e-post, när ett kalenderobjekt uppdateras med mera.
 * Använd åtgärder för att skicka ett e-postmeddelande, skapa en ny händelse och mycket mer. Till exempel när det finns ett nytt objekt i Salesforce (en utlösare), skicka ett e-postmeddelande till din Office 365 Outlook (en åtgärd). 
 
-Det här avsnittet beskrivs hur du använder Office 365 Outlook-anslutningen i en logikapp och visar också utlösare och åtgärder.
+Den här artikeln visar hur du använder Office 365 Outlook-anslutningen i en logikapp och visar också utlösare och åtgärder.
 
 > [!NOTE]
 > Den här versionen av artikeln gäller för Logic Apps allmän tillgänglighet (GA).

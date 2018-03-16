@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f5236b81c70caee4417777ffadcababebaa84620
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Vanliga och frågor svar om lösenordshantering
 
@@ -40,7 +40,7 @@ Dessa vanliga frågor är uppdelat i följande avsnitt:
 
 * **F: kan användarna registrera sina egna data för återställning av lösenord?**
 
-  > **S:** Ja. Så länge lösenordsåterställning har aktiverats och de licensierade kan användare gå till registreringsportalen för lösenordsåterställning (https://aka.ms/ssprsetup) att registrera sina autentiseringsinformationen. Användarna kan också registrera via åtkomstpanelen (http://myapps.microsoft.com). Om du vill registrera via åtkomstpanelen, de behöver väljer deras profilbild, väljer **profil**, och välj sedan den **registrera dig för lösenordsåterställning** alternativet.
+  > **S:** Ja. Så länge lösenordsåterställning har aktiverats och de licensierade användare kan gå till portalen för registrering av lösenordsåterställning (https://aka.ms/ssprsetup) att registrera sina autentiseringsinformationen. Användare kan också registrera via åtkomstpanelen (http://myapps.microsoft.com). Om du vill registrera via åtkomstpanelen, de behöver väljer deras profilbild, väljer **profil**, och välj sedan den **registrera dig för lösenordsåterställning** alternativet.
   >
   >
 * **F: om jag aktiverar lösenord återställer för en grupp och sedan väljer att aktivera det för alla mina användare krävs registrera?**
@@ -269,7 +269,7 @@ Dessa vanliga frågor är uppdelat i följande avsnitt:
   >
 * **F: vilka typer av konton fungerar tillbakaskrivning av lösenord för?**
 
-  > **S:** lösenord tillbakaskrivning fungerar för federerad och lösenords-hash synkroniserade användare.
+  > **S:** lösenord tillbakaskrivning fungerar för användarkonton som ska synkroniseras från lokala Active Directory till Azure AD, inklusive federerad lösenords-hash synkroniseras och direkt Autentication användare.
   >
   >
 * **F: tillbakaskrivning av lösenord kan genomdriva lösenordsprinciper för min domän?**

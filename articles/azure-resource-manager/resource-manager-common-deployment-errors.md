@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2cf31b32e02923aa573d5586b8ca24bf30b7d97b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f251fe11c43dc4b3f29c70f937f5bfcb6af6c44e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga Azure-distribution med Azure Resource Manager
 
@@ -38,6 +38,7 @@ Den här artikeln beskriver vissa vanliga Azure distributionsfel du kan stöta p
 | Konflikt | Du begär en åtgärd som inte tillåts i resursens aktuella tillstånd. Till exempel tillåts ändra storlek på diskar endast när du skapar en virtuell dator eller när den virtuella datorn har frigjorts. | |
 | DeploymentActive | Vänta tills samtidiga distributionen till den här resursgruppen ska slutföras. | |
 | DeploymentFailed | DeploymentFailed-felet är ett allmänt fel som inte innehåller de information du behöver för att lösa felet. Titta i felinformationen för en felkod som innehåller mer information. | [Hitta felkod](#find-error-code) |
+| DeploymentQuotaExceeded | Om du når gränsen på 800 distributioner per resursgrupp kan du ta bort distributioner från tidigare som inte längre behövs. Du kan ta bort poster från historiken med [az distribution bort](/cli/azure/group/deployment#az_group_deployment_delete) för Azure CLI eller [ta bort AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) i PowerShell. Ta bort en post från distributionshistoriken påverkar inte distribuera resurser. | |
 | DnsRecordInUse | DNS-postnamn måste vara unikt. Ange ett annat namn eller ändra den befintliga posten. | |
 | ImageNotFound | Kontrollera inställningarna för VM-avbildning. |  |
 | InUseSubnetCannotBeDeleted | Det här felet kan uppstå när du försöker uppdatera en resurs, men begäran har bearbetats genom att ta bort och skapa resursen. Se till att ange alla värden som är oförändrade. | [Uppdatera resurs](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -49,10 +50,13 @@ Den här artikeln beskriver vissa vanliga Azure distributionsfel du kan stöta p
 | InvalidResourceNamespace | Kontrollera resursnamnrymden som du angav i den **typen** egenskapen. | [Mallreferensen](/azure/templates/) |
 | InvalidResourceReference | Resursen finns ännu inte eller är felaktigt refererar till. Kontrollera om du behöver lägga till ett beroende. Kontrollera att din användning av den **referens** funktion innehåller de obligatoriska parametrarna för ditt scenario. | [Lös beroenden](resource-manager-not-found-errors.md) |
 | InvalidResourceType | Kontrollera resursen skriver du angav i den **typen** egenskapen. | [Mallreferensen](/azure/templates/) |
+| InvalidSubscriptionRegistrationState | Registrera prenumerationen med resursprovidern. | [Lös registrering](resource-manager-register-provider-errors.md) |
 | InvalidTemplate | Kontrollera din mallens syntax för fel. | [Lös ogiltig mall](resource-manager-invalid-template-errors.md) |
+| InvalidTemplateCircularDependency | Ta bort onödiga beroenden. | [Lös Cirkelberoenden](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | Kontrollera om ditt konto tillhör samma klient som du distribuerar till resursgruppen. | |
 | LinkedInvalidPropertyId | Resurs-ID för en resurs matchar inte korrekt. Kontrollera att du anger alla nödvändiga värden för resurs-ID, inklusive prenumerations-ID, resursgruppens namn, resurstyp, överordnade resurs (om det behövs) och resursnamnet. | |
 | LocationRequired | Ange en plats för din resurs. | [Ange en plats](resource-manager-templates-resources.md#location) |
+| MismatchingResourceSegments | Se till att kapslade resursen har rätt antal segment i namn och typ. | [Matcha resursen segment](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | Kontrollera status för resource provider för registrering och platser som stöds. | [Lös registrering](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registrera prenumerationen med resursprovidern. | [Lös registrering](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Kontrollera registreringsstatus i resource provider. | [Lös registrering](resource-manager-register-provider-errors.md) |
@@ -73,6 +77,8 @@ Den här artikeln beskriver vissa vanliga Azure distributionsfel du kan stöta p
 | StorageAccountAlreadyTaken | Ange ett unikt namn för lagringskontot. | [Lös lagringskontonamnet](resource-manager-storage-account-name-errors.md) |
 | StorageAccountNotFound | Kontrollera prenumerationen, resursgruppen och namnet på det lagringskonto som du försöker använda. | |
 | SubnetsNotInSameVnet | En virtuell dator kan bara ha ett virtuellt nätverk. När du distribuerar flera nätverkskort kan du se till att de hör till samma virtuella nätverk. | [Flera nätverkskort](../virtual-machines/windows/multiple-nics.md) |
+| TemplateResourceCircularDependency | Ta bort onödiga beroenden. | [Lös Cirkelberoenden](resource-manager-invalid-template-errors.md#circular-dependency) |
+| TooManyTargetResourceGroups | Minska antalet resursgrupper för en enda distribution. | [Distribution mellan resursgrupper](resource-manager-cross-resource-group-deployment.md) |
 
 ## <a name="find-error-code"></a>Hitta felkod
 

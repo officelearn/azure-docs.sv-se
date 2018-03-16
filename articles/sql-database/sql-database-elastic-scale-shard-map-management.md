@@ -2,24 +2,18 @@
 title: Skala ut en Azure SQL database | Microsoft Docs
 description: "Hur du använder ShardMapManager, klientbibliotek för elastisk databas"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: 0e9d647a-9ba9-4875-aa22-662d01283439
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: ddove
-ms.openlocfilehash: fe4c8b7b2a9d199c85faf11fcd35382d586fc009
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: sstein
+ms.openlocfilehash: beddb3d9ac4a8c1ec5bd034c959c6b734c5b4403
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Skala ut databaser med hanteraren Fragmentera karta
 Använda en Fragmentera kartan manager för att enkelt skala ut databaser i SQL Azure. Fragmentera kartan manager är en särskild databas som underhåller globala mappningsinformation om alla shards (databaser) i en Fragmentera. Metadata kan programmet att ansluta till rätt databas baserat på värdet för den **horisontell partitionering nyckeln**. Dessutom kan varje Fragmentera i uppsättningen innehåller mappningar som spårar lokala Fragmentera data (kallas även **shardlets**). 
@@ -56,10 +50,10 @@ Elastisk skalbarhet stöder följande typer som horisontell partitionering nyckl
 | heltal |heltal |
 | lång |lång |
 | GUID |UUID |
-| byte]  |byte] |
-| Datum och tid | tidsstämpel |
+| byte  |byte |
+| datetime | tidsstämpel |
 | TimeSpan | Varaktighet|
-| DateTimeOffset |offsetdatetime |
+| datetimeoffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>Lista och intervallet Fragmentera maps
 Fragmentera maps kan konstrueras med **listor över enskilda horisontell partitionering nyckeln värden**, eller så kan de vara konstruerade med **intervallen för horisontell partitionering nyckeln värden**. 

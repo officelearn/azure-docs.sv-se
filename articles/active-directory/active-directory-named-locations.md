@@ -1,6 +1,6 @@
 ---
-title: Med namnet platser i Azure Active Directory | Microsoft Docs
-description: "Lär dig vad heter platser är och hur de konfigureras."
+title: "Konfigurera sökvägarna i Azure Active Directory | Microsoft Docs"
+description: "Lär dig hur du konfigurerar sökvägarna."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f80cde24edcbec68309ba033d4da16ee97b731
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3b7bd6f4bea111815f647af09ebaa868696b25bc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="named-locations-in-azure-active-directory"></a>Sökvägarna i Azure Active Directory
+# <a name="configure-named-locations-in-azure-active-directory"></a>Konfigurera sökvägarna i Azure Active Directory
 
 Du kan använda namngivna platser för att sätta etiketter tillförlitliga IP-adressintervall i din organisation. Azure Active Directory använder sökvägarna i samband med:
 
@@ -89,22 +89,14 @@ Du kan komma åt konfigurationssidan namn i den **säkerhet** på Azure Active D
 
 
 
-## <a name="what-you-should-know"></a>Vad du bör känna till
-
-**Massuppdateringar**: när du skapar eller uppdaterar sökvägarna för massuppdateringar, kan du överföra eller hämta en CSV-fil med IP-adressintervall. Överföra lägger till IP-adressintervall i filen i listan i stället för att skriva över listan.
-
-![Länkar överföring och hämtning](./media/active-directory-named-locations/09.png)
-
-
-**Begränsningar**: du kan definiera högst 60 sökvägarna med en IP-adressintervall som är tilldelade till var och en av dem. Om du har en namngiven plats som har konfigurerats kan definiera du upp till 500 IP-adressintervall för den.
-
-
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om:
+Mer information finns i:
 
-- **Risk händelser**, se [Azure Active Directory riskhändelser](active-directory-reporting-risk-events.md).
+- [Villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-- **Villkorlig åtkomst**, se [villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+- [Plats-villkor i Azure Active Directory för villkorlig åtkomst](active-directory-conditional-access-locations.md)
 
-- **Riskfyllda inloggningar rapporter**, se [riskfyllda inloggningar rapporten i Azure Active Directory-portalen](active-directory-reporting-security-risky-sign-ins.md).  
+- [Azure Active Directory-riskhändelser](active-directory-reporting-risk-events.md).
+
+- [Rapporten riskfyllda inloggningar i Azure Active Directory-portalen](active-directory-reporting-security-risky-sign-ins.md).  

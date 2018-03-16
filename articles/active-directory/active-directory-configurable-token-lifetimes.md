@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 553283f246b701b5084f0a3a9914d7ceb8826fe4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Konfigurerbara token livslängd i Azure Active Directory (förhandsversion)
 Du kan ange livslängden för en token som utfärdas av Azure Active Directory (AD Azure). Du kan ange token livslängd för alla program i din organisation, för ett program för flera innehavare (flera organisation) eller för en specifik tjänstens huvudnamn i din organisation.
@@ -276,7 +276,7 @@ I det här exemplet skapar du en princip som kräver att användare autentiseras
 
 2.  Tilldela principen till tjänstens huvudnamn. Du måste också hämta de **ObjectId** för tjänstens huvudnamn. 
 
-    1.  Du kan fråga om du vill se alla organisationens tjänstens huvudnamn [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). I [Azure AD Graph Explorer](https://graphexplorer.cloudapp.net/), logga in på Azure AD-kontot.
+    1.  Om du vill se alla organisationens tjänstens huvudnamn, kan du fråga antingen den [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) eller [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Du kan också testa detta i den [Azure AD Graph Explorer](https://graphexplorer.cloudapp.net/), och [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) med hjälp av Azure AD-kontot.
 
     2.  När du har den **ObjectId** av din tjänstens huvudnamn, kör du följande kommando:
 
@@ -332,7 +332,7 @@ I det här exemplet skapar du några principer för att lära dig hur systemets 
 
     Du har nu en princip som gäller för hela organisationen. Du kanske vill bevara 30-dagars principen för en specifik tjänstens huvudnamn, men ändra standardprincipen för organisationen till den övre gränsen för ”tills har återkallats”.
 
-    1.  Du kan fråga om du vill se alla organisationens tjänstens huvudnamn [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). I [Azure AD Graph Explorer](https://graphexplorer.cloudapp.net/), logga in med hjälp av Azure AD-kontot.
+    1.  Om du vill se alla organisationens tjänstens huvudnamn, kan du fråga antingen den [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) eller [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Du kan också testa detta i den [Azure AD Graph Explorer](https://graphexplorer.cloudapp.net/), och [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) med hjälp av Azure AD-kontot.
 
     2.  När du har den **ObjectId** av din tjänstens huvudnamn, kör du följande kommando:
 

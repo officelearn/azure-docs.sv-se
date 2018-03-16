@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 04cfe3c4ac6011b9c3d31b7d4ac3c018c350d67b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="network-connectivity"></a>Nätverksanslutning
 Den här artikeln innehåller information om Azure-stacken nätverk infrastruktur som hjälper dig att bestämma hur du ska integrera Azure Stack bäst i din befintliga nätverksmiljö. 
@@ -53,7 +53,9 @@ Nätverkets infrastruktur för Azure-Stack består av flera logiska nätverk som
 ![Logiska nätverksanslutningar för diagram och växel](media/azure-stack-network/NetworkDiagram.png)
 
 ### <a name="bmc-network"></a>BMC-nätverk
-Det här nätverket är dedikerad till att ansluta alla nodernas hanteringsstyrenheter för baskort (även kallat service processorer, till exempel iDRAC, iLO, iBMC, etc.) i hanteringsnätverket. Om den finns (HLH) maskinvara livscykel värden finns på nätverket och kan ge OEM-specifik programvara för maskinvara underhåll och övervakning. 
+Det här nätverket är dedikerad till att ansluta alla nodernas hanteringsstyrenheter för baskort (även kallat service processorer, till exempel iDRAC, iLO, iBMC, etc.) i hanteringsnätverket. Om det finns maskinvara livscykel värden (HLH) finns på nätverket och kan ge OEM-specifik programvara för maskinvara underhåll och övervakning. 
+
+HLH är också värd distribution VM (DVM). DVM används under distributionen av Azure-stacken och tas bort när distributionen är klar. DVM kräver tillgång till internet i anslutna distributionsscenarier för att testa, verifiera och få åtkomst till flera komponenter. Dessa komponenter kan vara i och utanför företagets nätverk; till exempel NTP, DNS och Azure. Mer information om anslutningskrav finns i [NAT-avsnittet i integrering med Azure-stacken brandväggen](azure-stack-firewall.md#network-address-translation). 
 
 ### <a name="private-network"></a>Privat nätverk
 Den här /24 (254 värd-IP)-nätverk är privat för stacken för Azure-region (inte expanderas utöver kantlinje växeln enheter i Azure Stack-region) och är uppdelad i två undernät:

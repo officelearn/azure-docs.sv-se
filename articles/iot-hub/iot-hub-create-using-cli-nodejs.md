@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: boltean
-ms.openlocfilehash: 5e37c6c5e8625ce446ab203f19f9a8b2f1cd5a46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Skapa en IoT-hubb med hjälp av Azure CLI
 
@@ -88,9 +88,9 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 ```
 
 * **resursgruppens namn**. Resursgruppens namn. Formatet är skiftlägeskänsligt alfanumerisk, understreck och bindestreck, 1-64-längd.
-* **name**. Namnet på IoT-hubben ska skapas. Formatet är skiftlägeskänsligt alfanumerisk, understreck och bindestreck, längd på 3-50.
-* **plats**. Platsen (azure region/datacenter) att etablera IoT-hubben.
-* **SKU-name**. Namnet på sku, en av: [F1, S1, S2, S3]. Den senaste fullständiga listan finns prissättningssidan för IoT-hubb.
+* **name**. Namnet på IoT-hubben ska skapas. Formatet är skiftlägeskänsligt alfanumeriska och bindestreck, 3-50 längd.
+* **Plats**. Platsen (azure region/datacenter) att etablera IoT-hubben.
+* **sku-name**. Namnet på sku, en av: [F1, S1, S2, S3]. Den senaste fullständiga listan finns prissättningssidan för IoT-hubb.
 * **enheter**. Antal allokerade enheter. -Intervall: F1 [1-1]: S1, S2 [1 200]: S3 [1-10]. IoT-hubbenheter baseras på din totala meddelandemängd och antalet enheter som du vill ansluta till.
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]

@@ -3,7 +3,7 @@ title: Outlook.com-anslutningen i Azure Logic Apps | Microsoft Docs
 description: "Skapa logikappar med Azure App service. Outlook.com-anslutningen kan du hantera din e-post, kalender och kontakter. Du kan utföra olika åtgärder, till exempel skicka e-post, schemalägga möten, Lägg till kontakter, osv."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: e55519bd329812d2e8ad35c9d774dcbe382d68aa
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 9fc0cfd39197bcc834aca600238853a712ebf297
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-outlookcom-connector"></a>Kom igång med Outlook.com-koppling
 Outlook.com-anslutningen kan du hantera din e-post, kalender och kontakter. Du kan utföra olika åtgärder, till exempel skicka e-post, schemalägga möten, Lägg till kontakter, osv.

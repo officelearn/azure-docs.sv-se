@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 62207fa20c4660d1e828053ee73953cb68af1b9d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning arbetsstationen - kända problem och felsökningsguide 
 Den här artikeln hjälper dig att hitta och korrigera fel eller fel uppstod som en del av använder i Azure Machine Learning Workbench. 
@@ -23,7 +23,7 @@ Den här artikeln hjälper dig att hitta och korrigera fel eller fel uppstod som
 Vid kommunikation med supportgruppen är det viktigt att ha appen arbetsstationen build-nummer. I Windows, som du kan ta reda build-nummer genom att klicka på den **hjälp** menyn och välj **om Azure ML arbetsstationen**. I macOS, kan du klicka på den **Azure ML-arbetsstationen** menyn och välj **om Azure ML arbetsstationen**.
 
 ## <a name="machine-learning-msdn-forum"></a>Machine Learning MSDN-Forum
-Vi har en MSDN-Forum kan du skriva frågor. Produktteamet övervakar forumet aktivt. Forumet URL: en är [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
+Vi har en MSDN-Forum kan du skriva frågor. Produktteamet övervakar forumet aktivt. Forumet URL: en är [ https://aka.ms/azureml-forum ](https://aka.ms/azureml-forum). 
 
 ## <a name="gather-diagnostics-information"></a>Samla in diagnostikinformation
 Ibland kan det vara användbart om du kan ange diagnostikinformation när be om hjälp. Här är där loggfilerna live:
@@ -99,10 +99,10 @@ Du kanske redan har installerat uppdateringen. Men dina fästa genväg fortfaran
 
 ### <a name="you-installed-workbench-using-the-install-azure-ml-workbench-link-on-a-windows-dsvm"></a>Du har installerat arbetsstationen med hjälp av länken ”installera Azure ML-arbetsstationen” på en Windows-DSVM
 Det finns ingen enkel korrigering på denna. Du måste utföra följande steg för att ta bort den installera bits och hämta senaste installationsprogrammet för att installera arbetsstationen färsk: 
-   - ta bort mappen`C:\Users\<Username>\AppData\Local\amlworkbench`
-   - ta bort skriptet`C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - ta bort mappen `C:\Users\<Username>\AppData\Local\amlworkbench`
+   - ta bort skriptet `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - ta bort genväg på skrivbordet som startar skriptet ovan
-   - Hämta installer https://aka.ms/azureml-wb-msi och installera om.
+   - Hämta installationsprogrammet https://aka.ms/azureml-wb-msi och installera om.
 
 ## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Fastnat när ”kontrollerar experiment kontot” visas när du loggar in
 När du loggar in kan appen arbetsstationen fastna på ett tomt fönster med ett meddelande som visar ”kontrollerar experiment konto” med en snurrande hjul. Lös problemet, gör du följande:
@@ -185,7 +185,7 @@ Där _användarnamn_ är namnet på Azure Machine Learning-arbetsstationen anvä
 
 Raden måste placeras efter #includedir ”/ etc/sudoers.d”, annars den kan åsidosättas med en annan regel.
 
-Om du har en mer komplicerad sudo-konfiguration kan du vilja dokumentationen sudo för Ubuntu finns här: https://help.ubuntu.com/community/Sudoers
+Om du har en mer komplicerad sudo-konfiguration kan behöva du dokumentationen sudo för Ubuntu finns här: https://help.ubuntu.com/community/Sudoers
 
 Felet ovan kan också inträffa om du inte använder en baserat på Ubuntu Linux VM i Azure som ett mål för körning. Vi stöder endast baserat på Ubuntu Linux VM för fjärrkörning. 
 
@@ -203,11 +203,14 @@ Du kan också lägga till en datadisk och konfigurera Docker-motorn om du vill a
 Du kan expandera OS-disken och du behöver inte touch Docker-konfigurationen för motorns. Här är [hur du kan expandera OS-disken](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
 
 ```azure-cli
-#Deallocate VM (stopping will not work)
+# Deallocate VM (stopping will not work)
 $ az vm deallocate --resource-group myResourceGroup  --name myVM
 
-# Update Disc Size
-$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+# Get VM's Disc Name
+az disk list --resource-group myResourceGroup --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
+
+# Update Disc Size using above name
+$ az disk update --resource-group myResourceGroup --name myVMdisc --size-gb 250
     
 # Start VM    
 $ az vm start --resource-group myResourceGroup  --name myVM

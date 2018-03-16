@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 01f845e0cb987eb4e4e9baa62478d3ff6991fb7e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: a46177183035a53128c5341a3ce4c63dbc3a7497
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP och webhook bindningar
 
@@ -30,6 +30,12 @@ En HTTP-utlösare kan anpassas för att svara på [webhooks](https://en.wikipedi
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+## <a name="packages"></a>Paket
+
+HTTP-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet-paketet. Källkoden för paketet är i den [azure-webjobs-sdk-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub-lagringsplatsen.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>Utlösare
 
@@ -361,7 +367,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Utlösaren - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribut som definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribut.
 
 Du kan ange tillståndet nivå och tillåten HTTP-metoderna i attributet konstruktorparametrarna och det finns webhook typ och väg mall. Mer information om dessa inställningar finns [utlösaren - konfiguration](#trigger---configuration). Här är ett `HttpTrigger` attribut i en signatur:
 
@@ -385,10 +391,10 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |---------|---------|----------------------|
 | **Typ** | Saknas| Krävs – måste vara inställd på `httpTrigger`. |
 | **Riktning** | Saknas| Krävs – måste vara inställd på `in`. |
-| Namn | Saknas| Obligatoriskt - variabelnamnet som används i Funktionskoden för begäran eller begärandetexten. |
+| **Namn** | Saknas| Obligatoriskt - variabelnamnet som används i Funktionskoden för begäran eller begärandetexten. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Anger vad nycklar, eventuella måste finnas på begäran för att anropa funktionen. Åtkomstnivån kan vara något av följande värden: <ul><li><code>anonymous</code>&mdash;Inga API-nyckeln är obligatorisk.</li><li><code>function</code>&mdash;Det krävs en funktionsspecifika API-nyckel. Detta är standardvärdet om ingen anges.</li><li><code>admin</code>&mdash;Huvudnyckeln krävs.</li></ul> Mer information finns i avsnittet [auktorisering nycklar](#authorization-keys). |
 | **Metoder** |**Metoder** | En matris med HTTP-metoderna som funktionen svarar. Om inget annat anges, svarar funktionen alla HTTP-metoderna. Se [anpassa http-slutpunkten](#trigger---customize-the-http-endpoint). |
-| **väg** | **Väg** | Definierar flödesmallen styra som begära webbadresserna din funktion svarar. Standardvärdet om ingen anges är `<functionname>`. Mer information finns i [anpassa http-slutpunkten](#customize-the-http-endpoint). |
+| **Väg** | **Väg** | Definierar flödesmallen styra som begära webbadresserna din funktion svarar. Standardvärdet om ingen anges är `<functionname>`. Mer information finns i [anpassa http-slutpunkten](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |Konfigurerar HTTP-utlösaren ska fungera som en [webhook](https://en.wikipedia.org/wiki/Webhook) mottagare för den angivna providern. Konfigurerar inte den `methods` egenskapen om du ställer in den här egenskapen. Webhook-typen kan vara något av följande värden:<ul><li><code>genericJson</code>&mdash;En generell webhook slutpunkt utan logik för en specifik provider. Den här inställningen begränsar begäranden till endast de som använder HTTP POST och med den `application/json` innehållstyp.</li><li><code>github</code>&mdash;Funktionen besvarar [GitHub webhooks](https://developer.github.com/webhooks/). Använd inte den _authLevel_ egenskap med GitHub webhooks. Mer information finns i avsnittet GitHub webhooks senare i den här artikeln.</li><li><code>slack</code>&mdash;Funktionen besvarar [Slack webhooks](https://api.slack.com/outgoing-webhooks). Använd inte den _authLevel_ egenskap med Slack webhooks. Mer information finns i avsnittet Slack webhooks senare i den här artikeln.</li></ul>|
 
 ## <a name="trigger---usage"></a>Utlösaren - användning
@@ -564,7 +570,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |---------|---------|
 | **Typ** |måste anges till `http`. |
 | **Riktning** | måste anges till `out`. |
-|Namn | Variabelnamnet som används i Funktionskoden för svaret. |
+|**Namn** | Variabelnamnet som används i Funktionskoden för svaret. |
 
 ## <a name="output---usage"></a>Utdata - användning
 

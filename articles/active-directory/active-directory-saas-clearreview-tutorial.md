@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 03/12/2018
 ms.author: jeedes
-ms.openlocfilehash: e999e375d11f5d2a4657b360cf774ae10c28b0e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1e7bd01c9c0f79a2cf96d7fd38dba57c4a407960
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Självstudier: Azure Active Directory-integrering med rensa granskning
 
@@ -32,7 +32,7 @@ Rensa granska integrera med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med rensa granskning, behöver du följande:
 
@@ -108,9 +108,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Tydliga URL: er och granska domän med enkel inloggning information](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<customer name>.clearreview.com/sso/metadata`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<customer name>.clearreview.com/sso/metadata/`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<customer>.clearreview.com/sso/acs/`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<customer name>.clearreview.com/sso/acs/`
 
 4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
@@ -119,31 +119,36 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<customer name>.clearreview.com`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Kontakta [Rensa granska supportteamet](https://clearreview.com/contact/) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare Reply-URL. Kontakta [Rensa granska supportteamet](https://clearreview.com/contact/) att hämta dessa värden.
 
-5. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+5. Rensa granska programmet förväntat identifierarvärde unik användare i namnidentifierare anspråket. Du ska mappa användare identifierarvärde till **user.mail**.
+
+    ![Avsnittet attribut](./media/active-directory-saas-clearreview-tutorial/attribute.png)
+
+
+6. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
     ![Länken hämta certifikatet](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_certificate.png)
 
-6. Klicka på **spara** knappen.
+7. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-clearreview-tutorial/tutorial_general_400.png)
 
-7. På den **Rensa Granska konfigurationen** klickar du på **konfigurera Rensa granska** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+8. På den **Rensa Granska konfigurationen** klickar du på **konfigurera Rensa granska** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
 
     ![Rensa Granska konfigurationen](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_configure.png) 
 
-8. Konfigurera enkel inloggning på **Rensa granska** sida, öppna den **Rensa granska** Företagsportalen med administratörsautentiseringsuppgifter.
+9. Konfigurera enkel inloggning på **Rensa granska** sida, öppna den **Rensa granska** Företagsportalen med administratörsautentiseringsuppgifter.
 
-9. Välj **Admin** från det vänstra navigeringsfönstret.
+10. Välj **Admin** från det vänstra navigeringsfönstret.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-10. Välj **ändra** längst ned på sidan.
+11. Välj **ändra** längst ned på sidan.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
-11. Utför följande steg **inställningar för enkel inloggning** sidan
+12. Utför följande steg **inställningar för enkel inloggning** sidan
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
@@ -155,7 +160,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     d. Öppna hämtade certifikatet i anteckningar och klistra in innehållet i den **X.509-certifikat** textruta.   
 
-12. Klicka på **Spara**.
+13. Klicka på **Spara**.
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -253,4 +258,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 [201]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_203.png
-

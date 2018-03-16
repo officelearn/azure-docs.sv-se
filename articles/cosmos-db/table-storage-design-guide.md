@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: a5511b8b2e76c6c651a8e05bda1322293601c92c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: fadb81e16a6c641ca15efb4f910a51de4fe7c997
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Designguide för Azure Storage-tabellen: Utforma skalbar och Performant tabeller
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -208,7 +208,7 @@ Följande exempel förutsätter tabelltjänsten lagrar medarbetare entiteter med
 | **RowKey** (anställnings-Id) |Sträng |
 | **Förnamn** |Sträng |
 | **Efternamn** |Sträng |
-| **Ålder** |Integer |
+| **ålder** |Integer |
 | **E-postadress** |Sträng |
 
 Avsnittet tidigare [översikt över Azure Table](#overview) beskrivs några av de viktigaste funktionerna i Azure Table-tjänsten som har en direkt inverkan på utformning för frågan. Dessa resultera i följande allmänna riktlinjer för att utforma tabellen service frågor. Observera att filtersyntaxen som används i exemplen nedan är från tabelltjänsten REST API för mer information finns i [fråga entiteter](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
@@ -232,7 +232,7 @@ För exempel på klientsidan kod som kan hantera flera enhetstyper lagras i samm
 * [Arbeta med heterogena entitetstyper](#working-with-heterogeneous-entity-types)  
 
 ### <a name="choosing-an-appropriate-partitionkey"></a>Att välja en lämplig PartitionKey
-Ditt val av **PartitionKey** ska utjämna behöver kan du använda EGTs (för att säkerställa konsekvens) mot kravet att distribuera din entiteter över flera partitioner (för att säkerställa en skalbar lösning).  
+Ditt val av **PartitionKey** behovet av att aktivera användning av EGTs (för att säkerställa konsekvens) ska utjämna mot kravet att distribuera din entiteter över flera partitioner (för att säkerställa en skalbar lösning).  
 
 Vid en extreme kan du lagra alla entiteter i en enda partition, men detta kan begränsa skalbarhet i din lösning och tabelltjänsten skulle förhindra att kunna belastningsutjämna förfrågningar. På det andra extremt kan du lagra en entitet per partition, vilket är mycket skalbart och som gör att tabelltjänsten för att belastningsutjämna förfrågningar, men som skulle kunna hindra att du använder enheten grupptransaktioner.  
 
@@ -261,7 +261,7 @@ Många program har krav för att använda data sorteras i olika ordning: till ex
 
 * [Intra-partition sekundärt index mönster](#intra-partition-secondary-index-pattern) – lagra flera kopior av varje entitet som använder olika RowKey värden (i samma partition) för att aktivera snabb och effektiv sökningar och alternativa sorteringen sorterar med hjälp av olika RowKey värden.  
 * [Mellan sekundära Partitionsindex mönster](#inter-partition-secondary-index-pattern) – lagra flera kopior av varje entitet med olika RowKey värden för olika partitioner i separata tabeller för att aktivera snabb och effektiv sökningar och alternativa sorteringen sorterar med hjälp av olika RowKey värden .
-* [Loggen pilslut mönster](#log-tail-pattern) -hämta den  *n*  entiteter som senast lades till en partition med hjälp av en **RowKey** värde som sorterar i omvänd datum och tid ordning.  
+* [Loggen pilslut mönster](#log-tail-pattern) -hämta den *n* entiteter som senast lades till en partition med hjälp av en **RowKey** värde som sorterar i omvänd datum och tid ordning.  
 
 ## <a name="design-for-data-modification"></a>Design för dataändring
 Det här avsnittet fokuserar på designöverväganden för att optimera infogningar, uppdateringar, och tar bort. I vissa fall behöver du utvärdera kompromissen mellan Designer optimerar för frågor mot Designer optimerar för dataändring precis som i Designer för relationsdatabaser (även om metoder för att hantera design avvägningarna är olika i en relationsdatabas). Avsnittet [tabell designmönster](#table-design-patterns) beskriver vissa detaljerad designmönster för tabelltjänsten och beskrivs några dessa avvägningarna. Du hittar många Designer som optimerats för att fråga entiteter också fungerar bra för att ändra entiteter i praktiken.  
@@ -296,7 +296,7 @@ I många fall bör alltid en design för effektiva frågor ger effektiv ändring
 Följande mönster i avsnittet [tabell designmönster](#table-design-patterns) adressen avvägningarna mellan utformning för effektiva frågor och designar för effektiv dataändring:  
 
 * [Sammansatt nyckel mönster](#compound-key-pattern) -Använd sammansatta **RowKey** värden att aktivera en klient att söka efter relaterade data med en enda fråga.  
-* [Loggen pilslut mönster](#log-tail-pattern) -hämta den  *n*  entiteter som senast lades till en partition med hjälp av en **RowKey** värde som sorterar i omvänd datum och tid ordning.  
+* [Loggen pilslut mönster](#log-tail-pattern) -hämta den *n* entiteter som senast lades till en partition med hjälp av en **RowKey** värde som sorterar i omvänd datum och tid ordning.  
 
 ## <a name="encrypting-table-data"></a>Kryptera tabelldata
 .NET Azure Storage-klientbibliotek har stöd för kryptering av strängen Entitetsegenskaper för insert och ersätt-åtgärder. Krypterade strängar lagras på tjänsten som binära egenskaper och de konverteras till strängar efter dekrypteringen.    
@@ -418,7 +418,7 @@ Mönstret kartan ovan visar relationer mellan mönster (blå) och ett mönster (
 ### <a name="intra-partition-secondary-index-pattern"></a>Intra-partition sekundärt index mönster
 Lagra flera kopior av varje enhet med hjälp av olika **RowKey** värden (i samma partition) att aktivera snabb och effektiv sökningar och alternativa sorteringsordningen genom att använda olika **RowKey** värden. Uppdateringar mellan kopior kan vara konsekvent med EGT'S.  
 
-#### <a name="context-and-problem"></a>Kontexten och problem
+#### <a name="context-and-problem"></a>Kontext och problem
 Tabelltjänsten indexerar automatiskt enheter med hjälp av den **PartitionKey** och **RowKey** värden. Detta gör att ett klientprogram att hämta en entitet som effektivt använder dessa värden. Till exempel använder tabellstrukturen som visas nedan, ett klientprogram kan använda en punkt-fråga för att hämta en enskild medarbetare entitet med id och ett avdelningsnamn (den **PartitionKey** och **RowKey**  värden). En klient kan också hämta entiteter sorterade efter anställnings-id inom varje avdelning.
 
 ![][6]
@@ -443,7 +443,7 @@ Om du frågar efter ett intervall med anställdas enheter du kan ange ett interv
   Observera att filtersyntaxen som används i exemplen ovan är från tabelltjänsten REST API för mer information finns i [fråga entiteter](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Problem och överväganden
-Tänk på följande när du bestämmer hur du implementerar det här mönstret:  
+Tänk på följande när du bestämmer hur du ska implementera mönstret:  
 
 * Table storage är relativt billig använder så overhead kostnaden för lagring av duplicerade data inte får vara ett större problem. Du bör dock alltid utvärdera kostnaden för din design utifrån din förväntade lagringsbehov och bara lägga till dubbla entiteter för att stödja frågorna client-program körs.  
 * Eftersom entiteterna sekundärt index lagras i samma partition som de ursprungliga enheterna, bör du kontrollera att du inte överskrider skalbarhetsmål för en enskild partition.  
@@ -459,8 +459,8 @@ Tänk på följande när du bestämmer hur du implementerar det här mönstret:
 #### <a name="when-to-use-this-pattern"></a>När du ska använda det här mönstret
 Använd det här mönstret när klientprogrammet måste hämta entiteter med olika nycklar olika när klienten behöver hämta entiteter i olika sorteringsordningar, och där du kan identifiera varje entitet med olika unika värden. Dock bör du se till att du inte överskrider skalbarhetsgränser partition när du utför entitet sökningar med hjälp av de olika **RowKey** värden.  
 
-#### <a name="related-patterns-and-guidance"></a>Vägledning och relaterade mönster
-Följande mönster och guider kan även vara relevanta när du implementerar det här mönstret:  
+#### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
+Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
 
 * [Mellan sekundära Partitionsindex mönster](#inter-partition-secondary-index-pattern)
 * [Sammansatt nyckel mönster](#compound-key-pattern)
@@ -470,7 +470,7 @@ Följande mönster och guider kan även vara relevanta när du implementerar det
 ### <a name="inter-partition-secondary-index-pattern"></a>Mellan sekundära Partitionsindex mönster
 Lagra flera kopior av varje enhet med hjälp av olika **RowKey** värden i separata partitioner eller i separata tabeller för att aktivera snabb och effektiv sökningar och alternativa sorteringsordningen genom att använda olika **RowKey**värden.  
 
-#### <a name="context-and-problem"></a>Kontexten och problem
+#### <a name="context-and-problem"></a>Kontext och problem
 Tabelltjänsten indexerar automatiskt enheter med hjälp av den **PartitionKey** och **RowKey** värden. Detta gör att ett klientprogram att hämta en entitet som effektivt använder dessa värden. Till exempel använder tabellstrukturen som visas nedan, ett klientprogram kan använda en punkt-fråga för att hämta en enskild medarbetare entitet med id och ett avdelningsnamn (den **PartitionKey** och **RowKey**  värden). En klient kan också hämta entiteter sorterade efter anställnings-id inom varje avdelning.  
 
 ![][9]
@@ -497,7 +497,7 @@ Om du frågar efter ett intervall med anställdas enheter du kan ange ett interv
 Observera att filtersyntaxen som används i exemplen ovan är från tabelltjänsten REST API för mer information finns i [fråga entiteter](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Problem och överväganden
-Tänk på följande när du bestämmer hur du implementerar det här mönstret:  
+Tänk på följande när du bestämmer hur du ska implementera mönstret:  
 
 * Du kan behålla din dubbla entiteter överensstämmelse med varandra med hjälp av den [överensstämmelse transaktioner mönster](#eventually-consistent-transactions-pattern) att underhålla de primära och sekundära index entiteterna.  
 * Table storage är relativt billig använder så overhead kostnaden för lagring av duplicerade data inte får vara ett större problem. Du bör dock alltid utvärdera kostnaden för din design utifrån din förväntade lagringsbehov och bara lägga till dubbla entiteter för att stödja frågorna client-program körs.  
@@ -511,8 +511,8 @@ Tänk på följande när du bestämmer hur du implementerar det här mönstret:
 #### <a name="when-to-use-this-pattern"></a>När du ska använda det här mönstret
 Använd det här mönstret när klientprogrammet måste hämta entiteter med olika nycklar olika när klienten behöver hämta entiteter i olika sorteringsordningar, och där du kan identifiera varje entitet med olika unika värden. Använd det här mönstret när du vill undvika överstiger skalbarhetsgränser partition när du utför entitet sökningar med hjälp av de olika **RowKey** värden.  
 
-#### <a name="related-patterns-and-guidance"></a>Vägledning och relaterade mönster
-Följande mönster och guider kan även vara relevanta när du implementerar det här mönstret:  
+#### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
+Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
 
 * [Mönster för överensstämmelse transaktioner](#eventually-consistent-transactions-pattern)  
 * [Intra-partition sekundärt index mönster](#intra-partition-secondary-index-pattern)  
@@ -523,7 +523,7 @@ Följande mönster och guider kan även vara relevanta när du implementerar det
 ### <a name="eventually-consistent-transactions-pattern"></a>Mönster för överensstämmelse transaktioner
 Aktivera överensstämmelse beteende mellan partitionsgränser eller lagring system gränser med hjälp av Azure köer.  
 
-#### <a name="context-and-problem"></a>Kontexten och problem
+#### <a name="context-and-problem"></a>Kontext och problem
 EGTs aktivera atomiska transaktioner mellan flera enheter som delar samma partitionsnyckel. För bättre prestanda och skalbarhet som du kan välja att lagra entiteter som har konsekvenskontroll krav i separata partitioner eller i ett separat lagringssystem: i ett sådant scenario, du kan inte använda EGTs för att upprätthålla enhetliga. Du kan till exempel ha ett krav att underhålla slutliga konsekvensen mellan:  
 
 * Enheter som lagras i två olika partitioner i samma tabell, i olika tabeller i i olika lagringskonton.  
@@ -549,7 +549,7 @@ Om arbetsrollen slutförs aldrig steg **6**, och sedan efter en tidsgräns medde
 Fel från tabellen och kön tjänsterna är tillfälligt fel och ditt klientprogram ska innehålla lämplig logik för att hantera dem.  
 
 #### <a name="issues-and-considerations"></a>Problem och överväganden
-Tänk på följande när du bestämmer hur du implementerar det här mönstret:  
+Tänk på följande när du bestämmer hur du ska implementera mönstret:  
 
 * Den här lösningen ger inte för transaktionsisoleringen. Till exempel en klient kan läsa den **aktuella** och **Arkiv** tabeller när arbetsrollen mellan stegen **4** och **5**, och se en Inkonsekvent visning av data. Observera att data är konsekventa förr eller senare.  
 * Du måste vara säker på att steg 4 och 5 är idempotent för att säkerställa slutliga konsekvensen.  
@@ -558,8 +558,8 @@ Tänk på följande när du bestämmer hur du implementerar det här mönstret:
 #### <a name="when-to-use-this-pattern"></a>När du ska använda det här mönstret
 Använd det här mönstret när du vill garantera slutliga konsekvensen mellan enheter som finns i olika partitioner eller tabeller. Du kan utöka detta mönster för att säkerställa slutliga konsekvensen för åtgärder i tabelltjänsten och Blob-tjänsten och andra Azure Storage-datakällor, till exempel databasen eller filsystemet.  
 
-#### <a name="related-patterns-and-guidance"></a>Vägledning och relaterade mönster
-Följande mönster och guider kan även vara relevanta när du implementerar det här mönstret:  
+#### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
+Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
 
 * [Entiteten gruppera transaktioner](#entity-group-transactions)  
 * [Merge eller ersätta](#merge-or-replace)  
@@ -572,7 +572,7 @@ Följande mönster och guider kan även vara relevanta när du implementerar det
 ### <a name="index-entities-pattern"></a>Index entiteter mönster
 Underhålla index enheter om du vill aktivera effektiva sökningar som returnerar en lista över enheter.  
 
-#### <a name="context-and-problem"></a>Kontexten och problem
+#### <a name="context-and-problem"></a>Kontext och problem
 Tabelltjänsten indexerar automatiskt enheter med hjälp av den **PartitionKey** och **RowKey** värden. Detta gör att ett klientprogram att hämta en entitet som effektivt med en punkt-fråga. Till exempel använder tabellstrukturen som visas nedan, ett klientprogram enkelt kan hämta en enskild medarbetare entitet med id och ett avdelningsnamn (den **PartitionKey** och **RowKey**).  
 
 ![][13]
@@ -623,7 +623,7 @@ Den **EmployeeIDs** egenskapen innehåller en lista över medarbetare-ID för an
 Du kan inte använda EGTs med det tredje alternativet för att upprätthålla enhetliga eftersom indexet entiteter i en separat partition från medarbetare entiteter. Du bör kontrollera att index entiteter är överensstämmelse med medarbetare entiteter.  
 
 #### <a name="issues-and-considerations"></a>Problem och överväganden
-Tänk på följande när du bestämmer hur du implementerar det här mönstret:  
+Tänk på följande när du bestämmer hur du ska implementera mönstret:  
 
 * Denna lösning kräver minst två frågor för att hämta matchande entiteter: en för att fråga index entiteter för att hämta listan över **RowKey** värden och frågor för att hämta varje entitet i listan.  
 * Med hänsyn till att en enskild entitet har en maximal storlek på 1 MB, förutsätter #2 och &#3; i lösningen att lista över medarbetare-ID för alla angivna efternamn aldrig är större än 1 MB. Om listan över medarbetare-ID: n är sannolikt måste vara större än 1 MB i storlek, Använd alternativet #1 och lagra indexinformationen i blob storage.  
@@ -634,8 +634,8 @@ Tänk på följande när du bestämmer hur du implementerar det här mönstret:
 #### <a name="when-to-use-this-pattern"></a>När du ska använda det här mönstret
 Använd det här mönstret när du vill söka efter en mängd av entiteter med samma vanliga egenskapsvärde, till exempel alla anställda med efternamn Karlsson.  
 
-#### <a name="related-patterns-and-guidance"></a>Vägledning och relaterade mönster
-Följande mönster och guider kan även vara relevanta när du implementerar det här mönstret:  
+#### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
+Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
 
 * [Sammansatt nyckel mönster](#compound-key-pattern)  
 * [Mönster för överensstämmelse transaktioner](#eventually-consistent-transactions-pattern)  
@@ -645,7 +645,7 @@ Följande mönster och guider kan även vara relevanta när du implementerar det
 ### <a name="denormalization-pattern"></a>Denormalization mönster
 Kombinera relaterade data tillsammans i en enda enhet så att du kan hämta alla data som du behöver med en enda fråga.  
 
-#### <a name="context-and-problem"></a>Kontexten och problem
+#### <a name="context-and-problem"></a>Kontext och problem
 I en relationsdatabas normalisera du normalt data för att ta bort duplicering, vilket resulterar i frågor som hämtar data från flera tabeller. Om du normalisera dina data i Azure-tabeller, måste du se flera sändningar fram och tillbaka från klienten till servern för att hämta relaterade data. Till exempel med tabellstrukturen nedan om du behöver två sändningar att hämta information för en avdelning: en för att hämta entiteten avdelningen som innehåller managerns-id och sedan en annan begäran om att hämta information om den manager i en medarbetare entitet.  
 
 ![][16]
@@ -658,7 +658,7 @@ I stället för att lagra data i två separata entiteterna, denormalize data och
 Du kan nu hämta allt du behöver om en avdelning med en punkt-fråga med avdelning entiteter som lagras med dessa egenskaper finns.  
 
 #### <a name="issues-and-considerations"></a>Problem och överväganden
-Tänk på följande när du bestämmer hur du implementerar det här mönstret:  
+Tänk på följande när du bestämmer hur du ska implementera mönstret:  
 
 * Det finns en kostnad som associeras med att lagra vissa data två gånger. Prestandafördelarna (följd färre begäranden till lagringstjänsten) vanligtvis uppväger marginell ökningen lagringskostnader (och kostnaden är delvis förskjuten genom en minskning av antal transaktioner som du behöver för att hämta information om en avdelning ).  
 * Du måste upprätthålla konsekvensen för de två entiteter som lagrar information om chefer. Du kan hantera konsekvenskontroll problemet med hjälp av EGTs för att uppdatera flera entiteter i en atomisk transaktion: i det här fallet avdelning entiteten och medarbetare entiteten för avdelning manager lagras i samma partition.  
@@ -666,8 +666,8 @@ Tänk på följande när du bestämmer hur du implementerar det här mönstret:
 #### <a name="when-to-use-this-pattern"></a>När du ska använda det här mönstret
 Använd det här mönstret när du ofta behöver leta upp relaterad information. Det här mönstret minskar antalet frågor som klienten måste se till att hämta de data som krävs.  
 
-#### <a name="related-patterns-and-guidance"></a>Vägledning och relaterade mönster
-Följande mönster och guider kan även vara relevanta när du implementerar det här mönstret:  
+#### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
+Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
 
 * [Sammansatt nyckel mönster](#compound-key-pattern)  
 * [Entiteten gruppera transaktioner](#entity-group-transactions)  
@@ -676,7 +676,7 @@ Följande mönster och guider kan även vara relevanta när du implementerar det
 ### <a name="compound-key-pattern"></a>Sammansatt nyckel mönster
 Använd sammansatta **RowKey** värden att aktivera en klient att söka efter relaterade data med en enda fråga.  
 
-#### <a name="context-and-problem"></a>Kontexten och problem
+#### <a name="context-and-problem"></a>Kontext och problem
 I en relationsdatabas är det ganska naturlig använda kopplingar i frågor för att returnera relaterade delar av data till klienten i en enskild fråga. Du kan till exempel använda anställnings-id för att leta upp en lista över relaterade entiteter som innehåller prestanda och granska data för denna medarbetare.  
 
 Anta att du lagrar medarbetare entiteter i tabelltjänsten med följande struktur:  
@@ -701,7 +701,7 @@ I följande exempel beskrivs hur du kan hämta alla data för granskning för en
 $filter = (PartitionKey eq 'Sales') och (RowKey ge 'empid_000123') och (RowKey lt 'empid_000124') & $select = RowKey, Arbetsledarens, peer-klassificering, kommentarer  
 
 #### <a name="issues-and-considerations"></a>Problem och överväganden
-Tänk på följande när du bestämmer hur du implementerar det här mönstret:  
+Tänk på följande när du bestämmer hur du ska implementera mönstret:  
 
 * Du bör använda ett lämpligt avgränsningstecknet som gör det enkelt att parsa den **RowKey** värde: till exempel **000123_2012**.  
 * Den här entiteten lagras också i samma partition som andra entiteter som innehåller relaterade data för samma medarbetare, vilket innebär att du kan använda EGTs för att underhålla stark konsekvens.
@@ -710,18 +710,18 @@ Tänk på följande när du bestämmer hur du implementerar det här mönstret:
 #### <a name="when-to-use-this-pattern"></a>När du ska använda det här mönstret
 Använd det här mönstret när du behöver lagra en eller flera relaterade entiteter som du frågar ofta.  
 
-#### <a name="related-patterns-and-guidance"></a>Vägledning och relaterade mönster
-Följande mönster och guider kan även vara relevanta när du implementerar det här mönstret:  
+#### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
+Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
 
 * [Entiteten gruppera transaktioner](#entity-group-transactions)  
 * [Arbeta med heterogena entitetstyper](#working-with-heterogeneous-entity-types)  
 * [Mönster för överensstämmelse transaktioner](#eventually-consistent-transactions-pattern)  
 
 ### <a name="log-tail-pattern"></a>Loggen pilslut mönster
-Hämta den  *n*  entiteter som senast lades till en partition med hjälp av en **RowKey** värde som sorterar i omvänd datum och tid ordning.  
+Hämta den *n* entiteter som senast lades till en partition med hjälp av en **RowKey** värde som sorterar i omvänd datum och tid ordning.  
 
-#### <a name="context-and-problem"></a>Kontexten och problem
-Ett vanligt krav är att kunna hämta de nyligen skapade enheterna, till exempel de senaste tio utgifter ansökningar som görs av en medarbetare. Tabell frågar stöd för en **$top** frågeåtgärden att returnera först  *n*  entiteter från en uppsättning: Ingen åtgärd har motsvarande frågan att returnera de sista n entiteterna i en mängd.  
+#### <a name="context-and-problem"></a>Kontext och problem
+Ett vanligt krav är att kunna hämta de nyligen skapade enheterna, till exempel de senaste tio utgifter ansökningar som görs av en medarbetare. Tabell frågar stöd för en **$top** frågeåtgärden att returnera först *n* entiteter från en uppsättning: Ingen åtgärd har motsvarande frågan att returnera de sista n entiteterna i en mängd.  
 
 #### <a name="solution"></a>Lösning
 Lagra enheter med hjälp av en **RowKey** att naturligt sorterar i tidsvärdet i omvänd ordning med hjälp av det senaste posten är alltid den första i tabellen.  
@@ -739,7 +739,7 @@ Frågan för tabellen ser ut så här:
 `https://myaccount.table.core.windows.net/EmployeeExpense(PartitionKey='empid')?$top=10`  
 
 #### <a name="issues-and-considerations"></a>Problem och överväganden
-Tänk på följande när du bestämmer hur du implementerar det här mönstret:  
+Tänk på följande när du bestämmer hur du ska implementera mönstret:  
 
 * Du måste fylla värdet omvänd skalstreck med inledande nollor så strängvärdet sorterar som förväntat.  
 * Du måste vara medveten om skalbarhetsmål på nivån för en partition. Var noga med att inte skapa hotspot-partitioner.  
@@ -747,8 +747,8 @@ Tänk på följande när du bestämmer hur du implementerar det här mönstret:
 #### <a name="when-to-use-this-pattern"></a>När du ska använda det här mönstret
 Använd det här mönstret när du behöver åtkomst till entiteter i tidsvärdet i omvänd ordning eller när du behöver åtkomst till de nyligen tillagda entiteterna.  
 
-#### <a name="related-patterns-and-guidance"></a>Vägledning och relaterade mönster
-Följande mönster och guider kan även vara relevanta när du implementerar det här mönstret:  
+#### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
+Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
 
 * [Lägga / lägga till ett mönster](#prepend-append-anti-pattern)  
 * [Hämta entiteter](#retrieving-entities)  
@@ -756,7 +756,7 @@ Följande mönster och guider kan även vara relevanta när du implementerar det
 ### <a name="high-volume-delete-pattern"></a>Ta bort mönster för hög volym
 Aktivera borttagning av ett stort antal enheter genom att lagra alla entiteter för samtidiga borttagning i sina egna separata tabell. du tar bort entiteterna genom att ta bort tabellen.  
 
-#### <a name="context-and-problem"></a>Kontexten och problem
+#### <a name="context-and-problem"></a>Kontext och problem
 Många program att ta bort gamla data som inte längre behöver vara tillgängliga för ett klientprogram, eller som programmet har arkiverats till ett annat lagringsmedium. Dessa data identifieras vanligtvis med ett datum: du till exempel har ett krav för att ta bort poster för alla inloggningsbegäranden som är mer än 60 dagar.  
 
 Ett möjligt design är att använda datum och tid för inloggningsbegäran i den **RowKey**:  
@@ -769,7 +769,7 @@ Det här sättet undviker partition surfpunkter eftersom programmet kan infoga o
 Använd en separat tabell för varje dag på inloggningsförsök. Du kan använda entiteten designen ovan för att undvika surfpunkter när du infogar entiteter och ta bort gamla enheter är nu bara en fråga om du tar bort en tabell varje dag (en enda Lagringsåtgärden) i stället för att hitta och ta bort hundratals och tusentals person inloggningen enheter varje dag.  
 
 #### <a name="issues-and-considerations"></a>Problem och överväganden
-Tänk på följande när du bestämmer hur du implementerar det här mönstret:  
+Tänk på följande när du bestämmer hur du ska implementera mönstret:  
 
 * Stöder din design andra sätt som programmet ska använda data, till exempel söka efter specifika enheter som länkar till andra data eller genererar samlar in information?  
 * Din design undvika aktiva punkter vid infogning av nya enheter?  
@@ -779,8 +779,8 @@ Tänk på följande när du bestämmer hur du implementerar det här mönstret:
 #### <a name="when-to-use-this-pattern"></a>När du ska använda det här mönstret
 Använd det här mönstret när du har en stor volym med enheter som du måste ta bort samtidigt.  
 
-#### <a name="related-patterns-and-guidance"></a>Vägledning och relaterade mönster
-Följande mönster och guider kan även vara relevanta när du implementerar det här mönstret:  
+#### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
+Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
 
 * [Entiteten gruppera transaktioner](#entity-group-transactions)
 * [Ändra entiteter](#modifying-entities)  
@@ -788,7 +788,7 @@ Följande mönster och guider kan även vara relevanta när du implementerar det
 ### <a name="data-series-pattern"></a>Serien datamönster
 Store fullständig dataserier i en enda enhet för att minimera antalet begäranden som du gör.  
 
-#### <a name="context-and-problem"></a>Kontexten och problem
+#### <a name="context-and-problem"></a>Kontext och problem
 Ett vanligt scenario är för ett program att lagra en serie av data som normalt behöver hämta allt samtidigt. Programmet kan till exempel registrera hur många Snabbmeddelanden meddelanden varje anställd skickar varje timme och sedan använda informationen för att rita ut hur många meddelanden varje användare som skickas över de föregående 24 timmarna. En kan vara att lagra 24 entiteter för varje medarbetare:  
 
 ![][22]
@@ -803,7 +803,7 @@ Använd följande design med en separat egenskap för att lagra antalet meddelan
 Du kan använda en sammanfogning med den här designen för att uppdatera antalet meddelanden för en medarbetare för en given timme. Du kan nu hämta all information som du behöver att rita diagram med en begäran för en enda entitet.  
 
 #### <a name="issues-and-considerations"></a>Problem och överväganden
-Tänk på följande när du bestämmer hur du implementerar det här mönstret:  
+Tänk på följande när du bestämmer hur du ska implementera mönstret:  
 
 * Om fullständig dataserierna inte får plats i en enda entitet (en entitet kan ha upp till 252 egenskaper), kan du använda ett alternativt datalager, till exempel en blob.  
 * Om du har flera klienter som uppdaterar en entitet samtidigt, du behöver använda den **ETag** att implementera Optimistisk samtidighet. Om du har många klienter kan uppstå det hög konkurrens.  
@@ -811,8 +811,8 @@ Tänk på följande när du bestämmer hur du implementerar det här mönstret:
 #### <a name="when-to-use-this-pattern"></a>När du ska använda det här mönstret
 Använd det här mönstret när du behöver uppdatera och hämta en serie som är associerade med en enskild entitet.  
 
-#### <a name="related-patterns-and-guidance"></a>Vägledning och relaterade mönster
-Följande mönster och guider kan även vara relevanta när du implementerar det här mönstret:  
+#### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
+Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
 
 * [Mönster för stora entiteter](#large-entities-pattern)  
 * [Merge eller ersätta](#merge-or-replace)  
@@ -821,7 +821,7 @@ Följande mönster och guider kan även vara relevanta när du implementerar det
 ### <a name="wide-entities-pattern"></a>Wide entiteter mönster
 Använda flera fysiska enheter för att lagra logiska entiteter med mer än 252 egenskaper.  
 
-#### <a name="context-and-problem"></a>Kontexten och problem
+#### <a name="context-and-problem"></a>Kontext och problem
 En enskild entitet kan ha högst 252 egenskaper (exklusive obligatoriska Systemegenskaper) och kan inte lagra mer än 1 MB data totalt. I en relationsdatabas, skulle du normalt får avrunda några gränser för storleken på en rad att lägga till en ny tabell och framtvinga en 1-till-1-relation mellan dem.  
 
 #### <a name="solution"></a>Lösning
@@ -832,15 +832,15 @@ Du kan använda tabelltjänsten för att lagra flera entiteter som representerar
 Du kan använda en EGT om du behöver göra en ändring som kräver uppdatering båda entiteter för att hålla dem synkroniserade med varandra. Annars kan du använda en enda merge-operation för att uppdatera antalet meddelanden för en viss dag. För att hämta alla data för en enskild medarbetare måste du hämta båda enheter som du kan göra med två effektivt begäranden som använder både ett **PartitionKey** och en **RowKey** värde.  
 
 #### <a name="issues-and-considerations"></a>Problem och överväganden
-Tänk på följande när du bestämmer hur du implementerar det här mönstret:  
+Tänk på följande när du bestämmer hur du ska implementera mönstret:  
 
 * Hämtar en fullständig logisk entitet omfattar minst två lagringstransaktioner: en för att hämta varje fysisk entitet.  
 
 #### <a name="when-to-use-this-pattern"></a>När du ska använda det här mönstret
 Använd det här mönstret när behöver lagra enheter vars storlek eller ett antal egenskaper som överskrider gränserna för en enskild entitet i tabelltjänsten.  
 
-#### <a name="related-patterns-and-guidance"></a>Vägledning och relaterade mönster
-Följande mönster och guider kan även vara relevanta när du implementerar det här mönstret:  
+#### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
+Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
 
 * [Entiteten gruppera transaktioner](#entity-group-transactions)
 * [Merge eller ersätta](#merge-or-replace)
@@ -848,7 +848,7 @@ Följande mönster och guider kan även vara relevanta när du implementerar det
 ### <a name="large-entities-pattern"></a>Mönster för stora entiteter
 Använda blob storage för att lagra stora egenskapsvärden.  
 
-#### <a name="context-and-problem"></a>Kontexten och problem
+#### <a name="context-and-problem"></a>Kontext och problem
 En enskild entitet kan inte lagra mer än 1 MB data totalt. Om en eller flera av dina egenskaper lagrar värden som orsakar den totala storleken på din enhet överskrider detta värde kan lagra du inte hela entiteten i tabelltjänsten.  
 
 #### <a name="solution"></a>Lösning
@@ -857,7 +857,7 @@ Om entiteten överskrider 1 MB i storlek eftersom en eller flera egenskaper inne
 ![][25]
 
 #### <a name="issues-and-considerations"></a>Problem och överväganden
-Tänk på följande när du bestämmer hur du implementerar det här mönstret:  
+Tänk på följande när du bestämmer hur du ska implementera mönstret:  
 
 * Använda eventuell enhetliga mellan entiteten i tabelltjänsten och data i Blob-tjänsten på [överensstämmelse transaktioner mönster](#eventually-consistent-transactions-pattern) att underhålla din entiteter.
 * Hämtar en fullständig entitet omfattar minst två lagringstransaktioner: en för att hämta entiteten och en för att hämta blob-data.  
@@ -865,8 +865,8 @@ Tänk på följande när du bestämmer hur du implementerar det här mönstret:
 #### <a name="when-to-use-this-pattern"></a>När du ska använda det här mönstret
 Använd det här mönstret när du behöver lagra enheter vars storlek överskrider gränserna för en enskild entitet i tabelltjänsten.  
 
-#### <a name="related-patterns-and-guidance"></a>Vägledning och relaterade mönster
-Följande mönster och guider kan även vara relevanta när du implementerar det här mönstret:  
+#### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
+Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
 
 * [Mönster för överensstämmelse transaktioner](#eventually-consistent-transactions-pattern)  
 * [Wide entiteter mönster](#wide-entities-pattern)
@@ -876,7 +876,7 @@ Följande mönster och guider kan även vara relevanta när du implementerar det
 ### <a name="prependappend-anti-pattern"></a>Lägga/lägga till ett mönster
 Öka skalbarheten när du har en stor volym med infogningar genom att sprida infogningarna över flera partitioner.  
 
-#### <a name="context-and-problem"></a>Kontexten och problem
+#### <a name="context-and-problem"></a>Kontext och problem
 Tillagt eller lägger till enheter till din lagrade entiteter vanligtvis resulterar i programmet att lägga till nya entiteter till den första eller sista partitionen i en sekvens av partitioner. I så fall måste äger alla infogningar vid något tillfälle rum i samma partition, skapar en hotspot som förhindrar tabelltjänsten från belastningen belastningsutjämning infogningar över flera noder och vilket kan orsaka att träffa skalbarhetsmål för programmet partition. Till exempel om du har ett program som loggar nätverks- och åtkomst av anställda, sedan en entitet struktur som visas nedan kan resultera i den aktuella timman partition blir en hotspot om mängden transaktioner når skalbarhet mål för en enskilda partition:  
 
 ![][26]
@@ -889,7 +889,7 @@ Följande alternativ entitet struktur förhindrar en hotspot på en viss partiti
 Meddelande med det här exemplet hur både den **PartitionKey** och **RowKey** är sammansatta nycklar. Den **PartitionKey** använder både avdelning och medarbetare id för att distribuera loggning över flera partitioner.  
 
 #### <a name="issues-and-considerations"></a>Problem och överväganden
-Tänk på följande när du bestämmer hur du implementerar det här mönstret:  
+Tänk på följande när du bestämmer hur du ska implementera mönstret:  
 
 * Stöder den alternativa nyckelstruktur som undviker att skapa varm partitioner på infogningar effektivt frågorna klientprogrammet gör?  
 * Innebär förväntade volymen av transaktioner som troligen kommer att nå skalbarhetsmål för en enskild partition och begränsas av lagringstjänsten?  
@@ -897,8 +897,8 @@ Tänk på följande när du bestämmer hur du implementerar det här mönstret:
 #### <a name="when-to-use-this-pattern"></a>När du ska använda det här mönstret
 Undvik prepend/lägga till ett mönster när volymen av transaktioner kan leda till begränsning av lagringstjänsten när du använder en varm partition.  
 
-#### <a name="related-patterns-and-guidance"></a>Vägledning och relaterade mönster
-Följande mönster och guider kan även vara relevanta när du implementerar det här mönstret:  
+#### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
+Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
 
 * [Sammansatt nyckel mönster](#compound-key-pattern)  
 * [Loggen pilslut mönster](#log-tail-pattern)  
@@ -907,7 +907,7 @@ Följande mönster och guider kan även vara relevanta när du implementerar det
 ### <a name="log-data-anti-pattern"></a>Loggen anti datamönster
 Normalt ska du använda Blob-tjänsten i stället för tabelltjänsten för att lagra loggdata.  
 
-#### <a name="context-and-problem"></a>Kontexten och problem
+#### <a name="context-and-problem"></a>Kontext och problem
 Ett vanligt användningsfall för loggdata är att hämta en uppsättning loggposter för ett visst datum/tid-intervall: till exempel du vill hitta alla fel och kritiska meddelanden som tillämpningsprogrammet loggade mellan 15:04 och 15:06 på ett visst datum. Du inte vill använda datum och tid för loggmeddelandet är för att avgöra partitionen du sparar logg entiteter till: som resulterar i en varm partition eftersom samtidigt, kommer alla entiteter i loggen delar samma **PartitionKey** värde (finns i avsnittet [Prepend/lägga till ett mönster](#prepend-append-anti-pattern)). Följande entitet schemat för ett loggmeddelande resulterar i en varm partition eftersom programmet skriver alla loggmeddelanden till partitionen för den aktuella datum och tid:  
 
 ![][28]
@@ -940,7 +940,7 @@ Tänk på följande när du bestämmer hur du lagrar loggdata:
 * Om du vill bearbeta loggdata måste ofta en klient att läsa in många poster.  
 * Även om loggdata är ofta strukturerad, kan blob-lagring vara en bättre lösning.  
 
-### <a name="implementation-considerations"></a>Implementering
+### <a name="implementation-considerations"></a>Att tänka på vid implementering
 Det här avsnittet beskrivs några av övervägandena att ha i åtanke när du implementerar de mönster som beskrivs i föregående avsnitt. De flesta av det här avsnittet använder exempel skrivna i C# som använder Storage-klientbiblioteket (version 4.3.0 vid tidpunkten för skrivning).  
 
 ### <a name="retrieving-entities"></a>Hämta entiteter

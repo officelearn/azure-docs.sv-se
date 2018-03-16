@@ -2,30 +2,24 @@
 title: "Kom igång med elastisk Databasverktyg - Azure | Microsoft Docs"
 description: "Grundläggande förklaring av funktionen elastisk Databasverktyg i Azure SQL Database, inklusive ett enkelt och kör sample-appen."
 services: sql-database
-documentationcenter: 
-manager: jstrauss
+manager: craigg
 author: anumjs
-editor: CarlRabeler
-ms.assetid: b6911f8d-2bae-4d04-9fa8-f79a3db7129d
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: anjangsh
-ms.openlocfilehash: 615e5b0bf299a844ea2d37476fc704c48e17b363
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 28ff3f6eee2316a078badcf29e6780f3844f3a54
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Kom igång med elastisk Databasverktyg
 Det här dokumentet ger en introduktion till utvecklare upplevelsen för den [klientbibliotek för elastisk databas](sql-database-elastic-database-client-library.md) genom att du kör en exempelapp. Exempelappen skapar ett enkelt delat program och utforskar viktiga funktioner för funktionen elastisk Databasverktyg i Azure SQL Database. Den fokuserar på användningsområden för [Fragmentera kartan management](sql-database-elastic-scale-shard-map-management.md), [data beroende routning](sql-database-elastic-scale-data-dependent-routing.md), och [flera Fragmentera frågar](sql-database-elastic-scale-multishard-querying.md). Klientbiblioteket är tillgänglig för .NET och Java. 
 
 ## <a name="elastic-database-tools-for-java"></a>Elastisk Databasverktyg för Java
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * En Java Developer Kit (JDK), version 1,8 eller senare
 * [Maven 3.](http://maven.apache.org/download.cgi)
 * En logisk server i Azure eller en lokal SQL Server-instans
@@ -53,7 +47,7 @@ För att bygga JAR-filer och kom igång med exempelprojektet, gör du följande:
     
 5. Mer information om biblioteket klientfunktioner experimentera med olika alternativ. Du kan utforska koden att lära dig om exempel app implementering.
 
-    ![Förlopp java][5]
+    ![Progress-java][5]
     
 Grattis! Du har skapat och köra ditt första delat program med elastiska Databasverktyg på Azure SQL Database. Använd Visual Studio eller SQL Server Management Studio för att ansluta till SQL-databasen och ta en titt på shards som exemplet skapas. Du ser nya exempeldatabaserna Fragmentera och en Fragmentera kartan manager-databas som har skapats av exemplet. 
 
@@ -68,7 +62,7 @@ Lägg till klientbiblioteket egna Maven-projekt genom att lägga till följande 
 ```
 
 ## <a name="elastic-database-tools-for-net"></a>Elastisk Databasverktyg för .NET 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * Visual Studio 2012 eller senare med C#. Hämta en kostnadsfri version på [Visual Studio-hämtningar](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 eller senare. Om du vill hämta den senaste versionen finns [installera NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
 

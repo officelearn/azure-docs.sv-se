@@ -3,8 +3,8 @@ title: Skapa och registrera publisher konto | Microsoft Docs
 description: "Instruktioner för att skapa ett Microsoft Developer-konto så vid godkännande kommer du säljer olika erbjuder typer på Azure Marketplace."
 services: Azure Marketplace
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 5a2fe68d-2967-463f-8af6-42bed07e3eaa
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
-ms.author: hascipio
-ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: da805bead3f6af4ebd0b4b94b30a51ff2abc62dd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-microsoft-developer-account"></a>Skapa ett Microsoft Developer-konto
 Den här artikeln vägleder dig genom de nödvändiga konto skapas och registreringen ska bli en godkända Microsoft Developer för Azure Marketplace.
@@ -45,7 +45,7 @@ När du skapar ett företagskonto, följer du dessa riktlinjer om mer än en per
 * Lägga till ett telefonnummer för företag som inte kräver ett tillägg och går att komma åt viktiga gruppmedlemmar.
 * I allmänhet har utvecklare använda betrodda enheter för att logga in på ditt företags utvecklarkonto. Alla nycklar teammedlemmar ska ha åtkomst till dessa betrodda enheter. Detta minskar behovet av säkerhetskoder som ska skickas vid åtkomst till kontot.
 * Om du vill tillåta åtkomst till kontot från en icke betrodd dator begränsa att åtkomsten till högst fem utvecklare. Dessa utvecklare bör helst komma åt kontot från datorer som delar samma geografiska och nätverksplats.
-* Granska ofta företagets säkerhetsinformation på [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) att kontrollera att den är alla aktuella.
+* Granska ofta företagets säkerhetsinformation på [ https://account.live.com/proofs/Manage ](https://account.live.com/proofs/Manage) att kontrollera att den är alla aktuella.
 
 Ditt utvecklarkonto ska användas i första hand från betrodda datorer. Detta är viktigt eftersom det finns en gräns för hur många koder som genererats per konto per vecka. Det gör också smidigast inloggning.
 
@@ -53,7 +53,7 @@ Mer information om ytterligare developer konto riktlinjer och säkerhet, klickar
 
 ### <a name="instructions"></a>Instruktioner
 1. Öppna en ny Chrome Incognito eller Internet Explorer InPrivate-surfning session för att säkerställa att du inte är inloggad till ett befintligt konto.
-2. Registrera e-postmeddelandet (per ovanstående riktlinjer t.ex. windowsapp@fabrikam.com) som ett Microsoft-konto med hjälp av länken [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Följ anvisningarna nedan.
+2. Registrera e-postmeddelandet (per ovanstående riktlinjer t.ex. windowsapp@fabrikam.com) som ett Microsoft-konto med hjälp av länken [ https://signup.live.com/signup.aspx ](https://signup.live.com/signup.aspx). Följ anvisningarna nedan.
 
    1. Du måste ange ett giltigt telefonnummer för system om du vill skicka en Verifieringskod för kontot som ett SMS eller ett automatsamtal under registrera ditt konto som ett Microsoft-konto.
    2. Du måste ange en giltig e-id för att ta emot en automatisk e-post för verifiering för kontot under registrera ditt konto som ett Microsoft-konto.
@@ -81,7 +81,7 @@ Microsoft Developer Center används för att registrera företagsinformation en 
 
 ### <a name="register-your-company-account"></a>Registrera ditt företagskonto
 1. Öppna en ny Internet Explorer InPrivate- eller Chrome Incognito-webbläsarsession för att säkerställa att du inte är inloggad till ett personligt konto.
-2. Gå till [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) att registrera dig som en säljare i Dev Center. Läs följande viktig information innan du fortsätter.
+2. Gå till [ http://dev.windows.com/registration?accountprogram=azure ](http://dev.windows.com/registration?accountprogram=azure) att registrera dig som en säljare i Dev Center. Läs följande viktig information innan du fortsätter.
 
    > [!IMPORTANT]
    > Se till att e-post-id eller en distributionsplats listan (en distributionslista rekommenderas att ta bort beroendet från personer) som du ska använda för att registrera i Dev Center i först registrerad som ett Microsoft-konto. Om det inte finns sedan registrera med den här [länk](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Dessutom **någon e-post-id under Microsoft företagets domän d.v.s. @microsoft.com går inte att använda** för registrering av Dev Center.
@@ -229,7 +229,7 @@ Om du har lagts till som medadministratör i publicering portalen sedan du kan l
 ## <a name="next-steps"></a>Nästa steg
 Nu när ditt konto skapas och registreras, se till att du uppfyller eller uppfyller alla icke-tekniska krav för att publicera erbjudandet genom att granska [icke-tekniska krav](marketplace-publishing-pre-requisites.md).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Komma igång: hur du publicerar ett erbjudande på Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-msalive]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-live.jpg

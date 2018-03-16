@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bb3e50c3e481bcedc436b8382fb55d6402d058b2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
 Genom att använda alla programmeringsspråk som har stöd för REST-anrop kan utföra du datauppdatering asynkrona åtgärder på Azure Analysis Services-tabellmodeller. Detta inkluderar synkronisering av skrivskyddade repliker för frågan skalbar. 
@@ -36,7 +36,7 @@ Den grundläggande Webbadressen följer det här formatet:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Anta till exempel att en modell med namnet AdventureWorks, på servern minserver, finns i West US Azure-region servernamnet är:
+Anta till exempel att en modell med namnet AdventureWorks på servern minserver, finns i West US Azure-region. Servernamnet är:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -48,7 +48,7 @@ Bas-URL för det här Servernamnet är:
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/ 
 ```
 
-Genom att använda en bas-URL, resurser och åtgärder som kan läggas baserat på följande: 
+Genom att använda en bas-URL, resurser och åtgärder som kan läggas baserat på följande parametrar: 
 
 ![Async-uppdatering](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
 
@@ -56,7 +56,7 @@ Genom att använda en bas-URL, resurser och åtgärder som kan läggas baserat p
 - Allt som slutar med **()** är en funktion.
 - Allt annat är en resursobjektet.
 
-Du kan till exempel använda verbet POST på samlingen uppdateras för att utföra en uppdatering, så här:
+Du kan till exempel använda verbet POST på samlingen uppdateras för att utföra en uppdatering:
 
 ```
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
@@ -106,7 +106,7 @@ Det är inte nödvändigt att ange parametrar. Standardvärdet används.
 |---------|---------|---------|---------|
 |Typ     |  Enum       |  Typ av bearbetning som ska utföras. Typerna ligger i linje med TMSL [kommandot Uppdatera](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) typer: full, clearValues, beräkna dataOnly, automatisk, lägga till och defragmentera.       |   Automatisk      |
 |CommitMode     |  Enum       |  Anger om objekt sparas i batchar eller bara när du är klar. Lägen omfattar: standard transactional, partialBatch.  |  transaktionell       |
-|MaxParallelism     |   Int      |  Det här värdet anger det maximala antalet trådar som ska köras bearbetning kommandon parallellt. Detta justerad med egenskapen MaxParallelism som kan anges i TMSL [aktivitetssekvensen kommandot](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) eller använda andra metoder.       | 10        |
+|MaxParallelism     |   Int      |  Det här värdet anger det maximala antalet trådar som ska köras bearbetning kommandon parallellt. Det här värdet justerad med egenskapen MaxParallelism som kan anges i TMSL [aktivitetssekvensen kommandot](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) eller använda andra metoder.       | 10        |
 |retryCount    |    Int     |   Anger antalet gånger som kommer att försöka igen innan åtgärden misslyckas.      |     0    |
 |Objekt     |   Matris      |   En matris med objekt som ska bearbetas. Varje objekt omfattar: ”table” vid bearbetning av hela tabellen eller ”table” och ”partition” vid bearbetning av en partition. Om inga objekt har angetts uppdateras hela modellen. |   Bearbeta hela modellen      |
 
@@ -188,7 +188,7 @@ Använd GET-verbet skickar åtgärds-ID som en parameter för att kontrollera st
 }
 ```
 
-Värden för synkroniseringstillståndet:
+Värden för `syncstate`:
 
 - 0: replikeras. Databasfilerna replikeras till en målmapp.
 - 1: återställning. Databasen är att återställd på skrivskyddad server-instanser.
@@ -228,7 +228,7 @@ Den här typen av autentisering kräver ett Azure-program skapas med de behörig
 
     ![Lägg till API-åtkomst](./media/analysis-services-async-refresh/aas-async-add.png)
 
-5.  I **väljer en API**, typen **SQL Server Analysis Services** i sökrutan och väljer sedan **Azure Analysis Services (SQL Server Analysis Services Azure)**.
+5.  I **väljer en API**, typen **Azure Analysis Services** i sökningen och välj sedan den.
 
     ![Välj API](./media/analysis-services-async-refresh/aas-async-select-api.png)
 
@@ -242,7 +242,7 @@ Den här typen av autentisering kräver ett Azure-program skapas med de behörig
 
 #### <a name="service-principal"></a>Tjänstens huvudnamn
 
-Finns det [automatisering av Azure Analysis Services med tjänstens huvudnamn och PowerShell](https://azure.microsoft.com/blog/automation-of-azure-analysis-services-with-service-principals-and-powershell/) blogginlägget att ställa in ett huvudnamn för tjänsten och tilldela behörighet i Azure Analysis Services. När du har slutfört stegen som beskrivs i blogginlägget utför följande åtgärder:
+Se [skapa service - principen i Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md) och [lägga till en princip för tjänsten i serveradministratörsrollen](analysis-services-addservprinc-admins.md) för mer information om hur du ställer in ett huvudnamn för tjänsten och tilldela behörighet i Azure som . När du har slutfört stegen, utför följande åtgärder:
 
 1.  I kodexemplet kan hitta **string myndigheten =...** , Ersätt **vanliga** med organisationens klient-ID.
 2.  Kommentar/ta bort kommentarerna så ClientCredential klassen används för att initiera Använ-objekt. Se till att den \<App-ID > och \<Appkey > värden används på ett säkert sätt eller använda certifikatbaserad autentisering för tjänstens huvudnamn.

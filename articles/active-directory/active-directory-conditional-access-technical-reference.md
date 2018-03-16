@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/07/2018
+ms.date: 03/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e65371396b91c1dc97f504bac8b969093f5c518
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Inställningsreferens för villkorlig åtkomst till Azure Active Directory
 
@@ -148,7 +148,7 @@ Chrome stöd i **Windows 8.1 och 7**, skapa följande registernyckel:
 |Sökväg | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 |Namn | 1 |
 |Typ | REG_SZ (String) |
-|Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
+|Data | {”mönstret” ”:https://device.login.microsoftonline.com” ”, filter”: {”UTFÄRDAREN”: {”CN”: ”MS-organisation-åtkomst”}}}|
 
 Dessa webbläsare stöder enhetsautentisering att enheten kan identifieras och verifieras mot en princip. Det går inte att enheten kontrollen om webbläsaren körs i privat läge. 
 
@@ -164,24 +164,25 @@ Du kan välja i principen för villkorlig åtkomst **mobilappar och skrivbordskl
 Den här inställningen påverkar åtkomstförsök från följande mobila appar och skrivbord klienter: 
 
 
-|Klientappar|Måltjänsten|Plattform|
-|---|---|---|
-|Azure RemoteApp|Azure RemoteApp-tjänsten|Windows 10, Windows 8.1, Windows 7, iOS, Android och Mac OS X|
-|Dynamics CRM-app|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS och Android|
-|Användare-e-post/kalender appen, Outlook 2016 Outlook 2013 (med modern autentisering)|Office 365 Exchange Online|Windows 10|
-|Principen för MFA och plats för appar. Principer för enheter som är baserade stöds inte. |Alla Mina appar apptjänst|Android och iOS|
-|Microsoft Team Services - detta styr alla tjänster som stöder Microsoft Teams och alla dess Klientappar - Windows-skrivbordet, iOS, Android, WP och Webbklient|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android och macOS |
-|Appar för Office 2016, Office 2013 (med modern autentisering), OneDrive synkronisera klienten (se [anteckningar](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Appar för Office 2016, Universal Office-appar, Office 2013 (med modern autentisering), OneDrive synkroniseringsklient (se [anteckningar](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), stöd för Office-grupper är planerad för framtiden, stöd för SharePoint-appen är planerad i framtiden|Office 365 SharePoint Online|Windows 10|
-|Office 2016 för macOS (Word, Excel, PowerPoint, OneNote endast). OneDrive för Business support planerad i framtiden|Office 365 SharePoint Online|Mac OS X|
-|Office-mobilappar|Office 365 SharePoint Online|Android, iOS|
-|Office Yammer-appen|Office 365 Yammer|Windows 10, iOS, Android|
-|Outlook 2016 (Office för macOS)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016 Outlook 2013 (med modern autentisering), Skype för företag (med modern autentisering)|Office 365 Exchange Online|Windows 8.1, Windows 7|
-|Mobila Outlook-appen|Office 365 Exchange Online|Android, iOS|
-|PowerBI-appen|PowerBI service|Windows 10, Windows 8.1, Windows 7 och iOS|
-|Skype för företag|Office 365 Exchange Online|Android, IOS |
-|Visual Studio Team Services app|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS och Android|
+| Klientappar| Måltjänsten| Plattform |
+| --- | --- | --- |
+| Azure RemoteApp| Azure RemoteApp-tjänsten| Windows 10, Windows 8.1, Windows 7, iOS, Android och Mac OS X|
+| Dynamics CRM-app| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS och Android|
+| Användare-e-post/kalender appen, Outlook 2016 Outlook 2013 (med modern autentisering)| Office 365 Exchange Online| Windows 10|
+| Principen för MFA och plats för appar. Principer för enheter som är baserade stöds inte.| Alla Mina appar apptjänst| Android och iOS|
+| Microsoft Team Services - detta styr alla tjänster som stöder Microsoft Teams och alla dess Klientappar - Windows-skrivbordet, iOS, Android, WP och Webbklient| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android och macOS|
+| Appar för Office 2016, Office 2013 (med modern autentisering), OneDrive synkronisera klienten (se [anteckningar](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| Appar för Office 2016, Universal Office-appar, Office 2013 (med modern autentisering), OneDrive synkroniseringsklient (se [anteckningar](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), stöd för Office-grupper är planerad för framtiden, stöd för SharePoint-appen är planerad i framtiden| Office 365 SharePoint Online| Windows 10|
+| Office 2016 för macOS (Word, Excel, PowerPoint, OneNote endast). OneDrive för Business support planerad i framtiden| Office 365 SharePoint Online| Mac OS X|
+| Office-mobilappar| Office 365 SharePoint Online| Android, iOS|
+| Office Yammer-appen| Office 365 Yammer| Windows 10, iOS, Android|
+| Outlook 2016 (Office för macOS)| Office 365 Exchange Online| Mac OS X|
+| Outlook 2016 Outlook 2013 (med modern autentisering), Skype för företag (med modern autentisering)| Office 365 Exchange Online| Windows 8.1, Windows 7|
+| Mobila Outlook-appen| Office 365 Exchange Online| Android, iOS|
+| PowerBI-appen| PowerBI service| Windows 10, Windows 8.1, Windows 7, Android och iOS|
+| Skype för företag| Office 365 Exchange Online| Android, IOS|
+| Visual Studio Team Services app| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS och Android|
+
 
 
 ## <a name="approved-client-app-requirement"></a>Godkända klienten app-krav 
@@ -221,10 +222,6 @@ Den här inställningen gäller för följande klientappar:
 - Den **kräver godkända klientappen** krav:
 
     - Stöder endast iOS och Android för [enhet plattform villkoret](#device-platforms-condition).
-
-    - Stöder inte den **webbläsare** för den [klienten appar villkoret](#supported-browsers).
-    
-    - Ersätter den **mobilappar och skrivbordsklienter** för den [klienten appar villkoret](#supported-mobile-apps-and-desktop-clients) när det här alternativet är markerat.
 
 
 ## <a name="next-steps"></a>Nästa steg

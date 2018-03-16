@@ -2,25 +2,19 @@
 title: "Utforma lösningar för katastrofåterställning - Azure SQL Database | Microsoft Docs"
 description: "Lär dig att utforma din molnlösning för katastrofåterställning genom att välja rätt failover-mönster."
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: 2db99057-0c79-4fb0-a7f1-d1c057ec787f
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: b2a8f897130c2bf21321366a727ce2e2ae9d1d99
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6ec202237a0b3fb1b7f0b7158c0aa454b4d65770
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategi för katastrofåterställning för program som använder SQL-databas elastiska pooler
 Vi har lärt dig att molntjänster inte felsäker och oåterkalleligt incidenter inträffa under åren. SQL-databasen innehåller flera funktioner som kan ge för Företagskontinuitet för programmet när dessa händelser inträffar. [Elastiska pooler](sql-database-elastic-pool.md) och enskilda databaser stöd för samma typ av funktioner för katastrofåterställning. Den här artikeln beskriver flera DR strategier för elastiska pooler som utnyttjar funktionerna för verksamhetskontinuitet dessa SQL-databas.

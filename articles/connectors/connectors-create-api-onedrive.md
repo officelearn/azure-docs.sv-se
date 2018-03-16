@@ -3,7 +3,7 @@ title: "Lägg till OneDrive-koppling i dina Logic Apps | Microsoft Docs"
 description: "Översikt över OneDrive anslutningen med REST API-parametrar"
 services: logic-apps
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: e988ae22a3d6e47591c37ad0b4c9f781d523bcc8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 15b88baf21ead5a6b9506c47ca9930d5088b8787
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>Kom igång med OneDrive-koppling
 Ansluta till OneDrive för att hantera dina filer, inklusive överföring, hämta, ta bort filer och mycket mer. 
@@ -30,7 +30,7 @@ Med OneDrive kan du:
 * Använd utlösare för att starta arbetsflödet när en fil skapas eller uppdateras i OneDrive.
 * Använd åtgärder för att skapa en fil, ta bort en fil med mera. Till exempel när en ny Office 365 e-post tas emot med en bifogad fil (en utlösare), skapa en ny fil i OneDrive (en åtgärd).
 
-Det här avsnittet beskrivs hur du använder OneDrive-anslutningen i en logikapp och visar också utlösare och åtgärder.
+Den här artikeln visar hur du använder OneDrive-anslutningen i en logikapp och visar också utlösare och åtgärder.
 
 Läs mer om Logic Apps i [vad är logic apps](../logic-apps/logic-apps-overview.md) och [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -52,7 +52,7 @@ En utlösare är en händelse som kan användas för att starta arbetsflödet so
    
     ![](./media/connectors-create-api-onedrive/sample-folder.png)
    
-    Om du uppmanas att logga in, anger du tecknet i informationen för att skapa anslutningen. [Skapa anslutningen](connectors-create-api-onedrive.md#create-the-connection) innehåller stegen i det här avsnittet. 
+    Om du uppmanas att logga in, anger du tecknet i informationen för att skapa anslutningen. [Skapa anslutningen](connectors-create-api-onedrive.md#create-the-connection) innehåller stegen i den här artikeln. 
    
    > [!NOTE]
    > I det här exemplet körs logikappen när en fil i mappen som du väljer uppdateras. Lägg till en annan åtgärd som skickar ett e-postmeddelande om du vill se resultatet av den här utlösaren. Till exempel lägga till Office 365 Outlook *skickar ett e-* åtgärd som e-postmeddelanden när en fil har uppdaterats. 
@@ -76,7 +76,7 @@ En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en lo
    
     ![](./media/connectors-create-api-onedrive/sample-action.png)
    
-    Om du uppmanas att ange anslutningsinformation anger du information för att skapa anslutningen. [Skapa anslutningen](connectors-create-api-onedrive.md#create-the-connection) i det här avsnittet beskriver dessa egenskaper. 
+    Om du uppmanas att ange anslutningsinformation anger du information för att skapa anslutningen. [Skapa anslutningen](connectors-create-api-onedrive.md#create-the-connection) i den här artikeln beskriver dessa egenskaper. 
    
    > [!NOTE]
    > I det här exemplet skapar vi en ny fil i en mapp i OneDrive. Du kan använda utdata från en annan utlösare för att skapa filen OneDrive. Till exempel lägga till Office 365 Outlook *när en ny e-postmeddelandet* utlösare. Lägg sedan till OneDrive *skapa fil* åtgärd som använder bilagor och Content-Type fält inom en ForEach att skapa den nya filen i OneDrive. 

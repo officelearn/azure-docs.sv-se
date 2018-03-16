@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 825b2657cc6aa7b4e116f44020767beff911b1fc
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5dd2fb353246120f58840914e8a4e5527d7a4486
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL-API: hämta och viktig information
 > [!div class="op_single_selector"]
@@ -54,6 +54,11 @@ ms.lasthandoff: 03/12/2018
 </table></br>
 
 ## <a name="release-notes"></a>Viktig information
+### <a name="a-name12111211"></a><a name="1.21.1"/>1.21.1
+
+* Fast KeyNotFoundException för mellan partition order by-frågor i specialfall.
+* Fast bugg där JsonPropery attribut i select-satsen för LINQ-frågor inte som lösts in.
+
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
 * Fast programfel som träffar under vissa konkurrenstillstånd som resulterar i återkommande ”Microsoft.Azure.Documents.NotFoundException: Läs sessionen är inte tillgänglig för inkommande sessionstoken” fel när du använder konsekvensnivå för sessionen.
@@ -290,6 +295,8 @@ Alla begäranden till Azure Cosmos-databasen med en pensionerad SDK avvisas av t
 
 | Version | Utgivningsdatum | Datumet för tillbakadragandet |
 | --- | --- | --- |
+| [1.21.1](#1.20.1) |09 mars 2018 |--- |
+| [1.20.2](#1.20.1) |21 februari 2018 |--- |
 | [1.20.1](#1.20.1) |05 februari 2018 |--- |
 | [1.19.1](#1.19.1) |16 november 2017 |--- |
 | [1.19.0](#1.19.0) |10 november 2017 |--- |

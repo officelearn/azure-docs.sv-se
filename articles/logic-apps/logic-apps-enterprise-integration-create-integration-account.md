@@ -3,7 +3,7 @@ title: "Skapa länkar, ta bort eller flytta integration konton i Azure logikappa
 description: "Hur du skapar ett konto för integrering och länka det till dina logic apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
 editor: 
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
-ms.author: LADocs; mandia
-ms.openlocfilehash: b238ef8cf9d1328913334a92c042584334d81e3c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.author: LADocs; divswa
+ms.openlocfilehash: fb1d0ceb26c5ed792f22051e2af10a7572200bdc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-is-an-integration-account"></a>Vad är en integrering konto?
 

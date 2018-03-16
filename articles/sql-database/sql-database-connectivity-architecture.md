@@ -2,24 +2,18 @@
 title: Azure SQL Database connectivity-arkitektur | Microsoft Docs
 description: "Det här dokumentet förklarar Azure SQLDB anslutning arkitekturen från Azure eller från utanför Azure."
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: monicar
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 81f96c223fb5ad2c37bd0679743f14980a5885b0
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 98784b2d1ede5354c965e483b34b5fcb323394aa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-arkitektur 
 
@@ -93,7 +87,7 @@ I följande tabell visas de primära och sekundära IPs för Azure SQL Database-
 | Västra USA 2 | 13.66.226.202  | |
 ||||
 
-\***Obs:** *östra USA 2* har också en tertiär IP-adressen för `52.167.104.0`.
+\* **Obs:** *östra USA 2* har också en tertiär IP-adressen för `52.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Ändra principen för Azure SQL Database-anslutning
 

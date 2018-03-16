@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 5549fb8f20ac2eb07b52b3b8e1c418873e467c93
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappning i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappning som du kan ange mappningen för en uttryck. Du måste skriva ett skript-liknande uttryck som gör att du kan omvandla användarnas data i format som är mer godkänd för SaaS-program för dessa.
@@ -62,7 +62,7 @@ Syntax för uttryck för attributmappning är påminner om Visual Basic för App
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
 | **source** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
-| **inputFormat** |Krävs |Sträng |Förväntade format för källvärdet. Format som stöds, se [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Krävs |Sträng |Förväntade format för källvärdet. Format som stöds, se [ http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Krävs |Sträng |Format för Utdatadatum. |
 
 - - -
@@ -92,7 +92,7 @@ Om något av källvärden är ett attribut med flera värden och varje värde i 
 | --- | --- | --- | --- |
 | **source** |Krävs |Sträng |Vanligtvis attributets namn. |
 | **start** |Krävs |heltal |Index i den **källa** strängen där delsträngen ska starta. Första tecknet i strängen har index 1, andra tecknet ska ha index 2 och så vidare. |
-| **längd** |Krävs |heltal |Längden på delsträngen. Om längden slutar utanför den **källa** sträng, funktionen returnerar delsträngen från **starta** indexet till slutet av **källa** sträng. |
+| **Längd** |Krävs |heltal |Längden på delsträngen. Om längden slutar utanför den **källa** sträng, funktionen returnerar delsträngen från **starta** indexet till slutet av **källa** sträng. |
 
 - - -
 ### <a name="not"></a>inte
@@ -108,7 +108,7 @@ Om något av källvärden är ett attribut med flera värden och varje värde i 
 
 - - -
 ### <a name="replace"></a>Ersätt
-**Funktionen:**<br> ObsoleteReplace (källa, oldValue, regexPattern, regexGroupName, ersättningsvärde, replacementAttributeName, mall)
+**Funktionen:**<br> Ersätt (källa, oldValue, regexPattern, regexGroupName, ersättningsvärde, replacementAttributeName, mall)
 
 **Beskrivning:**<br>
 Ersätter värden i en sträng. Den fungerar på olika sätt beroende på de angivna parametrarna:
@@ -119,13 +119,13 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på de ang
 * När **oldValue** och **mallen** tillhandahålls:
   
   * Ersätter alla förekomster av de **oldValue** i den **mallen** med den **källa** värde
-* När **oldValueRegexPattern**, **oldValueRegexGroupName**, **ersättningsvärde** tillhandahålls:
+* När **regexPattern**, **regexGroupName**, **ersättningsvärde** tillhandahålls:
   
   * Ersätter alla värden som matchar oldValueRegexPattern i Källsträngen med ersättningsvärde
-* När **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementPropertyName** tillhandahålls:
+* När **regexPattern**, **regexGroupName**, **replacementPropertyName** tillhandahålls:
   
-  * Om **källa** värde, **källa** returneras
-  * Om **källa** har inte något värde, använder **oldValueRegexPattern** och **oldValueRegexGroupName** att extrahera ersättningsvärde från egenskapen med **replacementPropertyName**. Ersättningsvärde returneras som ett resultat
+  * Om **källa** har inte något värde **källa** returneras
+  * Om **källa** har ett värde, använder **regexPattern** och **regexGroupName** att extrahera ersättningsvärde från egenskapen med **replacementPropertyName** . Ersättningsvärde returneras som ett resultat
 
 **Parametrar:**<br> 
 
@@ -175,8 +175,8 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på de ang
 | --- | --- | --- | --- |
 | **source** |Krävs |Sträng |**Källan** värde att uppdatera. |
 | **Standardvärde** |Valfri |Sträng |Standardvärde som ska användas när datakällan inte matchar några nycklar. Kan vara en tom sträng (””). |
-| **nyckel** |Krävs |Sträng |**Nyckeln** att jämföra **källa** värde med. |
-| **värdet** |Krävs |Sträng |Ersättningsvärde för den **källa** matchade nyckel. |
+| **Nyckel** |Krävs |Sträng |**Nyckeln** att jämföra **källa** värde med. |
+| **Värdet** |Krävs |Sträng |Ersättningsvärde för den **källa** matchade nyckel. |
 
 ## <a name="examples"></a>Exempel
 ### <a name="strip-known-domain-name"></a>Remsans kända domännamn
@@ -213,6 +213,17 @@ Du måste skapa en användare alias genom att först 3 bokstäver i användarens
 * **INDATA** (givenName): ”John”
 * **INDATA** (efternamn): ”Berg”
 * **UTDATA**: ”JohDoe”
+
+### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>Ta bort diakritiska tecken från en sträng och konvertera till gemener
+Du måste ta bort specialtecknen från en sträng och konvertera versaler till gemener.
+
+**Uttryck:** <br>
+`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+
+**I/o-exempel:** <br>
+
+* **INDATA** (givenName): ”Zoë”
+* **UTDATA**: ”zoe”
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Utdatadatum som en sträng i ett visst format
 Vill du skicka datum till ett SaaS-program i ett visst format. <br>

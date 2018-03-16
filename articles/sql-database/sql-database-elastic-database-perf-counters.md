@@ -2,24 +2,18 @@
 title: "Prestandaräknare för karthanteraren för shard"
 description: "ShardMapManager klass- och beroende routning prestandaräknare"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: b090aba0-2e30-454c-96b3-dffa281f539a
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: ddove
-ms.openlocfilehash: 4a7a2e0b4f2be852c61fc3ccdd4dea2034b80918
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 11f19348e91f11d73d885f5d9bb70245c709fab9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Prestandaräknare för karthanteraren för shard
 Du kan avbilda prestanda för en [Fragmentera kartan manager](sql-database-elastic-scale-shard-map-management.md), särskilt när du använder [data beroende routning](sql-database-elastic-scale-data-dependent-routing.md). Räknare skapas med metoderna i klassen Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
@@ -28,7 +22,7 @@ Räknare som används för att spåra prestanda för [data beroende routning](sq
 
 **För den senaste versionen:** går du till [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Se även [uppgradera en app om du vill använda det senaste klientbiblioteket för elastisk databas](sql-database-elastic-scale-upgrade-client-library.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * För att skapa prestandakategorin och räknare, måste användaren vara en del av lokalt **administratörer** på den dator som är värd för programmet.  
 * Om du vill skapa en prestandaräknarinstans och uppdatera räknarna som användaren måste vara medlem i antingen den **administratörer** eller **Prestandaövervakningsanvändare** grupp. 
 
@@ -61,8 +55,8 @@ Prestandaräknare kommer att uppdateras av alla cache-åtgärder som utförs på
 * Att skapa prestandakategorin och räknare ska utföras en gång innan skapandet av ShardMapManager objekt. Varje körning av kommandot CreatePerformanceCategoryAndCounters() rensar tidigare räknare (förlorar data som rapporteras av alla instanser) och nya skapas.  
 * Prestandaräknaren instanser skapas per process. Alla program kraschar eller borttagning av en Fragmentera mappning från cacheminnet leder borttagning av prestandaräknare instanser.  
 
-### <a name="see-also"></a>Se även
-[Översikt över funktioner i elastisk databas](sql-database-elastic-scale-introduction.md)  
+### <a name="see-also"></a>Se också
+[Översikt över funktioner för elastisk databas](sql-database-elastic-scale-introduction.md)  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

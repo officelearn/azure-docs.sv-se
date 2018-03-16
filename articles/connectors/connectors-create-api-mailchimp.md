@@ -3,7 +3,7 @@ title: MailChimp-anslutningen i Azure Logic Apps | Microsoft Docs
 description: "Skapa logikappar med Azure App service. MailChimp är en SaaS-tjänst som låter företag hantera och automatisera marknadsföringsaktiviteter via e-post, inklusive utskick av marknadsföringsmail, automatiserade meddelanden och riktade kampanjer."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 50919fd903c24e4748a6efe29af2c188b1c3c195
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 041212771db5b5971ccd220e68d71d59d8220531
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-mailchimp-connector"></a>Kom igång med MailChimp-koppling
-MailChimp är en SaaS-tjänst som låter företag hantera och automatisera marknadsföringsaktiviteter via e-post, inklusive utskick av marknadsföringsmail, automatiserade meddelanden och riktade kampanjer.
+MailChimp är en SaaS-tjänst som gör att företag att hantera och automatisera marknadsföringsaktiviteter för e-post, inklusive marknadsföring e-postmeddelanden, automatiserade meddelanden och riktade kampanjer.
 
 Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

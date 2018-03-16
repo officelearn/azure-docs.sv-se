@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4216c2215f494a81935cd4cdca52427b0cbac143
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 502bfa128422a029878513d6aa4533718bdddbb5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>Vad är skillnaden mellan v2.0-slutpunkten?
 Om du är bekant med Azure Active Directory eller ha integrerade appar med Azure AD tidigare, kan det finnas vissa skillnader i v2.0-slutpunkten som du inte förväntar dig.  Det här dokumentet visar dessa skillnader för din förståelse.
@@ -56,10 +56,10 @@ Vårt mål är att det kommer leda till ett mer förenklad hantering och utveckl
 ## <a name="scopes-not-resources"></a>Scope, inte resurser
 I Azure Active Directory, en app kan fungera som en **resurs**, eller en mottagare av token.  En resurs kan definiera ett antal **scope** eller **oAuth2Permissions** som kan användas, vilket gör att klientdatorer appar att begära token till resursen för en viss uppsättning scope.  Överväg att Azure AD Graph-API som ett exempel på en resurs:
 
-* Resurs-ID eller `AppID URI`:`https://graph.windows.net/`
+* Resurs-ID eller `AppID URI`: `https://graph.windows.net/`
 * Scope, eller `OAuth2Permissions`: `Directory.Read`, `Directory.Write`osv.  
 
-Allt detta gäller för den v2.0-slutpunkten.  En app kan fortfarande fungera som resurs, definiera omfång och identifieras av en URI.  Klientprogram kan fortfarande att begära åtkomst till sådana omfattningar.  Men har det sätt som en klient begär de behörigheterna som ändrats.  Tidigare auktorisera en OAuth 2.0 kan har sökt begäran till Azure AD som:
+Allt detta gäller för v2.0-slutpunkten.  En app kan fortfarande fungera som resurs, definiera omfång och identifieras av en URI.  Klientprogram kan fortfarande att begära åtkomst till sådana omfattningar.  Men har det sätt som en klient begär de behörigheterna som ändrats.  Tidigare auktorisera en OAuth 2.0 kan har sökt begäran till Azure AD som:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/authorize?

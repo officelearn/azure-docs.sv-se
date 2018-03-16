@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 346fd26696480b6226c5e836e9876685fb408f96
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d774f0ca644793235a8c423b052b559d26e289c4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph bindningar för Azure Functions
 
@@ -33,7 +33,13 @@ Microsoft Graph filnamnstillägget innehåller följande Bindningar:
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!Note]
-> Microsoft Graph-bindningar finns för närvarande under förhandsgranskning.
+> Microsoft Graph-bindningar finns för närvarande i förhandsvisning för Azure Functions version 2.x. De stöds inte i funktioner version 1.x.
+
+## <a name="packages"></a>Paket
+
+Auth token indatabindning finns i den [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/) NuGet-paketet. Andra Microsoft Graph-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) paketet. Källkoden för paket finns i den [azure-funktioner-microsoftgraph-tillägget](https://github.com/Azure/azure-functions-microsoftgraph-extension/) GitHub-lagringsplatsen.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="setting-up-the-extensions"></a>Konfigurera tillägg
 
@@ -54,9 +60,7 @@ I båda fallen visas en varning som anger att tillägget ska kunna installeras. 
 > [!Note] 
 > I portalen-installationen kan ta upp till 10 minuter på en plan för användning.
 
-Om du använder Visual Studio kan du hämta tillägg genom att installera dessa NuGet-paket:
-- [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/)
-- [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/)
+Om du använder Visual Studio, kan du få tillägg genom att installera [NuGet-paketen som listas ovan](#packages).
 
 ### <a name="configuring-authentication--authorization"></a>Konfigurera autentisering / auktorisering
 
@@ -199,7 +203,7 @@ module.exports = function (context, req) {
 
 ### <a name="auth-token---attributes"></a>Token för auth - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [Token](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [Token](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs) attribut.
 
 ### <a name="auth-token---configuration"></a>Token för auth - konfiguration
 
@@ -332,7 +336,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-input---attributes"></a>Excel-indata - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) attribut.
 
 ### <a name="excel-input---configuration"></a>Excel-indata - konfiguration
 
@@ -492,7 +496,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-output---attributes"></a>Excel utdata - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) attribut.
 
 ### <a name="excel-output---configuration"></a>Excel-utdata - konfiguration
 
@@ -636,7 +640,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-input---attributes"></a>Filen indata - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) attribut.
 
 ### <a name="file-input---configuration"></a>Filen indata - konfiguration
 
@@ -781,7 +785,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-output---attributes"></a>Filen utdata - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) attribut.
 
 ### <a name="file-output---configuration"></a>Filen utdata - konfiguration
 
@@ -930,7 +934,7 @@ module.exports = function (context, req) {
 
 ### <a name="outlook-output---attributes"></a>Outlook utdata - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs) attribut.
 
 ### <a name="outlook-output---configuration"></a>Utdata för Outlook - konfiguration
 
@@ -1071,7 +1075,7 @@ module.exports = function (context) {
 
 ### <a name="webhook-trigger---attributes"></a>Webhook-utlösare - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs) attribut.
 
 ### <a name="webhook-trigger---configuration"></a>Webhook-utlösare - konfiguration
 
@@ -1222,7 +1226,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-input---attributes"></a>Webhook-indata - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) attribut.
 
 ### <a name="webhook-input---configuration"></a>Webhook-indata - konfiguration
 
@@ -1362,7 +1366,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-output---attributes"></a>Webhook utdata - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) attribut.
 
 ### <a name="webhook-output---configuration"></a>Webhook-utdata - konfiguration
 
@@ -1377,7 +1381,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**userId**|**Användar-ID**  |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användare ägar-ID som är associerade med en tidigare användare.|
 |**userToken**|**UserToken**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionen appen. |
 |**Åtgärden**|**Åtgärd**|Obligatoriskt – anger åtgärden bindningen ska utföra. Kan vara något av följande värden:<ul><li><code>create</code> -Registrerar en ny prenumeration.</li><li><code>delete</code> -Tar bort en angiven prenumeration.</li><li><code>refresh</code> – Uppdaterar en angiven prenumeration om du vill behålla upphör att gälla.</li></ul>|
-|**subscriptionResource**|**SubscriptionResource**|Krävs om och bara om den _åtgärd_ är inställd på `create`. Anger Microsoft Graph-resurs som ska övervakas för ändringar. Se [arbeta med webhooks i Microsoft Graph]. |
+|**SubscriptionResource**|**SubscriptionResource**|Krävs om och bara om den _åtgärd_ är inställd på `create`. Anger Microsoft Graph-resurs som ska övervakas för ändringar. Se [arbeta med webhooks i Microsoft Graph]. |
 |**changeType**|**ChangeType**|Krävs om och bara om den _åtgärd_ är inställd på `create`. Anger vilken typ av ändring i den prenumererar på resurs som ska generera ett meddelande. Värdena som stöds är: `created`, `updated`, `deleted`. Du kan kombinera flera värden med hjälp av en kommaavgränsad lista.|
 
 ### <a name="webhook-output---usage"></a>Webhook utdata - användning

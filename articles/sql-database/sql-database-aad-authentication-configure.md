@@ -3,17 +3,17 @@ title: Konfigurera Azure Active Directory - SQL-autentisering | Microsoft Docs
 description: "Lär dig hur du ansluter till SQL-databas, hanterade-instans och SQL Data Warehouse med hjälp av Azure Active Directory-autentisering - när du har konfigurerat Azure AD."
 services: sql-database
 author: GithubMirek
-manager: johammer
+manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 00b5be9863e2bff9e5b82845f99d6829e1bcdf13
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e8decbe2c8ed4bed6cfb71308510d031fc242faa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Konfigurera och hantera Azure Active Directory-autentisering med SQL-databas, hanteras instans eller SQL Data Warehouse
 
@@ -193,7 +193,7 @@ Mer information om CLI-kommandon finns [SQL - az sql](https://docs.microsoft.com
 ## <a name="configure-your-client-computers"></a>Konfigurera klientdatorer
 På alla klientdatorer som dina program eller användare ansluta till Azure SQL Database eller Azure SQL Data Warehouse med hjälp av Azure AD identiteter, måste du installera följande programvara:
 
-* .NET framework 4.6 eller senare från [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
+* .NET framework 4.6 eller senare från [ https://msdn.microsoft.com/library/5a4x27ek.aspx ](https://msdn.microsoft.com/library/5a4x27ek.aspx).
 * Azure Active Directory Authentication Library för SQLServer (**ADALSQL. DLL-filen**) är tillgängligt på flera språk (x86 och amd64) från download center på [Microsoft Active Directory Authentication Library för Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
 
 Du kan uppfylla dessa krav genom att:

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/17/2017
+ms.date: 03/13/2017
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d6991d40b9bb8543898bbbdc9d7c905dfe11536
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 0cb715960a516c6b2ca16376c12cb6f796e0b395
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>SAP HANA på Azure-handboken
 Detta dokument ger vägledning för operativsystem SAP HANA som distribueras på Azure interna virtuella maskiner (VMs). Det här dokumentet är inte avsedd att ersätta standard SAP-dokumentationen som innehåller följande innehåll:
@@ -56,7 +56,7 @@ Plats-till-plats-anslutning via VPN eller ExpressRoute är nödvändigt för pro
 De Virtuella Azure-typer som kan användas för produktion scenarier visas i den [SAP-dokumentationen för IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). För icke-produktion scenarier finns en mängd olika interna Virtuella Azure-typer.
 
 >[!NOTE]
->Icke-produktion scenarier använder VM-typer som anges i den [SAP-kommentar #1928533](https://launchpad.support.sap.com/#/notes/1928533).
+> Icke-produktion scenarier använder VM-typer som anges i den [SAP-kommentar #1928533](https://launchpad.support.sap.com/#/notes/1928533). För användning av virtuella datorer i Azure för produktion scenarier, markerar du alternativet för SAP HANA certifierade virtuella datorer i SAP publicerade [listan över plattformar som certifierad IaaS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
 
 Distribuera virtuella datorer i Azure med hjälp av:
 
@@ -64,39 +64,122 @@ Distribuera virtuella datorer i Azure med hjälp av:
 - Azure PowerShell-cmdlets.
 - Azure CLI.
 
-Du kan också distribuera en fullständig installerade SAP HANA-plattform på Virtuella Azure-tjänster genom den [SAP molnplattform](https://cal.sap.com/). Installationsprocessen beskrivs i [distribuera SAP S/4HANA eller BW/4HANA på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
+Du kan också distribuera en fullständig installerade SAP HANA-plattform på Virtuella Azure-tjänster genom den [SAP molnplattform](https://cal.sap.com/). Installationsprocessen beskrivs i [distribuera SAP S/4HANA eller BW/4HANA på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) eller med automatisering publicerat [här](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 ### <a name="choose-azure-storage-type"></a>Välj typ av Azure Storage
 Azure tillhandahåller två typer av lagring som är lämpliga för virtuella Azure-datorer som kör SAP HANA:
 
-- [Azure standardlagring](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
-- [Azure Premium-lagring](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- [Azure Standard Storage](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
+- [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
 
 Azure erbjuder två metoder för distribution för virtuella hårddiskar på Azure-Standard och Premium-lagring. Om det övergripande scenariot tillåter kan dra nytta av [Azure hanteras disk](https://azure.microsoft.com/services/managed-disks/) distributioner.
 
-En lista över lagringstyper och deras serviceavtal, granska den [Azure-dokumentationen för hanterade diskar](https://azure.microsoft.com/pricing/details/managed-disks/).
+En lista över lagringstyper och deras serviceavtal IOPS och lagring genomflödet i den [Azure-dokumentationen för hanterade diskar](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-Azure Premium-diskar som rekommenderas för /hana/data och /hana/log volymer. Du kan skapa ett LVM RAID över flera diskar i Premium-lagring och använder RAID-volymer som /hana/data och /hana/log volymer.
+### <a name="configuring-the-storage-for-azure-virtual-machines"></a>Konfigurera lagring för virtuella Azure-datorer
 
-I följande tabell visas en konfiguration av VM-typer som kunder använder ofta till värd SAP HANA på virtuella Azure-datorer:
+Så länge du har köpt SAP HANA apparater för lokala behövde aldrig du bryr dig om i/o-undersystem och dess funktioner eftersom leverantören installation måste se till att de minsta krav uppfylls för SAP HANA. Som du själv skapar Azure-infrastrukturen kan bör du också vara medveten om vissa av dessa krav att också förstå konfigurationskrav föreslår vi i följande avsnitt. Eller i fall där du konfigurerar de virtuella datorerna som du vill köra SAP HANA på. Några av de egenskaper som uppmanas ledde till att du behöver:
 
-| VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | / hana/data och loggfilen/hana /<br /> stripe-volymer med LVM eller MDADM | / hana/delade | / Root volym | / usr/sap | Hana eller säkerhetskopiering |
+- Aktivera läsning och skrivning volymen på /hana/log 250 MB per sekund som minimum med 1 MB i/o-storlekar
+- Aktivera Läs minst 400MB per sekund för /hana/data för storlekar på 16 MB och 64 MB i/o-aktivitet
+- Aktivera skrivning aktiviteten hos minst 250MB per sekund för /hana/data med 16 MB och 64 MB i/o-storlek
+
+Det angivna låg lagringsenheterna är svarstid kritiska för DBMS-datorer, även om de som SAP HANA behålla data i minnet. Kritiska i lagring är vanligtvis runt transaction log skrivningar DBMS-system. Men även operations skrivning lagringspunkter eller läsa in data i minnet när kraschåterställning kan vara avgörande. Därför är det obligatoriskt att utnyttja Azure Premiumdiskar för /hana/data och /hana/log volymer. För att uppnå lägsta dataflöde hana-loggen och/hana/data efter behov av SAP, måste du skapa en RAID 0 med MDADM eller LVM över flera Azure Premium Storage diskar och använda RAID-volymer som hana-data och/hana / loggvolymer. Eftersom stripe storlekar för RAID 0 rekommendationen är att använda:
+
+- 64K eller 128K för hana-data
+- 32 kB för hana-logg
+
+> [!NOTE]
+> Du behöver inte konfigurera eventuella redundans nivå med RAID-volymer eftersom Azure Premium och standardlagring hålla tre avbildningar av en virtuell Hårddisk. Användning av en RAID-volym är rent att konfigurera volymer som ger tillräcklig i/o-genomflöde.
+
+Kan sparas ett antal virtuella hårddiskar Azure under en RAID är ackumulerande från en sida för IOPS och lagring genomflöde. Så om du placerar en RAID 0 över 3 x P30 Azure Premium Storage diskar ger den dig tre gånger IOPS och tre gånger kapaciteten för lagring för en enda Azure Premium Storage P30 disk.
+
+Konfigurera inte Premium-lagring cachelagring på diskar som används för /hana/data och /hana/log. Alla diskar skapa dessa volymer bör ha cachelagring av dessa diskar som är inställd på ”Ingen”.
+
+Tänk också övergripande VM-i/o-genomflöde när storleksändring och bestämmer för en virtuell dator. Den totala kapaciteten för lagring av Virtuella dokumenteras i artikeln [minnesoptimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
+
+#### <a name="cost-conscious-azure-storage-configuration"></a>Kostnad medvetna Azure Storage-konfiguration
+I följande tabell visas en konfiguration av VM-typer som kunder använder ofta till värd SAP HANA på Azure Virtual Machines. Det kan finnas vissa typer av virtuell dator som inte kanske uppfyller alla minimikrav för SAP HANA. Men så länge dessa virtuella datorer visat sig att utföra bra för icke-produktion scenarier. 
+
+> [!NOTE]
+> Kontrollera om en viss typ av VM stöds för SAP HANA av SAP i scenarier med produktion av [SAP-dokumentationen för IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
+
+
+
+| VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | / hana/data och loggfilen/hana /<br /> stripe-volymer med LVM eller MDADM | / hana/delade | / Root volym | / usr/sap | hana/backup |
 | --- | --- | --- | --- | --- | --- | --- | -- |
-| E16v3 | 128 GiB | 384 MB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
-| E32v3 | 256 giB | 768 MB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| E64v3 | 443 giB | 1 200 GB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| GS5 | 448 giB | 2 000 GB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| M64s | 1000 giB | 1 000 GB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
-| M64ms | 1 750 giB | 1 000 GB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
-| M128s | 2000 giB | 2 000 GB |3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S40 |
-| M128ms | 3800 giB | 2 000 GB | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S50 |
+| DS14v2 | 128 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
+| E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
+| E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
+| E64v3 | 443 GiB | 1200 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| GS5 | 448 giB | 2000 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| M64s | 1000 GiB | 1000 MB/s | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
+| M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
+| M128s | 2000 GiB | 2000 MB/s |3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S40 |
+| M128ms | 3800 GiB | 2000 MB/s | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S50 |
 
+
+Diskar som rekommenderas för mindre VM typer med 3 x P20 oversize volymer om utrymme rekommendationerna enligt den [SAP TDI lagring Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Men gjordes valet som visas i tabellen för att tillhandahålla tillräcklig diskgenomflödet för SAP HANA. Om du behöver ändringar /hana/backup volymen, som har anpassat för att behålla säkerhetskopior som representerar dubbelt så mycket minne volymen kan passa på att justera.   
+Kontrollera om lagringsgenomströmning för olika föreslagna volymer uppfyller den arbetsbelastning som du vill köra. Om arbetsbelastningen kräver större volymer för /hana/data och /hana/log, måste du öka antalet virtuella hårddiskar Azure Premium-lagring. Ändra storlek på en volym med flera virtuella hårddiskar än den ökar IOPS och i/o-genomflöde inom gränserna för typ av virtuell Azure-dator. 
 
 > [!NOTE]
-> Diskar som rekommenderas för mindre VM typer med 3 x P20 oversize volymer om utrymme rekommendationerna enligt den [SAP TDI lagring Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Men gjordes valet som visas i tabellen för att tillhandahålla tillräcklig diskgenomflödet för SAP HANA. Om du behöver mindre i/o-genomflöde kan justera du valet av Premium-lagring diskar för /hana/data och /hana/log. Samma sak gäller för storleksändring av /hana/backup volymen, som var storlek för att behålla säkerhetskopior som representerar dubbelt så mycket minne volymen. Om du behöver mindre utrymme, kan sedan du justera. Tänk också övergripande VM-i/o-genomflöde när storleksändring och bestämmer för en virtuell dator. Övergripande VM genomströmning dokumenteras i artikeln [minnesoptimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)  
+> Konfigurationer ovan kan inte dra nytta av [virtuella Azure-datorn enkel VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) eftersom den använder en blandning av Azure Premium-lagring och Azure standardlagring. Dock har markeringen valts för att optimera kostnader.
+
+
+#### <a name="azure-storage-configuration-to-benefit-for-meeting-single-vm-sla"></a>Azure Storage-konfiguration dra för att uppfylla SLA för enskild VM
+Om du vill dra nytta av [virtuella Azure-datorn enkel VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/), måste du använda Azure Premium Storage virtuella hårddiskar exklusivt.
 
 > [!NOTE]
-> Om du vill dra nytta av [virtuella Azure-datorn enkel VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) måste du ändra alla virtuella hårddiskar som anges som standardlagring (Sxx) till Premium-lagring (Pxx). 
+> Kontrollera om en viss typ av VM stöds för SAP HANA av SAP i scenarier med produktion av [SAP-dokumentationen för IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
+
+| VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | / hana/data och loggfilen/hana /<br /> stripe-volymer med LVM eller MDADM | / hana/delade | / Root volym | / usr/sap | hana/backup |
+| --- | --- | --- | --- | --- | --- | --- | -- |
+| DS14v2 | 128 GiB | 768 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P15 |
+| E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P15 |
+| E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P20 |
+| E64v3 | 443 GiB | 1200 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P30 |
+| GS5 | 448 giB | 2000 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P30 |
+| M64s | 1000 GiB | 1000 MB/s | 2 x P30 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
+| M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
+| M128s | 2000 GiB | 2000 MB/s |3 x P30 | 1 x P30 | 1 x P6 | 1 x P6 | 2 x P40 |
+| M128ms | 3800 GiB | 2000 MB/s | 5 x P30 | 1 x P30 | 1 x P6 | 1 x P6 | 2 x P50 |
+
+
+Diskar som rekommenderas för mindre VM typer med 3 x P20 oversize volymer om utrymme rekommendationerna enligt den [SAP TDI lagring Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Men gjordes valet som visas i tabellen för att tillhandahålla tillräcklig diskgenomflödet för SAP HANA. Om du behöver ändringar /hana/backup volymen, som har anpassat för att behålla säkerhetskopior som representerar dubbelt så mycket minne volymen kan passa på att justera.  
+Kontrollera om lagringsgenomströmning för olika föreslagna volymer uppfyller den arbetsbelastning som du vill köra. Om arbetsbelastningen kräver större volymer för /hana/data och /hana/log, måste du öka antalet virtuella hårddiskar Azure Premium-lagring. Ändra storlek på en volym med flera virtuella hårddiskar än den ökar IOPS och i/o-genomflöde inom gränserna för typ av virtuell Azure-dator. 
+
+
+
+#### <a name="storage-solution-with-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Lagringslösning med Azure skriva snabbtangenten för Azure M-serien virtuella datorer
+Azure skriva Accelerator är en funktion som hämtar lyfts för virtuella datorer M-serien exklusivt. Som namnet tillstånd, är syftet med funktionen för att förbättra i/o-fördröjningen för skrivningar mot Azure Premium-lagring. För SAP HANA ska skriva Accelerator användas mot den /hana/log volymen. Därför behöver de konfigurationer som visas hittills ändras. Den huvudsakliga ändringen är data mellan /hana/data och /hana/log för att kunna använda Azure skriva Accelerator mot den /hana/log volymen. 
+
+> [!IMPORTANT]
+> SAP HANA-certifiering för virtuella datorer i Azure M-serien är enbart med Azure skriva snabbtangenten för /hana/log volymen. Därför förväntas Produktionsdistribution scenariot SAP HANA på Azure M-serien virtuella datorer konfigureras med Azure skriva snabbtangenten för /hana/log volymen.  
+
+> [!NOTE]
+> Kontrollera om en viss typ av VM stöds för SAP HANA av SAP i scenarier med produktion av [SAP-dokumentationen för IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
+
+Det ser ut som rekommenderade konfigurationer:
+
+| VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | /hana/data | hana-logg | / hana/delade | / Root volym | / usr/sap | hana/backup |
+| --- | --- | --- | --- | --- | --- | --- | --- | -- |
+| M64s | 1000 GiB | 1000 MB/s | 4 x P20 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
+| M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
+| M128s | 2000 GiB | 2000 MB/s |3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 2 x P40 |
+| M128ms | 3800 GiB | 2000 MB/s | 5 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 2 x P50 |
+
+Kontrollera om lagringsgenomströmning för olika föreslagna volymer uppfyller den arbetsbelastning som du vill köra. Om arbetsbelastningen kräver större volymer för /hana/data och /hana/log, måste du öka antalet virtuella hårddiskar Azure Premium-lagring. Ändra storlek på en volym med flera virtuella hårddiskar än den ökar IOPS och i/o-genomflöde inom gränserna för typ av virtuell Azure-dator.
+
+Azure skriva Accelerator fungerar bara tillsammans med [Azure hanterade diskar](https://azure.microsoft.com/services/managed-disks/). Så minst Azure Premium Storage diskarna som utgör /hana/log volymen måste distribueras som hanterade diskar.
+
+Det finns begränsningar för Azure Premium Storage virtuella hårddiskar per virtuell dator som stöds av Azure skriva Accelerator. Aktuella begränsningar är:
+
+- 16 virtuella hårddiskar för en M128xx VM
+- 8 virtuella hårddiskar för en M64xx VM
+
+Mer detaljerad information om hur du aktiverar Azure skriva Accelerator finns i artikeln [Azure skriva snabbtangenten för SAP distributioner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator).
+
+Information och begränsningar för Azure skriva Accelerator finns i samma-dokumentationen.
 
 
 ### <a name="set-up-azure-virtual-networks"></a>Konfigurera virtuella Azure-nätverk
@@ -108,6 +191,8 @@ När du installerar de virtuella datorerna till kör SAP HANA måste de virtuell
 - Statisk privat IP-adresser som har distribuerats för både virtuella nätverkskort.
 
 En översikt över de olika metoderna för att tilldela IP-adresser, se [IP-adressen typer och fördelningsmetoder i Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
+
+För virtuella datorer som kör SAP HANA, bör du arbeta med statiska IP-adresser tilldelas. Orsaken är att vissa configuration-attribut för HANA refererar till IP-adresser.
 
 [Azure Nätverkssäkerhetsgrupper (NSG: er)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) används för att dirigera trafik dirigeras till SAP HANA-instans eller Jumpbox. De NSG: er är kopplade till SAP HANA-undernät och Management-undernät.
 
@@ -152,4 +237,4 @@ Se till att installera SAProuter i en separat virtuell dator och inte i din Jump
 Mer information om hur du ställer in och underhålla fjärrsupport anslutningar via SAProuter finns i [SAP dokumentationen](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
 ### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Hög tillgänglighet med SAP HANA på interna virtuella Azure-datorer
-Om du kör SUSE Linux 12 SP1 eller senare, kan du upprätta ett Pacemaker kluster med STONITH enheter. Du kan använda enheterna som du ställer in en SAP HANA-konfiguration som använder synkron replikering med HANA System replikering och automatisk redundans. Mer information om installationen finns [hög tillgänglighet för SAP HANA på Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+Om du kör SUSE Linux 12 SP1 eller senare, kan du upprätta ett Pacemaker kluster med STONITH enheter. Du kan använda enheterna som du ställer in en SAP HANA-konfiguration som använder synkron replikering med HANA System replikering och automatisk redundans. Mer information om installationen finns [hög tillgänglighet för SAP HANA-guide för virtuella datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).

@@ -12,17 +12,23 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/29/2017
 ms.author: tdykstra
-ms.openlocfilehash: aa64bbc764fe96d7c15d62660114222458e5acf4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: bd4f36bb029f123b0fa41d6dcd57547413e015c0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid bindningar
 
 Den här artikeln beskrivs hur du skickar e-post med hjälp av [SendGrid](https://sendgrid.com/docs/User_Guide/index.html) bindningar i Azure Functions. Azure Functions stöder en output-bindning för SendGrid.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Paket
+
+SendGrid-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet-paketet. Källkoden för paketet är i den [azure-webjobs-sdk-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub-lagringsplatsen.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Exempel
 
@@ -155,7 +161,7 @@ module.exports = function (context, input) {
 
 ## <a name="attributes"></a>Attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) attribut.
 
 Information om egenskaper för attribut som du kan konfigurera finns [Configuration](#configuration). Här är en `SendGrid` attributet exempel i en signatur:
 
@@ -177,13 +183,13 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ**|| Krävs – måste vara inställd på `sendGrid`.|
-|**riktning**|| Krävs – måste vara inställd på `out`.|
+|**Typ**|| Krävs – måste vara inställd på `sendGrid`.|
+|**Riktning**|| Krävs – måste vara inställd på `out`.|
 |**Namn**|| Obligatoriskt - variabelnamnet som används i Funktionskoden för begäran eller begärandetexten. Det här värdet är ```$return``` när det är endast ett returvärde. |
-|**apiKey**|**ApiKey**| Namnet på en appinställning som innehåller API-nyckel. Om inte aktiverad, standardappen inställningen är ”AzureWebJobsSendGridApiKey”.|
-|**att**|**Till**| mottagarens e-postadress. |
-|**från**|**Från**| avsändarens e-postadress. |
-|**ämne**|**Ämne**| ämnet för e-postmeddelandet. |
+|**apiKey**|**apiKey**| Namnet på en appinställning som innehåller API-nyckel. Om inte aktiverad, standardappen inställningen är ”AzureWebJobsSendGridApiKey”.|
+|**Att**|**Till**| mottagarens e-postadress. |
+|**from**|**Från**| avsändarens e-postadress. |
+|**Ämne**|**Ämne**| ämnet för e-postmeddelandet. |
 |**text**|**Text**| e-postinnehåll. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

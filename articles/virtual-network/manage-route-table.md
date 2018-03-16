@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7630fd82cf62f1fcb0df80cec5b5e0030da81a85
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a7e45d6bccfd8113157eba63d311b6609bf35aaa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Skapa, ändra eller ta bort en routningstabell
 
@@ -30,7 +30,7 @@ Azure automatiskt dirigerar trafik mellan Azure undernät, virtuella nätverk oc
 Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här artikeln:
 
 - Om du inte redan har ett Azure-konto, registrera dig för en [ledigt utvärderingskonto](https://azure.microsoft.com/free).
-- Om du använder portalen, öppna https://portal.azure.com och logga in med ditt Azure-konto.
+- Om du använder portalen, öppna https://portal.azure.com, och logga in med ditt Azure-konto.
 - Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.2.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
 - Om du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här kursen kräver Azure CLI version 2.0.26 eller senare. Kör `az --version` att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du använder Azure CLI lokalt, måste du också köra `az login` att skapa en anslutning med Azure.
 
@@ -40,7 +40,7 @@ Det finns en gräns för hur många routningstabeller som du kan skapa per Azure
 
 1. I det övre vänstra hörnet av portalen väljer **+ skapa en resurs för**.
 2. Välj **nätverk**och välj **routningstabellen**.
-3. Ange en **namn** routningstabellen, Välj din **prenumeration**, skapa en ny **resursgruppen**, eller välj en befintlig resursgrupp, Välj en **plats** och välj **skapa**. Den **inaktivera BGP-väg spridningen** alternativet förhindrar lokal vägar från att spridas till Azure-nätverk via BGP. Om det virtuella nätverket inte är ansluten till en gateway för Azure-nätverk (VPN eller ExpressRoute) lämna alternativet *inaktiverade*. 
+3. Ange en **namn** routningstabellen, Välj din **prenumeration**, skapa en ny **resursgruppen**, eller välj en befintlig resursgrupp, Välj en **plats** och välj **skapa**. Den **inaktivera BGP-väg spridningen** alternativet förhindrar lokal vägar från att spridas via BGP till nätverksgränssnitt i alla undernät i vägtabellen är kopplad till. Om det virtuella nätverket inte är ansluten till en gateway för Azure-nätverk (VPN eller ExpressRoute) lämna alternativet *inaktiverade*.
 
 **Kommandon**
 

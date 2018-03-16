@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 736a82d282e5769fb403c66ffd5d44107c6d3218
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 09e848abaf09811ff3f2b8ad009cd23dedb6645d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Hur du använder Azure hanterade tjänstidentiteten (förhandsversion) i App Service och Azure Functions
 
 > [!NOTE] 
 > Hanterade tjänstidentiteten för Apptjänst och Azure Functions är för närvarande under förhandsgranskning.
 
-Det här avsnittet visar hur du skapar en hanterad app identitet för App Service och Azure Functions program och hur du använder den för att komma åt andra resurser. En hanterad tjänstidentitet från Azure Active Directory kan din app att enkelt komma åt andra AAD-skyddade resurser, till exempel Azure Key Vault. Identiteten hanteras av Azure-plattformen och kräver inte att etablera eller rotera alla hemligheter. Mer information om hanterade tjänstidentiteten finns i [hanterade tjänstidentiteten översikt](../active-directory/msi-overview.md).
+Det här avsnittet visar hur du skapar en hanterad app identitet för App Service och Azure Functions program och hur du använder den för att komma åt andra resurser. En hanterad tjänstidentitet från Azure Active Directory kan din app att enkelt komma åt andra AAD-skyddade resurser, till exempel Azure Key Vault. Identiteten hanteras av Azure-plattformen och kräver inte att etablera eller rotera alla hemligheter. Mer information om hanterade tjänstidentiteten finns i [hanterade tjänstidentiteten översikt](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="creating-an-app-with-an-identity"></a>Skapa en app med en identitet
 
@@ -126,7 +126,7 @@ Där `<TENANTID>` och `<PRINCIPALID>` ersätts med GUID. Egenskapen tenantId ide
 En app kan använda sin identitet för att hämta token till andra resurser som skyddas av AAD, till exempel Azure Key Vault. Dessa token representerar programmet åtkomst till resursen och inte de specifika användaren. 
 
 > [!IMPORTANT]
-> Du kan behöva konfigurera målresursen för att tillåta åtkomst från ditt program. Om du vill begära en token för Nyckelvalvet, måste du kontrollera att du har lagt till en åtkomstprincip som innehåller programmets identitet. Annars avvisas anropen till Key Vault, även om de inkludera token. Läs mer om vilka resurser som stöder hanterade tjänstidentiteten token i [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/pp/msi-overview.md#which-azure-services-support-managed-service-identity).
+> Du kan behöva konfigurera målresursen för att tillåta åtkomst från ditt program. Om du vill begära en token för Nyckelvalvet, måste du kontrollera att du har lagt till en åtkomstprincip som innehåller programmets identitet. Annars avvisas anropen till Key Vault, även om de inkludera token. Läs mer om vilka resurser som stöder hanterade tjänstidentiteten token i [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-service-identity/overview.md#which-azure-services-support-managed-service-identity).
 
 Det finns ett enkelt REST-protokoll för att få en token i App Service och Azure Functions. För .NET-program Microsoft.Azure.Services.AppAuthentication biblioteket ger en abstraktion över det här protokollet och stöder en lokal utveckling upplevelse.
 

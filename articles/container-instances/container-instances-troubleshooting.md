@@ -6,22 +6,83 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 03/14/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 561729e5e495500222ccec5b4b536a3152cb25e3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a527939d6bc73e3dee5701bc53ef8312e68d2953
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Felsöka distributionsproblem med Azure Container instanser
 
 Den här artikeln visar hur du felsöker problem när du distribuerar behållare till Azure-Behållarinstanser. Här beskrivs också några vanliga problem som kan uppstå.
 
+## <a name="view-logs-and-stream-output"></a>Visa loggfiler och strömmad utdata
+
+När du har en felaktigt behållare startar genom att visa loggar med [az behållaren loggar][az-container-logs], och dess standard out och standardfel med [az behållaren bifoga] [az-container-attach].
+
+### <a name="view-logs"></a>Visa loggar
+
+Om du vill visa loggar från din programkod i en behållare som du kan använda den [az behållaren loggar] [ az-container-logs] kommando.
+
+Nedan visas utdata från exempel uppgiftsbaserade behållare i [köra en av aktivitet som ACI](container-instances-restart-policy.md)efter att ha matas den en ogiltig URL för att bearbeta:
+
+```console
+$ az container logs --resource-group myResourceGroup --name mycontainer
+Traceback (most recent call last):
+  File "wordcount.py", line 11, in <module>
+    urllib.request.urlretrieve (sys.argv[1], "foo.txt")
+  File "/usr/local/lib/python3.6/urllib/request.py", line 248, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 532, in open
+    response = meth(req, response)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 642, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 570, in error
+    return self._call_chain(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 650, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+```
+
+### <a name="attach-output-streams"></a>Koppla utdataströmmar
+
+Den [az behållaren bifoga] [ az-container-attach] kommandot ger diagnostisk information under behållaren start. När behållaren har börjat strömmas STDOUT och STDERR till din lokala konsolen.
+
+Här är till exempel utdata från uppgiftsbaserade behållare i [köra en av aktivitet som ACI](container-instances-restart-policy.md)efter att ha angett en giltig URL för en stor textfil att bearbeta:
+
+```console
+$ az container attach --resource-group myResourceGroup --name mycontainer
+Container 'mycontainer' is in state 'Unknown'...
+Container 'mycontainer' is in state 'Waiting'...
+Container 'mycontainer' is in state 'Running'...
+(count: 1) (last timestamp: 2018-03-09 23:21:33+00:00) pulling image "microsoft/aci-wordcount:latest"
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Successfully pulled image "microsoft/aci-wordcount:latest"
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Created container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Started container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
+
+Start streaming logs:
+[('the', 22979),
+ ('I', 20003),
+ ('and', 18373),
+ ('to', 15651),
+ ('of', 15558),
+ ('a', 12500),
+ ('you', 11818),
+ ('my', 10651),
+ ('in', 9707),
+ ('is', 8195)]
+```
+
 ## <a name="get-diagnostic-events"></a>Hämta diagnostiska händelser
 
-Om du vill visa loggar från din programkod i en behållare som du kan använda den [az behållaren loggar] [ az-container-logs] kommando. Men om din behållaren inte distribuerar har du behöver diagnostisk information som tillhandahålls av Azure Behållarinstanser resursprovidern. Om du vill visa händelser för din behållaren kör den [az behållaren visa] [ az-container-show] kommando:
+Om det inte går att distribuera har din behållare, måste du diagnostisk information som tillhandahålls av Azure Behållarinstanser resursprovidern. Om du vill visa händelser för din behållaren kör den [az behållaren visa] [ az-container-show] kommando:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
@@ -90,11 +151,17 @@ Utdata innehåller huvudegenskaper för din behållare, tillsammans med distribu
 
 ## <a name="common-deployment-issues"></a>Vanliga distributionsproblem med
 
-Det finns några vanliga problem för de flesta fel i distributionen.
+I följande avsnitt beskrivs vanliga problem för de flesta fel i behållaren distribution:
+
+* [Bildversionen stöds inte](#image-version-not-supported)
+* [Det gick inte att pull-bild](#unable-to-pull-image)
+* [Behållaren kontinuerligt avslutas och startas om](#container-continually-exits-and-restarts)
+* [Behållaren tar lång tid att starta](#container-takes-a-long-time-to-start)
+* [”Resursen är inte tillgänglig” fel](#resource-not-available-error)
 
 ## <a name="image-version-not-supported"></a>Bildversionen stöds inte
 
-Om en avbildning anges Behållarinstanser som Azure inte stöder att ett fel returneras i formatet `ImageVersionNotSupported`. Värdet för felet visas `The version of image '{0}' is not supported.`. Det här felet gäller för närvarande Windows 1709 bilder, för att minimera används en LTS Windows-avbildning. Stöd för Windows 1709 bilder pågår.
+Om du anger en avbildning som Behållarinstanser som Azure inte stöder en `ImageVersionNotSupported` fel returneras. Värdet för felet är `The version of image '{0}' is not supported.`, och för närvarande gäller för Windows 1709 bilder. Om du vill undvika det här problemet använder du en LTS Windows-avbildning. Stöd för Windows 1709 bilder pågår.
 
 ## <a name="unable-to-pull-image"></a>Det gick inte att pull-bild
 
@@ -180,24 +247,39 @@ Behållaren instanser API innehåller en `restartCount` egenskap. Du kan använd
 
 ## <a name="container-takes-a-long-time-to-start"></a>Behållaren tar lång tid att starta
 
+Det finns två primära faktorer som bidrar till behållaren starttiden på Azure-instanser som behållare:
+
+* [Avbildningens storlek](#image-size)
+* [Platsen för avbildning](#image-location)
+
+Windows-avbildningar har [ytterligare överväganden](#use-recent-windows-images).
+
+### <a name="image-size"></a>Avbildningens storlek
+
 Om din behållaren tar lång tid att starta, men till slut lyckas, starta genom att titta på storleken på behållaren avbildningen. Eftersom Azure Behållarinstanser hämtar avbildningen behållare på begäran, relaterat starttiden uppstår direkt till dess storlek.
 
-Du kan visa storleken på avbildningen behållare med Docker CLI:
+Du kan visa storleken på behållaren avbildningen med hjälp av `docker images` i Docker CLI:
 
-```bash
-docker images
-```
-
-Resultat:
-
-```bash
-REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-microsoft/aci-helloworld               latest              7f78509b568e        13 days ago         68.1MB
+```console
+$ docker images
+REPOSITORY                  TAG       IMAGE ID        CREATED        SIZE
+microsoft/aci-helloworld    latest    7f78509b568e    13 days ago    68.1MB
 ```
 
 Nyckeln till att hålla bildstorleken små är att säkerställa att dina slutliga avbildningen inte innehåller allt som inte krävs vid körning. Det här är ett sätt att göra med [flera steg versioner][docker-multi-stage-builds]. Flera steg skapar gör det enkelt att se till att den slutliga avbildningen innehåller de artefakter som du behöver för ditt program och inte något av extra innehåll som krävdes vid byggning.
 
-Ett annat sätt att minska effekten av avbildningen pull på din behållaren starttiden är värd för behållaren avbildningen med Azure Container registret i samma region som du tänker använda Azure Container instanser. Detta förkortar nätverkssökvägen behållaren avbildningen måste reser kan avsevärt minska hämtningstiden.
+### <a name="image-location"></a>Platsen för avbildning
+
+Ett annat sätt att minska effekten av avbildningen pull på din behållaren starttiden är värd för behållaren bilden i [Azure Container registret](/azure/container-registry/) i samma region som du tänker distribuera behållarinstanser. Detta förkortar nätverkssökvägen behållaren avbildningen måste reser kan avsevärt minska hämtningstiden.
+
+### <a name="use-recent-windows-images"></a>Använd de senaste Windows-avbildningar
+
+Azure Behållarinstanser använder en cachelagringsmekanism för att hjälpa hastighet behållaren starttiden för bilder baserat på vissa Windows-avbildningar.
+
+För att säkerställa snabbaste starttiden för Windows-behållare, kan du använda en av de **tre senaste** versioner av följande **två avbildningar** som basavbildningen:
+
+* [Windows Server 2016] [ docker-hub-windows-core] (LTS)
+* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
 
 ## <a name="resource-not-available-error"></a>Resursen inte tillgängliga fel
 
@@ -214,7 +296,10 @@ Det här felet indikerar att på grund av hög belastning i den region där du f
 
 <!-- LINKS - External -->
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
+[docker-hub-windows-core]: https://hub.docker.com/r/microsoft/windowsservercore/
+[docker-hub-windows-nano]: https://hub.docker.com/r/microsoft/nanoserver/
 
 <!-- LINKS - Internal -->
+[az-container-attach]: /cli/azure/container#az_container_attach
 [az-container-logs]: /cli/azure/container#az_container_logs
 [az-container-show]: /cli/azure/container#az_container_show

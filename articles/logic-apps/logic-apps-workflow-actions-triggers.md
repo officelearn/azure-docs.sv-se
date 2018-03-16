@@ -2,7 +2,7 @@
 title: "Arbetsflödet utlösare och åtgärder - Azure Logic Apps | Microsoft Docs"
 description: "Lär dig mer om utlösare och åtgärder för att skapa automatiska arbetsflöden och processer med logic apps"
 services: logic-apps
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
 editor: 
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: klam; LADocs
-ms.openlocfilehash: af30fd30f389cdc2070c45ae3b6e2cb1165239e7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 28d28888ce66c354da39dc636579655aadbb9e51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Utlösare och åtgärder för logik app arbetsflöden
 
@@ -1282,7 +1282,7 @@ Exempel:
 | åtgärder | Ja | Objekt | Inre åtgärder för att köra i den här slingan | 
 | expression | Ja | Sträng | Uttrycket som ska utvärderas efter varje iteration | 
 | Gränsen | Ja | Objekt | Gränser för loopen. Måste ange minst en gräns. | 
-| antal | Nej | Integer | Gränsen för antalet iterationer för att utföra | 
+|  antal | Nej | Integer | Gränsen för antalet iterationer för att utföra | 
 | timeout | Nej | Sträng | Timeout-gränsen i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) som anger hur länge slingan ska köras |
 ||||| 
 

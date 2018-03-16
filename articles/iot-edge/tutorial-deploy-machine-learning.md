@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/06/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e2314f589456f604c8c008e10fb8084e0524575d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4201395085dd72eb92b774eaed5980737b2e5de0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Distribuera Azure Machine Learning som en gräns för IoT-modul - förhandsgranskning
 
@@ -41,12 +41,16 @@ I det här avsnittet hämta trained modellfilerna och konvertera dem till en Azu
 
 På datorn som kör Management-modulen för Azure ML, hämta och spara [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) och [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) från Azure ML IoT Toolkit på GitHub. De här filerna definiera tränad modell som du ska distribuera till enheten Iot kant för maskininlärning. 
 
-Använd den tränade modellen för att skapa en behållare som kan distribueras till enheter som IoT.
+Använd den tränade modellen för att skapa en behållare som kan distribueras till enheter som IoT. Använd följande kommando för att:
+
+   * Registrera din modell.
+   * Skapa en manafest.
+   * Skapa en avbildning av Docker behållare med namnet *machinelearningmodule*.
+   * Distribuera avbildningen till Azure Container Service (AKS) klustret.
 
 ```cmd
 az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
 ```
-Tjänstnamn, *machinelearningmodule* i det här exemplet blir namnet på docker behållare avbildningen.
 
 ### <a name="view-the-container-repository"></a>Visa behållaren databasen
 

@@ -1,6 +1,19 @@
-
-
-
+---
+title: ta med fil
+description: ta med fil
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: bf4adf075842effeb26aa5a600c09f7bd1866264
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/16/2018
+---
 **Dokumentera senaste uppdatering**: 6 mars 10:00 AM PST.
 
 Senaste avslöjande av en [ny klass för CPU-säkerhetsrisker](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) spekulativ exekvering sida-kanal attacker som kallas har resulterat i frågor från kunder som vill ha mer tydlighets skull.  

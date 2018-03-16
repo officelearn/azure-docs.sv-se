@@ -1,10 +1,14 @@
-**Se följande länkar för information om konfiguration:**
+**Så här hämtar konfigurationsskript för VPN-enhet:**
+
+Beroende på vilken VPN-enhet som du har du möjlighet att hämta konfigurationen för VPN-enhetsskriptet. Mer information finns i [hämta VPN-enhet konfigurationsskript](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md).
+
+**Se följande länkar för information om ytterligare konfiguration:**
 
 - Se [VPN-enheter](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) för mer information om kompatibla VPN-enheter.
 
 - Innan du konfigurerar VPN-enheten kontrollerar du om det finns några [kända kompatibilitetsproblem](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) med den VPN-enhet som du vill använda.
 
-- Mer information om länkar till konfigurationsinställningar för enheter, finns i [Verifierade VPN-enheter](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). Länkarna till konfigurationsanvisningarna tillhandahålls i mån av möjlighet. Det är alltid bäst att kontrollera med enhetstillverkaren för att få den senaste konfigurationsinformationen. I listan som vi tillhandahåller visar versionerna som vi har testat. Om ditt operativsystem inte finns med på listan är det fortfarande möjligt att version är kompatibel. Kontrollera med din enhetstillverkare för att kontrollera att OS-version för VPN-enheten är kompatibel.
+- Mer information om länkar till konfigurationsinställningar för enheter, finns i [Verifierade VPN-enheter](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). Länkarna till konfigurationsanvisningarna tillhandahålls i mån av möjlighet. Det är alltid bäst att kontrollera med enhetstillverkaren för att få den senaste konfigurationsinformationen. I listan visas de versioner som vi har testat. Om ditt operativsystem inte finns med på listan är det fortfarande möjligt att version är kompatibel. Kontrollera med din enhetstillverkare för att kontrollera att OS-version för VPN-enheten är kompatibel.
 
 - En översikt över VPN-enhetskonfigurationer finns i [översikten över tredje parts VPN-enhetskonfigurationer](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
 

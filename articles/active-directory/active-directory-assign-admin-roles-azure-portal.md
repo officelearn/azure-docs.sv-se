@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 1fed14fc117c7652e677a245625502c1810068ff
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8ba4787852902f194deb3eee27ff9f0fc28fa5aa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -61,9 +61,9 @@ Följande administratörsroller är tillgängliga:
   >
   >
 
-* **Gästen bjuder in**: användare i den här rollen kan hantera Azure Active Directory B2B gästen användaren inbjudningar när inställningen ”medlemmar kan bjuda in” user är inställd på Nej. Mer information om B2B-samarbete när [om i Azure AD B2B-samarbete preview](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Det innehåller inte några andra behörigheter.
+* **Gästen bjuder in**: användare i den här rollen kan hantera Azure Active Directory B2B gästen användaren inbjudningar när inställningen ”medlemmar kan bjuda in” user är inställd på Nej. Mer information om B2B-samarbete när [om Azure AD B2B-samarbete](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Det innehåller inte några andra behörigheter.
 
-* **Administratören för information Protection (förhandsversion)**: användarna med den här rollen har användarrättigheter bara för Azure Information Protection-tjänsten. De har inte beviljats användarrättigheter på Identity Protection Center, Privileged Identity Management, tjänstens hälsa för Övervakare för Office 365, eller Office 365-säkerhet och efterlevnad Center. De kan konfigurera etiketter för Azure Information Protection-principen, hantera skydd mallar och aktivera skydd.
+* **Administratören för information Protection**: användarna med den här rollen har användarrättigheter bara för Azure Information Protection-tjänsten. De har inte beviljats användarrättigheter på Identity Protection Center, Privileged Identity Management, tjänstens hälsa för Övervakare för Office 365, eller Office 365-säkerhet och efterlevnad Center. De kan konfigurera etiketter för Azure Information Protection-principen, hantera skydd mallar och aktivera skydd.
 
 * **Intune-tjänstadministratören**: användarna med den här rollen har globala behörigheter i Microsoft Intune Online när tjänsten finns. Dessutom innehåller den här rollen kan hantera användare och enheter för att associera principen, samt skapa och hantera grupper.
 
@@ -127,7 +127,7 @@ Följande administratörsroller är tillgängliga:
 | --- | --- |
 | <p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Ändra lösenord för användare och andra supportavdelningen administratörer</p>|<p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Visa rapporter</p>|
 
-### <a name="information-protection-administrator-preview"></a>Administratören för information Protection (förhandsversion)
+### <a name="information-protection-administrator"></a>Administratören för information Protection
 i | Kan göra
 -------- | ---------
 Azure Information Protection | <li>Konfigurera inställningar och etiketter i globala och begränsade principer<li>Konfigurera och hantera mallar för skydd<li>Aktivera eller inaktivera skydd--

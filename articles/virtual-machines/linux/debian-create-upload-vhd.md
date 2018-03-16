@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 7802ac701dfb865186beac3889ea2a5b4d0c4770
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 9b32b298f141e9ee54b4c42d3ee9c15174daf8b7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Förbered en Debian VHD för Azure
 ## <a name="prerequisites"></a>Förutsättningar
@@ -30,7 +30,7 @@ Det här avsnittet förutsätter att du redan har installerat en Debian Linux-op
 * Nyare VHDX-format stöds inte i Azure. Du kan konvertera disken till VHD-format med hjälp av Hyper-V Manager eller **convert-vhd** cmdlet.
 * När du installerar Linux-system rekommenderas att du använder standard partitioner i stället för LVM (ofta är standard för många installationer). Det här undviker LVM står i konflikt med klonade virtuella datorer, särskilt om en OS-disk någonsin måste vara kopplad till en annan virtuell dator för felsökning. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) får användas i datadiskar som önskade.
 * Konfigurera inte en byte-partition på OS-disk. Azure Linux-agenten kan konfigureras för att skapa en växlingsfil på tillfällig disken. Mer information om detta finns i stegen nedan.
-* Alla de virtuella hårddiskarna måste ha storlekar som multiplar av 1 MB.
+* Alla virtuella hårddiskar på Azure måste ha en virtuell storlek justeras till 1MB. Vid konvertering från en rå disk till virtuell Hårddisk måste du kontrollera att rådata diskens storlek är en multipel av 1MB innan konverteringen. Se [Linux installationsinformation](create-upload-generic.md#general-linux-installation-notes) för mer information.
 
 ## <a name="use-azure-manage-to-create-debian-vhds"></a>Använd hantera i Azure för att skapa Debian virtuella hårddiskar
 Det finns ett verktyg för att generera Debian virtuella hårddiskar på Azure, som den [azure-hantera](https://github.com/credativ/azure-manage) skript från [credativ](http://www.credativ.com/). Det här är den rekommenderade metoden jämfört med att skapa en avbildning från grunden. Till exempel för att skapa en Debian 8 VHD kör följande kommandon för att hämta azure hantera (och beroenden) och kör skriptet azure_build_image:

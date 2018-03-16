@@ -2,25 +2,19 @@
 title: "Konfigurera Azure SQL datasynkronisering (förhandsversion) | Microsoft Docs"
 description: "Den här kursen visar hur du ställer in datasynkronisering för Azure SQL (förhandsgranskning)"
 services: sql-database
-documentationcenter: 
 author: douglaslms
 manager: craigg
-editor: 
-ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: b356bc9db9e883c2514953b516d6dd51c1807610
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 237a34c955f8ef36e25c30a6b13787f6a9296612
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Konfigurera synkronisering för SQL-Data (förhandsgranskning)
 Lär dig hur du ställer in Azure SQL Data Sync genom att skapa en hybrid sync-grupp som innehåller både Azure SQL Database och SQL Server-instanser i den här självstudiekursen. Den nya gruppen sync helt har konfigurerats och synkroniserar enligt det schema du anger.
@@ -110,7 +104,7 @@ På den **konfigurera Azure Database** gör följande:
 
     ![Ny SQL-databas sync medlem har lagts till](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-### <a name="add-on-prem"></a>Lägg till en lokal SQL Server-databas
+### <a name="add-on-prem"></a> Lägg till en lokal SQL Server-databas
 
 I den **medlem databasen** avsnittet om du vill lägga till en lokal SQL Server i gruppen synkronisering genom att välja **lägga till en lokal databas**. Den **konfigurera lokalt** öppnas.
 
@@ -159,7 +153,7 @@ På den **konfigurera lokalt** gör följande:
 
         ![Lägga till och konfigurera en SQL Server-databas](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-adddb.png)
 
-    10. I den **SQL Server-konfigurationsfilen** dialogrutan Välj om du vill ansluta med hjälp av SQL Server-autentisering eller Windows-autentisering. Om du väljer SQL Server-autentisering anger du de befintliga autentiseringsuppgifterna. Ange namnet på SQL Server och namnet på databasen som du vill synkronisera. Välj **Anslutningstestet** testa inställningarna. Välj sedan **spara**. Registrerade databasen visas i listan.
+    10. I den **SQL Server-konfigurationsfilen** dialogrutan Välj om du vill ansluta med hjälp av SQL Server-autentisering eller Windows-autentisering. Om du väljer SQL Server-autentisering anger du de befintliga autentiseringsuppgifterna. Ange namnet på SQL Server och namnet på databasen som du vill synkronisera. Välj **Anslutningstestet** testa inställningarna. Välj sedan **Spara**. Registrerade databasen visas i listan.
 
         ![SQL Server-databasen är nu registrerad](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-dbadded.png)
 
@@ -185,11 +179,11 @@ När de nya sync gruppmedlemmarna skapas och distribueras, steg3 **Konfigurera s
 
 2.  Välj de tabeller som du vill synkronisera från listan över tillgängliga tabeller.
 
-    ![Välj tabeller ska synkroniseras](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
+    ![Välj tabeller att synkronisera](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
 
 3.  Alla kolumner i tabellen är markerad som standard. Om du inte vill synkronisera alla kolumner, inaktivera kryssrutan för de kolumner som du inte vill synkronisera. Se till att lämna primärnyckelkolumnen har valts.
 
-    ![Välj fält som ska synkroniseras](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
+    ![Välj de fält som ska synkroniseras](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
 
 4.  Välj slutligen **spara**.
 

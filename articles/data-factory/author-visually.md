@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 209afba99ac2b43c252d93c32930908ec1f957f9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 954693ee208dc7868a5a5ad0e774c5c352036627
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visual redigering i Azure Data Factory
 Azure Data Factory användargränssnittet experience (UX) kan du visuellt skapa och distribuera resurser för din data factory utan att behöva skriva någon kod. Du kan dra aktiviteter till en pipeline-arbetsyta, utföra testkörningar, felsöka upprepade gånger, och distribuera och övervaka din pipeline-körs. Det finns två tillvägagångssätt för att utföra visual redigering med UX:
@@ -41,7 +41,7 @@ När du använder UX **redigering arbetsytan** att skapa direkt med Data Factory
 Visual redigering med VSTS Git-integration stöder källkontrollen och samarbete for work på din data factory pipelines. Du kan associera en datafabrik med en VSTS Git-lagringsplats för kontot för källkontroll, samarbete, versionshantering och så vidare. Ett enda VSTS Git-konto kan ha flera databaser, men en VSTS Git-lagringsplats kan associeras med en enda data factory. Om du inte har ett konto för VSTS eller databasen, Följ [instruktionerna](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) att skapa dina resurser.
 
 > [!NOTE]
-> Data Factory-pipelinen inte åtkomst till filer som lagras i en VSTS Git-lagringsplats. Därför kan du lagra filer som används av aktiviteter som Data Factory pipeline - exempel, datafiler och skriptfiler - i en VSTS Git-lagringsplats.
+> Du kan lagra skript och datafiler i en VSTS GIT-lagringsplats. Du måste dock överför filerna manuellt till Azure Storage. Data Factory-pipelinen hämtar inte skript eller datafiler som lagras i en VSTS GIT-databas till Azure Storage automatiskt.
 
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Konfigurera en VSTS Git-lagringsplats med Azure Data Factory
 Du kan konfigurera en VSTS GIT-lagringsplats med en datafabrik via två metoder.

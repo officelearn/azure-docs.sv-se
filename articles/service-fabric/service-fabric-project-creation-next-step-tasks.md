@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: rwike77
-ms.openlocfilehash: 17eb1e7c2184fe9cae19685a47ea80716292b754
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 1e5b8523422aae00655b003bf15103d5467b4177
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Service Fabric-programmet och nästa steg
 Azure Service Fabric-programmet har skapats. Den här artikeln beskriver vissa självstudiekurser för att testa, makeup av projektet, mer information du kan vara intresserad och potentiella nästa steg.
@@ -32,7 +32,7 @@ Kan också prova att använda något av följande praktiska och skapa din först
 - [C# Reliable Services-tjänsten på Windows](service-fabric-reliable-services-quick-start.md) 
 - [C# Reliable Actors service i Windows](service-fabric-reliable-actors-get-started.md) 
 - [Gästen körbara service i Windows](quickstart-guest-app.md) 
-- [Windowsprogram](service-fabric-get-started-containers.md) 
+- [Windows-behållarprogrammet](service-fabric-get-started-containers.md) 
 
 Du kanske även är intresserad provat vår [programexempel](http://aka.ms/servicefabricsamples).
 
@@ -55,7 +55,7 @@ Projektet för konsolprogrammet består av:
 
 
 ## <a name="learn-more-about-the-programming-models"></a>Mer information om programmeringsmodeller
-Service Fabric finns flera sätt att skriva och hantera dina tjänster.  Här är översikt och grundläggande information om [tillståndslösa och tillståndskänsliga Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [behållare](service-fabric-containers-overview.md), [gäst körbara filer ](service-fabric-deploy-existing-app.md), och [tillståndslösa och tillståndskänsliga ASP.NET Core services](service-fabric-reliable-services-communication-aspnetcore.md).
+Service Fabric finns flera sätt att skriva och hantera dina tjänster.  Här är översikt och grundläggande information om [tillståndslösa och tillståndskänsliga Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [behållare](service-fabric-containers-overview.md), [gäst körbara filer ](service-fabric-guest-executables-introduction.md), och [tillståndslösa och tillståndskänsliga ASP.NET Core services](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="learn-about-service-communication"></a>Lär dig mer om service-kommunikation
 Ett Service Fabric-program består av olika tjänster, där varje tjänst utför en särskild aktivitet. Dessa tjänster kan kommunicera med varandra och det kan finnas klientprogram utanför klustret som kan ansluta till och kommunicera med tjänster. Lär dig hur du [ställa in kommunikationen med och mellan dina tjänster](service-fabric-connect-and-communicate-with-services.md) i Service Fabric. 

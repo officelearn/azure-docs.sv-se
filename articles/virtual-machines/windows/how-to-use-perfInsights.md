@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: ee8334cbe9256b7a5ecd5e96afa2f15d6389afa8
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 06b3b246d5c350f0982faa9b1d5f5692cd0c428e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-perfinsights"></a>Hur du använder PerfInsights 
 
@@ -238,11 +238,11 @@ Följ dessa steg om du vill köra verktyget PerfInsights:
     >
     >Om varaktigheten växlar **/d** anges PerfInsights uppmanas du att reproducera problemet när du kör vmslow, azurefiles och egna scenarier. 
 
-När spårningssessioner eller åtgärder har slutförts, visas en ny fil i D:\\loggen\_samling (eller den tillfälliga enheten). Namnet på filen är **CollectedData\_åååå-MM-dd\_hh\_mm\_ss.zip.** Du kan skicka filen till supportpersonalen för analys eller öppna rapporten i zip-filen för att granska resultaten och rekommendationerna.
+När spårningssessioner eller åtgärder har slutförts, visas en ny fil i samma mapp som PerfInsights. Namnet på filen är **CollectedData\_åååå-MM-dd\_hh-mm-ss-fff.zip.** Du kan skicka filen till supportpersonalen för analys eller öppna rapporten i zip-filen för att granska resultaten och rekommendationerna.
 
 ## <a name="review-the-diagnostics-report"></a>Granska rapporten diagnostik
 
-I den **CollectedData\_åååå-MM-dd\_hh\_mm\_ss.zip** fil, du kan söka efter en HTML-rapport som beskriver resultaten av PerfInsights. För att granska rapporten, expandera den **CollectedData\_åååå-MM-dd\_hh\_mm\_ss.zip** filen och öppna den **PerfInsights Report.html** fil.
+I den **CollectedData\_åååå-MM-dd\_hh-mm-ss-fff.zip** fil, du kan söka efter en HTML-rapport som beskriver resultaten av PerfInsights. För att granska rapporten, expandera den **CollectedData\_åååå-MM-dd\_hh-mm-ss-fff.zip** filen och öppna den **PerfInsights Report.html** fil.
 
 Välj den **resultaten** fliken.
 
@@ -307,4 +307,4 @@ Följande skärmbild visar ett meddelande som liknar kan du få:
 
 Följ instruktionerna i meddelandet för att komma åt filen överföring arbetsytan. För ytterligare säkerhet som du behöver ändra ditt lösenord vid första användningen.
 
-När du har loggat in hittar du en dialogruta för att överföra den **CollectedData\_åååå-MM-dd\_hh\_mm\_ss.zip** filen som samlats in av PerfInsights.
+När du har loggat in hittar du en dialogruta för att överföra den **CollectedData\_åååå-MM-dd\_hh-mm-ss-fff.zip** filen som samlats in av PerfInsights.

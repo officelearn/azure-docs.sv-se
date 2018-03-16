@@ -13,29 +13,30 @@ ms.devlang:
 ms.topic: 
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/06/2018
+ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: c7b3fa2b566ab02e7fb4a03055db83f1545895e8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b067dfd6d50b61614c2f3de2fa0e159cd645f9eb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Ansluta virtuella nätverk med virtuella nätverk peering med hjälp av PowerShell
 
-Du kan ansluta virtuella nätverk till varandra med virtuella nätverk peering. När virtuella nätverk är peerkopplat kan resurser i båda virtuella nätverken kommunicera med varandra, med samma svarstid och bandbredd som om resurserna som fanns i samma virtuella nätverk. Den här artikeln beskriver skapandet och peering av två virtuella nätverk. Lär dig att:
+Du kan ansluta virtuella nätverk till varandra med virtuella nätverk peering. När virtuella nätverk är peerkopplat kan resurser i båda virtuella nätverken kommunicera med varandra, med samma svarstid och bandbredd som om resurserna som fanns i samma virtuella nätverk. I den här artikeln får du lära dig hur du:
 
 > [!div class="checklist"]
 > * Skapa två virtuella nätverk
-> * Skapa en peering mellan virtuella nätverk
-> * Testa peering
+> * Ansluta två virtuella nätverk med ett virtuellt nätverk som peering
+> * Distribuera en virtuell dator (VM) i varje virtuellt nätverk
+> * Kommunikation mellan virtuella datorer
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver Azure PowerShell Modulversion 3,6 eller senare i den här artikeln. Kör ` Get-Module -ListAvailable AzureRM` att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. 
+Om du väljer att installera och använda PowerShell lokalt i den här artikeln kräver Azure PowerShell Modulversion 5.4.1 eller senare. Kör ` Get-Module -ListAvailable AzureRM` att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. 
 
 ## <a name="create-virtual-networks"></a>Skapa virtuella nätverk
 
@@ -90,8 +91,6 @@ $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
 $virtualNetwork2 | Set-AzureRmVirtualNetwork
 ```
 
-Adressprefixet för den *myVirtualNetwork2* virtuellt nätverk inte överlappa adressprefixet för den *myVirtualNetwork1* virtuellt nätverk. Du kan inte peer-virtuella nätverk med överlappande adressprefix.
-
 ## <a name="peer-virtual-networks"></a>Peer-virtuella nätverk
 
 Skapa en peering med [Lägg till AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering). Följande exempel motparterna *myVirtualNetwork1* till *myVirtualNetwork2*.
@@ -123,19 +122,13 @@ Get-AzureRmVirtualNetworkPeering `
 
 Resurser i ett virtuellt nätverk inte kan kommunicera med resurser i det andra virtuella nätverket förrän den **PeeringState** för peerkopplingar i båda virtuella nätverken är *ansluten*. 
 
-Peerkopplingar mellan två virtuella nätverk, men är inte transitiva. I så fall till exempel om du ville peer *myVirtualNetwork2* till *myVirtualNetwork3*, måste du skapa en ytterligare peering mellan virtuella nätverk *myVirtualNetwork2* och *myVirtualNetwork3*. Även om *myVirtualNetwork1* peerkopplat med *myVirtualNetwork2*, resurser inom *myVirtualNetwork1* kan bara komma åt resurser i  *myVirtualNetwork3* om *myVirtualNetwork1* också är peerkopplat med *myVirtualNetwork3*. 
+## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-Innan peering produktion virtuella nätverk, rekommenderas att du noggrant bekanta dig med de [peering översikt](virtual-network-peering-overview.md), [hantera peering](virtual-network-manage-peering.md), och [gränser för virtuellt nätverk ](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Även om den här artikeln beskrivs en peering mellan två virtuella nätverk på samma prenumeration och plats, kan du också peer virtuella nätverk i [olika regioner](#register) och [olika Azure-prenumerationer](create-peering-different-subscriptions.md#powershell). Du kan också skapa [NAV och ekrar nätverk Designer](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) med peering.
+Skapa en virtuell dator i varje virtuellt nätverk så att du kan kommunicera mellan dem i ett senare steg.
 
-## <a name="test-peering"></a>Testa peering
+### <a name="create-the-first-vm"></a>Skapa den första virtuella datorn
 
-Distribuera en virtuell dator till varje undernät och sedan kommunicera mellan de virtuella datorerna för att testa nätverkskommunikation mellan virtuella datorer i olika virtuella nätverk via en peering. 
-
-### <a name="create-virtual-machines"></a>Skapa virtuella datorer
-
-Skapa en virtuell dator i varje virtuellt nätverk så att du kan kontrollera kommunikationen mellan dem i ett senare steg.
-
-Skapa en virtuell dator med [ny AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). I följande exempel skapas en virtuell dator med namnet *myVm1* i den *myVirtualNetwork1* virtuellt nätverk. Den `-AsJob` alternativet skapar den virtuella datorn i bakgrunden så du kan fortsätta till nästa steg. När du uppmanas, anger du användarnamn och lösenord som du vill logga in på den virtuella datorn med.
+Skapa en virtuell dator med [nya AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). I följande exempel skapas en virtuell dator med namnet *myVm1* i den *myVirtualNetwork1* virtuellt nätverk. Den `-AsJob` alternativet skapar den virtuella datorn i bakgrunden så du kan fortsätta till nästa steg. När du uppmanas, anger du användarnamn och lösenord som du vill logga in på den virtuella datorn med.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -148,9 +141,7 @@ New-AzureRmVm `
   -AsJob
 ```
 
-Azure automatiskt ska tilldelas 10.0.0.4 som privata IP-adressen för den virtuella datorn, eftersom 10.0.0.4 är den första tillgängliga IP-adressen i *Undernät1* av *myVirtualNetwork1*. 
-
-Skapa en virtuell dator i den *myVirtualNetwork2* virtuellt nätverk.
+### <a name="create-the-second-vm"></a>Skapa den andra virtuella datorn
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -162,13 +153,11 @@ New-AzureRmVm `
   -Name "myVm2"
 ```
 
-Det tar några minuter att skapa den virtuella datorn. Även om inte returnerade utdata och Azure utsetts 10.1.0.4 privata IP-adressen för den virtuella datorn, eftersom 10.1.0.4 är den första tillgängliga IP-adressen i *Undernät1* av *myVirtualNetwork2*. 
+Det tar några minuter att skapa den virtuella datorn. Fortsätt inte med senare steg tills Azure skapar den virtuella datorn och returnerar utdata till PowerShell.
 
-Fortsätt inte med senare steg tills Azure skapar den virtuella datorn och returnerar utdata till PowerShell.
+## <a name="communicate-between-vms"></a>Kommunikation mellan virtuella datorer
 
-### <a name="test-virtual-machine-communication"></a>Testa virtuell dator-kommunikation
-
-Du kan ansluta till en virtuell dators offentlig IP-adress från Internet. Använd [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) att returnera den offentliga IP-adressen för en virtuell dator. I följande exempel returneras den offentliga IP-adressen för den *myVm1* virtuell dator:
+Du kan ansluta till en virtuell dators offentlig IP-adress från Internet. Använd [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) att returnera offentliga IP-adressen för en virtuell dator. I följande exempel returneras den offentliga IP-adressen för den *myVm1* VM:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
@@ -182,31 +171,29 @@ Använd följande kommando för att skapa en fjärrskrivbords-session med den *m
 mstsc /v:<publicIpAddress>
 ```
 
-En Remote Desktop Protocol (RDP)-fil skapas, hämtas till datorn och öppnas. Ange användarnamn och lösenord (du kan behöva välja **fler alternativ**, sedan **Använd ett annat konto**, för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn), och klicka sedan på  **OK**. Du kan få en certifikatvarning under inloggningen. Klicka på **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
+En Remote Desktop Protocol (RDP)-fil skapas, hämtas till datorn och öppnas. Ange användarnamn och lösenord (du kan behöva välja **fler alternativ**, sedan **Använd ett annat konto**, för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn), och klicka sedan på **OK** . Du kan få en certifikatvarning under inloggningen. Klicka på **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 
-Från en kommandotolk, aktivera ping via Windows-brandväggen så att du kan pinga den virtuella datorn från *myVm2* i ett senare steg.
+På den *myVm1* VM, aktivera den kontrollen meddelandet ICMP (Internet Protocol) via Windows-brandväggen så att du kan pinga den här virtuella datorn från *myVm2* i ett senare steg med hjälp av PowerShell:
 
+```powershell
+New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 ```
-netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
-```
 
-Även om ping används i den här artikeln för att testa, rekommenderas inte att tillåta ICMP via Windows-brandväggen för Produktionsdistribution.
+Du rekommenderas att inte tillåta ICMP via Windows-brandväggen för Produktionsdistribution om ping används för kommunikation mellan virtuella datorer i den här artikeln.
 
-Att ansluta till den *myVm2* virtuella datorn, anger du följande kommando från en kommandotolk den *myVm1* virtuell dator:
+Att ansluta till den *myVm2* VM, anger du följande kommando från en kommandotolk den *myVm1* VM:
 
 ```
 mstsc /v:10.1.0.4
 ```
 
-Eftersom du har aktiverat ping på *myVm1*, du kan nu pinga den IP-adress från en kommandotolk på den *myVm2* virtuell dator:
+Eftersom du har aktiverat ping på *myVm1*, du kan nu pinga den IP-adress från en kommandotolk på den *myVm2* VM:
 
 ```
 ping 10.0.0.4
 ```
 
-Du får fyra svar. Om du pinga den virtuella datorns namn (*myVm1*), i stället för dess IP-adress pingningen misslyckas eftersom *myVm1* är en okänd värdnamnet. Azures standard namnmatchningen fungerar mellan virtuella datorer i samma virtuella nätverk, men inte mellan virtuella datorer i olika virtuella nätverk. Om du vill matcha namnen på virtuella nätverk, måste du [Distribuera DNS-servern](virtual-networks-name-resolution-for-vms-and-role-instances.md) eller använda [privata Azure DNS-domäner](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-Koppla från din RDP-sessioner till både *myVm1* och *myVm2*.
+Du får fyra svar. Koppla från din RDP-sessioner till både *myVm1* och *myVm2*.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -242,9 +229,9 @@ VNET-peering i samma region är allmänt sett tillgängligt. Peering virtuella n
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln beskrivs hur du ansluter två nätverk med virtuella nätverk peering. Du kan [ansluta datorn till ett virtuellt nätverk](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) via en VPN-anslutning och interagera med resurser i ett virtuellt nätverk eller i peerkoppla virtuella nätverk.
+I den här artikeln beskrivs hur du ansluter två nätverk med virtuella nätverk peering. I den här artikeln beskrivs hur du ansluter två nätverk i samma Azure-plats, med virtuella nätverk peering. Du kan också peer-virtuella nätverk i [olika regioner](#register)i [olika Azure-prenumerationer](create-peering-different-subscriptions.md#portal) och du kan skapa [NAV och ekrar nätverk Designer](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) med peering. Innan du peering produktion virtuella nätverk, rekommenderas att du noggrant bekanta dig med de [peering översikt](virtual-network-peering-overview.md), [hantera peering](virtual-network-manage-peering.md), och [virtuellt nätverk gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Fortsätta att skriptexempel för återanvändbara skript att utföra många av de uppgifter som beskrivs i artiklarna virtuellt nätverk.
+Du kan [ansluta datorn till ett virtuellt nätverk](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) via en VPN-anslutning och interagera med resurser i ett virtuellt nätverk eller i peerkoppla virtuella nätverk. Fortsätta att skriptexempel för återanvändbara skript att utföra många av de uppgifter som beskrivs i artiklarna virtuellt nätverk.
 
 > [!div class="nextstepaction"]
 > [Skriptexempel för virtuellt nätverk](../networking/powershell-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

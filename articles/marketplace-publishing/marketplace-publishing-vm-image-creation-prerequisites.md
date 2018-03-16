@@ -3,8 +3,8 @@ title: "Tekniska krav för att skapa en avbildning av virtuell dator för Azure 
 description: "Förstå kraven för att skapa och distribuera en avbildning av virtuell dator på Azure Marketplace för andra att köpa."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: cf1f061c28dd0c106823d34ad39aac5e577c8b41
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Tekniska krav för att skapa en avbildning av virtuell dator för Azure Marketplace
 Läs noggrant innan du börjar processen och förstå varför och där varje steg utförs. Så mycket som möjligt du ska förbereda företagets information och annan information, hämta nödvändiga verktyg och skapa tekniska komponenter innan du börjar skapa erbjudande. Dessa objekt bör vara klart från granska den här artikeln.  
@@ -29,7 +29,7 @@ Du bör ha följande till hands innan du börjar:
 * Beroende på vilket operativsystem du inriktar dig, installera den [Azure PowerShell-cmdlets](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) eller [Linux kommandoradsgränssnittet verktyget](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) från den [Azure hämtar](https://azure.microsoft.com/downloads/) sidan.
 * Installera Azure Lagringsutforskaren från CodePlex.
 * Hämta och installera verktyget certifikatutfärdare Test för Azure certifierade:
-  * [http://go.microsoft.com/fwlink/?LinkId=526913](http://go.microsoft.com/fwlink/?LinkID=526913). Behöver du en Windows-baserad dator köra verktyget certifikatutfärdare. Om du inte har en Windows-baserad dator som är tillgängliga kan du köra verktyget med hjälp av en Windows-baserad virtuell dator i Azure.
+  * [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). Behöver du en Windows-baserad dator köra verktyget certifikatutfärdare. Om du inte har en Windows-baserad dator som är tillgängliga kan du köra verktyget med hjälp av en Windows-baserad virtuell dator i Azure.
 
 ## <a name="platforms-supported"></a>Plattformar som stöds
 Du kan utveckla Azure-baserade virtuella datorer i Windows eller Linux. Vissa delar av publiceringsprocessen – till exempel skapa en Azure-kompatibel virtuell hårddisk (VHD)--Använd olika verktyg och steg beroende på vilket operativsystem du använder:  

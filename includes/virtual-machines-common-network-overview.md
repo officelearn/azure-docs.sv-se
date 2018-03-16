@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 03/11/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 6729c4281f4aa10b653d1c4f29104fd10a08a96e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/16/2018
+---
 När du skapar en virtuell Azure-dator (VM) måste du skapa ett [virtuellt nätverk](../articles/virtual-network/virtual-networks-overview.md) (VNet) eller använda ett befintligt VNet. Du måste också bestämma hur dina virtuella datorer är avsedda att användas på VNet. Det är viktigt att [planera innan du skapar resurser](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) och att säkerställa att du förstår [begränsningarna för nätverksresurser](../articles/azure-subscription-service-limits.md#networking-limits).
 
 I följande bild visas virtuella datorer som webb- och databasservrar. Varje uppsättning virtuella datorer är tilldelade separata undernät i VNet.
@@ -75,7 +91,7 @@ Den här tabellen anger de metoder som du kan använda för att skapa ett VNet o
 | [Azure Portal](../articles/virtual-network/quick-create-portal.md) | Om du låter Azure skapa ett VNet när du skapar en virtuell dator är namnet en kombination av resursgruppens namn som innehåller VNet och **-vnet**. Adressutrymmet är 10.0.0.0/24, det nödvändiga undernätets namn är **standard**, och adressintervallet för undernätet är 10.0.0.0/24. |
 | [Azure PowerShell](../articles/virtual-network/quick-create-powershell.md) | Du använder [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) och [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork) för att skapa ett undernät och ett VNet. Du kan också använda [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) för att lägga till ett undernät i ett befintligt VNet. |
 | [Azure CLI](../articles/virtual-network/quick-create-cli.md) | Undernät och VNet skapas på samma gång. Ange en **--subnet-name**-parameter till [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) med namnet på undernätet. |
-| [Mall](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md) | Det enklaste sättet att skapa ett VNet och undernät är att hämta en befintlig mall, som till exempel [Virtuellt nätverk med två undernät](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), och modifiera den efter dina behov. |
+| Mall | Det enklaste sättet att skapa ett VNet och undernät är att hämta en befintlig mall som [virtuellt nätverk med två undernät](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), och ändra för dina behov. |
 
 ## <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
 

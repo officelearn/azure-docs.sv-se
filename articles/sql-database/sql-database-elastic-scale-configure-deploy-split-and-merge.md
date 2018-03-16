@@ -2,24 +2,18 @@
 title: "Distribuera en delad kopplingstjänsten | Microsoft Docs"
 description: "Använd split-kopplingen för att flytta data mellan delat databaser."
 services: sql-database
-documentationcenter: 
-author: ddove
-manager: jhubbard
-editor: 
-ms.assetid: 9a993c0f-7052-46cd-aa59-073bea8d535a
+author: stevestein
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: sstein
+ms.openlocfilehash: ed5545df8d09192eeed21dd2ac379e255b049e30
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>Distribuera en tjänst för att dela/sammanslå
 Dela merge-verktyget kan du flytta data mellan delat databaser. Se [flytta data mellan databaser som skalats ut moln](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -149,7 +143,7 @@ Om arbetsrollen inte anslutas, men din webbroll lyckas, är det troligen problem
    ```
 
 * Kontrollera att servernamnet inte börjar med **https://**.
-* Kontrollera att din Azure SQL DB-server tillåter Azure-tjänster att ansluta till den. Öppna https://manage.windowsazure.com gör du genom, klicka på ”SQL-databaser till vänster, klickar du på” servrar ”längst upp och markera din server. Klicka på **konfigurera** överst och kontrollera att den **Azure Services** inställningen är inställd på ”Ja”. (Se avsnittet förutsättningar överst i den här artikeln).
+* Kontrollera att din Azure SQL DB-server tillåter Azure-tjänster att ansluta till den. Det gör du genom att öppna https://manage.windowsazure.com, klicka på ”SQL-databaser till vänster, klicka på” servrar ”längst upp och markera din server. Klicka på **konfigurera** överst och kontrollera att den **Azure Services** inställningen är inställd på ”Ja”. (Se avsnittet förutsättningar överst i den här artikeln).
 
 ## <a name="test-the-service-deployment"></a>Testa tjänstdistributionen
 ### <a name="connect-with-a-web-browser"></a>Ansluta med en webbläsare

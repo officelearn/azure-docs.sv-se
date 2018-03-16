@@ -1,8 +1,20 @@
- ---
-Rubrik: SQL-felkoder - Databasanslutningsfel | Microsoft Docs beskrivning ”: Lär dig mer om SQL-felkoder för SQL-databas klientprogram, till exempel vanliga anslutningsfel i databasen och kopiera databasproblem Allmänt fel. ' nyckelord: sql-felkoden, åtkomst till sql-databas anslutningsfel, sql-felkoder services: sql-databasen dokumentationcenter: '' författare: stevestein manager: jhubbard editor: ''
-
-ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.custom: develop apps ms.workload: "Active" ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 09/28/2017 ms.author: sstein
-
+---
+title: "Felkoder för SQL - Databasanslutningsfel | Microsoft Docs"
+description: "Mer information om SQL-felkoder för SQL-databas klientprogram, till exempel vanliga anslutningsfel i databasen och kopiera databasproblem Allmänt fel. "
+keywords: "SQL-felkod, åtkomst till sql, Databasanslutningsfel, sql-felkoder"
+services: sql-database
+author: stevestein
+manager: craigg
+ms.service: sql-database
+ms.custom: develop apps
+ms.topic: article
+ms.date: 09/28/2017
+ms.author: sstein
+ms.openlocfilehash: 5031ab1ec8c7b42c65fb35e47c32d10ff2898501
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-felkoder för SQL Database-klientprogram: anslutningsfel och andra problem
 
@@ -78,8 +90,8 @@ Relaterade ämnen:
 
 | Felkod | Allvarsgrad | Beskrivning |
 | ---:| ---:|:--- |
-| 10928 |20 |Resurs-ID: %d. %S-gränsen för databasen är %d och har nåtts. Mer information finns i [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>Resurs-ID anger den resurs som har nått gränsen. För trådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur man löser problemet finns:<br/>• [Gränserna för azure SQL Database](sql-database-service-tiers.md). |
-| 10929 |20 |Resurs-ID: %d. Minsta garantin %s är %d, högsta gränsen är %d och användningen av databasen är %d. Servern är för tillfället för upptagen för att stödja större än %d begäranden för den här databasen. Mer information finns i [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Annars, försök igen senare.<br/><br/>Resurs-ID anger den resurs som har nått gränsen. För trådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur man löser problemet finns:<br/>• [Gränserna för azure SQL Database](sql-database-service-tiers.md). |
+| 10928 |20 |Resurs-ID: %d. %S-gränsen för databasen är %d och har nåtts. Mer information finns på [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>Resurs-ID anger den resurs som har nått gränsen. För trådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur man löser problemet finns:<br/>• [Gränserna för azure SQL Database](sql-database-service-tiers.md). |
+| 10929 |20 |Resurs-ID: %d. Minsta garantin %s är %d, högsta gränsen är %d och användningen av databasen är %d. Servern är för tillfället för upptagen för att stödja större än %d begäranden för den här databasen. Mer information finns på [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Annars, försök igen senare.<br/><br/>Resurs-ID anger den resurs som har nått gränsen. För trådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur man löser problemet finns:<br/>• [Gränserna för azure SQL Database](sql-database-service-tiers.md). |
 | 40544 |20 |Databasen har uppnått sin kvot i storlek. Partitionera eller ta bort data, släpp index eller Läs om möjliga lösningar i dokumentationen. |
 | 40549 |16 |Sessionen avslutas eftersom du har en tidskrävande transaktion. Försök att göra transaktionen kortare. |
 | 40550 |16 |Sessionen har avslutats eftersom den genererade för många Lås. Försök att läsa eller ändra färre rader i en enda transaktion. |
@@ -93,13 +105,13 @@ Följande fel relaterade till skapa och använda elastiska pooler:
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | 1132 |EX_RESOURCE |Den elastiska poolen har nått sin lagringsgräns. Lagringsanvändningen för den elastiska poolen får inte överskrida (%d) MB. |Elastisk pool gräns för diskutrymme i MB. |Försök att skriva data till en databas när lagringsgränsen för den elastiska poolen har uppnåtts. |Överväg att öka dtu: erna för den elastiska poolen om möjligt för att öka sin lagringsgräns, minska det lagringsutrymme som används av enskilda databaser i den elastiska poolen eller ta bort databaser från den elastiska poolen. |
-| 10929 |EX_USER |Minsta garantin %s är %d, högsta gränsen är %d och användningen av databasen är %d. Servern är för tillfället för upptagen för att stödja större än %d begäranden för den här databasen. Se [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) om du behöver hjälp. Annars, försök igen senare. |Minsta DTU per databas. Max DTU per databas |Det totala antalet samtidiga arbetare (antal begäranden) över alla databaser i den elastiska poolen försök gjordes att överskrida gränsen på poolen. |Överväg att öka dtu: erna för den elastiska poolen om möjligt för att öka gränsen worker eller ta bort databaser från den elastiska poolen. |
+| 10929 |EX_USER |Minsta garantin %s är %d, högsta gränsen är %d och användningen av databasen är %d. Servern är för tillfället för upptagen för att stödja större än %d begäranden för den här databasen. Se [ http://go.microsoft.com/fwlink/?LinkId=267637 ](http://go.microsoft.com/fwlink/?LinkId=267637) om du behöver hjälp. Annars, försök igen senare. |Minsta DTU per databas. Max DTU per databas |Det totala antalet samtidiga arbetare (antal begäranden) över alla databaser i den elastiska poolen försök gjordes att överskrida gränsen på poolen. |Överväg att öka dtu: erna för den elastiska poolen om möjligt för att öka gränsen worker eller ta bort databaser från den elastiska poolen. |
 | 40844 |EX_USER |Databasen %ls på %ls-servern är %ls edition-databas i en elastisk pool och kan inte ha en kontinuerlig kopiering relation. |databasens namn, databasversionen, servernamn |En StartDatabaseCopy-kommandot har utfärdats för en icke-premium db i en elastisk pool. |Kommer snart |
 | 40857 |EX_USER |Elastisk pool saknas för servern: %ls, namn på elastisk pool: %ls. |namnet på servern. namn på elastisk pool |Angivna elastisk pool finns inte i den angivna servern. |Ange ett giltigt elastisk pool-namn. |
 | 40858 |EX_USER |Elastisk pool %ls finns redan på servern: %ls |namn på elastisk pool, servernamn |Angivna elastisk pool finns redan i den angivna logiska servern. |Ange namn på ny elastisk pool. |
 | 40859 |EX_USER |Elastiska poolen stöder inte tjänstnivån %ls. |elastiska pooltjänstnivå |Angivna tjänstnivån stöds inte för etablering av elastisk pool. |Ange rätt version eller lämna det tomt om du vill använda standard-tjänstnivå tjänstnivån. |
 | 40860 |EX_USER |Kombinationen av elastiska poolen %ls och tjänsten målet %ls är ogiltig. |namn på elastisk pool; namn på servicenivåmål |Elastisk pool och tjänsten målet kan anges samtidigt endast om tjänstmålet anges som 'ElasticPool'. |Ange rätt kombination av elastiska poolen och tjänstmålet. |
-| 40861 |EX_USER |Databasversionen ' %. *ls' får inte vara annorlunda än den elastiska pooltjänstnivå som är ' %.* ls'. |Databasversionen elastiska pooltjänstnivå |Databasversionen är annorlunda än den elastiska pooltjänstnivå. |Ange inte en databasversionen som skiljer sig från den elastiska pooltjänstnivå.  Observera att databasversionen inte måste anges. |
+| 40861 |EX_USER |Databasversionen ' %. *ls' får inte vara annorlunda än den elastiska pooltjänstnivå som är ' %. *ls'. |Databasversionen elastiska pooltjänstnivå |Databasversionen är annorlunda än den elastiska pooltjänstnivå. |Ange inte en databasversionen som skiljer sig från den elastiska pooltjänstnivå.  Observera att databasversionen inte måste anges. |
 | 40862 |EX_USER |Namn på elastisk pool måste vara anges om tjänstmålet elastisk pool har angetts. |Ingen |Elastisk pool tjänstmålet identifiera inte unikt en elastisk pool. |Ange namn på elastisk pool om du använder tjänstmålet elastisk pool. |
 | 40864 |EX_USER |Dtu: erna för den elastiska poolen måste vara minst (%d) dtu: er för tjänstnivån ' %. * ls'. |Dtu: er för elastiska poolen; elastiska pooltjänstnivå. |Försöker ange dtu: erna för den elastiska poolen under minimigränsen. |Gör om inställningen dtu: erna för elastiska pool till minst den lägsta tillåtna värdet. |
 | 40865 |EX_USER |Dtu: erna för den elastiska poolen får inte överskrida (%d) dtu: er för tjänstnivån ' %. * ls'. |Dtu: er för elastiska poolen; elastiska pooltjänstnivå. |Försöker ange dtu: erna för den elastiska poolen ovan maxgränsen. |Försök ange dtu: erna för den elastiska poolen till inte är större än den maximala gränsen. |

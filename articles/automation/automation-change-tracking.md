@@ -2,32 +2,28 @@
 title: "Spåra ändringar med Azure Automation | Microsoft Docs"
 description: "Ändringsspårning-lösningen hjälper dig att identifiera program- och Windows-tjänst-ändringar som sker i din miljö."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
 ms.service: automation
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79c5f354c3e63856474e46e2b6928af829604e15
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: fcee2956d2d33133c5d1a5bf367643a2095cad71
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar av programvaran i din miljö med lösningen för ändringsspårning
+# <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i din miljö med lösningen för ändringsspårning
 
 Den här artikeln hjälper dig att använda ändringsspårning-lösning för att enkelt identifiera ändringar i din miljö. Lösningen spårar ändringar i Windows och Linux programvara, Windows och Linux-filer, registernycklar i Windows, Windows-tjänster och Linux-daemon. Identifierar konfigurationsändringar kan hjälpa dig hitta operativa problem.
 
 Ändringar av installerad programvara, Windows-tjänster, Windows-registret och filer och Linux-Daemon på övervakade servrar skickas till Log Analytics-tjänst i molnet för bearbetning. Molntjänsten innehåller data att logik tillämpas för mottagna data. Med hjälp av informationen på instrumentpanelen för spårning av ändringar, kan du enkelt se ändringar som gjorts i serverinfrastrukturen.
 
-## <a name="enable-change-tracking-and-inventory"></a>Aktivera spårning av ändringar och inventering
+## <a name="enable-change-tracking-and-inventory"></a>Aktivera Ändringsspårning och inventering
 
 
 Om du vill starta spårning av ändringar, måste du Aktivera ändringsspårning och lager lösningen för ditt Automation-konto.
@@ -53,16 +49,16 @@ Använd följande steg för att konfigurera spårning av filen på Linux-datorer
 |Egenskap  |Beskrivning  |
 |---------|---------|
 |Enabled     | Bestämmer om inställningen som tillämpas.        |
-|Objektnamnet     | Eget namn på filen som ska spåras.        |
+|Objektnamn     | Eget namn på filen som ska spåras.        |
 |Grupp     | Ett gruppnamn för logiskt gruppera filer.        |
 |Ange sökväg     | Sökvägen till att söka efter filen. Till exempel: ”/etc/*.conf”       |
 |Sökvägstyp     | Typ av objekt som ska vara spårade möjliga värden är filer och kataloger.        |
-|Rekursion     | Avgör om rekursion används när du söker efter objektet spåras.        |
-|Använda Sudo     | Den här inställningen avgör om sudo används vid sökning efter objektet.         |
-|Länkar     | Den här inställningen avgör hur symboliska länkar behandlas när passerar kataloger.<br> **Ignorera** – ignorerar symboliska länkar och inte innehåller filer och kataloger som refererar till.<br>**Följ** – följer symboliska länkar under rekursion och även filer och kataloger som refererar till.<br>**Hantera** – följer symboliska länkar och tillåter ändring av returnerade innehåll.     |
+|Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
+|Använda Sudo     | Den här inställningen styr om sudo ska användas vid sökningen efter objektet.         |
+|Länkar     | Den här inställningen styr hur symboliska länkar ska hanteras när de passerar kataloger.<br> **Ignorera** – ignorerar symboliska länkar och inte innehåller filer och kataloger som refererar till.<br>**Följ** – följer symboliska länkar under rekursion och även filer och kataloger som refererar till.<br>**Hantera** – följer symboliska länkar och tillåter ändring av returnerade innehåll.     |
 
 > [!NOTE]
-> Alternativet ”hantera” länkar rekommenderas inte. Filen innehållshämtning stöds inte.
+> Länkalternativet ”Hantera” rekommenderas inte. Hämtning av filinnehåll stöds inte.
 
 ### <a name="configure-windows-files-to-track"></a>Konfigurera Windows-filer för att spåra
 
@@ -75,9 +71,9 @@ Använd följande steg för att konfigurera filer spårning på Windows-datorer:
 |Egenskap  |Beskrivning  |
 |---------|---------|
 |Enabled     | Bestämmer om inställningen som tillämpas.        |
-|Objektnamnet     | Eget namn på filen som ska spåras.        |
+|Objektnamn     | Eget namn på filen som ska spåras.        |
 |Grupp     | Ett gruppnamn för logiskt gruppera filer.        |
-|Ange sökväg     | Sökvägen till att kontrollera om filen till exempel: ”c:\temp\myfile.txt”       |
+|Ange sökväg     | Sökvägen för att söka efter filen Till exempel: ”c:\temp\myfile.txt”       |
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Konfigurera Windows registernycklar för att spåra
 
@@ -90,9 +86,9 @@ Använd följande steg för att konfigurera registret viktiga spårning på Wind
 |Egenskap  |Beskrivning  |
 |---------|---------|
 |Enabled     | Bestämmer om inställningen som tillämpas.        |
-|Objektnamnet     | Eget namn på filen som ska spåras.        |
+|Objektnamn     | Eget namn på filen som ska spåras.        |
 |Grupp     | Ett gruppnamn för logiskt gruppera filer.        |
-|Windows-registernyckeln   | Sökvägen till att söka efter filen. Till exempel: ”HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Start”      |
+|Windows-registernyckel   | Sökvägen till att söka efter filen. Till exempel: ”HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Start”      |
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -195,8 +191,8 @@ Följande tabell innehåller exempel loggen söker efter ändra poster som samla
 
 |Fråga  |Beskrivning  |
 |---------|---------|
-|ConfigurationData<br>&#124; där ConfigDataType == ”WindowsServices” och SvcStartupType == ”automatisk”<br>&#124; där SvcState == ”stoppades”<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Visar senaste lagerposter för Windows-tjänster som har ställts in på automatisk men rapporterades som stoppats<br>Resultatet är begränsade till den senaste posten för den SoftwareName och dator      |
-|ConfigurationChange<br>&#124; där ConfigChangeType == ”programvara” och ChangeCategory == ”borttagen”<br>&#124; order by-TimeGenerated desc|Visar ändra poster för borttagna programvara|
+|ConfigurationData<br>&#124;där ConfigDataType == ”WindowsServices” och SvcStartupType == ”automatisk”<br>&#124;där SvcState == ”stoppades”<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Visar senaste lagerposter för Windows-tjänster som har ställts in på automatisk men rapporterades som stoppats<br>Resultatet är begränsade till den senaste posten för den SoftwareName och dator      |
+|ConfigurationChange<br>&#124;där ConfigChangeType == ”programvara” och ChangeCategory == ”borttagen”<br>&#124;order by-TimeGenerated desc|Visar ändra poster för borttagna programvara|
 
 ## <a name="next-steps"></a>Nästa steg
 

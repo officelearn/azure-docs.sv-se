@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: fa192ca1ee0dc5ee7190b6c63b64297c7406291d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Konfigurera SSL princip versioner och chifferpaket på Programgateway
 
@@ -75,7 +75,7 @@ AvailableProtocols:
 
 ## <a name="list-pre-defined-ssl-policies"></a>Visa en lista med fördefinierade SSL-principer
 
-Programgateway levereras med 3 fördefinierade principer som kan användas. Den `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet hämtar dessa principer. Varje princip har olika protokoll version och krypteringssviter som är aktiverad. Dessa fördefinierade principer kan användas för att snabbt konfigurera en SSL-policy på din gateway för programmet. Som standard **AppGwSslPolicy20170401** är markerad om ingen specifik SSL-princip har definierats.
+Programgateway levereras med 3 fördefinierade principer som kan användas. Den `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet hämtar dessa principer. Varje princip har olika protokoll version och krypteringssviter som är aktiverad. Dessa fördefinierade principer kan användas för att snabbt konfigurera en SSL-policy på din gateway för programmet. Som standard **AppGwSslPolicy20150501** är markerad om ingen specifik SSL-princip har definierats.
 
 Följande är ett exempel på körs `Get-AzureRmApplicationGatewaySslPredefinedPolicy`.
 

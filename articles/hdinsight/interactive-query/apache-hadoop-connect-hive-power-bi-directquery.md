@@ -1,7 +1,7 @@
 ---
 title: "Visualisera interaktiva frågan Hive-data med Power BI i Azure HDInsight | Microsoft Docs"
 description: "Lär dig hur du använder Microsoft Power BI för att visualisera interaktiva Hive-fråga data som bearbetas av Azure HDInsight."
-keywords: "hdinsight hadoop och hive, interaktiva fråga interaktiva hive, LLAP, directquery"
+keywords: hdinsight,hadoop,hive,interactive query,interactive hive,LLAP,directquery
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/14/2018
 ms.author: jgao
-ms.openlocfilehash: 290e600b7be4a6f9fb57afa50bb771e42e6a0624
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: c74e02ea32a5aacf1a5208c0e194a25b0b6bcb48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualisera interaktiva Hive-fråga data med Microsoft Power BI med direktfrågan i Azure HDInsight
 
@@ -28,7 +28,7 @@ Lär dig mer om att ansluta Microsoft Power BI till interaktiva frågan i Azure 
 
 ![HDInsight Power BI rapporten karta](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
-Att ansluta till registreringsdatafilen med hjälp av ODBC, se [Hive visualisera data med Microsoft Power BI med ODBC i Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
+Du kan utnyttja den [ODBC-drivrutinen](../hadoop/apache-hadoop-connect-hive-power-bi.md) att importera via de allmänna ODBC-kopplingen i Power BI Desktop. Men det rekommenderas inte för BI arbetsbelastningar eftersom icke-interaktiv frågemotorn Hive. [HDInsight interaktiva frågan connector](./apache-hadoop-connect-hive-power-bi-directquery.md) och [HDInsight Spark connector](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) bättre val för deras prestanda.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du fortsätter med den här artikeln, måste du ha följande:

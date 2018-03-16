@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: b7292514e72476f38e9a0572b201be8468f0030a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Installera en Linux-huvudmålsserver
 När du växlar över dina virtuella datorer till Azure kan du växla tillbaka de virtuella datorerna till den lokala platsen. För att växla tillbaka måste att skydda den virtuella datorn från Azure till den lokala platsen. För den här processen behöver du en lokal huvudmålservern för att ta emot trafiken. 
@@ -41,7 +41,7 @@ Skicka kommentarer eller frågor i slutet av den här artikeln eller på den [Az
 
 Skapa huvudmålservern i enlighet med riktlinjerna nedan storlek:
 - **RAM-minne**: 6 GB eller mer
-- **OS-diskstorlek**: 100 GB eller mer (för att installera CentOS6.6)
+- **OS-diskstorlek**: 100 GB eller mer (för att installera OS)
 - **Ytterligare diskstorleken för kvarhållningsenhetens**: 1 TB
 - **CPU-kärnor**: 4 kärnor eller mer
 
@@ -112,24 +112,31 @@ Behåll en Ubuntu 16.04.2 minimal 64-bitars ISO i DVD-enheten och starta systeme
 
 1.  Välj **Ja** att skriva ändringar till disk och välj sedan **RETUR**.
 
-1.  Konfigurera proxy markering, väljer du alternativet, väljer **Fortsätt**, och välj sedan **RETUR**.
+    ![Välj alternativet](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-     ![Välj alternativet](./media/vmware-azure-install-linux-master-target/image17.png)
+1.  Konfigurera proxy markering, väljer du alternativet, väljer **Fortsätt**, och välj sedan **RETUR**.
+     
+     ![Välj hur du hanterar uppgraderingar](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  Välj **inga automatiska uppdateringar** i markeringen för att hantera uppgraderingar på datorn och välj sedan **RETUR**.
 
-     ![Välj hur du hanterar uppgraderingar](./media/vmware-azure-install-linux-master-target/image18.png)
+     ![Välj hur du hanterar uppgraderingar](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
     > Eftersom Azure Site Recovery huvudmålservern kräver en särskild version av Ubuntu, måste du se till att kernel uppgraderingar har inaktiverats för den virtuella datorn. Om de är aktiverade kan orsaka reguljära uppgraderingar huvudmålservern inte fungerar korrekt. Kontrollera att du väljer den **inga automatiska uppdateringar** alternativet.
 
 1.  Välj standardalternativen. Om du vill openSSH för SSH ansluta, Välj den **OpenSSH server** alternativet och välj sedan **Fortsätt**.
 
-    ![Välj program](./media/vmware-azure-install-linux-master-target/image19.png)
+    ![Välj program](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
 1. Markera i markering för att installera startprogram GRUB **Ja**, och välj sedan **RETUR**.
+     
+    ![GRUB Start installer](./media/vmware-azure-install-linux-master-target/image20.png)
+
 
 1. Välj enheten som är lämpliga för start inläsaren installation (helst **/dev/sda**), och välj sedan **RETUR**.
+     
+    ![Välj lämplig enhet](./media/vmware-azure-install-linux-master-target/image21.png)
 
 1. Välj **Fortsätt**, och välj sedan **RETUR** att slutföra installationen.
 
@@ -154,7 +161,7 @@ Att hämta ID för varje SCSI-hårddisk på en Linux-dator i **disk. EnableUUID 
 
 4. I den vänstra rutan, Välj **Avancerat** > **allmänna**, och välj sedan den **konfigurationsparametrar** -knappen i den nedre högra delen av skärmen.
 
-    ![Alternativfliken](./media/vmware-azure-install-linux-master-target/image20.png)
+    ![Öppna konfigurationsparameter](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
     Den **konfigurationsparametrar** alternativet är inte tillgängligt när datorn körs. Stäng av den virtuella datorn om du vill aktivera den här fliken.
 
@@ -168,7 +175,7 @@ Att hämta ID för varje SCSI-hårddisk på en Linux-dator i **disk. EnableUUID 
 
     - Lägg till i namnkolumnen **disk. EnableUUID**, och ange värdet **SANT**.
 
-    ![Kontrollerar om disken. EnableUUID finns redan](./media/vmware-azure-install-linux-master-target/image21.png)
+    ![Kontrollerar om disken. EnableUUID finns redan](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>Inaktivera kernel-uppgraderingar
 
@@ -244,7 +251,7 @@ Använd följande steg för att skapa en kvarhållningsdisken:
     
     `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
     
-    ![Skapa ett filsystem på enheten](./media/vmware-azure-install-linux-master-target/media/image23.png)
+    ![Skapa ett filsystem på enheten](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. När du har skapat filsystemet montera kvarhållningsdisken.
 
@@ -252,7 +259,6 @@ Använd följande steg för att skapa en kvarhållningsdisken:
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
-    ![Montera kvarhållningsdisken](./media/vmware-azure-install-linux-master-target/image24.png)
 
 5. Skapa den **fstab** post att montera kvarhållningsenhetens varje gång systemet startar.
     

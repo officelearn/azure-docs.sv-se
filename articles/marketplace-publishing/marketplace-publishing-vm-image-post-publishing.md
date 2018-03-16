@@ -3,8 +3,8 @@ title: Hantera din avbildning av virtuell dator i Azure Marketplace | Microsoft 
 description: "Detaljerad vägledning om hur du hanterar din avbildning av virtuell dator i Azure Marketplace efter första publicering"
 services: Azure Marketplace
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
-ms.author: hascipio;
-ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin;
+ms.openlocfilehash: 19f60de4a6c651885da7ff1fb7612a77f3d0c8f1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Släppts guide för erbjudanden som virtuell dator i Azure Marketplace
 Den här artikeln förklarar hur du kan uppdatera ett erbjudande för Direktmigrering av virtuell dator i Azure Marketplace. Det hjälper dig genom processen att lägga till en eller flera nya SKU: er i ett befintligt erbjudande. Även guidar dig genom processen för att ta bort ett erbjudande för Direktmigrering av virtuell dator eller SKU från på Marketplace.
@@ -27,13 +27,13 @@ När ett erbjudande/SKU mellanlagras i den [Azure-portalen](http://portal.azure.
 
 * **Erbjuder identifierare**: I det Publishing portal, gå till **virtuella datorer** och välj erbjudandet. Klicka på **VM-AVBILDNINGAR** > **erbjuder identifierare**.
 * **SKU-ID**: I det Publishing portal, gå till **virtuella datorer** och välj erbjudandet. Klicka på **SKU: er** > **lägga till en SKU**.
-* **Publisher Namespace**: I det Publishing portal, gå till **virtuella datorer** > **genomgången** > **berätta för oss om ditt företag** (hittas under ”steg 2 registrera företagsnamn”) > **Publisher Namespace** > **Namespace**.
+* **Publisher Namespace**: I det Publishing portal, gå till **virtuella datorer** > **genomgången** > **berätta för oss om ditt företag**(hittas under ”steg 2 registrera företagsnamn”) > **Publisher Namespace** > **Namespace**.
 
 När erbjudandet/SKU ingår i den [Marketplace](http://azure.microsoft.com/marketplace), du kan inte ändra följande textrutor:
 
 * **Erbjuder identifierare**: I det Publishing portal, gå till **virtuella datorer** och välj erbjudandet. Klicka på **VM-AVBILDNINGAR** > **erbjuder identifierare**.
 * **SKU-ID**: I det Publishing portal, gå till **virtuella datorer** och välj erbjudandet. Klicka på **SKU: er** > **lägga till en SKU**.
-* **Publisher Namespace**: I det Publishing portal, gå till **virtuella datorer** > **genomgången** > **berätta för oss om ditt företag** (hittas under ”steg 2 registrera”) **Publisher Namespace** > **Namespace**.
+* **Publisher Namespace**: I det Publishing portal, gå till **virtuella datorer** > **genomgången** > **berätta för oss om ditt företag**(hittas under ”steg 2 registrera”) **Publisher Namespace** > **Namespace**.
 * **Portar**: I det Publishing portal, gå till **virtuella datorer** och välj erbjudandet. Klicka på **VM-AVBILDNINGAR** > **öppna portar**.
 * **Priser för ändring av listan SKU(s)**
 * **Fakturering modellen ändring av listan SKU(s)**
@@ -47,7 +47,7 @@ Följ dessa steg om du vill lägga till en ny version i listan SKU: N och public
 2. Gå till den **virtuella datorer** och välj erbjudandet.
 3. Klicka på menyn till vänster i **VM-AVBILDNINGAR** fliken.
 4. I den **SKU: er** avsnittet, leta upp SKU: N som du vill uppdatera.
-5. Lägga till ett nytt versionsnummer för SKU: N och klickar på den  **+**  knappen. Den nya versionen ska vara i ett X.Y.Z format, där X, Y och Z är heltal. Bara ska version ändringar inkrementell.
+5. Lägga till ett nytt versionsnummer för SKU: N och klickar på den ** + ** knappen. Den nya versionen ska vara i ett X.Y.Z format, där X, Y och Z är heltal. Bara ska version ändringar inkrementell.
 6. I den **OS VHD URL** anger signatur för delad åtkomst URI som skapats för operativsystemet VHD och spara ändringarna.
 
    > [!IMPORTANT]
@@ -207,7 +207,7 @@ Följ dessa steg för att lägga till en ny SKU i erbjudandet live:
 1. Logga in på den [publicering portal](https://publish.windowsazure.com).
 2. Gå till den **virtuella datorer** och välj erbjudandet.
 3. Klicka på menyn till vänster i **SKU: er** fliken. Klicka på **lägga till en SKU**. 
-4. I dialogrutan anger du en **SKU-ID** med små bokstäver. Välj den **ta egen licens (BYOL) faktureringsmodellen** kryssruta om du vill publicera den nya SKU: N med en BYOL faktureringsmodell som tillämpas. Annars avmarkerar du kryssrutan. Klicka om du vill skapa en ny SKU skalstreck. Om du inte väljer BYOL fakturering modellen anges vilken faktureringsmodell som tillämpas automatiskt till varje timme. Om du vill 30-dagars utvärderingsversion för varje timme fakturering modellen väljer **en månad** för **finns en kostnadsfri utvärderingsversion?** Annars väljer **Nej utvärderingsversion**. (**Finns en kostnadsfri utvärderingsversion?**  visas bara om du inte har valt BYOL när du skapar nya SKU: N.)
+4. I dialogrutan anger du en **SKU-ID** med små bokstäver. Välj den **ta egen licens (BYOL) faktureringsmodellen** kryssruta om du vill publicera den nya SKU: N med en BYOL faktureringsmodell som tillämpas. Annars avmarkerar du kryssrutan. Klicka om du vill skapa en ny SKU skalstreck. Om du inte väljer BYOL fakturering modellen anges vilken faktureringsmodell som tillämpas automatiskt till varje timme. Om du vill 30-dagars utvärderingsversion för varje timme fakturering modellen väljer **en månad** för **finns en kostnadsfri utvärderingsversion?** Annars väljer **Nej utvärderingsversion**. (**Finns en kostnadsfri utvärderingsversion? ** visas bara om du inte har valt BYOL när du skapar nya SKU: N.)
 
    > [!IMPORTANT]
    > **Dölj den här SKU från Marketplace eftersom alltid ska köpas via en lösningsmall** ska vara **Ja** *endast* om du har godkänt för att publicera en lösningsmall. Annars kan det här alternativet ska alltid vara **nr**.
@@ -220,7 +220,7 @@ Följ dessa steg för att lägga till en ny SKU i erbjudandet live:
 8. Gå till den **publicera** och på **PUSH till FÖRPRODUKTION**. Detaljerad information om hur du testar erbjudandet i mellanlagringsmiljön finns [testa VM erbjudandet på Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
 9. När du har testat erbjudandet i Förproduktion, gå till den **publicera** fliken i publicering portal. Klicka på **begär godkännande att PUSH till produktion** publicera om erbjudandet på Marketplace.
 
-    ![SKU: er](media/marketplace-publishing-vm-image-post-publishing/img03_09-01.png)
+    ![SKU:er](media/marketplace-publishing-vm-image-post-publishing/img03_09-01.png)
 
     ![Lägg till en SKU](media/marketplace-publishing-vm-image-post-publishing/img03_09-02.png)
 
@@ -328,7 +328,7 @@ Följ dessa steg om du vill återställa inställningar för en listade SKU till
     ![Synlighet](media/marketplace-publishing-vm-image-post-publishing/img10-04.png)
 5. När du är klar med ändringarna klickar du på **begär godkännande att PUSH till produktion** publicera om erbjudandet på Marketplace.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Komma igång: Publicera ett erbjudande på Azure Marketplace](marketplace-publishing-getting-started.md)
 * [Förstå beloppet reporting](marketplace-publishing-report-payout.md)
 * [Ändra din leverantör av Molnlösningar återförsäljare morot](marketplace-publishing-csp-incentive.md)

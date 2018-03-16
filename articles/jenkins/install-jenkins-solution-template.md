@@ -1,20 +1,20 @@
 ---
 title: Skapa en Jenkins-server i Azure
 description: "Installera Jenkins på en virtuell Azure Linux-dator från Jenkins-lösningsmappen och skapa ett Java-exempelprogram."
-author: mlearned
-manager: douge
+author: tomarcher
+manager: rloutlaw
 ms.service: multiple
 ms.workload: web
-ms.devlang: java
+ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
-ms.author: mlearned
+ms.date: 03/12/2018
+ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: 422d133841a380b1ef02e95245207c464089138d
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Skapa en Jenkins-server på en virtuell Azure Linux-dator från Azure Portal
 
@@ -28,32 +28,13 @@ Den här snabbstarten visar hur du installerar [Jenkins](https://jenkins.io) på
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-jenkins-vm-from-the-solution-template"></a>Skapa den virtuella Jenkins-datorn från lösningsmallen
+Jenkins stöder en modell där Jenkins server delegater arbetar för att en eller flera agenter så att en enda Jenkins installation som värd för ett stort antal projekt eller att tillhandahålla olika miljöer som behövs för bygger eller tester. Stegen i det här avsnittet hjälper dig att installera och konfigurera en Jenkins server på Azure.
 
-Öppna [marketplace-avbildningen för Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview) i webbläsaren och välj **HÄMTA NU** till vänster på sidan. Granska prisinformationen och välj **Fortsätt** och välj **Skapa** för att konfigurera Jenkins-servern i Azure Portal. 
-   
-![Dialogruta i Azure Portal](./media/install-jenkins-solution-template/ap-create.png)
-
-På fliken **Konfigurera grundläggande inställningar** fyller du i följande fält:
-
-![Konfigurera grundläggande inställningar](./media/install-jenkins-solution-template/ap-basic.png)
-
-* Använd **Jenkins** som **namn**.
-* Ange ett **användarnamn**. Användarnamnet måste uppfylla [specifika krav](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
-* Välj **Lösenord** som **Autentiseringstyp** och ange ett lösenord. Lösenordet måste innehålla en versal, en siffra och ett specialtecken.
-* Använd **myJenkinsResourceGroup** för **resursgruppen**.
-* Välj **USA, östra** som [Azure-region](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) från listrutan **Plats**.
-
-Välj **OK** och fortsätt till fliken **Konfigurera ytterligare alternativ**. Ange ett unikt domännamn för att identifiera Jenkins-servern och välj **OK**.
-
-![Ställ in ytterligare alternativ](./media/install-jenkins-solution-template/ap-addtional.png)  
-
- När valideringen är godkänd väljer du **OK** igen på fliken **Sammanfattning**. Välj till sist **Köp** för att skapa den virtuella Jenkins-datorn. När servern är klar kan få du ett meddelande i Azure Portal:   
-
-![Meddelande om att Jenkins är klar](./media/install-jenkins-solution-template/jenkins-deploy-notification-ready.png)
+[!INCLUDE [jenkins-install-from-azure-marketplace-image](../../includes/jenkins-install-from-azure-marketplace-image.md)]
 
 ## <a name="connect-to-jenkins"></a>Ansluta till Jenkins
 
-Navigera till din virtuella dator (exempelvis http://jenkins2517454.eastus.cloudapp.azure.com/) i webbläsaren. Jenkins-konsolen går inte att komma åt via osäker HTTP så det medföljer anvisningar på sidan om hur du får åtkomst till Jenkins-konsolen säkert från datorn med hjälp av en SSH-tunnel.
+Navigera till den virtuella datorn (till exempel http://jenkins2517454.eastus.cloudapp.azure.com/) i webbläsaren. Jenkins-konsolen går inte att komma åt via osäker HTTP så det medföljer anvisningar på sidan om hur du får åtkomst till Jenkins-konsolen säkert från datorn med hjälp av en SSH-tunnel.
 
 ![Låsa upp Jenkins](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 

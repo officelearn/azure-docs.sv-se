@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 2f4983f918eccd2ae1adb4ec2c88133465f47e07
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 4c49cbefafe71646ba08dd049baf50ff04463fdc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Förbered en virtuell Ubuntu-dator för Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="official-ubuntu-cloud-images"></a>Officiell Ubuntu molnet bilder
-Ubuntu nu publicerar officiella Azure virtuella hårddiskar för hämtning på [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/). Om du behöver skapa särskilda Ubuntu-avbildningen för Azure snarare rekommenderas än att använda manuell proceduren nedan att börja med dessa kända fungerar virtuella hårddiskar och anpassa efter behov. De senaste versionerna av avbildningen kan alltid hittas på följande platser:
+Ubuntu nu publicerar officiella Azure virtuella hårddiskar för hämtning på [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/). Om du behöver skapa särskilda Ubuntu-avbildningen för Azure snarare rekommenderas än att använda manuell proceduren nedan att börja med dessa kända fungerar virtuella hårddiskar och anpassa efter behov. De senaste versionerna av avbildningen kan alltid hittas på följande platser:
 
 * Ubuntu 12.04/Precise: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
 * Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
@@ -40,11 +40,11 @@ Den här artikeln förutsätter att du redan har installerat ett Ubuntu Linux-op
 * VHDX-format stöds inte i Azure, endast **fast virtuell Hårddisk**.  Du kan konvertera disken till VHD-format med hjälp av Hyper-V Manager eller cmdlet convert-vhd.
 * När du installerar Linux-system rekommenderas att du använder standard partitioner i stället för LVM (ofta är standard för många installationer). Det här undviker LVM står i konflikt med klonade virtuella datorer, särskilt om en OS-disk någonsin måste vara kopplad till en annan virtuell dator för felsökning. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) får användas i datadiskar som önskade.
 * Konfigurera inte en byte-partition på OS-disk. Linux-agenten kan konfigureras för att skapa en växlingsfil på tillfällig disken.  Mer information om detta finns i stegen nedan.
-* Alla de virtuella hårddiskarna måste ha storlekar som multiplar av 1 MB.
+* Alla virtuella hårddiskar på Azure måste ha en virtuell storlek justeras till 1MB. Vid konvertering från en rå disk till virtuell Hårddisk måste du kontrollera att rådata diskens storlek är en multipel av 1MB innan konverteringen. Se [Linux installationsinformation](create-upload-generic.md#general-linux-installation-notes) för mer information.
 
 ## <a name="manual-steps"></a>Manuella steg
 > [!NOTE]
-> Innan du försöker skapa en egen anpassad avbildning Ubuntu för Azure, Överväg att använda fördefinierade och testade avbildningar från [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) i stället.
+> Innan du försöker skapa en egen anpassad avbildning Ubuntu för Azure, Överväg att använda fördefinierade och testade avbildningar från [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/) i stället.
 > 
 > 
 

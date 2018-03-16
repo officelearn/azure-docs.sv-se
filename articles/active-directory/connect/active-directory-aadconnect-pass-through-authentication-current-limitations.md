@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/12/2018
 ms.author: billmath
-ms.openlocfilehash: ac085bf972885819f7c79996b0f6638fc01fc00d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3e533b8b23c095a3de845d9b26a96aea9d8ee086
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory direkt-autentisering: Aktuella begränsningar
 
@@ -29,24 +29,25 @@ ms.lasthandoff: 03/08/2018
 
 Följande scenarier stöds fullt ut:
 
-- Användarinloggningar webbläsarbaserade program för alla webbprogram
-- Användarinloggningar till Office-program som stöder [modern autentisering](https://aka.ms/modernauthga): Office 2016 och Office 2013 _med_ modern autentisering
+- Användarinloggningar webbläsarbaserade program för alla webbprogram.
+- Användarinloggningar till Office-program som stöder [modern autentisering](https://aka.ms/modernauthga): Office 2016 och Office 2013 _med_ modern autentisering.
 - Användarinloggningar för Outlook-klienter med äldre protokoll, till exempel Exchange ActiveSync-, SMTP-, POP- och IMAP.
-- Användarinloggningar till Skype för företag att modern autentisering support, inklusive Online och Hybrid-topologier. Mer information om topologier [här](https://technet.microsoft.com/library/mt803262.aspx).
-- Azure AD-domän som ansluter till för Windows 10-enheter
+- Användarinloggningar till Skype för företag som stöd för modern autentisering, inklusive online och hybridtopologier. Mer information om topologier [här](https://technet.microsoft.com/library/mt803262.aspx).
+- Azure AD-domän som kopplar ihop för Windows 10-enheter.
 - Applösenord för Multifaktorautentisering.
 
 ## <a name="unsupported-scenarios"></a>Scenarier som inte stöds
 
 Följande scenarier är _inte_ stöds:
 
-- Användarinloggningar till äldre Office-program, exklusive Outlook: Office 2010 och Office 2013 _utan_ modern autentisering. Organisationer uppmuntras att växla till modern autentisering, om möjligt. Modern autentisering tillåter stöd för direkt-autentisering. Du kan också skydda dina användarkonton med hjälp av [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) funktioner, till exempel Azure Multi-Factor Authentication.
+- Användarinloggningar till äldre Office-program, exklusive Outlook (se **stöds scenarier** ovan): Office 2010 och Office 2013 _utan_ modern autentisering. Organisationer uppmuntras att växla till modern autentisering, om möjligt. Modern autentisering tillåter stöd för direkt-autentisering. Du kan också skydda dina användarkonton med hjälp av [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) funktioner, till exempel Azure Multi-Factor Authentication.
+- Åtkomst till delade kalendrar och ledig/upptagen-information i Exchange hybridmiljöer Office 2010 endast.
 - Användarinloggningar till Skype för företag-klientprogram _utan_ modern autentisering.
 - Användarinloggningar till PowerShell version 1.0. Vi rekommenderar att du använder PowerShell version 2.0.
 - Identifiering av användare med [läcka ut autentiseringsuppgifter](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Azure AD Domain Services måste synkronisering av lösenords-Hash måste vara aktiverat på klienten. Därför klienter som använder direkt autentisering _endast_ fungerar inte för scenarier som kräver Azure AD Domain Services.
 - Direkt-autentisering inte är integrerad med [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
-- Apples DEP (Apple DEP) har inte stöd för modern autentisering.  Apple DEP-enheter att kunna registrera i Intune för domäner som använder direkt-autentisering.
+- Den Apple Device Enrollment Program (Apple DEP) med hjälp av Installationsassistenten för iOS har inte stöd för modern autentisering. Detta kan inte registrera Apple DEP-enheter i Intune för hanterade domäner som använder direkt-autentisering. Överväg att använda den [företagsportalappen](https://blogs.technet.microsoft.com/intunesupport/2018/02/08/support-for-multi-token-dep-and-authentication-with-company-portal/) som ett alternativ.
 
 >[!IMPORTANT]
 >Som en lösning för scenarier som inte stöds _endast_, aktivera synkronisering av lösenords-Hash för den [valfria funktioner](active-directory-aadconnect-get-started-custom.md#optional-features) sida i Azure AD Connect-guiden.

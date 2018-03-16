@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 55946915573f53bb7e1917d4705e6d8e74abf448
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7c7981bc0388fee763396e68d6de3375a01178a7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -59,6 +59,11 @@ Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av 
 
 > [!NOTE] 
 > Azure Cosmos DB .NET Core SDK är inte kompatibel med den universella Windowsplattformen (UWP) appar ännu. Om du är intresserad av att .NET Core SDK som stöder UWP-appar kan skicka e-post till [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
+
+* Fast KeyNotFoundException för mellan partition order by-frågor i specialfall.
+* Fast bugg där JsonPropery attribut i select-satsen för LINQ-frågor inte som lösts in.
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
@@ -170,6 +175,7 @@ Om du har frågor som rör detta SDK, efter att [StackOverflow](http://stackover
 
 | Version | Utgivningsdatum | Datumet för tillbakadragandet |
 | --- | --- | --- |
+| [1.9.1](#1.9.1) |09 mars 2018 |--- |
 | [1.8.2](#1.8.2) |21 februari 2018 |--- |
 | [1.8.1](#1.8.1) |05 februari 2018 |--- |
 | [1.7.1](#1.7.1) |16 november 2017 |--- |

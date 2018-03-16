@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: bwren
-ms.openlocfilehash: 08d0e557f03f771901c9ac92fb080e74e5966452
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Skapa anpassade vyer med hjälp av Vydesigner i logganalys
 Med hjälp av Vydesigner i [Azure logganalys](log-analytics-overview.md), kan du skapa en mängd olika anpassade vyer i Azure-portalen som kan hjälpa dig att visualisera data i logganalys-arbetsytan. Den här artikeln visar en översikt över Vydesigner och procedurer för att skapa och redigera anpassade vyer.
@@ -28,8 +28,6 @@ Mer information om Vydesigner finns:
 * [Panelen referens](log-analytics-view-designer-tiles.md): innehåller en referens guide till inställningarna för var och en av de tillgängliga panelerna i anpassade vyer.
 * [Referens för visualisering del](log-analytics-view-designer-parts.md): innehåller en referens guide till inställningarna för visualisering delar som är tillgängliga i din anpassade vyer.
 
->[!NOTE]
-> Om ditt arbetsområde har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), frågor i alla visningslägen måste skrivas den [nya frågespråket](https://go.microsoft.com/fwlink/?linkid=856078). Alla vyer som har skapats innan arbetsytan uppgraderades konverteras automatiskt.
 
 ## <a name="concepts"></a>Begrepp
 Vyer visas på den **översikt** sidan i logganalys-arbetsytan i Azure-portalen. Panelerna i varje vy visas i alfabetisk ordning och paneler för lösningarna som installeras i samma arbetsyta.

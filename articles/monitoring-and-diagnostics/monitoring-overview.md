@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: d8da175a551f7c589c313b2289b2a0209dbd2b56
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a6a15c1b6a017839eb072ba72b48b714c50fd6c0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Övervaka Azure-program och resurser
 
@@ -28,67 +28,17 @@ Azure innehåller flera tjänster som utför en specifik roll eller aktivitet in
 
 Följande diagram visar en översikt över de komponenter som arbetar tillsammans för att tillhandahålla övervakning av Azure-resurser. Följande avsnitt beskriver de här komponenterna och ger länkar till detaljerad teknisk information.
 
-![Övervakningsöversikt](media/monitoring-overview/overview.png)
-
-## <a name="basic-monitoring"></a>Grundläggande övervakning
-Grundläggande övervakning innehåller de grundläggande, obligatoriska övervakning över Azure-resurser. Dessa tjänster kräver minimal konfiguration och samlar in core telemetri som premium övervakningstjänster använder.    
-
-### <a name="azure-monitor"></a>Azure Monitor
-[Azure-Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) aktiverar grundläggande övervakning för Azure-tjänsten genom att tillåta mängden [mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md), [aktivitetsloggar](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), och [diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Aktivitetsloggen anger du när nya resurser skapas eller ändras. 
-
-Mått är tillgängliga som ger prestandastatistik för olika resurser och även operativsystemet på en virtuell dator. Du kan visa dessa data med en av de olika utforskarfönster i Azure-portalen, skickar den till Azure Log Analytics för trender och detaljerad analys eller skapa Varningsregler proaktivt meddelar om kritiska problem.
-
-### <a name="service-health"></a>Service Health
-Hälsotillståndet för programmet är beroende av Azure-tjänster som den är beroende av. [Tjänstens hälsa för Azure](../service-health/service-health-overview.md) identifierar eventuella problem med Azure-tjänster som kan påverka ditt program. Tjänstens hälsa kan du planera för schemalagt underhåll.
-
-### <a name="azure-advisor"></a>Azure Advisor
-[Azure Advisor](../advisor/advisor-overview.md) ständigt övervakar din resurs konfiguration och användning telemetri. Sedan får du anpassade rekommendationer baserat på bästa praxis. Följa dessa rekommendationer hjälper dig att förbättra prestanda, säkerhet och tillgänglighet för de resurser som har stöd för dina program.
+![Övervakningsöversikt](media/monitoring-overview/monitoring-products-overview.png)
 
 
-## <a name="premium-monitoring-services"></a>Premium övervakningstjänster
-Följande Azure-tjänster innehåller omfattande funktioner för att samla in och analysera övervakningsdata. Dessa tjänster bygger på grundläggande övervakning och dra nytta av vanliga funktioner i Azure. De ger kraftfulla analytics insamlade data för att ge unik insikter om dina program och infrastruktur. De presentera data i samband med scenarier som är avsedda för olika målgrupper.
-
-### <a name="application-insights"></a>Application Insights
-Du kan använda [Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights) om den finns i molnet eller lokalt, kan du övervaka tillgänglighet, prestanda och användning av ditt program. 
-
-Du kan uppnå djupa insikter av instrumentering programmet att fungera med Application Insights. Sedan kan du snabbt identifiera och diagnostisera fel utan att vänta på en användare att rapportera dem. Du kan göra välgrundade val om underhåll och förbättringar för ditt program med den information som du samlar in. 
-
-Application Insights har omfattande verktyg för att interagera med data som samlas in. Application Insights lagras data i en gemensam databas. Det kan dra nytta av delade funktioner som aviseringar, instrumentpaneler och djupanalys med Log Analytics-frågespråket.
-
-### <a name="log-analytics"></a>Log Analytics
-[Logga Analytics](http://azure.microsoft.com/documentation/services/log-analytics) betydelse i Azure övervakning genom att samla in data från en mängd resurser i en databas. Du kan analysera data med hjälp av ett kraftfullt frågespråk. 
-
-Application Insights och Azure Security Center kan du lagra data i logganalys data lagrar och använder dess analytics-motorn. Data är data som samlas in från Azure-Monitor, hanteringslösningar och agenter som installerats på virtuella datorer i molnet eller lokalt. Funktionen delade hjälper dig att bilda en komplett bild av din miljö. 
-
-
-### <a name="service-map"></a>Tjänstkarta
-[Tjänstkarta](../operations-management-suite/operations-management-suite-service-map.md) ger inblick i IaaS-miljö genom att analysera virtuella datorer med olika processer och beroenden på andra datorer och externa processer. Det integreras händelser, prestandadata och lösningar för hantering i logganalys. Du kan sedan visa dessa data i kontexten för varje dator och dess relation till resten av miljön. 
-
-Tjänstkarta liknar [programavbildningen i Application Insights](../application-insights/app-insights-app-map.md). Den fokuserar på infrastrukturkomponenter som har stöd för dina program.
-
-### <a name="network-watcher"></a>Network Watcher
-[Nätverk Watcher](../network-watcher/network-watcher-monitoring-overview.md) ger scenariobaserade övervakning och diagnostik för scenarier för olika nätverk i Azure. Data lagras i Azure mätvärden och diagnostikfunktionerna för ytterligare analys. Det fungerar med följande lösningar för övervakning av olika områden i nätverket:
-* [Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/): ett molnbaserade nätverk övervakningslösning som övervakar anslutning över offentliga moln, Datacenter och lokala miljöer.
-* [Övervakare för ExpressRoute](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/): en NPM-funktion som övervakar slutpunkt till slutpunkt-anslutning och prestanda över Azure ExpressRoute-kretsar.
-* Trafik Analytics: En molnbaserad lösning som ger inblick i användar- och programaktivitet på nätverket molnet.
-* [DNS-Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-dns): en lösning som innehåller säkerhet, prestanda och åtgärder som rör insikter baserat på DNS-servrarna.
-
-### <a name="management-solutions"></a>Hanteringslösningar
-[Hanteringslösningar](../log-analytics/log-analytics-add-solutions.md) är paketerade uppsättningar av logik som ger inblick i för ett visst program eller tjänst. De förlitar sig på Log Analytics för att lagra och analysera övervakningsdata som de samlar in. 
-
-Av hanteringslösningar som är tillgängliga från Microsoft och partners för att tillhandahålla övervakning för olika Azure och tjänster från tredje part. Exempel på övervakningslösningar:
-* [Behållaren övervakning](../log-analytics/log-analytics-containers.md), som hjälper dig att visa och hantera behållare-värdar.
-* [Azure SQL-Analytics](../log-analytics/log-analytics-azure-sql.md), som samlar in och visualizes prestandastatistik för Azure SQL-databaser.
-
-
-## <a name="shared-functionality"></a>Delade funktioner
-Följande Azure verktyg innehåller viktiga funktioner till premium-övervaka tjänster. Flera tjänster dela dem, så du kan dra nytta av vanliga funktioner och konfigurationer över flera tjänster.
+## <a name="shared-capabilities"></a>Delade funktioner
+Core och djup övervakningstjänsten dela funktioner som innehåller följande funktioner. 
 
 ### <a name="alerts"></a>Aviseringar
 [Azure-aviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) proaktivt meddelar dig om viktiga villkor och potentiellt vidta åtgärder. Varningsregler kan använda data från flera källor, inklusive mått och loggar. De använder [åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md), som innehåller en unik uppsättning mottagare och åtgärder som svar på en avisering. Du kan ha aviseringar startar externa åtgärder med hjälp av webhooks och integrera med dina ITSM verktyg baserat på dina krav.
 
 ### <a name="dashboards"></a>Instrumentpaneler
-Du kan använda [Azure instrumentpaneler](../azure-portal/azure-portal-dashboards.md) kombinera olika typer av data till ett enda fönster i Azure-portalen. Därefter kan du dela instrumentpanelen med andra Azure-användare. 
+Du kan använda [Azure instrumentpaneler](../azure-portal/azure-portal-dashboards.md) att kombinera olika typer av data till ett enda fönster i den [Azure-portalen](https://portal.azure.com). Därefter kan du dela instrumentpanelen med andra Azure-användare. 
 
 Du kan till exempel skapa en instrumentpanel som kombinerar:
 - Paneler som visar ett diagram över mått
@@ -102,6 +52,21 @@ Du kan också exportera logganalys data till [Power BI](https://docs.microsoft.c
 [Mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md) är numeriska värden som genererats av en Azure-resurs som hjälper dig att förstå drift och prestanda för resursen. Genom att använda Metrics Explorer kan skicka du mått till logganalys för analys med data från andra källor.
 
 
+## <a name="core-monitoring"></a>Kärnövervakning
+Kärnövervakning ger grundläggande, obligatoriska övervakning över Azure-resurser. Dessa tjänster kräver minimal konfiguration och samlar in core telemetri som premium övervakningstjänster använder.    
+
+### <a name="azure-monitor"></a>Azure Monitor
+[Azure-Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) aktiverar Kärnövervakning för Azure-tjänster genom att tillåta mängden [mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md), [aktivitetsloggar](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), och [diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Aktivitetsloggen anger du när nya resurser skapas eller ändras. 
+
+Mått är tillgängliga som ger prestandastatistik för olika resurser och även operativsystemet på en virtuell dator. Du kan visa dessa data med en av de olika utforskarfönster i Azure-portalen och skapa varningar baserat på de här måtten. Azure övervakning ger snabbast mått pipeline (5 minut till 1 minut), så du bör använda för tid kritiska aviseringar och meddelanden. 
+
+Du kan också skicka dessa mätvärden och loggar Azure Log Analytics för trender och detaljerad analys eller skapa ytterligare Varningsregler proaktivt meddelar om kritiska problem på grund av att analys.  
+
+### <a name="azure-advisor"></a>Azure Advisor
+[Azure Advisor](../advisor/advisor-overview.md) ständigt övervakar din resurs konfiguration och användning telemetri. Sedan får du anpassade rekommendationer baserat på bästa praxis. Följa dessa rekommendationer hjälper dig att förbättra prestanda, säkerhet och tillgänglighet för de resurser som har stöd för dina program.
+
+### <a name="service-health"></a>Service Health
+Hälsotillståndet för programmet är beroende av Azure-tjänster som den är beroende av. [Tjänstens hälsa för Azure](../service-health/service-health-overview.md) identifierar eventuella problem med Azure-tjänster som kan påverka ditt program. Tjänstens hälsa kan du planera för schemalagt underhåll.
 
 ### <a name="activity-log"></a>Aktivitetslogg
 [Aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) ger data om driften av en Azure-resurs. Informationen omfattar:
@@ -112,7 +77,52 @@ Du kan också exportera logganalys data till [Power BI](https://docs.microsoft.c
 
 Du kan visa loggar för en viss resurs på en sida i Azure-portalen. Eller du kan visa loggar från flera resurser i aktiviteten loggen Explorer. 
 
-Du kan också skicka aktivitetsloggar till logganalys. Där kan analysera du loggar med hjälp av data som samlas in av hanteringslösningar, agenter på virtuella datorer och andra källor.
+Du kan också skicka aktiviteten loggposter till logganalys. Där kan analysera du loggar med hjälp av data som samlas in av hanteringslösningar, agenter på virtuella datorer och andra källor.
+
+## <a name="deep-monitoring-services"></a>Djupgående övervakningstjänster
+Följande Azure-tjänster innehåller omfattande funktioner för att samla in och analysera övervakningsdata på en djupare nivå. Dessa tjänster bygger på Kärnövervakning och dra nytta av vanliga funktioner i Azure. De ger kraftfulla analytics insamlade data för att ge unik insikter om dina program och infrastruktur. De presentera data i samband med scenarier som är avsedda för olika målgrupper.
+
+## <a name="deep-application-monitoring"></a>Djupgående programövervakning
+### <a name="application-insights"></a>Application Insights
+Du kan använda [Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights) om den finns i molnet eller lokalt, kan du övervaka tillgänglighet, prestanda och användning av ditt program. 
+
+Du kan uppnå djupa insikter och implementera DevOps scenarier av instrumentering programmet att fungera med Application Insights. Du kan snabbt identifiera och diagnostisera fel utan att vänta på en användare att rapportera dem. Du kan göra välgrundade val om underhåll och förbättringar för ditt program med den information som du samlar in. 
+
+Application Insights har omfattande verktyg för att interagera med data som samlas in. Application Insights lagras data i en gemensam databas. Det kan dra nytta av delade funktioner som aviseringar, instrumentpaneler och djupanalys med Log Analytics-frågespråket.
+
+## <a name="deep-infrastructure-monitoring"></a>Övervakning av infrastruktur för djup
+### <a name="log-analytics"></a>Log Analytics
+[Logga Analytics](http://azure.microsoft.com/documentation/services/log-analytics) betydelse i Azure övervakning genom att samla in data från en mängd resurser (inklusive icke-Microsoft-verktyg) till en databas. Du kan analysera data med hjälp av ett kraftfullt frågespråk. 
+
+Application Insights och Azure Security Center kan du lagra data i logganalys data lagrar och använder dess analytics-motorn. Är också samlas in från Azure-Monitor, hanteringslösningar och agenter som installerats på virtuella datorer i molnet eller lokalt. Funktionen delade hjälper dig att bilda en komplett bild av din miljö.
+
+### <a name="management-solutions"></a>Hanteringslösningar
+[Hanteringslösningar](../log-analytics/log-analytics-add-solutions.md) är paketerade uppsättningar av logik som ger inblick i för ett visst program eller tjänst. De förlitar sig på Log Analytics för att lagra och analysera övervakningsdata som de samlar in. 
+
+Av hanteringslösningar som är tillgängliga från Microsoft och partners för att tillhandahålla övervakning för olika Azure och tjänster från tredje part. Exempel på övervakningslösningar:
+* [Behållaren övervakning](../log-analytics/log-analytics-containers.md), som hjälper dig att visa och hantera behållare-värdar.
+* [Azure SQL-Analytics](../log-analytics/log-analytics-azure-sql.md), som samlar in och visualizes prestandastatistik för Azure SQL-databaser.
+
+Du kan visa alla tillgängliga lösningar i Azure Portal under den *övervakaren* skärmen. 
+
+### <a name="network-monitoring"></a>Nätverksövervakning
+Det finns flera verktyg som arbetar tillsammans för att övervaka olika aspekter av ditt nätverk i Azure eller lokalt.  
+
+[Nätverk Watcher](../network-watcher/network-watcher-monitoring-overview.md) ger scenariobaserade övervakning och diagnostik för scenarier för olika nätverk i Azure. Data lagras i Azure mätvärden och diagnostikfunktionerna för ytterligare analys. Den fungerar med följande lösningar för att övervaka olika aspekter av nätverket. 
+
+[Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) är en molnbaserad nätverk övervakningslösning som övervakar anslutning över offentliga moln, Datacenter och lokala miljöer.
+
+[Övervakare för ExpressRoute](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) är en NPM-funktion som övervakar slutpunkt till slutpunkt-anslutning och prestanda över Azure ExpressRoute-kretsar.
+
+[DNS-Analytics](../log-analytics/log-analytics-dns.md) är en lösning som innehåller säkerhet, prestanda och åtgärder relaterade insights, baserat på DNS-servrarna.
+
+[Tjänsten Endpoint övervakning](../networking/network-monitoring-overview.md) testar reachability av program och identifierar prestandaflaskhalsar via lokalt, operatör nätverk och moln/privat datacenter.
+
+
+### <a name="service-map"></a>Tjänstkarta
+[Tjänstkarta](../operations-management-suite/operations-management-suite-service-map.md) ger inblick i IaaS-miljö genom att analysera virtuella datorer med olika processer och beroenden på andra datorer och externa processer. Det integreras händelser, prestandadata och lösningar för hantering i logganalys. Du kan sedan visa dessa data i kontexten för varje dator och dess relation till resten av miljön. 
+
+Tjänstkarta liknar [programavbildningen i Application Insights](../application-insights/app-insights-app-map.md). Den fokuserar på infrastrukturkomponenter som har stöd för dina program.
 
 
 ## <a name="example-scenarios"></a>Exempelscenarier
@@ -144,8 +154,6 @@ Efter en rapporterade avbrott använda Tjänstkarta för dataforensik för att i
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om:
 
-* [Azure Övervakare i ett videoklipp från Ignite 2016](https://myignite.microsoft.com/videos/4977).
-* [Komma igång med Azure-Monitor](monitoring-get-started.md).
-* [Azure Diagnostics](../azure-diagnostics.md) om du försöker att diagnostisera problem i din tjänst i molnet, virtuell dator, virtuella datorns skaluppsättning eller Azure Service Fabric-programmet.
+* [Azure-Monitor](https://azure.microsoft.com/en-us/services/monitor/) att komma igång med övervakning mätvärden och -varningar.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) om du försöker att diagnostisera problem i din App Service webbapp.
-* [Logga Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) för att analysera insamlade övervakningsdata.
+* [Logga Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) för analys av loggar och insamlade övervakningsdata.

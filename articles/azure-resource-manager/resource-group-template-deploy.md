@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: 464308da13be6a33ce80871f8753f999e34d8c83
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3378c13934a5a0743aa40ebb19940f1afa71fc71
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Distribuera resurser med Resource Manager-mallar och Azure PowerShell
 
@@ -84,6 +84,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -Temp
 ## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Distribuera till mer än en resursgrupp eller prenumeration
 
 Normalt distribuerar du alla resurser i mallen som en enskild resursgrupp. Det finns emellertid scenarier där du vill distribuera en uppsättning resurser tillsammans men placera dem i olika resursgrupper eller prenumerationer. Du kan distribuera till bara fem resursgrupper i en enda distribution. Mer information finns i [distribuera Azure-resurser till mer än en prenumeration eller resursgrupp](resource-manager-cross-resource-group-deployment.md).
+
+<a id="parameter-file" />
 
 ## <a name="parameter-files"></a>Parametern-filer
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2017
+ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: c8f3c0e87a052b327e9949acd3e7db1d28c1eb46
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 943305c78a17031d647bf2fa0977d10c51213ef5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute-kretsar och routningsdomäner
  Måste du sortera en *ExpressRoute-krets* att ansluta din lokala infrastruktur till Microsoft via en anslutning provider. Följande bild visar en logisk representation av anslutningen mellan din WAN och Microsoft.
@@ -60,12 +60,12 @@ Anslutningen är alltid initieras från din WAN till Microsoft Azure-tjänster. 
 
 Du kan definiera filter för anpassad routning i nätverket att använda de vägar som du behöver. Referera till den [routning](expressroute-routing.md) för detaljerad information om routningskonfiguration. 
 
-Finns det [vanliga frågor om sidan](expressroute-faqs.md) mer information om tjänster som stöds via offentlig peering routningsdomän. 
+Mer information om tjänster som stöds via offentlig peering routningsdomän finns i [vanliga frågor och svar](expressroute-faqs.md).
 
 ### <a name="microsoft-peering"></a>Microsoft-peering
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-Anslutningen till alla andra Microsoft online services (Office 365, Dynamics 365 och Azure PaaS services) är via Microsoft-peering. Vi Aktivera dubbelriktad anslutning mellan dina WAN och Microsoft-molntjänster via Microsoft peering routningsdomän. Du måste ansluta till Microsoft-molntjänster endast med offentliga IP-adresser som ägs av dig eller anslutningsleverantören och du måste följa de definierade reglerna. Finns det [ExpressRoute krav](expressroute-prerequisites.md) för mer information.
+Anslutningen till Microsoft online services (Office 365, Dynamics 365 och Azure PaaS services) är via Microsoft-peering. Vi Aktivera dubbelriktad anslutning mellan dina WAN och Microsoft-molntjänster via Microsoft peering routningsdomän. Du måste ansluta till Microsoft-molntjänster endast med offentliga IP-adresser som ägs av dig eller anslutningsleverantören och du måste följa de definierade reglerna. Mer information finns i [ExpressRoute krav](expressroute-prerequisites.md) sidan.
 
 Finns det [vanliga frågor om sidan](expressroute-faqs.md) för mer information om tjänster som stöds, kostnader och konfigurationsinformation. Finns det [ExpressRoute platser](expressroute-locations.md) sidan information om listan över anslutningen leverantörer som erbjuder peering Microsoft-supporten.
 

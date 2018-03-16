@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a5ac6c02e28c19346abae9e5ea3dba9af4022dde
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: e82bbff908ea5499765edc71e52caa573c816a62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för web apps i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -88,7 +88,7 @@ När alla tre lagringsplatser ange samma grundläggande information för loggade
 >
 >
 
-## <a name="download"></a>Så här: hämta loggar
+## <a name="download"></a> Så här: hämta loggar
 Diagnostisk information som lagras i filsystemet app kan nås med hjälp av FTP. Det kan också hämtas som en Zip-arkiv med hjälp av Azure PowerShell eller Azure-kommandoradsgränssnittet.
 
 Katalogstrukturen som lagrats i loggarna är som följer:
@@ -97,7 +97,7 @@ Katalogstrukturen som lagrats i loggarna är som följer:
 * **Det gick inte begäranden** -/ loggfiler/W3SVC ### /. Den här mappen innehåller en XSL-fil och en eller flera XML-filer. Se till att du hämtar den XSL-fil i samma katalog som XML-filerna eftersom XSL-filen innehåller funktioner för att formatera och filtrera innehållet i XML-filen när den visas i Internet Explorer.
 * **Detaljerade felloggar** -/LogFiles/DetailedErrors /. Den här mappen innehåller en eller flera .htm-filer som innehåller omfattande information för HTTP-fel som har inträffat.
 * **Web Server-loggar** -/LogFiles/http/RawLogs. Den här mappen innehåller en eller flera textfiler formaterats med den [W3C utökat loggfilsformat](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
-* **Distributionsloggar** -loggfilerna/Git. Den här mappen innehåller loggar som genereras av de interna distributionsprocesser som används av Azure-webbappar samt loggar för Git-distributioner.
+* **Distributionsloggar** -loggfilerna/Git. Den här mappen innehåller loggar som genereras av de interna distributionsprocesser som används av Azure-webbappar samt loggar för Git-distributioner. Du kan också hitta distributionsloggar under D:\home\site\deployments.
 
 ### <a name="ftp"></a>FTP
 
@@ -141,7 +141,7 @@ Programinsikter för Visual Studio innehåller verktyg för att filtrera och sö
 
 [Mer information om prestanda spårning med Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
-## <a name="streamlogs"></a>Så här: strömma loggar
+## <a name="streamlogs"></a> Så här: strömma loggar
 När du utvecklar ett program, är det ofta praktiskt att visa loggningsinformation i nära realtid. Du kan strömma loggningsinformation till din utvecklingsmiljö med hjälp av Azure PowerShell eller Azure-kommandoradsgränssnittet.
 
 > [!NOTE]
@@ -194,7 +194,7 @@ För att filtrera viss loggning typer, till exempel HTTP, använder den **--sök
 >
 >
 
-## <a name="understandlogs"></a>Så här: Förstå diagnostik loggar
+## <a name="understandlogs"></a> Så här: Förstå diagnostik loggar
 ### <a name="application-diagnostics-logs"></a>Programloggarna för diagnostik
 Programdiagnostik lagrar information i ett specifikt format för .NET-program, beroende på om du lagrar loggar till filsystemet, tabellagring eller blob-lagring. En grundläggande uppsättning data som lagras är samma i alla tre lagringstyper - datum och tid som händelsen inträffade, process-ID som producerade händelsen, vilken typ av händelse (information, varning, fel) och händelsemeddelandet.
 
@@ -222,9 +222,9 @@ När de loggar till tabellagring används ytterligare egenskaper som för att un
 | EventTickCount |Datum och tid då händelsen inträffade i Tick-format (större precision) |
 | ApplicationName |Webbprogramnamnet |
 | Nivå |Händelsenivå (till exempel fel, varning, information) |
-| Händelse-ID |Händelse-ID för den här händelsen<p><p>Standardvärdet är 0 om inget anges |
+| EventId |Händelse-ID för den här händelsen<p><p>Standardvärdet är 0 om inget anges |
 | Instans-ID |Instans av webbappen som den även inträffade |
-| Process-ID |Process-ID |
+| Pid |Process-ID |
 | tid |Tråd-ID för tråden som skapades av händelsen |
 | Meddelande |Detaljerat meddelande |
 
@@ -239,8 +239,8 @@ När loggning för att blob storage, lagras data i fil med kommaavgränsade vär
 | ApplicationName |Webbprogramnamnet |
 | Instans-ID |Instans av webbappen som händelsen inträffade |
 | EventTickCount |Datum och tid då händelsen inträffade i Tick-format (större precision) |
-| Händelse-ID |Händelse-ID för den här händelsen<p><p>Standardvärdet är 0 om inget anges |
-| Process-ID |Process-ID |
+| EventId |Händelse-ID för den här händelsen<p><p>Standardvärdet är 0 om inget anges |
+| Pid |Process-ID |
 | tid |Tråd-ID för tråden som skapades av händelsen |
 | Meddelande |Detaljerat meddelande |
 
@@ -276,6 +276,6 @@ Web server-loggar har formaterats med den [W3C utökat loggfilsformat](http://ms
 * [Analysera Webbprogramloggar i HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [!NOTE]
-> Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i Apptjänst. Inget kreditkort krävs, och du gör inga åtaganden.
+> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.
 >
 >

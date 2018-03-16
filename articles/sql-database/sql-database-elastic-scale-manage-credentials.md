@@ -2,24 +2,18 @@
 title: "Hantera autentiseringsuppgifter i klientbibliotek för elastisk databas | Microsoft Docs"
 description: "Hur du anger rätt nivå av autentiseringsuppgifter, admin till skrivskyddat läge, för appar för elastisk databas"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: 72e0edaf-795e-4856-84a5-6594f735fb7e
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: ddove
-ms.openlocfilehash: 0f266f3be8bf8c1699b3b19bea96c83d32f1bd69
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.author: sstein
+ms.openlocfilehash: 26d83779b218f8c936c020d63651861f45bafa2f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Autentiseringsuppgifter som används för att komma åt klientbibliotek för elastisk databas
 Den [klientbibliotek för elastisk databas](sql-database-elastic-database-client-library.md) använder tre olika typer av autentiseringsuppgifter för åtkomst till den [Fragmentera kartan manager](sql-database-elastic-scale-shard-map-management.md). Beroende på behov, använda autentiseringsuppgifter med den lägsta nivån av åtkomst som möjligt.
@@ -46,7 +40,7 @@ Variabeln **smmAdminConnectionString** är en anslutningssträng som innehåller
 
 Använd inte värden i form av ”username@server”, i stället använda värdet ”användarnamn”.  Det beror på att autentiseringsuppgifter måste arbeta mot både Fragmentera kartan manager-databasen och enskilda delar som kan vara på olika servrar.
 
-## <a name="access-credentials"></a>Autentiseringsuppgifter
+## <a name="access-credentials"></a>Autentiseringsuppgifter för åtkomst
 När du skapar en Fragmentera kartan manager i ett program som inte administrerar Fragmentera maps Använd autentiseringsuppgifter som har skrivskyddad behörighet på kartan globala Fragmentera. Informationen som hämtas från global Fragmentera kartan under dessa autentiseringsuppgifter används för [data beroende routning](sql-database-elastic-scale-data-dependent-routing.md) och för att fylla i Fragmentera kartan cachen på klienten. Autentiseringsuppgifterna som tillhandahålls via samma mönster för anrop till **GetSqlShardMapManager**: 
 
 ```
@@ -71,7 +65,7 @@ I det här exemplet **smmUserConnectionString** innehåller anslutningssträngen
 
 Som med autentiseringsuppgifterna som administratör, Använd inte värden i form av ”username@server”. Använd ”användarnamn” istället bara.  Observera också att anslutningssträngen inte innehåller ett servernamn och databasnamn. Det beror på den **OpenConnectionForKey** anrop dirigerar automatiskt anslutningen till rätt Fragmentera baserat på nyckeln. Därför tillhandahålls inte databasnamnet och namn på servern. 
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 [Hantera databaser och inloggningar i Azure SQL Database](sql-database-manage-logins.md)
 
 [Säkra din SQL Database](sql-database-security-overview.md)

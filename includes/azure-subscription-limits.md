@@ -8,7 +8,7 @@
 | SQL Database-servrar per prenumeration |6 |150 |
 | DNS-servrar per prenumeration |9 |100 |
 | Reserverade IP-adresser per prenumeration |20 |100 |
-| Värdtjänsten certifikat per prenumeration |400 |400 |
+| Värdtjänsten certifikat per prenumeration |199 |199 |
 | [Tillhörighetsgrupper](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per prenumeration |256 |256 |
 
 

@@ -2,24 +2,18 @@
 title: "Azure SQL Database benchmark-översikt"
 description: "Det här avsnittet beskriver Azure SQL Database Benchmark används i mätning av prestanda i Azure SQL Database."
 services: sql-database
-documentationcenter: na
 author: jan-eng
 manager: jhubbard
-editor: monicar
-ms.assetid: e26f8a66-2c12-49d7-8297-45b4d48a5c01
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 06/21/2016
 ms.author: janeng
-ms.openlocfilehash: fb8a5f205ddc143dc47349829048f46f88963d05
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 25685f663d976674ad877bcfa1409ef016dd02ae
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-benchmark-overview"></a>Azure SQL Database benchmark-översikt
 ## <a name="overview"></a>Översikt
@@ -39,7 +33,7 @@ Benchmark och dess metoder beskrivs i detalj nedan.
 ## <a name="benchmark-summary"></a>Benchmark-översikt
 ASDB mäter prestanda för en blandning av grundläggande databasåtgärder som förekommer oftast i online transaktionsbearbetning (OLTP) arbetsbelastningar. Även om benchmark har utformats med cloud computing-lösningar i åtanke, databasschemat, ifyllning av data och transaktioner är utformade för att vara brett representativ för grundläggande element som används mest i OLTP-arbetsbelastningar.
 
-## <a name="schema"></a>Schemat
+## <a name="schema"></a>Schema
 Schemat är utformat för att ha tillräckligt med olika och komplexitet som stöder en mängd olika åtgärder. Benchmark körs mot en databas som består av sex tabeller. Tabellerna delas in i tre kategorier: fast storlek, skala och växer. Det finns två tabeller i fast storlek. tre skalning tabeller. och en växande tabell. Fast storlek tabeller har ett konstant antal rader. Skalning tabeller har en kardinalitet som är proportionell mot databasens prestanda, men inte ändra under benchmark. Tabellen växande storlek som en skalning tabell på första last, men ändringarna kardinalitet körs benchmark som rader infogas och tas bort.
 
 Schemat innehåller en blandning av datatyper, inklusive heltal, numeriska tecken och datum/tid. Schemat innehåller primära och sekundära nycklarna, men inte alla sekundärnycklar - finns det ingen referensintegritetsbegränsningar mellan tabeller.
@@ -123,7 +117,7 @@ Viktiga mått i benchmark är genomflöde och svarstid.
 | Standard |Transaktioner per minut |90: e percentilen 1.0 sekunder |
 | Basic |Transaktioner per timme |80: e percentilen 2.0 sekunder |
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Azure SQL Database Benchmark mäter den relativa prestandan för Azure SQL Database köra inom intervallet för tillgängliga servicenivåer och prestandanivåer. Benchmark utför en blandning av grundläggande databasåtgärder som förekommer oftast i online transaktionsbearbetning (OLTP) arbetsbelastningar. Genom att mäta faktiska prestanda ger benchmark ett mer beskrivande bedömning av påverkan på dataflöde för att ändra prestandanivå än vad som är möjligt genom att bara lista de resurser som tillhandahålls av varje nivå, till exempel CPU-hastighet, minne och IOPS. I framtiden kommer fortsätter vi att utvecklas prestandamått för att utöka sitt omfång och expandera den informationen.
 
 ## <a name="resources"></a>Resurser

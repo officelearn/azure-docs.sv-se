@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6b8aa174f7c25f04393de9dd32718a5078cba4ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering i Azure
 
@@ -207,13 +207,13 @@ Följande tabell innehåller exempel loggen söker efter uppdateringen innehåll
 
 | Fråga | Beskrivning |
 | --- | --- |
-|Uppdatering<br>&#124; där UpdateState == ”krävs” och valfria == false<br>&#124; projektet dator, avdelning, KBID, klassificering, PublishedDate |Alla datorer med saknade uppdateringar<br>Lägg till ett av följande för att begränsa OS:<br>OSType = ”Windows”<br>OSType == ”Linux- |
-| Uppdatering<br>&#124; där UpdateState == ”krävs” och valfria == false<br>&#124; Om datorn == ”ContosoVM1.contoso.com”<br>&#124; projektet dator, avdelning, KBID, produkt, PublishedDate |Saknade uppdateringar fören specifik dator (ersätt värdet med namnet på din egen dator)|
-| Händelse<br>&#124; där EventLevelName == ”error” och datorer i ((Uppdatera &#124; var (klassificering == ”säkerhetsuppdateringar” eller klassificering == ”kritiska uppdateringar”)<br>&#124; där UpdateState == ”krävs” och valfria == false <br>&#124; distinkta dator)) |Felhändelser för datorer som saknar kritiska uppdateringar eller säkerhetsuppdateringar |
-| Uppdatering<br>&#124; där UpdateState == ”krävs” och valfria == false<br>&#124; unikt namn |Separata, saknade uppdateringar bland samtliga datorer | 
-| UpdateRunProgress<br>&#124; där InstallationStatus == ”misslyckades” <br>&#124; Sammanfatta AggregatedValue = count() av datorn, avdelning, UpdateRunName |Datorer med uppdateringar som misslyckades under en uppdateringskörning<br>Lägg till ett av följande för att begränsa OS:<br>OSType = ”Windows”<br>OSType == ”Linux- | 
-| Uppdatering<br>&#124; där OSType == ”Linux-<br>&#124; där UpdateState! = ”behövs inte” och (klassificering == ”kritiska uppdateringar” eller klassificering == ”säkerhetsuppdateringar”)<br>&#124; Sammanfatta AggregatedValue = count() per dator |Lista över alla Linux datorer, som har en tillgänglig Paketuppdatering, som åtgärdar problem kritiskt eller säkerhet | 
-| UpdateRunProgress<br>&#124; där UpdateRunName == ”DeploymentName”<br>&#124; Sammanfatta AggregatedValue = count() per dator|Datorer som har uppdaterats i den här uppdateringskörningen (ersätt värdet med uppdateringsdistributionens namn | 
+|Uppdatering<br>&#124;där UpdateState == ”krävs” och valfria == false<br>&#124;projektet dator, avdelning, KBID, klassificering, PublishedDate |Alla datorer med saknade uppdateringar<br>Lägg till ett av följande för att begränsa OS:<br>OSType = ”Windows”<br>OSType == ”Linux- |
+| Uppdatering<br>&#124;där UpdateState == ”krävs” och valfria == false<br>&#124;Om datorn == ”ContosoVM1.contoso.com”<br>&#124;projektet dator, avdelning, KBID, produkt, PublishedDate |Saknade uppdateringar fören specifik dator (ersätt värdet med namnet på din egen dator)|
+| Händelse<br>&#124;där EventLevelName == ”error” och datorer i ((uppdatering &#124; var (klassificering == ”säkerhetsuppdateringar” eller klassificering == ”kritiska uppdateringar”)<br>&#124;där UpdateState == ”krävs” och valfria == false <br>&#124;distinkta dator)) |Felhändelser för datorer som saknar kritiska uppdateringar eller säkerhetsuppdateringar |
+| Uppdatering<br>&#124;där UpdateState == ”krävs” och valfria == false<br>&#124;unikt namn |Separata, saknade uppdateringar bland samtliga datorer | 
+| UpdateRunProgress<br>&#124;där InstallationStatus == ”misslyckades” <br>&#124;Sammanfatta AggregatedValue = count() av datorn, avdelning, UpdateRunName |Datorer med uppdateringar som misslyckades under en uppdateringskörning<br>Lägg till ett av följande för att begränsa OS:<br>OSType = ”Windows”<br>OSType == ”Linux- | 
+| Uppdatering<br>&#124;där OSType == ”Linux-<br>&#124;där UpdateState! = ”behövs inte” och (klassificering == ”kritiska uppdateringar” eller klassificering == ”säkerhetsuppdateringar”)<br>&#124;Sammanfatta AggregatedValue = count() per dator |Lista över alla Linux datorer, som har en tillgänglig Paketuppdatering, som åtgärdar problem kritiskt eller säkerhet | 
+| UpdateRunProgress<br>&#124;där UpdateRunName == ”DeploymentName”<br>&#124;Sammanfatta AggregatedValue = count() per dator|Datorer som har uppdaterats i den här uppdateringskörningen (ersätt värdet med uppdateringsdistributionens namn | 
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integrera med System Center Configuration Manager
 

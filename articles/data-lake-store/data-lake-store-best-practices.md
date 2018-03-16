@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: d3a0dd70a03f97a9b6bfb243eda7cbd470b0c239
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Översikt över Azure Data Lake Store
+# <a name="best-practices-for-using-azure-data-lake-store"></a>Metodtips för Azure Data Lake Store
 I den här artikeln får information du om metodtips och överväganden för att arbeta med Azure Data Lake Store. Den här artikeln innehåller information kring säkerhet, prestanda, återhämtning och övervakning för Data Lake Store. Arbeta med verkligen stordata i tjänster som Azure HDInsight var krånglig innan Data Lake Store. Var du tvungen att fragmentera data över flera Blob storage-konton så att petabyte lagring och optimala prestanda som kan byggas ut kan uppnås. De flesta av de hårda gränsvärdena för storlek och prestanda tas bort med Data Lake Store. Det finns dock fortfarande vissa aspekter som den här artikeln täcker så att du kan få bästa möjliga prestanda med Data Lake Store. 
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden
@@ -139,7 +139,7 @@ Om Data Lake Store loggöverföring inte är påslagen, Azure HDInsight innehål
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-När detta anges och noderna har startats om Data Lake Store diagnostik skrivs till YARN-loggar på noderna (/tmp/<user>/yarn.log), och viktig information som fel eller begränsning (felkod HTTP 429) kan övervakas. Samma information kan också övervakas i OMS eller var loggar levereras till i den [diagnostik](data-lake-store-diagnostic-logs.md) bladet för Data Lake Store-konto. Det rekommenderas minst ha klientsidan loggning aktiverad eller använda alternativet med Data Lake Store för operativa synlighet och enklare felsökning av loggöverföring.
+När egenskapen har angetts och noderna har startats om Data Lake Store diagnostik skrivs till YARN-loggar på noderna (/tmp/<user>/yarn.log), och viktig information som fel eller begränsning (felkod HTTP 429) kan övervakas. Samma information kan också övervakas i OMS eller var loggar levereras till i den [diagnostik](data-lake-store-diagnostic-logs.md) bladet för Data Lake Store-konto. Det rekommenderas minst ha klientsidan loggning aktiverad eller använda alternativet med Data Lake Store för operativa synlighet och enklare felsökning av loggöverföring.
 
 ### <a name="run-synthetic-transactions"></a>Kör syntetiska transaktioner 
 
@@ -155,7 +155,7 @@ I IoT-arbetsbelastningar, kan det finnas en stor mängd data som landat i datala
 
     {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Hamnar telemetri för ett flygplan motorn i Storbritannien kan till exempel se ut så här: 
+Hamnar telemetri för ett flygplan motorn i Storbritannien kan till exempel se ut följande struktur: 
 
     UK/Planes/BA1293/Engine1/2017/08/11/12/ 
 
@@ -163,7 +163,7 @@ Det finns ett viktigt skäl att placera datum i slutet av mappstrukturen. Om du 
 
 ### <a name="batch-jobs-structure"></a>Struktur för batch-jobb 
 
-Från en hög nivå är en metod som används ofta i batch-bearbetning ska hamna data i en mapp ”i”. Sedan, när data har bearbetats kan försätta nya data i en ”out”-mapp för underordnade processer som ska använda. Detta visas ibland för jobb som kräver bearbetning på enskilda filer och kan inte kräva massivt parallell bearbetning över stora datauppsättningar. Precis som IoT-struktur som rekommenderas ovan, har en bra katalogstruktur överordnad mappar för till exempel region och ämne frågor (till exempel organisation, produkt/producenten). Detta hjälper med att skydda data i din organisation och en bättre hantering av data i dina arbetsbelastningar. Dessutom bör du datum och tid i strukturen för att tillåta bättre organisation, filtrerade sökningar, säkerhet och automatisering i bearbetningen. Önskad nivå för datum strukturen bestäms av intervallet då överförs data eller bearbetas, till exempel varje timme, varje dag eller även varje månad. 
+Från en hög nivå är en metod som används ofta i batch-bearbetning ska hamna data i en mapp ”i”. Sedan, när data har bearbetats kan försätta nya data i en ”out”-mapp för underordnade processer som ska använda. Den här katalogstrukturen visas ibland för jobb som kräver bearbetning på enskilda filer och kan inte kräva massivt parallell bearbetning över stora datauppsättningar. Precis som IoT-struktur som rekommenderas ovan, har en bra katalogstruktur överordnad mappar för till exempel region och ämne frågor (till exempel organisation, produkt/producenten). Den här strukturen kan hjälpa dig med att skydda data i din organisation och en bättre hantering av data i dina arbetsbelastningar. Dessutom bör du datum och tid i strukturen för att tillåta bättre organisation, filtrerade sökningar, säkerhet och automatisering i bearbetningen. Önskad nivå för datum strukturen bestäms av intervallet då överförs data eller bearbetas, till exempel varje timme, varje dag eller även varje månad. 
 
 Ibland filen bearbetning är misslyckas på grund av skadade data eller oväntat format. I sådana fall katalogstruktur kan dra nytta av en **/dåliga** mapp att flytta filerna till för mer kontroll. Batch-jobbet kan också hantera rapportering eller meddelanden om dessa *felaktig* filer manuellt. Överväg följande mallstruktur: 
 
@@ -171,7 +171,7 @@ Ibland filen bearbetning är misslyckas på grund av skadade data eller oväntat
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/ 
     {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Till exempel en marknadsföring företag som tar emot den dagliga data utdrag ur customer uppdateringar från sina kunder i Nordamerika kan se ut så här före och efter att ha behandlats: 
+Marknadsföring företag får exempelvis dagliga data utdrag ur customer uppdateringar från sina kunder i Nordamerika. Den kan se ut som följande kodavsnitt före och efter att ha behandlats: 
 
     NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv 
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv 

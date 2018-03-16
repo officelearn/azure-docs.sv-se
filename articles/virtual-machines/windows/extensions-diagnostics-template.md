@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3ea1687e7fb6cc7af00e03b85fb48b0d7911275
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: e205352ebf4eaf89627c268d78b69bb2d49c3f3e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Använd övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager-mallar
 Azure Diagnostics tillägget tillhandahåller funktioner för övervakning och diagnostik på en Windows-baserad Azure virtuella. Du kan aktivera dessa funktioner på den virtuella datorn genom att inkludera tillägget som en del av Azure Resource Manager-mallen. Se [redigera Azure Resource Manager-mallar med VM-tillägg](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) mer information om inklusive alla tillägg som en del av en mall för virtuella datorer. Den här artikeln beskriver hur du lägger till tillägget Azure Diagnostics en windows-mall för virtuell dator.  
@@ -152,7 +152,7 @@ Om du skapar flera virtuella datorer i en slinga, måste du fylla i *resourceID*
 "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 ```
 
-Värdet för MetricAggregation *PT1H* och *PT1M* anger en sammanställning över en minut och en sammanställning över en timme.
+Värdet för MetricAggregation *PT1M* och *PT1H* respektive obestämd en sammanställning över en minut och en sammanställning över en timme.
 
 ## <a name="wadmetrics-tables-in-storage"></a>WADMetrics tabeller i lagring
 Hur mått skapar tabeller i diagnostik storage-konto med följande namngivningsregler:
@@ -168,7 +168,7 @@ Exempel: *WADMetricsPT1HP10DV2S20151108* innehåller mått data visar det samman
 Varje WADMetrics tabellen innehåller följande kolumner:
 
 * **PartitionKey**: Partitionsnyckeln konstrueras utifrån den *resourceID* värde för att identifiera den Virtuella datorresursen. Till exempel: 002Fsubscriptions:<subscriptionID>: 002FresourceGroups:002F<ResourceGroupName>: 002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
-* **RowKey**: i formatet `<Descending time tick>:<Performance Counter Name>`. Fallande tid skalstreck beräkningen är max tid tick minus tiden i början av aggregering period. Till exempel om provtagningsperiod igång 10 Nov 2015 och 00:00Hrs UTC sedan beräkningen är: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Prestandaräknaren Radnyckeln kommer att se ut för minne tillgängliga byte:`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
+* **RowKey**: i formatet `<Descending time tick>:<Performance Counter Name>`. Fallande tid skalstreck beräkningen är max tid tick minus tiden i början av aggregering period. Till exempel om provtagningsperiod igång 10 Nov 2015 och 00:00Hrs UTC sedan beräkningen är: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Prestandaräknaren Radnyckeln kommer att se ut för minne tillgängliga byte: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **CounterName**: är namnet på prestandaräknaren. Detta matchar den *counterSpecifier* definieras i xml-konfigurationen.
 * **Maximal**: det maximala värdet för prestandaräknaren för aggregering perioden.
 * **Minsta**: det lägsta värdet för prestandaräknaren för aggregering perioden.

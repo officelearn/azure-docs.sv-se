@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 59d926f54c8dfc2991929f2eb42b20056e3a09c3
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: b32838dfaf83ea3acfb7125322bb99124370bd8e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Stöd för Azure Cosmos DB Gremlin diagram
 Har stöd för Azure Cosmos-DB [Apache Tinkerpop](http://tinkerpop.apache.org) kurva traversal språk [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), vilket är en Graph API för att skapa diagram entiteter och utför åtgärder i diagrammet frågan. Du kan använda Gremlin språk för att skapa diagram entiteter (formhörnen och kanter), ändra egenskaper i dessa enheter, utföra frågor och traversals och ta bort enheter. 
@@ -84,8 +84,8 @@ I följande tabell visas funktionerna TinkerPop som implementeras av Azure Cosmo
 | Variabeln funktioner | Stöder boolesk, heltal, Byte, Double, Float, Integer, Long, sträng | Har stöd för primitiva typer, är kompatibel med komplexa typer via datamodellen |
 | Vertex funktioner | Stöder RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Har stöd för att skapa, ändra och ta bort formhörnen |
 | Vertex egenskapen funktioner | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Har stöd för att skapa, ändra och ta bort vertex egenskaper |
-| Edge-funktioner | AddEges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Har stöd för att skapa, ändra och ta bort kanter |
-| Edge-egenskapen funktioner | Egenskaper för BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Har stöd för att skapa, ändra och ta bort gräns egenskaper |
+| Edge-funktioner | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Har stöd för att skapa, ändra och ta bort kanter |
+| Edge-egenskapen funktioner | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Har stöd för att skapa, ändra och ta bort gräns egenskaper |
 
 ## <a name="gremlin-wire-format-graphson"></a>Gremlin kabelformat: GraphSON
 
@@ -171,9 +171,9 @@ Nu ska vi titta på Gremlin stegen som stöds av Azure Cosmos DB. En fullständi
 | `addV` | Lägger till en nod i diagrammet | [addV steg](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
 | `and` | Garanterar att alla traversals returnera ett värde | [och steg](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
 | `as` | Ett steg modulator att tilldela en variabel till utdata från ett steg | [steg](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
-| `by` | Ett steg modulator som används med `group` och`order` | [för steg](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
+| `by` | Ett steg modulator som används med `group` och `order` | [för steg](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
 | `coalesce` | Returnerar den första traversal som returnerar ett resultat | [sammanslagning av steg](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |
-| `constant` | Returnerar ett konstant värde. Används med`coalesce`| [konstant steg](http://tinkerpop.apache.org/docs/current/reference/#constant-step) | |
+| `constant` | Returnerar ett konstant värde. Används med `coalesce`| [konstant steg](http://tinkerpop.apache.org/docs/current/reference/#constant-step) | |
 | `count` | Returnerar antalet från övergången | [antal steg](http://tinkerpop.apache.org/docs/current/reference/#count-step) | |
 | `dedup` | Returnerar värden med borttagna dubbletter | [dedupliceringen steg](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) | |
 | `drop` | Släpper värden (vertex/kant) | [ta bort steg](http://tinkerpop.apache.org/docs/current/reference/#drop-step) | |

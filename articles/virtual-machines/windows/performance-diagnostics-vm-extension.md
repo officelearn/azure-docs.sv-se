@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e2f8be0f77e220da483dcfb18d6b324d3f203ed
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Azure prestanda diagnostik VM-tillägget för Windows
 
@@ -227,9 +227,7 @@ Verktyget PerfInsights samlar in olika loggar, konfiguration och diagnostiska da
 
 ## <a name="view-and-share-the-results"></a>Visa och dela resultaten
 
-Utdata från tillägget lagras i en mapp. Mappen heter log_collection och kan hittas under Temp-enhet (vanligtvis D:\log_collection) som standard. Du kan se zip-filer som innehåller diagnostiska loggar och en rapport med resultaten och rekommendationerna under den här mappen.
-
-Du kan också hitta zip-filen i storage-konto som angavs under installationen. Den delas i 30 dagar med hjälp av [signaturer av delad åtkomst (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). En textfil med namnet *zipfilename*_saslink.txt skapas också i mappen log_collection. Den här filen innehåller SAS-länk skapas för att hämta zip-filen. Alla som har den här länken kan hämta zip-filen.
+Utdata från tillägget kan hittas i en zip-fil som överförs till lagringskontot angav vid installationen och delas i 30 dagar med hjälp av [signaturer av delad åtkomst (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Den här filen innehåller diagnostikloggar och en rapport med resultaten och rekommendationerna. En SAS-länk till utdata zip-filen kan finnas i en textfil med namnet *zipfilename*_saslink.txt under mappen **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<version >**. Alla som har den här länken kan hämta zip-filen.
 
 För att underlätta supportteknikern arbetar på ditt supportärende kan Microsoft använda SAS länken för att hämta diagnostikdata.
 
@@ -240,7 +238,7 @@ Du bör även kunna hämta zip-filen direkt från portalen genom att markera til
 ![Skärmbild av Prestandadiagnostik detaljerad status](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
 > [!NOTE]
-> SAS-länken som visas i portalen kanske inte fungerar. Detta kan orsakas av en felaktig URL under åtgärder för kodning och avkodning. Du kan hämta en länk i stället direkt från filen *_saslink.txt från den virtuella datorn.
+> SAS-länken som visas i portalen kanske inte fungerar ibland. Detta kan orsakas av en felaktig URL under åtgärder för kodning och avkodning. Du kan hämta en länk i stället direkt från filen *_saslink.txt från den virtuella datorn.
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och stöd
 
@@ -249,6 +247,6 @@ Du bör även kunna hämta zip-filen direkt från portalen genom att markera til
     Det här problemet kan ignoreras, förutsatt att tillståndets status anger att tillägget har etablerats.
 - Du kan lösa problem under installationen genom att använda tillägget loggarna. Tillägget utförande-utdatan loggas till filer som finns i följande katalog:
 
-        C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics
+        C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
 
 Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [MSDN Azure och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du lagra en incident i Azure-supporten. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/), och välj **få support**. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-supporten](https://azure.microsoft.com/support/faq/).

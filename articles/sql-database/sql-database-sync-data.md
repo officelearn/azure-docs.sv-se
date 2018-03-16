@@ -2,25 +2,19 @@
 title: "Azure SQL-datasynkronisering (förhandsversion) | Microsoft Docs"
 description: "Den här översikten beskriver datasynkronisering för Azure SQL (förhandsgranskning)"
 services: sql-database
-documentationcenter: 
 author: douglaslms
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
-ms.custom: load & move data
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.custom: data-sync
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 5cf74140969fb354e426c41552d4d73a06c76890
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 5abe3e5a56dfca263f109b86f473ac490da3eac7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synkronisera data över flera molntjänster och lokala databaser med SQL-datasynkronisering (förhandsgranskning)
 
@@ -78,11 +72,11 @@ Datasynkronisering är inte lämplig för följande scenarier:
     -   Om du väljer *hubb wins*, ändringar i hubben alltid över ändringar i medlemmen.
     -   Om du väljer *medlem wins*, ändringar i medlemmen Skriv över ändringar i hubben. Om det finns mer än en medlem, beror det sista värdet på vilken medlem synkroniseras först.
 
-## <a name="sync-req-lim"></a>Krav och begränsningar
+## <a name="sync-req-lim"></a> Krav och begränsningar
 
 ### <a name="general-considerations"></a>Allmänna överväganden
 
-#### <a name="eventual-consistency"></a>Slutliga konsekvensen
+#### <a name="eventual-consistency"></a>Slutlig konsekvens
 Eftersom datasynkronisering utlösaren-baserade, garanteras inte transaktionskonsekvens. Microsoft garanterar att alla ändringar som görs till slut och att datasynkronisering inte leder till dataförlust.
 
 #### <a name="performance-impact"></a>Inverkan på prestanda
@@ -114,7 +108,7 @@ Data Sync använder Infoga, uppdatera och ta bort utlösare för att spåra änd
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Begränsningar för tjänsten och databasen dimensioner
 
-| **Dimensioner**                                                      | **Gränsen**              | **Lösning**              |
+| **Dimensioner**                                                      | **Limit**              | **Lösning**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Maximalt antal synkroniseringsgrupper alla databaser kan tillhöra.       | 5                      |                             |
 | Maximalt antal slutpunkter i en enda sync-grupp              | 30                     | Skapa flera synkroniseringsgrupper |
@@ -122,7 +116,7 @@ Data Sync använder Infoga, uppdatera och ta bort utlösare för att spåra änd
 | Namn på databasen, tabell, schemat och kolumn                       | 50 tecken per namn |                             |
 | Tabeller i en grupp för synkronisering                                          | 500                    | Skapa flera synkroniseringsgrupper |
 | Kolumner i en tabell i en grupp för synkronisering                              | 1000                   |                             |
-| Datastorlek för rad i en tabell                                        | 24 mb                  |                             |
+| Datastorlek för rad i en tabell                                        | 24 Mb                  |                             |
 | Minsta synkroniseringsintervall                                           | 5 minuter              |                             |
 |||
 

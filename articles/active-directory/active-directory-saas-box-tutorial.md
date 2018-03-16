@@ -1,5 +1,5 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med | Microsoft Docs"
+title: "Självstudier: Integrera Azure Active Directory med | Microsoft Docs"
 description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och rutan."
 services: active-directory
 documentationCenter: na
@@ -14,145 +14,138 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: af43f4b2a11f217853a9160f473dea8c488ea852
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 638ae63057df00375b05a58e3ceab510e2a608de
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-box"></a>Självstudier: Azure Active Directory-integrering med
+# <a name="integrate-azure-active-directory-with-box"></a>Integrera Azure Active Directory med
 
-I kursen får lära du att integrera rutan med Azure Active Directory (AD Azure).
+I kursen får lära du att integrera Azure Active Directory (AD Azure) med.
 
-Integrera rutan med Azure AD ger dig följande fördelar:
+Genom att integrera Azure AD med kan få du följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till rutan.
-- Du kan aktivera användarna att automatiskt hämta loggat in på rutan (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton i en central plats - Azure-portalen.
+- Du kan aktivera användarna att hämta loggar in automatiskt på rutan (enkel inloggning eller SSO) med sina Azure AD-konton.
+- Du kan hantera dina konton i en central plats, Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Mer information om integrering av SaaS-app med Azure AD, se [vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med behöver du följande:
 
 - En Azure AD-prenumeration
-- En ruta enkel inloggning aktiverad prenumeration
+- En ruta SSO-aktiverade prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> När du testar stegen i den här självstudiekursen, rekommenderar vi att du *inte* använder en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Följ dessa rekommendationer för att testa stegen i den här självstudiekursen:
 
 - Använd inte i produktionsmiljön, om det är nödvändigt.
 - Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I kursen får testa du Azure AD enkel inloggning i en testmiljö. 
+
+Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
 
 1. Att lägga till fält från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
-## <a name="adding-box-from-the-gallery"></a>Att lägga till fält från galleriet
-För att konfigurera integrering av rutan i Azure AD, som du behöver lägga till fält från galleriet i listan över hanterade SaaS-appar.
+## <a name="add-box-from-the-gallery"></a>Lägg till fält från galleriet
+Om du vill konfigurera Azure AD-integrering med Lägg till fält från galleriet i listan över hanterade SaaS-appar genom att göra följande:
 
-**Utför följande steg för att lägga till fält från galleriet:**
-
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den [Azure-portalen](https://portal.azure.com), i den vänstra rutan, Välj **Azure Active Directory**. 
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Välj **företagsprogram** > **alla program**.
 
-    ![Avsnittet Enterprise program][2]
+    ![Fönstret ”företagsprogram”][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+3. Om du vill lägga till ett nytt program, Välj den **nytt program** längst upp i fönstret.
 
-    ![Knappen Nytt program][3]
+    ![”Det nya programmet” knappen][3]
 
-4. I sökrutan skriver **rutan**väljer **rutan** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **rutan**väljer **rutan** i resultatlistan och välj sedan **Lägg till**.
 
     ![Rutan i resultatlistan](./media/active-directory-saas-box-tutorial/tutorial_box_search.png)
+### <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med utifrån en testanvändare som kallas ”Britta Simon”.
 
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med rutan utifrån en testanvändare som kallas ”Britta Simon”.
+För enkel inloggning ska fungera, måste Azure AD att identifiera användaren rutan och dess motsvarighet i Azure AD. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och samma användare i rutan upprättas.
 
-Azure AD måste du känna till motsvarande användaren i till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i upprättas.
+Om du vill upprätta en länk relation, tilldela som rutan *användarnamn* värdet för den *användarnamn* i Azure AD.
 
-I rutan tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
-
-Om du vill konfigurera och testa Azure AD enkel inloggning med måste du utföra följande byggblock:
-
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare i rutan](#create-a-box-test-user)**  – du har en motsvarighet för Britta Simon i som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+Slutför byggblock i följande fem avsnitt för att konfigurera och testa Azure AD enkel inloggning med.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program i rutan.
+Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i rutan programmet genom att göra följande:
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med:**
+1. I Azure-portalen i den **rutan** -integration fönstret, Välj **enkel inloggning**.
 
-1. I Azure-portalen på den **rutan** integreringssidan för programmet, klickar du på **enkel inloggning**.
+    ![Länken ”enkel inloggning”][4]
 
-    ![Konfigurera enkel inloggning länk][4]
-
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. I den **enkel inloggning** fönster i den **läget för enkel inloggning** väljer **SAML-baserade inloggning**.
  
-    ![Enkel inloggning dialogrutan](./media/active-directory-saas-box-tutorial/tutorial_box_samlbase.png)
+    ![Fönstret ”enkel inloggning”](./media/active-directory-saas-box-tutorial/tutorial_box_samlbase.png)
 
-3. På den **rutan domän och URL: er** avsnittet, utför följande steg:
+3. Under **rutan domän och URL: er**, gör du följande:
 
-    ![URL: er och rutan domän med enkel inloggning information](./media/active-directory-saas-box-tutorial/url3.png)
+    ![”Rutan domän och URL: er” enkel inloggning information](./media/active-directory-saas-box-tutorial/url3.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.box.com`
+    a. I den **inloggnings-URL** skriver en URL i följande format: *https://\<subdomain >. box.com*.
 
-    b. I den **identifierare** textruta anger du URL: `box.net`
+    b. I den **identifierare** textruta typen **box.net**.
      
     > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera värdet med det faktiska inloggnings-URL. Kontakta [rutan klienten supportteamet](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) att hämta det här värdet. 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    > Föregående värden är inte verkliga. Uppdatera dem med de faktiska inloggnings-URL och identifierare. För att få värdena kan kontakta den [rutan klienten supportteamet](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). 
+
+4. Under **SAML-signeringscertifikat**väljer **XML-Metadata för**, och spara sedan metadatafilen på datorn.
 
     ![Länken hämta certifikatet](./media/active-directory-saas-box-tutorial/tutorial_box_certificate.png) 
 
-5. Klicka på **spara** knappen.
+5. Välj **Spara**.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-box-tutorial/tutorial_general_400.png)
     
-6. För att få SSO konfigurerats för ditt program kan du utföra stegen i [inställningen in enkel inloggning på din egen](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown)
+6. Om du vill konfigurera enkel inloggning för ditt program följer du proceduren i [Konfigurera enkel inloggning på din egen](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown).
 
 > [!NOTE] 
-> Om det inte går att aktivera enkel inloggning inställningar för Box-konto kan du behöva kontakta [rutan klienten supportteamet](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) och ger dem den hämta XML-filen.
+> Om du inte aktiverar SSO-inställningarna för Box-konto kan du behöva kontakta den [rutan klienten supportteamet](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) och ange den hämta XML-filen.
 
 > [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> När du konfigurerar appen, kan du läsa en kortare version av föregående anvisningarna i den [Azure-portalen](https://portal.azure.com). När du har lagt till appen i den **Active Directory** > **företagsprogram** väljer den **enkel inloggning** fliken och sedan ansluta till den inbäddade dokumentation i den **Configuration** avsnittet längst ned. Mer information om funktionen inbäddade dokumentation finns [Azure AD inbäddade dokumentationen]( https://go.microsoft.com/fwlink/?linkid=845985).
+>
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+I det här avsnittet skapar du testanvändare Britta Simon i Azure-portalen genom att göra följande:
 
-   ![Skapa en testanvändare i Azure AD][100]
+![Skapa en testanvändare i Azure AD][100]
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+1. I Azure-portalen i den vänstra rutan, Välj **Azure Active Directory**.
 
-1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+    ![Azure Active Directory-länk](./media/active-directory-saas-box-tutorial/create_aaduser_01.png)
 
-    ![Azure Active Directory-knappen](./media/active-directory-saas-box-tutorial/create_aaduser_01.png)
-
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+2. Om du vill visa en lista över aktuella användare, Välj **användare och grupper** > **alla användare**.
 
     ![”Användare och grupper” och ”alla användare” länkar](./media/active-directory-saas-box-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+3. Längst upp i den **alla användare** väljer **Lägg till**.
 
     ![Knappen Lägg till](./media/active-directory-saas-box-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+    Den **användaren** öppnas.
 
-    ![Dialogrutan användare](./media/active-directory-saas-box-tutorial/create_aaduser_04.png)
+4. I den **användaren** fönster, gör du följande:
+
+    ![Fönstret användare](./media/active-directory-saas-box-tutorial/create_aaduser_04.png)
 
     a. I den **namn** skriver **BrittaSimon**.
 
@@ -160,54 +153,51 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
 
-    d. Klicka på **Skapa**.
+    d. Välj **Skapa**.
  
 ### <a name="create-a-box-test-user"></a>Skapa en testanvändare i rutan
 
-I det här avsnittet skapas en användare som kallas Britta Simon i rutan. Rutan stöder just-in-time-allokering som är aktiverad som standard.
-Det finns ingen åtgärd objekt i det här avsnittet. Om en användare inte redan finns i rutan, skapas en ny när du försöker komma åt rutan.
+I det här avsnittet skapar du testanvändare Britta Simon i rutan. Rutan stöder just-in-time-allokering som är aktiverad som standard. Om en användare inte redan finns, skapas en ny när du försöker komma åt rutan. Ingen åtgärd krävs för att skapa användaren.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till rutan.
+I det här avsnittet kan du låta användare Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till rutan. Det gör du genom att göra följande:
 
-![Tilldela rollen][200] 
+![Tilldela rollen][200]
 
-**Om du vill tilldela rutan Britta Simon utför du följande steg:**
+1. I Azure-portalen öppnar den **program** visa, gå till den **Directory** visa och välj sedan **företagsprogram** > **alla program**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+    ![”Företagsprogram” och ”alla program” länkar][201] 
 
-    ![Tilldela användare][201] 
+2. I den **program** väljer **rutan**.
 
-2. Välj i listan med program **rutan**.
+    ![Länken](./media/active-directory-saas-box-tutorial/tutorial_box_app.png)  
 
-    ![Länken visas i listan med program](./media/active-directory-saas-box-tutorial/tutorial_box_app.png)  
-
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I den vänstra rutan, Välj **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Välj **Lägg till** och sedan, i den **Lägg uppdrag** väljer **användare och grupper**.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. I den **användare och grupper** fönster i den **användare** väljer **Britta Simon**.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Välj den **Välj** knappen.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. I den **Lägg uppdrag** väljer **tilldela**.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet testa du Azure AD enkel inloggning konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på rutan panelen på åtkomstpanelen bör du få inloggningssidan att hämta loggat in på ditt program i rutan.
+När du väljer den **rutan** panelen i åtkomstpanelen du öppna inloggningssidan för att logga in i tillämpningsprogrammet rutan.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Konfigurera Användaretablering](active-directory-saas-box-userprovisioning-tutorial.md)
+* [Konfigurera användaretablering](active-directory-saas-box-userprovisioning-tutorial.md)
 
 
 

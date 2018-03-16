@@ -3,7 +3,7 @@ title: Azure Active Directory v2.0 tokens referens | Microsoft Docs
 description: "Typer av token och anspråk som sänds av Azure AD v2.0-slutpunkten"
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: hpsin
 manager: mtillman
 editor: 
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 token-referens
 Azure Active Directory (AD Azure) v2.0-slutpunkten genererar flera typer av säkerhetstoken i varje [autentiseringsflödet](active-directory-v2-flows.md). Den här referensen beskriver format, säkerhet egenskaperna och innehållet i varje typ av token.
@@ -57,7 +57,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | Namn | Begär | Exempelvärde | Beskrivning |
 | --- | --- | --- | --- |
 | målgrupp |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Identifierar den avsedda mottagaren av token. I ID-token är den din app program-ID som tilldelats din app i portalen för registrering av Microsoft-program. Din app ska verifiera det här värdet och avvisa token om värdet inte matchar. |
-| Utfärdaren |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Identifierar den säkerhetstokentjänst (STS) som skapar och återställer token och Azure AD-klient som användaren autentiserades. Appen bör verifiera utfärdaren anspråk så att token som kommer från v2.0-slutpunkten. Det bör också använda GUID-delen av anspråket för att begränsa antalet klienter som kan logga in i appen. Det GUID som anger att användaren är en konsument användare från ett Microsoft-konto är `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+| issuer |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Identifierar den säkerhetstokentjänst (STS) som skapar och återställer token och Azure AD-klient som användaren autentiserades. Appen bör verifiera utfärdaren anspråk så att token som kommer från v2.0-slutpunkten. Det bör också använda GUID-delen av anspråket för att begränsa antalet klienter som kan logga in i appen. Det GUID som anger att användaren är en konsument användare från ett Microsoft-konto är `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | Utfärdat till |`iat` |`1452285331` |Den tid då token utfärdats representeras i epok tid. |
 | Förfallotid |`exp` |`1452289231` |Den tid då token blir ogiltig representeras i epok tid. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
 | Inte före |`nbf` |`1452285331` |Den tid då token börjar gälla, representeras i epok tid. Det är vanligtvis samma som den utfärdande-tid. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
@@ -86,7 +86,7 @@ Uppdaterings-tokens är flera resurs. En uppdateringstoken som togs emot under e
 
 Om du vill få en uppdatering i en token svar din app måste begära och beviljas den `offline_acesss` omfång. Mer information om den `offline_access` omfång, finns i [medgivande och scope](active-directory-v2-scopes.md) artikel.
 
-Uppdatera token är och alltid kommer att vara, helt ogenomskinlig till din app. De kan har utfärdats av Azure AD v2.0-slutpunkten och bara kontrolleras och tolkas av v2.0-slutpunkten. De är långlivade, men din app inte att skriva kan förvänta sig att en uppdateringstoken ska gälla för en viss tidsperiod. Uppdaterings-tokens kan vara inaktuella när som helst av olika skäl. Det enda sättet för din app att veta om en uppdateringstoken är giltig är att försöka lösa genom att göra en tokenbegäran v2.0-slutpunkten.
+Uppdatera token är och alltid kommer att vara, helt ogenomskinlig till din app. De kan har utfärdats av Azure AD v2.0-slutpunkten och bara kontrolleras och tolkas av v2.0-slutpunkten. De är långlivade, men din app inte att skriva kan förvänta sig att en uppdateringstoken ska gälla för en viss tidsperiod. Uppdaterings-tokens kan vara inaktuella när som helst av olika skäl - mer information finns i [token återkallade](active-directory-token-and-claims.md#token-revocation). Det enda sättet för din app att veta om en uppdateringstoken är giltig är att försöka lösa genom att göra en tokenbegäran v2.0-slutpunkten.
 
 När du lösa in en uppdateringstoken för en ny åtkomsttoken (och om din app har beviljats av `offline_access` omfattning), du får en ny uppdateringstoken i token svaret. Spara den nyligen utfärdade uppdateringstoken för att ersätta den som du använde i begäran. Detta garanterar att uppdaterings-tokens vara giltigt så länge som möjligt.
 
@@ -140,7 +140,7 @@ En fullständig lista över anspråk verifieringar som din app ska utföra finns
 
 Information om de förväntade värdena för dessa anspråk som ingår i den [ID-token](# ID tokens) avsnitt.
 
-## <a name="token-lifetimes"></a>Livslängd för token
+## <a name="token-lifetimes"></a>Tokenlivslängder
 Vi ger följande token livslängd endast i informationssyfte. Informationen kan hjälpa dig när du utvecklar och felsöka appar. Dina appar skrivs bör inte ser något av dessa livslängd förblir konstant. Token kan livslängd och kommer att ändras när som helst.
 
 | Token | Livslängd | Beskrivning |

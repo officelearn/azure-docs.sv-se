@@ -14,7 +14,7 @@ Om du vill skapa och hantera virtuella Azure-datorer (VM) på ett konsekvent sä
 
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/) är en automatiseringsmotor för konfigurationshantering, skapa en virtuell dator eller programdistribution. Ansible använder en agentfri modell vanligtvis med SSH-nycklar för att autentisera och hantera måldatorer. Konfigurationsuppgifter definieras i runbooks med ett antal Ansible moduler som är tillgängliga för att utföra specifika åtgärder. Mer information finns i [hur Ansible fungerar](https://www.ansible.com/how-ansible-works).
+[Ansible](https://www.ansible.com/) är en automatiseringsmotor för konfigurationshantering, skapa en virtuell dator eller programdistribution. Ansible använder en agentfri modell vanligtvis med SSH-nycklar för att autentisera och hantera måldatorer. Konfigurationsuppgifter definieras i playbooks med ett antal Ansible moduler som är tillgängliga för att utföra specifika åtgärder. Mer information finns i [hur Ansible fungerar](https://www.ansible.com/how-ansible-works).
 
 Lär dig att:
 
@@ -41,19 +41,19 @@ Lär dig att:
 
 
 ## <a name="cloud-init"></a>Cloud-init
-[Molnet init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en Linux VM när den startas för första gången. Du kan använda molnet init för att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom molnet init anropas under den ursprungliga startprocessen, finns det inga ytterligare steg eller nödvändiga agenter att tillämpa konfigurationen.  Mer information om hur du formaterar korrekt din `#cloud-config` filer finns i [molnet init dokumentationsplatsen](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`är textfiler i base64-kodade.
+[Cloud-init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom molnet init anropas under den ursprungliga startprocessen, finns det inga ytterligare steg eller nödvändiga agenter att tillämpa konfigurationen.  Mer information om hur du formaterar korrekt din `#cloud-config` filer finns i [molnet init dokumentationsplatsen](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` är textfiler i base64-kodade.
 
-Molnet init fungerar även över distributioner. Exempelvis kan du inte använda **lgh get installera** eller **yum installera** att installera ett paket. I stället kan du definiera en lista över paket som ska installeras. Molnet init används automatiskt det ursprungliga paket hanteringsverktyget för distro som du väljer.
+Cloud-init fungerar med olika distributioner. Du använder till exempel inte **apt-get install** eller **yum install** när du vill installera ett paket. I stället definierar du en lista med paket att installera. Cloud-init använder automatiskt rätt pakethanteringsverktyg för den distribution du valt.
 
  Vi arbetar aktivt med våra påtecknade Linux distro partners för att molnet init aktiverat bilder som finns i Azure marketplace. Dessa avbildningar gör dina molntjänster init-distributioner och konfigurationer fungerar sömlöst med virtuella datorer och virtuella datorer. I följande tabell beskrivs aktuella molnet init aktiverat bilder tillgängligheten på Azure-plattformen:
 
 | Utgivare | Erbjudande | SKU | Version | redo för molnet initiering
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |16.04 LTS |senaste |ja | 
+|Canonical |UbuntuServer |16.04-LTS |senaste |ja | 
 |Canonical |UbuntuServer |14.04.5-LTS |senaste |ja |
 |CoreOS |CoreOS |Stable |senaste |ja |
-|OpenLogic |CentOS |7 CI |senaste |förhandsgranskning |
-|Redhat |RHEL |7 RÅDATA CI |senaste |förhandsgranskning |
+|OpenLogic |CentOS |7-CI |senaste |förhandsgranskning |
+|Redhat |RHEL |7-RAW-CI |senaste |förhandsgranskning |
 
 Lär dig mer information om molnet initiering på Azure:
 
@@ -84,7 +84,7 @@ Lär dig att:
 - [Skapa en virtuell Windows-dator med Azure PowerShell och använda tillägget för anpassat skript](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
 
 
-## <a name="packer"></a>Packare
+## <a name="packer"></a>Packer
 [Packare](https://www.packer.io) automatiserar skapar när du skapar en anpassad VM-avbildning i Azure. Du kan använda förpackaren för att definiera OS och kör efter konfigurationsskript för att anpassa den virtuella datorn för dina specifika behov. När du konfigurerat avbildas den virtuella datorn sedan som en hanterad diskavbildning. Packare automatiserar processen att skapa källan VM, nätverk och lagringsresurser, kör konfigurationsskript och sedan skapa VM-avbildning.
 
 Lär dig att:

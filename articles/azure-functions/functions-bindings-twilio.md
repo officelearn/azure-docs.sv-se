@@ -16,17 +16,23 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 52a45f1b67e3194739fe97daad56de2d3515dee3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: ff31f8b265452b6864e36323e770f808f87de019
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio-bindning för Azure Functions
 
 Den här artikeln beskrivs hur du skickar meddelanden med hjälp av [Twilio](https://www.twilio.com/) bindningar i Azure Functions. Azure Functions stöder utdata bindningar för Twilio.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Paket
+
+Twilio-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-paketet. Källkoden för paketet är i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub-lagringsplatsen.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Exempel
 
@@ -195,7 +201,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="attributes"></a>Attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) attribut.
 
 Information om egenskaper för attribut som du kan konfigurera finns [Configuration](#configuration). Här är en `TwilioSms` attributet exempel i en signatur:
 
@@ -221,14 +227,14 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ**|| måste anges till `twilioSms`.|
-|**riktning**|| måste anges till `out`.|
+|**Typ**|| måste anges till `twilioSms`.|
+|**Riktning**|| måste anges till `out`.|
 |**Namn**|| Variabelnamn som används i Funktionskoden för textmeddelande Twilio SMS. |
 |**accountSid**|**AccountSid**| Det här värdet måste anges till namnet på en appinställning som innehåller dina Twilio-konto Sid.|
 |**authToken**|**AuthToken**| Det här värdet måste anges till namnet på en appinställning som innehåller dina Twilio-token för autentisering.|
-|**att**|**Till**| Det här värdet anges till det telefonnummer som SMS-meddelanden skickas till.|
-|**från**|**Från**| Det här värdet anges till det telefonnummer som SMS-meddelanden skickas från.|
-|**brödtext**|**Brödtext**| Det här värdet kan användas för att hård code SMS textmeddelande om du inte behöver ange den dynamiskt i koden för din funktion. |
+|**Att**|**Till**| Det här värdet anges till det telefonnummer som SMS-meddelanden skickas till.|
+|**from**|**Från**| Det här värdet anges till det telefonnummer som SMS-meddelanden skickas från.|
+|**Brödtext**|**Brödtext**| Det här värdet kan användas för att hård code SMS textmeddelande om du inte behöver ange den dynamiskt i koden för din funktion. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

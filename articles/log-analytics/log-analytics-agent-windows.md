@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 3bb023cfd94c7b87550d692101d30f922de80bf9
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 778810001952daf9ac63a7f1f880b05234549965
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ansluta Windows-datorer till Log Analytics-tjänsten i Azure
 
@@ -38,7 +38,7 @@ För att förstå kraven för Nätverks- och distribuera Windows-agenten ska gra
 ## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans ID och nyckel
 Innan du installerar Microsoft Monitoring Agent för Windows behöver du arbetsytans ID och nyckel för Log Analytics-arbetsytan.  Den här informationen krävs under installationen från olika installationsmetoderna konfigurera agenten och se till att den kan kommunicera med logganalys i Azure kommersiella och som tillhör amerikanska myndigheter moln korrekt.  
 
-1. I Azure-portalen klickar du på **alla tjänster**. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
+1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 2. Välj arbetsytan som du tänker på Konfigurera agenten rapporterar till i din lista över logganalys arbetsytor.
 3. Välj **Avancerade inställningar**.<br><br> ![Avancerade inställningar i Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Välj **Anslutna källor** och välj sedan **Windows-servrar**.   
@@ -63,7 +63,7 @@ Följande steg installera och konfigurera agenten för Log Analytics i Azure och
 När du är klar visas **Microsoft Monitoring Agent** i **Kontrollpanelen**. För att bekräfta att den rapporterar till logganalys, granska [verifiera agenten anslutning till logganalys](#verify-agent-connectivity-to-log-analytics). 
 
 ## <a name="install-the-agent-using-the-command-line"></a>Installera agenten med hjälp av kommandoraden
-Den hämta filen för agenten är ett fristående installationsprogram som skapats med IExpress.  Installationsprogrammet för agenten och stödfilerna finns i paketet och behöver extraheras för att kunna installera med hjälp av kommandoraden som visas i följande exempel.    
+Den hämta filen för agenten är ett fristående installationsprogram.  Installationsprogrammet för agenten och stödfilerna finns i paketet och behöver extraheras för att kunna installera med hjälp av kommandoraden som visas i följande exempel.    
 
 >[!NOTE]
 >Om du vill uppgradera en agent måste du använda logganalys scripting-API. Finns i avsnittet [hantera och underhålla logganalys-agenten för Windows och Linux](log-analytics-agent-manage.md) för ytterligare information.
@@ -72,6 +72,7 @@ Följande tabell visar specifika logganalys parametrar som stöds av installatio
 
 |MMA-specifika alternativ                   |Anteckningar         |
 |---------------------------------------|--------------|
+| NOAPM=1                               | Valfri parameter. Installerar agenten utan prestandaövervakning av .NET-program.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = konfigurera agenten ska rapportera till en arbetsyta                |
 |OPINSIGHTS_WORKSPACE_ID                | Arbetsyte-Id (guid) för arbetsytan att lägga till                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Arbetsytenyckel som används för att först autentisera med arbetsytan |
@@ -80,7 +81,7 @@ Följande tabell visar specifika logganalys parametrar som stöds av installatio
 |OPINSIGHTS_PROXY_USERNAME               | Användarnamn för att komma åt en autentiserad proxyserver |
 |OPINSIGHTS_PROXY_PASSWORD               | Lösenord för åtkomst till en autentiserad proxyserver |
 
-1. Extrahera installationsfilerna för agent från en upphöjd kommandotolk kör `extract MMASetup-<platform>.exe` och blir du ombedd för sökvägen till filerna ska extraheras.  Du kan också ange sökvägen genom att skicka argumenten `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`.  Mer information om kommandoradsverktyget switchar som stöds av IExpress finns [kommandoradsväxlar för IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) och uppdatera sedan exempel så att de passar dina behov.
+1. Extrahera installationsfilerna för agent från en upphöjd kommandotolk kör `MMASetup-<platform>.exe /c` och blir du ombedd för sökvägen till filerna ska extraheras.  Du kan också ange sökvägen genom att skicka argumenten `MMASetup-<platform>.exe /c /t:<Path>`.  
 2. Om du vill installera agenten och konfigurera den för att rapportera till en arbetsyta i Azure kommersiella molntjänster från mappen tyst extraherade installationsfilerna till typen: 
    
      ```dos
@@ -99,8 +100,8 @@ Du kan använda följande exempel på skript för att installera agenten med hj�
 
 I följande exempel installeras på 64-bitars agent som identifieras av den `URI` värde. Du kan också använda 32-bitars version genom att ersätta URI-värdet. URI: er för båda versionerna är:
 
-- Windows 64-bitars agent - https://go.microsoft.com/fwlink/?LinkId=828603
-- Windows 32-bitars agent - https://go.microsoft.com/fwlink/?LinkId=828604
+- Windows 64-bitars agent- https://go.microsoft.com/fwlink/?LinkId=828603
+- Windows 32-bitars agent- https://go.microsoft.com/fwlink/?LinkId=828604
 
 
 >[!NOTE]
@@ -108,9 +109,9 @@ I följande exempel installeras på 64-bitars agent som identifieras av den `URI
 
 32-bitars och 64-bitars versioner av paketet agent har olika koder och nya versioner släpps också ha ett unikt värde.  Den här koden är ett GUID som är den primära identifieringen av ett program eller en produkt och representeras av Windows Installer **ProductCode** egenskapen.  Den `ProductId value` i den **MMAgent.ps1** skriptet måste matcha den här koden från 32-bitars eller 64-bitars agent installer-paketet.
 
-Om du vill hämta den här koden från installera agenten direkt, kan du använda Orca.exe från den [Windows SDK-komponenterna för Windows Installer-utvecklare](https://msdn.microsoft.com/library/windows/desktop/aa370834%27v=vs.85%28.aspx) som är en del av Windows Software Development Kit eller med hjälp av Följande PowerShell en [exempelskriptet](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) skrivs av en Microsoft Valuable Professional (MVP).
+Om du vill hämta den här koden från installera agenten direkt, kan du använda Orca.exe från den [Windows SDK-komponenterna för Windows Installer-utvecklare](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) som är en del av Windows Software Development Kit eller med hjälp av Följande PowerShell en [exempelskriptet](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) skrivs av en Microsoft Valuable Professional (MVP).  Antingen metod måste du först extrahera den **MOMagent.msi** filen från MMASetup-installationspaketet.  Detta visas tidigare i det första steget i avsnittet [installera agenten med hjälp av kommandoraden](#install-the-agent-using-the-command-line).  
 
-1. Importera xPSDesiredStateConfiguration DSC-modul från [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) i Azure Automation.  
+1. Importera xPSDesiredStateConfiguration DSC-modul från [ http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration ](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) i Azure Automation.  
 2.  Skapa en variabel Azure Automation-tillgångar för *OPSINSIGHTS_WS_ID* och *OPSINSIGHTS_WS_KEY*. Ange *OPSINSIGHTS_WS_ID* till logganalys arbetsyte-ID och ange *OPSINSIGHTS_WS_KEY* till den primära nyckeln för arbetsytan.
 3.  Kopiera skriptet och spara den som MMAgent.ps1
 
@@ -161,7 +162,7 @@ Från datorn i **Kontrollpanelen**, söka efter artikeln **Microsoft Monitoring 
 
 Du kan också utföra en enkel logg sökning i Azure-portalen.  
 
-1. I Azure-portalen klickar du på **alla tjänster**. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.  
+1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.  
 2. På sidan logganalys-arbetsytan väljer målarbetsytan och välj sedan den **loggen Sök** panelen. 
 2. I fönstret loggen Sök i fälttypen fråga:  
 

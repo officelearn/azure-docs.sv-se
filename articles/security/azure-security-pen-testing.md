@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/08/2017
-ms.author: yurid
-ms.openlocfilehash: dd5c874406ec184a2526a9eb0843cd6f3b6b3aa1
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.date: 03/13/2018
+ms.author: barclayn
+ms.openlocfilehash: 5f2a72d133218e72d1db86b787c998cc50269d3a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="pen-testing"></a>Penna testning
 En av fördelarna med att använda Azure för att testa program och distribution är att du snabbt kan få miljöer som har skapats.  Du behöver inte bry dig om rekvisition, hämta, och ”förflyttning och stapling” lokal maskinvara.
@@ -31,7 +31,7 @@ Vi inte pennan testa ditt program för dig, men vi förstår att du vill ha och 
 
 Hur ska du göra?
 
-Från och med den 15 juni 2017 Microsoft längre kräver godkännande på förhand att genomföra en intrång testerna mot Azure-resurser. Kunder som vill formellt dokument kommande intrång testa Användarsegmentet mot Microsoft Azure uppmuntras att fylla i den [Azure Service intrång testning Notification formuläret](https://portal.msrc.microsoft.com/engage/pentest). Den här processen är bara relaterad till Microsoft Azure och gäller inte andra Microsoft-Molntjänsten. 
+Från och med den 15 juni 2017 Microsoft längre kräver godkännande på förhand att genomföra en intrång testerna mot Azure-resurser. Kunder som vill formellt dokument kommande intrång testa Användarsegmentet mot Microsoft Azure uppmuntras att fylla i den [Azure Service intrång testning Notification formuläret](https://portal.msrc.microsoft.com/en-us/engage/pentest). Den här processen är bara relaterad till Microsoft Azure och gäller inte andra Microsoft-Molntjänsten. 
 
 >[!IMPORTANT] 
 >Medan meddela Microsoft pennan testning aktiviteter krävs inte längre kunder måste fortfarande vara kompatibel med den [Microsoft Cloud Unified intrång testning regler för Engagement](https://technet.microsoft.com/en-us/mt784683). 

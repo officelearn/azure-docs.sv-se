@@ -6,13 +6,13 @@ author: dlepow
 ms.service: multiple
 ms.topic: include
 ms.date: 03/05/2018
-ms.author: danlep
+ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 8614fa7a52c91419c66782f7434692228e6b18d2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 96826b2f8acd579cbfe30f2e524d94ce4867df30
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 GPU optimerade VM storlekar är särskilda virtuella datorer som är tillgängliga med en eller flera NVIDIA GPU. Dessa storlekar är utformade för beräkningsintensiva, grafik och visualisering arbetsbelastningar. Den här artikeln innehåller information om antalet och typen av GPU-kort, vCPUs, datadiskar och nätverkskort samt lagring genomflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 

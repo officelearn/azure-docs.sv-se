@@ -3,8 +3,8 @@ title: "Testa din VM-erbjudande för Marketplace | Microsoft Docs"
 description: "Förstå hur du testar dina VM-avbildning för Azure Marketplace."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: hascipio
-ms.openlocfilehash: 26f856059b381be91b9cdd1f98a11dc90813c0c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 7f225f113dd465f79d5d195b59a809fe3be6a1f8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Testa din VM-erbjudande för Azure Marketplace under mellanlagring
 Mellanlagring innebär att distribuera din SKU i ett privat ”sandbox” där du kan testa och validera dess funktioner innan du distribuerar det till Marketplace. SKU: N visas i Förproduktion precis som när en kund som har distribuerat den. VM-avbildning måste certifierade pushas till mellanlagring.
@@ -47,7 +47,7 @@ Mellanlagring innebär att distribuera din SKU i ett privat ”sandbox” där d
    * Kontrollera att marknadsföring innehåll visas korrekt på Marketplace.
    * Slutpunkt till slutpunkt för distributionen av VM-avbildning.
      
-      ![img kartan portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
+      ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
 
 > [!IMPORTANT]
 > Erbjudandet finns kvar i Förproduktion tills du meddela Microsoft via Publishing Portal [**publicera** fliken > Klicka på knappen **”begär godkännande att Push till produktion”**] att du är redo att skicka till produktion. Detta är en perfekt ha alla medlemmar av ditt team kontroll över allt inför erbjudandet ska visas.
@@ -59,6 +59,6 @@ Mellanlagring innebär att distribuera din SKU i ett privat ”sandbox” där d
 ## <a name="next-steps"></a>Nästa steg
 Nu när erbjudandet ”mellanlagras” och du har testat dess funktioner och marknadsföring innehåll, kan du fortsätta till publishing slutfasen **steg 4**: [distribuera erbjudandet på Marketplace](marketplace-publishing-push-to-production.md).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Komma igång: hur du publicerar ett erbjudande på Azure Marketplace](marketplace-publishing-getting-started.md)
 

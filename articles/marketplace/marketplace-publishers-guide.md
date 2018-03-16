@@ -14,11 +14,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: d02d6e942dfc503dd87a8ebcb6e2ddcf6b6065c5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace och AppSource Publisher Guide
 
@@ -51,7 +51,7 @@ Dra nytta av funktioner för marketplace att växa:
 
 ## <a name="what-are-azure-marketplace-and-appsource"></a>Vad är Azure Marketplace och AppSource?
 
-Microsoft tillhandahåller två distinkta marketplace skyltfönster som gör att partner att visa en lista med erbjudanden, aktivera försök och transact direkt med Microsofts kunder och ekosystem: [Azure Marketplace] (https://azuremarketplace.microsoft.com) och () [AppSource] https://appsource.microsoft.com). Dessa skyltfönster kan kunder att hitta, försök och köpa program och tjänster som påskyndar sina digitala Transformation och hjälpa utgivare utöka sin verksamhet genom att öka åtkomst till Microsofts kunder och partner-ekosystemet.
+Microsoft tillhandahåller två distinkta marketplace skyltfönster som gör att partner att visa en lista med erbjudanden, aktivera försök och transact direkt med Microsofts kunder och ekosystem: [Azure Marketplace] (https://azuremarketplace.microsoft.com) och [AppSource] (https://appsource.microsoft.com). Dessa skyltfönster kan kunder att hitta, försök och köpa program och tjänster som påskyndar sina digitala Transformation och hjälpa utgivare utöka sin verksamhet genom att öka åtkomst till Microsofts kunder och partner-ekosystemet.
  
 Marketplace-skyltfönster justeras till målgrupper och Microsoft cloud-produkter som hjälper kunder att söka efter de behöver. Varje storefront innehåller särskilda publiceringsalternativ som hjälper dig att maximera investeringen publishing sammanfattning av följande tabell:
 
@@ -112,7 +112,7 @@ Det här avsnittet tar dig igenom alternativ som är tillgängliga för dig i b�
 
 |**Publiceringsalternativ**  | **Erbjudandetypen** | **Storefront**  |
 |---------|---------|---------|
-|lista    |    Kontakta mig samråd med tjänsten     |  Azure Marketplace, AppSource       |
+|**lista**    |    Kontakta mig samråd med tjänsten     |  Azure Marketplace, AppSource       |
 |**Utvärdering**   |     Kostnadsfri utvärderingsversion, SaaS utvärderingsversion, interaktiva Demo, Testkör    |  Azure Marketplace, AppSource       |
 |**Transact**     |   Virtuell dator, Lösningsmall för, hanterade program      |    Azure Marketplace     |
 
@@ -172,7 +172,7 @@ Använd en **Azure Lösningsmall** när en lösning kräver ytterligare distribu
 Använd en **Azure hanterad App** när du distribuerar en virtuell dator eller en hel IaaS-baserad lösning till kundens prenumeration när utgivare eller kund önskar lösningen ska hanteras av en 3 part, till exempel en SI eller MSP. Lär dig mer om [bygga appar här](https://docs.microsoft.com/azure/managed-applications/overview). En lista över vanliga frågor finns i [Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/).
 
 >[!NOTE]
-> Hanterade appar måste vara distribueras via marketplace. Observera att du kommer att kunna nå ut till berörda kunder om du har lead delning aktiverad om kunden kommunikation platser är viktig.
+> Hanterade appar måste vara distribueras via marketplace. Observera att du kommer att kunna nå ut till berörda kunder om du har lead delning aktiverad om kunden kommunikation är viktig.
 
 ### <a name="azure-certified"></a>Azure Certified
 
@@ -210,11 +210,11 @@ Om du aktiverar du däremot ta din egen licens som ett alternativ:
 |Licens-kostnad     | Licens avgift förhandlades och debiteras av utgivare        |
 |---------|---------|
 |Azure användning kostnaden (D1/1 kärna)    | $0.14 per timme         |
-|**Kunden faktureras av Microsoft**     | $0.14 per timme        |
+|**Kunden faktureras av Microsoft**     | **$0.14 per timme**        |
 
 I det här scenariot debiterar Microsoft $0.14 per timme för användning av dina publicerade avbildning av virtuell dator. 
 
-|**Microsoft växlar**    |   $0.14 per timme      |
+|**Microsoft växlar**    |   **$0.14 per timme**      |
 |---------|---------|
 |Microsoft håller kostnaden för Azure-användning     |    $0.14 per timme     |
 |Microsoft håller 0% av licens-kostnad     |  0.00 $ per timme       |
@@ -240,7 +240,7 @@ Samtliga Enterprise Agreement-kunder kan nu lägga till Azure i avtalet genom at
 |---------|---------|---------|
 |**Deltagande principer**    | Granska Azure Marketplace deltagande principer [här] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Lista, utvärderingsversion, Transact        |
 |**Integrering med Microsoft**    | Azure Marketplace-erbjudanden bör utnyttja eller utöka Microsoft Azure-tjänster, till exempel beräkning, nätverk och lagring och justera i en befintlig Azure Marketplace-kategori databaser, säkerhet, nätverk, t.ex. Den fullständiga listan [här](https://azuremarketplace.microsoft.com/marketplace/apps).        | Lista, utvärderingsversion, Transact        |
-|målgrupp    | Azure Marketplace-erbjudanden måste vara för IT-proffs, molnet utvecklare eller andra tekniska kundroller.       |  Lista, utvärderingsversion, Transact 
+|**målgrupp**    | Azure Marketplace-erbjudanden måste vara för IT-proffs, molnet utvecklare eller andra tekniska kundroller.       |  Lista, utvärderingsversion, Transact 
 |**Administrera leads**    | Du måste aktivera din CRM (Marketo, Microsoft Dynamics eller Salesforce) för att acceptera lead data för att ta emot leads från Marketplace.        |   Lista, utvärderingsversion, Transact      |
 |**Sekretesspolicy och användningsvillkor**     |   Sekretesspolicy för måste vara tillgängliga via en offentlig URL och måste ange dina villkor för användning som text vid publicering.      |   Lista, utvärderingsversion, Transact      |
 |**Support**     |  Erbjudandet måste innehålla en offentligt tillgänglig URL där kunder kan hitta hjälp. För försök anges support utan extra kostnad för utvärderingsperioden.       |  Utvärderingsversion, Transact       |
@@ -260,20 +260,20 @@ Samtliga Enterprise Agreement-kunder kan nu lägga till Azure i avtalet genom at
 |**Krav**  |**Detaljer** |**Publiceringsalternativ**  |
 |---------|---------|---------|
 |**Fakturering och mätning**    |  Den virtuella datorn måste ha stöd för antingen Bring Your Own License eller användningsbaserad, varje månad fakturering.       |    Transact    |
-|**Azure-kompatibel virtuell hårddisk (VHD)**     |   Virtuella datorer måste baseras på [Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) eller [Linux] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transact      |
+|**Azure-kompatibel virtuell hårddisk (VHD)**     |   Virtuella datorer måste baseras på [Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) eller () [Linux]https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transact      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Krav som är specifika för samråd Services publicering
 
 
-|Krav |**Detaljer**  |**Publiceringsalternativ**  |
+|**Krav** |**Detaljer**  |**Publiceringsalternativ**  |
 |---------|---------|---------|
 |**Tjänster erbjuder egenskaper**     | Tjänsten samråd måste vara levererade som ett fast scope, fast varaktighet, fast pris (eller gratis) engagement, främst förförsäljnings inriktade, begränsat till en kund och utförs på plats        |    Visa lista     |
-|**Partnerkrav för rådgivning**    |   **AppSource.**  Dynamics 365 för kunden Engagement [Silver eller guld moln Customer Relationship Management kompetensen](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 för ekonomi och åtgärder Enterprise edition: Silver eller guld [Enterprise resursplanering] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) kompetensen och en minsta intäkter av $25K i molnet Åtgärder i efterföljande tolv månader. Dynamics 365 för ekonomi och åtgärder, Business edition: fungera som [moln-providers (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) eller [digitala Partner av posten (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) för minst en kund. Powerbi: Uppfyller [samarbetspartner] (file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20 & % 20Incentives.pdf). PowerApps: Ha en lösning för [Partner samlade] (https://powerapps.microsoft.com/en-us/partner-showcase/) |    Visa lista     |
+|**Partnerkrav för rådgivning**    |   **AppSource.**  Dynamics 365 för kunden Engagement [Silver eller guld moln Customer Relationship Management kompetensen](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 för ekonomi och åtgärder Enterprise edition: Silver eller guld [Enterprise resursplanering] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) kompetensen och en minsta intäkter av $25 K i molnet åtgärder i efterföljande tolv månader. Dynamics 365 för ekonomi och åtgärder, Business edition: fungera som [moln-providers (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) eller [digitala Partner av posten (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) för minst en kund. Powerbi: Uppfyller [samarbetspartner] (file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20 & % 20Incentives.pdf). PowerApps: Har [Partner samlade] (https://powerapps.microsoft.com/en-us/partner-showcase/) lösning |    Visa lista     |
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Använda Azure Active Directory för att aktivera försök
 Azure Active Directory (AAD) är en molntjänst identitet som aktiverar autentisering med ett Microsoft-arbets- eller Skol-konto med standardprotokollen: OAuth och OpenID Connect. Lär dig mer om AAD [här](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
 
-Microsoft verifierar alla Marketplace användare med AAD, därför när en autentiserad användare klickar på via din utvärderingsversion registrering i Marketplace och är omdirigeras till en utvärderingsversion miljö, du kan etablera användaren direkt till en utvärderingsversion utan en ytterligare inloggning steg. [Token som din app får från AAD under autentiseringen] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) innehåller värdefulla användarinformation som du kan använda för att skapa en användarkontot i din app så att du kan automatisera etableringen upplevelse och öka sannolikheten för konvertering. 
+Microsoft verifierar alla Marketplace användare med AAD, därför när en autentiserad användare klickar på via din utvärderingsversion registrering i Marketplace och är omdirigeras till en utvärderingsversion miljö, du kan etablera användaren direkt till en utvärderingsversion utan en ytterligare inloggning steg. [Token som din app får från AAD under autentiseringen] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) innehåller värdefulla användarinformation som du kan använda för att skapa ett användarkonto i din app så att du kan automatisera etablering upplevelse och öka sannolikheten för konvertering. 
 
 Använda AAD för att aktivera 1-Klicka autentisering till din app eller utvärderingsversion:
 
@@ -303,7 +303,7 @@ För program som en klient:
 
 Det finns flera alternativ för en organisation program:
 
-- Lägga till användare i din katalog som gästanvändare med [Azure B2B] (https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+- Lägga till användare i din katalog som gästanvändare med () [Azure B2B]https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
 - Etablera manuellt försök för kunder via kontakta mig
 - Utveckla en per kund Test-enhet
 - Skapa en flera innehavare demo exempelapp med enkel inloggning
@@ -392,7 +392,7 @@ Innan du börjar publishing, är det viktigt att förstå de komponenter som kr�
 
 |Du behöver den publicerar artefakt  |För den här Erbjudandetypen  |
 |---------|---------|
-|Versionsnummer     |    Transact-Azure appar (Lösningsmallar och hanterade appar)     |
+|**Versionsnummer**     |    Transact-Azure appar (Lösningsmallar och hanterade appar)     |
 |**Paketfil som innehåller alla mallfilerna och createUIDefinitionFile**   |Transact-Azure appar (Lösningsmallar och hanterade appar)         |
 |**Information om operativsystem**    |   Transact-virtuella datorer      |
 |**Portar och protokoll som används**    |  Transact-virtuella datorer       |
@@ -510,7 +510,7 @@ När du skapar ett företagskonto, följer du dessa riktlinjer om mer än en per
 - Lägga till ett telefonnummer för företag som inte kräver ett tillägg och går att komma åt viktiga gruppmedlemmar.
 - I allmänhet har utvecklare använda betrodda enheter för att logga in på ditt företags utvecklarkonto. Alla nycklar teammedlemmar ska ha åtkomst till dessa betrodda enheter. Detta minskar behovet av säkerhetskoder som ska skickas vid åtkomst till kontot.
 - Om du vill tillåta åtkomst till kontot från en icke betrodd dator begränsa att åtkomsten till högst fem utvecklare. Dessa utvecklare bör helst komma åt kontot från datorer som delar samma geografiska och nätverksplats.
-- Granska ofta företagets säkerhetsinformation på [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) att kontrollera att den är alla aktuella.
+- Granska ofta företagets säkerhetsinformation på [ https://account.live.com/proofs/Manage ](https://account.live.com/proofs/Manage) att kontrollera att den är alla aktuella.
 
 Ditt utvecklarkonto ska användas i första hand från betrodda datorer. Detta är viktigt eftersom det finns en gräns för hur många koder som genererats per konto per vecka. Det gör också smidigast inloggning.
 Mer information om ytterligare developer konto riktlinjer och säkerhet, klickar du på [här](https://docs.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account).
@@ -521,7 +521,7 @@ Ditt företagskonto federerad med [Azure Active Directory](https://docs.microsof
 
 Vi rekommenderar att du skapar en ny e-postadress i den  **@outlook.com**  domän. Följ de här stegen:
 
-1. Gå till [https://signup.live.com/signup](https://signup.live.com/signup) och välj **få en ny e-postadress**
+1. Gå till [ https://signup.live.com/signup ](https://signup.live.com/signup) och välj **få en ny e-postadress**
 
 
 2. Skapa ny e-postadress och ange ett lösenord. Detta skapar både ett nytt Microsoft-ID och ett e-postlåda i tjänsten outlook.com. Fortsätt registreringsprocessen tills kontot skapas.
@@ -538,7 +538,7 @@ Efter det sista steget har slutförts, måste alla e-postmeddelanden/kommunikati
 ### <a name="instructions-on-how-to-register-in-the-development-center"></a>Instruktioner om hur du registrerar i Development Center
 
 1. Öppna en ny Internet Explorer InPrivate- eller Chrome Incognito-webbläsarsession för att säkerställa att du inte är inloggad till ett personligt konto.
-2. Gå till [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) att registrera dig som en säljare i Dev Center. Läs följande viktig information innan du fortsätter.
+2. Gå till [ http://dev.windows.com/registration?accountprogram=azure ](http://dev.windows.com/registration?accountprogram=azure) att registrera dig som en säljare i Dev Center. Läs följande viktig information innan du fortsätter.
 
    ![Dev Center e-post](./media/marketplace-publishers-guide/registerdevcenteremail.png)
 
@@ -548,7 +548,7 @@ Efter det sista steget har slutförts, måste alla e-postmeddelanden/kommunikati
    ![Kontoinformation](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)
    
    >[!WARNING]
-   >”Säljer från” länder: sälja dina tjänster på Azure Marketplace, registrerade entiteten måste komma från en av de godkända 'säljer-från-länderna ovan. Den här begränsningen är beloppet och skatt skäl. Mer information finns i [Marketplace deltagande principer] https://azure.microsoft.com/support/legal/marketplace/participation-policies/.
+   >”Säljer från” länder: sälja dina tjänster på Azure Marketplace, registrerade entiteten måste komma från en av de godkända 'säljer-från-länderna ovan. Den här begränsningen är beloppet och skatt skäl. Mer information finns i [Marketplace deltagande principer]https://azure.microsoft.com/support/legal/marketplace/participation-policies/.
 
 5. Välj ”typ av konto” som **företagets** och klicka sedan på den **nästa** knappen.
 
@@ -614,7 +614,7 @@ Om du vill publicera kommersiella erbjudanden för inköp måste du också att l
 
 Om du har problem med registreringen Developer Center logga ett supportärende enligt nedan:
 
-1. Gå till support länk https://developer.microsoft.com/windows/support
+1. Gå till supportlänk https://developer.microsoft.com/windows/support
 2. Under **Kontakta oss** avsnittet, klicka på knappen **skicka en incident** som visas i skärmbilden nedan.
 3. Välj ”hjälp med Dev Center” som **problemtyp** och ”publicera och hantera appar” som **kategori**. Efter det att klicka på knappen ”Starta e-post”.
 

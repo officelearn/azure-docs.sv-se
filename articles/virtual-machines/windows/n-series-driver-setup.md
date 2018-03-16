@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de585e123555188055b6bd63ab0a6cc68313311f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: e21115915808899e8455dc6d4f1f4cf8a100f483
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows-server"></a>Ställ in GPU drivrutiner för N-serien virtuella datorer som kör Windows Server
 Om du vill dra nytta av GPU-funktionerna i Azure N-serien virtuella datorer som kör Windows Server 2016 eller Windows Server 2012 R2, installera stöds grafik drivrutinerna. Den här artikeln innehåller drivrutinen konfigurationsstegen när du distribuerar en virtuell dator i N-serien. Inställningsinformation för drivrutinen är också tillgängligt för [virtuella Linux-datorer](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -53,7 +53,7 @@ Om du vill fråga Enhetsstatus GPU kör den [nvidia smi](https://developer.nvidi
 
 ## <a name="rdma-network-connectivity"></a>RDMA-nätverksanslutning
 
-RDMA-nätverksanslutning kan aktiveras RDMA aktiverade N-serien virtuella datorer som NC24r distribueras i samma tillgänglighetsuppsättning. Tillägget HpcVmDrivers måste läggas till installation av enhetsdrivrutiner för Windows nätverk som gör att RDMA-anslutning. Om du vill lägga till tillägg för virtuell dator till en RDMA-aktiverade N-serien VM, använda [Azure PowerShell](/powershell/azure/overview) cmdlets för Azure Resource Manager.
+RDMA-nätverksanslutning kan aktiveras på RDMA-kompatibla N-serien virtuella datorer som NC24r distribueras i samma tillgänglighetsuppsättning eller skaluppsättningen för virtuell dator. Tillägget HpcVmDrivers måste läggas till installation av enhetsdrivrutiner för Windows nätverk som gör att RDMA-anslutning. Om du vill lägga till tillägg för virtuell dator till en RDMA-aktiverade N-serien VM, använda [Azure PowerShell](/powershell/azure/overview) cmdlets för Azure Resource Manager.
 
 Om du vill installera den senaste versionen 1.1 HpcVMDrivers tillägg på en befintlig RDMA-kompatibla virtuell dator med namnet myVM i regionen USA, västra:
   ```PowerShell

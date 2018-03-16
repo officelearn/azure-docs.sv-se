@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1cbc116a8d595cfea0e87cd17b556e005f276774
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reliable-services-overview"></a>Översikt över Reliable Services
 Azure Service Fabric gör det enklare att skriva och hantera tillståndslösa och tillståndskänsliga Reliable Services. Detta avsnitt:
@@ -34,7 +34,7 @@ Service Fabric hanterar livslängden för tjänster, från etablering och distri
 ## <a name="what-are-reliable-services"></a>Vad är Reliable Services?
 Reliable Services ger en enkel, kraftfulla översta programmeringsmodell som hjälper dig att express vad som är viktigt för ditt program. Med tillförlitlig tjänsterna programmeringsmodellen, får du:
 
-* Åtkomst till resten av den Service Fabric programming API: er. Till skillnad från Service Fabric Services modelleras som [gäst körbara filer](service-fabric-deploy-existing-app.md), Reliable Services komma att använda resten av Service Fabric-API: er direkt. Detta tillåter tjänster:
+* Åtkomst till resten av den Service Fabric programming API: er. Till skillnad från Service Fabric Services modelleras som [gäst körbara filer](service-fabric-guest-executables-introduction.md), Reliable Services komma att använda resten av Service Fabric-API: er direkt. Detta tillåter tjänster:
   * frågan systemet
   * hälsa för rapporten om enheter i klustret
   * få meddelanden om ändringar i konfigurationen och kod

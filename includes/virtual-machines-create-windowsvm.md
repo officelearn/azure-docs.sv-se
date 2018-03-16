@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: d4075f644ed1ce42479e35544f0e1442488f78eb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/16/2018
+---
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Starta i det övre vänstra hörnet, klickar du på **skapar du en resurs** > **Compute** > **Windows Server 2016 Datacenter**.

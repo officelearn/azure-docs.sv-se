@@ -1,6 +1,6 @@
 ---
-title: "Skaluppsättningar för virtuell dator i Azure kryptera diskar | Microsoft Docs"
-description: "Lär dig hur du krypterar anslutna diskar i skalningsuppsättningar i virtuella datorer."
+title: Skala virtuell Azure-dator anger diskkryptering | Microsoft Docs
+description: "Lär dig hur du använder Azure PowerShell för att kryptera VM-instanser och anslutna diskar i skalningsuppsättningar i virtuella datorer"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
@@ -13,90 +13,146 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/09/2018
 ms.author: iainfou
-ms.openlocfilehash: dddcece9f7566961b256369330661e5dbd5d4665
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 856d4bc7dd636b3a2f3d072a10989cafd7efd6a6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>Kryptera OS och anslutna diskar i en skaluppsättning för virtuell dator
-Azure [skalningsuppsättningar i virtuella](/azure/virtual-machine-scale-sets/) har stöd för Azure disk encryption (ADE).  Azure disk encryption kan aktiveras för Windows och Linux virtuella datorn anger att skydda och skydda skalan anger data vilande med industry standard krypteringsteknik. Mer information finns i Azure Disk Encryption för Windows och Linux-datorer.
+Om du vill skydda och skydda data i viloläge med hjälp industry standard krypteringsteknik stöder skalningsuppsättningar i virtuella datorer Azure Disk Encryption (ADE). Kryptering kan aktiveras för Windows och Linux virtuella skala anger. Mer information finns i [Azure Disk Encryption för Windows och Linux](../security/azure-security-disk-encryption.md).
 
 > [!NOTE]
->  Azure disk encryption för skalningsuppsättningar i virtuella datorer är för närvarande i förhandsversion, tillgänglig i alla offentliga Azure-regioner.
+>  Azure Disk Encryption för skalningsuppsättningar i virtuella datorer är för närvarande under förhandsgranskning, tillgänglig i alla offentliga Azure-regioner. 
+>
+> Ange VM avbildningsåterställning och uppgradering skalningsåtgärder stöds inte i den aktuella förhandsvisningen. I Förhandsgranska bör scale set kryptering bara i testmiljöer. I förhandsgranskningen gör inte diskkryptering i produktionsmiljöer där du kan behöva uppgradera en operativsystemavbildning.
 
 Azure disk encryption stöds:
 - för att skala anger skapas med hanterade diskar och stöds inte för inbyggda (eller ohanterad) disk skaluppsättningar.
 - för OS- och datavolymer i skalningsuppsättningar i Windows. Inaktivera kryptering stöds av Operativsystemet och datavolymer för skalningsuppsättningar i Windows.
 - för datavolymer i skalningsuppsättningar i Linux. OS-diskkryptering stöds inte i den aktuella förhandsvisningen för skalningsuppsättningar i Linux.
 
-Ange VM avbildningsåterställning och uppgradering skalningsåtgärder stöds inte i den aktuella förhandsvisningen. Azure-diskkryptering för virtuella skala anger preview rekommenderas endast i testmiljöer. I förhandsgranskningen gör inte diskkryptering i produktionsmiljöer där du kan behöva uppgradera en OS-avbildning i en skaluppsättning för krypterade.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Installera de senaste versionerna av [Azure Powershell](https://github.com/Azure/azure-powershell/releases), som innehåller kommandon för kryptering.
+Den här artikeln kräver Azure PowerShell Modulversion 5.3.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
 
-Azure-diskkryptering för virtuella skala anger preview måste du registrera prenumerationen med följande PowerShell-kommandon: 
+Registrera din Azure subsription för förhandsversionen av kryptering för den virtuella datorn anger med [registrera AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature): 
 
 ```powershell
 Login-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-Vänta i cirka 10 minuter tills tillståndet 'Registrerade' returneras av följande kommando: 
+Vänta i cirka 10 minuter tills den *registrerade* tillstånd returneras av [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature), sedan Omregistrera den `Microsoft.Compute` providern: 
 
 ```powershell
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Skapa ett Azure nyckelvalv aktiverad för diskkryptering av
-Skapa ett nytt nyckelvalv i samma prenumeration och region som skala och åtkomstprincipen 'EnabledForDiskEncryption'.
+
+## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Skapa ett Azure Key Vault som aktiverats för diskkryptering
+Azure Key Vault kan lagra nycklar, hemligheter eller lösenord som gör det möjligt att implementera dem på ett säkert sätt i dina program och tjänster. Kryptografiska nycklar lagras i Azure Key Vault med skydd av programvara eller du kan importera eller generera dina nycklar i Maskinvarusäkerhetsmoduler (HSM) certifierade FIPS 140-2 level 2-standarder. Dessa kryptografiska nycklar används för att kryptera och dekryptera virtuella diskar som är anslutna till den virtuella datorn. Du behålla kontrollen över dessa kryptografiska nycklar och granska deras användning.
+
+Skapa ett Nyckelvalv med [nya AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Om du vill tillåta Nyckelvalvet ska användas för kryptering, ange den *EnabledForDiskEncryption* parameter. I följande exempel definieras även variabler resursgruppens namn, Nyckelvalvets namn och plats. Ange ditt eget unikt namn för Key Vault:
 
 ```powershell
-$rgname="windatadiskencryptiontest"
-$VaultName="encryptionvault321"
+$rgName="myResourceGroup"
+$vaultName="myuniquekeyvault"
+$location = "EastUS"
 
-New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $rgName -Location southcentralus -EnabledForDiskEncryption
-``` 
-
-Eller aktivera en befintlig nyckelvalvet i samma prenumeration och region som skalan för diskkryptering.
-
-```powershell
-$VaultName="encryptionvault321"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $VaultName -EnabledForDiskEncryption
+New-AzureRmResourceGroup -Name $rgName -Location $location
+New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $rgName -Location $location -EnabledForDiskEncryption
 ```
+
+
+### <a name="use-an-existing-key-vault"></a>Använd en befintlig Key Vault
+Det här steget är bara obligatoriskt om du har en befintlig Nyckelvalv som du vill använda med diskkryptering. Hoppa över det här steget om du har skapat ett Nyckelvalv i föregående avsnitt.
+
+Du kan aktivera en befintliga Nyckelvalvet i samma prenumeration och region som skalan för diskkryptering med [Set AzureRmKeyVaultAccessPolicy](/powershell/module/AzureRM.KeyVault/Set-AzureRmKeyVaultAccessPolicy). Ange namnet på din befintliga Nyckelvalvet i den *$vaultName* variabeln på följande sätt:
+
+```powershell
+$vaultName="myexistingkeyvault"
+Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
+```
+
+
+## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
+Ange en administratör först användarnamn och lösenord för VM-instanser med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+
+```powershell
+$cred = Get-Credential
+```
+
+Skapa nu en skalningsuppsättning för en virtuell dator med [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Om du vill distribuera trafik till de enskilda VM-instanserna, skapas även en belastningsutjämnare. Belastningsutjämnaren innehåller regler för att distribuera trafik på TCP-port 80 som tillåter remote desktop trafik på TCP-port 3389 och PowerShell-fjärrkommunikation på TCP-port 5985:
+
+```powershell
+$vmssName="myScaleSet"
+
+New-AzureRmVmss `
+    -ResourceGroupName $rgName `
+    -VMScaleSetName $vmssName `
+    -Location $location `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -PublicIpAddressName "myPublicIPAddress" `
+    -LoadBalancerName "myLoadBalancer" `
+    -UpgradePolicy "Automatic" `
+    -Credential $cred
+```
+
 
 ## <a name="enable-encryption"></a>Aktivera kryptering
-Följande kommandon för att kryptera en datadisk i en körs skala som anges med ett nyckelvalv i samma resursgrupp. Du kan också använda mallar för att kryptera diskar i en löpande [Windows skaluppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) eller [Linux skaluppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+Om du vill kryptera VM-instanser i en skaluppsättning först hämta viss information på Key Vault URI och resurs-ID med [Get-AzureRmKeyVault](/powershell/module/AzureRM.KeyVault/Get-AzureRmKeyVault). Dessa variabler används för att starta krypteringsprocessen med [Set AzureRmVmssDiskEncryptionExtension](/powershell/module/AzureRM.Compute/Set-AzureRmVmssDiskEncryptionExtension):
 
 ```powershell
-$rgname="windatadiskencryptiontest"
-$VmssName="nt1vm"
-$DiskEncryptionKeyVaultUrl="https://encryptionvault321.vault.azure.net"
-$KeyVaultResourceId="/subscriptions/0754ecc2-d80d-426a-902c-b83f4cfbdc95/resourceGroups/windatadiskencryptiontest/providers/Microsoft.KeyVault/vaults/encryptionvault321"
+$diskEncryptionKeyVaultUrl=(Get-AzureRmKeyVault -ResourceGroupName $rgName -Name $vaultName).VaultUri
+$keyVaultResourceId=(Get-AzureRmKeyVault -ResourceGroupName $rgName -Name $vaultName).ResourceId
 
-Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName `
-    -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId –VolumeType Data
+Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vmssName `
+    -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId –VolumeType "All"
 ```
+
+När du uppmanas ange *y* fortsätta krypteringsprocessen disk på skalan ange VM-instanser.
+
 
 ## <a name="check-encryption-progress"></a>Kontrollera kryptering pågår
-Använd följande kommandon om du vill visa krypteringsstatus för skaluppsättning.
+Om du vill kontrollera statusen för diskkryptering [Get-AzureRmVmssDiskEncryption](/powershell/module/AzureRM.Compute/Get-AzureRmVmssDiskEncryption):
 
 ```powershell
-$rgname="windatadiskencryptiontest"
-$VmssName="nt1vm"
-Get-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
-
-Get-AzureRmVmssVMDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName -InstanceId "4"
+Get-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
 ```
+
+När VM-instanser som är krypterade, den *EncryptionSummary* code rapporter *ProvisioningState/lyckades* som visas i följande exempel utdata:
+
+```powershell
+ResourceGroupName            : myResourceGroup
+VmScaleSetName               : myScaleSet
+EncryptionSettings           :
+  KeyVaultURL                : https://myuniquekeyvault.vault.azure.net/
+  KeyEncryptionKeyURL        :
+  KeyVaultResourceId         : /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myuniquekeyvault
+  KekVaultResourceId         :
+  KeyEncryptionAlgorithm     :
+  VolumeType                 : All
+  EncryptionOperation        : EnableEncryption
+EncryptionSummary[0]         :
+  Code                       : ProvisioningState/succeeded
+  Count                      : 2
+EncryptionEnabled            : True
+EncryptionExtensionInstalled : True
+```
+
 
 ## <a name="disable-encryption"></a>Inaktivera kryptering
-Inaktivera kryptering på en aktiv virtuell dator skala anges med följande kommandon. Du kan också använda mallar för att inaktivera kryptering körs [Windows skaluppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows) eller [Linux skaluppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux).
+Om du inte längre vill använda krypterade VM-instanser diskar kan du inaktivera kryptering med [inaktivera AzureRmVmssDiskEncryption](/powershell/module/AzureRM.Compute/Disable-AzureRmVmssDiskEncryption) på följande sätt:
 
 ```powershell
-$rgname="windatadiskencryptiontest"
-$VmssName="nt1vm"
-Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
+Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
 ```
+
+
+## <a name="next-steps"></a>Nästa steg
+I den här artikeln används Azure PowerShell för att kryptera en skaluppsättning för virtuell dator. Du kan också använda den [Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md) eller mallar för [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) eller [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).

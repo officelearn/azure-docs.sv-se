@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions proxyservrar
 
@@ -106,7 +106,7 @@ Till exempel backend-URL: en *https://%ORDER_PROCESSING_HOST%/api/orders* skulle
 
 ## <a name="debugProxies"></a>Felsöka proxyservrar
 
-Genom att lägga till flaggan `"debug":true` till en proxyserver i ditt `proxy.json` ska du Aktivera felsökningsloggning. Loggfilerna lagras i `D:\home\LogFiles\Application\Proxies\DetailedTrace` och kan nås via de avancerade verktyg (kudu). HTTP-svar innehåller också en `Proxy-Trace-Location` huvud med en URL för att få åtkomst till loggfilen.
+Genom att lägga till flaggan `"debug":true` till en proxyserver i ditt `proxies.json` ska du Aktivera felsökningsloggning. Loggfilerna lagras i `D:\home\LogFiles\Application\Proxies\DetailedTrace` och kan nås via de avancerade verktyg (kudu). HTTP-svar innehåller också en `Proxy-Trace-Location` huvud med en URL för att få åtkomst till loggfilen.
 
 Du kan felsöka en proxy från klientsidan genom att lägga till en `Proxy-Trace-Enabled` huvudet inställt på `true`. Detta kommer även logga en spårning i filsystemet och returnera trace-URL som rubrik i svaret.
 
@@ -114,7 +114,7 @@ Du kan felsöka en proxy från klientsidan genom att lägga till en `Proxy-Trace
 
 Av säkerhetsskäl kan du inte vill att alla anropar din tjänst om du vill skapa en spårning. De kommer inte att komma åt trace innehållet utan att dina inloggningsuppgifter, men genererar spårningen förbrukar resurser och visar att du använder funktionen proxyservrar.
 
-Inaktivera spårningar helt och hållet genom att lägga till `"debug":false` till någon särskild proxyserver i ditt `proxy.json`.
+Inaktivera spårningar helt och hållet genom att lägga till `"debug":false` till någon särskild proxyserver i ditt `proxies.json`.
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 

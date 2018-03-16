@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
-ms.author: terrylan
-ms.openlocfilehash: d13e5b87c446e587091551b22d80fe568d5d8093
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/13/2018
+ms.author: barclayn
+ms.openlocfilehash: 229f83d4d74837e506c30a0fd8c704da2b7dc12a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="integrating-azure-security-center-alerts-with-azure-log-integration"></a>Integrera Azure Security Center-aviseringar med Azure logganalys-integration
 Många säkerhetsåtgärder och incidenter team förlitar sig på en lösning för Security Information and Event Management (SIEM) som startpunkt för triaging och undersöker säkerhetsaviseringar. Du kan integrera Azure Security Center-aviseringar med Azure Log-integrering med SIEM-lösning.

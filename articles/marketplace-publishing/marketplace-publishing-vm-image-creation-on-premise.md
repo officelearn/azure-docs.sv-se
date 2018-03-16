@@ -3,8 +3,8 @@ title: "Skapa en avbildning av virtuell dator lokalt för Azure Marketplace | Mi
 description: "Förstå och utföra stegen för att skapa en lokal VM-avbildning och distribuera på Azure Marketplace för andra att köpa."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mbaldwin
+ms.openlocfilehash: 6b927ce6032092ce258eeebca49da0571439dbfb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Utveckla en avbildning av virtuell dator lokalt för Azure Marketplace
 Vi rekommenderar starkt att du utveckla Azure virtuella hårddiskar (VHD) direkt i molnet genom att använda Remote Desktop Protocol. Om du måste går det att hämta en virtuell Hårddisk och utveckla genom att använda lokal infrastruktur.  
@@ -75,7 +75,7 @@ Förutom att använda Azure-portalen kan du använda den [spara AzureVhd](http:/
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
         -StorageKey <keyForStorageAccount>
-For example, Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\baseimagevm.vhd” -StorageKey <String>
+Exempelvis spara AzureVhd-källa ”https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” - LocalFilePath ”C:\Users\Administrator\Desktop\baseimagevm.vhd” - StorageKey <String>
 
 > [!NOTE]
 > **Spara-AzureVhd** har också en **NumberOfThreads** alternativ som kan användas för att öka parallellitet för att göra bästa användningen av bandbredd för hämtning.
@@ -92,7 +92,7 @@ Om du vill skapa ett lagringskonto som du kan använda den [Microsoft Azure-port
 
 **Skapa ett lagringskonto från Microsoft Azure-portalen**
 
-1. Klicka på **skapar du en resurs**.
+1. Klicka på **Skapa en resurs**.
 2. Välj **lagring**.
 3. Fyll i lagringskontonamn och välj sedan en plats.
    

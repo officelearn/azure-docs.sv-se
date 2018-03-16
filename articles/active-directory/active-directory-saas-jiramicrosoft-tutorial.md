@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 710aa59fb3cc69cb1f5a20389eca13b1be93d223
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ceb36b78b72c45e9af59724d1f1c79789ef24b24
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira"></a>Självstudier: Azure Active Directory-integrering med Microsoft Azure Active Directory enkel inloggning för JIRA
 
@@ -61,6 +61,7 @@ Om du vill testa stegen i den här självstudiekursen, bör du följa dessa reko
 
 *   JIRA Core- och programvara: 6.0 7.2.0
 *   JIRA helpdesk 3.0 3.2
+*   JIRA stöder också 5.2. Mer information klickar du på [Microsoft Azure Active Directory enkel inloggning för JIRA 5.2](./active-directory-saas-jira52microsoft-tutorial.md)
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
@@ -121,11 +122,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Microsoft Azure Active Directory enkel inloggning för JIRA domän och URL: er enkel inloggning](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<domain:port>/plugins/servlet/saml/auth`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<domain:port>/`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<domain:port>/`
 
-    c. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<domain:port>/plugins/servlet/saml/auth`
+    c. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Porten är valfria om det är en namngiven URL. Dessa värden tas emot under konfigurationen av Jira plugin som beskrivs senare i självstudierna.
@@ -160,7 +161,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     ![Konfigurera enkel inloggning](.\media\active-directory-saas-msaadssojira-tutorial\addon1.png)
 
-8. Hämta plugin-programmet från [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56506). Ladda upp plugin-programmet som tillhandahålls av Microsoft genom att använda manuellt **ladda upp tilläggsprogrammet** menyn.
+8. Hämta plugin-programmet från [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56506). Ladda upp plugin-programmet som tillhandahålls av Microsoft genom att använda manuellt **ladda upp tilläggsprogrammet** menyn. Hämtningen av plugin-programmet omfattas [Microsofts serviceavtal](https://www.microsoft.com/en-us/servicesagreement/).
 
     ![Konfigurera enkel inloggning](.\media\active-directory-saas-msaadssojira-tutorial\addon12.png)
 
@@ -195,6 +196,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     h. Kontrollera **aktivera enkel inloggning ut** om du vill logga ut från Azure AD när en användare loggar från JIRA. 
 
     i. Klicka på **spara** för att spara inställningarna.
+
+    > [!NOTE]
+    > Mer information om installation och felsökning finns [MS JIRA SSO Connector Admin guiden](ms-confluence-jira-plugin-adminguide.md) och det också [vanliga frågor och svar](ms-confluence-jira-plugin-faq.md) på förhand
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

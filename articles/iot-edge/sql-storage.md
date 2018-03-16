@@ -9,11 +9,11 @@ ms.author: kgremban, ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ce3c3abd00dba23887b5f811af6cab8d2c83323d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 792e754b84f1dc03a32780ed94d274c833be68f5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Lagra data på kanten med SQL Server-databaser
 
@@ -67,7 +67,7 @@ I steg 3 måste du lägga till skapa alternativ till SQL Server-behållare som �
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "localhost:5000/filterfunction:latest",
+              "image": "<docker registry address>/filterfunction:latest",
               "createOptions": "{}"
             }
           },
@@ -94,7 +94,12 @@ I steg 3 måste du lägga till skapa alternativ till SQL Server-behållare som �
         }
    ```
 
-3. Beroende på operativsystem som du kör uppdatera inställningarna för SQL-modulen med följande kod: 
+3. Ersätt den `<docker registry address>` med adressen fylls i slutförda kursen [distribuera Azure-funktion som en gräns för IoT-modul - förhandsgranskning](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-function)
+
+   >[!NOTE]
+   >Behållaren registret adressen är samma som den inloggningsserver som du kopierade från registret. Det bör vara i form av `<your container registry name>.azurecr.io`
+
+4. Beroende på operativsystem som du kör uppdatera inställningarna för SQL-modulen med följande kod: 
 
    * Windows:
 
@@ -110,11 +115,11 @@ I steg 3 måste du lägga till skapa alternativ till SQL Server-behållare som �
       "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-4. Spara filen. 
-5. Markera i paletten VS kod kommandot **kant: skapa distribution för gränsenheten**. 
-6. Välj din IoT-Edge-enhets-ID.
-7. Välj den `deployment.json` filen som du har uppdaterat. I utdatafönstret visas motsvarande utdata för din distribution. 
-8. Om du vill starta Edge-runtime, Välj **kant: starta Edge** i paletten kommando.
+5. Spara filen. 
+6. Markera i paletten VS kod kommandot **kant: skapa distribution för gränsenheten**. 
+7. Välj din IoT-Edge-enhets-ID.
+8. Välj den `deployment.json` filen som du har uppdaterat. I utdatafönstret visas motsvarande utdata för din distribution. 
+9. Om du vill starta Edge-runtime, Välj **kant: starta Edge** i paletten kommando.
 
 >[!TIP]
 >Varje gång som du skapar en SQL Server-behållare i en produktionsmiljö bör du [ändra standardlösenord](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).

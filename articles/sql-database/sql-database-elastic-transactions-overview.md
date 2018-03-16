@@ -2,24 +2,18 @@
 title: "Distribuerade transaktioner över molndatabaser"
 description: "Översikt över elastisk databastransaktioner med Azure SQL-databas"
 services: sql-database
-documentationcenter: 
-author: torsteng
-manager: jhubbard
-editor: torsteng
-ms.assetid: e14df7a3-7788-4cfb-bcd1-7ad6433ef1f9
+author: stevestein
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 05/27/2016
-ms.author: torsteng
-ms.openlocfilehash: 4441cdef3bc97aab35451720753e437e24702fd9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: sstein
+ms.openlocfilehash: 0a57f06d874f8a746d59bb927b4200656a999c11
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Distribuerade transaktioner över molndatabaser
 Elastisk databastransaktioner för Azure SQL Database (SQL DB) gör att du kan köra transaktioner som sträcker sig över flera databaser i SQL-databas. Elastisk databastransaktioner för SQL-databas är tillgängliga för .NET-program med hjälp av ADO .NET och integrera med den gamla programmering upplevelse med den [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) klasser. Biblioteket finns [.NET Framework 4.6.1 (Webbinstallationsprogram)](https://www.microsoft.com/download/details.aspx?id=49981).

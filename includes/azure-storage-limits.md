@@ -11,7 +11,7 @@
 
 <sup>1</sup>innehåller både Standard- och Premium storage-konton. Om du behöver mer än 200 lagringskonton skickar du en begäran via [Azure-supporten](https://azure.microsoft.com/support/faq/). Azure Storage-teamet granskar ditt affärsfall och kan godkänna upp till 250 lagringskonton. 
 
-<sup>2</sup> för att få dina lagringskonton som standard att växa annonserade gränser i kapacitet, ingång-/ utgång och begäran som gör en begäran via [Azure-supporten](https://azure.microsoft.com/support/faq/). Azure Storage-teamet kommer granska förfrågningen och godkänna högre gränser på en fall till fall.
+<sup>2</sup> om du behöver utökade gränser för ditt lagringskonto kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/faq/). Azure Storage-teamet kommer granska förfrågningen och godkänna högre gränser på en fall till fall. Både allmänna och Blob storage-konton stöder bättre kapacitet och ingång-/ utgång förfrågningar av begäran. Den nya maximala storleken för Blob storage-konton finns [meddelar större, högre skala lagringskonton](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 <sup>3</sup> begränsad endast av kontots ingång-/ utgång gränser. *Ingång* refererar till alla data (antal begäranden) som skickas till ett lagringskonto. *Utgående* syftar på alla data (svar) som tas emot från ett lagringskonto.  
 

@@ -2,24 +2,18 @@
 title: "Fråga insikter i frågeprestanda för Azure SQL Database | Microsoft Docs"
 description: "Prestandaövervakning av frågan identifierar de flesta förbrukning av CPU-frågor för en Azure SQL Database."
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: monicar
-ms.assetid: c2f580b2-3835-453f-89f5-140e02dd2ea7
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 015f3255d0ff9691168899df1e983e70f35215b1
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 18d03ffcd586a809b37cbc1ca9a7843c25c7758d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL Database Query Performance Insight
 Hantera och finjustera prestanda hos relationsdatabaser är en utmaning som kräver betydande resurser och tid investeringar. Query Performance Insight kan du ägna mindre tid felsökning databasprestanda med hjälp av följande:
@@ -31,13 +25,13 @@ Hantera och finjustera prestanda hos relationsdatabaser är en utmaning som krä
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Query Performance Insight kräver att [Frågearkivet](https://msdn.microsoft.com/library/dn817826.aspx) är aktiv på din databas. Om Query Store inte körs, uppmanas du att aktivera den i portalen.
 
 ## <a name="permissions"></a>Behörigheter
 Följande [rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-what-is.md) behörigheter som krävs för att använda Query Performance Insight: 
 
-* **Läsaren**, **ägare**, **deltagare**, **SQL DB-deltagare**, eller **SQL Server-deltagare** behörighet krävs för att visa översta resursen förbrukar frågor och diagram. 
+* **Läsaren**, **ägare**, **deltagare**, **SQL DB-deltagare**, eller **SQL Server-deltagare** behörigheter som krävs Visa översta resursen förbrukar frågor och diagram. 
 * **Ägare**, **deltagare**, **SQL DB-deltagare**, eller **SQL Server-deltagare** behörigheter som krävs för att visa frågetext.
 
 ## <a name="using-query-performance-insight"></a>Använda Query Performance Insight
@@ -93,7 +87,7 @@ Visa information om frågan:
 
 1. Klicka på alla frågor i listan över de vanligaste frågorna.
    
-    ![Information](./media/sql-database-query-performance/details.png)
+    ![detaljer](./media/sql-database-query-performance/details.png)
 2. Detaljvyn öppnas och frågor körning-förbrukning/varaktighet processorer är uppdelad över tid.
 3. Klicka på runt diagrammet mer information.
    
@@ -212,7 +206,7 @@ Query Performance Insight hjälper dig att förstå effekten av din fråga arbet
 ## <a name="next-steps"></a>Nästa steg
 Ytterligare rekommendationer om hur du förbättrar prestandan för SQL-databasen klickar du på [rekommendationer](sql-database-advisor.md) på den **Query Performance Insight** bladet.
 
-![Klassificering av prestanda](./media/sql-database-query-performance/ia.png)
+![Performance Advisor](./media/sql-database-query-performance/ia.png)
 
 <!--Image references-->
 [1]: ./media/sql-database-query-performance/tile.png

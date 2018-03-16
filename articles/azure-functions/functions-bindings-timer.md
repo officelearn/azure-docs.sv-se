@@ -17,17 +17,23 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: eeb8833470b2ba003ba74b1db57bbd2bbbb7f65d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: bd1a2643d9faf65d664c786169c38f01767fb7e5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer som utlösare för Azure Functions 
 
 Den här artikeln förklarar hur du arbetar med timer utlösare i Azure Functions. En timer som utlösare kan du köra en funktion på ett schema. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Paket
+
+Timer-utlösare har angetts i den [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-paketet. Källkoden för paketet är i den [azure-webjobs-sdk-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub-lagringsplatsen.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="example"></a>Exempel
 
@@ -136,7 +142,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="attributes"></a>Attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
 Attributets konstruktorn har ett CRON-uttryck som visas i följande exempel:
 
@@ -158,10 +164,10 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | Måste anges till ”timerTrigger”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
-|**riktning** | Saknas | Måste anges till ”i”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|**Typ** | Saknas | Måste anges till ”timerTrigger”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|**Riktning** | Saknas | Måste anges till ”i”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar timer-objekt i funktionskoden. | 
-|**schema**|**ScheduleExpression**|Du kan definiera scheman med ett CRON-uttryck på förbrukning-plan. Om du använder en App Service-Plan kan du också använda en `TimeSpan` sträng. I följande avsnitt beskrivs CRON-uttryck. Du kan placera schema-uttrycket i en appinställning och ange egenskapen till ett värde som kapslas in i  **%**  tecken, som i följande exempel: ”% NameOfAppSettingWithCRONExpression %”. |
+|**schedule**|**ScheduleExpression**|Du kan definiera scheman med ett CRON-uttryck på förbrukning-plan. Om du använder en App Service-Plan kan du också använda en `TimeSpan` sträng. I följande avsnitt beskrivs CRON-uttryck. Du kan placera schema-uttrycket i en appinställning och ange egenskapen till ett värde som kapslas in i  **%**  tecken, som i följande exempel: ”% NameOfAppSettingWithCRONExpression %”. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

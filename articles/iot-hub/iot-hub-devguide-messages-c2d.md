@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2017
+ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: 1b34e579f2ba40f4d77f7a3ba1841f59f795d292
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d265d35c7d5a394afa0e59f40ff1a5741e0ec35c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Skicka meddelanden moln till enhet från IoT-hubb
 
@@ -75,17 +75,17 @@ När du skickar ett moln till enhet, kan tjänsten begära leverans av varje med
 
 | Ack-egenskap | Beteende |
 | ------------ | -------- |
-| **positivt** | Om meddelandet moln till enhet når den **slutförd** tillstånd, IoT-hubb genererar ett meddelande om feedback. |
-| **negativt** | Om meddelandet moln till enhet når den **död lettered** tillstånd, IoT-hubb genererar ett meddelande om feedback. |
+| **Positivt** | Om meddelandet moln till enhet når den **slutförd** tillstånd, IoT-hubb genererar ett meddelande om feedback. |
+| **Negativt** | Om meddelandet moln till enhet når den **död lettered** tillstånd, IoT-hubb genererar ett meddelande om feedback. |
 | **fullständig**     | IoT-hubb genererar ett meddelande om feedback i båda fallen. |
 
 Om **Ack** är **fullständig**, och inte ett meddelande feedback, innebär det att meddelandet feedback har gått ut. Tjänsten kan inte vet vad hände med det ursprungliga meddelandet. I praktiken Kontrollera en tjänst att den kan bearbeta feedback innan den upphör. Maximal förfallotiden två dagar, vilket lämnar tid att hämta tjänsten körs igen om ett fel inträffar.
 
-Enligt beskrivningen i [slutpunkter][lnk-endpoints], IoT-hubb ger feedback via en slutpunkt för service-riktade (**/messages/servicebound/feedback**) som meddelanden. Semantiken för att ta emot feedback är desamma som för meddelanden moln till enhet och har samma [meddelandet livscykel][lnk-lifecycle]. När det är möjligt batchar meddelandet feedback i ett enda meddelande med följande format:
+Enligt beskrivningen i [slutpunkter][lnk-endpoints], IoT-hubb ger feedback via en slutpunkt för service-riktade (**/messages/servicebound/feedback**) som meddelanden. Semantiken för att ta emot feedback är desamma som för moln till enhet meddelanden. När det är möjligt batchar meddelandet feedback i ett enda meddelande med följande format:
 
 | Egenskap     | Beskrivning |
 | ------------ | ----------- |
-| EnqueuedTime | Tidsstämpel som visar när meddelandet har skapats. |
+| EnqueuedTime | Tidsstämpel som anger när feedback-meddelande togs emot av hubben. |
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
@@ -93,7 +93,7 @@ Brödtext är en JSON-serialiserad matris med poster, med följande egenskaper:
 
 | Egenskap           | Beskrivning |
 | ------------------ | ----------- |
-| EnqueuedTimeUtc    | Tidsstämpel som anger när resultatet av meddelandet har hänt. Till exempel enhet slutförts eller meddelandet har upphört att gälla. |
+| EnqueuedTimeUtc    | Tidsstämpel som anger när resultatet av meddelandet har hänt. Till exempel hubben fick meddelandet feedback eller det ursprungliga meddelandet har upphört att gälla. |
 | OriginalMessageId  | **MessageId** postmeddelandets moln till enhet som informationen feedback avser. |
 | StatusCode         | Strängen som krävs. Används i feedback-meddelanden som genereras av IoT-hubb. <br/> ”Lyckades” <br/> 'Har upphört att gälla: <br/> 'DeliveryCountExceeded' <br/> 'Avvisade' <br/> 'Rensas' |
 | Beskrivning        | Sträng som värden för **StatusCode**. |

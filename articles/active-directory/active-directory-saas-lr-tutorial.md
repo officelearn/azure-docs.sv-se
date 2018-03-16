@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med lr | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och lr."
+title: "Självstudier: Azure Active Directory-integrering med LoginRadius | Microsoft Docs"
+description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och LoginRadius."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/13/2018
 ms.author: jeedes
-ms.openlocfilehash: f7728c37db286b130a79db1353ee40825e8a4336
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 22f937a2ae9a2c715ce0866c2db0ac17769f0399
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lr"></a>Självstudier: Azure Active Directory-integrering med lr
+# <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Självstudier: Azure Active Directory-integrering med LoginRadius
 
-I kursen får lära du att integrera lr med Azure Active Directory (AD Azure).
+I kursen får lära du att integrera LoginRadius med Azure Active Directory (AD Azure).
 
-Integrera lr med Azure AD ger dig följande fördelar:
+Integrera LoginRadius med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till lr.
-- Du kan aktivera användarna att automatiskt hämta loggat in på lr (Single Sign-On) med sina Azure AD-konton.
+- Du kan styra i Azure AD som har åtkomst till LoginRadius.
+- Du kan aktivera användarna att automatiskt hämta loggat in på LoginRadius (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med lr, behöver du följande:
+För att konfigurera Azure AD-integrering med LoginRadius, behöver du följande:
 
 - En Azure AD-prenumeration
-- En lr enkel inloggning aktiverad prenumeration
+- En LoginRadius enkel inloggning på aktiverade prenumeration
 
 > [!NOTE]
 > Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
@@ -50,13 +50,13 @@ Om du vill testa stegen i den här självstudiekursen, bör du följa dessa reko
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
 
-1. Att lägga till lr från galleriet
+1. Att lägga till LoginRadius från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
-## <a name="adding-lr-from-the-gallery"></a>Att lägga till lr från galleriet
-Du måste lägga till lr från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av lr i Azure AD.
+## <a name="adding-loginradius-from-the-gallery"></a>Att lägga till LoginRadius från galleriet
+Du måste lägga till LoginRadius från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av LoginRadius i Azure AD.
 
-**Utför följande steg för att lägga till lr från galleriet:**
+**Utför följande steg för att lägga till LoginRadius från galleriet:**
 
 1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
@@ -70,58 +70,58 @@ Du måste lägga till lr från galleriet i listan över hanterade SaaS-appar fö
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **lr**väljer **lr** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **LoginRadius**väljer **LoginRadius** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![LR i resultatlistan](./media/active-directory-saas-lr-tutorial/tutorial_lr_addfromgallery.png)
+    ![LoginRadius i resultatlistan](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med lr baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med LoginRadius baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till användaren i lr motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i lr upprättas.
+Azure AD måste du känna till användaren i LoginRadius motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i LoginRadius upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med lr, måste du utföra följande byggblock:
+Om du vill konfigurera och testa Azure AD enkel inloggning med LoginRadius, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
 2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare lr](#create-a-lr-test-user)**  – du har en motsvarighet för Britta Simon i lr som är kopplad till Azure AD-representation av användaren.
+3. **[Skapa en testanvändare LoginRadius](#create-a-loginradius-test-user)**  – du har en motsvarighet för Britta Simon i LoginRadius som är kopplad till Azure AD-representation av användaren.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i tillämpningsprogrammet lr.
+I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt LoginRadius program.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med lr:**
+**Utför följande steg för att konfigurera Azure AD enkel inloggning med LoginRadius:**
 
-1. I Azure-portalen på den **lr** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **LoginRadius** integreringssidan för programmet, klickar du på **enkel inloggning**.
 
     ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
  
-    ![Enkel inloggning dialogrutan](./media/active-directory-saas-lr-tutorial/tutorial_lr_samlbase.png)
+    ![Enkel inloggning dialogrutan](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_samlbase.png)
 
-3. På den **lr domän och URL: er** avsnittet, utför följande steg:
+3. På den **LoginRadius domän och URL: er** avsnittet, utför följande steg:
 
-    ![LR domän URL: er och enkel inloggning information](./media/active-directory-saas-lr-tutorial/tutorial_lr_url.png)
+    ![URL: er och LoginRadius domän med enkel inloggning information](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_url.png)
 
-    a.  I den **inloggnings-URL** textruta, ange ett URL-Adressen:`https://secure.loginradius.com/login`
+    a.  I den **inloggnings-URL** textruta, ange ett URL-Adressen: `https://secure.loginradius.com/login`
 
-    b. I den **identifierare** textruta, ange ett URL-Adressen:`https://lr.hub.loginradius.com/`
+    b. I den **identifierare** textruta, ange ett URL-Adressen: `https://LoginRadius.hub.loginradius.com/`
      
     > [!NOTE] 
-    > Öppna sidan inloggnings-URL. Klicka på **enkel inloggning** och ange **plugin-namn** anges av den [lr supportteamet](mailto:support@loginradius.com) Klicka **logga in** knappen och du kommer att omdirigeras till sidan för Azure AD för inloggning. 
+    > Öppna sidan inloggnings-URL. Klicka på **enkel inloggning** och ange **plugin-namn** anges av den [LoginRadius supportteam](mailto:support@loginradius.com) Klicka **logga in** knappen och du kommer att omdirigeras till sidan för Azure AD för inloggning. 
 
 5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
-    ![Länken hämta certifikatet](./media/active-directory-saas-lr-tutorial/tutorial_lr_certificate.png) 
+    ![Länken hämta certifikatet](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_certificate.png) 
 
 6. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-lr-tutorial/tutorial_general_400.png)
     
-7. Konfigurera enkel inloggning på **lr** sida, måste du skicka den hämtade **XML-Metadata för** till [lr supportteamet](mailto:support@loginradius.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
+7. Konfigurera enkel inloggning på **LoginRadius** sida, måste du skicka den hämtade **XML-Metadata för** till [LoginRadius supportteam](mailto:support@loginradius.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -158,25 +158,25 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     d. Klicka på **Skapa**.
  
-### <a name="create-a-lr-test-user"></a>Skapa en testanvändare lr
+### <a name="create-a-loginradius-test-user"></a>Skapa en testanvändare LoginRadius
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i lr. Arbeta med [lr supportteamet](mailto:support@loginradius.com) att lägga till användare i lr-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
+I det här avsnittet skapar du en användare som kallas Britta Simon i LoginRadius. Arbeta med [LoginRadius supportteam](mailto:support@loginradius.com) att lägga till användare i LoginRadius-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till lr.
+I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till LoginRadius.
 
 ![Tilldela rollen][200] 
 
-**Om du vill tilldela lr Britta Simon utför du följande steg:**
+**Om du vill tilldela LoginRadius Britta Simon utför du följande steg:**
 
 1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **lr**.
+2. Välj i listan med program **LoginRadius**.
 
-    ![Länken lr i listan med program](./media/active-directory-saas-lr-tutorial/tutorial_lr_app.png)  
+    ![Länken LoginRadius i listan med program](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_app.png)  
 
 3. Klicka på menyn till vänster **användare och grupper**.
 
@@ -196,7 +196,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
-När du klickar på panelen lr på åtkomstpanelen du bör få automatiskt loggat in på ditt lr-program.
+När du klickar på panelen LoginRadius på åtkomstpanelen du bör få automatiskt loggat in på ditt LoginRadius program.
 Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser

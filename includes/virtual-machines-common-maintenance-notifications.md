@@ -1,4 +1,19 @@
-
+---
+title: ta med fil
+description: ta med fil
+services: virtual-machines
+author: zivraf
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: zivr
+ms.custom: include file
+ms.openlocfilehash: 9666a8fde808981dd798ff712b96a7c620c9003a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Visa VMs schemalagt underhåll i portalen
 
 När ett planerat underhåll wave schemaläggs och meddelanden skickas, kan du se listan över virtuella datorer som påverkas av kommande Underhåll wave. 
@@ -17,10 +32,10 @@ Du kan använda Azure portal och leta efter virtuella datorer som är schemalagd
       
       | Värde | Beskrivning |
       |-------|-------------|
-      | Börja nu | Den virtuella datorn är i underhållsfönstret självbetjäning som gör att du kan initiera underhållet själv. Se nedan om hur du startar Underhåll på den virtuella datorn | 
-      | Schemalagd | Den virtuella datorn är schemalagt för underhåll utan något alternativ att initiera underhåll. Du kan lära dig för underhåll genom att välja fönstret automatiskt schemalagda i den här vyn eller genom att klicka på den virtuella datorn | 
+      | Börja nu | Den virtuella datorn befinner sig i självbetjäningsunderhållsperioden som gör att du kan starta underhållet själv. Se nedan om hur du startar Underhåll på den virtuella datorn | 
+      | Har schemalagts | Den virtuella datorn är schemalagd för underhåll utan något alternativ för dig att starta underhållet. Du kan lära dig för underhåll genom att välja fönstret automatiskt schemalagda i den här vyn eller genom att klicka på den virtuella datorn | 
       | Slutförd | Du har initierat och slutföra Underhåll på den virtuella datorn. | 
-      | Överhoppad| Du har valt för att initiera underhåll utan framgång. Du kommer inte att använda alternativet självbetjäning underhåll. Den virtuella datorn måste startas av Azure under fasen schemalagt underhåll. | 
+      | Hoppades över| Du har valt att starta underhållet utan framgång. Du kommer inte att använda alternativet självbetjäning underhåll. Den virtuella datorn måste startas av Azure under fasen schemalagt underhåll. | 
 
    **Underhåll proaktiva** -visar tidsfönstret vid automatisk start Underhåll på dina virtuella datorer.
    

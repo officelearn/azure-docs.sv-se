@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a1ffd9311f6ff171502efe64557463abc49ad636
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5039798d76017d93b77d724b2e6bca6712af0370
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Händelseutlösare rutnät för Azure Functions
 
@@ -37,11 +37,11 @@ Om du vill kan kan du använda en HTTP-utlösare för att hantera händelsen rut
 
 Händelsen rutnätet utlösaren har angetts i den [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet-paketet. Källkoden för paketet är i den [azure-funktioner-eventgrid-tillägget](https://github.com/Azure/azure-functions-eventgrid-extension) GitHub-lagringsplatsen.
 
-Paketet används för [C# class library development](functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code) och [fungerar v2 bindning tilläggsregistrering](functions-triggers-bindings.md#local-development-azure-functions-core-tools).
-
 <!--
 If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
 -->
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Exempel
 
@@ -348,7 +348,7 @@ När du är klar testning, du kan använda samma prenumeration för produktion g
 
 ### <a name="create-a-requestbin-endpoint"></a>Skapa en RequestBin slutpunkt
 
-RequestBin är ett verktyg med öppen källkod som accepterar HTTP-begäranden och visar begärandetexten. URL: en http://requestb.in hämtar särskild behandling av Azure händelse rutnätet. För att underlätta testningen skickar händelse rutnätet händelser för RequestBin URL: en utan att kräva en rätt svar på begäranden för verifiering av prenumerationen. Två andra testningsverktyg behandlas på samma: http://webhookinbox.com och http://hookbin.com.
+RequestBin är ett verktyg med öppen källkod som accepterar HTTP-begäranden och visar begärandetexten. Den http://requestb.in URL hämtar särskild behandling av Azure händelse rutnätet. För att underlätta testningen skickar händelse rutnätet händelser för RequestBin URL: en utan att kräva en rätt svar på begäranden för verifiering av prenumerationen. Två andra testningsverktyg behandlas på samma: http://webhookinbox.com och http://hookbin.com.
 
 RequestBin är inte avsedd för användning med hög genomströmning. Om du push-överför fler än en händelse i taget kanske du inte ser alla händelser i verktyget.
 

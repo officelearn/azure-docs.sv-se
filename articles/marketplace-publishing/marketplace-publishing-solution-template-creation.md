@@ -3,8 +3,8 @@ title: "Guide för att skapa en lösningsmall för Marketplace | Microsoft Docs"
 description: "Detaljerade anvisningar för hur du skapar, certifiera och distribuera en lösning för flera Virtuella bilden mall för inköp på Azure Marketplace."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: e14e05f2-2385-4ce0-b351-0747cb74ba19
 ms.service: marketplace
@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 675316b97e821a81ca4946d57a76d7bce978361b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.author: mbaldwin
+ms.openlocfilehash: 83e69701aa5e8c11354e7551d66f3fdd18289000
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Guide för att skapa en för lösningsmall för Azure Marketplace
 När du har slutfört steg 1, [skapande av konton och registrering][link-acct-creation], vi Interaktiv du vid skapandet av en Azure-kompatibel lösningsmall på [tekniska krav för att skapa en lösningsmall](marketplace-publishing-solution-template-creation-prerequisites.md). Nu går du igenom stegen för att skapa en lösningsmall för för flera virtuella datorer på den [Publiceringsportal] [ link-pubportal] för Azure Marketplace.
 
 ## <a name="create-your-solution-template-offer-in-the-publishing-portal"></a>Skapa lösningen mallen erbjudandet i Publishing Portal
-Gå till [https://publish.windowsazure.com](http://publish.windowsazure.com). När du loggar in för första gången och det [Publiceringsportal](https://publish.windowsazure.com/), Använd samma konto med företagets säljare profil har registrerats. Du kan senare lägga till anställda på företaget som medadministratör i Publishing Portal.
+Gå till [ https://publish.windowsazure.com ](http://publish.windowsazure.com). När du loggar in för första gången och det [Publiceringsportal](https://publish.windowsazure.com/), Använd samma konto med företagets säljare profil har registrerats. Du kan senare lägga till anställda på företaget som medadministratör i Publishing Portal.
 
 ### <a name="1-select-solution-templates"></a>1. Välj ”lösningsmallar”
   ![Rita][img-pubportal-menu-sol-templ]
@@ -37,9 +37,9 @@ En lösningsmall är "överordnad" alla dess topologier. Du kan definiera flera 
 
 * Skapa en topologi: ”ID” är vanligtvis namnet på topologin för lösningsmall. Topologi-identifieraren används i URL: en som visas nedan:
 
-  Azure Marketplace: http://azure.microsoft.com/marketplace/partners/ {PublisherNamespace} / {OfferIdentifier} {TopologyIdentifier}
+  Azure Marketplace: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
-  Azure-portalen: https://portal.azure.com/#gallery/ {PublisherNamespace}. {OfferIdentifier} {TopologyIdentifier}
+  Azure-portalen: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
 * Lägg till en ny version.
 
 ### <a name="4-get-your-topology-versions-certified"></a>4. Hämta din topologi-versioner som är certifierade

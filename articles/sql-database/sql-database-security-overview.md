@@ -2,25 +2,19 @@
 title: "Säkerhetsöversikt för Azure SQL Database | Microsoft Docs"
 description: "Läs mer om Azure SQL Database och SQL Server-säkerhet, inklusive skillnaderna mellan moln och SQL Server lokalt."
 services: sql-database
-documentationcenter: 
 author: giladm
-manager: shaik
+manager: craigg
 ms.reviewer: carlrab
-editor: 
-ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
-ms.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: giladm
-ms.openlocfilehash: 41051944af863c4c50595ea843e2adf3513b3a12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1dc34f021fa6482c65cce0e922951ae329987c43
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-your-sql-database"></a>Säkra din SQL Database
 
@@ -62,7 +56,6 @@ För att hjälpa skydda dina data, förhindrar brandväggar all åtkomst till di
 
 ### <a name="authentication"></a>Autentisering
 SQL-databasautentisering refererar till hur du styrker din identitet när du ansluter till databasen. SQL Database stöder två typer av autentisering:
-
 * **SQL-autentisering**, som använder ett användarnamn och lösenord. När du skapade den logiska servern för databasen angav du en "serveradministratörsinloggning” med ett användarnamn och lösenord. Med dessa autentiseringsuppgifter kan du autentisera till en databas på servern som databasens ägare eller "dbo." 
 * **Azure Active Directory-autentisering**, som använder identiteter som hanteras av Azure Active Directory och stöder hanterade och integrerade domäner. Använd Active Directory-autentisering (integrerad säkerhet) [närhelst det går](https://msdn.microsoft.com/library/ms144284.aspx). Om du vill använda Azure Active Directory-autentisering måste du skapa en annan serveradministratör som kallas "Azure AD-admin," som tillåts administrera Azure AD-användare och -grupper. Den här administratören kan också utföra alla åtgärder som en vanlig serveradministratören kan. Se [Ansluta till SQL Database genom att använda Azure Active Directory-autentisering](sql-database-aad-authentication.md) för en genomgång av hur du skapar en Azure AD-administratör för att aktivera Azure Active Directory-autentisering.
 
@@ -86,6 +79,21 @@ Hotidentifiering kompletterar granskning genom att tillhandahålla ett extra lag
  
 ## <a name="compliance"></a>Efterlevnad
 Förutom ovanstående egenskaper och funktioner som kan hjälpa ditt program uppfylla olika säkerhetskrav, Azure SQL Database även deltar i reguljära granskningar och har certifierats mot ett antal efterlevnadsstandarder. Mer information finns i [Microsoft Azure säkerhetscenter](https://azure.microsoft.com/support/trust-center/), där du hittar den senaste listan med [SQL Database-kompatibilitetscertifieringar](https://azure.microsoft.com/support/trust-center/services/).
+
+
+## <a name="security-management"></a>Säkerhetshantering
+
+SQL-databas som hjälper dig att hantera din datasäkerhet genom att tillhandahålla databasen genomsökningar och en centraliserad säkerhet instrumentpanel med hjälp av [SQL Vulnerability Assessment](sql-vulnerability-assessment.md).
+
+**Utvärdering av säkerhetsrisker**: [SQL Vulnerability Assessment](sql-vulnerability-assessment.md) (för närvarande i förhandsversion) är ett enkelt att konfigurera verktyget inbyggda i Azure SQL Database som kan hjälpa dig identifiera, spåra och åtgärda eventuella databas säkerhetsproblem. Bedömningen kör en genomsökning säkerhetsproblem på databasen och genererar en rapport som ger inblick i dina säkerhetstillstånd, inklusive tillämplig steg för att lösa säkerhetsproblem och förbättra säkerheten för din databas. Rapporten assessment kan anpassas för din miljö genom att ange en acceptabel baslinje för behörigheter, funktionen konfigurationer och inställningar. Detta kan hjälpa dig att:
+
+- Uppfylla krav på databasen genomsökning rapporter. 
+
+- Uppfyller data sekretess standarder. 
+
+- Övervaka en dynamisk databas-miljö där ändringar har svårt att spåra.
+
+Mer information finns i [SQL Vulnerability Assessment](sql-vulnerability-assessment.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

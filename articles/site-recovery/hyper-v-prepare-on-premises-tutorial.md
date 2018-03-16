@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9524ffde4a588d3ac029bc8a3df91726082e157d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 1290a186ca8e83b09f53b286e80c5ce75f08d88c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala Hyper-V-servrar för katastrofåterställning till Azure
 
@@ -24,29 +24,20 @@ Den här kursen visar hur du förbereder din lokala Hyper-V-infrastruktur när d
 > * Kontrollera internet-åtkomst till Azure platser
 > * Förbereda virtuella datorer så att du kan komma åt dem efter en redundansväxling till Azure
 
-Det här är den andra kursen i serien. Se till att du har [konfigurerar du Azure komponenterna](tutorial-prepare-azure.md) enligt beskrivningen i föregående kursen.
+Det här är den andra självstudien i serien. Se till att du har [konfigurerat Azure-komponenterna](tutorial-prepare-azure.md) enligt beskrivningen i föregående självstudie.
 
 
 
-## <a name="review-server-requirements"></a>Granska serverkrav
+## <a name="review-requirements-and-prerequisites"></a>Granska krav och förutsättningar
 
-Kontrollera att Hyper-V-värdar uppfyller följande krav. Om du hanterar värdar i System Center Virtual Machine Manager (VMM) moln, kontrollera VMM krav.
+Se till att Hyper-V-värdar och virtuella datorer som uppfyller kraven.
 
+1. [Kontrollera](hyper-v-azure-support-matrix.md#on-premises-servers) lokal server-krav.
+2. [Kontrollera kraven](hyper-v-azure-support-matrix.md#replicated-vms) för Hyper-V virtuella datorer du vill replikera till Azure.
+3. Kontrollera Hyper-V-värd [nätverk](hyper-v-azure-support-matrix.md#hyper-v-network-configuration); och värden och gästen [lagring](hyper-v-azure-support-matrix.md#hyper-v-host-storage) stöd för lokala Hyper-V-värdar.
+4. Kontrollera vad som stöds för [Azure nätverk](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [lagring](hyper-v-azure-support-matrix.md#azure-storage), och [compute](hyper-v-azure-support-matrix.md#azure-compute-features), efter växling vid fel.
+5. Din lokala virtuella datorer som du replikerar till Azure måste vara kompatibel med [krav för Azure VM](hyper-v-azure-support-matrix.md#azure-vm-requirements).
 
-**Komponent** | **Hyper-V som hanteras av VMM** | **Hyper-V utan VMM**
---- | --- | ---
-**Operativsystemet för Hyper-V-värd** | Windows Server 2016, 2012 R2 | Ej tillämpligt
-**VMM** | VMM 2012, VMM 2012 R2 | Ej tillämpligt
-
-
-## <a name="review-hyper-v-vm-requirements"></a>Granska kraven för Hyper-V-dator
-
-Kontrollera att den virtuella datorn uppfyller kraven sammanfattas i tabellen.
-
-**VM-krav** | **Detaljer**
---- | ---
-Gästoperativsystemet | Alla gästoperativsystemet [stöds av Azure](https://technet.microsoft.com/library/cc794868.aspx).
-**Krav för Azure** | Lokal Hyper-V virtuella datorer måste uppfylla Azure VM requirements(site-recovery-support-matrix-to-azure.md).
 
 ## <a name="prepare-vmm-optional"></a>Förbereda VMM (valfritt)
 
@@ -82,13 +73,14 @@ Förbered VMM nätverksmappningen på följande sätt:
 
 Under ett failover-scenario kan du vill ansluta till nätverket replikerade lokalt.
 
-För att ansluta till virtuella Windows-datorer med RDP efter en växling vid fel, gör du följande:
+Tillåt åtkomst på följande sätt för att ansluta till virtuella Windows-datorer med RDP efter en växling vid fel:
 
-1. För att få åtkomst via internet, aktiverar du RDP på den lokala virtuella datorn före redundans. Kontrollera att TCP och UDP-regler har lagts till för den **offentliga** profil och att RDP tillåts i **Windows-brandväggen** > **tillåtna appar** för alla profiler.
-2. För att komma åt via plats-till-plats-VPN, aktiverar du RDP på den lokala datorn. RDP ska tillåtas i den **Windows-brandväggen** -> **tillåtna appar och funktioner** för **domän och privat** nätverk.
-   Kontrollera att operativsystemets SAN policyn är inställd att **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135). Det ska vara ingen Windows-uppdateringar som väntar på den virtuella datorn när du utlösa redundansväxling. Om det inte finns kan du inte logga in på den virtuella datorn förrän uppdateringen är klar.
-3. På Windows Azure VM efter växling vid fel, kontrollera **starta diagnostik** att visa en skärmbild av den virtuella datorn. Om du inte kan ansluta, kontrollera att den virtuella datorn körs och granska dessa [felsökningstips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+1. För att få åtkomst via Internet aktiverar du RDP på den lokala virtuella datorn före redundansen. Kontrollera att TCP- och UDP-regler har lagts till för den **offentliga** profilen och att RDP tillåts i **Windows-brandväggen** > **Tillåtna appar** för alla profiler.
+2. För åtkomst via plats-till-plats-VPN aktiverar du RDP på den lokala datorn. RDP ska tillåtas i **Windows-brandväggen** -> **Tillåtna appar och funktioner** för nätverken **Domän och privat**.
+   Kontrollera att operativsystemets SAN-princip har angetts till **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135). Det får inte finnas några väntande Windows-uppdateringar på den virtuella datorn när du utlöser en redundans. Om det finns det kan du inte logga in på den virtuella datorn förrän uppdateringen är klar.
+3. Efter en redundans av en virtuell Windows Azure-dator, kontrollerar du att **Startdiagnostik** visar en skärmbild av den virtuella datorn. Om du inte kan ansluta kontrollerar du att den virtuella datorn körs. Granska sedan dessa [felsökningstips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
+Efter växling vid fel, kan du komma åt virtuella Azure-datorer med samma IP-adress som den replikerade lokala virtuella datorn eller en annan IP-adress. [Lär dig mer](concepts-on-premises-to-azure-networking.md) om hur du konfigurerar IP-adresser för redundans.
 
 ## <a name="next-steps"></a>Nästa steg
 

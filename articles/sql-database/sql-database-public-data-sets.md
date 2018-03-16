@@ -2,25 +2,18 @@
 title: "Offentliga datamängder för Azure analytics | Microsoft Docs"
 description: "Läs mer om allmänna uppgifter som att du kan använda som prototyp och testa Azure Analystjänster och lösningar."
 services: sql-database
-documentationcenter: 
 author: douglaslMS
 manager: craigg
-editor: 
-tags: 
 ms.custom: reference
-ms.assetid: 
 ms.service: sql-database
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 03/20/2017
 ms.author: douglasl
-ms.openlocfilehash: ffb8c7cb4a5337e075c69f5e74552f7ead7c7565
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 34ff31c0542fba5fbd132c89c6bb028ba9ca6b88
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Offentliga datauppsättningar för testning och prototyper
 
@@ -33,7 +26,7 @@ Bläddra i listan över offentliga datauppsättningar för data som du kan anvä
 | [Amerikanska myndigheter data](https://www.census.gov/data.html) | Över 190,000 datauppsättningar som omfattar jordbruket, klimatförändringar, konsumenten, ekosystem, education, energi, ekonomi, hälsa, lokala myndigheter, tillverkning, sjöfartsorganisationen, oceanen, allmän säkerhet och vetenskap och forskning i USA | Filer med olika storlekar i olika format, inklusive HTML-, XML-, CSV, JSON, Excel och många andra. Du kan filtrera tillgängliga datauppsättningar av filformatet. |
 | [USA inventering data](https://www.census.gov/data.html) | Statistisk information om befolkningen i USA | Uppgifter som är i olika format. |
 | [Earth vetenskap data från NASA](https://earthdata.nasa.gov/) | Över 32000 datasamlingar som omfattar jordbruket, luften, biosfärreservat, klimatförändringar, cryosphere, mänsklig dimensioner, hydrosphere, mark yta, oceans, sun earth interaktioner, och mer. | Uppgifter som är i olika format. |
-| [Flygbolag svarta fördröjningar och andra data som transport](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | ”USA Avdelning transport har (punkt) som administreras av transport statistik (BTS) spårar prestanda i tid för nationella flygplan drivs av stora flygbolag. Sammanfattningsinformation för antalet i tid, fördröjd, avbrutna och distribueras flygplan visas... i översikt över tabeller som anslås på den här webbplatsen ”. | Filerna finns i CSV-format. |
+| [Flygbolag svarta fördröjningar och andra data som transport](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "The U.S. Avdelning transport har (punkt) som administreras av transport statistik (BTS) spårar prestanda i tid för nationella flygplan drivs av stora flygbolag. Sammanfattningsinformation för antalet i tid, fördröjd, avbrutna och distribueras flygplan visas... i översikt över tabeller som anslås på den här webbplatsen ”. | Filerna finns i CSV-format. |
 | [Trafik skadades - oss Fatality analys Reporting System (FARS)](http://www.nhtsa.gov/FARS) | ”FARS är att tillhandahålla NHTSA Congress nationell inventering och American offentliga årlig data om allvarliga skador haft i fordon trafik krascher”. | ”Skapa dina egna fatality data köras online med hjälp av FARS frågan System. Eller hämta alla FARS data från 1975 presentera från FTP-platsen ”. |
 | [Giftiga kemiska data - EPA toxicitet prognosmodell (ToxCast™) data](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | ”Miljövårdsmyndighetens allra senaste, offentligt tillgänglig hög genomströmning toxicitet data på tusentals kemikalier. Informationen genereras via den EPA ToxCast research arbete ”. | Uppgifter som är tillgängliga i olika format, inklusive kalkylblad, R-paket och MySQL-databasfiler. |
 | [Giftiga kemiska data - NIH Tox21 Data Challenge 2014](https://tripod.nih.gov/tox21/challenge/) | ”2014 Tox21 data challenge är utformade för att förstå potentialen av kemikalier och föreningar testas via toxikologi i 2000-talet initiativet att störa biologiska vägar på ett sätt som kan resultera i Giftverkningar forskare”. | Uppgifter som är tillgängliga i LEENDEN och SDF format. Data innehåller ”assay aktivitetsdata och kemiska strukturer på Tox21 mängden ~ 10 000 föreningar (Tox21 10K)”. |

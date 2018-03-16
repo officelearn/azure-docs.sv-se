@@ -14,11 +14,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 51cc413d61e4951f28e9247efcee934af23572e5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 85baba61d5603539641f45f7ab1d722ca98514ad
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="grow-your-business-by-using-the-azure-marketplace"></a>Växa med hjälp av Azure Marketplace
 
@@ -129,7 +129,8 @@ Om du vill maximera effekten av dessa aktiviteter gärna du ha din starta plan s
 >[!NOTE]
 >En extern Partner katalog (OCP katalog) är en fördel med medlemskap i Microsoft Partner Network. 
 
-![Marketplace GTM fördelar](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
+[Marketplace GTM fördelar](./media/marketplace-publishers-guide/marketplace-gtm-current-march-8.png)
+
 
 Support finns [Microsoft går du till marknaden](https://www.microsoftgotomarket.com). Du hittar det, mallar, webbinnehåll, utbildning och verktyg för att utveckla ditt företag.
 

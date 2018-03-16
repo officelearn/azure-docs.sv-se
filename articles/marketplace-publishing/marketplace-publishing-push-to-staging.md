@@ -3,8 +3,8 @@ title: "Förbereda och testa erbjudandet för distribution till Azure Marketplac
 description: "Detaljerade anvisningar om att marknadsföring innehåll, konfigurera prisnivå planer och testning erbjudandet innan du distribuerar till Azure Marketplace."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
-ms.author: hascipio
-ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 5bec9ac89487a824b9de9209547f0b96fa5fe678
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Skapa erbjudande med marknadsföring innehåll
 I det här steget publiceringsprocessen behöver att tillhandahålla vissa marknadsföring innehåll och information om erbjudandet och/eller SKU: er i Azure Marketplace. Exempelvis kan du ange en beskrivning av produkten, logotyp, pris planer, information om planer och annan information som behövs för att push-erbjudandet och/eller SKU till Förproduktion. Den här informationen används som marknadsföring innehåll i Azure-portalen. Du börjar den här processen i den [Publiceringsportal][link-pubportal].
@@ -26,7 +26,7 @@ I det här steget publiceringsprocessen behöver att tillhandahålla vissa markn
 ## <a name="step-1-provide-marketplace-marketing-content"></a>Steg 1: Ange Marketplace marknadsföring innehåll
 **Engelska är standard och bara språk som stöds.** Se till att all information i fälten är på engelska. Du kan redigera all information när du vill fram till dess att du väljer att mellanlagra.
 
-1. Gå till portalen publishing [https://publish.windowsazure.com](https://publish.windowsazure.com).
+1. Gå till portalen publishing [ https://publish.windowsazure.com ](https://publish.windowsazure.com).
 2. På den vänstra menyn klickar du på den **marknadsföring** fliken.
 3. I panelen huvudsakliga klickar du på den **engelska (USA)** knappen.
    
@@ -276,7 +276,7 @@ Nu när din Marketplace-innehållet har lästs in, ska vi gå med testning erbju
 * [Testa VM erbjudandet i Förproduktion](marketplace-publishing-vm-image-test-in-staging.md)
 * [Testa lösningen mallen erbjudandet i Förproduktion](marketplace-publishing-solution-template-test-in-staging.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Komma igång: hur du publicerar ett erbjudande på Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg

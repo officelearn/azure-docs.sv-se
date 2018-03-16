@@ -2,24 +2,18 @@
 title: "Övervaka och förbättra prestanda - Azure SQL Database | Microsoft Docs"
 description: "Azure SQL Database tillhandahåller prestandaverktyg som hjälper dig att identifiera områden som kan förbättra aktuella frågeprestanda."
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: monicar
-ms.assetid: a60b75ac-cf27-4d73-8322-ee4d4c448aa2
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 07/19/2016
 ms.author: sstein
-ms.openlocfilehash: 49b24619372d41ff25f815ca493ca7e6ce69ef9c
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 1d327e33a84917688e70f234df311e7b7cf4b30b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-and-improve-performance"></a>Övervaka och förbättra prestanda
 Azure SQL-databas identifierar potentiella problem i din databas och rekommenderar åtgärder som kan förbättra prestandan för din arbetsbelastning genom att tillhandahålla intelligent prestandajustering åtgärder och rekommendationer.
@@ -46,7 +40,7 @@ Den här vyn innehåller en sammanfattning av databasens prestanda och hjälper 
 * Den **automatisk justering** panelen visar den [automatisk justering configuration](sql-database-automatic-tuning-enable.md) för databasen (justering alternativ som automatiskt tillämpas på databasen). Om du klickar på den här panelen öppnas konfigurationsdialogruta automation.
 * Den **databasfrågor** panelen visas en sammanfattning av frågeprestanda för databasen (övergripande DTU användnings- och upp resurs förbrukningsfrågorna). Klicka på den här panelen tar dig till  **[Query Performance Insight](#query-performance-insight)**.
 
-## <a name="performance-recommendations"></a>Rekommendationer
+## <a name="performance-recommendations"></a>Prestandarekommendationer
 Den här sidan innehåller intelligent [justera rekommendationer](sql-database-advisor.md) som kan förbättra dina databasprestanda. Följande typer av rekommendationer visas på den här sidan:
 
 * Rekommendationer om vilka index för att skapa eller ta bort.

@@ -2,31 +2,25 @@
 title: Installera elastisk databas jobb | Microsoft Docs
 description: "Gå igenom installationen av elastiska jobb."
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: ddove
-editor: 
-ms.assetid: cbe0aa2b-17e3-4b6f-a16f-6ebc1f5a66af
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.author: sstein
+ms.openlocfilehash: 7e5258e0ccb88c8e2f3fe3277f69444ae5424cd0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Installera översikt över elastisk databas
 [**Den elastiska databasen jobb** ](sql-database-elastic-jobs-overview.md) kan installeras via PowerShell eller via Azure-portalen. Du kan komma åt för att skapa och hantera jobb med hjälp av PowerShell API endast om du har installerat PowerShell. Dessutom tillhandahålla PowerShell APIs betydligt fler funktioner än portalen vid denna tidpunkt.
 
 Om du redan har installerat **elastisk databas jobb** via portalen från en befintlig **elastisk pool**, innehåller den senaste Powershell-förhandsversionen skript för att uppgradera den befintliga installationen. Vi rekommenderar starkt att uppgradera installationen till senast **elastisk databas jobb** komponenter för att kunna dra nytta av nya funktioner som exponeras via PowerShell APIs.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * En Azure-prenumeration. För en kostnadsfri utvärderingsversion finns [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Installera den senaste versionen med hjälp av den [installationsprogram för webbplattform](http://go.microsoft.com/fwlink/p/?linkid=320376). Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 * [NuGet Command-line Utility](https://nuget.org/nuget.exe) används för att installera paketet för elastisk databas jobb. Mer information finns i http://docs.nuget.org/docs/start-here/installing-nuget.
@@ -68,7 +62,7 @@ De parametrar som ges i det här exemplet anrop kan ändras för inställningarn
   </tr>
 
 <tr>
-    <td>resourceGroupName</td>
+    <td>ResourceGroupName</td>
     <td>Tillhandahåller Azure resursgruppens namn innehåller de nyligen skapade Azure komponenterna. Den här parametern standard ”__ElasticDatabaseJob”. Du bör inte ändra det här värdet.</td>
     </tr>
 
@@ -129,7 +123,7 @@ För att uppdatera VM-storlek för en installation, kör du följande skript med
 </tr>
 
   <tr>
-    <td>resourceGroupName</td>
+    <td>ResourceGroupName</td>
     <td>Identifierar Azure resursgruppens namn används när elastisk databas jobbet-komponenter installerades från början. Den här parametern standard ”__ElasticDatabaseJob”. Eftersom det inte rekommenderas att ändra det här värdet, inte bör du måste ange den här parametern.</td>
     </tr>
 </tr>

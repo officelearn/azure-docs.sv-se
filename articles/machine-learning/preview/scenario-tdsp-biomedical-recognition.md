@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4e8450cc20718185a3cea02bf8fbb6b97dd91ddb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Biomedicinska entitet bokföring med hjälp av mallen för Team Data vetenskap processen (TDSP)
 
-Entiteten extrahering är en underaktivitet för att utvinna information (även kallat [namngiven entitet recognition (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), entiteten högoptimerat och enhetens identifiering). Syftet med den här verkligt scenario är att fokusera på hur du använder Azure Machine Learning-arbetsstationen för att lösa en komplicerad naturligt språk bearbetning (NLP)-aktivitet, till exempel entitet extrahering från Ostrukturerade text:
+Entiteten extrahering är en underaktivitet för att utvinna information (även kallat [namngiven entitet recognition (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), entitet högoptimerat och enhetens identifiering). Syftet med den här verkligt scenario är att fokusera på hur du använder Azure Machine Learning-arbetsstationen för att lösa en komplicerad naturligt språk bearbetning (NLP)-aktivitet, till exempel entitet extrahering från Ostrukturerade text:
 
 1. Hur för att träna neural word inbäddningar modell en text Kristi av cirka 18 miljoner PubMed sammanfattningar med [Spark Word2Vec implementering](https://spark.apache.org/docs/latest/mllib-feature-extraction.html#word2vec).
 2. Hur du skapar en djup lång kortvariga minne (LSTM) återkommande neurala nätverket modell för entiteten extrahering på en GPU-aktiverade Azure datavetenskap virtuell dator (GPU DS VM) på Azure.
@@ -32,13 +32,13 @@ Entiteten extrahering är en underaktivitet för att utvinna information (även 
 
 4. Visa Azure Machine Learning-arbetsstationen följande funktioner:
 
-    * Instansieringen av [Team Data vetenskap processen (TDSP) struktur och mallar](how-to-use-tdsp-in-azure-ml.md).
+    * Instansieringen av [Team Data vetenskap processen (TDSP) struktur och mallar](how-to-use-tdsp-in-azure-ml.md)
     * Automatisk hantering av din projektberoenden inklusive hämtning och installation
-    * Körningen av Python-skript på differetn beräkna miljöer.
-    * Kör historikspårning för Python-skript.
-    * Körningen av jobb på fjärranslutna Spark beräkna kontext med HDInsight Spark 2.1 kluster.
-    * Körningen av jobb i fjärranslutna GPU virtuella datorer i Azure.
-    * Enkelt operationalization djup learning-modeller som webbtjänster på Azure Container insamlingstjänsten (ACS).
+    * Körningen av Python-skript på olika beräknings-miljöer
+    * Kör historikspårning för Python-skript
+    * Körningen av jobb på fjärranslutna Spark compute kontexter med HDInsight Spark 2.1 kluster
+    * Körningen av jobb i fjärranslutna GPU virtuella datorer på Azure
+    * Enkelt operationalization djup learning-modeller som webbtjänster på Azure Container insamlingstjänsten (ACS)
 
 ## <a name="use-case-overview"></a>Använd case-översikt
 Biomedicinska namngiven enhet recognition är ett viktigt steg för komplexa biomedicinska NLP uppgifter som: 
@@ -79,7 +79,7 @@ Vi hämtade MEDLINE abstrakt rådata från [MEDLINE](https://www.nlm.nih.gov/pub
 
 ### <a name="2-lstm-model-training-data"></a>2. LSTM modelldata utbildning
 
-Neural entitet extrahering modellen har tränas och utvärderas på publiclly tillgängliga datauppsättningar. Om du vill ha en detaljerad beskrivning av dessa data kan du referera till följande källor:
+Neural entitet extrahering modellen har tränas och utvärderas på offentligt tillgängliga datauppsättningar. Om du vill ha en detaljerad beskrivning av dessa data kan du referera till följande källor:
  * [Bio entitet Recognition uppgiften på BioNLP/NLPBA 2004](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html)
  * [BioCreative V CDR uppgiften Kristi](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/)
  * [Semeval 2013 - uppgiften 9.1 (läkemedel Recognition)](https://www.cs.york.ac.uk/semeval-2013/task9/)
@@ -106,7 +106,7 @@ Följande är en länk till den offentliga GitHub-databasen i verkligt scenario 
 
 ### <a name="python-packages"></a>Python-paket
 
-De nödvändiga beroendena definieras i filen aml_config/conda_dependencies.yml under projektmappen scenario. Beroenden som definierats i den här filen ska etableras automatiskt för körs mot docker, virtuell dator och HDI-kluster mål. Mer information om formatet Conda miljö, referera till [här](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
+De nödvändiga beroendena definieras i filen aml_config/conda_dependencies.yml under projektmappen scenario. Beroenden som definierats i den här filen tillhandahålls automatiskt för körs mot docker, virtuell dator och HDI-kluster mål. Mer information om formatet Conda miljö, referera till [här](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
 
 * [TensorFlow](https://www.tensorflow.org/install/)
 * [CNTK 2.0](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras)
@@ -136,7 +136,7 @@ Se [Data förvärv och förstå](https://github.com/Azure/MachineLearningSamples
 
 Rådata MEDLINE Kristi har totalt 27 miljoner sammanfattningar där cirka 10 miljoner artiklar har ett tomt abstrakt fält. Azure HDInsight Spark används för att bearbeta big data som kan läsas in i minnet på en dator som en [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). Data hämtas först i Spark-kluster. Sedan följande steg utförs på den [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html): 
 * tolka XML-filerna med hjälp av Medline XML-parsern
-* Förbearbeta abstrakta texten inklusive meningen dela, tokenisering och case normalisering.
+* Förbearbeta abstrakta texten, inklusive meningen dela tokenisering och case normalisering.
 * Exkludera artiklar där abstrakt fältet är tomt eller har kort text 
 * Skapa en word-terminologi från utbildning sammanfattningar
 * Träna ordet bädda in neural modell. Mer information finns i [GitHub kod länken](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) att komma igång.
@@ -146,7 +146,7 @@ Efter parsning av XML-filer har data följande format:
 
 ![Data, exempel](./media/scenario-tdsp-biomedical-recognition/datasample.png)
 
-Neural entitet extrahering modellen har tränas och utvärderas på publiclly tillgängliga datauppsättningar. Om du vill ha en detaljerad beskrivning av dessa data kan du referera till följande källor:
+Neural entitet extrahering modellen har tränas och utvärderas på offentligt tillgängliga datauppsättningar. Om du vill ha en detaljerad beskrivning av dessa data kan du referera till följande källor:
  * [Bio entitet Recognition uppgiften på BioNLP/NLPBA 2004](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html)
  * [BioCreative V CDR uppgiften Kristi](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/)
  * [Semeval 2013 - uppgiften 9.1 (läkemedel Recognition)](https://www.cs.york.ac.uk/semeval-2013/task9/)
@@ -198,7 +198,7 @@ I följande bild visas t Experten visualiseringen tillhandahåller mer avgränsn
 
 Se [träna neural entiteten extraktor](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/02_model_creation/ReadMe.md).
 
-Den feed vanlig neural nätverksarkitekturen drabbas av ett problem att de behandlas varje indata och utdata som oberoende av andra indata och utdata. Den här arkitekturen kan inte modell sequence-sequence märkning uppgifter som maskinöversättning och extrahering av entiteten. Återkommande neurala nätverket modeller lösa detta problem Eftersom de kan skicka information beräknad tills nu till nästa nod. Den här egenskapen anropas med minne i nätverket eftersom det är kan du använda den tidigare beräknad informationen som visas i följande bild:
+Neural feed vidarebefordra nätverksarkitektur lider av ett problem att de behandlas varje indata och utdata som oberoende av andra indata och utdata. Den här arkitekturen kan inte modell sequence-sequence märkning uppgifter som maskinöversättning och extrahering av entiteten. Återkommande neurala nätverket modeller lösa detta problem Eftersom de kan skicka information beräknad tills nu till nästa nod. Den här egenskapen anropas med minne i nätverket eftersom det är kan du använda den tidigare beräknad informationen som visas i följande bild:
 
 ![RNN](./media/scenario-tdsp-biomedical-recognition/rnn-expanded.png)
 
@@ -244,7 +244,7 @@ Vi utföra utvärderingen av word-inbäddningar på andra datauppsättningar på
 ![Modellen jämförelse 5](./media/scenario-tdsp-biomedical-recognition/mc5.png)
 
 #### <a name="tensorflow-versus-cntk"></a>TensorFlow jämfört med CNTK
-Den rapporterade modellen tränas med TensorFlow Keras som backend. Keras med CNTK backend stöder inte ”omvänd” när denna åtgärd utfördes. För jämförelse, har vi därför tränats en enkelriktad LSTM modell med CNTK serverdelen och jämfört med en enkelriktad LSTM modell med TensorFlow backend. Installera CNTK 2.0 för Keras från [här](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras). 
+Alla rapporterade modeller tränas med TensorFlow Keras som backend. Keras med CNTK backend stöder inte ”omvänd” när denna åtgärd utfördes. För jämförelse, har vi därför tränats en enkelriktad LSTM modell med CNTK serverdelen och jämfört med en enkelriktad LSTM modell med TensorFlow backend. Installera CNTK 2.0 för Keras från [här](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras). 
 
 ![Modellen jämförelse 6](./media/scenario-tdsp-biomedical-recognition/mc6.png)
 
@@ -266,7 +266,7 @@ Vi har gått över information om hur du tränar en inbäddning word-modell med 
 
 * Tomas Mikolov Kai Hasselgren, Greg Corrado och Jeffrey Dean. 2013a. Effektiv uppskattning av word garantier i vector utrymme. I förfaranden i ICLR.
 * Tomas Mikolov, Ilya Sutskever, Kai Hasselgren, Greg S Corrado och Jeff Dean. 2013b. Distribuerade representationer av ord och fraser och deras compositionality. Sidorna 3111 – 3119 i förfaranden NIPS.
-* Bengt Chiu, Gamal Crichton, Anna Korhonen och Sampo Pyysalo. 2016. [Så här Train bra ord inbäddningar för biomedicinsk NLP](http://aclweb.org/anthology/W/W16/W16-2922.pdf), förfaranden i 15 Workshop på biomedicinska naturligt språk bearbetning, sidor 166 – 174.
+* Bengt Chiu, Gamal Crichton, Anna Korhonen och Sampo Pyysalo. 2016. [Så här Train bra ord inbäddningar för biomedicinsk NLP](http://aclweb.org/anthology/W/W16/W16-2922.pdf), förfaranden i femtonde Workshop på biomedicinska naturligt språk bearbetning, sidor 166 – 174.
 * [Vektorn representationer av ord](https://www.tensorflow.org/tutorials/word2vec)
 * [Återkommande Neurala nätverk](https://www.tensorflow.org/tutorials/recurrent)
 * [Problem med Spark ml Word2Vec](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/problems-encountered-with-spark-ml-word2vec/)

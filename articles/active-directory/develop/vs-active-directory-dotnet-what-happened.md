@@ -4,7 +4,7 @@ description: "Beskriver vad som händer i projektet MVC när du ansluter till Az
 services: active-directory
 documentationcenter: na
 author: kraigb
-manager: mtillman
+manager: ghogen
 editor: 
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
 ms.service: active-directory
@@ -12,150 +12,159 @@ ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 03/12/2018
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: eccff00847968b4293b6e7142af0cceff0476c46
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b17c5fe500f3e2a8370ec5c4a09b62737d9afb84
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Vad hände med min MVC-projektet (Visual Studio Azure Active Directory ansluten service)?
+
 > [!div class="op_single_selector"]
-> * [Komma igång](vs-active-directory-dotnet-getting-started.md)
-> * [Vad hände](vs-active-directory-dotnet-what-happened.md)
-> 
-> 
+> - [Komma igång](vs-active-directory-dotnet-getting-started.md)
+> - [Vad hände](vs-active-directory-dotnet-what-happened.md)
 
-## <a name="references-have-been-added"></a>Referenser har lagts till
-### <a name="nuget-package-references"></a>NuGet-paketet refererar till
-* **Microsoft.IdentityModel.Protocol.Extensions**
-* **Microsoft.Owin**
-* **Microsoft.Owin.Host.SystemWeb**
-* **Microsoft.Owin.Security**
-* **Microsoft.Owin.Security.Cookies**
-* **Microsoft.Owin.Security.OpenIdConnect**
-* **Owin**
-* **System.IdentityModel.Tokens.Jwt**
+Den här artikeln identifierar exakt ändringarna i am ASP.NET MVC-projektet när du lägger till den [Azure Active Directory anslutna service med Visual Studio](vs-active-directory-add-connected-service.md).
 
-### <a name="net-references"></a>.NET-referenser
-* **Microsoft.IdentityModel.Protocol.Extensions**
-* **Microsoft.Owin**
-* **Microsoft.Owin.Host.SystemWeb**
-* **Microsoft.Owin.Security**
-* **Microsoft.Owin.Security.Cookies**
-* **Microsoft.Owin.Security.OpenIdConnect**
-* **Owin**
-* **System.IdentityModel**
-* **System.IdentityModel.Tokens.Jwt**
-* **Avsnittsgruppen**
+Information om hur du arbetar med anslutna tjänsten finns [komma igång](vs-active-directory-dotnet-getting-started.md).
 
-## <a name="code-has-been-added"></a>Koden har lagts till
-### <a name="code-files-were-added-to-your-project"></a>Kodfiler har lagts till i ditt projekt
-En autentisering startklass **App_Start/Startup.Auth.cs** har lagts till i ditt projekt som innehåller Startlogik för Azure AD-autentisering. Dessutom lades en domänkontrollant klass, Controllers/AccountController.cs som innehåller **SignIn()** och **SignOut()** metoder. Slutligen en del av en vy, **Views/Shared/_LoginPartial.cshtml** har lagts till som innehåller en länk för åtgärden för inloggning/utloggning.
+## <a name="added-references"></a>Tillagd referenserna
 
-### <a name="startup-code-was-added-to-your-project"></a>Startkoden har lagts till i ditt projekt
-Om du redan har en startklass i projektet, den **Configuration** metod har uppdaterats med ett anrop till **ConfigureAuth(app)**. Annars en startklass har lagts till i projektet.
+Påverkar projektreferenser filen *.NET) och `packages.config` (NuGet referenser).
 
-### <a name="your-appconfig-or-webconfig-has-new-configuration-values"></a>Din app.config eller web.config har nya konfigurationsvärden
-Följande konfigurationsposter har lagts till.
+| Typ | Referens |
+| --- | --- |
+| .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
+| .NET; NuGet | Microsoft.Owin |
+| .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
+| .NET; NuGet | Microsoft.Owin.Security |
+| .NET; NuGet | Microsoft.Owin.Security.Cookies |
+| .NET; NuGet | Microsoft.Owin.Security.OpenIdConnect |
+| .NET; NuGet | Owin |
+| .NET        | System.IdentityModel |
+| .NET; NuGet | System.IdentityModel.Tokens.Jwt |
+| .NET        | System.Runtime.Serialization |
 
+Ytterligare referenser om du har valt den **läsa katalogdata** alternativ:
+
+| Typ | Referens |
+| --- | --- |
+| .NET; NuGet | EntityFramework |
+| .NET        | EntityFramework.SqlServer (Visual Studio 2015 endast) |
+| .NET; NuGet | Microsoft.Azure.ActiveDirectory.GraphClient |
+| .NET; NuGet | Microsoft.Data.Edm |
+| .NET; NuGet | Microsoft.Data.OData |
+| .NET; NuGet | Microsoft.Data.Services.Client |
+| .NET; NuGet | Microsoft.IdentityModel.Clients.ActiveDirectory |
+| .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms (Visual Studio 2015 endast) |
+| .NET; NuGet | System.Spatial |
+
+I följande referenser tas bort (ASP.NET 4 projekt, som i Visual Studio 2015):
+
+| Typ | Referens |
+| --- | --- |
+| .NET; NuGet | Microsoft.AspNet.Identity.Core |
+| .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
+| .NET; NuGet | Microsoft.AspNet.Identity.Owin |
+
+## <a name="project-file-changes"></a>Projektet filändringar
+
+- Ange egenskapen `IISExpressSSLPort` till ett distinkta tal.
+- Ange egenskapen `WebProject_DirectoryAccessLevelKey` till 0 eller 1 om du har valt den **läsa katalogdata** alternativet.
+- Ange egenskapen `IISUrl` till `https://localhost:<port>/` där `<port>` matchar den `IISExpressSSLPort` värde.
+
+## <a name="webconfig-or-appconfig-changes"></a>ändringar i Web.config eller app.config
+
+- Lägga till följande konfiguration:
+
+    ```xml
     <appSettings>
-        <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
+        <add key="ida:ClientId" value="<ClientId from the new Azure AD app>" />
         <add key="ida:AADInstance" value="https://login.microsoftonline.com/" />
-        <add key="ida:Domain" value="The selected Azure AD Domain" />
-        <add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" />
-        <add key="ida:PostLogoutRedirectUri" value="Your project start page" />
+        <add key="ida:Domain" value="<your selected Azure domain>" />
+        <add key="ida:TenantId" value="<the Id of your selected Azure AD tenant>" />
+        <add key="ida:PostLogoutRedirectUri" value="<project start page, such as https://localhost:44335>" />
     </appSettings>
+    ```
 
-### <a name="an-azure-active-directory-ad-app-was-created"></a>En App i Azure Active Directory (AD) skapades
-En Azure AD-program har skapats i den katalog som du valde i guiden.
+- Lägga till `<dependentAssembly>` element under den `<runtime><assemblyBinding>` nod för `System.IdentityModel.Tokens.Jwt` och `Microsoft.IdentityModel.Protocol.Extensions`.
 
-## <a name="if-i-checked-disable-individual-user-accounts-authentication-what-additional-changes-were-made-to-my-project"></a>Om jag markerad *inaktivera enskilda användarkonton autentisering*, vilka ytterligare ändringar har gjorts i projektet?
-NuGet-paketet refererar till har tagits bort och filer har tagits bort och säkerhetskopieras. Beroende på ditt projekt status kan du behöva manuellt ta bort filer eller ytterligare referenser eller ändra koden efter behov.
+Ytterligare ändringar om du har valt den **läsa katalogdata** alternativ:
 
-### <a name="nuget-package-references-removed-for-those-present"></a>NuGet-paketreferenser tas bort (för de finns)
-* **Microsoft.AspNet.Identity.Core**
-* **Microsoft.AspNet.Identity.EntityFramework**
-* **Microsoft.AspNet.Identity.Owin**
+- Lägga till följande konfigurationspost under `<appSettings>`:
 
-### <a name="code-files-backed-up-and-removed-for-those-present"></a>Kodfiler säkerhetskopieras och ta bort (de finns)
-Var och en av följande filer har säkerhetskopierats och tas bort från projektet. Säkerhetskopiera filer finns i en ”Backup”-mapp i roten på den projektkatalogen.
+    ```xml
+    <add key="ida:ClientSecret" value="<Azure AD app's new client secret>" />
+    ```
 
-* **App_Start\IdentityConfig.CS**
-* **Controllers\ManageController.CS**
-* **Models\IdentityModels.CS**
-* **Models\ManageViewModels.CS**
+- Lägga till följande element under `<configuration>`; värdena för varierar mdf projektfilen och projekt-katalog-id:
 
-### <a name="code-files-backed-up-for-those-present"></a>Kodfiler säkerhetskopieras (för de finns)
-Var och en av följande filer har säkerhetskopierats innan som ersätts. Säkerhetskopiera filer finns i en ”Backup”-mapp i roten på den projektkatalogen.
-
-* **Startup.CS**
-* **App_Start\Startup.auth.CS**
-* **Controllers\AccountController.CS**
-* **Views\Shared\_LoginPartial.cshtml**
-
-## <a name="if-i-checked-read-directory-data-what-additional-changes-were-made-to-my-project"></a>Om jag markerad *läsa katalogdata*, vilka ytterligare ändringar har gjorts i projektet?
-Ytterligare referenser har lagts till.
-
-### <a name="additional-nuget-package-references"></a>Ytterligare referenser för NuGet-paket
-* **EntityFramework**
-* **Microsoft.Azure.ActiveDirectory.GraphClient**
-* **Microsoft.Data.Edm**
-* **Microsoft.Data.OData**
-* **Microsoft.Data.Services.Client**
-* **Microsoft.IdentityModel.Clients.ActiveDirectory**
-* **System.Spatial**
-
-### <a name="additional-net-references"></a>Ytterligare referenser för .NET
-* **EntityFramework**
-* **EntityFramework.SqlServer**
-* **Microsoft.Azure.ActiveDirectory.GraphClient**
-* **Microsoft.Data.Edm**
-* **Microsoft.Data.OData**
-* **Microsoft.Data.Services.Client**
-* **Microsoft.IdentityModel.Clients.ActiveDirectory**
-* **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms**
-* **System.Spatial**
-
-### <a name="additional-code-files-were-added-to-your-project"></a>Ytterligare kodfiler har lagts till i ditt projekt
-Två filer har lagts till stöd för tokencachelagring: **Models\ADALTokenCache.cs** och **Models\ApplicationDbContext.cs**.  En ytterligare domänkontrollant och visa har lagts till för att illustrera åtkomst till användarens profilinformation som använder Azure graph API: er.  De här filerna är **Controllers\UserProfileController.cs** och **Views\UserProfile\Index.cshtml**.
-
-### <a name="additional-startup-code-was-added-to-your-project"></a>Ytterligare startkoden har lagts till i ditt projekt
-I den **startup.auth.cs** -fil, en ny **OpenIdConnectAuthenticationNotifications** objekt lades till i **meddelanden** medlem i den  **OpenIdConnectAuthenticationOptions**.  Detta är att ta emot OAuth-koden och byta ut den för en åtkomst-token.
-
-### <a name="additional-changes-were-made-to-your-appconfig-or-webconfig"></a>Ytterligare ändringar har gjorts till web.config eller app.config
-Följande ytterligare konfigurationsposter har lagts till.
-
-    <appSettings>
-        <add key="ida:ClientSecret" value="Your Azure AD App's new client secret" />
-    </appSettings>
-
-Följande avsnitt och anslutningssträngen har lagts till.
-
+    ```xml
     <configSections>
-        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
-        <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+      <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+      <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
     </configSections>
+
     <connectionStrings>
-        <add name="DefaultConnection" connectionString="Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-[AppName + Generated Id].mdf;Initial Catalog=aspnet-[AppName + Generated Id];Integrated Security=True" providerName="System.Data.SqlClient" />
+      <add name="DefaultConnection" connectionString="Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\<project-mdf-file>.mdf;Initial Catalog=<project-catalog-id>;Integrated Security=True" providerName="System.Data.SqlClient" />
     </connectionStrings>
+
     <entityFramework>
-        <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
-          <parameters>
-            <parameter value="mssqllocaldb" />
-          </parameters>
-        </defaultConnectionFactory>
-        <providers>
-          <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
-        </providers>
+      <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
+        <parameters>
+          <parameter value="mssqllocaldb" />
+        </parameters>
+      </defaultConnectionFactory>
+      <providers>
+        <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
+      </providers>
     </entityFramework>
+    ```
 
+- Lägga till `<dependentAssembly>` element under den `<runtime><assemblyBinding>` nod för `Microsoft.Data.Services.Client`, `Microsoft.Data.Edm`, och `Microsoft.Data.OData`.
 
-### <a name="your-azure-active-directory-app-was-updated"></a>Din Azure Active Directory App har uppdaterats
-Din Azure Active Directory App har uppdaterats med den *läsa katalogdata* behörighet och nyckeln skapades som användes som sedan den *ida: ClientSecret* i den  **Web.config** fil.
+## <a name="code-changes-and-additions"></a>Kodändringar och tillägg
+
+- Lägga till den `[Authorize]` attributet `Controllers/HomeController.cs` och andra befintliga domänkontrollanter.
+
+- Lägga till en autentisering startklass `App_Start/Startup.Auth.cs`, som innehåller Startlogik för Azure AD-autentisering. Om du har valt den **läsa katalogdata** alternativet filen innehåller även kod för att ta emot en OAuth-kod och exchange för en åtkomst-token.
+
+- Lägga till en klass som domänkontrollant `Controllers/AccountController.cs`, som innehåller `SignIn` och `SignOut` metoder.
+
+- Lägga till en del av en vy, `Views/Shared/_LoginPartial.cshtml`, som innehåller en åtgärdslänken för `SignIn` och `SignOut`.
+
+- Lägga till en del av en vy, `Views/Account/SignoutCallback.cshtml`, som innehåller HTML för utloggning Användargränssnittet.
+
+- Uppdatera den `Startup.Configuration` metod för att inkludera ett anrop till `ConfigureAuth(app)` om klassen redan finns, annars läggs en `Startup` klass som innehåller anropar metoden.
+
+- Lägga till `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) eller `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015) som innehåller information som används i Visual Studio för att spåra tillägg av tjänsten anslutna.
+
+- Om du har valt den **läsa katalogdata** alternativet läggs `Models/ADALTokenCache.cs` och `Models/ApplicationDbContext.cs` att stödja tokencachelagring. Har även lagt till en ytterligare domänkontrollant och visa att illustrera åtkomst till användarens profilinformation som använder Azure graph API: er: `Controllers/UserProfileController.cs`, `Views/UserProfile/Index.cshtml`, och `Views/UserProfile/Relogin.cshtml`
+
+### <a name="file-backup-visual-studio-2015"></a>Säkerhetskopiering (Visual Studio 2015)
+
+När du lägger till tjänsten anslutna säkerhetskopierar Visual Studio 2015 ändrade och borttagna filer. Alla berörda filer sparas i mappen `Backup/AzureAD`. Visual Studio-2017 kan inte skapa säkerhetskopior.
+
+- `Startup.cs`
+- `App_Start\IdentityConfig.cs`
+- `App_Start\Startup.Auth.cs`
+- `Controllers\AccountController.cs`
+- `Controllers\ManageController.cs`
+- `Models\IdentityModels.cs`
+- `Models\ManageViewModels.cs`
+- `Views\Shared\_LoginPartial.cshtml`
+
+## <a name="changes-on-azure"></a>Ändringar i Azure
+
+- Skapa en Azure AD-program i den domän som du valde när du lägger till tjänsten anslutna.
+- Uppdaterade appen att inkludera den **läsa katalogdata** behörighet om det alternativet har valts.
+
+[Lär dig mer om Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
 ## <a name="next-steps"></a>Nästa steg
-- [Lär dig mer om Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
+- [Autentiseringsscenarier för Azure Active Directory](active-directory-authentication-scenarios.md)
+- [Lägga till inloggning med Microsoft till ett ASP.NET-webbprogram](guidedsetups/active-directory-aspnetwebapp-v1.md)

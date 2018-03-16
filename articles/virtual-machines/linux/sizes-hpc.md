@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: cdfd09d90be9696dacc151e138920944c8bbd2c9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5f867140981649b73bf6d0bc13eca539c7dc2209
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Högpresterande compute storlekar för virtuella datorer
 
@@ -29,12 +29,11 @@ ms.lasthandoff: 02/09/2018
 
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
-## <a name="rdma-capable-instances"></a>RDMA-kompatibla instanser
-En delmängd av beräkningsintensiva instanser (H16r, H16mr, NC24r, A8 och A9) har ett nätverksgränssnitt för remote direct memory access (RDMA)-anslutning. Det här gränssnittet är utöver standard Azure nätverksgränssnittet tillgänglig för andra storlekar på VM. 
-  
-Du kan använda RDMA-kompatibla instanser att kommunicera över ett InfiniBand-nätverk med FDR priser för H16r och H16mr NC24r virtuella datorer och QDR priser för A8 och A9 virtuella datorer i gränssnittet. Dessa funktioner för RDMA kan öka skalbarhet och prestanda för Message Passing Interface (MPI)-program som körs under Intel MPI endast 5.x. Senare versioner (2017, 2018) av Intel MPI-körningsbiblioteket är inte kompatibla med Azure RDMA-drivrutiner.
 
-Distribuera RDMA-kompatibla virtuella datorer i samma tillgänglighetsuppsättning (när du använder Azure Resource Manager-distributionsmodellen) eller samma tjänst i molnet (när du använder den klassiska distributionsmodellen). Ytterligare krav för RDMA-kompatibla virtuella Linux-datorer att ansluta till Azure RDMA-nätverket följer.
+### <a name="mpi"></a>MPI 
+
+Endast Intel MPI 5.x-versioner som stöds. Senare versioner (2017, 2018) av Intel MPI-körningsbiblioteket är inte kompatibla med Azure Linux RDMA-drivrutiner.
+
 
 ### <a name="distributions"></a>Distributioner
  
@@ -50,7 +49,7 @@ Distribuera en beräkningsintensiva virtuell dator från en av avbildningarna i 
   sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
   ```
     
-* **CentOS-baserade HPC** -CentOS-baserade 7.3 HPC, CentOS-baserade 7.1 HPC, CentOS-baserade 6,8 HPC eller CentOS-baserade 6.5 HPC (för H-serien, version 7.1 eller senare rekommenderas). RDMA-drivrutiner och Intel MPI 5.1 är installerade på den virtuella datorn.  
+* **CentOS-baserade HPC** -CentOS-baserade 6.5 HPC eller en senare version (för H-serien, version 7.1 eller senare rekommenderas). RDMA-drivrutiner och Intel MPI 5.1 är installerade på den virtuella datorn.  
  
   > [!NOTE]
   > CentOS-baserade HPC-avbildningar i kernel-uppdateringarna har inaktiverats i den **yum** konfigurationsfilen. Detta beror på att drivrutinerna Linux RDMA distribueras som en RPM-paket och drivrutinsuppdateringar kanske inte fungerar om kernel har uppdaterats.
@@ -63,7 +62,8 @@ Ytterligare konfiguration krävs för att köra MPI-jobb på klustrade virtuella
 ### <a name="network-topology-considerations"></a>Topologiöverväganden för nätverk
 * Eth1 är reserverat för RDMA-nätverkstrafik på RDMA-aktiverade Linux virtuella datorer i Azure. Ändra inte Eth1 inställningar eller information i konfigurationsfilen som hänvisar till det här nätverket. Eth0 är reserverat för vanliga Azure nätverkstrafik.
 
-* IP över InfiniBand (IB) stöds inte i Azure. Endast RDMA över IB stöds.
+* RDMA-nätverk i Azure reserverar adressutrymme 172.16.0.0/16. 
+
 
 ## <a name="using-hpc-pack"></a>Med HPC Pack
 [HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), Microsofts ledigt HPC-kluster och jobbet hanteringslösningen, är ett alternativ som du kan använda beräkningsintensiva instanser med Linux. De senaste versionerna av HPC Pack stöd flera Linux-distributioner som ska köras på compute-noder som är distribuerad i virtuella Azure-datorer hanteras av en Windows Server-huvudnod. Med RDMA-kompatibla Linux datornoderna kör MPI Intel, HPC Pack schemalägga och köra Linux MPI program som kommer åt nätverket RDMA. Se [komma igång med Linux compute-noder i ett HPC Pack kluster i Azure](classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).

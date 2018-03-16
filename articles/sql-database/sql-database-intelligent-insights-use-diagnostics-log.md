@@ -2,24 +2,19 @@
 title: Intelligent insikter prestanda diagnostik logg - Azure SQL Database | Microsoft Docs
 description: "Intelligent insikter ger en diagnostik logg över Azure SQL Database prestandaproblem"
 services: sql-database
-documentationcenter: 
 author: danimir
-manager: drasumic
-editor: carlrab
-ms.assetid: 
+manager: craigg
+ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: e147ca57658c232580fd9867790e55c3454e7e05
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b380d3a8a35750602a4a0d20d595f71b125fc118
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Använd Intelligent insikter Azure SQL Database prestanda diagnostik loggen
 
@@ -86,7 +81,7 @@ Prestandaproblem som identifierats information för utdata i diagnostiken loggfi
 | Ökning av arbetsbelastning | <li>Antal frågor vars körning ökade</li><li>Fråga hash-värden för frågor med största bidrar till ökad arbetsbelastning</li> |
 | Minnesbelastning | <li>Minnes-Clerk under</li> |
 | Låsning | <li>Påverkas frågan hashvärden</li><li>Blockerar frågan hashvärden</li> |
-| Ökad MAXDOP | <li>Frågan hashvärden</li><li>Väntetiden för CXP</li><li>Vänta gånger</li> |
+| Increased MAXDOP | <li>Frågan hashvärden</li><li>Väntetiden för CXP</li><li>Vänta gånger</li> |
 | Pagelatch konkurrens | <li>Fråga hash-värden för frågor som orsakar konkurrens</li> |
 | Index som saknas | <li>Frågan hashvärden</li> |
 | Ny fråga | <li>Fråga hash för de nya frågorna</li> |

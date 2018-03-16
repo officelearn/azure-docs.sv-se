@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/01/2018
+ms.date: 03/12/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 201734661873c7ac7f7a5dd710009eb324cedc86
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 7d353adcafed02832243277118da8480e54544ce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera drivrutiner för NVIDIA GPU på N-serien virtuella datorer som kör Linux
 
@@ -106,12 +106,12 @@ sudo reboot
   
   sudo reboot
 
-2. Install the latest Linux Integration Services for Hyper-V.
+2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
+  wget https://aka.ms/lis
  
-  tar xvzf lis-rpms-4.2.4.tar.gz
+  tar xvzf lis
  
   cd LISISO
  
@@ -158,7 +158,7 @@ Om drivrutinen är installerad visas utdata som liknar följande. Observera att 
 
 ## <a name="rdma-network-connectivity"></a>RDMA-nätverksanslutning
 
-RDMA-nätverksanslutning kan aktiveras på RDMA-kompatibla N-serien virtuella datorer som NC24r distribueras i samma tillgänglighetsuppsättning. RDMA-nätverket har stöd för Message Passing Interface (MPI) trafik för program som körs med Intel MPI 5.x eller en senare version. Ytterligare krav som följer:
+RDMA-nätverksanslutning kan aktiveras på RDMA-kompatibla N-serien virtuella datorer som NC24r distribueras i samma tillgänglighetsuppsättning eller skaluppsättningen för virtuell dator. RDMA-nätverket har stöd för Message Passing Interface (MPI) trafik för program som körs med Intel MPI 5.x eller en senare version. Ytterligare krav som följer:
 
 ### <a name="distributions"></a>Distributioner
 
@@ -255,12 +255,12 @@ Göra en SSH-anslutning för varje virtuell dator för att installera drivrutine
   blacklist lbm-nouveau
   ```
  
-3. Starta om den virtuella datorn, återansluta och installera de senaste Linux integreringstjänsterna för Hyper-V:
+3. Starta om den virtuella datorn, återansluta och installera senaste [Linux integreringstjänsterna för Hyper-V och Azure](https://www.microsoft.com/download/details.aspx?id=55106).
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
+  wget https://aka.ms/lis
 
-  tar xvzf lis-rpms-4.2.4.tar.gz
+  tar xvzf lis
 
   cd LISISO
 

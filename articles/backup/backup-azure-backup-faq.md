@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 2e829ae90aa0366964f96b3c43f88503c7f3e894
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 39e7c95f236f53d7b7c4de0e5b792debe5c0c6f6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Frågor om Azure Backup-tjänsten
 Den här artikeln innehåller svar på vanliga frågor om Azure Backup-komponenter. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan ställa frågor om Azure Backup genom att klicka på **Kommentarer** (till höger). Kommentarerna visas längst ned i den här artikeln. Ett Livefyre-konto krävs för att lämna kommentarer. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -132,8 +132,7 @@ Följande tabell beskriver hur datakällans storlek bestäms.
 | Microsoft Exchange |Summan av alla Exchange-databaser på en Exchange-server som säkerhetskopieras |
 | BMR/systemtillstånd |Varje enskild kopia av BMR eller systemtillstånd på datorn som säkerhetskopieras |
 
-Varje virtuell dator kan ha upp till 16 datadiskar med varje datadisk storlek 1024GB eller mindre för Virtuella Azure-säkerhetskopiering. <br>
-Vi har en [privat förhandsversion](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0) för att stödja diskar upp till 4 TB. 
+Varje virtuell dator kan ha upp till 16 datadiskar med varje datadisk storlek 4095GB eller mindre för Virtuella Azure-säkerhetskopiering. <br>
 
 ## <a name="retention-policy-and-recovery-points"></a>Bevarandeprincip och återställningspunkter
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>Finns det någon skillnad mellan bevarandeprincipen för DPM och Windows Server/Windows-klienten (dvs. på Windows Server utan DPM)?<br/>

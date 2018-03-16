@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: 412107db2dc446eb5a6a433bfb7fc3bc5e760c27
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f12dc08953372b2dfae773df11cf1f47b42a1b89
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric och behållare
 > [!NOTE]
@@ -26,11 +26,11 @@ ms.lasthandoff: 01/13/2018
 >   
 
 > [!NOTE]
-> Service Fabric version 6.1 har preview stöd för Windows Server version 1709. Öppna nätverks- och DNS-Fabric-tjänsten fungerar inte med Windows Server version 1709. 
+> Service Fabric version 6.1 har förhandsversionsstöd för Windows Server version 1709. Den öppna nätverks- och Service Fabric DNS-tjänsten fungerar inte med Windows Server version 1709. 
 > 
 
 ## <a name="introduction"></a>Introduktion
-Azure Service Fabric är en [orchestrator](service-fabric-cluster-resource-manager-introduction.md) av tjänster i ett kluster på datorer med års användnings- och optimering i massiv skala tjänster på Microsoft. Tjänster kan utvecklas på många sätt, från att använda den [Service Fabric programmeringsmodeller](service-fabric-choose-framework.md) till att distribuera [gäst körbara filer](service-fabric-deploy-existing-app.md). Som standard Service Fabric distribuerar och aktiverar de här tjänsterna som processer. Processer ger snabbast aktivering och den högsta densitet användning av resurser i ett kluster. Service Fabric kan också distribuera tjänster i behållaren bilder. Allt kan du blanda tjänster i processer och tjänster i behållare i samma program.   
+Azure Service Fabric är en [orchestrator](service-fabric-cluster-resource-manager-introduction.md) av tjänster i ett kluster på datorer med års användnings- och optimering i massiv skala tjänster på Microsoft. Tjänster kan utvecklas på många sätt, från att använda den [Service Fabric programmeringsmodeller](service-fabric-choose-framework.md) till att distribuera [gäst körbara filer](service-fabric-guest-executables-introduction.md). Som standard Service Fabric distribuerar och aktiverar de här tjänsterna som processer. Processer ger snabbast aktivering och den högsta densitet användning av resurser i ett kluster. Service Fabric kan också distribuera tjänster i behållaren bilder. Allt kan du blanda tjänster i processer och tjänster i behållare i samma program.   
 
 ## <a name="what-are-containers"></a>Vad är behållare?
 Behållare är inkapslade, individuellt distribuerbara komponenter som körs som testisolerade instanser på samma kerneln för att dra nytta av virtualisering som innehåller ett operativsystem. Därför körs varje program och dess runtime, beroenden och systemets bibliotek i en behållare med fullständig, privat åtkomst till vyn behållarens egna isolerade för konstruktionerna för operativsystemet. Den här grad av säkerhets- och isolering är den största fördelen för användning av behållare med Service Fabric som annars kör tjänster i processer tillsammans med mobilitet och.
@@ -72,7 +72,7 @@ Här följer vanliga exempel där en behållare är ett bra alternativ:
 ## <a name="service-fabric-support-for-containers"></a>Service Fabric-stöd för behållare
 Service Fabric stöder distribution av Docker-behållare i Linux och Windows Server-behållare på Windows Server 2016 tillsammans med stöd för Hyper-V-isoleringsläge. 
 
-I Service Fabric [programmodell](service-fabric-application-model.md), en behållare representerar en programvärd i vilken flera tjänst repliker placeras. Service Fabric kan köra behållare och scenariot liknar den [gäst körbara scenariot](service-fabric-deploy-existing-app.md), där du paketerar ett befintligt program i en behållare. Det här scenariot är vanligt användningsfall för behållare och exempel kör ett program som skrivits med valfritt språk och ramverk, men inte använder inbyggda programmeringsmodeller för Service Fabric.
+I Service Fabric [programmodell](service-fabric-application-model.md), en behållare representerar en programvärd i vilken flera tjänst repliker placeras. Service Fabric kan köra behållare och scenariot liknar den [gäst körbara scenariot](service-fabric-guest-executables-introduction.md), där du paketerar ett befintligt program i en behållare. Det här scenariot är vanligt användningsfall för behållare och exempel kör ett program som skrivits med valfritt språk och ramverk, men inte använder inbyggda programmeringsmodeller för Service Fabric.
 
 Dessutom kan du köra [Service Fabric-tjänster i behållare](service-fabric-services-inside-containers.md) samt. Stöd för Service Fabric-tjänster som körs i behållare är för närvarande begränsad och att förbättras i kommande versioner.
 

@@ -12,19 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 03/14/2018
 ms.author: robinsh
-ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c09809e9cf513dbb9420f675bbf431c176f740bd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Utföra åtgärder för Azure Table storage med Azure PowerShell 
-
->[!NOTE]
->Azure Cosmos DB tabell API innehåller premium-funktioner för tabellagring, till exempel NYCKELFÄRDIGT global distributionsplatsen, låg latens läsningar och skrivningar, automatisk sekundära indexering och dedikerad genomströmning. PowerShell-kommandon i den här artikeln fungerar för både Azure Cosmos DB tabell API och Azure Table storage, men den här artikeln i de flesta fall är specifika för Azure Table storage. Om du använder Azure Cosmos DB tabell API finns [Azure Cosmos DB tabell API-åtgärder med Azure PowerShell](table-powershell.md).
->
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 Azure Table storage är en NoSQL-datalager som du kan använda för att lagra och fråga stora mängder strukturerad, icke-relationella data. Huvudkomponenterna i tjänsten är tabeller, enheter och egenskaper. En tabell är en samling med entiteter. En entitet är en uppsättning egenskaper. Varje entitet kan ha upp till 252 egenskaper, som är alla namn / värde-par. Den här artikeln förutsätter att du redan är bekant med principerna för Azure Table Storage-tjänsten. Detaljerad information finns i [förstå den tabelltjänst-datamodellen](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) och [komma igång med Azure Table storage med hjälp av .NET](table-storage-how-to-use-dotnet.md).
 
@@ -38,7 +35,7 @@ Den här artikeln beskrivs vanliga åtgärder för Azure Table storage. Lär dig
 > * Ta bort tabellentiteter
 > * Ta bort en tabell
 
-Den här artikeln visar hur du skapar ett nytt lagringskonto i en ny resursgrupp, så du kan enkelt ta bort den när du är klar. Om du föredrar att använda ett befintligt lagringskonto, kan du göra det i stället.
+Den här artikeln visar hur du skapar ett nytt Azure Storage-konto i en ny resursgrupp, så du kan enkelt ta bort den när du är klar. Om du föredrar att använda ett befintligt lagringskonto, kan du göra det i stället.
 
 Exemplen kräver Azure PowerShell Modulversion 4.4.0 eller senare. Kör i PowerShell-fönster `Get-Module -ListAvailable AzureRM` versionen. Om inget att visas eller måste du uppgradera, se [installera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps). 
 
@@ -105,7 +102,7 @@ New-AzureStorageTable –Name $tableName –Context $ctx
 Hämta en lista över tabeller i storage-konto med [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
-$storageTable = Get-AzureStorageTable –Context $ctx | select Name
+Get-AzureStorageTable –Context $ctx | select Name
 ```
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>Hämta en referens till en viss tabell

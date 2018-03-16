@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 6675603bf741b1a668ba387c8304d2e2b7ab4e12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e8e5513df5ab412857403382e1940da27c85274a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Skapa ett Service Fabric-kluster med hjälp av Azure Resource Manager 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure-portalen](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -117,7 +117,7 @@ Använd följande kommando för att snabbt skapa ett kluster genom att ange mini
 
 Den mall som används är tillgänglig på den [azure service fabric mallen prover: windows-mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) och [Ubuntu mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
-Kommandona nedan fungerar för att skapa Windows- och Linux-kluster, du behöver bara ange OS därefter. Powershell / CLI-kommandona också matar ut certifikat certifikatet i anges i theCertificateOutputFolder. Kommandot tar in samt andra parametrar som VM SKU.
+Kommandona nedan fungerar för att skapa Windows- och Linux-kluster, du behöver bara ange OS därefter. PowerShell / CLI-kommandon också utdata certifikatet i den angivna CertificateOutputFolder men kontrollera certifikat mapp som redan har skapats. Kommandot tar in samt andra parametrar som VM SKU.
 
 ```Powershell
 
@@ -126,13 +126,13 @@ $resourceGroupName="mycluster"
 $vaultName="myvault"
 $vaultResourceGroupName="myvaultrg"
 $CertSubjectName="mycluster.westus.cloudapp.azure.com"
-$certPassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force 
-$vmpassword="Password!4321" | ConvertTo-SecureString -AsPlainText -Force
+$certPassword="Password123!@#" | ConvertTo-SecureString -AsPlainText -Force 
+$vmpassword="Password4321!@#" | ConvertTo-SecureString -AsPlainText -Force
 $vmuser="myadmin"
 $os="WindowsServer2016DatacenterwithContainers"
 $certOutputFolder="c:\certificates"
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser –Location $resourceGroupLocation
 
 ```
 
@@ -178,7 +178,7 @@ Om du redan har en anpassad mall och sedan kontrollera att är dubbelkolla som a
 ```
 
 
-```Powershell
+```PowerShell
 
 
 $resourceGroupLocation="westus"
@@ -195,7 +195,7 @@ New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Certifica
 
 ```
 
-Här är motsvarande CLI-kommando för att göra detsamma. Ändra värdena i declare-satser till lämpliga värden. CLI har stöd för alla andra parametrar som har stöd för ovanstående powershell-kommando.
+Här är motsvarande CLI-kommando för att göra detsamma. Ändra värdena i declare-satser till lämpliga värden. CLI har stöd för alla andra parametrar som har stöd för ovanstående PowerShell-kommando.
 
 ```CLI
 
@@ -226,7 +226,8 @@ Om det här är en CA-signerat certifikat som du kommer att få med för andra �
 #### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module"></a>Använda 5 nod 1 nodetype standardmallen som levereras i modulen
 Den mall som används är tillgänglig på den [azure-exempel: windows-mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) och [Ubuntu mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
-```Powershell
+```PowerShell
+
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
 $vaultName="myvault"
@@ -279,7 +280,7 @@ Om du redan har en anpassad mall och sedan kontrollera att är dubbelkolla som a
 ```
 
 
-```Powershell
+```PowerShell
 
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
@@ -292,7 +293,7 @@ $templateFilePath="c:\mytemplates\mytemplate.json"
 $certificateFile="C:\MyCertificates\chackonewcertificate3.pem"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword #certPassword
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword $certPassword
 
 ```
 
@@ -314,34 +315,34 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 ```
 
-#### <a name="use-a-pointer-to-the-secret-you-already-have-uploaded-into-the-keyvault"></a>Använd en pekare till den hemlighet som redan har överförts till keyvault
+#### <a name="use-a-pointer-to-the-secret-you-already-have-uploaded-into-the-key-vault"></a>Använd en pekare till den hemlighet som du redan har överfört till nyckelvalvet
 
 Att använda en befintlig nyckelvalv du _måste aktivera den för distribution_ att compute-resursprovidern så att hämta certifikat från det och installera den på klusternoder:
 
-```powershell
+```PowerShell
 
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 
 $parameterFilePath="c:\mytemplates\mytemplate.json"
 $templateFilePath="c:\mytemplates\mytemplateparm.json"
-$secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
+$secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretID -TemplateFile $templateFile -ParameterFile $templateParmfile 
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 
 ```
 Här är motsvarande CLI-kommando för att göra detsamma. Ändra värdena i declare-satser till lämpliga värden.
 
-```cli
-
+```CLI
+declare $resourceGroupName = "testRG"
 declare $parameterFilePath="c:\mytemplates\mytemplate.json"
 declare $templateFilePath="c:\mytemplates\mytemplateparm.json"
 declare $secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
 
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
-    --secret-identifieraz $secretID  \
+    --secret-identifier az $secretID  \
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 
 ```
@@ -522,9 +523,9 @@ Du lägger till Azure AD-konfiguration s ett kluster Resource Manager-mall genom
 ```
 
 ### <a name="populate-the-parameter-file-with-the-values"></a>Fyll i parameterfilen med värden.
-Använd slutligen utdatavärden från nyckelvalvet och Azure AD powershell-kommandon för att fylla i parameterfilen:
+Använd slutligen utdatavärden från nyckelvalvet och Azure AD PowerShell-kommandon för att fylla i parameterfilen:
 
-Om du planerar att använda Azure service fabric RM powershell-moduler sedan behöver du inte fylla certifikatinformationen klustret, om du vill genereras self signerat certifikat för klustret säkerhet, hålla dem precis som null. 
+Om du planerar att använda i Azure service fabric RM PowerShell-moduler och du inte behöver fylla certifikatinformationen klustret om du vill använda genereras self signerat certifikat för klustret säkerhet bara hålla dem som null. 
 
 > [!NOTE]
 > Att hämta och fylla i dessa tom parametervärden RM-moduler matchar parametrar namnen mycket namnen nedan
@@ -542,9 +543,9 @@ Om du planerar att använda Azure service fabric RM powershell-moduler sedan beh
         },
 ```
 
-Om du använder certifikat för programmet eller använder ett befintligt kluster som du har laddat upp till keyvault, måste du hämta den här informationen och fylla det 
+Om du använder certifikat för programmet eller använder ett befintligt kluster som du har överfört till nyckelvalvet måste du hämta den här informationen och fylla det 
 
-RM-moduler har inte möjlighet att geneate Azure AD-konfiguration för dig. Så om du planerar att använda Azure AD för klientåtkomst, måste du fylla i den.
+RM-moduler har inte möjlighet att skapa Azure AD-konfiguration för dig. Så om du planerar att använda Azure AD för klientåtkomst, måste du fylla i den.
 
 ```json
 {
@@ -587,13 +588,13 @@ RM-moduler har inte möjlighet att geneate Azure AD-konfiguration för dig. Så 
 ### <a name="test-your-template"></a>Testa din mall  
 Använd följande PowerShell-kommando för att testa Resource Manager-mall med en parameterfil:
 
-```powershell
+```PowerShell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 Om du stöter på problem och få kryptiskt meddelanden, Använd ”-Debug” som ett alternativ.
 
-```powershell
+```PowerShell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
@@ -605,7 +606,7 @@ Följande diagram illustrerar där ditt nyckelvalv och Azure AD-konfiguration pa
 
 Du kan nu distribuera kluster med hjälp av stegen som beskrivs tidigare i dokumentet eller om du har värdena i parameterfilen fyllts, sedan du är nu redo att skapa klustret med hjälp av [Azure-resurs malldistribution] [ resource-group-template-deploy] direkt.
 
-```powershell
+```PowerShell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
@@ -677,7 +678,7 @@ Välj ”App registreringar” i AAD-sidan, Välj klustret programmet och välj 
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>Ansluta till klustret med hjälp av Azure AD-autentisering via PowerShell
 Använd följande PowerShell-kommandot exempel för att ansluta Service Fabric-kluster:
 
-```powershell
+```PowerShell
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 

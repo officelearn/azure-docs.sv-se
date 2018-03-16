@@ -3,24 +3,18 @@ title: "Etablera nya klienter i en app för flera innehavare som använder Azure
 description: "Lär dig hur du etablera och katalogen nya klienter i en Azure SQL Database med flera innehavare SaaS-app"
 keywords: sql database tutorial
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 79b3743054f73914c6755a3c9b102b613b1944f2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 21f0bca3a16164ead4e0990842a968fd9b95c33f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Lär dig att etablera nya klienter och registrerar dem i katalogen
 
@@ -99,8 +93,8 @@ Spåra körning av skript med hjälp av den **felsöka** menyalternativen - **F1
 
 Följande är inte steg att följa explicit, men en förklaring av arbetsflöde du steg för steg när du felsöker skriptet:
 
-1. **Importera modulen SubscriptionManagement.psm1** vilken innehåller funktioner för att logga in på Azure och markera den Azure-prenumeration du arbetar med.
 1. **Importera modulen CatalogAndDatabaseManagement.psm1** vilken tillhandahåller en abstraktion på katalog- och klientnivå över [fragmenthanterings](sql-database-elastic-scale-shard-map-management.md)-funktionerna. Den här modulen kapslar mycket av mönstret katalog och är värt att utforska.
+1. **Importera modulen SubscriptionManagement.psm1** vilken innehåller funktioner för att logga in på Azure och markera den Azure-prenumeration du arbetar med.
 1. **Hämta konfigurationsinformationen**. Gå till Get-konfiguration (med F11) och se hur programmets konfiguration har angetts. Resursnamn och andra app-specifik värden definieras här, men ändra inte dessa värden tills du är bekant med skript.
 1. **Hämta katalogobjektet**. Gå till Get-katalog composes och returnerar ett objekt i katalogen som används i skriptet på högre nivå.  Den här funktionen används Fragmentera hanteringsfunktioner som importeras från **AzureShardManagement.psm1**. Katalogobjektet består av följande element:
    * $catalogServerFullyQualifiedName konstrueras standard stam plus ditt användarnamn: _katalog -\<användare\>. database.windows .net_.

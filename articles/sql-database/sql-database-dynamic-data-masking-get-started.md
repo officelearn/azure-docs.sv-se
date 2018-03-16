@@ -2,24 +2,18 @@
 title: Azure SQL Database dynamisk datamaskning | Microsoft docs
 description: "SQL-databas dynamisk datamaskning begränsar exponering av känsliga data genom att maskera till icke-privilegierade användare"
 services: sql-database
-documentationcenter: 
 author: ronitr
-manager: shaik
-editor: 
-ms.assetid: 4b36d78e-7749-4f26-9774-eed1120a9182
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 03/09/2017
 ms.author: ronitr
-ms.openlocfilehash: 883a00176207701a0bbda8d196114d9964ce8f17
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 543b4bc15177cc198aaa3c312b563a4bd6e844fc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL-databas dynamisk datamaskning
 
@@ -46,7 +40,7 @@ Dynamisk datamaskning kan konfigureras med Azure Database admin, serveradministr
 | **Kreditkort** |**Maskering av-metoden, som visar de fyra sista siffrorna i fälten avsedda** och lägger till en konstant sträng som prefix i form av ett kreditkort.<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **E-post** |**Maskering av-metoden, som visar den första bokstaven och ersätter domänen med XXX.com** med ett konstant sträng som prefix i form av en e-postadress.<br/><br/>aXX@XXXX.com |
 | **Slumptal** |**Maskering av metoden, vilket genererar ett slumptal** enligt valda gränser och faktiska datatyper. Om de angivna gränserna är lika är ett tal med funktionen maskering.<br/><br/>![Navigeringsfönstret](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
-| **Anpassad text** |**Maskering av-metoden, som visar de första och sista tecknen** och lägger till en anpassad utfyllnad sträng i mitten. Om den ursprungliga strängen är kortare än exponerade prefixet och suffixet används utfyllnad strängen. <br/>suffix för prefixet [utfyllnad]<br/><br/>![Navigeringsfönstret](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
+| **Anpassad text** |**Maskering av-metoden, som visar de första och sista tecknen** och lägger till en anpassad utfyllnad sträng i mitten. Om den ursprungliga strängen är kortare än exponerade prefixet och suffixet används utfyllnad strängen. <br/>prefix[padding]suffix<br/><br/>![Navigeringsfönstret](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 
 <a name="Anchor1"></a>
 

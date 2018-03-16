@@ -3,22 +3,18 @@ title: "Rapportering över databaser som skalats ut molntjänster | Microsoft Do
 description: "hur du ställer in elastisk frågor via horisontella partitioner"
 services: sql-database
 documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: MladjoA
-ms.assetid: f86eccb8-6323-4ba7-8559-8a7c039049f3
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: mlandzic
-ms.openlocfilehash: 41accea2e94fc763d0dcbba709829ec07453da78
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: ec47a10fcfcb3ef52810ba2b3da9599b65db375a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Rapportering över databaser som skalats ut molnet (förhandsgranskning)
 ![Fråga på shards][1]
@@ -29,7 +25,7 @@ En Snabbstart Se [rapportering över databaser som skalats ut molnet](sql-databa
 
 Icke-delat databaser finns [fråga över moln databaser med olika scheman](sql-database-elastic-query-vertical-partitioning.md). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Skapa en Fragmentera karta med hjälp av klientbiblioteket för elastisk databas. Se [Fragmentera kartan management](sql-database-elastic-scale-shard-map-management.md). Eller Använd exempelapp i [Kom igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md).
 * Du kan också se [migrera befintliga databaser som skalats ut databaser](sql-database-elastic-convert-to-use-elastic-tools.md).
 * Användaren måste ha behörigheten ALTER ANY extern DATAKÄLLA. Den här behörigheten har behörigheten ALTER DATABASE.

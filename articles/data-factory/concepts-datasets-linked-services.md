@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: 
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bfc95588378466fe1e83bcc4e899eca6b66b358a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 98d58b97457cc64954094d7e8d8b4defca7e05ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Datauppsättningar och länkade tjänster i Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,31 +184,37 @@ I exemplet ovan är typ av datamängden har angetts till **AzureSqlTable**. För
 }
 ```
 ## <a name="dataset-structure"></a>DataSet-struktur
-Den **struktur** avsnittet är valfritt. Den definierar schemat för datauppsättningen genom som innehåller en samling med namn och datatyperna för kolumnerna. Du kan använda avsnittet strukturen för att ange av typinformation som används för att konvertera typer och mappa kolumner från källan till målet. I följande exempel datamängden har tre kolumner: tidsstämpel projektnamn, och pageviews. De är av typen String, String och Decimal, respektive.
-
-```json
-[
-    { "name": "timestamp", "type": "String"},
-    { "name": "projectname", "type": "String"},
-    { "name": "pageviews", "type": "Decimal"}
-]
-```
+Den **struktur** avsnittet är valfritt. Den definierar schemat för datauppsättningen genom som innehåller en samling med namn och datatyperna för kolumnerna. Du kan använda avsnittet strukturen för att ange av typinformation som används för att konvertera typer och mappa kolumner från källan till målet.
 
 Varje kolumn i strukturen innehåller följande egenskaper:
 
 Egenskap | Beskrivning | Krävs
 -------- | ----------- | --------
 namn | Namnet på kolumnen. | Ja
-typ | Datatypen för kolumnen. | Nej
+typ | Datatypen för kolumnen. Data Factory stöder följande datatyper av mellanliggande som tillåtna värden: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], Boolean, String, Guid, Datetime, Datetimeoffset och Timespan** | Nej
 Kultur | . NET-baserade kulturen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej
-format | Formatsträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. | Nej
+format | Formatsträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum och tid formatsträngar](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) om hur du datetime-format. | Nej
 
-Följande riktlinjer hjälper dig att avgöra när du ska inkludera strukturinformation och vad som ska ingå i den **struktur** avsnitt.
+### <a name="example"></a>Exempel
+I följande exempel anta källan Blob-data är i CSV-format och innehåller tre kolumner: användar-ID, namn och lastlogindate. De är av typen Int64, String och Datetime med anpassade datetime-format med hjälp av förkortade franska namn för dag i veckan.
 
-- **För strukturerade datakällor**, ange struktur avsnittet om du vill mappa källkolumner för sink kolumner och deras namn är inte samma. Den här typen av datakälla för strukturerade lagrar data schema och ange information tillsammans med själva informationen. Exempel på strukturerade datakällor är SQL Server, Oracle och Azure SQL Database.<br/><br/>Som typen finns redan för strukturerade datakällor, kan inkludera du inte typinformation när du inkluderar avsnittet struktur.
-- **För schemat för skrivskyddade datakällor (särskilt Blob storage)**, kan du lagra data utan att spara schemat eller typ information med data. Inkludera struktur för dessa typer av datakällor om du vill mappa källkolumner för sink kolumner. Inkludera även struktur när datauppsättningen utgör indata för en kopieringsaktiviteten och datatyper i källan dataset ska konverteras till inbyggda typer för sink.<br/><br/> Data Factory stöder följande värden för att ange information i strukturen: `Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan`. 
+Definiera strukturen för Blob-dataset enligt följande tillsammans med typdefinitioner för kolumner:
 
-Lär dig mer om hur data factory mappar källdata till sink från [Schema och mappning]( copy-activity-schema-and-type-mapping.md) och när du ska ange strukturinformation.
+```json
+"structure":
+[
+    { "name": "userid", "type": "Int64"},
+    { "name": "name", "type": "String"},
+    { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
+]
+```
+
+### <a name="guidance"></a>Riktlinjer
+
+Följande riktlinjer hjälper dig att förstå när du ska inkludera strukturinformation och vad som ska ingå i den **struktur** avsnitt. Lär dig mer om hur data factory mappar källdata till mottagare och när du ska ange strukturinformation från [Schema och mappning](copy-activity-schema-and-type-mapping.md).
+
+- **För starkt schema datakällor**, ange struktur avsnittet om du vill mappa källkolumner för sink kolumner och deras namn är inte samma. Den här typen av datakälla för strukturerade lagrar data schema och ange information tillsammans med själva informationen. Exempel på strukturerade datakällor är SQL Server, Oracle och Azure SQL Database.<br/><br/>Som typen finns redan för strukturerade datakällor, kan inkludera du inte typinformation när du inkluderar avsnittet struktur.
+- **Nej/weak schema datakällor som t.ex. textfil i blob storage**, inkludera struktur när datauppsättningen utgör indata för en kopieringsaktiviteten och datatyper i källan dataset ska konverteras till inbyggda typer för sink. Och inkludera struktur när du vill mappa källkolumner för sink kolumner...
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
 Du kan skapa datauppsättningar på något av dessa verktyg och SDK: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager-mall och Azure-portalen

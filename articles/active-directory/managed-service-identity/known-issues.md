@@ -14,11 +14,11 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: bd931b220c417f91b47278c82707d38de5c7f65e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 84390f73fdac6554699dd43a0a36d16eace9a2bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Vanliga frågor och kända problem med hanterade tjänsten identitet (MSI) för Azure Active Directory
 
@@ -37,6 +37,10 @@ Nej, det finns inga planer på att stöd för MSI i Azure Cloud Services.
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>Fungerar MSI med Active Directory Authentication Library (ADAL) eller Microsoft Authentication Library (MSAL)?
 
 Nej, MSI inte ännu integrerat med ADAL eller MSAL. Mer information om att förvärva en MSI-token med hjälp av MSI REST-slutpunkt finns [hur du använder en Azure VM hanterade tjänsten identitet (MSI) för token](how-to-use-vm-token.md).
+
+### <a name="what-is-the-security-boundary-of-a-managed-service-identity"></a>Vad är en säkerhetsgräns för en hanterad tjänstidentitet?
+
+Säkerhetsgräns identitet är den resurs som den är kopplad till. Till exempel är säkerhetsgräns för en virtuell dator MSI den virtuella datorn. All kod som körs på den virtuella datorn kan anropa MSI-slutpunkten och begära token. Det är liknande upplevelse med andra resurser som har stöd för MSI.
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Vad är Linux-distributioner som stöds?
 

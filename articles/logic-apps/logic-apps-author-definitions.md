@@ -1,42 +1,63 @@
 ---
-title: "Bygger på logiken app definitioner med JSON - Azure Logic Apps | Microsoft Docs"
-description: "Lägg till parametrar, bearbeta strängar, skapa parametern maps och hämta data med datumfunktioner"
+title: "Skapa, redigera eller utöka JSON för logiken app definitioner - Azure Logic Apps | Microsoft Docs"
+description: Skapa och anpassa logik app definitioner i JSON
 author: ecfan
-manager: anneta
+manager: SyntaxC4
 editor: 
 services: logic-apps
 documentationcenter: 
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
+ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.custom: H1Hack27Feb2017
-ms.date: 01/31/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: d05f7e34cbe670db6733c199e3420c810c304a84
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.date: 01/01/2018
+ms.author: estfan; LADocs
+ms.openlocfilehash: bde275eb75c97da2a99109484b46b599a5b2f871
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="build-on-your-logic-app-definition-with-json"></a>Skapa på logiken app definition med JSON
+# <a name="create-edit-or-customize-json-for-logic-app-definitions"></a>Skapa, redigera eller anpassa JSON logik app definitioner
 
-För mer avancerade aktiviteter med [Azure Logikappar](../logic-apps/logic-apps-overview.md), du kan använda kodvyn för att redigera din logik app definition, som använder enkla, deklarativa JSON-språk. Om du inte redan gjort först granska [hur du skapar din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se även den [fullständig referens för arbetsflödet Definition Language](http://aka.ms/logicappsdocs).
+När du skapar enterprise integration-lösningar med automatisk arbetsflöden i [Azure Logikappar](../logic-apps/logic-apps-overview.md), de underliggande logiken app definitionerna använda enkel och deklarativ JavaScript Object Notation (JSON) tillsammans med den [ Arbetsflödet Definition Language (WDL) schemat](../logic-apps/logic-apps-workflow-definition-language.md) för deras beskrivning och validering. Dessa format lättare logik definitioner av appen att läsa och förstå utan att känna till mycket om kod. När du vill automatisera att skapa och distribuera logic apps kan du inkludera logik app definitioner som [Azure-resurser](../azure-resource-manager/resource-group-overview.md) i [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-overview.md#template-deployment). Att skapa, hantera och distribuera logic apps kan du använda [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md), eller [Azure Logic Apps REST API: er](https://docs.microsoft.com/rest/api/logic/).
+
+Öppna Redigeraren för kodvy när du arbetar i Azure-portalen eller i Visual Studio för att fungera med logik app definitioner i JSON eller kopiera definitionen i valfri redigerare som du vill. Om du har använt logikappar granska [hur du skapar din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 > [!NOTE]
-> Vissa funktioner som parametrar, Azure Logic Apps är bara tillgängliga när du arbetar i kodvy för definition av din logikapp. Parametrar kan du återanvända värden i hela din logikapp. Om du vill använda samma e-postadress över flera åtgärder du till exempel definiera den e-postadressen som en parameter.
+> Vissa funktioner, till exempel definiera parametrar och flera utlösare i logik app definitioner Azure Logic Apps är bara tillgängliga i JSON, inte Logic Apps Designer. Så du måste arbeta i kodvy eller någon annan redigerare för dessa aktiviteter.
 
-## <a name="view-and-edit-your-logic-app-definitions-in-json"></a>Visa och redigera dina logic app definition i JSON
+## <a name="edit-json---azure-portal"></a>Redigera JSON - Azure-portalen
 
-1. Logga in på [Azure Portal](https://portal.azure.com "Azure Portal").
+1. Logga in på <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>.
 
-2. Välj den vänstra menyn **fler tjänster**. Välj **Logikappar** under **Enterprise-integration**. Välj din logikapp.
+2. Välj den vänstra menyn **alla tjänster**. Sök efter ”logikappar” i sökrutan och välj sedan din logikapp resultaten.
 
-3. Logik för app-menyn under **utvecklingsverktyg**, Välj **logik App kodvy**.
+3. På menyn din logikapp under **utvecklingsverktyg**väljer **logik App kodvy**.
 
-   Fönstret Visa kod öppnas och visar din app logik-definition.
+   Redigeraren kodvy öppnas och visar din app logik-definition i JSON-format.
+
+## <a name="edit-json---visual-studio"></a>Redigera JSON - Visual Studio
+
+Innan du kan arbeta med din app definition för logiken i Visual Studio, se till att du har [installerat nödvändiga verktygen](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Om du vill skapa en logikapp med Visual Studio, granska [Snabbstart: automatisera uppgifter och processer med Azure Logikappar - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+
+Du kan öppna logikappar som har skapats och distribuerats antingen direkt från Azure-portalen eller som Azure Resource Manager från Visual Studio-projekt i Visual Studio.
+
+1. Öppna Visual Studio-lösningen eller [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) projekt som innehåller din logikapp.
+
+2. Hitta och öppna definition av din logikapp som normalt visas i en [Resource Manager-mall](../azure-resource-manager/resource-group-overview.md#template-deployment), namngiven **LogicApp.json**. Du kan använda och anpassa den här mallen för distribution till olika miljöer.
+
+3. Öppna snabbmenyn för logik app definition och mall. Välj **öppna med logik App Designer**.
+
+   ![Öppna logikappen i Visual Studio-lösning](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+
+4. Längst ned i Designer väljer **kodvy**. 
+
+   Redigeraren kodvy öppnas och visar din app logik-definition i JSON-format.
+
+5. Om du vill återgå till designer vyn längst ned i redigeraren kodvy väljer **Design**.
 
 ## <a name="parameters"></a>Parametrar
 

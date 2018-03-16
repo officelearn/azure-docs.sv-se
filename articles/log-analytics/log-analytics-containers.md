@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: b3f78f6cc89a3d4bf8712c339f66b5d50f373919
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0ad267b9694c2f9cdb574b6b6008d4f6fa027fce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Lösning för övervakning av behållare i logganalys
 
@@ -51,7 +51,7 @@ I följande tabell beskrivs de Docker orchestration och stöd för behållaren i
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| Tjänst<br>Fabric | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Tjänst<br>Fabric | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat öppna<br>Skift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(standalone) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Linux-server<br>(standalone) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
@@ -103,7 +103,7 @@ Använd följande information för att installera och konfigurera lösningen.
     - Om du har ett Kubernetes-kluster med Azure Container Service granska [konfigurera en OMS-agent för Kubernetes](#configure-an-oms-agent-for-kubernetes).
     - Om du har ett Azure Container Service DC/OS-kluster, mer information finns i [övervaka ett Azure Container Service DC/OS-kluster med Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Om du har en miljö med Docker Swarm läge, mer information finns i [konfigurera en OMS-agent för Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
-    - Om du använder behållare med Service Fabric mer information finns i [översikt av Azure Service Fabric](../service-fabric/service-fabric-overview.md).
+    - Om du har ett Service Fabric-kluster, mer information finns i [övervaka behållare med OMS logganalys](../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Granska de [Docker-motorn på Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) artikel för ytterligare information om hur du installerar och konfigurerar Docker-motorer på Windows-datorer.
 
@@ -544,7 +544,7 @@ I följande tabell visas exempel på poster som samlas in av lösningen behålla
 
 | Datatyp | Datatypen i loggen Sök | Fält |
 | --- | --- | --- |
-| Prestanda för värdar och -behållare | `Type=Perf` | % Processortid för datorn, objektnamn, CounterName &#40; disken läser MB, Disk skriver MB minne användning MB nätverket tar emot byte, nätverket skicka byte, Processor användning sek nätverket &#41; CounterValue, TimeGenerated, räknarsökväg, SourceSystem |
+| Prestanda för värdar och -behållare | `Type=Perf` | Dator, objektnamn, CounterName &#40;läser MB tid i procent för Processor, Disk, Disk skriver MB minne användning MB nätverket tar emot byte, nätverket skicka byte, Processor användning s, nätverket&#41;, CounterValue, TimeGenerated, räknarsökväg, SourceSystem |
 | Behållaren inventering | `Type=ContainerInventory` | TimeGenerated, dator, behållarnamn ContainerHostname, bild, ImageTag, ContainerState, ExitCode, EnvironmentVar, kommandot, CreatedTime, StartedTime, FinishedTime, SourceSystem, behållar-ID, ImageID |
 | Behållaren image inventering | `Type=ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
 | Behållaren logg | `Type=ContainerLog` | TimeGenerated, dator, avbildnings-ID, behållarnamn LogEntrySource, LogEntry, SourceSystem, behållar-ID |

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4fd0f1cbba36957ae5ecc1b7436d1f1734a3ef79
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 02d7c3f587a4cbfb11fc3b6863f75ca30b4d6c51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Flytta en offentlig peering till Microsoft-peering
 
@@ -73,6 +73,10 @@ När du har verifierat att Microsoft peering har konfigurerats och prefix som du
   * [Ta bort offentlig Azure-peering med hjälp av Azure portal](expressroute-howto-routing-portal-resource-manager.md#deletepublic)
   * [Ta bort offentlig Azure-peering med hjälp av Azure PowerShell](expressroute-howto-routing-arm.md#deletepublic)
   * [Ta bort offentlig Azure-peering med hjälp av CLI](howto-routing-cli.md#deletepublic)
+  
+## <a name="view"></a>5. Visa peerkopplingar
+  
+Du kan se en lista över alla ExpressRoute-kretsar och peerkopplingar i Azure-portalen. Mer information finns i [visa Microsoft peering information](expressroute-howto-routing-portal-resource-manager.md#getmsft).
 
 ## <a name="next-steps"></a>Nästa steg
 

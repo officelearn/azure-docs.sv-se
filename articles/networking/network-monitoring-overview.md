@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 6d93821b59e1f69a48c3d5eeda96dad2edddb188
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 66e6b49dd3e3c7d0f2cbd7547b68733e1d4959ce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="network-monitoring-solutions"></a>Lösningar för nätverksövervakning 
 
@@ -82,6 +82,36 @@ Mer information finns i följande artiklar:
 
 * [Konfigurera nätverket Prestandaövervakaren för övervakning av slutpunkter](https://aka.ms/applicationconnectivitymonitorguide)
 * [blogginlägget](https://aka.ms/svcendptmonitor)
+
+## <a name="traffic-analytics"></a>Trafikanalys
+Trafik Analytics är en molnbaserad lösning som ger inblick i användar- och programaktivitet på ditt nätverk i molnet. NSG flöda loggarna har analyserats för att ge insikter om:
+
+* Trafiken flödar över ditt nätverk mellan Azure och Internet, offentligt moln regioner, Vnet och undernät
+* Program och protokoll i nätverket, utan att behöva Sniffer-program eller dedikerade flödet insamlaren installationer
+* De främsta talkers, chatty program, Virtuella konversationer i molnet, trafik surfpunkter
+* Källor eller mål för trafik mellan virtuella nätverk, mellan relationer mellan affärskritiska tjänster och program
+* Säkerhet – skadlig trafik, portar öppna till Internet, program eller virtuella datorer som försöker Internetåtkomst...
+
+Trafik Analytics är tillämplig information som hjälper till att du granskar din organisations nätverksaktivitet, säkra program och data, optimera arbetsbelastningsprestanda och vara kompatibla.
+
+![GEO-karta visar trafik över regioner](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+
+Relaterade länkar:
+* [Blogginlägget](https://aka.ms/trafficanalytics), [dokumentationen](https://aka.ms/trafficanalyticsdocs), [vanliga frågor och svar](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+
+## <a name="dns-analytics"></a>DNS-analys
+Byggt för DNS-administratörer den här lösningen samlar in, analyserar och korrelerar DNS-loggarna för att tillhandahålla säkerhet, åtgärder och prestanda relaterade insikter.  Några av funktionerna är:
+
+* Identifiering av klienter som försöker matcha skadliga domäner
+* Identifiering av inaktuella poster
+* Inblick i ofta efterfrågade domännamn och talkative DNS-klienter
+* Överblick av belastningen på DNS-servrar
+* Övervakning av dynamisk DNS-registreringsfel
+
+![DNS Analytics Dashboard](./media/network-monitoring-overview/dns-analytics-overview.png) 
+
+Relaterade länkar:
+* [Blogginlägget](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [dokumentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
 ## <a name="next-steps"></a>Nästa steg
 

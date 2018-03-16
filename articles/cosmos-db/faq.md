@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: ac0088478701a1796380daa74602569800c1522e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 466abbffd250685baf886b7fc7cc772ee9e327f2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Vanliga frågor om Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos-grunderna
@@ -189,7 +189,7 @@ Förutom MongoDB vanliga felkoder har MongoDB-API: et sin egen specifika felkode
 | Fel               | Kod  | Beskrivning  | Lösning  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | Det totala antalet frågeenheter förbrukas har överskridit den etablerade begärt-enhet hastigheten för insamling och har begränsats. | Överväg att skalning genomflödet i samlingen från Azure-portalen eller du försöker igen. |
-| ExceededMemoryLimit | 16501 | Som en tjänst med flera innehavare överskred åtgärden klientens minne tilldelning. | Minska omfånget för åtgärden via mer restriktiva frågevillkor eller kontakta support från den [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exempel:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {namn: ”Anders”}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {ålder: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+| ExceededMemoryLimit | 16501 | Som en tjänst med flera innehavare överskred åtgärden klientens minne tilldelning. | Minska omfånget för åtgärden via mer restriktiva frågevillkor eller kontakta support från den [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exempel: * &nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {namn: ”Anders”}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {ålder: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## <a name="develop-with-the-table-api"></a>Utveckla med tabell-API
 
@@ -211,6 +211,7 @@ Det finns vissa skillnader i som användare som kommer från Azure Table storage
 * CORS stöds inte för närvarande
 * Tabellnamn i Azure Table storage är inte skiftlägeskänsliga, men de finns i Azure Cosmos DB tabell API
 * Vissa av Azure Cosmos DB internt format för kodning information, till exempel binära fält är inte så effektivt en kanske gillar. Därför kan det orsaka oväntade begränsningar på datastorlek. Exempelvis använder för närvarande en gick inte fullständig 1 MB på en tabellentiteten för att lagra binära data eftersom den kodningen ökar storleken på data.
+* Entitetsnamnet egenskapen ”Id” för närvarande inte stöds
 
 Det finns ett antal slutpunkter/fråga alternativ som inte stöds av Azure Cosmos DB tabell API med avseende på REST API:
 | REST-metoder | REST-slutpunkt/frågealternativet | Doc-URL: er | Förklaring |
@@ -282,7 +283,7 @@ Ja, du kan ansluta genom att skapa två separata instanser av CloudTableClient, 
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>Hur jag för att migrera en befintlig Azure Table storage-program till detta erbjudande?
 [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) och [Azure Cosmos DB Datamigreringsverktyg](import-data.md) är båda stöds.
 
-### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>Hur är expandering av lagringsstorleken Utfärdad för den här tjänsten om du till exempel jag börja med  *n*  GB data och Mina data kommer att växa till 1 TB över tid? 
+### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>Hur är expandering av lagringsstorleken Utfärdad för den här tjänsten om du till exempel jag börja med *n* GB data och Mina data kommer att växa till 1 TB över tid? 
 Azure Cosmos-DB är utformad att ge obegränsad lagring med hjälp av teckenbredden. Tjänsten kan övervaka och effektivt öka din lagring. 
 
 ### <a name="how-do-i-monitor-the-table-api-offering"></a>Hur övervakar tabell API-erbjudande?
@@ -377,7 +378,7 @@ Från .NET SDK lämnas den i filen app.config:
 ```
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Azure Cosmos-DB en plattform som verkar ha många funktioner, t.ex sortera, aggregeringar, hierarkin och andra funktioner. Du lägger till dessa funktioner tabell-API: et? 
-Tabell-API ger samma fråga funktioner som Azure Table storage. Azure Cosmos-DB också stöd för sortering, aggregeringar, geospatiala frågan, hierarki och en mängd olika inbyggda funktioner. Vi ger ytterligare funktioner i tabellen API i en framtida tjänstuppdatering. Mer information finns i [SQL-frågor](sql-api-sql-query.md).
+Tabell-API ger samma fråga funktioner som Azure Table storage. Azure Cosmos DB stöder också sortering, samlingar, geospatiala frågor, hierarki och en mängd inbyggda funktioner. Vi ger ytterligare funktioner i tabellen API i en framtida tjänstuppdatering. Mer information finns i [SQL-frågor](sql-api-sql-query.md).
  
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>När bör jag ändra TableThroughput för tabell-API
 Du bör ändra TableThroughput när någon av följande villkor gäller:

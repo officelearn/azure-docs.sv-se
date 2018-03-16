@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 25b9d1c7debe0d98a87b7d0b47dea6ab6f36c8af
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2a9a6f3387b7f9fb4e3896fc55a06ac4a902ad24
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="device-simulation-walkthrough"></a>Enheten simuleringen genomgång
 
@@ -35,17 +35,17 @@ I den här guiden får du lära dig hur man:
 
 Den här kursen behöver en distribuerad instans av Azure IoT-enhet simulering i din Azure-prenumeration.
 
-Om du inte har distribuerat enheten simuleringen ännu, bör du genomföra den [distribuera Azure IoT-enhet simuleringen](iot-suite-device-simulation-explore.md) kursen.
+Om du inte har distribuerat enheten simuleringen ännu, bör du genomföra den [distribuera Azure IoT-enhet simuleringen](iot-suite-device-simulation-deploy.md) kursen.
 
 ## <a name="configuring-device-simulation"></a>Konfigurera simulering av enheten
 
 Du kan konfigurera och köra enheten simuleringen helt från instrumentpanelen. Öppna instrumentpanelen från IoT Suite [etablerade lösningar](https://www.azureiotsuite.com/) sidan. Klicka på **starta** under distributionen av nya enheter simuleringen.
 
-### <a name="target-iot-hub"></a>Målet IoT-hubb
+### <a name="target-iot-hub"></a>Target IoT Hub
 
 Du kan använda enheten simuleringen företablerad IoT-hubb eller med andra IoT-hubb:
 
-![Målet IoT-hubb](media/iot-suite-device-simulation-explore/targethub.png)
+![Target IoT Hub](media/iot-suite-device-simulation-explore/targethub.png)
 
 > [!NOTE]
 > Alternativet att använda en företablerad IoT-hubb är endast tillgängligt om du valde att skapa en ny IoT-hubb när du distribuerade enheten simuleringen. Om du inte har en IoT-hubb, kan du alltid skapa en ny från den [Azure-portalen](https://portal.azure.com).
@@ -73,7 +73,7 @@ Förkonfigurerade enhetsmodeller innehåller flera med en frekvens som är föri
 
 I följande tabell visas en lista över konfigurationer för varje förkonfigurerade enhetsmodell:
 
-| Enhetsmodell | Temperatursensor | Enhet | Telemetri frekvens
+| Enhetsmodell | Sensor | Enhet | Telemetri frekvens
 | -------------| ------ | -----| --------------------|
 | Kylaggregat | fuktighet | % | 5 sekunder |
 | | tryck | psig | 5 sekunder |

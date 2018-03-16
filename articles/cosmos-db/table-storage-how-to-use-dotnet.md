@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: 953ee3932ac1acad5cc41fba9bd5e168a94d7db7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d31dd1c267bcc63106616b191b6b79d5800e31e9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Komma igång med Azure Table Storage med hjälp av .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -83,10 +83,10 @@ Alla kodexempel i den här självstudiekursen kan läggas till i `Main()`-metode
 Du kan använda Azure CosmosDB tabell biblioteket i någon typ av .NET-program, inklusive en Azure cloud service eller web app, och stationära och mobila program. I den här guiden använder vi oss av en konsolapp för enkelhetens skull.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Använd NuGet för att installera de paket som behövs
-Det finns tre paket som du behöver referera i projektet till den här kursen:
+Det finns tre rekommenderade paket som du behöver referera i projektet till den här kursen:
 
-* [Azure Storage gemensamt bibliotek för .NET (8.6.0-preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/8.6.0-preview). 
-* [Microsoft Azure CosmosDB tabell biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Det här paketet ger programmatisk åtkomst till dataresurser i ditt Azure Table storage-konto eller Azure Cosmos DB tabell API-konto.
+* [Azure Storage gemensamt bibliotek för .NET (förhandsgranskning)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
+* [Microsoft Azure-Cosmos DB tabell biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Det här paketet ger programmatisk åtkomst till dataresurser i ditt Azure Table storage-konto eller Azure Cosmos DB tabell API-konto.
 * [Microsoft Azure Configuration Manager-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): det här paketet tillhandahåller en klass för parsning av en anslutningssträng i en konfigurationsfil, oavsett var ditt program körs.
 
 Du kan använda NuGet för att hämta båda paketen. Följ de här stegen:
@@ -100,6 +100,11 @@ Du kan använda NuGet för att hämta båda paketen. Följ de här stegen:
 > ODataLib-beroenden i Storage gemensamt bibliotek för .NET matchas genom de ODataLib-paket som är tillgängliga på NuGet inte från WCF Data Services. ODataLib-biblioteken kan hämtas direkt eller refereras till i ditt kodprojekt via NuGet. De specifika ODataLib-paket som används av Storage-klientbiblioteket är [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) och [Spatial](http://nuget.org/packages/System.Spatial/). De här biblioteken används av Azure Table storage-klasser är de nödvändiga beroenden för programmering med Storage gemensamt bibliotek.
 > 
 > 
+
+> [!TIP]
+> Utvecklare som redan är bekant med Azure Table storage har använt den [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) paketet i förflutna. Vi rekommenderar att alla nya tabell program använder den [gemensamt bibliotek med Azure Storage](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) och [Azure DB-Library Cosmos tabell](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), men paketets WindowsAzure.Storage fortfarande stöds. Om du använder WindowsAzure.Storage biblioteket kan inkludera Microsoft.WindowsAzure.Storage.Table i din med hjälp av rapporter.
+>
+>
 
 ### <a name="determine-your-target-environment"></a>Fastställ målmiljön
 Du har två miljöalternativ för att köra exemplen i den här guiden:

@@ -1,26 +1,19 @@
 ---
 title: "Azure SQL Database säkerhetskopieringar för upp till 10 år | Microsoft Docs"
 description: "Lär dig hur Azure SQL Database stöder lagra säkerhetskopior för upp till 10 år."
-keywords: 
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: 
-ms.assetid: 66fdb8b8-5903-4d3a-802e-af08d204566e
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 12/22/2016
 ms.author: sashan
-ms.openlocfilehash: e44c92c3f37b3f1e3397d1c8cdb8c8f6d0f9942e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2f31e89fce2746e57d6a670aef949d0d534af4c1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL Database säkerhetskopieringar för upp till 10 år
 Många program har regelverk, kompatibilitet eller andra företag syfte som kräver att du behåller databassäkerhetskopieringar utöver de 7-35 dagar som tillhandahålls av Azure SQL Database [automatiska säkerhetskopieringar](sql-database-automated-backups.md). Med hjälp av funktionen för långsiktig lagring av säkerhetskopior kan du lagra säkerhetskopiorna SQL-databasen i ett Azure Recovery Services-valv i upp till 10 år. Du kan lagra upp till 1 000 databaser per valvet. Du kan sedan välja någon säkerhetskopia i valvet för att återställa den som en ny databas.

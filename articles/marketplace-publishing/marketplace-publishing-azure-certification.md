@@ -3,8 +3,8 @@ title: "Hämta förhandsgodkända via programmet Microsoft Azure Certified | Mic
 description: "Lär dig mer om Azure för Microsoft Certified partner-program och hur de kommer att sälja avbildning av virtuell dator, lösningsmall för, developer service eller datatjänst på Azure Marketplace"
 services: marketplace-publishing
 documentationcenter: na
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 tags: 
 ms.assetid: 7e9ebf17-07a1-4796-921f-d1d62046892d
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
-ms.author: hascipio
-ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 6db5c8dc6aba4246b3672cf7931a266b26ad11db
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Hämta förhandsgodkända via Microsoft Certified Azure-program
-Den här artikeln innehåller instruktioner om hur du blir Microsoft Azure-certifierad så att du kan publicera dina lösningar på Azure Marketplace och uppfyller kraven för marknadsföring fördelar. En detaljerad översikt över Microsoft Azure-certifierad programmet och dess fördelar finns [http://azure.com/certified](http://azure.com/certified).
+Den här artikeln innehåller instruktioner om hur du blir Microsoft Azure-certifierad så att du kan publicera dina lösningar på Azure Marketplace och uppfyller kraven för marknadsföring fördelar. En detaljerad översikt över Microsoft Azure-certifierad programmet och dess fördelar finns [ http://azure.com/certified ](http://azure.com/certified).
 
 > [!IMPORTANT]
 > Azure certifikatutfärdaren gäller endast om du ska skapa en virtuell dator eller en för lösningsmall för Azure Marketplace.
@@ -39,5 +39,5 @@ Den här artikeln innehåller instruktioner om hur du blir Microsoft Azure-certi
 ## <a name="next-step"></a>Nästa steg
 När du har fått före godkännande från Microsoft Azure-certifierade program, kan du fortsätta till [registrera ditt Microsoft-konto som ett Microsoft-säljare](marketplace-publishing-accounts-creation-registration.md).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Komma igång: hur du publicerar ett erbjudande på Azure Marketplace](marketplace-publishing-getting-started.md)

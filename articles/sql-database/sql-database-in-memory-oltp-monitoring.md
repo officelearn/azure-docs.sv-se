@@ -2,24 +2,18 @@
 title: "Övervaka XTP InMemory-lagringen | Microsoft Docs"
 description: "Uppskattning och övervaka XTP InMemory-lagringen använder kapacitet. Åtgärda felet kapacitet 41823"
 services: sql-database
-documentationcenter: 
 author: jodebrui
-manager: jhubbard
-editor: 
-ms.assetid: b617308e-692c-4938-8fa2-070034a3ecef
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jodebrui
-ms.openlocfilehash: 1e7088e80cc86e3c7cf8ae8ea180d797de613e71
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c1adc6e98f7d101a6e5f3227f44b0035d9b9d157
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Övervakaren i minnet OLTP-lagring
 När du använder [Minnesintern OLTP](sql-database-in-memory.md), minnesoptimerade tabeller och tabellvariabler finns i InMemory-OLTP-lagring. Varje premiumnivån har en maximal Minnesintern OLTP lagringsstorlek, som dokumenteras i [enkel gränserna för databasen](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) och [gränserna för elastiska poolen](sql-database-resource-limits.md#elastic-pool-change-storage-size). När den här gränsen överskrids, infoga och uppdatera operations startar med fel 41823 för fristående databaser och 41840 för elastiska pooler. Då måste du antingen ta bort data om du vill frigöra minne, eller uppgradera prestandanivån för din databas.

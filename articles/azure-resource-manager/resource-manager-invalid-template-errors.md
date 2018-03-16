@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c6712eaf17cf55c1422baca355ce99ed319df28
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9626b3caaa7188a4e9a37f83d1fbf091951714f4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Åtgärda fel för ogiltig mall
 
@@ -38,6 +38,8 @@ Felmeddelandet beror på vilken typ av fel.
 
 Det här felet kan bero på flera olika typer av fel. De omfattar vanligtvis ett syntax eller strukturella fel i mallen.
 
+<a id="syntax-error" />
+
 ## <a name="solution-1---syntax-error"></a>Lösning 1 - syntaxfel
 
 Om du får ett felmeddelande som anger att valideringen av mallen misslyckades kanske syntax problem i mallen.
@@ -56,6 +58,8 @@ Det här felet är lätt att göra eftersom malluttryck kan vara komplicerade. T
 Om du inte anger matchande syntaxen genererar mallen ett värde som skiljer sig från din avsikt.
 
 När du får den här typen av fel, granska noggrant syntax för uttryck. Överväg att använda en JSON-redigerare som [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) eller [Visual Studio Code](resource-manager-vs-code.md), vilket kan varna dig om syntaxfel.
+
+<a id="incorrect-segment-lengths" />
 
 ## <a name="solution-2---incorrect-segment-lengths"></a>Lösning 2 - felaktiga längder
 
@@ -116,6 +120,8 @@ Hämta segment rätt kan vara svårt med Resource Manager-typer som tillämpas p
 }
 ```
 
+<a id="parameter-not-valid" />
+
 ## <a name="solution-3---parameter-is-not-valid"></a>Lösning 3 - parametern är inte giltig
 
 Om du anger ett parametervärde som inte är ett av de tillåtna värdena får ett meddelande som liknar följande fel:
@@ -129,9 +135,13 @@ part of the allowed values
 
 Dubbla kontrollera de tillåtna värdena i mallen och ange en under distributionen. Läs mer om tillåtna parametervärden [parametrar avsnitt i Azure Resource Manager-mallar](resource-manager-templates-parameters.md).
 
+<a id="too-many-resource-groups" />
+
 ## <a name="solution-4---too-many-target-resource-groups"></a>Lösning 4 - för många target-resursgrupper
 
 Om du anger fler än fem target-resursgrupper i en enkel distribution, får du detta felmeddelande. Överväg att konsolidera antalet resursgrupper i din distribution eller distribuera några av mallarna som separata distributioner. Mer information finns i [distribuera Azure-resurser till mer än en prenumeration eller resursgrupp](resource-manager-cross-resource-group-deployment.md).
+
+<a id="circular-dependency" />
 
 ## <a name="solution-5---circular-dependency-detected"></a>Lösning 5 - cirkelberoende upptäcktes
 

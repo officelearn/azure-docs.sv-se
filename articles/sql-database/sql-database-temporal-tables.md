@@ -2,24 +2,18 @@
 title: "Komma igång med Temporala tabeller i Azure SQL Database | Microsoft Docs"
 description: "Lär dig hur du kommer igång med Temporala tabeller i Azure SQL Database."
 services: sql-database
-documentationcenter: 
 author: bonova
-manager: jhubbard
-editor: 
-ms.assetid: c8c0f232-0751-4a7f-a36e-67a0b29fa1b8
+manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 01/10/2017
 ms.author: bonova
-ms.openlocfilehash: 58f97c142ba0b9282d8988fc1bc037b9c0c69986
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8e76d78e402d2cdc58ca26767c55c413f83226d9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Komma igång med Temporala tabeller i Azure SQL-databas
 Temporala tabeller är en ny funktion för programmering i Azure SQL Database som hjälper dig att spåra och analysera fullständig historiken för ändringar i dina data utan att behöva anpassad kodning. Temporala tabeller Behåll data som är nära relaterade till tid kontext så att lagrade fakta kan tolkas som giltiga endast inom en viss period. Den här egenskapen för Temporala tabeller möjliggör effektiv tidsbaserade analys och hämtning insikter från utvecklingen av data.
@@ -29,7 +23,7 @@ Den här artikeln beskrivs stegen för att använda Temporala tabeller i ett sce
 
 Databasmodellen för det här scenariot är väldigt enkelt - användaren aktivitet mått representeras med ett enda heltalsfält **PageVisited**, och avbildas tillsammans med grundläggande information om användarens profil. Dessutom för klockslag analys skulle du ha en serie med rader för varje användare, där varje rad motsvarar antalet sidor som en viss användare besöker inom en viss tidsperiod.
 
-![Schemat](./media/sql-database-temporal-tables/AzureTemporal1.png)
+![Schema](./media/sql-database-temporal-tables/AzureTemporal1.png)
 
 Lyckligtvis behöver du inte gör några i din app att underhålla informationen aktivitet. Med Temporala tabeller är den här processen automatiskt - så att du fullständig flexibilitet vid webbdesign och mer tid för att fokusera på Dataanalys sig själv. Det enda du behöver göra är att säkerställa att **WebSiteInfo** tabellen har konfigurerats som [temporala systemversionstabeller](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0). Stegen finns i använda Temporala tabeller i det här scenariot beskrivs nedan.
 

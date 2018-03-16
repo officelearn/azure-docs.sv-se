@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: c15dc66718a855e22f8109448cb8c8a23787b9bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 477859db8c884714d9b5140483d300ebfe6c116a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-linux-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Skapa en Linux högpresterande datorbearbetning (HPC) kluster med HPC Pack IaaS-distributionsskriptet
-Kör PowerShell-skript för att distribuera en fullständig HPC Pack 2012 R2-kluster för Linux arbetsbelastningar på virtuella Azure-datorer för distributionen av HPC Pack IaaS. Klustret består av en Active Directory-anslutna huvudnod som kör Windows Server och Microsoft HPC Pack och compute-noder som kör något av de Linux-distributioner som stöds av HPC Pack. Om du vill distribuera ett HPC Pack kluster i Azure för Windows-arbetsbelastningar, se [skapa ett Windows HPC-kluster med HPC Pack IaaS-distributionsskriptet](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Du kan också använda en Azure Resource Manager-mall för att distribuera ett kluster med HPC Pack. Ett exempel finns [skapa ett HPC-kluster med Linux datornoderna](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/).
-
+Kör PowerShell-skript för att distribuera en fullständig HPC Pack 2012 R2-kluster för Linux arbetsbelastningar på virtuella Azure-datorer för distributionen av HPC Pack IaaS. Klustret består av en Active Directory-anslutna huvudnod som kör Windows Server och Microsoft HPC Pack och compute-noder som kör något av de Linux-distributioner som stöds av HPC Pack. Om du vill distribuera ett HPC Pack kluster i Azure för Windows-arbetsbelastningar, se [skapa ett Windows HPC-kluster med HPC Pack IaaS-distributionsskriptet](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 > [!IMPORTANT] 
 > PowerShell-skriptet som beskrivs i den här artikeln skapar ett Microsoft HPC Pack 2012 R2-kluster i Azure med hjälp av den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
-> Dessutom stöder inte i skriptet som beskrivs i den här artikeln HPC Pack 2016.
+> Dessutom stöder inte i skriptet som beskrivs i den här artikeln HPC Pack 2016. Information om Resource Manager-mallar för HPC Pack 2012 R2 och HPC Pack 2016 finns i [HPC Pack distributionsalternativ för kluster i Azure](../hpcpack-cluster-options.md).
+
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 

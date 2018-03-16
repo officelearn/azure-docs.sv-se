@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 188f02aa69d7b39bc5bc4873b437825107a7ae4e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Så här konfigurerar du hybrid Azure Active Directory anslutna enheter
 
@@ -62,7 +62,13 @@ För att förbättra läsbarhet beskrivningar, används det här avsnittet följ
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar att aktivera hybrid Azure AD anslutna enheter i din organisation, måste du se till att du kör en uppdaterad version av Azure AD connect.
+Innan du börjar att aktivera hybrid Azure AD anslutna enheter i din organisation, måste du se till att:
+
+- Du kör en uppdaterad version av Azure AD connect.
+
+- Azure AD connect har synkroniserats datorobjekt för de enheter som du vill ska vara hybrid Azure AD som är ansluten till Azure AD. Ansluta samt om datorobjekt som tillhör specifika organisationsenheter (OU), och sedan dessa organisationsenheter måste konfigureras för synkronisering i Azure AD.
+
+  
 
 Azure AD Connect:
 
@@ -145,7 +151,7 @@ Följande skript visar ett exempel för att använda cmdlet. I det här skriptet
 Den `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
 
 - Använder Active Directory PowerShell-modulen och AD DS-verktyg som förlitar sig på Active Directory-webbtjänster som körs på en domänkontrollant. Active Directory Web Services fungerar på domänkontrollanter som kör Windows Server 2008 R2 och senare.
-- Stöds endast av den **MSOnline PowerShell Modulversion 1.1.166.0**. Använd det här alternativet om du vill hämta den här modulen [länk](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
+- Stöds endast av den **MSOnline PowerShell Modulversion 1.1.166.0**. Använd det här alternativet om du vill hämta den här modulen [länk](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).   
 - Om AD DS-hanteringsverktygen inte är installerade på `Initialize-ADSyncDomainJoinedComputerSync` misslyckas.  Verktyg för AD DS kan installeras via Server Manager under funktioner - verktyg för fjärrserveradministration - Rolladministrationsverktyg.
 
 Använda skriptet nedan för domänkontrollanter som kör Windows Server 2008 eller tidigare versioner, för att skapa tjänstanslutningspunkten.

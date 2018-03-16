@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: fa78c42ce93729379d3c532f94bc67bb8c069d53
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e2e22c17bce4bdaf4988001db8de31b68f497fc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Så här konfigurerar du Azure Redis-Cache
 Det här avsnittet beskrivs konfigurationerna som är tillgängliga för Azure Redis-Cache-instanser. Det här avsnittet beskrivs även standardkonfigurationen för Redis-servern för Azure Redis-Cache-instanser.
@@ -280,8 +280,6 @@ Du kan ange brandväggsregler med en start- och IP-adressintervall. Om brandväg
 > [!IMPORTANT]
 > Anslutningar från Azure Redis-Cache övervakningssystem tillåts alltid, även om brandväggens regler är konfigurerade.
 > 
-> Brandväggsregler är bara tillgängliga för Premium-nivån.
-> 
 > 
 
 ### <a name="properties"></a>Egenskaper
@@ -404,7 +402,7 @@ Nya Azure Redis-Cache-instanserna är konfigurerade med följande Redis configur
 | `maxmemory-samples` |3 |Om du vill spara minne är LRU- och minimal TTL-algoritmer uppskattade algoritmer istället för exakt algoritmer. Som standard Redis kontrollerar tre nycklar och plockningar som har använts nyligen mindre. |
 | `lua-time-limit` |5 000 |Maximal körningstid för skript Lua i millisekunder. Om den maximala körningstiden uppnås loggar Redis att ett skript är fortfarande i körningen efter att den maximala tillåtna tiden och börjar att besvara frågor med ett fel. |
 | `lua-event-limit` |500 |Maxstorlek på skriptet händelsekön. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Klienten utdata buffert gränser kan användas för att framtvinga frånkoppling av klienter som inte är att läsa data från servern tillräckligt snabbt av någon anledning (en vanlig orsak är att en Pub/Sub-klient inte kan använda meddelanden så snabbt utgivaren kan ge dem). Mer information finns i [http://redis.io/topics/clients](http://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Klienten utdata buffert gränser kan användas för att framtvinga frånkoppling av klienter som inte är att läsa data från servern tillräckligt snabbt av någon anledning (en vanlig orsak är att en Pub/Sub-klient inte kan använda meddelanden så snabbt utgivaren kan ge dem). Mer information finns på [http://redis.io/topics/clients](http://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>gränsen för `databases` är olika för varje Azure Redis-Cache prisnivån och kan anges på Skapa cache. Om inget `databases` inställningen anges under skapande av cache standardvärdet är 16.
@@ -471,14 +469,14 @@ Mer information om databaser finns [vad är Redis databaser?](cache-faq.md#what-
 > 
 > 
 
-Mer information om Redis-kommandon finns [http://redis.io/commands](http://redis.io/commands).
+Mer information om Redis-kommandon finns [ http://redis.io/commands ](http://redis.io/commands).
 
 ## <a name="redis-console"></a>Redis-konsolen
 På ett säkert sätt kan du skicka kommandon till din Azure Redis-Cache-instanser som använder den **Redis-konsolen**, som är tillgänglig i Azure-portalen för alla nivåer i cacheminnet.
 
 > [!IMPORTANT]
 > - Redis-konsolen fungerar inte med [VNET](cache-how-to-premium-vnet.md). När din cache är en del av ett virtuellt nätverk kan bara klienter i virtuella nätverk kan komma åt cachen. Eftersom Redis-konsolen körs i din lokala webbläsare som är utanför det virtuella nätverket, kan inte den ansluta till ditt cacheminne.
-> - Inte alla Redis-kommandon stöds i Azure Redis-Cache. En lista över Redis-kommandon som är inaktiverat för Azure Redis-Cache, finns i den tidigare [Redis-kommandon som inte stöds i Azure Redis-Cache](#redis-commands-not-supported-in-azure-redis-cache) avsnitt. Mer information om Redis-kommandon finns [http://redis.io/commands](http://redis.io/commands).
+> - Inte alla Redis-kommandon stöds i Azure Redis-Cache. En lista över Redis-kommandon som är inaktiverat för Azure Redis-Cache, finns i den tidigare [Redis-kommandon som inte stöds i Azure Redis-Cache](#redis-commands-not-supported-in-azure-redis-cache) avsnitt. Mer information om Redis-kommandon finns [ http://redis.io/commands ](http://redis.io/commands).
 > 
 > 
 

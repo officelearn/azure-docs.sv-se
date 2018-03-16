@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 8584cade8e12b4f06ae455227e702844a06f512a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 02b3e0e0808cb9a1a8a2186b1abe6da7dd13e56e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>Vehicle telemetri Analytics lösning playbook
 Den här menyn innehåller länkar till kapitlen i den här playbook: 
@@ -26,9 +26,9 @@ Den här menyn innehåller länkar till kapitlen i den här playbook:
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 ## <a name="overview"></a>Översikt
-Superdatorer har flyttats från labbet och nu parkerade i garage. Dessa senaste bilar innehåller många olika sensorer, vilket ger dem möjlighet att spåra och övervaka miljontals händelser per sekund. 2020, kommer de flesta av dessa fordon vara ansluten till Internet. Genom att trycka på i denna mängd data kan ge större säkerhet, tillförlitlighet och en bättre intresseväckande upplevelse. Microsoft gör detta drömma en verkligheten med Cortana Intelligence.
+Super datorer har flyttats från labbet och nu parkerade i garage. Dessa placeras nu på senaste bilar som innehåller många olika sensorer. Dessa sensorer som ger dem möjlighet att spåra och övervaka miljontals händelser per sekund. 2020, kommer de flesta av dessa fordon vara ansluten till Internet. Genom att trycka på i denna mängd data ger större säkerhet, tillförlitlighet, och en bättre körning uppleva så. Microsoft gör detta drömma en verkligheten med Cortana Intelligence.
 
-Cortana Intelligence är en helt hanterad stordata och avancerade analyser suite som du kan använda för att omvandla dina data till intelligent åtgärd. Mallen Cortana Intelligence Vehicle telemetri Analytics lösningen visar hur bil hos återförsäljarna, bil tillverkare och försäkringsbolag får i realtid och förutsägande insikter om vehicle hälsa och köra vanor. 
+Cortana Intelligence är en helt hanterad stordata och avancerade analyser suite som du kan använda för att omvandla dina data till intelligent åtgärd. Mallen Cortana Intelligence Vehicle telemetri Analytics lösningen visar hur bil hos återförsäljarna, bil tillverkare och försäkringsbolag ska kunna hämta realtid och förutsägande insikter om vehicle hälsa och köra vanor.
 
 Lösningen har implementerats som en [lambda-arkitektur mönster](https://en.wikipedia.org/wiki/Lambda_architecture), vilket visar att hela potentiella i Cortana Intelligence-plattformen för realtid och batchbearbetning.
 
@@ -38,7 +38,7 @@ Lösningsarkitektur för Vehicle telemetri Analytics visas i diagrammet:
 ![Arkitekturdiagram för lösning](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
 
 
-Den här lösningen innehåller följande komponenter i Cortana Intelligence och visar deras slutpunkt till slutpunkt-integrering:
+Den här lösningen innehåller följande komponenter i Cortana Intelligence och visar deras integrering:
 
 * **Händelsehubbar i Azure** en miljontals vehicle telemetriska händelser i Azure.
 * **Azure Stream Analytics** ger realtidsinsikter på vehicle hälsa och kvarstår dessa data till långsiktig lagring för bättre batch analytics.
@@ -50,5 +50,5 @@ Den här lösningen innehåller följande komponenter i Cortana Intelligence och
 Den här lösningen använder två olika datakällor: 
 
 * **Simulerade vehicle signaler och diagnostik**: vehicle telematik simulator avger diagnostisk information och signalerar som motsvarar tillstånd fordon och intresseväckande mönstret vid en viss tidpunkt. 
-* **Vehicle katalogen**: referens datamängden mappar VINs till modeller.
+* **Vehicle katalogen**: referens datamängden mappar VIN siffror till modeller.
 

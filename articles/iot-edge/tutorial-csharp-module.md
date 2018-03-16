@@ -5,15 +5,15 @@ services: iot-edge
 keywords: 
 author: kgremban
 manager: timlt
-ms.author: v-jamebr
-ms.date: 11/15/2017
+ms.author: kgremban
+ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fd46bb662af72ece799bb545d06d76f9e54ee62c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 605f0cfe34e4fda14030bb38686095882846c7c0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Utveckla och distribuera en C# IoT kant-modul till den simulerade enheten - förhandsgranskning
 
@@ -48,7 +48,7 @@ Du kan använda alla Docker-kompatibel registret för den här självstudiekurse
 3. Välj **Skapa**.
 4. När du har skapat behållaren registret går du till den och väljer **åtkomstnycklar**. 
 5. Växla **administratörsanvändare** till **aktivera**.
-6. Kopiera värdena för **inloggningsserver**, **användarnamn**, och **lösenord**. Senare under kursen ska du använda dessa värden. 
+6. Kopiera värdena för **inloggningsserver**, **användarnamn**, och **lösenord**. Du ska använda dessa värden senare under kursen när du publicerar Docker-avbildningen i registret, och när du lägger till registernyckeln autentiseringsuppgifterna Edge-körningsmiljön. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Skapa ett projekt för IoT kant-modul
 Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET core 2.0 med hjälp av Visual Studio Code och Azure IoT kant-tillägget.
@@ -227,15 +227,14 @@ Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET cor
 2. Högerklicka på den **Dockerfile** fil och klicka på **skapa IoT kant modulen Docker bild**. 
 3. I den **Välj mappen** och bläddra till eller ange `./bin/Debug/netcoreapp2.0/publish`. Klicka på **Välj mapp som EXE_DIR**.
 4. Ange avbildningens namn i popup-textrutan längst upp i fönstret VS-kod. Till exempel: `<your container registry address>/filtermodule:latest`. Behållaren registret adressen är samma som den inloggningsserver som du kopierade från registret. Det bör vara i form av `<your container registry name>.azurecr.io`.
-5. Logga in på Docker genom att ange följande kommando i en integrerad terminal VS-kod: 
+5. Logga in på Docker med användarnamnet, lösenordet och inloggningsserver som du kopierade från Azure-behållaren registret när du skapade den. Ange följande kommando i en integrerad terminal VS-kod: 
      
    ```csh/sh
-   docker login -u <username> -p <password> <Login server>
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-        
-   Använd användarnamn, lösenord och inloggningsserver som du kopierade från Azure-behållaren registret när du skapade den.
 
-3. Skicka bilden till Docker-databasen. Välj **visa** > **kommandot paletten** och Sök efter den **kant: Push-gräns för IoT-modulen Docker bild** menykommandot. Ange avbildningens namn i textrutan popup visas överst i fönstret VS-kod. Använd samma namn för bilden som du använde i steg 4.
+6. Skicka bilden till behållaren registret. Välj **visa** > **kommandot paletten** och Sök efter den **kant: Push-gräns för IoT-modulen Docker bild** menykommandot. Ange avbildningens namn i textrutan popup visas överst i fönstret VS-kod. Använd samma namn för bilden som du använde i steg 4.
+7. Om du vill visa bilden i Azure-portalen, navigera till din Azure-behållaren registret och markera **databaser**. Du bör se **filtermodule** visas.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Lägga till registret autentiseringsuppgifter Edge runtime
 Lägg till autentiseringsuppgifterna för registret Edge körningsmiljön på datorn där du kör Edge-enhet. Dessa autentiseringsuppgifter ge runtime-åtkomst till pull-behållaren. 

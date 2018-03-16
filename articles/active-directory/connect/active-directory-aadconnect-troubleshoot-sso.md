@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/12/2018
 ms.author: billmath
-ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b383a081141d2fde90cfc574ec4b9ffb16940158
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Felsöka Azure Active Directory sömlös enkel inloggning
 
@@ -34,8 +34,9 @@ Den här artikeln får du hittar felsökningsinformation om vanliga problem om A
 - Sömlös SSO fungerar inte i privata webbläsarens läge i Firefox.
 - Sömlös SSO fungerar inte i Internet Explorer när förbättrad skyddat läge är aktiverat.
 - Sömlös SSO fungerar inte på mobila webbläsare på iOS och Android.
+- Om en användare tillhör för många grupper i Active Directory, användarens Kerberos-biljetten sannolikt för stort för att bearbeta och detta gör att sömlös SSO misslyckas. Azure AD-HTTPS-begäranden kan ha huvuden med en maximal storlek på 16 KB; Kerberos-biljetter måste vara mycket mindre än detta antal att hantera andra Azure AD-artefakter, till exempel cookies. Vår rekommendation är att minska användarens gruppmedlemskap och försök igen.
 - Om du synkroniserar 30 eller flera Active Directory-skogar, kan du inte aktivera sömlös SSO via Azure AD Connect. Som en tillfällig lösning kan du [manuellt aktivera](#manual-reset-of-azure-ad-seamless-sso) funktionen på din klient.
-- Att lägga till URL: en (https://autologon.microsoftazuread-sso.com) för Azure AD-tjänsten i zonen Tillförlitliga platser i stället för den lokala intranätzonen *hindrar användare från att logga in*.
+- Lägga till URL: en för Azure AD-tjänsten (https://autologon.microsoftazuread-sso.com) i zonen Tillförlitliga platser i stället för den lokala intranätzonen *hindrar användare från att logga in*.
 - Inaktivera användningen av den **RC4_HMAC_MD5** krypteringstyp för Kerberos i inställningarna för Active Directory bryts sömlös SSO. I Redigeraren för Grupprinciphantering-verktyget kontrollerar du att principvärdet **RC4_HMAC_MD5** under **Datorkonfiguration -> Windows-inställningar -> säkerhetsinställningar -> lokala principer -> säkerhetsalternativ - > ”Nätverkssäkerhet: Konfigurera krypteringstyper som tillåts för Kerberos”** är ”aktiverad”.
 
 ## <a name="check-status-of-feature"></a>Kontrollera statusen för funktionen

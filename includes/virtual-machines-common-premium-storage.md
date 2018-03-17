@@ -57,10 +57,12 @@ Här följer några av funktionerna i Premium-lagring:
 
     Ett premiumlagringskonto stöder endast lokalt redundant lagring som replikeringsalternativet. Lokalt redundant lagring behåller tre kopior av data inom en enskild region. För regional katastrofåterställning, du måste säkerhetskopiera Virtuella diskar i en annan region med hjälp av [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md). Du måste också använda ett konto med geo-redundant lagring (GRS) som säkerhetskopieringsvalvet. 
 
-    Azure använder ditt lagringskonto som en behållare för ohanterade diskarna. När du skapar Azure DS-serien, DSv2-serien GS-serien, eller Fs-serien virtuell dator med ohanterad diskar, och du väljer ett premiumlagringskonto, operativsystemet och datadiskar lagras i detta lagringskonto.
+    Azure använder ditt lagringskonto som en behållare för ohanterade diskarna. När du skapar en virtuell Azure-dator som har stöd för Premium-lagring med ohanterad diskar, och du väljer ett premiumlagringskonto, lagras operativsystemet och datadiskarna i detta lagringskonto.
 
 ## <a name="supported-vms"></a>Virtuella datorer som stöds
-Premium-lagring stöder DS-serien, DSv2-serien GS-serien, Ls-serien, Fs-serien och B-serien virtuella datorer. Du kan använda standard och premium-lagringsdiskar med dessa VM-typer. Du kan inte använda premium lagringsdiskar med VM-serien som inte är Premium Storage-kompatibel.
+
+Premium-lagring stöder B-serien, DS-serien, DSv2-serien, DSv3-serien, GS-serien, Ls-serien, M-serien och Fs-serien virtuella datorer. Du kan använda standard och premium-lagringsdiskar med dessa VM-typer. Du kan inte använda premium lagringsdiskar med VM-serien som inte är Premium Storage-kompatibel.
+
 
 Information om VM-typer och storlekar i Azure för Windows finns i artikeln [VM-storlekar för Windows](../articles/virtual-machines/windows/sizes.md). Information om VM-typer och storlekar i Azure för Linux finns i artikeln [VM-storlekar för Linux](../articles/virtual-machines/linux/sizes.md).
 

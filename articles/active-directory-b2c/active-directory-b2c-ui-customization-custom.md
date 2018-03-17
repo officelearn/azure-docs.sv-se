@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: c430b488016f038ed1d7a67a8d52c057df1ea40e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: Konfigurera anpassningar i en anpassad princip
 
@@ -26,11 +26,11 @@ ms.lasthandoff: 12/11/2017
 
 När du har slutfört den här artikeln har du en anpassad princip för registrering och inloggning med märke och utseende. Med Azure Active Directory B2C (Azure AD B2C), du får nästan full kontroll över HTML- och CSS-innehåll som visas för användarna. När du använder en anpassad princip kan konfigurera du anpassning av Användargränssnittet i XML istället för att använda kontroller i Azure-portalen. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan slutföra [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
 
-## <a name="page-ui-customization"></a>Anpassning av Page UI
+## <a name="page-ui-customization"></a>Anpassning av sid-UI
 
 Du kan anpassa utseendet och känslan av en anpassad princip med hjälp av sidan anpassning gränssnittsfunktionen. Du kan också upprätthålla märke och visual konsekvensen mellan dina program och Azure AD B2C.
 
@@ -118,7 +118,7 @@ Konfigurera Blob storage för Cross-Origin Resource Sharing genom att göra föl
 
 Verifiera att du är redo genom att göra följande:
 
-1. Gå till den [test cors.org](http://test-cors.org/) webbplats, och klistra in Webbadressen i den **fjärr-URL** rutan.
+1. Gå till den [www.test-cors.org](http://www.test-cors.org/) webbplats, och klistra in Webbadressen i den **fjärr-URL** rutan.
 2. Klicka på **skicka begäran**.  
     Om du får ett felmeddelande, kontrollerar du att din [CORS-inställningarna](#configure-cors) är korrekta. Du kan också behöva rensa webbläsarens cacheminne eller öppna ett privat sessionen genom att trycka på Ctrl + Skift + P.
 
@@ -161,26 +161,26 @@ Mappen sample_templates/wingtip innehåller följande HTML-filer:
 
 | HTML5-mall | Beskrivning |
 |----------------|-------------|
-| *phonefactor.HTML* | Använd den här filen som en mall för en multifaktorautentiseringssidan. |
-| *ResetPassword.HTML* | Använd den här filen som en mall för en glömt lösenord. |
-| *selfasserted.HTML* | Använd den här filen som en mall för en sociala konto registreringssidan, registreringssidan för lokalt konto eller ett lokalt konto-inloggningssida. |
-| *Unified.HTML* | Använd den här filen som en mall för ett enhetlig registrering eller inloggning. |
-| *updateprofile.HTML* | Använd den här filen som en mall för en uppdatering profilsida. |
+| *phonefactor.html* | Använd den här filen som en mall för en multifaktorautentiseringssidan. |
+| *resetpassword.html* | Använd den här filen som en mall för en glömt lösenord. |
+| *selfasserted.html* | Använd den här filen som en mall för en sociala konto registreringssidan, registreringssidan för lokalt konto eller ett lokalt konto-inloggningssida. |
+| *unified.html* | Använd den här filen som en mall för ett enhetlig registrering eller inloggning. |
+| *updateprofile.html* | Använd den här filen som en mall för en uppdatering profilsida. |
 
 I den [ändra anpassad princip för registrering eller inloggning-avsnittet](#modify-your-sign-up-or-sign-in-custom-policy), du har konfigurerat innehållsdefinitionen för `api.idpselections`. En fullständig uppsättning innehåll Definitions-ID som identifieras av Azure AD B2C identitet upplevelse framework och deras beskrivningar finns i följande tabell:
 
 | Innehålls-ID: N | Beskrivning | 
 |-----------------------|-------------|
-| *API.Error* | **Felsidan**. Den här sidan visas när ett undantagsfel eller ett fel har påträffats. |
-| *API.idpselections* | **Identity-providern på sidan**. Den här sidan innehåller en lista över identitetsleverantörer som användaren kan välja från under inloggningen. Dessa alternativ är enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton. |
-| *API.idpselections.Signup* | **Identitet providern val för registrering**. Den här sidan innehåller en lista över identitetsleverantörer som användaren kan välja bland under registreringen. Dessa alternativ är enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton. |
-| *API.localaccountpasswordreset* | **Har du glömt lösenordssidan**. Den här sidan innehåller ett formulär som användaren måste slutföra för att initiera en återställning av lösenord.  |
-| *API.localaccountsignin* | **Lokalt konto inloggningssidan**. Den här sidan innehåller ett formulär för att logga in med ett lokalt konto som baseras på en e-postadress eller ett användarnamn. Formuläret kan innehålla en textruta och inmatningsfält för lösenord. |
-| *API.localaccountsignup* | **Lokalt konto registreringssidan**. Den här sidan innehåller en registreringsformuläret för att registrera dig för ett lokalt konto som baseras på en e-postadress eller ett användarnamn. Formuläret kan innehålla olika inkommande kontroller, till exempel en textruta, inmatningsfält för lösenord, en alternativknapp, enkelval listrutorna och välja flera kryssrutor. |
-| *API.phonefactor* | **Multifaktorautentiseringssidan**. På den här sidan verifiera användare sina telefonnummer (med hjälp av text- eller röst) under registrering eller inloggning. |
-| *API.selfasserted* | **Sociala konto registreringssidan**. Den här sidan innehåller en registreringsformuläret som användare måste slutföra när de loggar med ett befintligt konto från en sociala identitetsleverantören, till exempel Facebook eller Google +. Den här sidan liknar föregående sociala konto registreringssidan, förutom fälten lösenord post. |
-| *API.selfasserted.profileupdate* | **Uppdatera profilsida**. Den här sidan innehåller ett formulär som användarna kan använda för att uppdatera sin profil. Den här sidan liknar sociala konto registreringssidan, förutom fälten lösenord post. |
-| *API.signuporsignin* | **Enhetlig registrering eller inloggning sidan**. Den här sidan hanterar både registrering och inloggning av användare som kan använda enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook eller Google + eller lokala konton.  |
+| *api.error* | **Felsidan**. Den här sidan visas när ett undantagsfel eller ett fel har påträffats. |
+| *api.idpselections* | **Identity-providern på sidan**. Den här sidan innehåller en lista över identitetsleverantörer som användaren kan välja från under inloggningen. Dessa alternativ är enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton. |
+| *api.idpselections.signup* | **Identitet providern val för registrering**. Den här sidan innehåller en lista över identitetsleverantörer som användaren kan välja bland under registreringen. Dessa alternativ är enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton. |
+| *api.localaccountpasswordreset* | **Har du glömt lösenordssidan**. Den här sidan innehåller ett formulär som användaren måste slutföra för att initiera en återställning av lösenord.  |
+| *api.localaccountsignin* | **Lokalt konto inloggningssidan**. Den här sidan innehåller ett formulär för att logga in med ett lokalt konto som baseras på en e-postadress eller ett användarnamn. Formuläret kan innehålla en textruta och inmatningsfält för lösenord. |
+| *api.localaccountsignup* | **Lokalt konto registreringssidan**. Den här sidan innehåller en registreringsformuläret för att registrera dig för ett lokalt konto som baseras på en e-postadress eller ett användarnamn. Formuläret kan innehålla olika inkommande kontroller, till exempel en textruta, inmatningsfält för lösenord, en alternativknapp, enkelval listrutorna och välja flera kryssrutor. |
+| *api.phonefactor* | **Multifaktorautentiseringssidan**. På den här sidan verifiera användare sina telefonnummer (med hjälp av text- eller röst) under registrering eller inloggning. |
+| *api.selfasserted* | **Sociala konto registreringssidan**. Den här sidan innehåller en registreringsformuläret som användare måste slutföra när de loggar med ett befintligt konto från en sociala identitetsleverantören, till exempel Facebook eller Google +. Den här sidan liknar föregående sociala konto registreringssidan, förutom fälten lösenord post. |
+| *api.selfasserted.profileupdate* | **Uppdatera profilsida**. Den här sidan innehåller ett formulär som användarna kan använda för att uppdatera sin profil. Den här sidan liknar sociala konto registreringssidan, förutom fälten lösenord post. |
+| *api.signuporsignin* | **Enhetlig registrering eller inloggning sidan**. Den här sidan hanterar både registrering och inloggning av användare som kan använda enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook eller Google + eller lokala konton.  |
 
 ## <a name="next-steps"></a>Nästa steg
 

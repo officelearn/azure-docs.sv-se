@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: e082b9014e3734b554d3dae1cf8aecbaed65a28a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 30bbe7442cac96a1dcf6959cac2abedd61454a29
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Välj mellan Azure-tjänster som levererar meddelanden
 
@@ -30,18 +30,22 @@ Det är en viktig skillnad att notera mellan tjänster som levererar en händels
 
 ### <a name="event"></a>Händelse
 
-En händelse är ett enkelt meddelande av en åtgärd eller en ändring. Händelsedata som innehåller information om vad som hänt men har inte de data som utlöste händelsen. Till exempel meddela en händelse prenumeranter att en fil har skapats. Det kan innehålla allmän information om filen, men det innehåller inte själva filen. I allmänhet kan utlösa händelser händelsehanterare att agera i realtid.
+En händelse är ett enkelt meddelande om ett villkor eller en ändring. Utgivaren av händelsen har inga förväntan om hur händelsen hanteras. Konsumenter av händelsen avgör vad du gör med meddelandet. Händelser kan vara separata enheter eller en del av en serie.
+
+Diskreta händelser rapportera tillståndsändring och är tillämplig. Om du vill gå vidare endast måste veta att något hände. Händelsedata som innehåller information om vad som hänt men har inte de data som utlöste händelsen. Till exempel meddela en händelse konsumenter att en fil har skapats. Det kan innehålla allmän information om filen, men det innehåller inte själva filen. Diskreta händelser är idealisk för serverlösa lösningar som behöver för att skala.
+
+Serie händelser rapportera ett villkor och är analyzable. Händelser är sorterade tid och relaterade. Konsumenten måste den sekvenserade serien händelser att analysera vad hände.
 
 ### <a name="message"></a>Meddelande
 
-Ett meddelande är rådata som genereras av en tjänst som ska förbrukas eller lagrats någon annanstans. Meddelandet innehåller data som utlöste meddelandet pipeline. Det här meddelandet kan vara allt från en e-handel order till användaren telemetri. Till skillnad från en händelseavisering utgivaren av ett meddelande förväntar sig ett svar. Ett meddelande innehåller rådata men förväntar sig nästa del av systemet för att skapa en fil från dessa data.
+Ett meddelande är rådata som genereras av en tjänst som ska förbrukas eller lagrats någon annanstans. Meddelandet innehåller data som utlöste meddelandet pipeline. Utgivaren av meddelandet har en förväntan om hur konsumenten hanterar meddelandet. Det finns ett avtal mellan de två sidorna. Utgivaren skickar ett meddelande med rådata och förväntar sig konsumenten att skapa en fil från dessa data och skicka ett svar när arbetet utförs.
 
 ## <a name="comparison-of-services"></a>Jämförelse av tjänster
 
 | Tjänst | Syfte | Typ | När du ska använda detta |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | Reaktiv programmering | Händelsedistribution | Ta hänsyn till status ändras |
-| Händelsehubbar | Stordata pipeline | Händelse för strömning | Telemetri och distribuerade data strömning |
+| Event Grid | Reaktiv programmering | Händelsedistribution (diskreta) | Ta hänsyn till status ändras |
+| Händelsehubbar | Stordata pipeline | Händelsen streaming (serie) | Telemetri och distribuerade data strömning |
 | Service Bus | Högt värde enterprise-meddelanden | Meddelande | Bearbetningen och finansiella transaktioner |
 
 ### <a name="event-grid"></a>Event Grid

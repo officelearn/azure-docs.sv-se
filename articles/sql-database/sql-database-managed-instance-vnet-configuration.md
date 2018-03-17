@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 2f2a1289aa4c7681d16ab27bf8546b97f5ea3939
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e724a660f8ba2373cefdabe8595908b7bb42f4d6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Konfigurera ett virtuellt nätverk för Azure SQL-hanterade databasinstans
 
@@ -33,7 +33,7 @@ Planera hur du distribuerar en instans av hanteras i virtuellt nätverk med dina
 
    Om du planerar att använda ett befintligt virtuellt nätverk som du behöver ändra den nätverkskonfigurationen för att anpassa din hanteras instans. Mer information finns i [ändra befintligt virtuellt nätverk för hanterade instans](#modify-an-existing-virtual-network-for-managed-instances). 
 
-   Om du planerar att skapa ett nytt virtuellt nätverk, se [Skapa nytt virtuellt nätverk för hanterade instansen](#create-new-virtual-network-for-managed-instances).
+   Om du planerar att skapa ett nytt virtuellt nätverk, se [Skapa nytt virtuellt nätverk för hanterade instansen](#create-a-new-virtual-network-for-managed-instances).
 
 ## <a name="requirements"></a>Krav
 

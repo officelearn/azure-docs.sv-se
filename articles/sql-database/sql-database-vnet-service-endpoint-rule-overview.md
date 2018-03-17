@@ -2,18 +2,19 @@
 title: "Virtuella nätverksslutpunkter och regler för Azure SQL Database | Microsoft Docs"
 description: "Markera ett undernät som ett virtuellt nätverk tjänstslutpunkten. Sedan slutpunkten som en regel för virtuellt nätverk i åtkomstkontrollistan Azure SQL Database. Du SQL-databasen sedan godkänner kommunikation från alla virtuella datorer och andra noder i undernät."
 services: sql-database
+ms.service: sql-database
 author: MightyPen
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 61f3112d684e0b1ec1d331f063f7930b3dc64d0c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7622c6e6ffb1410cc2cbd42f6ac3601d281832da
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Använd virtuella nätverk slutpunkter och regler för Azure SQL Database
 
@@ -229,6 +230,12 @@ Det här avsnittet beskriver hur du kan använda den [Azure-portalen] [ http-azu
 
 Ett PowerShell-skript kan även skapa regler för virtuellt nätverk. Cmdleten avgörande **ny AzureRmSqlServerVirtualNetworkRule**. Om du vill använda, se [PowerShell för att skapa ett virtuellt nätverk tjänstslutpunkten och regeln för Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
+#### <a name="rest-api-alternative"></a>REST API-alternativ
+
+PowerShell-cmdlets för SQL-VNet åtgärder anropa internt REST API: er. Du kan anropa REST-API: er direkt.
+
+- [Regler för virtuellt nätverk: åtgärder][rest-api-virtual-network-rules-operations-862r]
+
 #### <a name="prerequisites"></a>Förutsättningar
 
 Det måste finnas ett undernät som är märkta med viss virtuellt nätverk tjänstslutpunkten *typnamn* relevanta för Azure SQL Database.
@@ -288,6 +295,8 @@ Funktionen för regeln virtuellt nätverk för Azure SQL Database blev tillgäng
 ## <a name="next-steps"></a>Nästa steg
 
 - [Använd PowerShell för att skapa en tjänstslutpunkt för virtuellt nätverk och en regel för virtuellt nätverk för Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Regler för virtuellt nätverk: Operations] [ rest-api-virtual-network-rules-operations-862r] med REST API: er
+
 
 
 <!-- Link references, to images. -->
@@ -328,6 +337,7 @@ Funktionen för regeln virtuellt nätverk för Azure SQL Database blev tillgäng
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
 
+[rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
 
 
 

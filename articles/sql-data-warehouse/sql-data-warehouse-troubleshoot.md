@@ -6,20 +6,19 @@ documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
 editor: 
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 03/30/2017
+ms.date: 03/15/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: 48318397f9c5e463c82320ad9d7c23a1a62af77e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0829d448e8b925d0dcc032ed143d8fff42ab1b69
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Felsöka Azure SQL Data Warehouse
 Det här avsnittet innehåller några av de vanligaste felsökning frågor som vi får höra från våra kunder.
@@ -27,9 +26,9 @@ Det här avsnittet innehåller några av de vanligaste felsökning frågor som v
 ## <a name="connecting"></a>Ansluter
 | Problem | Lösning |
 |:--- |:--- |
-| Inloggningen misslyckades för användaren 'NT AUTHORITY\\ANONYMOUS LOGON ”. (Microsoft SQL Server, fel: 18456) |Det här felet uppstår när en AAD-användare försöker ansluta till master-databasen, men har inte en användare i master.  För att åtgärda problemet antingen ange SQL Data Warehouse som du vill ansluta till vid anslutningen, eller lägga till användaren i master-databasen.  Se [Säkerhetsöversikt] [ Security overview] mer information. |
-| Servern huvudnamn ”MittAnvändarnamn” går inte att komma åt databasen ”master” under det aktuella säkerhetssammanhanget. Det går inte att öppna användarens standarddatabas. Inloggningen misslyckades. Inloggningen misslyckades för användaren 'MittAnvändarnamn'. (Microsoft SQL Server, fel: 916) |Det här felet uppstår när en AAD-användare försöker ansluta till master-databasen, men har inte en användare i master.  För att åtgärda problemet antingen ange SQL Data Warehouse som du vill ansluta till vid anslutningen, eller lägga till användaren i master-databasen.  Se [Säkerhetsöversikt] [ Security overview] mer information. |
-| CTAIP fel |Det här felet kan inträffa när en inloggning som har skapats på SQL server-huvuddatabasen, men inte i SQL Data Warehouse-databas.  Om du får det här felet kan ta en titt på den [Säkerhetsöversikt] [ Security overview] artikel.  Den här artikeln beskriver hur du skapar skapa en inloggning och användaren på master och hur du skapar en användare i SQL Data Warehouse-databas. |
+| Inloggningen misslyckades för användaren 'NT AUTHORITY\\ANONYMOUS LOGON ”. (Microsoft SQL Server, Error: 18456) |Det här felet uppstår när en AAD-användare försöker ansluta till master-databasen, men har inte en användare i master.  Om du vill åtgärda det här problemet, ange antingen SQL Data Warehouse som du vill ansluta till vid anslutningen, eller lägga till användaren i master-databasen.  Se [Säkerhetsöversikt] [ Security overview] mer information. |
+| Servern huvudnamn ”MittAnvändarnamn” går inte att komma åt databasen ”master” under det aktuella säkerhetssammanhanget. Det går inte att öppna användarens standarddatabas. Inloggningen misslyckades. Inloggningen misslyckades för användaren 'MittAnvändarnamn'. (Microsoft SQL Server, Error: 916) |Det här felet uppstår när en AAD-användare försöker ansluta till master-databasen, men har inte en användare i master.  Om du vill åtgärda det här problemet, ange antingen SQL Data Warehouse som du vill ansluta till vid anslutningen, eller lägga till användaren i master-databasen.  Se [Säkerhetsöversikt] [ Security overview] mer information. |
+| CTAIP fel |Det här felet kan inträffa när en inloggning som har skapats på SQL server-huvuddatabasen, men inte i SQL Data Warehouse-databas.  Om du får det här felet kan ta en titt på den [Säkerhetsöversikt] [ Security overview] artikel.  Den här artikeln förklarar hur du skapar en inloggning och användaren på master och hur du skapar en användare i SQL Data Warehouse-databas. |
 | Blockeras av brandvägg |Azure SQL-databaser är skyddade av servern och databasen nivån brandväggar så bara kända IP-adresser som har åtkomst till en databas. Brandväggarna är säkra som standard, vilket innebär att du uttryckligen aktivera och IP-adressen eller adressintervallet innan du kan ansluta.  Om du vill konfigurera brandväggen för åtkomst, följer du stegen i [konfigurera brandväggen serveråtkomst för klientens IP-Adressen] [ Configure server firewall access for your client IP] i den [etablering instruktioner] [Provisioning instructions]. |
 | Det går inte att ansluta med verktyget eller drivrutinen |SQL Data Warehouse rekommenderar att du använder [SSMS][SSMS], [SSDT för Visual Studio][SSDT for Visual Studio], eller [sqlcmd] [ sqlcmd] fråga dina data. Mer information om drivrutiner och ansluta till SQL Data Warehouse, se [drivrutiner för Azure SQL Data Warehouse] [ Drivers for Azure SQL Data Warehouse] och [Anslut till Azure SQL Data Warehouse] [ Connect to Azure SQL Data Warehouse] artiklar. |
 
@@ -47,7 +46,7 @@ Det här avsnittet innehåller några av de vanligaste felsökning frågor som v
 | Låg samtidighet / frågor i kö |Förstå [hantering av arbetsbelastning] [ Workload management] är viktigt för att förstå hur du ska hantera minnesallokering med samtidighet. |
 | Hur du implementerar bästa praxis |Är det enklast att börja lära dig att förbättra frågeprestanda [SQL Data Warehouse metodtips] [ SQL Data Warehouse best practices] artikel. |
 | Hur vi kan förbättra prestanda med skalning |Ibland lösningen för att förbättra prestanda är att helt enkelt lägga till mer datorkraft frågor genom [skala ditt SQL Data Warehouse][Scaling your SQL Data Warehouse]. |
-| Dåliga prestanda på grund av dålig index kvalitet |Några tillfällen frågor kan långsammare eftersom [dålig columnstore-index kvalitet][Poor columnstore index quality].  Finns den här artikeln för mer information och hur du [återskapa index för att förbättra kvaliteten segment][Rebuild indexes to improve segment quality]. |
+| Dåliga prestanda på grund av dålig index kvalitet |Några tillfällen frågor kan sakta ned eftersom [dålig columnstore-index kvalitet][Poor columnstore index quality].  Finns den här artikeln för mer information och hur du [återskapa index för att förbättra kvaliteten segment][Rebuild indexes to improve segment quality]. |
 
 ## <a name="system-management"></a>Systemhantering
 | Problem | Lösning |
@@ -60,7 +59,7 @@ Det här avsnittet innehåller några av de vanligaste felsökning frågor som v
 ## <a name="polybase"></a>Polybase
 | Problem | Lösning |
 |:--- |:--- |
-| Läs in misslyckas på grund av stora rader |Stor rad stöd är för närvarande inte tillgängligt för Polybase.  Det innebär att om tabellen innehåller VARCHAR(MAX), NVARCHAR(MAX) eller VARBINARY(MAX), externa tabeller inte kan användas för att läsa in dina data.  Belastningen för stora rader är för närvarande stöds bara via Azure Data Factory (med BCP), Azure Stream Analytics, SSIS, BCP eller klassen .NET SqlBulkCopy körs. PolyBase-stöd för stora rader läggs till i en framtida version. |
+| Läs in misslyckas på grund av stora rader |Stor rad stöd är för närvarande inte tillgängligt för Polybase.  Det innebär att om tabellen innehåller VARCHAR(MAX), NVARCHAR(MAX) eller VARBINARY(MAX), externa tabeller inte kan användas för att läsa in dina data.  Läser in stora rader är för närvarande stöds bara via Azure Data Factory (med BCP), Azure Stream Analytics, SSIS, BCP eller klassen .NET SqlBulkCopy körs. PolyBase-stöd för stora rader läggs till i en framtida version. |
 | BCP belastningen på tabellen med MAX-datatypen kan inte |Det finns ett känt problem som kräver att VARCHAR(MAX), NVARCHAR(MAX) eller VARBINARY(MAX) placeras i slutet av tabellen i vissa situationer.  Försök att flytta MAX-kolumner i slutet av tabellen. |
 
 ## <a name="differences-from-sql-database"></a>Skillnader från SQL-databas
@@ -74,7 +73,7 @@ Det här avsnittet innehåller några av de vanligaste felsökning frågor som v
 | UDF: er stöder inte SELECT-uttryck |Det här är en aktuell begränsning i vår UDF: er.  Se [CREATE FUNCTION] [ CREATE FUNCTION] syntaxen vi stöder. |
 
 ## <a name="next-steps"></a>Nästa steg
-Om du har det gick inte att hitta en lösning på problemet ovan, nedan följer några resurser som du kan försöka.
+Här är några andra resurser som du kan försöka mer hjälp att hitta en lösning på problemet.
 
 * [Bloggar]
 * [Funktionsbegäranden]
@@ -113,7 +112,7 @@ Om du har det gick inte att hitta en lösning på problemet ovan, nedan följer 
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuild indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload management]: ./resource-classes-for-workload-management.md
 [Using CTAS to work around unsupported UPDATE and DELETE syntax]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
 [UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements

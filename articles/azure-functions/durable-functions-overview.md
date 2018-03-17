@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: b5269bb51c787c927b4224b3520d5514b6d24501
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="durable-functions-overview-preview"></a>Beständiga översikt över Functions (förhandsgranskning)
 
@@ -153,44 +153,43 @@ public static async Task<HttpResponseMessage> Run(
 
 Den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parametern är ett värde från det `orchestrationClient` utdata bindning, som ingår i tillägget varaktiga funktioner. Det ger metoder för Start, för att skicka händelser till, avbryts och frågar efter nya eller befintliga orchestrator-instanser för funktionen. I exemplet ovan tar en HTTP-funktion som utlöses en `functionName` värde från inkommande URL och överför ett värde till [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Den här bindningen API returnerar ett svar som innehåller en `Location` sidhuvud och ytterligare information om den instans som senare kan användas för att leta upp status för igång instansen eller avsluta.
 
-## <a name="pattern-4-stateful-singletons"></a>Mönster för #4: Tillståndskänslig singletons
+## <a name="pattern-4-monitoring"></a>Mönstret #4: övervaka
 
-De flesta funktioner har en explicit start- och slutdatum och direkt att interagera inte med externa händelsekällor. Orkestreringarna stöder dock en [tillståndskänslig singleton](durable-functions-singletons.md) mönster som gör det möjligt för dem att bete sig som tillförlitliga [aktörer](https://en.wikipedia.org/wiki/Actor_model) i distribuerad datoranvändning.
+Övervakaren mönstret refererar till en flexibel *återkommande* process i ett arbetsflöde – till exempel avsökning tills vissa villkor är uppfyllda. En vanlig timer-utlösare kan åtgärda ett enkelt scenario, till exempel ett periodiska rensningsjobb men intervallet är statisk och hantera instans livslängd blir komplex. Beständiga funktioner ger flexibla återkommande intervall, aktivitet livstid kan hanteras och möjligheten att skapa flera bildskärmar processer från en enda orchestration.
 
-Följande diagram illustrerar en funktion som körs i en oändlig loop under bearbetning av händelser som tagits emot från externa källor.
+Ett exempel skulle återföra tidigare asynkrona HTTP API scenariot. I stället för att exponera en slutpunkt för en extern klient kan övervaka en långvarig åtgärd, förbrukar tidskrävande övervakaren en extern slutpunkt väntar på att vissa tillståndsändring.
 
-![Tillståndskänsliga singleton-diagram](media/durable-functions-overview/stateful-singleton.png)
+![Övervakare för diagram](media/durable-functions-overview/monitor.png)
 
-Beständiga funktioner är inte en implementering av aktören modellen, har många av samma runtime-egenskaper av orchestrator-funktioner. De är till exempel tidskrävande (eventuellt oändlig) stateful, tillförlitlig, Enkeltrådig, plats-transparent och globalt adresserbara. Detta gör att orchestrator-funktioner är användbart för ”aktör”-som scenarier.
-
-Vanliga funktioner är tillståndslösa och därför inte lämpligt att implementera en tillståndskänslig singleton-mönster. Tillägget varaktiga funktioner är dock tillståndskänslig singleton-mönstret relativt trivial att implementera. Följande kod är en enkel orchestrator-funktion som implementerar en räknare.
+Med hjälp av beständiga funktioner, kan flera bildskärmar som använder valfri slutpunkter skapas i några rader med kod. Övervakarna kan avsluta körningen när vissa villkor uppfylls, eller avslutas med den [DurableOrchestrationClient](durable-functions-instance-management.md), och deras intervall kan ändras baserat på vissa villkor (d.v.s. exponentiell backoff.) Följande kod implementerar en grundläggande Övervakare.
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
 {
-    int counterState = ctx.GetInput<int>();
-
-    string operation = await ctx.WaitForExternalEvent<string>("operation");
-    if (operation == "incr")
+    int jobId = ctx.GetInput<int>();
+    int pollingInterval = GetPollingInterval();
+    DateTime expiryTime = GetExpiryTime();
+    
+    while (ctx.CurrentUtcDateTime < expiryTime) 
     {
-        counterState++;
-    }
-    else if (operation == "decr")
-    {
-        counterState--;
+        var jobStatus = await ctx.CallActivityAsync<string>("GetJobStatus", jobId);
+        if (jobStatus == "Completed")
+        {
+            // Perform action when condition met
+            await ctx.CallActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration will sleep until this time
+        var nextCheck = ctx.CurrentUtcDateTime.AddSeconds(pollingInterval);
+        await ctx.CreateTimer(nextCheck, CancellationToken.None);
     }
 
-    ctx.ContinueAsNew(counterState);
+    // Perform further work here, or let the orchestration end
 }
 ```
 
-Den här koden är kan du beskriva som ”eternal orchestration” &mdash; som är något som börjar och slutar aldrig. Det utförs följande steg:
-
-* Börjar med ett indatavärde i `counterState`.
-* Väntar på obestämd tid ett meddelande kallas `operation`.
-* Utför vissa logik för att uppdatera det lokala tillståndet.
-* ”Startar” själva genom att anropa `ctx.ContinueAsNew`.
-* Väntar på igen under obestämd tid för nästa åtgärd.
+När en begäran tas emot, skapa en ny orchestration-instans för detta jobb-ID. Instansen avsöker status tills ett villkor uppfylls och slingan har avslutats. En beständig timer används för att styra avsökningsintervallet. Ytterligare arbete kan utföras eller orchestration kan avsluta. När den `ctx.CurrentUtcDateTime` överskrider den `expiryTime`, övervaka parterna.
 
 ## <a name="pattern-5-human-interaction"></a>Mönster för #5: Mänsklig interaktion
 

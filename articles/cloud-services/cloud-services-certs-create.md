@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 4032a429901c675436cb5e7fb04aa5645925fa30
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6a1e4f5316cc0321c1409f9e48daeae6ee483bf6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Översikt över certifikat för Azure-molntjänster
 Certifikat används i Azure för molntjänster ([tjänsten certifikat](#what-are-service-certificates)) och för att autentisera med management API ([hanteringscertifikat](#what-are-management-certificates)). Det här avsnittet ger en allmän översikt över båda typer av certifikat, hur till [skapa](#create) och [distribuera](#deploy) dem till Azure.
@@ -48,8 +48,6 @@ Certifikat kan du autentisera med den klassiska distributionsmodellen. Många pr
 ### <a name="limitations"></a>Begränsningar
 Det finns en gräns på 100 hanteringscertifikat per prenumeration. Det finns en gräns på 100 hanteringscertifikat för alla prenumerationer under en viss tjänstadministratör användar-ID. Om användar-ID för kontoadministratören har redan använts för att lägga till 100 hanteringscertifikat och det finns flera certifikat måste du lägga till en medadministratör för att lägga till ytterligare certifikat. 
 
-Innan du lägger till fler än 100 certifikat finns i om du kan återanvända ett befintligt certifikat. Med hjälp av medadministratörer lägger till potentiellt onödig komplexitet process för hantering av certifikat.
-
 <a name="create"></a>
 ## <a name="create-a-new-self-signed-certificate"></a>Skapa ett nytt självsignerat certifikat
 Du kan använda ett verktyg som är tillgängliga för att skapa ett självsignerat certifikat, så länge de följer dessa inställningar:
@@ -66,7 +64,7 @@ Du kan använda ett verktyg som är tillgängliga för att skapa ett självsigne
 
 Det finns två enkelt sätt att skapa ett certifikat i Windows, med den `makecert.exe` verktyg eller IIS.
 
-### <a name="makecertexe"></a>MakeCert.exe
+### <a name="makecertexe"></a>Makecert.exe
 Det här verktyget är inaktuell och inte längre dokumenteras här. Mer information finns i [MSDN-artikel](https://msdn.microsoft.com/library/windows/desktop/aa386968).
 
 ### <a name="powershell"></a>PowerShell

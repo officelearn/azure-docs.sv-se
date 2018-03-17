@@ -3,7 +3,7 @@ title: "Azure IoT-enhet SDK för C - IoTHubClient | Microsoft Docs"
 description: "Hur du använder IoTHubClient biblioteket i Azure IoT-enhet SDK för C för att skapa appar för enheter som kommunicerar med en IoT-hubb."
 services: iot-hub
 documentationcenter: 
-author: olivierbloch
+author: yzhong94
 manager: timlt
 editor: 
 ms.assetid: 828cf2bf-999d-4b8a-8a28-c7c901629600
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
-ms.author: obloch
-ms.openlocfilehash: 8428857bcd444f99ba2c0f6b31ff662d5596b591
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.author: yizhon
+ms.openlocfilehash: 6efd2980ce4dde99d934b3fe174d341fb68fac03
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Azure IoT-enhet SDK för C – mer information om IoTHubClient
 Den [först artikel](iot-hub-device-sdk-c-intro.md) i den här serien introduceras de **Azure IoT-enhet SDK för C**. Artikeln förklaras att det finns två arkitektur lager i SDK. I grunden är den **IoTHubClient** bibliotek som hanterar direkt kommunikation med IoT-hubb. Det finns också i **serialiseraren** bibliotek som bygger som för att tillhandahålla tjänster för serialisering. I den här artikeln ska vi ge ytterligare information om den **IoTHubClient** bibliotek.
@@ -60,10 +60,10 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
 Det finns dock tillhörande funktioner för var och en av dessa API: er:
 
-* IoTHubClient\_lla\_CreateFromConnectionString
-* IoTHubClient\_lla\_SendEventAsync
-* IoTHubClient\_lla\_SetMessageCallback
-* IoTHubClient\_lla\_förstör
+* IoTHubClient\_LL\_CreateFromConnectionString
+* IoTHubClient\_LL\_SendEventAsync
+* IoTHubClient\_LL\_SetMessageCallback
+* IoTHubClient\_LL\_Destroy
 
 Dessa funktioner som alla inkludera ”lla” i API-namnet. Parametrarna för var och en av dessa funktioner är identiska med deras motsvarigheter i icke-lla än det som. Beteendet för dessa funktioner är dock olika på ett sätt som viktiga.
 
@@ -127,10 +127,10 @@ Det finns i princip bara en uppsättning API: er för att skicka och ta emot dat
 
 Oavsett vilken modell som du väljer måste du ha ett enhetligt vilka API: er som du använder. Om du startar genom att anropa **IoTHubClient\_lla\_CreateFromConnectionString**, bör du bara använda API: er för motsvarande på lägre nivå för all uppföljning:
 
-* IoTHubClient\_lla\_SendEventAsync
-* IoTHubClient\_lla\_SetMessageCallback
-* IoTHubClient\_lla\_förstör
-* IoTHubClient\_lla\_DoWork
+* IoTHubClient\_LL\_SendEventAsync
+* IoTHubClient\_LL\_SetMessageCallback
+* IoTHubClient\_LL\_Destroy
+* IoTHubClient\_LL\_DoWork
 
 Motsatt gäller också. Om du börjar med **IoTHubClient\_CreateFromConnectionString**, sedan använda icke - lla API: erna för några andra processer.
 
@@ -271,7 +271,7 @@ Mer information om hur du utvecklar för IoT-hubb finns i [Azure IoT SDK][lnk-sd
 
 Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
-* [Distribuera AI till enheter med Azure IoT kant][lnk-iotedge]
+* [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 

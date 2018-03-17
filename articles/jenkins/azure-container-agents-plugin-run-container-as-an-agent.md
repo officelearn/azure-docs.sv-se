@@ -7,14 +7,14 @@ ms.service: multiple
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/16/2018
 ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: fc3ad4b68e29e9bd5666bb115306b452d074f682
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a18136afc096f8315310fae134d3f683994b6d0a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Skapa ett projekt i Azure med hjälp av Jenkins och instanser för Azure-behållare
 
@@ -68,6 +68,11 @@ Det här avsnittet vägleder dig genom inställningen Jenkins-URL: en.
 1. Välj **Spara**.
 
 ## <a name="update-jenkins-to-allow-java-network-launch-protocol-jnlp"></a>Uppdatera Jenkins för att tillåta Java nätverket starta Protocol (JNLP)
+
+> [!NOTE]
+> Den här kursen visar hur du konfigurerar en JNLP agent. Från version 0.4.x och senare, den [Jenkins Azure Container agenter plugin](https://plugins.jenkins.io/azure-container-agents) stöder också SSH.
+>
+>
 
 Jenkins agenten ansluter till servern via Java nätverket starta Protocol (JNLP) Jenkins. Det här avsnittet beskrivs hur du anger en port för JNLP agenter som ska användas vid kommunikation med servern Jenkins.
 

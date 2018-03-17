@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 03/16/2018
 ms.author: gokuma;bradsev
-ms.openlocfilehash: d8f0616f17dbaa02082492cc1c68f1d989ea5aae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96f8d1bcf5a7e51823ed55a1b924d1397eba9da5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Data undersökning och visuella verktyg på datavetenskap virtuell dator
 
@@ -52,7 +52,7 @@ Ett viktigt steg i datavetenskap är att förstå informationen. Visualisering o
 | Stöds DSVM versioner     | Windows, Linux     |
 | Vanliga användningsområden      | Allmänna UI Data Mining-verktyget för R    |
 | Hur du använder / kör den?      | UI-verktyget. Starta en kommandotolk i Windows, kan köra R, sedan i R kör `rattle()`. På Linux, ansluta med X2Go, starta en terminal, kör R, sedan i R kör `rattle()`. |
-| Länkar till exempel      | [Spännen](https://togaware.com/onepager/) |
+| Länkar till exempel      | [Rattle](https://togaware.com/onepager/) |
 | Relaterade verktyg på DSVM      |LightGBM Weka, Xgboost   |
 
 ## <a name="powerbi-desktop"></a>PowerBI Desktop 
@@ -62,5 +62,5 @@ Ett viktigt steg i datavetenskap är att förstå informationen. Visualisering o
 | Stöds DSVM versioner      | Windows  |
 | Vanliga användningsområden      |  Visualisering av data och skapa instrumentpaneler   |
 | Hur du använder / kör den?      | Genväg på skrivbordet (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Relaterade verktyg på DSVM      |   Visual Studio 2017, Visual Studio Code Juno      |
+| Relaterade verktyg på DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
 

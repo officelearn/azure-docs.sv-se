@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0e547a5991c0ce00344eff6d6b77edb0e34bd62c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Förbereder för att säkerhetskopiera arbetsbelastningar till Azure med DPM
 > [!div class="op_single_selector"]
@@ -43,26 +43,28 @@ Den här artikeln innehåller en introduktion till Microsoft Azure Backup för a
 [System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) säkerhetskopierar filer och programdata. Mer information om arbetsbelastningar som stöds finns [här](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). Data som säkerhetskopieras så att DPM kan lagras på band på disk, eller säkerhetskopiera till Azure med Microsoft Azure Backup. DPM samverkar med Azure Backup på följande sätt:
 
 * **DPM distribueras som en fysisk server eller lokal virtuell dator** – om DPM distribueras som en fysisk server eller en lokal Hyper-V virtuell dator som du kan säkerhetskopiera data till ett Recovery Services-valv förutom disk och band säkerhetskopiering.
-* **DPM distribueras som en virtuell Azure-dator** – från System Center 2012 R2 med uppdatering 3 kan DPM distribueras som en virtuell Azure-dator. Om DPM distribueras som en virtuell Azure-dator kan du säkerhetskopiera data till Azure-diskar kopplade till den virtuella DPM Azure-datorn eller du omfördela lagring av data genom att säkerhetskopiera upp till Recovery Services-valvet.
+* **DPM distribueras som en virtuell Azure-dator** – från System Center 2012 R2 med uppdatering 3 på kan du distribuera DPM på en virtuell Azure-dator. Om DPM distribueras som en virtuell Azure-dator kan du säkerhetskopiera data till Azure-diskar kopplade till den virtuella datorn eller omfördela lagring av data genom att säkerhetskopiera till Recovery Services-valvet.
 
-## <a name="why-backup-from-dpm-to-azure"></a>Varför säkerhetskopiera från DPM till Azure?
-Företagets fördelar med hjälp av Azure Backup för att säkerhetskopiera DPM-servrar är:
+## <a name="why-back-up-dpm-to-azure"></a>Varför säkerhetskopiera DPM till Azure?
+Företagets fördelar med att säkerhetskopiera DPM-servrar till Azure är:
 
-* Du kan använda Azure som ett alternativ till långsiktig distribution till band för lokal DPM-distribution.
-* För DPM-distributioner i Azure kan Azure Backup du omfördela lagring från Azure-disken så att du kan skala upp genom att lagra äldre data i Recovery Services-valvet och nya data på disken.
+* Använd Azure som ett alternativ till långsiktig distribution till band för lokal DPM-distribution.
+* Omfördela lagring från Azure-disken för att distribuera DPM på en virtuell dator i Azure. Lagra äldre data i Recovery Services-valvet kan du skala upp din verksamhet genom att lagra nya data till disk.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Förbered Azure Backup för att säkerhetskopiera DPM-data på följande sätt:
 
 1. **Skapa ett Recovery Services-valv** – skapa ett valv i Azure-portalen.
-2. **Ladda ned valvautentiseringsuppgifter** – hämta autentiseringsuppgifter som du använder för att registrera DPM-servern till Recovery Services-valvet.
-3. **Installera Azure-säkerhetskopieringsagenten** – installera agenten på varje DPM-servern från Azure Backup.
-4. **Registrera servern** – registrera DPM-servern till Recovery Services-valvet.
+2. **Ladda ned valvautentiseringsuppgifter** – hämta de autentiseringsuppgifter du använder för att registrera DPM-servern med Recovery Services-valvet.
+3. **Installera Azure-säkerhetskopieringsagenten** – installera agenten på varje DPM-server.
+4. **Registrera servern** – registrera DPM-servern med Recovery Services-valvet.
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="key-definitions"></a>Viktiga definitioner
 Här följer några viktiga definitioner för säkerhetskopiering till Azure för DPM:
 
-1. **Valvet autentiseringsuppgifter** – Valvautentiseringsuppgifter som behövs för att autentisera datorn för att skicka säkerhetskopierade data till ett identifierade valv i Azure Backup-tjänsten. Det kan hämtas från valvet och är giltig för 48hrs.
+1. **Valvet autentiseringsuppgifter** – Valvautentiseringsuppgifter som behövs för att autentisera datorn för att skicka säkerhetskopierade data till ett identifierade valv i Azure Backup-tjänsten. Den kan hämtas från valvet och är giltig i 48 timmar.
 2. **Lösenfrasen** – lösenfras som används för att kryptera säkerhetskopiorna till molnet. Spara filen på en säker plats när den behövs under en återställning.
 3. **Säkerhet PIN-kod** – om du har aktiverat den [säkerhetsinställningar](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) av valvet, säkerhet PIN-kod krävs för att utföra kritiska säkerhetskopieringsåtgärder. Den här multifaktorautentisering lägger till ytterligare en säkerhetsnivå. 
 4. **Återställningsmappen** – det är frasen som säkerhetskopior från molnet hämtas tillfälligt till under molnet återställningar. Storleken ska ungefär vara lika med storleken på de säkerhetskopiera objekten som du vill återställa parallellt.
@@ -81,7 +83,7 @@ Så här skapar du ett Recovery Services-valv:
 
     ![Skapa Recovery Services-valv (steg 2)](./media/backup-azure-dpm-introduction/rs-vault-menu.png)
 
-    Bladet Recovery Services-valv öppnas och du uppmanas att ange **namn**, **prenumeration**, **resursgrupp** och **plats**.
+    Recovery Services valvet menyn öppnas, där du uppmanas att ange en **namn**, **prenumeration**, **resursgruppen**, och **plats**.
 
     ![Skapa ett Recovery Services-valv (steg 5)](./media/backup-azure-dpm-introduction/rs-vault-attributes.png)
 4. I **Namn** anger du ett eget namn som identifierar valvet. Namnet måste vara unikt för Azure-prenumerationen. Skriv ett namn som innehåller mellan 2 och 50 tecken. Det måste börja med en bokstav och får endast innehålla bokstäver, siffror och bindestreck.
@@ -96,8 +98,8 @@ Med alternativet för lagringsreplikering kan du välja mellan geo-redundant lag
 
 Så här redigerar du inställningen för lagringsreplikering:
 
-1. Välj ditt valv för att öppna instrumentpanelen för valvet och bladet Inställningar. Om bladet **Inställningar** inte öppnas klickar du på **Alla inställningar** på instrumentpanelen för valvet.
-2. På bladet **Inställningar** klickar du på **Infrastruktur för säkerhetskopiering** > **Konfiguration av säkerhetskopiering** för att öppna bladet **Konfiguration av säkerhetskopiering**. På bladet **Konfiguration av säkerhetskopiering** väljer du alternativet för lagringsreplikering för ditt valv.
+1. Välj din valvet för att öppna instrumentpanelen valvet och menyn Inställningar. Om den **inställningar** inte öppna menyn, klicka på **alla inställningar** i instrumentpanelen för valvet.
+2. På den **inställningar** -menyn klickar du på **säkerhetskopiering infrastruktur** > **konfigurering av säkerhetskopiering** att öppna den **konfigurering av säkerhetskopiering**menyn. På den **konfigurering av säkerhetskopiering** -menyn väljer du alternativet lagring replikering för ditt valv.
 
     ![Lista över säkerhetskopieringsvalv](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -112,9 +114,9 @@ Valvautentiseringsfilen hämtas via en säker kanal från Azure-portalen. Azure 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Öppna Recovery Services-valvet som du vill registrera DPM-datorn.
-3. Inställningsbladet öppnas som standard. Om den är stängd klickar du på **inställningar** på valvet instrumentpanelen för att öppna inställningsbladet. I inställningar-bladet klickar du på **egenskaper**.
+3. Menyalternativet för inställningar som öppnas som standard. Om den är stängd klickar du på **inställningar** på valvet instrumentpanelen för att öppna inställningsmenyn. I menyn inställningar klickar du på **egenskaper**.
 
-    ![Öppna bladet för valvet](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Öppna menyn för valvet](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 4. På sidan Egenskaper **hämta** under **säkerhetskopiering autentiseringsuppgifter**. Portalen genererar valvautentiseringsfilen som görs tillgänglig för hämtning.
 
     ![Ladda ned](./media/backup-azure-dpm-introduction/vault-credentials.png)
@@ -130,9 +132,9 @@ Portalen kommer att generera en valvautentiseringen med hjälp av en kombination
 När du har skapat Azure Backup-valvet, ska en agent installeras på var och en av dina Windows-datorer (Windows Server, Windows-klient, System Center Data Protection Manager-server eller Azure Backup Server-dator) som möjliggör säkerhetskopiering av data och program till Azure .
 
 1. Öppna Recovery Services-valvet som du vill registrera DPM-datorn.
-2. Inställningsbladet öppnas som standard. Om den är stängd klickar du på **inställningar** att öppna inställningsbladet. I inställningar-bladet klickar du på **egenskaper**.
+2. Menyalternativet för inställningar som öppnas som standard. Om den är stängd klickar du på **inställningar** att öppna inställningsmenyn. I menyn inställningar klickar du på **egenskaper**.
 
-    ![Öppna bladet för valvet](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Öppna menyn för valvet](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. På sidan Inställningar **hämta** under **Azure Backup-agenten**.
 
     ![Ladda ned](./media/backup-azure-dpm-introduction/azure-backup-agent.png)

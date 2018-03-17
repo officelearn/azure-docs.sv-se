@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: a6e1b6230742c1c2f065418110f76932306a9588
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2e05be2131ca89a084da5eeffc0b025b38432a8d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Skapa och hantera Azure SQL Database-servrar och databaser
 
@@ -21,7 +21,7 @@ SQL-databas erbjuder tre typer av databaser:
 
 - En enskild databas som skapats i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en definierad uppsättning [beräkning och lagring resurser för olika arbetsbelastningar](sql-database-service-tiers.md). En Azure SQL database är associerad med en logisk server från Azure SQL Database som skapas i en viss Azure-region.
 - En databas som skapats som en del av en [pool av databaser](sql-database-elastic-pool.md) inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en definierad uppsättning [beräkning och lagring resurser för olika arbetsbelastningar](sql-database-service-tiers.md) som är delas med alla databaser i poolen. En Azure SQL database är associerad med en logisk server från Azure SQL Database som skapas i en viss Azure-region.
-- En [instans av en SQLServer](sql-database-managed-instance.md) skapas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en definierad uppsättning resurser för beräkning och lagring för alla databaser på den serverinstansen. En hanterad instans innehåller både system- och databaser. Hanterade instans är utformat för att aktivera databasen lift-och-skifte till en helt hanterad PaaS utan omformandet programmet. Hanterade instans ger hög kompatibilitet med programmeringsmodell för lokala SQL Server och stöder flesta av SQL Server-funktioner och tillhörande verktyg och tjänster.  
+- En [instans av en SQLServer](sql-database-managed-instance.md) (hanteras skapa en instans av) inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en definierad uppsättning resurser för beräkning och lagring för alla databaser på den serverinstansen. En hanterad instans innehåller både system- och databaser. Hanterade instans är utformat för att aktivera databasen lift-och-skifte till en helt hanterad PaaS utan omformandet programmet. Hanterade instans ger hög kompatibilitet med programmeringsmodell för lokala SQL Server och stöder flesta av SQL Server-funktioner och tillhörande verktyg och tjänster.  
 
 Microsoft Azure SQL Database stöder tabelldata dataström (TDS) protokollet klientversionen 7.3 eller senare och tillåter bara krypterade TCP/IP-anslutningar.
 
@@ -140,7 +140,7 @@ Skapa och hantera Azure SQL server-databaser och brandväggar med den [Azure CLI
 |[az group create](/cli/azure/group#az_group_create)|Skapar en resursgrupp|
 |[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Skapar en server|
 |[AZ sql server-lista](/cli/azure/sql/server#az_sql_server_list)|Visar servrar|
-|[AZ sql server lista-användningsområden](/cli/azure/sql/server#az_sql_server_list-usages)|Returnerar servern användningsområden|
+|[AZ sql server lista-användningsområden](/cli/azure/sql/server#az_sql_server_list_usages)|Returnerar servern användningsområden|
 |[Visa för AZ sql server](/cli/azure/sql/server#az_sql_server_show)|Hämtar en server|
 |[AZ sql server-uppdatering](/cli/azure/sql/server#az_sql_server_update)|Uppdaterar en server|
 |[ta bort AZ sql-server](/cli/azure/sql/server#az_sql_server_delete)|Tar bort en server|
@@ -196,7 +196,6 @@ Om du vill skapa och hantera Azure SQL server, databaser och brandväggar, kan d
 |[Servrar – lista](/rest/api/sql/servers/list)|Returnerar en lista över servrar.|
 |[Servrar – lista med resursgrupp](/rest/api/sql/servers/listbyresourcegroup)|Returnerar en lista över servrar i en resursgrupp.|
 |[Servrar – uppdatering](/rest/api/sql/servers/update)|Uppdaterar en befintlig server.|
-|[Servers - Sql](/rest/api/sql/servers%20-%20sql)|Anger om en resurs kan skapas med det angivna namnet.|
 |[Databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate)|Skapar en ny databas eller uppdaterar en befintlig databas.|
 |[Databaser – Get](/rest/api/sql/databases/get)|Hämtar en databas.|
 |[Databaser – få genom elastisk Pool](/rest/api/sql/databases/getbyelasticpool)|Hämtar en databas i en elastisk pool.|

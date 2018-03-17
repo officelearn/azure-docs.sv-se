@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 3ac0c87ca41315eb3b63ddfab2736f68bac8dbee
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mätvärden och diagnostikloggning 
 Azure SQL Database kan generera mätvärden och diagnostikfunktionerna loggar för lättare övervakning. Du kan konfigurera SQL-databasen för att lagra resursanvändning, personal och sessioner och anslutning till en av dessa Azure-resurser:
@@ -47,8 +47,8 @@ Du kan etablera en ny resurs i Azure eller välj en befintlig resurs. Du måste 
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): innehåller information om frågan runtime statistik, till exempel CPU-användning och fråga varaktighet.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): innehåller information om frågan vänta statistik, som talar om dina frågor väntat, t.ex CPU, LOGG och LÅSET.
 - [Fel](sql-database-metrics-diag-logging.md#errors-dataset): innehåller information om SQL-fel som inträffat på den här databasen.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset): innehåller information om hur lång tid en databas har använt väntar på olika vänta typer.
-- [Timeout](sql-database-metrics-diag-logging.md#timeouts-dataset): innehåller information om fel som inträffat på en databas.
+- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): innehåller information om hur lång tid en databas har använt väntar på olika vänta typer.
+- [Timeout](sql-database-metrics-diag-logging.md#time-outs-dataset): innehåller information om fel som inträffat på en databas.
 - [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset): innehåller information om att blockera händelser som inträffade på en databas.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): innehåller Intelligent insikter. [Mer information om Intelligent insikter](sql-database-intelligent-insights.md).
 

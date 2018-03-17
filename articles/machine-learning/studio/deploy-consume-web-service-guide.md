@@ -3,8 +3,8 @@ title: "Azure Machine Learning-webbtjänster: Distribution och användning | Mic
 description: "Resurser för att distribuera och använda webbtjänster."
 services: machine-learning
 documentationcenter: 
-author: garyericson
-manager: raymondl
+author: aashishb
+manager: hjerez
 editor: 
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl
-ms.openlocfilehash: 88a61467a79a424670d49e662315cab59ab52d13
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: aashishb
+ms.openlocfilehash: 7eecfe4a80499fbba0533f0d410dd920db61e62c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure Machine Learning-webbtjänster: Distribution och användning
 Du kan använda Azure Machine Learning för att distribuera machine learning arbetsflöden och modeller som webbtjänster. Dessa webbtjänster kan sedan användas för att anropa machine learning-modeller från program via Internet för att göra förutsägelser i realtid eller i batchläge. Eftersom webbtjänsterna RESTful kan anropa du dem från olika programmeringsspråk språk och plattformar, till exempel .NET och Java, och program som Excel.
@@ -49,7 +49,7 @@ Azure Machine Learning resource provider för webbtjänster kan distribution och
 ### <a name="with-powershell-cmdlets"></a>Med PowerShell-cmdlets
 Azure Machine Learning resource provider för webbtjänster kan distribution och hantering av webbtjänster med PowerShell-cmdlets.
 
-Om du vill använda cmdlets måste du först logga in på ditt Azure-konto från PowerShell-miljö med hjälp av den [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. Om du inte känner till hur du anropar PowerShell-kommandon som är baserade på hanteraren för filserverresurser, se [med hjälp av Azure PowerShell med Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md#log-in-to-your-azure-account).
+Om du vill använda cmdlets måste du först logga in på ditt Azure-konto från PowerShell-miljö med hjälp av den [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. Om du inte känner till hur du anropar PowerShell-kommandon som är baserade på hanteraren för filserverresurser, se [med hjälp av Azure PowerShell med Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
 
 Om du vill exportera dina prediktivt experiment, Använd [den här exempelkoden](https://github.com/ritwik20/AzureML-WebServices). När du skapar .exe-fil från koden, skriver du:
 

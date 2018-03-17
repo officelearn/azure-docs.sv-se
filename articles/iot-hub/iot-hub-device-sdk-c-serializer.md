@@ -3,7 +3,7 @@ title: "Azure IoT-enhet SDK för C - serialiseraren | Microsoft Docs"
 description: "Hur du använder serialiseraren biblioteket i Azure IoT-enhet SDK för C för att skapa appar för enheter som kommunicerar med en IoT-hubb."
 services: iot-hub
 documentationcenter: 
-author: olivierbloch
+author: yzhong94
 manager: timlt
 editor: 
 ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
-ms.author: obloch
-ms.openlocfilehash: d8b9e147b68d16c6c166e92cbabf5b5b63e23e8d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.author: yizhon
+ms.openlocfilehash: da9a2dd8bad68c03bb75d1772cf9e5dc539892aa
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT-enhet SDK för C – mer information om serialiseraren
 Den [först artikel](iot-hub-device-sdk-c-intro.md) i den här serien introduceras de **Azure IoT-enhet SDK för C**. I nästa artikel tillhandahålls en mer detaljerad beskrivning av den [ **IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). Den här artikeln är klar täckning av SDK genom att tillhandahålla en mer detaljerad beskrivning av återstående komponenten: den **serialiseraren** bibliotek.
@@ -71,11 +71,11 @@ Följande datatyper stöds i modeller som skapats med den **serialiseraren** bib
 | flyttal |flyttal med enkel precision |
 | lång |långt heltal |
 | int8\_t |8-bitars heltal |
-| Int16\_t |16-bitars heltal |
-| Int32\_t |32-bitars heltal |
-| Int64\_t |64-bitars heltal |
-| bool |Booleskt värde |
-| ASCII\_char\_ptr |ASCII-sträng |
+| int16\_t |16-bitars heltal |
+| int32\_t |32-bitars heltal |
+| int64\_t |64-bitars heltal |
+| bool |boolesk |
+| ascii\_char\_ptr |ASCII-sträng |
 | EDM\_DATUM\_TID\_FÖRSKJUTNING |tidsförskjutningen för datum |
 | EDM\_GUID |GUID |
 | EDM\_BINÄRA |Binär |
@@ -594,7 +594,7 @@ För att kunna använda den nya versionen av makrot\_utils.h, ta bort den **seri
 
 Lägg sedan till det här projektet i Visual Studio-lösningen:
 
-> . \\c\\serialiseraren\\skapa\\windows\\serializer.vcxproj
+> .\\c\\serializer\\build\\windows\\serializer.vcxproj
 > 
 > 
 
@@ -622,10 +622,10 @@ Dessa API: er visas i **simplesample\_amqp**.
 
 Det finns också en liknande uppsättning API: er på lägre nivå.
 
-* IoTHubClient\_lla\_CreateFromConnectionString
-* IoTHubClient\_lla\_SendEventAsync
-* IoTHubClient\_lla\_SetMessageCallback
-* IoTHubClient\_lla\_förstör
+* IoTHubClient\_LL\_CreateFromConnectionString
+* IoTHubClient\_LL\_SendEventAsync
+* IoTHubClient\_LL\_SetMessageCallback
+* IoTHubClient\_LL\_Destroy
 
 Observera att på lägre nivå-API: er fungerar på samma sätt som beskrivs i föregående artiklar. Du kan använda den första uppsättningen av API: er om du vill att en bakgrundstråd som hanterar skicka händelser och ta emot meddelanden. Du använder den andra uppsättningen av API: er om du vill ha explicit kontroll över när du skickar och tar emot data från IoT-hubb. Antingen uppsättning API: er fungerar lika bra med den **serialiseraren** bibliotek.
 
@@ -671,7 +671,7 @@ Mer information om hur du utvecklar för IoT-hubb finns i [Azure IoT SDK][lnk-sd
 
 Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
-* [Distribuera AI till enheter med Azure IoT kant][lnk-iotedge]
+* [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 

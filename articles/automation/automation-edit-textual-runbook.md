@@ -2,23 +2,19 @@
 title: Redigera textrepresentation runbooks i Azure Automation
 description: "Den här artikeln innehåller olika procedurer för att arbeta med PowerShell och PowerShell-arbetsflöde runbooks i Azure Automation med hjälp av textrepresentation editor."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: stevenka
-editor: tysonn
-ms.assetid: 6f5b48fb-6f30-4e99-9e14-9061b5554b08
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/23/2016
-ms.author: magoedte;bwren
-ms.openlocfilehash: e166700be0ec6b32d40f34bd47f92a7cff1cc7bf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 4fbb24f068092e4e256119b5e0288360dcef8fe0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Redigera textrepresentation runbooks i Azure Automation
 Textrepresentation redigeraren i Azure Automation kan användas för att redigera [PowerShell runbooks](automation-runbook-types.md#powershell-runbooks) och [PowerShell-arbetsflöde runbooks](automation-runbook-types.md#powershell-workflow-runbooks). Detta har vanliga funktioner i andra koden redigerare, till exempel intellisense och syntax i färger med ytterligare särskilda funktioner som hjälper dig att komma åt resurser som är gemensamma för runbooks.  Den här artikeln innehåller detaljerade anvisningar för att utföra olika funktioner med den här redigeraren.

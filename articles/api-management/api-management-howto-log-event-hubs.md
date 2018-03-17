@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 77c3e41dd4b1fdf7e518de67b353f69fcb758c60
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3f4da70d94d28496f5b08035ead0ef7acf1ca3bc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Logga händelser i Händelsehubbar i Azure API Management
 Händelsehubbar i Azure är en mycket skalbar tjänst för dataingång som kan mata in miljontals händelser per sekund så att du kan bearbeta och analysera de enorma mängder data som dina anslutna enheter och program producerar. Händelsehubbar fungerar som ”ytterdörren” för en händelsepipeline, och när data har samlats in i en händelsehubb, det kan omvandlas och lagras med hjälp av en leverantör av realtidsanalys eller adaptrar för batchbearbetning/lagring. Händelsehubbar frikopplar produktionen av en händelseström från användningen av dessa händelser så att händelsekonsumenterna kan komma åt dem på sitt eget schema.
@@ -36,7 +36,7 @@ API Management loggare konfigureras med hjälp av den [API Management REST API](
 
 Göra en HTTP PUT-begäran med hjälp av följande URL: en mall för att skapa en logg:
 
-`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
+`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
 
 * Ersätt `{your service}` med namnet på din API Management service-instans.
 * Ersätt `{new logger name}` med önskat namn för din nya meddelandeloggfiler. Du hänvisar till det här namnet när du konfigurerar den [loggen till eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) princip
@@ -51,7 +51,7 @@ Ange text på begäran med hjälp av följande mall:
 
 ```json
 {
-  "loggertype" : "AzureEventHub",
+  "loggerType" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
     "name" : "Name of the Event Hub from the Azure Classic Portal",
@@ -60,9 +60,9 @@ Ange text på begäran med hjälp av följande mall:
 }
 ```
 
-* `loggertype`måste anges till `AzureEventHub`.
-* `description`ger en valfri beskrivning av loggaren och kan vara en tom sträng om så önskas.
-* `credentials`innehåller den `name` och `connectionString` för din Azure-Händelsehubb.
+* `loggerType` måste anges till `AzureEventHub`.
+* `description` ger en valfri beskrivning av loggaren och kan vara en tom sträng om så önskas.
+* `credentials` innehåller den `name` och `connectionString` för din Azure-Händelsehubb.
 
 När du gör begäran om loggaren skapas en statuskod för `201 Created` returneras.
 

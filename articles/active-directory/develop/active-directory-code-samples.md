@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: mbaldwin
 ms.custom: aaddev
-ms.openlocfilehash: 5f47f03594e64281b55161edb1c391ed0be83a73
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 130d26828acd5394756c47f22217272338cc33e6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-code-samples"></a>Azure Active Directory-kodexempel
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -38,6 +38,7 @@ De här exemplen visar hur du skriver ett webbprogram som leder användarens web
 | C#/.NET |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) |Använd OpenID Connect (ASP.Net OpenID Connect OWIN mellanprogram) för att autentisera användare från en Azure AD-klient. |
 | C#/.NET |[WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect) |En flera innehavare .NET MVC-webbapp som använder OpenID Connect (ASP.Net OpenID Connect OWIN mellanprogram) för att autentisera användare från flera Azure AD-klienter. |
 | C#/.NET |[WebApp-WSFederation-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) |Använda WS-Federation (ASP.Net WS-Federation OWIN mellanprogram) för att autentisera användare från en Azure AD-klient. |
+| C# / .NET Core |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) |En .NET MVC-webbapp som använder OpenID Connect för att logga in användare från en enda Azure Active Directory (Azure AD)-klient med mellanprogram ASP.NET Core OpenID Connect. |
 
 ## <a name="single-page-application-spa"></a>Sida program (SPA)
 Det här exemplet visas hur du skriver en enstaka sida program som skyddas med Azure AD.  

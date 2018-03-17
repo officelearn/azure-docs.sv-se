@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 7892c74f03647e289ed96055fb9db5c2f08f0234
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 59ee56e225623295dd63bf5ae303bfe1aa8e95cf
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migrering av SQL Server-databas till Azure SQL Database
 
@@ -33,7 +33,7 @@ I båda fallen måste du säkerställa att källdatabasen är kompatibelt med Az
 
  Använd den här metoden för att migrera till en enda eller en delad databas om du har råd vissa avbrott eller om du utför en testmigrering av en produktionsdatabas för senare migrering. En självstudiekurs finns [migrera en SQL Server-databas](sql-database-migrate-your-sql-server-database.md).
 
-Följande lista innehåller det allmänna arbetsflödet för migrering av en enda SQL Server-databas eller en delad databas med den här metoden. Migreringen till instans hanteras finns [migrering till en hanterad](sql-database-cloud-migrate.md#migration-to-azure-sql-database-managed-instance).
+Följande lista innehåller det allmänna arbetsflödet för migrering av en enda SQL Server-databas eller en delad databas med den här metoden. Migreringen till instans hanteras finns [migrering till en hanterad](sql-database-managed-instance-migrate.md).
 
   ![VSSSDT-migreringsdiagram](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 

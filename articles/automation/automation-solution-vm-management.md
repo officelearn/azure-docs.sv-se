@@ -1,24 +1,18 @@
 ---
-title: "Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning (förhandsversion) | Microsoft Docs"
+title: "Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning (förhandsgranskning)"
 description: "Denna lösning för hantering av virtuell dator startar och stoppar Azure Resource Manager virtuella datorer på ett schema och övervakar proaktivt från logganalys."
 services: automation
-documentationCenter: 
-authors: eslesar
-manager: carmonm
-editor: 
-ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 12/18/2017
-ms.author: magoedte
-ms.openlocfilehash: 7ffd424de2a7224b5ac50fa228289c5397092b2e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+manager: carmonm
+ms.openlocfilehash: ec15859a92527c4e084075b40d3439d7a19fea1a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning (förhandsgranskning) i Azure Automation
 
@@ -129,7 +123,7 @@ Du bör inte aktivera alla scheman eftersom kan det skapa överlappande Schemal�
 
 Utför följande steg för att lägga till de virtuella datorerna Starta/Stoppa vid låg belastning på nätverket lösningen till ditt Automation-konto och sedan konfigurera variabler för att anpassa lösningen.
 
-1. I Azure-portalen klickar du på **skapar du en resurs**.<br> ![Azure-portalen](media/automation-solution-vm-management/azure-portal-01.png)<br>  
+1. Klicka på **Skapa en resurs** i Azure Portal.<br> ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
 2. I fönstret Marketplace Skriv ett nyckelord som **starta** eller **Starta/Stoppa**. När du börjar skriva filtreras listan baserat på det du skriver. Alternativt kan du skriver i en eller flera nyckelord från det fullständiga namnet på lösningen och tryck sedan på RETUR.  Välj **Starta/Stoppa VMs kontorstid [förhandsgranskning]** i sökresultatet.  
 3. I den **Starta/Stoppa VMs kontorstid [förhandsgranskning]** för den valda lösningen Granska sammanfattningen och klickar sedan på **skapa**.  
 4. Den **Lägg till lösning** visas. Du uppmanas att konfigurera lösningen innan du kan importera till Automation-prenumeration.<br><br> ![Bladet VM-hantering, lägga till lösning](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>

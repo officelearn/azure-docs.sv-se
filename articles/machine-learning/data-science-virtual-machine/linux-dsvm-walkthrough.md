@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/16/2018
 ms.author: bradsev;paulsh
-ms.openlocfilehash: 650b11d66f3ca32266b9842af77c909e125b4e4d
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 9b8a9b9bba242fd7c86dc285a77317a5821948df
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Datavetenskap med en Linux datavetenskap virtuell dator på Azure
 Den här genomgången visar hur du utför flera gemensamma datavetenskap med Linux datavetenskap VM. Linux Data vetenskap virtuell dator (DSVM) är en avbildning av virtuell dator som är tillgängliga på Azure som är förinstallerade med en samling verktyg som används ofta för dataanalys och maskininlärning. Viktiga programkomponenterna specificerade i den [etablera Linux datavetenskap virtuell dator](linux-dsvm-intro.md) avsnittet. VM-avbildning gör det enkelt att komma igång gör datavetenskap i minuter, utan att installera och konfigurera verktygen separat. Du kan enkelt skala upp den virtuella datorn, om det behövs och stoppa den inte under användning. Den här resursen är därför både elastisk och kostnadseffektiv.
@@ -27,7 +27,7 @@ Datavetenskap uppgifter som visas i den här genomgången följer du stegen som 
 
 Vi analysera den [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) datauppsättning i den här genomgången. Det här är en uppsättning e-postmeddelanden som är markerade som skräppost eller skinka (vilket innebär att de inte är skräppost), och innehåller även vissa statistik på innehållet i e-postmeddelanden. Statistik ingår beskrivs i nästa men ett avsnitt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du kan använda en Linux datavetenskap virtuell dator, måste du ha följande:
 
 * En **Azure-prenumeration**. Om du inte redan har en, se [skapa din kostnadsfria Azure-konto idag](https://azure.microsoft.com/free/).
@@ -78,7 +78,7 @@ För att få kopior av kodexempel som används i den här genomgången klona den
 Öppna ett terminalfönster och starta en ny R-session med interaktiva R-konsolen.
 
 > [!NOTE]
-> Du kan också använda RStudio för följande procedurer. Om du vill installera RStudio, kör du kommandot i en terminal:`./Desktop/DSVM\ tools/installRStudio.sh`
+> Du kan också använda RStudio för följande procedurer. Om du vill installera RStudio, kör du kommandot i en terminal: `./Desktop/DSVM\ tools/installRStudio.sh`
 >
 >
 

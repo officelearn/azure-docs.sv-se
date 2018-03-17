@@ -1,31 +1,25 @@
 ---
-title: Starta en runbook i Azure Automation | Microsoft Docs
+title: Starta en runbook i Azure Automation
 description: "Sammanfattar olika metoder som kan användas för att starta en runbook i Azure Automation och innehåller information om hur du använder både Azure-portalen och Windows PowerShell."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 6ee756b4-9200-4eb2-9bda-ec156853803b
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/07/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: c6a18bedec6eca5ff25d205bccecc23ecd342744
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+manager: carmonm
+ms.openlocfilehash: 064ba5f73b53681a824b1416243d10ab0e565c44
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Starta en runbook i Azure Automation
 Tabellen nedan hjälper dig att avgöra vilken metod för att starta en runbook i Azure Automation som är mest lämpliga för ditt specifika scenario. Den här artikeln innehåller information om hur du startar en runbook med Azure-portalen och med Windows PowerShell. Information om de andra metoderna finns i övrig dokumentation som du kan komma åt från länkarna nedan.
 
 | **METODEN** | **CHARACTERISTICS** |
 | --- | --- |
-| [Azure-portalen](#starting-a-runbook-with-the-azure-portal) |<li>Enklaste metoden med interaktivt användargränssnitt.<br> <li>Formulär med enkla parametervärden.<br> <li>Spåra jobbets status.<br> <li>Autentisera med Azure inloggning åtkomst. |
+| [Azure Portal](#starting-a-runbook-with-the-azure-portal) |<li>Enklaste metoden med interaktivt användargränssnitt.<br> <li>Formulär med enkla parametervärden.<br> <li>Spåra jobbets status.<br> <li>Autentisera med Azure inloggning åtkomst. |
 | [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) |<li>Anropa från kommandoraden med Windows PowerShell-cmdlets.<br> <li>Kan ingå i automatisk lösning med flera steg.<br> <li>Begäran har autentiserats med certifikat eller OAuth användarens huvudnamn / service principal.<br> <li>Ange enkla och komplexa parametervärden.<br> <li>Spåra jobbets status.<br> <li>Klienten behöver stöd för PowerShell-cmdlets. |
 | [Azure Automation API](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>Mest flexibla metoden, men även de flesta komplexa.<br> <li>Anropa från valfri egen kod som kan göra HTTP-begäranden.<br> <li>Begäran som autentiserats med certifikat eller Oauth användarens huvudnamn / service principal.<br> <li>Ange enkla och komplexa parametervärden. *Om du anropar en Python-runbook med hjälp av API måste JSON-nyttolast serialiseras.*<br> <li>Spåra jobbets status. |
 | [Webhooks](automation-webhooks.md) |<li>Starta runbook från http-begäran.<br> <li>Autentisera med säkerhets-token i URL: en.<br> <li>Klienten kan inte åsidosätta parametervärden som anges när skapa webhooken. Runbook kan definiera en enda parameter som fylls i med information för HTTP-begäran.<br> <li>Ingen möjlighet att spåra jobbstatus via Webhooksadressen. |

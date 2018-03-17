@@ -2,19 +2,19 @@
 title: Installation av Azure Machine Learning modellen hantering och konfiguration | Microsoft Docs
 description: "Det här dokumentet beskriver stegen och begrepp som är involverad i installera och konfigurera hantering av modellen i Azure Machine Learning."
 services: machine-learning
-author: AashishB
-ms.author: AashishB
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: c3efc7373e8825115af9b08f3f46e55e8490758a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d231fd525d310d2496c9ace40808b7deab0dd48f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="model-management-setup"></a>Installation av hantering av modellen
 

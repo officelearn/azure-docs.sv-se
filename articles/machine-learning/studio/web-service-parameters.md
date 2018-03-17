@@ -3,8 +3,9 @@ title: "Använda Azure Machine Learning Webbtjänstparametrar | Microsoft Docs"
 description: "Hur du använder Azure Machine Learning Webbtjänstparametrar för att ändra funktionssättet för din modell vid åtkomst av webbtjänsten."
 services: machine-learning
 documentationcenter: 
-author: raymondlaghaeian
-manager: jhubbard
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.author: raymondl;garye
-ms.openlocfilehash: 715ea008b84c1a503661394da14e8af167327941
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b35b8160c777c8598a30e2d775d997e06438f0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Använda parametrar för Azure Machine Learning-webbtjänst
 En Azure Machine Learning-webbtjänst skapas genom att publicera ett experiment som innehåller moduler med parametrar. I vissa fall kanske du vill ändra modulen beteendet när webbtjänsten körs. *Webbtjänstparametrar* gör att du kan göra detta. 
@@ -53,7 +53,7 @@ Ett exempel antar vi att vi har ett experiment med en [exportera Data] [ writer]
    * Under **ange autentiseringstypen**, Välj ”konto”.
    * Ange kontoinformationen för Azure blob storage. 
      <p />
-3.Klicka på ikonen till höger om den **sökväg till blob som börjar med behållaren parametern**. Det ser ut så här:
+3. Klicka på ikonen till höger om den **sökväg till blob som börjar med behållaren parametern**. Det ser ut så här:
    
    ![Web Service-parametern ikonen][icon]
    
@@ -63,7 +63,7 @@ Ett exempel antar vi att vi har ett experiment med en [exportera Data] [ writer]
 4. Att byta namn på parametrarna för webbtjänsten, klickar du på namnet, anger du ”blobbsökvägen”, och tryck på den **RETUR** nyckel. 
 5. Om du vill ange ett standardvärde för parametern Web Service, klickar du på ikonen till höger om namnet väljer ”ge standardvärdet”, ange ett värde (till exempel ”container1/output1.csv”), och tryck på den **RETUR** nyckel.
    
-   ![Web Service-Parameter][parameter]
+   ![Web Service Parameter][parameter]
 6. Klicka på **Run** (Kör). 
 7. Klicka på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [klassisk]** eller **distribuera webbtjänsten [ny]** att distribuera webbtjänsten.
 

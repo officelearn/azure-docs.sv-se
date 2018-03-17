@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>Hantering av samtidighet och arbetsbelastning i SQL Data Warehouse
 För att leverera förutsägbar prestanda i skala, Microsoft Azure SQL Data Warehouse hjälper dig styra samtidighet nivåer och resursfördelningar som minne och CPU-prioritering. Den här artikeln ger en introduktion till begreppet samtidighet och arbetsbelastningen hantering, förklarar hur båda funktionerna har genomförts och hur du kan kontrollera dem i ditt data warehouse. Hantering av SQL Data Warehouse arbetsbelastning är avsedda att hjälpa dig stöd för miljöer med flera användare. Det är inte avsedd för flera innehavare arbetsbelastningar.
@@ -221,12 +221,12 @@ Här är syftet med den här lagrade proceduren:
 >  [!NOTE]  
 >  Om du inte får utdata när du kör lagrad procedur med parametrar som ges det kan vara två fall. <br />1. Antingen DW-parametern innehåller ett ogiltigt värde för Servicenivåmål <br />2. ELLER så finns det ingen matchande resursklassen för CCI åtgärd om tabellnamn angavs. <br />Exempelvis är DW100, högsta minnestilldelningen 400MB och om tabellschemat litet mellan kravet 400 MB.
       
-#### <a name="usage-example"></a>Exempel på användning:
+#### <a name="usage-example"></a>Användningsexempel:
 Syntax:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
-1. @DWU:Antingen ange en NULL-parameter om du vill extrahera den aktuella DWU från databasen för Datalagret eller ange eventuella stöds DWU i form av 'DW100'
-2. @SCHEMA_NAME:Ange ett namn på tabellen
-3. @TABLE_NAME:Ange ett tabellnamn av intresse
+1. @DWU: Antingen ange en NULL-parameter om du vill extrahera den aktuella DWU från databasen för Datalagret eller ange eventuella stöds DWU i form av 'DW100'
+2. @SCHEMA_NAME: Ange ett namn på tabellen
+3. @TABLE_NAME: Ange ett tabellnamn av intresse
 
 Exempel köra den här lagrade proceduren:  
 ```sql  
@@ -573,7 +573,7 @@ Följande tabell visar vikten mappningar för varje arbetsbelastning.
 Från den **fördelningen och förbrukningen av samtidighet fack** diagram, ser du att en DW500 1, 4, 8 och 16 samtidighet fack för smallrc, mediumrc, largerc och xlargerc, respektive. Du kan slå dessa värden upp i det föregående att hitta vikten för varje resurs.
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>DW500 mappning av resursklasser betydelse
-| Resursklass | Arbetsbelastningsgruppen | Concurrency-platser som används | MB / Distribution | Betydelse |
+| Resursklass | Arbetsbelastningsgruppen | Concurrency-platser som används | MB / Distribution | Prioritet |
 |:--- |:--- |:---:|:---:|:--- |
 | smallrc |SloDWGroupC00 |1 |100 |Medel |
 | mediumrc |SloDWGroupC02 |4 |400 |Medel |
@@ -682,7 +682,7 @@ Removed as these two are not confirmed / supported under SQLDW
 - REDISTRIBUTE
 -->
 
-##  <a name="changing-user-resource-class-example"></a>Ändra ett exempel på användaren resurs klass
+##  <a name="changing-user-resource-class-example"></a> Ändra ett exempel på användaren resurs klass
 1. **Skapa inloggning:** öppna en anslutning till din **master** databasen på SQLServer som värd för SQL Data Warehouse-databas och kör följande kommandon.
    
     ```sql
@@ -699,7 +699,7 @@ Removed as these two are not confirmed / supported under SQLDW
     ```sql
     CREATE USER newperson FOR LOGIN newperson;
     ```
-3. **Bevilja behörighet:** i följande exempel beviljas `CONTROL` på den **SQL Data Warehouse** databas. `CONTROL`databasen är motsvarigheten till db_owner i SQL Server.
+3. **Bevilja behörighet:** i följande exempel beviljas `CONTROL` på den **SQL Data Warehouse** databas. `CONTROL` databasen är motsvarigheten till db_owner i SQL Server.
    
     ```sql
     GRANT CONTROL ON DATABASE::MySQLDW to newperson;

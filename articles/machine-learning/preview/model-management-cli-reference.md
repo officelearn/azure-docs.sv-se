@@ -2,8 +2,8 @@
 title: "Azure Machine Learning modellen Management kommandoradsgränssnittet referens | Microsoft Docs"
 description: "Azure Machine Learning modellen Management kommandoradsgränssnittet referens."
 services: machine-learning
-author: raymondl
-ms.author: raymondl, aashishb
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 219c61d1842369caadaf8e85dcb039242c37ef6c
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 27361c5b92a8748a026d457875fadfc1f3529076
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="model-management-command-line-interface-reference"></a>Referens för modellen management-kommandoradsgränssnittet
 
@@ -40,7 +40,7 @@ Ett konto för hantering av modellen krävs för att använda de tjänster som g
 
 **Skapa modellen Management-konto**
 
-Skapa ett konto för hantering av modellen med följande kommando. Det här kontot används för fakturering.
+Skapa ett konto för hantering av modellen för fakturering med följande kommando:
 
 `az ml account modelmanagement create --location [Azure region e.g. eastus2] --name [new account name] --resource-group [resource group name to store the account in]`
 
@@ -76,7 +76,7 @@ Det finns två alternativ för distributionen: *lokala* och *klustret*. Ange den
 
 `az ml env setup [-c] --location [location of environment resources] --name[name of environment]`
 
-Detta initierar din Azure maskininlärning miljö med en storage-konto och ACR registret App Insights-tjänsten som skapats i din prenumeration. Som standard har i miljön initierats för lokala distributioner endast (ingen ACS) om någon flagga har angetts. Om du behöver skala tjänst anger du den `--cluster` (eller `-c`) flagga för att skapa en ACS-kluster.
+Det här kommandot initierar din Azure maskininlärning miljö med en storage-konto och ACR registret App Insights-tjänsten som skapats i din prenumeration. Som standard har i miljön initierats för lokala distributioner endast (ingen ACS) om någon flagga har angetts. Om du behöver skala tjänst anger du den `--cluster` (eller `-c`) flagga för att skapa en ACS-kluster.
 
 Information om kommandot:
 
@@ -89,12 +89,12 @@ Information om kommandot:
     --cluster -c                   : Flag to provision ACS cluster. Off by default; specify this to force an ACS cluster deployment.
     --key-pem                      : Path to .pem file with certificate key.
     --master-count -m              : Number of master nodes to provision in the ACS cluster. Acceptable values: 1, 3, 5. Default: 1.
-    --resource-group -g            : Resource group in which to create compute resource. Will be created if it does not exist.
-                                     If not provided, resource group will be created with 'rg' appended to 'name.'.
+    --resource-group -g            : Resource group in which to create compute resource. Is created if it does not exist.
+                                     If not provided, resource group is created with 'rg' appended to 'name.'.
     --service-principal-app-id -a  : App ID of service principal to use for configuring ML compute.
     --service-principal-password -p: Password associated with service principal.
     --storage -s                   : ARM ID of storage account to associate with this environment.
-    --yes -y                       : Flag to answer 'yes' to any prompts. Command will fail if user is not logged in.
+    --yes -y                       : Flag to answer 'yes' to any prompts. Command fails if user is not logged in.
 
 Globala argument
 ```
@@ -110,7 +110,7 @@ Globala argument
     register
     show
 
-Registrera en modell
+**Registrera en modell**
 
 Kommandot för att registrera modellen.
 
@@ -143,7 +143,7 @@ Globala argument
 
 **Skapa manifestet**
 
-Skapar en manifestfil för modellen. 
+Följande kommando skapar en manifestfil för modellen. 
 
 `az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]`
 
@@ -289,7 +289,7 @@ Globala argument
 
 Tänk på den `-d` flagga för att bifoga beroenden: Om du skickar namnet på en katalog som inte redan är paketerade (zip, tar osv.), katalogen automatiskt hämtar tar'ed och skickas tillsammans sedan automatiskt avskiljs maskinvara på andra sidan. 
 
-Om du skickar i en katalog som redan är paketerade vi behandla det som en fil och överför den längs är. Det är inte separata automatiskt. du förväntas hantera som i koden.
+Om du skickar i en katalog som redan är paketerade katalogen behandlas som en fil och skickas vidare som är. Det är separata automatiskt. du förväntas hantera som i koden.
 
 **Hämta information om tjänst**
 

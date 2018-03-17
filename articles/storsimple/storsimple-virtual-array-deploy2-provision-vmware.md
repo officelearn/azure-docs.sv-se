@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: be737550aa1cff22bc413ee8ce243f8d8588f6a5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Distribuera StorSimple virtuell matris - etablera i VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -33,7 +33,7 @@ Du måste ha administratörsbehörighet för att etablera och ansluta till en vi
 Förutsättningar för att kunna etablera en virtuell enhet på ett värdsystem med VMware ESXi 5.0, 5.5 eller 6.0 är som följer.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>För StorSimple Device Manager-tjänsten
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
 * Du har slutfört alla steg i [förbereda portalen för virtuell StorSimple-matrisen](storsimple-virtual-array-deploy1-portal-prep.md).
 * Du har hämtat den virtuella enhet avbildningen för VMware från Azure-portalen. Mer information finns i **steg3: ladda ned avbildningen virtuella enheten** av [förbereda portal för virtuell StorSimple-matris guiden](storsimple-virtual-array-deploy1-portal-prep.md).
@@ -50,7 +50,7 @@ Kontrollera följande innan du distribuerar en virtuell enhet:
   * En virtuell disk 500 GB efter systemdata.
 
 ### <a name="for-the-network-in-datacenter"></a>För nätverket i datacentret
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
 * Du har granskat nätverkskrav för att distribuera en virtuell StorSimple-enhet och konfigurerat datacenternätverket enligt kraven. 
 
@@ -127,7 +127,7 @@ Utför följande steg för att etablera en virtuell enhet i din hypervisor-progr
 17. På den **lagring** väljer du ett datalager som du vill använda för att etablera den virtuella datorn.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
-18. På den **virtuella Version** väljer **virtuella Version: 8**. 8-11 versioner alla.
+18. På den **virtuella Version** väljer **virtuella Version: 8**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
 19. På den **gästoperativsystemet** väljer den **gästoperativsystemet** som **Windows**. För **Version**, i listrutan väljer **Microsoft Windows Server 2012 (64-bitars)**.

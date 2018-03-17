@@ -3,8 +3,9 @@ title: "Loggning för Machine Learning-webbtjänster | Microsoft Docs"
 description: "Lär dig hur du aktiverar loggning för Machine Learning-webbtjänster. Loggning ger ytterligare information för att felsöka de API: er."
 services: machine-learning
 documentationcenter: 
-author: raymondlaghaeian
-manager: jhubbard
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.author: raymondl;garye
-ms.openlocfilehash: 31497bcae5889590a2261b716574ec4eae21852d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e04ef638c46ef0f3b40fd56d27ba3673565bdc7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Aktivera loggning för Machine Learning-webbtjänster
 Det här dokumentet innehåller information om loggningsfunktioner av Machine Learning-webbtjänster. Loggning ger ytterligare information, förutom bara ett felnummer och ett meddelande som kan hjälpa dig att felsöka dina anrop till API: er för Machine Learning.  
@@ -27,7 +27,7 @@ Det här dokumentet innehåller information om loggningsfunktioner av Machine Le
 
 Du aktiverar loggning från den [Azure Machine Learning-webbtjänster](https://services.azureml.net) portal. 
 
-1. Logga in på Azure Machine Learning-webbtjänster portalen på [https://services.azureml.net](https://services.azureml.net). För en klassisk webbtjänst, du kan också få till portalen genom att klicka på **nya Web Services upplevelsen** på sidan Machine Learning-webbtjänster i Machine Learning Studio.
+1. Logga in på Azure Machine Learning-webbtjänster portalen på [ https://services.azureml.net ](https://services.azureml.net). För en klassisk webbtjänst, du kan också få till portalen genom att klicka på **nya Web Services upplevelsen** på sidan Machine Learning-webbtjänster i Machine Learning Studio.
 
    ![Ny Services webbupplevelse länk](./media/web-services-logging/new-web-services-experience-link.png)
 
@@ -82,7 +82,7 @@ Namnet på varje blobb har ett prefix i följande format:
 
 Där _logga typen_ är ett av följande värden:  
 
-* Batch  
+* batch  
 * score-begäranden  
 * poäng/init  
 

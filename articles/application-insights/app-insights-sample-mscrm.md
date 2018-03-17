@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2017
+ms.date: 03/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 759dac681592d0e5951e09638533b93c6348d899
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c5a651a24fcf5d1fc64922483045c08321a3b89c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Genomgång: Aktivera telemetri för Microsoft Dynamics CRM Online med hjälp av Application Insights
 Den här artikeln visar hur du hämtar telemetridata från [Microsoft Dynamics CRM Online](https://www.dynamics.com/) med [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Vi går genom processen att lägga till Application Insights skript i ditt program, data och datavisualisering.
@@ -33,12 +33,12 @@ Om du vill övervaka programmet, du lägger till en Application Insights SDK dit
 ### <a name="create-an-application-insights-resource-in-azure"></a>Skapa en Application Insights-resurs i Azure
 1. Hämta [ett konto i Microsoft Azure](http://azure.com/pricing). 
 2. Logga in på den [Azure-portalen](https://portal.azure.com) och lägga till en ny Application Insights-resurs. Detta är där dina data bearbetas och visas.
-   
+
     ![Klicka på +, Developer Services Application Insights.](./media/app-insights-sample-mscrm/01.png)
-   
+
     Välj ASP.NET som programtypen.
 3. Öppna sidan komma igång och ”övervaka och diagnostisera på klientsidan”.
-   
+
     ![Kodstycke för infogning i din webbsida](./media/app-insights-sample-mscrm/03.png)
 
 **Håll teckentabellen öppen** medan du gör nästa steg i ett nytt webbläsarfönster. Du behöver koden snart. 
@@ -46,41 +46,38 @@ Om du vill övervaka programmet, du lägger till en Application Insights SDK dit
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Skapa en webbresurs JavaScript i Microsoft Dynamics CRM
 1. Öppna din CRM Online-instans och logga in med administratörsbehörighet.
 2. Öppna Microsoft Dynamics CRM-inställningar, anpassningar, anpassa systemet
-   
-    ![Microsoft Dynamics CRM-inställningar](./media/app-insights-sample-mscrm/04.png)
-   
-    ![Inställningar > anpassningar](./media/app-insights-sample-mscrm/05.png)
 
-    ![Anpassa alternativet system](./media/app-insights-sample-mscrm/06.png)
+    ![Microsoft Dynamics CRM-inställningar](./media/app-insights-sample-mscrm/00001.png)
+
+    ![Inställningar > anpassningar](./media/app-insights-sample-mscrm/00002.png)
 
 1. Skapa en JavaScript-resurs.
-   
+
     ![Dialogrutan Ny webbresurs](./media/app-insights-sample-mscrm/07.png)
-   
+
     Ge det ett namn, Välj **skript (JScript)** och öppna textredigeraren.
-   
-    ![Öppna textredigeraren för](./media/app-insights-sample-mscrm/08.png)
-2. Kopiera koden från Application Insights. Se till att ignorera skripttaggar under kopieringen. Se nedan skärmbild:
-   
-    ![Ange din instrumentation nyckel](./media/app-insights-sample-mscrm/09.png)
-   
+
+    ![Öppna textredigeraren för](./media/app-insights-sample-mscrm/00004.png)
+2. Kopiera koden från Application Insights. När du kopierar, se till att ignorera skripttaggar. Se nedan skärmbild:
+
+    ![Ange din instrumentation nyckel](./media/app-insights-sample-mscrm/00005.png)
+
     Koden innehåller nyckeln instrumentation som identifierar din Application insights-resurs.
 3. Spara och publicera.
-   
-    ![Spara och publicera](./media/app-insights-sample-mscrm/10.png)
+
+    ![Spara och publicera](./media/app-insights-sample-mscrm/00006.png)
 
 ### <a name="instrument-forms"></a>Betalningsinstrument formulär
 1. Öppna formuläret konto i Microsoft CRM Online
-   
-    ![Kontoformuläret](./media/app-insights-sample-mscrm/11.png)
+
+    ![Kontoformuläret](./media/app-insights-sample-mscrm/00007.png)
 2. Öppna formuläret egenskaper
-   
-    ![Egenskaper för formulär](./media/app-insights-sample-mscrm/12.png)
+
+    ![Egenskaper för formulär](./media/app-insights-sample-mscrm/00008.png)
 3. Lägg till JavaScript-webbresurs som du skapade
-   
+
     ![Menyn Lägg till](./media/app-insights-sample-mscrm/13.png)
-   
-    ![Lägg till webbresursen](./media/app-insights-sample-mscrm/14.png)
+
 4. Spara och publicera dina formuläranpassningar.
 
 ## <a name="metrics-captured"></a>Mått som har hämtats
@@ -104,7 +101,7 @@ Klicka på diagrammet om du vill ha mer information:
 #### <a name="usage"></a>Användning
 ![Användare, sessioner och sidvyer](./media/app-insights-sample-mscrm/19.png)
 
-![Sesion diagram](./media/app-insights-sample-mscrm/20.png)
+![Sessionen diagram](./media/app-insights-sample-mscrm/20.png)
 
 ![Webbläsarversioner](./media/app-insights-sample-mscrm/21.png)
 

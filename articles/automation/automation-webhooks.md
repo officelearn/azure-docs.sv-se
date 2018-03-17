@@ -1,24 +1,18 @@
 ---
-title: Starta en Azure Automation-runbook med en webhook | Microsoft Docs
+title: Starta en Azure Automation-runbook med en webhook
 description: "En webhook som gör att en klient att starta en runbook i Azure Automation från ett HTTP-anrop.  Den här artikeln beskriver hur du skapar en webhook och hur du anropar en om du vill starta en runbook."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 9b20237c-a593-4299-bbdc-35c47ee9e55d
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/22/2017
-ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 03d1617eb64c48b6a90925ae76e1ab3ce0312ff1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+manager: carmonm
+ms.openlocfilehash: b3e8e489ef4b79a89facb2395543743c427b0310
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Starta en Azure Automation-runbook med en webhook
 En *webhook* kan du starta en viss runbook i Azure Automation via en HTTP-begäran. Detta gör att externa tjänster, till exempel Visual Studio Team Services, GitHub, logganalys för Microsoft Operations Management Suite eller anpassade program att starta runbooks utan att implementera en fullständig lösning med hjälp av Azure Automation-API.  
@@ -32,7 +26,7 @@ I följande tabell beskrivs de egenskaper som du måste konfigurera för en webh
 | Egenskap | Beskrivning |
 |:--- |:--- |
 | Namn |Du kan ange vilket namn som helst för en webhook eftersom detta inte är exponerad för klienten.  Den används endast för dig för att identifiera runbook i Azure Automation. <br>  Som bästa praxis, bör du ge webhooken ett namn som är relaterade till klienter som använder den. |
-| Webbadress |URL till webhooken är unika adressen som en klient anropar med en HTTP POST till att starta runbook kopplad till webhooken.  Det genereras automatiskt när du har skapat webhooken.  Du kan inte ange en anpassad URL. <br> <br>  URL: en innehåller en säkerhetstoken som gör att runbook anropas av en tredjeparts-system utan ytterligare autentisering. Det bör därför behandlas som ett lösenord.  Av säkerhetsskäl bör visa du bara URL: en i Azure-portalen när webhook har skapats. Du bör anteckna URL-Adressen i en säker plats för framtida användning. |
+| URL |URL till webhooken är unika adressen som en klient anropar med en HTTP POST till att starta runbook kopplad till webhooken.  Det genereras automatiskt när du har skapat webhooken.  Du kan inte ange en anpassad URL. <br> <br>  URL: en innehåller en säkerhetstoken som gör att runbook anropas av en tredjeparts-system utan ytterligare autentisering. Det bör därför behandlas som ett lösenord.  Av säkerhetsskäl bör visa du bara URL: en i Azure-portalen när webhook har skapats. Du bör anteckna URL-Adressen i en säker plats för framtida användning. |
 | Förfallodatum |Varje webhook har ett sista giltighetsdatum som den kan inte längre användas som ett certifikat.  Den här upphör att gälla kan ändras när du har skapat webhooken. |
 | Enabled |En webhook är aktiverad som standard när den skapas.  Om du den inaktiverad, kommer ingen klient att kunna använda den.  Du kan ange den **aktiverad** egenskapen när du skapar webhooken eller när som helst när den skapas. |
 
@@ -104,7 +98,7 @@ Klienten får ett av följande returkoder från POST-begäran.
 
 | Kod | Text | Beskrivning |
 |:--- |:--- |:--- |
-| 202 |Accepterad  |Begäran accepterades och runbook placerades i kö. |
+| 202 |Accepterad |Begäran accepterades och runbook placerades i kö. |
 | 400 |Felaktig förfrågan |Begäran accepterades inte av något av följande skäl. <ul> <li>Webhook har gått ut.</li> <li>Webhook har inaktiverats.</li> <li>Token i URL-Adressen är ogiltig.</li>  </ul> |
 | 404 |Kunde inte hittas |Begäran accepterades inte av något av följande skäl. <ul> <li>Webhooken hittades inte.</li> <li>Runbook hittades inte.</li> <li>Det gick inte att hitta kontot.</li>  </ul> |
 | 500 |Internt serverfel |URL: en är giltig, men ett fel uppstod.  Skicka begäran igen. |

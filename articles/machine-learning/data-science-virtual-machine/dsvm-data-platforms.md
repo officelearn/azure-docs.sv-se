@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: 9b8beb51c555c6125fa3b0abbad892d627a180b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/16/2018
+ms.author: gokuma;
+ms.openlocfilehash: 921ccf67e5e0320e742066186b7929643536424f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-platforms"></a>Dataplattformar
 
@@ -35,7 +35,7 @@ Följande är data platform verktyg som stöds på DSVM.
 | Stöds DSVM versioner      | Windows      |
 | Vanliga användningsområden      | Snabb utveckling lokalt med mindre datamängd <br/> Kör i databasen R   |
 | Länkar till exempel      |    Ett litet antal New York City Dataset läses in i SQL-databasen `nyctaxi`. <br/> Jupyter-exempel som visar Microsoft R och analyser i databasen finns på:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
-| Relaterade verktyg på DSVM       | SQL Server Management Studio <br/> ODBC/JDBC-drivrutiner<br/> pyodbc RODBC<br />Apache ökad      |
+| Relaterade verktyg på DSVM       | SQL Server Management Studio <br/> ODBC/JDBC-drivrutiner<br/> pyodbc, RODBC<br />Apache ökad      |
 
 > [!NOTE]
 > SQL Server 2016 developer edition kan endast användas för utveckling och testning. Du behöver en licens eller en av de virtuella datorerna SQL Server att köra den i produktion. 
@@ -62,15 +62,15 @@ DSVM levereras också med ODBC-drivrutiner och JDBC-drivrutiner tala med SQL Ser
 SQL Server är installerat på vanligt sätt. Det finns på `C:\Program Files\Microsoft SQL Server`. Instansen i databasen R påträffades vid `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`. DSVM har också en separat fristående R Server-instans som installerats på `C:\Program Files\Microsoft\R Server\R_SERVER`. Dessa två-R-instanser delar inte biblioteken.
 
 
-## <a name="apache-spark-2x-standalone"></a>Apache Väck 2.x (fristående)
+## <a name="apache-spark-2x-standalone"></a>Apache Spark 2.x (Standalone)
 
 | | |
 | ------------- | ------------- |
 | Vad är det?   | En fristående (nod i processen) instans av populära Apache Spark-plattform, ett system för snabb storskalig databearbetning och maskininlärning     |
 | Stöds DSVM versioner      | Linux <br /> Windows (försök)      |
-| Vanliga användningsområden      | * Snabb utveckling av Spark/PySpark program lokalt med mindre datamängd och senare distribuerar den stora Spark-kluster, till exempel Azure HDInsight<br/> * Testa Microsoft R Server Spark-kontext <br />* Använder SparkML eller Microsofts öppen källkod [MMLSpark](https://github.com/Azure/mmlspark) bibliotek för att skapa ML-program  |
+| Vanliga användningsområden      | * Snabb utveckling av Spark/PySpark program lokalt med mindre datamängd och senare distribuerar den stora Spark-kluster, till exempel Azure HDInsight<br/> * Test Microsoft R Server Spark Context <br />* Använder SparkML eller Microsofts öppen källkod [MMLSpark](https://github.com/Azure/mmlspark) bibliotek för att skapa ML-program  |
 | Länkar till exempel      |    Jupyter-exempel: <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft R Server (Spark sammanhang): /dsvm/samples/MRS/MRSSparkContextSample.R |
-| Relaterade verktyg på DSVM       | PySpark Scala<br/>Jupyter (Spark/PySpark kärnor)<br/>Microsoft R Server, SparkR, Sparklyr <br />Apache ökad      |
+| Relaterade verktyg på DSVM       | PySpark, Scala<br/>Jupyter (Spark/PySpark Kernels)<br/>Microsoft R Server, SparkR, Sparklyr <br />Apache ökad      |
 
 ### <a name="how-to-use-it"></a>Hur du använder det.
 Du kan köra Spark genom att skicka Spark jobb på kommandoraden med `spark-submit` eller `pyspark` kommandon. Du kan också skapa en Jupyter-anteckningsbok genom att skapa en ny anteckningsbok med Spark-kernel. 
@@ -100,7 +100,7 @@ Du kan stoppa Hadoop-relaterade tjänster när du inte behöver dem genom att k�
 |Plattform|Installationsplats ($SPARK_HOME)|
 |:--------|:--------|
 |Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
-|Linux   | /dsvm/Tools/Spark-X.X.X-bin-hadoopX.X|
+|Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 
 Bibliotek för att komma åt data från Azure Blob- eller Azure Data Lake-lagring (ADLS) och använda Microsofts MMLSpark maskininlärning bibliotek är förinstallerade i $SPARK_HOME/burkar. Dessa burkar läses in automatiskt när Spark startas. Som standard använder Spark data på den lokala disken. För att Spark-instans på DSVM att komma åt data som lagras på Azure blob- eller ADLS måste du skapa/konfigurera den `core-site.xml` filen utifrån mallen finns i $SPARK_HOME/conf/core-site.xml.template (där det finns platshållare för Blob- och ADLS konfigurationer) med korrekta autentiseringsuppgifter till Azure blob och Azure Data Lake lagring. Du hittar mer detaljerade anvisningar om hur du skapar Tjänstereferenser ADLS [här](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application). När autentiseringsuppgifterna för Azure blob eller ADLS registreras i filen core-site.XML, du kan referera till data som lagras i dessa källor med URI-prefix för wasb: / / eller adl: / /. 

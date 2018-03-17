@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 7e8a5014ce9168ba3d67d175935649bfd9fec511
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6f7f0d9aea86594140c302e6d12e6528e802b9e7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Behållargrupper i Azure Container instanser
 
@@ -23,13 +23,14 @@ Resursen på den översta nivån i Azure Container instanser är den *behållarg
 
 En behållare grupp är en samling av behållare som få schemalagda på samma värddator. Behållare i en behållare grupp dela en livscykel, lokala nätverk och lagringsvolymer. Den liknar konceptet för en *baljor* i [Kubernetes] [ kubernetes-pod] och [DC/OS][dcos-pod].
 
-Följande diagram visar ett exempel på en behållare grupp som innehåller flera behållare.
+Följande diagram visar ett exempel på en behållare grupp som innehåller flera behållare:
 
 ![Behållaren grupper diagram][container-groups-example]
 
 Det här exemplet behållaren grupp:
 
 * Schemaläggs på en enda värddator.
+* En DNS-Namnetiketten är tilldelad.
 * Visar en offentlig IP-adress, med en exponerade port.
 * Består av två behållare. En behållare lyssnar på port 80, medan andra lyssnar på port 5000.
 * Innehåller två Azure filresurser som volym monteringar och varje behållare monterar en resurs lokalt.
@@ -51,7 +52,7 @@ Du kan ange externa volymer att montera i en grupp i behållaren. Du kan mappa v
 
 ## <a name="common-scenarios"></a>Vanliga scenarier
 
-Flera behållare grupper är användbart i fall där du vill dela upp en funktionell aktivitet i ett litet antal behållare bilder, som levereras med olika team och ha separata resurskraven.
+Flera behållare grupper är användbart i fall där du vill dela en enda funktionella aktivitet i ett litet antal behållare bilder. Dessa avbildningar kan sedan levereras med olika team och ha separata resurskraven.
 
 Exempel på användning kan vara:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1763c63b37c5e6b326c3623dc058974f718ac990
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Mänsklig interaktion i varaktiga funktioner - Phone verifiering exempel
 
@@ -26,30 +26,22 @@ Det här exemplet visar hur du skapar en [varaktiga funktioner](durable-function
 
 Det här exemplet implementerar en SMS-baserade phone verifieringssystem. Dessa typer av flöden används ofta när du verifierar en kunds telefonnummer eller för multifaktorautentisering (MFA). Det här är en kraftfull exempel eftersom hela implementeringen görs med hjälp av ett par små funktioner. Det krävs inga externa datalager, till exempel en databas.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Följ instruktionerna i [installera varaktiga funktioner](durable-functions-install.md) att ställa in provet.
 * Den här artikeln förutsätter att du redan har gått igenom de [Hello sekvens](durable-functions-sequence.md) exempel genomgången.
 
 ## <a name="scenario-overview"></a>Scenarioöversikt
 
-Telefonverifiering används för att kontrollera att slutanvändare för ditt program inte är skickar skräppost och att de är de som de säger att de är. Multifaktorautentisering är ett vanligt användningsfall för att skydda användarkonton från hackare. Utmaningen med implementera phone verifieringen är att det krävs en **tillståndskänslig interaktion** med en människa som. En användare anges vanligtvis kod (t.ex. en 4 siffror) och måste svara **inom en rimlig tid**.
+Telefonverifiering används för att kontrollera att slutanvändare för ditt program inte är skickar skräppost och att de är de som de säger att de är. Multifaktorautentisering är ett vanligt användningsfall för att skydda användarkonton från hackare. Utmaningen med implementera phone verifieringen är att det krävs en **tillståndskänslig interaktion** med en människa som. En användare anges vanligtvis kod (till exempel en 4 siffror) och måste svara **inom en rimlig tid**.
 
-Vanlig Azure Functions tillståndslös (som är många andra molntjänster slutpunkter för andra plattformar), så att dessa typer av interaktioner måste du uttryckligen hantera i en databas eller några andra beständiga tillståndslager externt. Interaktionen måste dessutom delas i flera funktioner som kan samordnas tillsammans. Till exempel behöver du minst en funktion för att bestämma om en, spara den någonstans och skicka det till användarens telefon. Dessutom måste minst en annan funktion att ta emot ett svar från användaren och mappa det på något sätt tillbaka till det ursprungliga funktionsanropet för att göra validering kod. En tidsgräns är också en viktig aspekt att säkerställa säkerheten. Detta kan få ganska komplex ganska snabbt.
+Vanlig Azure Functions tillståndslös (som är många andra molntjänster slutpunkter för andra plattformar), så att dessa typer av interaktioner omfattar uttryckligen hantera i en databas eller några andra beständiga tillståndslager externt. Interaktionen måste dessutom delas i flera funktioner som kan samordnas tillsammans. Till exempel behöver du minst en funktion för att bestämma om en, spara den någonstans och skicka det till användarens telefon. Dessutom måste minst en annan funktion att ta emot ett svar från användaren och mappa det på något sätt tillbaka till det ursprungliga funktionsanropet för att göra validering kod. En tidsgräns är också en viktig aspekt att säkerställa säkerheten. Detta kan snabbt få ganska komplex.
 
-Det här scenariot komplexitet minskas avsevärt när du använder beständiga funktioner. Som du ser i det här exemplet kan en orchestrator-funktion hantera tillståndskänslig interaktionen lätt och utan att inbegripa eventuella externa datakällor. Eftersom orchestrator-funktioner är *varaktiga*, flödena interaktiva är också mycket pålitliga.
+Det här scenariot komplexitet minskas avsevärt när du använder beständiga funktioner. Som du ser i det här exemplet kan en orchestrator-funktion hantera tillståndskänslig interaktionen enkelt och utan att inbegripa eventuella externa datakällor. Eftersom orchestrator-funktioner är *varaktiga*, flödena interaktiva är också mycket pålitliga.
 
 ## <a name="configuring-twilio-integration"></a>Konfigurera Twilio-integrering
 
-Det här exemplet är med hjälp av den [Twilio](https://www.twilio.com/) -tjänsten för att skicka SMS-meddelanden till en mobiltelefon. Azure Functions redan har stöd för Twilio via den [Twilio bindning](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio), och funktionen används.
-
-Det första du behöver är en Twilio-konto. Du kan skapa ett kostnadsfritt på https://www.twilio.com/try-twilio. När du har ett konto kan du lägga till följande tre **appinställningar** i appen funktion.
-
-| Appen inställningsnamn | Värdebeskrivning |
-| - | - |
-| **TwilioAccountSid**  | SID för ditt Twilio-konto |
-| **TwilioAuthToken**   | Auth-token för ditt Twilio-konto |
-| **TwilioPhoneNumber** | Telefonnumret som är associerade med ditt Twilio-konto. Det här används för att skicka SMS-meddelanden. |
+[!INCLUDE [functions-twilio-integration](../../includes/functions-twilio-integration.md)]
 
 ## <a name="the-functions"></a>Funktionerna
 
@@ -77,7 +69,7 @@ När den har startat, gör orchestrator funktionen följande:
 3. Skapar en beständig timer som utlösare 90 sekunder från den aktuella tiden.
 4. Parallellt med timern väntar på att en **SmsChallengeResponse** händelse från användaren.
 
-Användaren får ett SMS-meddelande med ett fyrsiffrigt kod. De har 90 sekunder att skicka samma 4-siffriga koden tillbaka till orchestrator funktionen instans att slutföra verifieringsprocessen. Om de skickar fel kod kan de få en ytterligare tre försök att hämta höger (inom samma 90 andra fönstret).
+Användaren får ett SMS-meddelande med en fyrsiffrig kod. De har 90 sekunder att skicka samma 4-siffriga koden tillbaka till orchestrator funktionen instans att slutföra verifieringsprocessen. Om de skickar fel kod kan de få en ytterligare tre försök att hämta höger (inom samma fönster 90 sekunder).
 
 > [!NOTE]
 > Det kanske inte är uppenbara vid första, men den här orchestrator funktionen är helt deterministisk. Detta beror på att den `CurrentUtcDateTime` egenskapen används för att beräkna förfallotiden timer och den här egenskapen returnerar samma värde på alla Repetera nu i orchestrator-koden. Det är viktigt att se till att samma `winner` resultat av varje upprepade anrop till `Task.WhenAny`.
@@ -97,9 +89,9 @@ Och här är koden som genererar 4-siffrig kontrollkoden och skickar SMS-meddela
 
 Detta **E4_SendSmsChallenge** funktionen endast anropas en gång, även om processen kraschar eller hämtar spelas. Det är bra eftersom du inte vill att användaren hämtar flera SMS-meddelanden. Den `challengeCode` returnera värdet sparas automatiskt, så att funktionen orchestrator alltid vet vad som är rätt kod.
 
-## <a name="run-the-sample"></a>Köra exemplet
+## <a name="run-the-sample"></a>Kör exemplet
 
-Du använder HTTP-utlösta funktioner som ingår i exemplet, kan du starta orchestration genom att skicka följande HTTP POST-begäran.
+Du använder HTTP-utlösta funktioner som ingår i exemplet, kan du starta orchestration genom att skicka följande HTTP POST-begäran:
 
 ```
 POST http://{host}/orchestrators/E4_SmsPhoneVerification

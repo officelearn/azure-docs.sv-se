@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 66e6b49dd3e3c7d0f2cbd7547b68733e1d4959ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7b9f42607f313f5570f414e810eafc6775ea18b9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="network-monitoring-solutions"></a>Lösningar för nätverksövervakning 
 
@@ -33,6 +33,8 @@ Network Performance Monitor (NPM) är en uppsättning funktioner som riktar sig 
 * Flera datacenter och avdelningskontor
 * Mission kritiska flera nivåer program/micro-tjänster
 * Användarplatser och webbaserade program (HTTP/HTTPs) 
+
+Prestandaövervakaren, ExpressRoute-övervakaren och tjänsten Endpoint övervakning övervakar funktioner i NPM och beskrivs nedan.
 
 ## <a name="performance-monitor"></a>Prestandaövervakning
 
@@ -91,6 +93,7 @@ Trafik Analytics är en molnbaserad lösning som ger inblick i användar- och pr
 * De främsta talkers, chatty program, Virtuella konversationer i molnet, trafik surfpunkter
 * Källor eller mål för trafik mellan virtuella nätverk, mellan relationer mellan affärskritiska tjänster och program
 * Säkerhet – skadlig trafik, portar öppna till Internet, program eller virtuella datorer som försöker Internetåtkomst...
+* Kapacitetsutnyttjande - hjälper dig att undvika problem överbelasta eller underutnyttjande genom att övervaka trender för användningen av VPN-gatewayer och andra tjänster
 
 Trafik Analytics är tillämplig information som hjälper till att du granskar din organisations nätverksaktivitet, säkra program och data, optimera arbetsbelastningsprestanda och vara kompatibla.
 
@@ -100,7 +103,7 @@ Relaterade länkar:
 * [Blogginlägget](https://aka.ms/trafficanalytics), [dokumentationen](https://aka.ms/trafficanalyticsdocs), [vanliga frågor och svar](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
 
 ## <a name="dns-analytics"></a>DNS-analys
-Byggt för DNS-administratörer den här lösningen samlar in, analyserar och korrelerar DNS-loggarna för att tillhandahålla säkerhet, åtgärder och prestanda relaterade insikter.  Några av funktionerna är:
+Den här lösningen bygger för DNS-administratörer samlar in, analyserar och korrelerar DNS-loggarna för att tillhandahålla säkerhet, åtgärder och prestandarelaterade insikter.  Några av funktionerna är:
 
 * Identifiering av klienter som försöker matcha skadliga domäner
 * Identifiering av inaktuella poster

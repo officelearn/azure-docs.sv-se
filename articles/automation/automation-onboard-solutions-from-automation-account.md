@@ -2,19 +2,20 @@
 title: "Lär dig hur du publicera uppdateringshantering, ändringsspårning och lager lösningar i Azure Automation"
 description: "Lär dig hur att publicera ett Azure-virtuella datorn med uppdateringshantering, ändringsspårning och lager-lösningar som ingår i Azure Automation"
 services: automation
-keywords: 
+ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.topic: article
-ms.service: automation
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 670a0c2a11ebfe09406233ab4b454b2e9c2ba0e0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.custom: mvc
+ms.openlocfilehash: 65bf0d98da8111e986d5dbdfd58f1692d40ee286
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Publicera uppdateringshantering, ändringsspårning och lager-lösningar
 
@@ -28,17 +29,17 @@ Logga in på Azure på https://portal.azure.com
 
 Navigera till ditt Automation-konto och välj antingen **inventering** eller **ändringsspårning** under **KONFIGURATIONSHANTERING**.
 
-Välj Log analytics-arbetsyta och Automation-kontot och klicka på **aktivera** att aktivera lösningen. Lösningen tar upp till 15 minuter att aktivera.
+Välj Log analytics-arbetsyta och Automation-kontot och klicka på **aktivera** att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
 
 ![Publicera lager-lösning](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-Ändringsspårning och lager lösningen ger möjlighet att [spåra ändringar](automation-vm-change-tracking.md) och [lager](automation-vm-inventory.md) på virtuella datorer. I det här steget kan aktivera du lösning på en virtuell dator.
+Lösningen Ändringsspårning och inventering ger dig möjlighet att [spåra ändringar](automation-vm-change-tracking.md) och [inventering](automation-vm-inventory.md) på dina virtuella datorer. I det här steget aktiverar du lösningen för en virtuell dator.
 
-När spårning och lager lösning onboarding ändringsmeddelanden är klar klickar du på **uppdateringshantering** under **KONFIGURATIONSHANTERING**.
+När meddelandet för lösning för publicering av ändringsspårning och inventering har slutförts klickar du på **Uppdateringshantering** under **Konfigurationshantering**.
 
-Uppdatera hanteringslösningen kan du hantera uppdateringar och korrigeringsfiler för virtuella datorerna i Windows Azure. Du kan kontrollera statusen för uppdateringar, schemalägga installationen av obligatoriska uppdateringar och granska agentdistributionresultaten att verifiera uppdateringar har använts på den virtuella datorn. Den här åtgärden aktivera lösningen för den virtuella datorn.
+Med uppdateringshanteringslösningen kan du hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer i Windows. Du kan utvärdera statusen för tillgängliga uppdateringar, schemalägga installation av nödvändiga uppdateringar och granska distributionsresultat för att verifiera att uppdateringarna har tillämpats på den virtuella datorn. Den här åtgärden aktivera lösningen för den virtuella datorn.
 
-Välj **uppdateringshantering** under **UPPDATERINGSHANTERING**. Log analytics-arbetsyta som valts är i samma arbetsyta som används i föregående steg. Klicka på **aktivera** publicera hanteringslösning för uppdateringen. Lösningen tar upp till 15 minuter att aktivera.
+Välj **uppdateringshantering** under **UPPDATERINGSHANTERING**. Log Analytics-arbetsytan som är vald är samma arbetsyta som används i föregående steg. Klicka på **Aktivera** för att publicera lösningen för uppdateringshantering. Det tar upp till 15 minuter att aktivera lösningen.
 
 ![Publicera update lösning](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 

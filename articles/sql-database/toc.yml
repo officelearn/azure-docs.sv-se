@@ -380,7 +380,6 @@
             - name: Etablera klienter
               href: saas-standaloneapp-provision-and-catalog.md
         - name: Databas per klient
-          href: saas-dbpertenant-wingtip-app-overview.md
           items:
             - name: Introduktion till självstudiekurs
               href: saas-dbpertenant-wingtip-app-overview.md

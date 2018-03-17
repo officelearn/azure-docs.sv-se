@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d2b32df6e4b931539eac34d09135ea33069b936
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Händelsen rutnätet säkerhet och autentisering 
 
@@ -24,9 +24,9 @@ Azure händelse rutnätet har tre typer av autentisering:
 
 ## <a name="webhook-event-delivery"></a>WebHook-händelse leverans
 
-Webhooks är en av många olika sätt att ta emot händelser i realtid från Azure Event rutnät. Varje gång det finns en ny händelse som är redo att levereras, skickar händelse rutnätet Webhooken en HTTP-begäran till konfigurerade HTTP-slutpunkten med händelsen i brödtexten.
+Webhooks är en av många olika sätt att ta emot händelser från Azure Event rutnät. När en ny händelse är klar, skickar händelse rutnätet Webhooken en HTTP-begäran till konfigurerade HTTP-slutpunkten med händelsen i brödtexten.
 
-När du registrerar WebHook slutpunkten med händelsen rutnät skickar den en POST-begäran med en enkel verifiering kod för att bevisa att du äger för slutpunkten. Din app behöver svara genom eko tillbaka verifieringskoden. Händelsen rutnätet inte leverera händelser till WebHook-slutpunkter som inte har klarat valideringen.
+När du registrerar WebHook slutpunkten med händelsen rutnät skickar den en POST-begäran med en enkel verifieringskoden att bevisa ägarskapet för slutpunkten. Din app behöver svara genom eko tillbaka verifieringskoden. Händelsen rutnätet leverera inte händelser till WebHook-slutpunkter som inte har gått verifieringen.
 
 ### <a name="validation-details"></a>Valideringsinformation
 
@@ -34,6 +34,7 @@ När du registrerar WebHook slutpunkten med händelsen rutnät skickar den en PO
 * Innehåller ett huvudvärde ”Aeg Händelsetyp: SubscriptionValidation”.
 * Händelsemeddelandet innehåller samma schema som andra händelser med händelse rutnätet.
 * Händelsedata som innehåller egenskapen ”validationCode” med en slumpmässigt genererad sträng. Till exempel ”validationCode: acb13...”.
+* Matrisen innehåller validering händelsen. Andra händelser skickas i en separat begäran när du tillbaka echo verifieringskoden.
 
 Ett exempel SubscriptionValidationEvent visas i följande exempel:
 
@@ -69,7 +70,7 @@ Slutligen är det viktigt att Observera att Azure händelse rutnätet endast st�
 
 ## <a name="event-subscription"></a>Händelseprenumerationen
 
-Om du vill prenumerera på en händelse, måste du ha den **Microsoft.EventGrid/EventSubscriptions/Write** behörighet för den begärda resursen. Du behöver den här behörigheten eftersom du skriver en ny prenumeration på omfattningen av resursen. Den begärda resursen skiljer sig åt beroende på om du prenumerera på ett Systemavsnittet eller anpassade avsnittet. Båda typerna beskrivs i det här avsnittet.
+Om du vill prenumerera på en händelse, måste du ha den **Microsoft.EventGrid/EventSubscriptions/Write** behörighet för den begärda resursen. Du behöver den här behörigheten eftersom du skriver en ny prenumeration på omfattningen av resursen. Resursen som krävs varierar beroende på om du prenumerera på ett Systemavsnittet eller anpassade avsnittet. Båda typerna beskrivs i det här avsnittet.
 
 ### <a name="system-topics-azure-service-publishers"></a>System avsnitt (utgivare Azure-tjänst)
 
@@ -103,7 +104,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 SAS-token för händelsen rutnätet är resursen, en förfallotid och en signatur. Formatet på SAS-token är: `r={resource}&e={expiration}&s={signature}`.
 
-Resursen är sökvägen till avsnittet som du skickar händelser. Till exempel är en giltig resurs-sökväg: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+Resursen är sökvägen till avsnittet händelse rutnät som du skickar händelser. Till exempel är en giltig resurs-sökväg: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 Du kan skapa signaturen från en nyckel.
 
@@ -140,7 +141,7 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>Åtkomstkontroll för hantering
 
-Azure händelse rutnätet kan du styra nivån för olika användare att utföra olika hanteringsåtgärder, till exempel listan händelseprenumerationer, skapa nya och generera nycklar. Händelsen rutnätet använder Azures rollbaserad åtkomst Kontrollera (RBAC).
+Azure händelse rutnätet kan du styra nivån för olika användare att utföra olika hanteringsåtgärder, till exempel listan händelseprenumerationer, skapa nya och generera nycklar. Azures rollbaserad åtkomst Kontrollera (RBAC) används av rutnätet för händelsen.
 
 ### <a name="operation-types"></a>Åtgärdstyper
 

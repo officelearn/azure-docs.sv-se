@@ -1,23 +1,21 @@
 ---
-title: Skicka ett JSON-objekt till en Azure Automation-runbook | Microsoft Docs
+title: Skicka ett JSON-objekt till en Azure Automation-runbook
 description: Hur ska skicka parametrar till en runbook som ett JSON-objekt
 services: automation
-documentationcenter: dev-center-name
-author: georgewallace
-manager: carmonm
-keywords: PowerShell, runbook, json, azure automation
 ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 06/15/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 5390ba34a25713aed84d6e778335e30f27c2b1f8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+keywords: PowerShell, runbook, json, azure automation
+ms.openlocfilehash: c5ceced9f37cb76c8c760a7f2d1c680f98e704c3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Skicka ett JSON-objekt till en Azure Automation-runbook
 
@@ -28,7 +26,7 @@ För att göra detta, måste du konvertera JSON till en sträng och sedan konver
 I det här exemplet ska vi skapa ett PowerShell-skript som anropar [Start AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) att starta en PowerShell-runbook som överför innehållet i JSON till runbook.
 PowerShell-runbook startar en Azure VM, hämtar parametrarna för den virtuella datorn från JSON som skickades.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att kunna genomföra den här kursen behöver du följande:
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller <a href="/pricing/free-account/" target="_blank">[registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/).
@@ -90,7 +88,7 @@ Kör följande PowerShell-kommandon:
     ```powershell
     $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
     ```
-    `JsonPath`är sökvägen där du sparade JSON-filen.
+    `JsonPath` är sökvägen där du sparade JSON-filen.
 1. Konvertera strängen innehållet i `$json` till ett PowerShell-objekt:
    ```powershell
    $JsonParams = @{"json"=$json}

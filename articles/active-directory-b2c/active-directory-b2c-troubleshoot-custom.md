@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.openlocfilehash: 65a39479b4d4b86d569501636e4a0678b052d426
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4f71380917a5a29497da9831791cd9f86ec4c8ca
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Insamling av loggar
 
@@ -32,7 +32,7 @@ Den här artikeln innehåller steg för att samla in loggar från Azure AD B2C s
 
 Azure AD B2C stöder en funktion för att skicka data till Application Insights.  Application Insights är ett sätt att diagnostisera undantag och visualisera prestandaproblem i programmet.
 
-### <a name="setup-application-insights"></a>Installera Application Insights
+### <a name="setup-application-insights"></a>Setup Application Insights
 
 1. Gå till [Azure-portalen](https://portal.azure.com). Se till att du är i klienten med din Azure-prenumeration (inte din Azure AD B2C-klient).
 1. Klicka på **+ ny** i den vänstra navigeringsmenyn.
@@ -52,16 +52,16 @@ Azure AD B2C stöder en funktion för att skicka data till Application Insights.
   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
   ```
 
-1. Om den inte redan finns, lägger du till en underordnad nod `<UserJourneyBehaviors>` till den `<RelyingParty>` nod. Det måste finnas omedelbart efter den`<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
+1. Om den inte redan finns, lägger du till en underordnad nod `<UserJourneyBehaviors>` till den `<RelyingParty>` nod. Det måste finnas omedelbart efter den `<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
 2. Lägg till följande nod som är underordnad den `<UserJourneyBehaviors>` element. Ersätt `{Your Application Insights Key}` med den **Instrumentation nyckeln** som du fick från Application Insights i föregående avsnitt.
 
   ```XML
   <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
   ```
 
-  * `DeveloperMode="true"`Anger ApplicationInsights att påskynda telemetri via pipeline bearbetning bra för utveckling, men begränsad vid stora volymer.
-  * `ClientEnabled="true"`skickar klientskript ApplicationInsights för spårning av klientsidan och visa sidfel (behövs inte).
-  * `ServerEnabled="true"`skickar befintliga UserJourneyRecorder JSON som en anpassad händelse till Application Insights.
+  * `DeveloperMode="true"` Anger ApplicationInsights att påskynda telemetri via pipeline bearbetning bra för utveckling, men begränsad vid stora volymer.
+  * `ClientEnabled="true"` skickar klientskript ApplicationInsights för spårning av klientsidan och visa sidfel (behövs inte).
+  * `ServerEnabled="true"` skickar befintliga UserJourneyRecorder JSON som en anpassad händelse till Application Insights.
 Exempel:
 
   ```XML
@@ -105,6 +105,8 @@ Du kan lära dig mer om verktyget Analytics [här](https://docs.microsoft.com/az
 
 >[!NOTE]
 >Gemenskapen har utvecklat ett användaren resa visningsprogram att hjälpa utvecklare att identitet.  Den är inte stöds av Microsoft och göras tillgänglig strikt som-är.  Det läser från Application Insights-instans och innehåller en korrekt struktur för användaren resa händelser.  Du hämta källkoden och distribuerar den i din egen lösning.
+
+Versionen av visningsprogrammet som läser händelser från Application Insights finns [här](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
 
 >[!NOTE]
 >För närvarande är utformade för detaljerad aktivitetsloggar som beskrivs här **bara** vid utveckling av anpassade principer. Använd inte utvecklingsläge i produktion.  Loggar samla in alla anspråk som skickas till och från identitetsleverantörer under utvecklingen.  Om används i produktionen ansvarar utvecklaren för personligt identifierbar information (privat identifierbar Information) som samlas in i loggen för App Insights som de äger.  Dessa detaljerade loggar samlas endast in när principen är placerad **UTVECKLINGSLÄGE**.

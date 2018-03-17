@@ -1,24 +1,20 @@
 ---
-title: "Migrera från Orchestrator till Azure Automation | Microsoft Docs"
+title: "Migrera från Orchestrator till Azure Automation"
 description: "Beskriver hur du migrerar runbooks och integration packs från System Center Orchestrator till Azure Automation."
 services: automation
-documentationcenter: 
-author: bwren
-manager: stevenka
-editor: tysonn
-ms.assetid: 1a7da58c-7a98-49b5-9d9d-001a9f6e631a
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/09/2016
-ms.author: bwren
-ms.openlocfilehash: 457888b4d38875b912ad87d44e96ab727e3ee3ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b50f9973ef7ea5f884930d4f1ee67f886cc36ad0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrera från Orchestrator till Azure Automation (Beta)
 Runbooks i [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) baseras på aktiviteter från integrationspaketen som är skrivna specifikt för Orchestrator medan runbooks i Azure Automation baseras på Windows PowerShell.  [Grafiska runbook-flöden](automation-runbook-types.md#graphical-runbooks) i Azure Automation liknande utseende för Orchestrator-runbooks har med deras aktiviteter som representerar PowerShell cmdlets, underordnade runbooks och tillgångar.
@@ -130,7 +126,7 @@ Orsaken till att den här strategin används är för bäst spegling funktioner 
 Runbooks i Orchestrator starta andra runbooks med den **anropa Runbook** aktivitet. Om runbook omvandlas innehåller den här aktiviteten och **vänta på slutförande** alternativet anges kommer en runbook-aktivitet skapas för den konverterade runbook.  Om den **vänta på slutförande** alternativet inte anges, och sedan en Arbetsflödesskriptet aktivitet skapas som använder **Start AzureAutomationRunbook** att starta runbook.  När du har importerat konverterade runbook till Azure Automation måste du ändra den här aktiviteten med den information som anges i aktiviteten.
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* [System Center 2012 – Orchestrator](http://technet.microsoft.com/library/hh237242.aspx)
+* [System Center 2012 - Orchestrator](http://technet.microsoft.com/library/hh237242.aspx)
 * [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx)
 * [Runbook Worker-hybrid](automation-hybrid-runbook-worker.md)
 * [Standardaktiviteter för orchestrator](http://technet.microsoft.com/library/hh403832.aspx)

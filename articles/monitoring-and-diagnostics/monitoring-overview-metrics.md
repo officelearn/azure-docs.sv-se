@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 4a78236f9c6945bb982466b59690b221f35a1804
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Översikt över mått i Microsoft Azure
 Den här artikeln beskriver vilka mått som finns i Microsoft Azure sina fördelar och hur du börjar använda dem.  
@@ -63,7 +63,7 @@ Du kan också:
 Följande är en snabb genomgång av hur du skapar ett mått diagram med hjälp av Azure portal.
 
 ### <a name="to-view-metrics-after-creating-a-resource"></a>Visa mått när du har skapat en resurs
-1. Öppna Azure-portalen.
+1. Öppna Azure Portal.
 2. Skapa en Azure App Service-webbplats.
 3. När du skapar en webbplats, går du till den **översikt** bladet på webbplatsen.
 4. Du kan visa nya mått som en **övervakning** panelen. Du kan redigera panelen och välja fler mått.
@@ -71,7 +71,7 @@ Följande är en snabb genomgång av hur du skapar ett mått diagram med hjälp 
    ![Mått på en resurs i Azure-Monitor](./media/monitoring-overview-metrics/MetricsOverview1.png)
 
 ### <a name="to-access-all-metrics-in-a-single-place"></a>Åtkomst till alla mått i en enda plats
-1. Öppna Azure-portalen.
+1. Öppna Azure Portal.
 2. Navigera till den nya **övervakaren** fliken och sedan väljer du den **mått** alternativet under.
 3. Välj din prenumeration, resursgrupp och namnet på resursen från den nedrullningsbara listan.
 4. Visa listan över tillgängliga mått. Välj det mått som du är intresserad av och rita den sedan.
@@ -116,7 +116,7 @@ Mått aviseringar: de kan sedan meddela dig via e-post eller eller en webhook so
 
  ![Mått och Varningsregler i Azure-Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Nära realtid aviseringar (förhandsversion): dessa har möjlighet att övervaka flera mått och tröskelvärden för en resurs och meddela dig via en [grupp](/monitoring-action-groups.md). Mer om Leran [nära realtid mått aviseringar här](https://aka.ms/azuremonitor/near-real-time-alerts).
+Nära realtid aviseringar (förhandsversion): dessa har möjlighet att övervaka flera mått och tröskelvärden för en resurs och meddela dig via en [grupp](/monitoring-action-groups.md). Lär dig mer om [nära realtid mått aviseringar här](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### <a name="autoscale-your-azure-resources"></a>Autoskala din Azure resurser

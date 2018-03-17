@@ -6,40 +6,39 @@ documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
 editor: 
-ms.assetid: 6f326f26-8a54-49df-a482-9c96a58db371
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: t-sql
-ms.date: 10/31/2016
+ms.date: 03/15/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: f9f19d75a37351b3562ce8c2f3629df14c5437c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 607c169e3d9e8aa741084392439da383f46cfe0c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="optimizing-transactions-for-sql-data-warehouse"></a>Optimera transaktioner för SQL Data Warehouse
 Den här artikeln förklarar hur du optimerar prestanda för transaktionell koden och minimerar risken för lång återställningar.
 
 ## <a name="transactions-and-logging"></a>Transaktioner och loggning
-Transaktioner är en viktig komponent i en relationsdatabas-motor. SQL Data Warehouse använder transaktioner under dataändringar. Dessa transaktioner kan vara uttryckliga eller underförstådda. Enskild `INSERT`, `UPDATE` och `DELETE` -satser är alla exempel implicit transaktioner. Skrivs explicita transaktioner explicit av en utvecklare som använder `BEGIN TRAN`, `COMMIT TRAN` eller `ROLLBACK TRAN` och används vanligtvis när flera ändringar instruktioner måste kopplas samman i en enda atomiska enhet. 
+Transaktioner är en viktig komponent i en relationsdatabas-motor. SQL Data Warehouse använder transaktioner under dataändringar. Dessa transaktioner kan vara uttryckliga eller underförstådda. Enskild `INSERT`, `UPDATE`, och `DELETE` -satser är alla exempel implicit transaktioner. Använda explicita transaktioner `BEGIN TRAN`, `COMMIT TRAN`, eller `ROLLBACK TRAN`. Explicita transaktioner används vanligtvis när flera ändringar instruktioner måste kopplas samman i en enda atomiska enhet. 
 
 Azure SQL Data Warehouse sparar ändringar till databasen med transaktionsloggar. Varje distribution har sin egen transaktionsloggen. Transaktionen sparas loggen automatiskt. Det finns ingen konfiguration krävs. Dock samtidigt som den här processen garanterar skrivningen införs en kostnader i systemet. Du kan minimera den här effekten genom att skriva ett effektivt kod. Transaktionellt effektiv kod hamnar brett i två kategorier.
 
-* Använd minimal loggning konstruktioner där det är möjligt
+* Använd minimal loggning konstruktioner när det är möjligt
 * Bearbetning av data med begränsade batchar för att undvika enda tidskrävande transaktioner
 * Anta en partitionsväxling mönster för stora ändringar i en given partition
 
 ## <a name="minimal-vs-full-logging"></a>Minimal kontra fullständig loggning
-Till skillnad från fullständigt loggade åtgärder som använder transaktionsloggen för att hålla reda på varje rad ändring, hålla minimalt loggade åtgärder reda på utsträckning allokeringar och endast metadata ändringar. Därför minimal loggning innebär loggning bara den information som krävs för att återställa transaktionen om ett fel eller en uttrycklig begäran (`ROLLBACK TRAN`). När mycket mindre information spåras i transaktionsloggen, presterar minimalt loggade åtgärden bättre än på samma sätt storlek fullständigt loggade åtgärden. Dessutom eftersom färre skrivningar går transaktionsloggen, en mycket mindre mängd loggdata genereras och det är flera i/o effektivt.
+Till skillnad från fullständigt loggade åtgärder som använder transaktionsloggen för att hålla reda på varje rad ändring, hålla minimalt loggade åtgärder reda på utsträckning allokeringar och endast metadata ändringar. Därför minimal loggning innebär loggning bara den information som krävs för att återställa transaktionen efter en misslyckad eller för en uttrycklig begäran (`ROLLBACK TRAN`). När mycket mindre information spåras i transaktionsloggen, presterar minimalt loggade åtgärden bättre än på samma sätt storlek fullständigt loggade åtgärden. Dessutom eftersom färre skrivningar går transaktionsloggen, en mycket mindre mängd loggdata genereras och det är flera i/o effektivt.
 
 Säkerhetsgränsen transaktionen gäller endast för fullständigt loggade åtgärder.
 
 > [!NOTE]
-> Minimalt loggade åtgärder kan delta i explicita transaktioner. Det är möjligt att återställa minimalt loggade åtgärder som alla ändringar i allokering strukturer spåras. Det är viktigt att förstå att ändringen är inloggad ”minimalt” är inte icke loggas.
+> Minimalt loggade åtgärder kan delta i explicita transaktioner. Det är möjligt att återställa minimalt loggade åtgärder som alla ändringar i allokering strukturer spåras. 
 > 
 > 
 
@@ -67,9 +66,9 @@ Följande åtgärder kan loggas minimalt:
 > 
 
 ## <a name="minimal-logging-with-bulk-load"></a>Minimal loggning med massinläsning
-`CTAS`och `INSERT...SELECT` är både Massredigera belastningen åtgärder. Dock både påverkas av tabelldefinitionen mål och beror på belastningen scenario. Nedan finns en tabell med information om din massåtgärd helt eller minimalt loggas:  
+`CTAS` och `INSERT...SELECT` är både Massredigera belastningen åtgärder. Dock både påverkas av tabelldefinitionen mål och beror på belastningen scenario. I följande tabell beskrivs när massåtgärder helt eller minimalt loggas:  
 
-| Primärt Index | Läs in Scenario | Loggningsläge |
+| Primärt Index | Load Scenario | Loggningsläge |
 | --- | --- | --- |
 | Heap |Alla |**Minimal** |
 | Grupperat Index |Tom måltabellen |**Minimal** |
@@ -88,7 +87,7 @@ Det är värt att nämna att alla skrivningar för att uppdatera sekundära elle
 Läsa in data i en icke-tom tabell med ett grupperat index innehåller ofta en blandning av fullständigt loggade och minimalt loggade rader. Ett grupperat index är ett belastningsutjämnade träd (b-trädet) sidor. Om sidan som skrivs till redan innehåller rader från en annan transaktion, sedan loggas dessa skrivningar fullständigt. Men om sidan är tom loggas sedan skrivningen till sidan minimalt.
 
 ## <a name="optimizing-deletes"></a>Optimera borttagningar
-`DELETE`är fullständigt loggade åtgärden.  Om du vill ta bort en stor mängd data i en tabell eller en partition är det ofta mer praktiskt att `SELECT` data som du vill behålla, som kan köras som ett minimalt loggade åtgärden.  Du åstadkommer detta genom att skapa en ny tabell med [CTAS][CTAS].  När du skapat använda [Byt namn på] [ RENAME] att byta ut din gamla tabell med den nyligen skapade tabellen.
+`DELETE` är fullständigt loggade åtgärden.  Om du vill ta bort en stor mängd data i en tabell eller en partition är det ofta mer praktiskt att `SELECT` data som du vill behålla, som kan köras som ett minimalt loggade åtgärden.  Skapa en ny tabell med för att välja data [CTAS][CTAS].  När du skapat använda [Byt namn på] [ RENAME] att byta ut din gamla tabell med den nyligen skapade tabellen.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -119,7 +118,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>Optimera uppdateringar
-`UPDATE`är fullständigt loggade åtgärden.  Om du behöver uppdatera ett stort antal rader i en tabell eller en partition det ofta vara mycket mer effektivt att använda minimalt loggade åtgärden som [CTAS] [ CTAS] gör.
+`UPDATE` är fullständigt loggade åtgärden.  Om du behöver uppdatera ett stort antal rader i en tabell eller en partition kan det ofta vara mycket mer effektivt att använda minimalt loggade åtgärden som [CTAS] [ CTAS] gör.
 
 I exemplet nedan en fullständig tabell uppdatering har konverterats till ett `CTAS` så att minimal loggning är möjligt.
 
@@ -180,12 +179,12 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Skapa nytt stora tabeller kan dra nytta av funktioner för SQL Data Warehouse arbetsbelastning. För mer information finns i avsnittet för hantering av arbetsbelastningen i de [samtidighet] [ concurrency] artikel.
+> Skapa nytt stora tabeller kan dra nytta av funktioner för SQL Data Warehouse arbetsbelastning. Mer information finns i [resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md).
 > 
 > 
 
 ## <a name="optimizing-with-partition-switching"></a>Optimera med Växla partition
-När inför storskaliga ändringar i en [tabell partition][table partition], och sedan en partitionsväxling mönstret gör mycket bra. Om data ändras är viktig och sträcker sig över flera partitioner, ger bara iterera över partitionerna sedan samma resultat.
+Om inför storskaliga ändringar i en [tabell partition][table partition], och sedan klokt att en partitionsväxling mönster. Om data ändras är viktig och sträcker sig över flera partitioner, ger sedan iterera över partitionerna samma resultat.
 
 Stegen för att utföra en partition växel är följande:
 
@@ -195,7 +194,7 @@ Stegen för att utföra en partition växel är följande:
 4. Växla i nya data
 5. Rensa data
 
-Men för att identifiera partitionerna som ska växla vi måste först skapa en helper-procedur som nedan. 
+Skapa följande helper procedur för att identifiera partitioner för att växla.  
 
 ```sql
 CREATE PROCEDURE dbo.partition_data_get
@@ -241,9 +240,9 @@ OPTION (LABEL = 'dbo.partition_data_get : CTAS : #ptn_data')
 GO
 ```
 
-Den här proceduren maximerar återanvändning av kod och behåller partitionsväxling exempel mer kompakt.
+Den här proceduren maximerar återanvändning och behåller partitionsväxling exempel mer kompakt.
 
-Koden nedan visar de fem steg som nämns ovan för att få en fullständig partitionsväxling rutinen.
+Följande kod visar stegen som beskrivs ovan för att få en fullständig partitionsväxling rutinen.
 
 ```sql
 --Create a partitioned aligned empty table to switch out the data 
@@ -349,7 +348,7 @@ DROP TABLE #ptn_data
 ## <a name="minimize-logging-with-small-batches"></a>Minimera loggning med små batchar
 För stora mängder data ändras, kan det vara klokt att dela upp igen i segment eller batchar att definiera omfattningen av arbetsenheten.
 
-Ett fungerande exempel finns nedan. Batchstorleken har angetts till ett trivial antal om du vill markera tekniken. I verkligheten vara batchstorleken betydligt större. 
+Följande kod är ett fungerande exempel. Batchstorleken har angetts till ett trivial antal om du vill markera tekniken. Batchstorleken vara betydligt större i själva verket. 
 
 ```sql
 SET NO_COUNT ON;
@@ -408,17 +407,17 @@ END
 ```
 
 ## <a name="pause-and-scaling-guidance"></a>Pausa och skalning vägledning
-Azure SQL Data Warehouse kan du pausa, fortsätta och skala ditt informationslager på begäran. När du pausar du eller skala ditt SQL Data Warehouse är det viktigt att förstå att alla pågående transaktioner avslutas omedelbart. Gör eventuella öppna transaktioner ska återställas till. Om din arbetsbelastning hade utfärdas en lång körs och ofullständiga dataändring innan åtgärden pausa eller skala, behöver detta verk du ångras. Detta kan påverka den tid det tar att pausa eller skala din Azure SQL Data Warehouse-databas. 
+Azure SQL Data Warehouse kan du [pausa, fortsätta och skala](sql-data-warehouse-manage-compute-overview.md) ditt data warehouse på begäran. När du pausar du eller skala ditt SQL Data Warehouse, är det viktigt att förstå att alla pågående transaktioner avslutas omedelbart. Gör eventuella öppna transaktioner ska återställas till. Om din arbetsbelastning hade utfärdas en lång körs och ofullständiga dataändring innan åtgärden pausa eller skala, behöver detta verk du ångras. Den här ångras kan påverka den tid det tar att pausa eller skala din Azure SQL Data Warehouse-databas. 
 
 > [!IMPORTANT]
 > Båda `UPDATE` och `DELETE` är fullständigt loggade åtgärder och så att dessa Ångra/Gör om kan ta betydligt längre tid än motsvarande minimalt loggade åtgärder. 
 > 
 > 
 
-Bästa scenario är att låta svarta data ändras transaktioner slutförd innan pausa eller skalning SQL Data Warehouse. Men kan det inte alltid praktiskt. Överväg att något av följande alternativ för att minska risken för en lång återställning:
+Bästa scenario är att låta svarta data ändras transaktioner slutförd innan pausa eller skalning SQL Data Warehouse. Men kan det här scenariot inte alltid praktiskt. Överväg att något av följande alternativ för att minska risken för en lång återställning:
 
-* Skriv långvariga åtgärder med hjälp av [CTAS][CTAS]
-* Nedbrytning av åtgärden i segment; operativsystem för en delmängd av raderna
+* Omarbetning långvariga åtgärder med hjälp av [CTAS][CTAS]
+* Bryt igen i segment; operativsystem för en delmängd av raderna
 
 ## <a name="next-steps"></a>Nästa steg
 Se [transaktioner i SQL Data Warehouse] [ Transactions in SQL Data Warehouse] lära dig mer om isoleringsnivåer och transaktionell gränser.  En översikt över andra metodtips finns [Metodtips för SQL Data Warehouse][SQL Data Warehouse Best Practices].
@@ -428,7 +427,6 @@ Se [transaktioner i SQL Data Warehouse] [ Transactions in SQL Data Warehouse] l�
 <!--Article references-->
 [Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
 [table partition]: ./sql-data-warehouse-tables-partition.md
-[Concurrency]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 

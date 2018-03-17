@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 03/16/2018
 ms.author: gokuma;bradsev
-ms.openlocfilehash: c772fa16b94d09e0fc0450ce86503553c26f8a24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1897f793b5907a304af0859a1ab321a06d1ce808
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Verktyg för Machine learning och vetenskap
 Den virtuella datorn på vetenskap (DSVM) har en omfattande uppsättning verktyg och bibliotek för machine learning i populära språk som Python, R, Julia. 
@@ -35,7 +35,7 @@ Här är några av maskininlärning verktyg och bibliotek på DSVM.
 | Hur är det konfigurerade / installerad på DSVM?      |  Installerad med stöd för GPU   |
 | Hur du använder / kör den?      | Som Python-bibliotek (2.7 och 3.5) R-paket och på sökväg-kommandoradsverktyget (`C:\dsvm\tools\xgboost\bin\xgboost.exe` för Windows, `/dsvm/tools/xgboost/xgboost` för Linux)    |
 | Länkar till exempel      | Exempel finns på den virtuella datorn i `/dsvm/tools/xgboost/demo` på Linux och `C:\dsvm\tools\xgboost\demo` i Windows   |
-| Relaterade verktyg på DSVM      | LightGBM MXNet   |
+| Relaterade verktyg på DSVM      | LightGBM, MXNet   |
 
 
 
@@ -68,7 +68,7 @@ Här är några av maskininlärning verktyg och bibliotek på DSVM.
 | Stöds DSVM versioner     | Windows, Linux     |
 | Vanliga användningsområden      | Allmänna UI Data Mining-verktyget för R    |
 | Hur du använder / kör den?      | UI-verktyget. Starta en kommandotolk i Windows, kan köra R, sedan i R kör `rattle()`. På Linux, ansluta med X2Go, starta en terminal, kör R, sedan i R kör `rattle()`. |
-| Länkar till exempel      | [Spännen](https://togaware.com/onepager/) |
+| Länkar till exempel      | [Rattle](https://togaware.com/onepager/) |
 | Relaterade verktyg på DSVM      |LightGBM Weka, XGBoost   |
 
 ## <a name="lightgbm"></a>LightGBM
@@ -79,7 +79,7 @@ Här är några av maskininlärning verktyg och bibliotek på DSVM.
 | Vanliga användningsområden      | Allmänna toning framework      |
 | Hur är det konfigurerade / installerad på DSVM?      | På Windows installeras LightGBM som en Python-paket. På Linux, kommandorad körbara filen är `/opt/LightGBM/lightgbm`R-paket installeras och Python-paket som är installerade.     |
 | Länkar till exempel      | [LightGBM Guide](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
-| Relaterade verktyg på DSVM      | MXNet XgBoost  |
+| Relaterade verktyg på DSVM      | MXNet, XgBoost  |
 
 ## <a name="h2o"></a>H2O
 |    |           |

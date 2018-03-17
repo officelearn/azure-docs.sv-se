@@ -14,17 +14,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a5d539172f03246e3c658f2485d29d3ae389ae52
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>FAN-in/fan-i scenariot i varaktiga funktioner - molnet säkerhetskopiering exempel
 
 *FAN-in/fan-i* refererar till mönstret för samtidigt köra flera funktioner och sedan utföra vissa aggregering av resultaten. Den här artikeln beskrivs ett exempel som använder [varaktiga funktioner](durable-functions-overview.md) att implementera ett fan-i/fan-in scenario. Exemplet är en beständig funktion som säkerhetskopierar alla eller vissa av en app webbplatsens innehåll i Azure Storage.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Följ instruktionerna i [installera varaktiga funktioner](durable-functions-install.md) att ställa in provet.
 * Den här artikeln förutsätter att du redan har gått igenom de [Hello sekvens](durable-functions-sequence.md) exempel genomgången.
@@ -97,7 +97,7 @@ Implementeringen filen läses från disken och strömmar asynkront innehållet i
 > [!NOTE]
 > Detta är ett bra exempel för att flytta i/o-åtgärder i en `activityTrigger` funktion. Inte bara kan fördelas arbete på många olika virtuella datorer, men du får också fördelarna med kontrollpunkter förloppet. Om värdprocessen hämtar avslutas av någon anledning, vet du vilken överföringar har slutförts.
 
-## <a name="run-the-sample"></a>Köra exemplet
+## <a name="run-the-sample"></a>Kör exemplet
 
 Du kan starta orchestration genom att skicka följande HTTP POST-begäran.
 
@@ -158,7 +158,7 @@ Här är orchestration som en enda C#-filen i Visual Studio-projekt:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det här exemplet visar hur du implementerar fan-in/fan-i mönstret. I nästa exempel visas hur du implementerar den [tillståndskänslig singleton](durable-functions-singletons.md) mönstret i en [eternal orchestration](durable-functions-eternal-orchestrations.md).
+Det här exemplet visar hur du implementerar fan-in/fan-i mönstret. I nästa exempel visas hur du implementerar en Övervakare för mönster med hjälp av [varaktiga timers](durable-functions-timers.md).
 
 > [!div class="nextstepaction"]
-> [Kör tillståndskänslig singleton-exempel](durable-functions-counter.md)
+> [Köra Övervakaren exemplet](durable-functions-monitor.md)

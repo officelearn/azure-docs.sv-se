@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/18/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: fccc2dbb7623f4ceb0d3decc7037f75a05858910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 61815098a4935983f19b3dcea6e001230aee4771
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Azure hanterade program i Marketplace
 
@@ -42,7 +42,7 @@ Om du vill bli en utgivare i Azure Marketplace, måste du:
 
 1. Skapa ett Microsoft-ID - skapa ditt Microsoft-konto med hjälp av en e-postadress som hör till företagets domän, men inte till enskilda användare. E-postadressen används för både Microsoft Developer Center och molnet Partner-portalen. Mer information finns i [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
 1. Skicka [Azure Marketplace kandidat formuläret](https://aka.ms/ampnomination) – **lösning som du vill publicera?**väljer **hanterat program**. När formuläret skickas Marketplace Onboarding-teamet har granskat programmet och verifierar begäran. Godkännandeprocessen kan ta en till tre dagar. När din kandidat har godkänts får du följer en kod för att avstå från registreringsavgift för developer center. Om du gör **inte** Slutför formuläret Marketplace kandidat du uppmanas att betala en avgift för registrering av $99.
-1. Registrera i [Developer Center](https://developer.microsoft.com) -Microsoft bekräftar att din organisation är en giltig juridisk person med ett giltigt SKATTE-ID för det land där de är registrerade. Godkännandeprocessen kan ta 5 till 10 dagar. Använd kampanjkoden som du fick i e-post från kandidat processen för att undvika registreringsavgift. Mer information finns i [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
+1. Registrera i [Developer Center](http://dev.windows.com/registration?accountprogram=azure) -Microsoft bekräftar att din organisation är en giltig juridisk person med ett giltigt SKATTE-ID för det land där de är registrerade. Godkännandeprocessen kan ta 5 till 10 dagar. Använd kampanjkoden som du fick i e-post från kandidat processen för att undvika registreringsavgift. Mer information finns i [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
 1. Logga in på [moln partnerportalen](https://cloudpartner.azure.com) – i profilen för utgivaren associera Developer Center-konto med profilen Marketplace utgivare. Mer information finns i [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Skapa ett nytt erbjudande för Azure-program

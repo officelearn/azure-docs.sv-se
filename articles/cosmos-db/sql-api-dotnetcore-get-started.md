@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: arramac
 ms.custom: devcenter
-ms.openlocfilehash: 71eadc08aeb4ac197f55b6d3aac8eb6009be9107
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 90b720c174ab5730237f27d5ebb253976a70b071
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: Komma igång med SQL-API och .NET Core
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ Nu sätter vi igång!
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)] 
+* Om du inte redan har Visual Studio 2017 installerat, du kan hämta och använda den kostnadsfria [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Om du utvecklar en app för universella Windowsplattformen (UWP), bör du använda **Visual Studio 2017 med version 15,4** eller högre. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
     * Om du arbetar på MacOS- eller Linux, kan du utveckla .NET Core appar från kommandoraden genom att installera den [.NET Core SDK](https://www.microsoft.com/net/core#macos) för plattformen du väljer. 
     * Om du arbetar i Windows kan du utveckla .NET Core appar från kommandoraden genom att installera den [.NET Core SDK](https://www.microsoft.com/net/core#windows). 
     * Du kan använda din egen redigerare eller hämta [Visual Studio Code](https://code.visualstudio.com/), som är ledigt och fungerar på Windows, Linux och MacOS. 

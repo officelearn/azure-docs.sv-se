@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 50c0f293ac669ade4e45a5f45b0adf9a7c4b6c36
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Överväganden för virtuella datorer i Azure-stacken
 
@@ -37,7 +37,7 @@ Virtuella datorer är en på begäran, skalbara datorresurser som erbjuds av Azu
 | Nätverk för virtuella datorer | Offentliga IP-adresser som tilldelats virtuella dator är tillgängliga via Internet.<br><br><br>Virtuella Azure-datorer har ett fast DNS-namn | Offentliga IP-adresser som är tilldelade till en virtuell klientdator är tillgängliga i Azure-stacken Development Kit-miljön. Användarna måste ha åtkomst till Azure-stacken Development Kit via [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) eller [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) att ansluta till en virtuell dator som har skapats i Azure-stacken.<br><br>Virtuella datorer skapas i en specifik Azure Stack-instans har ett DNS-namn baserat på värdet som har konfigurerats av administratören för molnet. |
 | Den virtuella datorns lagringsutrymme | Stöder [hanterade diskar.](../../virtual-machines/windows/managed-disks-overview.md) | Hanterade diskar stöds inte ännu i Azure-stacken. |
 | API-versioner | Azure har alltid de senaste API-versionerna för funktionerna för virtuell dator. | Azure-stacken stöder specifika Azure-tjänster och specifika API-versioner för dessa tjänster. Om du vill visa listan över API-versioner som stöds finns i den [API-versioner](#api-versions) i den här artikeln. |
-|Tillgänglighetsuppsättningar för virtuell dator|Flera feldomäner (2 eller 3 per region)<br>Flera domäner för uppdatering<br>Hantering av disk|Enkel feldomän<br>Domän för enskild uppdatering<br>Inget stöd för hanterade diskar|
+|Tillgänglighetsuppsättningar för virtuell dator|Flera feldomäner (2 eller 3 per region)<br>Flera domäner för uppdatering<br>Hantering av disk|Flera feldomäner (2 eller 3 per region)<br>Flera update domäner (upp till 20)<br>Inget stöd för hanterade diskar|
 |Skalningsuppsättningar för virtuella datorer|Autoskala som stöds|Autoskala stöds inte.<br>Lägga till fler instanser i en skala som anges med portalen, Resource Manager-mallar eller PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Storlekar för virtuella datorer

@@ -3,7 +3,7 @@ title: "Så här ökar du samtidighet på en Azure Machine Learning-webbtjänst 
 description: "Lär dig hur du ökar samtidighet på en Azure Machine Learning-webbtjänst genom att lägga till ytterligare slutpunkter."
 services: machine-learning
 documentationcenter: 
-author: raymondlaghaeian
+author: aashishb
 manager: srikants
 editor: cgronlun
 keywords: "Azure maskininlärning webbtjänster, operationalization, skalning, slutpunkt, samtidighet"
@@ -14,12 +14,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: raymondl
-ms.openlocfilehash: 0d9c4b77ae16b5919a62f855c5b472708ba39004
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.author: aashishb
+ms.openlocfilehash: bec69a273a9996782376196b193686ab8cfe1eaa
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Skala en Azure Machine Learning-webbtjänst genom att lägga till ytterligare slutpunkter
 > [!NOTE]

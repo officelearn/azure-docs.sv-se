@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2018
+ms.date: 03/16/2018
 ms.author: billmath
-ms.openlocfilehash: e97d3e3e35ee87864c5d38e75e08e62088e25fdb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 06c715cf5dbf039334adfde8b3111d9bfcb86568
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synkronisering: gör en ändring i standardkonfigurationen
 Syftet med den här artikeln är leder dig igenom hur du gör ändringar i standardkonfigurationen i Azure Active Directory (AD Azure) Connect-synkronisering. Den innehåller steg för några vanliga scenarier. Med denna kunskap kan ska du kunna göra enkla ändringar i din egen konfiguration baserat på dina egna regler.
@@ -245,7 +245,7 @@ Som standard är UserType-attributet inte importerad till Azure AD Connect utrym
  1. Gå till den **kopplingar** fliken i hanteraren för synkroniseringstjänsten.
  2. Högerklicka på den **Azure AD Connector** och välj **egenskaper**.
  3. I dialogrutan popup går du till den **Välj attribut** fliken.
- 4. Kontrollera att attributet PreferredDataLocation är markerat i attributlistan.
+ 4. Kontrollera att UserType-attributet är markerat i attributlistan.
  5. Klicka på **OK** att spara.
 
 ![Lägga till källattributet Azure AD Connector-schema](./media/active-directory-aadconnectsync-change-the-configuration/usertype2.png)
@@ -293,7 +293,7 @@ Regel för inkommande synkronisering tillåter attributvärdet som ska flödas f
 ![Skapa regel för inkommande synkronisering](./media/active-directory-aadconnectsync-change-the-configuration/usertype3.png)
 
 ### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>Steg 5: Skapa en regel för utgående synkronisering för att flöda attributvärdet till Azure AD
-Utgående synkroniseringsregel tillåter attributvärdet som ska flödas från metaversumsökning till attributet PreferredDataLocation i Azure AD:
+Utgående synkroniseringsregel tillåter attributvärdet som ska flödas från metaversumsökning till UserType-attributet i Azure AD:
 
 1. Gå till Redigeraren för regler för synkronisering.
 2. Ange sökfilter **riktning** ska **utgående**.

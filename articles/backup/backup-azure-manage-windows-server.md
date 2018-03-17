@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: markgal
-ms.openlocfilehash: 2e5fd9e7e3cae1665519e4f08604fddf7834fd51
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 18ab960c3d86f4154f7cbbaa3dd4909b9b16b697
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Övervaka och hantera Azure Recovery Services-valv och servrar för Windows-datorer
 
@@ -32,7 +32,7 @@ Den här artikeln innehåller en översikt över säkerhetskopiering övervakare
 Recovery Services-valvet instrumentpanelen visar information eller attribut för Recovery Services-valvet.
 
 1. Logga in på den [Azure Portal](https://portal.azure.com/) med din Azure-prenumeration.
-2. Klicka på **alla tjänster**. 
+2. Klicka på **Alla tjänster**. 
 
 3. Du vill öppna en Recovery Services-valvet. I dialogrutan för att börja skriva **återställningstjänster**. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Recovery Services-valv** att visa listan över Recovery Services-valv i din prenumeration.
 
@@ -196,6 +196,8 @@ Från den **åtgärder** tillgängliga längst till höger i konsolen backup-age
 > Att **återställa Data**, se [återställer filer till en Windows server eller Windows-klientdatorn](backup-azure-restore-windows-server.md).
 >
 >
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="modify-the-backup-schedule"></a>Ändra schemat för säkerhetskopiering
 1. Klicka i Microsoft Azure Backup-agenten **schemalägga säkerhetskopiering**.

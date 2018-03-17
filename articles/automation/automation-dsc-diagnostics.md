@@ -1,25 +1,22 @@
 ---
-title: Vidarebefordra Azure Automation DSC rapporterar data till OMS Log Analytics | Microsoft Docs
-description: "Den här artikeln visar hur du skickar önskad tillstånd Configuration (DSC) rapporterar data till Microsoft Operations Management Suite Log Analytics för att ge ytterligare insikter och hantering."
+title: Vidarebefordra Azure Automation DSC rapporterar data till logganalys
+description: "Den här artikeln visar hur du skickar önskad tillstånd Configuration (DSC) rapporterar data till logganalys att ge ytterligare insikter och hantering."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Vidarebefordra Azure Automation DSC rapporterar data till OMS logganalys
+# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Vidarebefordra Azure Automation DSC-rapportdata till OMS Log Analytics
 
 Automatisering kan skicka DSC-noden statusdata till Microsoft Operations Management Suite (OMS) logganalys-arbetsytan.  
 Kompatibilitetsstatus är synlig i Azure-portalen eller PowerShell för noderna och för enskilda DSC-resurser i nodkonfigurationer. Med Log Analytics kan du:
@@ -30,7 +27,7 @@ Kompatibilitetsstatus är synlig i Azure-portalen eller PowerShell för noderna 
 * Korrelera kompatibilitetsstatus över Automation-konton
 * Visualisera dina nod kompatibilitetshistorik över tid
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill börja skicka Automation DSC-rapporter till logganalys, behöver du:
 
@@ -81,7 +78,7 @@ Den **DscResourceStatusData** åtgärden innehåller information om fel för DSC
 Klicka på varje åtgärd i listan om du vill se data för denna åtgärd.
 
 Du kan också visa loggarna [sökning i logganalys. Se [söka efter data med hjälp av loggen sökningar](../log-analytics/log-analytics-log-searches.md).
-Skriv följande fråga för att hitta DSC-loggar:`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus"`
+Skriv följande fråga för att hitta DSC-loggar: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus"`
 
 Du kan också begränsa frågan med Åtgärdsnamnet. Till exempel: ' Type = AzureDiagnostics ResourceProvider = ”MICROSOFT. Kategori för AUTOMATION ”=” DscNodeStatus ”OperationName =” DscNodeStatusData ”
 
@@ -92,7 +89,7 @@ En av våra främsta kundönskemål är möjligheten att skicka ett e-postmeddel
 Om du vill skapa en aviseringsregel, börja med att skapa en logg Sök efter poster för DSC-rapport som ska anropa aviseringen.  Klicka på den **avisering** för att skapa och konfigurera varningsregeln.
 
 1. Översikt över Log Analytics-sidan klickar du på **loggen Sök**.
-1. Skapa en logg sökfråga för aviseringen genom att skriva följande sökningen i fältet fråga:`Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
+1. Skapa en logg sökfråga för aviseringen genom att skriva följande sökningen i fältet fråga:  `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
 
   Om du har lagt upp loggar från mer än en Automation-konto eller prenumeration på din arbetsyta kan gruppera du aviseringar av prenumeration och Automation-konto.  
   Automation-kontonamnet kan härledas från fältet resurs i sökningen i DscNodeStatusData.  
@@ -104,7 +101,7 @@ Fördelen med att använda Log Analytics är att du kan söka efter misslyckade 
 Hitta alla instanser av DSC-resurser som har misslyckats.
 
 1. Översikt över Log Analytics-sidan klickar du på **loggen Sök**.
-1. Skapa en logg sökfråga för aviseringen genom att skriva följande sökningen i fältet fråga:`Type=AzureDiagnostics Category=DscNodeStatus OperationName=DscResourceStatusData ResultType=Failed`
+1. Skapa en logg sökfråga för aviseringen genom att skriva följande sökningen i fältet fråga:  `Type=AzureDiagnostics Category=DscNodeStatus OperationName=DscResourceStatusData ResultType=Failed`
 
 ### <a name="view-historical-dsc-node-status"></a>Visa historiska DSC-nod status
 
@@ -131,7 +128,7 @@ Diagnostik från Azure Automation skapar två typer av poster i logganalys.
 | DscReportStatus |Om kompatibilitetskontrollen har körts. |
 | ConfigurationMode | Hur används konfigurationen på noden. Möjliga värden är __”ApplyOnly”__,__”ApplyandMonitior”__, och __”ApplyandAutoCorrect”__. <ul><li>__ApplyOnly__: DSC gäller konfigurationen av och inget ytterligare såvida inte en ny konfiguration flyttas till målnoden eller när en ny konfiguration hämtas från en server. DSC kontrollerar inte om inte ett tidigare konfigurerade tillstånd efter första gången för en ny konfiguration. DSC försöker tillämpa konfigurationen tills den lyckas innan __ApplyOnly__ träder i kraft. </li><li> __ApplyAndMonitor__: Detta är standardvärdet. MGM gäller alla nya konfigurationer. Efter första gången för en ny konfiguration om målnoden drifts från det önskade läget rapporterar DSC diskrepans i loggarna. DSC försöker tillämpa konfigurationen tills den lyckas innan __ApplyAndMonitor__ träder i kraft.</li><li>__ApplyAndAutoCorrect__: DSC gäller alla nya konfigurationer. Efter första gången för en ny konfiguration om målnoden drifts från det önskade läget DSC rapporterar diskrepans i loggarna och återställer den aktuella konfigurationen.</li></ul> |
 | HostName_s | Namnet på den hantera noden. |
-| IP-adress | IPv4-adressen för den hantera noden. |
+| IPAddress | IPv4-adressen för den hantera noden. |
 | Kategori | DscNodeStatus |
 | Resurs | Namnet på Azure Automation-konto. |
 | Tenant_g | GUID som identifierar klienten för anroparen. |

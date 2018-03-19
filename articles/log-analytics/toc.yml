@@ -50,7 +50,7 @@
     - name: Loggsökning
       items:
         - name: Översikt över loggsökningar
-          href: log-analytics-log-search-new.md
+          href: log-analytics-log-search.md
         - name: Loggsökningsportaler
           href: log-analytics-log-search-portals.md
 - name: Instruktionsguider
@@ -117,20 +117,6 @@
           href: log-analytics-flow-tutorial.md
         - name: Loggsöknings-API
           href: 'https://dev.loganalytics.io/'
-    - name: Äldre loggsökning
-      items:
-        - name: Översikt över loggsökningar
-          href: log-analytics-log-searches.md
-        - name: Sökreferens
-          href: log-analytics-search-reference.md
-          items:
-            - name: Reguljära uttryck
-              href: log-analytics-log-searches-regex.md
-        - name: Loggsöknings-API
-          href: log-analytics-log-search-api.md
-          items:
-            - name: Python
-              href: log-analytics-log-search-api-python.md
     - name: Analysera data
       items:
         - name: Instrumentpaneler

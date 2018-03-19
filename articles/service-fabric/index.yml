@@ -15,11 +15,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/03/2017
   ms.author: carolz
-  ms.openlocfilehash: b9f76a98894485f48d495f32f352672784b86316
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.openlocfilehash: f2f85dfb82e62dd60c469abfdd87faa9cad43454
+  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 03/16/2018
 abstract:
   description: "Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och behållare. Utvecklare och administratörer kan undvika komplexa infrastrukturproblem och fokusera på att implementera verksamhetskritiska, krävande arbetsbelastningar som är skalbara, tillförlitliga och hanterbara. Lär dig hur du använder Azure Service Fabric med hjälp av våra snabbstarter, självstudier och exempel."
 sections:
@@ -58,6 +58,7 @@ sections:
     style: unordered
     items:
     - html: <a href="service-fabric-tutorial-create-dotnet-app">Distribuera ett .NET-program</a>
+    - html: <a href="service-fabric-tutorial-create-java-app">Distribuera ett Java-program</a>
     - html: "<a href=\"service-fabric-host-app-in-a-container\">Använd ett befintligt .NET-program i behållare</a>"
     - html: "<a href=\"service-fabric-tutorial-create-container-images\">Skapa ett program för Linux-behållare</a>"
     - html: Skapa och hantera ett <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows-</a> eller <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a>-kluster

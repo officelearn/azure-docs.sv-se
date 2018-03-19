@@ -22,7 +22,6 @@
 ## [Kontrollera en hanterad domäns hälsostatus](active-directory-ds-check-health.md)
 ## [Använda Azure AD Domain Services i Azure CSP-prenumerationer](active-directory-ds-csp.md)
 ## [Aktivera Azure AD Domain Services med PowerShell](active-directory-ds-enable-using-powershell.md)
-## [Kontrollera hälsan för domänen](active-directory-ds-check-health.md)
 ## Anslut till en hanterad domän
 ### [Virtuell Windows Server-dator](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Virtuell Windows Server-dator från mall](active-directory-ds-join-windows-vm-template.md)

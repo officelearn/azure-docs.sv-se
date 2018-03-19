@@ -151,10 +151,6 @@
           href: security-center-events-dashboard.md
         - name: Search
           href: security-center-search.md
-    - name: Azure-loggintegrering
-      href: security-center-integrating-alerts-with-log-integration.md
-    - name: Dataexport till SIEM
-      href: security-center-export-data-to-siem.md
     - name: Scenarier
       items:
         - name: Incidenthantering

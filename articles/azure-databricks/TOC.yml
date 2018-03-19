@@ -9,6 +9,10 @@
   items:
     - name: Skapa en Databricks-arbetsyta
       href: quickstart-create-databricks-workspace-portal.md
+- name: Självstudier
+  items:
+    - name: Strömma händelser med hjälp av Event Hubs
+      href: databricks-stream-from-eventhubs.md
 - name: Instruktionsguider
   items:
     - name: 'Ansluta till Excel, R och Python'

@@ -64,6 +64,7 @@
 ## Visual Studio-verktyg
 ### [Installera verktyg](stream-analytics-tools-for-visual-studio-install.md)
 ### [Utveckla ett molnjobb](stream-analytics-tools-for-visual-studio.md)
+### [Utveckla ett Edge-jobb](stream-analytics-tools-for-visual-studio-edge-jobs.md)
 ### [Konfigurera CI/CD-pipeliner](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Felsöka

@@ -79,6 +79,8 @@
           href: jenkins-continuous-deployment.md
         - name: Använda OpenFaaS med AKS
           href: openfaas.md
+        - name: Köra Spark-jobb på AKS
+          href: spark-job.md
     - name: Grundläggande om Kubernetes
       items:
         - name: Använda Kubernetes-instrumentpanelen

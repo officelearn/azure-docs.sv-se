@@ -37,6 +37,8 @@
       href: container-instances-using-azure-container-registry.md
     - name: Köra behållarbaserade uppgifter
       href: container-instances-restart-policy.md
+    - name: Ange miljövariabler
+      href: container-instances-environment-variables.md
     - name: Felsöka distributioner
       href: container-instances-troubleshooting.md
     - name: Konfigurera datavolymer

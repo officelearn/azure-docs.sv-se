@@ -61,6 +61,7 @@
 ## [Språkanpassning](active-directory-b2c-reference-language-customization.md)
 ## [Använd rapporterings-API](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Migrera användare](active-directory-b2c-user-migration.md)
+## [Migrera sociala identiteter](active-directory-b2c-social-migration.md)
 
 # Identity Experience Framework
 ## [Anpassade principer](active-directory-b2c-overview-custom.md)

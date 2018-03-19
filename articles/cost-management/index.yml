@@ -5,19 +5,19 @@ metadata:
   title: "Dokumentation om Cost Management – Självstudier, API-referens | Microsoft Docs"
   description: "Azure Cost Management är en kostnadshanteringslösning med flera moln som hjälper dig att bättre använda Azure och andra molnresurser. Lär dig mer om att granska användning och kostnader, aktivt hantera kostnader, göra prognoser för utgifter och optimera kostnader med våra snabbstarter och självstudier."
   services: cost-management
-  author: czeumault
-  manager: carolz
+  author: bandersmsft
+  manager: carmonm
   ms.service: cost-management
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/18/2017
-  ms.author: carolz
-  ms.openlocfilehash: c88a093c75122c2ff32060ff2780bd4bf4d83f34
-  ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+  ms.date: 02/27/2018
+  ms.author: banders
+  ms.openlocfilehash: d6fa2486944fdecab67996bd7a8c7f656ffb2e72
+  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/09/2018
+  ms.lasthandoff: 03/16/2018
 abstract:
   description: "Azure Cost Management som licensieras av Cloudyn, ett dotterbolag till Microsoft, är en kostnadshanteringslösning med flera moln som hjälper dig att bättre utnyttja och hantera Azure och andra molnresurser. Lär dig mer om att granska användning och kostnader, aktivt hantera kostnader, göra prognoser för utgifter och optimera kostnader med våra snabbstarter och självstudier."
 sections:
@@ -40,6 +40,7 @@ sections:
     style: ordered
     items:
     - html: "<a href=\"tutorial-review-usage\">Granska användning och kostnader för att identifiera avvikelser och effektivitet</a>"
-    - html: "<a href=\"tutorial-user-access\">Tilldela åtkomst till Cost Management-data</a>"
     - html: <a href="tutorial-forecast-spending">Prognostisera framtida utgifter</a>
     - html: "<a href=\"tutorial-manage-costs\">Hantera kostnader med kostnadsfördelning och detaljerad kostnadsrapportering</a>"
+    - html: <a href="tutorial-optimize-reserved-instances">Optimera reserverade instanser</a>
+    - html: "<a href=\"tutorial-user-access\">Tilldela åtkomst till Cost Management-data</a>"

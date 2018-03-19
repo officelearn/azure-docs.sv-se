@@ -11,6 +11,7 @@
 ## [IPv6-stöd](load-balancer-ipv6-overview.md)
 ## [Flera VIP](load-balancer-multivip-overview.md)
 ## [Förstå utgående anslutningar](load-balancer-outbound-connections.md)
+## [Standard Load Balancer och tillgänglighetszoner](load-balancer-standard-availability-zones.md)
 
 # Kom igång
 
@@ -49,6 +50,7 @@
 ### [Felsök Azure Load Balancer](load-balancer-troubleshoot.md)
 
 ## Artiklar om den klassiska distributionsmodellen
+### [Utgående anslutningar (klassiska)](load-balancer-outbound-connections-classic.md)
 ### [Konfigurera intern Load Balancer för Cloud Services](load-balancer-get-started-ilb-classic-cloud.md)
 #### [Konfigurera intern Load Balancer för Cloud Services (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 #### [Konfigurera intern Load Balancer för Cloud Services (CLI)](load-balancer-get-started-ilb-classic-cli.md)

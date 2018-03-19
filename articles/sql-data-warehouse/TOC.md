@@ -18,7 +18,7 @@
 
 
 # Självstudier
-## [1 – Läs in data från blob](load-data-from-azure-blob-storage-using-polybase.md)
+## [1 – Läs in WideWorldImporters](load-data-wideworldimportersdw.md)
 
 # Begrepp
 ## Tjänstfunktioner
@@ -101,6 +101,7 @@
 
 
 ## Läsa in och flytta data
+### [Data om New York-taxibilar](load-data-from-azure-blob-storage-using-polybase.md)
 ### [Offentliga Contoso-data](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)

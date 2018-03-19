@@ -23,15 +23,13 @@
 #### [Skapa en skalningsuppsättning i en tillgänglighetszon](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
 ### Belastningsutjämnare
-#### [Vad är en belastningsutjämnare?](../load-balancer/load-balancer-standard-overview.md)
+#### [Vad är belastningsutjämnare?](../load-balancer/load-balancer-standard-overview.md)
+#### [Load Balancer Standard och tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md)
 #### [Skapa zonredundant offentlig Load Balancer Standard med Azure Portal](../load-balancer/load-balancer-get-started-internet-az-portal.md)
 #### [Skapa zonredundant Load Balancer Standard med PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [Skapa zonredundant offentlig Load Balancer Standard med CLI](../load-balancer/load-balancer-get-started-internet-az-cli.md)
 
-### Offentlig IP-adress
-#### [Skapa en offentlig IP-adress i en tillgänglighetszon med Azure Portal](../virtual-network/create-public-ip-availability-zone-portal.md)
-#### [Skapa en offentlig IP-adress i en tillgänglighetszon med PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
-#### [Skapa en offentlig IP-adress i en tillgänglighetszon med CLI](../virtual-network/create-public-ip-availability-zone-cli.md)
+### [Offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### SQL Database
 #### [Tillgänglighetszoner med SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)

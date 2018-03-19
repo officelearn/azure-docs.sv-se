@@ -92,6 +92,8 @@
           href: tutorial-control-flow-portal.md
         - name: .NET
           href: tutorial-control-flow.md
+    - name: 9 – Transformera data med Azure Databricks
+      href: transform-data-using-databricks-notebook.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -290,8 +292,6 @@
           href: transform-data-using-stored-procedure.md
         - name: Data Lake U-SQL-aktivitet
           href: transform-data-using-data-lake-analytics.md
-        - name: Databricks-anteckningsboksaktivitet
-          href: transform-data-using-databricks-notebook.md
         - name: Anpassad aktivitet
           href: transform-data-using-dotnet-custom-activity.md
         - name: Länkade tjänster för Compute

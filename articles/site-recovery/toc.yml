@@ -67,6 +67,8 @@
       items:
         - name: Replikering till Azure
           items:
+            - name: Vanliga frågor om replikering från VMware till Azure
+              href: vmware-azure-common-questions.md
             - name: Supportmatris för VMware/fysisk till Azure
               href: vmware-physical-azure-support-matrix.md
             - name: Arkitektur för VMware till Azure
@@ -77,6 +79,8 @@
               href: vmware-azure-multi-tenant-overview.md
             - name: Om mobilitetstjänsten
               href: vmware-azure-install-mobility-service.md
+            - name: Alternativ för redundansplats
+              href: concepts-types-of-failback.md
         - name: Replikering till en sekundär plats
           items:
             - name: Stödmatris för VMware/fysisk till sekundär plats
@@ -117,7 +121,7 @@
               href: azure-to-azure-about-networking.md
             - name: Förbereda nätverksmappning i haveriberedskap för virtuella Azure-datorer
               href: azure-to-azure-network-mapping.md
-            - name: Konfigurera IP-adresser efter redundansväxling av virtuella Azure-datorer
+            - name: Konfigurera IP-adresser för redundans
               href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Haveriberedskap
           items:
@@ -139,7 +143,7 @@
           items:
             - name: Hantera nätverksgränssnitt för replikering från lokal plats till Azure
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: Konfigurera IP-adresser efter redundansväxling till Azure
+            - name: Konfigurera IP-adresser för redundans
               href: concepts-on-premises-to-azure-networking.md
         - name: Kapacitetsplanering
           items:
@@ -241,7 +245,7 @@
           items:
             - name: Hantera nätverksgränssnitt för replikering från lokal plats till Azure
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: Konfigurera IP-adresser efter redundansväxling till Azure
+            - name: Konfigurera IP-adresser för redundans
               href: concepts-on-premises-to-azure-networking.md
         - name: Kapacitetsplanering
           items:
@@ -255,8 +259,6 @@
                   href: hyper-v-deployment-planner-analyze-report.md
                 - name: Analysera kostnadsuppskattningsrapporten
                   href: hyper-v-deployment-planner-cost-estimation.md
-            - name: Prestandaskalningstester för Hyper-V-replikering till en sekundär plats
-              href: hyper-v-vmm-performance-results.md
         - name: Haveriberedskap
           items:
             - name: Konfigurera Hyper-V-replikering till Azure (utan VMM) med PowerShell
@@ -295,12 +297,14 @@
           href: hyper-v-vmm-powershell-resource-manager.md
         - name: Köra ett haveriberedskapstest för virtuella Hyper-V-datorer till en sekundär plats
           href: hyper-v-vmm-test-failover.md
-        - name: Konfigurera IP-adresser efter redundansväxling till en sekundär plats
+        - name: Konfigurera IP-adresser för redundans
           href: hyper-v-vmm-networking.md
         - name: Lägga till VMM-skript i återställningsplaner
           href: hyper-v-vmm-recovery-script.md
         - name: Köra redundans och återställning efter fel mellan lokala platser
           href: hyper-v-vmm-failover-failback.md
+        - name: Prestandaskalningstester för Hyper-V-replikering till en sekundär plats
+          href: hyper-v-vmm-performance-results.md
     - name: Replikera appar
       items:
         - name: Active Directory och DNS

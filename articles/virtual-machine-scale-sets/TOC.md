@@ -38,6 +38,7 @@
 #### [Använda Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Arbeta med stora skalningsuppsättningar](virtual-machine-scale-sets-placement-groups.md)
 ### [Konvertera en skalningsuppsättningsmall för användning av hanterad disk](virtual-machine-scale-sets-convert-template-to-md.md)
+### [Använda lågprioritet](virtual-machine-scale-sets-use-low-priority.md)
 
 ## Hantera
 ### Vanliga administrativa uppgifter

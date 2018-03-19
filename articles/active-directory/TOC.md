@@ -190,11 +190,10 @@
 #### [Rapportera om automatisk användaretablering](active-directory-saas-provisioning-reporting.md)
 #### [Felsöka användaretablering](active-directory-application-provisioning-content-map.md)
 
-
-
 ### [Få åtkomst till appar med App Proxy](active-directory-application-proxy-get-started.md)
 #### Kom igång
 ##### [Aktivera App Proxy](active-directory-application-proxy-enable.md)
+##### [Stöd för GDPR](active-directory-application-proxy-gdpr.md)
 ##### [Publicera appar](application-proxy-publish-azure-portal.md)
 ##### [Anpassade domäner](active-directory-application-proxy-custom-domains.md)
 #### [Enkel inloggning](application-proxy-sso-overview.md)

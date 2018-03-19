@@ -107,6 +107,8 @@
               href: backup-azure-vms-encryption.md
             - name: Aktivera säkerhetskopiering av virtuella datorer när de virtuella datorerna skapas
               href: backup-during-vm-creation.md
+            - name: Uppgradera till VM-säkerhetskopieringsstack V2
+              href: backup-upgrade-to-vm-backup-stack-v2.md
         - name: Hantera och övervaka virtuella datorer
           items:
             - name: Hantera virtuella Azure-säkerhetskopieringar i Azure Portal

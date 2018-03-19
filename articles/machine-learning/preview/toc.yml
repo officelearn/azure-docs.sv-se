@@ -27,6 +27,8 @@
       href: overview-general-concepts.md
 - name: Instruktionsguider
   items:
+    - name: Främsta CLI-åtgärder
+      href: cli-for-azure-machine-learning.md
     - name: Använd Workbench
       items:
         - name: 'Arbeta med Python IDE:er'

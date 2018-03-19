@@ -21,7 +21,9 @@
       href: tutorial-forecast-spending.md
     - name: 3 – Hantera kostnader
       href: tutorial-manage-costs.md
-    - name: 4 – Kontrollera åtkomst till data
+    - name: 4 – Optimera reserverade instanser
+      href: tutorial-optimize-reserved-instances.md
+    - name: 5 – Kontrollera åtkomst till data
       href: tutorial-user-access.md
 - name: Begrepp
   items:

@@ -62,6 +62,8 @@
           href: module-development.md
         - name: Sammansättning
           href: module-composition.md
+        - name: Edge-agenten och hubbegenskaper
+          href: module-edgeagent-edgehub.md
     - name: IoT Edge-körning
       href: iot-edge-runtime.md
     - name: Distributioner

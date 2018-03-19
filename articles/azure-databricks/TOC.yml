@@ -11,8 +11,10 @@
       href: quickstart-create-databricks-workspace-portal.md
 - name: Självstudier
   items:
-    - name: Strömma händelser med hjälp av Event Hubs
+    - name: Strömma data med Event Hubs
       href: databricks-stream-from-eventhubs.md
+    - name: Attitydanalys med Cognitive Services
+      href: databricks-sentiment-analysis-cognitive-services.md
 - name: Instruktionsguider
   items:
     - name: 'Ansluta till Excel, R och Python'

@@ -76,10 +76,16 @@
               href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 – Omvandla data i molnet
       items:
-        - name: Användargränssnitt
-          href: tutorial-transform-data-spark-portal.md
-        - name: Azure PowerShell
-          href: tutorial-transform-data-spark-powershell.md
+        - name: HDInsight Spark
+          items:
+            - name: Användargränssnitt
+              href: tutorial-transform-data-spark-portal.md
+            - name: Azure PowerShell
+              href: tutorial-transform-data-spark-powershell.md
+        - name: Databricks-anteckningsbok
+          items:
+            - name: Användargränssnitt
+              href: transform-data-using-databricks-notebook.md
     - name: 7 – Transformera data i virtuellt nätverk
       items:
         - name: Användargränssnitt
@@ -92,8 +98,6 @@
           href: tutorial-control-flow-portal.md
         - name: .NET
           href: tutorial-control-flow.md
-    - name: 9 – Transformera data med Azure Databricks
-      href: transform-data-using-databricks-notebook.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -292,6 +296,8 @@
           href: transform-data-using-stored-procedure.md
         - name: Data Lake U-SQL-aktivitet
           href: transform-data-using-data-lake-analytics.md
+        - name: Databricks-anteckningsboksaktivitet
+          href: transform-data-databricks-notebook.md
         - name: Anpassad aktivitet
           href: transform-data-using-dotnet-custom-activity.md
         - name: Länkade tjänster för Compute

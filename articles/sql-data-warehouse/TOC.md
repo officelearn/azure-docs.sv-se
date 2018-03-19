@@ -52,11 +52,12 @@
 ### [Elastisk fråga i SQL Database](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
-## Övervaka och finjustera
-### [Arbetsbelastningshantering](resource-classes-for-workload-management.md)
+## Frågeprestanda
+### [Resursklasser](resource-classes-for-workload-management.md)
 ### [Columnstore-komprimering](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Övervaka](sql-data-warehouse-manage-monitor.md)
-### [Felsöka](sql-data-warehouse-troubleshoot.md)
+
+## [Övervaka](sql-data-warehouse-manage-monitor.md)
+
 
 ## Utveckla informationslager
 ### [Översikt](sql-data-warehouse-overview-develop.md)
@@ -87,6 +88,8 @@
 #### [Användardefinierade scheman](sql-data-warehouse-develop-user-defined-schemas.md)
 #### [Variabeltilldelning](sql-data-warehouse-develop-variable-assignment.md)
 #### [Vyer](sql-data-warehouse-develop-views.md)
+
+## [Felsöka](sql-data-warehouse-troubleshoot.md)
 
 # Instruktionsguider
 ## Tjänstfunktioner

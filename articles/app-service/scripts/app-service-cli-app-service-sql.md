@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI-skript exempel – ansluta en webbapp till en SQL-databas | Microsoft Docs"
-description: "Azure CLI-skript exempel – ansluta en webbapp till en SQL-databas"
+title: Skriptexempel för Azure CLI – Ansluta en webbapp till en SQL-databas | Microsoft Docs
+description: Skriptexempel för Azure CLI – Ansluta en webbapp till en SQL-databas
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 7c2efdd0-f553-4038-a77a-e953021b3f77
 ms.service: app-service
@@ -16,21 +16,21 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: e85b405e61460c7cde8dd8a6001add736c53c713
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.openlocfilehash: 8356785582657811dbf745637c7216cfa9b3f445
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-a-web-app-to-a-sql-database"></a>Ansluta en webbapp till en SQL-databas
 
-Det här exempelskriptet skapar en Azure SQL database och en Azure-webbapp. Därefter länkar SQL-databasen till det webbprogram som använder app-inställningar.
+Det här exempelskriptet skapar en Azure SQL-databas och en Azure-webbapp. Därefter länkar det SQL-databasen till webbappen med hjälp av app-inställningar.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt, måste Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI-gränssnittet lokalt måste du ha Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -38,22 +38,22 @@ Om du väljer att installera och använda CLI lokalt, måste Azure CLI version 2
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att skapa en resursgrupp, webbprogram, SQL-databasen och alla relaterade resurser. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+I det här skriptet används följande kommandon för att skapa en resursgrupp, webbappen, SQL-databasen och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Skapar en App Service-plan. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Skapar ett Azure-webbapp. |
-| [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) | Skapar en SQL-databasservern.  |
-| [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) | Skapar en ny databas med SQL-databasservern. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Skapar en Azure-webbapp. |
+| [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) | Skapar en SQL Database-server.  |
+| [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) | Skapar en ny databas med SQL Database-servern. |
 | [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_show_connection_string) | Genererar en anslutningssträng för en databas. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) | Skapar eller uppdaterar en appinställning för ett Azure-webbapp. App-inställningar visas som miljövariabler för din app. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) | Skapar eller uppdaterar en app-inställning för en Azure-webbapp. App-inställningar visas som miljövariabler för din app. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare App Service CLI skriptexempel finns i den [dokumentation för Azure App Service](../app-service-cli-samples.md).
+Fler App Service CLI-skriptexempel finns i [dokumentationen för Azure App Service](../app-service-cli-samples.md).

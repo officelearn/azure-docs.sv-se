@@ -1,24 +1,24 @@
 ---
-title: "Integrera säkerhetslösningar i Azure Security Center | Microsoft Docs"
-description: "Läs hur Azure Security Center integrerar med partners för att förbättra den övergripande säkerheten för dina Azure-resurser."
+title: Integrera säkerhetslösningar i Azure Security Center | Microsoft Docs
+description: Läs hur Azure Security Center integrerar med partners för att förbättra den övergripande säkerheten för dina Azure-resurser.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/08/2018
 ms.author: yurid
-ms.openlocfilehash: 42cbc442d03cdca04d380d05d9e904355476099e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 48648c2e84d2a2e4de01f04495fb08df603c6017
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
@@ -63,7 +63,15 @@ Azure-säkerhetslösningar som distribueras från Security Center ansluts automa
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Hantera integrerade Azure-säkerhetslösningar och andra datakällor
 
-Efter distributionen kan du visa information om hälsotillståndet för den integrerade Azure-säkerhetslösningen och utföra grundläggande hanteringsåtgärder. Du kan även ansluta andra typer av datakällor för säkerhet, t.ex. Azure Active Directory Identity Protection-aviseringar och brandväggsloggar i Common Event Format (CEF). Välj Säkerhetslösningar i instrumentpanelen i Security Center.
+1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
+
+2. På menyn **Microsoft Azure** väljer du **Security Center**. **Security Center – Översikt** öppnas.
+
+  ![Security Center – Översikt](./media/security-center-partner-integration/overview.png)
+
+3. Under **Översikt** väljer du **Säkerhetslösningar**.
+
+Under **Säkerhetslösningar** kan du se information om hälsostatus för integrerade Azure-säkerhetslösningar och utföra grundläggande hanteringsåtgärder. Du kan även ansluta andra typer av datakällor för säkerhet, t.ex. Azure Active Directory Identity Protection-aviseringar och brandväggsloggar i Common Event Format (CEF).
 
 ### <a name="connected-solutions"></a>Anslutna lösningar
 
@@ -71,13 +79,22 @@ Avsnittet **Anslutna lösningar** innehåller säkerhetslösningar som för när
 
 ![Anslutna lösningar](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
+Mer information finns i [Hantera anslutna partnerlösningar](security-center-partner-solutions.md).
+
 ### <a name="discovered-solutions"></a>Identifierade lösningar
 
-Avsnittet **Identifierade lösningar** visar alla lösningar som har lagts till via Azure. Det visar även alla lösningar som Security Center föreslår ska anslutas till det.
+Security Center identifierar automatiskt säkerhetslösningar som körs i Azure men som inte är anslutna till Security Center. Lösningarna visas i avsnittet **Identifierade lösningar**. Detta omfattar Azure-lösningar som [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) samt partnerlösningar.
+
+> [!NOTE]
+> Funktionen Identifierade lösningar finns tillgänglig på nivån Standard för Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
+>
+>
+
+Välj **ANSLUT** under en lösning om du vill integrera den med Security Center och få säkerhetsaviseringar.
 
 ![Identifierade lösningar](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
-Security Center upptäcker automatiskt andra säkerhetslösningar som körs i Azure. Detta omfattar Azure-lösningar som [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) samt partnerlösningar som körs i Azure. Om du vill integrera de här lösningarna med Security Center väljer du **ANSLUT**.
+Security Center identifierar också lösningar som distribueras i prenumerationen och som kan vidarebefordra CEF-loggar (Common Event Format). Läs om hur du [ansluter en säkerhetslösning](quick-security-solutions.md) som använder CEF-loggar till Security Center.
 
 ### <a name="add-data-sources"></a>Lägg till datakällor
 
@@ -90,7 +107,6 @@ Avsnittet **Lägg till datakällor** innehåller andra tillgängliga datakällor
 
 Den här artikeln berättade om hur man integrerar partnerlösningar i Security Center. I följande artiklar kan du lära dig mer om Security Center:
 
-* [Planerings- och bruksanvisningsguide för Security Center](security-center-planning-and-operations-guide.md)
 * [Ansluta Microsoft Advanced Threat Analytics till Azure Security Center](security-center-ata-integration.md)
 * [Ansluta Azure Active Directory Identity Protection till Azure Security Center](security-center-aadip-integration.md)
 * [Övervakning av säkerhetshälsa i Security Center](security-center-monitoring.md). Lär dig att övervaka hälsotillståndet för dina Azure-resurser.

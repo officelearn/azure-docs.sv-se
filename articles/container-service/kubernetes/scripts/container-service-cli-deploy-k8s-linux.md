@@ -1,14 +1,14 @@
 ---
-title: Azure CLI Script exempel - skapa ACS Linux Kubernetes kluster | Microsoft Docs
-description: Azure CLI Script exempel - skapa ACS Linux Kubernetes kluster
+title: Skriptexempel för Azure CLI – Skapa ACS Linux Kubernetes-kluster| Microsoft Docs
+description: Skriptexempel för Azure CLI – Skapa ACS Linux Kubernetes-kluster
 services: container-service
-documentationcenter: 
+documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: 
+editor: ''
 tags: acs, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
-ms.assetid: 
+ms.assetid: ''
 ms.service: container-service
 ms.devlang: azurecli
 ms.topic: sample
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 1a2672af6428b9db83f3c916897d25de38035531
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 7d9b689ef9746c152fcc98a47a022fcbe9a8a6bb
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="create-an-azure-container-service-kubernetes-linux-cluster"></a>Skapa ett Azure Container Service Kubernetes Linux-kluster
+# <a name="create-an-azure-container-service-kubernetes-linux-cluster"></a>Skapa en Azure Container Service med Kubernetes Linux-kluster
 
 Det här exemplet skapar ett Azure Container Service-kluster som kör Kubernetes för Linux-baserade behållare.
 
@@ -44,24 +44,24 @@ az acs create \
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```azurecli
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att skapa distributionen. Varje objekt i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ grupp](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
-| [AZ acs skapa](https://docs.microsoft.com/cli/azure/acs#az_acs_create) | Skapar och ACS-kluster. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az acs create](https://docs.microsoft.com/cli/azure/acs#az_acs_create) | Skapar ett ACS-kluster. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare Azure Container Service CLI skriptexempel finns i den [Azure Container Service-dokumentationen](../cli-samples.md).
+Ytterligare Azure Container Service CLI-skriptexempel finns i [Azure Container Service-dokumentationen](../cli-samples.md).
 

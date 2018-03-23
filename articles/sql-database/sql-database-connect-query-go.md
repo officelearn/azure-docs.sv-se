@@ -1,31 +1,27 @@
 ---
-title: "Använda Go för att köra frågor mot Azure SQL Database | Microsoft Docs"
-description: "Använd Go för att skapa ett program som ansluter till en Azure SQL Database, och använd Transact-SQL-uttryck för att köra frågor mot och ändra data."
+title: Använda Go för att köra frågor mot Azure SQL Database | Microsoft Docs
+description: Använd Go för att skapa ett program som ansluter till en Azure SQL Database, och använd Transact-SQL-uttryck för att köra frågor mot och ändra data.
 services: sql-database
-documentationcenter: 
 author: David-Engel
 manager: craigg
-editor: MightyPen
-ms.assetid: 
+ms.reviewer: MightyPen
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-daveng
-ms.openlocfilehash: 248f4d0b4b54ce2a2ca005379a590d895e9b4b3e
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: e479b0445e0055b77773554bb5b725cb04498ba2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-go-to-query-an-azure-sql-database"></a>Använda Go för att köra frågor mot en Azure SQL Database
 
 Den här snabbstarten visar hur du använder [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) för att ansluta till en Azure SQL Database. Här visas också hur du använder Transact-SQL-uttryck för att köra frågor mot och ändra data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna slutföra den här snabbstartskursen behöver du följande:
 

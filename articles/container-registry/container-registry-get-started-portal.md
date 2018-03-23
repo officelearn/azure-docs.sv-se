@@ -1,23 +1,23 @@
 ---
-title: "Snabbstart – skapa ett privat Docker-register i Azure med Azure-portalen"
-description: "Lär dig snabbt att skapa ett privat Docker-behållarregister med Azure-portalen."
+title: Snabbstart – skapa ett privat Docker-register i Azure med Azure-portalen
+description: Lär dig snabbt att skapa ett privat Docker-behållarregister med Azure-portalen.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/06/2017
+ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 1a4c5b365b93b30987ff6541aba762cbf8a4b7a5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: db112f7f8f486093509a86f9781c30133925c25f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Skapa ett behållarregister med hjälp av Azure Portal
 
-Ett Azure-behållarregister är ett privat Docker-register i Azure där du kan lagra och hantera dina privata Docker-behållaravbildningar. I den här snabbstarten skapar du ett behållarregister med Azure-portalen.
+Ett Azure-behållarregister är ett privat Docker-register i Azure där du kan lagra och hantera dina privata Docker-behållaravbildningar. I den här snabbstarten skapar du ett behållarregister med Azure-portalen, push-överföra en behållaravbildning till registret och slutligen distribuera behållaren från ditt register till Azure Container Instances (ACI).
 
 För att kunna slutföra den här snabbstarten måste du ha Docker installerat lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac][docker-mac]-, [Windows][docker-windows]- eller [Linux][docker-linux]-dator.
 
@@ -73,13 +73,13 @@ docker pull microsoft/aci-helloworld
 
 Innan du överför avbildningen till registret måste du tagga avbildningen med namnet på ACR-inloggningsservern. Tagga avbildningen med hjälp av kommandot [docker tag][docker-tag]. Ersätt *inloggningsserver* med det inloggningsservernamn du antecknade tidigare.
 
-```
+```bash
 docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
 Använd slutligen [docker push][docker-push] för att överföra avbildningen till ACR-instansen. Ersätt *inloggningsserver* med inloggningsservernamnet för ACR-instansen.
 
-```
+```bash
 docker push <login server>/aci-helloworld:v1
 ```
 
@@ -104,15 +104,43 @@ I det här exemplet har vi valt lagret **aci-helloworld**, och vi kan se avbildn
 
 ![Skapa ett behållarregister i Azure-portalen][qs-portal-09]
 
+## <a name="deploy-image-to-aci"></a>Distribuera avbildningen till ACI
+
+För att distribuera till en instans från registret måste vi navigera till lagringsplatsen (aci-helloworld) och sedan klicka på de tre punkterna bredvid v1.
+
+![Starta en Azure Container Instance från portalen][qs-portal-10]
+
+En snabbmeny visas. Välj **Kör instans**:
+
+![Starta ACI-snabbmeny][qs-portal-11]
+
+Fyll i **Behållarnamn**, se till att rätt beskrivning är vald, välj befintlig **Resursgrupp**: ”myResourceGroup” och klicka därefter på **OK** för att starta Azure Container-instansen.
+
+![Starta ACI-distributionsalternativ][qs-portal-12]
+
+När distributionen inleds visas en förloppsindikator i form av en ikon på instrumentpanelen i portalen. När distributionen är klar panelen uppdateras ikonen och indikerar istället behållargruppen **mycontainer**.
+
+![Status för ACI-distribution][qs-portal-13]
+
+Markera behållargruppen mycontainer för att visa egenskaperna för behållargruppen. Anteckna behållargruppens **IP-adress** och behållarens **STATUS**.
+
+![ACI-behållarinformation][qs-portal-14]
+
+## <a name="view-the-application"></a>Visa programmet
+
+När behållaren är i tillståndet **Körs** kan du använda din favoritwebbläsare och navigera till IP-adressen som du antecknade i föregående steg om du vill visa programmet.
+
+![Hello World-app i webbläsaren][qs-portal-15]
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs tar du bort resursgruppen **myResourceGroup**. Då raderas resursgruppen, ACR-instansen och alla behållaravbildningar.
+Om du vill rensa dina resurser går du till resursgruppen **myResourceGroup** i portalen. När resursgruppen har lästs in klickar du på **Ta bort resursgrupp** för att ta bort resursgruppen, Azure Container Registry och alla Azure Container Instances.
 
 ![Skapa ett behållarregister i Azure-portalen][qs-portal-08]
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du ett Azure Container Registry med Azure-portalen. Om du vill använda Azure Container Registry med Azure Container Instances fortsätter du till självstudien för Azure Container Instances.
+I snabbstarten skapade du ett Azure Container Registry med Azure CLI och startade en instans av den via Azure Container Instances. Fortsätt till självstudien om Azure Container Instances och få en djupare inblick i ACI.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances-självstudier][container-instances-tutorial-prepare-app]
@@ -127,6 +155,12 @@ I den här snabbstarten skapade du ett Azure Container Registry med Azure-portal
 [qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
 [qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
 [qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
+[qs-portal-10]: ./media/container-registry-get-started-portal/qs-portal-10.png
+[qs-portal-11]: ./media/container-registry-get-started-portal/qs-portal-11.png
+[qs-portal-12]: ./media/container-registry-get-started-portal/qs-portal-12.png
+[qs-portal-13]: ./media/container-registry-get-started-portal/qs-portal-13.png
+[qs-portal-14]: ./media/container-registry-get-started-portal/qs-portal-14.png
+[qs-portal-15]: ./media/container-registry-get-started-portal/qs-portal-15.png
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

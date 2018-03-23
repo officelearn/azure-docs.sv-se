@@ -1,6 +1,6 @@
 ---
-title: "Nätverkssäkerhetsgrupper i Azure | Microsoft Docs"
-description: "Lär dig mer om hur du isolerar och styr trafikflödet i dina virtuella nätverk med hjälp av den distribuerade brandväggen i Azure genom att använda nätverkssäkerhetsgrupper."
+title: Nätverkssäkerhetsgrupper i Azure | Microsoft Docs
+description: Lär dig mer om hur du isolerar och styr trafikflödet i dina virtuella nätverk med hjälp av den distribuerade brandväggen i Azure genom att använda nätverkssäkerhetsgrupper.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrera nätverkstrafik med nätverkssäkerhetsgrupper
 
 En nätverkssäkerhetsgrupp (NSG) innehåller en lista över säkerhetsregler som tillåter eller nekar nätverkstrafik till resurser som är anslutna till virtuella Azure-nätverk (VNet). Nätverkssäkerhetsgrupper kan kopplas till undernät, enskilda virtuella datorer (klassisk) eller enskilda nätverkskort (NIC) som är anslutna till virtuella datorer (Resource Manager). När en nätverkssäkerhetsgrupp är kopplad till ett undernät gäller reglerna för alla resurser som är anslutna till undernätet. Trafiken kan begränsas ytterligare genom att en nätverkssäkerhetsgrupp associeras med en virtuell dator eller ett nätverkskort.
-
+ 
 > [!NOTE]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../resource-manager-deployment-model.md). Den här artikeln täcker bägge modellerna, men Microsoft rekommenderar de flesta nya distributioner att använda Resource Manager-modellen.
 
@@ -98,7 +98,7 @@ Du kan koppla en nätverkssäkerhetsgrupp till virtuella datorer, nätverkskort 
 
 * **VM (endast klassisk):** Säkerhetsregler används för all trafik till/från den virtuella datorn. 
 * **Nätverkskort (endast Resource Manager):** Säkerhetsregler används för all trafik till/från nätverkskortet som nätverkssäkerhetsgruppen är kopplad till. På en virtuell dator med flera nätverkskort kan du använda olika (eller samma) nätverkssäkerhetsgrupp för varje nätverkskort. 
-* **Undernät (Resource Manager och klassisk):** Säkerhetsregler används för all trafik till/från resurser som är anslutna till det virtuella nätverket.
+* **Undernät (Resource Manager och klassiskt):** Säkerhetsregler används för all trafik till/från resurser som är anslutna till undernätverket.
 
 Du kan koppla olika nätverkssäkerhetsgrupper till en virtuell dator (eller ett nätverkskort, beroende på distributionsmodell) och det undernät som ett nätverkskort eller en virtuell dator är ansluten till. Säkerhetsregler används för trafiken, efter prioritet, i varje nätverkssäkerhetsgrupp, i följande ordning:
 

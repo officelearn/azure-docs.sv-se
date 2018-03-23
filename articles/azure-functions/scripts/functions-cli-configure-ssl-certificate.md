@@ -1,11 +1,11 @@
 ---
-title: Skriptexempel Azure CLI - bindning som ett anpassat SSL-certifikatet till en funktionsapp | Microsoft Docs
-description: Skriptexempel Azure CLI - Bind ett anpassat SSL-certifikatet till en funktionsapp i Azure
+title: Skriptexempel för Azure CLI – Binda ett anpassat SSL-certifikat till en funktionsapp | Microsoft Docs
+description: Skriptexempel för Azure CLI – Binda ett anpassat SSL-certifikat till en funktionsapp i Azure
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
 ms.service: functions
@@ -16,26 +16,26 @@ ms.topic: sample
 ms.date: 04/10/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f8e8570d9c3093b5f49b000916644888304eed4e
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
-ms.translationtype: MT
+ms.openlocfilehash: fd4c69036960364e12aeea5d9e5f65e7b36eff0d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>Bind ett anpassade SSL-certifikat till en funktionsapp
+# <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>Binda ett anpassat SSL-certifikat till en funktionsapp
 
-Det här exempelskriptet skapar en funktionsapp i App Service med dess relaterade resurser och sedan binda SSL-certifikatet för ett anpassat domännamn till den. För det här exemplet behöver du:
+Det här exempelskriptet skapar en funktionsapp i App Service med dess relaterade resurser och binder sedan SSL-certifikatet för ett anpassat domännamn till den. För det här exemplet behöver du följande:
 
-* Åtkomst till din domänregistrator DNS-konfigurationssidan.
-* En giltig. PFX-filen och lösenordet för SSL-certifikatet som du vill ladda upp och binda.
+* Få åtkomst till din domänregistrators DNS-konfigurationssida.
+* En giltig .PFX-fil och dess lösenord för SSL-certifikatet du vill ladda upp och binda.
 
-Om du vill binda ett SSL-certifikat, måste funktionen appen skapas i en apptjänstplan och inte i en plan för användning.
+Om du vill binda ett SSL-certifikat måste funktionsappen skapas i en App Service-plan och inte i en användningsplan.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -43,21 +43,21 @@ Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI 
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ grupp](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
-| [Skapa AZ programtjänstplan](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Skapar en App Service-plan som krävs för att binda SSL-certifikat. |
-| [Skapa AZ functionapp]() | Skapar en funktionsapp. |
-| [Lägg till AZ apptjänst web config värdnamn](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Mappar en anpassad domän för funktionen appen. |
-| [AZ apptjänst web config ssl överför](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_upload) | Överför ett SSL-certifikat till en funktionsapp. |
-| [AZ apptjänst web config ssl-bindning](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_bind) | Binder en överförda SSL-certifikatet till en funktionsapp. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Skapar en App Service-plan som krävs för att binda SSL-certifikat. |
+| [az functionapp create]() | Skapar en funktionsapp. |
+| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Mappar en anpassad domän till funktionsappen. |
+| [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_upload) | Överför ett SSL-certifikat till en funktionsapp. |
+| [az appservice web config ssl bind](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_bind) | Binder ett överfört SSL-certifikat till en funktionsapp. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare App Service CLI skriptexempel finns i den [dokumentation för Azure App Service]().
+Fler App Service CLI-skriptexempel finns i [dokumentationen för Azure App Service]().

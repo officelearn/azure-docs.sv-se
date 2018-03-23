@@ -1,11 +1,11 @@
 ---
-title: "Skriptexempel Azure CLI - karta en anpassad domän till en funktionsapp | Microsoft Docs"
-description: "Azure CLI skriptexempel - karta en anpassad domän till en funktion i Azure."
+title: Skriptexempel för Azure CLI – Mappa en anpassad domän till en funktionsapp | Microsoft Docs
+description: Skriptexempel för Azure CLI – Mappa en anpassad domän till en funktionsapp i Azure.
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: d127e347-7581-47d7-b289-e0f51f2fbfbc
 ms.service: functions
@@ -16,21 +16,21 @@ ms.topic: sample
 ms.date: 06/01/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 87b79d6222f40e3dc1306ecace51bae50b06e484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: d2efd0891cb0010aac6135ce190ad77667f78efd
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Mappa en anpassad domän till en funktionsapp
 
-Det här exempelskriptet skapar en funktionsapp med relaterade resurser och sedan mappa `www.<yourdomain>` till den. Om du vill mappa till en anpassad domän, måste appen funktionen skapas i en apptjänstplan och inte i en plan för användning. Azure Functions stöder bara mappa en anpassad domän med en A-post.
+Det här skriptexemplet skapar en funktionsapp med relaterade resurser och mappar sedan `www.<yourdomain>` till den. Om du vill mappa till en anpassad domän måste funktionsappen skapas i en App Service-plan och inte i en användningsplan. Azure Functions har bara stöd för mappning av anpassade domäner med en A-post.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt, måste du använda Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att använda CLI lokalt måste du använda Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="sample-script"></a>Exempelskript
@@ -39,20 +39,20 @@ Om du väljer att installera och använda CLI lokalt, måste du använda Azure C
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon: varje kommando i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon: varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ grupp](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
-| [Skapa AZ storage-konto](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Skapar ett lagringskonto som krävs av funktionen appen. |
-| [Skapa AZ programtjänstplan](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Skapar en App Service-plan som behövs för att mappa en anpassad domän. |
-| [Skapa AZ functionapp]() | Skapar en funktionsapp. |
-| [Lägg till AZ apptjänst web config värdnamn](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Avbildar en anpassad domän till en funktionsapp. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Skapar ett lagringskonto som krävs av funktionsappen. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Skapar en App Service-plan som krävs för mappning av en anpassad domän. |
+| [az functionapp create]() | Skapar en funktionsapp. |
+| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Mappar en anpassad domän till en funktionsapp. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare funktioner CLI skriptexempel finns i den [Azure Functions dokumentationen]().
+Ytterligare Functions CLI-skriptexempel för finns i [Azure Functions-dokumentationen]().

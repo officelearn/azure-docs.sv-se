@@ -1,13 +1,13 @@
 ---
-title: "Azure CLI skript-hämta Azure Cosmos DB-anslutningssträngen för MongoDB-appar | Microsoft Docs"
-description: "Skriptexempel Azure CLI - hämta Azure Cosmos DB-anslutningssträngen för MongoDB-appar"
+title: Azure CLI-skript – Hämta Azure Cosmos DB-anslutningssträng för MongoDB-appar | Microsoft Docs
+description: Azure CLI-skript – Hämta Azure Cosmos DB-anslutningssträng för MongoDB-appar
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: azurecli
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.openlocfilehash: 12e51922db4e9a2ff9b176186a4180ae2238be7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 3720c4725c9557f9226264911bf5530ce514576f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-apps-using-the-azure-cli"></a>Hämta en Azure Cosmos DB-anslutningssträngen för MongoDB-appar som använder Azure CLI
+# <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-apps-using-the-azure-cli"></a>Hämta en Azure Cosmos DB-anslutningssträng för MongoDB-appar som använder Azure CLI
 
 Det här exemplet hämtar en Azure Cosmos DB-anslutningssträng för MongoDB-appar som använder Azure CLI. 
 
@@ -36,25 +36,25 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-Följande kommando kan användas för att ta bort resursgruppen och alla resurser som är associerade med den efter skriptexempel har körts.
+När exempelskriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ grupp](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
-| [AZ cosmosdb uppdatering](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_update) | Uppdaterar ett Azure DB som Cosmos-konto. |
-| [AZ cosmosdb lista--anslutningssträngar](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_list_connection_strings) | Hämtar anslutningssträngen för kontot.|
-| [ta bort grupp AZ](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_update) | Uppdaterar ett Azure Cosmos DB-konto. |
+| [az cosmosdb list-connection-strings](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_list_connection_strings) | Hämtar anslutningssträngen för kontot.|
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare Azure Cosmos DB CLI skriptexempel finns i den [Azure Cosmos DB CLI dokumentationen](../cli-samples.md).
+Ytterligare Azure Cosmos DB CLI-skriptexempel finns i [Azure Cosmos DB CLI-dokumentationen](../cli-samples.md).

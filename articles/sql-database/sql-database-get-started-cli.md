@@ -1,26 +1,21 @@
 ---
 title: 'Azure CLI: Skapa en SQL-databas | Microsoft Docs'
-description: "Lär dig hur du skapar en logisk SQL Database-server, brandväggsregel på servernivå och databaser med hjälp av Azure CLI."
-keywords: "sql database-självstudier, skapa en sql-databas"
+description: Lär dig hur du skapar en logisk SQL Database-server, brandväggsregel på servernivå och databaser med hjälp av Azure CLI.
+keywords: sql database-självstudier, skapa en sql-databas
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: 5076a9fcbfb0c46a0aebf858d5ec1dcbee839946
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 73639d59d047fbf1e07b242e21605a83e3c4b837
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Skapa en enskild Azure SQL-databas med Azure CLI
 
@@ -108,7 +103,7 @@ Nu när du har en databas kan du ansluta och söka med dina favoritverktyg. Lär
 
 - [SQL Server Management Studio](sql-database-connect-query-ssms.md)
 - [Visual Studio Code](sql-database-connect-query-vscode.md)
-- [NET](sql-database-connect-query-dotnet.md)
+- [.NET](sql-database-connect-query-dotnet.md)
 - [PHP](sql-database-connect-query-php.md)
 - [Node.js](sql-database-connect-query-nodejs.md)
 - [Java](sql-database-connect-query-java.md)

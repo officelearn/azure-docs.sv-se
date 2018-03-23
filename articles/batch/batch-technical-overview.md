@@ -1,12 +1,12 @@
 ---
-title: "Azure Batch kör stora parallella jobb i molnet | Microsoft Docs"
-description: "Lär dig mer om hur du använder Azure Batch-tjänsten för storskaliga parallella arbetsbelastningar och HPC-arbetsbelastningar"
+title: Azure Batch kör stora parallella jobb i molnet | Microsoft Docs
+description: Lär dig mer om hur du använder Azure Batch-tjänsten för storskaliga parallella arbetsbelastningar och HPC-arbetsbelastningar
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: mscurrell
 manager: jkabat
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 93eabc0bdf4889d89f8dc3fc30f99dafa1b3a47a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d6a0355874e9fc98e551a2a05c776109c916d90a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-azure-batch"></a>Vad är Azure Batch?
 
@@ -74,7 +74,7 @@ Följande diagram illustrerar stegen i ett vanligt Batch-arbetsflöde med ett kl
 |Steg  |Beskrivning  |
 |---------|---------|
 |1.  Ladda upp **indatafilerna** och **programmen** för att bearbeta dessa filer till ditt Azure Storage-konto.     |Indatafilerna kan vara data som ditt program bearbetar, till exempel modellering av finansdata eller videofiler som ska kodas. Programfilerna kan innehålla skript eller program som bearbetar data, till exempel en mediatranscoder.|
-|2.  Skapa en Batch-**pool** av beräkningsnoder på ditt Batch-konto, ett **jobb** att köra arbetsbelastningen på poolen och **aktiviteter** i jobbet.     | Poolnoderna är de virtuella datorer som kör dina aktiviteter. Ange egenskaper, till exempel antal och storlek för noderna, en Windows- eller Linux VM-avbildning och ett program att installera när noderna ansluter till poolen. Hantera kostnaden för och storleken på poolen med hjälp av [VM med låg prioritet](batch-low-pri-vms.md) eller genom att [automatiskt skala](batch-automatic-scaling.md) antalet noder när arbetsbelastningen ändras. <br/><br/>När du lägger till aktiviteter till ett jobb schemalägger Batch-tjänsten automatiskt aktiviteterna för körning på beräkningsnoderna i poolen. Varje aktivitet använder det program som du överförde för att bearbeta indatafilerna. |
+|2.  Skapa en Batch-**pool** av beräkningsnoder på ditt Batch-konto, ett **jobb** att köra arbetsbelastningen på poolen och **aktiviteter** i jobbet.     | Poolnoderna är de virtuella datorer som kör dina aktiviteter. Specifika egenskaper som nodernas antal och storlek, en Windows- eller Linux VM-avbildning och ett program att installera när noderna ansluts till poolen. Hantera kostnaden för och storleken på poolen med hjälp av [VM med låg prioritet](batch-low-pri-vms.md) eller genom att [automatiskt skala](batch-automatic-scaling.md) antalet noder när arbetsbelastningen ändras. <br/><br/>När du lägger till aktiviteter till ett jobb schemalägger Batch-tjänsten automatiskt aktiviteterna för körning på beräkningsnoderna i poolen. Varje aktivitet använder det program som du överförde för att bearbeta indatafilerna. |
 |3.  Hämta **inkommande filer** och **program** till Batch     |Innan varje aktivitet körs kan den hämta de indata som ska behandlas till den tilldelade beräkningsnoden. Om programmet inte redan är installerat på noderna i poolen kan det laddas ned här i stället. När hämtningen från Azure Storage är slutförd körs aktiviteten på den tilldelade noden.|
 |4.  Övervaka **körningen av aktiviteten**     |När aktiviteterna utförs ska du köra frågor mot Batch för att övervaka jobbets och aktiviteternas förlopp. Ditt klientprogram eller -tjänst kommunicerar med Batch-tjänsten över HTTPS. Eftersom du kan övervaka tusentals aktiviteter som körs på tusentals beräkningsnoder, se till att [effektivt fråga Batch-tjänsten](batch-efficient-list-queries.md).|
 |5.  Överför **aktivitetsutdata**     |När aktiviteterna slutförs kan de ladda upp resultatdata till Azure Storage. Du kan också hämta filer direkt från filsystemet på en beräkningsnod.|
@@ -85,7 +85,7 @@ Följande diagram illustrerar stegen i ett vanligt Batch-arbetsflöde med ett kl
 
 Tänk på att det här bara är ett av många sätt att använda Batch på och att det här scenariot bara beskriver några av funktionerna. Du kan till exempel köra [flera aktiviteter parallellt](batch-parallel-node-tasks.md) på varje beräkningsnod. Eller använda [jobbförberedelser och -slutförande](batch-job-prep-release.md) för att förbereda noderna för dina jobb och sedan rensa efteråt. 
 
-I [Översikt över Batch-funktioner för utvecklare](batch-api-basics.md) finns mer detaljerad information om pooler, noder, jobb och aktiviteter, och de många API-funktioner som du kan använda när du skapar ett Batch-program. 
+I [Översikt över Batch-funktioner för utvecklare](batch-api-basics.md) finns mer detaljerad information om pooler, noder, jobb och aktiviteter, och de många API-funktioner som du kan använda när du skapar ett Batch-program. Se även de senaste [Batch-tjänstuppdateringarna](https://azure.microsoft.com/updates/?product=batch).
 
 ## <a name="next-steps"></a>Nästa steg
 

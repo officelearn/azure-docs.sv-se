@@ -1,31 +1,26 @@
 ---
-title: "Fråga Azure SQL Database med Ruby | Microsoft Docs"
-description: "Det här avsnittet visar hur du använder Ruby för att skapa ett program som ansluter till en Azure SQL Database och frågar den med hjälp av Transact-SQL-uttryck."
+title: Fråga Azure SQL Database med Ruby | Microsoft Docs
+description: Det här avsnittet visar hur du använder Ruby för att skapa ett program som ansluter till en Azure SQL Database och frågar den med hjälp av Transact-SQL-uttryck.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 94fec528-58ba-4352-ba0d-25ae4b273e90
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 07/15/2017
 ms.author: carlrab
-ms.openlocfilehash: 3427d216540451bc10b968f866d0fce0f6df3c54
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 19ff40c5e4a42195dcfe0b68c8d0b941e53f25a2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-ruby-to-query-an-azure-sql-database"></a>Använd Ruby för att fråga en Azure SQL-databas
 
 Den här snabbstartsguiden visar hur du använder [Ruby](https://www.ruby-lang.org) för att skapa ett program för att ansluta till en Azure SQL-databas och använder Transact-SQL-uttryck för att köra frågor mot data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna slutföra den här snabbstartskursen behöver du följande:
 
@@ -44,11 +39,11 @@ För att kunna slutföra den här snabbstartskursen behöver du följande:
 > [!IMPORTANT]
 > Du måste ha en brandväggsregel för den offentliga IP-adressen för datorn som du utför den här självstudien med. Om du använder en annan dator eller har en annan offentlig IP-adress så skapar du en [brandväggsregel på servernivå med hjälp av Azure Portal](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
 
-## <a name="insert-code-to-query-sql-database"></a>Infoga kod för att fråga SQL Database
+## <a name="insert-code-to-query-sql-database"></a>Infoga kod för att fråga SQL-databas
 
 1. Skapa en ny fil, **sqltest.py**, i valfri textredigerare
 
-2. Ersätt innehållet med följande kod och lägg till lämpliga värden för server, databas, användare och lösenord.
+2. Ersätt innehållet med följande kod och lägg till lämpliga värden för din server, databas, användare och lösenord.
 
 ```ruby
 require 'tiny_tds'

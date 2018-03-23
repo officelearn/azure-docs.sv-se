@@ -1,26 +1,21 @@
 ---
 title: 'Azure PowerShell: Skapa en SQL-databas | Microsoft Docs'
-description: "Lär dig att skapa en logisk SQL Database-server, brandväggsregel på servernivå och databaser i Azure Portal."
-keywords: "sql database-självstudier, skapa en sql-databas"
+description: Lär dig att skapa en logisk SQL Database-server, brandväggsregel på servernivå och databaser i Azure Portal.
+keywords: sql database-självstudier, skapa en sql-databas
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: quickstart
 ms.date: 04/17/2017
 ms.author: carlrab
-ms.openlocfilehash: 68f7ea0f5255602629a0b0960726c30dd508a655
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6946ab259b6b3f7f911e047731d51f026742fa52
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>Skapa en enskild Azure SQL-databas med PowerShell
 
@@ -121,7 +116,7 @@ Nu när du har en databas kan du ansluta och söka med dina favoritverktyg. Lär
 
 - [SQL Server Management Studio](sql-database-connect-query-ssms.md)
 - [Visual Studio Code](sql-database-connect-query-vscode.md)
-- [NET](sql-database-connect-query-dotnet.md)
+- [.NET](sql-database-connect-query-dotnet.md)
 - [PHP](sql-database-connect-query-php.md)
 - [Node.js](sql-database-connect-query-nodejs.md)
 - [Java](sql-database-connect-query-java.md)

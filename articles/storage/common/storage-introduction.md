@@ -2,23 +2,17 @@
 title: Introduktion till Azure Storage | Microsoft Docs
 description: Introduktion till Azure Storage, Microsofts datalagring i molnet.
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/21/2018
+ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 799636d0a702407be06bbe8cebae552b34d860db
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduktion till Microsoft Azure Storage
 
@@ -137,7 +131,7 @@ Det finns några grundläggande typer av kryptering för Storage-tjänsterna. Me
 
 Vilande Azure Storage Service-kryptering (SSE) stöder kryptering av vilande data och skyddar dina data så att din verksamhet uppfyller både interna och externa krav och åtaganden. Med den här funktionen krypterar Azure Storage automatiskt dina data för beständig lagring och dekrypterar dem före hämtning. Användarna har fullständig insyn i kryptering, dekryptering och nyckelhantering.
 
-Du kan aktivera Storage Service Encryption (SSE) för blobblagring eller Azure Files (förhandsversion). Om det aktiveras krypteras alla data som skrivs till den specifika tjänsten innan de skrivs. När du läser dessa data dekrypteras de innan de returneras.
+SSE krypterar automatiskt data på alla prestandanivåer (Standard och Premium), alla distributionsmodeller (Azure Resource Manager och klassisk) och alla Azure Storage-tjänster (blob, kö, tabell och fil). SSE påverkar inte Azure Storage-prestanda.
 
 Läs mer om vilande SSE-kryptering på [Azure Storage Service-kryptering för vilande data](storage-service-encryption.md).
 

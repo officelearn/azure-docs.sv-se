@@ -1,25 +1,29 @@
 ---
-title: "Översikt av Azure Location Based Services | Microsoft Docs"
-description: "En introduktion till Azure Location Based Services (förhandsversion)"
+title: Översikt av Azure Location Based Services | Microsoft Docs
+description: En introduktion till Azure Location Based Services (förhandsversion)
 services: location-based-services
-keywords: 
-author: dsk-2015
-ms.author: dkshir
-ms.date: 02/05/2017
+keywords: ''
+author: kgremban
+ms.author: kgremban
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9e6236f7d69556d7636962c98886d9f9508445ac
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 91df49aa3f522ea765698a1d64ed2686606f71f3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>En introduktion till Azure Location Based Services (förhandsversion)
 Azure Location Based Services är en portfölj med geospatiala tjänster som omfattar tjänst-API:er för kartor, sökning, ruttplanering, trafik och tidszoner. Med portföljen med Azure OneAPI-kompatibla tjänster kan du använda välbekanta utvecklingsverktyg för att snabbt utveckla och skala lösningar som integrerar platsinformation i dina Azure-lösningar. Azure Location Based Services ger utvecklare från alla branscher kraftfulla geospatiala funktioner med nya mappningsdata som krävs för att tillhandahålla geografisk kontext till webb- och mobilprogram. Azure Location Based Services är en uppsättning REST API:er som är kompatibla med Azure One API och som åtföljs av en webbaserad JavaScript-kontroll som gör utveckling över flera medier enkelt, flexibelt och portabelt. 
+
+Följande video introducerar Azure Location Based Services.
+
+<iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 Azure Location Based Services består av fem primära tjänster för att understödja Azure-program som kräver geografisk kontext. Varje tjänst förklaras i detalj nedan.
 
@@ -64,6 +68,16 @@ Azure Location Based Services består av fem primära tjänster för att underst
 Azure Location Based Services har skapats för rörlighet och fungerar plattformsoberoende eftersom programmeringsmodellen är oberoende och har stöd för JSON-utdata via REST API: er. Dessutom erbjuder Azure LBS en praktisk JavaScript-kartkontroll med en enkel programmeringsmodell för snabb och enkel utveckling av både webb- och mobilprogram. 
 
 I Azure Location Based Services används ett nyckelbaserat autentiseringsschema så man kommer åt tjänsterna genom att gå till [Azure-portalen](http://portal.azure.com) och skapa ett Azure Location Based Services-konto. Ditt konto har två nycklar som har genererats åt dig. Börja integrera de här platsfunktioner direkt i dina program med någon av dina nycklar i begäranden till tjänsten Azure Location Based Services.
+
+## <a name="unsupported-regions"></a>Regioner som inte stöds
+Vår API är för närvarande inte tillgänglig i länderna som nämns nedan. Kontrollera den aktuella IP-adressen och kontrollera att platsen för din IP-adress inte är något av länderna som inte stöds och som nämns nedan.
+
+* Argentina
+* Kina
+* Indien
+* Marocko
+* Pakistan
+* Sydkorea
 
 ## <a name="relationship-with-bing-maps"></a>Relationen med Bing-kartor
 Azure Location Based Services som beskrivs i detta dokument skiljer sig från det som tillhandahålls av Bing-kartor.  Även om de har flera funktioner gemensamt så är de två tjänsterna olika och inte relaterade.  Produkterbjudandet eller vägkartan för Bing-kartor påverkar inte tillgängligheten för den här nya tjänsten i Azure, som hanteras separat.

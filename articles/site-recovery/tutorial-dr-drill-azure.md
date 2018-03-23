@@ -1,69 +1,69 @@
 ---
-title: "Kör en katastrof återställningsgranskning för lokala datorer till Azure med Azure Site Recovery | Microsoft Docs"
-description: "Lär dig mer om med disaster recovery detaljgranska från lokala till Azure med Azure Site Recovery"
+title: Köra ett programåterställningstest för lokala datorer till Azure med Azure Site Recovery | Microsoft Docs
+description: Lär dig mer om hur du kör ett programåterställningstest från lokala datorer till Azure med Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2017
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: f7dc5e2df95a64685a8b70d25e839c371d4fc2de
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 2ac15e4da411efa6f018a3e3fb620023bc8964cc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Köra ett programåterställningstest till Azure
 
-Den här kursen visar hur du kör en katastrof återställningsgranskning för en lokal dator till Azure med hjälp av ett redundanstest. Visa verifierar din replikeringsstrategi för utan dataförlust. I den här guiden får du lära dig hur man:
+I den här självstudien visar vi hur du kör ett programåterställningstest för en lokal dator till Azure med hjälp av ett redundanstest. Med ett test kan du verifiera din replikeringsstrategi utan dataförlust. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Ställ in ett isolerat nätverk för att testa redundans
-> * Förbereda för att ansluta till den virtuella Azure-datorn efter redundans
-> * Köra ett redundanstest för en enskild dator
+> * Ställer in ett isolerat nätverk för redundanstestet
+> * Förbereder för att ansluta till den virtuella Azure-datorn efter en redundansväxling
+> * Kör ett redundanstest för en enstaka virtuell dator
 
-Detta är den fjärde vägledningen i en serie. Den här kursen förutsätter att du redan har slutfört uppgifterna i de föregående självstudierna.
+Detta är den fjärde självstudien i en serie. Självstudien förutsätter att du redan har slutfört uppgifterna i de föregående självstudierna.
 
 1. [Förbereda Azure](tutorial-prepare-azure.md)
 2. [Förbereda lokal VMware](tutorial-prepare-on-premises-vmware.md)
 3. [Konfigurera haveriberedskap](tutorial-vmware-to-azure.md)
 
-## <a name="verify-vm-properties"></a>Kontrollera egenskaperna för VM
+## <a name="verify-vm-properties"></a>Kontrollera VM-egenskaperna
 
-Innan du kör ett redundanstest Kontrollera egenskaper för Virtuella datorer och kontrollera att den virtuella datorn uppfyller [krav för Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Kontrollera den virtuella datorns egenskaper innan du kör ett redundanstest, och se till att din virtuella Hyper-V-dator[hyper-v-azure-support-matrix.md#replicated-vms], [virtuella VMware-dator eller fysiska server](vmware-physical-azure-support-matrix.md#replicated-machines) uppfyller kraven för Azure.
 
-1. I **skyddade objekt**, klickar du på **replikerade objekt** > VM.
-2. I den **replikerade objekt** , det finns en sammanfattning av VM-information, hälsostatus, och den senaste tillgängliga återställningspunkter. Klicka på **egenskaper** visa mer information.
-3. I **beräknings- och nätverksinställningar**, kan du ändra Azure namn, resursgruppens namn, Målstorlek, [tillgänglighetsuppsättning](../virtual-machines/windows/tutorial-availability-sets.md), och hanterade inställningar för disk.
+1. I **Skyddade objekt** klickar du på **Replikerade objekt** > VM.
+2. I fönstret **Replikerade objekt** finns det en sammanfattning av VM-informationen, hälsostatus och de senaste tillgängliga återställningspunkterna. Klicka på **Egenskaper** för att se mer information.
+3. I **Beräkning och nätverk** kan du ändra Azure-namnet, resursgrupp, målstorlek, [tillgänglighetsuppsättning](../virtual-machines/windows/tutorial-availability-sets.md) och hanterade diskinställningar.
    
       >[!NOTE]
-      Återställning till det lokala Hyper-V-datorer från Azure virtuella datorer med hanterade diskar stöds inte för närvarande. Du bör endast använda alternativet hanterade diskar för växling vid fel om du planerar att migrera lokala virtuella datorer till Azure utan misslyckas dem igen.
+      Återställning efter fel till Hyper-V-datorer från virtuella Azure-datorer med hanterade diskar stöds i dagsläget inte. Du bör endast använda alternativet hanterade diskar för växling vid fel om du planerar att migrera lokala virtuella datorer till Azure utan att återställa dem efter fel.
    
-4. Du kan visa och ändra inställningar för nätverk, inklusive de undernät eller det nätverk som virtuella Azure-datorn kommer att finnas efter växling vid fel och IP-adressen som ska tilldelas till den.
-5. I **diskar**, visas information om operativsystem och datadiskar på den virtuella datorn.
+4. Du kan visa och ändra inställningar för nätverk, inklusive det nätverk/undernät där den virtuella Azure-datorn kommer att finnas efter redundansen och den IP-adress som kommer att tilldelas till den.
+5. I **Diskar** kan du se information om operativsystemet och vilka datadiskar som finns på den virtuella datorn.
 
-## <a name="run-a-test-failover-for-a-single-vm"></a>Köra ett redundanstest för en enskild virtuell dator
+## <a name="run-a-test-failover-for-a-single-vm"></a>Köra ett redundanstest för en enstaka virtuell dator
 
 När du kör ett redundanstest händer följande:
 
-1. En kravkontroll körs ska du kontrollera att alla de villkor som krävs för växling vid fel är på plats.
-2. Redundans bearbetar data, så att du kan skapa en Azure VM. Om väljer skapas den senaste återställningspunkten, en återställningspunkt från data.
-3. En Azure VM skapas med hjälp av de data som behandlas i föregående steg.
+1. En kravkontroll körs för att säkerställa att alla de villkor som krävs för redundans är på plats.
+2. Redundansprocessen bearbetar data så att du kan skapa en virtuell Azure-dator. Om du väljer den senaste återställningspunkten skapas en återställningspunkt utifrån tillgängliga data.
+3. En virtuell Azure-dator skapas med hjälp av de data som behandlas i föregående steg.
 
 Kör redundanstestet på följande sätt:
 
-1. I **inställningar** > **replikerade objekt**, klicka på den virtuella datorn > **+ testa redundans**.
-2. Välj den **senaste bearbetas** återställningspunkt för den här kursen. Detta växlar den virtuella datorn till den senaste punkten i tid. Tidsstämpeln visas. Med det här alternativet läggs ingen tid bearbetning av data, så att den ger en låga RTO (mål).
-3. I **Redundanstest**, Välj det Azure ska vara anslutet nätverk till vilka virtuella Azure-datorer efter redundansväxlingen.
-4. Starta redundansväxlingen genom att klicka på **OK**. Du kan följa förloppet genom att klicka på den virtuella datorn för att öppna dess egenskaper. Du kan också klicka på den **Redundanstest** jobb i valvnamnet > **inställningar** > **jobb** >
-   **Site Recovery-jobb**.
-5. När redundansväxlingen är klar repliken virtuella Azure-datorn visas i Azure-portalen > **virtuella datorer**. Kontrollera att den virtuella datorn är rätt storlek, att den är ansluten till rätt nätverk och att den körs.
+1. I **Inställningar** > **Replikerade objekt** klickar du på >**+Testa redundans** för den virtuella datorn.
+2. Välj återställningspunkten **Senast bearbetade** för den här självstudien. Då redundansväxlar den virtuella datorn till den senast tillgängliga tidpunkten. Tidsstämpeln visas. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt RTO (mål för återställningstid).
+3. I **Redundanstest** väljer du det Azure-målnätverk som de virtuella Azure-datorerna ska ansluta till efter redundans.
+4. Starta redundansväxlingen genom att klicka på **OK**. Du kan följa förloppet genom att klicka på den virtuella datorn för att öppna dess egenskaper. Du kan också klicka på jobbet **Testa redundans** i valvnamnet > **Inställningar** > **Jobb** >
+   **Platsåterställningsjobb**.
+5. När redundansen är klar visas repliken av den virtuella Azure-datorn i Azure-portalen > **Virtual Machines**. Kontrollera att den virtuella datorn har rätt storlek, att den är ansluten till rätt nätverk och att den körs.
 6. Du bör nu kunna ansluta till den replikerade virtuella datorn i Azure.
-7. Ta bort Azure virtuella datorer som skapades under redundanstestningen, klicka på **Rensa redundanstestet** på den virtuella datorn. I **anteckningar**, registrera och spara observationer från redundanstestningen.
+7. Vill du ta bort virtuella Azure-datorer som skapades under redundanstestningen klickar du på **Rensa redundanstestning** på den virtuella datorn. I **Kommentarer** skriver du och sparar eventuella observationer från redundanstestningen.
 
-I vissa scenarier kräver redundans ytterligare bearbetning som tar cirka 8 till 10 minuter för att slutföra. Du kanske ser längre testa redundans tider för VMware Linux-datorer, virtuella VMware-datorer som inte har möjliggör DHCP-tjänsten och virtuella VMware-datorer som inte har följande startdrivrutiner: storvsc vmbus, storflt, intelide, atapi.
+I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 minuter att slutföra. Du kanske märker att redundanstiden är längre för VMware Linux-datorer, virtuella VMware-datorer som inte har aktiverat DHCP-tjänsten och virtuella VMware-datorer som inte har följande startdrivrutiner: storvsc, vmbus, storflt, intelide, atapi.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Kör en redundans och återställning efter fel för lokala virtuella VMware-datorer](tutorial-vmware-to-azure-failover-failback.md).
+> [Köra redundans och återställning efter fel för lokala virtuella VMware-datorer](vmware-azure-tutorial-failover-failback.md).

@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI-skript exempel – ansluta en webbapp till ett redis-cache | Microsoft Docs"
-description: "Azure CLI-skript exempel – ansluta en webbapp till ett redis-cache"
+title: Skriptexempel för Azure CLI – Ansluta en webbapp till ett Azure Redis Cache | Microsoft Docs
+description: Skriptexempel för Azure CLI – Ansluta en webbapp till ett Azure Redis Cache
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
 ms.service: app-service
@@ -16,21 +16,21 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 248f26c0562b636caf74409fd76334601931d035
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.openlocfilehash: 09dd82c34308955cbbf3bf5a5d8745ee16d7818b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="connect-a-web-app-to-a-redis-cache"></a>Ansluta en webbapp till ett redis-cache
+# <a name="connect-a-web-app-to-a-redis-cache"></a>Ansluta en webbapp till ett Azure Redis Cache
 
-Det här exempelskriptet skapar ett Azure redis-cache och en Azure-webbapp. Därefter länkar redis-cache till det webbprogram som använder app-inställningar.
+Det här skriptexemplet skapar ett Azure Redis Cache och en Azure-webbapp. Därefter länkar det Azure Redis Cache till webbappen med hjälp av appinställningarna.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Om du väljer att installera och använda CLI lokalt, måste Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI-gränssnittet lokalt måste du ha Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -38,21 +38,21 @@ Om du väljer att installera och använda CLI lokalt, måste Azure CLI version 2
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att skapa en resursgrupp, webbprogram, redis-cache och alla relaterade resurser. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+I det här skriptet används följande kommandon för att skapa en resursgrupp, webbappen, Azure Redis Cache och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Skapar en App Service-plan. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Skapar ett Azure-webbapp. |
-| [`az redis create`](/cli/azure/redis?view=azure-cli-latest#az_redis_create) | Skapa en ny Redis-Cache-instans. |
-| [`az redis list-keys`](/cli/azure/redis?view=azure-cli-latest#az_redis_list_keys) | Visar åtkomstnycklarna för redis-cacheinstansen. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) | Skapar eller uppdaterar en appinställning för ett Azure-webbapp. App-inställningar visas som miljövariabler för din app. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Skapar en Azure-webbapp. |
+| [`az redis create`](/cli/azure/redis?view=azure-cli-latest#az_redis_create) | Skapa en ny Azure Redis Cache-instans. |
+| [`az redis list-keys`](/cli/azure/redis?view=azure-cli-latest#az_redis_list_keys) | Visar åtkomstnycklarna för Azure Redis Cache-instansen. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) | Skapar eller uppdaterar en app-inställning för en Azure-webbapp. Appinställningarna visas som miljövariabler för din app. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare App Service CLI skriptexempel finns i den [dokumentation för Azure App Service](../app-service-cli-samples.md).
+Fler App Service CLI-skriptexempel finns i [dokumentationen för Azure App Service](../app-service-cli-samples.md).

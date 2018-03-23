@@ -1,21 +1,21 @@
 ---
-title: "Skapa en modellsjälvstudie för Azure Machine Learning (förhandsversion) | Microsoft Docs"
-description: "I den här kompletta självstudien får du lära dig att använda Azure Machine Learning (förhandsversionen) från slutpunkt till slutpunkt. Det här är del två som beskriver experimentering."
+title: Skapa en modellsjälvstudie för Azure Machine Learning (förhandsversion) | Microsoft Docs
+description: I den här kompletta självstudien får du lära dig att använda Azure Machine Learning (förhandsversionen) från slutpunkt till slutpunkt. Det här är del två som beskriver experimentering.
 services: machine-learning
 author: hning86
 ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/28/2018
-ms.openlocfilehash: 9a1613e2137e178d00a24f9f5b3c802f8a894b15
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 3/7/2018
+ms.openlocfilehash: 3e7f1b25757dc627f0f42a34c1a42b2d421c06c9
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-classify-iris-part-2---build-a-model"></a>Självstudie: Klassificera Iris del 2 – Skapa en modell
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys som datatekniker kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -66,13 +66,13 @@ Om du vill experimentera med att skicka skript som ska köras i en Docker-behål
 
    - Machine Learning-biblioteket [scikit-learn](http://scikit-learn.org/stable/index.html) används till att skapa en Logistic Regression-modell. 
 
-   - Serialiserar modellen genom att infoga biblioteket [pickle](https://docs.python.org/2/library/pickle.html) till en fil i mappen `outputs`. Skriptet läser sedan in den och deserialiserar tillbaka den i minnet.
+   - Serialiserar modellen genom att använda biblioteket [pickle](https://docs.python.org/3/library/pickle.html) i en fil i mappen `outputs`. Skriptet läser sedan in den och deserialiserar tillbaka den i minnet.
 
    - Den deserialiserade modellen används till att göra en förutsägelse för en ny post. 
 
    - Två diagram ritas upp med hjälp av biblioteket [matplotlib](https://matplotlib.org/), en felmatris och en ROC-kurva (receiver operating characteristic) med flera klasser, och de sparas sedan i mappen `outputs`.
 
-   - Objektet `run_logger` används kontinuerligt för att lagra regulariseringshastigheten och modellnoggrannheten i loggarna. Loggarna visas automatiskt i körhistoriken.
+   - Objektet `run_logger` används kontinuerligt för att lagra regulariseringshastigheten och modellnoggrannheten i loggarna. Dessa loggarna visas automatiskt i körhistoriken.
 
 
 ## <a name="execute-irissklearnpy-script-in-a-local-environment"></a>Köra skriptet iris_sklearn.py i en lokal miljö
@@ -92,30 +92,31 @@ Nu ska vi förbereda oss för att köra skriptet **iris_sklearn.py** för först
 
 3. Gå tillbaka till Workbench-fönstret. 
 
-4. Öppna den nedrullningsbara menyn bredvid ikonen **Spara** i verktygsfältet högst upp i fliken **iris_sklearn.py** och välj sedan **Kör konfiguration**. Välj **lokal** som körningsmiljö och ange sedan `iris_sklearn.py` som skriptet att köra.
+4. I verktygsfältet högst upp i fliken **iris_sklearn.py** väljer du **lokal** som körningsmiljö och `iris_sklearn.py` som det skript som ska köras.
 
-5. Gå sedan till den högra sidan av verktygsfältet och ange `0.01` i fältet **Argument**. 
+5. Gå sedan till den högra sidan av verktygsfältet och ange `0.01` i fältet **Argument**. Det här värdet motsvarar regulariseringshastigheten för Logistic Regression-modellen.
 
    ![Kör kontroll](media/tutorial-classifying-iris/run_control.png)
 
 6. Klicka på knappen **Kör**. Ett jobb schemaläggs omedelbart. Jobbet står med i fönstret **Jobb** till höger i Workbench-fönstret. 
 
-7. Efter en liten stund ändras statusen för jobbet från **Skickar** till **Körs**, och sedan till **Slutfört**.
+7. Efter en liten stund ändras statusen för jobbet från **Skickar** till **Körs** och sedan slutligen till **Slutfört**.
 
    ![Kör sklearn](media/tutorial-classifying-iris/run_sklearn.png)
 
-8. Välj **Slutfört** i jobbstatustexten i fönstret **Jobb**. Ett popup-fönster öppnas med standardutdata (stdout) från skriptkörningen. Om du vill stänga stdout-texten väljer du knappen **Stäng** (**x**) längst upp till höger i popup-fönstret.
+8. Välj **Slutfört** i jobbstatustexten i fönstret **Jobb**. Ett popup-fönster öppnas med standardutdatatext (stdout) från körningen. Om du vill stänga stdout-texten väljer du knappen **Stäng** (**x**) längst upp till höger i popup-fönstret.
 
 9. I samma jobbstatus i fönstret **Jobb** väljer du den blå texten **iris_sklearn.py [n]** (_n_ är körningsnumret) precis ovanför statusen **Slutförd** och starttiden. Fönstret **Körningsegenskaper** öppnas och visar följande information för den specifika körningen:
    - Information om **Körningsegenskaper**
-   - **Utdatafiler**
+   - **Utdata**
+   - **Mått**
    - Eventuella **Visualiseringar**
    - **Loggar** 
 
    När körningen har slutförts visas följande resultat i popup-fönstret:
 
    >[!NOTE]
-   >Eftersom vi introducerade vissa slumpmässigheter i inlärningsuppsättningen kommer de exakta resultaten att variera något från de resultat som visas här.
+   >Eftersom vi introducerade vissa slumpmässigheter i inlärningsuppsättningen kommer resultaten att variera något från de resultat som visas här.
 
    ```text
    Python version: 3.5.2 |Continuum Analytics, Inc.| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
@@ -148,9 +149,9 @@ Nu ska vi förbereda oss för att köra skriptet **iris_sklearn.py** för först
 
 10. Stäng fliken **Körningsegenskaper** och återgå sedan till fliken **iris_sklearn.py**. 
 
-11. Kör skriptet flera gånger. 
+11. Upprepa för flera körningar. 
 
-    Ange en serie med olika numeriska värden i fältet **Argument**, från `0.001` till `10`. Välj **Kör** för att köra koden några gånger till. De argumentvärden du ändrar varje gång skickas till Logistic Regression-algoritmen i koden, vilket ger olika resultat varje gång.
+    Ange en serie med värden i fältet **Argument**, från `0.001` till `10`. Välj **Kör** för att köra koden några gånger till. De argumentvärden du ändrar varje gång skickas till Logistic Regression-modellen i koden, vilket ger olika resultat varje gång.
 
 ## <a name="review-the-run-history-in-detail"></a>Granska körningshistoriken i detalj
 I Azure Machine Learning Workbench sparas varje skriptkörning som en post i körningshistoriken. Du kan visa körningshistoriken för ett visst skript genom att öppna vyn **Körningar**.
@@ -175,16 +176,16 @@ I Azure Machine Learning Workbench sparas varje skriptkörning som en post i kö
 
 ## <a name="execute-scripts-in-the-local-docker-environment"></a>Köra skript i den lokala Docker-miljön
 
-Med Machine Learning kan du enkelt konfigurera ytterligare körningsmiljöer, till exempel Docker och köra skriptet i dessa miljöer. 
+Du kan enkelt konfigurera ytterligare körningsmiljöer, till exempel Docker och köra skriptet i dessa miljöer. 
 
 >[!IMPORTANT]
->Du måste ha Docker-motorn installerad lokalt och startad för att utföra det här steget. Läs installationsinstruktionerna för Docker för mer information.
+>Du måste ha Docker-motorn installerad lokalt och startad för att utföra det här steget. Läs [installationsinstruktionerna för Docker](https://docs.docker.com/install/) för mer information.
 
 1. Välj **mappikonen** i det vänstra fönstret så att du öppnar listan med **Filer** för projektet. Expandera mappen `aml_config`. 
 
-2. Det finns flera förkonfigurerade miljöer, som **docker-python**, **docker-spark** och **lokalt**. 
+2. Det finns flera förkonfigurerade miljöer: **docker-python**, **docker-spark** och **lokalt**. 
 
-   Alla miljöer har två filer, som `docker-python.compute` och `docker-python.runconfig`. Öppna varje fil för att se att vissa alternativ kan konfigureras i textredigeraren.  
+   Alla miljöer har två filer, som `docker.compute` (för både **docker-python** och **docker-spark**) och `docker-python.runconfig`. Öppna varje fil för att se att vissa alternativ kan konfigureras i textredigeraren.  
 
    Välj **Stäng** (**x**) på flikarna i eventuella öppna textredigerare för att frigöra utrymme.
 
@@ -198,12 +199,12 @@ Med Machine Learning kan du enkelt konfigurera ytterligare körningsmiljöer, ti
 
 4. Observera att ett nytt jobb startar. Det visas i fönstret **Jobb** till höger i Workbench-fönstret.
 
-   När du kör mot Docker för första gången tar körningen några minuter mer att slutföras. 
+   När du kör mot Docker för första gången tar jobbet några minuter längre att slutföras. 
 
-   Azure Machine Learning Workbench skapar en ny docker-fil i bakgrunden. 
+   Azure Machine Learning Workbench skapar en ny Docker-fil i bakgrunden. 
    Den nya docker-filen refererar till basavbildningen för Docker, som anges i filen `docker.compute`, Python-paket med beroenden som anges i filen `conda_dependencies.yml`. 
    
-   Docker-motorn har följande uppgifter:
+   Docker-motorn utför följande uppgifter:
 
     - Laddar ned basavbildningen från Azure.
     - Installerar Python-paketet som anges i filen `conda_dependencies.yml`.
@@ -213,11 +214,11 @@ Med Machine Learning kan du enkelt konfigurera ytterligare körningsmiljöer, ti
 
    I slutändan bör du se exakt samma resultat som när du använder **lokalt** som mål.
 
-5. Nu ska vi prova Spark. Docker-basavbildningen innehåller en förinstallerad och förkonfigurerad Spark-instans. Du kan köra ett PySpark-skript i den på grund av den instansen. Det här är ett enkelt sätt att utveckla och testa ditt eget Spark-program utan att behöva ägna tid åt att installera och konfigurera Spark själv. 
+5. Nu ska vi prova Spark. Docker-basavbildningen innehåller en förinstallerad och förkonfigurerad Spark-instans som du kan använda för att utföra PySpark-skript. Det här är ett enkelt sätt att utveckla och testa ditt eget Spark-program utan att behöva ägna tid åt att installera och konfigurera Spark själv. 
 
    Öppna filen `iris_spark.py`. Skriptet läser in datafilen `iris.csv` och sedan används Logistic Regression-algoritmen från Spark Machine Learning-biblioteket till att klassificera Iris-datauppsättningen. Ändra nu körningsmiljön till **docker-spark**, skriptet till **iris_spark.py** och kör sedan skriptet igen. Den här processen tar lite längre tid eftersom en Spark-session måste skapas och startas i Docker-behållaren. Du kan också se att stdout inte är samma som stdout för `iris_spark.py`.
 
-6. Gör några fler körningar och prova olika argument. 
+6. Starta några fler körningar och prova olika argument. 
 
 7. Öppna filen `iris_spark.py` för att se Logistic Regression-modellen som skapats med Spark Machine Learning-biblioteket. 
 
@@ -242,7 +243,7 @@ Med Machine Learning kan du enkelt konfigurera ytterligare körningsmiljöer, ti
    az account list -o table
    
    REM sets the current Azure subscription to the one you want to use
-   az account set -s <subscriptionId>
+   az account set -s <SubscriptionId>
    
    REM verifies that your current subscription is set correctly
    az account show
@@ -269,6 +270,7 @@ Med Machine Learning kan du enkelt konfigurera ytterligare körningsmiljöer, ti
    REM executes iris_spark.py in the local Docker container Spark environment
    az ml experiment submit -c docker-spark .\iris_spark.py 0.1
    ```
+
 6. Välj **mappikonen** i fönstret till vänster i Workbench så att du visar listan med projektfiler, och öppna Python-skriptet **run.py**. 
 
    Det här skriptet är användbart när du vill loopa över olika regulariseringshastigheter. Kör experimentet flera gånger med dessa hastigheter. Det här skriptet startar ett `iris_sklearn.py`-jobb med en regulariseringshastighet på `10.0` (löjligt hög hastighet). Skriptet halverar sedan hastigheten i följande körning och så vidare tills hastigheten är så långsam som `0.005`. 
@@ -283,17 +285,17 @@ Med Machine Learning kan du enkelt konfigurera ytterligare körningsmiljöer, ti
        reg = reg / 2
    ```
 
-   Kör följande kommandon för att öppna skriptet **run.py** från kommandotolken:
+   Kör följande kommandon för att köra skriptet **run.py** från kommandotolken:
 
    ```cmd
    REM submits iris_sklearn.py multiple times with different regularization rates
    python run.py
    ```
 
-   När `run.py` har slutförts visas ett diagram i körningshistoriken i Workbench.
+   När `run.py` har slutförts visas ett diagram med olika värden i listvyn för körningshistoriken i Workbench.
 
 ## <a name="execute-in-a-docker-container-on-a-remote-machine"></a>Köra i en Docker-behållare på en fjärrdator
-Om du vill köra skriptet i en Docker-behållare på en fjärrdator med Linux måste du ha SSH-åtkomst (användarnamn och lösenord) till fjärrdatorn. Dessutom måste fjärrdatorn ha en Docker-motor installerad och igång. Det enklaste sättet att ordna en sådan Linux-dator är att skapa en Ubuntu-baserad DSVM (Data Science Virtual Machine) i Azure. Lär dig [att skapa en Ubuntu DSVM som ska användas i Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal).
+Om du vill köra skriptet i en Docker-behållare på en fjärrdator med Linux måste du ha SSH-åtkomst (användarnamn och lösenord) till fjärrdatorn. Dessutom måste datorn ha en Docker-motor installerad och igång. Det enklaste sättet att ordna en sådan Linux-dator är att skapa en Ubuntu-baserad DSVM (Data Science Virtual Machine) i Azure. Lär dig [att skapa en Ubuntu DSVM som ska användas i Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal).
 
 >[!NOTE] 
 >CentOS-baserade DSVM:er stöds *inte*.
@@ -306,7 +308,10 @@ Om du vill köra skriptet i en Docker-behållare på en fjärrdator med Linux m�
    ```
    
    >[!NOTE]
-   >IP-adresserna kan även vara offentligt adresserbara FQDN (fullständigt kvalificerade domännamn), till exempel `vm-name.southcentralus.cloudapp.azure.com`. Det är en bra idé att lägga till FQDN för din DSVM och använda dem här i stället för IP-adresser. Det här är en bra idé eftersom du kanske vill stänga av den virtuella datorn senare för att spara på kostnaden. Nästa gång du startar den virtuella datorn kan IP-adresserna ha ändrats.
+   >IP-adresserna kan även vara offentligt adresserbara FQDN (fullständigt kvalificerade domännamn), till exempel `vm-name.southcentralus.cloudapp.azure.com`. Det är en bra idé att lägga till FQDN för din DSVM och använda den istället för IP-adresser. Det här är en bra idé eftersom du kanske vill stänga av den virtuella datorn senare för att spara på kostnaden. Nästa gång du startar den virtuella datorn kan IP-adresserna ha ändrats.
+
+   >[!NOTE]
+   >Utöver autentisering med användarnamn och lösenord kan du ange en privat nyckel och motsvarande lösenfras (om sådan används) med hjälp av alternativen `--private-key-file` och (som tillval) `--private-key-passphrase`.
 
    Kör sedan följande kommando för att skapa Docker-avbildningen i den virtuella datorn, så att den blir redo att köra skripten:
    
@@ -315,17 +320,17 @@ Om du vill köra skriptet i en Docker-behållare på en fjärrdator med Linux m�
    az ml experiment prepare -c myvm
    ```
    >[!NOTE]
-   >Du kan även ändra värdet för `PrepareEnvironment` i `myvm.runconfig` från standardvärdet `false` till `true`. Den här förändringen förbereder automatiskt Docker-behållaren vid den första körningen.
+   >Du kan även ändra värdet för `PrepareEnvironment` i `myvm.runconfig` från standardvärdet `false` till `true`. Den här förändringen förbereder automatiskt Docker-behållaren som en del av den första körningen.
 
 2. Redigera den genererade filen `myvm.runconfig` under `aml_config` och ändra ramverket från standardvärdet `PySpark` till `Python`:
 
    ```yaml
-   "Framework": "Python"
+   Framework: Python
    ```
    >[!NOTE]
-   >Det bör också fungera att lämna ramverks-inställningen som PySpark. Det är däremot mindre effektivt om du inte verkligen behöver en Spark-session för att köra Python-skriptet.
+   >Även om PySpark också bör fungera är Python effektivare om du inte verkligen behöver en Spark-session för att köra Python-skriptet.
 
-3. Kör samma kommando som du gjorde förut i CLI-fönstret, förutom att du använder _myvm_ som mål den här gången:
+3. Kör samma kommando som du gjorde förut i CLI-fönstret, med _myvm_ som mål den här gången:
    ```azurecli
    REM executes iris_sklearn.py in a remote Docker container
    az ml experiment submit -c myvm iris_sklearn.py
@@ -334,11 +339,11 @@ Om du vill köra skriptet i en Docker-behållare på en fjärrdator med Linux m�
 
 4. Nu ska vi prova att använda Spark i behållaren. Öppna Utforskaren. Du kan också göra detta från CLI-fönstret om du är bekant med grundläggande kommandon för filmanipulering. Skapa en kopia av filen `myvm.runconfig` och ge den namnet `myvm-spark.runconfig`. Redigera den nya filen och ändra inställningen `Framework` från `Python` till `PySpark`:
    ```yaml
-   "Framework": "PySpark"
+   Framework: PySpark
    ```
-   Gör inga ändringar i filen `myvm.compute`. Samma Docker-avbildning på samma virtuella dator används vid Spark-körningen. I den nya filen `myvm-spark.runconfig` pekar fältet `target` på samma fil `myvm.compute` via namnet `myvm`.
+   Gör inga ändringar i filen `myvm.compute`. Samma Docker-avbildning på samma virtuella dator används vid Spark-körningen. I den nya filen `myvm-spark.runconfig` pekar fältet `Target` på samma fil `myvm.compute` via namnet `myvm`.
 
-5. Ange följande kommando för att köra skriptet i Spark-instansen i den fjärranslutna Docker-behållaren:
+5. Ange följande kommando för att köra skriptet **iris_spark.py** i Spark-instansen som körs i den fjärranslutna Docker-behållaren:
    ```azureli
    REM executes iris_spark.py in a Spark instance on a remote Docker container
    az ml experiment submit -c myvm-spark .\iris_spark.py
@@ -365,7 +370,7 @@ Du kan också köra skriptet i ett faktiskt HDInsight Spark-kluster. Lär dig [a
    >[!NOTE]
    >`username` är klustrets SSH-användarnamn. Standardvärdet är `sshuser` om du inte ändrat det under HDInsight-konfigurationen. Värdet är inte `admin`, som är den andra användaren som skapades under konfigurationen för att ge åtkomst till klustrets administrationswebbplats. 
 
-2. Kör följande kommando så körs skriptet i HDInsight-klustret:
+2. Kör följande kommando för att köra skriptet **iris_spark.py** i HDInsight-klustret:
 
    ```azurecli
    REM executes iris_spark on the HDInsight cluster
@@ -374,7 +379,6 @@ Du kan också köra skriptet i ett faktiskt HDInsight Spark-kluster. Lär dig [a
 
    >[!NOTE]
    >När du kör mot ett fjärranslutet HDInsight-kluster kan du även visa körningsinformation om YARN-jobbet (Yet Another Resource Negotiator) på `https://<cluster_name>.azurehdinsight.net/yarnui` med användarkontot `admin`.
-
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

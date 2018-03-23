@@ -1,11 +1,11 @@
 ---
 title: Skapa en Node.js i Azure App Service i Linux | Microsoft Docs
-description: "Distribuera din första Hello World-app av typen Node.js i Azure App Service i Linux på bara några minuter."
+description: Distribuera din första Hello World-app av typen Node.js i Azure App Service i Linux på bara några minuter.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a0648832c43e2aa82b64194a103cf03f4dbd6ca8
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a2643e65b74f44ee05001d5df26c7c77a430fbb2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Skapa en Node.js-webbapp i Azure App Service i Linux
 
@@ -78,13 +78,13 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-linux-no-h.md)]
 
 Bläddra till webbappen som precis skapades. Ersätt _&lt;app name>_ med namnet på din webbapp.
 

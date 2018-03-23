@@ -1,6 +1,6 @@
 ---
-title: "Självstudie för cykeldelning – förberedelse av avancerade data med Azure Machine Learning-arbetsstationen"
-description: "I den här självstudien utför du en dataförberedelse för slutpunkt till slutpunkt med hjälp av Azure Machine Learning Workbench"
+title: Självstudie för cykeldelning – förberedelse av avancerade data med Azure Machine Learning-arbetsstationen
+description: I den här självstudien utför du en dataförberedelse för slutpunkt till slutpunkt med hjälp av Azure Machine Learning Workbench
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: ca7239fd3e31c7a6cfc6fb64e04afb376e01c190
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f1d4b58d0fe0628aa00b8229a1383d3ada414f62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Självstudie: Använd Azure Machine Learning Workbench för avancerad dataförberedelse (BikeShare-data)
 Azure Machine Learning (förhandsversion) är en integrerad analyslösning från slutpunkt till slutpunkt som dataforskare kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -736,7 +736,7 @@ För att spara dataflöde för **Koppla resultat** till en .csv-fil måste du ä
 3. Skapa konfiguration för HDInsight-körning. Du måste ha namnet på klustret och `sshuser`-lösenordet.
 
     ```azurecli
-    az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password> --type cluster
+    az ml computetarget attach cluster --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password>
     az ml experiment prepare -c hdinsight
     ```
 > [!NOTE]

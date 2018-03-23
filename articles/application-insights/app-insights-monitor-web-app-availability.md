@@ -1,8 +1,8 @@
 ---
-title: "Övervaka tillgänglighet och svarstider på valfri webbplats | Microsoft Docs"
-description: "Konfigurera webbtester i Application Insights. Få aviseringar om en webbplats blir otillgänglig eller svarar långsamt."
+title: Övervaka tillgänglighet och svarstider på valfri webbplats | Microsoft Docs
+description: Konfigurera webbtester i Application Insights. Få aviseringar om en webbplats blir otillgänglig eller svarar långsamt.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
-ms.author: sdash
-ms.openlocfilehash: b35f37b4599cdf6276bc82013dc2fdf1c7d12834
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.date: 02/09/2018
+ms.author: sdash ; mbullwin
+ms.openlocfilehash: d8d6c6a242f63ad891a8134657273ff73dfcde18
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Övervaka tillgänglighet och svarstider på valfri webbplats
 När du har distribuerat din webbapp eller webbplats till en server kan du konfigurera tester för att övervaka appens tillgänglighet och svarstider. [Azure Application Insights](app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Den varnar dig om programmet inte svarar eller svarar långsamt.
@@ -41,7 +41,7 @@ Du kan skapa upp till 100 tillgänglighetstester per programresurs.
 
 **Om du redan har konfigurerat Application Insights** för din webbapp öppnar du dess Application Insights-resurs i [Azure Portal](https://portal.azure.com).
 
-**Eller om du vill se dina rapporter i en ny resurs** registrerar du dig för [Microsoft Azure](http://azure.com), går till [Azure Portal](https://portal.azure.com) och skapar en Application Insights-resurs.
+**Eller om du vill se dina rapporter i en ny resurs** går du till [Azure Portal](https://portal.azure.com) och skapar en Application Insights-resurs.
 
 ![Nytt > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
@@ -56,9 +56,13 @@ Klicka på **alla resurser** för att öppna översiktsbladet för den nya resur
 * **Parsa beroendebegäranden**: om det här alternativet är markerat begärs bilder, skript, filer och andra filer som ingår i webbsidan under testet. Den registrerade svarstiden innefattar den tid det tar att hämta dessa filer. Testet misslyckas om dessa resurser inte kan laddas ned inom tidsgränsen för hela testet. 
 
     Om alternativet inte är markerat begärs endast filen på den URL som du har angett i testet.
+
 * **Aktivera återförsök**: Om det här alternativet är markerat och testet misslyckas görs ett nytt försök efter en liten stund. Ett fel rapporteras endast om tre på varandra följande försök misslyckas. Efterföljande tester utförs sedan med den vanliga testfrekvensen. Återförsök pausas tillfälligt tills nästa lyckade test. Den här regeln tillämpas separat på varje testplats. Vi rekommenderar det här alternativet. I genomsnitt försvinner ca 80 % av felen vid återförsök.
-* **Testfrekvens**: Anger hur ofta testet körs från varje testplats. Med en frekvens på fem minuter och fem testplatser testas din webbplats i genomsnitt varje minut.
+
+* **Testfrekvens**: Anger hur ofta testet körs från varje testplats. Med en standardfrekvens på fem minuter och fem testplatser testas din webbplats i genomsnitt varje minut.
+
 * **Testplatser** är de platser som våra servrar skickar webbförfrågningar till din URL från. Välj mer än en så att du kan skilja mellan problem på din webbplats och nätverksproblem. Du kan välja upp till 16 platser.
+
 * **Villkor för lyckad test**:
 
     **Timeout för test**: Minska det här värdet om du vill få aviseringar om långsamma svar. Testet räknas som misslyckat om svaren från din webbplats inte har tagits emot inom denna period. Om du valde **Parsa beroende begäranden** måste alla bilder, formatfiler, skript och andra beroende resurser ha tagits emot inom denna period.

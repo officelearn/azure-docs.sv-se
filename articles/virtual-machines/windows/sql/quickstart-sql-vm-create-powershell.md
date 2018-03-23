@@ -1,6 +1,6 @@
 ---
 title: Skapa en SQL Server Windows-VM med Azure PowerShell | Microsoft Docs
-description: "Den här kursen visar hur du skapar virtuell Windows SQL Server 2017-dator med Azure PowerShell."
+description: Den här kursen visar hur du skapar virtuell Windows SQL Server 2017-dator med Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: a9976810a67d47d92d6b04cd33c83fb35bf3d466
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: daa5043a948e660b6c3e685e933855afff8f7671
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Snabbstart: Skapa en virtuell Windows SQL Server-dator med Azure PowerShell
 
@@ -26,7 +26,15 @@ Den här snabbstarten beskriver hur du skapar en virtuell SQL Server-dator med A
 > [!TIP]
 > I snabbstarten finns en sökväg för snabb etablering och anslutning till en SQL-VM. Mer information om andra Azure PowerShell-alternativ för att skapa virtuella SQL-datorer finns i [Etableringsguide för virtuella SQL Server-datorer med Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
+> [!TIP]
+> Om du har frågor om virtuella SQL Server-datorer kan du läsa [Vanliga frågor](virtual-machines-windows-sql-server-iaas-faq.md).
+
+## <a id="subscription"></a> Skaffa en Azure-prenumeration
+
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+
+## <a id="powershell"></a> Skaffa Azure PowerShell
 
 Den här snabbstarten kräver Azure PowerShell-modul version 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
 

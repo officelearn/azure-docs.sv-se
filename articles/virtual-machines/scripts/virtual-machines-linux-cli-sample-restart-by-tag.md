@@ -1,13 +1,13 @@
 ---
-title: Azure CLI skriptexempel - omstart VMs | Microsoft Docs
-description: 'Skriptexempel Azure CLI - omstart av virtuella datorer efter tagg och -ID: t'
+title: Skriptexempel för Azure CLI – Starta om virtuella datorer | Microsoft Docs
+description: Skriptexempel för Azure CLI – Starta om virtuella datorer med tagg och ID
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: allclark
 manager: douge
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: ea114f484c774573b7d219cff9102a7308af356e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: a9f7cf8ba492004cb6d9e359bfb392448dfbe813
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="restart-vms"></a>Starta om virtuella datorer
 
@@ -28,73 +28,73 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Det här exemplet visas ett par olika sätt att hämta vissa virtuella datorer och starta om dem.
+Det här exemplet visar ett par olika sätt att hämta vissa virtuella datorer och starta om dem.
 
-Först startar om alla virtuella datorer i resursgruppen.
+Det första startar om alla virtuella datorer i resursgruppen.
 
 ```bash
 az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
-Andra hämtar taggade virtuella datorer med hjälp av `az resouce list` och filtrerar till resurser som virtuella datorer och startar om dessa virtuella datorer.
+Det andra hämtar de taggade virtuella datorerna med hjälp av `az resouce list` och filtrerar till de resurser som är virtuella datorer samt startar om de här virtuella datorerna.
 
 ```bash
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
-Det här exemplet fungerar i ett Bash-gränssnitt. Alternativen på Azure CLI skriptkörning på Windows-klient kan se [kör Windows Azure CLI](../windows/cli-options.md).
+Det här exemplet fungerar i ett Bash-gränssnitt. I [Köra Azure CLI på Windows](../windows/cli-options.md) kan du läsa mer om alternativen för att köra Azure CLI-skript på Windows-klienten.
 
 
 ## <a name="sample-script"></a>Exempelskript
 
 Exemplet har tre skript.
-Den första som etablerar de virtuella datorerna.
-Den använder alternativet Nej vänta så att kommandot returnerar utan att vänta på varje virtuell dator som ska etableras.
-Andra väntar på att de virtuella datorerna till helt etablerad.
-Skriptet tredje startar om alla de virtuella datorerna som var etablerade och sedan bara taggade virtuella datorer.
+Det första etablerar de virtuella datorerna.
+Det använder alternativet no-wait så att kommandot returnerar utan att vänta på att varje virtuell dator ska etableras.
+Det andra väntar på att de virtuella datorerna ska etableras helt.
+Det tredje skriptet startar om alla de virtuella datorerna som etablerades, och sedan endast de taggade virtuella datorerna.
 
-### <a name="provision-the-vms"></a>Etablera virtuella datorer
+### <a name="provision-the-vms"></a>Etablera de virtuella datorerna
 
-Det här skriptet skapar en resursgrupp och skapar sedan tre virtuella datorer startas om.
-Två av dem märks.
+Det här skriptet skapar en resursgrupp och sedan skapar det tre virtuella datorer som ska startas om.
+Två av dem märks med taggar.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Provision the VMs")]
 
 ### <a name="wait"></a>Vänta
 
-Det här skriptet kontrollerar etablering statusen var 20 sekunder tills alla tre virtuella datorer är etablerad, eller en av dem inte kan etablera.
+Det här skriptet kontrollerar etableringsstatusen var 20:e sekund tills alla tre virtuella datorer har etablerats eller tills en av dem inte går att etablera.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Wait for the VMs to be provisioned")]
 
-### <a name="restart-the-vms"></a>Starta om de virtuella datorerna
+### <a name="restart-the-vms"></a>Starta om den virtuella datorn
 
-Det här skriptet startar om alla virtuella datorer i resursgruppen och startas sedan om bara taggade virtuella datorer.
+Det här skriptet startar om alla virtuella datorer i resursgruppen och sedan startar det endast om taggade virtuella datorer.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Restart VMs by tag")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
-Efter skriptexempel har körts användas följande kommando för att ta bort resursgrupper, virtuella datorer och alla relaterade resurser.
+När skriptexemplet har körts kan följande kommando användas för att ta bort resursgrupperna, virtuella datorer och alla relaterade resurser.
 
 ```azurecli-interactive 
 az group delete -n myResourceGroup --no-wait --yes
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att skapa en resursgrupp, virtuella, tillgänglighetsuppsättning, belastningsutjämnare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuell dator, tillgänglighetsuppsättning, belastningsutjämnare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ grupp](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
-| [Skapa AZ vm](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Skapar de virtuella datorerna.  |
-| [AZ vm lista](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Används med `--query` att säkerställa att de virtuella datorerna etableras innan du startar om dem, och för att hämta ID för virtuella datorer starta om dem. |
-| [lista över resurser AZ](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Används med `--query` att hämta ID: N för de virtuella datorerna med taggen. |
-| [AZ vm-omstart](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Startar om de virtuella datorerna. |
-| [ta bort grupp AZ](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Skapar de virtuella datorerna.  |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Används med `--query` för att säkerställa att de virtuella datorerna etableras innan de startas om, och sedan för att hämta ID:na för de virtuella datorerna för att starta om dem. |
+| [az resource list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Används med `--query` att hämta ID:na för de virtuella datorerna med taggen. |
+| [az vm restart](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Startar om de virtuella datorerna. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare virtuella CLI skriptexempel finns i den [virtuella Azure Linux-datorn dokumentationen](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ytterligare CLI-skriptexempel för virtuella datorer finns i [Dokumentation för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -1,8 +1,8 @@
 ---
 title: Registrera din Azure-prenumeration med Azure Cost Management | Microsoft Docs
-description: "Använd din Azure-prenumeration för att registrera dig med Azure Cost Management från Cloudyn."
+description: Registrera dig för Azure Cost Management med din Azure-prenumeration.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 666919e37ffa3bb039fc9387737b8e6c3789311a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b7c1fee3276d98b6b7c611a09133804c1253384a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Registrera en enskild Azure-prenumeration och visa kostnadsdata
 
-Du använder din Azure-prenumeration för registreringen med Azure Cost Management från Cloudyn. Registreringen ger dig åtkomst till Cloudyn-portalen. Den här snabbstarten beskriver registreringsprocessen som krävs för att skapa en utvärderingsprenumeration på Cloudyn och logga in på Cloudyn-portalen. Den visar också hur du kan börja visa kostnadsdata direkt.
+Du registrerar dig för Azure Cost Management med hjälp av din Azure-prenumeration. Registreringen ger dig åtkomst till Cloudyn-portalen. Den här snabbstarten beskriver registreringsprocessen som krävs för att skapa en utvärderingsprenumeration på Cloudyn och logga in på Cloudyn-portalen. Den visar också hur du kan börja visa kostnadsdata direkt.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -40,13 +40,13 @@ Du använder din Azure-prenumeration för registreringen med Azure Cost Manageme
 9. Klicka på **Go to Cloudyn** (Gå till Cloudyn) för att öppna Cloudyn-portalen. Nu ska kontoinformationen för din Azure-prenumeration visas på sidan **Accounts Management** (Kontohantering).  
     ![Kontohantering](./media/quick-register-azure-sub/accounts-mgt.png)
 
-Om du vill titta på en video om hur du registrerar din Azure-prenumeration kan du se [Finding your Directory GUID and Rate ID for use in Azure Cost Management by Cloudyn](https://youtu.be/PaRjnyaNGMI) (Hitta ditt unika katalog-ID och tariff-ID för användning i Azure Cost Management från Cloudyn).
+Vill du se en video om hur du registrerar din Azure-prenumeration kan du titta på [Finding your Directory GUID and Rate ID for use in Azure Cost Management](https://youtu.be/PaRjnyaNGMI) (Hitta ditt unika katalog-ID och tariff-ID för användning i Azure Cost Management).
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du din Azure-prenumerationsinformation för att göra en registrering med Cost Management. Du loggade också in på Cloudyn-portalen och började visa kostnadsdata. Om du vill veta mer om Azure Cost Management från Cloudyn kan du fortsätta till självstudierna om Cost Management.
+I den här snabbstarten använde du din Azure-prenumerationsinformation för att göra en registrering med Cost Management. Du loggade också in på Cloudyn-portalen och började visa kostnadsdata. Om du vill veta mer om Azure Cost Management kan du fortsätta till självstudierna om Cost Management.
 
 > [!div class="nextstepaction"]
 > [Granska användning och kostnader](./tutorial-review-usage.md)

@@ -1,11 +1,11 @@
 ---
 title: Skapa en Node.js- and MongoDB-webbapp i Azure App Service i Linux | Microsoft Docs
-description: "Lär dig att få en Node.js-app att fungera i Azure App Service på Linux, med anslutning till en Cosmos DB-databas med en MongoDB-anslutningssträng."
+description: Lär dig att få en Node.js-app att fungera i Azure App Service på Linux, med anslutning till en Cosmos DB-databas med en MongoDB-anslutningssträng.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f497e9427885ab1d2e827e9fa1dd3c468aa39239
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ee7f37f83d6b3503df1af61509f6f85ca19bc13e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Skapa en Node.js- and MongoDB-webbapp i Azure App Service i Linux
 
@@ -35,7 +35,7 @@ Du lär dig att:
 
 > [!div class="checklist"]
 > * Skapa en CosmosDB-databas med hjälp av MongoDB-API i Azure
-> * Anslut en Node.js-app till MongoDB
+> * ansluta en Node.js-app till MongoDB
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
 > * strömma diagnostikloggar från Azure
@@ -80,7 +80,7 @@ Klona exempellagringsplatsen med följande kommando.
 git clone https://github.com/Azure-Samples/meanjs.git
 ```
 
-Den här exempeldatabasen innehåller en kopia av [MEAN.js-lagringsplatsen](https://github.com/meanjs/mean). Det är ändrat för att köras på App Service (mer information finns i [README-filen](https://github.com/Azure-Samples/meanjs/blob/master/README.md) på MEAN.js-lagringsplatsen).
+Den här exempellagringsplatsen innehåller en kopia av [MEAN.js-lagringsplatsen](https://github.com/meanjs/mean). Den ändras för att köras på App Service (mer information finns [filen Viktigt](https://github.com/Azure-Samples/meanjs/blob/master/README.md) för MEAN.js-lagringsplatsen).
 
 ### <a name="run-the-application"></a>Köra programmet
 
@@ -126,13 +126,13 @@ För MongoDB använder den här självstudien [Azure Cosmos DB](/azure/documentd
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
 
 ### <a name="create-a-cosmos-db-account"></a>Skapa ett Cosmos DB-konto
 
 Skapa ett Cosmos DB-konto i Cloud Shell med kommandot [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create).
 
-I följande kommandot ersätter du ett unikt Cosmos DB-namn med platshållaren *\<cosmosdb_name>*. Det här namnet används som en del av Cosmos DB-slutpunkten `https://<cosmosdb_name>.documents.azure.com/`, så namnet måste vara unikt för alla Cosmos DB-konton i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken långt.
+I följande kommando ersätter du platshållaren *\<cosmosdb_name>* med ett unikt Cosmos DB-namn. Det här namnet används som en del av Cosmos DB-slutpunkten `https://<cosmosdb_name>.documents.azure.com/`, så namnet måste vara unikt för alla Cosmos DB-konton i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken långt.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
@@ -164,7 +164,7 @@ I det här steget, ansluter du ditt MEAN.js-exempelprogram till en Cosmos DB-dat
 
 ### <a name="retrieve-the-database-key"></a>Hämta databasnyckeln
 
-För att ansluta till en Cosmos DB-databas behöver du databasnyckeln. Använd kommandot [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) i Cloud Shell för att hämta den primära nyckeln.
+För att ansluta till en Cosmos DB-databas behöver du databasnyckeln. Använd kommandot [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) i Cloud Shell för att hämta primärnyckeln.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -238,7 +238,7 @@ I terminalen stoppar du Node.js genom att skriva `Ctrl+C`.
 
 ## <a name="deploy-app-to-azure"></a>Distribuera appen till Azure
 
-I det här steget, distribuerar du ditt MongoDB-anslutna Node.js-program till Azure App Service.
+I det här steget distribuerar du ditt MongoDB-anslutna Node.js-program till Azure App Service.
 
 ### <a name="configure-local-git-deployment"></a>Konfigurera lokal git-distribution
 
@@ -252,7 +252,7 @@ I det här steget, distribuerar du ditt MongoDB-anslutna Node.js-program till Az
 
 ### <a name="create-a-web-app"></a>Skapa en webbapp
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-linux-no-h.md)] 
 
 ### <a name="configure-an-environment-variable"></a>Konfigurera en miljövariabel
 
@@ -420,7 +420,7 @@ Precis ovanför taggen lägger du till ytterligare ett `<div class="form-group">
 
 Spara alla ändringar.
 
-I det lokala terminalfönstret testar du dina ändringar i produktionsläget igen.
+Gå till det lokala terminalfönstret och testa dina ändringar i produktionsläget igen.
 
 ```bash
 gulp prod
@@ -450,7 +450,7 @@ När `git push` har slutförts kan du gå till Azure-webbappen och prova att anv
 
 ![Modell- och databasändringar som är publicerade i Azure](media/tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
-Om du la till några artiklar tidigare kan du fortfarande se dem. Befintliga data i din Cosmos DB förloras inte. Dina uppdateringar till dataschemat håller dessutom dina befintliga data intakta.
+Om du lade till några artiklar tidigare kan du fortfarande se dem. Befintliga data i din Cosmos DB förloras inte. Dina uppdateringar till dataschemat håller dessutom dina befintliga data intakta.
 
 ## <a name="manage-your-azure-web-app"></a>Hantera din Azure-webbapp
 
@@ -474,7 +474,7 @@ Vad du lärt dig:
 
 > [!div class="checklist"]
 > * Skapa en CosmosDB-databas med hjälp av MongoDB-API i Azure
-> * Anslut en Node.js-app till MongoDB
+> * ansluta en Node.js-app till MongoDB
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
 > * strömma loggar från Azure till terminalen

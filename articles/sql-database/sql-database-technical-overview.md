@@ -1,31 +1,31 @@
 ---
-title: "Vad är tjänsten Azure SQL Database? | Microsoft Docs"
-description: "Få en introduktion till SQL Database: teknisk information och funktioner i Microsofts relationella databashanteringssystem (RDBMS) i molnet."
-keywords: "introduktion till sql, sql-introduktion, vad är sql database"
+title: Vad är tjänsten Azure SQL Database? | Microsoft Docs
+description: 'Få en introduktion till SQL Database: teknisk information och funktioner i Microsofts relationella databashanteringssystem (RDBMS) i molnet.'
+keywords: introduktion till sql, sql-introduktion, vad är sql database
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 02/12/2018
+ms.date: 03/07/2018
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: 1671cbe47b2aee53e4ec6d2bc731cbe4496ce586
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a1c4426acec8e9e006c2349b886297f45cc8ecb2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Vad är tjänsten Azure SQL Database? 
 
-SQL-databasen är en allmän relationsdatabastjänst i Microsoft Azure som har stöd för strukturer som relationsdata, JSON, spatial och XML. Ger [dynamiskt skalbar prestanda](sql-database-service-tiers.md) och innehåller alternativ som [kolumnlagringsindex](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) för extremanalys och rapporter, samt [minnesintern OLTP](sql-database-in-memory.md) för extrem transaktionell bearbetning. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-kodbasen sömlöst och avlägsnar all hantering av underliggande den infrastrukturen. 
+SQL-databasen är en hanterad, allmän relationsdatabastjänst i Microsoft Azure som har stöd för strukturer som relationsdata, JSON, spatial och XML. SQL Database erbjuder hanterade [enkla SQL-databaser](sql-database-servers-databases.md), hanterade SQL-databaser i en [elastisk pool](sql-database-elastic-pool.md) och hanterade SQL-instanser – som kallas [SQL Database Managed Instance](sql-database-managed-instance.md) (i allmänt tillgänglig förhandsversion). Ger [dynamiskt skalbar prestanda](sql-database-service-tiers.md) och innehåller alternativ som [kolumnlagringsindex](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) för extremanalys och rapporter, samt [minnesintern OLTP](sql-database-in-memory.md) för extrem transaktionell bearbetning. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-kodbasen sömlöst och avlägsnar all hantering av underliggande den infrastrukturen. 
 
 SQL-databas delar sin kodbas med [Microsoft SQL Server-databasmotorn](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Med Microsofts moln-först-strategi släpps de senaste funktionerna för SQL Server först till SQL-databasen och sedan till SQL-servern. Den här metoden ger de senaste funktionerna för SQL Server utan merkostnader för uppdatering eller uppgradering och med nya funktioner som testas över miljontals databaser. Mer information om nya funktioner efter hand som de tillkännages finns i:
 
@@ -37,19 +37,22 @@ SQL-databas delar sin kodbas med [Microsoft SQL Server-databasmotorn](https://do
 
 SQL Database levererar förutsägbar prestanda på flera servicenivåer som ger dynamisk skalbarhet utan driftstopp, inbyggd intelligent optimering, global skalbarhet och tillgänglighet samt alternativ för avancerad säkerhet – allt detta med nästan obefintlig administration. Dessa funktioner gör att du kan fokusera på snabb apputveckling och att accelerera din tid till marknaden, istället för att ägna värdefull tid och resurser åt att hantera virtuella datorer och infrastruktur. SQL Database-tjänsten används för närvarande i 38 datacenter runtom i världen och många fler datacenter ansluter sig hela tiden, vilket innebär att du kan köra din databas från ett datacenter nära dig.
 
-> [!NOTE]
-> Besök [Azure Säkerhetscenter](https://azure.microsoft.com/support/trust-center/security/) för information om Azures plattformssäkerhet.
+> [VIKTIGT!] SQL Database Managed Instance finns för närvarande i förhandsversion och är endast tillgänglig på en enda servicenivå. Mer information finns i [SQL Database Managed Instance](sql-database-managed-instance.md).
 >
 
 ## <a name="scalable-performance-and-pools"></a>Skalbar prestanda och pooler
 
 Med SQL-databas måste alla databaser vara isolerade från varandra och portabla, var och en med sin egen [tjänstnivå](sql-database-service-tiers.md) med en garanterad prestandanivå. SQL-databasen innehåller olika prestandanivåer för olika behov och gör att databaserna är poolade för att maximera användningen av resurser och spara pengar.
 
+Med SQL Database Managed Instance är varje instans isolerad från andra instanser med garanterade resurser. Mer information finns i [SQL Database Managed Instance](sql-database-managed-instance.md) 
+
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Justera prestanda och skalning utan avbrott
 
 I SQL Database finns tre tjänstnivåer som ger stöd för allt från lätta till tunga arbetsbelastningar: Basic, Standard och Premium. Du kan skapa din första app på en liten, enkel databas för en låg månadskostnad och sedan ändra dess tjänstnivå manuellt eller programmässigt när som helst för att uppfylla behoven i din lösning. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
 
    ![skalning](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+
+SQL Database Managed Instance finns i förhandsversion och erbjuder en enda servicenivå. Mer information finns i [SQL Database Managed Instance](sql-database-managed-instance.md)
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastiska pooler som maximerar resursutnyttjandet
 
@@ -58,6 +61,9 @@ För många företag och appar räcker det att kunna skapa enkla databaser och r
    ![elastiska pooler](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
 Med elastiska pooler behöver du inte fokusera på att reglera databasprestanda upp och ner när behovet av resurser varierar. Databaserna i poolen förbrukar den elastiska poolens prestandaresurser efter behov. Databaser i poolen förbrukar, men överskrider inte begränsningarna i poolen. Dina kostnader förblir förutsägbara även om den individuella databasanvändningen inte är det. Dessutom kan du [lägga till och ta bort databaser i poolen](sql-database-elastic-pool-manage-portal.md) och därmed skala din app från några få databaser till tusentals, inom en budget som du själv styr över. Du också styra de minimalt och maximalt tillgängliga resurser som är tillgängliga för databaser i poolen, för att säkerställa att ingen databas i poolen använder alla poolresurser och att varje databas i poolen har garanterade resurser. Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+> [!IMPORTANT]
+> SQL Database Managed Instance stöder inte elastiska pooler.
 
 ### <a name="blend-single-databases-with-pooled-databases"></a>Blanda enskilda databaser med databaser i en pool
 
@@ -83,6 +89,7 @@ Azures branschledande serviceavtal [(SLA)](http://azure.microsoft.com/support/le
 - **[Återställning vid tidpunkt](sql-database-recovery-using-backups.md)**: SQL-databasen har stöd för återställning till en valfri tidpunkt inom den automatiska kvarhållningsperioden för säkerhetskopiering.
 - **[Aktiv geo-replikering](sql-database-geo-replication-overview.md)**: Med SQL-databasen kan du konfigurera upp till fyra läsbara sekundära databaser i antingen samma eller globalt distribuerade Azure-datacenter.  Till exempel om du har ett SaaS-program med en katalog-databas som har ett stort antal samtidiga skrivskyddade transaktioner, använder aktiv geo-replikering för att aktivera global skrivskyddsskala och tar bort flaskhalsar på primärorsaken som beror på skrivskyddade arbetsbelastningar. 
 - **[Redundansgrupper](sql-database-geo-replication-overview.md)**: SQL-databasen kan du aktivera hög tillgänglighet och belastningsutjämning på global nivå, inklusive transparent geo-replikering och redundans för stora mängder databaser och elastiska pooler. Redundansgrupper och aktiv geo-replikering kan du skapa globalt distribuerade SaaS-program med minimala administrationsomkostnader, vilket lämnar all komplex övervakning, rutt, och felstyrning till SQL-databasen.
+- **[Zonredundanta databaser](sql-database-high-availability.md)**: Med SQL Database kan du etablera Premium-databaser eller elastiska Premium-pooler i flera tillgänglighetszoner. Eftersom Premium-databaser och elastiska Premium-pooler har flera redundanta repliker för hög tillgänglighet får du mer elasticitet om du placerar replikerna i flera tillgänglighetszoner. Du kan även återställa automatiskt från datacenters skalningsfel utan dataförlust. Den här funktionen är för närvarande en förhandsversion. 
 
 ## <a name="built-in-intelligence"></a>Inbyggd intelligens
 
@@ -158,7 +165,7 @@ Skapa program med Python, Java, Node.js, PHP, Ruby och .NET på MacOS, Linux och
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Ställ frågor om databasadministration
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Ställ frågor om utveckling
-- [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): Ställ tekniska frågor
+- [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Ställ tekniska frågor
 - [Feedback](http://aka.ms/sqlfeedback): Rapportera fel och kom med förslag
 - [Reddit](https://www.reddit.com/r/SQLServer/): Diskutera SQL Server
 

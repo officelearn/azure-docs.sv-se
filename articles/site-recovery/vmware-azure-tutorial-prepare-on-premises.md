@@ -1,19 +1,19 @@
 ---
-title: "Förbereda lokala VMware-servrar på haveriberedskap av virtuella VMware-datorer till Azure | Microsoft Docs"
-description: "Lär dig att förbereda lokala VMware-servrar på haveriberedskap till Azure med Azure Site Recovery-tjänsten."
+title: Förbereda lokala VMware-servrar på haveriberedskap av virtuella VMware-datorer till Azure | Microsoft Docs
+description: Lär dig att förbereda lokala VMware-servrar på haveriberedskap till Azure med Azure Site Recovery-tjänsten.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6b5c16e5b4136acc06c4ace4b16e8eb0e3522d24
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala VMware-servrar på haveriberedskap till Azure
 
@@ -86,7 +86,7 @@ Kontrollera att den virtuella datorn uppfyller Azure-kraven som sammanfattas i f
 **Namn på virtuell dator** | Mellan 1 och 63 tecken.<br/><br/> Begränsat till bokstäver, siffror och bindestreck. VM-namnet måste börja och sluta med en bokstav eller en siffra.
 **VM-typ** | Generation 1 – Linux eller Windows<br/><br/>Generation 2 – endast Windows
 
-Den virtuella datorn måste också köras på ett operativsystem som stöds. Se [Site Recovery-supportmatrisen](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) för en fullständig lista med versioner som stöds.
+Den virtuella datorn måste också köras på ett operativsystem som stöds. Se [supportmatrisen för VMware och fysiska servrar](vmware-physical-azure-support-matrix.md#replicated-machines) för en fullständig lista med versioner som stöds.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Förbereda för att ansluta till virtuella Azure-datorer efter en redundansväxling
 

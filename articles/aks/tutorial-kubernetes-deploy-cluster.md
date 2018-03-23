@@ -1,6 +1,6 @@
 ---
-title: "Självstudie om Kubernetes i Azure – Distribuera kluster"
-description: "Självstudie om AKS – Distribuera kluster"
+title: Självstudie om Kubernetes i Azure – Distribuera kluster
+description: Självstudie om AKS – Distribuera kluster
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 975069dbe9283c98482d7d0d5741a595ef323b35
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6ea26a2d4214c41faa5d63b7c72667955a43d6a2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Distribuera ett Azure Container Service-kluster (AKS)
 
@@ -85,7 +85,7 @@ När självstudien är utförd har du ett AKS-kluster som är redo för arbetsbe
 
 ## <a name="configure-acr-authentication"></a>Konfigurera ACR-autentisering
 
-Autentisering måste konfigureras mellan AKS-klustret och ACR-registret. Detta innebär att du beviljar tillräcklig behörighet till ACS-identiteten för att hämta avbildningar från ACR-registret.
+Autentisering måste konfigureras mellan AKS-klustret och ACR-registret. Detta innebär att bevilja tillräcklig behörighet till AKS-identiteten för att hämta avbildningar från ACR-registret.
 
 Först hämtar du ID:t för tjänstens huvudnamn som konfigurerats för AKS. Uppdatera resursgruppens namn och AKS-klusternamnet så att de matchar din miljö.
 
@@ -96,7 +96,7 @@ CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --q
 Hämta ACR-registrets resurs-id. Uppdatera registernamnet till ACR-registrets namn och resursgruppen till den resursgrupp där ACR-registret finns.
 
 ```azurecli
-ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+ACR_ID=$(az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
 Skapa rolltilldelningen, vilket ger lämplig åtkomst.

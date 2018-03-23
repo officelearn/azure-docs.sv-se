@@ -1,13 +1,13 @@
 ---
 title: Skydda IIS med SSL-certifikat i Azure | Microsoft Docs
-description: "Lär dig att skydda IIS-webbservern med SSL-certifikat på en virtuell Windows-dator i Azure"
+description: Lär dig att skydda IIS-webbservern med SSL-certifikat på en virtuell Windows-dator i Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: tutorial
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ada0703603df5ae5a324d38cda2b23a060a10992
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 3c6823387e2e875e935a5a12345afdbf7e81a0cb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>Skydda en IIS-webbserver med SSL-certifikat på en virtuell Windows-dator i Azure
 När du ska skydda dina webbservrar kan du använda ett SSL-certifikat (Secure Sockets Layer) för att kryptera webbtrafik. SSL-certifikat går att lagra i Azure Key Vault och tillåter säker distribuering av certifikat till virtuella Windows-datorer i Azure. I den här självstudiekursen får du lära du dig att:
@@ -120,7 +120,7 @@ Om du vill lägga till certifikatet från Key Vault till en virtuell dator hämt
 ```azurepowershell-interactive
 $certURL=(Get-AzureKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
 
-$vm=Get-AzureRMVM -ResourceGroupName $resourceGroup -Name "myVM"
+$vm=Get-AzureRmVM -ResourceGroupName $resourceGroup -Name "myVM"
 $vaultId=(Get-AzureRmKeyVault -ResourceGroupName $resourceGroup -VaultName $keyVaultName).ResourceId
 $vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $vaultId -CertificateStore "My" -CertificateUrl $certURL
 

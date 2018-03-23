@@ -1,22 +1,22 @@
 ---
 title: Etablera en simulerad TPM-enhet till Azure IoT Hub med Node.js | Microsoft Docs
-description: "Azure Snabbstart – Skapa och etablera en simulerad TPM-enhet med Node.js-enhetens SDK för Azure IoT Hub Device Provisioning-tjänsten"
+description: Azure Snabbstart – Skapa och etablera en simulerad TPM-enhet med Node.js-enhetens SDK för Azure IoT Hub Device Provisioning-tjänsten
 services: iot-dps
-keywords: 
+keywords: ''
 author: msebolt
 ms.author: v-masebo
 ms.date: 03/01/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 3cc667286e9c643f31d9c704a8a2dfac18312bb3
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5ade9eca4b16e4864ec4e9d7bc6977c1e8322daa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad TPM-enhet med Node.js-enhetens SDK för IoT Hub Device Provisioning-tjänsten
 
@@ -62,7 +62,7 @@ Se till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with 
     ```
 
     > [!NOTE]
-    > Det finns några kända problem som kan uppstå när du installerar ovanstående paket. För att lösa dessa kan du köra `npm install --global --production windows-build-tools` med hjälp av en kommandotolk i läget **Kör som administratör**. Kör `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` efter att du ersatt sökvägen med den installerade versionen och kör sedan installationskommandona igen.
+    > Det finns några kända problem som kan uppstå när du installerar ovanstående paket. För att lösa dessa problem kan du köra `npm install --global --production windows-build-tools` med hjälp av en kommandotolk i läget **Kör som administratör**. Kör `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` efter att du ersatt sökvägen med den installerade versionen och kör sedan installationskommandona igen.
     >
 
 1. Installera följande paket som innehåller de komponenter som användes under registreringen:
@@ -81,7 +81,7 @@ Se till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with 
     > I exemplen nedan används transporterna `azure-iot-provisioning-device-http` och `azure-iot-device-mqtt`.
     > 
 
-    Du kan installera alla samtidigt genom att köra följande kommando i en kommandotolk i mappen **registereddevice**:
+    Du kan installera alla paket samtidigt genom att köra följande kommando i en kommandotolk i mappen **registerdevice**:
 
         ```cmd/sh
         npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device

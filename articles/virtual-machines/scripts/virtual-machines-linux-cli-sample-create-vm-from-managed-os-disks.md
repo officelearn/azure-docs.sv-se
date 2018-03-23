@@ -1,13 +1,13 @@
 ---
-title: Azure CLI-skript Sample - skapa en virtuell dator genom att koppla en hanterade diskar som OS-disk | Microsoft Docs
-description: Azure CLI-skript Sample - skapa en virtuell dator genom att koppla en hanterade diskar som OS-disk
+title: Skriptexempel för Azure CLI – Skapa en virtuell dator genom att ansluta en hanterad diskar och använda den som operativsystemsdisk | Microsoft Docs
+description: Skriptexempel för Azure CLI – Skapa en virtuell dator genom att ansluta en hanterad diskar och använda den som operativsystemsdisk
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: ramankum
 manager: kavithag
 editor: ramankum
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -16,18 +16,18 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 2141ea4fd25dfc69ada02c54c4f6b6b717b8e7db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 5d86710fd9173cd0bc3416fedec226f97f12d9d2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-cli"></a>Skapa en virtuell dator med en befintlig OS-disk hanterade med CLI
+# <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-cli"></a>Skapa en virtuell dator med hjälp av en befintlig hanterad operativsystemsdisk med CLI
 
-Det här skriptet skapar en virtuell dator genom att koppla en befintlig hanterade disk som OS-disken. Använd det här skriptet i föregående scenarier:
-* Skapa en virtuell dator från en befintlig hanterade OS-disk som har kopierats från en hanterad disk i en annan prenumeration
-* Skapa en virtuell dator från en befintlig hanterade disk som har skapats från en särskild VHD-fil 
-* Skapa en virtuell dator från en befintlig hanterade OS-disk som har skapats från en ögonblicksbild 
+Det här skriptet skapar en virtuell dator genom att ansluta en befintlig hanterad disk och använda den som operativsystemsdisk. Använd skriptet i dessa scenarion:
+* Skapa en virtuell dator utifrån en befintlig hanterad operativsystemsdisk som har kopierats från en hanterad disk i en annan prenumeration
+* Skapa en virtuell dator utifrån en befintlig hanterad disk som har skapats med en särskild VHD-fil 
+* Skapa en virtuell dator utifrån en befintlig hanterad operativsystemsdisk som har skapats med en ögonblicksbild 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -39,22 +39,22 @@ Det här skriptet skapar en virtuell dator genom att koppla en befintlig hantera
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att hämta egenskaper för hanterade diskar, ansluter hanterade diskar till en ny virtuell dator och skapa en virtuell dator. Varje objekt i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon för att hämta egenskaper för hanterade diskar, ansluta en hanterad disk till en ny virtuell dator och skapa en virtuell dator. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [AZ disk visa](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Hämtar egenskaper för hanterade diskar med hjälp av diskens namn och resursgruppens namn. ID-egenskapen används för att koppla en hanterade diskar till en ny virtuell dator |
-| [Skapa AZ vm](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Skapar en virtuell dator med hjälp av en hanterad OS-disk |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Hämtar egenskaper för hanterade diskar med hjälp av diskens namn och resursgruppens namn. ID-egenskapen används för att koppla en hanterad disk till en ny virtuell dator |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Skapar en virtuell dator med hjälp av en hanterad operativsystemsdisk |
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare virtuella CLI skriptexempel finns i den [virtuella Azure Linux-datorn dokumentationen](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ytterligare CLI-skriptexempel för virtuella datorer finns i [Dokumentation för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -1,6 +1,6 @@
 ---
-title: "Migrera AD FS på lokala appar till Azure. | Microsoft Docs"
-description: "Det här dokumentet är avsett att hjälpa företag att förstå hur de ska migrera lokala program till Azure AD, med fokus på externa SaaS-program."
+title: Migrera AD FS på lokala appar till Azure. | Microsoft Docs
+description: Det här dokumentet är avsett att hjälpa företag att förstå hur de ska migrera lokala program till Azure AD, med fokus på externa SaaS-program.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -9,13 +9,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/29/2018
+ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: ec0731534da2543d48bedc575bf882b790fa136b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f1256e2fefe1ad3d37403f37804888ab9dcf6e99
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrera AD FS på lokala appar till Azure 
 
@@ -166,7 +166,7 @@ Appar som kräver följande funktioner kan inte migreras idag.  Ge feedback i ko
 - Anspråk i token-funktioner
     - Utfärda lokala gruppnamn som anspråk
     - Anspråk i andra lager än Azure AD
-    - Komplexa anspråksregler för utfärdandetransformering (se det här dokumentet och det är dokumentet för information om anspråksmappningar som stöds)
+    - Komplexa anspråksregler för utfärdandetransformering (se det här [dokumentet](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) och det här [dokumentet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) för information om anspråksmappningar som stöds)
     - Utfärda katalogtillägg som anspråk
     - Anpassad specifikation av NameID-format
     - Utfärda flervärdesattribut

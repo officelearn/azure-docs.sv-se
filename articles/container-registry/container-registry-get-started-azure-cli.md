@@ -1,25 +1,25 @@
 ---
-title: "Snabbstart – skapa ett privat Docker-register i Azure med Azure CLI"
-description: "Lär dig snabbt att skapa ett privat Docker-behållarregister med Azure CLI."
+title: Snabbstart – skapa ett privat Docker-register i Azure med Azure CLI
+description: Lär dig snabbt att skapa ett privat Docker-behållarregister med Azure CLI.
 services: container-registry
 author: neilpeterson
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/07/2017
+ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: a74a1ce5c9401d6445f5feec4af8d5cb771d2c64
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: db1fb3deec4b70a9341753a59910aeb0e002bca0
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Skapa ett behållarregister med hjälp av Azure CLI
 
-Azure Container Registry är en hanterad Docker-behållarregistertjänst som används för att lagra privata Docker-behållaravbildningar. Den här guiden beskriver hur du skapar en Azure Container Registry-instans med hjälp av Azure CLI.
+Azure Container Registry är en hanterad Docker-behållarregistertjänst som används för att lagra privata Docker-behållaravbildningar. I den här guiden får du lära dig att skapa en Azure Container Registry-instans med hjälp av Azure CLI, push-överföra en behållaravbildning till registret och distribuera behållaren från ditt register till Azure Container Instances (ACI).
 
-För den här snabbstarten krävs att du kör Azure CLI version 2.0.25 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0][azure-cli].
+För den här snabbstarten krävs att du kör Azure CLI version 2.0.27 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0][azure-cli].
 
 Du måste också ha Docker installerat lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac][docker-mac]-, [Windows][docker-windows]- eller [Linux][docker-linux]-dator.
 
@@ -29,13 +29,13 @@ Skapa en resursgrupp med kommandot [az group create][az-group-create]. En Azure-
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-container-registry"></a>Skapa ett behållarregister
 
-I den här snabbstarten skapar vi ett *Grundläggande* register. Azure Container Registry finns i flera olika SKU:er, som beskrivs kortfattat i följande tabell. Mer information om var och en finns i [SKU:er för Container Registry][container-registry-skus].
+I den här snabbstarten skapar du ett *grundläggande* register. Azure Container Registry finns i flera olika SKU:er, som beskrivs kortfattat i följande tabell. Mer information om var och en finns i [SKU:er för Container Registry][container-registry-skus].
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
@@ -70,7 +70,7 @@ När registret har skapats ser utdata ut ungefär så här:
 }
 ```
 
-I resten av den här snabbstarten använder vi `<acrName>` som platshållare för namnet på behållarregistret.
+I resten av den här snabbstarten använder du `<acrName>` som platshållare för namnet på behållarregistret.
 
 ## <a name="log-in-to-acr"></a>Logga in på ACR
 
@@ -138,20 +138,64 @@ Result
 v1
 ```
 
+## <a name="deploy-image-to-aci"></a>Distribuera avbildningen till ACI
+
+Du måste ange autentiseringsuppgifterna för registret när du ska distribuera en behållarinstans från registret som du skapat. I produktionsscenarier bör du använda [tjänstens huvudnamn] [ container-registry-auth-aci] för åtkomst till behållarregistret, men aktivera administratörsanvändaren i registret med följande kommando för att hålla snabbstarten kort:
+
+```azurecli
+az acr update --name <acrName> --admin-enabled true
+```
+
+När administratören har aktiverats är användarnamnet det samma som ditt registernamn och du kan hämta lösenordet med det här kommandot:
+
+```azurecli
+az acr credential show --name <acrName> --query "passwords[0].value"
+```
+
+Kör följande kommando för att distribuera behållaravbildningen med 1 CPU-kärna och 1 GB minne. Ersätt `<acrName>`, `<acrLoginServer>` och `<acrPassword>` med de värden som du fick från tidigare kommandon.
+
+```azurecli
+az container create --resource-group myResourceGroup --name acr-quickstart --image <acrLoginServer>/aci-helloworld:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
+```
+
+Du bör få ett inledande svar från Azure Resource Manager med information om din behållare. Om du vill övervaka statusen för behållaren och kontrollera när den körs upprepar du kommandot [az container show][az-container-show]. Det ska ta mindre än en minut.
+
+```azurecli
+az container show --resource-group myResourceGroup --name acr-quickstart --query instanceView.state
+```
+
+## <a name="view-the-application"></a>Visa programmet
+
+När distribueringen till ACI har genomförts hämtar du behållarens FQDN med kommandot [az container show][az-container-show]:
+
+```azurecli
+az container show --resource-group myResourceGroup --name acr-quickstart --query ipAddress.fqdn
+```
+
+Exempel på utdata: `"aci-demo.eastus.azurecontainer.io"`
+
+Gå till den offentliga IP-adressen som visas i webbläsaren om du vill se programmet som körs.
+
+![Hello World-app i webbläsaren][aci-app-browser]
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 När resursgruppen inte längre behövs kan du använda kommandot [az group delete][az-group-delete] till att ta bort resursgruppen, ACR-instansen och alla behållaravbildningar.
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du ett Azure Container Registry med Azure CLI. Om du vill använda Azure Container Registry med Azure Container Instances fortsätter du till självstudien för Azure Container Instances.
+I den här snabbstarten skapade du ett Azure Container Registry med Azure CLI, push-överförde en behållaravbildning till registret och startade en instans av den via Azure Container Instances. Fortsätt till självstudien om Azure Container Instances om du vill titta närmare på ACI.
 
 > [!div class="nextstepaction"]
 > [Självstudie för Azure Container Instances][container-instances-tutorial-prepare-app]
+
+<!-- IMAGES> -->
+[aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png
+
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -167,5 +211,7 @@ I den här snabbstarten skapade du ett Azure Container Registry med Azure CLI. O
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli]: /cli/azure/install-azure-cli
+[az-container-show]: /cli/azure/container#az_container_show
 [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
 [container-registry-skus]: container-registry-skus.md
+[container-registry-auth-aci]: container-registry-auth-aci.md

@@ -1,8 +1,8 @@
 ---
-title: "Introduktion till Apache Kafka på HDInsight - Azure | Microsoft Docs"
-description: "Lär dig mer om Apache Kafka på HDInsight: vad det är, dess syfte och var du hittar exempel och kommer igång."
+title: Introduktion till Apache Kafka på HDInsight - Azure | Microsoft Docs
+description: 'Lär dig mer om Apache Kafka på HDInsight: vad det är, dess syfte och var du hittar exempel och kommer igång.'
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: b91d1c1eb452ade005fceb095f8d9e62b28a14ac
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Introduktion till Apache Kafka på HDInsight
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/28/2018
 
 Kafka på HDInsight har följande två funktioner:
 
-* __99 % serviceavtal (SLA) för Kafka-drifttid__: mer information finns i dokumentet [SLA information for HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) (SLA-information för HDInsight).
+* __99.9 % serviceavtal (SLA) för Kafka-drifttid__: mer information finns i dokumentet [SLA information for HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) (SLA-information för HDInsight).
 
 * __Feltolerans och rackmedvetenhet__: Kafka utformades med en endimensionell vy av ett rack, vilket fungerar bra i vissa miljöer. I miljöer som Azure är rack däremot uppdelade i två dimensioner – uppdateringsdomäner (UD) och feldomäner (FD). Microsoft tillhandahåller verktyg som balanserar om Kafka-partitioner och -repliker mellan uppdateringsdomäner och feldomäner. 
 

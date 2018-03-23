@@ -1,6 +1,6 @@
 ---
-title: "Skapa virtuella datorer som kör en SQL&#92;IIS&#92;.NET-stack i Azure| Microsoft Docs"
-description: "Självstudie – installera en Azure SQL-, IIS-, .NET-stack på virtuella Windows-datorer."
+title: Skapa virtuella datorer som kör en SQL&#92;IIS&#92;.NET-stack i Azure| Microsoft Docs
+description: Självstudie – installera en Azure SQL-, IIS-, .NET-stack på virtuella Windows-datorer.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ad84d6e8f74fa184ac2359ff7f08e6c8143d419a
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ac6038f7600d6eb4c8d021998f9cfc40bd369332
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="install-a-sql92iis92net-stack-in-azure"></a>Installera en SQL&#92;IIS&#92;.NET-stack i Azure
 
@@ -33,7 +33,7 @@ I den här självstudien installerar vi en SQL&#92;IIS&#92;.NET-stack med Azure 
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Den här självstudien kräver AzureRM.Compute-modul version 4.3.1 eller senare. Kör `Get-Module -ListAvailable AzureRM.Compute` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AzureRM.Compute-modul version 4.3.1 eller senare. Kör `Get-Module -ListAvailable AzureRM.Compute` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
 
 ## <a name="create-a-iis-vm"></a>Skapa en virtuell IIS-dator 
 

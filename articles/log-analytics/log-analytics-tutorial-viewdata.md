@@ -1,11 +1,11 @@
 ---
 title: Visa eller analysera insamlade Azure Log Analytics-data | Microsoft Docs
-description: "Den här artikeln innehåller en självstudie som beskriver hur du skapar loggsökningar och analyserar data som lagrats i din Log Analytics-resurs med Log Search-portalen.  Självstudien innehåller körning av några enkla frågor för att returnera olika typer av data och för att analysera resultatet."
+description: Den här artikeln innehåller en självstudie som beskriver hur du skapar loggsökningar och analyserar data som lagrats i din Log Analytics-resurs med Log Search-portalen.  Självstudien innehåller körning av några enkla frågor för att returnera olika typer av data och för att analysera resultatet.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -84,7 +84,7 @@ Syslog | where (SeverityLevel == "err")
 
 ![Filter](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-02.png)
 
-Lägg till egenskaper till filtreringsfönstret genom att välja  **	Lägg till i filter** på egenskapsmenyn för någon av posterna.
+Lägg till egenskaper till filtreringsfönstret genom att välja **Lägg till i filter** på egenskapsmenyn för någon av posterna.
 
 ![Menyn Lägg till i filter](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-03.png)
 

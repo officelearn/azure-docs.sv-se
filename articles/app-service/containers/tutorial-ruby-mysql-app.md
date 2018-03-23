@@ -1,8 +1,8 @@
 ---
 title: Skapa en Ruby- and MySQL-webbapp i Azure App Service i Linux | Microsoft Docs
-description: "Lär dig hur du får igång en Ruby-app som fungerar i Azure med anslutning till en MySQL-databas i Azure."
+description: Lär dig hur du får igång en Ruby-app som fungerar i Azure med anslutning till en MySQL-databas i Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
 ms.service: app-service-web
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 12/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 951e66e47cf8fbe9d2cdf1606a8d63054bcada13
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 73839127c23eca29e3a20ab4d68668dfb7c6a375
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-ruby-and-mysql-web-app-in-azure-app-service-on-linux"></a>Skapa en Ruby- and MySQL-webbapp i Azure App Service i Linux
 
@@ -27,7 +27,7 @@ Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar 
 I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Skapa en MySQL-databas i Azure
+> * skapa en MySQL-databas i Azure
 > * Ansluta en Ruby on Rails-app till MySQL
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
@@ -47,7 +47,7 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="prepare-local-mysql"></a>Förbereda lokal MySQL
 
-I det här steget skapar du en databas på din lokala MySQL-server för användning i den här självstudien.
+I det här steget skapar du en databas för självstudien på din lokala MySQL-server.
 
 ### <a name="connect-to-local-mysql-server"></a>Ansluta till en lokal MySQL-server
 
@@ -59,7 +59,7 @@ mysql -u root -p
 
 Om du uppmanas att ange ett lösenord anger du lösenordet för `root`-kontot. Se [MySQL: Återställa rotlösenordet](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html) om du inte kommer ihåg rotlösenordet för ditt konto.
 
-Om kommandot körs utan problem, är MySQL-servern igång. Om inte, kontrollerar du att den lokala MySQL-servern är igång genom att följa [anvisningarna efter installation av MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
+MySQL-servern är igång om kommandot körs utan problem. Om inte, kontrollerar du att den lokala MySQL-servern är igång genom att följa [anvisningarna efter installation av MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
 Skriv `quit` för att avsluta serveranslutningen.
 
@@ -132,7 +132,7 @@ I det här steget skapar du en MySQL-databas i [Azure Database för MySQL (förh
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-a-mysql-server"></a>Skapa en MySQL-server
 
@@ -168,7 +168,7 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 ```
 
 > [!NOTE]
-> Azure Database för MySQL (förhandsversion) begränsar för närvarande inte anslutningar till endast Azure-tjänster. Eftersom IP-adresser i Azure tilldelas dynamiskt är det bättre att aktivera alla IP-adresser. Tjänsten är en förhandsversion. Vi planerar att införa bättre metoder för att skydda databasen.
+> Azure Database for MySQL (Preview) begränsar för närvarande inte anslutningar till endast Azure-tjänster. Eftersom IP-adresser i Azure tilldelas dynamiskt är det bättre att aktivera alla IP-adresser. Tjänsten är en förhandsversion. Vi planerar att införa bättre metoder för att skydda databasen.
 >
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Ansluta lokalt till MySQL-produktionsservern
@@ -183,7 +183,7 @@ När du uppmanas att ange ett lösenord använder du _My5up3r$tr0ngPa$w0rd!_, so
 
 ### <a name="create-a-production-database"></a>Skapa en produktionsdatabas
 
-Välj att skapa en databas i `mysql`.
+Skapa en databas i `mysql`-prompten.
 
 ```sql
 CREATE DATABASE sampledb;
@@ -296,7 +296,7 @@ git add .
 git commit -m "database.yml updates"
 ```
 
-Din app är klar att distribuera.
+Din app är klar att distribueras.
 
 ## <a name="deploy-to-azure"></a>Distribuera till Azure
 
@@ -312,37 +312,7 @@ I det här steget, distribuerar du ditt MySQL-anslutna Rails-program till Azure 
 
 ### <a name="create-a-web-app"></a>Skapa en webbapp
 
-I Cloud Shell skapar du en webbapp i `myAppServicePlan` App Service-planen med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). 
-
-Ersätt `<app_name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. Körningen är inställd på `RUBY|2.3`, vilket distribuerar [Ruby-standardavbildningen](https://hub.docker.com/r/appsvc/ruby/). Om du vill se alla körningar som stöds ska du köra [ `az webapp list-runtimes` ](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "RUBY|2.3" --deployment-local-git
-```
-
-När webbappen har skapats visar Azure CLI utdata liknande den i följande exempel:
-
-```json
-Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
-```
-
-Du har skapat en tom ny webbapp med git-distribution aktiverad.
-
-> [!NOTE]
-> URL för fjärransluten Git visas i egenskapen `deploymentLocalGitUrl` med formatet `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Spara den här URL:en, eftersom du behöver den senare.
->
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
 ### <a name="configure-database-settings"></a>Konfigurera databasinställningarna
 
@@ -516,7 +486,7 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-När `git push` har slutförts kan du gå till Azure-webbappen och prova att använda de nya funktionerna.
+När `git push` har slutförts kan du gå till Azure-webbappen och prova de nya funktionerna.
 
 ![Modell- och databasändringar som är publicerade i Azure](media/tutorial-ruby-mysql-app/complete-checkbox-published.png)
 
@@ -545,7 +515,7 @@ Menyn till vänster innehåller sidor för att konfigurera appen.
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Skapa en MySQL-databas i Azure
+> * skapa en MySQL-databas i Azure
 > * Ansluta en Ruby on Rails-app till MySQL
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen

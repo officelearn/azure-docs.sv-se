@@ -1,13 +1,13 @@
 ---
-title: PowerShell-exempel-synkronisering mellan flera Azure SQL-databaser | Microsoft Docs
-description: "Azure PowerShell-exempelskript för synkronisering mellan flera Azure SQL-databaser"
+title: PowerShell-exempel – Synkronisera mellan flera Azure SQL-databaser| Microsoft Docs
+description: Azure PowerShell-exempelskript för att synkronisera mellan flera Azure SQL-databaser
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
@@ -17,21 +17,21 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: fe52538c95619cd5bf69ff706ec266195194ace9
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 23446e4156daca3903f15e538e2c47e63fcbf673
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Använd PowerShell för att synkronisera mellan flera SQL-databaser
+# <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Använda PowerShell för att synkronisera mellan flera SQL-databaser
  
-Det här exemplet PowerShell konfigurerar datasynkronisering ska synkroniseras mellan flera Azure SQL-databaser.
+Det här PowerShell-exemplet konfigurerar Data Sync för att synkronisera mellan flera Azure SQL-databaser.
 
-Det här exemplet kräver Azure PowerShell Modulversion 4.2 eller senare. Kör `Get-Module -ListAvailable AzureRM` att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+Det här exemplet kräver Azure PowerShell-modul version 4.2 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
  
-Kör `Login-AzureRmAccount` att skapa en anslutning med Azure.
+Kör `Login-AzureRmAccount` för att skapa en anslutning med Azure.
 
-En översikt över SQL datasynkronisering finns [synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering (förhandsgranskning)](../sql-database-sync-data.md).
+En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync (förhandsversion)](../sql-database-sync-data.md).
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -262,7 +262,7 @@ Update-AzureRmSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
                             -Name $SyncGroupName `
                             -Schema $TempFile
 
-$SyncStartTime = Get-Date
+$SyncLogStartTime = Get-Date
 
 # Trigger sync manually
 Write-Host "Trigger sync manually"
@@ -334,50 +334,50 @@ else
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-När du har kört exempelskript som kan du köra följande kommando för att ta bort resursgruppen och alla resurser som är associerade med den.
+När du kör exempelskriptet kan du köra följande kommando för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName $ResourceGroupName
 Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommando-specifik dokumentation.
+Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Ny AzureRmSqlSyncAgent](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgent) |  Skapar en ny Agent för synkronisering |
-| [Ny AzureRmSqlSyncAgentKey](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgentKey) |  Genererar agentnyckeln som associeras med Sync-agent |
-| [Get-AzureRmSqlSyncAgentLinkedDatabase](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncAgentLinkedDatabase) |  Få informationen för agenten för synkronisering |
-| [Ny AzureRmSqlSyncMember](/powershell/module/azurerm.sql/New-AzureRmSqlSyncMember) |  Lägg till en ny medlem i gruppen synkronisering |
-| [Uppdatera AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncSchema) |  Uppdaterar schemainformation för databasen |
-| [Get-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchem) |  Hämta schemainformation för databasen |
-| [Uppdatera AzureRmSqlSyncGroup](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncGroup) |  Uppdaterar gruppen synkronisering |
+| [New-AzureRmSqlSyncAgent](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgent) |  Skapar en ny synkroniseringsagent |
+| [New-AzureRmSqlSyncAgentKey](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgentKey) |  Genererar agentnyckeln som är kopplad till synkroniseringsagenten |
+| [Get-AzureRmSqlSyncAgentLinkedDatabase](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncAgentLinkedDatabase) |  Hämta all information för synkroniseringsagenten |
+| [New-AzureRmSqlSyncMember](/powershell/module/azurerm.sql/New-AzureRmSqlSyncMember) |  Lägga till en ny medlem i synkroniseringsgruppen |
+| [Update-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncSchema) |  Uppdaterar information för databasschema |
+| [Get-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchem) |  Hämta information för databasschema |
+| [Update-AzureRmSqlSyncGroup](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncGroup) |  Uppdaterar synkroniseringsgruppen |
 | [Start-AzureRmSqlSyncGroupSync](/powershell/module/azurerm.sql/Start-AzureRmSqlSyncGroupSync) | Utlöser en synkronisering |
-| [Get-AzureRmSqlSyncGroupLog](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncGroupLog) |  Kontrollerar synkronisering loggen |
+| [Get-AzureRmSqlSyncGroupLog](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncGroupLog) |  Kontrollerar synkroniseringsloggen |
 |||
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure PowerShell [Azure PowerShell dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
 
-Ytterligare exempel för SQL Database PowerShell-skript finns i [Azure SQL Database PowerShell-skript](../sql-database-powershell-samples.md).
+Ytterligare PowerShell-skriptexempel för SQL Database finns i [PowerShell-skript för Azure SQL Database](../sql-database-powershell-samples.md).
 
-För mer information om SQL-datasynkronisering, se:
+Mer information om SQL Data Sync finns i:
 
--   [Synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering](../sql-database-sync-data.md)
--   [Konfigurera Azure SQL datasynkronisering](../sql-database-get-started-sql-data-sync.md)
--   [Metodtips för Azure SQL-datasynkronisering](../sql-database-best-practices-data-sync.md)
--   [Övervaka Azure SQL-datasynkronisering med OMS logganalys](../sql-database-sync-monitor-oms.md)
--   [Felsökning av problem med Azure SQL-datasynkronisering](../sql-database-troubleshoot-data-sync.md)
+-   [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](../sql-database-sync-data.md)
+-   [Konfigurera Azure SQL Data Sync](../sql-database-get-started-sql-data-sync.md)
+-   [Metodtips för Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
+-   [Övervaka Azure SQL Data Sync med OMS Log Analytics](../sql-database-sync-monitor-oms.md)
+-   [Felsöka problem med Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
 
--   Slutför PowerShell-exempel som visar hur du konfigurerar SQL datasynkronisering:
+-   Slutför PowerShell-exempel som visar hur du konfigurerar SQL Data Sync:
     -   [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](sql-database-sync-data-between-azure-onprem.md)
 
--   [Hämta SQL Data Sync REST API-dokumentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [Ladda ned REST API-dokumentation för SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
-För mer information om SQL-databasen, se:
+Mer information om SQL Database finns i:
 
--   [Översikt över SQL-databas](../sql-database-technical-overview.md)
--   [Livscykelhantering för databasen](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Översikt över SQL Database](../sql-database-technical-overview.md)
+-   [Livscykelhantering för databas](https://msdn.microsoft.com/library/jj907294.aspx)

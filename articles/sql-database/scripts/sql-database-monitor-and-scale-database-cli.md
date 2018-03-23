@@ -1,13 +1,13 @@
 ---
-title: "CLI exempel-övervakaren-skala-enda Azure SQL database | Microsoft Docs"
-description: "Azure CLI-exempelskript för att övervaka och skala en enskild Azure SQL-databas"
+title: CLI-exempel – Övervaka och skala en Azure SQL-databas | Microsoft Docs
+description: Azure CLI-exempelskript för att övervaka och skala en enskild Azure SQL-databas
 services: sql-database
 documentationcenter: sql-database
 author: janeng
 manager: jstrauss
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: monitor & tune, mvc
 ms.devlang: azurecli
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 12/14/2017
 ms.author: janeng
-ms.openlocfilehash: 741c066d62364e34b788883bfc96fba1ea3507c3
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 6a09558b67c3e84d1057e5e51af256e6ed71a9e5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Använd CLI för att övervaka och skala en enskild SQL-databas
 
-Detta exempel på Azure CLI-skript skalar en enskild Azure SQL-databas till en annan prestandanivå efter hämtar Storleksinformation i databasen. 
+Det här Azure CLI-exempelskriptet skalar en enda Azure SQL-databas till en annan prestandanivå när du har kört frågor mot storleksinformationen för databasen. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,31 +37,31 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 [!code-azurecli-interactive[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale single SQL Database")]
 
 > [!TIP]
-> Använd [az sql db op listan](/cli/azure/sql/db/op?#az_sql_db_op_list) att hämta en lista över åtgärder som utförs på databasen och Använd [az sql db op Avbryt](/cli/azure/sql/db/op#az_sql_db_op_cancel) att avbryta en update-åtgärden i databasen.
+> Använd [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list) för att hämta en lista över åtgärder som utförs på databasen och använd [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel) för att avbryta en uppdateringsåtgärd i databasen.
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-Följande kommando kan användas för att ta bort resursgruppen och alla resurser som är associerade med den efter skriptexempel har körts.
+När exempelskriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ grupp](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
-| [Skapa AZ SQLServer](https://docs.microsoft.com/cli/azure/sql/server#az_sql_server_create) | Skapar en logisk server som värd för en databas. |
-| [AZ sql db visa-användning](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_show_usage) | Visar användningsinformation storlek för en databas. |
-| [AZ sql db-uppdateringen](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_update) | Uppdaterar Databasegenskaper (till exempel nivå eller prestanda servicenivån) eller flyttar en databas i, slut på eller mellan elastiska pooler. |
-| [ta bort grupp AZ](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az_sql_server_create) | Skapar en logisk server som är värd för en databas. |
+| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_show_usage) | Visar användningsinformation om storlek för en databas. |
+| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_update) | Uppdaterar databasegenskaper (till exempel tjänstnivå eller prestandanivå) eller flyttar en databas till, från eller mellan elastiska pooler. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare SQL-databas CLI skriptexempel finns i den [dokumentation för Azure SQL Database](../sql-database-cli-samples.md).
+Ytterligare CLI-skriptexempel för SQL Database finns i [Azure SQL Database-dokumentationen](../sql-database-cli-samples.md).

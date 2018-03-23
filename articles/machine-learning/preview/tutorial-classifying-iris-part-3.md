@@ -1,21 +1,21 @@
 ---
-title: "Distribuera en modellsjälvstudie för Azure Machine Learning (förhandsversion) | Microsoft Docs"
-description: "I den här kompletta självstudien får du lära dig att använda Azure Machine Learning (förhandsversionen) från slutpunkt till slutpunkt. Detta är en del tre som beskriver hur du distribuerar modellen."
+title: Distribuera en modellsjälvstudie för Azure Machine Learning (förhandsversion) | Microsoft Docs
+description: I den här kompletta självstudien får du lära dig att använda Azure Machine Learning (förhandsversionen) från slutpunkt till slutpunkt. Detta är en del tre som beskriver hur du distribuerar modellen.
 services: machine-learning
 author: raymondl
 ms.author: raymondl, j-martens, aashishb
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/28/2018
-ms.openlocfilehash: 761e7193cc64699e8aa25a1fd625ba45f65eed88
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 3/7/2018
+ms.openlocfilehash: 13ddc0ef8c7eac86e6cd7abb684ce35ae18fba84
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-classify-iris-part-3-deploy-a-model"></a>Självstudie: Klassificera Iris del 3: Distribuera en modell
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys för datatekniker. Datatekniker kan använda den för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -43,9 +43,9 @@ Gå igenom de första två delarna i självstudieserien:
 En Docker-motor måste vara installerad och köras lokalt. Du kan även distribuera ett Azure Container Service-kluster i Azure.
 
 ## <a name="download-the-model-pickle-file"></a>Ladda ned pickle-modellfilen
-I föregående del av självstudien kördes skriptet **iris_sklearn.py** i Machine Learning Workbench lokalt. Åtgärden serialiserade Logistic Regression-modellen med hjälp av det populära Python-paketet för objektserialisering [pickle](https://docs.python.org/2/library/pickle.html). 
+I föregående del av självstudien kördes skriptet **iris_sklearn.py** i Machine Learning Workbench lokalt. Den här åtgärden serialiserade Logistic Regression-modellen med hjälp av det populära Python-paketet för objektserialisering [pickle](https://docs.python.org/3/library/pickle.html). 
 
-1. Öppna programmet Machine Learning Workbench. Öppna projektet **myIris** som du skapade i den förra delen av självstudieserien.
+1. Öppna programmet Machine Learning Workbench. Öppna projektet **myIris** som du skapade i de tidigare delarna av självstudieserien.
 
 2. När projektet är öppet väljer du knappen **Filer** (mappikonen) i det vänstra fönstret för att öppna fillistan i projektmappen.
 
@@ -79,7 +79,7 @@ I föregående del av självstudien kördes skriptet **iris_sklearn.py** i Machi
    Läs mer om mappen `outputs` i [Läsa och skriva stora datafiler](how-to-read-write-files.md).
 
 ## <a name="get-the-scoring-script-and-schema-files"></a>Generera ett bedömningsskript och schemafilerna
-Om du vill distribuera webbtjänsten tillsammans med modellfilen behöver du också ett bedömningsskript. Du kan också behöva ett schema för webbtjänstens indata. Bedömningsskriptet läser in filen **model.pkl** från den aktuella mappen och använder den till att skapa en nyligen förutspådd Iris-klass.
+Om du vill distribuera webbtjänsten tillsammans med modellfilen behöver du också ett bedömningsskript. Du kan också behöva ett schema för webbtjänstens indata. Bedömningsskriptet läser in filen **model.pkl** från den aktuella mappen och använder den för att skapa nya förutsägelser.
 
 1. Öppna programmet Machine Learning Workbench. Öppna projektet **myIris** som du skapade i den förra delen av självstudieserien.
 
@@ -93,13 +93,13 @@ Om du vill distribuera webbtjänsten tillsammans med modellfilen behöver du ock
 
 5. Det här skriptet skapar en JSON-fil i avsnittet **Utdata**, som fångar det indataschema som behövs i modellen.
 
-6. Notera fönstret **Jobb** till höger om fönstret **Project Dashboard** (Instrumentpanel för projekt). Vänta tills det senaste jobbet **score_iris.py** visar den gröna statusen **Slutfört**. Välj hyperlänken **score_iris.py [1]** för den senaste jobbkörningen så att du ser körningsdetaljerna för körningen av **score_iris.py**. 
+6. Notera fönstret **Jobb** till höger om fönstret **Project Dashboard** (Instrumentpanel för projekt). Vänta tills det senaste jobbet **score_iris.py** visar den gröna statusen **Slutfört**. Välj hyperlänken **score_iris.py** för den senaste jobbkörningen så att du ser körningsdetaljerna för körningen. 
 
 7. I avsnittet **Utdata** på sidan **Körningsegenskaper** väljer du den nya filen **service_schema.json**. Markera kryssrutan bredvid namnet på filen och välj sedan **Ladda ned**. Spara filen i rotmappen för projektet.
 
 8. Gå tillbaka till den föregående fliken där du öppnade skriptet **score_iris.py**. Genom att använda datainsamling kan du fånga modellindata och förutsägelser från webbtjänsten. Följande steg är särskilt intressanta vid datainsamling.
 
-9. Granska koden längst upp i filimportklassen **ModelDataCollector** eftersom den innehåller modellens datainsamlingsfunktioner:
+9. Granska koden längst upp i filen som importerar klassen **ModelDataCollector** eftersom den innehåller modellens datainsamlingsfunktioner:
 
    ```python
    from azureml.datacollector import ModelDataCollector
@@ -107,31 +107,28 @@ Om du vill distribuera webbtjänsten tillsammans med modellfilen behöver du ock
 
 10. Granska följande kodrader i funktionen **init()** som skapar en instans av **ModelDataCollector**:
 
-      ```python
-      global inputs_dc, prediction_dc
-      inputs_dc = ModelDataCollector('model.pkl',identifier="inputs")
-      prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")`
-      ```
+    ```python
+    global inputs_dc, prediction_dc
+    inputs_dc = ModelDataCollector('model.pkl',identifier="inputs")
+    prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")`
+    ```
 
 11. Granska följande kodrader i funktionen **run(input_df)** eftersom den samlar in indata och förutsägelser:
 
-      ```python
-      global clf2, inputs_dc, prediction_dc
-      inputs_dc.collect(input_df)
-      prediction_dc.collect(pred)
-      ```
+    ```python
+    inputs_dc.collect(input_df)
+    prediction_dc.collect(pred)
+    ```
 
 Du är nu redo att förbereda miljön för att operationalisera modellen.
-
-
 
 ## <a name="prepare-to-operationalize-locally"></a>Förbereda för att operationalisera lokalt
 Använd _lokalt läge_ som distribution för att köra i Docker-behållare lokalt.
 
-Du kan använda _lokalt läge_ för utveckling och testning. Docker-motorn måste köras lokalt för att utföra följande steg och operationalisera modellen. Du kan använda flaggan `-h` i slutet av kommandon för att visa hjälp om kommandot.
+Du kan använda _lokalt läge_ för utveckling och testning. Docker-motorn måste köras lokalt när du ska utföra följande steg och operationalisera modellen. Du kan använda flaggan `-h` i slutet av varje kommando för att visa motsvarande hjälpmeddelande.
 
 >[!NOTE]
->Om du inte har Docker-motorn lokalt kan du ändå gå vidare genom att skapa ett kluster i Azure för distribution. Se bara till att ta bort klustret efter självstudien så att du inte drar på dig löpande kostnader.
+>Om du inte har en lokal Docker-motor kan du ändå gå vidare genom att skapa ett kluster i Azure för distribution. Se bara till att ta bort klustret efter självstudien så att du inte drar på dig löpande kostnader.
 
 1. Öppna kommandoradsgränssnittet (CLI).
    Välj på **Öppna kommandotolken** i menyn **Arkiv** i Machine Learning Workbench.
@@ -140,13 +137,13 @@ Du kan använda _lokalt läge_ för utveckling och testning. Docker-motorn måst
 
 2. Skapa miljön. Du måste utföra det här steget en gång per miljö. Exempelvis utför du det en gång för utvecklingsmiljön och en gång för produktion. Använd _lokalt läge_ för den här första miljön. Du kan prova med flaggorna `-c` eller `--cluster` i följande kommando om du vill konfigurera en miljö i _klusterläge_ senare.
 
-   Följande installationskommando kräver att du har deltagarbehörighet inom ramen för prenumerationen. Om du inte har det, behöver du som minst deltagarbehörighet för resursgruppen som du distribuerar till. Om du vill göra det senare måste du ange resursgruppens namn som en del av installationskommandot med flaggan `-g`. 
+   Följande installationskommando kräver att du har deltagarbehörighet inom ramen för prenumerationen. Om du inte har det behöver du som minst deltagarbehörighet för resursgruppen som du distribuerar till. Om du vill göra det senare måste du ange resursgruppens namn som en del av installationskommandot med flaggan `-g`. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
    ```
    
-   Följ anvisningarna på skärmen för att etablera ett lagringskonto för lagring av Docker-avbildningar, en Azure Container Registry för listning av Docker-avbildningar och ett Azure Application Insights-konto som samlar in telemetri. Om du använde flaggan `-c` skapar den även ett Container Service-kluster.
+   Följ anvisningarna på skärmen för att etablera ett lagringskonto för lagring av Docker-avbildningar, en Azure Container Registry för listning av Docker-avbildningar och ett Azure Application Insights-konto som samlar in telemetri. Om du använder växeln `-c` skapar kommandot även ett Container Service-kluster.
    
    Klusternamnet är ett sätt att identifiera miljön. Platsen måste vara samma som för modellhanteringskontot som du skapade från Azure Portal.
 
@@ -160,8 +157,7 @@ Du kan använda _lokalt läge_ för utveckling och testning. Docker-motorn måst
 
    ![Etableringsstatus](media/tutorial-classifying-iris/provisioning_state.png)
  
-   
-3. Skapa ett modellhanteringskonto. Du behöver bara utföra den här konfigurationen en gång.
+3. Om du inte skapade ett konto för modellhantering i tidigare delar av den här självstudien bör du göra det nu. Du behöver bara utföra den här konfigurationen en gång.
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
@@ -200,11 +196,13 @@ Nu är du redo att skapa realtidswebbtjänsten.
 
    Följande växlar används med kommandot **az ml service create realtime**:
 
-   * `-n`: Appnamnet som måste skrivas med små bokstäver.
-
    * `-f`: Namnet på bedömningsskriptet.
 
    * `--model-file`: Modellfilen. I det här fallet är det pickle-filen model.pkl.
+
+   * `-s`: tjänstens schema. Detta skapades i ett tidigare steg genom att köra skriptet **score_iris.py** lokalt.
+
+   * `-n`: Appnamnet som måste skrivas med små bokstäver.
 
    * `-r`: Körning av modellen. I det här fallet är det en Python-modell. Giltiga körningar är `python` och `spark-py`.
 
@@ -215,11 +213,11 @@ Nu är du redo att skapa realtidswebbtjänsten.
    >[!IMPORTANT]
    >Tjänstnamnet, som även är namnet på den nya Docker-avbildningen, måste skrivas med små bokstäver. Annars får du ett felmeddelande. 
 
-2. När du kör kommandot laddas modell- och bedömningsfilen upp till det lagringskonto du skapade i miljökonfigurationen. I distributionsprocessen skapas en Docker-avbildning med din modell, ditt schema och din bedömningsfil, som sedan skickas till Azure Container Registry: **\<ACR_name\>.azureacr.io/\<imagename\>:\<version\>**. 
+2. När du kör kommandot laddas modell- och bedömningsfilerna upp till det lagringskonto du skapade i miljökonfigurationen. I distributionsprocessen skapas en Docker-avbildning med din modell, ditt schema och din bedömningsfil, som sedan skickas till Azure Container Registry: **\<ACR_name\>.azureacr.io/\<imagename\>:\<version\>**. 
 
    Kommandot hämtar sedan avbildningen lokalt till datorn och startar en Docker-behållare baserat på avbildningen. Om miljön är konfigurerad i klusterläge distribueras Docker-behållaren till Azure Container Registry Kubernetes-klustret i stället.
 
-   Som en del av distributionen skapas en HTTP REST-slutpunkt för webbtjänsten lokalt på datorn. Efter några minuter bör kommandot slutföras med ett meddelande, så nu är webbtjänsten färdig att börja användas.
+   Som en del av distributionen skapas en HTTP REST-slutpunkt för webbtjänsten lokalt på datorn. Efter några minuter bör kommandot slutföras med ett meddelande. Nu är webbtjänsten färdig att börja användas!
 
 3. Använd kommandot **docker ps** för att se Docker-behållaren som körs:
 
@@ -230,7 +228,7 @@ Nu är du redo att skapa realtidswebbtjänsten.
 ## <a name="create-a-real-time-web-service-by-using-separate-commands"></a>Skapa en realtidswebbtjänst med separata kommandon
 Som ett alternativ till kommandot **az ml service create realtime** som visades tidigare kan du utföra stegen separat. 
 
-Registrera först modellen. Generera sedan manifestet, skapa Docker-avbildningen och skapa webbtjänsten. Med den här stegvisa metoden får du mer flexibilitet vid varje steg. Du kan även återanvända entiteter som genererats i föregående steg så att du endast återskapar entiteter när det behövs.
+Registrera först modellen. Generera sedan manifestet, skapa Docker-avbildningen och skapa webbtjänsten. Med den här stegvisa metoden får du mer flexibilitet vid varje steg. Du kan även återanvända entiteterna som genererats i tidigare steg så att du endast återskapar entiteterna när det behövs.
 
 1. Registrera modellen genom att ange pickle-filnamnet
 
@@ -253,7 +251,7 @@ Registrera först modellen. Generera sedan manifestet, skapa Docker-avbildningen
    Använd följande kommando för att skapa en Docker-avbildning och ange manifest-ID:t från föregående steg. Du kan även inkludera conda-beroenden med hjälp av växeln `-c`.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID> -c amlconfig\conda_dependencies.yml
+   az ml image create -n irisimage --manifest-id <manifest ID> -c aml_config\conda_dependencies.yml
    ```
    Det här kommandot genererar ett Docker-avbildnings-ID.
    
@@ -272,7 +270,7 @@ Nu är du redo att köra webbtjänsten.
 
 Testa **irisapp**-webbtjänsten som körs med hjälp av en JSON-kodad post med en matris med fyra slumptal.
 
-1. Webbtjänsten innehåller exempeldata. Vid körning i lokalt läge kan du anropa kommandot **az ml service usage realtime**. Anropet hämtar ett exempelkörningskommando som är användbart när du testar tjänsten. Anropet hämtar även en bedömnings-URL som du kan använda när du ska införliva tjänsten i dina egna anpassade appar.
+1. Webbtjänsten innehåller exempeldata. Vid körning i lokalt läge kan du anropa kommandot **az ml service usage realtime**. Anropet hämtar ett exempelkörningskommando som du kan använda för att testa tjänsten. Anropet hämtar även en bedömnings-URL som du kan använda när du ska införliva tjänsten i dina egna anpassade appar.
 
    ```azurecli
    az ml service usage realtime -i <web service ID>
@@ -284,7 +282,7 @@ Testa **irisapp**-webbtjänsten som körs med hjälp av en JSON-kodad post med e
    az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
 
-   Utdata är **”2”**, som är den förväntade klassen. (Dina resultat kan vara annorlunda.) 
+   Utdata är **”Iris-setosa”**, som är den förväntade klassen. (Dina resultat kan vara annorlunda.) 
 
 ## <a name="view-the-collected-data-in-azure-blob-storage"></a>Visa insamlade data i Azure Blob Storage
 
@@ -303,7 +301,7 @@ Testa **irisapp**-webbtjänsten som körs med hjälp av en JSON-kodad post med e
    > 3. Öppna kommandotolken från menyn **Arkiv**.
    > 4. Skriv `az ml env show -v` i kommandoraden och kontrollera värdet *storage_account*. Det här är namnet på ditt lagringskonto.
 
-5. När fönstret med **lagringskontot** har öppnats väljer du **Behållare** i listan till vänster. Leta rätt på behållaren med namnet **modeldata**. 
+5. När fönstret **Lagringskonto** har öppnats väljer du **Blobar** från avsnittet **Tjänster**. Leta rätt på behållaren med namnet **modeldata**. 
  
    Om du inte ser några data kan du behöva vänta i upp till 10 minuter efter den första begäran till webbtjänsten för att se data spridas till lagringskontot.
 
@@ -323,12 +321,11 @@ Testa **irisapp**-webbtjänsten som körs med hjälp av en JSON-kodad post med e
 
    * [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): Läs in csv-data till en Hive-tabell och kör SQL-frågor direkt mot blobar.
 
-   * [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): Skapa en DataFrame med en stor andel csv-data.
+   * [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): Skapa en DataFrame med en stor andel CSV-data.
 
       ```python
       var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
       ```
-
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -344,7 +341,7 @@ I den här tredje delen av självstudieserien i tre delar har du lärt dig att a
 > * Köra realtidswebbtjänsten.
 > * Granska blob-utdata. 
 
-Du har nu kört ett inlärningsskript i olika beräkningsmiljöer, skapat en modell, serialiserat modellen och operationaliserat modellen via en Docker-baserad webbtjänst. 
+Du har kört ett utbildningsskript i olika beräkningsmiljöer. Du har skapat, serialiserat och operationaliserat en modell via en Docker-baserad webbtjänst. 
 
 Nu är du redo för avancerad förberedelse av data:
 > [!div class="nextstepaction"]

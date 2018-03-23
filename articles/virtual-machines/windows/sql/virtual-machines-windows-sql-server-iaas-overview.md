@@ -1,8 +1,8 @@
 ---
-title: "Översikt över SQL Server i Azure Windows Virtual Machines | Microsoft Docs"
-description: "Lär dig hur du kör fullständiga versioner av SQL Server på Azure Virtual Machines."
+title: Översikt över SQL Server i Azure Windows Virtual Machines | Microsoft Docs
+description: Lär dig hur du kör fullständiga versioner av SQL Server på Azure Virtual Machines.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
 tags: azure-service-management
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.author: jroth
-ms.openlocfilehash: 268ae1dae1a247ee63adef22403f89680daa4961
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c5c480db8586db7ef125d5c992ff66f5cc28c1e2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Vad är SQL Server på Azure Virtual Machines? (Windows)
 
@@ -51,10 +51,7 @@ Virtuella datorer i Azure erbjuder olika datorstorlekar för att uppfylla olika 
 För att komma igång väljer du en avbildning av en virtuell dator med SQL Server med rätt version, utgåva och operativsystem. Följande avsnitt innehåller direktlänkar till Azure Portal för galleriavbildningarna för virtuella datorer med SQL Server.
 
 > [!TIP]
-> Om du vill förstå prissättningen för den virtuella datorn och SQL för dessa bilder kan du läsa [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
-
-> [!TIP]
-> Uppdatering och livscykelsprincip för galleriavbildningar för virtuella SQL Server-datorer finns på [Virtuella SQL Server-datorer, vanliga frågor och svar](virtual-machines-windows-sql-server-iaas-faq.md#images).
+> Mer information om att förstå prissättningen för SOL-avbildningar kan du läsa [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer). 
 
 ### <a id="payasyougo"></a> Betala per användning
 Följande tabell innehåller en matris med SQL Server-avbildningar som använder användningsbaserad betalning.
@@ -86,6 +83,9 @@ När du har skapat din virtuella SQL Server-dator ansluter du till den från ett
 
 ### <a name="migrate-your-data"></a>Migrera dina data
 Om du har en befintlig databas vill du antagligen flytta den till den nyetablerade virtuella SQL-datorn. En lista över migreringsalternativ och anvisningar finns i [Migrera en databas till SQL Server på en virtuell dator i Azure](virtual-machines-windows-migrate-sql.md).
+
+## <a id="lifecycle"></a> Principuppdatering för SQL VM-avbildning
+Azure underhåller en avbildning av en virtuell dator för varje kombination av operativsystem, version och utgåva som stöds. Det betyder att avbildningar uppdateras med tiden och att äldre avbildningar tas bort. Mer information finns i avsnittet **Avbildningar** i [Virtuella SQL Server-datorer, vanliga frågor och svar](virtual-machines-windows-sql-server-iaas-faq.md#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>CEIP (Customer Experience Improvement Program)
 CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det skickar periodvisa rapporter till Microsoft för att hjälpa att förbättra SQL Server. Det krävs inga hanteringsaktiviteter för CEIP om du inte vill inaktivera den efter etablering. Du kan anpassa eller inaktivera CEIP genom att ansluta till den virtuella datorn med Fjärrskrivbord. Kör sedan verktyget **Fel- och användningsrapportering för SQL Server**. Inaktivera rapporteringen genom att följa anvisningarna. Mer information om datainsamling finns i [SQL Server-sekretesspolicyn](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx).

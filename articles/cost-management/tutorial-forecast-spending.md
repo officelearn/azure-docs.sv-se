@@ -1,8 +1,8 @@
 ---
-title: "Självstudie – Skapa prognoser för utgifter i Azure Cost Management | Microsoft Docs"
-description: "I den här självstudien lär du dig att skapa prognoser för utgifter med hjälp av historiska data om användning och utgifter."
+title: Självstudie – Skapa prognoser för utgifter i Azure Cost Management | Microsoft Docs
+description: I den här självstudien lär du dig att skapa prognoser för utgifter med hjälp av historiska data om användning och utgifter.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/27/2018
@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 35142cb40560db848c71da266bbaa1881f12e15d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 20046d8bb475ddce8962915e5bd8215117261ac6
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-forecast-future-spending"></a>Självstudie: Skapa prognoser för framtida utgifter
 
-I Azure Cost Management by Cloudyn får du hjälp att skapa prognoser för framtida utgifter med hjälp av historiska data om användning och utgifter. Du kan använda Cloudyn-rapporter till att visa alla data om prognostiserade kostnader. I exemplen i den här självstudien får du lära dig att granska kostnadsprognoser med hjälp av rapporterna. I den här guiden får du lära dig hur man:
+Azure Cost Management hjälper dig att förutse framtida kostnader med hjälp av förbrukningshistorik och information om utgifter. Du kan använda Cloudyn-rapporter till att visa alla data om prognostiserade kostnader. I exemplen i den här självstudien får du lära dig att granska kostnadsprognoser med hjälp av rapporterna. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa prognoser för framtida utgifter

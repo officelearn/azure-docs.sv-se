@@ -1,8 +1,8 @@
 ---
-title: "Registrera dig för Azure Cost Management med CSP-partnerinformation | Microsoft Docs"
-description: "Använd CSP-partnerinformation för att registrera dig för Azure Cost Management från Cloudyn."
+title: Registrera dig för Azure Cost Management med CSP-partnerinformation | Microsoft Docs
+description: Använd CSP-partnerinformation för att registrera dig för Azure Cost Management.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 0e5e247182335b88f109aa6624a40bc782975b97
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cf4fb7e82529388a030fd37da9469bf17c8dc343
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrera dig för CSP-partnerprogrammet och visa kostnadsdata
 
-Som CSP-partner kan du registrera dig för Azure Cost Management från Cloudyn. Registreringen ger dig åtkomst till Cloudyn-portalen. Den här snabbstarten beskriver registreringsprocessen som krävs för att skapa en utvärderingsprenumeration på Cloudyn och logga in på Cloudyn-portalen. Den visar också hur du kan börja visa kostnadsdata direkt.
+Som CSP-partner kan du registrera dig för Azure Cost Management. Registreringen ger dig åtkomst till Cloudyn-portalen. Den här snabbstarten beskriver registreringsprocessen som krävs för att skapa en utvärderingsprenumeration på Cloudyn och logga in på Cloudyn-portalen. Den visar också hur du kan börja visa kostnadsdata direkt.
 
 
 >[!NOTE]
@@ -71,7 +71,7 @@ Indirekta CSP-partner loggar in på Cloudyn-portalen med hjälp av de konton som
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du din CSP-information för att göra en registrering med Cost Management. Du har också loggat in på Cloudyn-portalen och börjat visa kostnadsdata. Om du vill veta mer om Azure Cost Management från Cloudyn kan du fortsätta till självstudierna om Cost Management.
+I den här snabbstarten använde du din CSP-information för att göra en registrering med Cost Management. Du loggade också in på Cloudyn-portalen och började visa kostnadsdata. Om du vill veta mer om Azure Cost Management kan du fortsätta till självstudierna om Cost Management.
 
 > [!div class="nextstepaction"]
 > [Granska användning och kostnader](./tutorial-review-usage.md)

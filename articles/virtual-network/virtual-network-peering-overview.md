@@ -1,6 +1,6 @@
 ---
-title: "Peerkoppling i virtuella nätverk på Azure | Microsoft Docs"
-description: "Lär dig mer om virtuell nätverkspeering i Azure."
+title: Peerkoppling i virtuella nätverk på Azure | Microsoft Docs
+description: Lär dig mer om virtuell nätverkspeering i Azure.
 services: virtual-network
 documentationcenter: na
 author: NarayanAnnamalai
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 7c384f07ec6b71596dcdbc5b7214fa7ce65d0b7d
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 23281067021dd6e4b8959fe73f3c8a11a651d9d2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="virtual-network-peering"></a>Virtuell nätverkspeering
 
@@ -35,7 +35,7 @@ Fördelarna med att använda VNET-peering är:
 
 ## <a name="requirements-constraints"></a>Det finns vissa krav och begränsningar
 
-* VNET-peering i samma region är allmänt sett tillgängligt. Virtuella peernätverk finns för närvarande i förhandsversion i USA, västra centrala; Kanada, centrala; USA, Väst 2; Korea, södra; Storbritannien, södra; Storbritannien, västra; Kanada, östra; Indien, södra; Indien, centrala och Indien, västra. Innan du peer-kopplar virtuella nätverk i olika regioner måste du först [registrera prenumerationen](virtual-network-create-peering.md#register) för förhandsgranskningen. Dina försök att skapa en peer-koppling mellan virtuella nätverk i olika regioner misslyckas om du inte har slutfört registreringen för förhandsgranskningen.
+* VNET-peering i samma region är allmänt sett tillgängligt. Virtuella peernätverk finns för närvarande i förhandsversion i USA, västra centrala; Kanada, centrala; USA, Väst 2; Korea, södra; Storbritannien, södra; Storbritannien, västra; Kanada, östra; Indien, södra; Indien, centrala och Indien, västra. Innan du peer-kopplar virtuella nätverk i olika regioner måste du först [registrera prenumerationen](tutorial-connect-virtual-networks-powershell.md#register) för förhandsgranskningen. Dina försök att skapa en peer-koppling mellan virtuella nätverk i olika regioner misslyckas om du inte har slutfört registreringen för förhandsgranskningen.
     > [!WARNING]
     > VNET-peering som skapats över flera regioner kanske inte har samma tillgänglighet och pålitlighet som peer-kopplingar i en allmänt tillgänglig version. VNET-peering kan ha begränsad kapacitet och kanske inte är tillgänglig i alla Azure-regioner. Du hittar aktuell information om tillgänglighet och status för den här funktionen på [sidan med Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -126,7 +126,7 @@ En nominell avgift tas ut för ingående och utgående trafik som använder en V
 
     |Azure-distributionsmodell  | Prenumeration  |
     |---------|---------|
-    |Båda Resource Manager |[Samma](virtual-network-create-peering.md)|
+    |Båda Resource Manager |[Samma](tutorial-connect-virtual-networks-portal.md)|
     | |[Olika](create-peering-different-subscriptions.md)|
     |En Resource Manager, en klassisk     |[Samma](create-peering-different-deployment-models.md)|
     | |[Olika](create-peering-different-deployment-models-subscriptions.md)|

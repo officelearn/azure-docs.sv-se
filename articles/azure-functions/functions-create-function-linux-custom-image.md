@@ -1,8 +1,8 @@
 ---
-title: "Skapa en funktion i Linux med en anpassad avbildning (förhandsversion) | Microsoft Docs"
-description: "Lär dig hur du skapar en Azure Functions som körs på en anpassad Linux-avbildning."
+title: Skapa en funktion i Linux med en anpassad avbildning (förhandsversion) | Microsoft Docs
+description: Lär dig hur du skapar en Azure Functions som körs på en anpassad Linux-avbildning.
 services: functions
-keywords: 
+keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 11/15/2017
@@ -11,11 +11,11 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 555d05c6cd5e804e5f80ecb8df77237fd8270105
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4b9cb7923b177c73f83a7ac17b1022a5455c7f30
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Skapa en funktion i Linux med en anpassad avbildning (förhandsversion)
 
@@ -25,7 +25,7 @@ I den här självstudiekursen lär du dig att distribuera en funktionsapp som en
 
 Den här kursen förklarar hur du använder Azure Functions för att skapa och överföra en anpassad avbildning till Docker Hub. Sedan använder du avbildningen som distributionskälla för en funktionsapp som körs på Linux. Du använder Docker för att bygga och överföra avbildningen. Du använder Azure CLI för att skapa en funktionsapp och distribuera avbildningen från Docker Hub. 
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * skapa en anpassad avbildning med Docker
@@ -127,7 +127,7 @@ docker login --username <docker-id>
 Ett meddelande om att inloggningen har slutförts bekräftar att du är inloggad. När du har loggat in push-överför du avbildningen till Docker Hub med kommandot [docker push](https://docs.docker.com/engine/reference/commandline/push/).
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0 .
+docker push <docker-id>/mydockerimage:v1.0.0
 ```
 
 Verifiera att push-överföringen lyckades genom att undersöka kommandots utdata.

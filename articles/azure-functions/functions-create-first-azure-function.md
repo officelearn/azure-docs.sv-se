@@ -1,12 +1,12 @@
 ---
-title: "Skapa din första funktion i Azure Portal | Microsoft Docs"
-description: "Lär dig hur du skapar din första Azure-funktion för serverfri körning i Azure Portal."
+title: Skapa din första funktion i Azure Portal | Microsoft Docs
+description: Lär dig hur du skapar din första Azure-funktion för serverfri körning i Azure Portal.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
 ms.devlang: multiple
@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 01/21/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-experiment: 
-ms.openlocfilehash: 391cf4b5df4b52e6fcbe496c6e31052f1fda4a44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c1f7c1a12aea8336b71d6e3eb47037d193841ddb
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Skapa din första funktion i Azure Portal
 
@@ -33,7 +32,7 @@ Med Azure Functions kan du köra kod i en [serverfri](https://azure.microsoft.co
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen <http://portal.azure.com> med Azure-kontot.
+Logga in på Azure Portal på <http://portal.azure.com> med ditt Azure-konto.
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 

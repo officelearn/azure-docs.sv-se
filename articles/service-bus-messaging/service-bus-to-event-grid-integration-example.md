@@ -1,11 +1,11 @@
 ---
-title: "Integrationsexempel på Azure Service Bus till Event Grid | Microsoft Docs"
-description: "Exempel på Service Bus-meddelanden och Event Grid-integration"
+title: Integrationsexempel på Azure Service Bus till Event Grid | Microsoft Docs
+description: Exempel på Service Bus-meddelanden och Event Grid-integration
 services: service-bus-messaging
 documentationcenter: .net
 author: ChristianWolf42
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 2a4d17673340d145de9a3514f920c74f7eebf6b6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3819a274696762861fbe76a9684b8495f1724f6a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-examples"></a>Exempel på Azure Service Bus till Azure Event Grid
 
@@ -118,7 +118,7 @@ Klicka på Spara och kör.
 
 ## <a name="connect-function-and-namespace-via-event-grid"></a>Anslut funktionen och namnområdet via Event Grid
 
-Nästa steg är att koppla ihop funktionen och Service Bus-namnområdet. I det här exemplet använder du Azure-portalen. Se sidan [concepts](service-bus-to-event-grid-integration-concept.md för en beskrivning av hur du använder PowerShell eller Azure CLI till att göra samma sak.
+Nästa steg är att koppla ihop funktionen och Service Bus-namnområdet. I det här exemplet använder du Azure-portalen. På sidan med [koncept](service-bus-to-event-grid-integration-concept.md) finns en beskrivning av hur du använder PowerShell eller Azure CLI till att göra samma sak.
 
 Gå till namnområdet i Azure-portalen för att skapa en ny Azure Event Grid-prenumeration och välj bladet Event Grid. Klicka på ”+ Händelseprenumeration”.
 

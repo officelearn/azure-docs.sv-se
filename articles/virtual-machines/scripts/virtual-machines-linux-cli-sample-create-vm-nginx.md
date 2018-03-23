@@ -1,13 +1,13 @@
 ---
-title: Azure CLI Script exempel - skapa en virtuell Linux-dator med NGINX | Microsoft Docs
-description: Azure CLI Script exempel - skapa en virtuell Linux-dator med NGINX
+title: Skriptexempel för Azure CLI – Skapa en virtuell Linux-dator med NGINX | Microsoft Docs
+description: Skriptexempel för Azure CLI – Skapa en virtuell Linux-dator med NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0a6c33d84f1fab85e6ed2933c47c041ca2e59520
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: a88077d405a662c0b5f83022209712545fea537f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-vm-with-nginx"></a>Skapa en virtuell dator med NGINX
 
-Det här skriptet skapar en virtuell Azure-dator och använder tillägget för Azure Virtual Machine anpassat skript för att installera NGINX. När skriptet har körts kan du komma åt en demo-webbplats på den offentliga IP-adressen för den virtuella datorn.
+Det här skriptet skapar en virtuell Azure-dator och använder sedan det anpassade skripttillägget för virtuella Azure-datorer till att installera NGINX. När skriptet har körts kan du gå till demowebbplatsen med den virtuella datorns offentliga IP-adress.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -36,7 +36,7 @@ Det här skriptet skapar en virtuell Azure-dator och använder tillägget för A
 
 ## <a name="custom-script-extension"></a>Anpassat skripttillägg
 
-Tillägget för anpassat skript kopierar det här skriptet till den virtuella datorn. Skriptet körs sedan för att installera och konfigurera en NGINX-webbserver. 
+Det anpassade skripttillägget kopierar skriptet till den virtuella datorn. Skriptet körs och installerar och konfigurerar en NGINX-webbserver. 
 
 ```bash
 #!/bin/bash
@@ -50,26 +50,26 @@ apt-get -y install nginx
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att skapa en resursgrupp, virtuell dator och alla relaterade resurser. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+I det här skriptet används följande kommandon för att skapa en resursgrupp, en virtuell dator och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ grupp](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
-| [Skapa AZ vm](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Skapar den virtuella datorn. Det här kommandot anger också avbildning av virtuell dator som ska användas och administrativa autentiseringsuppgifter.  |
-| [AZ vm öppna-port](https://docs.microsoft.com/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Skapar en grupp nätverkssäkerhetsregeln för att tillåta inkommande trafik. I det här exemplet används port 80 för HTTP-trafik. |
-| [Azure vm-tillägget uppsättningen](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Lägger till och kör ett tillägg för virtuell dator till en virtuell dator. I det här exemplet används tillägget för anpassat skript för att installera NGINX.|
-| [ta bort grupp AZ](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Skapar den virtuella datorn. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
+| [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Skapar en regel för nätverkssäkerhetsgrupp som tillåter inkommande trafik. I det här exemplet öppnas port 80 för HTTP-trafik. |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Lägger till och kör ett VM-tillägg på en virtuell dator. I det här exemplet används det anpassade skripttillägget till att installera NGINX.|
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare virtuella CLI skriptexempel finns i den [virtuella Azure Linux-datorn dokumentationen](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ytterligare CLI-skriptexempel för virtuella datorer finns i [dokumentationen för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

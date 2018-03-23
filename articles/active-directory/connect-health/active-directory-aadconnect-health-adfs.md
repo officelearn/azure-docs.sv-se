@@ -1,8 +1,8 @@
 ---
-title: "Använda Azure AD Connect Health med AD FS | Microsoft Docs"
-description: "Den här sidan handlar om Azure AD Connect Health och hur du övervakar den lokala AD FS-infrastrukturen."
+title: Använda Azure AD Connect Health med AD FS | Microsoft Docs
+description: Den här sidan handlar om Azure AD Connect Health och hur du övervakar den lokala AD FS-infrastrukturen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f363119ae75a1adb5a01d584de70fba0f3852dfc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Övervaka AD FS med Azure AD Connect Health
 Följande dokumentation gäller specifikt för övervakningen av AD FS-infrastrukturen med Azure AD Connect Health. Mer information om övervakning av Azure AD Connect (Sync) med Azure AD Connect Health finns i [Använda Azure AD Connect Health för synkronisering](active-directory-aadconnect-health-sync.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md).
@@ -115,9 +115,12 @@ Rapporten innehåller följande information:
 | IP-adress för senaste fel |Visar klient-IP-adress från senaste felaktiga begäran. |
 
 > [!NOTE]
-> Den här rapporten uppdateras automatiskt var tolfte timme med den nya informationen som samlats in inom den tidsperioden. Därför finns inloggningsförsök under de senaste två timmarna eventuellt inte med i rapporten.
+> Den här rapporten uppdateras automatiskt var tolfte timme med den nya informationen som samlats in inom den tidsperioden. Därför kanske inloggningsförsök under de senaste 12 timmarna inte finns med i rapporten.
 >
 >
+
+### <a name="risky-ip-report"></a>Riskfylld IP-rapport 
+En förhandsversion kommer snart.
 
 ## <a name="related-links"></a>Relaterade länkar
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

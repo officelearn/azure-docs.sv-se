@@ -1,6 +1,6 @@
 ---
-title: "Alternativ för Azure Storage-konton | Microsoft Docs"
-description: "Information om alternativ för Azure Storage."
+title: Alternativ för Azure Storage-konton | Microsoft Docs
+description: Information om alternativ för Azure Storage.
 services: storage
 author: jirwin
 manager: jwillis
@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: aa8704b9991dde639b50a5b6c9a27ad5cd08ad02
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2c69519b865169b477950bc8fa659d5ad9081bbf
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-storage-account-options"></a>Alternativ för Azure Storage-konton
 
@@ -36,7 +36,7 @@ Du kan uppgradera ditt GPv1-konto till ett GPv2-konto med PowerShell eller Azure
 
 För blockblobar i ett GPv2-lagringskonto kan du ange frekvent och lågfrekvent lagringsnivå på kontonivå, eller ange frekvent eller lågfrekvent nivå eller arkivnivå på blobnivå, baserat på åtkomstmönster. Lagra data som sällan, mer sällan eller ofta används på lagringsnivåerna för frekvent eller lågfrekvent åtkomst eller arkivering för att optimera kostnaderna. 
 
-I GPv2-konton visas attributet **Åtkomstnivå** på kontonivå, vilket innebär att standardlagringsnivån för kontot kan anges till **Frekvent** eller **Lågfrekvent**. Lagringskontonivån som är standard tillämpas på alla blobar som inte har en explicit nivå angiven på blobnivån. Du kan när som helst byta mellan de olika lagringsnivåerna om användningsmönstret förändras. **Arkivnivån** kan endast användas på blobnivån.
+I GPv2-konton visas attributet **Åtkomstnivå** på kontonivå, vilket innebär att standardlagringsnivån för kontot kan anges till **Frekvent** eller **Lågfrekvent**. Lagringskontots standardnivå tillämpas på alla blobar som inte har en uttryckligen tilldelad nivå angiven på blobnivån. Du kan när som helst byta mellan de olika lagringsnivåerna om användningsmönstret förändras. **Arkivnivån** kan endast användas på blobnivån.
 
 > [!NOTE]
 > Ändringar av lagringsnivån kan medför ytterligare avgifter. Mer information finns i avsnittet [Priser och fakturering](#pricing-and-billing).
@@ -298,8 +298,8 @@ Du kan skapa en anpassad app för att migrera dina data till ett Blob Storage-ko
 
 Mer information finns i [Komma igång med Azure Blob Storage](../blobs/storage-dotnet-how-to-use-blobs.md).
 
-> [!NOTE]
-> Blobar som krypteras med kryptering på klientsidan lagrar krypteringsrelaterade metadata tillsammans med bloben. Det är absolut nödvändigt att kopieringsmekanismen ser till att blobmetadata, och särskilt krypteringsrelaterade metadata, bevaras. Om du kopierar blobar utan metadata kan blobinnehållet inte hämtas igen. Mer information om krypteringsrelaterade metadata finns i [Azure Storage Client Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> [!IMPORTANT]
+> Blobar som krypteras med kryptering på klientsidan lagrar krypteringsrelaterade metadata tillsammans med bloben. Om du kopierar en blob som är krypterad med kryptering på klientsidan bör du se till att kopieringen bevarar blobmetadata och framför allt krypteringsrelaterade metadata. Om du kopierar en blob utan krypteringsmetadata kan blobinnehållet inte hämtas igen. Mer information om krypteringsrelaterade metadata finns i [Azure Storage Client Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 

@@ -1,8 +1,8 @@
 ---
-title: "Självstudie – Granska användning och kostnader i Azure Cost Management | Microsoft Docs"
-description: "I den här självstudien granskar du användning och kostnader för att spåra trender, identifiera ineffektivitet och skapa aviseringar."
+title: Självstudie – Granska användning och kostnader i Azure Cost Management | Microsoft Docs
+description: I den här självstudien granskar du användning och kostnader för att spåra trender, identifiera ineffektivitet och skapa aviseringar.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/27/2018
@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e8f09a90ae9a4dd54d81335de2494f0dcbe09485
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 558dcd65051c0134a87205dcd8bbf432d7763fd2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
 # <a name="tutorial-review-usage-and-costs"></a>Självstudie: Granska användning och kostnader
 
-I Azure Cost Management by Cloudyn ser du användning och kostnader så att du kan spåra trender, identifiera ineffektivitet och skapa aviseringar. Alla data om användning och kostnader visas på instrumentpaneler och i rapporter i Cloudyn. I exemplen i den här självstudien får du lära dig hur du granskar användning och kostnader med instrumentpaneler och rapporter. I den här guiden får du lära dig hur man:
+I Azure Cost Management visas användning och kostnader så att du kan spåra trender, identifiera ineffektivitet och skapa aviseringar. Alla data om användning och kostnader visas på instrumentpaneler och i rapporter i Cloudyn. I exemplen i den här självstudien får du lära dig hur du granskar användning och kostnader med instrumentpaneler och rapporter. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Spårar trender inom användning och kostnader
@@ -57,7 +57,7 @@ I föregående exempel spenderades mindre pengar från 2017-08-31 än innan. Den
 
 I det här exemplet ser du tydligt att kostnaden för Azure Storage minskade 2017-08-31 medan utgifterna för andra Azure-tjänster låg kvar på samma nivå. Vad orsakade då de minskade utgifterna? I det här exemplet var några medarbetare på semester och använde inte Storage-tjänsten.
 
-Om du vill se en självstudievideo om att spåra trender i användning och kostnader kan du se [Analyzing your cloud billing data vs. time with Azure Cost Management by Cloudyn](https://youtu.be/7LsVPHglM0g) (Analysera molnfaktureringsdata över tid med Azure Cost Management by Cloudyn).
+Om du vill se en självstudievideo om att spåra användnings- och kostnadstrender går du till [Analyzing your cloud billing data vs. time with Azure Cost Management](https://youtu.be/7LsVPHglM0g) (Analysera molnfaktureringsdata över tid med Azure Cost Management).
 
 ## <a name="detect-usage-inefficiencies"></a>Identifierar ineffektivitet i användningen
 
@@ -81,7 +81,7 @@ Visa ID:n för VM-instanser genom att klicka på plustecknet bredvid **List of C
 
 ![Lista med kandidater](./media/tutorial-review-usage/sizing03.png)
 
-Om du vill se en självstudievideo om att identifiera ineffektivitet i användningen kan du titta på [Optimizing VM Size in Azure Cost Management by Cloudyn](https://youtu.be/1xaZBNmV704) (Optimera VM-storlekar i Azure Cost Management by Cloudyn).
+Om du vill se en självstudievideo om att identifiera ineffektivitet i användningen kan du titta på [Optimizing VM Size in Azure Cost Management](https://youtu.be/1xaZBNmV704) (Optimera VM-storlek i Azure Cost Management).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Skapa aviseringar för onormalt höga kostnader
 

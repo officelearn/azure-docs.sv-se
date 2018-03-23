@@ -1,25 +1,25 @@
 ---
-title: "Nätverk integration överväganden för Azure-stacken integrerat system | Microsoft Docs"
-description: "Lär dig vad du kan göra för att planera för datacenter nätverksintegration med flera noder Azure Stack."
+title: Nätverk integration överväganden för Azure-stacken integrerat system | Microsoft Docs
+description: Lär dig vad du kan göra för att planera för datacenter nätverksintegration med flera noder Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 04cfe3c4ac6011b9c3d31b7d4ac3c018c350d67b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5ade2a09d0729f48c075a5bcaa20bee079ead47d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-connectivity"></a>Nätverksanslutning
 Den här artikeln innehåller information om Azure-stacken nätverk infrastruktur som hjälper dig att bestämma hur du ska integrera Azure Stack bäst i din befintliga nätverksmiljö. 
@@ -67,7 +67,7 @@ Den här /24 (254 värd-IP)-nätverk är privat för stacken för Azure-region (
 Detta/24 nätverk som är dedikerad för interna Azure Stack-komponenter så att de kan kommunicera och utbyta data med varandra. Det här undernätet kräver dirigerbara IP-adresser, men hålls privata till lösningen med hjälp av åtkomstkontrollistor (ACL). Det är inte förväntas dirigeras utöver kantlinje växlar förutom ett mindre intervall samma storlek som en minst/27 nätverk som används av vissa av dessa tjänster när de behöver komma åt externa resurser och/eller internet. 
 
 ### <a name="public-infrastructure-network"></a>Infrastruktur för offentliga nätverk
-Detta/27 nätverket är liten mellan Azure Stack infrastruktur undernät som tidigare nämnts, kräver inte offentliga IP-adresser, men det kräver tillgång till internet via en NAT-enhet eller en Transparent Proxy. Det här nätverket allokeras för nödfall Recovery konsolen System (ERCS), ERCS VM kräver tillgång till internet under registreringen till Azure och ska vara dirigerbara till nätverket för felsökning.
+Detta/27 nätverket är liten mellan Azure Stack infrastruktur undernät som tidigare nämnts, kräver inte offentliga IP-adresser, men det kräver tillgång till internet via en NAT-enhet eller en Transparent Proxy. Det här nätverket allokeras för nödfall Recovery konsolen System (ERCS), ERCS VM kräver tillgång till internet under registrering till Azure och infrastruktur säkerhetskopieringar. ERCS VM ska vara dirigerbara till nätverket för felsökning.
 
 ### <a name="public-vip-network"></a>Offentligt VIP-nätverk
 Det offentliga VIP-nätverket har tilldelats nätverksstyrenhet i Azure-stacken. Det är inte ett logiskt nätverk på växeln. SLB använder poolen med adresser och tilldelar/32 nätverk för klienternas arbetsbelastningar. På routningstabellen växeln annonseras dessa 32 IP-adresser som en tillgänglig väg via BGP. Det här nätverket innehåller externt tillgänglig eller offentlig IP-adresser. Infrastrukturen i Azure-stacken använder minst 8 adresser från den här offentliga VIP-nätverket medan resten används av klient virtuella datorer. Nätverket storleken på det här undernätet kan variera från minst /26 (64 värdar) till maximalt /22 (1022 värdar) rekommenderar vi att du planerar för ett/24 nätverk.

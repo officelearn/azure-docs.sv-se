@@ -1,11 +1,11 @@
 ---
 title: Azure Stack administration grunderna | Microsoft Docs
-description: "Lär dig vad du behöver veta för att administrera Azure stacken."
+description: Lär dig vad du behöver veta för att administrera Azure stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: fa77faac195de3be7bf7b2785eb589b030a6e6ce
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 799651caf937ca2bafc79dc76f99ae43e700673a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-administration-basics"></a>Grunderna i Azure Stack administration
-
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
-
 Det finns flera saker du behöver veta om du har använt Azure Stack-administration. Vägledningen innehåller en översikt över din roll som operatör Azure Stack och vad du behöver för att tala om för användarna för att snabbt blir mer produktiv.
 
 ## <a name="understand-the-builds"></a>Förstå versionerna

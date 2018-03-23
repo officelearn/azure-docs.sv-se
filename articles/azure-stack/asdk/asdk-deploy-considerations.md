@@ -1,25 +1,25 @@
 ---
-title: "Krav för Azure-stacken Development Kit distribution (ASDK) | Microsoft Docs"
-description: "Granska kraven för Azure Stack Development Kit (ASDK)-miljön och maskinvara."
+title: Krav för Azure-stacken Development Kit distribution (ASDK) | Microsoft Docs
+description: Granska kraven för Azure Stack Development Kit (ASDK)-miljön och maskinvara.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 24a766ada1cdd1cb854b6869d571acd73e376327
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f4b55bb3287f67792b3257c3f62256437f5625ca
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Överväganden vid planering för Azure Stack-distribution
 Innan du distribuerar Azure Stack Development Kit (ASDK) kontrollera att värddatorn development kit uppfyller kraven som beskrivs i den här artikeln.
@@ -34,7 +34,7 @@ Innan du distribuerar Azure Stack Development Kit (ASDK) kontrollera att värdda
 | Beräkna: minne |96 GB RAM-minne |128 GB RAM-minne (det är minst som stöd för PaaS-resursprovidrar.)|
 | Beräkna: BIOS |Hyper-V aktiverat (med stöd för SLAT) |Hyper-V aktiverat (med stöd för SLAT) |
 | Nätverk: NIC |Windows Server 2012 R2-certifiering krävs för NIC, inga specialfunktioner krävs |Windows Server 2012 R2-certifiering krävs för NIC, inga specialfunktioner krävs |
-| HW-logotypcertifiering |[Certifierade för Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certifierade för Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
+| HW-logotypcertifiering |[Certifierade för Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certifierade för Windows Server 2016](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> Du behöver fler än det rekommenderade kapacitet om du planerar att lägga till många av de [marketplace-objekt](asdk-marketplace-item.md) från Azure.
 

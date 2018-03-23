@@ -131,6 +131,8 @@
   items:
     - name: Dokumentation om Azure Stack-operator
       href: /azure/azure-stack/
+    - name: ASDK dokumentation
+      href: /azure/azure-stack/asdk/
 - name: Resurser
   items:
     - name: Översikt över Azure Stack

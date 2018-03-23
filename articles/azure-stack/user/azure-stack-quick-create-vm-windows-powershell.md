@@ -1,11 +1,11 @@
 ---
-title: "Skapa en Windows-dator med hjälp av PowerShell i Azure-stacken | Microsoft Docs"
+title: Skapa en Windows-dator med hjälp av PowerShell i Azure-stacken | Microsoft Docs
 description: Skapa en virtuell Windows-dator med PowerShell i Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 7CA6C0AC-23B7-4007-BA32-7A950FD1F3B8
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 688ab6c55867d72d55e27c21c883c14ef90078d2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f73f6599f24c0748862ba3a2f1384246841e7e8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>Skapa en Windows-dator med hjälp av PowerShell i Azure-stacken
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/11/2017
 
 Den här guiden information som använder PowerShell för att skapa en virtuell Windows Server 2016-dator i Azure-stacken. Du kan köra stegen som beskrivs i den här artikeln från Azure Stack Development Kit eller från en extern Windows-baserad klient om du är ansluten via VPN. 
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 * Kontrollera att Azure Stack-operator har lagt till ”Windows Server 2016” bilden Stack för Azure marketplace.  
 
@@ -197,7 +197,7 @@ $VirtualMachine = Set-AzureRmVMOSDisk `
   -CreateOption FromImage | `
   Add-AzureRmVMNetworkInterface -Id $nic.Id 
 
-#Create the virtual machine.
+# Create the virtual machine.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
@@ -213,7 +213,7 @@ Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
  
-Använd följande kommando för att skapa en fjärrskrivbordssession med den virtuella datorn. Ersätt IP-adress med publicIPAddress för den virtuella datorn. När du uppmanas, anger du användarnamn och lösenord som du använde när du skapar den virtuella datorn.
+Använd följande kommando för att skapa en fjärrskrivbordssession med den virtuella datorn. Ersätt IP-adressen med publicIPAddress för den virtuella datorn. När du uppmanas, anger du användarnamn och lösenord som du använde när du skapar den virtuella datorn.
 
 ```powershell
 mstsc /v <publicIpAddress>

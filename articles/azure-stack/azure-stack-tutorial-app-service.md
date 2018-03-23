@@ -1,29 +1,28 @@
 ---
-title: "Göra webb- och API-appar tillgängliga för användarna Azure Stack | Microsoft Docs"
-description: "Kursen hjälper dig att installera App-tjänstresursprovider och skapa erbjuder som ger Azure Stack användarna möjlighet att skapa webb- och API apps."
+title: Göra webb- och API-appar tillgängliga för användarna Azure Stack | Microsoft Docs
+description: Kursen hjälper dig att installera App-tjänstresursprovider och skapa erbjuder som ger Azure Stack användarna möjlighet att skapa webb- och API apps.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 5978706f2cab69c83a49bfd0e15ae904a38c7bab
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e2f15ca3a46af51ab6228e772298c51ad33fd49c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Göra webb- och API apps tillgängliga för användarna i Azure-stacken
-
 Du kan skapa erbjudanden som användarna kan som administratör Azure Stack-moln (klienter) skapa Azure Functions- och webb- och API-program. Genom att ge tillgång till apparna på begäran, molnbaserad till användarna, kan du spara dem tid och resurser. Om du vill ställa in, kommer du att:
 
 > [!div class="checklist"]
@@ -58,12 +57,12 @@ Du kan skapa ett erbjudande som låter användarna skapa DNN web innehållshante
 Nu när du har distribuerat appen tjänstresursprovider och skapat ett erbjudande, du kan logga in som en användare kan prenumerera på erbjudandet och skapa en app. I det här exemplet skapar vi ett DNN plattform-system. Du måste först skapa en SQL-databas och DNN webbprogram.
 
 ### <a name="subscribe-to-the-offer"></a>Prenumerera på erbjudandet
-1. Logga in på Azure Stack-portal (https://portal.local.azurestack.external) som en klient.
+1. Logga in på Azure Stack-portalen (https://portal.local.azurestack.external) som en klient.
 2. Klicka på **skaffa en prenumeration** > typen **TestAppServiceSubscription** under **visningsnamn** > **Välj ett erbjudande**  >  **TestAppServiceOffer** > **skapa**.
 
 ### <a name="create-a-sql-database"></a>Skapa en SQL-databas
 
-1. Klicka på  **+**   >  **Data + lagring** > **SQL-databas**.
+1. Klicka på **+**  >  **Data + lagring** > **SQL-databas**.
 2. Lämnar du standardinställningarna för fält, utom på följande sätt:
     - **Databasnamn**: DNNdb
     - **Max storlek i MB**: 100
@@ -75,7 +74,7 @@ Nu när du har distribuerat appen tjänstresursprovider och skapat ett erbjudand
 
 ### <a name="create-a-dnn-app"></a>Skapa en DNN-app    
 
-1. Klicka på  **+**   >  **se alla** > **DNN plattform preview** > **skapa**.
+1. Klicka på **+**  >  **se alla** > **DNN plattform preview** > **skapa**.
 2. Typen *DNNapp* under **appnamn** och välj **TestAppServiceOffer** under **prenumeration**.
 3. Klicka på **konfigurera nödvändiga inställningar** > **Skapa nytt** > typen en **programtjänstplanen** namn.
 4. Klicka på **prisnivå** > **F1 kostnadsfri** > **Välj** > **OK**.

@@ -1,11 +1,11 @@
 ---
-title: "Skapa en plats-till-plats VPN-anslutning mellan två virtuella nätverk i olika miljöer i Azure-stacken Development Kit | Microsoft Docs"
-description: "Stegvisa anvisningar som molnadministratören använder för att skapa en plats-till-plats VPN-anslutning mellan två nod Azure Stack Development Kit miljöer."
+title: Skapa en plats-till-plats VPN-anslutning mellan två virtuella nätverk i olika miljöer i Azure-stacken Development Kit | Microsoft Docs
+description: Stegvisa anvisningar som molnadministratören använder för att skapa en plats-till-plats VPN-anslutning mellan två nod Azure Stack Development Kit miljöer.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: brenduns
 ms.reviewer: scottnap
-ms.openlocfilehash: 886d56169c5500c9175b7ddc43edfc29c5142fbb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8bb10be63ef31ebe6241c15a79dafe71923a4cf7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Skapa en plats-till-plats VPN-anslutning mellan två virtuella nätverk i olika Azure-stacken Development Kit miljöer
 ## <a name="overview"></a>Översikt
@@ -33,7 +33,7 @@ Följande diagram visar hur konfigurationen ska se ut när du är klar.
 ### <a name="before-you-begin"></a>Innan du börjar
 Slutför konfigurationen genom att se till att du har följande innan du börjar:
 
-* Två servrar som uppfyller maskinvarukraven Azure Stack Development Kit, som definieras av den [kraven för distribution av Azure-stacken](azure-stack-deploy.md). Se till att de förutsättningar som visas i den [artikel](azure-stack-deploy.md) uppfylls för.
+* Två servrar och andra krav som uppfyller maskinvarukraven för Azure-stacken Development Kit, enligt beskrivningen i [Snabbstart: utvärdera Azure Stack Development Kit](azure-stack-deploy-overview.md). 
 * Den [Azure Stack Development Kit](https://azure.microsoft.com/en-us/overview/azure-stack/try/) distributionspaketet.
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>Distribuera Azure Stack Development Kit-miljöer

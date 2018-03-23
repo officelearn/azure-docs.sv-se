@@ -1,24 +1,24 @@
 ---
 title: Med den privilegierade slutpunkten i Azure-stacken | Microsoft Docs
-description: "Visar hur du använder Privilegierade slutpunkten (program) i Azure-stacken (för operatör Azure-stacken)."
+description: Visar hur du använder Privilegierade slutpunkten (program) i Azure-stacken (för operatör Azure-stacken).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 29ac4517ec691f94f24ced81ca227cd4d1e7214e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Med den privilegierade slutpunkten i Azure-stacken
 
@@ -74,7 +74,7 @@ Vi rekommenderar att du ansluter till detta program bara från maskinvara livscy
       ```` 
    När du uppmanas, Använd följande autentiseringsuppgifter:
 
-      - **Användarnamnet**: Ange CloudAdmin-konto i formatet **&lt;*Azure Stack domän*&gt;\cloudadmin**. (För ASDK, användarnamnet är **azurestack\cloudadmin**.)
+      - **Användarnamnet**: Ange CloudAdmin-konto i formatet  **&lt; *Azure Stack domän*&gt;\accountname**. (För ASDK, användarnamnet är **azurestack\accountname**.) 
       - **Lösenordet**: Ange samma lösenord som du angav under installationen för AzureStackAdmin domänadministratörskontot.
     
 3.  När du har anslutit uppmaningen ändras till **[*IP-adress eller ERCS VM*]: PS >** eller **[azs ercs01]: PS >**, beroende på miljön. Härifrån kan köra `Get-Command` att visa listan över tillgängliga cmdlets.
@@ -143,7 +143,7 @@ Om du vill importera program sessionen på den lokala datorn, gör du följande 
       ```` 
    När du uppmanas, Använd följande autentiseringsuppgifter:
 
-      - **Användarnamnet**: Ange CloudAdmin-konto i formatet **&lt;*Azure Stack domän*&gt;\cloudadmin**. (För ASDK, användarnamnet är **azurestack\cloudadmin**.)
+      - **Användarnamnet**: Ange CloudAdmin-konto i formatet  **&lt; *Azure Stack domän*&gt;\accountname**. (För ASDK, användarnamnet är **azurestack\accountname**.) 
       - **Lösenordet**: Ange samma lösenord som du angav under installationen för AzureStackAdmin domänadministratörskontot.
 
 3. Importera program-session till din lokala dator

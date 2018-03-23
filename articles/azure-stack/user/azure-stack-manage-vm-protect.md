@@ -1,11 +1,11 @@
 ---
-title: "Skydda virtuella datorer som distribueras på Azure-stacken | Microsoft Docs"
-description: "Riktlinjer för hur du skyddar virtuella datorer distribueras på Azure-stacken."
+title: Skydda virtuella datorer som distribueras på Azure-stacken | Microsoft Docs
+description: Riktlinjer för hur du skyddar virtuella datorer distribueras på Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: 02get-started-article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: hector.linares
-ms.openlocfilehash: e7c437e3310fbf5c921920a3f08ecb8fe1f0d931
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e74c6af36130d206456634548f452a1f1a2d4af
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Skydda virtuella datorer distribueras på Azure-stacken
 
@@ -68,8 +68,8 @@ De vanligaste är skydd för VM-baserade program att använda ett säkerhetskopi
  
 Återställa programmet kräver att återställa en eller flera virtuella datorer till samma moln eller till en ny moln. Du kan rikta ett moln i ditt datacenter eller det offentliga molnet. Vilka molnappar som du riktar är helt inom din kontroll och baseras på dina data sekretess och suveränitet krav. 
  
- - Återställningstidsmålet: Driftstopp mätt i sekunder 
- - Återställningspunktmål: Minimal dataförlust
+ - Återställningstidsmålet: Driftstopp mäts i timmar 
+ - Återställningspunktmålet: Variabel dataförlust (beroende på frekvensen för säkerhetskopiering)
  - Topologi för distribution: aktiv/passiv 
 
 #### <a name="planning-your-backup-strategy"></a>Planera din strategi för säkerhetskopiering
@@ -95,8 +95,8 @@ Programmet har endast distribuerats i ett moln med den här metoden. Den virtuel
 
 ![Replikering manuell redundans](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
 
- - Återställningstidsmålet: Nedtid i minuter 
- - Återställningspunktmål: Variabeln dataförlust
+ - Återställningstidsmålet: Driftstopp mätt i minuter 
+ - Återställningspunktmålet: Variabel dataförlust (beroende på replikeringsfrekvens)
  - Topologi för distribution: aktiv/passiv vänteläge
  
 ### <a name="high-availabilityautomatic-failover"></a>Hög tillgänglighet/automatisk redundans

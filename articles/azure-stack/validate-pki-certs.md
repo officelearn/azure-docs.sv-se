@@ -1,25 +1,25 @@
 ---
-title: "Certifikatsverifiering Azure Stack infrastruktur för offentliga nycklar för distribution av Azure-stacken integrerat system | Microsoft Docs"
-description: "Beskriver hur du verifierar Azure Stack PKI-certifikat för Azure-stacken integrerat system."
+title: Certifikatsverifiering Azure Stack infrastruktur för offentliga nycklar för distribution av Azure-stacken integrerat system | Microsoft Docs
+description: Beskriver hur du verifierar Azure Stack PKI-certifikat för Azure-stacken integrerat system.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 86f1b889d83905abfb5ddab2e82f32922409ff5f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b38e3cc45d14645611c0cd804f2bfa66047810f0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Verifiera Azure Stack PKI-certifikat
 Verktyget Azure Stack certifikat layout som beskrivs i den här artikeln tillhandahålls av OEM-tillverkaren som ingår i filen deploymentdata.json för att kontrollera att den [genereras PKI-certifikat](azure-stack-get-pki-certs.md) är lämpliga för distributionen. Certifikat verifieras med tillräckligt med tid för att testa och få certifikat igen om det behövs. 

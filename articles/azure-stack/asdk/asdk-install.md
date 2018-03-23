@@ -2,24 +2,24 @@
 title: Installera Azure-stacken Development Kit (ASDK) | Microsoft Docs
 description: Beskriver hur du installerar Azure Stack Development Kit (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e1f4cfb74d83cb23631e5a16a6e6f2dba98027ef
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7b8fe61731a9412c61152bc58e55deebb611d011
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Installera Azure-stacken Development Kit (ASDK)
 Efter [förbereda värddatorn ASDK](asdk-prepare-host.md), ASDK kan distribueras till CloudBuilder.vhdx avbildningen med hjälp av följande steg i den här artikeln.
@@ -55,8 +55,10 @@ Stegen i den här artikeln visar hur du distribuerar ASDK med ett grafiskt anvä
     - **DHCP** (standard): den virtuella datorn hämtar den IP-konfigurationen från DHCP-servern.
     - **Statisk**: Använd bara det här alternativet om DHCP inte kan tilldela en giltig IP-adress för Azure stackutrymme för att få åtkomst till Internet. **En statisk IP-adress måste anges med längden nätmask i CIDR-format (till exempel 10.0.0.5/24)**.
     - Ange en giltig **tid servern IP** adress. Detta krävs för fältet anger tid-server som ska användas av development kit. Den här parametern måste anges som en giltig tid serverns IP-adress. Servernamn stöds inte.
+
       > [!TIP]
       > Du hittar en IP-adress [pool.ntp.org](http:\\pool.ntp.org) eller pinga time.windows.com. 
+
     - **Du kan också**, anger du följande värden:
         - **VLAN-ID**: Anger VLAN-ID. Använd bara det här alternativet om värden och AzS BGPNAT01 måste konfigurera VLAN-ID för att komma åt den fysiska nätverk (och internet). 
         - **DNS-vidarebefordrare**: en DNS-server har skapats som en del av distributionen av Azure-stacken. Ange din befintliga infrastruktur för DNS-server så att datorer i lösningen för att matcha namn utanför stämpeln. DNS-servern i stämpel vidarebefordras okänt namn på den här servern.
@@ -88,10 +90,10 @@ Grattis, du har installerat ASDK!
 
 Om distributionen misslyckas av någon anledning, kan du [omdistribuera](asdk-redeploy.md) från grunden eller Använd följande PowerShell-kommandon, från samma upphöjd PowerShell-fönstret, starta om distributionen från det senaste lycka steget:
 
-    ```powershell
-    cd C:\CloudDeployment\Setup
-    .\InstallAzureStackPOC.ps1 -Rerun
-    ```
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ## <a name="next-steps"></a>Nästa steg
 [Post distributionskonfiguration](asdk-post-deploy.md)

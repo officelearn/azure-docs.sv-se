@@ -1,24 +1,24 @@
 ---
-title: "Viktig information för Microsoft Azure-stacken Development Kit | Microsoft Docs"
-description: "Förbättringar av korrigeringar och kända problem med Azure-stacken Development Kit."
+title: Viktig information för Microsoft Azure-stacken Development Kit | Microsoft Docs
+description: Förbättringar av korrigeringar och kända problem med Azure-stacken Development Kit.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 176b850120958a5ca5fdaece4831e2ed27ac0a04
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6b08c1793857fd6c6a6a04c0d450e76a36357597
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure-stacken Development Kit viktig information
 Dessa versionsanmärkningar innehåller information om förbättringar, korrigeringar och kända problem i Azure-stacken Development Kit. Om du inte vet vilken version du kör, kan du [använda portalen för att kontrollera](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -56,6 +56,11 @@ Finns det [nya funktioner och korrigeringar](.\.\azure-stack-update-1802.md#new-
     - *FEL - mall för FaultType ResourceProviderTimeout saknas.*
 
     Den här aviseringen kan ignoreras. 
+
+- I både administrationsportal och användarportalen, bladet översikt misslyckas att läsa in när du väljer bladet översikt för lagringskonton som skapats med en äldre API-version (exempel: 2015-06-15). 
+
+  Som en tillfällig lösning kan använda PowerShell för att köra den **Start ResourceSynchronization.ps1** skript för att återställa åtkomsten till information om lagringskonto. [Skriptet är tillgänglig från GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts), måste köras med administratörsbehörighet för tjänsten på development kit värden om du använder ASDK.  
+
 
 #### <a name="health-and-monitoring"></a>Hälsa och övervakning
 I administrationsportalen för Azure-stacken kan du se en kritisk varning med namnet **väntande externa certifikatet upphör att gälla**.  Den här aviseringen kan ignoreras och påverkar driften av Azure-stacken Development Kit. 
@@ -273,9 +278,11 @@ I Azure Active Directory Federation Services (ADFS) distribuerade miljöer, den 
     > Några av de objekt som visas i den **nya funktioner och korrigeringar** avsnittet gäller bara för Azure-stacken integrerat system.
 
 ### <a name="known-issues"></a>Kända problem
+
  
 #### <a name="deployment"></a>Distribution
 - Du måste ange en tidsserver efter IP-adress under distributionen.
+- Från och med version 1711, **CloudAdmin** är ett reserverat kontonamn och bör inte manuellt anges när du distribuerar i development kit. 
 
 #### <a name="infrastructure-management"></a>Infrastrukturhantering
 - Aktivera inte infrastrukturen för säkerhetskopiering på den **infrastruktur säkerhetskopiering** bladet.

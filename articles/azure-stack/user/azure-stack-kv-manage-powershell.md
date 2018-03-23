@@ -1,11 +1,11 @@
 ---
-title: "Hantera Key Vault i Azure-stacken med hjälp av PowerShell | Microsoft Docs"
-description: "Lär dig att hantera Key Vault i Azure-stacken med hjälp av PowerShell"
+title: Hantera Key Vault i Azure-stacken med hjälp av PowerShell | Microsoft Docs
+description: Lär dig att hantera Key Vault i Azure-stacken med hjälp av PowerShell
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 22B62A3B-B5A9-4B8C-81C9-DA461838FAE5
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: 6ee2ceff10d16456a6e8c6283f40fa594b3311bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 9dac59d74347e21bebaf7cb65d199711f45b29a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-powershell"></a>Hantera Key Vault i Azure-stacken med hjälp av PowerShell
 
@@ -27,7 +27,7 @@ Den här artikeln hjälper dig att komma igång med att skapa och hantera Key Va
    - Lagra och hantera krypteringsnycklar och hemligheter. 
    - Ge användare eller program att anropa åtgärder i valvet. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Du måste prenumerera på ett erbjudande som innehåller Azure Key Vault-tjänsten.
 * [Installera PowerShell för Azure-stacken](azure-stack-powershell-install.md).  
 * [Konfigurera Azure Stack användarens PowerShell-miljö](azure-stack-powershell-configure-user.md).
@@ -81,7 +81,7 @@ New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -L
 
 ![Nytt nyckelvalv](media/azure-stack-kv-manage-powershell/image4.png)
 
-Kommandots utdata visar egenskaperna för nyckelvalvet som du skapade. När ett program har åtkomst till det här valvet, används den **valvet URI** egenskapen visas i utdata. Till exempel är valvet identifierare URI (Uniform Resource) i det här fallet ”https://vault01.vault.local.azurestack.external”. Program som interagerar med det här nyckelvalv via REST API måste använda den här URI.
+Kommandots utdata visar egenskaperna för nyckelvalvet som du skapade. När ett program har åtkomst till det här valvet, används den **valvet URI** egenskapen visas i utdata. Till exempel valvet identifierare URI (Uniform Resource) i det här fallet är ”https://vault01.vault.local.azurestack.external”. Program som interagerar med det här nyckelvalv via REST API måste använda den här URI.
 
 I Active Directory Federation Services (AD FS)-baserade distributioner, när du skapar en nyckel valvet med hjälp av PowerShell, kan du få en varning som säger ”åtkomstprincip inte har angetts. Inga användare eller ett program har behörighet att använda det här valvet ”. Lös problemet genom att ange en åtkomstprincip för valvet med hjälp av den [Set AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) kommando:
 
@@ -90,7 +90,7 @@ I Active Directory Federation Services (AD FS)-baserade distributioner, när du 
 $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value 
 
-#Set the key vault access policy
+# Set the key vault access policy
 Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation 
 ```
 
@@ -113,8 +113,8 @@ Den **mål** används för att ange att nyckeln är programvara som skyddas. Nä
 
 Nu kan du referera nyckeln med hjälp av dess URI. Om du skapar eller importera en nyckel som har samma namn som en befintlig nyckel uppdateras den ursprungliga nyckeln med värdena i den nya nyckeln. Du kan komma åt den tidigare versionen med hjälp av nyckeln versionsspecifikt URI. Exempel: 
 
-* Använd ”key01-https://vault10.vault.local.azurestack.external:443/nycklar” alltid tillgång till den aktuella versionen. 
-* Använd ”https://vault010.vault.local.azurestack.external:443/nycklar/key01/d0b36ee2e3d14e9f967b8b6b1d38938a” för att få den här specifika versionen.
+* Använd ”https://vault10.vault.local.azurestack.external:443/keys/key01” alltid tillgång till den aktuella versionen. 
+* Använd ”https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a” att hämta den här specifika versionen.
 
 ### <a name="get-a-key"></a>Hämta en nyckel
 

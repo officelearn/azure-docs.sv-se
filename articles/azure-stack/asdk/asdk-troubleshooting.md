@@ -1,25 +1,25 @@
 ---
-title: "Felsökning av Microsoft Azure-stacken | Microsoft Docs"
-description: "Azure Stack Development Kit (ASDK) felsökningsinformation."
+title: Felsökning av Microsoft Azure-stacken | Microsoft Docs
+description: Azure Stack Development Kit (ASDK) felsökningsinformation.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 6ed3fb7c7c4de9edbf31fb2c47290e2e39ceadcd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6c715f07f75c9196b7cf2cc8659c6e541e1260da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Felsökning av Microsoft Azure Stack Development Kit (ASDK)
 Det här dokumentet innehåller vanliga felsökningsinformation för ASDK. Om det uppstår ett problem som inte beskrivs, se till att markera den [Azure Stack MSDN-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) för ytterligare hjälp och information.  
@@ -31,7 +31,12 @@ Rekommendationer för att felsöka problem som beskrivs i det här avsnittet hä
 
 ## <a name="deployment"></a>Distribution
 ### <a name="deployment-failure"></a>Distributionsfel
-Om det uppstår ett fel under installationen måste du starta om distributionen från det felande steget genom att använda kör alternativet - av skriptet för distribution.  
+Om det uppstår ett fel under installationen måste du starta om distributionen från det felande steget genom att använda kör alternativet - av distributionsskriptet som i följande exempel:
+
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>I slutet av distributionen PowerShell-session är fortfarande öppen och visas inte några utdata
 Det här beteendet är förmodligen bara resultatet av standardfunktionen för PowerShell-kommandofönster när den har markerats. Development kit distributionen har slutförts men skriptet pausades när du väljer fönstret. Du kan verifiera installationen har slutförts genom att söka efter ordet ”Välj” i kommandofönstret namnlist. Tryck på ESC för att avmarkera den och Slutförandemeddelande som ska visas efter den.

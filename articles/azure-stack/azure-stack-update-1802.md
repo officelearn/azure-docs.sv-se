@@ -1,25 +1,25 @@
 ---
 title: Azure-stacken 1802 Update | Microsoft Docs
-description: "Lär dig mer om vad som finns i 1802 uppdateringen för Azure-stacken integrerat system, kända problem och var du kan hämta uppdateringen."
+description: Lär dig mer om vad som finns i 1802 uppdateringen för Azure-stacken integrerat system, kända problem och var du kan hämta uppdateringen.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 247f13717971d3660b3ec0ee94821bd593c5fed0
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 71862463a62f11a4f2cea7dfcc60961331ded377
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure-stacken 1802 uppdatering
 
@@ -103,7 +103,7 @@ Följande är efter installationen kända problem för version **20180302.1**
 
 #### <a name="portal"></a>Portalen
 - Möjlighet [att öppna en ny supportförfrågan i listrutan](azure-stack-manage-portals.md#quick-access-to-help-and-support) från inom administratören portalen är inte tillgänglig. I stället använder du följande länk:     
-    - Använd https://aka.ms/newsupportrequest för Azure-stacken integrerade system.
+    - För Azure-Stack integrerad system använda https://aka.ms/newsupportrequest.
 
 - <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
 
@@ -123,6 +123,13 @@ Följande är efter installationen kända problem för version **20180302.1**
     - *FEL - mall för FaultType ResourceProviderTimeout saknas.*
 
     Den här aviseringen kan ignoreras. 
+
+- <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
+
+- I både administrationsportal och användarportalen, bladet översikt misslyckas att läsa in när du väljer bladet översikt för lagringskonton som skapats med en äldre API-version (exempel: 2015-06-15). Detta inkluderar system storage-konton som **updateadminaccount** som används under korrigeringar och uppdateringar. 
+
+  Som en tillfällig lösning kan använda PowerShell för att köra den **Start ResourceSynchronization.ps1** skript för att återställa åtkomsten till information om lagringskonto. [Skriptet är tillgänglig från GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts), måste köras med administratörsbehörighet för tjänsten på Privilegierade slutpunkten. 
+
 
 #### <a name="health-and-monitoring"></a>Hälsa och övervakning
 Det finns inga kända problem när du har uppdaterat till 1802.

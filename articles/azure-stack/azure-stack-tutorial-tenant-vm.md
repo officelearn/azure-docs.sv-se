@@ -1,31 +1,28 @@
 ---
-title: "Tillhandahålla virtuella datorer till Azure-stacken användarna | Microsoft Docs"
-description: "Självstudiekursen för att tillhandahålla virtuella datorer på Azure-stacken"
+title: Tillhandahålla virtuella datorer till Azure-stacken användarna | Microsoft Docs
+description: Självstudiekursen för att tillhandahålla virtuella datorer på Azure-stacken
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/23/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: d169a18df8916cfb8dd30b00248099a3d374aacc
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Tillhandahålla virtuella datorer till Azure Stack-användare
-
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
-
 Du kan skapa erbjudanden som användarna (kallas ibland klienter) kan prenumerera på som administratör Stack för Azure-molnet. Använda sin prenumeration kan kan användare använda Azure Stack-tjänster.
 
 Den här artikeln visar hur du skapar ett erbjudande och sedan testa den. För testet, ska du logga in på portalen som en användare, prenumerera erbjudandet och sedan skapa en virtuell dator med prenumerationen.
@@ -116,8 +113,8 @@ Nu när du har skapat ett erbjudande, kan du testa den. Logga in som en använda
    Nu kan du logga in på portalen som en användare att prenumerera på ett erbjudande.
 
    a. Logga in på användarportalen som en användare och klicka på **skaffa en prenumeration**.
-   - URL: en för ett integrerat system varierar beroende på din operatorn region och externa domännamn och kommer att vara i formatet https://portal. &lt; *region*&gt;.&lt; *FQDN*&gt;.
-   - Om du använder Azure Stack Development Kit är portal adressen https://portal.local.azurestack.external.
+   - URL: en för ett integrerat system varierar beroende på din operatorn region och externa domännamn och kommer att vara i formatet https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
+   - Om du använder Azure Stack Development Kit portal adressen är https://portal.local.azurestack.external.
 
    ![Skaffa en prenumeration](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
@@ -134,8 +131,8 @@ Nu när du har skapat ett erbjudande, kan du testa den. Logga in som en använda
    Nu kan du logga in på portalen som en användare att etablera en virtuell dator med prenumerationen. 
 
    a. Logga in på användarportalen som en användare.
-      - URL: en för ett integrerat system varierar beroende på din operatorn region och externa domännamn och kommer att vara i formatet https://portal. &lt; *region*&gt;.&lt; *FQDN*&gt;.
-   - Om du använder Azure Stack Development Kit är portal adressen https://portal.local.azurestack.external.
+      - URL: en för ett integrerat system varierar beroende på din operatorn region och externa domännamn och kommer att vara i formatet https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
+   - Om du använder Azure Stack Development Kit portal adressen är https://portal.local.azurestack.external.
 
    b.  På instrumentpanelen, klickar du på **ny** > **Compute** > **Windows Server 2016 Datacenter Eval**, och klicka sedan på **skapa**.
 

@@ -1,24 +1,25 @@
 ---
 title: Azure-stacken 1711 Update | Microsoft Docs
-description: "Lär dig mer om vad som finns i 1711 uppdateringen för Azure-stacken integrerat system, kända problem och var du kan hämta uppdateringen."
+description: Lär dig mer om vad som finns i 1711 uppdateringen för Azure-stacken integrerat system, kända problem och var du kan hämta uppdateringen.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/22/2018
 ms.author: brenduns
-ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.reviewer: justini
+ms.openlocfilehash: fd57699a329fbccdbefc73dae7d473070cd831ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure-stacken 1711 uppdatering
 
@@ -37,7 +38,13 @@ Azure-stacken 1711 uppdatera versionsnumret är **171201.3**.
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-Du måste först installera Azure-stacken [1710 uppdatera](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) innan du installerar den här uppdateringen.
+- Du måste först installera Azure-stacken [1710 uppdatera](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) innan du installerar den här uppdateringen.
+
+- Granska användning av **CloudAdmin** uppdatera 1711 som kontonamn innan du installerar. Från och med version 1711, *CloudAdmin* är ett reserverat kontonamn och inte bör anges manuellt. När du uppdaterar till version 1711 uppdateringen tar du bort befintliga instanser av konto för distribution (kallas vanligtvis AzureStackAdmin). Om du med namnet konto för distribution *CloudAdmin*, uppdatering till 1711 tar bort den. 
+
+  *CloudAdmin* är det inbyggda kontot att ansluta till den [ *Privilegierade endpoint* ](azure-stack-privileged-endpoint.md) (program). Borttagningen av det här kontot kan resultera i en utelåsning av detta program om det finns redan ett annat användarkonto som är medlem i gruppen CloudAdmin. 
+
+  Om du använde CloudAdmin som namnet på kontot för distribution, lägga till en ny CloudAdmin användare ditt program innan du startar uppdateringen 1711 att undvika att låsas slut på stackutrymme Azure. Om du vill lägga till en ny CloudAdmin användare, kör du cmdlet **ny CloudAdminUser** på detta program.
 
 ### <a name="new-features-and-fixes"></a>Nya funktioner och korrigeringar
 
@@ -61,7 +68,7 @@ Den här uppdateringen innehåller följande förbättringar och korrigeringar f
 
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Windows Server 2016 nya funktioner och korrigeringar
 
-- [14 november 2017 – KB4048953 (OS-version 14393.1884)](https://support.microsoft.com/help/4048953)
+- [14 november 2017 – KB4048953 (OS-version 14393.1884) ](https://support.microsoft.com/help/4048953)
 
 ### <a name="known-issues-with-the-update-process"></a>Kända problem med uppdateringen
 
@@ -76,11 +83,11 @@ Det här avsnittet innehåller kända problem som kan uppstå under installation
     1. **Orsak:** problemet orsakas när återupptar en uppdatering från portalen som tidigare var återupptas med Privilegierade slutpunkt (program).
     2. **Lösning:** kontakta Microsofts kundservice och Support (CSS) för att få hjälp.
 <br><br>
-3. **Symptom:**Azure Stack kan se följande fel under uppdateringen:*”typ 'CheckHealth' av rollen 'VirtualMachines” utlöses ett undantag: \n\nVirtual datorn hälsokontrollen för <machineName>-ACS01 som producerade den Följande fel. \nThere gick inte att hämta information om Virtuellt från värdar. Undantag information: \nGet-VM: åtgärden på datorn ”Node03' misslyckades: det WS-Management-tjänsten kan inte behandla begäran. WMI-\nservice eller WMI-providern returnerade ett okänt fel: HRESULT 0x8004106c ”.*
+3. **Symptom:** Azure Stack kan se följande fel under uppdateringen:*”typ 'CheckHealth' av rollen 'VirtualMachines” utlöses ett undantag: \n\nVirtual datorn hälsokontrollen för <machineName>-ACS01 som producerade den Följande fel. \nThere gick inte att hämta information om Virtuellt från värdar. Undantag information: \nGet-VM: åtgärden på datorn ”Node03' misslyckades: det WS-Management-tjänsten kan inte behandla begäran. WMI-\nservice eller WMI-providern returnerade ett okänt fel: HRESULT 0x8004106c ”.*
     1. **Orsak:** problemet orsakas av ett problem i Windows Server som är avsedd att åtgärdas i efterföljande uppdateringar för Windows server.
     2. **Lösning:** kontakta Microsofts kundservice och Support (CSS) för att få hjälp.
 <br><br>
-4. **Symptom:**Azure Stack kan se följande fel under uppdateringen:*”typ” DefenderUpdate' av rollen 'URP' utlöste ett undantagsfel: misslyckade komma version från \\SU1FileServer\SU1_Public\ DefenderUpdates\x64\{filnamn} .exe efter 60 försök att kopiera-AzSDefenderFiles C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: rad 262 ”*
+4. **Symptom:** Azure Stack kan se följande fel under uppdateringen:*”typ” DefenderUpdate' av rollen 'URP' utlöste ett undantagsfel: misslyckade komma version från \\SU1FileServer\SU1_Public\ DefenderUpdates\x64\{filnamn} .exe efter 60 försök att kopiera-AzSDefenderFiles C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: rad 262 ”*
     1. **Orsak:** problemet orsakas av en misslyckad eller ofullständig bakgrund hämtning av definitionsuppdateringar för Windows Defender.
     2. **Lösning:** Kontrollera försöker fortsätta uppdateringen när upp till 8 timmar har gått sedan den första uppdateringen försök.
 

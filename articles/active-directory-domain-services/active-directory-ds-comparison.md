@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Domain Services: Jämföra Azure AD Domain Services till själv domänkontrollanter | Microsoft Docs"
-description: "Jämföra Azure Active Directory Domain Services till själv domänkontrollanter"
+title: 'Azure AD Domain Services: Jämföra Azure AD Domain Services till själv domänkontrollanter | Microsoft Docs'
+description: Jämföra Azure Active Directory Domain Services till själv domänkontrollanter
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/07/2017
 ms.author: maheshu
 ms.openlocfilehash: c384046d280e03de5a808d245dd273fdf7b44549
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Hur du avgör om Azure AD Domain Services som passar dina användningsfall
 Du kan distribuera dina arbetsbelastningar i Azure Infrastructure Services utan att behöva bekymra dig om att hantera identitetsinfrastrukturen i Azure med Azure AD Domain Services. Den här hanterade tjänsten skiljer sig från en typisk distribution för Windows Server Active Directory som du kan distribuera och administrera på egen hand. Tjänsten är enkel att distribuera och ger automatisk hälsoövervakning och reparation. Vi utvecklas ständigt tjänsten om du vill lägga till stöd för vanliga scenarier för distribution.
@@ -34,21 +34,21 @@ I följande tabell kan du välja mellan att använda Azure AD Domain Services oc
 
 | **Funktion** | **Azure AD Domain Services** | **'Själv' AD i virtuella Azure-datorer** |
 | --- |:---:|:---:|
-| [**Hanterad tjänst**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**& #x 2715;** |
+| [**Hanterad tjänst**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
 | [**Säker distribution**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Administratören måste skydda distributionen. |
-| [**DNS-server**](active-directory-ds-comparison.md#dns-server) |**& #x 2713;**  (hanterad service) |**&#x2713;** |
-| [**Administratörsbehörighet för domänen eller Enterprise**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**& #x 2715;** |**&#x2713;** |
+| [**DNS-server**](active-directory-ds-comparison.md#dns-server) |**&#x2713;**(hanterade service) |**&#x2713;** |
+| [**Administratörsbehörighet för domänen eller Enterprise**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**Anslut till domän**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**Med hjälp av NTLM och Kerberos-domänautentisering**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
 | [**Kerberos-begränsad delegering**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|Resursbaserad|Resursbaserad & konto-baserade|
 | [**Anpassade organisationsenhetsstruktur**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
-| [**Schemautökningar**](active-directory-ds-comparison.md#schema-extensions) |**& #x 2715;** |**&#x2713;** |
-| [**AD-domän/skogsförtroenden**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**& #x 2715;** |**&#x2713;** |
+| [**Schemautökningar**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
+| [**AD-domän/skogsförtroenden**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
 | [**Läsa LDAP**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
 | [**Säkert LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
-| [**LDAP-skrivåtgärder**](active-directory-ds-comparison.md#ldap-write) |**& #x 2715;** |**&#x2713;** |
+| [**LDAP-skrivåtgärder**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
 | [**Grupprincip**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
-| [**Fördelade distributioner**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**& #x 2715;** |**&#x2713;** |
+| [**Fördelade distributioner**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>Hanterad tjänst
 Azure AD Domain Services-domäner som hanteras av Microsoft. Du behöver inte bry dig om korrigering, uppdateringar, övervakning, säkerhetskopiering, och säkerställa tillgängligheten för din domän. Dessa hanteringsaktiviteter erbjuds som en tjänst av Microsoft Azure för hanterade domäner.

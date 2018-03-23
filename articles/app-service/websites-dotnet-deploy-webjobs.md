@@ -1,9 +1,9 @@
 ---
 title: Utveckla och distribuera med Visual Studio - Azure WebJobs
-description: "Lär dig hur du utvecklar och distribuerar Azure WebJobs till Azure App Service med Visual Studio."
+description: Lär dig hur du utvecklar och distribuerar Azure WebJobs till Azure App Service med Visual Studio.
 services: app-service
-documentationcenter: 
-author: ggailey777
+documentationcenter: ''
+author: tdykstra
 manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 8793485f2f1967e8c14ef335f14f81c9b946f974
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: babe190c0865f5be4aeecb40ca48b52673c6920e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Utveckla och distribuera WebJobs med Visual Studio - Azure App Service
 
@@ -29,7 +29,7 @@ Det här avsnittet beskriver hur du använder Visual Studio för att distribuera
 När Visual Studio distribuerar ett WebJobs-aktiverade konsolprogram projekt, utför två aktiviteter:
 
 * Runtime filer kopieras till rätt mapp i webbapp (*App_Data/jobb/kontinuerlig* för kontinuerliga Webbjobb *App_Data/jobb/utlöst* för WebJobs schemalagda och på begäran).
-* Ställer in [Azure schemaläggare](#scheduler) för WebJobs som är schemalagda att köras vid en viss tidpunkt. (Detta behövs inte för kontinuerliga Webbjobb.)
+* Ställer in [Azure Scheduler](https://docs.microsoft.com/azure/scheduler/) jobb för WebJobs som är schemalagda att köras vid en viss tidpunkt. (Detta behövs inte för kontinuerliga Webbjobb.)
 
 Ett WebJobs-aktiverade projekt har lagts till följande objekt:
 
@@ -44,13 +44,13 @@ Du kan distribuera ett projekt som ett Webbjobb ensamt eller länka det till ett
 
 ![Diagram över Webbjobb projekt som länkar till webbprojekt](./media/websites-dotnet-deploy-webjobs/link.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du använder Visual Studio 2015, installera den [Azure SDK för .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
 
 Om du använder Visual Studio 2017, installera den [Azure-utveckling arbetsbelastning](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
 
-## <a id="convert"></a>Aktivera WebJobs-distribution för ett befintligt projekt konsolprogram
+## <a id="convert"></a> Aktivera WebJobs-distribution för ett befintligt projekt konsolprogram
 
 Du kan välja mellan två alternativ:
 
@@ -62,7 +62,7 @@ Du kan välja mellan två alternativ:
 
   Konfigurera ett befintligt projekt konsolprogram att distribuera som ett Webbjobb, med någon länk till ett webbprojekt. Använd det här alternativet när du vill köra ett Webbjobb i en webbapp, med Inga webbprogram som körs i webbprogrammet. Du kanske vill göra detta för att kunna skala resurserna Webbjobb oberoende av webbtillämpningsresurser.
 
-### <a id="convertlink"></a>Aktivera automatisk WebJobs-distribution med ett webbprojekt
+### <a id="convertlink"></a> Aktivera automatisk WebJobs-distribution med ett webbprojekt
 
 1. Högerklicka på webbprojekt i **Solution Explorer**, och klicka sedan på **Lägg till** > **befintligt projekt som Azure Webjobs**.
    
@@ -74,7 +74,7 @@ Du kan välja mellan två alternativ:
     ![Att markera projekt i dialogrutan Lägg till Azure Webbjobbet](./media/websites-dotnet-deploy-webjobs/aaw1.png)
 3. Slutför den [lägga till Azure Webjobs](#configure) dialogrutan och klicka sedan på **OK**. 
 
-### <a id="convertnolink"></a>Aktivera WebJobs distribution utan ett webbprojekt
+### <a id="convertnolink"></a> Aktivera WebJobs distribution utan ett webbprojekt
 1. Högerklicka på projektet konsolprogram i **Solution Explorer**, och klicka sedan på **Publicera som Azure Webjobs...** . 
    
     ![Publicera som Azure Webbjobbet](./media/websites-dotnet-deploy-webjobs/paw.png)
@@ -99,13 +99,13 @@ Om du vill skapa ett nytt projekt WebJobs-aktiverade, kan du använda projektmal
 > 
 > 
 
-### <a id="createnolink"></a>Använd WebJobs nytt projekt mall för en oberoende Webbjobbet
+### <a id="createnolink"></a> Använd WebJobs nytt projekt mall för en oberoende Webbjobbet
 1. Klicka på **filen** > **nytt projekt**, och klicka sedan på den **nytt projekt** klickar du på **moln**  >   **Azure Webjobs (.NET Framework)**.
    
     ![Dialogrutan Nytt projekt som visar Webbjobb mall](./media/websites-dotnet-deploy-webjobs/np.png)
 2. Följ anvisningarna som visas tidigare till [Se konsolprogrammet projicera ett oberoende WebJobs-projekt](#convertnolink).
 
-### <a id="createlink"></a>Använd WebJobs nytt projekt mall för ett Webbjobb som är kopplad till ett webbprojekt
+### <a id="createlink"></a> Använd WebJobs nytt projekt mall för ett Webbjobb som är kopplad till ett webbprojekt
 1. Högerklicka på webbprojekt i **Solution Explorer**, och klicka sedan på **Lägg till** > **nytt projekt för Azure Webjobs**.
    
     ![Nya menypost för Azure Webjobs-projekt](./media/websites-dotnet-deploy-webjobs/nawj.png)
@@ -127,7 +127,7 @@ Fälten i den här dialogrutan motsvarar fält på den **lägger till Webbjobb**
 > 
 > 
 
-## <a id="publishsettings"></a>webbjobbet publicera settings.json
+## <a id="publishsettings"></a>webjob-publish-settings.json
 När du konfigurerar ett konsolprogram för distribution av WebJobs Visual Studio installerar den [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet paket- och lagrar schemainformation i en *webbjobb publicera settings.json*  filen i projektet *egenskaper* mappen WebJobs-projektet. Här är ett exempel på filen:
 
         {
@@ -140,9 +140,9 @@ När du konfigurerar ett konsolprogram för distribution av WebJobs Visual Studi
           "runMode": "Continuous"
         }
 
-Du kan redigera den här filen direkt och Visual Studio har IntelliSense. Schemat filen lagras på [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) och kan visa.  
+Du kan redigera den här filen direkt och Visual Studio har IntelliSense. Schemat filen lagras på [ http://schemastore.org ](http://schemastore.org/schemas/json/webjob-publish-settings.json) och kan visa.  
 
-## <a id="webjobslist"></a>webjobs list.json
+## <a id="webjobslist"></a>webjobs-list.json
 När du länkar ett WebJobs-aktiverade projekt till ett webbprojekt Visual Studio lagrar namnet på WebJobs-projekt i en *webjobs list.json* filen i webbprojektet *egenskaper* mapp. Listan kan innehålla flera WebJobs projekt som visas i följande exempel:
 
         {
@@ -157,7 +157,7 @@ När du länkar ett WebJobs-aktiverade projekt till ett webbprojekt Visual Studi
           ]
         }
 
-Du kan redigera den här filen direkt och Visual Studio har IntelliSense. Schemat filen lagras på [http://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) och kan visa.
+Du kan redigera den här filen direkt och Visual Studio har IntelliSense. Schemat filen lagras på [ http://schemastore.org ](http://schemastore.org/schemas/json/webjobs-list.json) och kan visa.
 
 ## <a id="deploy"></a>Distribuera ett WebJobs-projekt
 Ett WebJobs-projekt som du har länkats till ett webbprojekt distribuerar automatiskt med webbprojektet. Information om web project distribution finns **anvisningar hjälper** > **distribuera appen** i det vänstra navigeringsfönstret.

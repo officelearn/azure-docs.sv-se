@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect och allmänna Data Protection förordning | Microsoft Docs"
-description: "Det här dokumentet beskriver hur du skaffar BNPR kompatibilitet med Azure AD Connect."
+title: Azure AD Connect och allmänna Data Protection förordning | Microsoft Docs
+description: Det här dokumentet beskriver hur du skaffar BNPR kompatibilitet med Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: billmath
 ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect"></a>BNPR efterlevnad och Azure AD Connect 
 
@@ -66,7 +66,7 @@ If ($File.ToUpper() -ne "$env:programdata\aadconnect\PERSISTEDSTATE.XML".toupper
 ### <a name="schedule-this-script-to-run-every-48-hours"></a>Schemalägga skriptet ska köras varje 48 timmarna
 Använd följande steg om du vill schemalägga skriptet ska köras varje 48 timmar.
 
-1.  Spara skriptet i en fil med tillägget **& #46. Ps1**, öppna Kontrollpanelen och klicka på **system och säkerhet**.
+1.  Spara skriptet i en fil med tillägget  **&#46;PS1**, öppna Kontrollpanelen och klicka på **system och säkerhet**.
     ![System](media\active-directory-aadconnect-gdpr\gdpr2.png)
 
 2.  Under rubriken Administrationsverktyg klickar du på **schemalägga aktiviteter**.

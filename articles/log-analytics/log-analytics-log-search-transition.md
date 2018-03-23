@@ -1,8 +1,8 @@
 ---
 title: Azure Log Analytics query language fusklapp | Microsoft Docs
-description: "Den här artikeln innehåller hjälp om övergång till nya frågespråket för Log Analytics om du redan är bekant med det äldre språket."
+description: Den här artikeln innehåller hjälp om övergång till nya frågespråket för Log Analytics om du redan är bekant med det äldre språket.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: bwren
 ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Övergång till nya Azure Log Analytics-frågespråket
 Logganalys nyligen implementerat ett nytt frågespråk.  Den här artikeln innehåller hjälp om övergång till det här språket för Log Analytics om du redan är bekant med det äldre språket och fortfarande behöver hjälp.
@@ -40,26 +40,26 @@ Den [dokumentationswebbplats för Log Analytics-frågespråket](https://docs.log
 
 Följande tabell innehåller en jämförelse mellan olika vanliga frågor till motsvarande kommandon mellan nya och gamla frågespråket i Azure logganalys.
 
-| Beskrivning | Äldre | Ny |
+| Beskrivning | Bakåtkompatibelt | nytt |
 |:--|:--|:--|
 | Sök alla tabeller      | fel | Sök ”error” (inte skiftlägeskänsliga) |
 | Välj data från tabellen | Typ = händelse |  Händelse |
-|                        | Typ = händelse &#124; Välj källa, EventLog, händelse-ID | Händelsen &#124; projektet källa, EventLog, händelse-ID |
-|                        | Typ = händelse &#124; de 100 främsta | Händelsen &#124; ta 100 |
-| Strängjämförelse      | Typ = händelsen Computer=srv01.contoso.com   | Händelsen &#124; Om datorn == ”srv01.contoso.com” |
-|                        | Typ = händelsen Computer=contains("contoso") | Händelsen &#124; Om datorn innehåller ”contoso” (inte skiftlägeskänsliga)<br>Händelsen &#124; Om datorn contains_cs ”Contoso” (skiftlägeskänslig) |
-|                        | Typ = händelse datorn = RegEx (”@contoso@”)  | Händelsen &#124; Om datorn matchar regex ”. *contoso*” |
+|                        | Type=Event &#124; select Source, EventLog, EventID | Händelsen &#124; projektet källa, EventLog, händelse-ID |
+|                        | Typ = händelse &#124; uppifrån 100 | Event &#124; take 100 |
+| Strängjämförelse      | Type=Event Computer=srv01.contoso.com   | Händelsen &#124; där datorn == ”srv01.contoso.com” |
+|                        | Type=Event Computer=contains("contoso") | Händelsen &#124; där datorn innehåller ”contoso” (inte skiftlägeskänsliga)<br>Händelsen &#124; där datorn contains_cs ”Contoso” (skiftlägeskänslig) |
+|                        | Type=Event Computer=RegEx("@contoso@")  | Händelsen &#124; där datorn matchar regex ”. *contoso*” |
 | Jämförelse av datum        | Typ av händelse TimeGenerated = > nu 1DAYS | Händelsen &#124; där TimeGenerated > ago(1d) |
 |                        | Typ av händelse TimeGenerated = > 2017-05-01 TimeGenerated < 2017-05-31 | Händelsen &#124; där TimeGenerated mellan (datetime(2017-05-01)... datetime(2017-05-31)) |
-| Booleskt jämförelse     | Typ = pulsslag IsGatewayInstalled = false  | Pulsslag \| där IsGatewayInstalled == false |
-| Sortera                   | Typ = händelse &#124; Sortera datorn asc, EventLog desc, EventLevelName asc | Händelsen \| Sortera efter dator asc, EventLog desc, EventLevelName asc |
-| Distinkta               | Typ = händelse &#124; dedupliceringen datorn \| Välj dator | Händelsen &#124; Sammanfatta per dator, EventLog |
-| Utöka kolumner         | Typ = Perf CounterName = ”% processortid” &#124; Utöka if(map(CounterValue,0,50,0,1),"HIGH","LOW") som användning | Perf &#124; Om CounterName == ”% processortid” \| Utöka användningen = iff (CounterValue > 50, ”hög”, ”lågt”) |
-| Aggregeringen            | Typ = händelse &#124; måttet count() som antal per dator | Händelsen &#124; Sammanfatta Count = count() per dator |
-|                                | Typ = Perf ObjectName = Processor CounterName = ”% processortid” &#124; måttet avg(CounterValue) datorn intervall 5 minut | Perf &#124; där ObjectName == ”-Processor” och CounterName == ”% processortid” &#124; Sammanfatta avg(CounterValue) per dator, bin (TimeGenerated 5 minuter) |
-| Aggregeringen med gräns | Typ = händelse &#124; måttet count() av datorn &#124; Topp 10 | Händelsen &#124; Sammanfatta AggregatedValue = count() av datorn &#124; begränsa 10 |
+| Booleskt jämförelse     | Type=Heartbeat IsGatewayInstalled=false  | Pulsslag \| där IsGatewayInstalled == false |
+| Sortera                   | Type=Event &#124; sort Computer asc, EventLog desc, EventLevelName asc | Händelsen \| sortera efter dator asc, EventLog desc, EventLevelName asc |
+| Distinkta               | Typ = händelse &#124; dedupliceringen datorn \| Välj dator | Händelsen &#124; sammanfatta per dator, EventLog |
+| Utöka kolumner         | Typ = Perf CounterName = ”% processortid” &#124; utöka if(map(CounterValue,0,50,0,1),"HIGH","LOW") som användning | Perf &#124; där CounterName == ”% processortid” \| utöka användningen = iff (CounterValue > 50, ”hög”, ”lågt”) |
+| Sammansättning            | Typ = händelse &#124; mäta count() som antal per dator | Händelsen &#124; sammanfatta Count = count() per dator |
+|                                | Typ = Perf ObjectName = Processor CounterName = ”% processortid” &#124; mäta avg(CounterValue) datorn intervall 5 minut | Perf &#124; där ObjectName == ”-Processor” och CounterName == ”% processortid” &#124; sammanfatta avg(CounterValue) per dator, bin (TimeGenerated 5 minuter) |
+| Aggregeringen med gräns | Typ = händelse &#124; mäta count() per dator &#124; topp 10 | Händelsen &#124; sammanfatta AggregatedValue = count() per dator &#124; begränsa 10 |
 | Union                  | Typ = händelse eller typ = Syslog | Union händelse Syslog |
-| Slå ihop                   | Typ = NetworkMonitoring &#124; Anslut inre AgentIP (typ = pulsslag) ComputerIP | NetworkMonitoring &#124; Anslut typ = internt (Sök typen == ”pulsslag”) på $left. AgentIP == $right.ComputerIP |
+| Slå ihop                   | Typ = NetworkMonitoring &#124; ansluta inre AgentIP (typ = pulsslag) ComputerIP | NetworkMonitoring &#124; ansluta typ = internt (Sök typen == ”pulsslag”) på $left. AgentIP == $right.ComputerIP |
 
 
 

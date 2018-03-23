@@ -1,25 +1,25 @@
 ---
-title: "Generera Azure Stack infrastruktur för offentliga nycklar för distribution av Azure-stacken integrerat system | Microsoft Docs"
+title: Generera Azure Stack infrastruktur för offentliga nycklar för distribution av Azure-stacken integrerat system | Microsoft Docs
 description: Beskriver Azure Stack PKI-certifikat distribution processfor Azure Stack integrerad-system.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 991a94e4ca41bad438a3c8d06e4e1f691cff91bc
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 4a7432260167b8740567ad4308e102417abad82c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Generera PKI-certifikat för distribution av Azure-stacken
 Nu när du vet [PKI-certifikatkrav](azure-stack-pki-certs.md) för Azure-stacken distributioner måste du hämta dessa certifikat från den certifikatutfärdare (CA) du väljer. 
@@ -30,7 +30,7 @@ Ett sätt att begära certifikat från en offentlig Certifikatutfärdare eller e
 ### <a name="sample-inf-file"></a>Exempel INF-fil 
 Exempel certifikatet begäran INF-filen kan användas för att skapa en fil med offline certifikatbegäran för överföring till en CA (intern eller offentlig). INF-filen innehåller alla nödvändiga slutpunkter (inklusive de valfria PaaS-tjänsterna) i ett enda jokerteckencertifikat. 
 
-Inf-exempelfilen förutsätter att regionen är lika med **sea** och externa FQDN-värdet är **Sö &#46;contoso &#46; com**. Ändra dessa värden för att matcha din miljö innan du genererar en. INF-fil för din distribution. 
+Inf-exempelfilen förutsätter att regionen är lika med **sea** och externa FQDN-värdet är **sea&#46;contoso&#46;com**. Ändra dessa värden för att matcha din miljö innan du genererar en. INF-fil för din distribution. 
 
     
     [Version] 

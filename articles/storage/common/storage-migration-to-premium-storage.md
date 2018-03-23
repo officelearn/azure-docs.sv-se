@@ -1,6 +1,6 @@
 ---
 title: Migrera virtuella datorer till Azure Premium-lagring | Microsoft Docs
-description: "Migrera dina befintliga virtuella datorer till Azure Premium-lagring. Premium-lagring ger stöd för I/O-intensiva arbetsbelastningar som körs på Azure Virtual Machines diskar med hög prestanda, låg latens."
+description: Migrera dina befintliga virtuella datorer till Azure Premium-lagring. Premium-lagring ger stöd för I/O-intensiva arbetsbelastningar som körs på Azure Virtual Machines diskar med hög prestanda, låg latens.
 services: storage
 documentationcenter: na
 author: yuemlu
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.openlocfilehash: 36ff73d36c752fb342dcfff2360b4f6f7013740e
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrera till Azure Premium-lagring (ohanterade diskar)
 
@@ -163,7 +163,7 @@ Skapa ett lagringskonto för att underhålla de virtuella hårddiskarna. Tänk p
 Du kan välja att behålla vissa datadiskar i ett standardlagringskonto (till exempel diskar med kyligare lagring) för datadiskar, men rekommenderas du att flytta alla data för produktion arbetsbelastningen att använda premium-lagring.
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>Steg 3. Kopiera VHD med AzCopy eller PowerShell
-Du behöver att hitta din behållaren sökvägen och lagringsutrymmet kontonyckel bearbeta någon av de här två alternativen. Behållaren sökvägen och lagringsutrymmet kontonyckel finns i **Azure Portal** > **lagring**. Behållarens Webbadress kommer att som ”https://myaccount.blob.core.windows.net/mycontainer/”.
+Du behöver att hitta din behållaren sökvägen och lagringsutrymmet kontonyckel bearbeta någon av de här två alternativen. Behållaren sökvägen och lagringsutrymmet kontonyckel finns i **Azure Portal** > **lagring**. Behållaren för URL: en ska vara likadana ”https://myaccount.blob.core.windows.net/mycontainer/”.
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Alternativ 1: Kopiera en virtuell Hårddisk med AzCopy (asynkron kopia)
 Med AzCopy kan överföra du enkelt den virtuella Hårddisken via Internet. Detta kan ta tid beroende på storleken på de virtuella hårddiskarna. Kom ihåg att kontrollera ingång-/ utgång lagringskontogränser när du använder det här alternativet. Se [Azure Storage skalbarhets- och prestandamål](storage-scalability-targets.md) mer information.
@@ -222,7 +222,7 @@ Om du migrerar VHD från icke - Azure lagringsutrymmet i molnet till Azure, mås
 
 #### <a name="step-1-export-vhd-to-a-local-directory"></a>Steg 1. Exportera virtuell Hårddisk till en lokal katalog
 ##### <a name="copy-a-vhd-from-aws"></a>Kopiera en VHD från AWS
-1. Om du använder AWS exportera EC2-instansen till en virtuell Hårddisk i ett Amazon S3-bucket. Följ stegen som beskrivs i dokumentationen för Amazon för export av Amazon EC2 instanser som du vill installera verktyget Amazon EC2 kommandoradsgränssnittet (CLI) och kör kommandot create-instans-export-aktivitet för att exportera EC2-instansen till en VHD-fil. Se till att använda **VHD** för DISKEN &#95; BILDEN & #95. FORMATET variabeln när du kör den **skapa-instans-export-aktivitet** kommando. Exporterade VHD-filen sparas i en Amazon S3-bucket som du anger under den här processen.
+1. Om du använder AWS exportera EC2-instansen till en virtuell Hårddisk i ett Amazon S3-bucket. Följ stegen som beskrivs i dokumentationen för Amazon för export av Amazon EC2 instanser som du vill installera verktyget Amazon EC2 kommandoradsgränssnittet (CLI) och kör kommandot create-instans-export-aktivitet för att exportera EC2-instansen till en VHD-fil. Se till att använda **VHD** för DISKEN&#95;AVBILDNINGEN&#95;FORMAT variabeln när du kör den **skapa-instans-export-aktivitet** kommando. Exporterade VHD-filen sparas i en Amazon S3-bucket som du anger under den här processen.
 
     ```
     aws ec2 create-instance-export-task --instance-id ID --target-environment TARGET_ENVIRONMENT \

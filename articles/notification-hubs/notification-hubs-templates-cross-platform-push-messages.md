@@ -1,11 +1,11 @@
 ---
 title: Mallar
-description: "Det här avsnittet beskriver mallar för Azure notification hubs."
+description: Det här avsnittet beskriver mallar för Azure notification hubs.
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 1ca24a4bf08ecdbe1c1e47a931613144309a04a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="templates"></a>Mallar
 ## <a name="overview"></a>Översikt
@@ -114,13 +114,13 @@ Mallar är begränsade till XML- eller JSON-dokumentformat. Du kan också bara p
 
 I följande tabell visas det språk som tillåts i mallar:
 
-| uttryck | Beskrivning |
+| Uttryck | Beskrivning |
 | --- | --- |
 | $(prop) |Referens till en händelseegenskap med det angivna namnet. Egenskapsnamn är inte skiftlägeskänsliga. Det här uttrycket löser i egenskapsvärdet text eller en tom sträng om egenskapen inte finns. |
 | $(prop, n) |Som ovan, men texten är uttryckligen bryts vid n tecken, till exempel $(rubrik 20) klipp innehållet i egenskapen Rubrik på 20 tecken. |
 | . (prop, n) |Som ovan, men texten suffixet med tre punkter som den klipps. Den totala storleken på den förkortade strängen och suffixet överstiger inte n tecken. . (rubrik, 20) med en inkommande egenskap ”är rubriken” resultaten i **detta är titeln...** |
 | %(prop) |Liknar $(name) förutom att utdata URI-kodad. |
-| #(prop) |Används i JSON-mallar (t.ex, för iOS och Android mallar).<br><br>Den här funktionen fungerar exakt samma sätt som $(prop) tidigare angiven förutom när det används i JSON-mallar (till exempel Apple mallar). I det här fallet, om den här funktionen inte är omgiven av ”{” ”,}” (till exempel 'myJsonProperty': '#(namn)'), och utvärderas till ett tal i Javascript-format, till exempel regexp: (0 &#124; (&#91; 1 – 9, #93; & #91, 0-9 &#93;;*))(\. &#91; 0-9 & #93. +)? ((e &#124; E) (+ &#124;-)? &#91; 0-9 & #93. +)?, och sedan utdata-JSON är ett tal.<br><br>Till exempel ' Aktivitetsikon: ”#(namn)” blir ”badge': 40 (och inte” 40'). |
+| #(prop) |Används i JSON-mallar (t.ex, för iOS och Android mallar).<br><br>Den här funktionen fungerar exakt samma sätt som $(prop) tidigare angiven förutom när det används i JSON-mallar (till exempel Apple mallar). I det här fallet, om den här funktionen inte är omgiven av ”{” ”,}” (till exempel 'myJsonProperty': '#(namn)'), och utvärderas till ett tal i Javascript-format, till exempel regexp: (0&#124;(&#91;1 – 9&#93;&#91;0-9&#93;*)) (\. &#91;0-9&#93;+)? ((e&#124;E) (+&#124;-)? &#91;0-9&#93;+)?, och sedan utdata-JSON är ett tal.<br><br>Till exempel ' Aktivitetsikon: ”#(namn)” blir ”badge': 40 (och inte” 40'). |
 | ”text” eller ”text” |En literal. Literaler innehålla godtycklig text inom enkla eller dubbla citattecken. |
 | Uttr1 + uttr2 |Operatorn sammanfogning koppla två uttryck till en sträng. |
 

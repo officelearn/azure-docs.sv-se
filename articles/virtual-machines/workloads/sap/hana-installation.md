@@ -1,11 +1,11 @@
 ---
-title: "Installera SAP HANA på SAP HANA i Azure (stora instanser) | Microsoft Docs"
-description: "Så här installerar du SAP HANA på en SAP HANA i Azure (stora instans)."
+title: Installera SAP HANA på SAP HANA i Azure (stora instanser) | Microsoft Docs
+description: Så här installerar du SAP HANA på en SAP HANA i Azure (stora instans).
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8ef85c098058c97e5ec6d758fcf1dab5b1a87786
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Installera och konfigurera SAP HANA (stora instanser) på Azure
 
@@ -51,13 +51,13 @@ Kontrollera igen, särskilt när du planerar att installera HANA 2.0 [SAP stöd 
 
 Kontrollera följande parametrar i specifika, och slutligen justeras till:
 
-- NET.Core.rmem_max = 16777216
-- NET.Core.wmem_max = 16777216
-- NET.Core.rmem_default = 16777216
-- NET.Core.wmem_default = 16777216
-- NET.Core.optmem_max = 16777216
-- NET.IPv4.tcp_rmem = 65536 16777216 16777216
-- NET.IPv4.tcp_wmem = 65536 16777216 16777216
+- net.core.rmem_max = 16777216
+- net.core.wmem_max = 16777216
+- net.core.rmem_default = 16777216
+- net.core.wmem_default = 16777216
+- net.core.optmem_max = 16777216
+- net.ipv4.tcp_rmem = 65536 16777216 16777216
+- net.ipv4.tcp_wmem = 65536 16777216 16777216
 
 Från och med SLES12 SP1 och RHEL 7.2 kan måste dessa parametrar anges i en fil i katalogen /etc/sysctl.d. Till exempel måste en fil med namnet 91-NetApp-HANA.conf skapas. Parametrarna måste vara set in/etc/sysctl.conf för äldre SLES och RHEL versioner.
 
@@ -100,11 +100,11 @@ Namnkonventionerna för lagringsvolymer finns i följande tabell:
 
 | Lagringsanvändning | Monteringspunkt | Volymnamn | 
 | --- | --- | ---|
-| HANA data | /Hana/data/SID/mnt0000<m> | Lagring IP: / hana_data_SID_mnt00001_tenant_vol |
-| HANA logg | /Hana/log/SID/mnt0000<m> | Lagring IP: / hana_log_SID_mnt00001_tenant_vol |
-| HANA loggsäkerhetskopiering | /Hana/log/Backups | Lagring IP: / hana_log_backups_SID_mnt00001_tenant_vol |
-| HANA delade | /Hana/Shared/SID | Lagring IP: / hana_shared_SID_mnt00001_tenant_vol/delade |
-| usr/sap | /usr/SAP/SID | Lagring IP: / hana_shared_SID_mnt00001_tenant_vol/usr_sap |
+| HANA data | /hana/data/SID/mnt0000<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
+| HANA logg | /hana/log/SID/mnt0000<m> | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
+| HANA loggsäkerhetskopiering | /Hana/log/Backups | Storage IP:/hana_log_backups_SID_mnt00001_tenant_vol |
+| HANA delade | /hana/shared/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
+| usr/sap | /usr/sap/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
 
 Där SID = HANA instans System-ID 
 
@@ -139,9 +139,9 @@ Lagringsstyrenhet och noderna i stora instans stämplar synkroniseras till NTP-s
 För att optimera SAP HANA till lagring som används under, bör du också ange följande parametrar för SAP HANA-konfiguration:
 
 - max_parallel_io_requests 128
-- async_read_submit på
+- async_read_submit on
 - async_write_submit_active på
-- alla async_write_submit_blocks
+- async_write_submit_blocks all
  
 För SAP HANA 1.0 versioner upp till SPS12, dessa parametrar kan anges under installationen av SAP HANA-databas, enligt beskrivningen i [SAP Obs #2267798 - konfigurationen för SAP HANA-databas](https://launchpad.support.sap.com/#/notes/2267798)
 
@@ -192,7 +192,7 @@ SAP stöd Anmärkningar till implementera SAP HANA på Red Hat:
 
 SAP-program som bygger på SAP NetWeaver arkitektur är känsliga på tidsskillnaderna för de olika komponenterna som utgör SAP-system. SAP ABAP kort Dumpar med fel rubriken ZDATE\_stor\_tid\_DIFF är troligen bekant, dessa kort Dumpar ut när systemklockan på olika servrar eller virtuella datorer går för långt ifrån varandra.
 
-För SAP HANA i Azure (stora instanser) tidssynkronisering i Azure & #39, t gäller för enheter för beräkning i stora instans stämplar. Synkroniseringen kan inte användas för SAP-program som körs i enhetligt virtuella Azure-datorer som Azure garanterar ett system &#39; s tid är korrekt synkroniserad. Därför en gång till gång server måste ställas in som kan användas av SAP programservrar som kör på virtuella Azure-datorer och SAP HANA-databas instanser som körs på HANA stora instanser. Lagringsinfrastruktur i stora instans stämplar är tidsinställningen synkroniserad med NTP-servrar.
+För SAP HANA i Azure (stora instanser) tidssynkronisering i Azure&#39;t gäller för enheter för beräkning i stora instans stämplar. Synkroniseringen kan inte användas för SAP-program som körs i enhetligt virtuella Azure-datorer som Azure garanterar ett system&#39;s tid är korrekt synkroniserad. Därför en gång till gång server måste ställas in som kan användas av SAP programservrar som kör på virtuella Azure-datorer och SAP HANA-databas instanser som körs på HANA stora instanser. Lagringsinfrastruktur i stora instans stämplar är tidsinställningen synkroniserad med NTP-servrar.
 
 ## <a name="setting-up-smt-server-for-suse-linux"></a>Konfigurera SMT server för SUSE Linux
 SAP HANA stora instanser har inte direkt anslutning till Internet. Det är därför inte enkelt att registrera sådan enhet med OS-providern att ladda ned och tillämpa korrigeringar. En lösning kan vara att ställa in en SMT-server i en Azure VM för SUSE Linux. Medan Azure VM måste finnas i ett Azure-VNet som är anslutet till stora HANA-instansen. Med sådana en SMT-server kan HANA stora instans-enhet registrera och ladda ned korrigeringar. 

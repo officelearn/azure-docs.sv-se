@@ -1,8 +1,8 @@
 ---
-title: "Hybrididentitet krävs portar och protokoll - Azure | Microsoft Docs"
-description: "Den här sidan är en teknisk referens för portar som krävs för att vara öppna för Azure AD Connect"
+title: Hybrididentitet krävs portar och protokoll - Azure | Microsoft Docs
+description: Den här sidan är en teknisk referens för portar som krävs för att vara öppna för Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: billmath
 ms.openlocfilehash: 79c339c136e614be8a98461533c63d244dabc166
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Portar och protokoll som krävs för hybrididentitet
 Följande dokument är en teknisk referens för de nödvändiga portarna och protokollen för att implementera en hybrididentitetslösning. Använd följande bild och referera till tabellen.
@@ -55,7 +55,7 @@ Den här tabellen beskrivs de portar och protokoll som krävs för kommunikation
 | --- | --- | --- |
 | HTTP |80 (TCP/UDP) |Används för att hämta listor över återkallade certifikat (listor över återkallade certifikat) att verifiera SSL-certifikat. |
 | HTTPS |443(TCP/UDP) |Används för att synkronisera med Azure AD. |
-| WinRM |5985 |WinRM-lyssnare |
+| WinRM |5985 |WinRM Listener |
 
 ## <a name="table-4---wap-and-federation-servers"></a>Tabell 4 - WAP och federationsservrar
 Den här tabellen beskrivs de portar och protokoll som krävs för kommunikation mellan federationsservrar och WAP-servrar.

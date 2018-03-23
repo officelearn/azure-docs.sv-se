@@ -1,11 +1,11 @@
 ---
 title: Filter i Azure Log Analytics vyer | Microsoft Docs
-description: "Ett filter i vyn logganalys tillåter användare att filtrera data i vyn av värdet för en viss egenskap utan att ändra själva vyn.  Den här artikeln beskriver hur du använder ett filter och lägga till ett i en anpassad vy."
+description: Ett filter i vyn logganalys tillåter användare att filtrera data i vyn av värdet för en viss egenskap utan att ändra själva vyn.  Den här artikeln beskriver hur du använder ett filter och lägga till ett i en anpassad vy.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: bwren
 ms.openlocfilehash: 5c2201292eb085dcc043e4257580c7971dbaffbd
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="filters-in-log-analytics-views"></a>Filter i logganalys-vyer
 En **filter** i en [Log Analytics visa](log-analytics-view-designer.md) tillåter användare att filtrera data i vyn av värdet för en viss egenskap utan att ändra själva vyn.  Du kan till exempel användare av vyn för att filtrera vyn för endast data från en viss dator eller datorer.  Du kan skapa flera filter på en enda vy så att användarna kan filtrera efter flera egenskaper.  Den här artikeln beskriver hur du använder ett filter och lägga till ett i en anpassad vy.
@@ -36,7 +36,7 @@ Om inget värde har valts för ett filter, tillämpas filtret inte på vyn.  Om 
 
 Skapa ett filter från den **filter** när [Redigera vyn](log-analytics-view-designer.md).  Filtret är globala för vyn och gäller för alla delar i vyn.  
 
-![Filtrera inställningar](media/log-analytics-view-designer/filters-settings.png)
+![Filterinställningar](media/log-analytics-view-designer/filters-settings.png)
 
 I följande tabell beskrivs inställningarna för ett filter.
 
@@ -52,8 +52,8 @@ Följande tabell innehåller några exempel på vanliga filter.
 
 | Fältnamn | Frågan för värden | Tagga |
 |:--|:--|:--|
-| Dator   | P &#124; distinkta datorn &#124; Sortera efter dator asc | Datorer |
-| EventLevelName | Händelsen &#124; distinkta EventLevelName | Allvarsgrad |
+| Dator   | Pulsslag &#124; distinkta datorn &#124; sortera efter dator asc | Datorer |
+| EventLevelName | Event &#124; distinct EventLevelName | Allvarsgrad |
 | SeverityLevel | Syslog &#124; distinkta SeverityLevel | Allvarsgrad |
 | SvcChangeType | ConfigurationChange &#124; distinkta svcChangeType | ChangeType |
 

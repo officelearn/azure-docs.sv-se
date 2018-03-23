@@ -1,11 +1,11 @@
 ---
-title: "SAP HANA Azure Backup på filnivå | Microsoft Docs"
-description: "Det finns två huvudsakliga säkerhetskopiering möjligheter för SAP HANA på Azure virtual machines, den här artikeln beskriver SAP HANA Azure Backup på filnivå"
+title: SAP HANA Azure Backup på filnivå | Microsoft Docs
+description: Det finns två huvudsakliga säkerhetskopiering möjligheter för SAP HANA på Azure virtual machines, den här artikeln beskriver SAP HANA Azure Backup på filnivå
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 ms.openlocfilehash: 5db0ceb1648b5afa278e1cbe1c42fce8033bfdc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>SAP HANA Azure Backup på filnivå
 
@@ -87,9 +87,9 @@ I den här skärmbilden kan en se hur den ser ut på Azure-portalen. En blobbbeh
 
 Konsolen HANA Studio backup går det att begränsa den maximala filstorleken på HANA säkerhetskopior. I exempel-miljö bättre prestanda genom att göra det möjligt att ha flera mindre säkerhetskopierade filer i stället för en stor 230 GB-fil.
 
-![Storleksgräns för säkerhetskopian på HANA på klientsidan & #39, t förbättra ange tid för säkerhetskopiering](media/sap-hana-backup-file-level/image029.png)
+![Ange den säkerhetskopiera filen storleksgränsen på HANA på klientsidan&#39;t förbättra tid för säkerhetskopiering](media/sap-hana-backup-file-level/image029.png)
 
-Ange storleksgränsen säkerhetskopian på HANA på klientsidan & #39, t förbättra tid för säkerhetskopiering eftersom filerna skrivs i tur och ordning som visas i bilden. Maximal filstorlek har angetts till 60 GB så säkerhetskopian skapas fyra stora datafiler i stället för 230 GB enskild fil.
+Ange den säkerhetskopiera filen storleksgränsen på HANA på klientsidan&#39;t förbättra tid för säkerhetskopiering eftersom filerna skrivs i tur och ordning som visas i bilden. Maximal filstorlek har angetts till 60 GB så säkerhetskopian skapas fyra stora datafiler i stället för 230 GB enskild fil.
 
 ![Om du vill testa parallellitet i verktyget blobxfer angavs sedan den maximala filstorleken för HANA säkerhetskopieringar till 15 GB](media/sap-hana-backup-file-level/image030.png)
 
@@ -139,7 +139,7 @@ Så här fungerar det, men prestanda inte bra för säkerhetskopiering 230 GB. D
 
 Det är möjligt att montera en Azure-filresursen i en Azure Linux-dator. Artikeln [använda Azure File storage med Linux](../../../storage/files/storage-how-to-use-files-linux.md) innehåller information om hur du gör. Tänk på att det finns för närvarande en 5 TB kvotgräns för en Azure-filresursen och begränsningar för filstorleken på 1 TB per fil. Se [Azure Storage skalbarhets- och prestandamål](../../../storage/common/storage-scalability-targets.md) information om Lagringsgränser.
 
-Testerna har visas dock som SAP HANA säkerhetskopiering inte &#39; t just nu arbetar direkt med den här typen av CIFS monteringspunkt. Anges också i [SAP Obs 1820529](https://launchpad.support.sap.com/#/notes/1820529) som CIFS rekommenderas inte.
+Testerna har visas dock som SAP HANA säkerhetskopiering inte&#39;t som för närvarande arbeta direkt med den här typen av CIFS monteringspunkt. Anges också i [SAP Obs 1820529](https://launchpad.support.sap.com/#/notes/1820529) som CIFS rekommenderas inte.
 
 ![Den här bilden visar ett fel i dialogrutan säkerhetskopiering i SAP HANA Studio](media/sap-hana-backup-file-level/image038.png)
 

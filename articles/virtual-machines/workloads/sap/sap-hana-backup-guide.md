@@ -1,11 +1,11 @@
 ---
-title: "Säkerhetskopiering guide för SAP HANA på Azure Virtual Machines | Microsoft Docs"
-description: "Säkerhetskopiering guiden för SAP HANA innehåller två huvudsakliga säkerhetskopiering möjligheter för SAP HANA på Azure virtual machines"
+title: Säkerhetskopiering guide för SAP HANA på Azure Virtual Machines | Microsoft Docs
+description: Säkerhetskopiering guiden för SAP HANA innehåller två huvudsakliga säkerhetskopiering möjligheter för SAP HANA på Azure virtual machines
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 ms.openlocfilehash: 9e5b124643b753f404ba6012d3df998f567be59a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Säkerhetskopieringsguide för SAP HANA på Azure Virtual Machines
 
@@ -42,7 +42,7 @@ Följande tre siffror ger en översikt över säkerhetskopieringsalternativ för
 
 ![Den här bilden visar två möjligheter för att spara det aktuella tillståndet för virtuell dator](media/sap-hana-backup-guide/image001.png)
 
-Den här bilden visar möjligheten att spara det aktuella tillståndet för virtuell dator, antingen via Azure Backup-tjänsten eller manuell ögonblicksbilder av Virtuella diskar. Med den här metoden, ett & #39, måste hantera säkerhetskopior för SAP HANA. Anrop av disk ögonblicksbild scenariot är filsystemkonsekvens och tillståndet programkonsekventa disk. Konsekvenskontroll avsnittet beskrivs i avsnittet _SAP HANA datakonsekvens när du tar lagring ögonblicksbilder_ senare i den här artikeln. Funktioner och begränsningar för Azure Backup-tjänsten som är relaterade till SAP HANA säkerhetskopior också beskrivs senare i den här artikeln.
+Den här bilden visar möjligheten att spara det aktuella tillståndet för virtuell dator, antingen via Azure Backup-tjänsten eller manuell ögonblicksbilder av Virtuella diskar. Med den här metoden en&#39;har att hantera SAP HANA-säkerhetskopiering. Anrop av disk ögonblicksbild scenariot är filsystemkonsekvens och tillståndet programkonsekventa disk. Konsekvenskontroll avsnittet beskrivs i avsnittet _SAP HANA datakonsekvens när du tar lagring ögonblicksbilder_ senare i den här artikeln. Funktioner och begränsningar för Azure Backup-tjänsten som är relaterade till SAP HANA säkerhetskopior också beskrivs senare i den här artikeln.
 
 ![Den här bilden visar alternativ för att ta en SAP HANA filsäkerhetskopia inuti den virtuella datorn](media/sap-hana-backup-guide/image002.png)
 
@@ -85,17 +85,17 @@ En test-återställning är inte nödvändigt för vanliga filsäkerhetskopierin
 
 ### <a name="pros-and-cons-of-hana-backup-versus-storage-snapshot"></a>För- och nackdelar HANA säkerhetskopiering jämfört med lagring ögonblicksbild
 
-SAP &#39; t ge inställning till antingen HANA säkerhetskopiering jämfört med lagring ögonblicksbild. Visas en lista med sina för- och nackdelar, så en kan fastställa som ska användas, beroende på situation och tillgängliga lagringsteknik (se [planera din säkerhetskopiering och återställning strategi](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
+SAP&#39;t prioritera antingen HANA säkerhetskopiering jämfört med lagring ögonblicksbild. Visas en lista med sina för- och nackdelar, så en kan fastställa som ska användas, beroende på situation och tillgängliga lagringsteknik (se [planera din säkerhetskopiering och återställning strategi](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
 
-På Azure, Tänk på att det faktum att Azure-blobben ögonblicksbild funktionen &#39; t garantera filsystemkonsekvens (se [Using blob-ögonblicksbilder med PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). I nästa avsnitt, _SAP HANA datakonsekvens när du tar lagring ögonblicksbilder_, beskriver vissa överväganden om den här funktionen.
+I Azure, Tänk på att det faktum att Azure-blobben ögonblicksbild funktionen&#39;t garanti filsystemkonsekvens (se [Using blob-ögonblicksbilder med PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). I nästa avsnitt, _SAP HANA datakonsekvens när du tar lagring ögonblicksbilder_, beskriver vissa överväganden om den här funktionen.
 
-Dessutom har att förstå fakturering effekter när du arbetar ofta med blob ögonblicksbilder som beskrivs i den här artikeln: [förstå hur ögonblicksbilder påförs kostnader](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)– den inte är &#39; t som uppenbara som att använda Azure virtuella diskar.
+Dessutom har att förstå fakturering effekter när du arbetar ofta med blob ögonblicksbilder som beskrivs i den här artikeln: [förstå hur ögonblicksbilder påförs kostnader](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)– den inte är&#39;t som uppenbara som använder Azure virtuella diskar.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>SAP HANA datakonsekvens när du tar ögonblicksbilder för lagring
 
 System- och konsekvens i filen är ett komplicerat problem när du tar ögonblicksbilder för lagring. Det enklaste sättet att undvika problem att stänga av SAP HANA eller kanske även hela virtuella datorn. En avstängning kanske doable med en demonstration eller prototyp eller även utvecklingssystemet, men det är inte ett alternativ för ett produktionssystem.
 
-På Azure, har du bör tänka på att Azure-blobben ögonblicksbild funktionen & #39, t garanti filsystemkonsekvens. Den fungerar dock ögonblicksbild SAP HANA med hjälp av funktionen, så länge det finns bara en virtuell disk som ingår. Men även med en enskild disk ytterligare objekt som ska kontrolleras. [SAP Obs 2039883](https://launchpad.support.sap.com/#/notes/2039883) har viktig information om SAP HANA säkerhetskopieringar via storage snapshots. Exempelvis nämns att med filsystemet XFS är det nödvändigt att köra **xfs\_låsa** innan du startar en ögonblicksbild av lagring för att garantera konsekvens (se [xfs\_freeze(8) - Linux man sidan](https://linux.die.net/man/8/xfs_freeze) information om **xfs\_låsa**).
+På Azure, har du bör tänka på att Azure-blobben ögonblicksbild funktionen&#39;filsystemkonsekvens för t-garantin. Den fungerar dock ögonblicksbild SAP HANA med hjälp av funktionen, så länge det finns bara en virtuell disk som ingår. Men även med en enskild disk ytterligare objekt som ska kontrolleras. [SAP Obs 2039883](https://launchpad.support.sap.com/#/notes/2039883) har viktig information om SAP HANA säkerhetskopieringar via storage snapshots. Exempelvis nämns att med filsystemet XFS är det nödvändigt att köra **xfs\_låsa** innan du startar en ögonblicksbild av lagring för att garantera konsekvens (se [xfs\_freeze(8) - Linux man sidan](https://linux.die.net/man/8/xfs_freeze) information om **xfs\_låsa**).
 
 Avsnittet konsekvens blir ännu mer utmanande i fall där en enda filsystemet sträcker sig över flera diskar/volymer. Till exempel med hjälp av mdadm eller LVM och striping. SAP-kommentar som nämns ovan tillstånd:
 
@@ -111,7 +111,7 @@ Följande steg ange under förutsättning att det finns ett XFS filsystem utstr�
 
 Rekommendation är att använda proceduren ovan i samtliga fall för att vara på den säkra sidan, oavsett vilket filsystem. Eller om det är en enskild disk eller striping via mdadm eller LVM över flera diskar.
 
-Det är viktigt att bekräfta HANA ögonblicksbilden. På grund av att den &quot;kopiering vid skrivning,&quot; SAP HANA kanske inte kräver ytterligare diskutrymme i detta förbereda läge ögonblicksbild. Den &#39; också inte går att starta nya säkerhetskopior förrän SAP HANA ögonblicksbilden har bekräftats.
+Det är viktigt att bekräfta HANA ögonblicksbilden. På grund av att den &quot;kopiering vid skrivning,&quot; SAP HANA kanske inte kräver ytterligare diskutrymme i detta förbereda läge ögonblicksbild. Den&#39;också inte går att starta nya säkerhetskopior förrän SAP HANA ögonblicksbilden har bekräftats.
 
 Azure Backup-tjänsten använder Azure VM-tillägg för att ta hand om filsystemkonsekvens. Dessa VM-tillägg är inte tillgängliga för fristående användning. Ett måste hantera SAP HANA-konsekvenskontroll. Se relaterade artikel [SAP HANA Azure Backup på filnivå](sap-hana-backup-file-level.md) för mer information.
 
@@ -227,7 +227,7 @@ Baserat på resultaten i följande tabeller visas- och nackdelar med lösningar 
 
 |Lösning                                           |Tekniker                                 |Nackdelar                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
-|Azure Backup-tjänsten                               | Kan säkerhetskopiering baserat på blob ögonblicksbilder | När du använder inte filen nivån återställning, krävs skapas en ny virtuell dator för återställningen, vilket innebär behovet av en ny nyckel för SAP HANA-licens|
+|Azure Backup Service                               | Kan säkerhetskopiering baserat på blob ögonblicksbilder | När du använder inte filen nivån återställning, krävs skapas en ny virtuell dator för återställningen, vilket innebär behovet av en ny nyckel för SAP HANA-licens|
 |Manuell blob ögonblicksbilder                              | Möjlighet att skapa och återställa specifika Virtuella diskar utan att ändra unikt ID för VM|Alla manuellt arbete som måste göras av kunden|
 
 ## <a name="next-steps"></a>Nästa steg

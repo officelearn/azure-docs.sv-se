@@ -1,11 +1,11 @@
 ---
 title: Azure Stack 1710-uppdatering (Build 20171020.1) | Microsoft Docs
-description: "Lär dig mer om vad som finns i 1710 uppdateringen för Azure-stacken integrerat system, kända problem och var du kan hämta uppdateringen."
+description: Lär dig mer om vad som finns i 1710 uppdateringen för Azure-stacken integrerat system, kända problem och var du kan hämta uppdateringen.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 135314fd-7add-4c8c-b02a-b03de93ee196
 ms.service: azure-stack
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: mabrigg
 ms.openlocfilehash: 1a482f1d2f3eef8775bb7b64d4f6749f69fa5471
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Azure Stack 1710-uppdatering (Build 20171020.1)
 
@@ -35,7 +35,7 @@ Den här uppdateringen innehåller följande förbättringar av kvalitet och kor
  
 ### <a name="windows-server-2016-improvements-and-fixes"></a>Förbättringar i Windows Server 2016 och korrigeringar
 
-- Uppdateringar för Windows Server 2016: den 10 oktober 2017 – KB4041691 (OS-version 14393.1770. Se [https://support.microsoft.com/help/4041691](https://support.microsoft.com/help/4041691) för mer information.
+- Uppdateringar för Windows Server 2016: den 10 oktober 2017 – KB4041691 (OS-version 14393.1770. Se [ https://support.microsoft.com/help/4041691 ](https://support.microsoft.com/help/4041691) för mer information.
 
 ### <a name="additional-quality-improvements-and-fixes"></a>Förbättringar av ytterligare kvalitet och korrigeringar
 
@@ -64,7 +64,7 @@ Det här avsnittet innehåller kända problem som kan uppstå under installation
 | När du utför en uppdatering kan verkar uppdateringen stopp<br> och inte se förloppet efter steget ”steg: kör steg 2.4 - installation<br> Uppdatera ”för handlingsplan uppdateringen.<br><br>Det här steget sedan följt av en serie kopieringsstegen av .nupkg<br> filer till den interna infrastrukturen filresurser. Exempel:<br><br>**Kopiera 1 filer från content\PerfCollector\VirtualMachines till <br> \VirtualMachineName-ERCS03\C$\TraceCollectorUpdate\ <br>PerfCounterConfiguration**<br><br>Eller meddelandet:<br><br>**WarningMessage:Task: Anrop av gränssnitt 'LiveUpdate'<br> av rollen 'Cloud\Fabric\VirtualMachines' misslyckades:<br> typ 'LiveUpdate' av rollen 'VirtualMachines' aktiveras en<br> undantag: det finns inte tillräckligt med utrymme på disken .**  | Problemet orsakas av loggfiler fyller upp diskarna på en infrastruktur för virtuell dator och ett problem i Windows Server skalbar filserver (SOFS) som distribueras i en kommande uppdatering. | Kontakta Microsofts kundservice och Support (CSS) för att få hjälp. | 
 | När du utför en uppdatering, ett fel som liknar följande<br> kan uppstå under steget ”steg: kör steg 2.13.2 - uppdatering<br> *VM_Name*”av åtgärdsplan för uppdateringen. (Den virtuella datorn<br> namnet kan variera.)<br><br>**ActionPlanInstanceWarning FN/MachineName:<br> WarningMessage:Task: anrop av gränssnitt 'LiveUpdate' av<br> rollen 'Cloud\Fabric\WAS' misslyckades: typen 'LiveUpdate' för rollen<br> '' uppstod ett undantag: ett fel UPPSTOD vid lagring<br> initieringen: ett fel uppstod vid försök att göra en API<br> anrop till tjänsten Microsoft Storage: {”meddelandet” ”: tidsgränsen<br> uppstod vid kommunikation med Service Fabric.<br> Undantagstyp: TimeoutException.<br> Undantagsmeddelande: Tidsgränsen uppnåddes ”.}**  | Problemet orsakas av ett i/o-tidsgräns i Windows Server som kommer att åtgärdas i en kommande uppdatering. | Kontakta Microsoft CSS om du behöver hjälp.
 | När du utför en uppdatering, ett fel som liknar följande<br> kan uppstå under steget ”steg i 21 starta om SQL server-datorer”.<br><br>**Typen 'LiveUpdateRestart' för rollen ”VirtualMachines” utlöses ett<br> undantag: VerboseMessage: [VirtualMachines:LiveUpdateRestart]<br> frågar efter VM MachineName-Sql01. - 10/13/2017 17:11:50: 00 VerboseMessage: [virtuella datorer: LiveUpdateRestart]<br> VM har markerats som HighlyAvailable. – 10/13/2017 17:11:50: 00<br> VerboseMessage: [VirtualMachines:LiveUpdateRestart] vid<br>MS. Internal.ServerClusters.ExceptionHelp.Build på<br>MS. Internal.ServerClusters.ClusterResource.BeginTakeOffline<br>(booleskt force) på Microsoft.FailoverClusters.PowerShell.<br> StopClusterResourceCommand.BeginTimedOperation() på <br>Microsoft.FailoverClusters.PowerShell.TimedCmdlet.Wrapped<br>ProcessRecord() på Microsoft.FailoverClusters.PowerShell.<br> FCCmdlet.ProcessRecord() - 10/13/2017 5:11:50 PM varning<br>meddelande: uppgiften: anrop av gränssnitt 'LiveUpdateRestart' för<br> rollen 'Cloud\Fabric\VirtualMachines' misslyckades:** | Det här problemet kan inträffa om den virtuella datorn kunde inte startas om. | Kontakta Microsoft CSS om du behöver hjälp.
-| När du utför en uppdatering, kan det uppstå ett fel som liknar följande:<br><br>**2017-10-22T01:37:37.5369944Z typ 'Avstängning' av rollen 'SQL'<br> utlöste ett undantagsfel: ett fel uppstod noden<br> 's45r1004 Sql01'.at Stop-SQL, C:\ProgramData\SF\ErcsClusterNode2 <br>\Fabric\work\ Applications\ EnterpriseCloud <br>EngineApplicationType & #95. App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\ <br> CloudDeployment\Roles\SQL\SQL.psm1:line 542 på<br> avstängning, C:\ProgramData\SF\ErcsClusterNode2\Fabric\work\ <br> Program \EnterpriseCloudEngineApplicationType & #95. App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\Cloud<br>Deployment\Classes\SQL\SQL.psm1: 50 på rad < ScriptBlock &#62;<br> <No file>: rad 18 vid < ScriptBlock &#62; < Ingen fil &#62;: rad 16** | Det här problemet kan inträffa om den virtuella datorn inte kan placeras i ett pausat tillstånd att tömma rollerna. | Kontakta Microsoft CSS om du behöver hjälp.
+| När du utför en uppdatering, kan det uppstå ett fel som liknar följande:<br><br>**2017-10-22T01:37:37.5369944Z typ 'Avstängning' av rollen 'SQL'<br> utlöste ett undantagsfel: ett fel uppstod noden<br> 's45r1004 Sql01'.at Stop-SQL, C:\ProgramData\SF\ErcsClusterNode2 <br>\Fabric\work\ Applications\ EnterpriseCloud <br>EngineApplicationType&#95;App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\ <br> CloudDeployment\Roles\SQL\SQL.psm1:line 542 på<br> Avstängning, C:\ProgramData\SF\ErcsClusterNode2\Fabric\work\ <br>program \EnterpriseCloudEngineApplicationType&#95;App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\Cloud<br> Deployment\Classes\SQL\SQL.psm1: rad 50 vid < ScriptBlock&#62;,<br> <No file>: rad 18 vid < ScriptBlock&#62;, < Ingen fil&#62;: rad 16** | Det här problemet kan inträffa om den virtuella datorn inte kan placeras i ett pausat tillstånd att tömma rollerna. | Kontakta Microsoft CSS om du behöver hjälp.
 | När du utför en uppdatering kan något av följande fel uppstå:<br><br>**Typen 'Verifiera' av rollen 'ADFS' utlöste ett undantagsfel: verifiering<br> för AD FS/diagram misslyckades med felet: Kontrollera ADFS<br> avsökning endpoint *endpoint_URI*: undantag anropar<br> ” GetResponse ”med” 0 ”argument”: fjärrservern<br> returnerade ett fel: (503) Server inte tillgänglig ”. vid Invoke -<br>ADFSGraphValidation**<br><br>**Typen 'Verifiera' av rollen 'ADFS' utlöste ett undantagsfel: verifiering<br> för AD FS/diagram misslyckades med felet: gick inte att hämta<br> ADFS egenskaper: kunde inte ansluta till <br>NET.TCP://localhost: 1 500-princip. Anslutningsförsöket varade<br> för en tidsrymd för 00:00:02.0498923. TCP-felkod<br> 10061: ingen anslutning kan göras eftersom målet<br> datorn aktivt nekade det. 127.0.0.1:1500.<br> på Invoke-ADFSGraphValidation** | Plan för update-åtgärder kan inte verifiera hälsotillstånd för Active Directory Federation Services (AD FS). | Kontakta Microsoft CSS om du behöver hjälp.
 
 ## <a name="known-issues-post-installation"></a>Kända problem (efter installationen)

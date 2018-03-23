@@ -1,6 +1,6 @@
 ---
 title: Azure AD UserPrincipalName population
-description: "Följande dokument beskriver hur attributet UserPrincipalName är ifylld."
+description: Följande dokument beskriver hur attributet UserPrincipalName är ifylld.
 author: billmath
 ms.author: billmath
 ms.date: 02/02/2018
@@ -9,10 +9,10 @@ ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
 ms.openlocfilehash: 96b12fbddd4293c55e9029b194416541ca44c622
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName population
 
@@ -25,7 +25,7 @@ Följande termer används i den här artikeln:
 |Period|Beskrivning|
 |-----|-----|
 |Första domänen|Standarddomän (onmicrosoft.com) i Azure AD-klient. Till exempel contoso.onmicrosoft.com.|
-|Microsoft Online routning Emailadress (MOERA)|Azure AD beräknar MOERA från Azure AD MailNickName attribut och inledande Azure AD-domän som &lt;MailNickName&gt;& #64,&lt; första domänen&gt;.|
+|Microsoft Online routning Emailadress (MOERA)|Azure AD beräknar MOERA från Azure AD MailNickName attribut och inledande Azure AD-domän som &lt;MailNickName&gt;&#64;&lt;initiala domänen&gt;.|
 |Attribut för lokala mailNickName|Ett attribut i Active Directory, vars värde representerar alias för en användare i en Exchange-organisation.|
 |Lokal e-postattribut|Ett attribut i Active Directory, värdet som representerar den e-postadressen för en användare|
 |Primär SMTP-adress|Den primära e-postadressen för Exchange mottagande objekt. Till exempel SMTP:user@contoso.com.|
@@ -56,7 +56,7 @@ Om du vill aktivera alternativt inloggnings-ID med Azure AD, krävs inga ytterli
 Mer information finns i [konfigurera alternativt inloggnings-ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) och [inloggningskonfiguration för Azure AD](active-directory-aadconnect-get-started-custom.md#azure-ad-sign-in-configuration)
 
 ## <a name="non-verified-upn-suffix"></a>Icke-verifierad UPN-Suffix
-Om suffixet lokalt UserPrincipalName attributet/alternativa inloggnings-ID inte har verifierats med Azure AD-klient, ange värdet för attributet UserPrincipalName i Azure AD till MOERA. Azure AD beräknar MOERA från Azure AD MailNickName attribut och inledande Azure AD-domän som &lt;MailNickName&gt;& #64,&lt; första domänen&gt;.
+Om suffixet lokalt UserPrincipalName attributet/alternativa inloggnings-ID inte har verifierats med Azure AD-klient, ange värdet för attributet UserPrincipalName i Azure AD till MOERA. Azure AD beräknar MOERA från Azure AD MailNickName attribut och inledande Azure AD-domän som &lt;MailNickName&gt;&#64;&lt;initiala domänen&gt;.
 
 ## <a name="verified-upn-suffix"></a>Verifierade UPN-suffix
 Om lokala UserPrincipalName attributet/alternativa är inloggnings-ID-suffix verifierats med Azure AD-klient attributvärdet Azure AD UserPrincipalName ska vara detsamma som lokalt UserPrincipalName attributet/alternativa inloggnings-ID värdet.
@@ -87,12 +87,12 @@ Här följer några exempelscenarier på hur UPN beräknas baserat på det aktue
 Lokala användarobjektet:
 - mailNickName: &lt;inte har angetts&gt;
 - proxyAddresses: {SMTP:us1@contoso.com}
-- e-post:us2@contoso.com
+- e-post: us2@contoso.com
 - userPrincipalName : us3@contoso.com`
 
 Synkroniserade användarobjektet till Azure AD-klient för första gången
 - Ange Azure AD MailNickName attributet primära SMTP-adressprefix.
-- Ange MOERA till &lt;MailNickName&gt;& #64,&lt; första domänen&gt;.
+- Ange MOERA till &lt;MailNickName&gt;&#64;&lt;initiala domänen&gt;.
 - Ange Azure AD UserPrincipalName attributet MOERA.
 
 Azure AD-klient användarobjektet:
@@ -103,9 +103,9 @@ Azure AD-klient användarobjektet:
 ### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>Scenario 2: Icke-verifierad UPN-suffixet – ange lokalt mailNickName attribut
 
 Lokala användarobjektet:
-- mailNickName: us4
+- MailNickName: us4
 - proxyAddresses: {SMTP:us1@contoso.com}
-- e-post:us2@contoso.com
+- e-post: us2@contoso.com
 - userPrincipalName : us3@contoso.com
 
 Synkronisera uppdateringen på lokala mailNickName attribut till Azure AD-klient
@@ -119,14 +119,14 @@ Azure AD-klient användarobjektet:
 ### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Scenario 3: Icke-verifierad UPN-suffixet – uppdatera lokalt attributet userPrincipalName
 
 Lokala användarobjektet:
-- mailNickName: us4
+- MailNickName: us4
 - proxyAddresses: {SMTP:us1@contoso.com}
-- e-post:us2@contoso.com
+- e-post: us2@contoso.com
 - userPrincipalName : us5@contoso.com
 
 Synkronisera uppdatering på attributet för lokala userPrincipalName till Azure AD-klient
 - Uppdatering på attributet för lokala userPrincipalName utlöser omberäkning av MOERA och Azure AD UserPrincipalName.
-- Ange MOERA till &lt;MailNickName&gt;& #64,&lt; första domänen&gt;.
+- Ange MOERA till &lt;MailNickName&gt;&#64;&lt;initiala domänen&gt;.
 - Ange Azure AD UserPrincipalName attributet MOERA.
 
 Azure AD-klient användarobjektet:
@@ -136,9 +136,9 @@ Azure AD-klient användarobjektet:
 ### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Scenario 4: Icke-verifierad UPN-suffixet – uppdatera primära SMTP-adress och lokala e-attribut
 
 Lokala användarobjektet:
-- mailNickName: us4
+- MailNickName: us4
 - proxyAddresses: {SMTP:us6@contoso.com}
-- e-post:us7@contoso.com
+- e-post: us7@contoso.com
 - userPrincipalName : us5@contoso.com
 
 Synkronisera uppdateringen på lokala e-postattribut och primära SMTP-adress till Azure AD-klient
@@ -151,9 +151,9 @@ Azure AD-klient användarobjektet:
 ### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Scenario 5: Verifierade UPN-suffixet – uppdatera lokalt userPrincipalName attributet suffix
 
 Lokala användarobjektet:
-- mailNickName: us4
+- MailNickName: us4
 - proxyAddresses: {SMTP:us6@contoso.com}
-- e-post:us7@contoso.com
+- e-post: us7@contoso.com
 - serPrincipalName  : us5@verified.contoso.com
 
 Synkronisera uppdatering på attributet för lokala userPrincipalName till Azure AD-klient

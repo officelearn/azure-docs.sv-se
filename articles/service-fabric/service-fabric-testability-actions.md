@@ -1,6 +1,6 @@
 ---
-title: "Simulera fel i Azure mikrotjänster | Microsoft Docs"
-description: "Den här artikeln handlar om datatillgång åtgärder finns i Microsoft Azure Service Fabric."
+title: Simulera fel i Azure mikrotjänster | Microsoft Docs
+description: Den här artikeln handlar om datatillgång åtgärder finns i Microsoft Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv;heeldin
 ms.openlocfilehash: c8ddc7732999ae555323bebaef60aa34c8f2ec17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="testability-actions"></a>Möjlighet att testa åtgärder
 För att simulera en instabilt infrastruktur tillhandahåller Azure Service Fabric utvecklaren med olika sätt att simulera olika verkliga fel och tillståndsövergångar. Dessa visas som datatillgång åtgärder. Åtgärderna är för låg nivå API: er som orsakar en viss feltolerans injection, tillståndsövergång eller validering. Du kan skriva omfattande testscenarier för dina tjänster genom att kombinera dessa åtgärder.
@@ -40,18 +40,18 @@ För bättre kvalitet verifiering, kör du tjänsten och affärskrav arbetsbelas
 | --- | --- | --- | --- | --- |
 | CleanTestState |Tar bort alla testtillstånd från klustret vid en felaktig avstängning av test-drivrutinen. |CleanTestStateAsync |Remove-ServiceFabricTestState |Inte tillämpligt |
 | InvokeDataLoss |Startar förlust av data i en partition med tjänsten. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Korrekt |
-| InvokeQuorumLoss |Placerar en given tillståndskänslig service partition i förlorar kvorum. |InvokeQuorumLossAsync |Anropa ServiceFabricQuorumLoss |Korrekt |
-| Flytta primära |Flyttar den angivna primära repliken av en tillståndskänslig tjänst till den angivna klusternoden. |MovePrimaryAsync |Flytta ServiceFabricPrimaryReplica |Korrekt |
-| Flytta sekundär |Flyttar den aktuella sekundär repliken av en tillståndskänslig tjänst till en annan klusternod. |MoveSecondaryAsync |Flytta ServiceFabricSecondaryReplica |Korrekt |
-| RemoveReplica |Simulerar ett replik fel genom att ta bort en replik från ett kluster. Detta kommer att stängas repliken och kommer övergång till rollen None, ta bort dess status från klustret. |RemoveReplicaAsync |Ta bort ServiceFabricReplica |Korrekt |
-| RestartDeployedCodePackage |Simulerar ett fel i koden paketet genom att starta om en kodpaketet har distribuerats på en nod i ett kluster. Detta avbryter kod paketet processen, vilket startar om alla användare service repliker finns i den här processen. |RestartDeployedCodePackageAsync |Starta om ServiceFabricDeployedCodePackage |Städat |
-| RestartNode |Simulerar ett nodfel för Service Fabric-kluster genom att starta om en nod. |RestartNodeAsync |Starta om ServiceFabricNode |Städat |
+| InvokeQuorumLoss |Placerar en given tillståndskänslig service partition i förlorar kvorum. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Korrekt |
+| Flytta primära |Flyttar den angivna primära repliken av en tillståndskänslig tjänst till den angivna klusternoden. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Korrekt |
+| Flytta sekundär |Flyttar den aktuella sekundär repliken av en tillståndskänslig tjänst till en annan klusternod. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Korrekt |
+| RemoveReplica |Simulerar ett replik fel genom att ta bort en replik från ett kluster. Detta kommer att stängas repliken och kommer övergång till rollen None, ta bort dess status från klustret. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Korrekt |
+| RestartDeployedCodePackage |Simulerar ett fel i koden paketet genom att starta om en kodpaketet har distribuerats på en nod i ett kluster. Detta avbryter kod paketet processen, vilket startar om alla användare service repliker finns i den här processen. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Städat |
+| RestartNode |Simulerar ett nodfel för Service Fabric-kluster genom att starta om en nod. |RestartNodeAsync |Restart-ServiceFabricNode |Städat |
 | RestartPartition |Simulerar ett datacenter blackout eller kluster blackout scenario genom att starta om vissa eller alla repliker för en partition. |RestartPartitionAsync |Restart-ServiceFabricPartition |Korrekt |
-| RestartReplica |Simulerar ett fel för repliken genom att starta om en beständiga replik i ett kluster, stänga repliken och sedan öppna den igen. |RestartReplicaAsync |Starta om ServiceFabricReplica |Korrekt |
+| RestartReplica |Simulerar ett fel för repliken genom att starta om en beständiga replik i ett kluster, stänga repliken och sedan öppna den igen. |RestartReplicaAsync |Restart-ServiceFabricReplica |Korrekt |
 | Startnod |Startar en nod i ett kluster som har redan stoppats. |StartNodeAsync |Start-ServiceFabricNode |Inte tillämpligt |
 | StopNode |Simulerar ett nodfel genom att stoppa en nod i ett kluster. Noden förblir ned förrän Startnod anropas. |StopNodeAsync |Stop-ServiceFabricNode |Städat |
-| ValidateApplication |Verifierar tillgänglighet och hälsotillståndet för alla Service Fabric-tjänster i ett program, vanligtvis efter att vissa fel i systemet. |ValidateApplicationAsync |Testa ServiceFabricApplication |Inte tillämpligt |
-| ValidateService |Verifierar tillgänglighet och hälsotillståndet för ett Service Fabric-tjänsten, vanligtvis efter att vissa fel i systemet. |ValidateServiceAsync |Testa ServiceFabricService |Inte tillämpligt |
+| ValidateApplication |Verifierar tillgänglighet och hälsotillståndet för alla Service Fabric-tjänster i ett program, vanligtvis efter att vissa fel i systemet. |ValidateApplicationAsync |Test-ServiceFabricApplication |Inte tillämpligt |
+| ValidateService |Verifierar tillgänglighet och hälsotillståndet för ett Service Fabric-tjänsten, vanligtvis efter att vissa fel i systemet. |ValidateServiceAsync |Test-ServiceFabricService |Inte tillämpligt |
 
 ## <a name="running-a-testability-action-using-powershell"></a>Köra en datatillgång-åtgärd med hjälp av PowerShell
 Den här kursen visar hur du kör en möjlighet att testa åtgärden med hjälp av PowerShell. Du får lära dig att köra en datatillgång-åtgärd mot en lokal (en-box)-kluster eller ett Azure-kluster. Microsoft.Fabric.Powershell.dll--Service Fabric PowerShell-modulen--installeras automatiskt när du installerar Microsoft Service Fabric MSI. Modulen har lästs in automatiskt när du öppnar en PowerShell-kommandotolk.
@@ -94,7 +94,7 @@ Utdata från först **Get-ServiceFabricNode** (en cmdlet från modulen Service F
 ### <a name="run-an-action-against-an-azure-cluster"></a>Köra en åtgärd mot ett Azure-kluster
 Kör en datatillgång-åtgärd (med hjälp av PowerShell) mot ett Azure-kluster liknar Kör åtgärden mot lokala klustret. Den enda skillnaden är att du måste först ansluta till Azure-klustret innan du kan köra åtgärden i stället för att ansluta till det lokala klustret.
 
-## <a name="running-a-testability-action-using-c35"></a>Köra en datatillgång åtgärd med C & #35.
+## <a name="running-a-testability-action-using-c35"></a>Köra en datatillgång-åtgärd med hjälp av C&#35;
 Om du vill köra en möjlighet att testa åtgärden med hjälp av C#, måste du först ansluta till klustret med hjälp av FabricClient. Skaffa de parametrar som behövs för att köra instruktionen. Olika parametrar som kan användas för att köra samma åtgärd.
 Titta på åtgärden RestartServiceFabricNode är ett sätt att köra den med hjälp av noden informationen (nodnamnet och nod-instans-ID) i klustret.
 

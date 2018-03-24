@@ -1,24 +1,24 @@
 ---
-title: "Dokumentation om skalningsuppsättningar för virtuella Azure-datorer – Självstudier, API-referens | Microsoft Docs"
-description: "Lär dig hur du använder VM-skalningsuppsättningar för att skapa virtuella Windows- eller Linux-datorer med automatisk skalning för stora beräkningar, stordata och container-lösningar."
+title: Dokumentation om skalningsuppsättningar för virtuella Azure-datorer – Självstudier, API-referens | Microsoft Docs
+description: Lär dig hur du använder VM-skalningsuppsättningar för att skapa virtuella Windows- eller Linux-datorer med automatisk skalning för stora beräkningar, stordata och container-lösningar.
 services: virtual-machine-scale-sets
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: f6c51a605a3fe28fb906e8c35a68a885a46136ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53a6db483ff760c143d98a209e622e1214762ce3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="virtual-machine-scale-sets-documentation"></a>Dokumentation för skalningsuppsättningar för virtuella datorer
+# <a name="virtual-machine-scale-sets-documentation"></a>Dokumentation för skalningsuppsättningar för virtuella datorer
 
 Lär dig hur du använder VM-skalningsuppsättningar för att distribuera och hantera en uppsättning identiska, virtuella Windows- eller Linux-datorer med automatisk skalning. Dokumentationen visar hur du använder skalningsuppsättningar som stöder tjänster som riktas till stora beräkningar, stordata och container-lösningar.
 

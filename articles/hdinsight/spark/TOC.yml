@@ -97,8 +97,6 @@
           href: apache-spark-structured-streaming-overview.md
         - name: Skapa Spark-direktuppspelningsjobb med hög tillgänglighet i YARN
           href: apache-spark-streaming-high-availability.md
-        - name: Strukturerad direktuppspelning med Event Hubs
-          href: apache-spark-eventhub-structured-streaming.md
         - name: Structured Streaming med Kafka
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true

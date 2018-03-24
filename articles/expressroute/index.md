@@ -1,24 +1,24 @@
 ---
-title: "Dokumentation om Azure ExpressRoute – Självstudier, API-referens | Microsoft Docs"
-description: "Lär dig hur du konfigurerar och hanterar en privat ExpressRoute-anslutning till Microsoft Cloud-tjänster från din infrastruktur på plats eller delade miljö."
+title: Dokumentation om Azure ExpressRoute – Självstudier, API-referens | Microsoft Docs
+description: Lär dig hur du konfigurerar och hanterar en privat ExpressRoute-anslutning till Microsoft Cloud-tjänster från din infrastruktur på plats eller delade miljö.
 services: expressroute
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 8c12fd74d131538e736d6357da586c5debb9929c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9255a4166809568258d733c2894e5788d27cd612
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="expressroute-documentation"></a>ExpressRoute dokumentation
+# <a name="expressroute-documentation"></a>ExpressRoute dokumentation
 
 Lär dig hur du använder ExpressRoute för att konfigurera en snabb, privat anslutning till Microsoft Cloud-tjänster från din infrastruktur på plats eller delade miljö. Självstudier, REST API:er och annan dokumentation hjälper dig att konfigurera och hantera en ExpressRoute-krets.
 

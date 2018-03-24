@@ -1,24 +1,24 @@
 ---
-title: "Dokumentation om Azure Notification Hubs – Självstudier, API-referens | Microsoft Docs"
-description: "Lär dig hur du skickar push-meddelanden från alla serverdelar till alla mobila enheter med Notification Hubs. Självstudier, API-referenser och annan dokumentation."
+title: Dokumentation om Azure Notification Hubs – Självstudier, API-referens | Microsoft Docs
+description: Lär dig hur du skickar push-meddelanden från alla serverdelar till alla mobila enheter med Notification Hubs. Självstudier, API-referenser och annan dokumentation.
 services: notification-hubs
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: notification-hubs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: f7b8560d4ce7374e36d5f7e8a5d2056396e4f089
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f4921e4c7571b05bb8612dcd6fe9750f83a7142
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="notification-hubs-documentation"></a>Dokumentation för Notification Hubs
+# <a name="notification-hubs-documentation"></a>Dokumentation för Notification Hubs
 
 Lär dig hur du använder Notification Hubs, en skalbar push-meddelandemotor för flera plattformar, för att snabbt kunna skicka miljontals meddelanden. Självstudier, API-referenser och annan dokumentation som visar hur du konfigurerar och skickar push-meddelanden från alla serverdelar till alla mobila enheter. 
 
@@ -88,7 +88,7 @@ Lär dig hur du använder Notification Hubs, en skalbar push-meddelandemotor fö
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Kom igång med Notification Hubs genom att använda Baidu</h3>
+                        <h3>Kom igång med Notification Hub genom att använda Baidu</h3>
                     </div>
                 </div>
             </div>
@@ -191,7 +191,7 @@ Lär dig hur du använder Notification Hubs, en skalbar push-meddelandemotor fö
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.notificationhubs">NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.notificationhubs">.NET</a></p>
                    </div>
                 </div>
             </div>

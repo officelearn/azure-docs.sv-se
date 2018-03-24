@@ -1,24 +1,24 @@
 ---
-title: "Dokumentation om Azure StorSimple – Självstudier | Microsoft Docs"
-description: "Lär dig hur du använder Azure StorSimple, en integrerad lagringslösning som hanterar lagringsaktiviteter mellan lokala enheter på plats och lagring i Azure-molnet."
+title: Dokumentation om Azure StorSimple – Självstudier | Microsoft Docs
+description: Lär dig hur du använder Azure StorSimple, en integrerad lagringslösning som hanterar lagringsaktiviteter mellan lokala enheter på plats och lagring i Azure-molnet.
 services: storsimple
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: storsimple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 579fe32f75e051e679e6cbbaea5f99c7fcd6037b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0115c1794878296df826e7d04724a561464125d6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="storsimple-documentation"></a>Dokumentation om StorSimple
+# <a name="storsimple-documentation"></a>Dokumentation om StorSimple
 
 Lär dig hur du använder Azure StorSimple, en integrerad lagringslösning som hanterar lagringsaktiviteter mellan lokala enheter på plats och lagring i Azure-molnet. Självstudier och annan dokumentationen visar hur du konfigurerar lagringshantering, platsoberoende säkerhetskopiering och katastrofåterställning.
 
@@ -117,7 +117,7 @@ Lär dig hur du använder Azure StorSimple, en integrerad lagringslösning som h
 
 ---
 
-##<a name="other-storsimple-solutions"></a>Andra StorSimple-lösningar
+## <a name="other-storsimple-solutions"></a>Andra StorSimple-lösningar
 
 <ul class="panelContent cardsW">
     <li>

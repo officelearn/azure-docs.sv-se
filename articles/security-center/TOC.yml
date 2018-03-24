@@ -124,6 +124,8 @@
           href: security-center-ata-integration.md
         - name: Ansluta Azure AD Identity Protection
           href: security-center-aadip-integration.md
+        - name: Dataexport till SIEM
+          href: security-center-export-data-to-siem.md
     - name: Undersöka hot
       href: security-center-detection-capabilities.md
       items:

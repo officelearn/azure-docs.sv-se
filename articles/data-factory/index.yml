@@ -1,45 +1,45 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Dokumentation om förhandsversionen av Azure Data Factory V2"
+title: Dokumentation om förhandsversionen av Azure Data Factory V2
 metadata:
-  title: "Dokumentation om Azure Data Factory – Självstudier, API-referens | Microsoft Docs"
-  description: "Lär dig hur du använder Data Factory för att konfigurera automatiska datapipelines till och från källor på lokala platser och i molnet, för att flytta och bearbeta data för analys."
+  title: Dokumentation om Azure Data Factory – Självstudier, API-referens | Microsoft Docs
+  description: Lär dig hur du använder Data Factory för att konfigurera automatiska datapipelines till och från källor på lokala platser och i molnet, för att flytta och bearbeta data för analys.
   services: data-factory
-  author: spelluru
-  manager: jhubbard
+  author: douglaslMS
+  manager: craigg
   ms.service: data-factory
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 09/08/2017
-  ms.author: spelluru
-  ms.openlocfilehash: 0eb34f3b8cd287624e4a8a6930e8cc145d5e8fbb
-  ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+  ms.author: douglasl
+  ms.openlocfilehash: e31500a02bc3470e338f727771eebe887dcc493f
+  ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 02/01/2018
+  ms.lasthandoff: 03/23/2018
 abstract:
-  description: "Lär dig att använda Data Factory, en tjänst för molndataintegrering, för att ordna datalagrings-, rörelse- och bearbetningstjänster i automatiserade datapipelines. Självstudier och annan dokumentation visar hur du konfigurerar och hanterar datapipelines, samt flyttar och omvandlar data för analys. <p>För närvarande finns en förhandsversion av V2 av Data Factory. Versionen V1 är allmänt tillgänglig. Om du använder V1 av Data Factory-tjänsten går du till <a href=/azure/data-factory/v1/data-factory-introduction>V1-dokumentationen.</a></p>"
+  description: Lär dig att använda Data Factory, en tjänst för molndataintegrering, för att ordna datalagrings-, rörelse- och bearbetningstjänster i automatiserade datapipelines. Självstudier och annan dokumentation visar hur du konfigurerar och hanterar datapipelines, samt flyttar och omvandlar data för analys. <p>För närvarande finns en förhandsversion av V2 av Data Factory. Versionen V1 är allmänt tillgänglig. Om du använder V1 av Data Factory-tjänsten går du till <a href=/azure/data-factory/v1/data-factory-introduction>V1-dokumentationen.</a></p>
   aside:
     image:
       alt: 
       height: 110
       src: media/index/video.png
       width: 250
-    title: "Skapa pipeliner visuellt för Azure Data Factory V2 (19:31)"
+    title: Skapa pipeliner visuellt för Azure Data Factory V2 (19:31)
     href: https://azure.microsoft.com/en-us/resources/videos/azure-friday-visually-build-pipelines-for-azure-data-factory-v2
     width: 250
 sections:
-- title: "Snabbstarter på 5 minuter"
+- title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: "Lär dig hur du skapar en datafabrik med:"
+    text: 'Lär dig hur du skapar en datafabrik med:'
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/data-factory/media/index/portal.svg
-      text: "Data Factory-användargränssnitt"
+      text: Data Factory-användargränssnitt
       href: /azure/data-factory/quickstart-create-data-factory-portal
     - image:
         src: /azure/data-factory/media/index/copy-data-tool.png
@@ -65,25 +65,25 @@ sections:
         src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
       text: Resource Manager-mall
       href: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
-- title: "Steg för steg-självstudier"
+- title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: "Lär dig att skapa och övervaka en datafabrik:"
+    text: 'Lär dig att skapa och övervaka en datafabrik:'
   - type: list
     style: ordered
     items:
-    - html: "Distribuera SSIS-paket till Azure – <a href=\"/azure/data-factory/tutorial-create-azure-ssis-runtime-portal\">Data Factory-användargränssnitt</a> | <a href=\"/azure/data-factory/tutorial-deploy-ssis-packages-azure\">Azure PowerShell</a>"
-    - html: "Kopiera data i molnet – <a href=\"/azure/data-factory/tutorial-copy-data-tool\">verktyget för att kopiera data</a> | <a href=\"/azure/data-factory/tutorial-copy-data-portal\">Data Factory-användargränssnitt</a> | <a href=\"/azure/data-factory/tutorial-copy-data-dot-net\">.NET</a>"
-    - html: "Kopiera lokala data till molnet – <a href=\"/azure/data-factory/tutorial-hybrid-copy-data-tool\">verktyget för att kopiera data | <a href=\"/azure/data-factory/tutorial-hybrid-copy-portal\">Data Factory-användargränssnitt</a> | <a href=\"/azure/data-factory/tutorial-hybrid-copy-powershell\">Azure PowerShell</a>"
-    - html: "Masskopiera data – <a href=\"/azure/data-factory/tutorial-bulk-copy-portal\">Data Factory-användargränssnitt</a> | <a href=\"/azure/data-factory/tutorial-bulk-copy\">Azure PowerShell</a>"
-    - html: "Kopiera data inkrementellt – <a href=\"/azure/data-factory/tutorial-incremental-copy-portal\">Data Factory-användargränssnitt</a> | <a href=\"/azure/data-factory/tutorial-incremental-copy-powershell\">Azure PowerShell</a>"
-    - html: "Omvandla data i molnet med Spark – <a href=\"/azure/data-factory/tutorial-transform-data-spark-portal\">Data Factory-användargränssnitt</a> | <a href=\"/azure/data-factory/tutorial-transform-data-spark-powershell\">Azure PowerShell</a>"
-    - html: "Omvandla data i ett virtuellt nätverk – <a href=\"/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal\">Data Factory-användargränssnitt</a> | <a href=\"/azure/data-factory/tutorial-transform-data-hive-virtual-network\">Azure PowerShell</a>"
-    - html: "Kontrollera flödet – <a href=\"/azure/data-factory/tutorial-control-flow-portal\">Data Factory-användargränssnitt</a> | <a href=\"/azure/data-factory/tutorial-control-flow\">.NET</a>"
+    - html: Distribuera SSIS-paket till Azure – <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">Data Factory-användargränssnitt</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
+    - html: Kopiera data i molnet – <a href="/azure/data-factory/tutorial-copy-data-tool">verktyget för att kopiera data</a> | <a href="/azure/data-factory/tutorial-copy-data-portal">Data Factory-användargränssnitt</a> | <a href="/azure/data-factory/tutorial-copy-data-dot-net">.NET</a>
+    - html: Kopiera lokala data till molnet – <a href="/azure/data-factory/tutorial-hybrid-copy-data-tool">verktyget för att kopiera data | <a href="/azure/data-factory/tutorial-hybrid-copy-portal">Data Factory-användargränssnitt</a> | <a href="/azure/data-factory/tutorial-hybrid-copy-powershell">Azure PowerShell</a>
+    - html: Masskopiera data – <a href="/azure/data-factory/tutorial-bulk-copy-portal">Data Factory-användargränssnitt</a> | <a href="/azure/data-factory/tutorial-bulk-copy">Azure PowerShell</a>
+    - html: Kopiera data inkrementellt – <a href="/azure/data-factory/tutorial-incremental-copy-portal">Data Factory-användargränssnitt</a> | <a href="/azure/data-factory/tutorial-incremental-copy-powershell">Azure PowerShell</a>
+    - html: Omvandla data i molnet med Spark – <a href="/azure/data-factory/tutorial-transform-data-spark-portal">Data Factory-användargränssnitt</a> | <a href="/azure/data-factory/tutorial-transform-data-spark-powershell">Azure PowerShell</a>
+    - html: Omvandla data i ett virtuellt nätverk – <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal">Data Factory-användargränssnitt</a> | <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network">Azure PowerShell</a>
+    - html: Kontrollera flödet – <a href="/azure/data-factory/tutorial-control-flow-portal">Data Factory-användargränssnitt</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a>
 - title: Exempel
   items:
   - type: paragraph
-    text: "Använd följande exempel för att arbeta med Data Factory"
+    text: Använd följande exempel för att arbeta med Data Factory
   - type: list
     style: unordered
     className: spaced noBullet
@@ -97,7 +97,7 @@ sections:
     items:
     - title: Kommandorad
       html: <p><a href="/powershell/module/azurerm.datafactoryv2/">Azure PowerShell</a></p>
-    - title: "Språk"
+    - title: Språk
       html: <p><a href="/dotnet/api/microsoft.azure.management.datafactory">.NET</a></p><p><a href="/python/api/overview/azure/datafactory?view=azure-python">Python</a></p>
     - title: REST
       html: <p><a href="/rest/api/datafactory">REST API</a></p>

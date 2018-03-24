@@ -28,7 +28,7 @@
 - name: Begrepp
   items:
     - name: Förstå kostnadsrapporter
-      href: understading-cost-reports.md
+      href: understanding-cost-reports.md
 - name: Instruktionsguider
   items:
     - name: Aktivera Azure-prenumerationer och -konton

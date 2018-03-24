@@ -1,6 +1,6 @@
 ---
-title: "Förutsägande Underhåll för verkliga scenarier | Microsoft Docs"
-description: "Förutsägande Underhåll för verkliga scenarier med hjälp av PySpark"
+title: Förutsägande Underhåll för verkliga scenarier | Microsoft Docs
+description: Förutsägande Underhåll för verkliga scenarier med hjälp av PySpark
 services: machine-learning
 author: ehrlinger
 ms.author: jehrling
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 81e227194ff64d7b7af842a208349ccc63528ab8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: bb6e4f9f147db2fb70d991922cf0bb8d16b29671
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Förutsägande Underhåll för verkliga scenarier
 
@@ -25,7 +25,7 @@ Det här scenariot utforskar en relativt [storskaliga simulerade datauppsättnin
 
 ### <a name="cortana-intelligence-gallery-github-repository"></a>Cortana Intelligence Gallery GitHub-lagringsplatsen
 
-Cortana Intelligence Gallery PM genomgång är en offentlig GitHub-lagringsplats ([https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance)) där du kan rapportera problem och avgifter.
+Cortana Intelligence Gallery PM genomgång är en offentlig GitHub-lagringsplats ([https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)) där du kan rapportera problem och bidrag.
 
 
 ## <a name="use-case-overview"></a>Använd case-översikt
@@ -49,8 +49,8 @@ Modellen operationalization gjordes med hjälp av version 0.1.0a22 av Azure Mach
 ## <a name="create-a-new-workbench-project"></a>Skapa ett nytt projekt arbetsstationen
 
 Skapa ett nytt projekt genom att använda det här exemplet som en mall:
-1.  Öppna Machine Learning arbetsstationen.
-2.  På den **projekt** väljer  **+** , och välj sedan **nytt projekt**.
+1.  Öppna Machine Learning Workbench.
+2.  På den **projekt** väljer **+**, och välj sedan **nytt projekt**.
 3.  I den **Skapa nytt projekt** rutan, fyller du i informationen för det nya projektet.
 4.  I den **Sök projektmallar** sökrutan, Skriv ”förutsägande underhåll” och välj den **förutsägande Underhåll** mall.
 5.  Välj **Skapa**.

@@ -1,12 +1,12 @@
 ---
-title: "Host.JSON referens för Azure Functions"
-description: "I referensdokumentationen för Azure Functions host.json filen."
+title: Host.JSON referens för Azure Functions
+description: I referensdokumentationen för Azure Functions host.json filen.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 6b5a8c81b1e3e45c85ea84a46054b6a38a886c5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 577c45edc832288943a7eeefe27c7a189a61b7b0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Host.JSON referens för Azure Functions
 
@@ -201,6 +201,9 @@ Konfigurationsinställningar för [http-utlösare och bindningar](functions-bind
 ## <a name="id"></a>id
 
 Unikt ID för en värd för jobbet. Vara kan en gemen GUID med bindestreck bort. Krävs när du kör programmet lokalt. När den körs i Azure Functions ID skapas automatiskt om `id` utelämnas.
+
+Om du delar ett lagringskonto över flera funktionen appar, se till att varje funktionsapp har en annan `id`. Du kan hoppa över den `id` egenskapen eller manuellt ange varje funktionsapp `id` till ett annat värde. Timer-utlösaren använder lagring Lås så att endast en timer-instans när en funktionsapp skalas ut till flera instanser. Om två funktionen appar med samma `id` och varje använder en timer som utlösare, körs bara en timer.
+
 
 ```json
 {

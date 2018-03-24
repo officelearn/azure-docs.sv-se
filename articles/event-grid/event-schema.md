@@ -1,18 +1,18 @@
 ---
 title: Azure Event Grid event schema
-description: "Beskriver de egenskaper som har angetts för händelser med Azure händelse rutnätet"
+description: Beskriver de egenskaper som har angetts för händelser med Azure händelse rutnätet
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/22/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7af0e1cc8ae36774ef1cebf1bada6477888860d0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid event schema
 
@@ -97,7 +97,11 @@ Läs om egenskaperna i dataobjektet i händelsekällan:
 * [IoT Hub](event-schema-iot-hub.md)
 * [Resursgrupper (hanteringsåtgärder)](event-schema-resource-groups.md)
 
-För anpassade avsnitt avgörs händelse dataobjektet. Informationen på den översta nivån ska innehålla samma fält som standard resurs användardefinierade händelser. När du publicerar händelser till anpassade avsnitt bör du modellera ämnet händelserna för att underlätta Routning och filtrering.
+För anpassade avsnitt avgörs händelse dataobjektet. Informationen på den översta nivån ska innehålla samma fält som standard resurs användardefinierade händelser.
+
+När du publicerar händelser till anpassade avsnitt, skapa ämnen för händelserna som gör det enkelt för prenumeranter att veta om de är intresserad av händelsen. Prenumeranter använda ämnet att filtrera och väg händelser. Överväg att ange sökvägen för vilket händelsen inträffade, så prenumeranter kan filtrera efter segment i sökvägen. Sökvägen kan prenumeranter att snävare eller brett Filtrera händelser. Om du anger en sökväg för tre segment som till exempel `/A/B/C` prenumeranter kan filtrera efter det första segmentet i ämnet, `/A` att hämta en bred uppsättning händelser. Dessa prenumeranter får händelser med ämnen som `/A/B/C` eller `/A/D/E`. Andra prenumeranter kan filtrera efter `/A/B` att hämta en mindre uppsättning händelser.
+
+Ibland måste ämnet mer information om vad som hänt. Till exempel den **Lagringskonton** publisher innehåller ämnet `/blobServices/default/containers/<container-name>/blobs/<file>` när en fil har lagts till i en behållare. En prenumerant kan filtrera efter sökvägen `/blobServices/default/containers/testcontainer` att hämta alla händelser för behållaren men inte andra behållare i storage-konto. En prenumerant kan även filtrera eller flödet av suffixet `.txt` fungerar bara med textfiler.
 
 ## <a name="next-steps"></a>Nästa steg
 

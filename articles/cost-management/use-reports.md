@@ -1,24 +1,24 @@
 ---
-title: "Använda rapporter för kostnaden i Azure kostnaden Management | Microsoft Docs"
-description: "Den här artikeln beskriver hur du använder olika kostnad rapporter i Cloudyn-portalen."
+title: Använda rapporter för kostnaden i Azure kostnaden Management | Microsoft Docs
+description: Den här artikeln beskriver hur du använder olika kostnad rapporter i Cloudyn-portalen.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: fa263a4b6f41e2b31328f46b8d1341d0d74c9a85
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-cost-management-reports"></a>Använda Cost Management-rapporter
 
-Den här artikeln beskriver hur du använder olika kostnad rapporter i Cloudyn-portalen. De flesta Cloudyn rapporter är intuitiva och har ett enhetligt utseende. En översikt över hur Cloudyn rapporter finns i [förstå kostnad rapporter](understading-cost-reports.md). Artikeln beskriver också olika alternativ och fält som används i de flesta rapporter.
+Den här artikeln beskriver hur du använder olika kostnad rapporter i Cloudyn-portalen. De flesta Cloudyn rapporter är intuitiva och har ett enhetligt utseende. En översikt över hur Cloudyn rapporter finns i [förstå kostnad rapporter](understanding-cost-reports.md). Artikeln beskriver också olika alternativ och fält som används i de flesta rapporter.
 
 ## <a name="cost-analysis-reports"></a>Kostnad analysrapporter
 

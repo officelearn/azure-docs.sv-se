@@ -1,11 +1,11 @@
 ---
-title: "IT Service Management-anslutningstjänsten i Azure Log Analytics | Microsoft Docs"
-description: "Den här artikeln innehåller en översikt av IT Service Management koppling (ITSMC) och information om hur du använder den här lösningen centralt övervaka och hantera ITSM arbetsobjekt i Azure Log Analytics och att snabbt lösa eventuella problem."
+title: IT Service Management-anslutningstjänsten i Azure Log Analytics | Microsoft Docs
+description: Den här artikeln innehåller en översikt av IT Service Management koppling (ITSMC) och information om hur du använder den här lösningen centralt övervaka och hantera ITSM arbetsobjekt i Azure Log Analytics och att snabbt lösa eventuella problem.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 56da2d4349a4a32eed783045381e504b529b1a1c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a51b96641c80a6575c64f58fa09e0bf6078e4185
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Anslut Azure ITSM verktyg med IT Service Management-anslutningstjänsten
 
@@ -191,7 +191,7 @@ Du kan också skapa arbetsobjekt i de anslutna ITSM källorna direkt från en lo
 4. Ange lämpliga värden i den **kontakta typen**, **inverkan**, **angelägenhetsgrad**, **kategori**, och **underkategorin** textrutor och klicka sedan på **skapa**.
 
 
-##<a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualisera och analysera incidenten och ändra data för begäran
+## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualisera och analysera incidenten och ändra data för begäran
 
 Baserat på konfigurationen när du konfigurerar en anslutning, kan ITSM connector synkronisera upp till 120 dagar Incident och ändrar data på begäran. Loggen post schemat för dessa data finns i den [nästa avsnitt](#additional-information).
 

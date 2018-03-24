@@ -1,25 +1,25 @@
 ---
-title: "Skapa en offentlig belastningen belastningsutjämnaren Standard med zonredundant klientdel för offentlig IP-adress med hjälp av Azure portal | Microsoft Docs"
-description: "Lär dig hur du skapar en offentlig belastningen belastningsutjämnaren Standard med zonredundant offentlig IP-adress klientdel med Azure-portalen"
+title: Skapa en offentlig belastningen belastningsutjämnaren Standard med zonredundant klientdel för offentlig IP-adress med hjälp av Azure portal | Microsoft Docs
+description: Lär dig hur du skapar en offentlig belastningen belastningsutjämnaren Standard med zonredundant offentlig IP-adress klientdel med Azure-portalen
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: d09115d7b01b72476ebc9eb883a43aa4c59d2e3b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 10a264609469245d4743886b58730304da3df7bb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Skapa en offentlig belastningen belastningsutjämnaren Standard med zonredundant klientdel för offentlig IP-adress med hjälp av Azure portal
 
@@ -27,15 +27,9 @@ Den här artikeln går igenom hur du skapar en offentlig [Load Balancer Standard
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="register-for-availability-zones-load-balancer-standard-and-public-ip-standard-preview"></a>Registrera sig för tillgänglighet zoner, Load Balancer Standard och offentliga IP-Standard förhandsversion
+## <a name="register-for-availability-zones-preview"></a>Registrera dig för förhandsgranskning tillgänglighet zoner
  
->[!NOTE]
-[Läsa in belastningsutjämning Standard SKU](https://aka.ms/azureloadbalancerstandard) är för närvarande under förhandsgranskning. Som förhandsversion kanske funktionen inte har samma tillgänglighet och pålitlighet som funktioner som är allmänt tillgängliga. Mer information finns i [de kompletterande villkoren för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Använd den allmänt tillgängliga [Load Balancer grundläggande SKU](load-balancer-overview.md) för produktion-tjänster. 
-
-> [!NOTE]
-> Tillgänglighet zoner i förhandsversionen och är redo för din utveckla och testa scenarier. Support är tillgänglig för väljer Azure-resurser och regioner och familjer för VM-storlek. Mer information om hur du kommer igång och vilka Azure-resurser, regioner, och Virtuella storlek familjer kan du försöka tillgänglighet zoner med finns [översikt av tillgänglighet zoner](https://docs.microsoft.com/azure/availability-zones/az-overview). Du kan få support via [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) eller genom att [öppna ett Azure-supportärende](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-
-Innan du väljer en zon eller zonredundant alternativ för klientdel offentliga IP-adressen för belastningsutjämnaren, måste du slutföra stegen i [registrera sig för tillgänglighet zoner förhandsversion](https://docs.microsoft.com/azure/availability-zones/az-overview).
+Tillgänglighet zoner i förhandsversionen och är redo för din utveckla och testa scenarier. Support är tillgänglig för väljer Azure-resurser och regioner och familjer för VM-storlek. Mer information om hur du kommer igång och vilka Azure-resurser, regioner, och Virtuella storlek familjer kan du försöka tillgänglighet zoner med finns [översikt av tillgänglighet zoner](https://docs.microsoft.com/azure/availability-zones/az-overview). Du kan få support via [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) eller genom att [öppna ett Azure-supportärende](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure 
 
@@ -43,7 +37,7 @@ Logga in på Azure-portalen på https://portal.azure.com.
 
 ## <a name="create-a-zone-redundant-load-balancer"></a>Skapa en zon redundant belastningsutjämnare
 
-1. Öppna en webbläsare och gå till Azure Portal: [http://portal.azure.com](http://portal.azure.com). Logga in med ditt Azure-konto.
+1. Från en webbläsare navigerar du till Azure portal: [ http://portal.azure.com ](http://portal.azure.com) och logga in med ditt Azure-konto.
 2. På den översta vänstra sidan av skärmen väljer **skapar du en resurs** > **nätverk** > **belastningsutjämnaren.**
 3. I den ** skapa belastningsutjämnare, under **namn** typen **myPublicLB**.
 4. Under **Typ** väljer du **Offentlig**.

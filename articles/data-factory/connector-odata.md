@@ -1,11 +1,11 @@
 ---
-title: "Kopiera data från OData-källor med hjälp av Azure Data Factory | Microsoft Docs"
-description: "Lär dig hur du kopierar data från OData-datakällor till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen."
+title: Kopiera data från OData-källor med hjälp av Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kopierar data från OData-datakällor till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c9f750f0e2764e7753c9d6c62de60ab27df9620c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d1de8baf725233bee30a14eca770e4f04e7a70b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Kopiera data från OData-datakälla med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

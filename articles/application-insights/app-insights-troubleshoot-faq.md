@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights vanliga frågor och svar | Microsoft Docs"
-description: "Vanliga frågor om Application Insights."
+title: Azure Application Insights vanliga frågor och svar | Microsoft Docs
+description: Vanliga frågor om Application Insights.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 721799703923339d397113fc278cdeb6c6dbb88f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Vanliga frågor och svar
 
@@ -121,7 +121,7 @@ Från andra källor, om du konfigurerar dem:
 * [Azure-diagnostik](app-insights-azure-diagnostics.md)
 * [Docker-behållare](app-insights-docker.md)
 * [Importera tabellerna till Analytics](app-insights-analytics-import.md)
-* [OMS (Log Analytics)](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
+* [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
 * [Logstash](app-insights-analytics-import.md)
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>Kan jag filtrera bort eller ändra vissa telemetri?
@@ -188,7 +188,7 @@ Använda en enskild resurs för alla komponenter eller roller i en enda affärss
 * Om en användare använder webbplatsen i olika webbläsare eller använda i-privat/incognito surfning eller olika datorer och sedan räknas mer än en gång.
 * För att identifiera en inloggad användare över datorer och webbläsare kan du lägga till ett anrop till [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
 
-## <a name="q17"></a>Har jag aktiverat allt i Application Insights?
+## <a name="q17"></a> Har jag aktiverat allt i Application Insights?
 | Vad du bör se | Hur du gör den | Varför du vill |
 | --- | --- | --- |
 | Tillgänglighet diagram |[Webbtester](app-insights-monitor-web-app-availability.md) |Känner till ditt webbprogram som är igång |
@@ -250,7 +250,7 @@ Här följer två metoder:
 
 ### <a name="firewall-door"></a>Dörren för brandvägg
 
-Tillåt att webbservern ska skickas telemetri till vår slutpunkter https://dc.services.visualstudio.com:443 och https://rt.services.visualstudio.com:443. 
+Tillåt att webbservern ska skicka telemetri till vår slutpunkter https://dc.services.visualstudio.com:443 och https://rt.services.visualstudio.com:443. 
 
 ### <a name="proxy"></a>Proxy
 
@@ -262,7 +262,7 @@ Vidarebefordra trafik från servern till en gateway på intranätet, genom att a
 </TelemetryChannel>
 ```
 
-Din gateway ska vidarebefordra trafiken till https://dc.services.visualstudio.com:443/v2/sviten
+Din gateway ska vidarebefordra trafiken till https://dc.services.visualstudio.com:443/v2/track
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Kan jag köra webbtester för tillgänglighet på en server för intranät?
 

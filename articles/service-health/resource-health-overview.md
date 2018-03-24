@@ -1,11 +1,11 @@
 ---
-title: "Översikt över Azure Resource Health | Microsoft Docs"
-description: "Översikt över Azure Resource Health"
+title: Översikt över Azure Resource Health | Microsoft Docs
+description: Översikt över Azure Resource Health
 services: Resource health
-documentationcenter: 
+documentationcenter: ''
 author: shawntabrizi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/01/2017
 ms.author: shawn.tabrizi
-ms.openlocfilehash: 50a173a3d3a10ed59492b4a1d64173913f331639
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 661faf8560295dd037364f9509d21719362ae727
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-resource-health-overview"></a>Översikt över Azure Resource Health
  
@@ -77,7 +77,7 @@ Om du tror att den aktuella hälsostatus är felaktig, du kan berätta för oss 
 ![Kryssrutan för att skicka information om felaktig status](./media/resource-health-overview/incorrect-status.png)
 
 ## <a name="historical-information"></a>Historisk information
-Du kan komma åt upp till 14 dagar hälsohistorik genom att välja **Visa historik över** i Resource Health. 
+Du kan komma åt upp till 14 dagar hälsohistorik i den **hälsohistorik** delen av Resource Health. 
 
 ![Lista över Resource Health händelser under de senaste två veckorna](./media/resource-health-overview/history-blade.png)
 

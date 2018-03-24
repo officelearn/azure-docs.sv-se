@@ -1,11 +1,11 @@
 ---
 title: 'Azure AD Connect: Versionshistorik | Microsoft Docs'
-description: "Den här artikeln innehåller alla versioner av Azure AD Connect och Azure AD Sync"
+description: Den här artikeln innehåller alla versioner av Azure AD Connect och Azure AD Sync
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 0c6a0c43eb7d0187120c3264f1f439af66d73978
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0fd653b1a4058ce4284bf87b0b9152a264581e5c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg är tillämpliga på alla målgrupper.
@@ -40,6 +40,10 @@ Hämta | [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771
 Status: Publicerat för att välja den här versionen är för närvarande har distribuerats till en liten och slumpmässiga urval av AADConnect-klienter som har aktiverat Automatiska uppgradering kunder. Vi kommer att expandera den här gruppen av klienter under de kommande veckorna tills 100% av våra kunder uppgradera automatiskt har tagit emot den här versionen. Efter det att vi bygga för allmän hämtning på länken ovan.
 >[!NOTE]
 >När uppgraderingen till den här nya versionen är klar utlöser automatiskt en fullständig synkronisering och fullständig import för Azure AD-koppling och en fullständig synkronisering för AD-koppling. Kontrollera att du har vidtagit nödvändiga åtgärder för att stödja detta eller håll om att uppgradera förrän du har hittat en lämplig tidpunkt gör detta kan ta en stund, beroende på storleken på din Azure AD Connect-miljö.
+
+>[!NOTE]
+>”AutoUpgrade funktioner felaktigt inaktiverades för vissa klienter av versioner senare än 1.1.524.0. Kör följande PowerShell-cmdlet för att säkerställa att din Azure AD Connect-instans är fortfarande tillgängliga för AutoUpgrade: ”Set-ADSyncAutoUpgrade - AutoupGradeState AutoUpgradeConfigurationState.Enabled”?
+
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 #### <a name="fixed-issues"></a>Fast problem

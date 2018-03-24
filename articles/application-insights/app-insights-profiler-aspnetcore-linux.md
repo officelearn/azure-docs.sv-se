@@ -1,8 +1,8 @@
 ---
 title: Profilen ASP.NET core Azure Linux-webbappar med Application Insights Profiler | Microsoft Docs
-description: "Översikt över begrepp och stegvisa självstudier om hur du aktiverar det"
+description: Översikt över begrepp och stegvisa självstudier om hur du aktiverar det
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2d7405baee84b53311f01e748ca7975147c107d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 63a7ceacffe1ee33227d3a8272dda7de7b3b1135
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profilen ASP.NET Core Azure Linux-Webbappar med Application Insights Profiler
 
@@ -143,6 +143,18 @@ Du kommer se utdata som liknar följande:
 5. Gå till Application Insights prestanda rutan i Azure-portalen. Du ser profiler-spårningar som är tillgängliga i det nedre högra hörnet.
 
     ![Visa spårningar](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
+
+## <a name="known-issues"></a>Kända problem
+
+### <a name="enable-button-in-profiler-configuration-pane-does-not-work"></a>Aktivera knappen i profileraren konfiguration fönstret inte fungerar
+**Om du är värd för ditt program med App Services Linux, behöver du inte aktivera profileraren igen i fönstret prestanda i App Insights-portalen. Inklusive NuGet-paket i projektet och ange App Insights iKey i App-inställningar som är tillräckliga för att aktivera profileraren**.
+
+Om du följer den [App Insights Profiler för Windows](./app-insights-profiler.md) aktivering arbetsflödet klickar du på **aktivera** i rutan Konfigurera Profiler får du ett felmeddelande som knappen försöker installera Windows-versionen av profileraren agenten på Linux-miljö.
+
+Vi arbetar på att lösa det här problemet i upplevelsen för aktivering.
+
+![Du behöver inte aktivera profileraren igen i rutan prestanda så att profileraren fungerar på Linux App Services](./media/app-insights-profiler-aspnetcore-linux/issue-enable-profiler.png)
+
 
 ## <a name="next-steps"></a>Nästa steg
 Om du använder anpassade behållare hos Apptjänster, följer du anvisningarna från [ aktivera Service Profiler för av ASP.NET Core programmet](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) att aktivera App Insights Profiler

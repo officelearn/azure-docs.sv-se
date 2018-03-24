@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Självbetjäning för lösenordsåterställning | Microsoft Docs"
-description: "Ett avsnitt som visar hur du ställer in Självbetjäning för återställning av lösenord för dina användare i Azure Active Directory B2C"
+title: 'Azure Active Directory B2C: Självbetjäning för lösenordsåterställning | Microsoft Docs'
+description: Ett avsnitt som visar hur du ställer in Självbetjäning för återställning av lösenord för dina användare i Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: curtand
-ms.assetid: c87ed86e-1520-42b1-8c31-46cd44ed5310
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: c0a10869477647820828b22b6291522be255844d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.author: davidmu
+ms.openlocfilehash: f38473989f90bfe6d35bffb17a02a892ad08cf5e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-set-up-self-service-password-reset-for-your-consumers"></a>Azure Active Directory B2C: Konfigurera Självbetjäning för återställning av lösenord för dina användare
 Med funktionen för återställning av självbetjäning lösenord kan dina användare (som har registrerat sig för lokala konton) återställa sina lösenord på egen hand. Detta minskar avsevärt belastningen på supportpersonal, särskilt om programmet har miljontals konsumenter med hjälp av den regelbundet. För närvarande stöder vi bara med en verifierad e-postadress som en återställningsmetod för. Vi lägger till ytterligare återställningsmetoder (verifierade telefonnummer, säkerhetsfrågor osv.) i framtiden.

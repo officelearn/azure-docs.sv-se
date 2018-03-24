@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory app-baserad villkorlig åtkomst | Microsoft Docs"
-description: "Lär dig hur Azure Active Directory app-baserad villkorlig åtkomst fungerar."
+title: Azure Active Directory app-baserad villkorlig åtkomst | Microsoft Docs
+description: Lär dig hur Azure Active Directory app-baserad villkorlig åtkomst fungerar.
 services: active-directory
-keywords: "villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst"
-documentationcenter: 
+keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 7814b53a69506f81bc6a75387c62766e36d528d8
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: b35aed3583307c34eadbed3dd13d1ffd51494927
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Azure Active Directory app-baserad villkorlig åtkomst  
 
@@ -50,7 +50,7 @@ Du kan kombinera principer för app-baserad villkorlig åtkomst med andra princi
  
 
 
-##<a name="before-you-begin"></a>Innan du börjar
+## <a name="before-you-begin"></a>Innan du börjar
 
 Det här avsnittet förutsätter att du är bekant med:
 

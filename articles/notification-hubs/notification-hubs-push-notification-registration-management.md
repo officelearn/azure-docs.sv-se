@@ -1,11 +1,11 @@
 ---
-title: Hantering av registrering
-description: "Det här avsnittet beskrivs hur du registrerar enheter med notification hubs för att kunna ta emot push-meddelanden."
+title: Registration Management
+description: Det här avsnittet beskrivs hur du registrerar enheter med notification hubs för att kunna ta emot push-meddelanden.
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: a1a349150ef4c7837932706f0c4fcc8d022ec7ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af5738ac96bd2afacee493765453567f7f13c9e5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="registration-management"></a>Registreringshantering
 ## <a name="overview"></a>Översikt
@@ -39,7 +39,7 @@ Här följer några viktiga fördelar med att använda installationer:
 * Installationen modellen gör det enkelt att göra enskilda push - specifik enhet som mål. En system-tagg **”$InstallationId: [installationId]”** läggs till automatiskt med varje installation baserad registrering. Så kan du anropa en Skicka till den här taggen ska gälla en viss enhet utan att behöva göra ytterligare kodning.
 * Med hjälp av installationer kan du också göra en partiell registrering uppdateringar. Begärs deluppdatering av en installation med en korrigering metoden den [JSON-korrigering standard](https://tools.ietf.org/html/rfc6902). Detta är särskilt användbart när du vill uppdatera taggarna i registreringen. Du behöver inte hämtar hela registreringen och skicka om alla tidigare taggar.
 
-En installation kan innehålla de följande egenskaper. En fullständig lista över egenskaper finns i den installation [skapa eller skriva över en Installation med REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) eller [installationsegenskaper](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx) för den.
+En installation kan innehålla de följande egenskaper. En fullständig lista över egenskaper finns i den installation [skapa eller skriva över en Installation med REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) eller [installationsegenskaper](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
     // Example installation format to show some supported properties
     {

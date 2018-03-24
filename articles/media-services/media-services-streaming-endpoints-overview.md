@@ -1,12 +1,12 @@
 ---
-title: "Översikt över Azure Media Services-Strömningsslutpunkt | Microsoft Docs"
-description: "Det här avsnittet ger en översikt över Azure Media Services strömningsslutpunkter."
+title: Översikt över Azure Media Services-Strömningsslutpunkt | Microsoft Docs
+description: Det här avsnittet ger en översikt över Azure Media Services strömningsslutpunkter.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 writer: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
 ms.workload: media
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 80d625a6ab2d3c6d5de0a90fbff0760888154d70
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: f923a2fb328ee62ce4dc73669fd922f275ba34a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="streaming-endpoints-overview"></a>Översikt över strömmande slutpunkter 
 
-##<a name="overview"></a>Översikt
+## <a name="overview"></a>Översikt
 
 I Microsoft Azure Media Services (AMS), en **Strömningsslutpunkt** representerar en strömmande tjänst som kan leverera innehåll direkt till ett klientprogram player eller till en innehåll innehållsleveransnätverk (CDN) för vidare distribution. Media Services tillhandahåller också sömlös integration av Azure CDN. Utgående dataströmmen från en StreamingEndpoint-tjänst kan vara en direktsänd dataström, en video på begäran eller progressiv hämtning av dina tillgångar i Media Services-kontot. Varje Azure Media Services-konto innehåller standard StreamingEndpoint. Du kan skapa ytterligare Strömningsslutpunkter under kontot. Det finns två versioner av Strömningsslutpunkter 1.0 och 2.0. Från och med januari 10 2017 alla konton som nyligen skapade AMS innehåller version 2.0 **standard** StreamingEndpoint. Ytterligare strömmande slutpunkter som du lägger till det här kontot kommer också att version 2.0. Den här ändringen påverkar inte befintliga konton; befintliga Strömningsslutpunkter blir version 1.0 och kan uppgraderas till version 2.0. Med den här ändringen kommer det ske beteende, fakturering och funktionen förändringar (Mer information finns i **strömning typer och versioner** avsnitt beskrivs nedan).
 

@@ -4,7 +4,7 @@ description: Visar hur du parameterstyra konfigurationsfiler i Service Fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: 1e7d59ecb231440711b8ed3dc0b27a2b105890c4
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 14fbdf27b8735bb3f2dc91ce0891711e9aaf2af3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Parameteriserar konfigurationsfiler i Service Fabric
 
@@ -59,7 +59,7 @@ I det här exemplet kan du åsidosätta ett konfigurationsvärde med parametrar 
       </Parameters>
     ```
 
-1. Och definiera en`DefaultValue`
+1. Och definiera en `DefaultValue`
 
     ```xml
       <Parameters>
@@ -71,8 +71,6 @@ I det här exemplet kan du åsidosätta ett konfigurationsvärde med parametrar 
 > I de fall där du lägger till en ConfigOverride, väljer alltid Service Fabric applikationsparametrarna eller standardvärdet som angetts i applikationsmanifestet.
 >
 >
-
-När publicering av programmet från Visual Studio med hjälp av Cloud.xml publiceringsprofil, har tjänsten konfigurerats för användning av port 80. Om du distribuerar programmet utan att ange parametern MyWebAPI_PortNumber använder tjänsten port 8080.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om några grundläggande begrepp som diskuteras i den här artikeln finns det [hantera program för flera miljöer artiklar](service-fabric-manage-multiple-environment-app-configuration.md).

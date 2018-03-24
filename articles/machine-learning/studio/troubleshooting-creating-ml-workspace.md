@@ -1,10 +1,11 @@
 ---
-title: "Felsöka: Skapa och ansluta till en arbetsyta i Machine Learning | Microsoft Docs"
-description: "Lösningar på vanliga problem med att skapa och ansluta till en Azure Machine Learning-arbetsytan"
+title: 'Felsöka: Skapa och ansluta till en arbetsyta i Machine Learning | Microsoft Docs'
+description: Lösningar på vanliga problem med att skapa och ansluta till en Azure Machine Learning-arbetsytan
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 1a8aec4b-35f9-44e8-9570-2575b8979ab1
 ms.service: machine-learning
@@ -13,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye
-ms.openlocfilehash: cdccd4ce7b87f47d21578076653bde901748188b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c265b14a88e993512811de365f1ba51f7ba6028
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Felsökningsguide: Skapa och anslut till en Machine Learning-arbetsyta
 Den här guiden ger lösningar för några vanliga påträffade utmaningar när du ställer in Azure Machine Learning arbetsytor.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="workspace-owner"></a>Arbetsytan ägare
+## <a name="workspace-owner"></a>Arbetsytesägare
 Om du vill öppna en arbetsyta i Machine Learning Studio, måste du vara inloggad på Account du använde för att skapa arbetsytan eller måste du få en inbjudan från ägare att ansluta till arbetsytan. Du kan hantera arbetsytan, vilket ger möjlighet att konfigurera åtkomst från Azure-portalen.
 
 Mer information om hur du hanterar en arbetsyta finns [hantera en Azure Machine Learning-arbetsytan].

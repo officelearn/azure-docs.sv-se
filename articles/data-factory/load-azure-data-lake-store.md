@@ -1,21 +1,21 @@
 ---
-title: "Läs in data till Azure Data Lake Store med hjälp av Azure Data Factory | Microsoft Docs"
-description: "Använd Azure Data Factory för att kopiera data till Azure Data Lake Store"
+title: Läs in data till Azure Data Lake Store med hjälp av Azure Data Factory | Microsoft Docs
+description: Använd Azure Data Factory för att kopiera data till Azure Data Lake Store
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 4446f83563293d0834f241dcca382ccf6ea99403
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bf0d607d63a68a222a1d44d9cb05253497d12591
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Läs in data till Azure Data Lake Store med hjälp av Azure Data Factory
 
@@ -52,7 +52,7 @@ Den här artikeln visar hur du använder verktyget Data Factory kopieringsdata t
       
    ![Sida för ny datafabrik](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
  
-    * **Namnet**: Ange ett globalt unikt namn för din Azure data factory. Om du får felet ”datafabriksnamnet \"LoadADLSDemo\" är inte tillgängligt” ange ett annat namn för data factory. Du kan till exempel använda namnet  _**dittnamn**_**ADFTutorialDataFactory**. Försök att skapa datafabriken igen. Namngivningsregler för Data Factory-artefakter, se [Data Factory namngivningsregler](naming-rules.md).
+    * **Namnet**: Ange ett globalt unikt namn för din Azure data factory. Om du får felet ”datafabriksnamnet \"LoadADLSDemo\" är inte tillgängligt” ange ett annat namn för data factory. Du kan till exempel använda namnet  _**dittnamn**_**ADFTutorialDataFactory**. Försök att skapa datafabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumerationen**: Välj din Azure-prenumeration att skapa datafabriken. 
     * **Resursgruppen**: Välj en befintlig resursgrupp från den nedrullningsbara listan eller Välj den **Skapa nytt** och ange namnet på en resursgrupp. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
     * **Version**: Välj **V2 (förhandsgranskning)**.
@@ -120,7 +120,7 @@ Den här artikeln visar hur du använder verktyget Data Factory kopieringsdata t
 13. Observera att fliken **Övervaka** till vänster väljs automatiskt. Den **åtgärder** kolumn innehåller länkar för att visa aktivitet kör information och att köra pipelinen:
 
     ![Övervaka pipelinekörningar](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
-14. Om du vill visa aktivitetskörningar som är associerade med pipeline kör, Välj den **visa aktiviteten körs** länken i den **åtgärder** kolumn. Det finns bara en aktivitet (kopieringsaktiviteten) i pipelinen, så att du ser endast en post. Växla tillbaka till pipelinen körs visa, Välj den **Pipelines** längst upp. Om du vill uppdatera listan väljer du **Uppdatera**. 
+14. Om du vill visa aktivitetskörningar som är associerade med pipeline kör, Välj den **visa aktiviteten körs** länken i den **åtgärder** kolumn. Det finns bara en aktivitet (kopieringsaktiviteten) i pipelinen. Därför visas bara en post. Växla tillbaka till pipelinen körs visa, Välj den **Pipelines** längst upp. Om du vill uppdatera listan väljer du **Uppdatera**. 
 
     ![Övervaka aktivitetskörningar](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 

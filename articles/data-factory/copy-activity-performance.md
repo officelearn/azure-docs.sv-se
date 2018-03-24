@@ -1,11 +1,11 @@
 ---
-title: "Kopiera prestandajustering guide och prestanda för aktiviteten i Azure Data Factory | Microsoft Docs"
-description: "Läs mer om viktiga faktorer som påverkar prestandan för flytt av data i Azure Data Factory när du använder Kopieringsaktiviteten."
+title: Kopiera prestandajustering guide och prestanda för aktiviteten i Azure Data Factory | Microsoft Docs
+description: Läs mer om viktiga faktorer som påverkar prestandan för flytt av data i Azure Data Factory när du använder Kopieringsaktiviteten.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 53f2b59e57d49a409552aebbdb1b0e81ccd5200c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 733a396117a58d8dc51e55614e503853f13141c0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera prestandajustering guide och prestanda för aktiviteten
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -192,7 +192,7 @@ Konfigurera den **enableStaging** inställning i en Kopieringsaktivitet för att
 | --- | --- | --- | --- |
 | **enableStaging** |Ange om du vill kopiera data via en interimistisk mellanlagring store. |False |Nej |
 | **linkedServiceName** |Ange namnet på en [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) länkade tjänst som refererar till instansen av lagring som du använder som ett tillfälligt fristående Arkiv. <br/><br/> Du kan inte använda lagring med en signatur för delad åtkomst för att läsa in data till SQL Data Warehouse via PolyBase. Du kan använda den i andra scenarier. |Gäller inte |Ja, när **enableStaging** har angetts till TRUE |
-| **sökväg** |Ange sökvägen för Blob-lagring som du vill ska innehålla mellanlagrade data. Om du inte anger en sökväg, skapar en behållare för att lagra temporära data i tjänsten. <br/><br/> Ange en sökväg om du använder lagring med en signatur för delad åtkomst eller tillfälliga data i en specifik plats behöver. |Gäller inte |Nej |
+| **Sökväg** |Ange sökvägen för Blob-lagring som du vill ska innehålla mellanlagrade data. Om du inte anger en sökväg, skapar en behållare för att lagra temporära data i tjänsten. <br/><br/> Ange en sökväg om du använder lagring med en signatur för delad åtkomst eller tillfälliga data i en specifik plats behöver. |Gäller inte |Nej |
 | **enableCompression** |Anger om data ska komprimeras innan den kopieras till målet. Den här inställningen minskar mängden data som överförs. |False |Nej |
 
 Här är en exempel-definition av Kopieringsaktiviteten med de egenskaper som beskrivs i tabellen ovan:

@@ -1,24 +1,24 @@
 ---
-title: "Använda flera instanser uppgifter för att köra program MPI - Azure Batch | Microsoft Docs"
-description: "Lär dig mer om att köra Message Passing Interface (MPI)-program med flera instanser aktivitetstypen i Azure Batch."
+title: Använda flera instanser uppgifter för att köra program MPI - Azure Batch | Microsoft Docs
+description: Lär dig mer om att köra Message Passing Interface (MPI)-program med flera instanser aktivitetstypen i Azure Batch.
 services: batch
-documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: 5/22/2017
-ms.author: tamram
+ms.tgt_pltfrm: ''
+ms.date: 5/22/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01da017587aed7c0f2415786fdcbf6f64024cbe3
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 0fb5ea21c6403369cbcb60df58c0f70a57a61d4e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Använda flera instanser aktiviteter för att köra program för Message Passing Interface (MPI) i Batch
 
@@ -49,6 +49,10 @@ När du skickar en aktivitet med flera instanser för att ett jobb utför Batch 
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Krav för flera instanser uppgifter
 Flera instanser uppgifter kräver en pool med **kommunikationen mellan noder aktiverat**, och med **samtidiga uppgiftskörningen inaktiveras**. Om du vill inaktivera samtidiga uppgiftskörningen, ange den [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) egenskap till 1.
+
+> [!NOTE]
+> Batch [gränser](batch-quota-limit.md#other-limits) storleken på en pool som har aktiverad att kommunikationen mellan noder.
+
 
 Det här kodstycket visar hur du skapar en pool för flera instanser aktiviteter med hjälp av Batch .NET-bibliotek.
 
@@ -107,8 +111,7 @@ Leta efter de storlekar som angetts som ”RDMA-kompatibla” i följande artikl
   * [Storlekar för virtuella datorer i Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> Dra nytta av RDMA [Linux datornoder](batch-linux-nodes.md), måste du använda **Intel MPI** på noderna. Mer information om CloudServiceConfiguration och VirtualMachineConfiguration pooler finns i avsnittet Pool av den [Batch funktionsöversikt](batch-api-basics.md).
->
+> Dra nytta av RDMA [Linux datornoder](batch-linux-nodes.md), måste du använda **Intel MPI** på noderna. 
 >
 
 ## <a name="create-a-multi-instance-task-with-batch-net"></a>Skapa en flerinstans-uppgift med Batch .NET

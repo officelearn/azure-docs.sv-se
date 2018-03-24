@@ -1,11 +1,10 @@
 ---
-title: "Flytta data från Salesforce med hjälp av Data Factory | Microsoft Docs"
-description: "Läs mer om hur du flyttar data från Salesforce med hjälp av Azure Data Factory."
+title: Flytta data från Salesforce med hjälp av Data Factory | Microsoft Docs
+description: Läs mer om hur du flyttar data från Salesforce med hjälp av Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9e678e947a686b5a672af13cb0f0e60b4a272de9
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: d4c679722e36eb9533b65037a488fb9af9a5bc80
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Flytta data från Salesforce med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +71,7 @@ Följande tabell innehåller beskrivningar för JSON-element som är specifika f
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen type måste anges till: **Salesforce**. |Ja |
-| environmentUrl | Ange URL: en för Salesforce-instans. <br><br> – Standardvärdet är ”https://login.salesforce.com”. <br> -Ange ”https://test.salesforce.com” om du vill kopiera data från sandbox. <br> -Om du vill kopiera data från domänen, ange, till exempel ”https://[domain].my.salesforce.com”. |Nej |
+| environmentUrl | Ange URL: en för Salesforce-instans. <br><br> – Standardvärdet är ”https://login.salesforce.com”. <br> -Om du vill kopiera data från sandbox, ange ”https://test.salesforce.com”. <br> -Om du vill kopiera data från domänen, ange, till exempel ”https://[domain].my.salesforce.com”. |Nej |
 | användarnamn |Ange ett användarnamn för användarkontot. |Ja |
 | lösenord |Ange ett lösenord för användarkontot. |Ja |
 | securityToken |Ange en säkerhetstoken för användarkontot. Se [hämta säkerhetstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) för instruktioner om hur du återställa/hämta en säkerhetstoken. Läs om säkerhetstoken i allmänhet i [säkerhets- och API: et](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Ja |
@@ -111,10 +110,10 @@ I en Kopieringsaktivitet när källan är av typen **RelationalSource** (som omf
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Hämtning av data med hjälp av where-sats för kolumnen datum/tid
 När ange SOQL eller SQL-fråga, titta närmare på skillnaden för DateTime-format. Exempel:
 
-* **SOQL exempel**:`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
+* **SOQL exempel**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
 * **SQL-exempel**:
-    * **Använd guiden Kopiera för att ange frågan:**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
-    * **Med JSON Redigera om du vill ange frågan (escape-tecken korrekt):**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
+    * **Använd guiden Kopiera för att ange frågan:** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
+    * **Med JSON Redigera om du vill ange frågan (escape-tecken korrekt):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
 ### <a name="retrieving-data-from-salesforce-report"></a>Hämtar data från Salesforce-rapport
 Du kan hämta data från Salesforce-rapporter genom att ange frågan som `{call "<report name>"}`, till exempel. `"query": "{call \"TestReport\"}"`.
@@ -305,7 +304,7 @@ Se [RelationalSource Typegenskaper](#copy-activity-properties) lista över egens
 | Textområde (Long) |Sträng |
 | Textområde (omfattande) |Sträng |
 | Text (krypterade) |Sträng |
-| Webbadress |Sträng |
+| URL |Sträng |
 
 > [!NOTE]
 > Om du vill mappa kolumner från källan dataset till kolumner från sink dataset finns [mappa dataset kolumner i Azure Data Factory](data-factory-map-columns.md).

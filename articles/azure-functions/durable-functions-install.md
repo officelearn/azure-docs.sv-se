@@ -1,24 +1,24 @@
 ---
-title: "Installera tillägget beständiga funktioner och exempel - Azure"
-description: "Lär dig hur du installerar tillägget varaktiga funktioner för Azure Functions för portalen utveckling eller Visual Studio-utveckling."
+title: Installera tillägget beständiga funktioner och exempel - Azure
+description: Lär dig hur du installerar tillägget varaktiga funktioner för Azure Functions för portalen utveckling eller Visual Studio-utveckling.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e1e8b019fe4632b0b6ac02888b562d6718c14fcc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3451f268e78df6efa5e3fc489b88415349efe169
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installera tillägget beständiga funktioner och exempel (Azure-funktioner)
 
@@ -77,12 +77,17 @@ Visual Studio Code tillhandahåller en lokal utveckling som omfattar alla störr
 3. Installera Azure Functions varaktiga tillägg genom att köra följande i ett kommando fråga / terminal fönstret:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.2.0-beta3
     ```
-4. Kör Azure Storage-emulatorn eller uppdatera den *local.appsettings.json* filen verkliga Azure Storage-anslutningssträng.
-3. Öppna projektet i Visual Studio-koden. 
-5. Börja med instruktioner om hur du kör exemplet [fungerar länkning – Hello sekvens exempel](durable-functions-sequence.md). Exemplet kan köra lokalt eller publiceras på Azure.
-6. Starta projektet genom att köra kommandot fråga / terminal följande kommando:
+4. Installera Azure Functions Twilio tillägg genom att köra följande i ett kommando fråga / terminal fönstret:
+
+    ```bash
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta4
+    ```
+5. Kör Azure Storage-emulatorn eller uppdatera den *local.appsettings.json* filen verkliga Azure Storage-anslutningssträng.
+6. Öppna projektet i Visual Studio-koden. 
+7. Börja med instruktioner om hur du kör exemplet [fungerar länkning – Hello sekvens exempel](durable-functions-sequence.md). Exemplet kan köra lokalt eller publiceras på Azure.
+8. Starta projektet genom att köra kommandot fråga / terminal följande kommando:
     ```bash
     func host start
     ```

@@ -1,12 +1,12 @@
 ---
-title: "Felsökning av Enterprise tillstånd centrala inställningar i Azure Active Directory | Microsoft Docs"
-description: "Ger svar på frågor IT-administratörer kan ha om inställningar och data appsynkronisering."
+title: Felsökning av Enterprise tillstånd centrala inställningar i Azure Active Directory | Microsoft Docs
+description: Ger svar på frågor IT-administratörer kan ha om inställningar och data appsynkronisering.
 services: active-directory
-keywords: "Enterprise tillstånd centrala inställningar för windows-moln, vanliga frågor och svar för enterprise tillstånd centrala"
-documentationcenter: 
+keywords: Enterprise tillstånd centrala inställningar för windows-moln, vanliga frågor och svar för enterprise tillstånd centrala
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
 ms.service: active-directory
 ms.workload: identity
@@ -17,11 +17,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: 8ee3b523baf562b06bd5f7d652a431e1d4553d5c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: d9936da3ee1b0cfb4ee6e834a838798a35140620
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Felsökning av Enterprise tillstånd centrala inställningar i Azure Active Directory
 
@@ -47,7 +47,7 @@ Om du inte kan lösa problemet med riktlinjerna nedan kan du kontakta vår suppo
 
 Inklusive den här informationen hjälper oss att lösa problemet så snabbt som möjligt.
 
-## <a name="troubleshooting-and-diagnosing-issues"></a>Felsökning och diagnos av problem
+## <a name="troubleshooting-and-diagnosing-issues"></a>Felsökning och diagnostisera problem
 Det här avsnittet innehåller förslag på hur du felsöker och diagnostisera problem relaterade till Enterprise tillstånd nätverksväxling.
 
 ## <a name="verify-sync-and-the-sync-your-settings-settings-page"></a>Kontrollera synkronisering och inställningssidan ”synkronisera dina inställningar” 
@@ -78,7 +78,7 @@ Under vissa förhållanden Enterprise tillstånd centrala kan det hända att syn
 
 **Potentiella problem**: synkronisering kan misslyckas om administratören konfigurerar principen för villkorlig åtkomst för Active Directory Federation Services Multifaktorautentisering och åtkomsttoken på enheten upphör att gälla. Se till att du logga in och logga ut med Microsoft Passport för arbetsplats PIN-kod eller slutföra Multifaktorautentisering vid åtkomst till andra Azure-tjänster som Office 365.
 
-###<a name="event-viewer"></a>Loggboken
+### <a name="event-viewer"></a>Loggboken
 För avancerad felsökning kan Loggboken användas för att söka efter specifika fel. Dessa beskrivs i tabellen nedan. Händelser kan hittas under Loggboken > program- och tjänstloggar > **Microsoft** > **Windows** > **SettingSync** och identity-relaterade problem med synkronisering av **Microsoft** > **Windows** > **Azure AD**.
 
 
@@ -154,8 +154,8 @@ Ansluta enheten till ett företagsnätverk så att synkroniseringen kan återupp
 Användaren behöver frånkoppling från och ansluta enheten till molnet. För att göra det loggar du in som lokal administratör och frånkoppling från enheten genom att gå till **inställningar** > **System** > **om** och välj ”hantera eller koppla från arbetet eller skolan”. Rensa filerna nedan och Azure AD Join enheten igen i **inställningar** > **System** > **om** och välja ”ansluta till arbetet eller skolan”. Fortsätta att ansluta enheten till Azure Active Directory och slutföra flödet.
 
 I steget rensning rensa följande filer:
-- Settings.dat i`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
-- Alla filer under mappen`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
+- Settings.dat i `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
+- Alla filer under mappen `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
 
 ---
 

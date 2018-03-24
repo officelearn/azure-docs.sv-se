@@ -1,26 +1,30 @@
 ---
-title: "Översikt över Liveströmning med Azure Media Services | Microsoft Docs"
-description: "Det här avsnittet ger en översikt över direktsänd strömning med Azure Media Services."
+title: Översikt över Liveströmning med Azure Media Services | Microsoft Docs
+description: Det här avsnittet ger en översikt över direktsänd strömning med Azure Media Services.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 6f500f25129470a679c75cae6cd1abc9d71b72a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 451513c364978348eba922f5cf42b6e6c79f8700
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Översikt över Liveströmning med Azure Media Services
+
+> [!NOTE]
+> Startar den 12 maj 2018 live-kanaler kommer inte längre stöd för RTP/MPEG-2-transportström infogningsprotokollet. Migrera från RTP/MPEG-2 till RTMP eller fragmenterad MP4 (Smooth Streaming) infognings-protokoll.
+
 ## <a name="overview"></a>Översikt
 När leverera händelser via strömning live med Azure Media Services ingår oftast följande komponenter:
 
@@ -66,7 +70,7 @@ Följande tabell innehåller en guide för att jämföra två kanaltyper som st�
 | Maximal upplösning, antalet lager |1080p, 8 lager 60 + fps |720p, 6 lager 30 fps |
 | Inkommande protokoll |RTMP, Smooth Streaming |RTMP, Smooth Streaming och RTP |
 | Pris |Finns det [sida med priser](https://azure.microsoft.com/pricing/details/media-services/) och klicka på fliken ”Live Video” |Finns det [sida med priser](https://azure.microsoft.com/pricing/details/media-services/) |
-| Maximal körtid |24 x 7 |8 timmar |
+| Maximal körtid |Dygnet runt |8 timmar |
 | Stöd för att infoga pekdatorer |Nej |Ja |
 | Stöd för ad-signalering |Nej |Ja |
 | Direkt CEA 608/708 etiketter |Ja |Ja |
@@ -80,7 +84,7 @@ I följande diagram visas de huvudsakliga delarna i AMS-plattformen som ingår i
 
 ![Live-arbetsflöde](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
-Mer information finns i [Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
+Mer information finns i [Arbeta med kanaler som tar emot liveström i flera bithastigheter från lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
 
 ## <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services
 I följande diagram visas de huvudsakliga delarna i AMS-plattformen som ingår i arbetsflödet för liveuppspelning där en kanal är aktiverad för att utföra Live Encoding med Media Services.

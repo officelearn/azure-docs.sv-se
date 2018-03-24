@@ -1,6 +1,6 @@
 ---
-title: "Översikt över dela ögonblicksbilder för Azure-filer (förhandsversion) | Microsoft Docs"
-description: "En ögonblicksbild av en resurs är en skrivskyddad version av en resurs i Azure-filer som hämtas vid en tidpunkt som ett sätt att säkerhetskopiera resursen."
+title: Översikt över dela ögonblicksbilder för Azure-filer (förhandsversion) | Microsoft Docs
+description: En ögonblicksbild av en resurs är en skrivskyddad version av en resurs i Azure-filer som hämtas vid en tidpunkt som ett sätt att säkerhetskopiera resursen.
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c309804f33fc0e5b2091e18dfe5fe3c9849a2709
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a6b80c134351429ec85a20f7ab83b7674b8b7352
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-share-snapshots-for-azure-files-preview"></a>Översikt över dela ögonblicksbilder för Azure-filer (förhandsgranskning)
 Azure Files ger möjlighet att ta resursen ögonblicksbilder av filresurser. Dela ögonblicksbilder (förhandsgranskning) avbilda tillstånd för filresurs då i tid. Den här artikeln beskrivs vilka funktioner som ger resursen ögonblicksbilder och hur du kan dra nytta av dem i din anpassade användningsfall.
@@ -48,7 +48,7 @@ När en ögonblicksbild av en resurs har skapats kan kan den läsa, kopieras, el
 
 Dela ögonblicksbild kapaciteten tillhandahålls på filnivå för resursen. Hämtning av tillhandahålls på enskilda filer nivå, så att återställa enskilda filer. Du kan återställa en fullständig filresurs med hjälp av SMB, REST-API, portalen, klientbiblioteket eller PowerShell/CLI verktygsuppsättning.
 
-En resurs ögonblicksbild av en filresurs är identisk med dess grundläggande filresurs. Den enda skillnaden är att en **DateTime** värdet läggs till resurs-URI för att visa den tid då resursen ögonblicksbilden togs. Till exempel om en filresurs URI är http://storagesample.core.file.windows.net/myshare, dela ögonblicksbild URI liknar:
+En resurs ögonblicksbild av en filresurs är identisk med dess grundläggande filresurs. Den enda skillnaden är att en **DateTime** värdet läggs till resurs-URI för att visa den tid då resursen ögonblicksbilden togs. Till exempel om en filresurs URI är http://storagesample.core.file.windows.net/myshare, dela ögonblicksbilden URI liknar:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -98,5 +98,5 @@ Dela ögonblicksbilder skyddar bara på filnivå. Dela ögonblicksbilder hindra 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Arbeta med ögonblicksbilder för resursen](storage-how-to-use-files-snapshots.md)
-* [Dela ögonblicksbild vanliga frågor och svar](storage-files-faq.md)
+* [Dela ögonblicksbild vanliga frågor och svar](storage-files-faq.md#share-snapshots)
 

@@ -1,39 +1,51 @@
-När du skapar en virtuell nätverksgateway måste du ange vilken gateway-SKU som du vill använda. Välj SKU: er som uppfyller dina krav baserat på typerna av arbetsbelastning, genomflöden, funktioner och servicenivåavtal.
+---
+title: ta med fil
+description: ta med fil
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 05dc8ae48a9164e4f7118d378ab0eb7c30a4249e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/23/2018
+---
+När du skapar en virtuell nätverksgateway måste du ange vilken gateway-SKU som du vill använda. Välj den SKU som uppfyller dina krav baserat på typerna av arbetsbelastningar, genomflöden, funktioner och servicenivåavtal.
 
-[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
+###  <a name="benchmark"></a>Gateway-SKU: er av tunnel, anslutning och dataflöde
 
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
-###  <a name="workloads"></a>Produktion *jämfört med* Arbetsbelastningar för utvecklingstest
+[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
 
-På grund av skillnader i serviceavtal och funktioner, rekommenderar vi följande SKU: er för produktion *jämfört med* utv-test:
+###  <a name="feature"></a>Gateway-SKU: er av funktioner
 
-| **Arbetsbelastning**                       | **SKU: er**               |
-| ---                                | ---                    |
-| **Produktion, kritiska arbetsbelastningar** | VpnGw1 VpnGw2, VpnGw3 |
-| **Utv-test eller konceptbevis**   | Basic                  |
-|                                    |                        |
-
-Om du använder gamla SKU: er är rekommendationerna för produktion-SKU:er Standard och HighPerformance. Mer information om gamla SKU:er finns i [Gateway SKUs (legacy SKUs)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md) (Gateway-SKU:er (äldre SKU:er)).
-
-###  <a name="feature"></a>Funktionsuppsättningarna för gateway-SKU:er
-
-Nya gatewayen SKU: er förenklar funktionsuppsättningarna via gatewayer:
+Den nya VPN-gatewayen SKU: er förenkla funktionsuppsättningarna erbjuds via gateway:
 
 | **SKU**| **Funktioner**|
 | ---    | ---         |
-|**Basic**   | **Ruttbaserad VPN**: 10 tunnlar med P2S; ingen RADIUS-autentisering för P2S; ingen IKEv2 för P2S<br>**Principbaserad VPN**: (IKEv1): 1 tunnel; ingen P2S|
-| **VpnGw1, VpnGw2 och VpnGw3** | **Ruttbaserad VPN**: upp till 30 tunnlar ( * ), P2S, BGP, aktiv-aktiv, anpassade IPsec/IKE-principer, samtidig ExpressRoute/VPN |
+|**Basic** (**)   | **Ruttbaserad VPN**: 10 tunnlar med P2S; ingen RADIUS-autentisering för P2S; ingen IKEv2 för P2S<br>**Principbaserad VPN**: (IKEv1): 1 tunnel; ingen P2S|
+| **VpnGw1, VpnGw2 och VpnGw3** | **Ruttbaserad VPN**: upp till 30 tunnlar (*), P2S, BGP, aktiv-aktiv, anpassade IPsec/IKE-principen, ExpressRoute/VPN-samverkan |
 |        |             |
 
 ( * ) Du kan konfigurera ”PolicyBasedTrafficSelectors” för att ansluta en ruttbaserad VPN-gateway (VpnGw1 VpnGw2, VpnGw3) till flera lokala principbaserade brandväggsenheter. Referera till [Ansluta VPN-gatewayer till flera lokala principbaserad VPN-enheter med hjälp av PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) för mer information.
 
-###  <a name="resize"></a>Ändra storlek på gateway-SKU: er
+(**) Grundläggande SKU: N anses vara en äldre SKU. Grundläggande SKU: N har vissa funktionsbegränsningar. Det går inte att ändra storlek på en gateway som använder en grundläggande SKU till en ny gateway SKU: er, i stället måste du ändra till en ny SKU som omfattar att ta bort och återskapa din VPN-gateway.
 
-1. Du kan ändra storlek mellan VpnGw1, VpnGw2 och VpnGw3 SKU: er.
-2. När du arbetar med gamla gatewayen-SKU: er, kan du ändra storlek mellan Basic, Standard och HighPerformance SKU: er.
-2. Du **kan inte** ändra från HighPerformance-Basic/Standard SKU: er till nya VpnGw3-VpnGw1/VpnGw2 SKU: er. Du måste i stället [migrera](#migrate) till nya SKU: er.
+###  <a name="workloads"></a>Gateway-SKU: er – produktion vs. Arbetsbelastningar för utvecklingstest
 
-###  <a name="migrate"></a>Migrera från gamla SKU: er till nya SKU: er
+På grund av skillnader i SLA: er och funktioner rekommenderar vi följande SKU: er för produktion kontra dev-test:
 
-[!INCLUDE [Migrate SKU](./vpn-gateway-migrate-legacy-sku-include.md)]
+| **Arbetsbelastning**                       | **SKU: er**               |
+| ---                                | ---                    |
+| **Produktion, kritiska arbetsbelastningar** | VpnGw1 VpnGw2, VpnGw3 |
+| **Utv-test eller konceptbevis**   | Basic (**)                 |
+|                                    |                        |
+
+(**) Grundläggande SKU: N anses vara en äldre SKU och har funktionsbegränsningar. Kontrollera att funktionen som du behöver stöds innan du använder grundläggande SKU: N.
+
+Om du använder de gamla SKU: er (äldre) är produktion SKU rekommendationerna Standard och HighPerformance. Mer information och instruktioner för gamla SKU: er Se [Gateway-SKU: er (äldre)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).

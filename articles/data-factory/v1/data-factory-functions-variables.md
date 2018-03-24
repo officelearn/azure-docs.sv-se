@@ -1,10 +1,9 @@
 ---
 title: Data Factory-funktioner och systemvariabler | Microsoft Docs
-description: "Visar en lista över Azure Data Factory-funktioner och systemvariabler"
-documentationcenter: 
+description: Visar en lista över Azure Data Factory-funktioner och systemvariabler
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 services: data-factory
 ms.assetid: b6b3c2ae-b0e8-4e28-90d8-daf20421660d
 ms.service: data-factory
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f42ba7ed9c07a9d0bc73929db2a095248ad7d56f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b9884dac8a2716cbce6fca7b8172f7d272ad8f2f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - funktioner och systemvariabler
 > [!NOTE]
@@ -59,7 +58,7 @@ Du kan använda funktionerna i data factory tillsammans med systemvariabler för
 
 1. Anger att markeringen datafrågor (finns connector artiklar som refererar till den [Data Movement aktiviteter](data-factory-data-movement-activities.md) artikel.
    
-   Syntax för att anropa en funktion som data factory är:  **$$ <function>**  för val av datafrågor och andra egenskaper i aktiviteten och datauppsättningar.  
+   Syntax för att anropa en funktion som data factory är: **$$ <function>** för val av datafrågor och andra egenskaper i aktiviteten och datauppsättningar.  
 2. Ange indata beroenden med data factory-funktioner i aktivitetssamling indata.
    
     $$ behövs inte för att ange indata beroende uttryck.     
@@ -80,12 +79,12 @@ I tabellerna nedan listas funktionerna i Azure Data Factory:
 
 | Kategori | Funktion | Parametrar | Beskrivning |
 | --- | --- | --- | --- |
-| Tid |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Lägger till Y timmar angiven tid X. <br/><br/>Exempel:`9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
-| Tid |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Lägger till Y minuter X.<br/><br/>Exempel:`9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Tid |StartOfHour(X) |X: Datetime |Hämtar starttiden för timme som representeras av timkomponenten för X. <br/><br/>Exempel:`StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Tid |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Lägger till Y timmar angiven tid X. <br/><br/>Exempel: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
+| Tid |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Lägger till Y minuter X.<br/><br/>Exempel: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
+| Tid |StartOfHour(X) |X: Datetime |Hämtar starttiden för timme som representeras av timkomponenten för X. <br/><br/>Exempel: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
 | Date |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |Lägger till Y dagar X. <br/><br/>Exempel: 9/15/2013 12:00:00 PM + 2 dagar = 9/17/2013 12:00:00 PM.<br/><br/>Du kan ta bort dagar för genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
 | Date |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |Lägger till Y månader X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Du kan ta bort månader för genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
-| Date |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Lägger till Y * tre månader x.<br/><br/>Exempel:`9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
+| Date |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Lägger till Y * tre månader x.<br/><br/>Exempel: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
 | Date |AddWeeks(X,Y) |X: DateTime<br/><br/>Y: int |Lägger till Y * 7 dagar x<br/><br/>Exempel: 9/15/2013 12:00:00 PM + 1 vecka = 9/22/2013 12:00:00 PM<br/><br/>Du kan ta bort veckor för genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
 | Date |AddYears(X,Y) |X: DateTime<br/><br/>Y: int |Lägger till Y år X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Du kan ta bort år för genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
 | Date |Day(X) |X: DateTime |Hämtar dagkomponenten för X.<br/><br/>Exempel: `Day of 9/15/2013 12:00:00 PM is 9`. |
@@ -100,7 +99,7 @@ I tabellerna nedan listas funktionerna i Azure Data Factory:
 | Text |Format(X) |X: string-variabel |Formaterar texten (Använd `\\'` kombination för att undvika `'` tecken).|
 
 > [!IMPORTANT]
-> När du använder en funktion i en annan funktion behöver du inte använda  **$$**  prefix för inre funktionen. Till exempel: $$Text.Format ('PartitionKey eq \\' my_pkey_filter_value\\' och ge RowKey \\' {0: ÅÅÅÅ-MM-dd: mm: ss}\\'', Time.AddHours (SliceStart -6)). Observera att i det här exemplet  **$$**  prefix används inte för den **Time.AddHours** funktion. 
+> När du använder en funktion i en annan funktion behöver du inte använda **$$** prefix för inre funktionen. Till exempel: $$Text.Format ('PartitionKey eq \\' my_pkey_filter_value\\' och ge RowKey \\' {0: ÅÅÅÅ-MM-dd: mm: ss}\\'', Time.AddHours (SliceStart -6)). Observera att i det här exemplet **$$** prefix används inte för den **Time.AddHours** funktion. 
 
 #### <a name="example"></a>Exempel
 I följande exempel inkommande och utgående parametrar för aktiviteten Hive bestäms med hjälp av den `Text.Format` funktionen och SliceStart systemvariabeln. 

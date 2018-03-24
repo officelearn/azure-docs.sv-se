@@ -1,9 +1,9 @@
 ---
-title: "Kom igång med roller, behörigheter och säkerhet med Azure-Monitor | Microsoft Docs"
-description: "Lär dig hur du använder Azure-Monitor inbyggda roller och behörigheter för att begränsa åtkomsten till övervakning resurser."
+title: Kom igång med roller, behörigheter och säkerhet med Azure-Monitor | Microsoft Docs
+description: Lär dig hur du använder Azure-Monitor inbyggda roller och behörigheter för att begränsa åtkomsten till övervakning resurser.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 2686e53b-72f0-4312-bcd3-3dc1b4a9b912
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: f8767073bb7a6723088bb2727346d23ec8872cd1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Kom igång med roller, behörigheter och säkerhet med Azure-Monitor
 Många grupper behöver strikt reglera åtkomst till övervakningsdata och inställningar. Till exempel om du har gruppmedlemmar som arbetar enbart om hur du övervakar (supporttekniker, devops engineers) eller om du använder en leverantör av hanterade tjänster, kanske du vill bevilja dem åtkomst till endast övervakningsdata samtidigt begränsa deras möjlighet att skapa, ändra, eller ta bort resurser. Den här artikeln visar hur du snabbt vill använda en inbyggd övervakning RBAC roll till en användare i Azure eller skapa egna anpassade roll för en användare behöver begränsade behörigheter för övervakning. Sedan diskuterar det säkerhetsaspekter för dina Azure-Monitor-relaterade resurser och hur du kan begränsa åtkomst till de data som de innehåller.
@@ -30,6 +30,7 @@ Azure övervakaren inbyggda roller är utformade för att begränsa åtkomsten t
 Personer som har rollen som läsare övervakning kan visa alla övervakningsdata i en prenumeration men kan inte ändra en resurs eller redigera några inställningar som rör övervakning resurser. Den här rollen är lämplig för användare i en organisation, till exempel support eller åtgärder tekniker, som behöver kunna:
 
 * Visa övervakning instrumentpaneler i portalen och skapa sina egna privata övervakning instrumentpaneler.
+* Visa Varningsregler som definierats i [Azure aviseringar](monitoring-overview-unified-alerts.md)
 * Frågan för mått med hjälp av den [REST-API för Azure-Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-cmdlets](insights-powershell-samples.md), eller [plattformsoberoende CLI](insights-cli-samples.md).
 * Fråga aktivitetsloggen med hjälp av portalen, Azure övervakaren REST API: et, PowerShell-cmdlets eller plattformsoberoende CLI.
 * Visa den [diagnostikinställningar](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) för en resurs.
@@ -49,13 +50,13 @@ Personer som har rollen som läsare övervakning kan visa alla övervakningsdata
 > 
 > 
 
-### <a name="monitoring-contributor"></a>Övervakning av deltagare
+### <a name="monitoring-contributor"></a>Övervaka deltagare
 Personer som har tilldelats rollen övervakning deltagare kan visa alla övervakningsdata i en prenumeration och skapa eller ändra inställningar för övervakning, men det går inte att ändra andra resurser. Den här rollen är en supermängd övervakning läsare och är lämplig för medlemmar i en organisation övervakning team eller hanterade tjänsteleverantörer, förutom behörigheterna som ovan, måste också kunna:
 
 * Publicera övervakning instrumentpaneler som en delad instrumentpanel.
 * Ange [diagnostikinställningar](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) för en resource.*
 * Ange den [logga profil](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) för en subscription.*
-* Ange varning aktivitet och inställningar.
+* Ställ in Varningsregler aktivitet och inställningar via [Azure aviseringar](monitoring-overview-unified-alerts.md).
 * Skapa webbtester med Application Insights och komponenter.
 * Lista logganalys-arbetsytan delade nycklar.
 * Aktivera eller inaktivera logganalys intelligence Pack.
@@ -74,22 +75,24 @@ Om ovanstående inbyggda roller inte passar exakt ditt team, kan du [skapa en an
 
 | Åtgärd | Beskrivning |
 | --- | --- |
-| Ta bort Microsoft.Insights/ActionGroups/[Read, skriva] |Läs/Skriv/ta bort åtgärdsgrupper. |
-| Ta bort Microsoft.Insights/ActivityLogAlerts/[Read, skriva] |Läs/Skriv/ta bort aktivitet loggen aviseringar. |
-| Ta bort Microsoft.Insights/AlertRules/[Read, skriva] |Läs/Skriv/ta bort Varningsregler (mått varningar). |
+| Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Läs/Skriv/ta bort åtgärdsgrupper. |
+| Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Läs/Skriv/ta bort aktivitet loggen aviseringar. |
+| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Läs/Skriv/ta bort Varningsregler (från aviseringar klassiska). |
 | Microsoft.Insights/AlertRules/Incidents/Read |Lista över incidenter (historik över varningsregeln som utlöses) för Varningsregler. Detta gäller endast för portalen. |
-| Ta bort Microsoft.Insights/AutoscaleSettings/[Read, skriva] |Läs/Skriv/ta bort Autoskala inställningar. |
-| Ta bort Microsoft.Insights/DiagnosticSettings/[Read, skriva] |Diagnostikinställningar för Läs/Skriv/ta bort. |
+| Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Läs/Skriv/ta bort Autoskala inställningar. |
+| Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Diagnostikinställningar för Läs/Skriv/ta bort. |
 | Microsoft.Insights/EventCategories/Read |Räkna upp alla kategorier som är möjliga i aktivitetsloggen. Används av Azure-portalen. |
 | Microsoft.Insights/eventtypes/digestevents/Read |Den här behörigheten krävs för användare som behöver åtkomst till aktivitetsloggar via portalen. |
 | Microsoft.Insights/eventtypes/values/Read |Lista över aktivitetsloggen händelser (management-händelser) i en prenumeration. Den här behörigheten gäller både programmässiga och portal åtkomst till aktivitetsloggen. |
-| Ta bort Microsoft.Insights/ExtendedDiagnosticSettings/[Read, skriva] | Läs/Skriv/ta bort diagnostikinställningar för nätverket flödet loggar. |
+| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Läs/Skriv/ta bort diagnostikinställningar för nätverket flödet loggar. |
 | Microsoft.Insights/LogDefinitions/Read |Den här behörigheten krävs för användare som behöver åtkomst till aktivitetsloggar via portalen. |
-| Ta bort Microsoft.Insights/LogProfiles/[Read, skriva] |Läs/Skriv/ta bort loggen profiler (streaming aktivitetsloggen till händelse-hubb eller lagring). |
-| Ta bort Microsoft.Insights/MetricAlerts/[Read, skriva] |Läs/Skriv/ta bort nära realtid mått aviseringar (förhandsversion). |
+| Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Läs/Skriv/ta bort loggen profiler (streaming aktivitetsloggen till händelse-hubb eller lagring). |
+| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Läs/Skriv/ta bort nära realtid mått aviseringar |
 | Microsoft.Insights/MetricDefinitions/Read |Läs måttdefinitionerna (lista över tillgängliga mått typer för en resurs). |
 | Microsoft.Insights/Metrics/Read |Läsa måtten för en resurs. |
 | Microsoft.Insights/Register/Action |Registerresursleverantören Azure-Monitor. |
+| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Läs/Skriv/ta bort loggen aviseringar för Application Insights. |
+
 
 
 > [!NOTE]
@@ -118,9 +121,9 @@ New-AzureRmRoleDefinition -Role $role
 2. Diagnostikloggar som loggar som orsakat av en resurs.
 3. Mått som orsakat av resurser.
 
-Alla tre av följande datatyper kan lagras i ett lagringskonto eller strömmas till Event Hub, vilka båda allmänna Azure-resurser. Eftersom de är allmänna resurser är att skapa, ta bort och att nå dem en privilegierad åtgärd som vanligtvis är reserverade för en administratör. Vi rekommenderar att du använder följande metoder för övervakning-relaterade resurser för att förhindra missbruk:
+Alla tre av följande datatyper kan lagras i ett lagringskonto eller strömmas till Event Hub, vilka båda allmänna Azure-resurser. Eftersom de är allmänna resurser är att skapa, ta bort och att nå dem en privilegierad åtgärd som reserverats för en administratör. Vi rekommenderar att du använder följande metoder för övervakning-relaterade resurser för att förhindra missbruk:
 
-* Använd ett enda, särskilt storage-konto för övervakningsdata. Om du behöver dela övervakningsdata i flera lagringskonton Dela aldrig användning av ett lagringskonto mellan övervakning och icke-övervakning av data, som det av misstag kan ge dem som bara behöver åtkomst till övervakningsdata (t.ex. en tredje parts SIEM) åtkomst till icke-övervakning av data.
+* Använd ett enda, särskilt storage-konto för övervakningsdata. Om du behöver dela övervakningsdata i flera lagringskonton Dela aldrig användning av ett lagringskonto mellan övervakning och icke-övervakning av data, som det av misstag kan ge dem som bara behöver åtkomst till övervakningsdata (till exempel en SIEM från tredje part) åtkomst till icke-övervakning av data.
 * Använd ett enda, särskilt Service Bus eller Event Hub namnområde i alla diagnostikinställningar av samma skäl som ovan.
 * Begränsa åtkomsten till relaterade till prestandaövervakning storage-konton eller event hubs genom att hålla dem i en separat resursgrupp och [använda omfång](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) på din övervakning roller för att begränsa åtkomsten till endast resursgruppen.
 * Tilldela behörigheten ListKeys för storage-konton eller händelsehubbar definitionsområdet prenumerationen aldrig när en användare bara behöver åtkomst till övervakningsdata. I stället ge dessa behörigheter till användare på en resurs eller resursgrupp (om du har en särskild övervakning resursgrupp) omfång.

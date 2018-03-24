@@ -1,6 +1,6 @@
 ---
 title: Apache Storm skrivning till Storage-Data Lake Store - Azure HDInsight | Microsoft Docs
-description: "Lär dig hur du använder Apache Storm för att skriva till HDFS-kompatibla lagringen för HDInsight. Azure Storage eller Azure Data Lake Store ger HDFS comptabile lagring för HDInsight. Detta dokument och associerad exemplet visar hur komponenten HdfsBolt kan användas för att skriva till standardlagring av ett Storm på HDInsight-kluster."
+description: Lär dig hur du använder Apache Storm för att skriva till HDFS-kompatibla lagringen för HDInsight. Azure Storage eller Azure Data Lake Store ger HDFS comptabile lagring för HDInsight. Detta dokument och associerad exemplet visar hur komponenten HdfsBolt kan användas för att skriva till standardlagring av ett Storm på HDInsight-kluster.
 services: hdinsight
 documentationcenter: na
 author: Blackmist
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 908a1130171cc091b4d95d4532cc3bb95edb44f9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2310894e7257d0ddb919406a8f297089189a9484
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Skriva till HDFS från Apache Storm på HDInsight
 
-Lär dig hur du använder Storm för att skriva data till HDFS-kompatibla lagring som används av Apache Storm på HDInsight. HDInsight kan använda båda Azure Storage- och Azure Data Lake lagra som HDFS comptabile lagring. Storm tillhandahåller en [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) komponent som skriver data till HDFS. Det här dokumentet innehåller information om hur du skriver till båda typerna av lagring från HdfsBolt. 
+Lär dig hur du använder Storm för att skriva data till HDFS-kompatibla lagring som används av Apache Storm på HDInsight. HDInsight kan använda båda Azure Storage- och Azure Data Lake lagra som HDFS-kompatibla lagring. Storm tillhandahåller en [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) komponent som skriver data till HDFS. Det här dokumentet innehåller information om hur du skriver till båda typerna av lagring från HdfsBolt. 
 
 > [!IMPORTANT]
 > Exempel topologin som används i det här dokumentet är beroende av komponenter som ingår i Storm på HDInsight. Det kan behöva ändras för att arbeta med Azure Data Lake Store tillsammans med andra Apache Storm-kluster.
 
 ## <a name="get-the-code"></a>Hämta koden
 
-Projektet som innehåller den här topologin är tillgänglig för hämtning från [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
+Projektet som innehåller den här topologin är tillgänglig för hämtning från [ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
 
 För att kompilera det här projektet, behöver du följande konfiguration för din utvecklingsmiljö:
 
@@ -134,7 +134,7 @@ Den här YAML definierar följande:
 * `rotationPolicy`: Definierar när du roterar filer. I det här exemplet utförs ingen rotation.
 * `hdfs-bolt`: Om du använder tidigare komponenter som konfigurationsparametrar för den `HdfsBolt` klass.
 
-Läs mer på framework som [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+Läs mer på framework som [ https://storm.apache.org/releases/1.1.0/flux.html ](https://storm.apache.org/releases/1.1.0/flux.html).
 
 ## <a name="configure-the-cluster"></a>Konfigurera klustret
 
@@ -148,7 +148,7 @@ Information om hur du använder det här skriptet med ditt kluster finns i [anpa
 
 ## <a name="build-and-package-the-topology"></a>Skapa och paket-topologi
 
-1. Hämta exempelprojekt från [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) i din utvecklingsmiljö.
+1. Hämta exempelprojekt från [ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) i din utvecklingsmiljö.
 
 2. Från en kommandotolk terminal eller skal session, ändra kataloger till roten på det hämta projektet. För att bygga och paketera topologi, använder du följande kommando:
    

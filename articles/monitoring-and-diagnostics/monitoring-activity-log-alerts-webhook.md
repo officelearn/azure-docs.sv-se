@@ -1,10 +1,10 @@
 ---
-title: "Förstå webhook-schemat som används i aktiviteten loggen aviseringar | Microsoft Docs"
-description: "Läs mer om schemat för JSON som skickas till en Webhooksadressen när en aktivitet loggen avisering aktiveras."
+title: Förstå webhook-schemat som används i aktiviteten loggen aviseringar | Microsoft Docs
+description: Läs mer om schemat för JSON som skickas till en Webhooksadressen när en aktivitet loggen avisering aktiveras.
 author: johnkemnetz
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: f71714774d7ad54d7eb2132e8c20c87f972157ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks för Azure aktiviteten Logga varningar
 Som en del av definitionen för en grupp, kan du konfigurera webhook slutpunkter för att ta emot aviseringar för aktiviteten loggen. Du kan använda webhooks, för att vidarebefordra meddelandena till andra system för efterbearbetning eller anpassade åtgärder. Den här artikeln visar hur nyttolasten för HTTP POST till en webhook ser ut.
@@ -31,7 +31,7 @@ Webhooken kan du använda tokenbaserad auktorisering för autentisering. Webhook
 ## <a name="payload-schema"></a>Nyttolasten i schemat
 JSON-nyttolast som ingår i POST-åtgärden skiljer sig baserat på den nyttolasten data.context.activityLog.eventSource fält.
 
-###<a name="common"></a>Common
+### <a name="common"></a>Common
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -58,7 +58,7 @@ JSON-nyttolast som ingår i POST-åtgärden skiljer sig baserat på den nyttolas
     }
 }
 ```
-###<a name="administrative"></a>Administrativ
+### <a name="administrative"></a>Administrativ
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -85,7 +85,7 @@ JSON-nyttolast som ingår i POST-åtgärden skiljer sig baserat på den nyttolas
 }
 
 ```
-###<a name="servicehealth"></a>ServiceHealth
+### <a name="servicehealth"></a>ServiceHealth
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -155,7 +155,7 @@ Information om specifika schemat på alla andra aktiviteten loggen aviseringar f
 | eventSource |Namnet på Azure-tjänsten eller infrastruktur som genererade händelsen. |
 | httpRequest |Begäran innehåller vanligtvis clientRequestId, clientIpAddress och HTTP-metoden (till exempel PLACERA). |
 | nivå |Ett av följande värden: kritisk, fel, varningar och information. |
-| Åtgärds-ID |Vanligtvis ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
+| operationId |Vanligtvis ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
 | operationName |Namnet på åtgärden. |
 | properties |Egenskaper för händelsen. |
 | status |Sträng. Status för åtgärden. Vanliga värden är igång, pågår, slutfört, misslyckades, aktiv och löst. |

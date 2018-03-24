@@ -1,24 +1,24 @@
 ---
-title: "Logga Analytics vanliga frågor och svar | Microsoft Docs"
-description: "Svar på vanliga frågor och svar om Azure Log Analytics-tjänsten."
+title: Logga Analytics vanliga frågor och svar | Microsoft Docs
+description: Svar på vanliga frågor och svar om Azure Log Analytics-tjänsten.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 03/21/2018
 ms.author: magoedte
-ms.openlocfilehash: 0b27386cd0f9f3ae50314b8c5d7708aea3e3d028
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398a62cbba952f35f29c1b1f411a6d5b901d2973
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
 Den här Microsoft-FAQ är en lista över vanliga frågor om logganalys i Microsoft Azure. Om du har några ytterligare frågor om logganalys går du till den [diskussionsforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och dina frågor. När en fråga är vanliga vi lägga till den i den här artikeln så att den finns snabbt och enkelt.
@@ -51,19 +51,21 @@ S: Nej. Log Analytics är en skalbar molnbaserad tjänst som bearbetar och lagra
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>FRÅGOR. Hur felsöker jag om logganalys inte längre att samla in data?
 
-S: Om du på den kostnadsfria prisnivån och har skickat mer än 500 MB data under en dag, stoppar datainsamling för resten av dagen. Når den dagliga gränsen är en vanlig orsak till att logganalys slutar att samla in data eller data verkar saknas.
+S: Om du på den kostnadsfria prisnivån och har skickat mer än 500 MB data under en dag, stoppar datainsamling för resten av dagen. Når den dagliga gränsen är en vanlig orsak till att logganalys slutar att samla in data eller data verkar saknas.  
 
-Log Analytics skapar en händelse av typen *åtgärden* när datainsamlingen startar och stoppar. 
+Log Analytics skapar en händelse av typen *pulsslag* och kan användas för att avgöra om datainsamling avbryts. 
 
-Kör följande fråga i sökning för att kontrollera om du når den dagliga gränsen och data som saknas:`Type=Operation OperationCategory="Data Collection Status"`
+Kör följande fråga i sökning för att kontrollera om du når den dagliga gränsen och data som saknas: `Heartbeat | summarize max(TimeGenerated)`
 
-När datainsamlingen stoppar den *OperationStatus* är **varning**. När datainsamlingen startar, *OperationStatus* är **lyckades**. 
+Om du vill kontrollera en viss dator, kör du följande fråga: `Heartbeat | where Computer=="contosovm" | summarize max(TimeGenerated)`
+
+När datainsamlingen slutar, beroende på det tidsintervall som valts visas inte några poster som returneras.   
 
 I följande tabell beskrivs skäl som datainsamling stoppar och en rekommenderad åtgärd för att återuppta datainsamling:
 
 | Insamling av orsak stoppar                       | Att återuppta datainsamling |
 | -------------------------------------------------- | ----------------  |
-| Dagliga gränsen för ledigt data uppnåtts<sup>1</sup>       | Vänta tills nästa dag för samling som du vill starta om automatiskt eller<br> Ändra till en betald prisnivå |
+| Gränsen för ledigt data nåtts<sup>1</sup>       | Vänta tills nästa månad för samling som du vill starta om automatiskt eller<br> Ändra till en betald prisnivå |
 | Azure-prenumeration är i ett pausat tillstånd på grund av: <br> Kostnadsfri utvärderingsversion avslutades <br> Azure-pass upphört att gälla <br> Varje månad utgiftsgräns uppnåtts (till exempel på en MSDN- eller Visual Studio-prenumeration)                          | Konvertera till en betald prenumeration <br> Konvertera till en betald prenumeration <br> Ta bort gränsen eller vänta tills gränsen återställs |
 
 <sup>1</sup> om arbetsytan finns på den kostnadsfria prisnivån, du är begränsad till att skicka 500 MB data per dag till tjänsten. När du når den dagliga gränsen slutar datainsamlingen förrän följande dag. Data som skickas när datainsamling har stoppats är inte indexerat och är inte tillgängligt för sökning. När datainsamlingen återställs sker bearbetning endast för nya data som skickas. 
@@ -77,14 +79,13 @@ S: med stegen som beskrivs i [skapa en aviseringsregel](log-analytics-alerts-cre
 Ange när du skapar en avisering om när datainsamling slutar på:
 - **Namnet** till *datainsamling har stoppats*
 - **Allvarlighetsgrad** till *varning*
-- **Sökfråga** till`Type=Operation OperationCategory="Data Collection Status" OperationStatus=Warning`
-- **Tidsfönstret** till *2 timmar*.
-- **Varningsfrekvens** till en timme, eftersom användningsdata uppdateras en gång i timmen.
+- **Sökfråga** till`Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+- **Tidsfönstret** till *30 minuter*.
+- **Varna frekvens** till varje *tio* minuter.
 - **Skapa en avisering baserat på** som *antal resultat*
 - **Antalet resultat** som *större än 0*
 
-Använd stegen som beskrivs i [Lägga till åtgärder i varningsregler](log-analytics-alerts-actions.md) för att konfigurera e-post, webhook eller runbook-åtgärd för regeln.
-
+Den här aviseringen utlöses när frågan returnerar resultat om du har pulsslag saknas för mer än 15 minuter.  Använd stegen som beskrivs i [Lägga till åtgärder i varningsregler](log-analytics-alerts-actions.md) för att konfigurera e-post, webhook eller runbook-åtgärd för regeln.
 
 ## <a name="configuration"></a>Konfiguration
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>FRÅGOR. Kan jag ändra namnet på tabellen/blob-behållaren som används för att läsa från Azure Diagnostics (BOMULLSTUSS)?
@@ -141,9 +142,9 @@ Se till att du har behörighet i både Azure-prenumerationer.
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>FRÅGOR. Hur mycket data kan jag skicka via agenten till Log Analytics? Finns det en maximal mängd data per kund?
 A. Fria abonnemang anger en daglig fjärrskrivbordsanslutning 500 MB per arbetsytan. Standard och premium-planer har ingen gräns på mängden data som överförs. Som en molntjänst logganalys är utformad för att automatiskt skala upp till referensen volymen kommer från en kund – även om det är TB per dag.
 
-Logganalys-agent har utformats för att se till att den har en kompakta. En av våra kunder skrev en blogg om de utförs mot vår agent och hur stämpel som de var testerna. Datavolym varierar beroende på de lösningar som du aktiverar. Du kan hitta detaljerad information om datavolym och se uppdelningen av lösning i den [användning](log-analytics-usage.md) sidan.
+Logganalys-agent har utformats för att se till att den har en kompakta. Datavolym varierar beroende på de lösningar som du aktiverar. Du kan hitta detaljerad information om datavolym och se en analys på detaljnivå av lösning i den [användning](log-analytics-usage.md) sidan.
 
-Mer information kan du läsa en [kunden blogg](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) om låg storleken på OMS-agenten.
+Mer information kan du läsa en [kunden blogg](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) om kompakta OMS-Agent.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>FRÅGOR. Hur mycket nätverksbandbredd används av Microsofts hanteringsagent (MMA) när data skickades till Log Analytics?
 

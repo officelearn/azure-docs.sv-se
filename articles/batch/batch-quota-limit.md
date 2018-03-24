@@ -1,25 +1,25 @@
 ---
-title: "Tjänsten kvoter och gränser för Azure Batch | Microsoft Docs"
-description: "Lär dig mer om standard Azure Batch-kvoter, gränser och begränsningar och hur du begär kvoten ökar"
+title: Tjänsten kvoter och gränser för Azure Batch | Microsoft Docs
+description: Lär dig mer om standard Azure Batch-kvoter, gränser och begränsningar och hur du begär kvoten ökar
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/16/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 775db415e667729f6eecf8223a84f5ac0aa45c4c
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 3cc833e456571b63fa03574808529c8c501d7ab5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -53,6 +53,7 @@ Om du har skapat ett Batch-konto med poolen allokering inställd på **användar
 | Storlek för paketet (alla) |Uppskattat 195GB<sup>1</sup> |
 | Maximal startstorlek för aktiviteten | 32768 tecken<sup>2</sup> |
 | Maximal uppgiften livslängd | 7 dagar<sup>3</sup> |
+| Compute-noder i kommunikationen mellan noder aktiverat pool | 100 |
 
 <sup>1</sup> azure Storage-gränsen för högsta blob-blockstorlek<br />
 <sup>2</sup> innehåller resursfiler och miljövariabler<br />

@@ -1,12 +1,12 @@
 ---
 title: Installera Azure Backup-Server v2 | Microsoft Docs
-description: "Azure Backup-Server v2 ger förbättrad säkerhetskopiering för att skydda virtuella datorer, filer och mappar, arbetsbelastningar och mer. Lär dig mer om att installera eller uppgradera till Azure Backup Server v2."
+description: Azure Backup-Server v2 ger förbättrad säkerhetskopiering för att skydda virtuella datorer, filer och mappar, arbetsbelastningar och mer. Lär dig mer om att installera eller uppgradera till Azure Backup Server v2.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd7b76d9e06bc82ffd75f12131c2c247da05cc91
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-backup-server-v2"></a>Installera Azure Backup-Server v2
 
@@ -36,7 +36,7 @@ Du kan installera Backup Server v2 på Windows Server 2012 R2 eller Windows Serv
 ## <a name="upgrade-backup-server-to-v2"></a>Uppgradera reservserver till v2
 Uppgradera från Backup Server v1 till Backup Server v2, kontrollera att installationen har nödvändiga uppdateringar:
 
-- [Uppdatera skyddsagenter](backup-mabs-upgrade-to-v2.md#update-the-dpm-protection-agent) på skyddade servrar.
+- [Uppdatera skyddsagenter](backup-mabs-upgrade-to-v2.md#update-the-data-protection-manager-protection-agent) på skyddade servrar.
 - Uppgradera Windows Server 2012 R2 till Windows Server 2016.
 - Uppgradera Azure Backup Server fjärradministratör på alla produktionsservrar.
 - Se till att säkerhetskopieringen angetts fortsätta utan att starta om produktionsservern för.
@@ -74,7 +74,7 @@ Uppgradera från Backup Server v1 till Backup Server v2, kontrollera att install
 
   ![Installationsprogram – kontrollera om SQL-inställningar och installera](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
 
-8. På den **installationsinställningar** sidan, gör ändringar till den plats där säkerhetskopian Server är installerat eller till Scratch-plats. Välj **nästa**.
+8. På den **installationsinställningar** sidan, gör ändringar till den plats där säkerhetskopian Server är installerat eller till Scratch-plats. Välj **Nästa**.
 
   ![Installationsprogram - installationsinställningssidan](./media/backup-mabs-upgrade-to-v2/mabs-installer-s6-installation-settings.png)
 
@@ -115,7 +115,7 @@ Lägg till en volym i administratörskonsolen:
 
 I Backup Server anger du vilka arbetsbelastningar som är tilldelade till vilka volymer. Du kan exempelvis ange dyra volymer som stöder ett stort antal i/o-åtgärder per sekund (IOPS) för att lagra arbetsbelastningar som kräver ofta, högvolyms-säkerhetskopieringar. Ett exempel är SQL Server med transaktionsloggar.
 
-#### <a name="update-dpmdiskstorage"></a>Uppdatera DPMDiskStorage
+#### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
 Uppdatera egenskaperna för en volym i lagringspoolen i Backup Server med PowerShell-cmdlet Update DPMDiskStorage.
 
@@ -143,12 +143,12 @@ Skapa en skyddsgrupp:
 
   ![Guiden Skapa ny Skyddsgrupp](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-1.png)
 
-3. På den **Välkommen** väljer **nästa**.
+3. På sidan **Välkommen** klickar du på **Nästa**.
 4. På den **Välj typ av Skyddsgrupp** markerar du typ av skyddsgrupp som du vill skapa och välj sedan **nästa**.
 
   ![Sidan Välj Skyddsgruppen](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-2.png)
 
-5. På den **Välj gruppmedlemmar** sidan den **tillgängliga medlemmar** rutan, medlemmar med protection Agent finns. I det här exemplet väljer du volym D:\ och E:\ och lägga till dem i den **markerade medlemmar** fönstret. Välj **nästa**.
+5. På den **Välj gruppmedlemmar** sidan den **tillgängliga medlemmar** rutan, medlemmar med protection Agent finns. I det här exemplet väljer du volym D:\ och E:\ och lägga till dem i den **markerade medlemmar** fönstret. Välj **Nästa**.
 
   ![Välj grupp för medlemmar sida](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-3.png)
 
@@ -276,8 +276,8 @@ Säkerhetskopiera till Azure kör DPMSYNC-SYNC
 ## <a name="new-powershell-cmdlets-in-v2"></a>Nya PowerShell-cmdlets i v2
 
 Två nya cmdlets finns tillgängliga när du installerar Azure Backup Server v2: 
-* [Montera DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx)
-* [Demontera DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx)
+* [Mount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx)
+* [Dismount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
 

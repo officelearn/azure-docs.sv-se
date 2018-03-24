@@ -1,11 +1,11 @@
 ---
-title: "Ange slutpunkter för Service Fabric | Microsoft Docs"
-description: "Så här beskriver slutpunkt resurser i en tjänstmanifestet, inklusive hur du konfigurerar HTTPS-slutpunkter"
+title: Ange slutpunkter för Service Fabric | Microsoft Docs
+description: Så här beskriver slutpunkt resurser i en tjänstmanifestet, inklusive hur du konfigurerar HTTPS-slutpunkter
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 6fa425829e8da294c8db3d64c3d8fd202c74375a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a028471871754c2b9c3981ec13f5788643675a77
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Ange resurser i ett tjänstmanifest
 ## <a name="overview"></a>Översikt
@@ -154,7 +154,7 @@ För Linux-kluster i **MY** lagra standard mappen **/var/lib/sfcerts**.
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Åsidosättning av slutpunkterna i ServiceManifest.xml
 
-Lägg till ett ResourceOverrides avsnitt som kommer att vara på samma nivå som ConfigOverrides avsnitt i ApplicationManifest. I det här avsnittet kan du ange åsidosättningen för slutpunkter i avsnittet resurser som angetts i manifestet för tjänsten.
+Lägg till ett ResourceOverrides avsnitt som kommer att vara på samma nivå som ConfigOverrides avsnitt i ApplicationManifest. I det här avsnittet kan du ange åsidosättningen för slutpunkter i avsnittet resurser som angetts i manifestet för tjänsten. Åsidosätta slutpunkter stöds i runtime 5.7.217/SDK 2.7.217 och högre.
 
 För att åsidosätta slutpunkt i ServiceManifest med ApplicationParameters ändring i ApplicationManifest som följande:
 

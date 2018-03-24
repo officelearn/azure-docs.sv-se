@@ -1,19 +1,19 @@
 ---
-title: "Komma igång med Temporala tabeller i Azure SQL Database | Microsoft Docs"
-description: "Lär dig hur du kommer igång med Temporala tabeller i Azure SQL Database."
+title: Komma igång med Temporala tabeller i Azure SQL Database | Microsoft Docs
+description: Lär dig hur du kommer igång med Temporala tabeller i Azure SQL Database.
 services: sql-database
 author: bonova
+ms.date: 03/21/2018
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 01/10/2017
 ms.author: bonova
-ms.openlocfilehash: 8e76d78e402d2cdc58ca26767c55c413f83226d9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0299d52396549baf8ea7e5eb7145585c7b5900a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Komma igång med Temporala tabeller i Azure SQL-databas
 Temporala tabeller är en ny funktion för programmering i Azure SQL Database som hjälper dig att spåra och analysera fullständig historiken för ändringar i dina data utan att behöva anpassad kodning. Temporala tabeller Behåll data som är nära relaterade till tid kontext så att lagrade fakta kan tolkas som giltiga endast inom en viss period. Den här egenskapen för Temporala tabeller möjliggör effektiv tidsbaserade analys och hämtning insikter från utvecklingen av data.
@@ -64,7 +64,7 @@ Medföljande historiktabellen med standardkonfigurationen skapas automatiskt nä
 I det här fallet mål att utföra tidsbaserade trendanalys över en längre data historik och större datauppsättningar så att lagring valet för historiktabellen är ett grupperat columnstore-index. Ett grupperat columnstore ger mycket bra komprimering och prestanda för analytiska frågor. Temporala tabeller ger dig möjlighet att konfigurera index för de aktuella och temporala tabellerna helt oberoende av varandra. 
 
 > [!NOTE]
-> Columnstore-index är bara tillgängliga på premiumnivån.
+> Columnstore-index är tillgängliga i Premium-nivån och på standardnivån S3 och senare.
 >
 
 Följande skript visar hur Standardindex för historiktabellen kan ändras till grupperade columnstore:

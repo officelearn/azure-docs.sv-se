@@ -1,6 +1,6 @@
 ---
 title: Vidarebefordra Azure Automation DSC rapporterar data till logganalys
-description: "Den här artikeln visar hur du skickar önskad tillstånd Configuration (DSC) rapporterar data till logganalys att ge ytterligare insikter och hantering."
+description: Den här artikeln visar hur du skickar önskad tillstånd Configuration (DSC) rapporterar data till logganalys att ge ytterligare insikter och hantering.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,17 +8,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ac0da2b73341f0c6ed4f1e99e077996525890ab7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Vidarebefordra Azure Automation DSC-rapportdata till OMS Log Analytics
+# <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Vidarebefordra Azure Automation DSC rapporterar data till logganalys
 
-Automatisering kan skicka DSC-noden statusdata till Microsoft Operations Management Suite (OMS) logganalys-arbetsytan.  
+Automation kan skicka data för DSC-nod status till logganalys-arbetsytan.  
 Kompatibilitetsstatus är synlig i Azure-portalen eller PowerShell för noderna och för enskilda DSC-resurser i nodkonfigurationer. Med Log Analytics kan du:
 
 * Hämta information om kompatibilitet för hanterade noder och enskilda resurser
@@ -34,7 +32,7 @@ Om du vill börja skicka Automation DSC-rapporter till logganalys, behöver du:
 * November 2016 eller senare versionen av [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
 * Ett Azure Automation-konto. Mer information finns i [komma igång med Azure Automation](automation-offering-get-started.md)
 * Logganalys-arbetsytan med en **Automation- och kontrollservern** tjänsterbjudande. Mer information finns i [Kom igång med logganalys](../log-analytics/log-analytics-get-started.md).
-* Minst en Azure Automation DSC-nod. Mer information finns i [Onboarding datorer för hantering av Azure Automation DSC](automation-dsc-onboarding.md) 
+* Minst en Azure Automation DSC-nod. Mer information finns i [Onboarding datorer för hantering av Azure Automation DSC](automation-dsc-onboarding.md)
 
 ## <a name="set-up-integration-with-log-analytics"></a>Ställa in integration med logganalys
 
@@ -191,5 +189,5 @@ Log Analytics ger bättre operativa synlighet Automation DSC-data och kan hjälp
 
 * Mer information om hur du skapar olika sökfrågor och granska loggarna för Automation DSC med Log Analytics finns [logga sökningar i logganalys](../log-analytics/log-analytics-log-searches.md)
 * Mer information om hur du använder Azure Automation DSC finns [komma igång med Azure Automation DSC](automation-dsc-getting-started.md)
-* Läs mer om OMS Log Analytics och datakällsamling i [Samla in data om Azure-lagring i Log Analytics-översikten](../log-analytics/log-analytics-azure-storage.md)
+* Läs mer om logganalys och samling datakällor i [insamling av Azure storage-data i logganalys-översikt](../log-analytics/log-analytics-azure-storage.md)
 

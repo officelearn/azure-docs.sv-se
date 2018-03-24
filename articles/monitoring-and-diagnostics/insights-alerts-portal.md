@@ -1,9 +1,9 @@
 ---
-title: "Skapa aviseringar för Azure-tjänster - Azure-portalen | Microsoft Docs"
-description: "Utlösaren e-postmeddelanden meddelanden, anropa webbplatser URL: er (webhooks) eller automation när angivna villkor uppfylls."
+title: Skapa aviseringar för Azure-tjänster - Azure-portalen | Microsoft Docs
+description: 'Utlösaren e-postmeddelanden meddelanden, anropa webbplatser URL: er (webhooks) eller automation när angivna villkor uppfylls.'
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 4acf1f549a6c901fb0b772c4591f1f35d61365ad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Skapa mått aviseringar i Azure-Monitor för Azure-tjänster - Azure-portalen
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Skapa klassiska mått aviseringar i Azure-Monitor för Azure-tjänster - Azure-portalen
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,12 +29,18 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>Översikt
+
+> [!NOTE]
+> Den här artikeln beskriver hur du skapar äldre mått aviseringar. Azure övervakaren nu har stöd för nyare, bättre mått aviseringar. Dessa aviseringar kan du övervaka flera och tillåter aviseringar om dimensionell mått. Lär dig mer om [nära realtid mått aviseringar](monitoring-near-real-time-metric-alerts.md).
+>
+>
+
 Den här artikeln visar hur du ställer in Azure mått aviseringar med Azure-portalen. 
 
 Du kan ta emot en avisering baserat på övervakning mätvärden för eller händelser på Azure-tjänster.
 
 * **Måttvärden** -aviseringen utlöses när värdet för ett visst mått överskrider ett tröskelvärde som du tilldelar i båda riktningarna. Det vill säga den utlöser både när villkoret uppfylls först och sedan efteråt när villkor som inte längre är uppfyllt.    
-* **Aktiviteten logghändelser** -utlösa en avisering på *varje* händelse eller bara när vissa händelser inträffar. Lär dig mer om [aktivitet loggen aviseringar](monitoring-activity-log-alerts.md).
+* **Aktiviteten logghändelser** -utlösa en avisering på *varje* händelse eller bara när viss händelse inträffar. Lär dig mer om [aktivitet loggen aviseringar](monitoring-activity-log-alerts.md).
 
 Du kan konfigurera en mått avisering när den utlöser gör du följande:
 
@@ -43,26 +49,21 @@ Du kan konfigurera en mått avisering när den utlöser gör du följande:
 * anropa en webhook
 * Starta körning av en Azure-runbook (endast från Azure portal)
 
-> [!NOTE]
-> Azure-Monitor stöder nu nära realtid mått aviseringar som förhandsversion. Dessa använda grupper för åtgärden. Lär dig mer om [nära realtid mått aviseringar](monitoring-near-real-time-metric-alerts.md).
->
->
-
 Du kan konfigurera och få information om mått Varningsregler med
 
-* [Azure-portalen](insights-alerts-portal.md)
+* [Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
-* [kommandoradsgränssnittet (CLI)](insights-alerts-command-line-interface.md)
-* [Azure-Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Kommandoradsgränssnittet (CLI)](insights-alerts-command-line-interface.md)
+* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Skapa en aviseringsregel på ett mått med Azure-portalen
 1. I den [portal](https://portal.azure.com/), leta upp den resurs som du är intresserad av övervakning och markera den.
 
-2. Välj **aviseringar** eller **Varna regler** under avsnittet övervakning. Text och ikon kan variera något mellan olika resurser.  
+2. Välj **aviseringar (klassisk)** under avsnittet övervakning. Text och ikon kan variera något mellan olika resurser. Om du inte hittar **aviseringar (klassisk)**, du kan hitta dem under **aviseringar** eller **Varningsregler**
 
     ![Övervakning](./media/insights-alerts-portal/AlertRulesButton.png)
 
-3. Välj den **Lägg till avisering** kommando och Fyll i fälten.
+3. Välj den **Lägg till mått avisering** kommando och Fyll i fälten.
 
     ![Lägg till avisering](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 
@@ -91,7 +92,7 @@ När du har skapat en avisering, kan du välja den och:
 
 ## <a name="next-steps"></a>Nästa steg
 * [Få en översikt över Azure övervakning](monitoring-overview.md) inklusive typerna av information som du kan samla in och övervaka.
-* Mer information om den nya [nära realtid mått aviseringar (förhandsgranskning)](monitoring-near-real-time-metric-alerts.md)
+* Lär dig mer om den [nyare mått aviseringar](monitoring-near-real-time-metric-alerts.md)
 * Lär dig mer om [hur du konfigurerar webhooks i aviseringar](insights-webhooks-alerts.md).
 * Lär dig mer om [konfigurera aviseringar på aktiviteten logghändelser](monitoring-activity-log-alerts.md).
 * Lär dig mer om [Azure Automation-Runbooks](../automation/automation-starting-a-runbook.md).

@@ -1,24 +1,24 @@
 ---
-title: "Hantera program i flera miljöer i Azure Service Fabric | Microsoft Docs"
-description: "Azure Service Fabric-program kan köras på kluster intervallet i storlek från en dator till tusentals datorer. I vissa fall kommer du vill konfigurera ditt program på olika sätt för de olika miljöer. Den här artikeln beskriver hur du definierar parametrar för olika program per miljö."
+title: Hantera program i flera miljöer i Azure Service Fabric | Microsoft Docs
+description: Azure Service Fabric-program kan köras på kluster intervallet i storlek från en dator till tusentals datorer. I vissa fall kommer du vill konfigurera ditt program på olika sätt för de olika miljöer. Den här artikeln beskriver hur du definierar parametrar för olika program per miljö.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/09/2017
+ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 6bc986236d50106485dce151f1f74622f56400c5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a3d0770d3b9c8702dbe4dac86f86030bea4090c0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Hantera program för flera miljöer
 

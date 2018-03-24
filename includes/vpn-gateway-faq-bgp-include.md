@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: dfc75a64e8bd28d7aba9984e5a1d5720330f1da3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Stöds BGP på alla Azure VPN-gateway-SKU:er?
 Nej, BGP stöds på Azure VPN-gatewayerna **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** och **HighPerformance**. **Basic** SKU stöds inte.
 
@@ -72,4 +88,3 @@ Azure-lokal nätverksgateway anger de första adressprefixen för det lokala nä
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>Vad bör jag lägga till på min lokala VPN-enhet för BGP-peeringsessionen?
 Du bör lägga till en värdrutt för Azure BGP-peer-IP-adressen på din VPN-enhet som pekar på IPsec S2S VPN-tunneln. Om Azure VPN-peer-IP-adressen är "10.12.255.30", bör du till exempel lägga till en värdrutt för "10.12.255.30" med ett nexthop-gränssnitt för det matchande IPSec-tunnelgränssnittet på din VPN-enheten.
-

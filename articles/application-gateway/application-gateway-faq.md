@@ -1,6 +1,6 @@
 ---
-title: "Vanliga frågor om Azure Programgateway | Microsoft Docs"
-description: "Den här sidan innehåller svar på vanliga frågor och svar om Azure Programgateway"
+title: Vanliga frågor om Azure Programgateway | Microsoft Docs
+description: Den här sidan innehåller svar på vanliga frågor och svar om Azure Programgateway
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: f92af44df9863bbf48abb4afcf9b1505c843fadc
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor för Programgateway
 
@@ -135,10 +135,6 @@ Anpassade avsökningar stöder inte jokertecken eller regex på svarsdata.
 **FRÅGOR. Hur bearbetas regler?**
 
 Regler bearbetas i den ordning som de är konfigurerade. Du rekommenderas att regler för flera platser konfigureras innan grundläggande regler för att minska risken att trafik dirigeras till olämpliga serverdelen som grundläggande regeln matchar baserat på port innan regeln flera platser utvärderas.
-
-**FRÅGOR. Hur bearbetas regler?**
-
-Regler bearbetas i den ordning de skapades. Du rekommenderas att regler för flera platser konfigureras före grundläggande regler. Genom att konfigurera flera platser lyssnare först den här konfigurationen minskar risken att trafik dirigeras till olämpliga serverdelen. Den här routning kan inträffa eftersom grundläggande regeln matchar baserat på port innan regeln flera platser utvärderas.
 
 **FRÅGOR. Vad fältet värden för anpassade avsökningar obestämd?**
 

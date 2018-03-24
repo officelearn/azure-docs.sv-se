@@ -1,12 +1,12 @@
 ---
-title: "Träna om en klassisk webbtjänst | Microsoft Docs"
-description: "Lär dig mer om att träna om en modell och uppdatera webbtjänsten för att använda den nya tränade modellen i Azure Machine Learning programmässigt."
+title: Träna om en klassisk webbtjänst | Microsoft Docs
+description: Lär dig mer om att träna om en modell och uppdatera webbtjänsten för att använda den nya tränade modellen i Azure Machine Learning programmässigt.
 services: machine-learning
-documentationcenter: 
-author: aashishb
-ms.author: aashishb
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
 manager: hjerez
-editor: 
+editor: cgronlun
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 7adc5995b830d049c8dd6412415bd5987e60fe08
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d0c40d952008f58f9b99c1c44d06e971a1e60c3b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Omtrimma en klassisk webbtjänst
 Förutsägande webbtjänsten som du har distribuerat är standard bedömningsslutpunkten. Slutpunkter hålls synkroniserade med den ursprungliga utbildningen och bedömningen experiment och därför den tränade modellen för standardslutpunkten kan inte ersättas. För att träna om webbtjänsten måste du lägga till en ny slutpunkt till webbtjänsten. 

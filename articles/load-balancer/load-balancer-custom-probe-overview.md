@@ -1,11 +1,11 @@
 ---
-title: "Använda anpassade avsökningar i belastningsutjämnaren för att övervaka hälsostatus | Microsoft Docs"
-description: "Lär dig hur du använder anpassade avsökningar för Azure belastningsutjämnare för att övervaka instanser bakom belastningsutjämnaren"
+title: Använda anpassade avsökningar i belastningsutjämnaren för att övervaka hälsostatus | Microsoft Docs
+description: Lär dig hur du använder anpassade avsökningar för Azure belastningsutjämnare för att övervaka instanser bakom belastningsutjämnaren
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
 ms.service: load-balancer
@@ -15,15 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/8/2018
 ms.author: kumud
-ms.openlocfilehash: be0359889f48f2fe16104f2bee5d1c85ab883b34
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0aab72fdf48589a72707ae87f90af11f65f35088
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="understand-load-balancer-probes"></a>Förstå belastningsfördelningen avsökningar
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure belastningsutjämnare använder hälsoavsökningar för att avgöra vilken serverdel pool-instans som ska ta emot nya flöden. När en hälsoavsökningen inte belastningsutjämnaren slutar att skicka nya flöden till respektive feltillstånd instansen och påverkas inte befintliga flöden på instansen.  När alla instanser för backend-adresspool avsökning ned, kommer alla befintliga flöden timeout på alla instanser i serverdelspoolen.
 

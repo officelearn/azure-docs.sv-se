@@ -1,10 +1,11 @@
 ---
-title: "Azure AI-galleriet självstudier | Microsoft Docs"
-description: "Identifiera och dela självstudier i Azure AI-galleriet."
+title: Azure AI-galleriet självstudier | Microsoft Docs
+description: Identifiera och dela självstudier i Azure AI-galleriet.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 70f0eb31-7dca-4907-a5d7-504357dcd889
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: 9a93a027ed5243496a86efff0d86de7092f44b43
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 6f9c765027ccd915d6754839353a744ac0743bc2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Identifiera och dela självstudier i Azure AI-galleriet
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -31,7 +31,7 @@ Bläddra självstudier [i galleriet](http://gallery.cortanaintelligence.com)unde
 
 ![Välj självstudier på startsidan galleri](./media/gallery-tutorials/select-tutorials-in-gallery.png)
 
-Den  **[självstudier](https://gallery.cortanaintelligence.com/tutorials)**  sidan visar en lista över nyligen tillagda och populära självstudier. Om du vill se alla kurser, Välj den **se alla** knappen. Om du vill söka efter en specifik vägledning, Välj **se alla**, och välj sedan filtreringsvillkor. Du kan även ange sökorden i den **Sök** rutan längst upp på sidan Gallery.
+Den **[självstudier](https://gallery.cortanaintelligence.com/tutorials)** sidan visar en lista över nyligen tillagda och populära självstudier. Om du vill se alla kurser, Välj den **se alla** knappen. Om du vill söka efter en specifik vägledning, Välj **se alla**, och välj sedan filtreringsvillkor. Du kan även ange sökorden i den **Sök** rutan längst upp på sidan Gallery.
 
 Du kan få mer information om en genomgång på sidan självstudiekursen information. Om du vill öppna en självstudiekurs sidan Välj kursen. I den **kommentarer** avsnittet på en informationssida om självstudier, du kan kommentera ge feedback eller ställa frågor om kursen. Du kan också dela kursen med vänner och kollegor på Twitter och LinkedIn. Du kan också e-en länk till sidan självstudiekursen information att bjuda in andra användare att visa sidan.
 

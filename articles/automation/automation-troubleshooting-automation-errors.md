@@ -1,26 +1,20 @@
 ---
-title: "Felsökning av vanliga problem med Azure Automation | Microsoft Docs"
-description: "Den här artikeln innehåller information för att felsöka och lösa vanliga problem i Azure Automation."
+title: Felsökning av vanliga problem med Azure Automation | Microsoft Docs
+description: Den här artikeln innehåller information för att felsöka och lösa vanliga problem i Azure Automation.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: stevenka
-editor: tysonn
-tags: top-support-issue
-keywords: "fel när Automation, felsökning, problemet"
-ms.assetid: 5f3cfe61-70b0-4e9c-b892-d02daaeee07d
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/22/2017
-ms.author: sngun; v-reagie
-ms.openlocfilehash: 76a3096595d07916159b3a50da0793c653a490a0
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+manager: carmonm
+tags: top-support-issue
+keywords: fel när Automation, felsökning, problemet
+ms.openlocfilehash: 9764068dd7a1a499c61695f39bff726a8ea3aac9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Felsökning av vanliga problem i Azure Automation 
 Du får hjälp med att felsöka vanliga fel som du kan uppleva i Azure Automation och ger förslag på lösningar för att lösa problemen.
@@ -33,7 +27,7 @@ Du får hjälp med att felsöka vanliga fel som du kan uppleva i Azure Automatio
 
 **Felsökningstips:** för att avgöra vad som är fel gör du följande:  
 
-1. Kontrollera att du inte har några specialtecken, inklusive den  **@**  tecken i Automation namn på autentiseringsuppgift tillgång som du använder för att ansluta till Azure.  
+1. Kontrollera att du inte har några specialtecken, inklusive den **@** tecken i Automation namn på autentiseringsuppgift tillgång som du använder för att ansluta till Azure.  
 2. Kontrollera att du kan använda användarnamn och lösenord som lagras i Azure Automation-autentiseringsuppgifter i din lokala PowerShell ISE-redigeraren. Du kan göra detta genom att köra följande cmdlets i PowerShell ISE:  
 
         $Cred = Get-Credential  
@@ -133,7 +127,7 @@ Du får hjälp med att felsöka vanliga fel som du kan uppleva i Azure Automatio
 
 **Felsökningstips:** någon av följande lösningar på problemet:
 
-* Kontrollera att modulen följer följande format: ModuleName.Zip  **->**  ModuleName eller versionsnummer  **->**  (ModuleName.psm1, ModuleName.psd1)
+* Kontrollera att modulen följer följande format: ModuleName.Zip **->** ModuleName eller versionsnummer **->** (ModuleName.psm1, ModuleName.psd1)
 * Öppna filen .psd1 och se om modulen har några beroenden. Om du överför dessa moduler till Automation-kontot.
 * Kontrollera att alla refererade DLL-filer finns i mappen modulen.
 

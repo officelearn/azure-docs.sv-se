@@ -1,22 +1,21 @@
 ---
 title: Skapa Machine Learning Studio-arbetsytan | Microsoft Docs
-description: "Skapa en arbetsyta för Azure Machine Learning Studio"
+description: Skapa en arbetsyta för Azure Machine Learning Studio
 services: machine-learning
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: garye
-ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
-ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8da10e474c62868ca109a44e7c66dc11ee62b6de
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Skapa och dela en Azure Machine Learning-arbetsyta
 Den här menyn innehåller länkar till avsnitt som beskriver hur du ställer in de olika datavetenskap miljöer som används av Cortana Analytics processen (CAP).
@@ -41,7 +40,7 @@ Om du vill använda Azure Machine Learning Studio, behöver du en Machine Learni
 
 4. Ange din arbetsyteinformation:
 
-    - Den *Arbetsytenamn* får vara högst 260 tecken som inte avslutas med ett blanksteg. Namnet får inte innehålla följande tecken:`< > * % & : \ ? + /`
+    - Den *Arbetsytenamn* får vara högst 260 tecken som inte avslutas med ett blanksteg. Namnet får inte innehålla följande tecken: `< > * % & : \ ? + /`
     - Den *web service-plan* du välja (eller skapa), tillsammans med den associerade *prisnivån* du väljer, används om du distribuerar webbtjänster från den här arbetsytan.
 
     ![Skapa en ny arbetsyta](./media/create-workspace/create-new-workspace.png)
@@ -50,7 +49,7 @@ Om du vill använda Azure Machine Learning Studio, behöver du en Machine Learni
 
 När arbetsytan har distribuerats kan öppna du den i Machine Learning Studio.
 
-1. Bläddra till Maskininlärning Studio på [https://studio.azureml.net/](https://studio.azureml.net/).
+1. Bläddra till Maskininlärning Studio på [ https://studio.azureml.net/ ](https://studio.azureml.net/).
 
 2. Välj din arbetsyta i det övre högra hörnet.
 

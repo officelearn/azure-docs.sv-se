@@ -1,11 +1,11 @@
 ---
-title: "Behållaren övervakning lösning i Azure Log Analytics | Microsoft Docs"
-description: "Lösning för övervakning av behållare i logganalys hjälper dig se och hantera Docker- och Windows behållaren värdar i en enda plats."
+title: Behållaren övervakning lösning i Azure Log Analytics | Microsoft Docs
+description: Lösning för övervakning av behållare i logganalys hjälper dig se och hantera Docker- och Windows behållaren värdar i en enda plats.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: 0ad267b9694c2f9cdb574b6b6008d4f6fa027fce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0041a58c8da58785ebc3ead6c8128316b153728c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Lösning för övervakning av behållare i logganalys
 
@@ -100,7 +100,10 @@ Använd följande information för att installera och konfigurera lösningen.
     - I Windows Server 2016 och Windows 10, installera Docker-motorn och klienten sedan en agent för att samla in information och skicka den till logganalys. Granska [installera och konfigurera Windows-behållaren värdar](#install-and-configure-windows-container-hosts) om du har en Windows-miljö.
   - För Docker med flera värden orchestration:
     - Om du har en miljö med Red Hat OpenShift granska [konfigurera en OMS-agent för Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
-    - Om du har ett Kubernetes-kluster med Azure Container Service granska [konfigurera en OMS-agent för Kubernetes](#configure-an-oms-agent-for-kubernetes).
+    - Om du har ett Kubernetes-kluster med Azure Container Service:
+       - Granska [konfigurera en OMS Linux-agent för Kubernetes](#configure-an-oms-linux-agent-for-kubernetes).
+       - Granska [konfigurera en Windows OMS-agent för Kubernetes](#configure-an-oms-windows-agent-for-kubernetes).
+       - Granska [Använd Helm distribuera OMS-agenten på Linux Kubernetes](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
     - Om du har ett Azure Container Service DC/OS-kluster, mer information finns i [övervaka ett Azure Container Service DC/OS-kluster med Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Om du har en miljö med Docker Swarm läge, mer information finns i [konfigurera en OMS-agent för Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
     - Om du har ett Service Fabric-kluster, mer information finns i [övervaka behållare med OMS logganalys](../service-fabric/service-fabric-diagnostics-oms-containers.md).
@@ -387,7 +390,7 @@ WSID:   36 bytes
 KEY:    88 bytes
 ```
 
-#### <a name="configure-an-oms-agent-for-windows-kubernetes"></a>Konfigurera en OMS-agent för Windows Kubernetes
+#### <a name="configure-an-oms-windows-agent-for-kubernetes"></a>Konfigurera en Windows OMS-agent för Kubernetes
 För Windows Kubernetes använder du ett skript för att generera hemligheter yaml-filen för ditt arbetsyte-ID och primärnyckel att installera OMS-Agent. På den [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) , finns på filer som du kan använda med din hemliga information.  Du måste installera OMS-agenten separat för hanterare och agent noder.  
 
 1. Att använda OMS-agenten DaemonSet med hemlig information på huvudservern, logga in och skapa hemligheterna först.

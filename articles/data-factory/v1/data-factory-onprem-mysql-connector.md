@@ -1,11 +1,10 @@
 ---
-title: "Flytta data från MySQL med Azure Data Factory | Microsoft Docs"
-description: "Läs mer om hur du flyttar data från MySQL-databas med hjälp av Azure Data Factory."
+title: Flytta data från MySQL med Azure Data Factory | Microsoft Docs
+description: Läs mer om hur du flyttar data från MySQL-databas med hjälp av Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 452f4fce-9eb5-40a0-92f8-1e98691bea4c
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f04a3b8c7bb744e3a9d539f6d3a392bc59702758
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 685998729e9aa01f60c80735b5f2f4d278769bdb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Flytta data från MySQL med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -312,9 +311,9 @@ När du flyttar data att MySQL används följande mappningar från MySQL-typer t
 | datetime |DateTime |
 | decimal |Decimal |
 | dubbel precision |Dubbel |
-| dubbel |Dubbel |
+| dubbla |Dubbel |
 | Enum |Sträng |
-| flyt |Ogift |
+| flyttal |Ogift |
 | int osignerade |Int64 |
 | int |Int32 |
 | heltal osignerade |Int64 |

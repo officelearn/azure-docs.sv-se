@@ -1,11 +1,11 @@
 ---
-title: "Vanliga frågor och svar om virtuella Windows-datorer i Azure | Microsoft Docs"
-description: "Innehåller svar på några vanliga frågor om Windows-datorer som skapats med Resource Manager-modellen."
+title: Vanliga frågor och svar om virtuella Windows-datorer i Azure | Microsoft Docs
+description: Innehåller svar på några vanliga frågor om Windows-datorer som skapats med Resource Manager-modellen.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-management
 ms.assetid: 757da816-a050-4889-a010-6f75d7978eb7
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: 9aa316e59fb78373cc044f8e18f5d24ea9c5258f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: e440385ca0f22dce8668fe73b91efe14e0c8a9b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Vanliga frågor och svar om virtuella Windows-datorer
 Den här artikeln tar några vanliga frågor om Windows-datorer som skapats i Azure med hjälp av Resource Manager-distributionsmodellen. Linux-version av det här avsnittet finns [vanliga frågor om virtuella Linux-datorer](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -75,7 +75,7 @@ Ja. För att snabbt skapa en Linux VM att testa, se [skapar en Linux-VM på Azur
 Ja, det är nu möjligt. Den virtuella datorn först måste stoppas frigjord. Du kan sedan lägga till eller ta bort ett nätverkskort (om det inte är det sista nätverkskortet på den virtuella datorn). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Finns det några kraven för dator?
-Ja. Namnet kan vara högst 15 tecken. Se [Naming conventions regler och begränsningar](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) mer information om namngivning av dina resurser.
+Ja. Namnet kan vara högst 15 tecken. Se [Naming conventions regler och begränsningar](/azure/architecture/best-practices/naming-conventions#compute) mer information om namngivning av dina resurser.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Finns det någon resurs kraven för gruppen?
 Ja. Resursgruppens namn kan vara upp till 90 tecken långt. Se [Naming conventions regler och begränsningar](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) mer information om resursgrupper.

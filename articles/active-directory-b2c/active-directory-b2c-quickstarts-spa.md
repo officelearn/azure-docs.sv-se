@@ -1,23 +1,21 @@
 ---
-title: "Testköra ett enkelsidigt Azure AD B2C-aktiverat program"
-description: "Snabbstart för att prova ett exempel på ett enkelsidigt program som använder Azure Active Directory B2C till att autentisera och registrera användare."
+title: Testköra ett enkelsidigt Azure AD B2C-aktiverat program
+description: Snabbstart för att prova ett exempel på ett enkelsidigt program som använder Azure Active Directory B2C till att autentisera och registrera användare.
 services: active-directory-b2c
-documentationcenter: 
-author: PatAltimore
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-ms.reviewer: saraford
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: javascript
-ms.topic: quickstart
+ms.topic: article
 ms.date: 2/13/2018
-ms.author: patricka
-ms.openlocfilehash: e659fd228c2294313a62b331c8e530b7d34073ac
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: HT
+ms.author: davidmu
+ms.openlocfilehash: 02a0515ff7c461370f29a511ac576d857676cb2b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-single-page-app"></a>Snabbstart: Testköra ett enkelsidigt Azure AD B2C-aktiverat program
 
@@ -27,7 +25,7 @@ I den här snabbstarten använder du ett enkelsidigt Azure AD B2C-aktiverat exem
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) med arbetsbelastningen **ASP.NET och webbutveckling**.
 * Installera [Node.js](https://nodejs.org/en/download/)
@@ -101,7 +99,7 @@ Du kan använda Azure AD B2C-klientorganisationen om du vill prova andra snabbst
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du en Azure AD B2C-aktiverad exempelapp för ASP.NET för att logga in med en anpassad inloggningssida, logga in med en social identitetsprovider, skapa ett Azure AD B2C-konto och anropa en Azure AD B2C-skyddad webb-API. 
+I den här snabbstarten använde du en Azure AD B2C-aktiverad exempelapp för ASP.NET för att logga in med en anpassad inloggningssida, logga in med en social identitetsprovider, skapa ett Azure AD B2C-konto och anropa ett Azure AD B2C-skyddat webb-API. 
 
 Nästa steg är att skapa din egen Azure AD B2C-klientorganisation och konfigurera exemplet som ska köras med hjälp av klientorganisationen. 
 

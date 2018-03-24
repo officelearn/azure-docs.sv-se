@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera parametrar för Server i Azure-databas för MySQL"
-description: "Den här artikeln beskriver hur du konfigurerar MySQL serverparametrar i Azure-databas för MySQL med Azure-portalen."
+title: Konfigurera parametrar för Server i Azure-databas för MySQL
+description: Den här artikeln beskriver hur du konfigurerar MySQL serverparametrar i Azure-databas för MySQL med Azure-portalen.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: b3510c616d2a9ba66cb83cb998c42e03fdbb0f2b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6865663bebc84df288f4c7e2564ddb4870667c6f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Konfigurera parametrar för server i Azure-databas för MySQL med hjälp av Azure portal
 
@@ -40,25 +40,24 @@ InnoDB buffertpool och högsta antal anslutningar är inte kan konfigureras och 
 
 |**Prisnivå**| **Compute-generering**|**vCore(s)**|**InnoDB buffertpool (MB)**| **Högsta antal anslutningar**|
 |---|---|---|---|--|
-|Basic| Gen 4| 1| 1024| 50 |
-|Basic| Gen 4| 2| 2560| 100 |
-|Basic| Gen 5| 1| 1024| 50 |
-|Basic| Gen 5| 2| 2560| 100 |
-|Generellt syfte| Gen 4| 2| 2560| 200|
-|Generellt syfte| Gen 4| 4| 5120| 400|
-|Generellt syfte| Gen 4| 8| 10240| 800|
-|Generellt syfte| Gen 4| 16| 20480| 1600|
-|Generellt syfte| Gen 4| 32| 40960| 3200|
-|Generellt syfte| Gen 5| 2| 2560| 200|
-|Generellt syfte| Gen 5| 4| 5120| 400|
-|Generellt syfte| Gen 5| 8| 10240| 800|
-|Generellt syfte| Gen 5| 16| 20480| 1600|
-|Generellt syfte| Gen 5| 32| 40960| 3200|
-|Minnesoptimerad| Gen 5| 2| 7168| 600|
-|Minnesoptimerad| Gen 5| 4| 15360| 1250|
-|Minnesoptimerad| Gen 5| 8| 30720| 2500|
-|Minnesoptimerad| Gen 5| 16| 62464| 5000|
-|Minnesoptimerad| Gen 5| 32| 125952| 10000| 
+|Basic| Generation 4| 1| 1024| 50|
+|Basic| Generation 4| 2| 2560| 100|
+|Basic| Generation 5| 1| 1024| 50|
+|Basic| Generation 5| 2| 2560| 100|
+|Generellt syfte| Generation 4| 2| 3584| 300|
+|Generellt syfte| Generation 4| 4| 7680| 625|
+|Generellt syfte| Generation 4| 8| 15360| 1250|
+|Generellt syfte| Generation 4| 16| 31232| 2500|
+|Generellt syfte| Generation 4| 32| 62976| 5000|
+|Generellt syfte| Generation 5| 2| 3584| 300|
+|Generellt syfte| Generation 5| 4| 7680| 625|
+|Generellt syfte| Generation 5| 8| 15360| 1250|
+|Generellt syfte| Generation 5| 16| 31232| 2500|
+|Generellt syfte| Generation 5| 32| 62976| 5000|
+|Minnesoptimerad| Generation 5| 2| 7168| 600|
+|Minnesoptimerad| Generation 5| 4| 15360| 1250|
+|Minnesoptimerad| Generation 5| 8| 30720| 2500|
+|Minnesoptimerad| Generation 5| 16| 62464| 5000|
 
 Dessa ytterligare server-parametrar kan inte konfigureras i systemet:
 

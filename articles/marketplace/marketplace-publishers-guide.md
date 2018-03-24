@@ -1,24 +1,24 @@
 ---
 title: Azure Marketplace och AppSource Publisher Guide
-description: "Steg för steg guide och publicera checklistor för nya publikationer Azure Marketplace"
+description: Steg för steg guide och publicera checklistor för nya publikationer Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0abf25726936a3d5e69c809c9714965936c7c64c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace och AppSource Publisher Guide
 
@@ -34,7 +34,7 @@ Välkommen till den [Azure Marketplace](https://azuremarketplace.microsoft.com) 
 - Hur ska bli en utgivare
 - Om du skapar och publicerar erbjuder
 - Optimera en lista och använda gå till marknaden resurser till enheten påverkan
-- Var du vill få hjälp och support för frågor om Azure Marketplace, AppSource, eller kontakta den här publiceringsguide Marketplace-teamet på  **cloudmarketplace@microsoft.com** . 
+- Var du vill få hjälp och support för frågor om Azure Marketplace, AppSource, eller kontakta den här publiceringsguide Marketplace-teamet på **cloudmarketplace@microsoft.com**. 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>Fördelar med att delta i marketplace
 
@@ -59,10 +59,10 @@ Marketplace-skyltfönster justeras till målgrupper och Microsoft cloud-produkte
 |          |Azure Marketplace |AppSource  |
 |---------|---------|---------|
 |Målgrupp     |IT-proffs, utvecklare (specialist roller med DBAs, säkra driftsmetoder, DevOps osv.)    | Branschspecifika Business beslutsfattare (specialist roller med inköp, tillverkning, redovisning, etc.)      |
-|Skapats med eller utöka     |Azure         | Azure, Dynamics 365, Office 365, Powerbi och Power appar       |
+|Skapats med eller utöka     |Azure         | Azure, Dynamics 365, Office 365, Power BI och Power Apps       |
 |Typer av lösningar och tjänster     |  Lösningar för infrastruktur och professionella tjänster   | Klar branschspecifika business molnprogram, tillägg för Office 365 och professionella tjänster        |
 |Publiceringsalternativ     |  Kontakta mig, rådgivning erbjuda utvärderingsversion, virtuell dator, Lösningsmallar och hanterade appar       |  Kostnadsfri utvärderingsversion, Hämta nu testversionen och kontakta mig samråd erbjuder      |
-|I appen upplevelse ger användare åtkomst till appar och tjänster i samband med sina program  | Azure-portalen och CLI         | Office 365, Dynamics 365 Power BI Office-klientprogram       |
+|I appen upplevelse ger användare åtkomst till appar och tjänster i samband med sina program  | Azure Portal och CLI         | Office 365, Dynamics 365, Power BI, Office-klientappar       |
 
 ## <a name="leveraging-these-storefronts"></a>Utnyttja dessa skyltfönster
 
@@ -112,9 +112,9 @@ Det här avsnittet tar dig igenom alternativ som är tillgängliga för dig i b�
 
 |**Publiceringsalternativ**  | **Erbjudandetypen** | **Storefront**  |
 |---------|---------|---------|
-|**lista**    |    Kontakta mig samråd med tjänsten     |  Azure Marketplace, AppSource       |
-|**Utvärdering**   |     Kostnadsfri utvärderingsversion, SaaS utvärderingsversion, interaktiva Demo, Testkör    |  Azure Marketplace, AppSource       |
-|**Transact**     |   Virtuell dator, Lösningsmall för, hanterade program      |    Azure Marketplace     |
+|**lista**    |    Kontakta mig, konsulttjänst     |  Azure Marketplace, AppSource       |
+|**Utvärdering**   |     Kostnadsfri utvärderingsversion, SaaS-utvärdering, interaktiv demo, testkörning    |  Azure Marketplace, AppSource       |
+|**Transact**     |   Virtuell dator, lösningsmall, hanterat program      |    Azure Marketplace     |
 
 ### <a name="list"></a>LISTA
 
@@ -259,8 +259,8 @@ Samtliga Enterprise Agreement-kunder kan nu lägga till Azure i avtalet genom at
 
 |**Krav**  |**Detaljer** |**Publiceringsalternativ**  |
 |---------|---------|---------|
-|**Fakturering och mätning**    |  Den virtuella datorn måste ha stöd för antingen Bring Your Own License eller användningsbaserad, varje månad fakturering.       |    Transact    |
-|**Azure-kompatibel virtuell hårddisk (VHD)**     |   Virtuella datorer måste baseras på [Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) eller () [Linux]https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transact      |
+|**Fakturering och mätning**    |  Den virtuella datorn måste ha stöd för antingen Bring Your Own License eller användningsbaserad, varje månad fakturering.       |    Transaktion    |
+|**Azure-kompatibel virtuell hårddisk (VHD)**     |   Virtuella datorer måste baseras på [Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) eller () [Linux]https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transaktion      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Krav som är specifika för samråd Services publicering
 
@@ -308,7 +308,7 @@ Det finns flera alternativ för en organisation program:
 - Utveckla en per kund Test-enhet
 - Skapa en flera innehavare demo exempelapp med enkel inloggning
 
-##<a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Publishing processer av produkten för Office, Dynamics och Power BI
+## <a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Publishing processer av produkten för Office, Dynamics och Power BI
 För AppSource appar som utökar Office, Dynamics och Power BI kan läsa du mer om specifika krav i produktdokumentationen för specifika i det här avsnittet. 
 
 
@@ -519,7 +519,7 @@ Mer information om ytterligare developer konto riktlinjer och säkerhet, klickar
 
 Ditt företagskonto federerad med [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/), och returneras ett fel om du försöker skapa ett Microsoft-ID med en företagets e-postadress. Om du får ett felmeddelande, kontrollera först med IT-avdelningen att kontrollera i så fall. Detta är ett känt problem och vi arbetar på att lösa den. Lösningen är följande:
 
-Vi rekommenderar att du skapar en ny e-postadress i den  **@outlook.com**  domän. Följ de här stegen:
+Vi rekommenderar att du skapar en ny e-postadress i den **@outlook.com** domän. Följ de här stegen:
 
 1. Gå till [ https://signup.live.com/signup ](https://signup.live.com/signup) och välj **få en ny e-postadress**
 

@@ -1,22 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Användning reporting API samples och definitioner | Microsoft Docs"
-description: "Guiden och exempel på att få rapporter om Azure AD B2C-klient användare, autentiseringar och Multi-Factor Authentication"
+title: 'Azure Active Directory B2C: Användning reporting API samples och definitioner | Microsoft Docs'
+description: Guiden och exempel på att få rapporter om Azure AD B2C-klient användare, autentiseringar och Multi-Factor Authentication
 services: active-directory-b2c
 documentationcenter: dev-center-name
-author: rojasja
+author: davidmu1
 manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: joroja
-ms.openlocfilehash: 6014301a026d60775634138cbdfe56bfa625508f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 3470f45683ea508dfe338c313a5307eb6c1164d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Åtkomst till användningsrapporter i Azure AD B2C via reporting API
 
@@ -29,7 +28,7 @@ Azure Active Directory B2C (Azure AD B2C) ger autentisering baserat på använda
 Den här artikeln fokuserar på rapporter som är knutna till fakturering aktivitet som baseras på antalet användare, fakturerbar logga-baserat autentiseringar och Multi-Factor Authentication.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar måste du slutföra stegen i [krav för att få åtkomst till Azure AD reporting API: er](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Skapa ett program, skaffa en hemlighet för den och ge det åtkomst rättigheter till din Azure AD B2C-klient-rapporter. *Bash skriptet* och *Python-skriptet* exempel tillhandahålls också här. 
 
 ## <a name="powershell-script"></a>PowerShell-skript

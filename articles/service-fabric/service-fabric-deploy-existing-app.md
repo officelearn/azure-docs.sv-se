@@ -1,11 +1,11 @@
 ---
-title: "Distribuera en befintlig körbar fil till Azure Service Fabric | Microsoft Docs"
-description: "Lär dig hur du paketerar ett befintligt program som gäst körbara, så den kan användas för Service Fabric-klustret."
+title: Distribuera en befintlig körbar fil till Azure Service Fabric | Microsoft Docs
+description: Lär dig hur du paketerar ett befintligt program som gäst körbara, så den kan användas för Service Fabric-klustret.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.openlocfilehash: 029a0e297469dd5845a82dbdc8fd5f898cfebccc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f0c6c54b0f168f87ff122dee70a091fdcb96014e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Paketera och distribuera en befintlig körbar fil till Service Fabric
 När Paketera en befintlig körbar fil som en [gäst körbara](service-fabric-guest-executables-introduction.md), kan du antingen använda en mall för Visual Studio-projekt eller [skapa programpaketet manuellt](#manually). Med Visual Studio skapas application paketet struktur och manifest-filer av den nya projektmallen.

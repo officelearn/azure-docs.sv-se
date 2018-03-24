@@ -1,10 +1,11 @@
 ---
-title: "Hur en Azure Machine Learning-modell blir en webbtjänst | Microsoft Docs"
-description: "En översikt över hur din Azure Machine Learning modellen fortlöper från en utveckling experimentera till en operationalized webbtjänst säkerhetsnivån."
+title: Hur en Azure Machine Learning-modell blir en webbtjänst | Microsoft Docs
+description: En översikt över hur din Azure Machine Learning modellen fortlöper från en utveckling experimentera till en operationalized webbtjänst säkerhetsnivån.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye
-ms.openlocfilehash: 383f0a466f92a230e49c3d1e96d306a0b7d67da2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f36c8cf68c707e4472fd1779044a64e7f9f4c004
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Hur en Machine Learning-modell övergår från ett experiment i en operationalized-webbtjänst
 Azure Machine Learning Studio tillhandahåller en interaktiv arbetsyta där du kan utveckla, köra, testa och iterera ett ***experimentera*** som representerar en prediktiv analysmodell. Det finns en mängd olika moduler som kan:
@@ -98,7 +98,7 @@ Här är ett exempel: Anta att dina prediktivt experiment Returnerar hela raden 
 
 Om du vill behålla din modell för maskininlärning, men du vill träna om den med nya data, har du två alternativ:
 
-1. **Träna om modellen när webbtjänsten körs** -om du vill träna om din modell medan förutsägande webbtjänsten körs, kan du göra detta genom att göra några ändringar i träningsexperiment så att den en ***omtränings experiment***, och du kan distribuera den som en  ***omtränings web* tjänsten**. Instruktioner om hur du gör detta finns [träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md).
+1. **Träna om modellen när webbtjänsten körs** -om du vill träna om din modell medan förutsägande webbtjänsten körs, kan du göra detta genom att göra några ändringar i träningsexperiment så att den en ***via programmering Experimentera***, och du kan distribuera den som en  ***omtränings web* tjänsten**. Instruktioner om hur du gör detta finns [träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md).
 2. **Gå tillbaka till den ursprungliga träningsexperiment och använder olika utbildningsdata för att utveckla din modell** - experimentet förutsägande är kopplad till webbtjänsten, men utbildning experimentet länkas inte direkt på detta sätt. Om du ändrar den ursprungliga träningsexperiment och klicka på **konfigurera Web Service**, skapas en *nya* förutsägande experiment som, när de distribueras, skapar en *nya* webbtjänsten. Uppdaterar den inte bara ursprungliga webbtjänsten.
    
    Om du behöver ändra experimentet utbildning öppnas och klicka **Spara som** att göra en kopia. Detta lämnar kvar det ursprungliga träningsexperiment prediktivt experiment och webbtjänsten. Du kan nu skapa en ny webbtjänst med dina ändringar. När du har distribuerat den nya webbtjänsten som sedan kan du bestämma om du vill stoppa tidigare webbtjänsten eller att det ska fungera tillsammans med en ny.

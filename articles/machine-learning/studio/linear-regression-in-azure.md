@@ -1,11 +1,12 @@
 ---
-title: "Linjär regression i Machine Learning | Microsoft Docs"
-description: "En jämförelse av linjär regression modeller i Excel och i Azure Machine Learning Studio"
-metakeywords: 
+title: Linjär regression i Machine Learning | Microsoft Docs
+description: En jämförelse av linjär regression modeller i Excel och i Azure Machine Learning Studio
+metakeywords: ''
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: kbaroni;garye
-ms.openlocfilehash: 218f2b141e3551180a2152570f99fdb427980dd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ea5a2720542217d3bb6a0a2b1309312fb74a953
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-linear-regression-in-azure-machine-learning"></a>Använda linjär regression i Azure Machine Learning
 > *Kate Baroni* och *Ben Boatman* är enterprise lösningsarkitekter i Microsofts Data insikter Center utmärkt. I den här artikeln beskriver de sina erfarenheter migrera en befintlig regression analys suite till en molnbaserad lösning med hjälp av Azure Machine Learning. 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="goal"></a>Målet
+## <a name="goal"></a>Mål
 Projektet igång med två mål i åtanke: 
 
 1. Använd förutsägelseanalys för att förbättra vår organisation månatliga intäkter projektioner 
@@ -62,8 +62,8 @@ Först Excel modellen tydligt gick bättre än förväntat Machine Learning Stud
 |  | Excel | Studio |
 | --- |:---:|:---:|
 | Prestanda | | |
-| <ul style="list-style-type: none;"><li>Justeras R ruta</li></ul> |0.96 |Saknas |
-| <ul style="list-style-type: none;"><li>Värde för <br />Bestämning</li></ul> |Saknas |0.78<br />(låg noggrannhet) |
+| <ul style="list-style-type: none;"><li>Justeras R ruta</li></ul> |0.96 |Gäller inte |
+| <ul style="list-style-type: none;"><li>Värde för <br />Bestämning</li></ul> |Gäller inte |0.78<br />(låg noggrannhet) |
 | Medelabsolutfel |$9. 5M |$ 19.4 M |
 | Medelabsolutfel (%) |6.03% |12.2% |
 
@@ -77,17 +77,17 @@ När vi körde våra processen och resultat av datavetare och utvecklare på Mac
 ### <a name="mystery-solved"></a>Okända löst!
 När vi tillämpas rekommendationerna uppnås vi samma baslinje-prestanda i Machine Learning Studio som med Excel: 
 
-|  | Excel | Studio (första) | Studio med minsta kvadrat |
+|  | Excel | Studio (Initial) | Studio med minsta kvadrat |
 | --- |:---:|:---:|:---:|
 | Märkt värde |Verkliga (numeriskt) |samma |samma |
 | Deltagaren |Excel -> Data Analysis -> Regression |Linjär Regression. |Linjär Regression |
-| Deltagaren alternativ |Saknas |Som standard |vanlig minsta kvadrat<br />L2 = 0,005 |
-| Datauppsättning |26 rader, 3 funktioner, 1 etikett. Alla numeriska. |samma |samma |
+| Deltagaren alternativ |Gäller inte |Som standard |vanlig minsta kvadrat<br />L2 = 0,005 |
+| Data Set |26 rader, 3 funktioner, 1 etikett. Alla numeriska. |samma |samma |
 | Dela: Train |Excel tränats på först 18 rader, testas med de senaste 8 raderna. |samma |samma |
 | Dela: Test |Excel-regressionsformeln som tillämpas på de senaste 8 raderna |samma |samma |
 | **Prestanda** | | | |
-| Justeras R ruta |0.96 |Saknas | |
-| Bestämningskoefficienten |Saknas |0.78 |0.952049 |
+| Justeras R ruta |0.96 |Gäller inte | |
+| Bestämningskoefficienten |Gäller inte |0.78 |0.952049 |
 | Medelabsolutfel |$9. 5M |$ 19.4 M |$9. 5M |
 | Medelabsolutfel (%) |<span style="background-color: 00FF00;"> 6.03%</span> |12.2% |<span style="background-color: 00FF00;"> 6.03%</span> |
 
@@ -123,7 +123,7 @@ Nästa vi planerar att inkludera ytterligare algoritmer som [Bayesian] [ bayesia
 
 Om du vill experimentera med regression är en bra dataset försöka exempeldatamängd energi effektivitet Regression som har många numeriska attribut. Datamängden har angetts som en del av provdatauppsättningar i Machine Learning Studio. Du kan använda olika learning moduler för att förutsäga uppvärmning belastning eller kylning belastning. Diagrammet nedan är en prestanda jämförelse av olika regression lär sig mot den energieffektivitet dataset förutsäga för målvariabel kylning belastningen: 
 
-| Modellen | Medelabsolutfel | Roten medelvärdet kvadrat fel | Relativa absoluta fel | Relativ kvadrat fel | Bestämningskoefficienten |
+| Modell | Medelabsolutfel | Roten medelvärdet kvadrat fel | Relativa absoluta fel | Relativ kvadrat fel | Bestämningskoefficienten |
 | --- | --- | --- | --- | --- | --- |
 | Tvåklassförhöjda beslutsträdet |0.930113 |1.4239 |0.106647 |0.021662 |0.978338 |
 | Linjär Regression (toning härstammar) |2.035693 |2.98006 |0.233414 |0.094881 |0.905119 |
@@ -140,9 +140,9 @@ Möjligheten att överföra den förutsägande analytiska prognoser från Machin
 ## <a name="resources"></a>Resurser
 Här följer några resurser för att hjälpa dig att arbeta med regression: 
 
-* Regression i Excel. Om du aldrig har försökt regression i Excel, den här kursen är det enkelt: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
-* Regression vs prognoser. Tyler Chessman skrev en bloggartikel som förklarar hur du time series Prognosticering i Excel, som innehåller en bra nybörjare beskrivning av linjär regression. [http://sqlmag.com/SQL-Server-Analysis-Services/Understanding-Time-Series-Forecasting-Concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Vanlig minst linjär Regression: Fel, problem och fallgropar. En introduktion och en beskrivning av Regression: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Regression i Excel. Om du aldrig har försökt regression i Excel, gör du enkelt med hjälp av den här kursen: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
+* Regression vs prognoser. Tyler Chessman skrev en bloggartikel som förklarar hur du time series Prognosticering i Excel, som innehåller en bra nybörjare beskrivning av linjär regression. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
+* Vanlig minst linjär Regression: Fel, problem och fallgropar. En introduktion och en beskrivning av Regression: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

@@ -1,9 +1,9 @@
 ---
-title: "Skapa aviseringar för Azure-tjänster - plattformar CLI | Microsoft Docs"
-description: "Utlösaren e-postmeddelanden meddelanden, anropa webbplatser URL: er (webhooks) eller automation när angivna villkor uppfylls."
+title: Skapa aviseringar för Azure-tjänster - plattformar CLI | Microsoft Docs
+description: 'Utlösaren e-postmeddelanden meddelanden, anropa webbplatser URL: er (webhooks) eller automation när angivna villkor uppfylls.'
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 5c6a2d27-7dcc-4f89-8752-9bb31b05ff35
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
-ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cf93c95a37c9c32333727059317e05cfcc252905
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Skapa mått aviseringar i Azure-Monitor för Azure-tjänster - plattformar CLI
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Skapa klassiska mått aviseringar i Azure-Monitor för Azure-tjänster - plattformar CLI
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,6 +29,11 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>Översikt
+> [!NOTE]
+> Den här artikeln beskriver hur du skapar äldre mått aviseringar. Stöd för Azure övervakaren [nyare, bättre mått aviseringar](monitoring-near-real-time-metric-alerts.md). Dessa aviseringar kan du övervaka flera och tillåter aviseringar om dimensionell mått. CLI-stöd för nyare mått aviseringar kommer snart.
+>
+>
+
 Den här artikeln visar hur du ställer in Azure mått aviseringar via plattformsoberoende kommandoradsgränssnittet (CLI).
 
 > [!NOTE]
@@ -39,7 +44,7 @@ Den här artikeln visar hur du ställer in Azure mått aviseringar via plattform
 Du kan ta emot en avisering baserat på övervakning mätvärden för eller händelser på Azure-tjänster.
 
 * **Måttvärden** -aviseringen utlöses när värdet för ett visst mått överskrider ett tröskelvärde som du tilldelar i båda riktningarna. Det vill säga den utlöser både när villkoret uppfylls först och sedan efteråt när villkor som inte längre är uppfyllt.    
-* **Aktiviteten logghändelser** -utlösa en avisering på *varje* händelse eller bara när en vissa händelser inträffar. Mer information om aktiviteten loggen aviseringar [Klicka här](monitoring-activity-log-alerts.md)
+* **Aktiviteten logghändelser** -utlösa en avisering på *varje* händelse eller bara när en viss händelse inträffar. Mer information om aktiviteten loggen aviseringar [Klicka här](monitoring-activity-log-alerts.md)
 
 Du kan konfigurera en mått avisering när den utlöser gör du följande:
 
@@ -50,10 +55,10 @@ Du kan konfigurera en mått avisering när den utlöser gör du följande:
 
 Du kan konfigurera och få information om mått Varningsregler med
 
-* [Azure-portalen](insights-alerts-portal.md)
+* [Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
-* [kommandoradsgränssnittet (CLI)](insights-alerts-command-line-interface.md)
-* [Azure-Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Kommandoradsgränssnittet (CLI)](insights-alerts-command-line-interface.md)
+* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 Du kan alltid få hjälp för kommandon genom att skriva ett kommando och tas - hjälp i slutet. Exempel:
 

@@ -1,10 +1,10 @@
 ---
-title: "Azure SDK för .NET 2.9 viktig information"
-description: "Azure SDK för .NET 2.9 viktig information"
+title: Azure SDK för .NET 2.9 viktig information
+description: Azure SDK för .NET 2.9 viktig information
 services: app-service\web
 documentationcenter: .net
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
 ms.service: app-service
 ms.devlang: multiple
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 199f0906f73d693d7cd4b73c928f23ae83b99596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a62268cee0750c544703fb4c3f7e91238e26b872
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Azure SDK för .NET 2.9 viktig information
 
 Det här avsnittet innehåller viktig information för version 2.9 och 2.9.6 av Azure SDK för .NET.
 
-##<a name="azure-sdk-for-net-296-release-summary"></a>Azure SDK för .NET 2.9.6 släpper sammanfattning
+## <a name="azure-sdk-for-net-296-release-summary"></a>Azure SDK för .NET 2.9.6 släpper sammanfattning
 
 Utgivningsdatum: 11/16/2016
  
@@ -88,6 +88,6 @@ Den här uppdateringar omfattar följande:
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 Den här versionen lägger till [KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) stöd för Resource Manager-mallar.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 [Azure SDK 2.9 meddelande post](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
 

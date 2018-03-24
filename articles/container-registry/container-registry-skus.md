@@ -1,18 +1,18 @@
 ---
-title: "Azure-behållaren registret SKU: er"
-description: "Jämför de olika tjänstnivåerna som är tillgängliga i Azure Container registret."
+title: 'Azure-behållaren registret SKU: er'
+description: Jämför de olika tjänstnivåerna som är tillgängliga i Azure Container registret.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 15179fa3e3567f92a5eae69ba9a684addc3138dd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c9b8e072b5ccd89c27d9c46407e472d6bf1e1e84
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-container-registry-skus"></a>Azure-behållaren registret SKU: er
 
@@ -37,11 +37,11 @@ Basic, Standard och Premium-SKU: er kallas *hanteras* register och klassisk regi
 
 ### <a name="managed-basic-standard-premium"></a>Hanterad (Basic, Standard, Premium)
 
-Hanterade register backas upp av en Azure Storage-konto som hanteras av Azure. Har visas det lagringskonto som lagrar dina bilder inte i din Azure-prenumeration. Det finns flera fördelar med något av hanterade registret SKU: er, beskrivs djupgående i [uppgradera ett klassiskt register][container-registry-upgrade]. Den här artikeln fokuserar på de hanterade registret SKU: er och deras funktioner.
+Hanterade register förmånen från bildlagring hanteras helt av Azure. Har visas ett lagringskonto som lagrar dina bilder inte i din Azure-prenumeration. Det finns flera fördelar med något av hanterade registret SKU: er, beskrivs djupgående i [behållaren bildlagring i Azure Container registret][container-registry-storage]. Den här artikeln fokuserar på de hanterade registret SKU: er och deras funktioner.
 
 ### <a name="unmanaged-classic"></a>Ohanterad (klassisk)
 
-Klassiska register är ”ohanterad” som det lagringskonto som säkerhetskopierar ett klassiskt register befinner sig inom *din* Azure-prenumeration. Därför ansvarar du för hantering av storage-konto som är lagrade i behållaren-avbildningar. Med ohanterad register, du kan inte växla mellan SKU: er som behöver ändras (andra än [uppgraderar] [ container-registry-upgrade] hanterade registret), och flera hanterade register-funktioner är inte tillgängliga (t.ex. behållaren image borttagning [georeplikering] [ container-registry-geo-replication] och [webhooks][container-registry-webhook]).
+Klassiska register är ”ohanterad” som det lagringskonto som säkerhetskopierar ett klassiskt register befinner sig inom *din* Azure-prenumeration. Därför ansvarar du för hantering av storage-konto som är lagrade i behållaren-avbildningar. Med ohanterad register, du kan inte växla mellan SKU: er som behöver ändras (andra än [uppgraderar] [ container-registry-upgrade] hanterade registret), och flera hanterade register-funktioner är inte tillgängliga (t.ex. behållaren image borttagning [georeplikering][container-registry-geo-replication], och [webhooks][container-registry-webhook]).
 
 Mer information om hur du uppgraderar ett klassiskt register till en hanterad SKU: er finns [uppgradera ett klassiskt register][container-registry-upgrade].
 
@@ -103,4 +103,5 @@ Skicka och rösta på förslag på nya funktioner i [ACR UserVoice][container-re
 [az-acr-update]: /cli/azure/acr#az_acr_update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-upgrade]: container-registry-upgrade.md
+[container-registry-storage]: container-registry-storage.md
 [container-registry-webhook]: container-registry-webhook.md

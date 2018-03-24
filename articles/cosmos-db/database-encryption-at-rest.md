@@ -1,11 +1,11 @@
 ---
 title: 'Databaskryptering vilande: Azure Cosmos DB | Microsoft Docs'
-description: "Lär dig hur Azure Cosmos DB tillhandahåller standard kryptering av alla data."
+description: Lär dig hur Azure Cosmos DB tillhandahåller standard kryptering av alla data.
 services: cosmos-db
 author: voellm
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: df793fb0511d1289b927caad200eb8252f2b64e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure DB Cosmos databaskryptering i vila
 
@@ -53,7 +53,6 @@ S: Microsoft har interna riktlinjer för kryptering viktiga rotation, vilket fö
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>F: kan jag använda min egen krypteringsnycklar?
 A: Vi har arbetat hårt hålla tjänsten lättanvända cosmos DB är en PaaS-tjänst. Vi har lagt märke till den här frågan är ofta tillfrågas som en proxy-fråga för att uppfylla efterföljandekrav som PCI-DSS. Skapa den här funktionen arbetat, vi med efterlevnad granskare så att kunder som använder Cosmos DB uppfyller deras behov utan att behöva hantera nycklar sig själva.
-Därför kan ger vi för närvarande inte användare kan belasta sig själva med nyckelhantering.
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>F: vad regioner har kryptering aktiverat?
 S: alla Azure Cosmos DB regioner har kryptering aktiverat för alla användardata.

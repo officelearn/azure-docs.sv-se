@@ -1,25 +1,25 @@
 ---
-title: "Äldre Azure virtuell nätverksgateway SKU: er | Microsoft Docs"
-description: "Gamla virtuella nätverks-gateway-SKU: er."
+title: 'Äldre virtuella Azure-nätverket VPN gateway-SKU: er | Microsoft Docs'
+description: 'Hur du arbetar med den gamla virtuella nätverksgatewayen SKU: er; Basic, Standard och HighPerformance.'
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: 
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2017
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: d5127c7fa512bad49817fa4c8edf3a16ca2f7d60
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 4feecb9c1e91e1bc6c66a610c092e7bf894886e5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Arbeta med virtuell nätverksgateway SKU: er (äldre SKU: er)
 
@@ -37,33 +37,27 @@ Den här artikeln innehåller information om den äldre (gamla) virtuell nätver
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## <a name="resize"></a>Ändra storlek på en gateway (ändra en gateway-SKU)
+## <a name="resize"></a>Ändra storlek på en gateway
 
-Du kan ändra storlek på en gateway-SKU inom samma SKU-familjen. Till exempel om du har en Standard-SKU, du kan ändra storlek till en HighPerformance SKU. Du kan inte ändra storlek på VPN-gatewayer mellan de gamla SKU: er och nya SKU-familjer. Du kan exempelvis gå från en Standard-SKU till en VpnGw2 SKU.
+Du kan ändra storlek på din gateway till en gateway-SKU inom samma SKU-familjen. Till exempel om du har en Standard-SKU, du kan ändra storlek till en HighPerformance SKU. Men kan inte du ändra din VPN-gateway mellan de gamla SKU: er och nya SKU-familjer. Du kan inte exempelvis gå från en Standard-SKU till en VpnGw2 SKU eller en grundläggande SKU till VpnGw1.
 
->[!IMPORTANT]
->När du ändrar storlek på en gateway har du 20 – 30 minuter stillestånd för denna gateway när det storleksändras.
->
->
-
-Om du vill ändra storlek på en gateway-SKU för den klassiska distributionsmodellen, använder du följande kommando:
+Om du vill ändra storlek på en gateway för den klassiska distributionsmodellen, använder du följande kommando:
 
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
-Om du vill ändra storlek på en gateway-SKU för Resource Manager-distributionsmodellen, använder du följande kommando:
+Om du vill ändra storlek på en gateway för Resource Manager-distributionsmodellen med hjälp av PowerShell, använder du följande kommando:
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
+Du kan också ändra storlek på en gateway i Azure-portalen.
 
-## <a name="migrate"></a>Migrera till ny gateway SKU: er
+## <a name="change"></a>Ändra till den nya gatewayen SKU: er
 
-Om du arbetar med Resource Manager-distributionsmodellen kan du migrera till ny gateway SKU: er. Om du arbetar med den klassiska distributionsmodellen kan inte migreras till de nya SKU: er och i stället måste fortsätta att använda de äldre SKU: er.
-
-[!INCLUDE [Migrate SKU](../../includes/vpn-gateway-migrate-legacy-sku-include.md)]
+[!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,12 +1,12 @@
 ---
-title: "Konfigurera aviseringar för Azure-tjänstens hälsotillstånd med OpsGenie | Microsoft Docs"
-description: "Hämta anpassade meddelanden om tjänstens hälsa händelser till OpsGenie-instans."
+title: Konfigurera aviseringar för Azure-tjänstens hälsotillstånd med OpsGenie | Microsoft Docs
+description: Hämta anpassade meddelanden om tjänstens hälsa händelser till OpsGenie-instans.
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: a2309a050225dd0d7ac8d5b3e4c762bc5bcb25c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6b8017f62dd895219f1d2cdac40f0efdf2db6c93
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-service-health-alerts-with-opsgenie"></a>Konfigurera tjänsten health-aviseringar med OpsGenie
 
@@ -77,7 +77,7 @@ Den här artikeln visar hur du ställer in hälsovarningar för Azure-tjänsten 
 5. Välj **spara** när du är klar för att uppdatera åtgärdsgruppen.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testa din webhook-integrering via en HTTP POST-begäran
-1. Skapa nyttolasten av tjänstens hälsa som du vill skicka. Du hittar en webhook exempel tjänstens hälsa nyttolast på [Webhooks för Azure aktiviteten Logga varningar](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Skapa service hälsa nyttolast som du vill skicka. Du hittar en exempel-tjänsten hälsa webhook nyttolast på [Webhooks för Azure aktiviteten Logga varningar](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
 2. Skapa en HTTP POST-begäran på följande sätt:
 
@@ -86,7 +86,7 @@ Den här artikeln visar hur du ställer in hälsovarningar för Azure-tjänsten 
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. Du bör få ett `200 OK` svar med meddelandet status ”lyckades”.
 

@@ -1,13 +1,13 @@
 ---
-title: "Metodtips för Azure Functions | Microsoft Docs"
-description: "Läs metodtips och mönster för Azure Functions."
+title: Metodtips för Azure Functions | Microsoft Docs
+description: Läs metodtips och mönster för Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure functions, mönster, bästa praxis, funktioner, händelsebearbetning, webhooks, dynamiska beräkning, serverlösa arkitektur"
+editor: ''
+tags: ''
+keywords: Azure functions, mönster, bästa praxis, funktioner, händelsebearbetning, webhooks, dynamiska beräkning, serverlösa arkitektur
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: functions
 ms.devlang: multiple
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d8088a8a83bcaefce17ac2756360a46119c8eb27
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 19ca9d70f769a19556d131d1d131f1bc9d107ef0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimera prestanda och tillförlitlighet i Azure Functions
 
@@ -99,7 +99,7 @@ Asynkron programmering är en rekommenderad metod. Dock alltid undvika refererar
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Ta emot meddelanden i batch när det är möjligt
 
-Vissa utlösare som Event Hub aktivera tar emot en grupp med meddelanden på ett enda anrop.  Batchbearbetning meddelanden har mycket bättre prestanda.  Du kan konfigurera högsta batch-storlek i den `functions.json` filen enligt anvisningarna i den [host.json referensdokumentationen](functions-host-json.md)
+Vissa utlösare som Event Hub aktivera tar emot en grupp med meddelanden på ett enda anrop.  Batchbearbetning meddelanden har mycket bättre prestanda.  Du kan konfigurera högsta batch-storlek i den `host.json` filen enligt anvisningarna i den [host.json referensdokumentationen](functions-host-json.md)
 
 Du kan ändra typen till en matris med strikt typkontroll för C#-funktioner.  Till exempel i stället för `EventData sensorEvent` Metodsignaturen kunde `EventData[] sensorEvent`.  För andra språk måste du uttryckligen ställa in egenskapen cardinality din `function.json` till `many` för att aktivera Batchbearbetning [som visas här](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 

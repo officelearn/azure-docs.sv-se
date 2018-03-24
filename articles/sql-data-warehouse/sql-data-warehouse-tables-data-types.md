@@ -1,11 +1,11 @@
 ---
-title: "Datatyperna vägledning - Azure SQL Data Warehouse | Microsoft Docs"
-description: "Rekommendationer för att definiera datatyper som är kompatibla med SQL Data Warehouse."
+title: Datatyperna vägledning - Azure SQL Data Warehouse | Microsoft Docs
+description: Rekommendationer för att definiera datatyper som är kompatibla med SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
-editor: 
+editor: ''
 ms.assetid: d4a1f0a3-ba9f-44b9-95f6-16a4f30746d6
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 03/17/2018
 ms.author: barbkess
-ms.openlocfilehash: 2bde5da8593c559e2afb33c9c4842695dc273ac3
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: dcdcb6eddf35fe3ec4754353452c68cd3e24f907
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>Riktlinjer för att definiera datatyper för tabeller i SQL Data Warehouse
 Använd de här rekommendationerna för att definiera tabellen datatyper som är kompatibla med SQL Data Warehouse. Förutom kompatibilitet förbättrar minimera storlek på datatyper för prestanda för frågor.
@@ -58,13 +58,13 @@ I följande lista visas datatyperna som SQL Data Warehouse stöder inte och ger 
 | [geometri][geometry] |[varbinary][varbinary] |
 | [geografisk plats][geography] |[varbinary][varbinary] |
 | [hierarchyid][hierarchyid] |[nvarchar][nvarchar](4000) |
-| [bild][ntext,text,image] |[varbinary][varbinary] |
+| [image][ntext,text,image] |[varbinary][varbinary] |
 | [text][ntext,text,image] |[varchar][varchar] |
 | [ntext][ntext,text,image] |[nvarchar][nvarchar] |
 | [sql_variant][sql_variant] |Dela upp kolumn i flera strikt typkontroll kolumner. |
-| [tabell][table] |Konvertera till temporära tabeller. |
-| [tidsstämpel][timestamp] |Omarbeta kod för att använda [datetime2] [ datetime2] och `CURRENT_TIMESTAMP` funktion.  Endast konstanter stöds som standard, därför current_timestamp kan inte definieras som en default-begränsning. Om du behöver migrera version radvärden från en tidsstämpelkolumn skrivna använder [binära][BINARY](8) eller [VARBINARY][BINARY](8) för NOT NULL eller NULL version radvärden. |
-| [XML][xml] |[varchar][varchar] |
+| [Tabell][table] |Konvertera till temporära tabeller. |
+| [timestamp][timestamp] |Omarbeta kod för att använda [datetime2] [ datetime2] och `CURRENT_TIMESTAMP` funktion.  Endast konstanter stöds som standard, därför current_timestamp kan inte definieras som en default-begränsning. Om du behöver migrera version radvärden från en tidsstämpelkolumn skrivna använder [binära][BINARY](8) eller [VARBINARY][BINARY](8) för NOT NULL eller NULL version radvärden. |
+| [xml][xml] |[varchar][varchar] |
 | [användardefinierad typ][user defined types] |Konvertera tillbaka till den ursprungliga datatypen när det är möjligt. |
 | standardvärden | Standardvärden stöder literaler och endast konstanter.  Icke-deterministiska uttryck eller funktioner, t.ex `GETDATE()` eller `CURRENT_TIMESTAMP`, stöds inte. |
 

@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 7e19837c1d16ddeea185f340305a0c9c52ce23ff
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/23/2018
+---
 När du har skapat ett självsignerat rotcertifikat, exportera rot certifikatets offentliga nyckel .cer-fil (inte den privata nyckeln). Du kommer senare att överföra filen till Azure. Följande steg hjälper dig att exportera .cer-filen för ditt självsignerade rotcertifikat:
 
 1. Om du vill hämta en .cer-fil från certifikatet öppnar du **Hantera användarcertifikat**. Leta upp det självsignerade rotcertifikatet, som vanligtvis finns under ”Certifikat – aktuell användare\Personligt\Certifikat” och högerklicka. Klicka på **Alla aktiviteter** och klicka sedan på **Exportera**. **Guiden Exportera certifikat** öppnas.

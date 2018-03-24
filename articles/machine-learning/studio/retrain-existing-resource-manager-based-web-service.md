@@ -1,12 +1,12 @@
 ---
-title: "Träna om en befintlig förutsägande webbtjänst | Microsoft Docs"
-description: "Lär dig mer om att träna om en modell och uppdatera webbtjänsten för att använda den nya tränade modellen i Azure Machine Learning."
+title: Träna om en befintlig förutsägande webbtjänst | Microsoft Docs
+description: Lär dig mer om att träna om en modell och uppdatera webbtjänsten för att använda den nya tränade modellen i Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: aashishb
-ms.author: aashishb
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
 manager: hjerez
-editor: 
+editor: cgronlun
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 040b52ae41dc83f103762764b6f2ccea23d36983
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 67d75a28ba65dbdc0a3a105f9e41a1c4f02f2615
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Träna om en befintlig förutsägande webbtjänst
 Det här dokumentet beskriver omtränings för följande scenario:
@@ -44,7 +44,7 @@ Från och med din befintliga webbtjänsten och experiment, måste du följa dess
    6. Uppdatera webbtjänsten med en ny web service definition.
 
 ## <a name="deploy-the-training-experiment"></a>Distribuera utbildning experimentet
-Om du vill distribuera träningsexperiment som en omtränings webbtjänst, måste du lägga till web service in- och utdataenheter modellen. Genom att ansluta en *Web Service utdata* modulen till arbetsytan för experimentet  *[Träningsmodell] [ train-model]*  modulen, aktivera utbildning experimentet Skapa en ny tränad modell som du kan använda i experimentet förutsägbara. Om du har en *utvärdera modell* modulen, du kan även bifoga web service-utdata för att få utvärderingsresultaten som utdata.
+Om du vill distribuera träningsexperiment som en omtränings webbtjänst, måste du lägga till web service in- och utdataenheter modellen. Genom att ansluta en *Web Service utdata* modulen till arbetsytan för experimentet *[Träningsmodell] [ train-model]* modulen, aktivera utbildning experimentet Skapa en ny tränad modell som du kan använda i experimentet förutsägbara. Om du har en *utvärdera modell* modulen, du kan även bifoga web service-utdata för att få utvärderingsresultaten som utdata.
 
 Så här uppdaterar experimentet utbildning:
 

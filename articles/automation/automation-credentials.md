@@ -1,6 +1,6 @@
 ---
-title: "Inloggningstillgångar i Azure Automation"
-description: "Inloggningstillgångar i Azure Automation innehålla säkerhetsreferenser som kan användas för att autentisera till resurser som nås av den eller de DSC-konfigurationen. Den här artikeln beskriver hur du skapar inloggningstillgångar och använda dem i en runbook eller DSC-konfigurationen."
+title: Inloggningstillgångar i Azure Automation
+description: Inloggningstillgångar i Azure Automation innehålla säkerhetsreferenser som kan användas för att autentisera till resurser som nås av den eller de DSC-konfigurationen. Den här artikeln beskriver hur du skapar inloggningstillgångar och använda dem i en runbook eller DSC-konfigurationen.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: bb6aec41813930cbf74ab989cc4ce6b526b9c6b6
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c56758012fc09287d0abb887db9148bd093a678a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Inloggningstillgångar i Azure Automation
 Ett Automation-autentiseringsuppgiftstillgång innehåller en [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) objekt som innehåller säkerhetsreferenser, till exempel användarnamn och lösenord. Runbooks och DSC-konfigurationer kan använda cmdlet: ar som accepterar ett PSCredential-objekt för autentisering eller de kan extrahera användarnamnet och lösenordet för PSCredential-objekt för att förse vissa program eller tjänster som kräver autentisering. Egenskaperna för en autentiseringsuppgift lagras säkert i Azure Automation och kan nås i runbook eller DSC-konfigurationen med den [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) aktivitet.

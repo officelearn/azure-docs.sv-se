@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Spacio | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Spacio."
+title: 'Självstudier: Azure Active Directory-integrering med Spacio | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Spacio.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/22/2018
 ms.author: jeedes
-ms.openlocfilehash: faf4b2ff24ef733b740a5b65864941a10de64ed8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 604249151f3c1ca206f64a178b25ea1dae5b5023
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Självstudier: Azure Active Directory-integrering med Spacio
 
@@ -112,18 +112,32 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Spacio klienten supportteamet](mailto:support@spac.io) att hämta dessa värden. 
- 
 
-
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
-
-    ![Länken hämta certifikatet](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_certificate.png) 
-
-5. Klicka på **spara** knappen.
+4. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-spacio-tutorial/tutorial_general_400.png)
 
-6. Konfigurera enkel inloggning på **Spacio** sida, måste du skicka den hämtade **XML-Metadata för** till [Spacio supportteamet](mailto:support@spac.io). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
+5. Att generera den **URL för tjänstmetadata**, utför följande steg:
+
+    a. Klicka på **App registreringar**.
+    
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appregistrations.png)
+   
+    b. Klicka på **slutpunkter** att öppna den **slutpunkter** dialogrutan.  
+    
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpointicon.png)
+
+    c. Klicka på den **kopiera** för att kopiera den **FEDERATION METADATADOKUMENTET** URL och klistra in den i anteckningar.
+    
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpoint.png)
+     
+    d. Gå till egenskapssidan för **Spacio** och kopiera den **program-Id** med hjälp av den **kopiera** knappen och klistra in den i anteckningar.
+ 
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appid.png)
+
+    e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
+
+6. Konfigurera enkel inloggning på **Spacio** sida, måste du skicka den genererade **URL för tjänstmetadata** till [Spacio supportteamet](mailto:support@spac.io). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

@@ -1,11 +1,11 @@
 ---
-title: "Övervaka nätverksanslutningar med Nätverksbevakaren Azure - Azure-portalen | Microsoft Docs"
-description: "Lär dig att övervaka nätverksanslutningen med Nätverksbevakaren i Azure med Azure-portalen."
+title: Övervaka nätverksanslutningar med Nätverksbevakaren Azure - Azure-portalen | Microsoft Docs
+description: Lär dig att övervaka nätverksanslutningen med Nätverksbevakaren i Azure med Azure-portalen.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2018
 ms.author: jdial
-ms.openlocfilehash: beaa458d727a05eccf496933deb3c998828868cd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c7d98350dc8f66ebd4097f22b44dcbbe2653b25d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>Övervaka nätverksanslutningar med Nätverksbevakaren i Azure med Azure-portalen
 
-Lär dig hur du använder Övervakaren anslutning för att övervaka nätverksanslutningen mellan en virtuell Azure-dator och en IP-adress. IP-adressen kan tilldelas en annan Azure-resurs eller en Internet- eller lokal resurs.
+Lär dig hur du använder Övervakaren anslutning för att övervaka nätverksanslutningen mellan en virtuell Azure-dator och en IP-adress. Övervakaren anslutning innehåller övervakning på en nivå för anslutningen. En anslutning har definierats som en kombination av källa och mål-IP-adress och port. Övervakaren anslutning möjliggör scenarier som övervakning anslutningen från en virtuell dator i ett virtuellt nätverk till en virtuell dator som kör SQLServer i samma eller olika virtuella nätverk, via port 1433. Övervakaren anslutning innehåller anslutningens svarstid som ett Azure-Monitor-mått registreras var 60: e sekund. Dessutom ger dig en hopp som nexthop-topologi, och identifierar konfigurationsproblem som påverkar anslutningen.
+
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -37,25 +38,30 @@ Logga in på [Azure-portalen](http://portal.azure.com).
 
 ## <a name="create-a-connection-monitor"></a>Skapa en anslutning
 
+Följande steg aktivera anslutning övervakning till en virtuell dator för målet via portarna 80 och 1433:
+
 1. På vänster sida av portalen väljer **fler tjänster**.
 2. Börja skriva *nätverksbevakaren*. När **Nätverksbevakaren** visas i sökresultaten väljer den.
 3. Under **övervakning**väljer **övervakaren anslutning (förhandsgranskning)**. Funktioner i förhandsversionen har inte samma nivå av tillförlitlighet eller regional tillgänglighet som funktioner i allmänhet versionen.
 4. Välj **+ Lägg till**.
-5. Ange eller välj lämplig information för anslutningen du vill övervaka och välj sedan **Lägg till**. I det här exemplet är en anslutning mellan den *myVmSource* och *myVmDestination* virtuella datorer som övervakas via port 80.
-    
-    |  Inställning                                 |  Värde               |
-    |  -------------------------------------   |  ------------------- |
-    |  Namn                                    |  myConnectionMonitor |
-    |  Virtuella källdatorn                  |  myVmSource          |
-    |  Källport                             |                      |
-    |  Mål, Välj en virtuell dator   |  myVmDestination     |
-    |  Målport                        |  80                  |
+5. Ange eller välj information för anslutningen du vill övervaka och välj sedan **Lägg till**. I exemplet som visas i följande bild, är anslutningen övervakas mellan den *MultiTierApp0* och *Database0* virtuella datorer:
 
-6. Övervaka börjar. Övervakaren anslutning avsökningar var 60: e sekund.
-7. Övervakaren anslutning visar genomsnittlig förfluten tid och procent avsökningar som misslyckas. Du kan visa Övervakare data i ett rutnät eller ett diagram.
+    ![Lägg till övervakaren anslutning](./media/connection-monitor/add-connection-monitor.png)
+
+    Övervaka börjar. Övervakaren anslutning avsökningar var 60: e sekund.
+
+## <a name="view-connection-monitoring"></a>Visa anslutning övervakning
+
+1. Slutför steg 1-3 i [skapa en anslutning Övervakare](#create-a-connection-monitor) att visa anslutning övervakning.
+2. Följande bild visar information för AppToDB(80) anslutningen. Den **Status** kan nås. Den **kurva visa** visar den **serveranrop genomsnittstiden** och **% avsökningar misslyckades**. Diagrammet innehåller hopp av hopp information och visar att några problem som påverkar mål reachability.
+
+    ![Övervakaren anslutning för vyn](./media/connection-monitor/view-connection-monitor.png)
+
+3. Visa den *AppToDB(1433)* Övervakare, visas i följande bild ser att för samma källa och mål virtuella datorer, status kan inte nås via port 1433. Den **rutnätsvy** i det här scenariot ger hopp av hopp information och problem som påverkar reachability. I det här fallet blockerar en NSG regel all trafik på port 1433 på ett andra hopp.
+
+    ![Övervakaren anslutning för vyn](./media/connection-monitor/view-connection-monitor-2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig att automatisera insamlingar paket med virtuella aviseringar efter [skapar en avisering utlöses paketinsamling](network-watcher-alert-triggered-packet-capture.md).
-
 - Avgöra om vissa trafik tillåts i eller utanför den virtuella datorn med hjälp av [IP-flöde Kontrollera](network-watcher-check-ip-flow-verify-portal.md).

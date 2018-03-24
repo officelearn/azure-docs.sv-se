@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Komma igång med anpassade principer | Microsoft Docs"
-description: "Hur du kommer igång med Azure Active Directory B2C anpassade principer"
+title: 'Azure Active Directory B2C: Komma igång med anpassade principer | Microsoft Docs'
+description: Hur du kommer igång med Azure Active Directory B2C anpassade principer
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: joroja;parahk;gsacavdm
-ms.openlocfilehash: 86b86c7c670b34b4f3303adbcb55aff8d5edb53a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.author: davidmu
+ms.openlocfilehash: 502f88bd08c05f71988763fedeba4d596aa409b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: Komma igång med anpassade principer
 
@@ -143,7 +140,7 @@ Varje startpaket innehåller:
     PublicPolicyUri="http://yourtenant.onmicrosoft.com">
     ```
    >[!NOTE]
-   >`PolicyId`är namnet som den här principfilen refererar till andra principfiler och principnamn som visas i portalen.
+   >`PolicyId` är namnet som den här principfilen refererar till andra principfiler och principnamn som visas i portalen.
 
 5. Spara filen.
 6. Öppna TrustFrameworkExtensions.xml. Gör samma två ändringar genom att ersätta `yourtenant.onmicrosoft.com` med din Azure AD B2C-klient. Gör samma ersättningen i den `<TenantId>` element för totalt tre ändringar. Spara filen.

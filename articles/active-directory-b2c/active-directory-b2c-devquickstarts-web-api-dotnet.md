@@ -1,25 +1,21 @@
 ---
-title: "Anropa en säker webb-api ASP.NET Azure Active Directory B2C | Microsoft Docs"
-description: "Hur du skapar ett .NET-webbprogram och anropa ett webb-API: et med Azure Active Directory B2C och OAuth 2.0-åtkomsttoken."
+title: Anropa en säker webb-api ASP.NET Azure Active Directory B2C | Microsoft Docs
+description: 'Hur du skapar ett .NET-webbprogram och anropa ett webb-API: et med Azure Active Directory B2C och OAuth 2.0-åtkomsttoken.'
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: d3888556-2647-4a42-b068-027f9374aa61
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: parakhj
-ms.custom: seohack1
-ms.openlocfilehash: d81976988a26ce264dd7b9ed24f43aed21d4ee99
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: davidmu
+ms.openlocfilehash: 75ae88898d3d6b275ec462e865347056305fd666
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: Anropa .NET-webb-API från en .NET-webbapp
 
@@ -52,7 +48,7 @@ Koden för den här självstudiekursen finns på [GitHub](https://github.com/Azu
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-När du har laddat ned exempelkoden öppnar du SLN-filen i Visual Studio för att sätta igång. Lösningsfilen innehåller två projekt: `TaskWebApp` och `TaskService`. `TaskWebApp`är en MVC-webbapp som användaren interagerar med. `TaskService` är appens backend-webb-API som lagrar varje användares att göra-lista. Den här artikeln täcker inte skapa den `TaskWebApp` webbprogram eller `TaskService` webb-api. Information om hur du skapar .NET-webbapp med Azure AD B2C finns våra [.NET-självstudiekurs om web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md). Information om hur du skapar .NET-webb-API som kan skyddas med Azure AD B2C finns våra [.NET-självstudiekurs om webb-API](active-directory-b2c-devquickstarts-api-dotnet.md).
+När du har laddat ned exempelkoden öppnar du SLN-filen i Visual Studio för att sätta igång. Lösningsfilen innehåller två projekt: `TaskWebApp` och `TaskService`. `TaskWebApp` är en MVC-webbapp som användaren interagerar med. `TaskService` är appens backend-webb-API som lagrar varje användares att göra-lista. Den här artikeln täcker inte skapa den `TaskWebApp` webbprogram eller `TaskService` webb-api. Information om hur du skapar .NET-webbapp med Azure AD B2C finns våra [.NET-självstudiekurs om web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md). Information om hur du skapar .NET-webb-API som kan skyddas med Azure AD B2C finns våra [.NET-självstudiekurs om webb-API](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ### <a name="update-the-azure-ad-b2c-configuration"></a>Uppdatera Azure AD B2C-konfigurationen
 
@@ -61,7 +57,7 @@ Det här exemplet är konfigurerat att använda principerna och klient-ID:t för
 1. Öppna `web.config` i `TaskService`-projektet och ersätt värdena för
 
     * `ida:Tenant` med namnet på din klientorganisation
-    * `ida:ClientId`med web api program-ID
+    * `ida:ClientId` med web api program-ID
     * `ida:SignUpSignInPolicyId` med namnet på din registrerings- eller inloggningsprincip
 
 2. Öppna `web.config` i `TaskWebApp`-projektet och ersätt värdena för

@@ -1,24 +1,24 @@
 ---
-title: "Hur du skapar Windows Azure VM-avbildningar med förpackaren | Microsoft Docs"
-description: "Lär dig hur du använder förpackaren för att skapa avbildningar av virtuella Windows-datorer i Azure"
+title: Hur du skapar Windows Azure VM-avbildningar med förpackaren | Microsoft Docs
+description: Lär dig hur du använder förpackaren för att skapa avbildningar av virtuella Windows-datorer i Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: b5030e12743ca81b74502e31767eb6b2e05e444f
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: b53b301a45fb7482aa05f24b386b79fcedc148e2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Hur du använder förpackaren för att skapa virtuella Windows-avbildningar i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar Windows-distributionen och OS-version. Avbildningar kan innehålla förinstallerade program och konfigurationer. Azure Marketplace innehåller många första och tredje parts avbildningar för de vanligaste operativsystem och miljöer eller skapa egna anpassade avbildningar som är anpassade efter era behov. Den här artikeln beskriver hur du använder verktyget öppen källkod [förpackaren](https://www.packer.io/) att definiera och skapa anpassade avbildningar i Azure.
@@ -27,7 +27,7 @@ Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar Wind
 ## <a name="create-azure-resource-group"></a>Skapa Azure-resursgrupp
 När du skapar skapar förpackaren tillfälliga Azure-resurser som den skapar den Virtuella källdatorn. För att avbilda den Virtuella källdatorn som ska användas som en avbildning måste du definiera en resursgrupp. Utdata från processen för att bygga förpackaren lagras i den här resursgruppen.
 
-Skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *eastus* plats:
+Skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -59,17 +59,17 @@ Du kan använda dessa två ID: N i nästa steg.
 
 
 ## <a name="define-packer-template"></a>Definiera förpackaren mall
-För att skapa avbildningar, skapa en mall som en JSON-fil. I mallen definierar du builders och provisioners som utför faktiska skapar. Förpackaren har en [provisioner för Azure](https://www.packer.io/docs/builders/azure.html) som kan du definiera Azure-resurser, t.ex. de huvudsakliga Tjänstereferenser som skapade i föregående steg.
+För att skapa avbildningar, skapa en mall som en JSON-fil. I mallen definierar du builders och provisioners som utför faktiska skapar. Förpackaren har en [builder för Azure](https://www.packer.io/docs/builders/azure.html) som kan du definiera Azure-resurser, t.ex. de huvudsakliga Tjänstereferenser som skapade i föregående steg.
 
 Skapa en fil med namnet *windows.json* och klistra in följande innehåll. Ange egna värden för följande:
 
 | Parameter                           | Var kan hämtas |
 |-------------------------------------|----------------------------------------------------|
-| *client_id*                         | Visa service ägar-ID med`$sp.applicationId` |
-| *client_secret*                     | Lösenordet du angav i`$securePassword` |
+| *client_id*                         | Visa service ägar-ID med `$sp.applicationId` |
+| *client_secret*                     | Lösenordet du angav i `$securePassword` |
 | *tenant_id*                         | Utdata från `$sub.TenantId` kommando |
-| *PRENUMERATIONSID*                   | Utdata från `$sub.SubscriptionId` kommando |
-| *object_id*                         | Visa service principal objekt-ID med`$sp.Id` |
+| *subscription_id*                   | Utdata från `$sub.SubscriptionId` kommando |
+| *object_id*                         | Visa service principal objekt-ID med `$sp.Id` |
 | *managed_image_resource_group_name* | Namnet på resursgruppen som du skapade i det första steget |
 | *managed_image_name*                | Namn för den hanterade diskavbildning som har skapats |
 
@@ -110,8 +110,8 @@ Skapa en fil med namnet *windows.json* och klistra in följande innehåll. Ange 
     "type": "powershell",
     "inline": [
       "Add-WindowsFeature Web-Server",
-      "if( Test-Path $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml ){ rm $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml -Force}",
-      "& $Env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /shutdown /quiet"
+      "& $env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit",
+      "while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 10  } else { break } }"
     ]
   }]
 }
@@ -281,7 +281,7 @@ Det tar några minuter att skapa den virtuella datorn från förpackaren avbildn
 
 
 ## <a name="test-vm-and-iis"></a>Testa virtuell dator och IIS
-Hämta den offentliga IP-adressen på den virtuella datorn med [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). I följande exempel hämtar IP-adressen för *myPublicIP* skapade tidigare:
+Hämta den offentliga IP-adressen för den virtuella datorn med [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). I följande exempel hämtas IP-adressen för *myPublicIP* som skapades tidigare:
 
 ```powershell
 Get-AzureRmPublicIPAddress `

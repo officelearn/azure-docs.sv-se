@@ -1,11 +1,11 @@
 ---
 title: Azure CDN regler motorn funktioner | Microsoft Docs
-description: "I referensdokumentationen för Azure CDN regler motorn matchar villkoren och funktioner."
+description: I referensdokumentationen för Azure CDN regler motorn matchar villkoren och funktioner.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 949b957716af2d7dfd704b4fca48afb78d0fed1e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN regler motorn funktioner
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga funktioner för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
@@ -46,28 +46,28 @@ Dessa funktioner är utformade för att anpassa när och hur innehållet cachela
 Namn | Syfte
 -----|--------
 [Parametrar för bandbredd](#bandwidth-parameters) | Anger om bandbredd bandbreddsbegränsning parametrarna (till exempel ec_rate och ec_prebuf) är aktiva.
-[Begränsning av bandbredd](#bandwidth-throttling) | Begränsar bandbredd för svar som tillhandahålls av Microsoft edge-servrar.
+[Begränsning av bandbredd](#bandwidth-throttling) | Begränsar bandbredd för svar som tillhandahålls av punkt-för-förekomst (POP).
 [Kringgå Cache](#bypass-cache) | Anger om begäran bör kringgå cachelagring.
-[Cache-Control sidhuvud behandling](#cache-control-header-treatment) | Styr generering av `Cache-Control` huvuden av edge-servern när externa maximal ålder funktionen är aktiv.
+[Cache-Control sidhuvud behandling](#cache-control-header-treatment) | Styr generering av `Cache-Control` huvuden av POP när externa maximal ålder funktionen är aktiv.
 [Cachenyckel frågesträng](#cache-key-query-string) | Avgör om cache-nyckeln innehåller eller utesluter frågan string-parametrar som är associerade med en begäran.
 [Omarbetning av cache-nyckel](#cache-key-rewrite) | Skriver om cache-nyckeln som associeras med en begäran.
-[Slutföra Cache Fill](#complete-cache-fill) | Anger vad som händer när en begäran resulterar i en partiell cache-miss på edge-server.
+[Slutföra Cache Fill](#complete-cache-fill) | Anger vad som händer när en begäran resulterar i en partiell cache-miss på en POP.
 [Komprimera filtyper](#compress-file-types) | Definierar filformat för filer som är komprimerade på servern.
-[Internt Max-åldern som standard](#default-internal-max-age) | Anger maximal ålder standardintervallet för edge-server till ursprunget server Cachevalidering.
-[Upphör att gälla sidhuvud behandling](#expires-header-treatment) | Styr generering av `Expires` huvuden genom en gränsserver när funktionen externa maximal ålder är aktiv.
-[External Max-Age](#external-max-age) | Anger intervallet för maximal ålder för webbläsaren edge server Cachevalidering.
-[Tvinga inre maximal ålder](#force-internal-max-age) | Anger intervallet för maximal ålder för edge-server till ursprunget server Cachevalidering.
+[Internt Max-åldern som standard](#default-internal-max-age) | Anger maximal ålder standardintervallet för POP till ursprunget server Cachevalidering.
+[Upphör att gälla sidhuvud behandling](#expires-header-treatment) | Styr generering av `Expires` huvuden genom en POP när funktionen externa maximal ålder är aktiv.
+[External Max-Age](#external-max-age) | Anger tidsintervallet maximal ålder för webbläsaren till POP Cachevalidering.
+[Tvinga inre maximal ålder](#force-internal-max-age) | Anger intervallet för maximal ålder för POP till ursprung server Cachevalidering.
 [H.264-stöd (http-progressiv nedladdning)](#h264-support-http-progressive-download) | Avgör vilka typer av H.264 som kan användas för att strömma innehåll.
 [Kontrollera No-Cache-begäran](#honor-no-cache-request) | Anger om en HTTP-klientens no-cache-begäranden som vidarebefordras till den ursprungliga servern.
 [Ignorera ursprung No-Cache](#ignore-origin-no-cache) | Anger om CDN ignorerar vissa direktiv som hanteras från en ursprungsservern.
 [Ignorera Unsatisfiable intervall](#ignore-unsatisfiable-ranges) | Anger svaret som returneras till klienter när en förfrågan genererar statuskod 416 begärt intervall inte kunde hanteras.
-[Internt Max-inaktuell](#internal-max-stale) | Styr hur länge tidigare normala förfallotiden cachelagrade tillgång kan hanteras från en gränsserver när edge-servern inte kan verifiera den cachelagra tillgången med den ursprungliga servern.
+[Internt Max-inaktuell](#internal-max-stale) | Styr hur länge förbi den normala förfallotiden cachelagrade tillgång kan hanteras från en POP när POP inte kan verifiera den cachelagra tillgången med den ursprungliga servern.
 [Partiell Cache delning](#partial-cache-sharing) | Anger om en begäran kan generera delvis cachelagrat innehåll.
 [Prevalidate cachelagrat innehåll](#prevalidate-cached-content) | Anger om cachelagrat innehåll är berättigad till tidig validering innan TTL-upphör att gälla.
-[Uppdatera noll Byte cachefiler](#refresh-zero-byte-cache-files) | Bestämmer hur ett HTTP-klientens begäran om en 0 byte cache tillgång hanteras av Microsoft edge-servrar.
+[Uppdatera noll Byte cachefiler](#refresh-zero-byte-cache-files) | Anger hur en HTTP-klientens begäran för en tillgång 0 byte cache hanteras av POP.
 [Ange Cacheable ställs statuskoder](#set-cacheable-status-codes) | Definierar de statuskoder som kan resultera i cachelagrat innehåll.
 [Inaktuella leverans av innehåll vid fel](#stale-content-delivery-on-error) | Avgör om upphört att gälla cachelagrat innehåll levereras när ett fel uppstår under Cachevalidering eller när det begärda innehållet hämtas från ursprungsservern kunden.
-[Inaktuella när Revalidate](#stale-while-revalidate) | Förbättrar prestanda genom att låta servrarna för att hantera inaktuell klient till beställaren samtidigt Omverifiering sker.
+[Inaktuella när Revalidate](#stale-while-revalidate) | Förbättrar prestandan genom att tillåta POP att hantera inaktuell klient till beställaren medan Omverifiering äger rum.
 
 ## <a name="comment-feature"></a>Kommentarfunktionen
 
@@ -110,7 +110,7 @@ Name | Purpose
 Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
 Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
 
-###Edge Optimizer
+### Edge Optimizer
 **Purpose:** Determines whether Edge Optimizer can be applied to a request.
 
 If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
@@ -128,7 +128,7 @@ Disabled|Restores the default behavior. The default behavior is to deliver conte
 **Default Behavior:** Disabled
  
 
-###Edge Optimizer - Instantiate Configuration
+### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
 
 This feature requires the ADN platform and the Edge Optimizer feature.
@@ -151,7 +151,7 @@ Dessa funktioner är utformade för att styra hur CDN kommunicerar med en urspru
 Namn | Syfte
 -----|--------
 [Högsta antal Keep-Alive-begäranden](#maximum-keep-alive-requests) | Definierar det maximala antalet begäranden för en Keep-Alive-anslutning innan den är stängd.
-[Proxy särskilda rubriker](#proxy-special-headers) | Definierar en uppsättning CDN-specifika begärandehuvuden som vidarebefordras från en gränsserver till en ursprungsserver som.
+[Proxy särskilda rubriker](#proxy-special-headers) | Definierar en uppsättning CDN-specifika begärandehuvuden som vidarebefordras från en POP till en ursprungsserver som.
 
 
 ## <a name="specialty-features"></a>Särskilda funktioner
@@ -201,8 +201,8 @@ Bandbredd bandbreddsbegränsning parametrarna avgör om hastigheten för dataöv
 
 Värde|Resultat
 --|--
-Enabled|Tillåter edge-servrar för att respektera bandbredd bandbreddsbegränsning begäranden.
-Disabled|Gör servrarna för att ignorera bandbreddsbegränsning parametrar för bandbredd. Det begärda innehållet hanteras normalt (det vill säga utan begränsning av bandbredd).
+Enabled|Tillåter POP respektera bandbreddsbegränsning begäranden.
+Disabled|Gör POP att ignorera bandbreddsbegränsning parametrar. Det begärda innehållet hanteras normalt (det vill säga utan begränsning av bandbredd).
 
 **Standardbeteende:** aktiverat.
  
@@ -212,14 +212,14 @@ Disabled|Gör servrarna för att ignorera bandbreddsbegränsning parametrar för
 
 ---
 ### <a name="bandwidth-throttling"></a>Begränsning av bandbredd
-**Syfte:** begränsar bandbredd för svar som tillhandahålls av Microsoft edge-servrar.
+**Syfte:** begränsar bandbredd för svar som tillhandahålls av POP.
 
 Båda av följande alternativ måste definieras för att ange korrekt bandbreddsbegränsning.
 
 Alternativ|Beskrivning
 --|--
 Kilobyte per sekund|Ange maximal bandbredd (Kb per sekund) som kan användas för att leverera svaret.
-Prebuf sekunder|Ange antalet sekunder för kant-servrar ska vänta tills bandbredd begränsas. Syftet med den här tidsperioden obegränsad bandbredd är att förhindra att en media player har hackigt eller buffring problem på grund av begränsad bandbredd.
+Prebuf sekunder|Ange antalet sekunder för POP att vänta tills bandbredd begränsas. Syftet med den här tidsperioden obegränsad bandbredd är att förhindra att en media player har hackigt eller buffring problem på grund av begränsad bandbredd.
 
 **Standardbeteende:** inaktiverad.
 
@@ -233,8 +233,8 @@ Prebuf sekunder|Ange antalet sekunder för kant-servrar ska vänta tills bandbre
 
 Värde|Resultat
 --|--
-Enabled|Gör att alla förfrågningar till faller till den ursprungliga servern, även om innehållet har tidigare cachelagrats på edge-servrar.
-Disabled|Servrar för orsaker att cache tillgångar enligt princip som definierats i dess svarshuvuden.
+Enabled|Gör att alla förfrågningar till faller till den ursprungliga servern, även om innehållet har tidigare cachelagrats på POP.
+Disabled|Gör POP till cache tillgångar enligt princip som definierats i dess svarshuvuden.
 
 **Standardbeteende:**
 
@@ -289,7 +289,7 @@ Viktig information:
 
 ---
 ### <a name="cache-control-header-treatment"></a>Cache-Control sidhuvud behandling
-**Syfte:** styr generering av `Cache-Control` huvuden av edge-servern när funktionen externa maximal ålder är aktiv.
+**Syfte:** styr generering av `Cache-Control` huvuden av POP när funktionen externa maximal ålder är aktiv.
 
 Det enklaste sättet att uppnå den här typen av konfiguration är att placera den externa maximal åldern och funktionerna för Cache-Control sidhuvud behandling i samma instruktion.
 
@@ -415,9 +415,9 @@ Viktig information:
 
 ---
 ### <a name="complete-cache-fill"></a>Slutföra Cache Fill
-**Syfte:** avgör vad som händer när en begäran resulterar i en partiell cache-miss på edge-server.
+**Syfte:** avgör vad som händer när en begäran resulterar i en partiell cache-miss på en POP.
 
-En partiell cache-miss beskriver Cachestatus för en tillgång som inte hämtades helt till en edge-server. Om en tillgång endast delvis cachelagras på edge-server, sedan vidarebefordras nästa begäran om tillgången igen till den ursprungliga servern.
+En partiell cache-miss beskriver Cachestatus för en tillgång som inte hämtades helt till en POP. Om en tillgång endast delvis cachelagras på en POP, sedan vidarebefordras nästa begäran om tillgången igen till den ursprungliga servern.
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
@@ -430,8 +430,8 @@ På grund av det sätt som i vilken cache inställningar spåras den här funkti
 
 Värde|Resultat
 --|--
-Enabled|Återställer standardbeteendet. Standardinställningen är att tvinga edge-server för att initiera en bakgrundshämtning tillgångens från den ursprungliga servern. Efter som tillgången ska vara i det lokala cacheminnet i edge-server.
-Disabled|Förhindrar att en gränsserver utför en bakgrundshämtning för tillgången. Resultatet är att nästa begäran om tillgången från den regionen orsakar edge-server att begära från den ursprungliga servern för kunden.
+Enabled|Återställer standardbeteendet. Standardinställningen är att tvinga POP för att initiera en bakgrundshämtning tillgångens från den ursprungliga servern. Efter som tillgången blir i lokalt cacheminne för den POP.
+Disabled|Förhindrar att en POP utför en bakgrundshämtning för tillgången. Resultatet är att nästa begäran om tillgången från den regionen orsakar en POP begära från den ursprungliga servern för kunden.
 
 **Standardbeteende:** aktiverat.
 
@@ -523,14 +523,14 @@ Disabled|Rubriken X EC Debug utesluts från svaret.
 
 ---
 ### <a name="default-internal-max-age"></a>Internt Max-åldern som standard
-**Syfte:** Anger standardintervallet för maximal ålder för edge-server till ursprunget server Cachevalidering. Med andra ord tidsperiod som ska förflyta innan en gränsserver kontrollerar om en cachelagrad tillgång matchar den tillgång som lagras på den ursprungliga servern.
+**Syfte:** Anger standardintervallet för maximal ålder för POP till ursprunget server Cachevalidering. Med andra ord, hur lång tid som ska gå innan en POP kontrollerar om en cachelagrad tillgång matchar den tillgång som lagras på den ursprungliga servern.
 
 Viktig information:
 
 - Den här åtgärden tar bara för svar från en ursprungsserver som inte tilldelar en maximal ålder indikation i den `Cache-Control` eller `Expires` huvud.
 - Den här åtgärden kommer inte ske för tillgångar som inte anses Cacheable ställs.
-- Den här åtgärden påverkar inte webbläsaren edge server cache revalidations. Dessa typer av revalidations bestäms av den `Cache-Control` eller `Expires` huvuden som skickas till webbläsaren, som kan anpassas med funktionen externa maximal ålder.
-- Resultatet av den här åtgärden har inte en synliga effekt på svarshuvuden och innehållet som har returnerats från kant-servrar för ditt innehåll, men det kan påverka mängden Omverifiering trafik som skickas från kant-servrar till din ursprungsservern.
+- Den här åtgärden påverkar inte webbläsaren till POP cache revalidations. Dessa typer av revalidations bestäms av den `Cache-Control` eller `Expires` huvuden som skickas till webbläsaren, som kan anpassas med funktionen externa maximal ålder.
+- Resultatet av den här åtgärden har inte synliga påverkar svarshuvuden och det innehåll som returnerades från POP för ditt innehåll, men det kan påverka mängden Omverifiering trafik som skickas från POP till den ursprungliga servern.
 - Konfigurera den här funktionen genom att:
     - Att välja statuskoden som en intern max-åldern som standard kan tillämpas.
     - Ange ett heltalsvärde och sedan välja önskad tidsenhet (till exempel sekunder, minuter, timmar, etc.). Det här värdet definierar interna maximal ålder standardintervallet.
@@ -571,7 +571,7 @@ Disabled| Återställer standardbeteendet. Standardinställningen är att den ur
 
 ---
 ### <a name="expires-header-treatment"></a>Upphör att gälla sidhuvud behandling
-**Syfte:** styr generering av `Expires` huvuden genom en gränsserver när funktionen externa maximal ålder är aktiv.
+**Syfte:** styr generering av `Expires` huvuden genom en POP när funktionen externa maximal ålder är aktiv.
 
 Det enklaste sättet att uppnå den här typen av konfiguration är att placera den externa maximal åldern och upphör att gälla sidhuvud behandling funktioner i samma instruktion.
 
@@ -590,15 +590,15 @@ Ta bort| Garanterar att en `Expires` huvud ingår inte i sidhuvud-svaret. Om en 
 
 ---
 ### <a name="external-max-age"></a>Externa maximal ålder
-**Syfte:** bestämmer intervallet maximal ålder för webbläsaren edge server Cachevalidering. Hur lång tid som ska förflyta innan en webbläsare kan med andra ord att söka efter en ny version av en tillgång från en gränsserver.
+**Syfte:** bestämmer intervallet maximal ålder för webbläsaren till POP Cachevalidering. Hur lång tid som ska förflyta innan en webbläsare kan med andra ord att söka efter en ny version av en tillgång från en POP.
 
-Den här funktionen aktiveras genererar `Cache-Control: max-age` och `Expires` huvuden från kant-servrar och skicka dem till HTTP-klienten. Dessa huvuden skriver över de som skapats i den ursprungliga servern. Dock användas behandling för Cache-Control-huvudet och upphör att gälla sidhuvud behandling funktioner beteendet.
+Den här funktionen aktiveras genererar `Cache-Control: max-age` och `Expires` meddelandehuvuden från POP och skicka dem till HTTP-klienten. Dessa huvuden skriver över de som skapats i den ursprungliga servern. Dock användas behandling för Cache-Control-huvudet och upphör att gälla sidhuvud behandling funktioner beteendet.
 
 Viktig information:
 
-- Den här åtgärden påverkar inte edge-server till ursprunget server cache revalidations. Dessa typer av revalidations bestäms av den `Cache-Control` och `Expires` sidhuvuden togs emot från den ursprungliga servern och kan anpassas med standard interna Max-ålder och funktionerna för inre Tvingad maximal-ålder.
+- Den här åtgärden påverkar inte POP ursprung server cache revalidations. Dessa typer av revalidations bestäms av den `Cache-Control` och `Expires` sidhuvuden togs emot från den ursprungliga servern och kan anpassas med standard interna Max-ålder och funktionerna för inre Tvingad maximal-ålder.
 - Konfigurera den här funktionen genom att ange ett heltalsvärde och välja önskad tidsenhet (till exempel sekunder, minuter, timmar, etc.).
-- Ställa in den här funktionen med ett negativt värde leder servrarna för att skicka en `Cache-Control: no-cache` och en `Expires` tid som anges i förflutna med varje svar till webbläsaren. Även om HTTP-klienter inte kommer cachelagrar svaret, påverkar inte den här inställningen edge servrar möjligheten att cachelagra svaret från den ursprungliga servern.
+- Ställa in den här funktionen med ett negativt värde leder POP att skicka en `Cache-Control: no-cache` och en `Expires` tid som anges i förflutna med varje svar till webbläsaren. Även om HTTP-klienter inte kommer cachelagrar svaret, påverkar inte den här inställningen på POP möjligheten att cachelagra svaret från den ursprungliga servern.
 - Tidsenhet till ”av” inaktiveras den här funktionen. Den `Cache-Control` och `Expires` huvuden cachelagrat svar för den ursprungliga servern ska passera till webbläsaren.
 
 **Standardbeteende:** ut
@@ -628,13 +628,13 @@ Disabled|Begäranden omdirigeras inte.
 
 ---
 ### <a name="force-internal-max-age"></a>Tvinga inre maximal ålder
-**Syfte:** bestämmer intervallet maximal ålder för edge-server till ursprunget server Cachevalidering. Med andra ord tidsperiod som ska förflyta innan en gränsserver kan kontrollera om en cachelagrad tillgång matchar den tillgång som lagras på den ursprungliga servern.
+**Syfte:** anger intervallet för maximal ålder för POP till ursprunget server Cachevalidering. Med andra ord, hur lång tid som ska gå innan en POP kan kontrollera om en cachelagrad tillgång matchar den tillgång som lagras på den ursprungliga servern.
 
 Viktig information:
 
 - Den här funktionen åsidosätter maximal ålder intervallet som definierats i `Cache-Control` eller `Expires` huvuden som genereras från en ursprungsservern.
-- Webbläsaren edge server cache revalidations påverkas inte av den här funktionen. Dessa typer av revalidations bestäms av den `Cache-Control` eller `Expires` huvuden som skickas till webbläsaren.
-- Den här funktionen har inte en synliga effekt i svaret som levereras av en gränsserver till beställaren. Det kan dock ha en effekt på mängden Omverifiering av trafik som skickas från kant-servrar till den ursprungliga servern.
+- Webbläsaren till POP cache revalidations påverkas inte av den här funktionen. Dessa typer av revalidations bestäms av den `Cache-Control` eller `Expires` huvuden som skickas till webbläsaren.
+- Den här funktionen har inte en synliga effekt i svaret som levereras av en POP till beställaren. Det kan dock ha en effekt på mängden Omverifiering av trafik som skickas från POP till den ursprungliga servern.
 - Konfigurera den här funktionen genom att:
     - Att välja statuskoden som en intern maximal ålder tillämpas.
     - Ange ett heltalsvärde och välja önskad tidsenhet (till exempel sekunder, minuter, timmar, etc.). Det här värdet definierar begäran maximal ålder intervall.
@@ -678,10 +678,10 @@ En begäran om no-cache inträffar när HTTP-klienten skickar en `Cache-Control:
 
 Värde|Resultat
 --|--
-Enabled|Kan en HTTP-klientens no-cache-begäranden ska vidarebefordras till den ursprungliga servern och den ursprungliga servern returnerar svarshuvuden och brödtext via gränsservern tillbaka till HTTP-klienten.
+Enabled|Kan en HTTP-klientens no-cache-begäranden ska vidarebefordras till den ursprungliga servern och den ursprungliga servern returnerar svarshuvuden och brödtext via POP till HTTP-klienten.
 Disabled|Återställer standardbeteendet. Standardinställningen är att förhindra no-cache-begäranden från att vidarebefordras till den ursprungliga servern.
 
-För all trafik för produktion rekommenderas att lämna den här funktionen i inaktiverad standardtillståndet. Ursprungliga servrarna kommer annars inte att skärma från slutanvändare som oavsiktligt utlösa många no-cache-begäranden när du uppdaterar webbsidor eller från många vanliga mediespelare som är kodade för att skicka ett no-cache-huvud med varje video begäran. Den här funktionen kan dock vara praktiskt att tillämpas på vissa icke-produktion mellanlagring och testning kataloger, för att tillåta nytt innehåll som ska hämtas på begäran från den ursprungliga servern.
+För all trafik för produktion rekommenderas att lämna den här funktionen i inaktiverad standardtillståndet. Ursprungliga servrarna kommer annars inte att skärma från användare som oavsiktligt utlösa många no-cache-begäranden när du uppdaterar webbsidor eller från många vanliga mediespelare som är kodade för att skicka ett no-cache-huvud med varje video begäran. Den här funktionen kan dock vara praktiskt att tillämpas på vissa icke-produktion mellanlagring och testning kataloger, för att tillåta nytt innehåll som ska hämtas på begäran från den ursprungliga servern.
 
 Cachestatus som rapporteras för en begäran ska kunna vidarebefordras till ett ursprungsservern på grund av den här funktionen är TCP_Client_Refresh_Miss. Rapporten Cache status som är tillgänglig i Core reporting modulen ger statistisk information genom att Cachestatus. På så sätt kan du spåra antalet och procentandelen förfrågningar som vidarebefordras till en ursprungsserver på grund av den här funktionen.
 
@@ -724,11 +724,11 @@ Viktig information:
 ### <a name="ignore-unsatisfiable-ranges"></a>Ignorera Unsatisfiable intervall 
 **Syfte:** bestämmer svaret som returneras till klienter när en förfrågan genererar statuskod 416 begärt intervall inte kunde hanteras.
 
-Som standard returneras statuskoden när den angivna byte-intervall begäranden inte kan tillgodoses av en gränsserver och huvudfältet ett intervall om begäran har inte angetts.
+Som standard returneras statuskoden när den angivna byte-intervall begäranden inte kan tillgodoses av en POP och huvudfältet ett intervall om begäran har inte angetts.
 
 Värde|Resultat
 -|-
-Enabled|Förhindrar att edge-servrar svarar på en ogiltig byteintervall begäran med statuskod 416 begärt intervall inte kunde hanteras. Servrarna kommer i stället leverera begärda tillgången och returnera ett 200 OK till klienten.
+Enabled|Förhindrar att POP svarar på en ogiltig byteintervall begäran med statuskod 416 begärt intervall inte kunde hanteras. Servrarna kommer i stället leverera begärda tillgången och returnera ett 200 OK till klienten.
 Disabled|Återställer standardbeteendet. Standardinställningen är att respektera 416 begärt intervall inte kunde hanteras statuskoden.
 
 **Standardbeteende:** inaktiverad.
@@ -739,15 +739,15 @@ Disabled|Återställer standardbeteendet. Standardinställningen är att respekt
 
 ---
 ### <a name="internal-max-stale"></a>Internt Max-inaktuell
-**Syfte:** styr hur länge tidigare normala förfallotiden cachelagrade tillgång kan hanteras från en gränsserver när edge-servern inte kan verifiera den cachelagra tillgången med den ursprungliga servern.
+**Syfte:** styr hur länge tidigare normala förfallotiden cachelagrade tillgång kan hanteras från en POP när POP inte kan verifiera den cachelagra tillgången med den ursprungliga servern.
 
-Normalt när en tillgång maximal ålder tiden går ut skickar edge-servern en begäran om förnyelse till den ursprungliga servern. Ursprung servern kommer sedan svara med antingen 304 inte har ändrats ge gränsservern en ny låna ut på den cachelagra tillgången eller med 200 OK för att ange edge-server med en uppdaterad version av cachelagrade tillgången.
+Normalt när en tillgång maximal ålder tiden går ut skickar POP en begäran om förnyelse till den ursprungliga servern. Ursprung servern kommer sedan svara med antingen 304 inte har ändrats ge POP en ny låna ut på den cachelagra tillgången eller med 200 OK för att tillhandahålla POP med en uppdaterad version av cachelagrade tillgången.
 
-Om edge-server kan inte upprätta en anslutning till den ursprungliga servern vid försök sådana Omverifiering kontroller funktionen interna Max-föråldrade för om och för hur länge kanten server fortsätta att fungera nu föråldrade tillgången.
+Om POP kan inte upprätta en anslutning till den ursprungliga servern vid försök Omverifiering, och sedan interna Max-föråldrade funktionen styr om och hur länge fortsätta POP att fungera nu föråldrade tillgången.
 
 Observera att detta tidsintervall startar när tillgångens max-ålder upphör att gälla, inte när misslyckade Omverifiering inträffar. Därför är den längsta tid under vilken en tillgång kan hanteras utan lyckad validering tidsperiod som angetts av kombinationen av maximal ålder plus max inaktuell. Till exempel om en tillgång cachelagrades 9:00 med en maximal ålder på 30 minuter och max-inaktuell 15 minuter skulle sedan Omverifiering av misslyckade försöket 9:44 leda till en användare tar emot inaktuella cachelagrade tillgången, medan en misslyckad validering försöket 9:46 skulle resultera i en d användare tar emot en 504 Gateway-Timeout.
 
-Ett värde som konfigurerats för den här funktionen har ersatts av `Cache-Control: must-revalidate` eller `Cache-Control: proxy-revalidate` huvuden som togs emot från den ursprungliga servern. Om någon av dessa huvuden tas emot från den ursprungliga servern när en tillgång till en början cachelagras, fungerar en inaktuella cachelagrade tillgång inte i edge-server. I sådana fall returnerar gränsservern en 504 Gateway-Timeout-fel om edge-servern inte kan verifiera med ursprung när tillgångens maximal ålder intervall har upphört att gälla.
+Ett värde som konfigurerats för den här funktionen har ersatts av `Cache-Control: must-revalidate` eller `Cache-Control: proxy-revalidate` huvuden som togs emot från den ursprungliga servern. Om någon av dessa huvuden tas emot från den ursprungliga servern när en tillgång till en början cachelagras, kommer POP inte att uppfylla en inaktuella cachelagrade tillgång. I sådana fall returnerar POP en 504 Gateway-Timeout-fel om POP inte kan verifiera med ursprung när tillgångens maximal ålder intervall har upphört att gälla.
 
 Viktig information:
 
@@ -828,7 +828,7 @@ Viktig information:
     - CACHE-CONTROL
     - cachE-Control
 - När du anger ett namn för sidhuvud, Använd endast alfanumeriska tecken, bindestreck och understreck.
-- Om du tar bort ett sidhuvud förhindras från att vidarebefordras till en ursprungsservern av edge-servrar.
+- Om du tar bort ett sidhuvud förhindras från att vidarebefordras till en ursprungsserver som av POP.
 - Följande huvuden är reserverade och kan inte ändras av den här funktionen:
     - vidarebefordras
     - värd
@@ -848,7 +848,7 @@ Varje svaret innehåller en uppsättning svarshuvuden som beskriver den. Den hä
 - Lägg till eller skriva över värdet som tilldelas en Svarsrubrik. Om det angivna svarshuvudet inte finns, sedan den här funktionen lägger till det i svaret.
 - Ta bort en svarshuvud från svaret.
 
-Som standard definieras svar huvudvärden genom en ursprungsservern och kant-servrar.
+Som standard definieras svar huvudvärden genom en ursprungsservern och POP.
 
 En av följande åtgärder kan utföras på en svarshuvud:
 
@@ -912,7 +912,7 @@ Ange hur lång tid innan den upphör att gälla för det begärda innehållet TT
 
 Viktig information:
 
-- Att välja ”Off” som tidsenheten kräver validering efter det cachelagrade innehållet TTL-värde har gått ut. Tid anges inte och kommer att ignoreras.
+- Att välja ”Off” som tidsenheten kräver validering efter det cachelagrade innehållet TTL-värde har gått ut. Tid anges inte och ignoreras.
 
 **Standardbeteende:** ut. Validering kan endast utföras när det cachelagrade innehållet TTL har gått ut.
 
@@ -922,7 +922,7 @@ Viktig information:
 
 ---
 ### <a name="proxy-special-headers"></a>Proxy särskilda rubriker
-**Syfte:** definierar en uppsättning CDN-specifika begärandehuvuden som vidarebefordras från en edge-server till en ursprungsservern.
+**Syfte:** definierar en uppsättning CDN-specifika begärandehuvuden som vidarebefordras från en POP till en ursprungsservern.
 
 Viktig information:
 
@@ -937,15 +937,15 @@ Viktig information:
 
 ---
 ### <a name="refresh-zero-byte-cache-files"></a>Uppdatera noll Byte cachefiler
-**Syfte:** bestämmer hur ett HTTP-klientens begäran om en 0 byte cache tillgång hanteras av Microsoft edge-servrar.
+**Syfte:** bestämmer hur ett HTTP-klientens begäran om en 0 byte cache tillgång hanteras av POP.
 
 Giltiga värden är:
 
 Värde|Resultat
 --|--
-Enabled|Gör edge-server hämtar tillgången från den ursprungliga servern.
+Enabled|Gör POP hämtar tillgången från den ursprungliga servern.
 Disabled|Återställer standardbeteendet. Standardbeteendet är att hantera upp giltig cache tillgångar på begäran.
-Den här funktionen krävs inte för rätt cachelagring och leverans av innehåll, men kan användas som en lösning. Dynamiskt innehåll generatorer på ursprung servrar kan till exempel oavsiktligt resultera i 0 byte-svar som skickas till Microsoft edge-servrar. Dessa typer av svar cachelagras vanligtvis av edge-servrar. Om du vet att 0 byte svar inte är ett giltigt svar 
+Den här funktionen krävs inte för rätt cachelagring och leverans av innehåll, men kan användas som en lösning. Dynamiskt innehåll generatorer på ursprung servrar kan till exempel oavsiktligt resultera i 0 byte-svar som skickas till POP. Dessa typer av svar cachelagras vanligtvis av POP. Om du vet att 0 byte svar inte är ett giltigt svar 
 
 för sådana innehåll, sedan den här funktionen kan förhindra att dessa typer av tillgångar hanteras till dina klienter.
 
@@ -1016,12 +1016,12 @@ Disabled|Den ursprungliga servern fel vidarebefordras till beställaren.
 
 ---
 ### <a name="stale-while-revalidate"></a>Inaktuella när Revalidate
-**Syfte:** förbättrar prestanda genom att låta servrarna för att hantera inaktuella innehåll till beställaren medan Omverifiering äger rum.
+**Syfte:** förbättrar prestanda genom att tillåta POP att hantera inaktuella innehåll till beställaren medan Omverifiering äger rum.
 
 Viktig information:
 
 - Den här funktionen fungerar beror enligt den valda enheten.
-    - **Tidsenhet:** anger hur lång tid och välja en tidsenhet (till exempel sekunder, minuter, timmar, etc.) så att inaktuella leverans av innehåll. Den här typen av installationsprogrammet tillåter CDN att utöka tidslängd som det kan leverera innehåll innan du kräver verifiering enligt följande formel:**TTL** + **inaktuella medan verifiera tid** 
+    - **Tidsenhet:** anger hur lång tid och välja en tidsenhet (till exempel sekunder, minuter, timmar, etc.) så att inaktuella leverans av innehåll. Den här typen av installationsprogrammet tillåter CDN att utöka tidslängd som det kan leverera innehåll innan du kräver verifiering enligt följande formel: **TTL** + **inaktuella medan verifiera tid** 
     - **Av:** väljer ”av” till att kräva validering innan en begäran för inaktuella innehåll kan hanteras.
         - Ange hur lång tid eftersom den är och kommer att ignoreras.
 
@@ -1109,7 +1109,7 @@ Giltiga värden är:
 
 Värde|Resultat
 ---|----
-Enabled|Gör att Ignorera skiftläge vid jämförelse av URL: er för tokenbaserad autentiseringsparametrar med edge-servern.
+Enabled|Gör POP för att Ignorera skiftläge vid jämförelse av URL: er för tokenbaserad autentiseringsparametrar.
 Disabled|Återställer standardbeteendet. Standardinställningen är för URL: en jämförelser för Token-autentisering ska vara skiftlägeskänslig.
 
 **Standardbeteende:** inaktiverad.
@@ -1149,7 +1149,7 @@ Alternativ|Beskrivning
 -|-
 Kod|Välj svarskoden returneras till beställaren.
 Källan & mönster| Dessa inställningar definierar ett mönster för begäran URI som identifierar typ av begäranden kan omdirigeras. Omdirigeras endast begäranden vars URL uppfyller båda av följande kriterier: <br/> <br/> **Källa (eller innehålls åtkomstpunkt):** Välj en relativ sökväg som identifierar en ursprungsservern. Detta är avsnittet ”/XXXX/” och namnet på slutpunkten. <br/> **Källa (mönster):** ett mönster som identifierar begäranden av relativ sökväg måste anges. Det här mönstret för reguljära uttryck måste ange en sökväg som startar direkt efter den tidigare valda innehållsåtkomst peka (se ovan). <br/> -Kontrollera att begäran URI villkoren (det vill säga källa & mönster) tidigare inte krockar med några matchar villkoren för den här funktionen. <br/> -Ange ett mönster; Om du använder ett tomt värde som mönstret matchar alla strängar.
-Mål| Definiera den URL som ovan begäranden ska omdirigeras. <br/> Konstruera dynamiskt med den här URL: <br/> -Ett mönster för reguljärt uttryck <br/>-HTTP variabler <br/> Ersätta de värden som hämtats i mönstret för källan till målet mönstret med $ _n_  där  _n_  identifierar ett värde i den ordning som den hämtades. Till exempel representerar 1 USD det första värdet som avbildas i käll-mönster, medan $2 representerar det andra värdet. <br/> 
+Mål| Definiera den URL som ovan begäranden ska omdirigeras. <br/> Konstruera dynamiskt med den här URL: <br/> -Ett mönster för reguljärt uttryck <br/>-HTTP variabler <br/> Ersätta de värden som hämtats i mönstret för källan till målet mönstret med $_n_ där _n_ identifierar ett värde i den ordning som den hämtades. Till exempel representerar 1 USD det första värdet som avbildas i käll-mönster, medan $2 representerar det andra värdet. <br/> 
 Vi rekommenderar starkt att använda en absolut URL. Användning av en relativ URL kan omdirigera CDN URL: er till en ogiltig sökväg.
 
 **Exempelscenario**
@@ -1191,8 +1191,8 @@ Viktig information:
 Alternativ|Beskrivning
 -|-
  Källan & mönster | Dessa inställningar definierar ett mönster för begäran URI som identifierar typ av begäranden som kan skrivas. Kommer att skrivas om endast begäranden vars URL uppfyller båda av följande kriterier: <br/>     - **Källa (eller innehålls åtkomstpunkt):** Välj en relativ sökväg som identifierar en ursprungsservern. Detta är avsnittet ”/XXXX/” och namnet på slutpunkten. <br/> - **Källa (mönster):** ett mönster som identifierar begäranden av relativ sökväg måste anges. Det här mönstret för reguljära uttryck måste ange en sökväg som startar direkt efter den tidigare valda innehållsåtkomst peka (se ovan). <br/> Kontrollera att begäran URI villkoren (det vill säga källa & mönster) tidigare inte krockar med något av matchar villkoren som har definierats för den här funktionen. Ange ett mönster; Om du använder ett tomt värde som mönstret matchar alla strängar. 
- Mål  |Definiera relativ URL som ovan begäranden ska skrivas med: <br/>    1. Att välja en innehålls åtkomstpunkt som identifierar en ursprungsservern. <br/>    2. Definiera en relativ sökväg med hjälp av: <br/>        -Ett mönster för reguljärt uttryck <br/>        -HTTP variabler <br/> <br/> Ersätta de värden som hämtats i mönstret för källan till målet mönstret med $ _n_  där  _n_  identifierar ett värde i den ordning som den hämtades. Till exempel representerar 1 USD det första värdet som avbildas i käll-mönster, medan $2 representerar det andra värdet. 
- Den här funktionen gör servrarna för att skriva om URL: en utan att utföra en traditionell omdirigering. Detta innebär att beställaren får samma svarskoden som om omskrivet URL: en hade begärts.
+ Mål  |Definiera relativ URL som ovan begäranden ska skrivas med: <br/>    1. Att välja en innehålls åtkomstpunkt som identifierar en ursprungsservern. <br/>    2. Definiera en relativ sökväg med hjälp av: <br/>        -Ett mönster för reguljärt uttryck <br/>        -HTTP variabler <br/> <br/> Ersätta de värden som hämtats i mönstret för källan till målet mönstret med $_n_ där _n_ identifierar ett värde i den ordning som den hämtades. Till exempel representerar 1 USD det första värdet som avbildas i käll-mönster, medan $2 representerar det andra värdet. 
+ Den här funktionen gör POP att skriva om URL: en utan att utföra en traditionell omdirigering. Detta innebär att beställaren får samma svarskoden som om omskrivet URL: en hade begärts.
 
 **Exempelscenario 1**
 
@@ -1248,8 +1248,8 @@ Den här funktionen innehåller matchar villkoren som måste uppfyllas innan den
 </br>
 
 ## <a name="next-steps"></a>Nästa steg
-* [Regler modulreferens](cdn-rules-engine-reference.md)
-* [Regler motorn villkorsuttryck](cdn-rules-engine-reference-conditional-expressions.md)
-* [Regler motorn matchar villkor](cdn-rules-engine-reference-match-conditions.md)
+* [Regelmotor – referens](cdn-rules-engine-reference.md)
+* [Regelmotor – villkorliga uttryck](cdn-rules-engine-reference-conditional-expressions.md)
+* [Regelmotor – matchningsvillkor](cdn-rules-engine-reference-match-conditions.md)
 * [Åsidosätta HTTP beteende regler-motorn](cdn-rules-engine.md)
 * [Översikt över Azure CDN](cdn-overview.md)

@@ -1,11 +1,11 @@
 ---
 title: Konfigurera Azure Media Services telemetri med REST | Microsoft Docs
-description: "Den här artikeln visar hur du använder Azure Media Services-telemetri med hjälp av REST API..."
+description: Den här artikeln visar hur du använder Azure Media Services-telemetri med hjälp av REST API...
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7d785c6eb9a9e16ae4853cded3c7c142080c7a09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abd093a0b8408e9dcffd4eb9765a767f78fd6fc1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Konfigurera Azure Media Services telemetri med REST
 
@@ -33,7 +33,7 @@ Stegen som beskrivs i det här avsnittet är:
 - Hämtning av Aviseringsslutpunkter
 - Skapa en Aviseringsslutpunkten för övervakning. 
 
-    Om du vill skapa en Aviseringsslutpunkten värdet i EndPointType AzureTable (2) och endPontAddress inställd på lagringstabellen (till exempel https://telemetryvalidationstore.table.core.windows.net/).
+    Om du vill skapa en Aviseringsslutpunkten värdet i EndPointType AzureTable (2) och endPontAddress som angetts i tabellen för lagring (till exempel https://telemetryvalidationstore.table.core.windows.net/).
   
 - Hämta övervakningskonfigurationer
 
@@ -45,7 +45,7 @@ Stegen som beskrivs i det här avsnittet är:
  
 ## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Hämta storage-konto som är associerad med ett Media Services-konto
 
-###<a name="request"></a>Förfrågan
+### <a name="request"></a>Förfrågan
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts HTTP/1.1
     x-ms-version: 2.13
@@ -73,7 +73,7 @@ Stegen som beskrivs i det här avsnittet är:
 
 ## <a name="get-the-notification-endpoints"></a>Hämta Notification-slutpunkter
 
-###<a name="request"></a>Förfrågan
+### <a name="request"></a>Förfrågan
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -83,7 +83,7 @@ Stegen som beskrivs i det här avsnittet är:
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
     
-###<a name="response"></a>Svar
+### <a name="response"></a>Svar
     HTTP/1.1 200 OK
     Cache-Control: no-cache
     Content-Length: 20
@@ -106,7 +106,7 @@ Stegen som beskrivs i det här avsnittet är:
  
 ## <a name="create-a-notification-endpoint-for-monitoring"></a>Skapa en Aviseringsslutpunkten för övervakning
 
-###<a name="request"></a>Förfrågan
+### <a name="request"></a>Förfrågan
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -125,9 +125,9 @@ Stegen som beskrivs i det här avsnittet är:
     }
 
 >[!NOTE]
->Glöm inte att ändra värdet ”https://telemetryvalidationstore.table.core.windows.net” till ditt lagringskonto.
+>Glöm inte att ändra den ”https://telemetryvalidationstore.table.core.windows.net” värde till ditt lagringskonto.
 
-###<a name="response"></a>Svar
+### <a name="response"></a>Svar
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -158,7 +158,7 @@ Stegen som beskrivs i det här avsnittet är:
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-###<a name="response"></a>Svar
+### <a name="response"></a>Svar
     
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -221,7 +221,7 @@ Stegen som beskrivs i det här avsnittet är:
 
 ## <a name="stop-telemetry"></a>Stoppa telemetri
 
-###<a name="request"></a>Förfrågan
+### <a name="request"></a>Förfrågan
 
     DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
     x-ms-version: 2.13

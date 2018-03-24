@@ -1,11 +1,11 @@
 ---
-title: "Tillförlitliga aktörer not aktören skriver serialisering | Microsoft Docs"
-description: "Innehåller information om grundläggande för att definiera serialiserbara klasser som kan användas för att definiera Service Fabric Reliable Actors tillstånd och gränssnitt"
+title: Tillförlitliga aktörer not aktören skriver serialisering | Microsoft Docs
+description: Innehåller information om grundläggande för att definiera serialiserbara klasser som kan användas för att definiera Service Fabric Reliable Actors tillstånd och gränssnitt
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6e50e4dc-969a-4a1c-b36c-b292d964c7e3
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: b1b7c8af6d852599359baab2188bfc3395d33a28
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 210f47b4b052286900781f97077af4d0a0b9c968
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Information om Service Fabric Reliable Actors skriver serialisering
-Argumenten för alla metoder resultattyper uppgifter som returneras av varje metod i ett gränssnitt för aktören och objekt som lagras i en aktör tillståndshanterare måste vara [data minimera serialiserbara](https://msdn.microsoft.com/library/ms731923.aspx). Detta gäller även för argumenten metoderna som definieras i [aktören händelsegränssnitt](service-fabric-reliable-actors-events.md). (Aktören händelse gränssnittsmetoder alltid returnerar void.)
+Argumenten för alla metoder resultattyper uppgifter som returneras av varje metod i ett gränssnitt för aktören och objekt som lagras i en aktör tillståndshanterare måste vara [data minimera serialiserbara](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Detta gäller även för argumenten metoderna som definieras i [aktören händelsegränssnitt](service-fabric-reliable-actors-events.md). (Aktören händelse gränssnittsmetoder alltid returnerar void.)
 
 ## <a name="custom-data-types"></a>Anpassade datatyper
 I det här exemplet följande aktören-gränssnittet definierar en metod som returnerar en anpassad datatyp som kallas `VoicemailBox`:

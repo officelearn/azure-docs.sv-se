@@ -1,34 +1,32 @@
 ---
-title: "Flera Frontends för Azure belastningsutjämnare | Microsoft Docs"
-description: "Översikt över flera Frontends på Azure belastningsutjämnare"
+title: Flera Frontends för Azure belastningsutjämnare | Microsoft Docs
+description: Översikt över flera Frontends på Azure belastningsutjämnare
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 manager: narayan
-editor: 
+editor: ''
 ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: e4c77f3b9bd53df632a433532376eb859969a036
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: cf8fa396e0518e1c847225dfc1d8f91c3421bd11
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Flera Frontends för Azure belastningsutjämnare
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure belastningsutjämnare kan du läsa in Utjämna tjänster på flera portar, flera IP-adresser eller båda. Du kan använda belastning offentliga och interna belastningsutjämnare definitioner för att läsa in saldo flödar över en uppsättning virtuella datorer.
 
 Den här artikeln beskriver grunderna i den här möjligheten, viktiga begrepp och begränsningar. Om du endast vill exponera tjänster på en IP-adress, kan du hitta förenklad instruktioner för [offentliga](load-balancer-get-started-internet-portal.md) eller [interna](load-balancer-get-started-ilb-arm-portal.md) läsa in belastningsutjämning konfigurationer. Lägga till flera frontends är inkrementell till en enda frontend-konfiguration. Du kan expandera en förenklad konfiguration när som helst med hjälp av begrepp i den här artikeln.
 
-När du definierar en Azure belastningsutjämnare ansluten en frontend och backend-konfiguration med regler. Hälsoavsökningen som refereras av regeln används för att avgöra hur nya flöden skickas till en nod i serverdelspoolen. Klientdelen definieras av en klientdel IP-konfiguration (aka VIP) som är ett 3-tuppel som består av en IP-adress (offentlig eller intern), en transportprotokollet (UDP eller TCP) och ett portnummer från regeln för belastningsutjämning. En DIP är en IP-adress på ett Azure virtuella nätverkskort som är anslutet till en virtuell dator i serverdelspoolen.
+När du definierar en Azure belastningsutjämnare ansluten en klientdel och en konfiguration för backend-pool med regler. Hälsoavsökningen som refereras av regeln används för att avgöra hur nya flöden skickas till en nod i serverdelspoolen. Klientdel (aka VIP) definieras av en 3-tuppel som består av en IP-adress (offentlig eller intern), en transportprotokollet (UDP eller TCP) och ett portnummer från regeln för belastningsutjämning. Serverdelspoolen är en samling med virtuella IP-konfigurationer (del av NIC-resurs) som refererar till Belastningsutjämnarens serverdelspool.
 
 Följande tabell innehåller några exempel klientdel konfigurationer:
 
@@ -134,6 +132,10 @@ Regeltyp flytande IP är grunden för flera belastningsutjämnare configuration 
 ## <a name="limitations"></a>Begränsningar
 
 * Flera frontend-konfigurationer stöds bara med IaaS-VM.
-* Programmet måste använda DIP för utgående flöden med flytande IP-regel. Om ditt program Binder till klientdelens IP-adress konfigureras för loopback-gränssnittet i gästoperativsystemet, sedan SNAT går inte att skriva om utgående flödet och flödet misslyckas.
+* Programmet måste använda primära IP-konfigurationen för utgående flöden med flytande IP-regel. Om ditt program Binder till klientdelens IP-adressen konfigurerad på loopback gränssnitt i gästoperativsystemet, Azure's SNAT är inte tillgängligt för att skriva om utgående flödet och flödet misslyckas.
 * Offentliga IP-adresser påverka faktureringen. Mer information finns i [priser för IP-adress](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Prenumerationsbegränsningar gäller. Mer information finns i [gränser](../azure-subscription-service-limits.md#networking-limits) mer information.
+
+## <a name="next-steps"></a>Nästa steg
+
+- Granska [utgående anslutningar](load-balancer-outbound-connections.md) att förstå effekten av flera frontends på utgående anslutning beteende.

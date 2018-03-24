@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Lägga till LinkedIn som en OAuth2-identitetsleverantör med anpassade principer"
-description: "En artikel om hur du konfigurerar ett LinkedIn-program med hjälp av OAuth2-protokollet och anpassade principer"
+title: 'Azure Active Directory B2C: Lägga till LinkedIn som en OAuth2-identitetsleverantör med anpassade principer'
+description: En artikel om hur du konfigurerar ett LinkedIn-program med hjälp av OAuth2-protokollet och anpassade principer
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/23/2017
-ms.author: yoelh
-ms.openlocfilehash: 77e2b9b283e4051370ffb905681135c27512834e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: davidmu
+ms.openlocfilehash: 9e5235739abcfbee1e530685890098a45a1b093d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: Lägga till LinkedIn som en identitetsleverantör med anpassade principer
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -43,7 +40,7 @@ Att använda LinkedIn som en identitetsleverantör i Azure Active Directory B2C 
 
     c. Välj en **användningen av**.
 
-    d. I den **Webbadress** klistra in  **https://login.microsoftonline.com** .
+    d. I den **Webbadress** klistra in **https://login.microsoftonline.com**.
 
     e. Skriv din **företags-e-** adress och **telefon** nummer.
 
@@ -53,7 +50,7 @@ Att använda LinkedIn som en identitetsleverantör i Azure Active Directory B2C 
 
 3. Välj **autentisering**, och anteckna den **klient-ID** och **Klienthemlighet** värden.
 
-4. I den **behörighet omdirigerings-URL: er** klistra in  **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp** . Ersätt {*klient*} med ditt klientnamn (till exempel contosob2c.onmicrosoft.com). Kontrollera att du använder HTTPS-schema. 
+4. I den **behörighet omdirigerings-URL: er** klistra in **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Ersätt {*klient*} med ditt klientnamn (till exempel contosob2c.onmicrosoft.com). Kontrollera att du använder HTTPS-schema. 
 
     ![LinkedIn-konto – ange behörighet omdirigerings-URL: er](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 

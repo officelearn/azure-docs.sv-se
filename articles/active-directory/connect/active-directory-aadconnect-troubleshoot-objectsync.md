@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: Felsöka objekt synkronisering | Microsoft Docs"
-description: "Det här avsnittet innehåller anvisningar att felsöka problem med synkronisering av objektet med hjälp av aktiviteten felsökning."
+title: 'Azure AD Connect: Felsöka objekt synkronisering | Microsoft Docs'
+description: Det här avsnittet innehåller anvisningar att felsöka problem med synkronisering av objektet med hjälp av aktiviteten felsökning.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 10ebe039b9d266d15696b397b9cdef9bc7ec2a10
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 54ae18b9a802fe078d307f4d36400adf806b233f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Felsöka objekt synkronisering med Azure AD Connect-synkronisering
 Det här dokumentet innehåller anvisningar att felsöka problem med synkronisering av objektet med hjälp av aktiviteten felsökning.
 
 ## <a name="troubleshooting-task"></a>Felsökning av aktivitet
-För Azure Active Directory (AAD) Anslut distribution med version <verison> eller högre, använda aktiviteten felsökning i guiden för att felsöka objekt synkroniseringsproblem. För tidigare versioner måste du felsöka manuellt enligt [här](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
+För Azure Active Directory (AAD) ansluta distribution med version 1.1.749.0 eller högre, använda aktiviteten felsökning i guiden för att felsöka objekt synkroniseringsproblem. För tidigare versioner måste du felsöka manuellt enligt [här](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>Kör aktiviteten felsökning i guiden
 Utför följande steg om du vill köra aktiviteten felsökning i guiden:

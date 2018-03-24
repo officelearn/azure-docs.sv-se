@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric händelse aggregeringen med Windows Azure-diagnostik | Microsoft Docs"
-description: "Läs mer om sammanställa och samlar in händelser med hjälp av BOMULLSTUSS för övervakning och diagnostik av Azure Service Fabric-kluster."
+title: Azure Service Fabric händelse aggregeringen med Windows Azure-diagnostik | Microsoft Docs
+description: Läs mer om sammanställa och samlar in händelser med hjälp av BOMULLSTUSS för övervakning och diagnostik av Azure Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
-ms.author: dekapur
-ms.openlocfilehash: 8e6c82aa60544d672bb249d589b63d55b48309fe
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 03/19/2018
+ms.author: dekapur;srrengar
+ms.openlocfilehash: f8159d8637967c3297c886ec79a002f0765047e4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregering av händelse och med Windows Azure-diagnostik
 > [!div class="op_single_selector"]
@@ -170,67 +170,75 @@ Sedan uppdatera den `VirtualMachineProfile` i template.json-filen genom att läg
 
 När du har ändrat filen template.json enligt publicera Resource Manager-mallen. Om mallen exporterades, publicerar körs filen deploy.ps1 mallen. När du har distribuerat, se till att **ProvisioningState** är **lyckades**.
 
-## <a name="collect-health-and-load-events"></a>Samla in hälsa och läsa in händelser
+## <a name="log-collection-configurations"></a>Logga samling konfigurationer
+Loggar från ytterligare kanaler finns också tillgängliga för samlingen, här är några av de vanligaste konfigurationerna som du kan göra i mallen för kluster som körs i Azure.
 
-Från och med 5.4 för Service Fabric, är hälsotillstånd och Läs in mått händelser tillgängliga för samlingen. Dessa händelser återspeglar händelser som genererats av systemet eller din kod med hjälp av hälsotillstånd eller läsa in reporting API: er som [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) eller [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Detta gör för att sammanställa och visa systemhälsa över tid och aviseringar baserat på händelser hälsa eller belastningsutjämning. Visa dessa händelser i Loggboken för Visual Studio diagnostiska lägga till ”Microsoft-ServiceFabric:4:0x4000000000000008” i listan över ETW-providers.
-
-Om du vill samla in händelser i klustret, ändra den `scheduledTransferKeywordFilter` i WadCfg av Resource Manager-mall att `4611686018427387912`.
+* Drift kanal - Base: Aktiverad som standard, övergripande åtgärder som utförs av Service Fabric och klustret, inklusive händelser för en nod, kommer ett nytt program som distribueras, eller en uppgradering återställning osv. En lista över händelser som avser [drifthändelser för kanal](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+  
+```json
+      scheduledTransferKeywordFilter: "4611686018427387904"
+  ```
+* Drift kanaler – detaljerad: Detta inkluderar hälsorapporter och belastningsutjämning beslut plus allt i den grundläggande operativa kanalen. Dessa händelser genereras av systemet eller din kod med hjälp av hälsotillstånd eller läsa in reporting API: er som [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) eller [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Visa dessa händelser i Loggboken för Visual Studio diagnostiska lägga till ”Microsoft-ServiceFabric:4:0x4000000000000008” i listan över ETW-providers.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387912",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387912"
+  ```
 
-## <a name="collect-reverse-proxy-events"></a>Samla in händelser för omvänd proxy
-
-Från och med 5.7 för Service Fabric [omvänd proxy](service-fabric-reverseproxy.md) händelser finns tillgängliga för samlingen via Data & Messaging kanaler. 
-
-Omvänd proxy skickas endast felhändelser via viktigaste Data & Messaging-kanalen - reflektion kritiska problem och fel för begäranden. Detaljerad kanalen innehåller utförlig händelser för alla begäranden som bearbetas av omvänd proxy. 
-
-Visa felhändelser i Visual Studio diagnostiska Loggboken lägga till ”Microsoft-ServiceFabric:4:0x4000000000000010” i listan över ETW-providers. För alla begärandetelemetri uppdatera Microsoft-ServiceFabric posten i listan för ETW-provider till ”Microsoft-ServiceFabric:4:0x4000000000000020”.
-
-För kluster som körs i Azure:
-
-För att hämta upp spåren i viktigaste Data & Messaging kanalen, ändra den `scheduledTransferKeywordFilter` värde i WadCfg av Resource Manager-mall att `4611686018427387920`.
+* Data och Messaging kanal - Base: kritiska loggar och händelser som genererats i messaging (för närvarande endast ReverseProxy) och sökvägen, dessutom till detaljerad operativa kanalen loggar. Dessa händelser är fel och andra viktiga problem i ReverseProxy och begäranden som bearbetas för begäranden. **Det här är våra rekommendationer för omfattande loggning**. Om du vill visa dessa händelser i Loggboken i Visual Studio-diagnostik, lägger du till ”Microsoft-ServiceFabric:4:0x4000000000000010” i listan över ETW-providers.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387920",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387928"
+  ```
 
-Om du vill samla in händelser från alla begäranbearbetningen aktivera Data & Messaging - detaljerad kanal genom att ändra den `scheduledTransferKeywordFilter` värde i WadCfg av Resource Manager-mall att `4611686018427387936`.
+* Data & Messaging kanaler – detaljerad: utförlig kanal som innehåller alla icke-kritiska loggar från data och meddelanden i klustret och detaljerad operativa kanalen. För detaljerad felsökning av alla händelser för omvänd proxy, referera till den [omvänd proxy diagnostik guiden](service-fabric-reverse-proxy-diagnostics.md).  Om du vill visa dessa händelser i Loggboken för Visual Studio diagnostiska lägger du till ”Microsoft-ServiceFabric:4:0x4000000000000020” i listan över ETW-providers.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387936",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387944"
+  ```
 
-Att aktivera att samla in händelser från den här detaljerade kanal resultat i en stor mängd spårningar skapas snabbt och kan använda lagringskapacitet. Endast aktivera detta när det är nödvändigt.
-För detaljerad felsökning av händelser för omvänd proxy, finns det [omvänd proxy diagnostik guiden](service-fabric-reverse-proxy-diagnostics.md).
+>[!NOTE]
+>Den här kanalen har en mycket stor volym med händelser, aktiverar händelseinsamling från den här detaljerade kanal resultat i en stor mängd spårningar skapas snabbt och kan använda lagringskapacitet. Endast aktivera detta om det är absolut nödvändigt.
+
+
+Så här aktiverar du den **grundläggande Data och Messaging kanal** våra rekommendationer för omfattande loggning, den `EtwManifestProviderConfiguration` i den `WadCfg` av mallen som ser ut som följande:
+
+```json
+  "WadCfg": {
+        "DiagnosticMonitorConfiguration": {
+          "overallQuotaInMB": "50000",
+          "EtwProviders": {
+            "EtwEventSourceProviderConfiguration": [
+              {
+                "provider": "Microsoft-ServiceFabric-Actors",
+                "scheduledTransferKeywordFilter": "1",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableActorEventTable"
+                }
+              },
+              {
+                "provider": "Microsoft-ServiceFabric-Services",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableServiceEventTable"
+                }
+              }
+            ],
+            "EtwManifestProviderConfiguration": [
+              {
+                "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                "scheduledTransferLogLevelFilter": "Information",
+                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricSystemEventTable"
+                }
+              }
+            ]
+          }
+        }
+      },
+```
 
 ## <a name="collect-from-new-eventsource-channels"></a>Samla in från den nya EventSource kanaler
 

@@ -1,13 +1,13 @@
 ---
-title: "Hög tillgänglighet för Hadoop - Azure HDInsight | Microsoft Docs"
-description: "Lär dig mer om hur HDInsight-kluster bättre tillförlitlighet och tillgänglighet med hjälp av en ytterligare huvudnod. Lär dig hur detta påverkar Hadoop-tjänster, till exempel Ambari och Hive, och hur du ansluter individuellt till varje huvudnod via SSH."
+title: Hög tillgänglighet för Hadoop - Azure HDInsight | Microsoft Docs
+description: Lär dig mer om hur HDInsight-kluster bättre tillförlitlighet och tillgänglighet med hjälp av en ytterligare huvudnod. Lär dig hur detta påverkar Hadoop-tjänster, till exempel Ambari och Hive, och hur du ansluter individuellt till varje huvudnod via SSH.
 services: hdinsight
 editor: cgronlun
-manager: jhubbard
+manager: cgronlun
 author: Blackmist
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
-keywords: "hög tillgänglighet för hadoop"
+keywords: hög tillgänglighet för hadoop
 ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/08/2018
+ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 0822502bcd3e2b0d20f718a158d6db489a650bde
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 556aedf5ce822d681caf1373ed7d51999bd439b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och pålitlighet för Hadoop-kluster i HDInsight
 

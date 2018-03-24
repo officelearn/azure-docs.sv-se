@@ -1,24 +1,19 @@
 ---
-title: "Företag affärskontinuitet och haveriberedskap återställning (BCDR): parad Azure-regioner | Microsoft Docs"
-description: "Läs mer om Azure regionala länkar, för att säkerställa att programmen är flexibel under data center fel."
+title: 'Företag affärskontinuitet och haveriberedskap återställning (BCDR): parad Azure-regioner | Microsoft Docs'
+description: Läs mer om Azure regionala länkar, för att säkerställa att programmen är flexibel under data center fel.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: 
-ms.assetid: c2d0a21c-2564-4d42-991a-bc31723f61a4
-ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
+manager: carmonm
+ms.service: multiple
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/21/2018
 ms.author: raynew
-ms.openlocfilehash: 394f353837433e241e4da6f4accdb5eaa24bae46
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 660ced47b48e981b65c6b9390809e345be8eda2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Företag affärskontinuitet och haveriberedskap återställning (BCDR): parad Azure-regioner
 
@@ -58,10 +53,10 @@ Bild 1 – Azure regionala par diagram
 
 Tabell 1 - mappning av Azure regionala par
 
-- > (1) västra Indien skiljer sig eftersom den är länkad till en annan region i en riktning. Västra Indien sekundär region är södra Indien men södra Indien sekundär region är centrala Indien.
-- > (2) södra är unikt eftersom den är länkad till en region utanför sin egen geografisk plats. Brasilien söder sekundär region är södra centrala USA men södra centrala USA sekundära regionen är inte södra.
-- > (3) USA Gov Iowa sekundär region är oss Gov Virginia men oss Gov Virginia sekundära regionen är inte oss Gov Iowa.
-- > (4) USA Gov Virginia sekundär region är oss Gov Texas men oss Gov Texas sekundära regionen är inte oss Gov Virginia.
+- (1) västra Indien skiljer sig eftersom den är länkad till en annan region i en riktning. Västra Indien sekundär region är södra Indien men södra Indien sekundär region är centrala Indien.
+- (2) södra är unikt eftersom den är länkad till en region utanför sin egen geografisk plats. Brasilien söder sekundär region är södra centrala USA men södra centrala USA sekundära regionen är inte södra.
+- (3) USA Gov Iowa sekundär region är oss Gov Virginia men oss Gov Virginia sekundära regionen är inte oss Gov Iowa.
+- (4) USA Gov Virginia sekundär region är oss Gov Texas men oss Gov Texas sekundära regionen är inte oss Gov Virginia.
 
 
 Vi rekommenderar att du replikera arbetsbelastningar över regionala par att dra fördel av Azures principer för isolering och tillgänglighet. Till exempel planerad Azure systemuppdateringar distribueras sekventiellt (inte på samma gång) över parad regioner. Det innebär att även i sällsynt händelse av en felaktig uppdatering båda regioner inte påverkas samtidigt. Osannolika för en bred strömavbrott dessutom prioriteras återställning av minst en region utanför varje par.

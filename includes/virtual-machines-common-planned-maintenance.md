@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 193003cef0aed464596e913c0df86e6123292b9f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e484dac645ff2e5867d2e652c389a9950e8bac12
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 Azure utför regelbundet uppdateringar för att förbättra tillförlitligheten, prestanda och säkerhet för infrastrukturen för värd för virtuella datorer. Dessa uppdateringar mellan korrigering programvarukomponenter i värdmiljön (till exempel operativsystem, hypervisor och olika agenter distribueras på värden), uppgraderar nätverkskomponenter, till inaktivering av maskinvara. Flesta av de här uppdateringarna utförs utan någon inverkan på de virtuella datorerna. Det finns dock fall där uppdateringar har konsekvenser:
 
-- Om underhåll som inte kräver en omstart, använder Azure migrering på plats för att pausa den virtuella datorn när värden har uppdaterats.
+- Om en omstart mindre uppdatering är möjligt, använder Azure minne bevarar Underhåll för att pausa den virtuella datorn när värden uppdateras eller den virtuella datorn har flyttats till en värd som redan uppdaterats helt och hållet.
 
 - Om en omstart krävs för underhåll, får du ett meddelande om vid underhåll är planerade. I dessa fall kan också får du ett tidsfönster där du kan starta underhållet själv, samtidigt som passar dig.
 
@@ -24,15 +24,15 @@ Den här sidan beskrivs hur Microsoft Azure utför båda typerna av underhåll. 
 
 Program som körs på en virtuell dator kan samla in information om kommande uppdateringar genom att använda tjänsten Azure Metadata för [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) eller [Linux] (... / articles/virtual-machines/linux/instance-metadata-service.md).
 
-”” Information om hur du hanterar planerade maintence, finns i ”Hantera planerat underhåll meddelanden” för [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) eller [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
+”” Instruktioner om hur du hanterar planerat underhåll, finns i ”Hantera planerat underhåll meddelanden” för [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) eller [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="in-place-vm-migration"></a>VM-migrering på plats
+## <a name="memory-preserving-maintenance"></a>Minne som bevarar Underhåll
 
-När uppdateringar inte kräver en omstart för fullständig, används en aktiv migrering på plats. Den virtuella datorn är pausad i 30 sekunder, bevarar minnet i RAM, medan värdmiljön gäller nödvändiga uppdateringar och korrigeringsfiler under uppdateringen. Den virtuella datorn sedan återupptas och klockan på den virtuella datorn synkroniseras automatiskt.
+När uppdateringar inte kräver en omstart för fullständig, för minne bevara Underhåll mekanismer att begränsa deras inverkan på den virtuella datorn. Den virtuella datorn är pausad för upp till 30 sekunder, bevarar minnet i RAM, medan värdmiljön gäller nödvändiga uppdateringar och korrigeringsfiler eller flyttar den virtuella datorn till en värd som redan uppdaterade. Den virtuella datorn sedan återupptas och klockan på den virtuella datorn synkroniseras automatiskt. 
 
 För virtuella datorer i tillgänglighetsuppsättningar kan är uppdatera domäner uppdaterade ett i taget. Alla virtuella datorer i en uppdateringsdomän (UD) pausas, uppdateras och återupptas innan planerat underhåll flyttar till nästa UD.
 
-Vissa program kan påverkas av dessa typer av uppdateringar. Program som utför realtid händelsebearbetning, som direktuppspelning eller omkodning eller hög genomströmning nätverk scenarier kan inte konstrueras klarar en paus på 30 sekund. <!-- sooooo, what should they do? --> 
+Vissa program kan påverkas av dessa typer av uppdateringar. Program som utför realtid händelsebearbetning, som direktuppspelning eller omkodning eller hög genomströmning nätverk scenarier kan inte konstrueras klarar en paus på 30 sekund. <!-- sooooo, what should they do? --> Den virtuella datorn är att flytta till en annan värd, kanske vissa känsliga arbetsbelastningar märker en liten prestandaförsämring på några minuter ledde till pausen virtuella datorn. 
 
 
 ## <a name="maintenance-requiring-a-reboot"></a>Underhåll som kräver en omstart
@@ -47,9 +47,11 @@ Om du startar självbetjäning underhåll och det finns ett fel under processen 
 
 När fönstret självbetjäning har passerat den **schemalagda underhållsperiod** börjar. Under den här tidsfönstret du fortfarande fråga efter underhållsfönstret, men inte längre att kunna starta underhållet själv.
 
+Information om hur du hanterar underhåll som kräver en omstart, finns i ”hantering planerat underhåll meddelanden” för [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) eller [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
+
 ## <a name="availability-considerations-during-planned-maintenance"></a>Tillgänglighet under planerat underhåll 
 
-Om du vill vänta tills fönstret planerat underhåll finns det några saker att tänka på för att underhålla den högsta availabilty för dina virtuella datorer. 
+Om du vill vänta tills fönstret planerat underhåll finns det några saker att tänka på för att underhålla högst tillgänglighet för dina virtuella datorer. 
 
 ### <a name="paired-regions"></a>Parad regioner
 

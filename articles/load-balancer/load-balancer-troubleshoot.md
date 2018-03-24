@@ -1,12 +1,12 @@
 ---
-title: "Felsöka Azure belastningsutjämnare | Microsoft Docs"
-description: "Felsöka kända problem med Azure belastningsutjämnare"
+title: Felsöka Azure belastningsutjämnare | Microsoft Docs
+description: Felsöka kända problem med Azure belastningsutjämnare
 services: load-balancer
 documentationcenter: na
 author: RamanDhillon
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: bc059221656a695bb43af0dca06df941ca77c73d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 560e2ed7cafd1018f4b64ac6d0e45134560082b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Felsöka Azure belastningsutjämnare
 
@@ -54,7 +54,7 @@ Om den virtuella datorn är felfri, men svarar inte på avsökningen, en möjlig
 3. Om tillståndet porten inte anges som **lyssna**, konfigurera rätt port. 
 4. Du kan också välja en annan port som anges som **lyssna**, och därefter ladda konfigurationen av belastningsutjämnaren.              
 
-###<a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Orsak 3: Brandvägg eller en nätverkssäkerhetsgrupp blockerar port på belastningsutjämnarens serverdelspool virtuella datorer  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Orsak 3: Brandvägg eller en nätverkssäkerhetsgrupp blockerar port på belastningsutjämnarens serverdelspool virtuella datorer  
 Om brandväggen på den virtuella datorn blockerar avsökningsport eller en eller flera nätverk säkerhetsgrupperna som konfigureras i undernät eller på den virtuella datorn, inte tillåter avsökningen att nå porten, är den virtuella datorn inte kan svara på hälsa avsökningen.          
 
 **Validering och lösning**

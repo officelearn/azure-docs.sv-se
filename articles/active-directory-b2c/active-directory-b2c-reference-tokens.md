@@ -1,24 +1,21 @@
 ---
 title: Token referens - Azure AD B2C | Microsoft Docs
-description: "Vilka typer av token som utfärdats i Azure Active Directory B2C"
+description: Vilka typer av token som utfärdats i Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: parakhj
-ms.openlocfilehash: ce82fcc82cf411d1596fea56ff368d96eceeff38
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e5cc6a0974f9481491518779209ec5256870921f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Token-referens
 
@@ -74,7 +71,7 @@ Observera att anspråk i ID-token inte returneras i någon särskild ordning. De
 | Namn | Begär | Exempelvärde | Beskrivning |
 | --- | --- | --- | --- |
 | Målgrupp |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |En målgrupp anspråk identifierar den avsedda mottagaren av token. Azure AD B2C är målgruppen din app program-ID som tilldelats din app i portalen för registrering av app. Din app ska verifiera det här värdet och avvisa token om det inte matchar. |
-| Utfärdare |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Det här anspråket identifierar den säkerhetstokentjänst (STS) som skapar och returnerar token. Du identifierar även Azure AD-katalog där användaren autentiserades. Appen bör verifiera utfärdaren anspråk så att token som kommer från Azure Active Directory v2.0-slutpunkten. |
+| Utgivare |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Det här anspråket identifierar den säkerhetstokentjänst (STS) som skapar och returnerar token. Du identifierar även Azure AD-katalog där användaren autentiserades. Appen bör verifiera utfärdaren anspråk så att token som kommer från Azure Active Directory v2.0-slutpunkten. |
 | Utfärdat till |`iat` |`1438535543` |Detta anspråk är den tid då token har utfärdats, representeras i epok tid. |
 | Förfallotid |`exp` |`1438539443` |Förfallotiden anspråk är den tid då token blir ogiltigt, som representeras i epok tid. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
 | Inte före |`nbf` |`1438535543` |Detta anspråk är den tid som token blir giltigt, representeras i epok tid. Detta är vanligtvis samma som den tid som token har utfärdats. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
@@ -124,7 +121,7 @@ Azure AD B2C har en slutpunkt för OpenID Connect metadata. Detta gör att appar
 https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
-`fabrikamb2c.onmicrosoft.com`är B2C-katalog som används för att autentisera användaren, och `b2c_1_sign_in` är den princip som användes för att hämta token. Att avgöra vilken princip som användes för att logga en token (och var du kan hämta metadata), har du två alternativ. Först principnamnet ingår i den `acr` anspråk i token. Du kan parsa anspråk från innehållet i JWT av Base64-avkodning brödtexten och avserialisering av JSON-strängen som är ett resultat. Den `acr` anspråk ska vara namnet på den princip som användes för att utfärda en token.  Ett annat alternativ är att koda principen i värdet för den `state` parameter när du skickar en begäran och avkoda det för att avgöra vilken princip som har använts. Antingen metoden är giltig.
+`fabrikamb2c.onmicrosoft.com` är B2C-katalog som används för att autentisera användaren, och `b2c_1_sign_in` är den princip som användes för att hämta token. Att avgöra vilken princip som användes för att logga en token (och var du kan hämta metadata), har du två alternativ. Först principnamnet ingår i den `acr` anspråk i token. Du kan parsa anspråk från innehållet i JWT av Base64-avkodning brödtexten och avserialisering av JSON-strängen som är ett resultat. Den `acr` anspråk ska vara namnet på den princip som användes för att utfärda en token.  Ett annat alternativ är att koda principen i värdet för den `state` parameter när du skickar en begäran och avkoda det för att avgöra vilken princip som har använts. Antingen metoden är giltig.
 
 Metadatadokumentet är ett JSON-objekt som innehåller flera användbara uppgifter. Dessa inkluderar platsen för slutpunkter som krävs för att utföra OpenID Connect-autentisering. De omfattar också `jwks_uri`, vilket ger platsen för en uppsättning offentliga nycklar som används för att signera token. Att plats som anges här, men det är bäst att hämta platsen dynamiskt med hjälp av Metadatadokumentet och parsning ut `jwks_uri`:
 
@@ -146,7 +143,7 @@ När din app eller API får du en ID-token, bör det också utföra flera kontro
 
 En fullständig lista över verifieringar som din app ska utföra avser den [OpenID Connect specifikationen](https://openid.net). Information om de förväntade värdena för dessa anspråk som ingår i den föregående [token avsnittet](#types-of-tokens).  
 
-## <a name="token-lifetimes"></a>Livslängd för token
+## <a name="token-lifetimes"></a>Tokenlivslängder
 Följande token livslängd som ytterligare din vetskap. De kan hjälpa dig när du utvecklar och felsöka appar. Observera att dina appar inte att skriva till räknar med någon av dessa livslängd förblir konstant. De kan och kommer att ändras. Läs mer om den [anpassning av token livslängd](active-directory-b2c-token-session-sso.md) i Azure AD B2C.
 
 | Token | Livslängd | Beskrivning |

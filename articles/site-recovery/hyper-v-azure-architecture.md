@@ -1,16 +1,16 @@
 ---
 title: Hyper-V i Azure replikering arkitekturen i Azure Site Recovery | Microsoft Docs
-description: "Den här artikeln innehåller en översikt över komponenter och arkitektur som används för att replikera lokala virtuella datorer med Hyper-V (utan VMM) till Azure med tjänsten Azure Site Recovery."
+description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används för att replikera lokala virtuella datorer med Hyper-V (utan VMM) till Azure med tjänsten Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/194/2018
 ms.author: raynew
-ms.openlocfilehash: dd3dcf325ed5a628c98ac63683440e1796aa8c3f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 978d290287a4ff8875eea7e93f003c78e7177dae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V kan Azure replikeringsarkitektur
 
@@ -28,7 +28,7 @@ Följande tabell och bild ger en övergripande bild av de komponenter som använ
 **Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
 **Azure** | Azure-prenumeration, Azure storage-konto och Azure-nätverk. | Replikerade data från lokala Virtuella arbetsbelastningar lagras i lagringskontot. Virtuella Azure-datorer skapas med den replikerade arbetsbelastningsdata när det uppstår redundans från din lokala plats.<br/><br/> Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas.
-**Hyper-V** | Under distributionen av Site Recovery kan du samla in Hyper-V-värdar och kluster i Hyper-V-platser. Du installerar Azure Site Recovery Provider och Recovery Services-agenten på varje Hyper-V-dator. | Providern samordnar replikeringen med Site Recovery-tjänsten via Internet. Recovery Services-agenten hanterar datareplikeringen.<br/><br/> Kommunikation från både providern och agenten är säker och krypterad. Replikerade data i Azure-lagring krypteras också.
+**Hyper-V** | Under distributionen av Site Recovery kan du samla in Hyper-V-värdar och kluster i Hyper-V-platser. Du kan installera Azure Site Recovery Provider och Recovery Services-agenten på varje fristående Hyper-V-värd eller på varje nod i Hyper-V-klustret. | Providern samordnar replikeringen med Site Recovery-tjänsten via Internet. Recovery Services-agenten hanterar datareplikeringen.<br/><br/> Kommunikation från både providern och agenten är säker och krypterad. Replikerade data i Azure-lagring krypteras också.
 **Virtuella Hyper-V-datorer** | En eller flera virtuella datorer som körs på Hyper-V. | Inget behöver installeras på virtuella datorer.
 
 
@@ -46,7 +46,7 @@ Följande tabell och bild ger en övergripande bild av de komponenter som använ
 --- | --- | ---
 **Azure** | Azure-prenumeration, Azure storage-konto och Azure-nätverk. | Replikerade data från lokala Virtuella arbetsbelastningar lagras i lagringskontot. Virtuella Azure-datorer skapas med replikerade data när det uppstår redundans från din lokala plats.<br/><br/> Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas.
 **VMM-server** | VMM-servern har ett eller flera moln som innehåller Hyper-V-värdar. | Du installerar Site Recovery-providern på VMM-servern att samordna replikeringen med Site Recovery och registrera servern i Recovery Services-valvet.
-**Hyper-V-värd** | En eller flera Hyper-V-värdar eller Hyper-V-kluster som hanteras av VMM. |  Du installerar Recovery Services-agenten på varje värd eller klustermedlem.
+**Hyper-V-värd** | En eller flera Hyper-V-värdar eller Hyper-V-kluster som hanteras av VMM. |  Du kan installera Recovery Services-agenten på varje Hyper-V-värd eller kluster-nod.
 **Virtuella Hyper-V-datorer** | En eller flera virtuella datorer som körs på en Hyper-V-värdserver. | Du behöver inte installera något på de virtuella datorerna.
 **Nätverk** | Logiska och virtuella datornätverk som konfigurerats på VMM-servern. Det Virtuella datornätverket ska kopplas till ett logiskt nätverk som är kopplad till molnet. | Virtuella datornätverk mappas till virtuella Azure-nätverk. När virtuella Azure-datorer skapas efter växling vid fel, läggs de till Azure-nätverk som är mappad till det Virtuella datornätverket.
 

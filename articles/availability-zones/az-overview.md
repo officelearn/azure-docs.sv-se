@@ -1,26 +1,26 @@
 ---
-title: "Översikt över tillgänglighet zoner | Microsoft Docs"
-description: "Den här artikeln innehåller en översikt över tillgänglighet zoner i Azure."
-services: 
-documentationcenter: 
+title: Översikt över tillgänglighet zoner | Microsoft Docs
+description: Den här artikeln innehåller en översikt över tillgänglighet zoner i Azure.
+services: ''
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: azure
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2018
+ms.date: 03/19/2018
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 9274cb1fc490ab61e962e8a7918a9c44976dc755
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b4db442a54b4360b75df40156ca0d4e4ee1eb0d1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Översikt över tillgänglighet zoner i Azure (förhandsversion)
 
@@ -34,6 +34,7 @@ Tillgänglighet zoner hjälpa för att skydda dig från fel datacenter-nivå. De
 - Centrala USA
 - Västra Europa
 - Frankrike, centrala
+- Sydostasien
 
 ## <a name="services-that-support-availability-zones"></a>Tjänster som stöder tillgänglighet zoner
 

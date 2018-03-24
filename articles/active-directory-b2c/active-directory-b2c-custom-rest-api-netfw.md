@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Integrera utbyten av REST API anspråk i din Azure AD B2C användaren resa som verifiering av indata från användaren"
-description: "Integrera utbyten av REST API anspråk i din Azure AD B2C användaren resa som verifiering av indata från användaren."
+title: 'Azure Active Directory B2C: Integrera utbyten av REST API anspråk i din Azure AD B2C användaren resa som verifiering av indata från användaren'
+description: Integrera utbyten av REST API anspråk i din Azure AD B2C användaren resa som verifiering av indata från användaren.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/30/2017
-ms.author: yoelh
-ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: 9429f690940e1282d94b4d67ad1c618a24655cb5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrera utbyte av REST API-anspråk i din Azure AD B2C användaren resa som verifiering av indata från användaren
 Med Identity upplevelse Framework, som ligger till grund för Azure Active Directory B2C (Azure AD B2C) som du kan integrera med en RESTful-API i en resa för användaren. I den här genomgången får lära du dig hur Azure AD B2C samverkar med .NET Framework RESTful-tjänster (webb-API).
@@ -249,8 +246,8 @@ En anspråksprovider kan ha flera tekniska profiler för olika skäl. Till exemp
 Följande XML-kodstycke innehåller en nod för providern av anspråk med två tekniska profiler:
 
 * **TechnicalProfile Id = ”REST-API-SignUp”**: definierar RESTful-tjänst. 
-   * `Proprietary`beskrivs som protokoll för en RESTful-baserade provider. 
-   * `InputClaims`definierar vilka anspråk som skickas från Azure AD B2C REST-tjänst. 
+   * `Proprietary` beskrivs som protokoll för en RESTful-baserade provider. 
+   * `InputClaims` definierar vilka anspråk som skickas från Azure AD B2C REST-tjänst. 
 
    I det här exemplet innehållet anspråkets `givenName` skickar till REST-tjänst som `firstName`, innehållet i anspråket `surname` skickar till REST-tjänst som `lastName`, och `email` skickar eftersom. Den `OutputClaims` elementet definierar vilka anspråk som hämtas från RESTful-tjänst tillbaka till Azure AD B2C.
 

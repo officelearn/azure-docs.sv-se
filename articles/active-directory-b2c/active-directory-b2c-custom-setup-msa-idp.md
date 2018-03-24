@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Lägga till Microsoft-konto (Hanterade) som en identitetsleverantör anpassade principer"
-description: "Exempel med hjälp av Microsoft som identitetsleverantör med OpenID Connect (OIDC)-protokollet"
+title: 'Azure Active Directory B2C: Lägga till Microsoft-konto (Hanterade) som en identitetsleverantör anpassade principer'
+description: Exempel med hjälp av Microsoft som identitetsleverantör med OpenID Connect (OIDC)-protokollet
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: cdc77d093358fa15bb1acbc9ba6b1867bae062f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: a49e9589322eeb90a713321b4fbe4c4820609f7a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Lägga till Microsoft-konto (Hanterade) som en identitetsleverantör anpassade principer
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 12/11/2017
 
 Den här artikeln visar hur du aktiverar inloggning för användare från Microsoft-konto (MSA) med [anpassade principer](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md) artikel.
 
 De här stegen innefattar:
@@ -38,7 +35,7 @@ De här stegen innefattar:
 5.  Ladda upp principen till en Azure AD B2C-klient och testa den
 
 ## <a name="create-a-microsoft-account-application"></a>Skapa ett program för Microsoft-konto
-Om du vill använda Microsoft-konto som en identitetsleverantör i Azure Active Directory (AD Azure) B2C måste du skapa ett program för Microsoft-konto och ange rätt parametrar. Du behöver ett microsoftkonto. Om du inte har någon besöker [https://www.live.com/](https://www.live.com/).
+Om du vill använda Microsoft-konto som en identitetsleverantör i Azure Active Directory (AD Azure) B2C måste du skapa ett program för Microsoft-konto och ange rätt parametrar. Du behöver ett microsoftkonto. Om du inte har någon besöker [ https://www.live.com/ ](https://www.live.com/).
 
 1.  Gå till den [Microsoft Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) och logga in med ditt Microsoft-kontouppgifter.
 2.  Klicka på **Lägg till en app**.
@@ -84,7 +81,7 @@ Federation med Microsoft-konton kräver en klienthemlighet för Microsoft-konto 
 4.  För **alternativ**, använda **manuell**.
 5.  För **namn**, Använd `MSASecret`.  
     Prefixet `B2C_1A_` kan läggas till automatiskt.
-6.  I den **hemlighet** ange ditt hemliga för Microsoft-program från https://apps.dev.microsoft.com
+6.  I den **hemlighet** ange ditt Microsoft-program hemliga från https://apps.dev.microsoft.com
 7.  För **nyckelanvändning**, använda **signatur**.
 8.  Klicka på **Skapa**
 9.  Bekräfta att du har skapat nyckeln `B2C_1A_MSASecret`.
@@ -156,10 +153,10 @@ Nu identitetsleverantören har ställts in, men den är inte tillgänglig i alla
 4.  Klistra in hela innehållet i `<UserJournesy>` nod som du kopierade som underordnad till den `<UserJourneys>` element.
 
 ### <a name="display-the-button"></a>Visa knappen
-Den `<ClaimsProviderSelections>` elementet definierar en lista över alternativ för val av anspråk providern och deras inbördes ordning.  `<ClaimsProviderSelection>`elementet är detsamma som knappen identity-providern på en sign-upp/inloggningssidan. Om du lägger till en `<ClaimsProviderSelection>` element för Microsoft-konto, en ny knapp visas när en användare de hamnar på sidan. Lägg till det här elementet:
+Den `<ClaimsProviderSelections>` elementet definierar en lista över alternativ för val av anspråk providern och deras inbördes ordning.  `<ClaimsProviderSelection>` elementet är detsamma som knappen identity-providern på en sign-upp/inloggningssidan. Om du lägger till en `<ClaimsProviderSelection>` element för Microsoft-konto, en ny knapp visas när en användare de hamnar på sidan. Lägg till det här elementet:
 
 1.  Hitta de `<UserJourney>` nod som innehåller `Id="SignUpOrSignIn"` i transporten användare som du kopierade.
-2.  Leta upp den `<OrchestrationStep>` nod som innehåller`Order="1"`
+2.  Leta upp den `<OrchestrationStep>` nod som innehåller `Order="1"`
 3.  Lägg till följande XML-kodstycke under `<ClaimsProviderSelections>` nod:
 
 ```xml
@@ -204,7 +201,7 @@ Du kanske vill lägga till identitetsleverantören Account också till dina anv�
 ### <a name="display-the-button"></a>Visa knappen
 1.  Öppna filen för tillägg av principen (till exempel TrustFrameworkExtensions.xml).
 2.  Hitta de `<UserJourney>` nod som innehåller `Id="ProfileEdit"` i transporten användare som du kopierade.
-3.  Leta upp den `<OrchestrationStep>` nod som innehåller`Order="1"`
+3.  Leta upp den `<OrchestrationStep>` nod som innehåller `Order="1"`
 4.  Lägg till följande XML-kodstycke under `<ClaimsProviderSelections>` nod:
 
 ```xml

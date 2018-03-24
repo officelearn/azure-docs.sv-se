@@ -1,11 +1,11 @@
 ---
-title: "Kopiera data från ODBC-källor med hjälp av Azure Data Factory | Microsoft Docs"
-description: "Lär dig hur du kopierar data från OData-datakällor till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen."
+title: Kopiera data från ODBC-källor med hjälp av Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kopierar data från OData-datakällor till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ab29338b5ce2090166e75f3860744562aa9f6b01
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8b8a200fb7234feeac8679b657c8d4be6ee8b748
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Kopieringsdata från och till ODBC-datalager med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,7 +59,7 @@ Följande egenskaper stöds för ODBC länkade tjänsten:
 | AuthenticationType | Typ av autentisering som används för att ansluta till ODBC-datalagret.<br/>Tillåtna värden är: **grundläggande** och **anonym**. | Ja |
 | userName | Ange användarnamnet om du använder grundläggande autentisering. | Nej |
 | lösenord | Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
-| autentiseringsuppgifter | Åtkomst autentiseringsuppgifter del av den angivna anslutningssträngen i drivrutinsspecifika egenskapsvärdet format. Exempel: `"RefreshToken=<secret refresh token>;"`. Markera det här fältet som en SecureString. | Nej |
+| credential | Åtkomst autentiseringsuppgifter del av den angivna anslutningssträngen i drivrutinsspecifika egenskapsvärdet format. Exempel: `"RefreshToken=<secret refresh token>;"`. Markera det här fältet som en SecureString. | Nej |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En Self-hosted integrering Runtime krävs enligt [krav](#prerequisites). |Ja |
 
 **Exempel 1: använder grundläggande autentisering**

@@ -1,11 +1,10 @@
 ---
-title: "Säkerhetsaspekter vid flytt av data i Azure Data Factory | Microsoft Docs"
-description: "Lär dig mer om hur du skyddar flytt av data i Azure Data Factory."
+title: Säkerhetsaspekter vid flytt av data i Azure Data Factory | Microsoft Docs
+description: Lär dig mer om hur du skyddar flytt av data i Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: f483109170ed1dda7506f7ef5f02fb8b42ea331e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c2b6c494a9c4d0dac37315520b8d7b962f3490b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - säkerhetsaspekter för dataflyttning
 
@@ -48,7 +47,7 @@ Vi går igenom säkerhetsaspekter i följande scenarier för flytt av två data 
 - **Hybridscenario**– i det här scenariot källan eller målet finns bakom en brandvägg eller i ett företagsnätverk lokalt eller data store är i ett privat nätverk eller virtuella nätverk (oftast källan) och inte är allmänt tillgänglig. Database-servrar som är värd för virtuella datorer också omfattas av det här scenariot.
 
 ## <a name="cloud-scenarios"></a>Scenarier för
-###<a name="securing-data-store-credentials"></a>Att säkra autentiseringsuppgifterna för datalager
+### <a name="securing-data-store-credentials"></a>Att säkra autentiseringsuppgifterna för datalager
 Azure Data Factory skyddar autentiseringsuppgifterna för ditt datalager av **kryptera** dem med hjälp av **certifikat ska hanteras av Microsoft**. Dessa certifikat roteras varje **två år** (som inkluderar förnyelse av certifikat och migrering av autentiseringsuppgifter). Dessa krypterade autentiseringsuppgifter lagras på ett säkert sätt i en **Azure Storage hanteras av Azure Data Factory hanteringstjänster**. Mer information om säkerhet i Azure Storage [översikt över säkerheten i Azure Storage](../../security/security-storage-overview.md).
 
 ### <a name="data-encryption-in-transit"></a>Datakryptering under överföring

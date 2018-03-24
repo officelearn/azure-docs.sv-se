@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning modellen Management Web Service-distributionen | Microsoft Docs
-description: "Det här dokumentet beskriver steg som ingår i distributionen av en maskininlärningsmodell med hjälp av Azure Machine Learning modellen Management."
+description: Det här dokumentet beskriver steg som ingår i distributionen av en maskininlärningsmodell med hjälp av Azure Machine Learning modellen Management.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 7b481fb3287b8ee2c22e5f25f8cf1935eed05428
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 5211fa29af1d8cba17049b69974189990d30f34a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Distribuera en Maskininlärningsmodell som en webbtjänst
 
@@ -22,10 +22,17 @@ Azure Machine Learning modellen Management tillhandahåller gränssnitt för att
 
 Det här dokumentet beskriver steg för att distribuera modeller som webbtjänster som använder Azure Machine Learning modellen Management kommandoradsgränssnittet (CLI).
 
+## <a name="what-you-need-to-get-started"></a>Vad du behöver att komma igång
+
+Du bör ha deltagarbehörighet åtkomst till en Azure-prenumeration eller resursgrupp som du kan distribuera modeller till för att få mest av den här guiden.
+CLI finns förinstallerat på Azure Machine Learning arbetsstationen och på [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).  Det kan också installeras som en fristående paketet.
+
+Dessutom måste modellen konto- och hanteringsmiljön redan ställas in.  Mer information om hur du konfigurerar din modell hanteringskontot och miljö för lokal och Klusterdistribution finns [modellen konfigurationstjänsten](deployment-setup-configuration.md).
+
 ## <a name="deploying-web-services"></a>Distribuera webbtjänster
 Med CLIs kan använda du webbtjänster som ska köras på den lokala datorn eller på ett kluster.
 
-Vi rekommenderar att du börjar med en lokal distribution. Du först verifiera att din modell koden fungerar och sedan distribuera webbtjänsten till ett kluster för produktionsskala användning. Mer information om hur du konfigurerar din miljö för klusterdistribution finns [modellen konfigurationstjänsten](deployment-setup-configuration.md). 
+Vi rekommenderar att du börjar med en lokal distribution. Du först verifiera att din modell koden fungerar och sedan distribuera webbtjänsten till ett kluster för produktionsskala användning.
 
 Här följer stegen för distributionen:
 1. Använd din sparade utbildade, Machine Learning-modell
@@ -49,7 +56,8 @@ saved_model = pickle.dumps(clf)
 ```
 
 ### <a name="2-create-a-schemajson-file"></a>2. Skapa en schema.json-fil
-Det här steget är valfritt. 
+
+Generering av schemat är valfritt, rekommenderas att definiera indata variabeln formatet för förfrågan och för bättre hantering.
 
 Skapa ett schema för att automatiskt verifiera indata och utdata för webbtjänsten. CLIs också använda schemat för att generera en Swagger-dokument för webbtjänsten.
 
@@ -77,6 +85,13 @@ I följande exempel används en PANDAS dataframe:
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
+```
+
+I följande exempel används en allmän JSON-format:
+
+```python
+inputs = {"input_json": SampleDefinition(DataTypes.STANDARD, yourinputjson)}
 generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
@@ -147,10 +162,13 @@ Du kan skapa en avbildning med alternativet för att ha skapat manifestet innan.
 az ml image create -n [image name] --manifest-id [the manifest ID]
 ```
 
-Men du kan skapa manifestet och bild med ett enda kommando. 
+>[!NOTE] 
+>Du kan också använda ett enda kommando för att utföra modellen registrering, manifestet och modellen skapas. Använd -h med tjänsten skapa mer information.
+
+Det finns ett enda kommando för att registrera en modell, skapa ett manifest och skapa en avbildning (men inte skapa och distribuera webbtjänsten ännu) som ett alternativ som ett steg på följande sätt.
 
 ```
-az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]
+az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime e.g. spark-py which is the Docker container image base]
 ```
 
 >[!NOTE]
@@ -165,7 +183,14 @@ az ml service create realtime --image-id <image id> -n <service name>
 ```
 
 >[!NOTE] 
->Du kan också använda ett enda kommando för att utföra stegen för 4. Använd -h med tjänsten skapa mer information.
+>Du kan också använda ett enda kommando för att utföra alla tidigare 4 steg. Använd -h med tjänsten skapa mer information.
+
+Alternativt kan finns det ett enda kommando för att registrera en modell, skapa ett manifest, skapa en avbildning samt skapa och distribuera webbtjänsten som ett steg på följande sätt.
+
+```azurecli
+az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
+```
+
 
 ### <a name="8-test-the-service"></a>8. Testa tjänsten
 Använd följande kommando för att hämta information om hur du anropa tjänsten:

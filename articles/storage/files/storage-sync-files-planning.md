@@ -1,8 +1,8 @@
 ---
-title: "Planera för distribution av en Azure-filsynkronisering (förhandsversion) | Microsoft Docs"
-description: "Lär dig vad du bör tänka på när du planerar för distribution av en Azure-filer."
+title: Planera för distribution av en Azure-filsynkronisering (förhandsversion) | Microsoft Docs
+description: Lär dig vad du bör tänka på när du planerar för distribution av en Azure-filer.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 097c1719ffc493539276cd98edc761eba20f3751
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planera för distribution av en Azure-filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -160,9 +160,14 @@ Azure filsynkronisering är endast tillgänglig i följande regioner i förhands
 |--------|---------------------|
 | Östra Australien | New South Wales |
 | Centrala Kanada | Toronto |
+| Centrala USA | Iowa |
+| Östasien | Hongkong |
 | Östra USA | Virginia |
+| Östra US2 | Virginia |
+| Norra Europa | Irland |
 | Sydostasien | Singapore |
 | Storbritannien, södra | London |
+| Västra Cental USA |
 | Västra Europa | Nederländerna |
 | Västra USA | Kalifornien |
 

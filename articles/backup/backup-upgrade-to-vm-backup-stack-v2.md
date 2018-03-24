@@ -1,25 +1,25 @@
 ---
-title: "Uppgradera till Virtuella Azure-säkerhetskopiering stacken V2 | Microsoft Docs"
-description: "Uppgradera processen och vanliga frågor och svar för VM-säkerhetskopiering stack V2"
+title: Uppgradera till Virtuella Azure-säkerhetskopiering stacken V2 | Microsoft Docs
+description: Uppgradera processen och vanliga frågor och svar för VM-säkerhetskopiering stack V2
 services: backup, virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/08/2018
-ms.author: trinadhk
-ms.openlocfilehash: b7e9f45c61d2af1940be50a368b87cd35c85b1dd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: trinadhk, sogup
+ms.openlocfilehash: 6d214072bccb8b2b42828ee003dcf349985b4f43
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="upgrade-to-vm-backup-stack-v2"></a>Uppgradera till VM säkerhetskopiering stack V2
+# <a name="upgrade-to-vm-backup-stack-v2"></a>Uppgradera till VM-säkerhetskopieringsstack V2
 Virtuell dator (VM) säkerhetskopiering stack V2 uppgraderingen ger följande funktionsförbättringar:
 * Möjlighet att se ögonblicksbild vidtas som en del av jobbet för att vara tillgängliga för återställning utan att vänta på dataöverföring att slutföra.
 Det minskar vänta på ögonblicksbild som ska kopieras för valvet innan återställning. Dessutom eliminerar detta kravet ytterligare lagringsutrymme för att säkerhetskopiera premium virtuella datorer utom första säkerhetskopieringen.  
@@ -49,7 +49,6 @@ En återställningspunkt anses skapas bara när du är klar med steg 1 och 2. So
 * Det här är en enkelriktad uppgradering av VM säkerhetskopiering stacken. Alla framtida säkerhetskopieringar försätts därför i detta flöde. Eftersom **aktiveras på en prenumerationsnivå, alla virtuella datorer kommer att gå till det här flödet**. Alla nya funktionen tillägg kommer att baseras på samma stacken. Möjlighet att kontrollera detta på principnivå kommer i framtida versioner. 
 * Kontrollera att lagringsutrymmet motsvarar storleken på den virtuella datorn finns i lagringskontot tills första säkerhetskopieringen har slutförts för virtuella datorer med premiumdiskar under den första säkerhetskopieringen. 
 * Eftersom ögonblicksbilder lagras lokalt att höja återställningspunkt och snabbare återställning visas lagringskostnader motsvarar ögonblicksbilder under sju dagar.
-För hanterade diskar finns *utan ökning pris* eftersom restorePointCollections är kostnadsfri. 
 * Om du gör en återställning från ögonblicksbild återställningspunkt för en Premium virtuell visas en temporär lagringsplats som används när den virtuella datorn skapas som en del av återställningen. 
 
 ## <a name="how-to-upgrade"></a>Så här uppgraderar du?

@@ -1,6 +1,6 @@
 ---
-title: "Distribuera ett delat flera innehavare databasen SaaS-appar som använder Azure SQL Database | Microsoft Docs"
-description: "Distribuera och utforska den delat Wingtip biljetter SaaS flera innehavare databasprogram, som visar SaaS mönster med hjälp av Azure SQL Database."
+title: Distribuera ett delat flera innehavare databasen SaaS-appar som använder Azure SQL Database | Microsoft Docs
+description: Distribuera och utforska den delat Wingtip biljetter SaaS flera innehavare databasprogram, som visar SaaS mönster med hjälp av Azure SQL Database.
 keywords: sql database tutorial
 services: sql-database
 author: MightyPen
@@ -11,11 +11,11 @@ ms.workload: data-management
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: 82983c8926bdf3c7256c529448e5b4f3b2c2381c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3806b165e0124e979f59b51d5583cdbb1f949366
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska ett delat flera innehavare program som använder Azure SQL Database
 
@@ -172,7 +172,7 @@ Den första distributionen innehåller tre exempel hyresgäster i den *Tenants1*
 2. Tryck på **F5** (inte **F8**) att köra skriptet (lämna standardvärdena för tillfället).
 
    > [!NOTE]
-   > Du måste köra PowerShell-skript genom att trycka på den **F5** nyckel inte genom att trycka på **F8** att köra valda delar av skriptet. Problem med **F8** är att den *$PSScriptRoot* variabeln utvärderas inte. Den här variabeln krävs för många skript att navigera i mappar, eller att anropa andra skript eller importera moduler.
+   > Du måste köra PowerShell-skript genom att trycka på den **F5** nyckel inte genom att trycka på **F8** att köra valda delar av skriptet. Problem med **F8** är att den *$PSScriptRoot* variabeln utvärderas inte. Den här variabeln krävs av många skript att navigera mappar anropa andra skript eller importera moduler.
 
 Den nya innehavaren Röd lönn tävling har lagts till i den *Tenants1* databasen och registrerats i katalogen. Den nya innehavaren har biljett sälja **händelser** plats visas i webbläsaren:
 

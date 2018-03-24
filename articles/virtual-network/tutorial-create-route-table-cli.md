@@ -1,13 +1,13 @@
 ---
-title: "Dirigera nätverkstrafik - Azure CLI | Microsoft Docs"
-description: "Lär dig mer om att dirigera nätverkstrafik till en routingtabell som använder Azure CLI."
+title: Dirigera nätverkstrafik - Azure CLI | Microsoft Docs
+description: Lär dig mer om att dirigera nätverkstrafik till en routingtabell som använder Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 67bfc8ee677a14735174e9501fa5e10a69bd1ec7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: 871b562fa12b93d1b65e23ca58615d35ef6bb34b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Dirigera nätverkstrafik till en routingtabell som använder Azure CLI
 
@@ -207,7 +207,7 @@ Anteckna den **publicIpAddress**. Den här adressen används för åtkomst till 
 
 ## <a name="route-traffic-through-an-nva"></a>Vidarebefordra trafik via en NVA
 
-Använd följande kommando för att skapa en SSH-session med den *myVmPrivate* VM. Ersätt  *<publicIpAddress>*  med offentliga IP-adressen för den virtuella datorn. I exemplet ovan, IP-adressen är *13.90.242.231*.
+Använd följande kommando för att skapa en SSH-session med den *myVmPrivate* VM. Ersätt *<publicIpAddress>* med offentliga IP-adressen för den virtuella datorn. I exemplet ovan, IP-adressen är *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
@@ -280,4 +280,4 @@ I den här artikeln, skapa en routingtabell och som är kopplad till ett undern�
 Resurser för vissa Azure PaaS-tjänster kan inte distribueras till ett virtuellt nätverk medan du kan distribuera många Azure-resurser inom ett virtuellt nätverk. Du kan fortfarande begränsa åtkomsten till resurser av vissa Azure PaaS-tjänster till trafik från ett undernät för virtuellt nätverk men. Gå vidare till nästa kurs att lära dig att begränsa nätverksåtkomsten till Azure PaaS-resurser.
 
 > [!div class="nextstepaction"]
-> [Begränsa nätverksåtkomst till PaaS-resurser](virtual-network-service-endpoints-configure.md#azure-cli)
+> [Begränsa nätverksåtkomst till PaaS-resurser](tutorial-restrict-network-access-to-resources-cli.md)

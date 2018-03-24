@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory Domain Services: Felsöka konfigurationen av tjänstens huvudnamn | Microsoft Docs"
-description: "Felsöka konfigurationen av tjänstens huvudnamn för Azure AD Domain Services"
+title: 'Azure Active Directory Domain Services: Felsöka konfigurationen av tjänstens huvudnamn | Microsoft Docs'
+description: Felsöka konfigurationen av tjänstens huvudnamn för Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: eringreenlee
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory-ds
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: e1be075ba2d3e6ae7512ccc030073fd7f1862502
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d1a605ae5c0ea598ba507de0b21a841333df79ef
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Felsökning av ogiltig konfiguration för tjänstens huvudnamn för din hanterade domän
 
@@ -93,7 +93,7 @@ Följ dessa steg om ett huvudnamn för tjänsten med ID ```d87dcbc6-a371-462e-88
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Varning AADDS105: Programmet för synkronisering av lösenord är inaktuell
 
-**Varningsmeddelande:** tjänstens huvudnamn med program-ID ”d87dcbc6-a371-462e-88e3-28ad15ec4e64” har tagits bort och Microsoft gick att skapa den på nytt. Den här tjänstens huvudnamn hanterar en annan tjänstens huvudnamn och ett program som används för synkronisering av lösenord. Den hanterade tjänstens huvudnamn program tillåts inte under nyligen skapade tjänstens huvudnamn och kommer att bli inaktuell när synkroniseringen certifikatet upphör att gälla. Detta innebär att nyligen skapade tjänstens huvudnamn inte kommer att uppdatera gamla hanterade program och synkronisering av objekt från AAD kommer att påverkas.
+**Varningsmeddelande:** tjänstens huvudnamn med program-ID ”d87dcbc6-a371-462e-88e3-28ad15ec4e64” har tagits bort och sedan återskapas. Den här tjänstens huvudnamn hanterar en annan tjänstens huvudnamn och ett program som används för synkronisering av lösenord. Hanterade tjänstens huvudnamn och/eller programmet kunde inte auktoriseras under nyskapade tjänstens huvudnamn så att de inte kan hanteras av vår tjänst. Detta innebär att nyligen skapade tjänstens huvudnamn inte kommer att uppdatera gamla hanterade program och synkronisering av lösenord kommer att påverkas.
 
 
 **Lösning:** du behöver Azure AD PowerShell för att slutföra dessa steg. Information om hur du installerar Azure AD PowerShell finns i [i den här artikeln](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
@@ -108,7 +108,7 @@ Skriv följande kommandon i PowerShell-fönstret för att lösa problemet:
 2. Ta bort den gamla program och objekt med följande PowerShell-kommandon
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
     Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId

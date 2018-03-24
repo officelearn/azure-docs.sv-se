@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: REST API-anspråk utbyte som verifiering | Microsoft Docs"
-description: "Ett ämne på Azure Active Directory B2C anpassade principer"
+title: 'Azure Active Directory B2C: REST API-anspråk utbyte som verifiering | Microsoft Docs'
+description: Ett ämne på Azure Active Directory B2C anpassade principer
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/24/2017
-ms.author: joroja
-ms.openlocfilehash: dfd33a9ecdce7b21f58660fb39a5f2d7b4ce6f43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 50968cb96a5ef2cf8fe450899e04d7856e8d4dcc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Genomgång: Integrera utbyte av REST API-anspråk i din Azure AD B2C användaren resa som autentiserades på indata från användaren
 
@@ -37,7 +34,7 @@ Exempelvis den verifiering profil använder vi profil Redigera användare resa i
 
 Vi kan kontrollera att namnet som användaren i profilen Redigera inte är en del av en undantagslista.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure AD B2C-klient som konfigurerats för att slutföra ett lokalt konto sign-upp/inloggning, enligt beskrivningen i [komma igång](active-directory-b2c-get-started-custom.md).
 - En REST API-slutpunkt kan interagera med. Den här genomgången vi har konfigurerat en demo-webbplatsen som heter [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) med en REST API-tjänst.

@@ -1,11 +1,11 @@
 ---
-title: "Data Factory-Självstudier: första data pipeline | Microsoft Docs"
-description: "Här Azure Data Factory-självstudierna visar hur du skapar och schemalägga en datafabrik som bearbetar data på ett Hadoop-kluster med Hive-skript."
+title: 'Data Factory-Självstudier: första data pipeline | Microsoft Docs'
+description: Här Azure Data Factory-självstudierna visar hur du skapar och schemalägga en datafabrik som bearbetar data på ett Hadoop-kluster med Hive-skript.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 374eebfe35207f6e5264159dcb72abddc6de4598
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2fc9c0a823f48446f98fe9686242b8500462427b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Självstudier: Skapa din första pipeline för att omvandla data med Hadoop-kluster
 > [!div class="op_single_selector"]
@@ -85,7 +85,7 @@ Innan du påbörjar den här självstudien måste du ha följande krav:
 
 1. **Azure-prenumeration** -om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Finns det [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/) artikel om hur du kan skaffa ett kostnadsfritt utvärderingskonto.
 2. **Azure Storage** – du använder ett Azure storage-konto för att lagra data i den här kursen. Om du inte har ett Azure storage-konto finns i [skapa ett lagringskonto](../../storage/common/storage-create-storage-account.md#create-a-storage-account) artikel. När du har skapat lagringskontot, notera den **kontonamn** och **åtkomstnyckeln**. Se [visa, kopiera och generera lagring åtkomstnycklar](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
-3. Hämta och granska filen Hive-fråga (**HQL**) finns på: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Den här frågan transformerar indata för att gav inga utdata. 
+3. Hämta och granska filen Hive-fråga (**HQL**) finns på: [ https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql ](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Den här frågan transformerar indata för att gav inga utdata. 
 4. Hämta och granska inkommande exempelfilen (**input.log**) finns på: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Skapa en blobbbehållare med namnet **adfgetstarted** i Azure Blob Storage. 
 6. Överför **partitionweblogs.hql** filen till den **skriptet** mapp i den **adfgetstarted** behållare. Använd verktyg som [Microsoft Azure Lagringsutforskaren](http://storageexplorer.com/). 
@@ -93,7 +93,7 @@ Innan du påbörjar den här självstudien måste du ha följande krav:
 
 Välj något av följande verktyg/SDK behöver kursen när du har slutfört de nödvändiga förutsättningarna: 
 
-- [Azure-portalen](data-factory-build-your-first-pipeline-using-editor.md)
+- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)

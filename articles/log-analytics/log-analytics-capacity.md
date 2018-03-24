@@ -1,11 +1,11 @@
 ---
-title: "Lösning för kapacitet och prestanda i Azure Log Analytics | Microsoft Docs"
-description: "Använd lösningen kapacitet och prestanda i logganalys som hjälper dig att förstå kapaciteten för Hyper-V-servrar."
+title: Lösning för kapacitet och prestanda i Azure Log Analytics | Microsoft Docs
+description: Använd lösningen kapacitet och prestanda i logganalys som hjälper dig att förstå kapaciteten för Hyper-V-servrar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 26e87da60dc02dce8122c82a2208477a8b1813a7
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 99c29afec7d06a458ed6d34071f1b6acbba1f03b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planera kapaciteten för Hyper-V-virtuella datorer med kapacitet och prestanda för lösning (förhandsgranskning)
 
@@ -120,29 +120,17 @@ Sammanfattningsvis, lösningen samlar in kapacitet och prestandadata från olika
 
 Följande tabell innehåller exempel loggen söker efter Kapacitets- och data som samlas in och beräknas av den här lösningen.
 
+
 | Fråga | Beskrivning |
-|---|---|
-| Alla värden minneskonfigurationer | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="Host Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| Alla konfigurationer av Virtuellt minne | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="VM Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| Uppdelning av totala Disk-IOPS över alla virtuella datorer | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Reads/s" OR CounterName="VHD Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Uppdelning av totala Diskgenomflödet över alla virtuella datorer | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Read MB/s" OR CounterName="VHD Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Uppdelning av IOPS totalt över alla CSV: er | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Reads/s" OR CounterName="CSV Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Uppdelning av totala genomflödet över alla CSV: er | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read MB/s" OR CounterName="CSV Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Uppdelning av totala svarstiden i alla CSV: er | <code> Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read Latency" OR CounterName="CSV Write Latency") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-
->[!NOTE]
-> Om din arbetsyta har uppgraderats till [det nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md) ändras frågorna ovan till följande.
-
-> | Fråga | Beskrivning |
 |:--- |:--- |
-| Alla värden minneskonfigurationer | Perf &#124; där ObjectName == ”kapacitet och prestanda” och CounterName == ”värd tilldelade minnes-MB” &#124; Sammanfatta MB = avg(CounterValue) av instansnamn |
-| Alla konfigurationer av Virtuellt minne | Perf &#124; där ObjectName == ”kapacitet och prestanda” och CounterName == ”VM tilldelade minnes-MB” &#124; Sammanfatta MB = avg(CounterValue) av instansnamn |
-| Uppdelning av totala Disk-IOPS över alla virtuella datorer | Perf &#124; där ObjectName == ”kapacitet och prestanda” och (CounterName == ”VHD Diskläsningar/s- eller CounterName ==” VHD skrivningar/s ”) &#124; Sammanfatta AggregatedValue = avg(CounterValue) av bin (TimeGenerated 1 tim), CounterName, InstanceName |
-| Uppdelning av totala Diskgenomflödet över alla virtuella datorer | Perf &#124; där ObjectName == ”kapacitet och prestanda” och (CounterName == ”VHD läsa MB/s” eller CounterName == ”VHD Write MB/s”) &#124; Sammanfatta AggregatedValue = avg(CounterValue) av bin (TimeGenerated 1 tim), CounterName, InstanceName |
-| Uppdelning av IOPS totalt över alla CSV: er | Perf &#124; där ObjectName == ”kapacitet och prestanda” och (CounterName == ”CSV Diskläsningar/s- eller CounterName ==” CSV skrivningar/s ”) &#124; Sammanfatta AggregatedValue = avg(CounterValue) av bin (TimeGenerated 1 tim), CounterName, InstanceName |
-| Uppdelning av totala genomflödet över alla CSV: er | Perf &#124; där ObjectName == ”kapacitet och prestanda” och (CounterName == ”CSV Diskläsningar/s- eller CounterName ==” CSV skrivningar/s ”) &#124; Sammanfatta AggregatedValue = avg(CounterValue) av bin (TimeGenerated 1 tim), CounterName, InstanceName |
-| Uppdelning av totala svarstiden i alla CSV: er | Perf &#124; där ObjectName == ”kapacitet och prestanda” och (CounterName == ”CSV Läs latens” eller CounterName == ”CSV Write latens”) &#124; Sammanfatta AggregatedValue = avg(CounterValue) av bin (TimeGenerated 1 tim), CounterName, InstanceName |
+| Alla värden minneskonfigurationer | Perf &#124; där ObjectName == ”kapacitet och prestanda” och CounterName == ”värd tilldelat minne MB” &#124; sammanfatta MB = avg(CounterValue) av instansnamn |
+| Alla konfigurationer av Virtuellt minne | Perf &#124; där ObjectName == ”kapacitet och prestanda” och CounterName == ”VM tilldelat minne MB” &#124; sammanfatta MB = avg(CounterValue) av instansnamn |
+| Uppdelning av totala Disk-IOPS över alla virtuella datorer | Perf &#124; där ObjectName == ”kapacitet och prestanda” och (CounterName == ”VHD Diskläsningar/s- eller CounterName ==” VHD skrivningar/s ”) &#124; sammanfatta AggregatedValue = avg(CounterValue) av bin (TimeGenerated 1 tim), CounterName, InstanceName |
+| Uppdelning av totala Diskgenomflödet över alla virtuella datorer | Perf &#124; där ObjectName == ”kapacitet och prestanda” och (CounterName == ”VHD läsa MB/s” eller CounterName == ”VHD Write MB/s”) &#124; sammanfatta AggregatedValue = avg(CounterValue) av bin (TimeGenerated 1 tim), CounterName, InstanceName |
+| Uppdelning av IOPS totalt över alla CSV: er | Perf &#124; där ObjectName == ”kapacitet och prestanda” och (CounterName == ”CSV Diskläsningar/s- eller CounterName ==” CSV skrivningar/s ”) &#124; sammanfatta AggregatedValue = avg(CounterValue) av bin (TimeGenerated 1 tim), CounterName, InstanceName |
+| Uppdelning av totala genomflödet över alla CSV: er | Perf &#124; där ObjectName == ”kapacitet och prestanda” och (CounterName == ”CSV Diskläsningar/s- eller CounterName ==” CSV skrivningar/s ”) &#124; sammanfatta AggregatedValue = avg(CounterValue) av bin (TimeGenerated 1 tim), CounterName, InstanceName |
+| Uppdelning av totala svarstiden i alla CSV: er | Perf &#124; där ObjectName == ”kapacitet och prestanda” och (CounterName == ”CSV Läs latens” eller CounterName == ”CSV skriva latens”) &#124; sammanfatta AggregatedValue = avg(CounterValue) av bin (TimeGenerated 1 tim), CounterName, InstanceName |
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [logga sökningar i logganalys](log-analytics-log-searches.md) att visa detaljerad information om kapacitet och prestanda.
+* Använd [logga sökningar i logganalys](log-analytics-log-search.md) att visa detaljerad information om kapacitet och prestanda.

@@ -1,8 +1,8 @@
 ---
-title: "Introduktion till R Server på Azure HDInsight | Microsoft Docs"
-description: "Lär dig hur du använder R Server på HDInsight för att skapa program för stordataanalys."
+title: Introduktion till R Server på Azure HDInsight | Microsoft Docs
+description: Lär dig hur du använder R Server på HDInsight för att skapa program för stordataanalys.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 2106e5f0c9b6a27da3747bc67aad0937f2356873
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introduktion till R Server och öppen källkod R-funktioner på HDInsight
+# <a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introduktion till R Server och öppen källkod R-funktioner på HDInsight
 
 Microsoft R Server är tillgänglig som ett distributionsalternativ när du skapar HDInsight-kluster i Azure. Den här nya funktionen ger dataanalytiker, statistiker och R-programmerare på begäran åtkomst till skalbara, distribuerade metoder för analyser på HDInsight.
 

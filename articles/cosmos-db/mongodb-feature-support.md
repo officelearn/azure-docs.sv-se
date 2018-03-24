@@ -1,11 +1,11 @@
 ---
-title: "Azure DB Cosmos-funktionsstöd för MongoDB | Microsoft Docs"
-description: "Mer information om funktionsstöd Azure Cosmos DB MongoDB API ger för MongoDB 3.4."
+title: Azure DB Cosmos-funktionsstöd för MongoDB | Microsoft Docs
+description: Mer information om funktionsstöd Azure Cosmos DB MongoDB API ger för MongoDB 3.4.
 services: cosmos-db
 author: alekseys
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 9f1b6359d9fb58ad66b4d314f2bb14da34b98613
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 470ad2fe458c47392b8f55a8f46c75e54ccf87a3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB-API-stöd för MongoDB-funktioner och syntax
 
@@ -92,6 +92,7 @@ Azure Cosmos-DB stöder aggregering pipeline i förhandsversion. Finns den [Azur
 - $lookup
 - $out
 - $count
+- $addFields
 
 ### <a name="aggregation-expressions"></a>Mängduttryck
 

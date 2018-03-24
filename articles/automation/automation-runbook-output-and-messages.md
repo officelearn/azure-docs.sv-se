@@ -1,6 +1,6 @@
 ---
 title: Runbook-utdata och meddelanden i Azure Automation
-description: "Beskriver hur du skapar och hämta utdata och fel meddelanden från runbooks i Azure Automation."
+description: Beskriver hur du skapar och hämta utdata och fel meddelanden från runbooks i Azure Automation.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a02ea2854de7ff32a8c50ff2e6f317596fb4aa1b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d4b8d485906701b4f05e057996bc31232a29e620
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook-utdata och meddelanden i Azure Automation
 De flesta Azure Automation-runbooks har någon form av utdata, till exempel ett felmeddelande för användaren eller ett komplext objekt som är avsedd att användas av ett annat arbetsflöde. Windows PowerShell innehåller [flera strömmar](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) att skicka utdata från ett skript eller ett arbetsflöde. Azure Automation fungerar olika med var och en av dessa strömmar och du bör följa bästa praxis för hur du använder när du skapar en runbook.
@@ -204,8 +204,8 @@ Du kan visa från föregående skärmbild att mycket mer information finns tillg
    
    ![Grafisk redigering loggning och spårning bladet](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-operations-management-suite-oms-log-analytics"></a>Microsoft Operations Management Suite (OMS) logganalys
-Automatisering kan skicka runbook jobbet status och jobbstatus strömmar till Microsoft Operations Management Suite (OMS) logganalys-arbetsytan. Du kan göra följande med logganalys,
+### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
+Automatisering kan skicka runbook jobbet status och jobbstatus strömmar till logganalys-arbetsytan. Du kan göra följande med logganalys,
 
 * Skaffa dig insikter om dina Automation-jobb 
 * Utlösare som en e-post eller en avisering baserat på din runbook jobbets status (till exempel misslyckades eller pausas) 
@@ -213,7 +213,7 @@ Automatisering kan skicka runbook jobbet status och jobbstatus strömmar till Mi
 * Korrelera jobb över Automation-konton 
 * Visualisera dina jobbhistorik över tid    
 
-Mer information om hur du konfigurerar du integrering med logganalys samla in, korrelera och agera på jobbdata finns [vidarebefordra jobbstatus och jobbet strömmar från Automation till logganalys (OMS)](automation-manage-send-joblogs-log-analytics.md).
+Mer information om hur du konfigurerar du integrering med logganalys samla in, korrelera och agera på jobbdata finns [vidarebefordra jobbstatus och jobbet strömmar från Automation till logganalys](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om att köra runbook, hur du övervakar runbook-jobb och andra tekniska detaljer i [Spåra runbook-jobb](automation-runbook-execution.md)

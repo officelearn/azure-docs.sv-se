@@ -1,18 +1,18 @@
 ---
-title: "Stöd matrix för att replikera virtuella VMware-datorer och fysiska servrar till Azure med Azure Site Recovery | Microsoft Docs"
-description: "Sammanfattar de operativsystem som stöds och komponenter för att replikera virtuella VMware-datorer och fysiska servrar till Azure med Azure Site Recovery."
+title: Stöd matrix för att replikera virtuella VMware-datorer och fysiska servrar till Azure med Azure Site Recovery | Microsoft Docs
+description: Sammanfattar de operativsystem som stöds och komponenter för att replikera virtuella VMware-datorer och fysiska servrar till Azure med Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/20/2018
 ms.author: raynew
-ms.openlocfilehash: c4fb466443e2f29fb79c3707ce142895f140f9a7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6f2f28b36fdb3751a469d66f242f9fa2119f9ae8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Stöd matrix för VMware och fysiska servrar replikering till Azure
 
@@ -175,7 +175,7 @@ Gästen operativsystemets arkitektur | 64-bit. | Det går inte att kontrollera o
 Operativsystemdisken | Upp till 2 048 GB. | Det går inte att kontrollera om stöds inte. 
 Operativsystemet disk antal | 1 | Det går inte att kontrollera om stöds inte.  
 Datadiskar | 64 eller mindre. | Det går inte att kontrollera om stöds inte.  
-Datadisken för virtuell Hårddisk | Upp till 4,095 GB | Det går inte att kontrollera om stöds inte. 
+Datadiskstorleken | Upp till 4,095 GB | Det går inte att kontrollera om stöds inte. 
 Nätverkskort | Stöd för flera kort. | 
 Delad virtuell Hårddisk | Stöds ej. | Det går inte att kontrollera om stöds inte. 
 FC-disk | Stöds ej. | Det går inte att kontrollera om stöds inte. 

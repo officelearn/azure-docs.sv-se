@@ -1,11 +1,10 @@
 ---
-title: "Anslut Azure SSIS-integrering runtime till ett virtuellt nätverk | Microsoft Docs"
-description: "Lär dig hur du ansluter till Azure-SSIS-integrering runtime till ett Azure virtual network."
+title: Anslut Azure SSIS-integrering runtime till ett virtuellt nätverk | Microsoft Docs
+description: Lär dig hur du ansluter till Azure-SSIS-integrering runtime till ett Azure virtual network.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 4f1100b7e4fa2250baf282b53ef83c5f1aaa1c0e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: cdda3fbe2aff40e26c6086e87ef3e05670c3419f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta till en Azure-SSIS-integrering körning till ett virtuellt nätverk
 Anslut din Azure-SSIS-integrering runtime (IR) till Azure-nätverk i följande scenarier: 
@@ -52,7 +51,7 @@ Här följer några viktiga saker att Observera:
 - Om det finns en befintlig Azure Resource Manager virtuella nätverk är anslutna till ditt lokala nätverk på en annan plats från Azure-SSIS-IR måste du först skapa en [virtuellt nätverk i Azure Resource Manager](../virtual-network/quick-create-portal.md##create-a-virtual-network) för din Azure-SSIS IR att ansluta till. Konfigurera en virtuell nätverksanslutning för Azure Resource Manager till Azure Resource Manager. Du kan skapa en [klassiskt virtuellt nätverk](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) för din Azure-SSIS-IR att ansluta till. Konfigurera sedan en [klassisk till Azure Resource Manager virtuellt nätverk](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) anslutning.
 
 ## <a name="domain-name-services-server"></a>Domain Name Services server 
-Om du behöver använda din egen Services DNS (Domain Name)-server i ett virtuellt nätverk kopplas med runtime din Azure-SSIS-integrering följer du vägledning för att [säkerställa att noderna i Azure-SSIS-integrering-körningsmiljön i det virtuella nätverket kan matcha Azure slutpunkter](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+Om du behöver använda din egen Services DNS (Domain Name)-server i ett virtuellt nätverk kopplas med runtime din Azure-SSIS-integrering följer du anvisningarna i avsnittet ”namnmatchning som använder DNS-servern” i artikeln [namnmatchning för virtuella datorer och rollinstanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="network-security-group"></a>Nätverkssäkerhetsgrupp
 Om du behöver implementera en nätverkssäkerhetsgrupp (NSG) i ett virtuellt nätverk som är ansluten genom ditt Azure-SSIS-integrering runtime, Tillåt inkommande/utgående trafik via följande portar:

@@ -1,10 +1,11 @@
 ---
-title: "Använd provdatauppsättningar i Machine Learning Studio | Microsoft Docs"
-description: "Beskrivningar av de datauppsättningar som används i Exempelmodeller som ingår i Machine Learning Studio. Du kan använda dessa provdatauppsättningar för dina experiment."
+title: Använd provdatauppsättningar i Machine Learning Studio | Microsoft Docs
+description: Beskrivningar av de datauppsättningar som används i Exempelmodeller som ingår i Machine Learning Studio. Du kan använda dessa provdatauppsättningar för dina experiment.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: garye
-ms.openlocfilehash: 3339d3b3bab2c0ce210950c178ef03fc6c0ecab9
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 38f31220b7cf4624367d872df152ef9e1304e841
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Använd exemplen på datauppsättningar i Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -47,7 +47,7 @@ En delmängd av 1994 inventering databasen, med fungerande vuxna än 16 med ett 
 <p></p>
 <b>Användning:</b> klassificera personer som använder demografi för att förutsäga om en person får än 50 kB per år.
 <p></p>
-<b>För forskning:</b> Kohavi R., Becker B., (1996). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, skola Information och datorvetenskap </td>
+<b>För forskning:</b> Kohavi R., Becker B., (1996). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, skola Information och datorvetenskap </td>
 </tr>
 
 <tr>
@@ -68,7 +68,7 @@ Riskpoäng associeras ursprungligen med automatisk pris. Den justeras sedan för
 <p></p>
 <b>Användning:</b> förutsäga riskpoäng av funktioner som använder regression eller multivariate klassificering. 
 <p></p>
-<b>För forskning:</b> Schlimmer, J.C. (1987). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, skola Information och datorvetenskap </td>
+<b>För forskning:</b> Schlimmer, J.C. (1987). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, skola Information och datorvetenskap </td>
 </tr>
 
 <tr>
@@ -99,9 +99,9 @@ Bidragsgivare data innehåller månader sedan senaste bidrag), och frekvens, ell
 <p></p>
 <b>Användning:</b> målet är att förutsäga via klassificering om bidragsgivare donerat blod i mars 2007, där 1 anger en bidragsgivare under perioden mål och 0 icke-bidragsgivare. 
 <p></p>
-<b>För forskning:</b> Yeh I.C., (2008). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, skola Information och datorvetenskap
+<b>För forskning:</b> Yeh I.C., (2008). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, skola Information och datorvetenskap
 <p></p>
-Yeh, jag-Cheng, Yang, bestämmer Jang och Ting, Tao Ming ”Knowledge identifiering i läget Nedsatt funktionalitet modellen med Bernoulli sekvens” Expert system med program, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
+Yeh, jag-Cheng, Yang, bestämmer Jang och Ting, Tao-Ming ”Knowledge identifiering i läget Nedsatt funktionalitet modellen med Bernoulli-sekvens,” Expert system med program, 2008 <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
 </tr>
 
@@ -112,7 +112,7 @@ En av tre bröstcancerdiagnoser-relaterade datamängder som tillhandahålls av O
 <p></p>
 <b>Användning:</b> klassificera typ av bröstcancerdiagnoser, baserat på 9 attribut, vilket är linjär och vissa är kategoriska. 
 <p></p>
-<b>För forskning:</b> Wohlberg, W.H., gata, W.N. och Mangasarian, O.L. (1995). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, skola Information och datorvetenskap </td>
+<b>För forskning:</b> Wohlberg, W.H., gata, W.N. och Mangasarian, O.L. (1995). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, skola Information och datorvetenskap </td>
 </tr>
 
 <tr>
@@ -165,7 +165,7 @@ En samling av simulerade energi profiler, baserat på 12 skapande av olika forme
 <p></p>
 <b>Användning:</b> använda regression eller klassificering för att förutsäga den energieffektivitet klassificeringen baserat som en av två riktigt värdefulla svar. Flera klassen klassificering, är i avrunda variabeln svar till närmaste heltal. 
 <p></p>
-<b>För forskning:</b> Xifara A. & Tsanas A. (2012). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, skola Information och datorvetenskap </td>
+<b>För forskning:</b> Xifara A. & Tsanas A. (2012). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, skola Information och datorvetenskap </td>
 </tr>
 
 <tr>
@@ -190,7 +190,7 @@ Registrerar flygplan svarta mottagna och avvikelser i USA från oktober 2011.
 <p></p>
 <b>Användning:</b> förutsäga svarta fördröjningar. 
 <p></p>
-<b>För forskning:</b> från USA Avd. transporten <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
+<b>För forskning:</b> från USA Avd. transporten <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
   </td>
 </tr>
 
@@ -201,9 +201,9 @@ Innehåller väder data, till exempel temperatur- och fuktighetskonsekvens index
 <p></p>
 <b>Användning:</b> detta är en svårt regression uppgift om syftet är att förutsäga området brända skogsbränder. 
 <p></p>
-<b>För forskning:</b> Cortez P., & Morais A. (2008). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, skola Information och datorvetenskap
+<b>För forskning:</b> Cortez P., & Morais A. (2008). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, skola Information och datorvetenskap
 <p></p>
-[Cortez och Morais 2007] S. Cortez och A. Morais. En Data Mining metod för att förutsäga skogsbränder med meteorologiska Data. I J. Neves, m-F. Santos och J. Machado Eds., nya trender i styrs av datorn, förfaranden 13 EPIA 2007 - portugisiska konferens om styrs av datorn, December, 523-Guimarães Portugal sidor 512, 2007. APPIA, ISBN-13 978-989-95618-0-9. Finns på: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+[Cortez och Morais 2007] S. Cortez och A. Morais. En Data Mining metod för att förutsäga skogsbränder med meteorologiska Data. I J. Neves, m-F. Santos och J. Machado Eds., nya trender i styrs av datorn, förfaranden 13 EPIA 2007 - portugisiska konferens om styrs av datorn, December, 523-Guimarães Portugal sidor 512, 2007. APPIA, ISBN-13 978-989-95618-0-9. Finns på: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
   </td>
 </tr>
 
@@ -230,7 +230,7 @@ Detta är kanske bästa kända databasen ska finnas i mönstret recognition doku
 <p></p>
 <b>Användning:</b> förutsäga iris typen från mätningarna.  
 <p></p>
-<b>För forskning:</b> Fisher R.A. (1988). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, skola Information och datorvetenskap </td>
+<b>För forskning:</b> Fisher R.A. (1988). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, skola Information och datorvetenskap </td>
 </tr>
 
 <tr>
@@ -249,7 +249,7 @@ Data visar bränsleförbrukningen för olika bilar i miles per gallon. Den inneh
 <p></p>
 <b>Användning:</b> förutsäga bränsleekonomi baserat på tre separata flervärdesattribut och fem kontinuerliga attribut. 
 <p></p>
-<b>För forskning:</b> StatLib Carnegie Mellon University (1993). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, skola Information och datorvetenskap </td>
+<b>För forskning:</b> StatLib Carnegie Mellon University (1993). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, skola Information och datorvetenskap </td>
 </tr>
 
 <tr>
@@ -259,7 +259,7 @@ En delmängd av data från National Institute Diabetes och mag och lever sjukdom
 <p></p>
 <b>Användning:</b> förutsäga om ämnet har diabetes (binär klassificering). 
 <p></p>
-<b>För forskning:</b> Sigillito, V. (1990). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml ”</a>. Irvine, CA: University of California, skola Information och datorvetenskap </td>
+<b>För forskning:</b> Sigillito, V. (1990). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml”</a>. Irvine, CA: University of California, skola Information och datorvetenskap </td>
 </tr>
 
 <tr>
@@ -269,7 +269,7 @@ En uppsättning metadata om kunder, inklusive demografisk information och instä
 <p></p>
 <b>Användning:</b> använder den här datauppsättningen i kombination med de andra två restaurang datauppsättningar, att träna och testa ett rekommenderare system. 
 <p></p>
-<b>För forskning:</b> Bache K. och Lichman M. (2013). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, skola Information och datorvetenskap.
+<b>För forskning:</b> Bache K. och Lichman M. (2013). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, skola Information och datorvetenskap.
   </td>
 </tr>
 
@@ -280,7 +280,7 @@ En uppsättning metadata om hotell och deras funktioner, till exempel mat typ, �
 <p></p>
 <b>Användning:</b> använder den här datauppsättningen i kombination med de andra två restaurang datauppsättningar, att träna och testa ett rekommenderare system. 
 <p></p>
-<b>För forskning:</b> Bache K. och Lichman M. (2013). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, skola Information och datorvetenskap.
+<b>För forskning:</b> Bache K. och Lichman M. (2013). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, skola Information och datorvetenskap.
   </td>
 </tr>
 
@@ -291,7 +291,7 @@ Innehåller klassificeringar som angetts av användare till hotell på en skala 
 <p></p>
 <b>Användning:</b> använder den här datauppsättningen i kombination med de andra två restaurang datauppsättningar, att träna och testa ett rekommenderare system. 
 <p></p>
-<b>För forskning:</b> Bache K. och Lichman M. (2013). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, skola Information och datorvetenskap.
+<b>För forskning:</b> Bache K. och Lichman M. (2013). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, skola Information och datorvetenskap.
   </td>
 </tr>
 
@@ -304,9 +304,9 @@ Den här datauppsättningen innehåller en serie av poster från stål glödgnin
 <p></p>
 Stålsorter följer en set-standard definieras av SAE och andra organisationer. Du letar efter en specifik 'klass' (Klassvariabeln) och vill förstå de värden som behövs. 
 <p></p>
-<b>För forskning:</b> pund, D. & Buntine, W. (NA). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, skola Information och datorvetenskap
+<b>För forskning:</b> pund, D. & Buntine, W. (NA). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, skola Information och datorvetenskap
 <p></p>
-En användbar guide till stålsorter finns här: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+En användbar guide till stål betyg finns här: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
@@ -325,7 +325,7 @@ Data har bearbetats för att skapa ett avlångt kluster med långt axeln är inr
 <p></p>
 Observera också att antalet händelser som bakgrund (för hadronic duschar h) underskattar. Klassen h eller brus representerar merparten av händelser i verkliga mått. 
 <p></p>
-<b>För forskning:</b> Bock, R.K. (1995). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, skola Information </td>
+<b>För forskning:</b> Bock, R.K. (1995). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, skola Information </td>
 </tr>
 
 <tr>

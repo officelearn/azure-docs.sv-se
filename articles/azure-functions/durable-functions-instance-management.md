@@ -1,24 +1,24 @@
 ---
-title: "Hantera instanser i varaktiga funktioner – Azure"
-description: "Lär dig hur du hanterar instanser i tillägget varaktiga funktioner för Azure Functions."
+title: Hantera instanser i varaktiga funktioner – Azure
+description: Lär dig hur du hanterar instanser i tillägget varaktiga funktioner för Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9cea9b18cd7434a34138d5cecad8a8fd7f10d2e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 01a6fefc10dfd83997acc290dbd1c85ba86a4799
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Hantera instanser i varaktiga funktioner (Azure-funktioner)
 
@@ -104,7 +104,7 @@ public static async Task Run(
 
 ## <a name="terminating-instances"></a>Avslutande instanser
 
-En instans som körs kan avslutas med hjälp av den [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) metod för den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klass. De två parametrarna är en `instanceId` och en `reason` sträng som skrivs till loggarna och instansens status. En avslutade instans stoppas när den når nästa `await` plats, eller så avslutas omedelbart om det redan finns på en `await`.
+En instans som körs orchestration kan avslutas med hjälp av den [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) metod för den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klass. De två parametrarna är en `instanceId` och en `reason` sträng som skrivs till loggarna och instansens status. En avslutade instans stoppas när den når nästa `await` plats, eller så avslutas omedelbart om det redan finns på en `await`. 
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -119,6 +119,9 @@ public static Task Run(
 
 > [!NOTE]
 > Instansen avslutning är för närvarande stöds endast för C# orchestrator-funktioner.
+
+> [!NOTE]
+> Instansen avslutning sprida inte för närvarande. Aktiviteten funktioner och underordnade orkestreringarna körs klart oavsett om orchestration-instans som kallas dem har avslutats.
 
 ## <a name="sending-events-to-instances"></a>Skickar händelser till instanser
 

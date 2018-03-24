@@ -1,11 +1,11 @@
 ---
 title: Azure Data Factory - JSON-skript referens | Microsoft Docs
-description: "Ger JSON-scheman för Data Factory entiteter."
+description: Ger JSON-scheman för Data Factory entiteter.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 519a762e5f89533f4425d38e4a1ca76d8e3dd40f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 198fa15b7ee8cce6781e6a2575844a9666185be9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON-skript referens
 > [!NOTE]
@@ -493,13 +493,13 @@ Om du vill definiera en Azure-blobbdatauppsättning, ange den **typen** på data
 Mer information finns i [Azure Blob-koppling](data-factory-azure-blob-connector.md#dataset-properties) artikel.
 
 ### <a name="blobsource-in-copy-activity"></a>BlobSource i en Kopieringsaktivitet
-Om du vill kopiera data från ett Azure Blob Storage, ange den **typ av datakälla** för kopieringsaktiviteten till **BlobSource**, och ange följande egenskaper i den ** källa ** avsnitt:
+Om du vill kopiera data från ett Azure Blob Storage, ange den **typ av datakälla** för kopieringsaktiviteten till **BlobSource**, och ange följande egenskaper i den **källa** avsnitt:
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | Rekursiva |Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. |SANT (standardvärdet), FALSKT |Nej |
 
-#### <a name="example-blobsource"></a>Exempel: BlobSource **
+#### <a name="example-blobsource"></a>Exempel: **BlobSource**
 ```json
 {
     "name": "SamplePipeline",
@@ -3898,7 +3898,7 @@ Om du vill använda grundläggande autentisering, `authenticationType` som `Basi
 }
 ```
 
-#### <a name="example-basic-authentication-with-encrypted-credential"></a>Exempel: Grundläggande autentisering med krypterade autentiseringsuppgifter **
+#### <a name="example-basic-authentication-with-encrypted-credential"></a>Exempel: **grundläggande autentisering med krypterade autentiseringsuppgifter**
 
 ```json
 {
@@ -3919,7 +3919,7 @@ Om du vill använda grundläggande autentisering, `authenticationType` som `Basi
 }
 ```
 
-#### <a name="using-ssh-public-key-authentication"></a>Med hjälp av autentisering med SSH offentlig nyckel: **
+#### <a name="using-ssh-public-key-authentication"></a>**Använda autentisering med SSH offentlig nyckel:**
 
 Om du vill använda grundläggande autentisering, `authenticationType` som `SshPublicKey`, och ange följande egenskaper förutom SFTP kopplingen generiska som introducerades i det sista avsnittet:
 
@@ -3949,7 +3949,7 @@ Om du vill använda grundläggande autentisering, `authenticationType` som `SshP
 }
 ```
 
-#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Exempel: SshPublicKey autentisering med hjälp av privat nyckel innehåll **
+#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Exempel: **SshPublicKey autentisering med hjälp av privat nyckel innehåll**
 
 ```json
 {
@@ -4438,7 +4438,7 @@ Definiera ODBC länkade tjänsten genom att ange den **typen** på den länkade 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | connectionString |Den icke-autentiseringsuppgifter delen av anslutningssträngen och en valfri krypterade autentiseringsuppgifter. Se exemplen i följande avsnitt. |Ja |
-| autentiseringsuppgifter |Åtkomst autentiseringsuppgifter del av den angivna anslutningssträngen i drivrutinsspecifika egenskapsvärdet format. Exempel ”: Uid =<user ID>; Pwd =<password>; RefreshToken =<secret refresh token>”;. |Nej |
+| credential |Åtkomst autentiseringsuppgifter del av den angivna anslutningssträngen i drivrutinsspecifika egenskapsvärdet format. Exempel ”: Uid =<user ID>; Pwd =<password>; RefreshToken =<secret refresh token>”;. |Nej |
 | AuthenticationType |Typ av autentisering som används för att ansluta till ODBC-datalagret. Möjliga värden är: anonyma och grundläggande. |Ja |
 | användarnamn |Ange användarnamnet om du använder grundläggande autentisering. |Nej |
 | lösenord |Ange lösenordet för det användarkonto som du angav för användarnamnet. |Nej |
@@ -4591,7 +4591,7 @@ Definiera en Salesforce länkade tjänsten genom att ange den **typen** på den 
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| environmentUrl | Ange URL: en för Salesforce-instans. <br><br> – Standardvärdet är ”https://login.salesforce.com”. <br> -Ange ”https://test.salesforce.com” om du vill kopiera data från sandbox. <br> -Om du vill kopiera data från domänen, ange, till exempel ”https://[domain].my.salesforce.com”. |Nej |
+| environmentUrl | Ange URL: en för Salesforce-instans. <br><br> – Standardvärdet är ”https://login.salesforce.com”. <br> -Om du vill kopiera data från sandbox, ange ”https://test.salesforce.com”. <br> -Om du vill kopiera data från domänen, ange, till exempel ”https://[domain].my.salesforce.com”. |Nej |
 | användarnamn |Ange ett användarnamn för användarkontot. |Ja |
 | lösenord |Ange ett lösenord för användarkontot. |Ja |
 | securityToken |Ange en säkerhetstoken för användarkontot. Se [hämta säkerhetstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) för instruktioner om hur du återställa/hämta en säkerhetstoken. Läs om säkerhetstoken i allmänhet i [säkerhets- och API: et](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Ja |

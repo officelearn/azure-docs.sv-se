@@ -1,6 +1,6 @@
 ---
 title: Azure Automation Linux Hybrid Runbook Worker
-description: "Den här artikeln innehåller information om hur du installerar en Azure Automation Hybrid Runbook Worker som gör det möjligt att köra runbooks på Linux-baserade datorer i ditt lokala datacenter eller molnmiljö."
+description: Den här artikeln innehåller information om hur du installerar en Azure Automation Hybrid Runbook Worker som gör det möjligt att köra runbooks på Linux-baserade datorer i ditt lokala datacenter eller molnmiljö.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: b68e8f7e67f767cff19e57f5864db89d6f059316
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6278583c288a9a28bda53748e2f9f6fd83ed6c7f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-deploy-a-linux-hybrid-runbook-worker"></a>Så här distribuerar du en Linux Hybrid Runbook Worker
 
@@ -32,13 +30,13 @@ Varje Runbook Worker-Hybrid är medlem i en Hybrid Runbook Worker-grupp som du a
 När du startar en runbook på en Hybrid Runbook Worker, anger du den grupp som den körs på. Medlemmar i gruppen avgör vilken worker services begäran. Du kan inte ange en viss worker.
 
 ## <a name="installing-linux-hybrid-runbook-worker"></a>Installera Linux Hybrid Runbook Worker
-Om du vill installera och konfigurera en Hybrid Runbook Worker på Linux-dator, kan du följa en direkt framåt process för att manuellt installera och konfigurera rollen. Det krävs att aktivera den **Automation Hybrid Worker** lösning i OMS-arbetsyta och sedan köra en uppsättning kommandon för att registrera datorn som en arbetare och lägga till den i en ny eller befintlig grupp. 
+Om du vill installera och konfigurera en Hybrid Runbook Worker på Linux-dator, kan du följa en direkt framåt process för att manuellt installera och konfigurera rollen. Det krävs att aktivera den **Automation Hybrid Worker** lösning i logganalys-arbetsytan och sedan köra en uppsättning kommandon för att registrera datorn som en arbetare och lägga till den i en ny eller befintlig grupp. 
 
 Innan du fortsätter måste du Observera logganalys-arbetsytan Automation-kontot är länkat till och den primära nyckeln för ditt Automation-konto. Du kan hitta båda från portalen genom att välja Automation-kontot och markera **arbetsytan** för arbetsyte-ID och välja **nycklar** för den primära nyckeln.  
 
-1.  Aktivera lösningen ”Automation Hybrid Worker” i OMS. Detta kan göras genom att antingen:
+1.  Aktivera lösningen ”Automation Hybrid Worker” i Azure. Detta kan göras genom att antingen:
 
-   1. Från galleriet lösningar i den [OMS-portalen](https://mms.microsoft.com), aktivera den **Automation Hybrid Worker** lösning
+   1. Lägg till den **Automation Hybrid Worker** lösningen till din prenumeration med hjälp av proceduren på [lägga till logganalys hanteringslösningar till din arbetsyta](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).
    2. Kör följande cmdlet:
 
         ```powershell
@@ -48,16 +46,16 @@ Innan du fortsätter måste du Observera logganalys-arbetsytan Automation-kontot
 2.  Kör följande kommando, ändra värdena för parametrarna *-w*, *-k*, *-g*, och *-e*. För den *-g* parametern Ersätt värdet med namnet på Hybrid Runbook Worker-grupp som ska ansluta till den nya Linux Hybrid Runbook Worker. Om namnet inte redan finns i ditt Automation-konto, görs en ny Hybrid Runbook Worker-grupp med det namnet.
     
     ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
+    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
     ```
 3. När kommandot har slutförts bladet Hybrid Worker-grupper i Azure portal visas den nya gruppen och antal medlemmar eller om en befintlig grupp, ökar antalet medlemmar. Du kan välja grupp från listan på den **Hybrid Worker grupper** och välj den **hybrider** panelen. På den **hybrider** bladet visas varje medlem i gruppen i listan.  
 
 
 ## <a name="turning-off-signature-validation"></a>Om du inaktiverar signaturverifiering 
-Som standard kräver Linux Hybrid Runbook Worker signaturverifiering. Om du kör en osignerad runbook mot en arbetare finns ett fel som innehåller ”signaturverifieringen misslyckades”. Om du vill inaktivera signaturverifiering, kör du följande kommando och ersätter den andra parametern med din OMS arbetsyte-ID:
+Som standard kräver Linux Hybrid Runbook Worker signaturverifiering. Om du kör en osignerad runbook mot en arbetare finns ett fel som innehåller ”signaturverifieringen misslyckades”. Om du vill inaktivera signaturverifiering, kör du följande kommando och ersätter den andra parametern med din logganalys arbetsyte-ID:
 
     ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <OMSworkspaceId>
+    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
     ```
 
 ## <a name="supported-runbook-types"></a>Stöds runbook-typer

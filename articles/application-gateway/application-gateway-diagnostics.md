@@ -1,6 +1,6 @@
 ---
-title: "Övervaka åtkomstloggar, Prestandaloggar, backend-hälsa och mått för Programgateway | Microsoft Docs"
-description: "Lär dig att aktivera och hantera åtkomstloggar och Prestandaloggar för Programgateway"
+title: Övervaka åtkomstloggar, Prestandaloggar, backend-hälsa och mått för Programgateway | Microsoft Docs
+description: Lär dig att aktivera och hantera åtkomstloggar och Prestandaloggar för Programgateway
 services: application-gateway
 documentationcenter: na
 author: amitsriva
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
-ms.openlocfilehash: 12c252340b82aba5ee69b12db83353750782e7c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c739d98f81bafb6474995b141cab3400bcb4dc33
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Backend-hälsotillstånd, diagnostikloggar och mått för Programgateway
 
@@ -152,9 +152,9 @@ Aktivitetsloggning aktiveras automatiskt för varje resurs för hanteraren för 
 
    ![Starta konfigurationen][2]
 
-4. Välj en befintlig Operations Management Suite (OMS) arbetsyta eller skapa en ny. Det här exemplet använder en befintlig.
+4. Välj en befintlig logganalys-arbetsyta eller skapa en ny. Det här exemplet använder en befintlig.
 
-   ![Alternativ för OMS arbetsytor][3]
+   ![Alternativ för Log Analytics arbetsytor][3]
 
 5. Bekräfta inställningarna och klicka på **spara**.
 
@@ -171,8 +171,8 @@ Azure genererar aktivitetsloggen som standard. Loggarna finns kvar i 90 dagar i 
 
 |Värde  |Beskrivning  |
 |---------|---------|
-|InstanceId     | Programmet Gateway-instans där begäran behandlades.        |
-|ClientIP     | Ursprungliga IP-Adressen för begäran.        |
+|instanceId     | Programmet Gateway-instans där begäran behandlades.        |
+|clientIP     | Ursprungliga IP-Adressen för begäran.        |
 |clientPort     | Ursprungliga port för begäran.       |
 |HttpMethod     | HTTP-metod som används av begäran.       |
 |requestUri     | URI för tog emot begäran.        |
@@ -215,11 +215,11 @@ Prestanda-loggen genereras bara om du har aktiverat på varje Application Gatewa
 
 |Värde  |Beskrivning  |
 |---------|---------|
-|InstanceId     |  Programmet Gateway-instans för vilka data som genereras. För en gateway med flera instans programmet finns en rad per instans.        |
+|instanceId     |  Programmet Gateway-instans för vilka data som genereras. För en gateway med flera instans programmet finns en rad per instans.        |
 |healthyHostCount     | Antalet felfri värdar i backend-poolen.        |
 |unHealthyHostCount     | Antalet felaktiga värdar i backend-poolen.        |
 |RequestCount     | Antal begäranden som betjänats.        |
-|Svarstid | Svarstid (i millisekunder) för förfrågningar från instansen till serverdelen som hanterar begäranden. |
+|svarstid | Svarstid (i millisekunder) för förfrågningar från instansen till serverdelen som hanterar begäranden. |
 |failedRequestCount| Antal misslyckade begäranden.|
 |Dataflöde| Genomsnittlig genomströmning sedan senaste loggen, mätt i byte per sekund.|
 
@@ -252,17 +252,17 @@ Brandväggsloggen genereras bara om du har aktiverat för varje Programgateway e
 
 |Värde  |Beskrivning  |
 |---------|---------|
-|InstanceId     | Programmet Gateway-instans för vilken brandvägg genereras data. För en gateway med flera instans programmet finns en rad per instans.         |
+|instanceId     | Programmet Gateway-instans för vilken brandvägg genereras data. För en gateway med flera instans programmet finns en rad per instans.         |
 |clientIp     |   Ursprungliga IP-Adressen för begäran.      |
 |clientPort     |  Ursprungliga port för begäran.       |
 |requestUri     | URL till tog emot begäran.       |
 |ruleSetType     | Typen regeluppsättning. Tillgängliga värdet är OWASP.        |
 |ruleSetVersion     | Regeluppsättning version som används. Tillgängliga värden är 2.2.9 och 3.0.     |
 |ruleId     | Regel-ID för den utlösande händelsen.        |
-|Meddelande     | Användarvänligt meddelande för utlösande händelsen. Mer information finns i informationsavsnittet.        |
-|Åtgärden     |  Åtgärder som vidtas på begäran. Tillgängliga värden är blockerad och tillåtna.      |
-|plats     | Plats för vilken loggen skapades. Endast globala visas för närvarande eftersom regler är globala.|
-|Information     | Information om den utlösande händelsen.        |
+|meddelande     | Användarvänligt meddelande för utlösande händelsen. Mer information finns i informationsavsnittet.        |
+|åtgärd     |  Åtgärder som vidtas på begäran. Tillgängliga värden är blockerad och tillåtna.      |
+|webbplats     | Plats för vilken loggen skapades. Endast globala visas för närvarande eftersom regler är globala.|
+|detaljer     | Information om den utlösande händelsen.        |
 |details.Message     | Beskrivning av regeln.        |
 |details.data     | Specifika data hittades i begäran som matchar regeln.         |
 |details.File     | Konfigurationsfil som innehåller regeln.        |
@@ -322,7 +322,7 @@ Mått är en funktion för vissa Azure-resurser där du kan visa prestandaräkna
 
 Om du vill se en lista över mått finns [stöds mått med Azure-Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
-### <a name="alert-rules"></a>Aviseringsregler
+### <a name="alert-rules"></a>Varningsregler
 
 Du kan starta Varningsregler baserat på mått för en resurs. En avisering kan anropa en webhook eller e-administratör om genomflödet av programgatewayen är över, under eller med ett tröskelvärde för en angiven period.
 

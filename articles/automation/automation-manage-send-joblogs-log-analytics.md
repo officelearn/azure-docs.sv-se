@@ -1,6 +1,6 @@
 ---
-title: Vidarebefordra Azure Automation jobbdata till OMS logganalys
-description: "Den här artikeln visar hur du skicka jobbstatus och runbook-jobbet strömmar till logganalys för Microsoft Operations Management Suite att ge ytterligare insikter och hantering."
+title: Vidarebefordra jobbdata från Azure Automation till Log Analytics
+description: Den här artikeln visar hur du skicka jobbstatus och runbook-jobbet strömmar till logganalys för Microsoft Operations Management Suite att ge ytterligare insikter och hantering.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,16 +8,14 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: c73a523f1239fb7d549b573ea6105168f4a63144
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c9b604b0fc7a3524686bec6832a19ee9f85f6ed2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Vidarebefordra jobbstatus och jobbet strömmar från Automation till logganalys (OMS)
-Automatisering kan skicka runbook jobbet status och jobbstatus strömmar till Microsoft Operations Management Suite (OMS) logganalys-arbetsytan. Jobbet loggar och dataströmmar för jobbet är synliga i Azure-portalen eller med PowerShell, för enskilda jobb och detta kan du utföra enkla undersökningar. Med Log Analytics kan du nu:
+# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Vidarebefordra jobbstatus och jobbet strömmar från Automation till logganalys
+Automatisering kan skicka runbook jobbet status och jobbstatus strömmar till logganalys-arbetsytan. Jobbet loggar och dataströmmar för jobbet är synliga i Azure-portalen eller med PowerShell, för enskilda jobb och detta kan du utföra enkla undersökningar. Med Log Analytics kan du nu:
 
 * Skaffa dig insikter om dina Automation-jobb.
 * Utlösare som en e-post eller en avisering baserat på din runbook jobbets status (till exempel misslyckades eller pausas).
@@ -157,7 +155,7 @@ När du felsöker ett jobb kan du även vill söka i dataströmmar för jobbet. 
 Slutligen kan du visualisera dina jobbhistorik över tid. Du kan använda den här frågan för att söka efter status för jobb med tiden.
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
-<br> ![OMS historiska jobbet Status diagram](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
+<br> ![Log Analytics historiska jobbet Status diagram](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## <a name="summary"></a>Sammanfattning
 Du kan få bättre inblick i ditt Automation-jobb efter status genom att skicka ditt Automation jobbdata status och dataströmmen till logganalys:
@@ -170,4 +168,4 @@ Log Analytics ger bättre operativa synlighet till Automation-jobb och kan hjäl
 * Mer information om hur du skapar olika sökfrågor och granska loggarna för Automation-jobb med Log Analytics finns [logga sökningar i logganalys](../log-analytics/log-analytics-log-searches.md).
 * Information om hur du skapar och hämta utdata och felmeddelanden från runbooks finns [Runbook utdata och meddelanden](automation-runbook-output-and-messages.md).
 * Läs mer om att köra runbook, hur du övervakar runbook-jobb och andra tekniska detaljer i [Spåra ett runbook-jobb](automation-runbook-execution.md).
-* Läs mer om logganalys OMS och samling datakällor i [insamling av Azure storage-data i logganalys översikt](../log-analytics/log-analytics-azure-storage.md).
+* Läs mer om logganalys och samling datakällor i [insamling av Azure storage-data i logganalys översikt](../log-analytics/log-analytics-azure-storage.md).

@@ -1,13 +1,13 @@
 ---
-title: "Lägga till, ändra eller ta bort ett undernät för virtuella Azure-nätverket | Microsoft Docs"
-description: "Lär dig mer om att lägga till, ändra eller ta bort ett undernät för virtuellt nätverk i Azure."
+title: Lägga till, ändra eller ta bort ett undernät för virtuella Azure-nätverket | Microsoft Docs
+description: Lär dig mer om att lägga till, ändra eller ta bort ett undernät för virtuellt nätverk i Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 902c0eee88f0de8a20b9c8bf9c0dae6e3c3a7d79
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 16ce5aac26abcf2ef2cf7664fb0b9aae600708d4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Lägga till, ändra eller ta bort ett undernät för virtuellt nätverk
 
@@ -30,9 +30,9 @@ Lär dig mer om att lägga till, ändra eller ta bort ett undernät för virtuel
 Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här artikeln:
 
 - Om du inte redan har ett Azure-konto, registrera dig för en [ledigt utvärderingskonto](https://azure.microsoft.com/free).
-- Om du använder portalen, öppna https://portal.azure.com och logga in med ditt Azure-konto.
-- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.2.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
-- Om du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här kursen kräver Azure CLI version 2.0.26 eller senare. Kör `az --version` att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du använder Azure CLI lokalt, måste du också köra `az login` att skapa en anslutning med Azure.
+- Om du använder portalen, öppna https://portal.azure.com, och logga in med ditt Azure-konto.
+- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.2.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+- Om du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här kursen kräver Azure CLI version 2.0.26 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du använder Azure CLI lokalt, måste du också köra `az login` att skapa en anslutning med Azure.
 
 ## <a name="add-a-subnet"></a>Lägg till ett undernät
 
@@ -67,7 +67,7 @@ Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här ar
 
 **Kommandon**
 
-- Azure CLI: [az network vnet undernät uppdatering](/cli/azure/network/vnet#az_network_vnet_update)
+- Azure CLI: [az network vnet undernät uppdatering](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)
 - PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
 
 ## <a name="delete-a-subnet"></a>Ta bort ett undernät
@@ -82,7 +82,7 @@ Du kan ta bort ett undernät om det finns inga resurser i undernätet. Om det fi
 
 **Kommandon**
 
-- Azure CLI: [az network vnet ta bort](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_delete)
+- Azure CLI: [az network vnet ta bort](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete)
 - PowerShell: [Remove-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="permissions"></a>Behörigheter

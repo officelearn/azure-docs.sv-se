@@ -1,8 +1,8 @@
 ---
-title: "Skapa en IoT-lösning med hjälp av Stream Analytics | Microsoft Docs"
-description: "Komma igång-kursen för Stream Analytics IoT-lösningen på ett scenario med vaktkur"
-keywords: "IOT-lösningen, fönstrets funktioner"
-documentationcenter: 
+title: Skapa en IoT-lösning med hjälp av Stream Analytics | Microsoft Docs
+description: Komma igång-kursen för Stream Analytics IoT-lösningen på ett scenario med vaktkur
+keywords: IOT-lösningen, fönstrets funktioner
+documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
 manager: kfile
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/12/2018
+ms.date: 03/21/2018
 ms.author: sngun
-ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: 6ee2c1c4b1255b462f2974c111e626d62608de5c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Skapa en IoT-lösning med hjälp av Stream Analytics
 
@@ -41,8 +41,7 @@ Du behöver följande förutsättningar för att kunna slutföra den här själv
 * Visual Studio 2017 2015, eller den kostnadsfria [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * En [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/)
 * Administratörsbehörighet på datorn
-* Hämtning av [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) från Microsoft Download Center
-* Valfritt: Källkod för TollApp händelse generator i [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
+* Ladda ned källkoden för TollApp sensor dataanalys från den [azure stream analytics GitHub-lagringsplatsen.](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp). Den här lagringsplatsen innehåller exempeldata och frågor som du ska använda i nästa avsnitt. 
 
 ## <a name="scenario-introduction-hello-toll"></a>Scenariot introduktion: ”Hello, avgift”!
 En avgift station är en gemensam företeelse. Du hittar dem i många utsättas bryggor och tunnlar över hela världen. Varje station avgift har flera avgift kabiner. Vid manuell kabiner stoppa för att betala avgift till en attendant. Vid automatisk kabiner söker en sensor ovanpå varje monter RFID-kort som fästs på vindrutan av din fordon som du skickar avgift monter. Det är enkelt att visualisera övergången genom dessa avgift stationer som en händelse dataström som intressanta åtgärder kan utföras.
@@ -222,7 +221,7 @@ Men om du är intresserad av implementeringsdetaljer du hittar källkoden för p
 ## <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
 1. Klicka på grönt plustecken i det övre vänstra hörnet på sidan för att skapa ett nytt Stream Analytics-jobb i Azure-portalen. Välj **Intelligence + analys** och klicka sedan på **Stream Analytics-jobbet**.
    
-    ![Knappen Nytt](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image21.png)
+    ![Knappen Ny](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image21.png)
 2. Ange ett jobbnamn, verifiera prenumerationen är korrekt och sedan skapa en ny resursgrupp i samma region som Event hub-lagring (standard är södra centrala USA för skriptet).
 3. Klicka på **fäst på instrumentpanelen** och sedan **skapa** längst ned på sidan.
    

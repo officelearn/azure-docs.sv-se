@@ -1,13 +1,13 @@
 ---
-title: "Använd Terraform för att skapa en fullständig Linux VM i Azure | Microsoft Docs"
-description: "Lär dig hur du använder Terraform för att skapa och hantera en fullständig miljö med Linux virtuella datorer i Azure"
+title: Använd Terraform för att skapa en fullständig Linux VM i Azure | Microsoft Docs
+description: Lär dig hur du använder Terraform för att skapa och hantera en fullständig miljö med Linux virtuella datorer i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
 manager: timlt
 editor: na
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 2a6fb8b6b096a029db1ab88bd578461549db9776
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: aaa8235d5fe47e72963ef4942876ea9827a38ef6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Skapa en komplett infrastruktur för Linux virtuella datorer i Azure med Terraform
 
@@ -59,7 +59,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 
 I följande avsnitt du refererar till resursgruppen med *${azurerm_resource_group.myterraformgroup.name}*.
 
-## <a name="create-virtual-network"></a>Skapa virtuellt nätverk
+## <a name="create-virtual-network"></a>Skapa det virtuella nätverket
 Följande avsnitt skapar ett virtuellt nätverk med namnet *myVnet* i den *10.0.0.0/16* adressutrymmet:
 
 ```tf
@@ -450,7 +450,7 @@ Note: You didn’t specify an “-out” parameter to save this plan, so when
 Plan: 7 to add, 0 to change, 0 to destroy.
 ```
 
-Om allt verkar vara korrekta och du är redo för att bygga infrastrukturer i Azure, tillämpa mallen i Terraform:
+Om allt verkar vara korrekta och du är redo att bygga infrastrukturer i Azure, tillämpa mallen i Terraform:
 
 ```bash
 terraform apply

@@ -1,12 +1,12 @@
 ---
-title: "Schemalagda händelser för virtuella Windows-datorer i Azure | Microsoft Docs"
-description: "Schemalagda händelser som använder tjänsten Azure Metadata för på Windows-datorer."
+title: Schemalagda händelser för virtuella Windows-datorer i Azure | Microsoft Docs
+description: Schemalagda händelser som använder tjänsten Azure Metadata för på Windows-datorer.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: ericrad
 manager: timlt
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 8f78f476e28ec04acfea9fe45d57a4c18d5db678
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 4740f3f189746a9ea0956d832678858b0528311e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Metadata Azure: Schemalagda händelser för virtuella Windows-datorer
 
@@ -118,7 +118,7 @@ I fall där det finns schemalagda händelser, svaret innehåller en matris med h
 | ResourceType | Typ av resurs som påverkar den här händelsen. <br><br> Värden: <ul><li>`VirtualMachine`|
 | Resurser| Lista över resurser som påverkar den här händelsen. Detta är säkert att innehålla datorer från högst ett [Uppdateringsdomän](manage-availability.md), men får inte innehålla alla datorer i UD. <br><br> Exempel: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Händelsestatus | Status för den här händelsen. <br><br> Värden: <ul><li>`Scheduled`: Den här händelsen har schemalagts att starta efter den tid som anges i den `NotBefore` egenskapen.<li>`Started`: Den här händelsen har startats.</ul> Inte `Completed` eller liknande status tillhandahålls någonsin; händelsen inte längre kommer att returneras när händelsen har slutförts.
-| Inte före| Tid som den här händelsen kan starta. <br><br> Exempel: <br><ul><li> 2016-09-19T18:29:47Z  |
+| Inte före| Tid som den här händelsen kan starta. <br><br> Exempel: <br><ul><li> Mån, 19 Sep 2016 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>Schemaläggning av händelse
 Varje händelse schemaläggs en minimal mängd tidpunkt i framtiden baserat på händelsetyp. Nu visas i en händelse `NotBefore` egenskapen. 

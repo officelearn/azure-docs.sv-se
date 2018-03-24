@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: wgries
-ms.openlocfilehash: b42287580078b4391ddbc5b8ff2835131c64236d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bb7fa68809341b5132d551ff1cab187bd4d7eeac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Viktig information om Azure File Sync-agenten (förhandsversionen)
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Dina Windows Server-installationer omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -93,11 +93,12 @@ Följande objekt synkroniseras inte, men resten av systemet fortsätter att fung
 - En serverslutpunkt kan inte finnas på systemvolymen. Till exempel är C:\MyFolder inte en giltig sökväg om inte C:\MyFolder är en monteringspunkt.
 - Redundansklustring stöds endast med klustrade diskar, inte med klusterdelade volymer (CSV).
 - Serverslutpunkter får inte vara kapslade. De får dock finnas på samma volym parallellt med varandra.
-- Om ett stort antal kataloger tas bort från en server på en gång (över 10 000) kan det orsaka synkroniseringsfel. Ta bort kataloger i omgångar om färre än 10 000 kataloger. Kontrollera att åtgärdssynkroniseringen har slutförts innan du tar bort fler.
 - Den här versionen har stöd för att synkroniseringsroten är roten av en volym.
 - Lagra inte ett operativsystem eller ett programs växlingsfil i en serverslutpunkt.
 - Ändrat i den här versionen: vi har lagt till nya händelser för att spåra den totala körningstiden för lagringsnivåer för moln (EventID 9016), uppladdningsförloppet för synkronisering (EventID 9302) och filer som inte synkroniserades (EventID 9900).
-- Ändrat i den här versionen: funktionen för snabb synkronisering av DR-namnområden har förbättrats avsevärt.
+- Förbättrade i den här versionen: 
+- Snabb DR-namnområdet sync prestanda ökas avsevärt.
+- Om du tar bort stort antal (över 10 000-tal) kataloger behöver inte göras i batchar med v2 *.
  
 ### <a name="cloud-tiering"></a>Lagringsnivåer för moln
 - Ändrat jämfört med den tidigare versionen: nya filer nivåindelas på en timme och omfattas av principinställningen för nivåindelning (tidigare 32 timmar). Vi tillhandahåller en PowerShell-cmdlet för nivåindelning på begäran. Med denna cmdlet kan du utvärdera nivåindelningen effektivare utan att behöva vänta på bakgrundsåtgärden.

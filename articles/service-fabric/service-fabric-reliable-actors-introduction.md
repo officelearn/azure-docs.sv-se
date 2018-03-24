@@ -1,11 +1,11 @@
 ---
-title: "Service Fabric Reliable Actors översikt | Microsoft Docs"
+title: Service Fabric Reliable Actors översikt | Microsoft Docs
 description: Introduktion till Service Fabric Reliable Actors programmeringsmodell.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7fdad07f-f2d6-4c74-804d-e0d56131f060
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 640e051a909b1b9457b20cbd507b418342297c6e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6a13ced8b1c49239d1ad5fb96775f43de9c3943e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introduktion till Service Fabric Reliable Actors
 Reliable Actors är ett ramverk för Service Fabric-program som baseras på den [virtuella aktören](http://research.microsoft.com/en-us/projects/orleans/) mönster. API: et för tillförlitlig aktörer är en enkeltrådig programmeringsmodell som bygger på skalbarhet och tillförlitlighet garantier som Service Fabric.
@@ -40,7 +40,7 @@ I Service Fabric aktörer implementeras i Reliable Actors framework: ett program
 
 Varje aktören definieras som en instans av aktörstyp, samma sätt som ett .NET-objekt är en instans av en .NET-typ. Till exempel kan det finnas en aktörstyp som implementerar funktionerna i en kalkylator och det kan finnas flera aktörer av den typen som distribueras på olika noder i ett kluster. Varje sådan aktören identifieras unikt genom ett aktören-ID.
 
-### <a name="actor-lifetime"></a>Aktören livslängd
+## <a name="actor-lifetime"></a>Aktören livslängd
 Service Fabric aktörer är virtuell, vilket innebär att deras livstid inte är kopplat till deras InMemory-representation. Därför kan behöver de inte uttryckligen skapas eller förstörs. Körningsmiljön Reliable Actors aktiveras automatiskt en aktören första gången den tar emot en begäran om att aktören-ID. Om en aktör inte används för en viss tidsperiod, körningsmiljön Reliable Actors skräp-samlar in InMemory-objektet. Den kommer också upprätthålla kunskap om den aktören existens behöver den aktiveras igen senare. Mer information finns i [aktören livscykel och skräp samling](service-fabric-reliable-actors-lifecycle.md).
 
 Denna virtuella aktören livstid framställning har vissa varningar på grund av virtuella aktören modellen och faktum Reliable Actors implementeringen avviker ibland från den här modellen.
@@ -49,7 +49,7 @@ Denna virtuella aktören livstid framställning har vissa varningar på grund av
 * Anropar någon aktören för aktörs-ID aktiverar att aktören. Därför har aktören typer sin konstruktor anropas implicit av körningsmiljön. Därför kan inte klientkoden skicka parametrar till konstruktorn för typen aktören, även om parametrar kan överföras till den aktören konstruktorn av själva tjänsten. Resultatet är att aktörer kan konstrueras i tillståndet delvis initieras av den tid som andra metoder anropas på det, om aktören kräver initieringsparametrar från klienten. Det finns ingen enskild startpunkt för aktivering av en aktör från klienten.
 * Även om Reliable Actors skapa implicit aktören objekt. du har möjlighet att ta bort en aktör och dess tillstånd.
 
-### <a name="distribution-and-failover"></a>Distribution och växling vid fel
+## <a name="distribution-and-failover"></a>Distribution och växling vid fel
 Ger bättre skalbarhet och tillförlitlighet, Service Fabric distribuerar aktörer i hela klustret och migrerar dem automatiskt från felande noder felfri dem efter behov. Detta är en abstraktion via en [partitionerade och tillståndskänsliga tillförlitlig tjänst](service-fabric-concepts-partitioning.md). Distribution, skalbarhet, tillförlitlighet och automatisk redundans finns alla angivna tack vare att aktörer körs inom en tillståndskänslig tillförlitlig tjänst kallas den *aktören tjänsten*.
 
 Aktörer distribueras över partitioner för tjänsten aktören och dessa partitioner är fördelade på noder i ett Service Fabric-kluster. Varje tjänst partition innehåller en uppsättning aktörer. Service Fabric hanterar distribution och växling vid fel i tjänsten partitioner.
@@ -67,12 +67,12 @@ Aktören Framework hanterar schema och nyckeln intervallet partitionsinställnin
 
 Mer information om hur aktörstjänster partitioneras avser [partitionering begrepp för aktörer](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
 
-### <a name="actor-communication"></a>Aktören kommunikation
+## <a name="actor-communication"></a>Aktören kommunikation
 Aktören interaktioner definieras i ett gränssnitt som delas av aktören som implementerar gränssnittet och klienten som hämtar en proxy till en aktör via samma gränssnitt. Eftersom det här gränssnittet för att anropa aktören metoder asynkront, måste varje metod i gränssnittet vara åtgärdsreturnerande.
 
 Anrop av metoden och deras svar slutligen leder nätverksbegäranden i klustret, så argumenten och resultattyper aktiviteter som de returnera måste kunna serialiseras av plattformen. I synnerhet de måste vara [data minimera serialiserbara](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
-#### <a name="the-actor-proxy"></a>Aktören-proxy
+### <a name="the-actor-proxy"></a>Aktören-proxy
 Reliable Actors klienten API ger kommunikation mellan en aktören-instans och en aktören-klient. För att kommunicera med en aktör skapar en klient ett aktören proxy-objekt som implementerar gränssnittet aktören. Klienten kommunicerar med aktören genom att anropa metoder på proxyobjekt. Aktören proxy kan användas för kommunikation i klient – aktören och aktören – aktören.
 
 ```csharp
@@ -105,7 +105,7 @@ Den `ActorProxy`(C#) / `ActorProxyBase`(Java) klassen på klientsidan utför nö
 * Meddelandeleverans är bästa prestanda.
 * Aktörer får dubbla meddelanden från samma klient.
 
-### <a name="concurrency"></a>Samtidighet
+## <a name="concurrency"></a>Samtidighet
 Körningsmiljön Reliable Actors ger en enkel bygger åtkomst-modell för att komma åt aktören metoder. Det innebär att mer än en tråd kan vara aktiva i objektets aktören kod när som helst. Stäng-baserad åtkomst förenklar samtidiga system som det ingen behövs synkroniseringsmekanismer för dataåtkomst. Det innebär också måste vara konstruerade med speciella överväganden vid art Enkeltrådig åtkomst för varje aktören-instans.
 
 * En enda aktören-instans kan inte bearbeta fler än en begäran i taget. En instans av aktören kan orsaka en flaskhals för genomströmning om det förväntas att hantera samtidiga begäranden.
@@ -113,7 +113,7 @@ Körningsmiljön Reliable Actors ger en enkel bygger åtkomst-modell för att ko
 
 ![Tillförlitlig aktörer kommunikation][3]
 
-#### <a name="turn-based-access"></a>Stäng-baserad åtkomst
+### <a name="turn-based-access"></a>Stäng-baserad åtkomst
 En tur består av fullständig körningen av en aktören metod som svar på en begäran från andra aktörer eller klienter eller fullständig körningen av en [timer/påminnelse](service-fabric-reliable-actors-timers-reminders.md) återanrop. Även om dessa metoder och återanrop asynkrona, interleave dem inte av körningsmiljön aktörer. En Stäng måste vara helt färdiga innan en ny Stäng tillåts. Med andra ord ett aktören metod eller timer/påminnelse motanrop som körs för tillfället måste vara helt färdiga innan ett nytt anrop till en metod eller återanrop tillåts. En metod eller ett återanrop anses är klar om körningen har returneras från metoden eller motringning och uppgiften som returneras av metoden eller återanrop har slutförts. Det är värt som betonar som bygger samtidighet följs även över olika metoder och timers återanrop.
 
 Aktörer runtime tillämpar bygger samtidighet genom att skaffa ett lås per aktör i början av en tur och bort låset i slutet av aktivera. Därför tillämpas bygger samtidighet på grundval av per aktör och inte över aktörer. Aktören metoder och timer/påminnelse återanrop kan köra samtidigt för olika aktörer.
@@ -136,10 +136,10 @@ Några viktiga saker att tänka på:
 * Körningen av *metod1* för *ActorId1* överlappar körningen för *ActorId2*. Det beror på att bygger samtidighet tillämpas endast inom en aktör och inte över aktörer.
 * I vissa metoden/återanrop-körningar av `Task`(C#) / `CompletableFuture`(Java) som returneras av metoden/återanrop slutförs när metoden returnerar. Den asynkrona åtgärden har redan slutförts när metoden/återanropet returnerar i vissa andra. I båda fallen släpps lås per aktör endast när både returnerar metoden/återanropet och den asynkrona åtgärden har slutförts.
 
-#### <a name="reentrancy"></a>Återinträde
+### <a name="reentrancy"></a>Återinträde
 Aktörer körning kan återinträde som standard. Det innebär att om en aktörsmetod av *aktören A* anropar en metod i *aktören B*, som i sin tur anropar en annan metod på *aktören A*, att metoden får köras. Det beror på att den är del av samma logiska anrop-kedjan kontext. Alla timer- och påminnelse anrop börja med den nya logiska anrop-kontexten. Finns det [Reliable Actors återinträde](service-fabric-reliable-actors-reentrancy.md) för mer information.
 
-#### <a name="scope-of-concurrency-guarantees"></a>Omfattning samtidighet garantier
+### <a name="scope-of-concurrency-guarantees"></a>Omfattning samtidighet garantier
 Aktörer runtime tillhandahåller dessa samtidighet garantier i situationer där den styr anrop av metoderna. Till exempel tillhandahåller dessa garantier för metoden-anrop som görs som svar på en klientbegäran samt timer och påminnelser. Men om aktören koden anropar direkt metoderna utanför de metoder som tillhandahålls av körtidsbiblioteket aktörer, kan inte körningen ange samtidighet garantier. Till exempel om metoden anropas i kontexten för en uppgift som inte är associerad med aktiviteten som returneras av aktören metoder, sedan körningen kan inte tillhandahålla samtidighet garantier. Om metoden anropas från en tråd som aktören skapar själv, kan sedan körningen dessutom samtidighet garantier. Om du vill utföra bakgrundsåtgärder aktörer bör därför använda [aktören timers och aktören påminnelser](service-fabric-reliable-actors-timers-reminders.md) som respekterar bygger samtidighet.
 
 ## <a name="next-steps"></a>Nästa steg

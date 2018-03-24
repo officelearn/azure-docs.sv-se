@@ -1,28 +1,28 @@
 ---
-title: "Genomgång av Azure övervakning REST API | Microsoft Docs"
-description: "Så här autentisera begäranden och använda Azure övervakaren REST API för att hämta tillgängliga mått definitioner och måttvärden."
+title: Genomgång av Azure övervakning REST API | Microsoft Docs
+description: Så här autentisera begäranden och använda Azure övervakaren REST API för att hämta tillgängliga mått definitioner och måttvärden.
 author: mcollier
-manager: 
-editor: 
+manager: ''
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 565e6a88-3131-4a48-8b82-3effc9a3d5c6
 ms.service: monitoring-and-diagnostics
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
-ms.search.region: 
-ms.search.scope: 
-ms.search.validFrom: 
-ms.dyn365.ops.version: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
+ms.search.region: ''
+ms.search.scope: ''
+ms.search.validFrom: ''
+ms.dyn365.ops.version: ''
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 03/19/2018
 ms.author: mcollier
-ms.openlocfilehash: 357a63c65a4f6864dca259aad8a76f83681cd501
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a5119cf7291db4fd2d2ffaf00ef098cfe336e645
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Genomgång av Azure övervakning REST API
 Den här artikeln visar hur du autentisera så att din kod kan använda den [Microsoft Azure övervakaren REST API-referens](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -34,7 +34,7 @@ Förutom att arbeta med olika mått datapunkter gör övervakaren API det också
 ## <a name="authenticating-azure-monitor-requests"></a>Autentiserande Azure-Monitor-begäranden
 Det första steget är att autentisera begäran.
 
-Alla aktiviteter som körs mot Azure-Monitor API använder Azure Resource Manager autentisering modell. Därför måste alla förfrågningar autentiseras med Azure Active Directory (AD Azure). En metod för att autentisera klientprogrammet är att skapa en Azure AD huvudnamn för tjänsten och hämta token för autentisering (JWT). Följande exempelskript visar att skapa en Azure AD-tjänsten huvudnamn via PowerShell. För en mer detaljerad genomgång finns i dokumentationen på [med Azure PowerShell för att skapa ett huvudnamn för tjänsten att komma åt resurser](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password). Det är också möjligt att [skapa ett huvudnamn för tjänsten via Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Alla aktiviteter som körs mot Azure-Monitor API använder Azure Resource Manager autentisering modell. Därför måste alla förfrågningar autentiseras med Azure Active Directory (AD Azure). En metod för att autentisera klientprogrammet är att skapa en Azure AD huvudnamn för tjänsten och hämta token för autentisering (JWT). Följande exempelskript visar att skapa en Azure AD-tjänsten huvudnamn via PowerShell. För en mer detaljerad genomgång finns i dokumentationen på [med Azure PowerShell för att skapa ett huvudnamn för tjänsten att komma åt resurser](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Det är också möjligt att [skapa ett huvudnamn för tjänsten via Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -97,12 +97,12 @@ Använd den [mått för Azure-Monitor definitioner REST API](https://docs.micros
 
 **Metoden**: hämta
 
-**Begärande-URI**: https://management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{ resourceProviderNamespace}*/*{resourceType}*/*{resourceName*/providers/microsoft.insights/metricDefinitions? API-version =*{apiVersion}*
+**Begärande-URI**: https://management.azure.com/subscriptions/ *{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
 
 Till exempel för att hämta mått definitioner för ett Azure Storage-konto skulle begäran visas på följande sätt:
 
 ```PowerShell
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2017-05-01-preview"
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01"
 
 Invoke-RestMethod -Uri $request `
                   -Headers $authHeader `
@@ -112,7 +112,7 @@ Invoke-RestMethod -Uri $request `
 
 ```
 > [!NOTE]
-> Använd ”2017-05-01-preview” för att hämta måttdefinitioner med hjälp av mätvärden för flerdimensionella Azure-Monitor REST-API, som API-versionen.
+> Använd ”2018-01-01” för att hämta måttdefinitioner med hjälp av mätvärden för flerdimensionella Azure-Monitor REST-API, som API-versionen.
 >
 >
 
@@ -122,8 +122,9 @@ Resulterande JSON svarstexten skulle vara liknar följande exempel: (Observera a
 {
     "value": [
         {
-            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/UsedCapacity",
-            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage",
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/UsedCapacity",
+            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage",
+            "namespace": "Microsoft.Storage/storageAccounts",
             "category": "Capacity",
             "name": {
                 "value": "UsedCapacity",
@@ -132,20 +133,35 @@ Resulterande JSON svarstexten skulle vara liknar följande exempel: (Observera a
             "isDimensionRequired": false,
             "unit": "Bytes",
             "primaryAggregationType": "Average",
+            "supportedAggregationTypes": [
+                "Total",
+                "Average",
+                "Minimum",
+                "Maximum"
+            ],
             "metricAvailabilities": [
                 {
-                    "timeGrain": "PT1M",
-                    "retention": "P30D"
+                    "timeGrain": "PT1H",
+                    "retention": "P93D"
                 },
                 {
-                    "timeGrain": "PT1H",
-                    "retention": "P30D"
+                    "timeGrain": "PT6H",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT12H",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "P1D",
+                    "retention": "P93D"
                 }
             ]
         },
         {
-            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/Transactions",
-            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage",
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/Transactions",
+            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage",
+            "namespace": "Microsoft.Storage/storageAccounts",
             "category": "Transaction",
             "name": {
                 "value": "Transactions",
@@ -154,14 +170,41 @@ Resulterande JSON svarstexten skulle vara liknar följande exempel: (Observera a
             "isDimensionRequired": false,
             "unit": "Count",
             "primaryAggregationType": "Total",
+            "supportedAggregationTypes": [
+                "Total"
+            ],
             "metricAvailabilities": [
                 {
                     "timeGrain": "PT1M",
-                    "retention": "P30D"
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT5M",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT15M",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT30M",
+                    "retention": "P93D"
                 },
                 {
                     "timeGrain": "PT1H",
-                    "retention": "P30D"
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT6H",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT12H",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "P1D",
+                    "retention": "P93D"
                 }
             ],
             "dimensions": [
@@ -185,22 +228,24 @@ Resulterande JSON svarstexten skulle vara liknar följande exempel: (Observera a
 ```
 
 ## <a name="retrieve-dimension-values-multi-dimensional-api"></a>Hämta värden (flerdimensionella API)
-När tillgängliga mått definitionerna är kända, kan det finnas vissa mått med dimensioner. Innan du frågar efter det mått som du kanske vill identifiera vilka värdeintervallet har en dimension. Baserat på dessa värden kan du sedan välja att filtrera eller segment mätvärdena baserat på värden vid sökningen efter mått. Använd det mått name 'value' (inte den ' localizedValue') för alla begäranden om filtrering (till exempel hämtar 'CpuTime' och 'Begär' mått datapunkter). Om inga filter har angetts, returneras standardmått.
+När tillgängliga mått definitionerna är kända, kan det finnas vissa mått med dimensioner. Innan du frågar efter det mått som du kanske vill identifiera vilka värdeintervallet har en dimension. Baserat på dessa värden kan du sedan välja att filtrera eller segment mätvärdena baserat på värden vid sökningen efter mått.  Använd den [Azure övervakaren mått REST API](https://docs.microsoft.com/rest/api/monitor/metrics) att uppnå detta.
+
+Använd det mått name 'value' (inte den ' localizedValue') för alla begäranden om filtrering. Om inga filter har angetts, returneras standardmått. Användningen av denna API kan bara en dimension har ett jokerteckenfiltret.
 
 > [!NOTE]
-> Använd ”2017-05-01-preview” för att hämta värden med hjälp av Azure-Monitor REST-API som API-versionen.
+> Använd ”2018-01-01” för att hämta värden med hjälp av Azure-Monitor REST-API som API-versionen.
 >
 >
 
 **Metoden**: hämta
 
-**Begärande-URI**: https://management.azure.com/subscriptions/*{prenumerations-id}*/resourceGroups/*{resurs-gruppnamn}*/providers/*{ resurs-provider-namespace}*/*{resurstypen}*/*{resursnamn}*/providers/microsoft.insights/metrics?metric= *{mått}*& timespan =*{Starttid/Sluttid}*& $filter =*{filter}*& resultType = metadata & api-version =*{ apiVersion}*
+**Begärande-URI**: https://management.azure.com/subscriptions/ *{prenumerations-id}*/resourceGroups/*{resurs-gruppnamn}*/providers/*{resurs-provider-namespace}* / *{resurstypen}*/*{resursnamn}*/providers/microsoft.insights/metrics?metric=*{mått}* & timespan =*{Starttid/Sluttid}*& $filter =*{filter}*& resultType = metadata & api-version =*{apiVersion}*
 
-Till exempel för att hämta listan över möjliga värden API-namnet dimension för måttet 'Transaktioner' under ett visst tidsintervall, skulle begäran vara följande:
+Till exempel för att hämta listan med värden som har orsakat för 'API-namnet dimensionen' för 'Transaktioner'-måttet där dimensionen GeoType = 'Primary' under det angivna tidsintervallet skulle begäran Se på följande sätt:
 
 ```PowerShell
-$filter = "APIName eq '*'"
-$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metrics?metric=Transactions&timespan=2017-09-01T00:00:00Z/2017-09-10T00:00:00Z&resultType=metadata&$filter=${filter}&api-version=2017-05-01-preview"
+$filter = "APIName eq '*' and GeoType eq 'Primary'"
+$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T00:00:00Z/2018-03-02T00:00:00Z&resultType=metadata&$filter=${filter}&api-version=2018-01-01"
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
@@ -211,10 +256,10 @@ Resulterande JSON svarstexten är liknar följande exempel:
 
 ```JSON
 {
-  "timespan": "2017-09-01T00:00:00Z/2017-09-10T00:00:00Z",
+  "timespan": "2018-03-01T00:00:00Z/2018-03-02T00:00:00Z",
   "value": [
     {
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
       "type": "Microsoft.Insights/metrics",
       "name": {
         "value": "Transactions",
@@ -244,52 +289,34 @@ Resulterande JSON svarstexten är liknar följande exempel:
             }
           ]
         },
-        {
-          "metadatavalues": [
-            {
-              "name": {
-                "value": "apiname",
-                "localizedValue": "apiname"
-              },
-              "value": "PutPage"
-            }
-          ]
-        },
-        {
-          "metadatavalues": [
-            {
-              "name": {
-                "value": "apiname",
-                "localizedValue": "apiname"
-              },
-              "value": "Unknown"
-            }
-          ]
-        },
         ...
       ]    
     }
-  ]
+  ],
+  "namespace": "Microsoft.Storage/storageAccounts",
+  "resourceregion": "eastus"
 }
 ```
 
 ## <a name="retrieve-metric-values-multi-dimensional-api"></a>Hämta måttvärden (flerdimensionella API)
-När de tillgängliga mått definitioner och möjliga värden är kända, har det möjligt att hämta relaterade måttvärden. Använd det mått name 'value' (inte den ' localizedValue') för alla begäranden om filtrering. Om inga dimensionsfilter anges returneras upplyfta aggregerade mått.
+När de tillgängliga mått definitioner och möjliga värden är kända, har det möjligt att hämta relaterade måttvärden.  Använd den [Azure övervakaren mått REST API](https://docs.microsoft.com/rest/api/monitor/metrics) att uppnå detta.
+
+Använd det mått name 'value' (inte den ' localizedValue') för alla begäranden om filtrering. Om inga dimensionsfilter anges returneras upplyfta aggregerade mått. Om en mått fråga returnerar flera timeseries, kan du använda frågeparametrar 'Upp' och 'OrderBy-för att returnera en begränsad sorterad lista över timeseries.
 
 > [!NOTE]
-> Om du vill hämta flerdimensionella måttvärden med hjälp av REST API för Azure-Monitor Använd ”2017-05-01-preview” som API-versionen.
+> Om du vill hämta flerdimensionella måttvärden med hjälp av REST API för Azure-Monitor Använd ”2018-01-01” som API-versionen.
 >
 >
 
 **Metoden**: hämta
 
-**Begärande-URI**: https://management.azure.com/subscriptions/*{prenumerations-id}*/resourceGroups/*{resurs-gruppnamn}*/providers/*{ resurs-provider-namespace}*/*{resurstypen}*/*{resursnamn}*/providers/microsoft.insights/metrics?metric= *{mått}*& timespan =*{Starttid/Sluttid}*& $filter =*{filter}*& intervall =*{Tidskorn}* & aggregering =*{aggreation}*& api-version =*{apiVersion}*
+**Begärande-URI**: https://management.azure.com/subscriptions/ *{prenumerations-id}*/resourceGroups/*{resurs-gruppnamn}*/providers/*{resurs-provider-namespace}* / *{resurstypen}*/*{resursnamn}*/providers/microsoft.insights/metrics?metric=*{mått}* & timespan =*{Starttid/Sluttid}*& $filter =*{filter}*& intervall =*{Tidskorn}*& aggregering =*{ aggreation}*& api-version =*{apiVersion}*
 
-Till exempel om du vill hämta måttvärden lagring 'Transaktioner' mått under ett intervall på 5 minuter, för alla transaktioner som API-namnet GetBlobProperties, skulle begäran vara följande:
+Till exempel för att hämta upp 3 API: er, i fallande värdet, som antal transaktioner om du vid ett intervall på 5 minuter, där GeotType var primär, skulle begäran Se på följande sätt:
 
 ```PowerShell
-$filter = "APIName eq 'GetBlobProperties'"
-$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metrics?metric=Transactions&timespan=2017-09-19T02:00:00Z/2017-09-19T02:05:00Z&$filter=${filter}&interval=PT1M&aggregation=Count&api-version=2017-05-01-preview"
+$filter = "APIName eq '*' and GeoType eq 'Primary'"
+$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T02:00:00Z/2018-03-01T02:05:00Z&$filter=${filter}&interval=PT1M&aggregation=Total&top=3&orderby=Total desc&api-version=2018-01-01"
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
@@ -301,11 +328,11 @@ Resulterande JSON svarstexten är liknar följande exempel:
 ```JSON
 {
   "cost": 0,
-  "timespan": "2017-09-19T02:00:00Z/2017-09-19T02:05:00Z",
+  "timespan": "2018-03-01T02:00:00Z/2018-03-01T02:05:00Z",
   "interval": "PT1M",
   "value": [
     {
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
       "type": "Microsoft.Insights/metrics",
       "name": {
         "value": "Transactions",
@@ -326,29 +353,32 @@ Resulterande JSON svarstexten är liknar följande exempel:
           "data": [
             {
               "timeStamp": "2017-09-19T02:00:00Z",
-              "count": 2.0
+              "total": 2
             },
             {
               "timeStamp": "2017-09-19T02:01:00Z",
-              "count": 1.0
+              "total": 1
             },
             {
               "timeStamp": "2017-09-19T02:02:00Z",
-              "count": 3.0
+              "total": 3
             },
             {
               "timeStamp": "2017-09-19T02:03:00Z",
-              "count": 7.0
+              "total": 7
             },
             {
               "timeStamp": "2017-09-19T02:04:00Z",
-              "count": 2.0
+              "total": 2
             }
           ]
-        }
+        },
+        ...
       ]
     }
-  ]
+  ],
+  "namespace": "Microsoft.Storage/storageAccounts",
+  "resourceregion": "eastus"
 }
 ```
 
@@ -357,7 +387,7 @@ Använd den [mått för Azure-Monitor definitioner REST API](https://msdn.micros
 
 **Metoden**: hämta
 
-**Begärande-URI**: https://management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{ resourceProviderNamespace}*/*{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions? API-version =*{apiVersion}*
+**Begärande-URI**: https://management.azure.com/subscriptions/ *{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
 
 Till exempel för att hämta mått definitioner för en Azure-Logikapp skulle begäran visas på följande sätt:
 
@@ -427,7 +457,7 @@ När tillgängliga mått definitionerna är kända, har det möjligt att hämta 
 
 **Metoden**: hämta
 
-**Begärande-URI**: https://management.azure.com/subscriptions/*{prenumerations-id}*/resourceGroups/*{resurs-gruppnamn}*/providers/*{ resurs-provider-namespace}*/*{resurstypen}*/*{resursnamn}*/providers/microsoft.insights/metrics?$filter= *{filter}*& api-version =*{apiVersion}*
+**Begärande-URI**: https://management.azure.com/subscriptions/ *{prenumerations-id}*/resourceGroups/*{resurs-gruppnamn}*/providers/*{resurs-provider-namespace}* / *{resurstypen}*/*{resursnamn}*/providers/microsoft.insights/metrics?$filter=*{filter}*& api-version =*{apiVersion}*
 
 Till exempel för att hämta RunsSucceeded mått datapunkter för det angivna tidsintervallet och för ett tidskorn 1 timme skulle begäran vara följande:
 
@@ -558,13 +588,13 @@ REST-API kan verkligen hjälp för att förstå tillgängliga mått definitioner
 
 Föregående kod är resurs-ID för att använda den fullständiga sökvägen till den önskade Azure-resursen. Om du vill fråga mot en Azure-Webbapp, till exempel är resurs-ID:
 
-*/subscriptions/{Subscription-ID}/resourceGroups/{Resource-group-name}/providers/Microsoft.Web/Sites/{Site-Name}/*
+*/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{site-name}/*
 
 Följande lista innehåller några exempel på resurs-ID-formaten för olika Azure-resurser:
 
 * **IoT-hubb** -/subscriptions/*{prenumerations-id}*/resourceGroups/*{resurs-gruppnamn}*/providers/Microsoft.Devices/IotHubs/*{iot-hubb-name}*
 * **Elastisk SQL-poolen** -/subscriptions/*{prenumerations-id}*/resourceGroups/*{resurs-gruppnamn}*/providers/Microsoft.Sql/servers/*{pool-db}*/elasticpools/*{sql-pool-name}*
-* **SQL-databas (v12)** -/subscriptions/*{prenumerations-id}*/resourceGroups/*{resurs-gruppnamn}*/providers/Microsoft.Sql/servers/*{servernamn}* /databases/*{databasnamnet}*
+* **SQL-databas (v12)** -/subscriptions/*{prenumerations-id}*/resourceGroups/*{resurs-gruppnamn}*/providers/Microsoft.Sql/servers/*{servernamn}*/databases/*{databasnamnet}*
 * **Service Bus** -/subscriptions/*{prenumerations-id}*/resourceGroups/*{resurs-gruppnamn}*/providers/Microsoft.ServiceBus/*{namespace}* / *{servicebus-name}*
 * **Skaluppsättningar för den virtuella datorn** -/subscriptions/*{prenumerations-id}*/resourceGroups/*{resurs-gruppnamn}*/providers/Microsoft.Compute/virtualMachineScaleSets/ *{vm-name}*
 * **Virtuella datorer** -/subscriptions/*{prenumerations-id}*/resourceGroups/*{resurs-gruppnamn}*/providers/Microsoft.Compute/virtualMachines/*{vm-name}*

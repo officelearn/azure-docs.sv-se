@@ -1,11 +1,11 @@
 ---
-title: "Vanliga frågor om Microsoft Azure Service Fabric | Microsoft Docs"
-description: "Vanliga frågor och svar om Service Fabric och deras svar"
+title: Vanliga frågor om Microsoft Azure Service Fabric | Microsoft Docs
+description: Vanliga frågor och svar om Service Fabric och deras svar
 services: service-fabric
 documentationcenter: .net
 author: chackdan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: facbb980f57b4e70c34b238a8b8fbd988cb20d57
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0ecce5581e8f14a02ad0ad618a226f4671e92f4b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor för Service Fabric
 
@@ -89,17 +89,7 @@ Du är ansvarig för att uppgradera medan vi arbetar på en bättre upplevelse i
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Kan jag kryptera bifogade datadiskar i ett kluster nodtypen (skaluppsättning för virtuell dator)?
 Ja.  Mer information finns i [skapa ett kluster med anslutna datadiskar](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [kryptera diskar (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), och [kryptera diskar (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
-## <a name="container-support"></a>Stöd för behållaren
-
-### <a name="why-are-my-containers-that-are-deployed-to-sf-unable-to-resolve-dns-addresses"></a>Varför är min behållare som har distribuerats till SA inte matcha DNS-adresser?
-
-Det här problemet har rapporterats på kluster som finns på 5.6.204.9494 version 
-
-**Minskning**: Följ [dokumentet](service-fabric-dnsservice.md) att aktivera DNS-service fabric-tjänsten i klustret.
-
-**Åtgärda**: uppgradering till en version som stöds kluster som är högre än 5.6.204.9494, när den är tillgänglig. Om klustret är automatiska uppgraderingar uppgraderar automatiskt klustret till den version som har problemet lösts.
-
-  
+ 
 ## <a name="application-design"></a>Programmet Design
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Vad är det bästa sättet att fråga efter data mellan partitioner i en tillförlitlig samling?
@@ -146,9 +136,11 @@ Behållare erbjuder ett enkelt sätt att paketet tjänster och deras beroenden s
 
 ### <a name="are-you-planning-to-open-source-service-fabric"></a>Du planerar att öppen källkod Service Fabric?
 
-Vi vill öppen källkod den tillförlitliga tjänster och tillförlitlig aktörer ramverk på GitHub och acceptera communitybidrag till dessa projekt. Följ den [Service Fabric-blogg](https://blogs.msdn.microsoft.com/azureservicefabric/) för mer information som de är tillkännages.
+Vi har öppen källkod delarna av Service Fabric ([reliable services framework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [tillförlitliga aktörer framework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [ASP.NET Core integration bibliotek](https://github.com/Azure/service-fabric-aspnetcore), [ Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer), och [Service Fabric CLI](https://github.com/Azure/service-fabric-cli)) på GitHub och acceptera communitybidrag till dessa projekt. 
 
-Det finns för närvarande inga planer på att öppen källkod Service Fabric-körningsmiljön.
+Vi [presenterade nyligen](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/) att vi planerar att öppen källkod Service Fabric-körningsmiljön. Nu har vi den [Service Fabric-lagringsplatsen](https://github.com/Microsoft/service-fabric/) upp på GitHub med Linux skapa och testa verktyg, vilket innebär att du kan klona lagringsplatsen, skapa Service Fabric för Linux, köra grundläggande tester, öppna problem och skicka pull-förfrågningar. Vi arbetar hårt för att hämta Windows-kompileringsmiljö migreras över, tillsammans med en fullständig CI-miljö.
+
+Följ den [Service Fabric-blogg](https://blogs.msdn.microsoft.com/azureservicefabric/) för mer information som de är tillkännages.
 
 ## <a name="next-steps"></a>Nästa steg
 

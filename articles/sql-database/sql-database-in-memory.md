@@ -1,19 +1,19 @@
 ---
 title: Azure SQL Database i minnet tekniker | Microsoft Docs
-description: "Azure SQL Database i minnet tekniker förbättra prestanda för transaktionell och analytics arbetsbelastningar."
+description: Azure SQL Database i minnet tekniker förbättra prestanda för transaktionell och analytics arbetsbelastningar.
 services: sql-database
 author: jodebrui
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 03/21/2018
 ms.author: jodebrui
-ms.openlocfilehash: 107df78f0ec6ce924785f5027958ee66f2a86c7c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 442c860a13e2af1d5398fb30a6069a0e3764ee64
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimera prestanda genom att använda InMemory-tekniker i SQL-databas
 
@@ -104,7 +104,7 @@ När du använder icke-grupperat columnstore-index lagras i bastabellen fortfara
 
 Det finns aldrig alla inkompatibiliteter eller andra problem när du uppgraderar till en högre prisnivå som från Standard till Premium. De tillgängliga funktioner och resurser som bara öka.
 
-Men nedgradera prisnivån kan påverka din databas. Påverkan är särskilt tydligt när du Nedgradera från Premium till Standard eller grundläggande när databasen innehåller Minnesintern OLTP-objekt. Minnesoptimerade tabeller och columnstore-index är inte tillgänglig efter nedgraderingen (även om de är synligt). Samma villkor gäller när du sänker prisnivån för en elastisk pool eller flytta en databas med InMemory-tekniker, till en Standard eller grundläggande elastisk pool.
+Men nedgradera prisnivån kan påverka din databas. Påverkan är särskilt tydligt när du Nedgradera från Premium till Standard eller grundläggande när databasen innehåller Minnesintern OLTP-objekt. Minnesoptimerade tabeller är inte tillgängliga efter nedgraderingen (även om de är synligt). Samma villkor gäller när du sänker prisnivån för en elastisk pool eller flytta en databas med InMemory-tekniker, till en Standard eller grundläggande elastisk pool.
 
 ### <a name="in-memory-oltp"></a>Minnesintern OLTP
 
@@ -130,11 +130,11 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="columnstore-indexes"></a>Columnstore-index
 
-*Nedgradera till Basic eller Standard*: Columnstore-index stöds endast för Premium-prisnivån och inte på Standard- eller Basic-nivåerna. När du nedgradera databasen till Standard eller grundläggande otillgänglig columnstore-index. Systemet har columnstore-index, men den använder aldrig indexet. Om du senare uppgradera till Premium är columnstore-index klar att användas igen.
+*Nedgradera till Basic eller Standard*: Columnstore-index stöds endast på Premium-prisnivån på standardnivån S3 och senare och inte på den grundläggande nivån. När du nedgradera databasen till en nivå som inte stöds eller nivå otillgänglig columnstore-index. Systemet har columnstore-index, men den använder aldrig indexet. Om du uppgraderar senare tillbaka till en stöds nivån eller en nivå, är columnstore-index klar att användas igen.
 
-Om du har en **klustrade** columnstore-indexet, hela tabellen blir tillgänglig efter nivå nedgradering. Därför rekommenderar vi att du ta bort alla *klustrade* columnstore-index innan du nedgradera databasen under Premium-nivån.
+Om du har en **klustrade** columnstore-index hela tabellen blir tillgänglig efter nedgraderingen. Därför rekommenderar vi att du ta bort alla *klustrade* columnstore-index innan du nedgradera databasen till en nivå som inte stöds eller nivå.
 
-*Nedgradera till en lägre nivå Premium*: den här nedgradering lyckas om hela databasen ryms inom den maximala databasstorleken för målet prisnivån eller inom tillgängligt lagringsutrymme i den elastiska poolen. Det finns ingen specifik inverkan från columnstore-index.
+*Nedgradera till en lägre nivå som stöds eller nivå*: den här nedgradering lyckas om hela databasen ryms inom den maximala databasstorleken för målet prisnivån eller inom tillgängligt lagringsutrymme i den elastiska poolen. Det finns ingen specifik inverkan från columnstore-index.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>

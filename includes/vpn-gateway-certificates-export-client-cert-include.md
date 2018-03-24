@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 517ebbf739c64c0364dc21386fee86ebc740e997
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/23/2018
+---
 När du skapar ett certifikat installeras den automatiskt på den dator som du använde för att skapa den. Om du vill installera klientcertifikatet på en annan dator måste du exportera det klientcertifikat som du genererade.
 
 1. Öppna **Hantera användarcertifikat** om du vill exportera ett certifikat. De klientcertifikat som du genererade finns som standard i 'Certifikat - aktuell User\Personal\Certificates'. Högerklicka på det klientcertifikat som du vill exportera, klicka på **alla aktiviteter**, och klicka sedan på **exportera** att öppna den **guiden Exportera certifikat**.

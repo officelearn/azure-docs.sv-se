@@ -1,11 +1,10 @@
 ---
-title: "Flytta data från webben tabellen med hjälp av Azure Data Factory | Microsoft Docs"
-description: "Läs mer om hur du flyttar data från en tabell i en webbsida med Azure Data Factory."
+title: Flytta data från webben tabellen med hjälp av Azure Data Factory | Microsoft Docs
+description: Läs mer om hur du flyttar data från en tabell i en webbsida med Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4f2005e753e1892989fd902cb259bd5545f1e9a4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8f35a2bec410eccc59a19e5b82b9e109b15f0738
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Flytta data från en webbadress för tabellen med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -180,7 +179,7 @@ I följande exempel visas hur du kopierar data från en webbserver-tabell till e
 }
 ```
 
-**WebTable inkommande dataset** inställningen **externa** till **SANT** informerar Data Factory-tjänsten att datamängden är extern till data factory och inte tillverkas av en aktivitet i data fabriken.
+**WebTable inkommande dataset** inställningen **externa** till **SANT** informerar Data Factory-tjänsten att datamängden är extern till data factory och inte tillverkas av en aktivitet i datafabriken.
 
 > [!NOTE]
 > Se [Get-index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) avsnittet steg för att få index för en tabell i en HTML-sida.  
@@ -290,7 +289,7 @@ Se [WebSource Typegenskaper](#copy-activity-type-properties) lista över egenska
 2. Klicka på **ny fråga** i verktygsfältet, pekar på **från andra källor** och på **från webben**.
 
     ![Power Query-menyn](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
-3. I den **från webben** dialogrutan Ange **URL** som du vill använda i länkad tjänst-JSON (till exempel: https://en.wikipedia.org/wiki/) tillsammans med sökvägen som du anger för datauppsättningen (till exempel: Afrika % 27s_ 100_Years... 100_Movies) och klicka på **OK**.
+3. I den **från webben** dialogrutan Ange **URL** som du vill använda i länkad tjänst-JSON (till exempel: https://en.wikipedia.org/wiki/) tillsammans med sökvägen som du anger för datauppsättningen (till exempel: Afrika % 27s_100_Years... 100_Movies) och klicka på **OK**.
 
     ![Från webben dialogrutan](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 

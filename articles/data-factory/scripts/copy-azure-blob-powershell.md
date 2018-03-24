@@ -1,10 +1,10 @@
 ---
-title: "PowerShell-skript: kopiera data i molnet med hjälp av Azure Data Factory | Microsoft Docs"
-description: "Detta PowerShell-skript kopierar data från en plats i ett Azure Blob Storage till en annan plats i samma Blob Storage."
+title: 'PowerShell-skript: kopiera data i molnet med hjälp av Azure Data Factory | Microsoft Docs'
+description: Detta PowerShell-skript kopierar data från en plats i ett Azure Blob Storage till en annan plats i samma Blob Storage.
 services: data-factory
 author: linda33wj
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: jingwang
-ms.openlocfilehash: cb452735b2f8f855a43d12c0fd50973baa3150fd
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0b7552bb981a5b5a4850778709c08323b0e9124f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-in-the-cloud"></a>Använd PowerShell för att skapa data factory-pipelinen för att kopiera data i molnet
 

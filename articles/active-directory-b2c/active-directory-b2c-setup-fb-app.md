@@ -1,28 +1,25 @@
 ---
 title: 'Azure Active Directory B2C: Facebook-konfiguration | Microsoft Docs'
-description: "Ange registrering och inloggning för konsumenter med Facebook-konton i dina program som skyddas av Azure Active Directory B2C."
+description: Ange registrering och inloggning för konsumenter med Facebook-konton i dina program som skyddas av Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: sromeroz
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: sromeroz
-ms.assetid: b875f235-a1d2-4abb-b9f0-b89beac38a32
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 8/7/2017
-ms.author: sromeroz
-ms.openlocfilehash: 7f551a7ba9b7ddbb373e6b6418ab43fe7ce9be36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 899677500b0d33b5f98807a341449199b6b3dcac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-facebook-accounts"></a>Azure Active Directory B2C: Ange registrering och inloggning för konsumenter med Facebook-konton
 ## <a name="create-a-facebook-application"></a>Skapa ett Facebook-program
-Om du vill använda Facebook som en identitetsleverantör i Azure Active Directory (AD Azure) B2C måste du skapa ett Facebook-program och ange rätt parametrar. Du behöver en Facebook-konto för att göra detta. Om du inte har något du kan hämta den på [https://www.facebook.com/](https://www.facebook.com/).
+Om du vill använda Facebook som en identitetsleverantör i Azure Active Directory (AD Azure) B2C måste du skapa ett Facebook-program och ange rätt parametrar. Du behöver en Facebook-konto för att göra detta. Om du inte har något du kan hämta den på [ https://www.facebook.com/ ](https://www.facebook.com/).
 
 1. Gå till den [Facebook för utvecklare](https://developers.facebook.com/) webbplatsen och logga in med dina Facebook kontoautentiseringsuppgifter.
 2. Om du inte redan har gjort det så, behöver du registrera som en Facebook-utvecklare. Gör detta genom att klicka på **registrera** (i det övre högra hörnet på sidan) och acceptera Facebooks principer och slutföra registreringen stegen.
@@ -33,22 +30,22 @@ Om du vill använda Facebook som en identitetsleverantör i Azure Active Directo
 7. Välj en **kategori**. 
 8. Klicka på **+ Lägg till plattformen** och välj **webbplats**.
    
-    ![Facebook - inställningar](./media/active-directory-b2c-setup-fb-app/fb-settings.png)
+    ![Facebook - Settings](./media/active-directory-b2c-setup-fb-app/fb-settings.png)
    
-    ![Facebook - inställningar - webbplats](./media/active-directory-b2c-setup-fb-app/fb-website.png)
+    ![Facebook - Settings - Website](./media/active-directory-b2c-setup-fb-app/fb-website.png)
 9. Ange `https://login.microsoftonline.com/` i den **Webbadress** fältet och klickar sedan på **spara ändringar** längst ned på sidan.
    
-    ![Facebook - Webbadress](./media/active-directory-b2c-setup-fb-app/fb-site-url.png)
+    ![Facebook - Site URL](./media/active-directory-b2c-setup-fb-app/fb-site-url.png)
 
 10. Kopiera värdet för **App-ID**. Klicka på **visa** och kopiera värdet för **App hemlighet**. Du måste båda för att konfigurera Facebook som en identitetsleverantör i din klient. **Appen hemlighet** är en viktig säkerhetsuppgift för autentisering.
    
-    ![Facebook - App-ID & App hemlighet](./media/active-directory-b2c-setup-fb-app/fb-app-id-app-secret.png)
+    ![Facebook - App ID & App Secret](./media/active-directory-b2c-setup-fb-app/fb-app-id-app-secret.png)
 11. Klicka på **+ Lägg till produkten** i navigeringen till vänster och sedan den **konfigurera** knappen för **Facebook inloggningen**.
    
-    ![Facebook - Facebook-inloggning](./media/active-directory-b2c-setup-fb-app/fb-login.png)
+    ![Facebook - Facebook Login](./media/active-directory-b2c-setup-fb-app/fb-login.png)
 12. Klicka på **inställningar** på rätt nav under **Facebook-inloggning**
 
-    ![Facebook - Facebook inloggningsinställningar](./media/active-directory-b2c-setup-fb-app/fb-login-settings.png)
+    ![Facebook - Facebook Login settings](./media/active-directory-b2c-setup-fb-app/fb-login-settings.png)
 13. Ange `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` i den **omdirigerings-URI: er för giltig OAuth** i den **OAuth klientinställningar** avsnitt. Ersätt **{klient}** med din klient namn (till exempel contosob2c.onmicrosoft.com). Klicka på **spara ändringar** längst ned på sidan.
     
     ![Facebook - OAuth omdirigerings-URI](./media/active-directory-b2c-setup-fb-app/fb-oauth-redirect-uri.png)

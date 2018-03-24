@@ -1,25 +1,25 @@
 ---
 title: Unika nycklar i Azure Cosmos DB | Microsoft Docs
-description: "Lär dig använda unika nycklar i Azure DB som Cosmos-databasen."
+description: Lär dig använda unika nycklar i Azure DB som Cosmos-databasen.
 services: cosmos-db
-keywords: "Unik nyckel begränsning, överträdelse av unique key-begränsningen"
+keywords: Unik nyckel begränsning, överträdelse av unique key-begränsningen
 author: rafats
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0c80ee13298c2c749c5f7eb7e55d1d77a8d6a34e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Unika nycklar i Azure Cosmos DB
 
@@ -58,7 +58,7 @@ När du har skapat en behållare med en unik nyckel princip kan inte principen �
 
 Högst 16 sökväg värden (till exempel /firstName, /lastName, /address/zipCode osv.) kan ingå i varje unik nyckel. 
 
-Varje unik nyckel princip kan ha högst 10 unika nyckelvillkor eller kombinationer. Så det tidigare exemplet som använder förnamn, efternamn och e-postadressen är en begränsning och den använder tre av de 16 sökvägarna som tillgängliga. 
+Varje unik nyckel princip kan innehålla högst 10 unika nyckelvillkor eller kombinationer och de kombinerade sökvägarna för alla egenskaper i unikt index får inte överstiga 60 tecken. Så det tidigare exemplet som använder förnamn, efternamn och e-postadressen är en begränsning och den använder tre av de 16 sökvägarna som tillgängliga. 
 
 Begära enhet avgifter för att skapa, uppdatera, och ta bort ett objekt är något högre när det finns en unik nyckel princip på behållaren. 
 

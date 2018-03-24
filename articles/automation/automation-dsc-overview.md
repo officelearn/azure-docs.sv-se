@@ -1,24 +1,19 @@
 ---
-title: "Azure Automation DSC översikt | Microsoft Docs"
-description: "Översikt av Azure Automation önskad tillstånd Configuration (DSC), dess villkoren och kända problem"
+title: Azure Automation DSC-översikt
+description: Översikt av Azure Automation önskad tillstånd Configuration (DSC), dess villkoren och kända problem
+keywords: PowerShell dsc, önskad tillståndskonfiguration, powershell dsc azure
 services: automation
-documentationcenter: dev-center-name
-author: georgewallace
-manager: carmonm
-keywords: "PowerShell dsc, önskad tillståndskonfiguration, powershell dsc azure"
-ms.assetid: fd40cb68-c1a6-48c3-bba2-710b607d1555
 ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 06/15/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 7440fa58f9cbd201984d178a7e9a2c12afc84783
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
+ms.openlocfilehash: 3949b79c3729ecdc2dfdd6297a5f10852e061540
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-dsc-overview"></a>Azure Automation DSC-översikt
 
@@ -45,8 +40,8 @@ Du kan hantera alla dina DSC-konfigurationer, resurser och målnoder från Azure
 ### <a name="import-reporting-data-into-log-analytics"></a>Importera rapporteringsdata till logganalys
 
 Noder som hanteras med Azure Automation DSC Skicka detaljerad status rapporteringsdata till den inbyggda pull-servern.
-Du kan konfigurera Azure Automation DSC för att skicka data till Microsoft Operations Management Suite (OMS) logganalys-arbetsytan.
-Information om hur du skickar DSC statusdata till logganalys-arbetsytan finns [framåt Azure Automation DSC rapporterar data till OMS logganalys](automation-dsc-diagnostics.md).
+Du kan konfigurera Azure Automation DSC för att skicka data till logganalys-arbetsytan.
+Information om hur du skickar DSC statusdata till logganalys-arbetsytan finns [framåt Azure Automation DSC rapporterar data till logganalys](automation-dsc-diagnostics.md).
 
 ## <a name="introduction-video"></a>Introduktionsfilm
 

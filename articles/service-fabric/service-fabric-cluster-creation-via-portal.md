@@ -1,6 +1,6 @@
 ---
 title: Skapa Service Fabric-kluster i Azure portal | Microsoft Docs
-description: "Den här artikeln beskriver hur du ställer in en säker Service Fabric-kluster i Azure med Azure-portalen och Azure Key Vault."
+description: Den här artikeln beskriver hur du ställer in en säker Service Fabric-kluster i Azure med Azure-portalen och Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 864952554b04d8d6bc14aad92d168298e554710e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Skapa ett Service Fabric-kluster i Azure med Azure-portalen
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure-portalen](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -131,7 +131,7 @@ Konfigurera klusternoderna. Nodtyper definiera storlek på Virtuella datorer, hu
 
 Att ställa in en säker testklustret för dig, har vi angett den **grundläggande** alternativet. Om du redan har ett certifikat och har överförts till din keyvault (och aktiverat nyckelvalvet för distribution), använder du den **anpassad** alternativet
 
-#####<a name="basic-option"></a>Grundläggande autentisering
+##### <a name="basic-option"></a>Grundläggande autentisering
 Följer du anvisningarna för att lägga till eller återanvända en befintlig keyvault och lägga till ett certifikat. För att lägga till certifikatet är en synkron process så du måste vänta tills certifikatet som ska skapas.
 
 
@@ -151,7 +151,7 @@ Du är nu redo att gå vidare till resten av processen skapa klustret.
 
 ![CreateKeyVault4]
 
-#####<a name="custom-option"></a>Anpassade alternativet
+##### <a name="custom-option"></a>Anpassade alternativet
 Hoppa över det här avsnittet om du redan har utfört stegen i den **grundläggande** alternativet.
 
 ![SecurityCustomOption]

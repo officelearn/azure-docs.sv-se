@@ -1,6 +1,6 @@
 ---
-title: "Reliable Actors på Service Fabric | Microsoft Docs"
-description: "Beskriver hur Reliable Actors ovanpå Reliable Services och använda funktioner i Service Fabric-plattformen."
+title: Reliable Actors på Service Fabric | Microsoft Docs
+description: Beskriver hur Reliable Actors ovanpå Reliable Services och använda funktioner i Service Fabric-plattformen.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: ee248cb656eeb54e259ff1adf45080a207b5a866
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 088f56f33c85d3c590acf4a2eaa660a9d586f7ec
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Hur Reliable Actors använder Service Fabric-plattformen
 Den här artikeln förklarar hur Reliable Actors fungerar på Azure Service Fabric-plattformen. Reliable Actors som körs i ett ramverk som är värd för en implementering av en tillståndskänslig tillförlitlig tjänst kallas den *aktören tjänsten*. Tjänsten aktören innehåller alla komponenter som krävs för att hantera livscykeln och meddelandet sändning för din aktörer:
@@ -42,282 +42,10 @@ I Reliable Services tjänsten ärver den `StatefulService` klass. Den här klass
 * Delade funktioner för alla aktörer, till exempel strömbrytare.
 * RPC-anrop på tjänsten aktören och på varje enskild aktören.
 
-### <a name="using-the-actor-service"></a>Med hjälp av tjänsten aktören
-Aktören instanser har åtkomst till tjänsten aktören de körs. Via tjänsten aktören hämta aktören instanser programmässigt kontext för tjänster. Tjänsten kontexten har partitions-ID, namn, programnamn och andra plattformsspecifika Service Fabric-information:
+> [!NOTE]
+> Tillståndskänsliga tjänster stöds inte i Java-/ Linux.
 
-```csharp
-Task MyActorMethod()
-{
-    Guid partitionId = this.ActorService.Context.PartitionId;
-    string serviceTypeName = this.ActorService.Context.ServiceTypeName;
-    Uri serviceInstanceName = this.ActorService.Context.ServiceName;
-    string applicationInstanceName = this.ActorService.Context.CodePackageActivationContext.ApplicationName;
-}
-```
-```Java
-CompletableFuture<?> MyActorMethod()
-{
-    UUID partitionId = this.getActorService().getServiceContext().getPartitionId();
-    String serviceTypeName = this.getActorService().getServiceContext().getServiceTypeName();
-    URI serviceInstanceName = this.getActorService().getServiceContext().getServiceName();
-    String applicationInstanceName = this.getActorService().getServiceContext().getCodePackageActivationContext().getApplicationName();
-}
-```
-
-
-Precis som alla Reliable Services måste tjänsten aktören registreras med en typ i Service Fabric-körningsmiljön. För tjänsten aktören att köra aktören-instanser måste aktören-typen registreras med tjänsten aktören. `ActorRuntime`-registreringsmetoden gör det här jobbet för aktörerna. Du kan registrera aktörstyp i det enklaste fallet och aktören tjänsten med standardinställningarna används implicit:
-
-```csharp
-static class Program
-{
-    private static void Main()
-    {
-        ActorRuntime.RegisterActorAsync<MyActor>().GetAwaiter().GetResult();
-
-        Thread.Sleep(Timeout.Infinite);
-    }
-}
-```
-
-Du kan också använda ett lambda-uttryck som tillhandahålls av metoden för registrering för att konstruera tjänsten aktören själv. Du kan konfigurera tjänsten aktören och uttryckligen skapa dina aktören instanser, där du kan mata in beroenden din aktören via sin konstruktor:
-
-```csharp
-static class Program
-{
-    private static void Main()
-    {
-        ActorRuntime.RegisterActorAsync<MyActor>(
-            (context, actorType) => new ActorService(context, actorType, () => new MyActor()))
-            .GetAwaiter().GetResult();
-
-        Thread.Sleep(Timeout.Infinite);
-    }
-}
-```
-```Java
-static class Program
-{
-    private static void Main()
-    {
-      ActorRuntime.registerActorAsync(
-              MyActor.class,
-              (context, actorTypeInfo) -> new FabricActorService(context, actorTypeInfo),
-              timeout);
-
-        Thread.sleep(Long.MAX_VALUE);
-    }
-}
-```
-
-### <a name="actor-service-methods"></a>Aktören Webbtjänstmetoder
-Aktören tjänsten implementerar `IActorService` (C#) eller `ActorService` (Java), som i sin tur implementerar `IService` (C#) eller `Service` (Java). Detta är det gränssnitt som används av Reliable Services fjärrkommunikation, vilket gör att RPC-anrop på Webbtjänstmetoder. Den innehåller servicenivå metoder som kan anropas via fjärranslutning via tjänsten fjärrkommunikation.
-
-#### <a name="enumerating-actors"></a>Räknar upp aktörer
-Tjänsten aktören kan en klient att räkna upp metadata om aktörer som är värd för tjänsten. Eftersom tjänsten aktören är en partitionerad tillståndskänslig service, utförs uppräkningen per partition. Eftersom varje partition kan innehålla många aktörer, returneras uppräkningen som en uppsättning växlingsbara resultat. Sidorna upprepas över tills alla sidor är skrivskyddade. I följande exempel visas hur du skapar en lista över alla aktiva aktörer i en partition av aktören tjänster:
-
-```csharp
-IActorService actorServiceProxy = ActorServiceProxy.Create(
-    new Uri("fabric:/MyApp/MyService"), partitionKey);
-
-ContinuationToken continuationToken = null;
-List<ActorInformation> activeActors = new List<ActorInformation>();
-
-do
-{
-    PagedResult<ActorInformation> page = await actorServiceProxy.GetActorsAsync(continuationToken, cancellationToken);
-
-    activeActors.AddRange(page.Items.Where(x => x.IsActive));
-
-    continuationToken = page.ContinuationToken;
-}
-while (continuationToken != null);
-```
-
-```Java
-ActorService actorServiceProxy = ActorServiceProxy.create(
-    new URI("fabric:/MyApp/MyService"), partitionKey);
-
-ContinuationToken continuationToken = null;
-List<ActorInformation> activeActors = new ArrayList<ActorInformation>();
-
-do
-{
-    PagedResult<ActorInformation> page = actorServiceProxy.getActorsAsync(continuationToken);
-
-    while(ActorInformation x: page.getItems())
-    {
-         if(x.isActive()){
-              activeActors.add(x);
-         }
-    }
-
-    continuationToken = page.getContinuationToken();
-}
-while (continuationToken != null);
-```
-
-#### <a name="deleting-actors"></a>Om du tar bort aktörer
-Tjänsten aktören innehåller också en funktion för att ta bort aktörer:
-
-```csharp
-ActorId actorToDelete = new ActorId(id);
-
-IActorService myActorServiceProxy = ActorServiceProxy.Create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
-```
-```Java
-ActorId actorToDelete = new ActorId(id);
-
-ActorService myActorServiceProxy = ActorServiceProxy.create(
-    new URI("fabric:/MyApp/MyService"), actorToDelete);
-
-myActorServiceProxy.deleteActorAsync(actorToDelete);
-```
-
-Mer information om att radera aktörer och deras tillstånd finns det [aktören livscykel dokumentationen](service-fabric-reliable-actors-lifecycle.md).
-
-### <a name="custom-actor-service"></a>Anpassade aktören service
-Du kan registrera dina egna anpassade aktören-tjänst som härleds från med hjälp av aktören registrering lambda `ActorService` (C#) och `FabricActorService` (Java). I den här anpassade aktören-tjänsten du kan implementera din egen servicenivå funktioner genom att skriva en service-klass som ärver `ActorService` (C#) eller `FabricActorService` (Java). En anpassad aktören tjänst ärver alla aktören runtime funktioner från `ActorService` (C#) eller `FabricActorService` (Java) och kan användas för att implementera din egen Webbtjänstmetoder.
-
-```csharp
-class MyActorService : ActorService
-{
-    public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<ActorBase> newActor)
-        : base(context, typeInfo, newActor)
-    { }
-}
-```
-```Java
-class MyActorService extends FabricActorService
-{
-    public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, BiFunction<FabricActorService, ActorId, ActorBase> newActor)
-    {
-         super(context, typeInfo, newActor);
-    }
-}
-```
-
-```csharp
-static class Program
-{
-    private static void Main()
-    {
-        ActorRuntime.RegisterActorAsync<MyActor>(
-            (context, actorType) => new MyActorService(context, actorType, () => new MyActor()))
-            .GetAwaiter().GetResult();
-
-        Thread.Sleep(Timeout.Infinite);
-    }
-}
-```
-```Java
-public class Program
-{
-    public static void main(String[] args)
-    {
-        ActorRuntime.registerActorAsync(
-                MyActor.class,
-                (context, actorTypeInfo) -> new FabricActorService(context, actorTypeInfo),
-                timeout);
-        Thread.sleep(Long.MAX_VALUE);
-    }
-}
-```
-
-#### <a name="implementing-actor-backup-and-restore"></a>Implementera aktören säkerhetskopiering och återställning
- I följande exempel anpassade aktören tjänsten Exponerar en metod för att säkerhetskopiera aktören data genom att utnyttja fjärrkommunikation lyssnaren finns redan i `ActorService`:
-
-```csharp
-public interface IMyActorService : IService
-{
-    Task BackupActorsAsync();
-}
-
-class MyActorService : ActorService, IMyActorService
-{
-    public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<ActorBase> newActor)
-        : base(context, typeInfo, newActor)
-    { }
-
-    public Task BackupActorsAsync()
-    {
-        return this.BackupAsync(new BackupDescription(PerformBackupAsync));
-    }
-
-    private async Task<bool> PerformBackupAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
-    {
-        try
-        {
-           // store the contents of backupInfo.Directory
-           return true;
-        }
-        finally
-        {
-           Directory.Delete(backupInfo.Directory, recursive: true);
-        }
-    }
-}
-```
-```Java
-public interface MyActorService extends Service
-{
-    CompletableFuture<?> backupActorsAsync();
-}
-
-class MyActorServiceImpl extends ActorService implements MyActorService
-{
-    public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<FabricActorService, ActorId, ActorBase> newActor)
-    {
-       super(context, typeInfo, newActor);
-    }
-
-    public CompletableFuture backupActorsAsync()
-    {
-        return this.backupAsync(new BackupDescription((backupInfo, cancellationToken) -> performBackupAsync(backupInfo, cancellationToken)));
-    }
-
-    private CompletableFuture<Boolean> performBackupAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
-    {
-        try
-        {
-           // store the contents of backupInfo.Directory
-           return true;
-        }
-        finally
-        {
-           deleteDirectory(backupInfo.Directory)
-        }
-    }
-
-    void deleteDirectory(File file) {
-        File[] contents = file.listFiles();
-        if (contents != null) {
-            for (File f : contents) {
-               deleteDirectory(f);
-             }
-        }
-        file.delete();
-    }
-}
-```
-
-
-I det här exemplet `IMyActorService` är ett kontrakt för fjärrkommunikation som implementerar `IService` (C#) och `Service` (Java) och sedan implementeras av `MyActorService`. Genom att lägga till avtalet remoting, metoder på `IMyActorService` är nu också tillgängliga för en klient genom att skapa en fjärrproxy via `ActorServiceProxy`:
-
-```csharp
-IMyActorService myActorServiceProxy = ActorServiceProxy.Create<IMyActorService>(
-    new Uri("fabric:/MyApp/MyService"), ActorId.CreateRandom());
-
-await myActorServiceProxy.BackupActorsAsync();
-```
-```Java
-MyActorService myActorServiceProxy = ActorServiceProxy.create(MyActorService.class,
-    new URI("fabric:/MyApp/MyService"), actorId);
-
-myActorServiceProxy.backupActorsAsync();
-```
+Mer information finns i [implementera servicenivå funktioner i tjänsten aktören](service-fabric-reliable-actors-using.md).
 
 ## <a name="application-model"></a>Programmodell
 Aktören tjänsterna är tillförlitliga, så att programmet modellen är samma. Dock generera aktören framework build-verktyg några av modellen programfilerna för dig.
@@ -369,34 +97,6 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 
 När du använder GUID/UUID: er och strängar värdena-kodas till en Int64. Men när du uttryckligen ger Int64 till en `ActorId`, Int64 mappas direkt till en partition utan ytterligare hash. Du kan använda den här tekniken för att styra vilka partition aktörer placeras i.
 
-## <a name="actor-using-remoting-v2-stack"></a>Aktören med fjärrkommunikation V2 Stack
-Användare kan nu använda fjärrkommunikation V2-stacken, vilket är mer performant och ger funktioner som anpassad serialisering med 2,8 nuget-paketet. Fjärrkommunikation V2 är inte bakåtkompatibla med befintliga fjärrkommunikation stack (vi ringer upp dig nu den som V1 fjärrkommunikation stacken).
-
-Följande ändringar krävs för att använda fjärrkommunikation V2-stacken.
- 1. Lägg till följande attribut för sammansättningen på aktören gränssnitt.
-   ```csharp
-   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
-   ```
-
- 2. Bygg- och uppgradera ActorService aktören klienten och projekt att använda V2-stacken.
-
-### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Aktören uppgradera tjänsten till fjärrkommunikation V2 stacken utan att påverka tillgängligheten för tjänsten.
-Den här ändringen kommer att vara en 2-steg-uppgradering. Följ stegen i samma ordning som anges.
-
-1.  Lägg till följande attribut för sammansättningen på aktören gränssnitt. Detta attribut kommer att starta två lyssnare för ActorService V1 (befintlig) och V2-lyssnare. Uppgradera ActorService med den här ändringen.
-
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
-  ```
-
-2. Uppgradera ActorClients när du har uppgraderat ovan.
-Det här steget säkerställer aktören Proxy använder fjärrkommunikation V2-stacken.
-
-3. Det här steget är valfritt. Ändra attributet ovan om du vill ta bort V1-lyssnaren.
-
-    ```csharp
-    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
-    ```
 
 ## <a name="next-steps"></a>Nästa steg
 * [Aktören tillståndshantering](service-fabric-reliable-actors-state-management.md)

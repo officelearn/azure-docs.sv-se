@@ -1,24 +1,24 @@
 ---
 title: Kopplingen versionshistorik | Microsoft Docs
-description: "Det här avsnittet listar alla versioner av kopplingar för Forefront Identity Manager (FIM) och Microsoft Identity Manager (MIM)"
+description: Det här avsnittet listar alla versioner av kopplingar för Forefront Identity Manager (FIM) och Microsoft Identity Manager (MIM)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2017
-ms.author: billmath
-ms.openlocfilehash: 5b43284a86a7e5d4cdbf50a29d73f970c9ad9d58
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 03/22/2018
+ms.author: davidste
+ms.openlocfilehash: 5b13338646abda7eefec44c42dc0159e9338adfa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connector-version-release-history"></a>Versionshistorik för anslutningsappen
 Kopplingar för Forefront Identity Manager (FIM) och Microsoft Identity Manager (MIM) uppdateras ofta.
@@ -34,9 +34,26 @@ Relaterade länkar:
 * [Hämta senaste kopplingar](http://go.microsoft.com/fwlink/?LinkId=717495)
 * [Allmän LDAP Connector](active-directory-aadconnectsync-connector-genericldap.md) refererar dokumentationen
 * [Allmän SQL Connector](active-directory-aadconnectsync-connector-genericsql.md) refererar dokumentationen
-* [Web Services Connector](http://go.microsoft.com/fwlink/?LinkID=226245) refererar dokumentationen
+* [Web Services Connector](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) refererar dokumentationen
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) refererar dokumentationen
 * [Kopplingen för Lotus Domino](active-directory-aadconnectsync-connector-domino.md) refererar dokumentationen
+
+
+## <a name="118300"></a>1.1.830.0
+
+### <a name="fixed-issues"></a>Fast problem:
+* Löst ConnectorsLog System.Diagnostics.EventLogInternal.InternalWriteEvent(Message: A device attached to the system is not functioning)
+* Du behöver uppdatera bindningen omdirigering från 3.3.0.0-4.1.3.0 till 4.1.4.0 i miiserver.exe.config i den här versionen av kopplingar
+* Generic Web Services:
+    * Löst giltig JSON-svar kunde inte sparas i configuration tool
+* Allmän SQL:
+    * Export genererar alltid bara uppdateringsfråga för borttagning. Lagts till för att generera en fråga
+    * SQL-fråga som hämtar objekt för driften av Deltaimport, om Delta-strategi är Change Tracking åtgärdades. I den här implementeringen känd begränsning: Deltaimport med Change Tracking läge inte spåra ändringar i attribut med flera värden
+    * Tillagda möjligheten att skapa en fråga för fall, när det är nödvändigt att ta bort det sista värdet i flervärdesattribut och den här raden innehåller inte alla data utom värde som är nödvändiga för att ta bort.
+    * System.ArgumentException hantering när implementerats utdataparametrar av SP 
+    * Felaktig fråga att göra fältet varbinary(max)-typ som har driften av export
+    * Problem med parameterList variabeln initierades två gånger (i funktionerna ExportAttributes och GetQueryForMultiValue)
+
 
 ## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
 
@@ -79,7 +96,9 @@ Relaterade länkar:
 * Generic Web Services:
   * Verktyget Wsconfig inte att konvertera korrekt Json-matris från ”exempelbegäran” för metoden REST-tjänsten. Detta orsakade problem med serialisering denna Json-matris för REST-begäran.
   * Web Service Connector Configuration Tool stöder inte användning av diskutrymme symboler i JSON-attributnamn 
-    * Ett mönster för ersättning kan läggas till manuellt i filen WSConfigTool.exe.config t.ex.```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+    * Ett mönster för ersättning kan läggas till manuellt i filen WSConfigTool.exe.config t.ex. ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+> [!NOTE]
+> JSONSpaceNamePattern nyckeln är obligatorisk när du får följande fel för export: meddelande: tomt namn är inte giltigt. 
 
 * Lotus Notes:
   * När alternativet **Tillåt anpassade certifiers för enheter i organisationen/organiserad** inaktiveras misslyckas anslutningen under exporten (uppdatering) efter exporten flödet alla attribut som exporteras till Domino men vid tidpunkten för exporten en KeyNotFoundException returneras ska synkroniseras. 

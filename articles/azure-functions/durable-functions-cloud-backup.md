@@ -1,24 +1,24 @@
 ---
-title: "FAN-in/fan-i scenarier i varaktiga funktioner – Azure"
-description: "Lär dig hur du implementerar ett fan-in-fläkt-in-scenario i tillägget varaktiga funktioner för Azure Functions."
+title: FAN-in/fan-i scenarier i varaktiga funktioner – Azure
+description: Lär dig hur du implementerar ett fan-in-fläkt-in-scenario i tillägget varaktiga funktioner för Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 35877831c7f63c20fee2f2bc3838e73bb98328c0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>FAN-in/fan-i scenariot i varaktiga funktioner - molnet säkerhetskopiering exempel
 
@@ -26,8 +26,8 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Följ instruktionerna i [installera varaktiga funktioner](durable-functions-install.md) att ställa in provet.
-* Den här artikeln förutsätter att du redan har gått igenom de [Hello sekvens](durable-functions-sequence.md) exempel genomgången.
+* [Installera varaktiga funktioner](durable-functions-install.md).
+* Slutför den [Hello sekvens](durable-functions-sequence.md) genomgången.
 
 ## <a name="scenario-overview"></a>Scenarioöversikt
 
@@ -47,7 +47,7 @@ Den här artikeln beskriver följande funktioner i exempelappen:
 * `E2_GetFileList`
 * `E2_CopyFileToBlob`
 
-I följande avsnitt beskrivs konfiguration och kod som används för utveckling av Azure portal. Kod för Visual Studio-utveckling visas i slutet av artikeln.
+I följande avsnitt beskrivs konfiguration och kod som används för C# skript. Kod för Visual Studio-utveckling visas i slutet av artikeln.
 
 ## <a name="the-cloud-backup-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Molnet säkerhetskopiering orchestration (Visual Studio Code och Azure portal exempelkod)
 

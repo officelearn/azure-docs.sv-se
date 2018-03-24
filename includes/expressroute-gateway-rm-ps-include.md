@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: expressroute
+author: cherylmc
+ms.service: expressroute
+ms.topic: include
+ms.date: 03/22/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 17edbef03f1e2882bd85f5a58e2a32a1541b50c8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/23/2018
+---
 Stegen för den här aktiviteten använder ett VNet baserat på värdena i följande konfiguration är en lista. Ytterligare inställningar och namn också beskrivs i den här listan. Vi använder inte den här listan i steg, även om vi lägger till variabler baserat på värdena i den här listan. Du kan kopiera listan om du vill använda som en referens, där du ersätter värdena med dina egna.
 
 **Referens för konfigurationslistan**

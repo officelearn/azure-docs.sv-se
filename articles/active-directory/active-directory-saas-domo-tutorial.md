@@ -1,23 +1,23 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Domo | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Domo."
+title: 'Självstudier: Azure Active Directory-integrering med Domo | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Domo.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2017
+ms.date: 03/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 3fbfd8839b1a45c6927753a48d1ac617f2d34427
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c7f74d3bd8a2f0173f8f3cc69c611696044875a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Självstudier: Azure Active Directory-integrering med Domo
 
@@ -31,7 +31,7 @@ Integrera Domo med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Domo, behöver du följande:
 
@@ -110,7 +110,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-domo-tutorial/tutorial_domo_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<companyname>.domo.com`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<companyname>.domo.com`
 
     b. I den **identifierare** textruta Skriv en URL med följande mönster:     
 
@@ -139,7 +139,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |    
-    | namn | User.DisplayName |
+    | namn | user.displayname |
     | e-post | User.Mail |
     
     a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
@@ -167,7 +167,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
    ![Konfigurera enkel inloggning](./media/active-directory-saas-domo-tutorial/tutorial_domo_configure.png) 
 
-9. Konfigurera enkel inloggning på **Domo** sida, måste du skicka den hämtade **certifikat**, **SAML enhets-ID**, **SAML enkel inloggning Tjänstwebbadress** och **Sign-Out URL** till [Domo supportteamet](mailto:support@domo.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
+9. Konfigurera enkel inloggning på **Domo** sida, navigera till Domo's Knowledge Base-artikel hitta [här](http://knowledge.domo.com?cid=azuread), och följ instruktionerna.
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -250,8 +250,6 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

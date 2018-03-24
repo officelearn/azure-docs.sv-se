@@ -1,13 +1,13 @@
 ---
-title: "Hantera kostnaderna effektivt för SQL Server på Azure virtual machines | Microsoft Docs"
-description: "Innehåller metodtips för att välja rätt SQL Server-virtuella prismodell."
+title: Hantera kostnaderna effektivt för SQL Server på Azure virtual machines | Microsoft Docs
+description: Innehåller metodtips för att välja rätt SQL Server-virtuella prismodell.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a275df84ce784147b5fd4f09afe4995417affffd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Priser för SQL Server Azure virtuella datorer
 
@@ -63,7 +63,7 @@ Du har två alternativ för att betala för SQL Server-licensiering för dessa v
 
 ### <a name="pay-per-usage"></a>Betala per användning
 
-**Betala per användning i SQL Server-licens** innebär att kostnaden per minut för att köra Azure VM omfattar kostnaden för SQL Server-licens. Du kan se priser för de olika SQL Server-versionerna (Web, Standard, Enterprise) i den [Azure VM sida med priser](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Kostnaden är samma för alla versioner av SQL Server (2012 SP3 2017). Precis som med SQL Server-licensiering i allmänhet beror licensiering kostnaden per minut på antal kärnor VM.
+**Betala per användning i SQL Server-licens** innebär att kostnaden per sekund för att köra Azure VM omfattar kostnaden för SQL Server-licens. Du kan se priser för de olika SQL Server-versionerna (Web, Standard, Enterprise) i den [Azure VM sida med priser](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Kostnaden är samma för alla versioner av SQL Server (2012 SP3 2017). Precis som med SQL Server-licensiering i allmänhet beror licensiering kostnaden per sekund på antal kärnor VM.
 
 Betala SQL Server rekommenderas-licensiering per användning för:
 
@@ -113,7 +113,7 @@ Om du vill skapa en SQL Server 2016 virtuella Azure-datorn med någon av dessa b
 > Berätta för oss inom 10 dagar hur många SQL Server-licenser som du ska använda i Azure. Länkar till föregående bilder har instruktioner om hur du gör detta.
 
 > [!NOTE]
-> Det går inte att ändra så att licensieringsmodellen för en SQL Server VM som betalas per minut ska använda din egen licens. I så fall måste du skapa en ny virtuell dator med BYOL och migrera dina databaser till den nya virtuella datorn. 
+> Det går inte att ändra licensieringsmodell för en betala per sekund SQL Server-VM för att använda din egen licens. I så fall måste du skapa en ny virtuell dator med BYOL och migrera dina databaser till den nya virtuella datorn. 
 
 ## <a name="avoid-unnecessary-costs"></a>Undvika onödiga kostnader
 

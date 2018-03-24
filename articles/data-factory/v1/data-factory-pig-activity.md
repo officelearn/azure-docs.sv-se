@@ -1,11 +1,10 @@
 ---
-title: "Transformera data med hjälp av Pig-aktiviteten i Azure Data Factory | Microsoft Docs"
-description: "Lär dig hur du kan använda Pig-aktivitet i ett Azure data factory för att köra Pig-skript på en på-begäran/din egen HDInsight-kluster."
+title: Transformera data med hjälp av Pig-aktiviteten i Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kan använda Pig-aktivitet i ett Azure data factory för att köra Pig-skript på en på-begäran/din egen HDInsight-kluster.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 5af07a1a-2087-455e-a67b-a79841b4ada5
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c309debf53cc22d102de740ffd2907257b9821d2
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: af0c19988c52760a681477a5cea7ebbc48492c83
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformera data med hjälp av Pig-aktiviteten i Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]

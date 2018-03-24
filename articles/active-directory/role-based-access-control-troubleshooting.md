@@ -1,6 +1,6 @@
 ---
-title: "Felsöka rollbaserad åtkomstkontroll Azure RBAC | Microsoft Docs"
-description: "Få hjälp med eller frågor om rollbaserad åtkomstkontroll resurser."
+title: Felsöka rollbaserad åtkomstkontroll Azure RBAC | Microsoft Docs
+description: Få hjälp med eller frågor om rollbaserad åtkomstkontroll resurser.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: seohack1
-ms.openlocfilehash: c2589aabce86f848fa1aa3e25b3f78be180c5525
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 766ff118638538520c8f17694b32f35dbe6d1025
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-azure-role-based-access-control"></a>Felsökning av rollbaserad åtkomstkontroll i Azure 
 
-Det här dokumentet artikeln innehåller svar på vanliga frågor om särskilda behörigheter som beviljas med roller, så att du vet vad som händer när du använder roller i Azure-portalen och kan felsöka problem med åtkomst till. Dessa roller omfattar alla typer av resurser:
+Den här artikeln innehåller svar på vanliga frågor om särskilda behörigheter som beviljas med roller, så att du vet vad som händer när du använder roller i Azure-portalen och kan felsöka problem med åtkomst till. Dessa roller omfattar alla typer av resurser:
 
 * Ägare  
 * Deltagare  
@@ -31,7 +31,7 @@ Det här dokumentet artikeln innehåller svar på vanliga frågor om särskilda 
 
 Ha fullständig åtkomst till hanteringen av ägare och deltagare, men en deltagare kan inte ge åtkomst till andra användare eller grupper. Det blir lite mer intressant med läsarrollen så att den där vi tillbringar lite tid. Finns det [rollbaserad åtkomstkontroll komma-igång artikel](role-based-access-control-configure.md) mer information om hur du beviljar åtkomst.
 
-## <a name="app-service-workloads"></a>App service arbetsbelastningar
+## <a name="app-service"></a>App Service
 ### <a name="write-access-capabilities"></a>Skrivåtkomst funktioner
 Om du ger en användare läsåtkomst till en enkel webbapp inaktiveras vissa funktioner som du kan förvänta inte sig. Följande hanteringsfunktioner kräver **skriva** åtkomst till en webbapp (medarbetare eller ägare), och inte är tillgängliga i skrivskyddat läge scenarier.
 
@@ -69,7 +69,14 @@ Dessa artiklar kräver **skriva** åtkomst till hela **resursgruppen** som inneh
 * Application Insights-komponenter  
 * Webbtest  
 
-## <a name="virtual-machine-workloads"></a>Arbetsbelastningar på virtuella datorer
+## <a name="azure-functions"></a>Azure Functions
+Vissa funktioner i [Azure Functions](../azure-functions/functions-overview.md) kräver skrivåtkomst. Till exempel om en användare har tilldelats rollen Läsare, kommer de inte att kunna visa funktioner i en funktionsapp. Portalen visar **(ingen åtkomst)**.
+
+![Fungera apparna ingen åtkomst](./media/role-based-access-control-troubleshooting/functionapps-noaccess.png)
+
+Användaren kan klicka på **plattformsfunktioner** och klicka sedan på **alla inställningar** att visa vissa inställningar som är relaterade till en funktionsapp (liknar ett webbprogram), men de kan inte ändra dessa inställningar.
+
+## <a name="virtual-machine"></a>Virtuell dator
 Mycket precis som med webbappar, vissa funktioner på bladet för virtuella datorer kräver skrivbehörighet till den virtuella datorn eller till andra resurser i resursgruppen.
 
 Virtuella datorer är relaterade till domänen namn, virtuella nätverk, storage-konton och Varningsregler.

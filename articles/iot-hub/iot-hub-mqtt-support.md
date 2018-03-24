@@ -1,11 +1,11 @@
 ---
-title: "Förstå Azure IoT-hubb MQTT support | Microsoft Docs"
-description: "Utvecklarhandbok - stöd för enheter som ansluter till en IoT-hubb enheten riktade slutpunkt med MQTT-protokollet. Innehåller information om inbyggda MQTT stöd i Azure IoT-enhet SDK: er."
+title: Förstå Azure IoT-hubb MQTT support | Microsoft Docs
+description: 'Utvecklarhandbok - stöd för enheter som ansluter till en IoT-hubb enheten riktade slutpunkt med MQTT-protokollet. Innehåller information om inbyggda MQTT stöd i Azure IoT-enhet SDK: er.'
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/05/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9acda980583319414cc9e8668424907947a257db
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d119cc4c4053a737e48739c17ae586abd51f3efa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med din IoT-hubb med MQTT-protokollet
 
@@ -181,7 +181,7 @@ Om du vill ta emot meddelanden från IoT-hubb en enhet ska prenumerera med `devi
 
 Enheten inte ta emot meddelanden från IoT-hubb förrän den har prenumererar på sin enhetsspecifika slutpunkt, representeras av den `devices/{device_id}/messages/devicebound/#` avsnittet filter. När en prenumeration har upprättats enheten tar emot moln till enhet meddelanden som skickades till den efter tiden för prenumerationen. Om enheten ansluter med **CleanSession** -flaggan inställd på **0**, prenumerationen är beständig mellan olika sessioner. I det här fallet nästa gång enheten ansluter med **CleanSession 0** den tar emot utestående meddelanden som skickas till när du är frånkopplad. Om enheten använder **CleanSession** -flaggan inställd på **1** men det inte tar emot meddelanden från IoT-hubb tills den prenumererar på sin enhet-slutpunkt.
 
-IoT-hubb levererar meddelanden med den **avsnittsnamn** `devices/{device_id}/messages/devicebound/`, eller `devices/{device_id}/messages/devicebound/{property_bag}` när det finns egenskaper. `{property_bag}` innehåller url-kodade nyckel/värde-par för meddelandeegenskaper. Endast egenskaper för program och användaren går Systemegenskaper (exempelvis **messageId** eller **correlationId**) ingår i egenskapsuppsättningen. Egenskapsnamn för systemet har prefixet  **$** , programegenskaper använda ursprungliga egenskapsnamnet med inget prefix.
+IoT-hubb levererar meddelanden med den **avsnittsnamn** `devices/{device_id}/messages/devicebound/`, eller `devices/{device_id}/messages/devicebound/{property_bag}` när det finns egenskaper. `{property_bag}` innehåller url-kodade nyckel/värde-par för meddelandeegenskaper. Endast egenskaper för program och användaren går Systemegenskaper (exempelvis **messageId** eller **correlationId**) ingår i egenskapsuppsättningen. Egenskapsnamn för systemet har prefixet **$**, programegenskaper använda ursprungliga egenskapsnamnet med inget prefix.
 
 När en enhetsapp prenumererar på ett ämne med **QoS 2**, IoT-hubb ger maximal QoS nivå 1 i den **SUBACK** paket. Efter det levererar IoT-hubb meddelanden till enheten med QoS-1.
 
@@ -300,7 +300,7 @@ Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 [lnk-mqtt-docs]: http://mqtt.org/documentation
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java
-[lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt
+[lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device/samples
 [lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer

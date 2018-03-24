@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med SAP Molnplattform | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAP Molnplattform."
+title: 'Självstudier: Azure Active Directory-integrering med SAP Molnplattform | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAP Molnplattform.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 309415a68308943f638195303ceb236569519472
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a578a732efa3d2b91240ef0f4c02670aea8e547f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Självstudier: Azure Active Directory-integrering med SAP Molnplattform
 
@@ -32,7 +32,7 @@ Integrera SAP Molnplattform med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med SAP Molnplattform, behöver du följande:
 
@@ -111,7 +111,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och SAP Cloud Platform domän med enkel inloggning information](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_url.png)
 
-    a. I den **logga URL** textruta, Skriv URL-Adressen används av användarna att logga in på ditt **SAP Molnplattform** program. Detta är en skyddad resurs i ditt program för SAP Molnplattform kontospecifikt URL. URL: en är baserat på följande sätt:`https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
+    a. I den **logga URL** textruta, Skriv URL-Adressen används av användarna att logga in på ditt **SAP Molnplattform** program. Detta är en skyddad resurs i ditt program för SAP Molnplattform kontospecifikt URL. URL: en är baserat på följande sätt: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
      >[!NOTE]
      >Det här är URL-Adressen i din SAP Molnplattform program som kräver att användaren autentiseras.
@@ -216,7 +216,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
        
     | Attributet för kontrollen | Huvudnamn attribut |
     | --- | --- |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |Förnamn |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |firstname |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |Efternamn |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |e-post |
    
@@ -228,7 +228,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
  
     c. Namn och värden för **Principal attributet** visas i skärmbilden beror på hur programmet utvecklas. Det är möjligt att ditt program kräver olika mappningar.
 
-###<a name="assertion-based-groups"></a>Assertion-baserade grupper
+### <a name="assertion-based-groups"></a>Assertion-baserade grupper
 
 Som ett valfritt steg kan du konfigurera assertion-baserade grupper för identitetsprovider Azure Active Directory.
 

@@ -1,11 +1,11 @@
 ---
-title: "Felsöka säkerhetskopiering med Azure-dator | Microsoft Docs"
-description: "Felsökning av säkerhetskopiering och återställning av virtuella Azure-datorer"
+title: Felsöka säkerhetskopiering med Azure-dator | Microsoft Docs
+description: Felsökning av säkerhetskopiering och återställning av virtuella Azure-datorer
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -13,38 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/21/2018
-ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: d8840d2561e6102fe1679c36e981de6614b84d54
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.author: trinadhk;markgal;jpallavi;sogup
+ms.openlocfilehash: 89535fc22faccfb184d9b56a6138337877957829
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
 Du kan felsöka fel påträffades när med Azure Backup med information som visas i tabellen nedan.
-
-## <a name="backup"></a>Backup
-
-### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Fel: Den angivna diskkonfigurationen stöds inte
-
-> [!NOTE]
-> Vi har en privat förhandsgranskning för att stödja säkerhetskopieringar för virtuella datorer med > 1TB diskar. Information finns i [privat förhandsgranskning för stora diskstöd för säkerhetskopiering av VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
->
->
-
-För närvarande Azure Backup stöder inte diskstorlekar [större än 1 023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- Om du har diskar som är större än 1 TB [kopplar du nya diskar](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) som är mindre än 1 TB <br>
-- Kopiera sedan data från disken som är större än 1 TB till nyligen skapade diskar som är mindre än 1 TB. <br>
-- Se till att alla data har kopierats och ta bort de diskar som är större än 1 TB
-- Påbörja säkerhetskopieringen.
 
 | Felinformation | Lösning |
 | --- | --- |
 | Det gick inte att utföra åtgärden eftersom den virtuella datorn inte finns längre. -Stoppa skydd av virtuell dator utan att ta bort säkerhetskopierade data. Mer information på http://go.microsoft.com/fwlink/?LinkId=808124 |Detta händer när den primära virtuella datorn tas bort, men säkerhetskopieringsprincipen fortsätter söker en virtuell dator för att säkerhetskopiera. Åtgärda det här felet: <ol><li> Skapa den virtuella datorn med samma namn och samma resursgruppens namn [cloud service name]<br>(OR)</li><li> Sluta skydda virtuella datorer med eller utan att ta bort säkerhetskopierade data. [Mer information](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Ögonblicksbild misslyckades på grund av ingen nätverksanslutning på den virtuella datorn – se till att virtuella datorn har åtkomst till nätverket. För ögonblicksbilden ska lyckas, antingen godkända Azure-datacenter IP-adressintervall eller konfigurera en proxyserver för nätverksåtkomst. Mer information finns i http://go.microsoft.com/fwlink/?LinkId=800034. Om du redan använder proxyserver, kontrollera att proxyserverinställningarna har konfigurerats korrekt | Det här felet returneras när du neka utgående internet-anslutning på den virtuella datorn. Internetanslutning krävs för snapshot-tillägg för virtuell dator att ta en ögonblicksbild av underliggande diskar för den virtuella datorn. [Lär dig mer](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine) på hur du löser ögonblicksbild fel på grund av blockerade nätverksåtkomst. |
-| VM-agenten kan inte kommunicera med Azure Backup-tjänsten. -Kontrollera att den virtuella datorn är ansluten till nätverket och den Virtuella datoragenten är senaste och körs. Mer information finns i http://go.microsoft.com/fwlink/?LinkId=800034 |Det här felet returneras om det uppstår ett problem med den Virtuella Datoragenten eller nätverksåtkomst till Azure-infrastrukturen är blockerad på något sätt. [Lär dig mer](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) om felsökning av VM ögonblicksbild problem.<br> Om den Virtuella datoragenten inte orsakar problem, och starta sedan om den virtuella datorn. Ett felaktigt tillstånd för virtuell dator kan ibland orsaka problem och starta om den virtuella datorn återställs den här ”dåligt tillstånd”. |
+| VM-agenten kan inte kommunicera med Azure Backup-tjänsten. -Kontrollera att den virtuella datorn är ansluten till nätverket och den Virtuella datoragenten är senaste och körs. Mer information finns i  http://go.microsoft.com/fwlink/?LinkId=800034 |Det här felet returneras om det uppstår ett problem med den Virtuella Datoragenten eller nätverksåtkomst till Azure-infrastrukturen är blockerad på något sätt. [Lär dig mer](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) om felsökning av VM ögonblicksbild problem.<br> Om den Virtuella datoragenten inte orsakar problem, och starta sedan om den virtuella datorn. Ett felaktigt tillstånd för virtuell dator kan ibland orsaka problem och starta om den virtuella datorn återställs den här ”dåligt tillstånd”. |
 | Den virtuella datorn är i felläge för etablering – starta om den virtuella datorn och kontrollera att den virtuella datorn är igång eller avställning för säkerhetskopiering | Detta inträffar när en av tillägget fel leder tillstånd för virtuell dator är i feltillstånd etablering. Gå till tilläggslista och om det finns ett misslyckade tillägg, ta bort den och försök att starta om den virtuella datorn. Om alla tillägg körs, kan du kontrollera om VM-agenttjänsten körs. Om inte, starta om tjänsten för VM-agent. | 
-| VMSnapshot tillägget misslyckades för hanterade diskar - försök sedan att utföra säkerhetskopieringen. Följ anvisningarna på 'http://go.microsoft.com/fwlink/?LinkId=800034' om problemet upprepas. Kontakta Microsoft support om det misslyckas ytterligare | Det här felet när Azure Backup-tjänsten inte kan utlösa en ögonblicksbild. [Lär dig mer](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed) om felsökning VM ögonblicksbild problem. |
+| VMSnapshot tillägget misslyckades för hanterade diskar - försök sedan att utföra säkerhetskopieringen. Om problemet upprepas följer du anvisningarna 'http://go.microsoft.com/fwlink/?LinkId=800034'. Kontakta Microsoft support om det misslyckas ytterligare | Det här felet när Azure Backup-tjänsten inte kan utlösa en ögonblicksbild. [Lär dig mer](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed) om felsökning VM ögonblicksbild problem. |
 | Det gick inte att kopiera ögonblicksbilden av den virtuella datorn på grund av otillräckligt utrymme i storage-konto - Se till att lagringskontot har ledigt utrymme som är likvärdiga med data som finns på premium storage diskar som är kopplade till den virtuella datorn | Vid premium VMs kopiera vi ögonblicksbilden till storage-konto. Detta är att se till att säkerhetskopiering hanteringstrafik som arbetar på ögonblicksbild, inte antalet IOPS som är tillgängliga för det program som använder premiumdiskar. Microsoft rekommenderar att du allokerar högst 50% av det totala lagringsutrymmet konto så Azure Backup-tjänsten kan kopiera ögonblicksbilden till storage-konto och överför data från denna kopierade plats i lagringskontot till valvet. | 
 | Det gick inte att utföra åtgärden eftersom den Virtuella datoragenten inte svarar |Det här felet returneras om det uppstår ett problem med den Virtuella Datoragenten eller nätverksåtkomst till Azure-infrastrukturen är blockerad på något sätt. För virtuella Windows-datorer, kontrollera Tjänststatus för VM-agenten i services och om agenten ska visas i program på Kontrollpanelen. Försök att ta bort programmet från kontrollen panelen och installera om agenten som tidigare nämnts [under](#vm-agent). När du har installerat agenten, Utlös en ad hoc-säkerhetskopiering för att verifiera. |
 | Recovery services-tillägget åtgärden misslyckades. -Kontrollera att den senaste virtuella datorns agent finns på den virtuella datorn och agent-tjänsten körs. Försök utföra säkerhetskopieringen igen och kontakta Microsoft support om det misslyckas. |Det här felet returneras när VM-agenten är inaktuell. Läs ”uppdatering av VM-Agent” avsnittet nedan för att uppdatera den Virtuella datoragenten. |

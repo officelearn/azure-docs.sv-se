@@ -1,11 +1,11 @@
 ---
-title: "Övervaka programmässigt ett Azure data factory | Microsoft Docs"
-description: "Lär dig hur du övervakar en pipeline i en datafabrik med hjälp av olika software development Kit (SDK)."
+title: Övervaka programmässigt ett Azure data factory | Microsoft Docs
+description: Lär dig hur du övervakar en pipeline i en datafabrik med hjälp av olika software development Kit (SDK).
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,17 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 95934de9b84270ff112489a7b67f622dad609970
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 87e69349245c5f67e23022e3a45ed798400e6a2c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Övervaka ett Azure data factory programmässigt
 Den här artikeln beskriver hur du övervakar en pipeline i en datafabrik med hjälp av olika software development Kit (SDK). 
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [övervaka och hantera pipelines i Data Factory version1](v1/data-factory-monitor-manage-pipelines.md).
+
+## <a name="data-range"></a>Dataområdet
+
+Data Factory lagrar bara pipeline kör data för 45 dagar. När du frågar programmässigt efter data om Data Factory-pipelinen körs - exempelvis med PowerShell-kommando `Get-AzureRmDataFactoryV2PipelineRun` -det finns inga maximala datum för den valfria `LastUpdatedAfter` och `LastUpdatedBefore` parametrar. Men om frågan för data för det senaste året, till exempel frågan returnerar inte ett fel, men returnerar bara pipeline kör data från de senaste 45 dagarna.
+
+Om du vill bevara pipeline kör data mer än 45 dagar, ställa in din egen diagnostikloggning med [Azure-Monitor](monitor-using-azure-monitor.md).
 
 ## <a name="net"></a>.NET
 En fullständig genomgång av hur du skapar och övervakning av en pipeline med .NET SDK finns [skapa en datafabrik och pipeline med hjälp av .NET](quickstart-create-data-factory-dot-net.md).

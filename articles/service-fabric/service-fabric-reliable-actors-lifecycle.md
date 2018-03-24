@@ -1,6 +1,6 @@
 ---
-title: "Översikt över aktören-baserad Azure mikrotjänster livscykel | Microsoft Docs"
-description: "Beskriver Service Fabric tillförlitliga aktören livscykel, skräpinsamling och manuellt ta bort aktörer och deras tillstånd"
+title: Översikt över aktören-baserad Azure mikrotjänster livscykel | Microsoft Docs
+description: Beskriver Service Fabric tillförlitliga aktören livscykel, skräpinsamling och manuellt ta bort aktörer och deras tillstånd
 services: service-fabric
 documentationcenter: .net
 author: amanbha
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: dd45acd75e1cf263029c869d88c87b28f56d50cc
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4abb1ea6e5c79a5280d6ca4ad96070603b81793a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Aktören livscykel, automatisk skräpinsamling och manuellt ta bort
 En aktör aktiveras första gången ett anrop görs till någon av dess metoder. En aktör är inaktiverad (skräp som samlats in av aktörer runtime) om den inte används för en konfigurerbar tidsperiod. En aktör och dess tillstånd kan också tas bort manuellt när som helst.
@@ -112,37 +112,8 @@ Exemplet visar effekten av aktören metodanrop, påminnelser och timers på den 
 
 En aktör blir aldrig skräpinsamlats medan det körs en av dess metoder, oavsett hur lång tid det tar vid körning av den här metoden. Som tidigare nämnts förhindrar körning av aktören gränssnittsmetoder och påminnelse återanrop skräpinsamling genom att återställa den aktören inaktivitetstid till 0. Körningen av timer återanrop återställs inte den inaktiva tiden till 0. Skräpinsamling aktören skjuts tills timer-återanrop har slutförts.
 
-## <a name="deleting-actors-and-their-state"></a>Ta bort aktörer och deras tillstånd
-Skräpinsamling inaktiverade aktörer endast rensar aktören objektet, men det tar inte bort data som lagras i en aktör tillstånd Manager. När en aktör aktiveras igen, få dess data igen ska tillgång till den via hanteraren tillstånd. I fall där aktörer lagra data i Tillståndshanterare och är inaktiverad men aldrig aktiverats igen, kan det vara nödvändigt att rensa sina data.
-
-Den [aktören Service](service-fabric-reliable-actors-platform.md) innehåller en funktion för att ta bort aktörer från en fjärransluten anropare:
-
-```csharp
-ActorId actorToDelete = new ActorId(id);
-
-IActorService myActorServiceProxy = ActorServiceProxy.Create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
-```
-```Java
-ActorId actorToDelete = new ActorId(id);
-
-ActorService myActorServiceProxy = ActorServiceProxy.create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-myActorServiceProxy.deleteActorAsync(actorToDelete);
-```
-
-Om du tar bort en aktör ger följande effekter beroende på om huruvida aktören är för närvarande är aktiva:
-
-* **Aktiva aktören**
-  * Aktören tas bort från listan med aktiva aktörer och inaktiveras.
-  * Dess tillstånd tas bort permanent.
-* **Inaktiva aktören**
-  * Dess tillstånd tas bort permanent.
-
-Observera att det går inte att anropa en aktör ta bort på sig själv från någon av dess metoder aktören eftersom aktören inte kan tas bort körs inom en aktören anrop-kontext där körningsmiljön har fått ett lås runt aktören anropet att tillämpa Enkeltrådig åtkomst.
+## <a name="manually-deleting-actors-and-their-state"></a>Ta manuellt bort aktörer och deras tillstånd
+Skräpinsamling inaktiverade aktörer endast rensar aktören objektet, men det tar inte bort data som lagras i en aktör tillstånd Manager. När en aktör aktiveras igen, få dess data igen ska tillgång till den via hanteraren tillstånd. I fall där aktörer lagra data i Tillståndshanterare och är inaktiverad men aldrig aktiverats igen, kan det vara nödvändigt att rensa sina data.  Exempel på hur du tar bort aktörer läsa [ta bort aktörer och deras](service-fabric-reliable-actors-delete-actors.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Aktören timers och påminnelser](service-fabric-reliable-actors-timers-reminders.md)

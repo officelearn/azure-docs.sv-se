@@ -1,24 +1,24 @@
 ---
-title: Hantera dina program i Visual Studio | Microsoft Docs
-description: "Du kan använda Visual Studio för att skapa, utveckla, paketera, distribuera och felsöka din Service Fabric-program och tjänster."
+title: Hantera dina Azure Servic Fabric-program i Visual Studio | Microsoft Docs
+description: Du kan använda Visual Studio för att skapa, utveckla, paketera, distribuera och felsöka dina Azure Service Fabric-program och tjänster.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/07/2017
-ms.author: mikkelhegn
-ms.openlocfilehash: 81814ef07cfab06855b3bfbf0eb6ef51b8dfce4f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.date: 02/23/2018
+ms.author: mikhegn
+ms.openlocfilehash: 16ca821f7cae252148e8901c2ccb8539a25d1d59
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Använd Visual Studio för att förenkla skriva och hantera dina Service Fabric-program
 Du kan hantera dina Azure Service Fabric-program och tjänster via Visual Studio. När du har [ställa in din utvecklingsmiljö](service-fabric-get-started.md), du kan använda Visual Studio skapar Service Fabric-program, lägga till tjänster eller paket, registrera och distribuera program i klustret för lokal utveckling.
@@ -45,7 +45,7 @@ Visual Studio tillhandahåller en egenskap som kallas **programmet felsökningsl
 
 #### <a name="application-debug-modes"></a>Programmet felsökningslägen
 
-1. **Uppdatera program** detta läge kan du snabbt ändra och felsöka din kod och stöd för redigering av statiska filer vid felsökning. Det här läget fungerar bara om lokal utveckling klustret är i [1 nod läge](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+1. **Uppdatera program** detta läge kan du snabbt ändra och felsöka din kod och stöd för redigering av statiska filer vid felsökning. Det här läget fungerar bara om lokal utveckling klustret är i [1 nod läge](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode). Detta är standardvärdet felsökningsläge för programmet.
 2. **Ta bort programmet** gör att programmet ska tas bort när debug-sessionen avslutas.
 3. **Automatisk uppgradering** programmet fortsätter att köras när debug-sessionen avslutas. Nästa felsökningssessionen behandlar distributionen som en uppgradering. Uppgraderingsprocessen behåller alla data som du angav i föregående felsökningssessionen.
 4. **Hålla program** programmet körs i klustret när debug-sessionen avslutas. I början av nästa felsökningssessionen tas programmet bort.
@@ -53,7 +53,7 @@ Visual Studio tillhandahåller en egenskap som kallas **programmet felsökningsl
 För **automatiskt uppgradera** bevaras data genom att använda programfunktioner för uppgradering av Service Fabric. Mer information om hur du uppgraderar program och hur du kan utföra en uppgradering i en verklig miljö finns [uppgradering av Service Fabric-programmet](service-fabric-application-upgrade.md).
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>Lägga till en tjänst till Service Fabric-program
-Du kan lägga till nya tjänster i programmet för att utöka dess funktionalitet.  För att säkerställa att tjänsten ingår i ditt programpaket, lägger du till tjänsten via den **nya Fabric-tjänsten...**  menyalternativ.
+Du kan lägga till nya tjänster i programmet för att utöka dess funktionalitet. För att säkerställa att tjänsten ingår i ditt programpaket, lägger du till tjänsten via den **nya Fabric-tjänsten...**  menyalternativ.
 
 ![Lägg till en ny Service Fabric-tjänst][newservice]
 
@@ -74,7 +74,7 @@ Du kan utföra grundläggande klusterhanteringsåtgärder inifrån Visual Studio
 ![Ta bort ett program][removeapplication]
 
 > [!TIP]
-> Rikare hanteringsfunktioner för klustret, se [visualisera ditt kluster med Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> En bättre hantering av klusterfunktionaliteten, se [visualisera ditt kluster med Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 >
 >
 

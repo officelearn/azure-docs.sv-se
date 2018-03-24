@@ -1,12 +1,12 @@
 ---
-title: "Strömma Azure diagnostiska loggar till Log Analytics | Microsoft Docs"
-description: "Lär dig mer om att strömma Azure diagnostiska loggar till en logganalys-arbetsyta."
+title: Strömma Azure diagnostiska loggar till Log Analytics | Microsoft Docs
+description: Lär dig mer om att strömma Azure diagnostiska loggar till en logganalys-arbetsyta.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: johnkem
-ms.openlocfilehash: 9440bd7f872914887c1f6e50f08a3c273536fcf8
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 517ce3547f471dd1b40c79b2f087b02ad7f51b85
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Strömma Azure diagnostiska loggar till logganalys
 **[Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)**  kan strömmas i nära realtid till Azure Log Analytics med hjälp av portalen, PowerShell-cmdlets eller Azure CLI.
@@ -40,21 +40,21 @@ Logganalys-arbetsytan behöver inte finnas i samma prenumeration som resursen av
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Dataströmmen diagnostikloggar med hjälp av portalen
 1. Gå till Azure-Monitor i portalen och klicka på **diagnostikinställningar**
 
-    ![Avsnittet av Azure-Monitor övervakning](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-blade.png)
+    ![Avsnittet av Azure-Monitor övervakning](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-blade.png)
 
 2. Om du vill filtrera listan efter resursgrupp eller resurstyp, och klicka sedan på resursen som du vill ange en diagnostikinställningen.
 
 3. Om det finns inga inställningar på resursen har du valt, uppmanas du för att skapa en inställning. Klicka på ”Aktivera diagnostik”.
 
-   ![Lägg till diagnostikinställningen - inga befintliga inställningar](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-none.png)
+   ![Lägg till diagnostikinställningen - inga befintliga inställningar](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-none.png)
 
    Om det finns befintliga inställningarna på resursen, visas en lista över inställningar som redan har konfigurerats på den här resursen. Klicka på ”Lägg till diagnostikinställningen”.
 
-   ![Lägg till diagnostikinställningen - befintliga inställningar](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-multiple.png)
+   ![Lägg till diagnostikinställningen - befintliga inställningar](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
 
 3. Ge din ange ett namn och markera kryssrutan för **skicka till logganalys**, välj sedan en logganalys-arbetsytan.
    
-   ![Lägg till diagnostikinställningen - befintliga inställningar](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
+   ![Lägg till diagnostikinställningen - befintliga inställningar](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
 
 4. Klicka på **Spara**.
 

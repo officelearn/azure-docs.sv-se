@@ -1,24 +1,24 @@
 ---
-title: "Agenthälsoslösning i OMS | Microsoft Docs"
-description: "Den här artikeln är avsedd att hjälpa dig att förstå hur du använder den här lösningen för att övervaka hälsotillståndet hos dina agenter som rapporterar direkt till OMS- eller System Center Operations Manager."
+title: Agenthälsoslösning i OMS | Microsoft Docs
+description: Den här artikeln är avsedd att hjälpa dig att förstå hur du använder den här lösningen för att övervaka hälsotillståndet hos dina agenter som rapporterar direkt till OMS- eller System Center Operations Manager.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 939bf5ae6ee306008567ce62ddf8a6d1f05da60a
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: d7eb1550a21e66d4ae4cc4932b30a90956c60d1e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="agent-health-solution-in-oms"></a>Agenthälsolösning i OMS
 Agenthälsolösningen i OMS hjälper dig att förstå vilka av alla agenter som rapporterar direkt till OMS-arbetsyta eller en System Center Operations Manager-hanteringsgrupp som är anslutna till OMS som inte svarar och skickra in användningsdata.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
@@ -98,25 +98,6 @@ Varje agent som rapporterar till en hanteringsserver för Operations Manager ski
 Följande tabell innehåller exempel på sökningar i loggen för poster som har samlats in av den här lösningen.
 
 | Fråga | Beskrivning |
-| --- | --- |
-| Skriv=Heartbeat &#124; distinct Computer |Totalt antal agenter |
-| Skriv=Heartbeat &#124; measure max(TimeGenerated) som LastCall från Computer &#124; där LastCall < NOW-24HOURS |Antal agenter som inte har svarat de senaste 24 timmarna |
-| Type=Heartbeat &#124; measure max(TimeGenerated) som LastCall från Computer &#124; där LastCall < NU-15MINUTES |Antal agenter som inte har svarat de senaste 15 minuterna |
-| Skriv=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) som LastCall enligt Computer |Datorer online (under de senaste 24 timmarna) |
-| Skriv=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) som LastCall enligt Computer |Totalt antal agenter som har varit offline de senaste 30 minuterna (för de senaste 24 timmarna) |
-| Skriv = Heartbeat &#124; measure countdistinct(Computer) enligt OSType |Hämta en trend över antalet agenter över tid enligt OSType|
-| Skriv = Heartbeat&#124;measure countdistinct(Computer) enligt OSType |Distribution enligt OS-typ |
-| Skriv = Heartbeat&#124;measure countdistinct(Computer) enligt Version |Distribution enligt Agent-version |
-| Skriv = Heartbeat &#124; measure count() enligt Category |Distribution enligt Agent-kategori |
-| Skriv = Heartbeat&#124;measure countdistinct(Computer) enligt ManagementGroupName | Distribution enligt hanteringsgrupp |
-| Skriv = Heartbeat&#124;measure countdistinct(Computer) enligt RemoteIPCountry |Geoplats för agenter |
-| Type=Heartbeat IsGatewayInstalled=true&#124;Distinct Computer |Antalet installerade OMS-Gateways |
-
-
->[!NOTE]
-> Om din arbetsyta har uppgraderats till [det nya Log Analytics-frågespråket](../log-analytics/log-analytics-log-search-upgrade.md) ändras frågorna ovan till följande.
->
->| Fråga | Beskrivning |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Totalt antal agenter |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Antal agenter som inte har svarat de senaste 24 timmarna |
@@ -130,6 +111,9 @@ Följande tabell innehåller exempel på sökningar i loggen för poster som har
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by ManagementGroupName | Distribution enligt hanteringsgrupp |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Geoplats för agenter |
 | Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Antalet installerade OMS-Gateways |
+
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,25 +1,25 @@
 ---
-title: "Kopiera data från och till Dynamics CRM eller Dynamics 365 med hjälp av Azure Data Factory | Microsoft Docs"
-description: "Lär dig att kopiera data från Microsoft Dynamics CRM eller Microsoft Dynamics 365 till stöd för sink datalager eller från stöd för datalager för källan till Dynamics CRM eller Dynamics 365 genom att använda en kopia aktivitet i en data factory-pipelinen."
+title: Kopiera data från och till Dynamics CRM eller Dynamics 365 (gemensamma Data Service) med hjälp av Azure Data Factory | Microsoft Docs
+description: Lär dig att kopiera data från Microsoft Dynamics CRM eller Microsoft Dynamics 365 (gemensamma Data Service) till stöd för sink datalager eller från stöd för datalager för källan till Dynamics CRM eller Dynamics 365 genom att använda en kopia aktivitet i en data factory-pipelinen.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/16/2018
 ms.author: jingwang
-ms.openlocfilehash: dc0b01e23ebb2695fd0365f054b3cacd2573f3c6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ea69fdab9ec510f6060b280db3afffb7533a4bda
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 eller Dynamics CRM med hjälp av Azure Data Factory
+# <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (gemensamma Data Service) eller Dynamics CRM med hjälp av Azure Data Factory
 
 Den här artikeln beskrivs hur du använder Kopieringsaktiviteten i Azure Data Factory för att kopiera data från och till Microsoft Dynamics 365 eller Microsoft Dynamics CRM. Den bygger på den [Kopieringsaktiviteten översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över Kopieringsaktiviteten.
 
@@ -28,7 +28,7 @@ Den här artikeln beskrivs hur du använder Kopieringsaktiviteten i Azure Data F
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från Dynamics 365 eller Dynamics CRM till alla stöds sink-datalagret. Du kan också kopiera data från alla datalager stöds källa till Dynamics 365 eller Dynamics CRM. En lista över datakällor som stöds som datakällor eller sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från Dynamics 365 (gemensamma Data Service) eller Dynamics CRM till alla stöds sink-datalagret. Du kan också kopiera data från alla datalager stöds källa till Dynamics 365 (gemensamma Data Service) eller Dynamics CRM. En lista över datakällor som stöds som datakällor eller sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
 Den här anslutningen Dynamics stöder följande versioner av Dynamics och typer av autentisering. (IFD är för kort för distribution av mot internet.)
 

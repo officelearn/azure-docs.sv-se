@@ -1,24 +1,18 @@
 ---
-title: Hantera Azure Automation data | Microsoft Docs
-description: "Den här artikeln innehåller flera avsnitt för att hantera en Azure Automation-miljö.  För närvarande innehåller datalagring och säkerhetskopiering av Azure Automation-katastrofåterställning i Azure Automation."
+title: Hantera Azure Automation-data
+description: Den här artikeln innehåller flera avsnitt för att hantera en Azure Automation-miljö.  För närvarande innehåller datalagring och säkerhetskopiering av Azure Automation-katastrofåterställning i Azure Automation.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: stevenka
-editor: tysonn
-ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/02/201
-ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 2afcf918ffa104bd0e13048c152e04992f55ffe1
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+manager: carmonm
+ms.openlocfilehash: c71807a14c8a7f1edff60411a84f7d0d6f70fd23
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-azure-automation-data"></a>Hantera Azure Automation-data
 Den här artikeln innehåller flera avsnitt för att hantera en Azure Automation-miljö.
@@ -43,7 +37,7 @@ I följande tabell sammanfattas bevarandeprincipen för olika resurser.
 
 Bevarandeprincipen gäller för alla användare och för närvarande inte kan anpassas.
 
-Men om du vill behålla data under en längre tidsperiod, kan du vidarebefordra runbook paketjobbsloggarna till logganalys.  Mer information finns [vidarebefordra Azure Automation jobbdata till OMS logganalys](automation-manage-send-joblogs-log-analytics.md).   
+Men om du vill behålla data under en längre tidsperiod, kan du vidarebefordra runbook paketjobbsloggarna till logganalys.  Mer information finns [vidarebefordring av data för Azure Automation-jobb till logganalys](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Säkerhetskopiera Azure Automation
 När du tar bort ett automation-konto i Microsoft Azure tas alla objekt i kontot bort inklusive runbooks, moduler, konfigurationer, inställningar, jobb och tillgångar. Objekten kan inte återställas när kontot har tagits bort.  Du kan använda följande information för att säkerhetskopiera innehållet i ditt automation-konto innan den tas bort. 

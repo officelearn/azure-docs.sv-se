@@ -1,11 +1,11 @@
 ---
-title: "Uppdatera machine learning-modeller med hjälp av Azure Data Factory | Microsoft Docs"
-description: "Beskriver hur du skapar skapa förutsägande pipelines med Azure Data Factory och maskininlärning"
+title: Uppdatera machine learning-modeller med hjälp av Azure Data Factory | Microsoft Docs
+description: Beskriver hur du skapar skapa förutsägande pipelines med Azure Data Factory och maskininlärning
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: d4f7df5ceadf8c6219901af6e516453a88aeece7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f84bb3546260622eec921684be8e2492adcdcd52
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Uppdatera Azure Machine Learning-modeller med hjälp av uppdateringen resurs aktivitet
 Den här artikeln kompletterar den huvudsakliga version av Azure Data Factory - Azure Machine Learning integration artikel: [skapa förutsägande pipelines med hjälp av Azure Machine Learning och Azure Data Factory](transform-data-using-machine-learning.md). Om du inte redan har gjort granska huvudsakliga artikeln innan du läser igenom den här artikeln. 

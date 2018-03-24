@@ -1,19 +1,19 @@
 ---
-title: "Azure SQL Database-tjänsten | Microsoft Docs"
-description: "Läs mer om servicenivåer för enstaka och pool databaser att tillhandahålla prestandanivåer och lagringsstorlek."
+title: Azure SQL Database-tjänsten | Microsoft Docs
+description: Läs mer om servicenivåer för enstaka och pool databaser att tillhandahålla prestandanivåer och lagringsstorlek.
 services: sql-database
 author: CarlRabeler
-manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/21/2018
+manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 6153616de763eee1b20fff40d38816eca8b455de
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3fe7add4ad4c5563a6307db0dec27c658913429b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Vad är Azure SQL Database servicenivåer?
 
@@ -33,7 +33,8 @@ Om du väljer en tjänstnivå beror huvudsakligen på kontinuitet för företag-
 |Processor|Låg|Låg, medel, hög|Medium, High|
 |I/o-genomströmning (CA) |2.5 IOPS per DTU  | 2.5 IOPS per DTU | 48 IOPS per DTU|
 |I/o-svarstid (CA)|5 ms (läsa), 10 ms (skriva)|5 ms (läsa), 10 ms (skriva)|2 ms (läsa/skriva)|
-|Columnstore indexering och OLTP i minnet|Gäller inte|Gäller inte|Stöds|
+|Columnstore-indexering |Gäller inte|S3 och senare|Stöds|
+|OLTP i minnet|Gäller inte|Gäller inte|Stöds|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>Storleksbegränsningar för prestanda och lagring

@@ -1,23 +1,23 @@
 ---
-title: "Anropa SSIS-paket med hjälp av Azure Data Factory - lagrade Proceduraktiviteten | Microsoft Docs"
-description: "Den här artikeln beskriver hur du anropa ett SQL Server Integration Services (SSIS)-paket från ett Azure Data Factory-pipelinen med hjälp av den lagrade Proceduraktiviteten."
+title: Anropa SSIS-paket med hjälp av Azure Data Factory - lagrade Proceduraktiviteten | Microsoft Docs
+description: Den här artikeln beskriver hur du anropa ett SQL Server Integration Services (SSIS)-paket från ett Azure Data Factory-pipelinen med hjälp av den lagrade Proceduraktiviteten.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 89eb2e567e06660efa5feddce1db0fcdb47792f3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dba1accbedf32099cc92be820d0937f3573746a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Anropa ett SSIS-paket med hjälp av aktiviteten lagrad procedur i Azure Data Factory
 Den här artikeln beskriver hur du anropa ett SSIS-paket från ett Azure Data Factory-pipelinen genom att använda en lagrad procedur-aktivitet. 
@@ -39,7 +39,7 @@ I det här avsnittet använder du Data Factory UI för att skapa Data Factory-pi
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
 Första steget är att skapa en datafabrik med hjälp av Azure portal. 
 
-1. Starta **Microsoft Edge** eller **Google Chrome** webbläsare. Data Factory UI stöds för närvarande bara i Microsoft Edge och Google Chrome webbläsare.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 2. Navigera till [Azure-portalen](https://portal.azure.com). 
 3. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
    
@@ -122,7 +122,7 @@ I det här avsnittet utlösa en pipeline-körning och övervaka den.
 1. Klicka på för att utlösa en pipeline som kör **utlösaren** i verktygsfältet och på **aktivera nu**. 
 
     ![Utlös nu](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. I den **Pipeline kör** väljer **Slutför**. 
+2. I fönstret **Pipeline Run** (Pipelinekörning) väljer du **Slutför**. 
 3. Växla till fliken **Övervaka** till vänster. Du ser pipeline kör och dess status tillsammans med annan information (till exempel kör starttid). Om du vill uppdatera vyn klickar du på **Uppdatera**.
 
     ![Pipelinekörningar](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)

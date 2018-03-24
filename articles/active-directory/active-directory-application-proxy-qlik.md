@@ -1,0 +1,75 @@
+---
+title: Azure AD App-Proxy och Qlik mening | Microsoft Docs
+description: Aktivera Application Proxy på Azure-portalen och installera anslutningsverktyget för omvänd proxy.
+services: active-directory
+documentationcenter: ''
+author: MarkusVi
+manager: mtillman
+ms.service: active-directory
+ms.workload: identity
+ms.topic: article
+ms.date: 03/20/2018
+ms.author: markvi
+ms.reviewer: harshja
+ms.custom: it-pro
+ms.openlocfilehash: c34af889f65e0fa91f97655803af099dadcabc5d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/23/2018
+---
+# <a name="application-proxy-and-qlik-sense"></a>Application Proxy och Qlik mening 
+Azure Active Directory Application Proxy och Qlik mening samarbetar tillsammans för att säkerställa att du kan enkelt använda programproxy för att ge fjärråtkomst för distributionen Qlik mening.  
+
+## <a name="prerequisites"></a>Förutsättningar 
+Resten av det här scenariot förutsätter att du har gjort följande:
+ 
+- Konfigurerad [Qlik meningsfullt](https://help.qlik.com/sense/1.1/Content/Introduction.htm). 
+- Har installerat en Application Proxy connector 
+
+## <a name="install-an-application-proxy-connector"></a>Installera en Application Proxy connector 
+Om du redan har Application Proxy är aktiverat och har en koppling installeras, kan du hoppa över det här avsnittet och gå vidare till [lägga till din app i Azure AD med Application Proxy](application-proxy-ping-access.md). 
+
+Application Proxy connector är en Windows Server-tjänst som dirigerar trafik från fjärranslutna anställda till publicerade appar. Mer detaljerad Installationsinstruktioner finns [aktivera Application Proxy på Azure-portalen](active-directory-application-proxy-enable.md). 
+
+
+1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör. 
+2. Välj Azure Active Directory > Application proxy. 
+3. Välj Hämta anslutning för att starta Application Proxy connector hämtningen. Följ installationsanvisningarna. 
+ 
+>[!NOTE]
+>Hämtar anslutningen automatiskt aktivera Application Proxy för din katalog, men om inte du väljer **aktivera Application Proxy**. 
+ 
+## <a name="publish-your-applications-in-azure"></a>Publicera dina program i Azure 
+Om du vill publicera QlikSense, måste du publicera två program i Azure.  
+
+### <a name="application-1"></a>Programmet #1: 
+Följ dessa steg om du vill publicera en app. En mer detaljerad genomgång av steg 1 – 8, se [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md). 
+
+
+1. Om du inte i det sista avsnittet inloggningen till Azure-portalen som global administratör. 
+2. Välj **Azure Active Directory** > **företagsprogram**. 
+3. Välj **Lägg till** längst upp på bladet. 
+4. Välj **lokalt program**. 
+5.       Fyll i de obligatoriska fälten med information om den nya appen. Använd följande riktlinjer för inställningarna: 
+    - **Intern URL**: det här programmet ska ha en intern URL är Webbadressen QlikSense sig själv. Till exempel **https&#58;//demo.qlikemm.com** 
+    - **Förautentiseringsmetoden**: Azure Active Directory (rekommenderas men krävs inte) 
+1.       Välj **Lägg till** längst ned på bladet. Programmet har lagts till och snabb start-menyn öppnas. 
+2.       Snabb startmenyn väljer du **tilldela en användare för att testa**, och Lägg till minst en användare till programmet. Kontrollera att det här testet kontot har åtkomst till lokala program. 
+3.       Välj **tilldela** spara Användartilldelning test. 
+4.       (Valfritt) Välj enkel inloggning på bladet hantering. Välj **Kerberos-begränsad delegering** från den nedrullningsbara menyn och Fyll i obligatoriska fält baserat på konfigurationen av Qlik. Välj **Spara**. 
+
+### <a name="application-2"></a>Programmet #2: 
+Följ samma steg för programmet #1, med följande undantag: 
+
+**Steg #5**: Intern URL: en ska nu vara QlikSense-URL: en med den autentiseringsport som används av programmet. Standardvärdet är **4244** för HTTPS och 4248 för HTTP. Ex: **https&#58;//demo.qlik.com:4244** 
+**steg #10:** inte konfigurera enkel inloggning och lämna den **enkel inloggning inaktiverad**
+ 
+ 
+## <a name="testing"></a>Testning 
+Tillämpningsprogrammet är nu redo att testa. Åtkomst till den externa Webbadressen som du använde för att publicera QlikSense i programmet nr 1 och logga in som en användare som tilldelats båda programmen.  
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Publicera program med Application Proxy](application-proxy-publish-azure-portal.md)
+- [Arbeta med Application Proxy kopplingar](active-directory-application-proxy-connectors-azure-portal.md).

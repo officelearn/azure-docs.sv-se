@@ -1,11 +1,11 @@
 ---
 title: Gruppuppgifter datavetenskap processen Team leda - Azure | Microsoft Docs
-description: "En översikt över aktiviteter för en grupp leda på en datavetenskap team projekt."
-documentationcenter: 
+description: En översikt över aktiviteter för en grupp leda på en datavetenskap team projekt.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: bradsev;
-ms.openlocfilehash: 58e8bfeb547fbcd7f472fbed50073b1ca3176b72
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 995ad557eb06e545b1813e1f4631e243a98830b3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="team-lead-tasks"></a>Lead gruppuppgifter
 
@@ -64,7 +64,7 @@ Namnen på har angetts för databaser och kataloger i den här självstudiekurse
 I varje fall måste team leads du låta sina gruppmedlemmar vet vilken mall verktyg-databaser och fatta när de ställer in och klona databaser projektet och verktyg. Projektet leads bör följa den [projekt leda uppgifter för ett datavetenskap team](project-lead-tasks.md) att skapa projektet databaser om under separat grupprojekt eller under en enda grupprojekt. 
 
 
-## <a name="0-prerequisites"></a>0. Krav
+## <a name="0-prerequisites"></a>0. Förutsättningar
 
 Krav uppfylls genom att genomföra aktiviteter som tilldelats av din gruppansvarig som beskrivs i [Gruppansvarig uppgifter för ett datavetenskap team](group-manager-tasks.md). Följande krav måste uppfylla innan du börjar team lead uppgifter för att sammanfatta här: 
 
@@ -208,7 +208,7 @@ Efter kloning av två kataloger **MyTeamProjectTemplate** (D3) och **MyTeamUtili
 
 Kopiera innehållet i lokalt **GroupProjectTemplate** (D1) mappen till lokalt **MyTeamProjectTemplate** (D3) kör något av följande kommandoskript: 
 
-####<a name="from-the-powershell-command-line-for-windows"></a>Från kommandoraden för Windows PowerShell        
+#### <a name="from-the-powershell-command-line-for-windows"></a>Från kommandoraden för Windows PowerShell       
 
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
     .\tdsp_local_copy_win.ps1 2
@@ -216,7 +216,7 @@ Kopiera innehållet i lokalt **GroupProjectTemplate** (D1) mappen till lokalt **
     
 ![16](./media/team-lead-tasks/team-leads-16-local_copy_team_lead_new.png)
 
-####<a name="from-the-linux-shell-for-the-linux-dsvm"></a>Från Linux-gränssnittet för den **Linux DSVM**
+#### <a name="from-the-linux-shell-for-the-linux-dsvm"></a>Från Linux-gränssnittet för den **Linux DSVM**
     
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
     bash tdsp_local_copy_linux.sh 2
@@ -388,7 +388,7 @@ Bekräfta att en ny F-enhet har monterats till din dator.
 
 **Hur du manuellt ange Azure file storage-informationen:** om du inte har dina Azure file storage-informationen i en textfil, kan du följa instruktionerna på skärmen följande ange obligatoriskt prenumerations, storage-konto och Azure information om lagring:
 
-- Indata  **n** .
+- Indata **n**.
 - Välj index för prenumerationsnamn där Azure file storage skapades i föregående steg:
 
     ![41](./media/team-lead-tasks/team-leads-41-attach-s5-linux.png)

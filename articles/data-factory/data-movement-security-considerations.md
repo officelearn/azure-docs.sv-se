@@ -1,11 +1,11 @@
 ---
-title: "Säkerhetsaspekter i Azure Data Factory | Microsoft Docs"
-description: "Beskriver grundläggande infrastruktur med flytt datatjänster i Azure Data Factory för att skydda dina data."
+title: Säkerhetsaspekter i Azure Data Factory | Microsoft Docs
+description: Beskriver grundläggande infrastruktur med flytt datatjänster i Azure Data Factory för att skydda dina data.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 3c8215ab4a1759efef3c2c13a5ac44f6944b53d7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 56602e269a441f9541314424190da04be2c4add5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhetsaspekter vid flytt av data i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,9 +49,10 @@ Vi går igenom säkerhetsaspekter i följande scenarier för flytt av två data 
 - **Hybridscenario**: I det här scenariot källan eller målet är bakom en brandvägg eller ett företagsnätverk lokalt. Eller, datalagret är i ett privat nätverk eller virtuella nätverk (oftast källan) och inte är allmänt tillgänglig. Database-servrar som är värd för virtuella datorer också omfattas av det här scenariot.
 
 ## <a name="cloud-scenarios"></a>Scenarier för
-### <a name="secure-data-store-credentials"></a>Autentiseringsuppgifterna för säker datalager
-- **Lagra krypterade autentiseringsuppgifter i en hanterad Azure Data Factory-store**. Data Factory skyddar autentiseringsuppgifterna för ditt datalager genom att kryptera dem med certifikat som hanteras av Microsoft. Dessa certifikat roteras vartannat år (som inkluderar certifikatförnyelse och migreringen av autentiseringsuppgifter). Krypterade autentiseringsuppgifter lagras på ett säkert sätt i ett Azure storage-konto som hanteras av Azure Data Factory hanteringstjänster. Mer information om säkerhet i Azure Storage finns [översikt över säkerheten i Azure Storage](../security/security-storage-overview.md).
 
+### <a name="securing-data-store-credentials"></a>Att säkra autentiseringsuppgifterna för datalager
+
+- **Lagra krypterade autentiseringsuppgifter i en hanterad Azure Data Factory-store**. Data Factory skyddar autentiseringsuppgifterna för ditt datalager genom att kryptera dem med certifikat som hanteras av Microsoft. Dessa certifikat roteras vartannat år (som inkluderar certifikatförnyelse och migreringen av autentiseringsuppgifter). Krypterade autentiseringsuppgifter lagras på ett säkert sätt i ett Azure storage-konto som hanteras av Azure Data Factory hanteringstjänster. Mer information om säkerhet i Azure Storage finns [översikt över säkerheten i Azure Storage](../security/security-storage-overview.md).
 - **Lagra autentiseringsuppgifter i Azure Key Vault**. Du kan också lagra data store autentiseringsuppgifter i [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory hämtar referenserna under körningen av en aktivitet. Mer information finns i [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md).
 
 ### <a name="data-encryption-in-transit"></a>Datakryptering under överföring
@@ -144,7 +145,7 @@ Följande tabell innehåller kraven för utgående port och domän för företag
 
 | Domännamn                  | Utgående portar | Beskrivning                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net`    | 443, 80        | Krävs av körningsmiljön själva värdbaserade integration att ansluta till data movement tjänster i Data Factory. |
+| `*.servicebus.windows.net`    | 443            | Krävs av körningsmiljön själva värdbaserade integration att ansluta till data movement tjänster i Data Factory. |
 | `*.core.windows.net`          | 443            | Används av själva värdbaserade integration körningen för att ansluta till Azure storage-konto när du använder den [mellanlagrad kopiera](copy-activity-performance.md#staged-copy) funktion. |
 | `*.frontend.clouddatahub.net` | 443            | Krävs av själva värdbaserade integration körningen för att ansluta till Data Factory-tjänsten. |
 | `*.database.windows.net`      | 1433           | (Valfritt) Krävs när du kopierar från eller till Azure SQL Database eller Azure SQL Data Warehouse. Använda kopieringsfunktionen mellanlagrade för att kopiera data till Azure SQL Database eller Azure SQL Data Warehouse utan att öppna port 1433. |

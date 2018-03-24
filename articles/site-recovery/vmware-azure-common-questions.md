@@ -1,6 +1,6 @@
 ---
-title: "Vanliga frågor - VMware Azure replikering med Azure Site Recovery | Microsoft Docs"
-description: "Den här artikeln sammanfattar vanliga frågor när du replikera lokala virtuella VMware-datorer till Azure med Azure Site Recovery"
+title: Vanliga frågor - VMware Azure replikering med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln sammanfattar vanliga frågor när du replikera lokala virtuella VMware-datorer till Azure med Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
-ms.openlocfilehash: 7e556bff2e9ebdd1efc969660cc8b4a33f3adcdb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor - VMware till Azure-replikering
 
@@ -48,6 +48,13 @@ Om du är en administratör för prenumerationen kan behörighet du replikering 
 
 ### <a name="what-do-i-need-on-premises"></a>Vad gör jag behöver lokalt?
 På plats måste du Site Recovery-komponenter som installeras på en enda VMware-VM. Du måste också ha en VMware-infrastruktur, med minst en ESXi-värd och vi rekommenderar en vCenter-server. Dessutom behöver du en eller flera virtuella VMware-datorer för replikering. [Lär dig mer](vmware-azure-architecture.md) om VMware för Azure-arkitektur.
+
+Konfigurationsservern lokalt kan distribueras i ett av följande två sätt
+
+1. Distribuera den med hjälp av en mall som har konfigurationsservern förinstallerat. [Läs mer här](vmware-azure-tutorial.md#download-the-vm-template).
+2. Distribuera den med hjälp av installation på en Windows Server 2016-dator som du väljer. [Läs mer här](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+För att identifiera den komma igång steg för att distribuera konfigurationsservern på egna Windows Server-datorer i skydd syftet med att aktivera skydd, Välj **till Azure > inte virtualiserade/andra**.
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Där replikera lokala virtuella datorer till?
 Data replikeras till Azure-lagring. När du kör en redundansväxling skapar Site Recovery automatiskt virtuella Azure-datorer från lagringskontot.

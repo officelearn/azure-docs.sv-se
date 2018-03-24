@@ -1,10 +1,11 @@
 ---
-title: "Azure AI-galleriet lösningar | Microsoft Docs"
-description: "Upptäck lösningar i Azure AI-galleriet."
+title: Azure AI-galleriet lösningar | Microsoft Docs
+description: Upptäck lösningar i Azure AI-galleriet.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: c0be3f10-9e54-4fc1-b5df-725c2e919f65
 ms.service: machine-learning
@@ -13,24 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: 8e8a6ca078e43f757a4f0eb532af35da97513d17
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a07c517ac3bfeabc1fe87ead07083c9b8b61dc7f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-solutions-in-the-azure-ai-gallery"></a>Upptäck lösningar i Azure AI-galleriet
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="solutions"></a>Lösningar
-En  **[lösning](https://gallery.cortanaintelligence.com/solutions)**  innehåller förhandstillgång för att snabbt skapa Cortana Intelligence-lösningar från förkonfigurerade lösningar och referensarkitekturer designmönster i galleriet.
+En **[lösning](https://gallery.cortanaintelligence.com/solutions)** innehåller förhandstillgång för att snabbt skapa Cortana Intelligence-lösningar från förkonfigurerade lösningar och referensarkitekturer designmönster i galleriet.
 Skapa dem egna inkluderade instruktioner eller med en aktuell partner.  
 
 ## <a name="discover"></a>Utforska
   Om du vill söka efter lösningar i galleriet, öppna den [galleriet](http://gallery.cortanaintelligence.com) och på **lösningar** överst på sidan Gallery.
 
- Den  **[lösningar](https://gallery.cortanaintelligence.com/solutions)**  sidan visar en lista över nyligen tillagda lösningar.
+ Den **[lösningar](https://gallery.cortanaintelligence.com/solutions)** sidan visar en lista över nyligen tillagda lösningar.
 Klicka på **se alla** att visa alla lösningar.
 Den här sidan kan bläddra du alla lösningar i galleriet. Du kan också söka genom att välja filtervillkor till vänster på sidan och anger sökvillkoren längst upp.
 
@@ -45,7 +45,7 @@ Om du vill använda en lösning, klickar du på **distribuera**. Följ stegen f�
 
 ![Distribuera en lösning för galleriet](./media/gallery-solutions/deploy-solution.png)
 
-**[GÅ TILL I GALLERIET >>](http://gallery.cortanaintelligence.com)**
+**[GÅ TILL I GALLERIET &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

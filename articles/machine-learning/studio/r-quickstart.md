@@ -1,11 +1,12 @@
 ---
-title: "Snabbstartsguide för R språket för Machine Learning | Microsoft Docs"
-description: "Använd den här R programming självstudiekursen att komma igång snabbt med R-språk med Azure Machine Learning Studio för att skapa en lösning för prognosmodellen."
-keywords: "Snabbstart, r språk, r programmeringsspråk, r programming självstudiekursen"
+title: Snabbstartsguide för R språket för Machine Learning | Microsoft Docs
+description: Använd den här R programming självstudiekursen att komma igång snabbt med R-språk med Azure Machine Learning Studio för att skapa en lösning för prognosmodellen.
+keywords: Snabbstart, r språk, r programmeringsspråk, r programming självstudiekursen
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: garye
-ms.openlocfilehash: 40cc3728d1361b9304896bf0cc4ceed439291d45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 231d505e91fc036b30344e2fd9971db8ba2fdf05
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Snabbstartssjälvstudier till R-programmeringsspråket för Azure Machine Learning
 
@@ -96,7 +96,7 @@ Den här koden kan inte köra, vilket resulterar i ett feltillstånd. Klicka på
 
   ![Felmeddelande popup][2]
 
-*Bild 2. Popup-felmeddelandet.*
+*Figur 2. Popup-felmeddelandet.*
 
 Det verkar som om vi behöver titta i output.log till R felmeddelande visas. Klicka på den [köra R-skriptet] [ execute-r-script] och klicka sedan på den **visa output.log** objektet på den **egenskapsrutan** till höger. Öppnar ett nytt webbläsarfönster och visas nedan.
 
@@ -123,9 +123,9 @@ Om du inte förstår den sista raden i den här koden för tillfället, läsa p�
 ### <a name="introduction-to-rstudio"></a>Introduktion till RStudio
 RStudio är en mycket vanlig IDE för R. Jag använder RStudio för redigering, testa och felsöka vissa av R-koden som används i den här snabbstartsguide. När R-koden har testats och är klara kan du bara klippa ut och klistra in från redigeraren RStudio till en Machine Learning Studio [köra R-skriptet] [ execute-r-script] modul.  
 
-Om du inte har programmeringsspråket R installerat på den stationära datorn rekommenderar jag du göra det nu. Kostnadsfri nedladdning med öppen källkod R språk som är tillgängliga på den omfattande R Arkiv nätverk (CRAN) på [http://www.r-project.org/](http://www.r-project.org/). Det finns hämtningsbara filer för Windows, Mac OS x och Linux/UNIX. Välj en närliggande spegling och följ instruktionerna för hämtning. Dessutom innehåller CRAN en mängd användbara analytics och data manipulation paket.
+Om du inte har programmeringsspråket R installerat på den stationära datorn rekommenderar jag du göra det nu. Kostnadsfri nedladdning med öppen källkod R språk som är tillgängliga på den omfattande R Arkiv nätverk (CRAN) på [ http://www.r-project.org/ ](http://www.r-project.org/). Det finns hämtningsbara filer för Windows, Mac OS x och Linux/UNIX. Välj en närliggande spegling och följ instruktionerna för hämtning. Dessutom innehåller CRAN en mängd användbara analytics och data manipulation paket.
 
-Om du har använt RStudio, bör du hämta och installera skrivbordsversionen. Du hittar RStudio ned för Windows, Mac OS x och Linux/UNIX vid http://www.rstudio.com/products/RStudio/. Följ anvisningarna som visas och installerar RStudio på den stationära datorn.  
+Om du har använt RStudio, bör du hämta och installera skrivbordsversionen. Du hittar RStudio hämtningsbara filer för Windows, Mac OS x och Linux/UNIX på http://www.rstudio.com/products/RStudio/. Följ anvisningarna som visas och installerar RStudio på den stationära datorn.  
 
 En självstudiekurs introduktion till RStudio är tillgänglig på https://support.rstudio.com/hc/sections/200107586-Using-RStudio.
 
@@ -521,7 +521,7 @@ Om du tittar på värden i sammanfattningen av våra dataframe bör du se något
 
 För vår prognosmodellen använder vi en Multiplicerande modell för trend och säsongsbaserade justering av dessa data. En logg omvandling kan vi använda en linjär modell, förenkla den här processen. Vi kan använda loggen omvandling i samma funktion där multiplikatorn används.
 
-I följande kod I definierar en ny funktion `log.transform()`, och tillämpas på rader som innehåller numeriska värden. R `Map()` funktionen används för att tillämpa den `log.transform()` fungerar som de markerade kolumnerna för dataframe. `Map()`liknar `apply()` men gör att mer än en lista över argument till funktionen. Observera att en lista över multiplikatorer lämnar det andra argumentet för den `log.transform()` funktion. Den `na.omit()` funktion används som en bit för rensning så vi inte har saknas eller är odefinierad värden i dataframe.
+I följande kod I definierar en ny funktion `log.transform()`, och tillämpas på rader som innehåller numeriska värden. R `Map()` funktionen används för att tillämpa den `log.transform()` fungerar som de markerade kolumnerna för dataframe. `Map()` liknar `apply()` men gör att mer än en lista över argument till funktionen. Observera att en lista över multiplikatorer lämnar det andra argumentet för den `log.transform()` funktion. Den `na.omit()` funktion används som en bit för rensning så vi inte har saknas eller är odefinierad värden i dataframe.
 
     log.transform <- function(invec, multiplier = 1) {
       ## Function for the transformation, which is the log
@@ -1229,15 +1229,15 @@ RStudio är ganska väl dokumenterat, så jag ger länkar till delarna av RStudi
 Självstudierna R programming beskriver grunderna om vad du behöver använda R-språk med Azure Machine Learning Studio. Om du inte är bekant med R är två introduktioner tillgängliga på CRAN:
 
 * R för nybörjare av Emmanuel Paradis är ett bra ställe att börja på http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
-* En introduktion till R av W. N. Venables et. al. försätts i lite mer djup för http://cran.r-project.org/doc/manuals/R-intro.html.
+* En introduktion till R av W. N. Venables et. al. blir lite mer djupet på http://cran.r-project.org/doc/manuals/R-intro.html.
 
 Det finns många böcker på R som kan hjälpa dig att komma igång. Här är några jag användbara:
 
 * Bilder av R-programmering: en visning av statistiska programvara utformning av Norman Matloff är en utmärkt introduktion till programmering i R.  
 * R Cookbook av Paul Teetor ger en problemet och lösningen metoden för att använda R.  
 * R i praktiken av Robert Kabacoff är en annan användbar inledande bok. Den tillhörande snabb R-webbplatsen är en användbar resurs på http://www.statmethods.net/.
-* R Inferno av Patrick Burns är en förstås humoristiskt bok som hanterar ett antal komplicerade och svår ämnen som kan uppstå när programmering i R. Boken är tillgängliga gratis på http://www.burns-stat.com/documents/books/the-r-inferno/.
-* Om du vill att en djupdykning i avancerade ämnen i R ta en titt på boken Avancerat R av Hadley Wickham. Online-versionen av den här boken finns gratis på http://adv-r.had.co.nz/.
+* R Inferno av Patrick Burns är en förstås humoristiskt bok som hanterar ett antal komplicerade och svår ämnen som kan uppstå när programmering i R. Boken är tillgängliga gratis http://www.burns-stat.com/documents/books/the-r-inferno/.
+* Om du vill att en djupdykning i avancerade ämnen i R ta en titt på boken Avancerat R av Hadley Wickham. Online-versionen av den här boken är tillgängliga gratis http://adv-r.had.co.nz/.
 
 En förteckning över R tid serie paket finns i uppgiftsvyn CRAN för analys av tidsserier: http://cran.r-project.org/web/views/TimeSeries.html. Information om specifika tid serie objekt paket ska du referera till dokumentationen för paketet.
 
@@ -1247,7 +1247,7 @@ Vissa bra internet-resurser:
 
 * DataCamp: DataCamp Lär R bekvämt i webbläsaren med video erfarenheter och kodning övningarna. Det finns interaktiva självstudier om den senaste R-teknik och paket. Självstudiekursen ledigt interaktiva R på https://www.datacamp.com/courses/introduction-to-r
 * En guide i komma igång med R från Programiz https://www.programiz.com/r-programming
-* En snabb R självstudiekursen Kelly Black från Clarkson University http://www.cyclismo.org/tutorial/R/
+* En snabb genomgång R av Kelly Black från Clarkson University http://www.cyclismo.org/tutorial/R/
 * 60 + R över resurser i http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
 <!--Image references-->

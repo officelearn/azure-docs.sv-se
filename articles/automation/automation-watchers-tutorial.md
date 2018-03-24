@@ -1,24 +1,17 @@
 ---
-title: Skapa en watcher uppgift i Azure Automation-konto | Microsoft Docs
-description: "Lär dig hur du skapar en watcher aktivitet i Azure Automation-konto kan du titta på för nya filer som skapas i en mapp."
+title: Skapa en watcher uppgift i Azure Automation-konto
+description: Lär dig hur du skapar en watcher aktivitet i Azure Automation-konto kan du titta på för nya filer som skapas i en mapp.
 services: automation
-documentationcenter: 
-author: eamonoreilly
-manager: 
-editor: 
-ms.assetid: 0dd95270-761f-448e-af48-c8b1e82cd821
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/11/2017
+author: eamonoreilly
 ms.author: eamono
-ms.openlocfilehash: 294faa48f9840919b087594835706bad8048d45b
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.topic: article
+ms.date: 03/19/2017
+ms.openlocfilehash: 8cd5f77d9711ffc95e6a55e97297a23fd87c6bb7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Skapa en Azure Automation-watcher uppgifter att spåra ändringar på en lokal dator
 
@@ -36,7 +29,7 @@ I den här guiden får du lära dig hur man:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här kursen krävs följande:
+Följande krävs för att genomföra kursen:
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation-konto](automation-offering-get-started.md) för watcher och åtgärden runbooks och Watcher uppgiften.

@@ -1,11 +1,11 @@
 ---
-title: "Azure Network Watcher Agent virtuella tillägget för Linux | Microsoft Docs"
-description: "Distribuera Network Watcher Agent på Linux-dator som använder ett tillägg för virtuell dator."
+title: Azure Network Watcher Agent virtuella tillägget för Linux | Microsoft Docs
+description: Distribuera Network Watcher Agent på Linux-dator som använder ett tillägg för virtuell dator.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dennisg
 manager: amku
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 5c81e94c-e127-4dd2-ae83-a236c4512345
 ms.service: virtual-machines-linux
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: fd160fc8cfc2e79ffa9492bb0ef4556bec5820d0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a51566148eec88f707b524346afc59606196e4da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Nätverk Watcher Agent tillägg för virtuell dator för Linux
 
 ## <a name="overview"></a>Översikt
 
-[Azure Nätverksbevakaren](https://review.docs.microsoft.com/azure/network-watcher/) är en prestanda övervakning, diagnostik och analytics nätverkstjänst som tillåter övervakning för Azure-nätverk. Tillägget för virtuell dator Network Watcher Agent är ett krav för några av de Nätverksbevakaren funktionerna på virtuella Azure-datorer. Detta omfattar att samla in nätverkstrafik på begäran och andra avancerade funktioner.
+[Azure Nätverksbevakaren](https://docs.microsoft.com/azure/network-watcher/) är en prestanda övervakning, diagnostik och analytics nätverkstjänst som tillåter övervakning för Azure-nätverk. Tillägget för virtuell dator Network Watcher Agent är ett krav för några av de Nätverksbevakaren funktionerna på virtuella Azure-datorer. Detta omfattar att samla in nätverkstrafik på begäran och andra avancerade funktioner.
 
 Det här dokumentet beskriver de plattformar som stöds och distributionsalternativ för tillägget för virtuell dator Network Watcher Agent för Linux.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -40,7 +40,7 @@ Tillägget Network Watcher Agent kan köras mot dessa Linux-distributioner:
 | Ubuntu | 16.04 LTS, 14.04 LTS och 12.04 LTS |
 | Debian | 7 och 8 |
 | Redhat | 6.x och 7.x |
-| Oracle Linux | 7 x |
+| Oracle Linux | 7x |
 | SUSE | 11 och 12 |
 | OpenSuse | 7.0 |
 | CentOS | 7.0 |
@@ -78,7 +78,7 @@ Följande JSON visar schemat för tillägget Network Watcher Agent. Tillägget v
 | Namn | Värdet / exempel |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| Publisher | Microsoft.Azure.NetworkWatcher |
+| publisher | Microsoft.Azure.NetworkWatcher |
 | typ | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 

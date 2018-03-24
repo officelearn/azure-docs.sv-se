@@ -1,11 +1,11 @@
 ---
-title: "Kopiera data från DB2 med Azure Data Factory | Microsoft Docs"
-description: "Lär dig hur du kopierar data från DB2 till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen."
+title: Kopiera data från DB2 med Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kopierar data från DB2 till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 865e6fe1dd13736c1899c72b4e49612d970d45cd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0ef1ce8b4949c908595473f0183f585a6fd3da80
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiera data från DB2 med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ Mer specifikt DB2-koppling har stöd för följande IBM DB2-plattformar och vers
 
 > [!TIP]
 > Om du får ett felmeddelande som säger ”paketet som motsvarar en SQL-instruktionen Körningsbegäran inte hittades. SQLSTATE = 51002 SQLCODE =-805 ”, beror nödvändiga paketet inte skapas för normal användare på dessa operativsystem. Följ dessa instruktioner enligt servertyp DB2:
-> - DB2 för i (AS400): låta användare skapa samling för användarens inloggning innan du använder kopieringsaktiviteten. Kommandot:`create collection <username>`
+> - DB2 för i (AS400): låta användare skapa samling för användarens inloggning innan du använder kopieringsaktiviteten. Kommandot: `create collection <username>`
 > - DB2 för z/OS eller LUW: Använd ett konto för privilegierade - privilegierad användare eller administratör med paketet myndigheter och BIND BINDADD, BEVILJA EXECUTE till offentliga behörigheter - för att köra kopieringsaktiviteten en gång och sedan nödvändiga paketet skapas automatiskt under kopia. Därefter kan du växla tillbaka till normal användare för efterföljande kopia-körs.
 
 ## <a name="prerequisites"></a>Förutsättningar

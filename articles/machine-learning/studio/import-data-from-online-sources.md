@@ -1,11 +1,12 @@
 ---
-title: "Importera data till Machine Learning Studio från online datakällor | Microsoft Docs"
-description: "Hur du importerar utbildningsdata Azure Machine Learning Studio från olika källor för online."
-keywords: "Importera data, dataformatet, datatyper, datakällor, träningsdata"
+title: Importera data till Machine Learning Studio från online datakällor | Microsoft Docs
+description: Hur du importerar utbildningsdata Azure Machine Learning Studio från olika källor för online.
+keywords: Importera data, dataformatet, datatyper, datakällor, träningsdata
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 701b93fe-765b-4d15-a1cf-9b607f17add6
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: c6185cd240d1c040c993e581c27624e1f170f709
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5882f79b6479f71cfd1df503f55703e6177c072b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importera data till Azure Machine Learning Studio från olika datakällor online med modulen Importera data
 Den här artikeln beskrivs stöd för import av online-data från olika källor och information som behövs för att flytta data från dessa källor till ett Azure Machine Learning-experiment.
@@ -70,7 +70,7 @@ Azure Machine Learning **importera Data** modulen stöder följande datakällor:
 | Lokal SQL-databas |Läser data som lagras i en lokal SQL-databas. |<b>Datagatewayen</b>: Anger namnet på Data Management Gateway installeras på en dator där den kan komma åt SQL Server-databasen. Information om hur du konfigurerar gatewayen finns [utför avancerade analyser med Azure Machine Learning med hjälp av data från en lokal SQLServer](use-data-from-an-on-premises-sql-server.md).<br/><br/><b>Databasservernamnet</b>: Anger namnet på den server där databasen körs.<br/><br/><b>Databasnamnet </b>: Anger namnet på databasen på servern. <br/><br/><b>Servern användarkontonamnet</b>: anger ett användarnamn för ett konto som har åtkomstbehörighet för databasen. <br/><br/><b>Användarnamn och lösenord</b>: Klicka på <b>ange värden</b> att ange dina Databasautentiseringsuppgifter. Du kan använda Windows-integrerad autentisering eller beroende på hur dina lokala SQL Server är konfigurerat för SQL Server-autentisering.<br/><br/><b>Databasfrågan</b>: Ange en SQL-instruktion som beskriver de data som du vill läsa. |
 | Azure-tabell |Läser data från tabelltjänsten i Azure Storage.<br/><br/>Om du läsa stora mängder data mer sällan använda tjänsten Azure-tabellen. Det ger en flexibel och icke-relationella (NoSQL), mycket skalbar, prisvärda och hög tillgänglighet lagringslösning. |Alternativen i den **importera Data** ändras beroende på om du ansluter till offentliga information eller en privat lagringskontot som kräver autentiseringsuppgifter för inloggning. Detta bestäms av den <b>autentiseringstyp</b> som kan ha värdet ”PublicOrSAS” eller ”konto”, som har en egen uppsättning parametrar. <br/><br/><b>Offentlig eller delad signatur åtkomst (SAS) URI</b>: parametrarna är:<br/><br/><ul><b>Tabell URI</b>: Anger den offentliga eller SAS-URL för tabellen.<br/><br/><b>Anger raderna för att söka efter egenskapsnamn</b>: värdena är <i>TopN</i> att söka igenom det angivna antalet rader, eller <i>ScanAll</i> att hämta alla rader i tabellen. <br/><br/>Om data är homogena och förutsägbara, rekommenderar vi att du väljer *TopN* och ange ett nummer för N. För stora tabeller kan detta resultera i snabbare läsning gånger.<br/><br/>Om data är strukturerade med uppsättningar med egenskaper som kan variera, beroende på djupet och position i tabellen, väljer du den *ScanAll* alternativet att genomsöka alla rader. Detta säkerställer integriteten hos dina resulterande egenskapen och metadata för konvertering.<br/><br/></ul><b>Privata Lagringskonto</b>: parametrarna är: <br/><br/><ul><b>Kontonamn</b>: Anger namnet på det konto som innehåller tabellen om du vill läsa.<br/><br/><b>Kontonyckel</b>: Anger lagringsnyckeln som är associerat med kontot.<br/><br/><b>Tabellnamnet</b> : Anger namnet på den tabell som innehåller data som kan läsas.<br/><br/><b>Rader som ska genomsökas för egenskapsnamn</b>: värdena är <i>TopN</i> att söka igenom det angivna antalet rader, eller <i>ScanAll</i> att hämta alla rader i tabellen.<br/><br/>Om data är homogena och förutsägbara, rekommenderar vi att du väljer *TopN* och ange ett nummer för N. För stora tabeller kan detta resultera i snabbare läsning gånger.<br/><br/>Om data är strukturerade med uppsättningar med egenskaper som kan variera, beroende på djupet och position i tabellen, väljer du den *ScanAll* alternativet att genomsöka alla rader. Detta säkerställer integriteten hos dina resulterande egenskapen och metadata för konvertering.<br/><br/> |
 | Azure Blob Storage |Läser data som lagras i Blob-tjänsten i Azure Storage, inklusive bilder, Ostrukturerade text eller binära data.<br/><br/>Du kan använda Blob-tjänsten att exponera data offentligt eller privat lagra programdata. Du kan komma åt dina data från var som helst genom att använda HTTP eller HTTPS-anslutningar. |Alternativen i den **importera Data** modul ändras beroende på om du ansluter till offentliga information eller en privat lagringskontot som kräver autentiseringsuppgifter för inloggning. Detta bestäms av den <b>autentiseringstyp</b> som kan ha ett värde för ”PublicOrSAS” eller ”konto”.<br/><br/><b>Offentlig eller delad signatur åtkomst (SAS) URI</b>: parametrarna är:<br/><br/><ul><b>URI</b>: Anger den offentliga eller SAS-URL för blob storage.<br/><br/><b>Filformat</b>: Anger formatet för data i Blob-tjänsten. Format som stöds är CSV, TVS och ARFF.<br/><br/></ul><b>Privata Lagringskonto</b>: parametrarna är: <br/><br/><ul><b>Kontonamn</b>: Anger namnet på det konto som innehåller blob som du vill läsa.<br/><br/><b>Kontonyckel</b>: Anger lagringsnyckeln som är associerat med kontot.<br/><br/><b>Sökvägen till behållaren, katalogen eller blob </b> : Anger namnet på blob som innehåller data att läsa.<br/><br/><b>BLOB-filformatet</b>: Anger formatet för data i blob-tjänsten. Data som stöds format är CSV, TVS, ARFF, CSV med angiven kodning och Excel. <br/><br/><ul>Om formatet är CSV- eller TVS, måste du ange om filen innehåller en rubrikrad.<br/><br/>Du kan använda Excel-alternativet för att läsa data från Excel-arbetsböcker. I den <i>Excel dataformat</i> alternativ, ange om data är i ett intervall för Excel-kalkylblad eller i en Excel-tabell. I den <i>Excel-kalkylblad eller inbäddad tabell </i>, anger du namnet på kalkylbladet eller tabellen som du vill läsa från.</ul><br/> |
-| Data Feed Provider |Läser data från en feed provider som stöds. För närvarande stöds endast Open Data Protocol (OData)-formatet. |<b>Data innehållstyp</b>: Anger OData-format.<br/><br/><b>Käll-URL</b>: Anger den fullständiga URL för datafeeden. <br/>Till exempel följande URL läser från exempeldatabasen Northwind: http://services.odata.org/northwind/northwind.svc/ |
+| Data Feed Provider |Läser data från en feed provider som stöds. För närvarande stöds endast Open Data Protocol (OData)-formatet. |<b>Data innehållstyp</b>: Anger OData-format.<br/><br/><b>Käll-URL</b>: Anger den fullständiga URL för datafeeden. <br/>Till exempel läser följande URL från exempeldatabasen Northwind: http://services.odata.org/northwind/northwind.svc/ |
 
 ## <a name="next-steps"></a>Nästa steg
 

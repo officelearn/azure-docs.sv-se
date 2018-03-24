@@ -1,11 +1,11 @@
 ---
-title: "Kopiera data till/från Azure SQL Data Warehouse med hjälp av Data Factory | Microsoft Docs"
-description: "Lär dig hur du kopierar data från stöds källa lagrar till Azure SQL Data Warehouse (eller) från SQL Data Warehouse stöds sink lagrar med hjälp av Data Factory."
+title: Kopiera data till/från Azure SQL Data Warehouse med hjälp av Data Factory | Microsoft Docs
+description: Lär dig hur du kopierar data från stöds källa lagrar till Azure SQL Data Warehouse (eller) från SQL Data Warehouse stöds sink lagrar med hjälp av Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 2601d386bdacbe005b2930a44db531a0b58fb7b5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 5d284277f600465345be0058468192f2f5609d89
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -375,10 +375,10 @@ Mer information om hur du använder PolyBase för att läsa in i SQL Data Wareho
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Använd PolyBase för att läsa in data till Azure SQL Data Warehouse
 
-Med hjälp av  **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)**  är ett effektivt sätt för att läsa in stora mängder data till Azure SQL Data Warehouse med hög genomströmning. Du kan se en stor vinst i genomflödet med PolyBase i stället för BULKINSERT standardmekanism. Se [kopiera prestanda referensnummer](copy-activity-performance.md#performance-reference) med detaljerad jämförelse. En genomgång med ett användningsfall finns [läsa in 1 TB i Azure SQL Data Warehouse under 15 minuter med Azure Data Factory](connector-azure-sql-data-warehouse.md).
+Med hjälp av **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** är ett effektivt sätt för att läsa in stora mängder data till Azure SQL Data Warehouse med hög genomströmning. Du kan se en stor vinst i genomflödet med PolyBase i stället för BULKINSERT standardmekanism. Se [kopiera prestanda referensnummer](copy-activity-performance.md#performance-reference) med detaljerad jämförelse. En genomgång med ett användningsfall finns [läsa in 1 TB i Azure SQL Data Warehouse under 15 minuter med Azure Data Factory](connector-azure-sql-data-warehouse.md).
 
-* Om datakällan finns i **Azure Blob- eller Azure Data Lake Store**, och formatet som är kompatibelt med PolyBase, du kan kopiera direkt till Azure SQL Data Warehouse med PolyBase. Se  **[direkt kopia med PolyBase](#direct-copy-using-polybase)**  med information.
-* Om din käll-datalagret och format inte stöds ursprungligen av PolyBase, kan du använda den  **[mellanlagrad kopia med PolyBase](#staged-copy-using-polybase)**  funktion i stället. Det ger dig bättre genomströmning genom att automatiskt konvertera data till PolyBase-kompatibelt format och lagra data i Azure Blob storage. Data hämtas sedan till SQL Data Warehouse.
+* Om datakällan finns i **Azure Blob- eller Azure Data Lake Store**, och formatet som är kompatibelt med PolyBase, du kan kopiera direkt till Azure SQL Data Warehouse med PolyBase. Se **[direkt kopia med PolyBase](#direct-copy-using-polybase)** med information.
+* Om din käll-datalagret och format inte stöds ursprungligen av PolyBase, kan du använda den **[mellanlagrad kopia med PolyBase](#staged-copy-using-polybase)** funktion i stället. Det ger dig bättre genomströmning genom att automatiskt konvertera data till PolyBase-kompatibelt format och lagra data i Azure Blob storage. Data hämtas sedan till SQL Data Warehouse.
 
 > [!IMPORTANT]
 > Observera PolyBase stöder bara Azure SQL Data Warehouse SQL authentcation men inte Azure Active Directory-autentisering.
@@ -395,7 +395,7 @@ Om kraven inte uppfylls, kontrollerar du inställningarna för Azure Data Factor
 1. **Källan länkade tjänsten** är av typen: **AzureStorage** eller **AzureDataLakeStore** med huvudsakliga autentiseringen av tjänsten.
 2. Den **inkommande dataset** är av typen: **AzureBlob** eller **AzureDataLakeStoreFile**, och skriv `type` egenskaper är **OrcFormat** , **ParquetFormat**, eller **TextFormat** med följande konfigurationer:
 
-   1. `rowDelimiter` måste vara  **\n** .
+   1. `rowDelimiter` måste vara **\n**.
    2. `nullValue` anges till **tom sträng** (””), eller `treatEmptyAsNull` är inställd på **SANT**.
    3. `encodingName` anges till **utf-8**, vilket är **standard** värde.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, och `skipLineCount` har inte angetts.
@@ -510,7 +510,7 @@ Du kanske vill dela källtabellerna lodrätt i flera små där den största Rads
 
 ### <a name="sql-data-warehouse-resource-class"></a>SQL Data Warehouse resursklassen
 
-Överväg att för att tilldela användaren som används för att läsa in data till SQL Data Warehouse via PolyBase större resursklassen för att uppnå bästa möjliga genomflöde. Lär dig hur du gör det genom att följa [ändra ett exempel på användaren resurs klassen](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
+Överväg att tilldela en större resursklassen för användaren som används för att läsa in data till SQL Data Warehouse via PolyBase för att uppnå bästa möjliga genomflöde.
 
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>Tabellnamn i Azure SQL Data Warehouse
 

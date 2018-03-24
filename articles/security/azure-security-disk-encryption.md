@@ -1,6 +1,6 @@
 ---
-title: "Azure Disk Encryption för Windows och Linux-IaaS-VM | Microsoft Docs"
-description: "Den här artikeln innehåller en översikt över Microsoft Azure Disk Encryption för Windows och Linux virtuella IaaS-datorer."
+title: Azure Disk Encryption för Windows och Linux-IaaS-VM | Microsoft Docs
+description: Den här artikeln innehåller en översikt över Microsoft Azure Disk Encryption för Windows och Linux virtuella IaaS-datorer.
 services: security
 documentationcenter: na
 author: DevTiw
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 03/13/2018
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 73212a231d11136854115922df423a7cb5b08f05
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption för Windows och Linux-IaaS-VM
 Microsoft Azure värnar starkt din datasekretess, data suveränitet och aktiverar du att styra dina Azure värdbaserade data via ett intervall med avancerade tekniker för att kryptera, styra och hantera krypteringsnycklar kontroll & granska åtkomsten till data. Det ger Azure-kunder möjlighet att välja den lösning som bäst uppfyller deras behov av företag. I det här dokumentet, vi innehåller en introduktion till en ny tekniklösning ”Azure Disk Encryption för Windows och Linux IaaS VMS” om du vill skydda och skydda dina data för att uppfylla din organisations säkerhet och efterlevnad åtaganden. Dokumentet ger detaljerad information om hur du använder Azure disk encryption-funktioner inklusive scenarierna som stöds och användaren inträffar.
@@ -131,7 +131,7 @@ Om du vill inaktivera hårddiskkryptering för IaaS-VM utför du följande anvis
  > Om du inaktiverar kryptering för OS-disk för Linux stöds inte. Steget dekryptering är endast tillåtna för dataenheter i virtuella Linux-datorer.
 Inaktivera disk datakryptering för Linux stöds inte om OS-enheten är krypterad.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du aktiverar Azure Disk Encryption på Azure IaaS-VM för de scenarier som stöds som beskrivs i avsnittet ”Översikt”, se följande krav:
 
 * Du måste ha en giltig aktiv Azure-prenumeration att skapa resurser i Azure i regionerna som stöds.
@@ -156,13 +156,13 @@ Innan du aktiverar Azure Disk Encryption på Azure IaaS-VM för de scenarier som
 * Azure-plattformen behöver åtkomst till krypteringsnycklarna eller hemligheter i nyckelvalvet att göra dem tillgängliga för den virtuella datorn när den startar och dekrypterar systemvolymen virtuell dator. Om du vill tilldela behörigheter till Azure-plattformen, ange den **EnabledForDiskEncryption** egenskap i nyckelvalvet. Mer information finns i **ställa in och konfigurera nyckelvalvet för Azure Disk Encryption** i tillägget.
 * Ditt nyckelvalv hemlighet och KEK URL: er måste vara en ny version. Azure tillämpar den här begränsningen för versionshantering. Giltig hemlighet och KEK URL: er, se följande exempel:
 
-  * Exempel på en giltig hemliga URL: *https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Exempel på en giltig URL för KEK: *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Exempel på en giltig hemliga URL:   *https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Exempel på en giltig KEK-URL:   *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Azure Disk Encryption stöder inte att ange portnummer som en del av KEK URL: er och hemligheter i nyckelvalvet. Exempel på inte stöds och stöds nyckelvalv URL: er finns i följande avsnitt:
 
-  * Oacceptabel key vault-URL *https://contosovault.vault.azure.net:443/hemligheter/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Godkända key vault-URL: *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Oacceptabel key vault-URL  *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Godkända key vault-URL:   *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Om du vill aktivera Azure Disk Encryption måste IaaS-VM-funktionen uppfylla följande slutpunkt configuration nätverkskrav:
   * För att få en token för att ansluta till nyckelvalvet, IaaS VM måste kunna ansluta till en Azure Active Directory-slutpunkt \[login.microsoftonline.com\].
@@ -193,7 +193,7 @@ Innan du aktiverar Azure Disk Encryption på Azure IaaS-VM för de scenarier som
 * Om du vill konfigurera krav för disk-kryptering med hjälp av Azure CLI, se [Bash skriptet](https://github.com/ejarvi/ade-cli-getting-started).
 * Om du vill använda Azure Backup-tjänsten för att säkerhetskopiera och återställa krypterade VMs när kryptering är aktiverat med Azure Disk Encryption, kryptera dina virtuella datorer med hjälp av Azure Disk Encryption key konfigurationen. Backup-tjänsten har stöd för virtuella datorer som krypteras med Nej KEK eller KEK konfigurationer. Se [säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup kryptering](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-* När du krypterar en Linux OS-volym, Observera att en VM-omstart krävs för närvarande i slutet av processen. Detta kan göras via portalen, powershell eller CLI.   Om du vill spåra förloppet för kryptering, regelbundet avsöka det statusmeddelande som returneras av Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  När kryptering är klar, det statusmeddelande som returneras av det här kommandot visar detta.  Till exempel ”ProgressMessage: OS-disken har krypterats, starta om den virtuella datorn” nu kan den virtuella datorn startas om och användas.  
+* När du krypterar en Linux OS-volym, Observera att en VM-omstart krävs för närvarande i slutet av processen. Detta kan göras via portalen, powershell eller CLI.   Om du vill spåra förloppet för kryptering, regelbundet avsöka det statusmeddelande som returneras av Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  När kryptering är klar kan anger det statusmeddelande som returneras av det här kommandot detta. Till exempel ”ProgressMessage: OS-disken har krypterats, starta om den virtuella datorn” nu kan den virtuella datorn startas om och användas.  
 
 * Azure Disk Encryption för Linux kräver datadiskar för att ha ett anslutet filsystem i Linux före kryptering
 
@@ -224,25 +224,25 @@ Använd följande PowerShell-cmdlet för att skapa en Azure AD-program:
 ##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-portal"></a>Konfigurera Azure AD-klient-ID och Hemlig från Azure-portalen
 Du kan också ställa in din Azure AD-klient-ID och Hemlig med hjälp av Azure-portalen. Om du vill utföra den här uppgiften gör du följande:
 
-1. Klicka på den **Active Directory** fliken.
+1. Välj **alla tjänster > Azure Active Directory**
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig3.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-service.png)
 
-2. Klicka på **Lägg till program**, och skriv sedan namnet på programmet.
+2. Välj **App registreringar > Ny appregistrering**
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig4.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-app-registration.png)
 
-3. Klicka på pilen och sedan konfigurera egenskaper för program.
+3. Ange den begärda informationen och skapa programmet:
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig5.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-create-app.png)
 
-4. Klicka på kryssmarkeringen i det nedre vänstra hörnet ska slutföras. Konfigurationssidan för programmet, och Azure AD-klient-ID visas längst ned på sidan.
+4. Markera den nyligen skapade programmet för att visa dess egenskaper, inklusive program-ID.  Om du vill skapa en nyckel för programmet, Välj **Inställningar > nycklar**, lägga till en beskrivning och giltighetstid för nyckeln och på **spara**
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig6.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-create-pw.png)
 
-5. Spara hemligheten som Azure AD-klienten genom att klicka på den **spara** knappen. Observera att Azure AD-klienthemlighet i textrutan nycklar. Skydda på lämpligt sätt.
+5. Kopiera det genererade hemligt värdet och skydda den på lämpligt sätt.
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-save-pw.png)
 
 
 ##### <a name="use-an-existing-application"></a>Använda ett befintligt program

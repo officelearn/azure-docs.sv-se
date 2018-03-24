@@ -1,24 +1,24 @@
 ---
-title: "Azure Traffic Manager – vanliga frågor och svar | Microsoft Docs"
-description: "Den här artikeln innehåller svar på vanliga frågor och svar om Traffic Manager"
+title: Azure Traffic Manager – vanliga frågor och svar | Microsoft Docs
+description: Den här artikeln innehåller svar på vanliga frågor och svar om Traffic Manager
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: KumudD
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2018
+ms.date: 03/18/2018
 ms.author: kumud
-ms.openlocfilehash: 09fd133ec72f7ebbbcb45f652855e7640656a0ca
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d9db669ab905fb51390f6ca80736af4cde13d902
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager vanliga frågor (FAQ)
 
@@ -123,9 +123,6 @@ Ja, endast API-versionen 2017-03-01 och senare stöder geografiska routning skri
 
 ## <a name="real-user-measurements"></a>Real User Measurements
 
->[!NOTE]
->Funktionen verkliga användaren mått i Traffic Manager finns i Public Preview och kanske inte har samma nivå av tillgänglighet och tillförlitlighet som viktiga funktioner som är i allmänhet tillgänglighet. Funktionen stöds inte, kan ha begränsad kapacitet och kanske inte tillgänglig på alla platser i Azure. Den senaste meddelanden på tillgänglighet och status för den här funktionen, kontrollera den [Azure Traffic Manager uppdaterar](https://azure.microsoft.com/updates/?product=traffic-manager) sidan.
-
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Vilka är fördelarna med att använda den verkliga användaren mått?
 När du använder routningsmetoden för prestanda, Traffic Manager hämtar den bästa Azure-regionen för användaren att ansluta till genom att kontrollera käll-IP och EDNS klientnät (om det skickade) och kontrollera mot nätverket latens intelligence tjänsten upprätthåller. Verklig användare mätningar förbättrar detta för grundläggande användaren genom att låta sina erfarenheter bidra till den här tabellen förutom att säkerställa svarstid som tabellen omfattar rätt slutanvändare nätverk från där användarna ansluter till Azure. Detta leder till en bättre noggrannhet i routning för dina slutanvändare.
 
@@ -140,7 +137,8 @@ Nej, du behöver bara aktivera en gång per prenumeration och alla latensinforma
 
 ### <a name="how-do-i-turn-off-real-user-measurements-for-my-subscription"></a>Hur inaktiverar jag verkliga användaren mått för min prenumeration?
 Du kan stoppa uppstår avgifter till verkliga mått som användare när du slutar samla in och skicka tillbaka latens mätningar från klientprogrammet. Exempelvis när mätning JavaScript inbäddade i webbsidor, kan du sluta använda den här funktionen genom att ta bort JavaScript eller stänga av sitt anrop när sidan renderas.
-Ett annat sätt att stänga av den verkliga användaren mått är att ta bort den. När du gör det ignoreras alla mätningar som skickats till Traffic Manager med nyckeln.
+
+Du kan också inaktivera verkliga mått för användare genom att ta bort din nyckel. När du tar bort nyckeln ignoreras alla mätningar som skickats till Traffic Manager med nyckeln.
 
 ### <a name="can-i-use-real-user-measurements-with-client-applications-other-than-web-pages"></a>Kan jag använda den verkliga användaren mått med klientprogram än webbsidor?
 Ja, verkliga användaren mått är avsedd att mata in data som samlas in via olika typer av klienter för slutanvändaren. Dessa vanliga frågor kommer att uppdateras när nya typer av klientprogram hämta stöds.
@@ -155,16 +153,16 @@ Nej, det finns ingen programmerade fördröjning innan anropas skriptet.
 Ingen, varje gång den anropas mäter skriptet verkliga användaren mätningar en uppsättning sex Azure-regioner som definieras av tjänsten. Det här värdet ändringar mellan olika anrop när ett stort antal sådana anrop uppstår mätning täckning sträcker sig över olika Azure-regioner.
 
 ### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>Kan jag begränsa antalet mätningar som gjorts för ett visst tal?
-Måttet JavaScript är inbäddad i din webbsida, och du är i fullständig kontroll över till start och stopp som använder den. Så länge Traffic Manager-tjänsten tar emot en begäran om en lista över Azure-regioner som ska mätas, returneras en uppsättning regioner. Tänk också på att under förhandsversionen kan du inte debiteras för alla mått som rapporteras i Traffic Manager
+Måttet JavaScript är inbäddad i din webbsida, och du är i fullständig kontroll över till start och stopp som använder den. Så länge Traffic Manager-tjänsten tar emot en begäran om en lista över Azure-regioner som ska mätas, returneras en uppsättning regioner.
 
 ### <a name="can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements"></a>Kan jag se mätningar som utförs av client-program som en del av den verkliga användaren mått?
-Eftersom mätning-logik körs i ditt klientprogram, är du full kontroll om vad som händer inklusive ser latens mått. Traffic Manager rapporterar inte en aggregerad vy över de mått som togs emot under nyckeln länkad till din prenumeration
+Eftersom mätning-logik körs i ditt klientprogram, är du full kontroll om vad som händer inklusive ser latens mått. Traffic Manager rapporterar inte en aggregerad vy över de mått som togs emot under nyckeln länkad till din prenumeration.
 
 ### <a name="can-i-modify-the-measurement-script-provided-by-traffic-manager"></a>Kan jag ändra mätning skriptet av Traffic Manager?
 När du har kontroll över vad som är inbäddad på din webbsida, avråder vi du gör några ändringar i skriptet mätning så att den mäter och rapporterar latens korrekt.
 
 ### <a name="will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements"></a>Det är möjligt att andra kan se den nyckel som jag använder med den verkliga användaren mått?
-När du bäddar in mätning skriptet till en webbsida ska det vara möjligt att andra kan se skriptet och verkliga användaren mått (ROM)-nyckel. Men det är viktigt att du vet att den här nyckeln skiljer sig från ditt prenumerations-id och genereras av Traffic Manager som ska användas endast för detta ändamål. Att veta din ROM nyckel kompromettera inte säkerheten för din Azure-konto
+När du bäddar in mätning skriptet till en webbsida ska det vara möjligt att andra kan se skriptet och verkliga användaren mått (ROM)-nyckel. Men det är viktigt att du vet att den här nyckeln skiljer sig från ditt prenumerations-id och genereras av Traffic Manager som ska användas endast för detta ändamål. Känna till din ROM nyckel kommer inte äventyra säkerheten för din Azure-konto.
 
 ### <a name="can-others-abuse-my-rum-key"></a>Kan andra missbruk min ROM nyckel?
 Även om det är möjligt att andra kan skicka felaktig information till Azure med hjälp av din nyckel Lägg märke till att några fel mått inte ändras routning eftersom det beaktas tillsammans med andra mått vi får. Om du behöver ändra dina nycklar kan du generera nyckeln då den gamla nyckeln blir ignoreras.
@@ -186,9 +184,6 @@ Som nämnts tidigare svar komponenter för serversidan verkliga användaren mät
 
 ## <a name="traffic-view"></a>Traffic View
 
->[!NOTE]
->Funktionen trafik vyn i Traffic Manager finns i Public Preview och kanske inte har samma nivå av tillgänglighet och tillförlitlighet som viktiga funktioner som är i allmänhet tillgänglighet. Funktionen stöds inte, kan ha begränsad kapacitet och kanske inte tillgänglig på alla platser i Azure. Den senaste meddelanden på tillgänglighet och status för den här funktionen, kontrollera den [Azure Traffic Manager uppdaterar](https://azure.microsoft.com/updates/?product=traffic-manager) sidan.
-
 ### <a name="what-does-traffic-view-do"></a>Vad är trafik vyn?
 Visa trafik är en funktion i Traffic Manager som hjälper dig att förstå mer om din användare och hur de är. Den använder frågor som tagits emot av Traffic Manager och nätverket latens intelligence tabeller som underhåller för att ge dig följande:
 - Regionerna där användarna ansluter till dina slutpunkter i Azure.
@@ -196,7 +191,7 @@ Visa trafik är en funktion i Traffic Manager som hjälper dig att förstå mer 
 - De Azure-regioner som de komma att vidarebefordras till.
 - Deras svarstid-upplevelse för Azure-regioner.
 
-Denna information är tillgänglig för dig att använda via en tabellvy i portalen förutom att vara tillgängliga som rådata för hämtning.
+Denna information är tillgänglig för dig att använda via geografisk karta överlägget och tabellvyer i portalen förutom att vara tillgängliga som rådata för hämtning.
 
 ### <a name="how-can-i-benefit-from-using-traffic-view"></a>Hur kan dra nytta av trafik i vyn?
 
@@ -208,7 +203,7 @@ Azure Övervakare kan användas för att förstå den trafik som tas emot av pro
 
 ### <a name="does-traffic-view-use-edns-client-subnet-information"></a>Använder trafik visa information om EDNS klienten undernät?
 
-Visa trafik betraktar inte EDNS klientnät information när du skapar utdata. IP-adressen för användarnas lokala DNS-matcharen används för att gruppera dem.
+DNS-frågor som hanteras av Azure Traffic Manager Överväg ECS information för att öka noggrannheten för routning. Men när du skapar den datamängd som visar om användarna ansluter från vyn trafik använder endast IP-adressen för DNS-matchning.
 
 ### <a name="how-many-days-of-data-does-traffic-view-use"></a>Hur många dagars data använder trafik vyn?
 
@@ -219,15 +214,18 @@ Trafik visa skapar utdata genom att behandla data från sju dagar före dagen f�
 När du använder externa slutpunkter som finns utanför Azure-regioner i en Traffic Manager-profil kan du välja att har mappats till en Azure-region som är en proxy för egenskaper svarstid (i praktiken krävs om du använder routningsmetoden för prestanda). Om den har Azure-regionmappningen används den Azure-region latens mått när du skapar trafik visa utdata. Om ingen Azure-region anges vara latensinformation tom i data för dessa externa slutpunkter.
 
 ### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>Behöver jag aktivera trafik vy för varje profil i min prenumeration?
-Under förhandsversionen kan trafik vyn är aktiverat på en prenumerationsnivå och är tillgänglig för alla Traffic Manager-profiler under den prenumerationen.
 
-### <a name="how-can-i-turn-off-traffic-view"></a>Hur kan jag inaktivera trafik vyn?
-Under förhandsversionen kan begära att du skapar ett supportärende om du vill inaktivera trafik vyn för din prenumeration.
+Under förhandsversionen kan har trafik vyn aktiverats på en prenumerationsnivå. Som en del av förbättringar som vi gjort innan allmän tillgänglighet, kan du nu aktivera trafik visa på en profil-nivå, så att du har mer detaljerad aktiveringen av den här funktionen. Som standard inaktiveras trafik vyn för en profil.
+
+>[!NOTE]
+>Om du har aktiverat trafik visa på en prenumerationsnivå under tid som förhandsgranskning behöver du nu aktivera det igen för varje profil under den prenumerationen.
+ 
+### <a name="how-can-i-turn-off-traffic-view"></a>Hur kan jag inaktivera trafik vyn? 
+Du kan stänga av trafik vyn för alla profiler som använder portalen eller REST API. 
 
 ### <a name="how-does-traffic-view-billing-work"></a>Hur fungerar trafiken visa fakturering?
 
 Trafik visa priser baseras på antalet datapunkter som används för att skapa utdata. För närvarande endast datatyp stöds är de frågor som tar emot din profil. Dessutom kan endast debiteras du för bearbetning som gjordes när du har trafik visningen aktiverad. Det innebär att om du aktivera trafik vy för vissa tidsperiod i en månad och inaktivera under andra tider endast datapunkter bearbetas medan du hade funktionen aktiverad antal mot fakturan.
-Under förhandsversionen kan debiteras du inte för trafik i vyn.
 
 ## <a name="traffic-manager-endpoints"></a>Traffic Manager-slutpunkter
 

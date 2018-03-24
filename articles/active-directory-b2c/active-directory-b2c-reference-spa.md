@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Single-page appar med implicita flödet | Microsoft Docs"
-description: "Lär dig hur du skapar en sida appar direkt genom att använda implicita flödet för OAuth 2.0 med Azure Active Directory B2C."
+title: 'Azure Active Directory B2C: Single-page appar med implicita flödet | Microsoft Docs'
+description: Lär dig hur du skapar en sida appar direkt genom att använda implicita flödet för OAuth 2.0 med Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: a45cc74c-a37e-453f-b08b-af75855e0792
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
-ms.author: parakhj
-ms.openlocfilehash: 2ce4aaac117920c1da0b8a29797169d536825c1a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: ac0351ce220da5194d3a447e51185409b7368f21
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Single-page app logga in med hjälp av implicita flödet för OAuth 2.0
 
@@ -99,7 +96,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Omfång |Krävs |En blankstegsavgränsad lista över scope. Ett enda scope-värde som anger till Azure AD båda de behörigheter som krävs. Den `openid` omfång anger behörighet att logga in användaren och hämta data om användaren i form av ID-token. (Du lär dig om detta mer senare i artikeln.) Den `offline_access` scope är valfritt för webbprogram. Det innebär att din app måste en uppdateringstoken för långlivade åtkomst till resurser. |
 | state |Rekommenderas |Ett värde som ingår i denna begäran som också returneras i token svaret. Det kan vara en sträng med innehåll som du vill använda. Vanligtvis används ett slumpmässigt genererat, unikt värde för att förhindra attacker med förfalskning av begäran. Tillståndet också används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade som de var på sidan. |
 | temporärt ID |Krävs |Ett värde som ingår i denna begäran (genereras av appen) som ingår i den resulterande ID-token som ett anspråk. Appen kan sedan kontrollera värdet för att minimera token replay-attacker. Värdet är vanligtvis en slumpmässig, unik sträng som kan användas för att identifiera ursprunget för begäran. |
-| P |Krävs |Principen för att köra. Det är namnet på en princip som skapas i din Azure AD B2C-klient. Princip för namn-värde ska inledas med **b2c\_1\_**. Mer information finns i [Azure AD B2C inbyggda principer](active-directory-b2c-reference-policies.md). |
+| p |Krävs |Principen för att köra. Det är namnet på en princip som skapas i din Azure AD B2C-klient. Princip för namn-värde ska inledas med **b2c\_1\_**. Mer information finns i [Azure AD B2C inbyggda principer](active-directory-b2c-reference-policies.md). |
 | kommandotolk |Valfri |Typ av användarinteraktion som krävs. Det enda giltiga värdet är för närvarande `login`. Detta gör att användarna anger sina autentiseringsuppgifter på begäran. Enkel inloggning börjar inte gälla. |
 
 Nu uppmanas användaren att slutföra arbetsflödet för den principen. Detta kan handla om användaren att ange sina användarnamn och lösenord, logga in med en sociala identitet registrerar sig för katalogen, eller en annan siffra steg. Användaråtgärder beror på hur principen har definierats.
@@ -212,7 +209,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | temporärt ID |Krävs |Ett värde som ingår i den begäran som skapats av appen, som ingår i den resulterande ID-token som ett anspråk.  Appen kan sedan kontrollera värdet för att minimera token replay-attacker. Värdet är vanligtvis en slumpmässig, unik sträng som identifierar begäran ursprung. |
 | kommandotolk |Krävs |Om du vill uppdatera och hämta token i en dold iframe måste använda `prompt=none` så att iframe inte fastna på sidan logga in och returnerar omedelbart. |
 | login_hint |Krävs |Om du vill uppdatera och hämta token i en dold iframe innehålla användarnamnet för användaren i det här tipset att skilja mellan flera sessioner som användaren kan ha vid en given tidpunkt. Användarnamnet kan extraheras från ett tidigare logga in med hjälp av den `preferred_username` anspråk. |
-| domain_hint |Krävs |Kan vara `consumers` eller `organizations`.  För att uppdatera och hämta token i en dold iframe, måste du inkludera den `domain_hint` värde i förfrågan.  Extrahera de `tid` anspråk från token ID för en tidigare inloggning att avgöra vilket värde som ska användas.  Om den `tid` anspråk värdet är `9188040d-6c67-4c5b-b112-36a304b66dad`, Använd `domain_hint=consumers`.  Annars använder `domain_hint=organizations`. |
+| domain_hint |Krävs |Det kan vara `consumers` eller `organizations`.  För att uppdatera och hämta token i en dold iframe, måste du inkludera den `domain_hint` värde i förfrågan.  Extrahera de `tid` anspråk från token ID för en tidigare inloggning att avgöra vilket värde som ska användas.  Om den `tid` anspråk värdet är `9188040d-6c67-4c5b-b112-36a304b66dad`, Använd `domain_hint=consumers`.  Annars använder `domain_hint=organizations`. |
 
 Genom att ange den `prompt=none` parameter för denna begäran antingen lyckas eller misslyckas omedelbart och återgår till programmet.  Ett lyckat svar skickas till din app på angivna omdirigerings-URI, med hjälp av metoden som anges i den `response_mode` parameter.
 
@@ -268,7 +265,7 @@ p=b2c_1_sign_in
 
 | Parameter | Krävs? | Beskrivning |
 | --- | --- | --- |
-| P |Krävs |Principen som ska använda för att signera användare utanför tillämpningsprogrammet. |
+| p |Krävs |Principen som ska använda för att signera användare utanför tillämpningsprogrammet. |
 | post_logout_redirect_uri |Rekommenderas |Den URL som användaren ska omdirigeras till efter lyckad utloggning. Om det inte är inkluderad visar ett allmänt meddelande för användaren i Azure AD B2C. |
 
 > [!NOTE]

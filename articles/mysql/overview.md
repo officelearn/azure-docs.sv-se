@@ -1,6 +1,6 @@
 ---
-title: "Översikt över Azure-databas för MySQL relationsdatabstjänst"
-description: "Översikt över Azure-databas för MySQL relationsdatabstjänst."
+title: Översikt över Azure-databas för MySQL relationsdatabstjänst
+description: Översikt över Azure-databas för MySQL relationsdatabstjänst.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,16 +8,16 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 82d96424569daf481e31ab04c08dcb5e63e58476
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2689befc6a686d0ffc25d1fccbacb66cc6e10725
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Vad är Azure-databas för MySQL?
-Azure MySQL-databas är en relationsdatabastjänst i molnet Microsoft baserat på de [MySQL Community Edition](https://www.mysql.com/products/community/) databasmotorn. Den här tjänsten finns i allmän förhandsversion. Det ger Azure MySQL-databas:
+Azure MySQL-databas är en relationsdatabastjänst i molnet Microsoft baserat på de [MySQL Community Edition](https://www.mysql.com/products/community/) databasmotorn. Det ger Azure MySQL-databas:
 
 - Inbyggd hög tillgänglighet utan extra kostnad.
 - Förutsägbar prestanda med hjälp av priser för användningsbaserad betalning.
@@ -38,7 +38,7 @@ En uppsättning Azure CLI-exempel finns här:
 - [Azure CLI-exempel för Azure-databas för MySQL](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Justera prestanda och skalning på några sekunder
-Under förhandsgranskning, Azure-databas för MySQL-tjänst som erbjuder flera servicenivåer: Basic generella och Minnesoptimerade. Varje nivå erbjuder olika prestanda och funktioner för att stödja lätta till tunga arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i [Prisnivåer](concepts-service-tiers.md).
+Azure-databas för MySQL-tjänst som erbjuder flera servicenivåer: Basic generella och Minnesoptimerade. Varje nivå erbjuder olika prestanda och funktioner för att stödja lätta till tunga arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i [Prisnivåer](concepts-service-tiers.md).
 
 ## <a name="monitoring-and-alerting"></a>Övervakning och avisering
 Hur avgör du när du ska reglera upp eller ner? Du kan använda inbyggda prestanda övervakning och avisering funktioner, kombinerat med klassificeringarna prestanda baserat på vCores. Använda dessa verktyg kan du snabbt utvärdera effekten av skalning vCores uppåt eller nedåt baserat på din aktuella eller planerade prestandabehov. Mer information finns i [Aviseringar](howto-alert-on-metric.md).

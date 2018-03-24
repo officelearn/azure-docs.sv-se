@@ -1,11 +1,11 @@
 ---
-title: "Skapa, ändra eller ta bort en Azure offentliga IP-adress | Microsoft Docs"
-description: "Lär dig mer om att skapa, ändra eller ta bort en offentlig IP-adress."
+title: Skapa, ändra eller ta bort en Azure offentliga IP-adress | Microsoft Docs
+description: Lär dig mer om att skapa, ändra eller ta bort en offentlig IP-adress.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 8efc0bff4764a7265a5f1bcdd995979af0b22234
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c36a3451dabbb0d08e5e475e0eec14f861bd41ce
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Skapa, ändra eller ta bort en offentlig IP-adress
 
@@ -32,9 +32,9 @@ Lär dig mer om en offentlig IP-adress och hur du skapar, ändra och ta bort ett
 Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här artikeln:
 
 - Om du inte redan har ett Azure-konto, registrera dig för en [ledigt utvärderingskonto](https://azure.microsoft.com/free).
-- Om du använder portalen, öppna https://portal.azure.com och logga in med ditt Azure-konto.
-- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.2.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
-- Om du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här kursen kräver Azure CLI version 2.0.26 eller senare. Kör `az --version` att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du använder Azure CLI lokalt, måste du också köra `az login` att skapa en anslutning med Azure.
+- Om du använder portalen, öppna https://portal.azure.com, och logga in med ditt Azure-konto.
+- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.2.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+- Om du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här kursen kräver Azure CLI version 2.0.26 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du använder Azure CLI lokalt, måste du också köra `az login` att skapa en anslutning med Azure.
 
 Offentliga IP-adresser har en nominell kostnad. Om du vill visa prissättning, läsa den [IP-adress priser](https://azure.microsoft.com/pricing/details/ip-addresses) sidan. 
 
@@ -46,7 +46,7 @@ Offentliga IP-adresser har en nominell kostnad. Om du vill visa prissättning, l
 
     |Inställning|Krävs?|Information|
     |---|---|---|
-    |SKU|Ja|Alla offentliga IP-adresser som skapats innan introduktionen av SKU: er är **grundläggande** SKU offentliga IP-adresser.  Du kan inte ändra SKU: N efter att den offentliga IP-adressen har skapats. En fristående virtuell dator, virtuella datorer i en tillgänglighetsuppsättning eller skalningsuppsättningar i virtuella datorer kan använda Basic eller Standard SKU: er.  Blanda SKU: er mellan virtuella datorer i tillgänglighetsuppsättningar eller skaluppsättningar tillåts inte. **Grundläggande** SKU: Om du skapar en offentlig IP-adress i en region som stöder tillgänglighet zoner i **tillgänglighet zonen** inställningen *ingen* som standard. Du kan välja att välja en tillgänglighet zon att garantera en viss zon för din offentliga IP-adress. **Standard** SKU: A Standard SKU offentliga IP-Adressen kan vara kopplad till en virtuell dator eller en belastningen belastningsutjämnaren klientdel. Om du skapar en offentlig IP-adress i en region som stöder tillgänglighet zoner i **tillgänglighet zonen** inställningen *redundantzonen* som standard. Mer information om tillgänglighet zoner finns på **tillgänglighet zonen** inställningen. Standard-SKU krävs om du kopplar adressen till en belastningsutjämnare som Standard. Mer information om standard belastningsutjämnare finns [Azure belastningsutjämnare standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Standard-SKU är i förhandsversionen. Innan du skapar en offentlig IP-adress för Standard-SKU, måste du slutföra stegen i [registrera dig för förhandsversionen av standard-SKU](#register-for-the-standard-sku-preview) och skapa den offentliga IP-adressen i en plats som stöds (region). En lista över platser som stöds, se [regional tillgänglighet](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability) och övervaka den [Azure Virtual Network uppdaterar](https://azure.microsoft.com/updates/?product=virtual-network) sidan för ytterligare region support. När du tilldelar en offentlig IP-adress för standard-SKU till en virtuell dators nätverksgränssnitt måste du uttryckligen tillåta den avsedda trafiken med en [nätverkssäkerhetsgrupp](security-overview.md#network-security-groups). Kommunikationen med resursen misslyckas tills du har skapat och kopplat en nätverkssäkerhetsgrupp och uttryckligen tillåtit önskad trafik.|
+    |SKU|Ja|Alla offentliga IP-adresser som skapats innan introduktionen av SKU: er är **grundläggande** SKU offentliga IP-adresser.  Du kan inte ändra SKU: N efter att den offentliga IP-adressen har skapats. En fristående virtuell dator, virtuella datorer i en tillgänglighetsuppsättning eller skalningsuppsättningar i virtuella datorer kan använda Basic eller Standard SKU: er.  Blanda SKU: er mellan virtuella datorer i tillgänglighetsuppsättningar eller skaluppsättningar tillåts inte. **Grundläggande** SKU: Om du skapar en offentlig IP-adress i en region som stöder tillgänglighet zoner i **tillgänglighet zonen** inställningen *ingen* som standard. Du kan välja att välja en tillgänglighet zon att garantera en viss zon för din offentliga IP-adress. **Standard** SKU: A Standard SKU offentliga IP-Adressen kan vara kopplad till en virtuell dator eller en belastningen belastningsutjämnaren klientdel. Om du skapar en offentlig IP-adress i en region som stöder tillgänglighet zoner i **tillgänglighet zonen** inställningen *redundantzonen* som standard. Mer information om tillgänglighet zoner finns på **tillgänglighet zonen** inställningen. Standard-SKU krävs om du kopplar adressen till en belastningsutjämnare som Standard. Mer information om standard belastningsutjämnare finns [Azure belastningsutjämnare standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). När du tilldelar en offentlig IP-adress för standard-SKU till en virtuell dators nätverksgränssnitt måste du uttryckligen tillåta den avsedda trafiken med en [nätverkssäkerhetsgrupp](security-overview.md#network-security-groups). Kommunikationen med resursen misslyckas tills du har skapat och kopplat en nätverkssäkerhetsgrupp och uttryckligen tillåtit önskad trafik.|
     |Namn|Ja|Namnet måste vara unikt inom resursgruppen som du väljer.|
     |IP Version|Ja| Välj IPv4 eller IPv6. Medan offentliga IPv4-adresser kan tilldelas till flera Azure-resurser, kan en IPv6-offentliga IP-adress endast tilldelas en Internetriktade belastningsutjämnare. Belastningsutjämnaren kan belastningsutjämna IPv6-trafik till virtuella Azure-datorer. Lär dig mer om [IPv6-trafik till virtuella datorer för belastningsutjämning](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du har valt den **Standard SKU**, behöver du inte välja *IPv6*. Du kan bara skapa en IPv4-adress när du använder den **Standard SKU**.|
     |IP-adresstilldelning|Ja|**Dynamiska:** dynamiska adresser tilldelas endast när den offentliga IP-adressen är kopplad till ett nätverksgränssnitt som är kopplade till en virtuell dator och den virtuella datorn startas för första gången. Dynamiska adresser kan ändras om den virtuella datorn som nätverksgränssnittet är kopplad till har stoppats (frigjorts). Adressen förblir detsamma om den virtuella datorn har startats om eller stoppats (men inte frigöra). **Statiskt:** statiska adresser tilldelas när den offentliga IP-adressen har skapats. Statiska adresser ändras inte även om den virtuella datorn försätts i tillståndet Stoppad (frigjord). Adressen släpps endast när nätverksgränssnittet tas bort. Du kan ändra metoden tilldelning när nätverksgränssnittet har skapats. Om du väljer *IPv6* för den **IP version**, tilldelning av-metoden är *dynamiska*. Om du väljer *Standard* för **SKU**, tilldelning av-metoden är *statiska*.|
@@ -67,7 +67,7 @@ Offentliga IP-adresser har en nominell kostnad. Om du vill visa prissättning, l
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[Skapa AZ nätverket offentliga-ip](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_create)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_create)|
 |PowerShell|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 ## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>Visa, ändra inställningar för eller ta bort en offentlig IP-adress
@@ -88,24 +88,6 @@ Offentliga IP-adresser har en nominell kostnad. Om du vill visa prissättning, l
 |---|---|
 |CLI|[AZ nätverk offentliga IP-adresser](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_list) lista offentliga IP-adresser, [az nätverk offentlig ip visa](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_show) att visa inställningar. [az nätverket offentliga ip-uppdatering](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_update) att uppdatera; [az nätverket offentliga IP-ta bort](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_delete) att ta bort|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) att hämta en offentlig IP-adress-objekt och visa dess inställningar [Set AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) att uppdatera inställningarna för; [Ta bort AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) att ta bort|
-
-## <a name="register-for-the-standard-sku-preview"></a>Registrera dig för förhandsversionen av standard-SKU
-
-> [!NOTE]
-> Funktioner i förhandsversionen får inte ha samma nivå av tillgänglighet och tillförlitlighet som viktiga funktioner som är i allmänhet tillgänglighet. Förhandsgranskningsfunktioner stöds inte, kan ha begränsad kapacitet och kanske inte tillgänglig på alla platser i Azure. 
-
-Innan du kan skapa en offentlig IP-adress för Standard-SKU, måste du först registrera för förhandsgranskningen. Utför följande steg för att registrera dig för förhandsversionen:
-
-1. Ange följande kommando för att registrera dig för förhandsversionen från PowerShell:
-   
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
-2. Bekräfta att du är registrerad för förhandsversionen av genom att ange följande kommando:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
 
 ## <a name="next-steps"></a>Nästa steg
 Tilldela offentliga IP-adresser när du skapar följande Azure-resurser:

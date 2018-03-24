@@ -1,6 +1,6 @@
 ---
-title: "Skapa ett fristående Azure Automation-konto"
-description: "Den här artikeln vägleder dig genom stegen för att skapa, testa och använda en exempel säkerhet primär autentisering i Azure Automation."
+title: Skapa ett fristående Azure Automation-konto
+description: Den här artikeln vägleder dig genom stegen för att skapa, testa och använda en exempel säkerhet primär autentisering i Azure Automation.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,16 +8,14 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 5ea3d1af6f8bb4a6c0ef45560d8707afc58f61b1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ca00736c6c42223a0fe6259da5ee2531c287de18
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Skapa ett fristående Azure Automation-konto
-Den här artikeln visar hur du skapar ett Azure Automation-konto i Azure-portalen. Du kan använda portalen Automation-kontot för att utvärdera och lär dig mer om Automation utan att använda ytterligare hanteringslösningar eller integrering med Azure logganalys i Operations Management Suite (OMS). Du kan lägga till dessa hanteringslösningar eller integrera med Log Analytics för avancerad övervakning av runbook-jobb när som helst i framtiden. 
+Den här artikeln visar hur du skapar ett Azure Automation-konto i Azure-portalen. Du kan använda portalen Automation-kontot för att utvärdera och lär dig mer om Automation utan att använda ytterligare hanteringslösningar eller integrering med Azure logganalys. Du kan lägga till dessa hanteringslösningar eller integrera med Log Analytics för avancerad övervakning av runbook-jobb när som helst i framtiden. 
 
 Du kan använda ett Automation-konto för att autentisera runbooks med hantering av resurser i Azure Resource Manager eller den klassiska distributionsmodellen.
 

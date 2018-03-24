@@ -1,5 +1,19 @@
-Azure erbjuder följande SKU: er för VPN-gatewayen:
-
+---
+title: ta med fil
+description: ta med fil
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: c9457e51858d4a073d8baffdd435c8100d95d566
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/23/2018
+---
 |**SKU**   | **S2S/VNet-till-VNet<br>tunnlar** | **P2S<br>-anslutningar** | **Prestandamått för<br>aggregerat datagenomflöde** |
 |---       | ---                             | ---                    | ---                         |
 |**VpnGw1**| Max. 30                         | Max. 128               | 650 Mbit/s                    |
@@ -13,3 +27,5 @@ Azure erbjuder följande SKU: er för VPN-gatewayen:
 - Information om priser finns på sidan [Priser](https://azure.microsoft.com/pricing/details/vpn-gateway).
 
 - Information om SLA (serviceavtal) finns på sidan [SLA](https://azure.microsoft.com/support/legal/sla/vpn-gateway/).
+
+- VpnGw1, VpnGw2 och VpnGw3 stöds för VPN-gatewayer med den Resource Manager distributionsmodellen.

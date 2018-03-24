@@ -1,6 +1,6 @@
 ---
 title: Hantera DNS-zoner i Azure DNS - Azure CLI 2.0 | Microsoft Docs
-description: "Du kan hantera DNS-zoner som använder Azure CLI 2.0. Den här artikeln visar hur du uppdatera, ta bort och skapa DNS-zoner på Azure DNS."
+description: Du kan hantera DNS-zoner som använder Azure CLI 2.0. Den här artikeln visar hur du uppdatera, ta bort och skapa DNS-zoner på Azure DNS.
 services: dns
 documentationcenter: na
 author: KumudD
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: kumud
-ms.openlocfilehash: 2042d9c2864a4f8da474e0df38882414bfe3417e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d384f8867ddfd28acaf78a47a7d32729e87c5580
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Hur du hanterar DNS-zoner i Azure DNS använder Azure CLI 2.0
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 12/21/2017
 
 
 Den här guiden visar hur du hanterar DNS-zoner med hjälp av plattformsoberoende Azure CLI, som är tillgänglig för Windows, Mac och Linux. Du kan också hantera DNS-zoner med [Azure PowerShell](dns-operations-dnszones.md) eller Azure-portalen.
+
+Den här guiden behandlar specifikt offentliga DNS-zoner. Information om hur du använder Azure CLI för att hantera privata zoner i Azure DNS finns [Kom igång med Azure privata DNS-zoner som använder Azure CLI 2.0](private-dns-getstarted-cli.md).
 
 ## <a name="introduction"></a>Introduktion
 
@@ -45,7 +47,7 @@ Kontrollera att du har följande innan du påbörjar konfigurationen.
 
 ### <a name="sign-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
 
-Öppna ett konsolfönster och autentisera med dina autentiseringsuppgifter. Mer information finns i Logga in i Azure från Azure CLI
+Öppna ett konsolfönster och autentisera med dina autentiseringsuppgifter. Mer information finns i [Logga in i Azure från Azure CLI](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ```
 az login
@@ -64,6 +66,12 @@ Välj vilka av dina Azure-prenumerationer som du vill använda.
 ```azurecli
 az account set --subscription "subscription name"
 ```
+
+### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Valfritt: Om du vill installera/Använd Azure privata DNS-zoner funktion (förhandsversion)
+Funktionen Azure privata DNS-zonen släpps i Public Preview via ett tillägg till Azure CLI. Installera ”dns” Azure CLI-tillägg 
+```
+az extension add --name dns
+``` 
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

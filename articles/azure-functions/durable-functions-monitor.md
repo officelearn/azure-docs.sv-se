@@ -1,24 +1,24 @@
 ---
-title: "Övervakare i varaktiga funktioner – Azure"
-description: "Lär dig hur du implementerar en statusövervakaren med beständiga funktioner för Azure Functions."
+title: Övervakare i varaktiga funktioner – Azure
+description: Lär dig hur du implementerar en statusövervakaren med beständiga funktioner för Azure Functions.
 services: functions
 author: kashimiz
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 617b33a9f860ce3b06ff560de22824037eab8332
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7e520429e5f5e219e05a77eb4ca18d0d6b6b3977
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Övervaka scenariot i varaktiga funktioner - väder watcher exempel
 
@@ -26,8 +26,8 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Följ instruktionerna i [installera varaktiga funktioner](durable-functions-install.md) att ställa in provet.
-* Den här artikeln förutsätter att du redan har gått igenom de [Hello sekvens](durable-functions-sequence.md) exempel genomgången.
+* [Installera varaktiga funktioner](durable-functions-install.md).
+* Slutför den [Hello sekvens](durable-functions-sequence.md) genomgången.
 
 ## <a name="scenario-overview"></a>Scenarioöversikt
 
@@ -64,7 +64,7 @@ Den här artikeln beskriver följande funktioner i exempelappen:
 * `E3_GetIsClear`: En aktivitet funktion som kontrollerar de aktuella väder villkor för en plats.
 * `E3_SendGoodWeatherAlert`: En aktivitet-funktion som skickar ett SMS-meddelande via Twilio.
 
-I följande avsnitt beskrivs konfiguration och kod som används för utveckling av Azure portal. Kod för Visual Studio-utveckling visas i slutet av artikeln.
+I följande avsnitt beskrivs konfiguration och kod som används för C# skript. Kod för Visual Studio-utveckling visas i slutet av artikeln.
  
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Väder övervakning orchestration (Visual Studio Code och Azure portal exempelkod)
 

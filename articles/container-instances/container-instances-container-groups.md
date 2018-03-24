@@ -1,19 +1,19 @@
 ---
-title: "Azure-behållaren instanser Behållargrupper"
-description: "Förstå hur Behållargrupper fungerar i Azure Container instanser"
+title: Azure Behållarinstanser behållargrupper
+description: Förstå hur behållargrupper fungerar i Azure Container instanser
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 03/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6f7f0d9aea86594140c302e6d12e6528e802b9e7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3b1eeebacb55ffc7af4e2014f26dd9d5643f5478
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Behållargrupper i Azure Container instanser
 
@@ -21,7 +21,7 @@ Resursen på den översta nivån i Azure Container instanser är den *behållarg
 
 ## <a name="how-a-container-group-works"></a>Så här fungerar en behållare grupp
 
-En behållare grupp är en samling av behållare som få schemalagda på samma värddator. Behållare i en behållare grupp dela en livscykel, lokala nätverk och lagringsvolymer. Den liknar konceptet för en *baljor* i [Kubernetes] [ kubernetes-pod] och [DC/OS][dcos-pod].
+En behållare grupp är en samling av behållare som få schemalagda på samma värddator. Behållare i en behållare grupp dela en livscykel, lokala nätverk och lagringsvolymer. Det är liknande koncept som i en *baljor* i [Kubernetes] [ kubernetes-pod] och [DC/OS][dcos-pod].
 
 Följande diagram visar ett exempel på en behållare grupp som innehåller flera behållare:
 
@@ -38,15 +38,15 @@ Det här exemplet behållaren grupp:
 > [!NOTE]
 > Flera behållare grupper är för närvarande begränsad till Linux-behållare. Under tiden som vi arbetar för att göra alla funktioner tillgängliga för Windows-behållare kan du se de nuvarande skillnaderna mellan plattformarna i informationen om [kvoter och regional tillgänglighet för Azure Container Instances](container-instances-quotas.md).
 
-### <a name="deployment"></a>Distribution
+## <a name="deployment"></a>Distribution
 
-**Behållargrupper** har en minsta resursallokering 1 vCPU och 1 GB minne. Enskilda **behållare** kan etableras med mindre än 1 vCPU och 1 GB minne. Fördelningen av resurser kan anpassas till flera behållare inom de gränser som anges på gruppnivå behållare i en grupp i behållaren. Till exempel tilldelas två behållare varje med 0,5 vCPU som finns i en behållare grupp 1 vCPU.
+Behållaren *grupper* har en minsta resursallokering 1 vCPU och 1 GB minne. Enskilda *behållare* i en behållare som gruppen kan etableras med mindre än 1 vCPU och 1 GB minne. Distribution av resurser kan anpassas till flera behållare inom de gränser som anges på behållaren gruppnivå i en behållare i grupp. Till exempel två behållare varje med 0,5 vCPU som finns i en behållare-grupp som har allokerats 1 vCPU.
 
-### <a name="networking"></a>Nätverk
+## <a name="networking"></a>Nätverk
 
 Behållargrupper delar en IP-adress och ett namnområde för port på att IP-adress. Om du vill aktivera externa klienter ska nå en behållare i gruppen, måste du exponera port på IP-adressen och från behållaren. Eftersom behållare i gruppen delar port namnområde stöds portmappning inte. Behållare i en grupp kan du nå en varandra via localhost på de portar som de har exponerade, även om dessa portar inte är tillgängliga externt på gruppens IP-adress.
 
-### <a name="storage"></a>Lagring
+## <a name="storage"></a>Lagring
 
 Du kan ange externa volymer att montera i en grupp i behållaren. Du kan mappa volymerna till specifika sökvägar i enskilda behållare i en grupp.
 
@@ -57,12 +57,15 @@ Flera behållare grupper är användbart i fall där du vill dela en enda funkti
 Exempel på användning kan vara:
 
 * En behållare för program och en behållare för loggning. Behållaren loggning samlar in loggar och mått utdata av de huvudsakliga programmet och skriver dem till långsiktig lagring.
-* Ett program och en behållare för övervakning. Behållaren övervakning skickar med jämna mellanrum en begäran till programmet så att den körs och svara på rätt sätt och aktiverar en avisering om det inte.
+* En behållare för program och en behållare för övervakning. Behållaren övervakning skickar med jämna mellanrum en begäran till programmet så att den körs och svara på rätt sätt och aktiverar en avisering om det inte.
 * En behållare som betjänar ett webbprogram och en behållare dra det senaste innehållet från källkontroll.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [distribuera flera behållargruppen](container-instances-multi-container-group.md) med en Azure Resource Manager-mall.
+Lär dig hur du distribuerar en behållare för flera behållare grupp med en Azure Resource Manager-mall:
+
+> [!div class="nextstepaction"]
+> [Distribuera en behållare grupp](container-instances-multi-container-group.md)
 
 <!-- IMAGES -->
 [container-groups-example]: ./media/container-instances-container-groups/container-groups-example.png

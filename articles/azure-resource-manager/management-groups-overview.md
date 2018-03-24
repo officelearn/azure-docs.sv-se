@@ -1,22 +1,22 @@
 ---
 title: Ordna dina resurser med Azure-Hanteringsgrupper | Microsoft Docs
-description: "Lär dig mer om av hanteringsgrupper och hur de används."
+description: Lär dig mer om av hanteringsgrupper och hur de används.
 author: rthorn17
 manager: rithorn
-editor: 
+editor: ''
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2018
+ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Ordna dina resurser med Azure-Hanteringsgrupper 
 
@@ -24,15 +24,13 @@ Om din organisation har många prenumerationer, kanske du behöver ett sätt att
 
 Funktionen för hantering av grupp finns i en förhandsversion. Börja använda hantering av grupper, logga in på den [Azure-portalen](https://portal.azure.com) och Sök efter **Hanteringsgrupper** i den **alla tjänster** avsnitt. 
 
-Azure-supporten om principen för av hanteringsgrupper är inte tillgängligt ännu i Public Preview och den kommer i följande veckor.  
-
 Exempelvis kan du tillämpa principer till en hanteringsgrupp som begränsar regionerna som är tillgängliga för att skapa en virtuell dator (VM). Den här principen skulle tillämpas på alla hanteringsgrupper, prenumerationer och resurser under den hanteringsgruppen genom att bara tillåta virtuella datorer skapas i den regionen.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Hierarkin för av hanteringsgrupper och prenumerationer 
 
 Du kan bygga en flexibel struktur för hanteringsgrupper och prenumerationer för att organisera dina resurser i en hierarki för enhetlig princip- och åtkomsthantering. Följande diagram visar ett exempelhierarki som består av hanteringsgrupper och prenumerationer som är ordnad efter avdelningar.    
 
-![hierarki](media/management-groups/MG_overview.png)
+![trädet](media/management-groups/MG_overview.png)
 
 Genom att skapa en hierarki som är grupperade efter avdelningar, du kan tilldela [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-what-is.md) roller som *ärver* till avdelningar under den hanteringsgruppen. Med hjälp av hanteringsgrupper kan minska din arbetsbelastning och minskar risken för fel genom att bara behöva tilldela rollen som en gång. 
 
@@ -42,6 +40,14 @@ Genom att skapa en hierarki som är grupperade efter avdelningar, du kan tilldel
     - Den här gränsen innehåller inte rotnivå eller prenumerationsnivån.
 - Varje hanteringsgrupp stöder bara en överordnad.
 - Varje hanteringsgrupp kan ha flera underordnade objekt. 
+
+### <a name="preview-subscription-visibility-limitation"></a>Förhandsgranska prenumeration synlighet begränsning 
+Det finns en begränsning i förhandsgranskningen där du inte kan visa prenumerationer som du har ärvd åtkomst till. Ärvs åtkomst till prenumerationen, men Azure Resource Manager kan inte ta hänsyn till arv åtkomst ännu.  
+
+Med hjälp av REST API för att hämta information om prenumerationen returnerar information som du har åtkomst, men i Azure-portalen och Azure Powershell prenumerationerna visas inte. 
+
+Det här objektet utförs på och kommer att lösas innan Hanteringsgrupper meddelade som ”allmän tillgänglighet”.  
+
 
 ## <a name="root-management-group-for-each-directory"></a>Rot-hanteringsgruppen för varje katalog
 

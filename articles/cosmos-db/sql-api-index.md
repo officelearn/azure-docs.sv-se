@@ -1,10 +1,10 @@
 ---
 title: 'Azure Cosmos DB: Artiklar om SQL API | Microsoft Docs'
-description: "En lista över alla artiklar som är specifika för att skapa dokumentdatabaser med SQL-API i Azure Cosmos DB."
+description: En lista över alla artiklar som är specifika för att skapa dokumentdatabaser med SQL-API i Azure Cosmos DB.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 82bec99a-ac2b-474e-b41f-d2fb296c8feb
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8faa8a08d4a5bc323951a594049002fc61eb56b8
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: f30f089ea7a12ef54b255368f38c8ec11a8c11da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB: SQL-API-dokumentationen
 
@@ -34,7 +34,7 @@ Dessa är måste läsa ämnen och resurser för att starta lära dig mer om SQL-
 - [Introduktion av SQL-API](sql-api-introduction.md)
 - [Resursen databasmodellen](sql-api-resources.md)
 - Webbplats: [Query playground](https://www.documentdb.com/sql/demo)
-- Cheat blad: [SQL-grammatik](sql-api-sql-query-cheat-sheet.md)
+- Cheat blad: [SQL-grammatik](query-cheat-sheet.md)
 
 ## <a name="quickstarts"></a>Snabbstarter
 

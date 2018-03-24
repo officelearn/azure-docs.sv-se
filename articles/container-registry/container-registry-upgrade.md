@@ -1,18 +1,18 @@
 ---
-title: "Uppgradera ett register för klassiska Azure-behållare"
-description: "Dra nytta av den expanderade funktionsuppsättningen Basic, Standard och Premium hanteras behållaren register genom att uppgradera ohanterade klassisk behållaren registret."
+title: Uppgradera ett register för klassiska Azure-behållare
+description: Dra nytta av den expanderade funktionsuppsättningen Basic, Standard och Premium hanteras behållaren register genom att uppgradera ohanterade klassisk behållaren registret.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 19090bb69d7165c1e904450dc93b925e23e44782
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c5a61941bab2aa49cd8205e0a07dd2b5f7378ce9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Uppgradera ett klassiskt behållaren register
 
@@ -29,14 +29,16 @@ Hanterade register innehåller:
 * [Geo-replikering](container-registry-geo-replication.md)
 * [Webhooks](container-registry-webhook.md)
 
-De flesta av alla, beror ett klassiskt register på lagringskontot att Azure etablerade i Azure-prenumerationen automatiskt när du skapade i registret. Däremot Basic, Standard och Premium-SKU: er dra nytta av *hanteras lagring*. Det vill säga Azure transparent hanterar lagring på bilderna du--skapas inte ett separat lagringskonto i din egen prenumeration.
+De flesta av alla, beror ett klassiskt register på lagringskontot att Azure automatiskt etablerar i din Azure-prenumeration när du skapar i registret. Däremot Basic, Standard och Premium-SKU: er dra nytta av Azures [avancerade lagringsfunktioner](container-registry-storage.md) genom att hantera lagring av dina bilder transparent för dig. Ett separat lagringskonto skapas inte i din egen prenumeration.
 
 Hanterade registret lagring ger följande fördelar:
 
-* Behållaren bilderna [krypterat i vila](../storage/common/storage-service-encryption.md).
-* Avbildningar lagras med [geo-redundant lagring](../storage/common/storage-redundancy.md#geo-redundant-storage), tillåta säkerhetskopiering av dina bilder med flera regioner replikering.
+* Behållaren bilderna [krypterat i vila](container-registry-storage.md#encryption-at-rest).
+* Avbildningar lagras med [geo-redundant lagring](container-registry-storage.md#geo-redundant-storage), tillåta säkerhetskopiering av dina bilder med flera regioner replikering.
 * Möjlighet att fritt [flytta mellan SKU: er](container-registry-skus.md#changing-skus), aktivera högre kapacitet när du väljer en högre nivå SKU. Med varje SKU uppfyller ACR dina behov för genomströmning som dina behov öka.
 * Enhetlig säkerhetsmodell för registret och dess lagring ger förenklad rights management. Du kan hantera bara behörigheter för behållaren registret, utan att även hantera behörigheter för ett separat lagringskonto.
+
+Ytterligare information om bildlagring i ACR finns [behållaren bildlagring i Azure Container registret](container-registry-storage.md).
 
 ## <a name="migration-considerations"></a>Överväganden vid migrering
 

@@ -1,8 +1,8 @@
 ---
-title: "Varna hanteringslösning i Azure Log Analytics | Microsoft Docs"
-description: "Aviseringen hanteringslösning i logganalys hjälper dig att analysera alla aviseringar i din miljö.  Förutom konsolidering aviseringar som genereras inom logganalys importerar det aviseringar från anslutna hanteringsgrupper för System Center Operations Manager till logganalys."
+title: Varna hanteringslösning i Azure Log Analytics | Microsoft Docs
+description: Aviseringen hanteringslösning i logganalys hjälper dig att analysera alla aviseringar i din miljö.  Förutom konsolidering aviseringar som genereras inom logganalys importerar det aviseringar från anslutna hanteringsgrupper för System Center Operations Manager till logganalys.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0d9028b821e4c488186143311c81bfa6d17908ff
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Aviseringen hanteringslösning i Azure Log Analytics
 
@@ -109,28 +109,15 @@ Lösningen går att importera aviseringar från System Center Operations Manager
 Följande tabell innehåller exempel loggen söker efter avisering innehåller information som samlas in av den här lösningen: 
 
 | Fråga | Beskrivning |
-|:--- |:--- |
-| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR |Kritiska aviseringar som genererats under de senaste 24 timmarna |
-| Typ = avisering AlertSeverity = varning TimeRaised > nu 24 timmar |Varningsaviseringar som genererats under de senaste 24 timmarna |
-| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR &#124; measure count() as Count by SourceDisplayName |Källor med aktiva aviseringar som genererats under de senaste 24 timmarna |
-| Typ = avisering SourceSystem = OpsManager AlertSeverity = fel TimeRaised > nu 24 TIMMARS in AlertState! = stängd |Kritiska aviseringar som genererats under de senaste 24 timmarna som fortfarande är aktiva |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed |Aviseringar som genererats under de senaste 24 timmarna som nu har stängts |
-| Typ = avisering SourceSystem = OpsManager TimeRaised > nu 1 dag &#124; måttet count() som antal av AlertSeverity |Aviseringar som genererats under de senaste 1 dagen grupperat efter allvarlighetsgrad |
-| Typ = avisering SourceSystem = OpsManager TimeRaised > nu 1 dag &#124; Sortera RepeatCount desc |Aviseringar som genererats under de senaste 1 dagen sorterat efter upprepat antalsvärde |
-
-
->[!NOTE]
-> Om ditt arbetsområde har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), sedan föregående frågorna skulle ändra till följande:
->
->| Fråga | Beskrivning |
 |:---|:---|
-| Varna n &#124; där SourceSystem == ”OpsManager” och AlertSeverity == ”error” och TimeRaised > ago(24h) |Kritiska aviseringar som genererats under de senaste 24 timmarna |
-| Varna n &#124; där AlertSeverity == ”varning” och TimeRaised > ago(24h) |Varningsaviseringar som genererats under de senaste 24 timmarna |
-| Varna n &#124; där SourceSystem == ”OpsManager” och in AlertState! = ”stängd” och TimeRaised > ago(24h) &#124; Sammanfatta Count = count() av SourceDisplayName |Källor med aktiva aviseringar som genererats under de senaste 24 timmarna |
-| Varna n &#124; där SourceSystem == ”OpsManager” och AlertSeverity == ”error” och TimeRaised > ago(24h) och in AlertState! = ”stängd” |Kritiska aviseringar som genererats under de senaste 24 timmarna som fortfarande är aktiva |
-| Varna n &#124; där SourceSystem == ”OpsManager” och TimeRaised > ago(24h) och in AlertState == ”stängd” |Aviseringar som genererats under de senaste 24 timmarna som nu har stängts |
-| Varna n &#124; där SourceSystem == ”OpsManager” och TimeRaised > ago(1d) &#124; Sammanfatta Count = count() av AlertSeverity |Aviseringar som genererats under de senaste 1 dagen grupperat efter allvarlighetsgrad |
-| Varna n &#124; där SourceSystem == ”OpsManager” och TimeRaised > ago(1d) &#124; Sortera efter RepeatCount desc |Aviseringar som genererats under de senaste 1 dagen sorterat efter upprepat antalsvärde |
+| Varning &#124; där SourceSystem == ”OpsManager” och AlertSeverity == ”error” och TimeRaised > ago(24h) |Kritiska aviseringar som genererats under de senaste 24 timmarna |
+| Varning &#124; där AlertSeverity == ”varning” och TimeRaised > ago(24h) |Varningsaviseringar som genererats under de senaste 24 timmarna |
+| Varning &#124; där SourceSystem == ”OpsManager” och in AlertState! = ”stängd” och TimeRaised > ago(24h) &#124; sammanfatta Count = count() av SourceDisplayName |Källor med aktiva aviseringar som genererats under de senaste 24 timmarna |
+| Varning &#124; där SourceSystem == ”OpsManager” och AlertSeverity == ”error” och TimeRaised > ago(24h) och in AlertState! = ”stängd” |Kritiska aviseringar som genererats under de senaste 24 timmarna som fortfarande är aktiva |
+| Varning &#124; där SourceSystem == ”OpsManager” och TimeRaised > ago(24h) och in AlertState == ”stängd” |Aviseringar som genererats under de senaste 24 timmarna som nu har stängts |
+| Varning &#124; där SourceSystem == ”OpsManager” och TimeRaised > ago(1d) &#124; sammanfatta Count = count() av AlertSeverity |Aviseringar som genererats under de senaste 1 dagen grupperat efter allvarlighetsgrad |
+| Varning &#124; där SourceSystem == ”OpsManager” och TimeRaised > ago(1d) &#124; sortera efter RepeatCount desc |Aviseringar som genererats under de senaste 1 dagen sorterat efter upprepat antalsvärde |
+
 
 
 ## <a name="next-steps"></a>Nästa steg

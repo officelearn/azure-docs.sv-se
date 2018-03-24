@@ -1,11 +1,11 @@
 ---
-title: "Hantering för företagsappar i Azure Active Directory för användaretablering | Microsoft Docs"
-description: "Lär dig att hantera användare konto-etablering för företagsappar som använder Azure Active Directory"
+title: Hantering för företagsappar i Azure Active Directory för användaretablering | Microsoft Docs
+description: Lär dig att hantera användare konto-etablering för företagsappar som använder Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 846ec63d47ebc787fa1edbf1968f1a843e96ac9d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bded73b4a335dc85a84691f5edabac5055f43cca
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera konto-etablering för företagsappar i Azure-portalen
 Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal.azure.com) att hantera automatisk användar konto-etablering och avetablering för program som stöder detta, särskilt de som har lagts till i kategorin ”aktuell” för den [Azure Active Directory-programgalleriet](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Läs mer om automatisk konto användaretablering och hur det fungerar i [automatisera Användaretablering och avetablering för SaaS-program med Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -76,7 +76,7 @@ Det här avsnittet innehåller ytterligare information om driften av tjänsten e
 
 Länkar som den **etablering aktivitetsrapport**, som innehåller en logg över alla användare och grupper som skapas, uppdateras och tas bort mellan Azure AD och målprogrammet, och den **etablering felrapporten** som ger mer detaljerade felmeddelanden för användare och gruppobjekt som inte kunde läsas, skapas, uppdateras eller tas bort. 
 
-##<a name="feedback"></a>Feedback
+## <a name="feedback"></a>Feedback
 
 Vi hoppas att du som din Azure AD-upplevelse. Skriv ned feedback kommer! Publicera din feedback och förslag på förbättringar i den **administrationsportalen** avsnitt i vår [Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Vi få är taggade om hur du skapar nya nya produkter varje dag, och använda din vägledning för att formen och definiera vad vi bygga härnäst.
 

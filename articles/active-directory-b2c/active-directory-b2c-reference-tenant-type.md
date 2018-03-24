@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Region tillgänglighet & data land | Microsoft Docs"
-description: "Ett ämne på vilka typer av Azure Active Directory B2C-klienter"
+title: 'Azure Active Directory B2C: Region tillgänglighet & data land | Microsoft Docs'
+description: Ett ämne på vilka typer av Azure Active Directory B2C-klienter
 services: active-directory-b2c
-documentationcenter: 
-author: gsacavdm
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 8a0644da-b825-4edc-8ce9-541c3c976afb
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
-ms.author: gsacavdm
-ms.openlocfilehash: 752a98ca7f3c77c434de296461790f2cf37e2d5c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: b982a6b6e0068370ef7b5cb30ea689829e90d494
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Region tillgänglighet & data land
 Regional tillgänglighet och data land är två mycket olika begrepp som tillämpas på olika sätt att Azure AD B2C från resten av Azure. Den här artikeln beskrivs skillnaderna mellan dessa två koncept och jämföra hur de används med Azure jämfört med Azure AD B2C.
@@ -26,7 +23,7 @@ Regional tillgänglighet och data land är två mycket olika begrepp som tilläm
 ## <a name="summary"></a>Sammanfattning
 Azure AD B2C är **allmänt tillgänglig över hela världen** med alternativet för **data land i USA eller Europa**.
 
-## <a name="concepts"></a>Koncept
+## <a name="concepts"></a>Begrepp
 * **Regional tillgänglighet** avser där en tjänst är tillgänglig för användning.
 * **Data land** refererar till där användarinformationen är lagrad.
 
@@ -52,7 +49,7 @@ Data som finns i Europa för följande länder:
 
 Återstående länder håller läggs till i listan.  Du kan fortfarande använda Azure AD B2C genom att välja något av länder ovan för tillfället.
 
-> Afghanistan, Argentina, Australien, Brasilien, underordnad, Colombia, Ecuador, Hongkong SAR, Indien, Indonesien, Irak, Japan, Korea, Malaysia, Nya Zeeland, Paraguay, Peru, Filippinerna, Singapore, Sri Lanka, Taiwan, Thailand, Uruguay och Venezuela.
+> Afghanistan, Argentina, Australia, Brazil, Chile, Colombia, Ecuador, Hong Kong SAR, India, Indonesia, Iraq, Japan, Korea, Malaysia, New Zealand, Paraguay, Peru, Philippines, Singapore, Sri Lanka, Taiwan, Thailand, Uruguay and Venezuela.
 
 ## <a name="preview-tenant"></a>Förhandsgranska klient
 Om du har skapat en B2C-klient under Azure AD B2C-förhandsversionen, är förmodligen som din **klient typen** står **Preview klient**. Om så är fallet måste du använda din klient endast för utveckling och testning och inte för appar i produktion.

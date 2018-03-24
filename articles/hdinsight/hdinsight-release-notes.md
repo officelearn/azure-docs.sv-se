@@ -1,8 +1,8 @@
 ---
-title: "Viktig information för Hadoop-komponenter på Azure HDInsight | Microsoft Docs"
-description: "Senaste viktig information och versioner av Hadoop-komponenter för Azure HDInsight. Hämta development tips och information för Spark, R Server, Hive och mycket mer."
+title: Viktig information för Hadoop-komponenter på Azure HDInsight | Microsoft Docs
+description: Senaste viktig information och versioner av Hadoop-komponenter för Azure HDInsight. Hämta development tips och information för Spark, R Server, Hive och mycket mer.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 editor: cgronlun
 manager: jhubbard
 author: nitinme
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: nitinme
-ms.openlocfilehash: 38a33056ccd908b43319125b3fe517988b1507c6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf0bfa052c8cd7589af40972fda1e1802b4d1acb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Viktig information för Hadoop-komponenter på Azure HDInsight
 
@@ -29,9 +29,10 @@ Den här artikeln innehåller information om den **senaste** uppdateringar med A
 > [!IMPORTANT]
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight versionshantering artikel](hdinsight-component-versioning.md).
 
-## <a name="notes-for-03082018---release-of-spark-22-on-hdinsight-36"></a>Information om 03/08/2018 - versionen av Spark 2.2 i HDInsight 3,6
+## <a name="notes-for-03202018---release-of-spark-22-on-hdinsight-36"></a>Information om 2018-03/20 - versionen av Spark 2.2 i HDInsight 3,6
 
 - Spark 2.2.0 förbättrar stabiliteten i Spark Core, SQL, ML och ger strukturerade strömning GA status. Spark 2.2.0 är nu tillgänglig på HDInsight 3,6.
+
 
 ## <a name="notes-for-08012017-release-of-hdinsight"></a>Information om 2017-08/01 versionen av HDInsight
 

@@ -1,22 +1,22 @@
 ---
-title: "Compute-miljöer som stöds av Azure Data Factory | Microsoft Docs"
-description: "Mer information om beräkning miljöer där du kan använda i Azure Data Factory pipelines (till exempel Azure HDInsight) till omvandlings- eller data."
+title: Compute-miljöer som stöds av Azure Data Factory | Microsoft Docs
+description: Mer information om beräkning miljöer där du kan använda i Azure Data Factory pipelines (till exempel Azure HDInsight) till omvandlings- eller data.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: f242a8a15334818d83651cf0af55e8ec39bce212
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 99d10cfd9e1e0eb078d1f90396a87e5e5dc4a7a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 Den här artikeln beskrivs olika beräknings-miljöer som du kan använda för att bearbeta eller Transformera data. Det ger också information om olika konfigurationer (på begäran eller ta med din egen) som stöds av Data Factory när du konfigurerar länkade tjänster länka dessa compute miljöer till ett Azure data factory.
@@ -101,7 +101,7 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight länkad tjän
 | Egenskap                     | Beskrivning                              | Krävs |
 | ---------------------------- | ---------------------------------------- | -------- |
 | typ                         | Typegenskapen bör anges till **HDInsightOnDemand**. | Ja      |
-| ClusterSize                  | Antal worker/data noder i klustret. HDInsight-kluster skapas med 2 huvudnoderna tillsammans med antalet arbetarnoder som du anger för den här egenskapen. Noder har storlek Standard_D3 med 4 kärnor, så ett kluster med noder 4 worker tar 24 kärnor (4\*4 = 16 kärnor för arbetarnoder plus 2\*4 = 8 kärnor för huvudnoderna). Se [ställa in kluster i HDInsight Hadoop, Spark, Kafka och mycket mer](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) information. | Ja      |
+| clusterSize                  | Antal worker/data noder i klustret. HDInsight-kluster skapas med 2 huvudnoderna tillsammans med antalet arbetarnoder som du anger för den här egenskapen. Noder har storlek Standard_D3 med 4 kärnor, så ett kluster med noder 4 worker tar 24 kärnor (4\*4 = 16 kärnor för arbetarnoder plus 2\*4 = 8 kärnor för huvudnoderna). Se [ställa in kluster i HDInsight Hadoop, Spark, Kafka och mycket mer](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) information. | Ja      |
 | linkedServiceName            | Azure Storage länkade tjänsten som ska användas av klustret på begäran för lagring och bearbetning av data. HDInsight-klustret skapas i samma region som Azure Storage-konto. Azure HDInsight har en begränsning för hur många kärnor du kan använda i varje Azure-region som stöds. Kontrollera att du har tillräckligt med core kvoter i den Azure-regionen som uppfyller de nödvändiga clusterSize. Mer information finns i [ställa in kluster i HDInsight Hadoop, Spark, Kafka och mycket mer](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>För närvarande kan du skapa ett HDInsight-kluster med på begäran som använder ett Azure Data Lake Store som lagring. Om du vill lagra Resultatdata från HDInsight som bearbetas i en Azure Data Lake Store kan du använda en Kopieringsaktiviteten för att kopiera data från Azure Blobblagring till Azure Data Lake Store. </p> | Ja      |
 | clusterResourceGroup         | HDInsight-klustret har skapats i den här resursgruppen. | Ja      |
 | timetolive                   | Tillåten inaktivitetstid för HDInsight-kluster på begäran. Anger hur länge HDInsight-kluster på begäran förblir aktiva efter slutförande av en aktivitet som kör om det finns inga aktiva jobb i klustret. Den minsta tillåtna värdet är 5 minuter (00: 05:00).<br/><br/>Till exempel om en aktivitet kör tar 6 minuter och timetolive är inställd på 5 minuter, förblir klustret aktiv på 5 minuter efter 6 minuter för aktiviteten kör. Om en annan aktivitet kör körs med fönstret 6 minuter, bearbetas men det av samma kluster.<br/><br/>Skapar ett HDInsight-kluster på begäran är en kostsam åtgärd (kan ta en stund), så Använd den här inställningen som krävs för att förbättra prestanda för en datafabrik genom att återanvända ett HDInsight-kluster på begäran.<br/><br/>Om du anger timetolive-värdet till 0 bort klustret som kör aktiviteten har slutförts. Men om du anger ett högt värde kan klustret kan vara inaktiv för inloggning för felsökning av vissa syfte, men det kan resultera i höga kostnader. Det är därför viktigt att du har angett rätt värde baserat på dina behov.<br/><br/>Om egenskapen timetolive-värdet är korrekt, delar flera pipelines instans av HDInsight-kluster på begäran. | Ja      |
@@ -148,7 +148,7 @@ Använd service principal autentisering genom att ange följande egenskaper:
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Ange programmets klient-ID.     | Ja      |
 | **servicePrincipalKey** | Ange programmets nyckeln.           | Ja      |
-| **klient**              | Ange information om klient (domain name eller klient ID) under där programmet finns. Du kan hämta den hovrar muspekaren i det övre högra hörnet i Azure-portalen. | Ja      |
+| **Klient**              | Ange information om klient (domain name eller klient ID) under där programmet finns. Du kan hämta den hovrar muspekaren i det övre högra hörnet i Azure-portalen. | Ja      |
 
 ### <a name="advanced-properties"></a>Avancerade egenskaper
 

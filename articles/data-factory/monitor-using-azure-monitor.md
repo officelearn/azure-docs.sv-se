@@ -1,11 +1,11 @@
 ---
-title: "Övervaka datafabriker med hjälp av Azure-Monitor | Microsoft Docs"
-description: "Lär dig hur du använder Azure-Monitor för att övervaka Data Factory pipelines genom att aktivera diagnostiska loggar med information från Azure Data Factory."
+title: Övervaka datafabriker med hjälp av Azure-Monitor | Microsoft Docs
+description: Lär dig hur du använder Azure-Monitor för att övervaka Data Factory pipelines genom att aktivera diagnostiska loggar med information från Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: d4022a89b8e0e08679e1c593dc1b691a23d21471
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Övervaka datafabriker med hjälp av Azure-Monitor  
 Molnprogram är komplicerade med många rörliga delar. Övervakning tillhandahåller data för att säkerställa att programmet in och körs i ett felfritt tillstånd. Det hjälper dig också att stave ut potentiella problem eller felsöka tidigare viktiga. Du kan dessutom använda övervakningsdata och få djupa insikter om ditt program. Den här kunskapen kan hjälpa dig att förbättra programmets prestanda eller underhålla eller automatisera åtgärder som annars skulle kräva manuella åtgärder.
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-Mer information här] (https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+Mer information här] ()https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>Schemat för loggar & händelser
 
@@ -387,7 +387,7 @@ Azure-Monitor kan du använda telemetri för att få insyn i prestanda och häls
 
 ADFV2 genererar följande mått
 
-| **Mått**           | **Mått visningsnamn**         | **Enhet** | **Sammansättningstyp** | **Beskrivning**                                       |
+| **Mått**           | **Mått visningsnamn**         | **enhet** | **Sammansättningstyp** | **Beskrivning**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
 | PipelineSucceededRun | Pipelinen körs mått är klar | Antal    | Totalt                | Totalt antal pipelines körs har slutförts inom en minut fönster |
 | PipelineFailedRuns   | Det gick inte pipelinen körs mått    | Antal    | Totalt                | Totalt antal pipelines körs misslyckades inom en minut fönster    |
@@ -396,7 +396,7 @@ ADFV2 genererar följande mått
 | TriggerSucceededRuns | Lyckades utlösaren körs mått  | Antal    | Totalt                | Totalt antal trigger kör har slutförts inom en minut period   |
 | TriggerFailedRuns    | Det gick inte utlösaren körs mått     | Antal    | Totalt                | Totalt antal trigger kör misslyckades inom en minut period      |
 
-Om du vill komma åt mätvärdena som följer du anvisningarna i artikeln - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+För att komma åt mätvärdena som följer du anvisningarna i artikeln- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
 ## <a name="next-steps"></a>Nästa steg
 Se [övervaka och hantera pipelines programmässigt](monitor-programmatically.md) artikeln innehåller information om att övervaka och hantera pipelines genom att köra. 

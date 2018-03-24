@@ -2,9 +2,10 @@
 title: Azure AI-galleriet samlingar | Microsoft Docs
 description: Identifiera och dela samlingar i Azure AI-galleriet.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: c834a0dc-492f-4fa4-8a48-c86bba7b2b97
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: b7850b55baa690df22d8ebe14e9fa17fd91e0bad
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ee34520973a482a5a7741efe1306c8a656315277
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Identifiera och dela samlingar i Azure AI-galleriet
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -31,7 +31,7 @@ Att söka i samlingar [i galleriet](http://gallery.cortanaintelligence.com)under
 
 ![Välj samlingar på startsidan galleri](./media/gallery-collections/select-collections-in-gallery.png)
 
-Den  **[samlingar](https://gallery.cortanaintelligence.com/collections)**  sidan visas en lista över nyligen tillagda och populära samlingar. Om du vill visa alla samlingar, Välj **se alla**. Om du vill söka efter en specifik samling, Välj **se alla**, och välj sedan filtreringsvillkor. Du kan även ange sökorden i den **Sök** rutan längst upp på sidan Gallery.
+Den **[samlingar](https://gallery.cortanaintelligence.com/collections)** sidan visas en lista över nyligen tillagda och populära samlingar. Om du vill visa alla samlingar, Välj **se alla**. Om du vill söka efter en specifik samling, Välj **se alla**, och välj sedan filtreringsvillkor. Du kan även ange sökorden i den **Sök** rutan längst upp på sidan Gallery.
 
 Du kan få mer information om en mängd på informationssidan för samlingen. Markera samlingen för att öppna en samling informationssida. På en samling information sidan den **kommentarer** avsnitt, du kan kommentera, ge feedback eller ställa frågor om samlingen. Du kan också dela samlingen med vänner och kollegor på Twitter och LinkedIn. Du kan också e-en länk till sidan samling information att bjuda in andra användare att visa sidan.
 

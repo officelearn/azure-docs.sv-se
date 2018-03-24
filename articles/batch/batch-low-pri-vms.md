@@ -1,6 +1,6 @@
 ---
-title: "Köra Azure Batch arbetsbelastningar på virtuella datorer kostnadseffektiv låg prioritet | Microsoft Docs"
-description: "Lär dig hur du etablerar låg prioritet virtuella datorer för att minska kostnaden för Azure Batch-arbetsbelastningar."
+title: Köra Azure Batch arbetsbelastningar på virtuella datorer kostnadseffektiv låg prioritet | Microsoft Docs
+description: Lär dig hur du etablerar låg prioritet virtuella datorer för att minska kostnaden för Azure Batch-arbetsbelastningar.
 services: batch
 author: mscurrell
 manager: timlt
@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 02/01/2018
+ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: 7e4f37ca6997f1770de8acbc10eeeb25ddf87deb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68240e29429b4c6321e8627b62ad65ce7ecb468e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Med Batch VM med låg prioritet
 
@@ -26,12 +26,6 @@ Låg prioritet VMs utnyttja överflödiga kapacitet i Azure. När du anger låg 
 Förhållandet för med låg prioritet virtuella datorer är att dessa virtuella datorer kanske inte tillgänglig för att allokera eller kan avbrytas när som helst, beroende på tillgänglig kapacitet. Därför är låg prioritet mest lämpliga för vissa typer av arbetsbelastningar. Använd VM med låg prioritet för batch- och asynkron bearbetning arbetsbelastningar där slutförandetid jobbet är flexibel och vad som ska distribueras till många virtuella datorer.
  
 Låg prioritet VMs erbjuds till en betydligt mindre pris jämfört med dedikerade virtuella datorer. Information om priser, se [Batch priser](https://azure.microsoft.com/pricing/details/batch/).
-
-
-> [!IMPORTANT]
-> Låg prioritet är endast tillgänglig för arbetsbelastningar som körs i en Batch. 
->
->
 
 ## <a name="use-cases-for-low-priority-vms"></a>Användningsfall för VM med låg prioritet
 

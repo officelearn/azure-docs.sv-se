@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 1b46eac189f4b06ad134b7a4e6d8f5a281a66b94
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b29429e1efe46aef8263bed5edb3daeffdf41122
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 Generella VM-storlekar ange förhållandet mellan belastningsutjämnade CPU-minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. Den här artikeln innehåller information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
@@ -22,7 +22,7 @@ Generella VM-storlekar ange förhållandet mellan belastningsutjämnade CPU-minn
 
 - Dv3-serien, Dv2-serien, en uppföljning till den ursprungliga D-serien, har en kraftfullare processor. Processorn i Dv2-serien är cirka 35 % snabbare än den i D-serien. Den baseras på den senaste generationens 2,4 GHz Intel Xeon® E5-2673 v3-processor (Haswell) och kan uppnå 3,1 GHz med Intel Turbo Boost Technology 2.0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
 
-- Storlekarna på den grundläggande nivån är främst avsedda för utvecklingsarbetsbelastningar och andra program som inte kräver belastningsutjämning, automatisk skalning eller minnesintensiva virtuella datorer. Information om VM-storlekar som passar bättre för produktionsprogram finns i (Storlekar för virtuella datorer)[virtual-machines-size-specs.md]. Prisinformation för virtuella datorer finns i [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/) (Priser för virtuella datorer).
+- Storlekarna på den grundläggande nivån är främst avsedda för utvecklingsarbetsbelastningar och andra program som inte kräver belastningsutjämning, automatisk skalning eller minnesintensiva virtuella datorer.
 
 ## <a name="b-series"></a>B-serien
 

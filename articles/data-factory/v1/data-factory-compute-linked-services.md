@@ -1,11 +1,10 @@
 ---
-title: "Compute-miljöer som stöds av Azure Data Factory | Microsoft Docs"
-description: "Mer information om beräkning miljöer där du kan använda i Azure Data Factory pipelines (till exempel Azure HDInsight) till omvandlings- eller data."
+title: Compute-miljöer som stöds av Azure Data Factory | Microsoft Docs
+description: Mer information om beräkning miljöer där du kan använda i Azure Data Factory pipelines (till exempel Azure HDInsight) till omvandlings- eller data.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 410fb74d8f8ec6196bbd4cc19cc97704649b75c9
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 09568dcbbec90bcba2f2782072b83cc04d9e8a87
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 > [!NOTE]
@@ -51,7 +50,7 @@ Microsoft uppdaterar listan över versioner som stöds HDInsight med senaste Had
 Efter 15 December 2017:
 
 - Du kan inte längre skapa Linux-baserat HDInsight version 3.3 (eller tidigare versioner) kluster med hjälp av en HDInsight på begäran länkade tjänsten i Data Factory version 1. 
-- Om den [ **osType** och **Version** egenskaper](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) inte uttryckligen anges i JSON-definitionen för en befintlig Data Factory version 1 på begäran länkad HDInsight-tjänst , ändras från standardvärdet **Version = 3.1 osType = Windows** till **Version =\<senaste HDI-standardversionen\>(https://docs.microsoft.com/azure/hdinsight/ hdinsight-Component-Versioning#hadoop-Components-Available-with-different-hdinsight-versions), osType = Linux**.
+- Om den [ **osType** och **Version** egenskaper](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) inte uttryckligen anges i JSON-definitionen för en befintlig Data Factory version 1 på begäran länkad HDInsight-tjänst , ändras från standardvärdet **Version = 3.1 osType = Windows** till **Version =\<senaste HDI-standardversionen\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType = Linux**.
 
 Efter den 31 juli 2018:
 
@@ -124,7 +123,7 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight länkad tjän
 | Egenskap                     | Beskrivning                              | Krävs |
 | ---------------------------- | ---------------------------------------- | -------- |
 | typ                         | Ange typegenskapen till **HDInsightOnDemand**. | Ja      |
-| ClusterSize                  | Antal arbetare och data som noder i klustret. HDInsight-kluster skapas med 2 huvudnoderna förutom antalet arbetarnoder som du anger för den här egenskapen. Noder har storlek Standard_D3 med 4 kärnor. Ett 4-arbetsnoden klustret tar 24 kärnor (4\*4 = 16 kärnor för arbetarnoder plus 2\*4 = 8 kärnor för huvudnoderna). Mer information om Standard_D3 nivån finns [skapa Linux-baserade Hadoop-kluster i HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Ja      |
+| clusterSize                  | Antal arbetare och data som noder i klustret. HDInsight-kluster skapas med 2 huvudnoderna förutom antalet arbetarnoder som du anger för den här egenskapen. Noder har storlek Standard_D3 med 4 kärnor. Ett 4-arbetsnoden klustret tar 24 kärnor (4\*4 = 16 kärnor för arbetarnoder plus 2\*4 = 8 kärnor för huvudnoderna). Mer information om Standard_D3 nivån finns [skapa Linux-baserade Hadoop-kluster i HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Ja      |
 | timeToLive                   | Tillåten inaktivitetstid för HDInsight-kluster på begäran. Anger hur länge HDInsight-kluster på begäran förblir alive när en aktivitet körs är klar, om det finns inga aktiva jobb i klustret.<br /><br />Till exempel om en aktivitet kör tar 6 minuter och **timeToLive** är inställd på 5 minuter, av klustret förblir alive för 5 minuter efter 6 minuter för aktiviteten kör. Om en annan aktivitet kör körs i fönstret 6 minuter, bearbetas men det av samma kluster.<br /><br />Skapar ett HDInsight-kluster på begäran är en kostsam åtgärd (det kan ta en stund). Använd den här inställningen som behövs för att förbättra prestanda för en datafabrik genom att återanvända ett HDInsight-kluster på begäran.<br /><br />Om du ställer in den **timeToLive** värde till **0**, klustret tas bort när aktiviteten körs har avslutats. Men om du anger ett högt värde för kan klustret förblir inaktiva i onödan ledde höga kostnader. Det är viktigt att ange rätt värde baserat på dina behov.<br /><br />Om den **timeToLive** värdet anges korrekt kan flera pipelines dela instansen av HDInsight-kluster på begäran. | Ja      |
 | version                      | Versionen av HDInsight-klustret. Tillåtna HDInsight versioner finns [stöds HDInsight-versioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Om värdet inte anges i [senaste HDI-standardversionen](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions) används. | Nej       |
 | linkedServiceName            | Länkad Azure Storage-tjänst som ska användas av klustret på begäran för lagring och bearbetning av data. HDInsight-klustret skapas i samma region som det här lagringskontot.<p>För närvarande kan du skapa ett HDInsight-kluster med på begäran som använder Azure Data Lake Store som lagring. Om du vill lagra Resultatdata från HDInsight bearbetning i Data Lake Store kan du använda Kopieringsaktiviteten för att kopiera data från Blob storage till Data Lake Store. </p> | Ja      |

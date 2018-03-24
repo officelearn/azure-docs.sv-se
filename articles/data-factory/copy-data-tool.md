@@ -1,21 +1,21 @@
 ---
 title: Kopieringsdata verktyget Azure Data Factory | Microsoft Docs
-description: "Innehåller information om verktyget kopieringsdata i Azure Data Factory-Gränssnittet"
+description: Innehåller information om verktyget kopieringsdata i Azure Data Factory-Gränssnittet
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2fb25dcc0de4ebb1d025101670a9edfe3fe2bea9
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: b82ee060ff3f25e7a92c85114d457ecb349159b3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Kopiera verktyget Data i Azure Data Factory
 Verktyget Azure Data Factory kopieringsdata underlättar och optimerar hur du vill föra in data i en datasjö som vanligtvis är ett första steg i ett scenario för integrering av data för slutpunkt till slutpunkt.  Det sparar tid, särskilt när du använder Azure Data Factory att mata in data från en datakälla för första gången. Några av fördelarna med att använda det här verktyget är:
@@ -27,7 +27,7 @@ Verktyget Azure Data Factory kopieringsdata underlättar och optimerar hur du vi
 
 Följande tabell innehåller råd om när du använder verktyget kopieringsdata kontra per aktivitet redigering i Data Factory-Användargränssnittet: 
 
-| Kopiera Data verktyget | Per aktivitet (kopieringsaktiviteten) Redigering |
+| Kopiera data-verktyg | Per aktivitet (kopieringsaktiviteten) Redigering |
 | -------------- | -------------------------------------- |
 | Du vill skapa enkelt en datainläsning aktiviteten utan att lära dig mer om Azure Data Factory-enheter (länkade tjänster, datauppsättningar, pipelines osv.) | Du vill implementera komplexa och flexibla logik för att läsa in data i lake. |
 | Du vill läsa in ett stort antal dataartifakter snabbt i en datasjö. | Vill du kedja kopieringsaktiviteten med efterföljande aktiviteter för rengöring eller bearbetning av data. |
@@ -49,7 +49,7 @@ Det här verktyget kan du enkelt kan flytta data från olika källor till mål i
 
  Verktyget är utformad med stordata i åtanke från början, med stöd för olika data och objekt av typen. Du kan använda den för att flytta hundratals mappar, filer eller tabeller. Verktyget stöder automatisk förhandsgranskning, schemat avbildning och automatisk mappning och data samt filtrering.
 
-![Kopiera Data verktyget](./media/copy-data-tool/copy-data-tool.png)
+![Kopiera data-verktyg](./media/copy-data-tool/copy-data-tool.png)
 
 ## <a name="automatic-data-preview"></a>Automatisk förhandsgranskning
 Du kan förhandsgranska en del av data från datalagret valda källplatsen där du kan validera data som kopieras. Om datakällan finns i en textfil, Parsar verktyget kopieringsdata dessutom textfil för att automatiskt identifiera rad och kolumn avgränsare och schema.

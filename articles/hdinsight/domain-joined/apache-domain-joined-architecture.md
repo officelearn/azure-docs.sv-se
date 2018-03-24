@@ -1,8 +1,8 @@
 ---
-title: "Arkitektur för domänanslutna Azure HDInsight | Microsoft Docs"
-description: "Lär dig hur du planerar för domänansluten HDInsight."
+title: Arkitektur för domänanslutna Azure HDInsight | Microsoft Docs
+description: Lär dig hur du planerar för domänansluten HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bhanupr
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/14/2017
+ms.date: 03/20/2018
 ms.author: bprakash
-ms.openlocfilehash: 5285199d22528ed6b9fa3b7dbc85e382e7b28569
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b4f79388e45e24dc906a3a03dc0c0e51df52160d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Planera Azure-domänanslutna Hadoop-kluster i HDInsight
 
@@ -47,16 +47,14 @@ Följande skärmbild visar en Organisationsenhet som skapats i contoso.com. Någ
 
 ![Domän ansluten HDInsight-kluster ou](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
-### <a name="two-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Två sätt för att göra egna Active Directory-domänkontrollanter
-
-Det finns två sätt som du kan ta Active Directory-domänkontrollanter för att skapa domänanslutna HDInsight-kluster. 
+### <a name="the-way-of-bringing-your-own-active-directory-domain-controllers"></a>Sätt för att göra egna Active Directory-domänkontrollanter
 
 - **Azure Active Directory Domain Services**: den här tjänsten tillhandahåller en hanterad Active Directory-domän, som är helt kompatibel med Windows Server Active Directory. Microsoft hand tar om hantering, uppdatering och övervakning av AD-domänen. Du kan distribuera klustret utan att bekymra dig om att hantera domänkontrollanter. Användare, grupper och lösenord synkroniseras från din Azure Active Directory, så att användarna kan logga in till klustret med sina företagsuppgifter. Mer information finns i [konfigurera domänanslutna HDInsight-kluster med Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
-- **Active Directory på Azure IaaS-VM**: I det här alternativet kan du distribuera och hantera din egen Windows Server Active Directory-domän på Azure IaaS-VM. Mer information finns i [konfigurera domänanslutna sandbox domänmiljö](./apache-domain-joined-configure.md).
+> [!NOTE]
+> Active Directory på Azure IaaS-VM stöds inte längre.
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du vill konfigurera ett domänanslutet HDInsight-kluster kan du läsa [Konfigurera domänanslutna HDInsight-kluster](apache-domain-joined-configure.md).
 * Information om hantering av domänanslutna HDInsight-kluster finns i [Hantera domänanslutna HDInsight-kluster](apache-domain-joined-manage.md).
 * Om du vill konfigurera Hive-principer och köra Hive-frågor kan du läsa [Konfigurera Hive-principer för domänanslutna HDInsight-kluster](apache-domain-joined-run-hive.md).
 * Om du vill köra Hive-frågor med hjälp av SSH på domänanslutna HDInsight-kluster, se [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).

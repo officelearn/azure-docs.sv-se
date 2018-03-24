@@ -1,24 +1,24 @@
 ---
-title: "Förstå Azure IoT Hub-meddelandeformat | Microsoft Docs"
-description: "Utvecklarhandbok - beskrivs formatet och förväntade innehållet i IoT-hubb meddelanden."
+title: Förstå Azure IoT Hub-meddelandeformat | Microsoft Docs
+description: Utvecklarhandbok - beskrivs formatet och förväntade innehållet i IoT-hubb meddelanden.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 03/20/2018
 ms.author: dobett
-ms.openlocfilehash: 3d5b500964ee37dbd347858edd35812e1d217499
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 832010181059e2ec42834e54622f374c367c8d4f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Skapa och läsa IoT-hubb
 
@@ -50,6 +50,7 @@ I följande tabell visas en uppsättning egenskaper i IoT-hubb-meddelanden.
 | ConnectionDeviceId |Ett ID som angetts av IoT-hubb på meddelanden från enhet till moln. Den innehåller den **deviceId** på den enhet som skickade meddelandet. |
 | ConnectionDeviceGenerationId |Ett ID som angetts av IoT-hubb på meddelanden från enhet till moln. Den innehåller den **generationId** (enligt [identitet enhetsegenskaper][lnk-device-properties]) på den enhet som skickade meddelandet. |
 | ConnectionAuthMethod |En autentiseringsmetod som angetts av IoT-hubb på meddelanden från enhet till moln. Den här egenskapen innehåller information om autentiseringsmetoden som används för att autentisera enheten skickar meddelandet. Mer information finns i [enheten till molnet skydd mot förfalskning][lnk-antispoofing]. |
+| CreationTimeUtc | Datum och tidpunkt som meddelandet skapades på en enhet. En enhet måste ange ett explicit värde. |
 
 ## <a name="message-size"></a>Meddelandestorlek
 

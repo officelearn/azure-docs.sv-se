@@ -1,11 +1,11 @@
 ---
-title: "Azure Resource Health vanliga frågor och svar | Microsoft Docs"
-description: "Översikt över Azure Resource Health"
+title: Azure Resource Health vanliga frågor och svar | Microsoft Docs
+description: Översikt över Azure Resource Health
 services: Resource health
 documentationcenter: dev-center-name
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/05/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5155faac6051f5a586255148f77a52a90745673e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health vanliga frågor och svar
 Lär dig svar på vanliga frågor om Azure Resource Health.
@@ -81,12 +81,12 @@ Resurshälsa finns tillgänglig i alla regioner som Azure förutom följande omr
 - Centrala Tyskland
 - Nordöstra Tyskland
 
-## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>Hur skiljer sig Resource Health från Hälsoinstrumentpanelen eller Azure portal tjänstmeddelanden?
-Den information som tillhandahålls av Resource Health är mer specifik än vad som tillhandahålls av Azure Hälsoinstrumentpanelen.
+## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Hur skiljer sig Resource Health från Azure status eller tjänstens hälsa för instrumentpanelen?
+Den information som tillhandahålls av Resource Health är mer specifik än vad som tillhandahålls av Azure status eller tjänstens hälsa för instrumentpanelen.
 
-Medan [Azure Status](https://status.azure.com) och företagsportalen service-meddelanden får du information om tjänsten problem som påverkar ett stort antal kunder (till exempel en Azure-region), Resource Health exponerar mer detaljerade händelser som är endast relevant för den särskilda resursen. Om en värd oväntat startar om aviseringar Resource Health kunder vars virtuella datorer körs på värden.
+Medan [Azure status](https://status.azure.com) och tjänstens hälsa för instrumentpanelen ger information om tjänsten problem som påverkar ett stort antal kunder (till exempel en Azure-region), Resource Health exponerar mer detaljerade händelser som är relevanta för endast den viss resurs. Om en värd oväntat startar om aviseringar Resource Health kunder vars virtuella datorer körs på värden.
 
-Det är viktigt att Observera att för att ge dig en fullständig överblick över händelser som påverkar dina resurser, Resource Health tillhandahåller även händelser som har publicerats i tjänstmeddelanden och Hälsoinstrumentpanelen.
+Det är viktigt att Observera att för att ge dig en fullständig överblick över händelser som påverkar dina resurser, Resource Health tillhandahåller även händelser som har publicerats i tjänstens hälsa för instrumentpanelen.
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>Behöver jag aktivera Resource Health för varje resurs?
 Nej, hälsoinformation är tillgängliga för alla resurstyper som är tillgängliga via Resource Health. 

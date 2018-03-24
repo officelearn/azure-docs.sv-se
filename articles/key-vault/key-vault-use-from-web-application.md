@@ -1,6 +1,6 @@
 ---
-title: "Använda Azure Key Vault från ett webbprogram | Microsoft Docs"
-description: "Använd den här kursen för att lära dig hur du använder Azure Key Vault från ett webbprogram."
+title: Använda Azure Key Vault från ett webbprogram | Microsoft Docs
+description: Använd den här kursen för att lära dig hur du använder Azure Key Vault från ett webbprogram.
 services: key-vault
 author: adhurwit
 manager: mbaldwin
@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 93ef76729123c7187c3dd616419b5771324fe2cb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Använda Azure Key Vault från webbprogram
 
@@ -27,7 +27,7 @@ Använd den här kursen för att lära dig hur du använder Azure Key Vault frå
 
 Översiktlig information om Azure Key Vault finns i [Vad är Azure Key Vault?](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här självstudiekursen behöver du följande:
 
@@ -151,7 +151,7 @@ makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Anteckna slutdatumet och lösenordet för PFX (i det här exemplet: 07/31/2017 och test123). Du behöver dem nedan.
+Anteckna slutdatumet och lösenordet för PFX (i det här exemplet: 07/31/2018 och test123). Du behöver dem nedan.
 
 Mer information om hur du skapar ett testcertifikat finns [så här: skapa dina egna testa certifikat](https://msdn.microsoft.com/library/ff699202.aspx)
 

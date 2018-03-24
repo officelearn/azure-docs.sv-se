@@ -2,18 +2,18 @@
 title: Distribuera Azure Machine Learning med Azure IoT-Edge | Microsoft Docs
 description: Distribuera Azure Machine Learning som en modul till en insticksenhet
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4201395085dd72eb92b774eaed5980737b2e5de0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1b8a6079a68c50f80b593a1f56bc5256047ef31c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Distribuera Azure Machine Learning som en gräns för IoT-modul - förhandsgranskning
 
@@ -44,7 +44,7 @@ På datorn som kör Management-modulen för Azure ML, hämta och spara [iot_scor
 Använd den tränade modellen för att skapa en behållare som kan distribueras till enheter som IoT. Använd följande kommando för att:
 
    * Registrera din modell.
-   * Skapa en manafest.
+   * Skapa ett manifest.
    * Skapa en avbildning av Docker behållare med namnet *machinelearningmodule*.
    * Distribuera avbildningen till Azure Container Service (AKS) klustret.
 

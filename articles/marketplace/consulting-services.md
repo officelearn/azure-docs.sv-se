@@ -1,33 +1,33 @@
 ---
-title: "Samråd Azure Marketplace-erbjudanden"
-description: "Kriterierna och publishing krav för nya erbjudandetypen i Azure Marketplace"
+title: Samråd Azure Marketplace-erbjudanden
+description: Kriterierna och publishing krav för nya erbjudandetypen i Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: dd00711a9be208ddf635c998a77935ed63fcf996
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e063721f2fa2ac87b2f9dd7385b2d114a1b76cb3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="azure-marketplace-consulting-services"></a>Samråd Azure Marketplace-tjänster
+# <a name="azure-marketplace-consulting-services"></a>Samråd Azure Marketplace-tjänster
 Med mål vid anslutning av kunder med stöd för och utöka sin användning av Microsoft Azure-tjänster stöder Azure Marketplace lista över samråd services erbjudanden från partner System Integrator (SI) av Microsoft. 
 
 Dessa rådgivning erbjudanden är kundspecifika Användarsegmentet, fast i omfånget och varaktighet, kan åtgärdas pris eller frigör och har en definierad resultatet. Potentiella kunder kan enkelt begära kontaktas av partners på ett fritt friktion sätt. Partners få ett meddelande i sina CRM-systemet och syftet med att svara på användare inom 48hrs.
 
 Tjänsten erbjuder baserat på Microsoft Dynamics 365, Microsoft Office 365 och Microsoft Power BI är berättigade ska visas på AppSource. Granska detaljerad [riktlinjer för dessa tjänster här](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
-##<a name="eligible-services-and-partners"></a>Berättigade tjänster och partners
+## <a name="eligible-services-and-partners"></a>Berättigade tjänster och partners
 
 Partners måste också ha en silver eller guld kompetensen i området relevanta för service. Berättigad befogenheter finns nedan:
 
@@ -49,7 +49,7 @@ Förutom genomgångar, rådgivning erbjudas person (d.v.s. direkt på kundens pl
 
 Läs mer om [befogenheter via Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies#simple-tab-content-1). 
 
-##<a name="countries-supported"></a>Länder/regioner som stöds
+## <a name="countries-supported"></a>Länder/regioner som stöds
 
 SI partners kan skicka rådgivning services erbjudanden för följande 18 länder. 
 
@@ -65,7 +65,7 @@ SI partners kan skicka rådgivning services erbjudanden för följande 18 lände
 
 Starta för Azure Marketplace samråd tjänster ska publiceras först för Australien, Kanada, Storbritannien och USA. Kataloger för andra länder ska publiceras när ett meningsfullt tal och tvingande val av tjänster erbjudanden har skickats av partners och godkänts av Microsoft.
 
-##<a name="prepare-your-publishing-artifacts"></a>Förbered din publishing artefakter
+## <a name="prepare-your-publishing-artifacts"></a>Förbered din publishing artefakter
 Innan du anger din tjänst kan du börja samla in och förbereda innehållet som hjälper din registrering förklara värdet för din tjänst och lösningen till kunden mål. 
 
 
@@ -88,7 +88,7 @@ Innan du anger din tjänst kan du börja samla in och förbereda innehållet som
 |Marknadsföring dokument (maximalt 3)     |
 
 
-##<a name="publishing-process"></a>Process för att publicera
+## <a name="publishing-process"></a>Process för att publicera
 Visar en lista över ditt rådgivning tjänsterbjudande på Azure Marketplace omfattar följande:
 
 1. **Begäran:** skicka din begäran [här](https://azuremarketplace.microsoft.com/en-us/sell/nominate) och berätta mer om din organisation. 

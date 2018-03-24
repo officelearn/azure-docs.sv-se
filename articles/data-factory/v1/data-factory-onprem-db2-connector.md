@@ -1,11 +1,10 @@
 ---
-title: "Flytta data från DB2 med hjälp av Azure Data Factory | Microsoft Docs"
-description: "Lär dig att flytta data från en lokal DB2-databas med hjälp av Azure Data Factory-Kopieringsaktiviteten"
+title: Flytta data från DB2 med hjälp av Azure Data Factory | Microsoft Docs
+description: Lär dig att flytta data från en lokal DB2-databas med hjälp av Azure Data Factory-Kopieringsaktiviteten
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 17ffd0de41964736d2f59b0cf891d0c6b2e7d16b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 0e597574c1993e2f2a5421d24063cf9f42a7e57b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Flytta data från DB2 med hjälp av Azure Data Factory-Kopieringsaktiviteten
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +57,7 @@ Data Factory DB2-koppling stöder följande IBM DB2-plattformar och versioner me
 
 > [!TIP]
 > Om du får felmeddelandet ”det paket som motsvarar en SQL-instruktionen Körningsbegäran hittades inte. SQLSTATE = 51002 SQLCODE =-805 ”, orsaken är ett nödvändigt paket inte skapas för normal användare i Operativsystemet. Lös problemet genom att följa dessa instruktioner för din servertyp DB2:
-> - DB2 för i (AS400): gör en privilegierad användare skapa samling för normal användare innan du kör Kopieringsaktiviteten. Använd kommandot för att skapa samlingen:`create collection <username>`
+> - DB2 för i (AS400): gör en privilegierad användare skapa samling för normal användare innan du kör Kopieringsaktiviteten. Använd kommandot för att skapa samlingen: `create collection <username>`
 > - DB2 för z/OS eller LUW: Använd ett konto för privilegierade--privilegierad användare eller administratör som har paketet myndigheter och BIND BINDADD, BEVILJA EXECUTE till offentliga behörigheter--ska köras en gång kopian. Det nödvändiga paketet skapas automatiskt under kopieringen. Därefter kan du växla tillbaka till normal användare för efterföljande kopia-körs.
 
 ## <a name="getting-started"></a>Komma igång
@@ -82,13 +81,13 @@ I följande tabell visas JSON-egenskaper som är specifika för en DB2 länkad t
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| **typ** |Den här egenskapen måste anges till **OnPremisesDb2**. |Ja |
+| **Typ** |Den här egenskapen måste anges till **OnPremisesDb2**. |Ja |
 | **server** |Namnet på DB2-servern. |Ja |
-| **databasen** |Namnet på DB2-databasen. |Ja |
+| **Databasen** |Namnet på DB2-databasen. |Ja |
 | **schema** |Namnet på schemat i DB2-databasen. Den här egenskapen är skiftlägeskänsliga. |Nej |
-| **authenticationType** |Typ av autentisering som används för att ansluta till DB2-databasen. Möjliga värden är: anonym, grundläggande och Windows. |Ja |
+| **AuthenticationType** |Typ av autentisering som används för att ansluta till DB2-databasen. Möjliga värden är: anonym, grundläggande och Windows. |Ja |
 | **username** |Namnet för användarkontot om du använder grundläggande eller Windows-autentisering. |Nej |
-| **lösenord** |Lösenordet för användarkontot. |Nej |
+| **Lösenord** |Lösenordet för användarkontot. |Nej |
 | **gatewayName** |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala DB2-databasen. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
@@ -107,7 +106,7 @@ För Kopieringsaktiviteten när källan är av typen **RelationalSource** (som o
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| **frågan** |Använd anpassad fråga för att läsa data. |SQL-sträng. Exempel: `"query": "select * from "MySchema"."MyTable""` |Nej (om den **tableName** -egenskapen för en dataset har angetts) |
+| **Frågan** |Använd anpassad fråga för att läsa data. |SQL-sträng. Exempel: `"query": "select * from "MySchema"."MyTable""` |Nej (om den **tableName** -egenskapen för en dataset har angetts) |
 
 > [!NOTE]
 > Schema och tabellnamn är skiftlägeskänsliga. I frågeuttrycket omge egenskapsnamn med hjälp av ”” (dubbla citattecken).
@@ -314,7 +313,7 @@ Följande mappningar används när Kopieringsaktiviteten konverterar data från 
 | BigInt |Int64 |
 | Real |Ogift |
 | Dubbel |Dubbel |
-| Flyttal |Dubbel |
+| flyttal |Dubbel |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | numeriskt |Decimal |
@@ -340,7 +339,7 @@ Följande mappningar används när Kopieringsaktiviteten konverterar data från 
 | BigInt |Int64 |
 | Real |Ogift |
 | Dubbel |Dubbel |
-| Flyttal |Dubbel |
+| flyttal |Dubbel |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | numeriskt |Decimal |

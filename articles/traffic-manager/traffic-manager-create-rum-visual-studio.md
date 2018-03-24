@@ -1,31 +1,28 @@
 ---
-title: "Verklig användare mått i Azure Traffic Manager med Visual Studio Mobile Center | Microsoft Docs"
-description: "Konfigurera din mobila program som utvecklats med hjälp av Visual Studio Mobile Center skicka verkliga användaren mått i Traffic Manager"
+title: Verklig användare mått i Azure Traffic Manager med Visual Studio Mobile Center | Microsoft Docs
+description: Konfigurera din mobila program som utvecklats med hjälp av Visual Studio Mobile Center skicka verkliga användaren mått i Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/29/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: 756496e5291d932ee9ac89265291e6892c4304fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 893e84b07b365fb0b534e0ddc021b2249c4174cf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Hur du skickar verkliga användaren mått i Traffic Manager med Visual Studio Mobile Center
-
->[!NOTE]
->Funktionen verkliga användaren mått i Traffic Manager finns i Public Preview och kanske inte har samma nivå av tillgänglighet och tillförlitlighet som viktiga funktioner som är i allmänhet tillgänglighet. Funktionen stöds inte, kan ha begränsad kapacitet och kanske inte tillgänglig på alla platser i Azure. Den senaste meddelanden på tillgänglighet och status för den här funktionen, kontrollera den [Azure Traffic Manager uppdaterar](https://azure.microsoft.com/updates/?product=traffic-manager) sidan.
 
 Du kan ställa in din mobila program som utvecklats med hjälp av Visual Studio Mobile Center skicka verkliga användaren mått i Traffic Manager genom att följa stegen:
 

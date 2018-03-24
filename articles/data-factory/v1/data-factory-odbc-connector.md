@@ -1,11 +1,10 @@
 ---
-title: "Flytta data från ODBC datalager | Microsoft Docs"
-description: "Lär dig mer om hur du flyttar data från ODBC datalager med Azure Data Factory."
+title: Flytta data från ODBC datalager | Microsoft Docs
+description: Lär dig mer om hur du flyttar data från ODBC datalager med Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: ad70a598-c031-4339-a883-c6125403cb76
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 381069f8d8b5fef0d283fcfc6bc3f82fcf119c0e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e75f7a6caac87be9ffb5209fa4eb423097820bfc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Flytta data från ODBC datalager med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,7 +67,7 @@ Följande tabell innehåller beskrivning för JSON-element som är specifika fö
 | --- | --- | --- |
 | typ |Egenskapen type måste anges till: **OnPremisesOdbc** |Ja |
 | connectionString |Den icke-autentiseringsuppgifter delen av anslutningssträngen och en valfri krypterade autentiseringsuppgifter. Se exemplen i följande avsnitt. <br/><br/>Du kan ange anslutningssträngen med mönster som `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, eller använda systemets DSN (Data Source Name) som du ställer in på gateway-datorn med `"DSN=<name of the DSN>;"` (du måste fortfarande ange autentiseringsuppgifter del i den länkade tjänsten därefter). |Ja |
-| autentiseringsuppgifter |Åtkomst autentiseringsuppgifter del av den angivna anslutningssträngen i drivrutinsspecifika egenskapsvärdet format. Exempel: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Nej |
+| credential |Åtkomst autentiseringsuppgifter del av den angivna anslutningssträngen i drivrutinsspecifika egenskapsvärdet format. Exempel: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Nej |
 | AuthenticationType |Typ av autentisering som används för att ansluta till ODBC-datalagret. Möjliga värden är: anonyma och grundläggande. |Ja |
 | användarnamn |Ange användarnamnet om du använder grundläggande autentisering. |Nej |
 | lösenord |Ange lösenordet för det användarkonto som du angav för användarnamnet. |Nej |

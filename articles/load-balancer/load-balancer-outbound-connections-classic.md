@@ -1,24 +1,24 @@
 ---
-title: "Utgående anslutningar i Azure (klassisk) | Microsoft Docs"
-description: "Den här artikeln förklarar hur kan användas för Azure cloud services för att kommunicera med offentliga internet-tjänster."
+title: Utgående anslutningar i Azure (klassisk) | Microsoft Docs
+description: Den här artikeln förklarar hur kan användas för Azure cloud services för att kommunicera med offentliga internet-tjänster.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 7a307a598bd71369615b30476d387c06f473c397
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8a24987ae3423a02647b1dd246b40179be100c06
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="outbound-connections-classic"></a>Utgående anslutningar (klassisk)
 
@@ -123,6 +123,18 @@ Kom ihåg att antalet tillgängliga portar för SNAT inte översätta direkt til
 
 Om övergångar till en lägre nivå, antalet tillgängliga portar för SNAT ökar och minskar den distributionen. I det här fallet befintliga tilldelade SNAT portar och deras respektive flöden påverkas inte.
 
+SNAT portar allokeringar är IP-transportprotokollet specifika (TCP och UDP underhålls separat) och publiceras på följande villkor:
+
+### <a name="tcp-snat-port-release"></a>Versionen för SNAT TCP-port
+
+- Om både servern eller-klienten skickar Finland-ACK, släpps SNAT port efter 240 sekunder.
+- Om en RST visas släpps SNAT port efter 15 sekunder.
+- Tidsgränsen för inaktivitet har nåtts
+
+### <a name="udp-snat-port-release"></a>Versionen för SNAT UDP-port
+
+- Tidsgränsen för inaktivitet har nåtts
+
 ## <a name="problemsolving"></a> Problemlösning 
 
 Det här avsnittet är avsedd för att minska SNAT resursuttömning och andra scenarier som kan uppstå med utgående anslutningar i Azure.
@@ -170,3 +182,4 @@ Du kan skicka en DNS-fråga för namnet myip.opendns.com till OpenDNS matcharen 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [belastningsutjämnaren](load-balancer-overview.md) används i Resource Manager distributioner.
+- Lär dig läge [utgående anslutning](load-balancer-outbound-connections.md) scenarier finns i Resource Manager distributioner.

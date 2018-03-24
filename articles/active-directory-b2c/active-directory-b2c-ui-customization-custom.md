@@ -1,24 +1,21 @@
 ---
-title: "Anpassa ett gränssnitt med hjälp av anpassade principer - Azure AD B2C | Microsoft Docs"
-description: "Lär dig mer om hur du anpassar ett användargränssnitt (UI) samtidigt som du använder anpassade principer i Azure AD B2C."
+title: Anpassa ett gränssnitt med hjälp av anpassade principer - Azure AD B2C | Microsoft Docs
+description: Lär dig mer om hur du anpassar ett användargränssnitt (UI) samtidigt som du använder anpassade principer i Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/04/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: davidmu
+ms.openlocfilehash: 659910f239087a1d87d650c05af157c085e8c72c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: Konfigurera anpassningar i en anpassad princip
 
@@ -40,7 +37,7 @@ Här är hur det fungerar: Azure AD B2C Kör koden i kundens webbläsare och anv
 
 Skapa HTML innehåll med varumärken produktnamnet i rubriken.
 
-1. Kopiera följande HTML-fragment. Det är korrekt HTML5 med ett tomt element kallas  *\<div id = ”api”\>\</div\>*  i den  *\<brödtext\>*  taggar. Det här elementet anger där Azure AD B2C-innehåll som ska infogas.
+1. Kopiera följande HTML-fragment. Det är korrekt HTML5 med ett tomt element kallas *\<div id = ”api”\>\</div\>* i den *\<brödtext\>* taggar. Det här elementet anger där Azure AD B2C-innehåll som ska infogas.
 
    ```html
    <!DOCTYPE html>
@@ -124,7 +121,7 @@ Verifiera att du är redo genom att göra följande:
 
 ## <a name="modify-your-sign-up-or-sign-in-custom-policy"></a>Ändra en anpassad princip för registrering eller inloggning
 
-Under den översta  *\<TrustFrameworkPolicy\>*  tagg, bör du hitta  *\<BuildingBlocks\>*  tagg. I den  *\<BuildingBlocks\>*  taggar, lägga till en  *\<ContentDefinitions\>*  taggen genom att kopiera följande exempel. Ersätt *your_storage_account* med namnet på ditt lagringskonto.
+Under den översta *\<TrustFrameworkPolicy\>* tagg, bör du hitta *\<BuildingBlocks\>* tagg. I den *\<BuildingBlocks\>* taggar, lägga till en *\<ContentDefinitions\>* taggen genom att kopiera följande exempel. Ersätt *your_storage_account* med namnet på ditt lagringskonto.
 
   ```xml
   <BuildingBlocks>
@@ -141,7 +138,7 @@ Under den översta  *\<TrustFrameworkPolicy\>*  tagg, bör du hitta  *\<Building
 1. I den [Azure-portalen](https://portal.azure.com), [växla i samband med din Azure AD B2C-klient](active-directory-b2c-navigate-to-b2c-context.md), och sedan öppna den **Azure AD B2C** bladet.
 2. Klicka på **alla principer**.
 3. Klicka på **överföra princip**.
-4. Överför `SignUpOrSignin.xml` med den  *\<ContentDefinitions\>*  tagg som du har lagt till tidigare.
+4. Överför `SignUpOrSignin.xml` med den *\<ContentDefinitions\>* tagg som du har lagt till tidigare.
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>Testa den anpassade principen med hjälp av **kör nu**
 

@@ -1,6 +1,6 @@
 ---
 title: SQLServer FCI - virtuella Azure-datorer | Microsoft Docs
-description: "Den här artikeln förklaras hur du skapar SQL Server Redundansklusterinstans på Azure Virtual Machines."
+description: Den här artikeln förklaras hur du skapar SQL Server Redundansklusterinstans på Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/26/2017
+ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurera SQL Server-instans för redundanskluster på virtuella Azure-datorer
 
@@ -46,6 +46,18 @@ I föregående diagram visas:
 Mer information om S2D finns [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 S2D stöder två typer av arkitekturer - konvergerade och hyperkonvergerad. Arkitekturen i det här dokumentet är hyperkonvergerad. En infrastruktur för hyperkonvergerade placeras lagring på samma servrar som är värdar för klustrade programmet. I den här arkitekturen är lagring på varje SQL Server FCI-nod.
+
+## <a name="licensing-and-pricing"></a>Licensierings- och prissättning
+
+På Azure Virtual Machines du licens SQL Server med betala per användning (PAYG) eller använda din egen licens (BYOL) VM-avbildningar. Typ av bild som du väljer påverkar hur du debiteras.
+
+Med PAYG licensiering, debiteras en redundansklusterinstans (FCI) av SQL Server på Azure Virtual Machines för alla noder i FCI, inklusive de passiva noderna. Mer information finns i [priser för SQL Server Enterprise virtuella datorer](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+
+Kunder med Enterprise-avtal med Software Assurance har rätt att använda en kostnadsfri passiva FCI nod för varje aktiv nod. Om du vill dra nytta av den här funktionen i Azure, använda BYOL VM-avbildningar och använder sedan samma licens på aktiva och passiva noder i Redundansklusterinstanser. Mer information finns i [Enterprise-avtal](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+
+Om du vill jämföra PAYG och BYOL licensiering för SQL Server på Azure Virtual Machines finns [Kom igång med SQL virtuella datorer](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
+
+Fullständig information om licensiering SQL Server finns [priser](http://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
 ### <a name="example-azure-template"></a>Exemplet Azure-mall
 
@@ -91,7 +103,7 @@ Med dessa krav är på plats, kan du fortsätta med att skapa klustret för väx
 
    Om du inte har skapat resursgruppen för dina virtuella datorer kan du göra det när du skapar en Azure tillgänglighetsuppsättning. Om du använder Azure-portalen för att skapa tillgänglighetsuppsättningen gör du följande steg:
 
-   - I Azure-portalen klickar du på  **+**  att öppna Azure Marketplace. Sök efter **tillgänglighetsuppsättning**.
+   - I Azure-portalen klickar du på **+** att öppna Azure Marketplace. Sök efter **tillgänglighetsuppsättning**.
    - Klicka på **tillgänglighetsuppsättning**.
    - Klicka på **Skapa**.
    - På den **skapa tillgänglighetsuppsättning** bladet anger du följande värden:
@@ -123,7 +135,7 @@ Med dessa krav är på plats, kan du fortsätta med att skapa klustret för väx
 
    Välj den högra bilden enligt hur vill du betala för SQL Server-licens:
 
-   - **Betala per användning licensiering**: kostnaden per minut för dessa avbildningar innehåller SQL Server-licensiering:
+   - **Betala per användning licensiering**: kostnaden per sekund för dessa avbildningar innehåller SQL Server-licensiering:
       - **SQL Server 2016 Enterprise på Windows Server Datacenter 2016**
       - **SQL Server 2016 Standard på Windows Server Datacenter 2016**
       - **SQL Server 2016 utvecklare i Windows Server Datacenter 2016**

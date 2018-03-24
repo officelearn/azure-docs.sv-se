@@ -1,6 +1,6 @@
 ---
-title: "Push-Docker-avbildning till registret för privat Azure"
-description: "Skicka och hämta Docker-avbildningar till ett privat behållarregister i Azure med hjälp av Docker CLI"
+title: Push-Docker-avbildning till registret för privat Azure
+description: Skicka och hämta Docker-avbildningar till ett privat behållarregister i Azure med hjälp av Docker CLI
 services: container-registry
 author: stevelas
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21d1abfbb49eaeae654a600d35ab350b96a12fd3
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Skicka din första avbildning till ett privat Docker-behållarregister med hjälp av Docker CLI
 
@@ -21,7 +21,7 @@ Ett Azure-behållarregister lagrar och hanterar privata [Docker](http://hub.dock
 
 I följande steg ska du hämta ett officiellt [Nginx bild](https://store.docker.com/images/nginx) från offentliga Docker-hubb-registret tagga för privat Azure-behållaren registret push i registret och dra den från registret.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-behållarregister** – Skapa ett behållarregister i din Azure-prenumeration. Använd till exempel [Azure-portalen](container-registry-get-started-portal.md) eller [Azure CLI 2.0](container-registry-get-started-azure-cli.md).
 * **Docker CLI** – om du vill konfigurera den lokala datorn som en Docker-värd och få åtkomst till Docker CLI-kommandon, installera [Docker](https://docs.docker.com/engine/installation/).
@@ -40,7 +40,7 @@ Du kan också logga in med [docker inloggning](https://docs.docker.com/engine/re
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
-Båda kommandon returnera `Login Succeeded` när den har slutförts. Om du använder `docker login`, kan du också se en säkerhetsvarning rekommenderar användning av den `--password-stdin` parameter. När användningen är utanför omfånget för den här artikeln, rekommenderar vi följande denna bästa praxis. Mer information finns i [docker inloggning](https://docs.docker.com/engine/reference/commandline/login/) kommandot referens.
+Båda kommandon returnera `Login Succeeded` när den har slutförts. Om du använder `docker login`, kan du också se en säkerhetsvarning rekommenderar användning av den `--password-stdin` parameter. Även om användning av denna ligger utanför vad som tas upp i denna artikel rekommenderar vi att du följer denna bästa metod. Mer information finns i [docker inloggning](https://docs.docker.com/engine/reference/commandline/login/) kommandot referens.
 
 > [!TIP]
 > Ange alltid registret fullständigt kvalificerade namnet (gemener) när du använder `docker login` och när du tagga avbildningar för push-installation till registret. I exemplen i den här artikeln är det fullständigt kvalificerade namnet *myregistry.azurecr.io*.
@@ -123,4 +123,8 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du känner till grunderna är du redo att börja använda registret! Till exempel distribuera behållaren bilder från registret för att en [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md) klustret.
+Nu när du känner till grunderna är du redo att börja använda registret! Distribuera behållare bilder från registret för att:
+
+* [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Azure-Behållarinstanser](../container-instances/container-instances-tutorial-prepare-app.md)
+* [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

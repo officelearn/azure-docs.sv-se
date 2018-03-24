@@ -1,11 +1,10 @@
 ---
-title: "Flytta data från Amazon Redshift med hjälp av Azure Data Factory | Microsoft Docs"
-description: "Lär dig mer om att flytta data från Amazon Redshift med hjälp av Azure Data Factory-Kopieringsaktiviteten."
+title: Flytta data från Amazon Redshift med hjälp av Azure Data Factory | Microsoft Docs
+description: Lär dig mer om att flytta data från Amazon Redshift med hjälp av Azure Data Factory-Kopieringsaktiviteten.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 47a9feaa692eaf048371b4e534e6b2e8c4086997
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ab21eaf935ed03b6f34af00f69e993eaffdad1db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Flytta data från Amazon Redshift med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -63,12 +62,12 @@ Följande tabell innehåller beskrivningar för JSON-element som är specifika f
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| **typ** |Den här egenskapen måste anges till **AmazonRedshift**. |Ja |
+| **Typ** |Den här egenskapen måste anges till **AmazonRedshift**. |Ja |
 | **server** |IP-adressen eller värdnamnet namnet på Amazon Redshift-server. |Ja |
 | **port** |Antalet TCP-porten som Amazon Redshift-servern använder för att lyssna efter anslutningar. |Nej (standard är 5439) |
-| **databasen** |Namnet på Amazon Redshift-databasen. |Ja |
+| **Databasen** |Namnet på Amazon Redshift-databasen. |Ja |
 | **username** |Namnet på den användare som har åtkomst till databasen. |Ja |
-| **lösenord** |Lösenordet för användarkontot. |Ja |
+| **Lösenord** |Lösenordet för användarkontot. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
@@ -88,7 +87,7 @@ För Kopieringsaktiviteten när källan är av typen **AmazonRedshiftSource**, f
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| **frågan** | Använd anpassad fråga för att läsa data. |Nej (om den **tableName** -egenskapen för en dataset har angetts) |
+| **Frågan** | Använd anpassad fråga för att läsa data. |Nej (om den **tableName** -egenskapen för en dataset har angetts) |
 | **redshiftUnloadSettings** | Innehåller Egenskapsgruppen när du använder Redshift **UNLOAD** kommando. | Nej |
 | **s3LinkedServiceName** | Amazon S3 ska användas som en mellanliggande arkivet. Den länkade tjänsten anges med ett Azure Data Factory-namn för typen **AwsAccessKey**. | Krävs när du använder den **redshiftUnloadSettings** egenskapen |
 | **bucketName** | Anger Amazon S3-bucket ska lagras tillfälligt data. Om den här egenskapen inte anges, genererar Kopieringsaktiviteten auto-en bucket. | Krävs när du använder den **redshiftUnloadSettings** egenskapen |
@@ -97,7 +96,7 @@ Du kan också använda den **RelationalSource** typ, som inkluderar Amazon Redsh
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| **frågan** |Använd anpassad fråga för att läsa data. | Nej (om den **tableName** -egenskapen för en dataset har angetts) |
+| **Frågan** |Använd anpassad fråga för att läsa data. | Nej (om den **tableName** -egenskapen för en dataset har angetts) |
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Använd ta bort för att kopiera data från Amazon Redshift
 

@@ -1,30 +1,28 @@
 ---
-title: "Azure Active Directory B2C: Självbetjäning lösenordsändring | Microsoft Docs"
-description: "Ett avsnitt som visar hur du ställer in ändring av lösenord för självbetjäning för dina användare i Azure Active Directory B2C"
+title: 'Azure Active Directory B2C: Självbetjäning lösenordsändring | Microsoft Docs'
+description: Ett avsnitt som visar hur du ställer in ändring av lösenord för självbetjäning för dina användare i Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: vigunase
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-ms.assetid: 712a7128-5788-4914-8a52-24e200aa4de1
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2016
-ms.author: vigunase
-ms.openlocfilehash: 76e7ed328716d09dc57e25f15c411f07fda77bb9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 4c54abe8c3375b49b786c7849c7e963e5849fa3a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>Azure Active Directory B2C: Konfigurera ändra lösenordet i anpassade principer  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Med funktionen för ändring av lösenord (med lokala konton) inloggade användare kan ändra sina lösenord utan att bevisa sin äkthetsbeviset av e-Postverifiering enligt beskrivningen i den [Självbetjäning för lösenordsåterställning flödet.](active-directory-b2c-reference-sspr.md) Om sessionen upphör att gälla efter den tid som får förändringsflödet för lösenord, uppmanas användaren att logga in igen. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure AD B2C-klient som konfigurerats för att slutföra ett lokalt konto sign-upp/inloggning, enligt beskrivningen i [komma igång](active-directory-b2c-get-started-custom.md).
 
@@ -154,7 +152,7 @@ Lägg till följande anspråksprovider din princip för tillägg.
 
 Lägg till program-ID i tilläggsfilen (`TrustFrameworkExtensions.xml`):
 
-1. Hitta element i tilläggsfilen (TrustFrameworkExtensions.xml) `<TechnicalProfile Id="login-NonInteractive">` och`<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
+1. Hitta element i tilläggsfilen (TrustFrameworkExtensions.xml) `<TechnicalProfile Id="login-NonInteractive">` och `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
 
 2. Ersätt alla förekomster av `IdentityExperienceFrameworkAppId` med program-ID för identitet upplevelse Framework-program som beskrivs i [komma igång](active-directory-b2c-get-started-custom.md). Här är ett exempel:
 

@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 9b168231669c50c8f00d3527288fd03ab3bf9ce8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="noconnection"></a>Ändra IP-adressprefix för nätverksgateway – ingen gatewayanslutning
 
 Om du inte har någon gatewayanslutning och du vill lägga till eller ta bort IP-adressprefix använder du samma kommando som du använder för att skapa den lokala nätverksgatewayen, [az network local-gateway create](https://docs.microsoft.com/cli/azure/network/local-gateway#az_network_local_gateway_create). Du kan också använda det här kommandot för att uppdatera gatewayens IP-adress för VPN-enheten. Använd det befintliga namnet på din lokala nätverksgateway när du ska skriva över befintliga inställningar. Om du inte gör det skapar du en ny lokal nätverksgateway i stället för att skriva över den som redan finns.

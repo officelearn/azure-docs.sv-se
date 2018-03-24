@@ -1,24 +1,24 @@
 ---
-title: "Skydda data och åtgärder i Azure Search | Microsoft Docs"
-description: "Azure Search-säkerhet baseras på SOC 2 kompatibilitet, kryptering, autentisering och identitet åtkomst via användare och grupp säkerhets-ID i Azure Search filter."
+title: Skydda data och åtgärder i Azure Search | Microsoft Docs
+description: Azure Search-säkerhet baseras på SOC 2 kompatibilitet, kryptering, autentisering och identitet åtkomst via användare och grupp säkerhets-ID i Azure Search filter.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: search
-ms.devlang: 
+ms.devlang: ''
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: c3aa4883e33b1f3494f8502fe7f8b12f7d64a72f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 35f875e5f6345b9ebb9abc4deb71b7bf9c78907d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="security-and-controlled-access-in-azure-search"></a>Säkerhet och kontrollerad åtkomst i Azure Search
 
@@ -57,29 +57,16 @@ Alla Azure-tjänster stöder rollbaserad åtkomstkontroll (RBAC) för att ställ
 
 ## <a name="service-access-and-authentication"></a>Åtkomst till tjänsten och autentisering
 
-Medan Azure Search ärver säkerhetsåtgärder i Azure-plattformen, ger också en egen nyckel för autentisering. Typ av nyckel (admin eller fråga) avgör vilken åtkomstnivå. Överföring av en giltig nyckel anses bevis begäran kommer från en betrodd enhet. 
+Medan Azure Search ärver säkerhetsåtgärder i Azure-plattformen, ger också en egen nyckel för autentisering. En api-nyckel är en sträng som består av slumpmässigt genererat siffror och bokstäver. Typ av nyckel (admin eller fråga) avgör vilken åtkomstnivå. Överföring av en giltig nyckel anses bevis begäran kommer från en betrodd enhet. Två typer av nycklar används för åtkomst till din söktjänst:
 
-Autentisering krävs för varje begäran, där varje begäran består av en obligatorisk för en åtgärd och ett objekt. När kopplats samman räcker två behörighetsnivåer (fullständig eller skrivskyddad) plus kontexten för att tillhandahålla fullständig spektrumet säkerhet på tjänståtgärder. 
+* Admin (gäller för alla skrivskyddad åtgärder mot tjänsten)
+* Fråga (gäller för skrivskyddade åtgärder, till exempel frågor mot ett index)
 
-|Nyckel|Beskrivning|Begränsningar|  
-|---------|-----------------|------------|  
-|Administratör|Ger fullständig behörighet till alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och datakällor.<br /><br /> Två admin **api-nycklar**, kallas *primära* och *sekundära* i portalen genereras när tjänsten har skapats och individuellt genereras på begäran . Har två nycklar kan du återställa över en nyckel när du använder den andra nyckeln för fortsatt tillgång till tjänsten.<br /><br /> Admin nycklar endast anges i HTTP-huvuden för begäran. Du kan placera en admin api-nyckel i en URL.|Maximalt 2 per tjänst|  
-|Fråga|Ger läsbehörighet till index och dokument och distribueras vanligen till klientprogram som kan utfärda search-begäranden.<br /><br /> Frågan nycklar skapas på begäran. Du kan skapa dem manuellt på portalen eller programmässigt via den [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Frågan nycklar kan anges i ett HTTP-huvud för begäran för sökning, förslag eller sökning. Du kan också ange en fråga nyckel som en parameter på en URL. Beroende på hur ditt klientprogram formulates begäran, kan det vara enklast att överföra nyckeln som en frågeparameter:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|50 per tjänst|  
+Admin nycklar skapas när tjänsten har etablerats. Det finns två admin-nycklar, utses *primära* och *sekundära* för att hålla dem direkt, men i själva verket de är utbytbara. Varje tjänst har två admin-nycklar så att rulla en över utan att förlora åtkomsten till tjänsten. Du kan återskapa antingen administrationsnyckeln, men du kan inte lägga till antalet totala admin. Det finns högst två admin nycklar per söktjänst.
 
- Visuellt, görs ingen åtskillnad mellan en administrationsnyckeln eller Frågenyckeln. Båda nycklarna genereras strängar som består av 32 slumpmässigt alfanumeriska tecken. Om du tappar bort reda på vilken typ av nyckel har angetts i ditt program kan du [Kontrollera nyckelvärdena i portalen](https://portal.azure.com) eller använda den [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) att returnera värdet och nyckeltyp.  
+Frågan nycklar skapas som krävs och är utformade för klientprogram som anropar Sök direkt. Du kan skapa upp till 50 frågan nycklar. I programkoden anger du URL: en för sökning och fråga api-nyckel för att tillåta skrivskyddad åtkomst till tjänsten. Programkoden anger också det index som används av ditt program. Tillsammans definiera slutpunkten, en api-nyckel för skrivskyddad åtkomst och ett mål index omfång och åtkomst för anslutningen från klientprogrammet.
 
-> [!NOTE]  
->  En dålig säkerhetsrutin att skicka känslig information som anses en `api-key` i URI-begäran. Därför accepterar Azure Search bara en fråga nyckel som en `api-key` i frågan sträng, och du bör undvika att du gör det om innehållet i ditt index måste vara offentligt tillgängliga. Som en allmän regel rekommenderar vi skicka din `api-key` som ett huvud.  
-
-### <a name="how-to-find-the-access-keys-for-your-service"></a>Så här hittar du åtkomstnycklarna för tjänsten
-
-Du kan hämta snabbtangenter i portalen eller via den [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/). Mer information finns i [hantera nycklar](search-manage.md#manage-api-keys).
-
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Lista de [söktjänster](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) för din prenumeration.
-3. Välj tjänsten och hitta på sidan service **inställningar** >**nycklar** att visa administratör och fråga nycklar.
-
-![Portalsida, inställningar, nycklar avsnitt](media/search-security-overview/settings-keys.png)
+Autentisering krävs för varje begäran, där varje begäran består av en obligatorisk för en åtgärd och ett objekt. De två behörighetsnivåerna (fullständig eller skrivskyddad) plus kontext (till exempel en frågeåtgärden i ett index) är tillräckliga för att tillhandahålla fullständig spektrumet säkerhet på tjänståtgärder när kopplats samman. Mer information om nycklar finns [skapa och hantera api-nycklar](search-security-api-keys.md).
 
 ## <a name="index-access"></a>Index-åtkomst
 
@@ -123,7 +110,7 @@ I följande tabell sammanfattas de åtgärder som tillåts i Azure Search och vi
 | Fråga en index | Administratören eller fråga nyckel (RBAC ej tillämpligt) |
 | Fråga Systeminformation, till exempel returnerar statistik, antal och listor över objekt. | Admin-nyckel, RBAC på resurs (ägare, deltagare, läsare) |
 | Hantera admin-nycklar | Administrationsnyckeln RBAC ägare eller deltagare för resursen. |
-| Hantera frågenycklar |  Administrationsnyckeln RBAC ägare eller deltagare för resursen. RBAC läsare kan visa frågan nycklar. |
+| Hantera frågenycklar |  Administrationsnyckeln RBAC ägare eller deltagare för resursen.  |
 
 
 ## <a name="see-also"></a>Se också

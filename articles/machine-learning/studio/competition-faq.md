@@ -1,10 +1,11 @@
 ---
-title: "Cortana Intelligence tävlingar vanliga frågor och svar | Microsoft Docs"
-description: "Vanliga frågor om Microsoft Cortana Intelligence tävlingar."
+title: Cortana Intelligence tävlingar vanliga frågor och svar | Microsoft Docs
+description: Vanliga frågor om Microsoft Cortana Intelligence tävlingar.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: haining;garye
-ms.openlocfilehash: f7c839a8471dc54daebc47d0bb5a450358f5250d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: db6fb6cd6c500ffe4537b57a968ef3b8792bcad6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence, tävlingar, vanliga frågor och svar
 **Vad är Cortana Intelligence tävlingar?**
@@ -35,7 +35,7 @@ Du kan använda för allmänna frågor i [forum för Microsoft Azure Machine Lea
 
 **Hur anger en konkurrensen?**
 
-Åtkomst till den [tävlingar](https://gallery.cortanaintelligence.com/competitions) startsidan i den [Azure AI-galleriet](https://gallery.cortanaintelligence.com/), eller gå till [http://aka.ms/CIComp](http://aka.ms/CIComp). Sidan visas alla tävlingar som körs för närvarande. Varje konkurrens har detaljerade instruktioner och deltagande priser och varaktighet för dess registreringssidan.
+Åtkomst till den [tävlingar](https://gallery.cortanaintelligence.com/competitions) startsidan i den [Azure AI-galleriet](https://gallery.cortanaintelligence.com/), eller gå till [ http://aka.ms/CIComp ](http://aka.ms/CIComp). Sidan visas alla tävlingar som körs för närvarande. Varje konkurrens har detaljerade instruktioner och deltagande priser och varaktighet för dess registreringssidan.
 
 1. Hitta konkurrens som du vill delta i, läsa alla instruktioner och titta på videon självstudiekursen. Klicka på den **ange konkurrensen** knappen och kopiera Starter experimentet till din befintliga Azure Machine Learning-arbetsytan. Om du inte redan har åtkomst till en arbetsyta, måste du skapa ett i förväg. Kör experimentet Starter, se prestanda måttet och sedan använda din kreativitet för att förbättra prestanda i modellen. Troligen tillbringar du merparten av din tid i det här steget.   
 

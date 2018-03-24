@@ -1,10 +1,10 @@
 ---
-title: "Loggning för Machine Learning-webbtjänster | Microsoft Docs"
-description: "Lär dig hur du aktiverar loggning för Machine Learning-webbtjänster. Loggning ger ytterligare information för att felsöka de API: er."
+title: Loggning för Machine Learning-webbtjänster | Microsoft Docs
+description: 'Lär dig hur du aktiverar loggning för Machine Learning-webbtjänster. Loggning ger ytterligare information för att felsöka de API: er.'
 services: machine-learning
-documentationcenter: 
-author: aashishb
-ms.author: aashishb
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
 manager: hjerez
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 1e04ef638c46ef0f3b40fd56d27ba3673565bdc7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 345c1b1bd72d3df19f8b087d4cbffd4e25e092ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Aktivera loggning för Machine Learning-webbtjänster
 Det här dokumentet innehåller information om loggningsfunktioner av Machine Learning-webbtjänster. Loggning ger ytterligare information, förutom bara ett felnummer och ett meddelande som kan hjälpa dig att felsöka dina anrop till API: er för Machine Learning.  

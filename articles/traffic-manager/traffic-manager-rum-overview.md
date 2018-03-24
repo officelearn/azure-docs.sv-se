@@ -1,31 +1,28 @@
 ---
-title: "Verklig användare mått i Azure Traffic Manager | Microsoft Docs"
-description: "Introduktion till användare mått i Traffic Manager"
+title: Verklig användare mått i Azure Traffic Manager | Microsoft Docs
+description: Introduktion till användare mått i Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: a7e8ae605b6234341d9ab8b790f4c54d8627f29f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 4e8d808d65c9898d230455d128e3ffc50db303d6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Traffic Manager verkliga användaren mätningar översikt
-
->[!NOTE]
->Funktionen verkliga användaren mått i Traffic Manager finns i Public Preview och kanske inte har samma nivå av tillgänglighet och tillförlitlighet som viktiga funktioner som är i allmänhet tillgänglighet. Funktionen stöds inte, kan ha begränsad kapacitet och kanske inte tillgänglig på alla platser i Azure. Den senaste meddelanden på tillgänglighet och status för den här funktionen, kontrollera den [Azure Traffic Manager uppdaterar](https://azure.microsoft.com/updates/?product=traffic-manager) sidan.
 
 När du ställer in en Traffic Manager att använda routningsmetoden för prestanda tittar tjänsten på där DNS-frågor kommer från och fattas beslut om routning att dirigera dessa beställare till Azure-region som ger dem den lägsta fördröjningen. Detta åstadkoms genom att använda nätverket latens intelligence som Traffic Manager underhåller för olika slutanvändaren nätverk.
 

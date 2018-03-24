@@ -1,10 +1,26 @@
-### <a name="gwipnoconnection"></a>Att ändra lokala nätverkets gateway-IP-adress - ingen gateway-anslutningen
+---
+title: ta med fil
+description: ta med fil
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: a929149f115d716bf7f9d850abe5ba97bd5a8189
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/23/2018
+---
+### <a name="gwipnoconnection"></a> Att ändra lokala nätverkets gateway-IP-adress - ingen gateway-anslutningen
 
 Använd exemplet för att ändra en lokal nätverksgateway som inte har någon gatewayanslutning. När du ändrar det här värdet kan du också ändra adressprefixen på samma gång.
 
 1. På lokala nätverkets Gateway-resursen i den **inställningar** klickar du på **Configuration**.
 2. I den **IP-adress** ändrar IP-adress.
-3. Klicka på **spara** spara inställningarna.
+3. Spara inställningarna genom att klicka på **Spara**.
 
 ### <a name="gwipwithconnection"></a>Att ändra lokala nätverkets gateway gateway IP-adress - befintlig gateway-anslutningen
 
@@ -21,7 +37,7 @@ Om du vill ändra en lokal nätverksgateway som har en anslutning måste du för
 Du kan också ändra adressprefixen på samma gång.
 
 1. I den **IP-adress** ändrar IP-adress.
-2. Klicka på **spara** spara inställningarna.
+2. Spara inställningarna genom att klicka på **Spara**.
 
 #### <a name="3-recreate-the-connection"></a>3. Skapa anslutningen.
 

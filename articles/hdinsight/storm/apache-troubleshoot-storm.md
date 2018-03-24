@@ -1,12 +1,12 @@
 ---
-title: "Felsöka Storm med Azure HDInsight | Microsoft Docs"
-description: "Få svar på vanliga frågor om hur du använder Apache Storm med Azure HDInsight."
-keywords: "Azure HDInsight, Storm, vanliga frågor och svar, felsökningsguide för vanliga problem"
+title: Felsöka Storm med Azure HDInsight | Microsoft Docs
+description: Få svar på vanliga frågor om hur du använder Apache Storm med Azure HDInsight.
+keywords: Azure HDInsight, Storm, vanliga frågor och svar, felsökningsguide för vanliga problem
 services: Azure HDInsight
 documentationcenter: na
 author: raviperi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: c0295af2e71d891d07dad7012b7a27402c375178
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ee408b32650fe0f0e0b66294896756732a2ca5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Felsöka Storm med Azure HDInsight
 
@@ -28,7 +28,7 @@ Läs mer om de vanligaste problemen och sina lösningar för att arbeta med Apac
 ## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Hur kommer jag åt Storm-Användargränssnittet på ett kluster?
 Har du två alternativ för att komma åt Storm-Användargränssnittet från en webbläsare:
 
-### <a name="ambari-ui"></a>Ambari-gränssnittet
+### <a name="ambari-ui"></a>Ambari UI
 1. Gå till instrumentpanelen Ambari.
 2. Välj i listan över tjänster, **Storm**.
 3. I den **snabblänkar** väljer du **Storm-Användargränssnittet**.
@@ -40,7 +40,7 @@ https://\<klustrat DNS-namn\>/stormui
 
 Exempel:
 
- https://stormcluster.azurehdinsight.NET/stormui
+ https://stormcluster.azurehdinsight.net/stormui
 
 ## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Hur överför Storm hubb kanal kontrollpunkt händelseinformation från en topologi till en annan?
 
@@ -71,7 +71,7 @@ Kommandot Exportera skriver metadata till en Apache Hadoop Distributed File Syst
     ```
 
 #### <a name="import-offset-metadata"></a>Importera offset metadata
-1. Använda SSH för att gå till ZooKeeper-kluster på klustret där kontrollpunkten förskjutning måste exporteras.
+1. Använda SSH för att gå till ZooKeeper-kluster på klustret där kontrollpunkten förskjutning måste importeras.
 2. Kör följande kommando (när du har uppdaterat Versionsträngen HDP) för att importera ZooKeeper offset data från HDFS sökväg /stormmetadata/zkdata till målklustret ZooKeeper-servern:
 
     ```apache
@@ -79,7 +79,7 @@ Kommandot Exportera skriver metadata till en Apache Hadoop Distributed File Syst
     ```
    
 #### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>Ta bort offset metadata så att topologier kan starta databearbetning från början, eller från en tidsstämpel som användaren väljer
-1. Använda SSH för att gå till ZooKeeper-kluster på klustret där kontrollpunkten förskjutning måste exporteras.
+1. Använda SSH för att gå till ZooKeeper-kluster på klustret där kontrollpunkten förskjutning måste tas bort.
 2. Kör följande kommando (när du har uppdaterat Versionsträngen HDP) för att ta bort alla ZooKeeper offset data i det aktuella klustret:
 
     ```apache
@@ -107,7 +107,7 @@ En gateway-noden är en gateway och en omvänd proxy-tjänst som gör offentlig 
 ### <a name="head-nodes"></a>HEAD-noder
 Storm huvudnoderna kör följande tjänster:
 * Nimbus
-* Ambari-server
+* Ambari server
 * Ambari mått server
 * Ambari mått insamlaren
  

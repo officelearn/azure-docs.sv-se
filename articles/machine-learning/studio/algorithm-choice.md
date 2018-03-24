@@ -1,12 +1,13 @@
 ---
-title: "Så här väljer du algoritmer för maskininlärning | Microsoft Docs"
-description: "Så här väljer du Azure Machine Learning algoritmer för övervakad och oövervakad inlärning i kluster-, klassificerings- eller regressionsmodell experiment."
+title: Så här väljer du algoritmer för maskininlärning | Microsoft Docs
+description: Så här väljer du Azure Machine Learning algoritmer för övervakad och oövervakad inlärning i kluster-, klassificerings- eller regressionsmodell experiment.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: pakalra
+ms.author: pakalra
+manager: cgronlun
 editor: cgronlun
-tags: 
+tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.devlang: na
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Så här väljer du algoritmer för Microsoft Azure Machine Learning
 Besvara frågan ”vad maskininlärningsalgoritmen ska jag använda”? är alltid ”det beror”. Det beror på storleken, kvaliteten och typen av uppgift. Det beror på vad du vill göra med svaret. Det beror på hur matematiska av algoritmen översattes till instruktioner för den dator som du använder. Och det beror på hur lång tid som du har. Även de mest erfarna datavetare går inte att avgöra vilken algoritm utför bäst innan du försöker dem.
@@ -102,10 +102,10 @@ För vissa typer av data, antal funktioner kan vara mycket stora jämfört med a
 ### <a name="special-cases"></a>Särskilda fall
 Vissa algoritmer för maskininlärning gör viss antaganden om strukturen för data eller önskat resultat. Om du hittar en som passar dina behov, får den du bättre resultat, mer korrekta förutsägelser eller snabbare utbildning.
 
-| **Algoritmen** | **Noggrannhet** | **Utbildning** | **Linearitet** | **Parametrar** | **Anteckningar** |
+| **Algoritm** | **Noggrannhet** | **Utbildning** | **Linearitet** | **Parametrar** | **Anteckningar** |
 | --- |:---:|:---:|:---:|:---:| --- |
 | **Tvåklass klassificering** | | | | | |
-| [logistic regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) | |● |● |5 | |
+| [Logistic regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) | |● |● |5 | |
 | [beslut skog](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
 | [beslut Djungel](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |Låg minneskrav |
 | [tvåklassförhöjda beslutsträdet](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |Stora minneskrav |
@@ -115,20 +115,20 @@ Vissa algoritmer för maskininlärning gör viss antaganden om strukturen för d
 | [lokalt djup support vector machine](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |Bra för stora funktionsuppsättningar |
 | ['Bayes point-dator](https://msdn.microsoft.com/library/azure/dn905930.aspx) | |○ |● |3 | |
 | **Flera klassen klassificering** | | | | | |
-| [logistic regression](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
+| [Logistic regression](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [beslut skog](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
-| [beslut Djungel](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Låg minneskrav |
+| [beslut Djungel ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Låg minneskrav |
 | [neurala nätverket](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Ytterligare anpassning är möjligt](http://go.microsoft.com/fwlink/?LinkId=402867) |
-| [ett-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Visa egenskaper för vald metod två-klass |
+| [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Visa egenskaper för vald metod två-klass |
 | **Regression** | | | | | |
-| [linjär](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
+| [linear](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
 | [Linjär Bayesian](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
 | [beslut skog](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [tvåklassförhöjda beslutsträdet](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Stora minneskrav |
 | [snabb skog quantile](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distributioner i stället för punkt förutsägelser |
 | [neurala nätverket](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Ytterligare anpassning är möjligt](http://go.microsoft.com/fwlink/?LinkId=402867) |
 | [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Tekniskt sett log-linjär. För att förutsäga antalet |
-| [ordningstalet](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |För att förutsäga rang ordning |
+| [ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |För att förutsäga rang ordning |
 | **Avvikelseidentifiering** | | | | | |
 | [support vector machine](https://msdn.microsoft.com/library/azure/dn913103.aspx) |○ |○ | |2 |Särskilt bra för stora funktionsuppsättningar |
 | [PCA-baserad avvikelseidentifiering](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |
@@ -187,7 +187,7 @@ Support vector datorer (SVMs) hitta gräns som avgränsar klasser av som bred en
 
 ***En typisk support vector machine klass gräns maximerar marginalen avgränsa två klasser***
 
-En annan produkt från Microsoft Research den [tvåklass lokalt djup SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) är en icke-linjär variant av SVM som behåller de flesta av den linjära versionen hastighet och minne effektivitet. Det är perfekt för fall där den linjära metoden inte får tillräckligt aktuell svar. Utvecklare sparas det snabbt genom att bryta ned problemet till flera mindre linjär SVM problem. Läs den [fullständig beskrivning](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf) information om hur de hämtas av den här lura.
+En annan produkt från Microsoft Research den [tvåklass lokalt djup SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) är en icke-linjär variant av SVM som behåller de flesta av den linjära versionen hastighet och minne effektivitet. Det är perfekt för fall där den linjära metoden inte får tillräckligt aktuell svar. Utvecklare sparas det snabbt genom att bryta ned problemet till flera mindre linjär SVM problem. Läs den [fullständig beskrivning](http://proceedings.mlr.press/v28/jose13.html) information om hur de hämtas av den här lura.
 
 Med en smarta i linjära SVMs den [en klass SVM](https://msdn.microsoft.com/library/azure/dn913103.aspx) ritar en gräns som beskriver nära hela datauppsättningen. Det är användbart för identifiering av avvikelse. Alla nya datapunkter som långt hamnar utanför gränsen är ovanligt att anmärkningsvärda.
 

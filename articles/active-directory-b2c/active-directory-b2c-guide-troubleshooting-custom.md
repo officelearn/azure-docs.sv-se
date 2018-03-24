@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Anpassade Felsökningsprinciper | Microsoft Docs"
-description: "Mer information om metoder för att lösa fel när du arbetar med anpassade principer i Azure Active Directory."
+title: 'Azure Active Directory B2C: Anpassade Felsökningsprinciper | Microsoft Docs'
+description: Mer information om metoder för att lösa fel när du arbetar med anpassade principer i Azure Active Directory.
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: joroja
-ms.openlocfilehash: 8718f9c1dfce81682174eec11e8cbb731cbdf796
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e51990bd2e121b89e7260e0d745d08ecc82ff8a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Felsöka Azure AD B2C anpassade principer och identitet upplevelse Framework
 
@@ -44,17 +41,17 @@ En granskning av XML-regler kan vara användbara. Azure AD B2C avvisar alla XML-
  
  Följande finns vanliga valideringsfel.
 
-Fel utdrag:`... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
+Fel utdrag: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * ClaimType värdet kan vara felstavat eller finns inte i schemat.
 * ClaimType värden måste definieras i minst en av filerna i principen. 
     Exempel: ` <ClaimType Id="socialIdpUserId">`
 * Om ClaimType definieras i tilläggsfilen, men det används också i ett TechnicalProfile värde i filen grundläggande, resulterar ladda upp filen grundläggande i ett fel.
 
-Fel utdrag:`...makes a reference to a ClaimsTransformation with id...`
+Fel utdrag: `...makes a reference to a ClaimsTransformation with id...`
 * Orsaker till felet kan vara desamma som för ClaimType-fel.
 
-Fel utdrag:`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
-* Kontrollera att TenantId värde i den  **\<TrustFrameworkPolicy\>**  och  **\<BasePolicy\>**  element matcha mål Azure AD B2C-klient.  
+Fel utdrag: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
+* Kontrollera att TenantId värde i den **\<TrustFrameworkPolicy\>** och **\<BasePolicy\>** element matcha mål Azure AD B2C-klient.  
 
 ## <a name="troubleshoot-the-runtime"></a>Felsökning av körningsmiljön
 
@@ -77,4 +74,4 @@ Fel utdrag:`Reason: User is currently logged as a user of 'yourtenant.onmicrosof
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Hämta [active-directory-b2c-custom-policy-starterpack] (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) ZIP-filen i GitHub.
+* Hämta [active-directory-b2c-custom-policy-starterpack] i GitHub (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) ZIP-filen.

@@ -1,8 +1,8 @@
 ---
-title: "Felsöka användardefinierade C#-kod för misslyckade Azure Data Lake U-SQL-jobb | Microsoft Docs"
-description: "Lär dig att felsöka en misslyckad U-SQL-nod med hjälp av Azure Data Lake-verktyg för Visual Studio."
+title: Felsöka användardefinierade C#-kod för misslyckade Azure Data Lake U-SQL-jobb | Microsoft Docs
+description: Lär dig att felsöka en misslyckad U-SQL-nod med hjälp av Azure Data Lake-verktyg för Visual Studio.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b614583079347c2634f8d03531517d1d32c75132
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Felsöka användardefinierade C#-kod för misslyckade U-SQL-jobb
 
@@ -41,7 +41,7 @@ När du öppnar ett jobb som misslyckades i Azure Data Lake-verktyg för Visual 
 
 1. Klicka på **hämta** att hämta alla nödvändiga resurser och inkommande dataströmmar. Om hämtningen inte slutförs, klicka på **försök**.
 
-2. Klicka på **öppna** När nedladdningen är klar för att generera en lokal felsökningsmiljö. En ny Visual Studio-instans med en lösning för felsökning skapas och öppnas automatiskt.
+2. Klicka på **öppna** När nedladdningen är klar för att generera en lokal felsökningsmiljö. Öppnas en ny lösning för felsökning och om du har befintliga lösningen öppnas i Visual Studio du se till att spara och Stäng den innan du felsökning.
 
 ![Azure Data Lake Analytics U-SQL felsökning i visual studio download vertex](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 

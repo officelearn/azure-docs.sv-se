@@ -1,11 +1,10 @@
 ---
-title: "Kopiera data till/från Azure SQL Data Warehouse | Microsoft Docs"
-description: "Lär dig att kopiera data till och från Azure SQL Data Warehouse med Azure Data Factory"
+title: Kopiera data till/från Azure SQL Data Warehouse | Microsoft Docs
+description: Lär dig att kopiera data till och från Azure SQL Data Warehouse med Azure Data Factory
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: d90fa9bd-4b79-458a-8d40-e896835cfd4a
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 97782d1437f47a5ec403a98464d38961874d7575
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 709a178d99a34adb9c77086e55270fe41ed84551
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -166,10 +165,10 @@ GO
 ```
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Använd PolyBase för att läsa in data till Azure SQL Data Warehouse
-Med hjälp av  **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)**  är ett effektivt sätt för att läsa in stora mängder data till Azure SQL Data Warehouse med hög genomströmning. Du kan se en stor vinst i genomflödet med PolyBase i stället för BULKINSERT standardmekanism. Se [kopiera prestanda referensnummer](data-factory-copy-activity-performance.md#performance-reference) med detaljerad jämförelse. En genomgång med ett användningsfall finns [läsa in 1 TB i Azure SQL Data Warehouse under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+Med hjälp av **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** är ett effektivt sätt för att läsa in stora mängder data till Azure SQL Data Warehouse med hög genomströmning. Du kan se en stor vinst i genomflödet med PolyBase i stället för BULKINSERT standardmekanism. Se [kopiera prestanda referensnummer](data-factory-copy-activity-performance.md#performance-reference) med detaljerad jämförelse. En genomgång med ett användningsfall finns [läsa in 1 TB i Azure SQL Data Warehouse under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
-* Om datakällan finns i **Azure Blob- eller Azure Data Lake Store**, och formatet som är kompatibelt med PolyBase, du kan kopiera direkt till Azure SQL Data Warehouse med PolyBase. Se  **[direkt kopia med PolyBase](#direct-copy-using-polybase)**  med information.
-* Om din käll-datalagret och format inte stöds ursprungligen av PolyBase, kan du använda den  **[mellanlagrad kopia med PolyBase](#staged-copy-using-polybase)**  funktion i stället. Det ger dig bättre genomströmning genom att automatiskt konvertera data till PolyBase-kompatibelt format och lagra data i Azure Blob storage. Data hämtas sedan till SQL Data Warehouse.
+* Om datakällan finns i **Azure Blob- eller Azure Data Lake Store**, och formatet som är kompatibelt med PolyBase, du kan kopiera direkt till Azure SQL Data Warehouse med PolyBase. Se **[direkt kopia med PolyBase](#direct-copy-using-polybase)** med information.
+* Om din käll-datalagret och format inte stöds ursprungligen av PolyBase, kan du använda den **[mellanlagrad kopia med PolyBase](#staged-copy-using-polybase)** funktion i stället. Det ger dig bättre genomströmning genom att automatiskt konvertera data till PolyBase-kompatibelt format och lagra data i Azure Blob storage. Data hämtas sedan till SQL Data Warehouse.
 
 Ange den `allowPolyBase` egenskapen **SANT** som visas i följande exempel för Azure Data Factory för att använda PolyBase för att kopiera data till Azure SQL Data Warehouse. När du anger allowPolyBase till true anger du PolyBase specifika egenskaper med hjälp av den `polyBaseSettings` egenskapsgrupp. finns det [SqlDWSink](#SqlDWSink) finns mer information om egenskaper som du kan använda med polyBaseSettings.
 
@@ -198,11 +197,11 @@ Om kraven inte uppfylls, kontrollerar du inställningarna för Azure Data Factor
 1. **Källan länkade tjänsten** är av typen: **AzureStorage** eller **AzureDataLakeStore med huvudsakliga autentiseringen av tjänsten**.  
 2. Den **inkommande dataset** är av typen: **AzureBlob** eller **AzureDataLakeStore**, och skriv `type` egenskaper är **OrcFormat**, **ParquetFormat**, eller **TextFormat** med följande konfigurationer:
 
-   1. `rowDelimiter`måste vara  **\n** .
-   2. `nullValue`anges till **tom sträng** (””), eller `treatEmptyAsNull` är inställd på **SANT**.
-   3. `encodingName`anges till **utf-8**, vilket är **standard** värde.
+   1. `rowDelimiter` måste vara **\n**.
+   2. `nullValue` anges till **tom sträng** (””), eller `treatEmptyAsNull` är inställd på **SANT**.
+   3. `encodingName` anges till **utf-8**, vilket är **standard** värde.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, och `skipLineCount` har inte angetts.
-   5. `compression`kan vara **ingen komprimering**, **GZip**, eller **Deflate**.
+   5. `compression` kan vara **ingen komprimering**, **GZip**, eller **Deflate**.
 
     ```JSON
     "typeProperties": {
@@ -310,7 +309,7 @@ Data Factory skapas tabellen i målarkivet med samma namn i datalagret källa. D
 | bitar | bitar |
 | Decimal | Decimal |
 | numeriskt | Decimal |
-| Flyttal | Flyttal |
+| flyttal | flyttal |
 | Money | Money |
 | Real | Real |
 | SmallMoney | SmallMoney |
@@ -356,7 +355,7 @@ Mappningen är samma som den [Datatypsmappningen i SQL Server för ADO.NET](http
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM-attributet (varbinary(max)) |Byte[] |
-| Flyttal |Dubbel |
+| flyttal |Dubbel |
 | Bild |Byte[] |
 | int |Int32 |
 | Money |Decimal |

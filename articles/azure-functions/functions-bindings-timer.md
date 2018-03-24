@@ -1,13 +1,13 @@
 ---
-title: "Timer som utlösare för Azure Functions"
-description: "Förstå hur du använder timer-utlösare i Azure Functions."
+title: Timer som utlösare för Azure Functions
+description: Förstå hur du använder timer-utlösare i Azure Functions.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure functions, funktioner, händelsebearbetning, dynamiska beräkning serverlösa arkitektur"
+editor: ''
+tags: ''
+keywords: Azure functions, funktioner, händelsebearbetning, dynamiska beräkning serverlösa arkitektur
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: functions
 ms.devlang: multiple
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
-ms.custom: 
-ms.openlocfilehash: bd1a2643d9faf65d664c786169c38f01767fb7e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: 6f74dd4d9cb78c1316c87bd5a261e751b9b34923
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer som utlösare för Azure Functions 
 
@@ -167,7 +167,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**Typ** | Saknas | Måste anges till ”timerTrigger”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**Riktning** | Saknas | Måste anges till ”i”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar timer-objekt i funktionskoden. | 
-|**schedule**|**ScheduleExpression**|Du kan definiera scheman med ett CRON-uttryck på förbrukning-plan. Om du använder en App Service-Plan kan du också använda en `TimeSpan` sträng. I följande avsnitt beskrivs CRON-uttryck. Du kan placera schema-uttrycket i en appinställning och ange egenskapen till ett värde som kapslas in i  **%**  tecken, som i följande exempel: ”% NameOfAppSettingWithCRONExpression %”. |
+|**schedule**|**ScheduleExpression**|Du kan definiera scheman med ett CRON-uttryck på förbrukning-plan. Om du använder en App Service-Plan kan du också använda en `TimeSpan` sträng. I följande avsnitt beskrivs CRON-uttryck. Du kan placera schema-uttrycket i en appinställning och ange egenskapen till ett värde som kapslas in i **%** tecken, som i följande exempel: ”% NameOfAppSettingWithCRONExpression %”. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -256,6 +256,10 @@ När en timer utlösaren funktionen anropas på [timer-objekt](https://github.co
 ## <a name="scale-out"></a>Skalbarhet
 
 Timer-utlösare stöder flera instanser skalbar. En instans av en viss timerfunktion körs i alla instanser.
+
+## <a name="function-apps-sharing-storage"></a>Funktionen appar som delar lagring
+
+Om du delar ett lagringskonto över flera funktionen appar, se till att varje funktionsapp har en annan `id` i *host.json*. Du kan hoppa över den `id` egenskapen eller manuellt ange varje funktionsapp `id` till ett annat värde. Timer-utlösaren använder lagring Lås så att endast en timer-instans när en funktionsapp skalas ut till flera instanser. Om två funktionen appar med samma `id` och varje använder en timer som utlösare, körs bara en timer.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,11 +1,11 @@
 ---
-title: "Stöd för resurstyper via Azure Resource Health | Microsoft Docs"
-description: "Resurstyper som stöds via Azure Resource health"
+title: Stöd för resurstyper via Azure Resource Health | Microsoft Docs
+description: Resurstyper som stöds via Azure Resource health
 services: Resource health
-documentationcenter: 
+documentationcenter: ''
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: b67e72af8a34799af97cd46f968636050f4ce485
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0694c45363eb2534416f1dad59196ecfa1dacd17
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Hälsa och resurstyper kontrollerar i Azure resurshälsa
 Nedan visas en fullständig lista över alla kontroller via resurshälsa av resurstyper.
@@ -48,12 +48,12 @@ Nedan visas en fullständig lista över alla kontroller via resurshälsa av resu
 |---|
 |<ul><li>Kontot når från inom datacentret?</li><li>Finns kognitiva Services Resursprovidern?</li><li>Är tjänsten kognitiva i rätt region?</li><li>Kan läsa åtgärder utföras på lagringskontot hålla resursmetadata?</li><li>Uppnått kvoten för API-anrop?</li><li>Har den API-anrop Läs-gränsen?</li></ul>|
 
-## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualmachines
+## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |Kontroller som utförs|
 |---|
 |<ul><li>Servern är är värd för den här virtuella datorn in och kör?</li><li>Värd-OS startar slutfördes?</li><li>Behållare för virtuell dator etablerats och aktiverades?</li><li>Det finns en nätverksanslutning mellan värden och storage-konto?</li><li>Start av gästoperativsystemet slutfördes?</li><li>Finns det pågående planerat underhåll?</li></ul>|
 
-## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/Accounts
+## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Kontroller som utförs|
 |---|
 |<ul><li>Kan användare skicka jobb till Data Lake Analytics i region?</li><li>Utföra grundläggande jobb köras och slutföras i region?</li><li>Användare kan visa katalogobjekt i region?</li>|
@@ -64,7 +64,7 @@ Nedan visas en fullständig lista över alla kontroller via resurshälsa av resu
 |---|
 |<ul><li>Användare kan överföra data till Data Lake Store i region?</li><li>Användare kan hämta data från Data Lake Store i region?</li></ul>|
 
-## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/iothubs
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 
 |Kontroller som utförs|
 |---|
@@ -75,7 +75,7 @@ Nedan visas en fullständig lista över alla kontroller via resurshälsa av resu
 |---|
 |<ul><li>Det har förekommit några databas eller en samling förfrågningar som inte hanteras på grund av en Azure DB som Cosmos-tjänsten inte finns?</li><li>Det har förekommit alla begäranden för dokument som inte hanteras på grund av en Azure DB som Cosmos-tjänsten inte finns?</li></ul>|
 
-## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
+## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Kontroller som utförs|
 |---|
 |<ul><li>Ansluts VPN-tunnel</li><li>Är anslutningen konfigurationskonflikterna?</li><li>I förväg delade nycklar konfigureras korrekt?</li><li>Nås lokala VPN-enhet?</li><li>Finns det avvikelser i säkerhetsprincipen IPSec/IKE?</li><li>Är S2S VPN-anslutningen korrekt etablerade eller i ett felaktigt tillstånd?</li><li>Är VNET-till-VNET-anslutningen korrekt etablerade eller i ett felaktigt tillstånd?</li></ul>|
@@ -115,12 +115,12 @@ Nedan visas en fullständig lista över alla kontroller via resurshälsa av resu
 |---|
 |<ul><li>Är värdservern igång?</li><li>Körs Internet Information Services</li><li>Körs belastningsutjämnaren?</li><li>Kan den Web Service-Plan kan nås från inom datacentret?</li><li>Storage-konto som är värd för innehållet för serverFarm tillgängliga platser?</li></ul>|
 
-## <a name="microsoftwebsites"></a>Microsoft.Web/Sites
+## <a name="microsoftwebsites"></a>Microsoft.web/sites
 |Kontroller som utförs|
 |---|
 |<ul><li>Är värdservern igång?</li><li>Internet Information server kör?</li><li>Körs belastningsutjämnaren?</li><li>Webbprogrammet når från inom datacentret?</li><li>Storage-konto som är värd för webbplatsens innehåll tillgängligt?</li></ul>|
 
 # <a name="next-steps"></a>Nästa steg
--  Se [introduktion till Azure-tjänstens hälsa](service-health-overview.md) och [introduktion till Azure Resource Health](resource-health-overview.md) vill veta mer om dem. 
+-  Se [introduktion till Azure Service hälsoinstrumentpanel](service-health-overview.md) och [introduktion till Azure Resource Health](resource-health-overview.md) vill veta mer om dem. 
 -  [Vanliga frågor och svar om Azure Resource Health](resource-health-faq.md)
-- Ställa in aviseringar så meddelas du om hälsotillstånd. Mer information finns i [konfigurera aviseringar för tjänstens hälsa](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+- Ställa in aviseringar så meddelas du om hälsotillstånd. Mer information finns i [konfigurera aviseringar för hälsotillstånd händelser](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 

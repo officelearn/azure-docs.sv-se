@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Lägga till Google + som en OAuth2-identitetsleverantör anpassade principer"
-description: "Exempel med hjälp av Google + som identitetsleverantör med OAuth2-protokollet"
+title: 'Azure Active Directory B2C: Lägga till Google + som en OAuth2-identitetsleverantör anpassade principer'
+description: Exempel med hjälp av Google + som identitetsleverantör med OAuth2-protokollet
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.author: davidmu
+ms.openlocfilehash: f12bbc2472aa2d83088c7d4d7b8f173744fb36b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Lägga till Google + som en OAuth2-identitetsleverantör anpassade principer
 
@@ -48,7 +45,7 @@ Om du vill använda Google + som en identitetsleverantör i Azure Active Directo
 
     ![Google +-konto – Välj projekt](media/active-directory-b2c-custom-setup-goog-idp/goog-add-new-app1.png)
 
-4.  Klicka på den  **+**  knappen.
+4.  Klicka på den **+** knappen.
 
     ![Google + konto – Skapa nytt projekt](media/active-directory-b2c-custom-setup-goog-idp//goog-add-new-app2.png)
 
@@ -178,10 +175,10 @@ Identitetsleverantören har ställts in.  Det är dock inte tillgänglig i alla 
 4.  Klistra in hela innehållet i `<UserJourney>` nod som du kopierade som underordnad till den `<UserJourneys>` element.
 
 ### <a name="display-the-button"></a>Visa knappen
-Den `<ClaimsProviderSelections>` elementet definierar en lista över alternativ för val av anspråk providern och deras inbördes ordning.  `<ClaimsProviderSelection>`elementet är detsamma som knappen identity-providern på en sign-upp/inloggningssidan. Om du lägger till en `<ClaimsProviderSelection>` element för Google + konto, en ny knapp visas när en användare de hamnar på sidan. Lägg till det här elementet:
+Den `<ClaimsProviderSelections>` elementet definierar en lista över alternativ för val av anspråk providern och deras inbördes ordning.  `<ClaimsProviderSelection>` elementet är detsamma som knappen identity-providern på en sign-upp/inloggningssidan. Om du lägger till en `<ClaimsProviderSelection>` element för Google + konto, en ny knapp visas när en användare de hamnar på sidan. Lägg till det här elementet:
 
 1.  Hitta de `<UserJourney>` nod som innehåller `Id="SignUpOrSignIn"` i transporten användare som du kopierade.
-2.  Leta upp den `<OrchestrationStep>` nod som innehåller`Order="1"`
+2.  Leta upp den `<OrchestrationStep>` nod som innehåller `Order="1"`
 3.  Lägg till följande XML-kodstycke under `<ClaimsProviderSelections>` nod:
 
 ```xml
@@ -229,7 +226,7 @@ Du kanske vill lägga till Google + konto identitetsleverantören också till di
 ### <a name="display-the-button"></a>Visa knappen
 1.  Öppna filen för tillägg av principen (till exempel TrustFrameworkExtensions.xml).
 2.  Hitta de `<UserJourney>` nod som innehåller `Id="ProfileEdit"` i transporten användare som du kopierade.
-3.  Leta upp den `<OrchestrationStep>` nod som innehåller`Order="1"`
+3.  Leta upp den `<OrchestrationStep>` nod som innehåller `Order="1"`
 4.  Lägg till följande XML-kodstycke under `<ClaimsProviderSelections>` nod:
 
 ```xml

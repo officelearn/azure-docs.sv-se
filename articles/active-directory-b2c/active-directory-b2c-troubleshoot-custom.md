@@ -1,24 +1,21 @@
 ---
-title: "Application Insights för att felsöka principer för anpassad - Azure AD B2C | Microsoft Docs"
-description: "hur du konfigurerar Application Insights för att spåra körningen av anpassade principer"
+title: Application Insights för att felsöka principer för anpassad - Azure AD B2C | Microsoft Docs
+description: hur du konfigurerar Application Insights för att spåra körningen av anpassade principer
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: saeda
-ms.openlocfilehash: 4f71380917a5a29497da9831791cd9f86ec4c8ca
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: davidmu
+ms.openlocfilehash: 3e27976b02ee75083b07ca2e4f0c06e19502d1f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Insamling av loggar
 
@@ -104,7 +101,7 @@ Posterna kan vara långt.  Exportera till CSV för en närmare titt.
 Du kan lära dig mer om verktyget Analytics [här](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
 
 >[!NOTE]
->Gemenskapen har utvecklat ett användaren resa visningsprogram att hjälpa utvecklare att identitet.  Den är inte stöds av Microsoft och göras tillgänglig strikt som-är.  Det läser från Application Insights-instans och innehåller en korrekt struktur för användaren resa händelser.  Du hämta källkoden och distribuerar den i din egen lösning.
+>Gemenskapen har utvecklat ett användaren resa visningsprogram att hjälpa utvecklare att identitet.  Den är inte stöds av Microsoft och göras tillgänglig strikt som-är.  Det läser från Application Insights-instans och innehåller en väl strukturerade för användaren resa händelser.  Du hämta källkoden och distribuerar den i din egen lösning.
 
 Versionen av visningsprogrammet som läser händelser från Application Insights finns [här](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
 

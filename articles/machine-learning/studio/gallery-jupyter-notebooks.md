@@ -1,10 +1,11 @@
 ---
-title: "Azure AI-galleriet Jupyter-anteckningsböcker | Microsoft Docs"
+title: Azure AI-galleriet Jupyter-anteckningsböcker | Microsoft Docs
 description: Identifiera Jupyter notebooks i Azure AI-galleriet.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 556e0671-1b50-4bcb-92eb-889962310633
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: 53a600490f3e73c37e0434785198adee0be4b218
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: b684134518a04d70a951b411897417dca05c5829
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Identifiera Jupyter Notebooks i Azure AI-galleriet
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -30,7 +30,7 @@ Datorer i galleriet ger självstudier och detaljerad information om avancerade m
 ## <a name="discover"></a>Utforska
   Du kan bläddra för bärbara datorer i galleriet genom att öppna den [galleriet](http://gallery.cortanaintelligence.com) och klicka på **anteckningsböcker** överst på sidan Gallery.
 
- Den  **[Jupyter-anteckningsböcker](https://gallery.cortanaintelligence.com/notebooks)**  sidan visar en lista över de mest populära bärbara datorerna.
+ Den **[Jupyter-anteckningsböcker](https://gallery.cortanaintelligence.com/notebooks)** sidan visar en lista över de mest populära bärbara datorerna.
 Klicka på **se alla** att visa alla bärbara datorer.
 Den här sidan kan bläddra du alla anteckningsböcker i galleriet. Du kan också söka genom att välja filtervillkor till vänster på sidan och anger sökvillkoren längst upp.
 
@@ -66,7 +66,7 @@ Du kan också öppna någon av samma galleriet bärbara datorer när du arbetar 
 En kopia av den bärbara datorn hämtas och öppnas i arbetsytan i avsnittet Jupyter Notebooks i Machine Learning Studio.
 Anteckningsboken visas, tillsammans med dina anteckningsböcker på den **anteckningsböcker** sidan Studio (på den [Studio startsidan](https://studio.azureml.net/), klickar du på **anteckningsböcker** till vänster).
 
-**[GÅ TILL I GALLERIET >>](http://gallery.cortanaintelligence.com)**
+**[GÅ TILL I GALLERIET &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

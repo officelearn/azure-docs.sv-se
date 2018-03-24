@@ -1,11 +1,11 @@
 ---
-title: "Lär dig mer om olika token och anspråkstyper som stöds av Azure AD | Microsoft Docs"
-description: "En guide för att förstå och utvärdera anspråk i SAML 2.0 och token JWT (JSON Web) token som utfärdas av Azure Active Directory (AAD)"
+title: Lär dig mer om olika token och anspråkstyper som stöds av Azure AD | Microsoft Docs
+description: En guide för att förstå och utvärdera anspråk i SAML 2.0 och token JWT (JSON Web) token som utfärdas av Azure Active Directory (AAD)
 documentationcenter: na
 author: hpsin
 services: active-directory
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ca8a34c0a29ffad21e6384feac055d7a292311a5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8f9eb95f49e0d2bd01d9ead7eda7d13288bfd573
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-token-reference"></a>Tokenreferens för Azure AD
 Azure Active Directory (AD Azure) genererar flera typer av säkerhetstoken vid bearbetning av varje autentiseringsflödet. Det här dokumentet beskriver format, säkerhet egenskaperna och innehållet i varje typ av token.
@@ -321,3 +321,4 @@ Förutom anspråk, token innehåller ett versionsnummer i **ver** och **appidacr
 ## <a name="related-content"></a>Relaterat innehåll
 * Se Azure AD Graph [åtgärder](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) och [princip entiteten](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), om du vill veta mer om hur du hanterar livslängd för token-principer via Azure AD Graph API.
 * Mer information och exempel på att hantera principer via PowerShell-cmdletar, inklusive exempel, finns [konfigurerbara token livslängd i Azure AD](../active-directory-configurable-token-lifetimes.md). 
+* Lägg till [anpassade och valfria anspråk](active-directory-optional-claims.md) till token för ditt program. 

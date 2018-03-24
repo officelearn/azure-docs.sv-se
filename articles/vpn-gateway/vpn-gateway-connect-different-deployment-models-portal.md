@@ -1,11 +1,11 @@
 ---
-title: "Ansluta klassiska virtuella nätverk till Azure Resource Manager VNets: Portal | Microsoft Docs"
-description: "Steg för att ansluta klassiska Vnet till Resource Manager VNets med hjälp av VPN-Gateway och -portalen"
+title: 'Ansluta klassiska virtuella nätverk till Azure Resource Manager VNets: Portal | Microsoft Docs'
+description: Steg för att ansluta klassiska Vnet till Resource Manager VNets med hjälp av VPN-Gateway och -portalen
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: ad6b33b5411d3e38f099726df01fcafc8dc90d38
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 65cfbafbd5fbdd576f01b5cba638c1b5869f377b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Ansluta virtuella nätverk från olika distributionsmodeller med hjälp av portalen
 
@@ -216,7 +216,7 @@ I följande steg ska konfigurera du anslutningen från hanteraren för filserver
 2. Klicka på **Configuration** och kontrollera att värdet för IP-adress är VPN-gateway för det klassiska VNet. Uppdatera vid behov och klicka sedan på **spara**. Stänga sidan.
 3. I **alla resurser**, klickar du på den lokala nätverksgatewayen.
 4. Klicka på **anslutningar** att öppna sidan anslutningar.
-5. På den **anslutningar** klickar du på  **+**  lägga till en anslutning.
+5. På den **anslutningar** klickar du på **+** lägga till en anslutning.
 6. På den **Lägg till anslutning** sidan, namnge anslutningen. Till exempel 'RMtoClassic'.
 7. **Plats-till-plats** har redan valts på den här sidan.
 8. Välj den virtuella nätverksgatewayen som du vill associera med den här platsen.
@@ -301,7 +301,7 @@ Du kan verifiera dina anslutningar med hjälp av Azure-portalen eller PowerShell
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
-###<a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Kontrollera anslutningen från Resource Manager-VNet till ditt klassiska VNet
+### <a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Kontrollera anslutningen från Resource Manager-VNet till ditt klassiska VNet
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 

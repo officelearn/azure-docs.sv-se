@@ -1,11 +1,10 @@
 ---
-title: "Kopiera data till/från Oracle med hjälp av Data Factory | Microsoft Docs"
-description: "Lär dig mer om att kopiera data till och från Oracle-databas som är lokalt med Azure Data Factory."
+title: Kopiera data till/från Oracle med hjälp av Data Factory | Microsoft Docs
+description: Lär dig mer om att kopiera data till och från Oracle-databas som är lokalt med Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 82fe637b46decfc9c8d09b5c7e03f328a8636263
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 64e8a20f72d451908c12751c0f8062bf4ae86370
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Kopiera data till och från lokala Oracle med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +51,7 @@ Gateway krävs även om Oracle finns i en Azure IaaS-VM. Du kan installera gatew
 ## <a name="supported-versions-and-installation"></a>Versioner som stöds och installation
 Den här anslutningen Oracle stöder två versioner av drivrutiner:
 
-- **Microsoft-drivrutin för Oracle (rekommenderas)**: från Data Management Gateway version 2.7, en Microsoft-drivrutin för Oracle installeras automatiskt tillsammans med gatewayen, så du behöver inte dessutom hantera drivrutinen för att upprätta en anslutning till Oracle och du kan också prestanda förbättras kopiera med hjälp av den här drivrutinen. Nedan versioner av Oracle stöds databaser:
+- **Microsoft-drivrutin för Oracle (rekommenderas)**: från Data Management Gateway version 2.7, en drivrutin för Oracle installeras automatiskt tillsammans med gatewayen, så du inte behöver dessutom hantera drivrutinen för att Microsoft upprätta en anslutning till Oracle och du kan också prestanda förbättras kopiera med hjälp av den här drivrutinen. Nedan versioner av Oracle stöds databaser:
     - Oracle 12c R1 (12.1)
     - Oracle 11g R1, R2 (11.1, 11.2)
     - Oracle 10g R1, R2 (10.1, 10,2)

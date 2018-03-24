@@ -1,24 +1,21 @@
 ---
-title: "Tillägg app – Azure AD B2C | Microsoft Docs"
-description: "Återställa b2c-tillägg-app"
+title: Tillägg app – Azure AD B2C | Microsoft Docs
+description: Återställa b2c-tillägg-app
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: f0392e32-0771-473c-a799-81438ca2bcff
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 9/06/2017
-ms.author: parja
-ms.openlocfilehash: 450a7a5051cdbd6a3c8105a06fd3ebae10d5388e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: davidmu
+ms.openlocfilehash: c07aba797118af2cc8283509944eda8b41d499b3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: Tillägg app
 
@@ -39,7 +36,7 @@ Kontrollera att b2c-tillägg-appen är tillgänglig:
 
 Om du av misstag tas bort b2c-tillägg-app har 30 dagar att återställa den. Du kan återställa appen med Graph-API:
 
-1. Bläddra till [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/).
+1. Bläddra till [ https://graphexplorer.azurewebsites.net/ ](https://graphexplorer.azurewebsites.net/).
 1. Logga in till webbplatsen som en global administratör för Azure AD B2C-katalog som du vill återställa den borttagna appen för. Den här global administratör måste ha en e-postadress som liknar följande: `username@{yourTenant}.onmicrosoft.com`.
 1. Utfärda en HTTP GET mot URL: en `https://graph.windows.net/myorganization/deletedApplications` = med api-version 1.6. Den här åtgärden visar en lista över alla program som har tagits bort under de senaste 30 dagarna.
 1. Sök efter programmet i listan var namnet börjar med ”b2c-tillägg-app” och kopiera dess `objectid` egenskapsvärde.

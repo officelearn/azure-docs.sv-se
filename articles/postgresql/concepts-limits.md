@@ -1,6 +1,6 @@
 ---
-title: "Begränsningar i Azure-databas för PostgreSQL"
-description: "Den här artikeln beskriver begränsningar i Azure-databas för PostgreSQL, till exempel antal anslutning och lagringsalternativ för motorn."
+title: Begränsningar i Azure-databas för PostgreSQL
+description: Den här artikeln beskriver begränsningar i Azure-databas för PostgreSQL, till exempel antal anslutning och lagringsalternativ för motorn.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -8,15 +8,15 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ba05308039e9743dd207333476e61a45c0ca166a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 7e06cdba7c9c9f7e5c1d621e7421a18c342c0fdb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Begränsningar i Azure-databas för PostgreSQL
-Azure-databasen för PostgreSQL-tjänsten är tillgänglig som förhandsversion. I följande avsnitt beskrivs kapacitet och funktionella gränser i databastjänsten för.
+I följande avsnitt beskrivs kapacitet och funktionella gränser i databastjänsten för.
 
 ## <a name="pricing-tier-maximums"></a>Priser för nivån maxkapacitet
 Azure-databas för PostgreSQL har flera prisnivåer som du kan välja mellan när du skapar en server. Mer information finns i [prisnivåer i Azure-databas för PostgreSQL](concepts-pricing-tiers.md).  
@@ -25,25 +25,24 @@ Det finns ett maximalt antal anslutningar, enheter för beräkning och lagring i
 
 |Prisnivå| Compute-generering| vCore(s)| Högsta antal anslutningar |
 |---|---|---|---|
-|Basic| Gen 4| 1| 50 |
-|Basic| Gen 4| 2| 100 |
-|Basic| Gen 5| 1| 50 |
-|Basic| Gen 5| 2| 100 |
-|Generellt syfte| Gen 4| 2| 150|
-|Generellt syfte| Gen 4| 4| 250|
-|Generellt syfte| Gen 4| 8| 480|
-|Generellt syfte| Gen 4| 16| 950|
-|Generellt syfte| Gen 4| 32| 1500|
-|Generellt syfte| Gen 5| 2| 150|
-|Generellt syfte| Gen 5| 4| 250|
-|Generellt syfte| Gen 5| 8| 480|
-|Generellt syfte| Gen 5| 16| 950|
-|Generellt syfte| Gen 5| 32| 1500|
-|Minnesoptimerad| Gen 5| 2| 150|
-|Minnesoptimerad| Gen 5| 4| 250|
-|Minnesoptimerad| Gen 5| 8| 480|
-|Minnesoptimerad| Gen 5| 16| 950|
-|Minnesoptimerad| Gen 5| 32| 1900|
+|Basic| Generation 4| 1| 50 |
+|Basic| Generation 4| 2| 100 |
+|Basic| Generation 5| 1| 50 |
+|Basic| Generation 5| 2| 100 |
+|Generellt syfte| Generation 4| 2| 150|
+|Generellt syfte| Generation 4| 4| 250|
+|Generellt syfte| Generation 4| 8| 480|
+|Generellt syfte| Generation 4| 16| 950|
+|Generellt syfte| Generation 4| 32| 1500|
+|Generellt syfte| Generation 5| 2| 150|
+|Generellt syfte| Generation 5| 4| 250|
+|Generellt syfte| Generation 5| 8| 480|
+|Generellt syfte| Generation 5| 16| 950|
+|Generellt syfte| Generation 5| 32| 1500|
+|Minnesoptimerad| Generation 5| 2| 150|
+|Minnesoptimerad| Generation 5| 4| 250|
+|Minnesoptimerad| Generation 5| 8| 480|
+|Minnesoptimerad| Generation 5| 16| 950|
 
 När anslutningar överskrider gränsen, får du följande fel:
 > Oåterkalleligt fel: Det gick tyvärr redan för många klienter

@@ -1,8 +1,8 @@
 ---
-title: "SQLServer på virtuella datorer i Linux Azure vanliga frågor och svar | Microsoft Docs"
-description: "Den här artikeln innehåller svar på vanliga frågor och svar om att köra SQL Server på Azure virtuella Linux-datorer."
+title: SQLServer på virtuella datorer i Linux Azure vanliga frågor och svar | Microsoft Docs
+description: Den här artikeln innehåller svar på vanliga frågor och svar om att köra SQL Server på Azure virtuella Linux-datorer.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: jhubbard
 tags: azure-service-management
@@ -12,11 +12,11 @@ ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: jroth
-ms.openlocfilehash: 8b556b01aa47aeb3588138dfa61e517c00dc44dc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 56a0629249cdb5f0f098d2b7b6d36b3fbb215009
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Vanliga frågor och svar för SQL Server på Linux Azure Virtual Machines
 
@@ -31,7 +31,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a id="images"></a>Bilder
+## <a id="images"></a> Bilder
 
 1. **Vilken SQL Server-galleriavbildningar av virtuella datorer är tillgängliga?**
 
@@ -71,13 +71,17 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Kan jag ändra en virtuell dator om du vill använda en egen SQL Server-licens om den har skapats från en betalning per användning galleriavbildningar?**
 
-   Nej. Du kan inte växla från per minut licensiering med din egen licens. Du måste skapa en ny Linux VM, installera SQL Server och migrera dina data. Se föregående fråga mer information om hur du aktiverar din egen licens.
+   Nej. Du kan inte växla från per sekund licensiering med din egen licens. Du måste skapa en ny Linux VM, installera SQL Server och migrera dina data. Se föregående fråga mer information om hur du aktiverar din egen licens.
 
 ## <a name="administration"></a>Administration
 
 1. **Kan jag hantera en Linux SQL Server-dator med SQL Server Management Studio (SSMS)?**
 
    Ja, men SSMS är för närvarande endast för Windows-verktyget. Du måste ansluta via en fjärranslutning från en Windows-dator för att använda SSMS med Linux SQL Server-datorer. Lokalt på Linux, för den nya [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) verktyget kan utföra många administrativa uppgifter. Om du vill förhandsgranska plattformsoberoende databashanteringsverktyg finns [SQL Server Operations Studio (förhandsgranskning)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+
+1. **Kan jag ta bort SQL Server helt från en SQL-VM?**
+
+   Ja, men du kommer att fortsätta debiteras för din SQL-VM enligt beskrivningen i [priser för SQL Server Azure Virtual Machines](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Om du behöver inte längre SQL Server kan du distribuera en ny virtuell dator och migrera data och program till den nya virtuella datorn. Du kan ta bort den virtuella datorn för SQL Server.
 
 ## <a name="updating-and-patching"></a>Uppdatering och korrigering
 

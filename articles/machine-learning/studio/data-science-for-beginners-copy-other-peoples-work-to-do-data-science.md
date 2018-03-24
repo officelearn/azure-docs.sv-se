@@ -1,11 +1,12 @@
 ---
-title: "Kopiera andras datavetenskap exempel – Azure Machine Learning | Microsoft Docs"
-description: "Affärshemlighet av datavetenskap: hämta andra för att göra arbetet åt dig. Hämta machine learning exempel från Azure AI-galleriet."
+title: Kopiera andras datavetenskap exempel – Azure Machine Learning | Microsoft Docs
+description: 'Affärshemlighet av datavetenskap: hämta andra för att göra arbetet åt dig. Hämta machine learning exempel från Azure AI-galleriet.'
 keywords: datavetenskap exempel machine learning exempelvis kluster-algoritmen, klustring algoritm-exempel
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.author: cgronlun
-ms.openlocfilehash: 52edc2158e5e74fc544d03efbba2f7e29290e424
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 764e7c61b5ef023608767dfe78f3aa76e4463f05
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Kopiera andras arbete för att göra datavetenskap
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Datavetenskap för nybörjare serien

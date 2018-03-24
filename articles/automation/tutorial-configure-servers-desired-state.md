@@ -1,26 +1,18 @@
 ---
-title: "Konfigurera servrar till önskade tillstånd och hantera drift med Azure Automation | Microsoft Docs"
-description: "Självstudiekurs – hantera serverkonfigurationer med Azure Automation DSC"
+title: Konfigurera servrar till önskade tillstånd och hantera drift med Azure Automation
+description: Självstudiekurs – hantera serverkonfigurationer med Azure Automation DSC
 services: automation
-documentationcenter: automation
-author: georgewallace
-manager: carmonm
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 
 ms.service: automation
-ms.devlang: powershell
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 09/25/2017
+author: georgewallace
 ms.author: gwallace
-ms.custom: 
-ms.openlocfilehash: c510b2244dfa85b12ed08cad9dbab75067ebe41a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+manager: carmonm
+ms.topic: article
+ms.date: 09/25/2017
+ms.openlocfilehash: 50c58224eaecc20a0878df5e1c7f100039978455
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Konfigurera servrar till önskade tillstånd och hantera drift
 
@@ -35,7 +27,7 @@ Azure Automation önskat tillståndskonfigurationen (DSC) kan du ange konfigurat
 > * Tilldela en nodkonfiguration till en hanterad nod
 > * Kontrollera efterlevnadsstatus för för en hanterad nod
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här kursen behöver du:
 
@@ -56,9 +48,9 @@ Login-AzureRmAccount
 
 Den här självstudiekursen kommer använder vi en enkel DSC-konfiguration som garanterar att IIS installeras på den virtuella datorn.
 
-Information om DSC-konfigurationer finns [DSC-konfigurationer](https://docs.microsoft.com/powershell/dsc/configurations).
+Information om DSC-konfigurationer finns i [DSC-konfigurationer](https://docs.microsoft.com/powershell/dsc/configurations).
 
-Skriv följande i en textredigerare och spara den lokalt som `TestConfig.ps1`.
+I en textredigerare skriver du följande och sparar lokalt som `TestConfig.ps1`.
 
 ```powershell
 configuration TestConfig {

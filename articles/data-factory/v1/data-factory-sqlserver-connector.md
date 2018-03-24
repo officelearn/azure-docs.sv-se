@@ -1,11 +1,10 @@
 ---
-title: "Flytta data till och från SQL Server | Microsoft Docs"
-description: "Lär dig mer om hur du flyttar data till/från SQL Server-databas som är lokalt eller i en virtuell Azure-dator med hjälp av Azure Data Factory."
+title: Flytta data till och från SQL Server | Microsoft Docs
+description: Lär dig mer om hur du flyttar data till/från SQL Server-databas som är lokalt eller i en virtuell Azure-dator med hjälp av Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 864ece28-93b5-4309-9873-b095bbe6fedd
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 19398a33e17bde7f496070d1f1c84e61dbe65855
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1f1a2ec3bdf77e6f4f433c88b470e108b734fc4c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Flytta data till och från SQL Server lokalt eller på IaaS (Azure VM) med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -664,7 +663,7 @@ Mappningen är densamma som SQL-Server-Datatypsmappningen för ADO.NET.
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM-attributet (varbinary(max)) |Byte[] |
-| Flyttal |Dubbel |
+| flyttal |Dubbel |
 | Bild |Byte[] |
 | int |Int32 |
 | Money |Decimal |

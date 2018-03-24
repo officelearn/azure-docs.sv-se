@@ -1,24 +1,21 @@
 ---
 title: SSO sessionshantering anpassade principer - Azure AD B2C | Microsoft Docs
-description: "Lär dig hur du hanterar SSO-sessioner som använder anpassade principer i Azure AD B2C."
+description: Lär dig hur du hanterar SSO-sessioner som använder anpassade principer i Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 809f6000-2e52-43e4-995d-089d85747e1f
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: parja
-ms.openlocfilehash: 676b277ae3fbf4554838eee70c5d3e2d8e12c33d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 3d378d188d9acec06f37ca91e3c67e82fb31fc08
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Azure AD B2C: Enkel inloggning (SSO) sessionshantering
 
@@ -66,7 +63,7 @@ Den här providern kan användas för att lagra anspråk i en session. Den här 
 </TechnicalProfile>
 ```
 
-Om du vill lägga till anspråk i sessionen använder den `<PersistedClaims>` elementet av den tekniska profilen. När providern används för att igen sessionen, den beständiga anspråk läggs till i uppsättningen anspråk. `<OutputClaims>`används för att hämta anspråk från sessionen.
+Om du vill lägga till anspråk i sessionen använder den `<PersistedClaims>` elementet av den tekniska profilen. När providern används för att igen sessionen, den beständiga anspråk läggs till i uppsättningen anspråk. `<OutputClaims>` används för att hämta anspråk från sessionen.
 
 ### <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 

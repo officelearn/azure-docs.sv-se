@@ -1,11 +1,11 @@
 ---
-title: "Träna om Machine Learning-modeller via programmering | Microsoft Docs"
-description: "Lär dig mer om att träna om en modell och uppdatera webbtjänsten för att använda den nya tränade modellen i Azure Machine Learning programmässigt."
+title: Träna om Machine Learning-modeller via programmering | Microsoft Docs
+description: Lär dig mer om att träna om en modell och uppdatera webbtjänsten för att använda den nya tränade modellen i Azure Machine Learning programmässigt.
 services: machine-learning
-documentationcenter: 
-author: serinakaye
-ms.author: serinak
-manager: mwinkle
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a986d8c500eb994af81ad535568fbbd8364f4244
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 276ee051cf927197c026b0fb0850239a048ace41
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Omtrimning av Azure Machine Learning-modeller via programmering
 I den här genomgången får lära du dig att träna programmässigt om en Azure Machine Learning-webbtjänst med hjälp av C# och Machine Learning Batch Execution service.
@@ -61,7 +61,7 @@ Nu kan du skapa ett Predicative Experiment.
 > Om du vill distribuera en ny webbtjänst måste du ha tillräckliga behörigheter i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webbtjänst med hjälp av Azure Machine Learning-webbtjänster portal](manage-new-webservice.md). 
 
 ## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Distribuera utbildning experiment som en webbtjänst för utbildning
-För att träna om den tränade modellen, måste du distribuera träningsexperiment som du har skapat som en webbtjänst för Retraining. Den här webbtjänsten måste en *Web Service utdata* modul som är ansluten till den  *[Träningsmodell] [ train-model]*  modulen för att kunna skapa nya tränats modeller.
+För att träna om den tränade modellen, måste du distribuera träningsexperiment som du har skapat som en webbtjänst för Retraining. Den här webbtjänsten måste en *Web Service utdata* modul som är ansluten till den *[Träningsmodell] [ train-model]* modulen för att kunna skapa nya tränats modeller.
 
 1. För att återgå till utbildning experimentet klickar du på ikonen experiment i den vänstra rutan och klicka på experiment med namnet inventering modellen.  
 2. Skriv i sökrutan Experiment sökobjekt webbtjänsten. 

@@ -1,28 +1,25 @@
 ---
 title: 'Azure Active Directory B2C: LinkedIn-konfiguration | Microsoft Docs'
-description: "Ange registrering och inloggning för konsumenter med LinkedIn-konton i dina program som skyddas av Azure Active Directory B2C"
+description: Ange registrering och inloggning för konsumenter med LinkedIn-konton i dina program som skyddas av Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: fa51a16b-9ce9-4e27-9eff-0869b4c4f0ef
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: 860aa90c391604924850a00cf2137d59fa4a1b53
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 91970b3ec41c645cd1cd3e203cc96ad655dafd7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-linkedin-accounts"></a>Azure Active Directory B2C: Ange registrering och inloggning för konsumenter med LinkedIn-konton
 ## <a name="create-a-linkedin-application"></a>Skapa ett LinkedIn-program
-Om du vill använda LinkedIn som en identitetsleverantör i Azure Active Directory (AD Azure) B2C måste du skapa ett LinkedIn-program och ange rätt parametrar. Du behöver en LinkedIn-konto för att göra detta. Om du inte har något du kan hämta den på [https://www.linkedin.com/](https://www.linkedin.com/).
+Om du vill använda LinkedIn som en identitetsleverantör i Azure Active Directory (AD Azure) B2C måste du skapa ett LinkedIn-program och ange rätt parametrar. Du behöver en LinkedIn-konto för att göra detta. Om du inte har något du kan hämta den på [ https://www.linkedin.com/ ](https://www.linkedin.com/).
 
 1. Gå till den [LinkedIn utvecklare webbplats](https://www.developer.linkedin.com/) och logga in med autentiseringsuppgifterna för ditt LinkedIn.
 2. Klicka på **Mina appar** i övre menyraden och klicka sedan på **skapa program**.

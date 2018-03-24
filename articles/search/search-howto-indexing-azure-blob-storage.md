@@ -1,24 +1,24 @@
 ---
 title: Indexering Azure Blob Storage med Azure Search
-description: "Lär dig att indexera Azure Blob Storage och extrahera text från dokument med Azure Search"
+description: Lär dig att indexera Azure Blob Storage och extrahera text från dokument med Azure Search
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 2a5968f4-6768-4e16-84d0-8b995592f36a
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/28/2017
+ms.date: 03/22/2018
 ms.author: eugenesh
-ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 67f6775fb68f4cd13c52ebe66727f2b4df23c692
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexera dokument i Azure Blob Storage med Azure Search
 Den här artikeln visar hur du använder Azure Search ska indexera dokument (till exempel PDF-filer, Microsoft Office-dokument och flera andra vanliga format) lagras i Azure Blob storage. Först förklarar det grunderna för att installera och konfigurera en indexerare blob. Sedan den erbjuder en ingående undersökning av beteenden och scenarier troligen kommer att stöta på.
@@ -31,7 +31,7 @@ Blob-indexeraren kan extrahera text från följande dokumentformat:
 ## <a name="setting-up-blob-indexing"></a>Konfigurera blob-indexering
 Du kan konfigurera en Azure Blob Storage indexeraren med:
 
-* [Azure-portalen](https://ms.portal.azure.com)
+* [Azure Portal](https://ms.portal.azure.com)
 * Azure Search [REST-API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Azure Search [.NET SDK](https://aka.ms/search-sdk)
 
@@ -158,7 +158,7 @@ I Azure Search identifierar dokumentnyckeln ett dokument. Varje sökindex måste
 
 Du bör noggrant vilka extraherade fältet ska mappa till nyckelfältet för ditt index. Kandidater är:
 
-* **metadata\_lagring\_namn** – detta kan vara praktiskt, men Observera att 1) namn inte kan vara unika, som du kanske har blobbar med samma namn i olika mappar och 2) namnet får bestå av tecken som är ogiltiga i dokumentet nycklar, till exempel bindestreck. Du kan hantera ogiltiga tecken med hjälp av den `base64Encode` [fältet mappning funktionen](search-indexer-field-mappings.md#base64EncodeFunction) – om du gör detta, Kom ihåg att koda dokumentet nycklar när du skickar dem i API-anrop, till exempel sökning. (Till exempel i .NET du kan använda den [UrlTokenEncode metoden](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) för detta ändamål).
+* **metadata\_lagring\_namn** – detta kan vara praktiskt, men Observera att 1) namn inte kan vara unika, som du kanske har blobbar med samma namn i olika mappar och 2) namnet kan innehålla tecken Ogiltig i dokumentet nycklar, till exempel bindestreck. Du kan hantera ogiltiga tecken med hjälp av den `base64Encode` [fältet mappning funktionen](search-indexer-field-mappings.md#base64EncodeFunction) – om du gör detta, Kom ihåg att koda dokumentet nycklar när du skickar dem i API-anrop, till exempel sökning. (Till exempel i .NET du kan använda den [UrlTokenEncode metoden](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) för detta ändamål).
 * **metadata\_lagring\_sökväg** - användning av den fullständiga sökvägen garanterar unikhet, men sökvägen innehåller definitivt `/` tecken [ogiltig i en Dokumentnyckel](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Som ovan, har du möjlighet att koda nycklar med hjälp av den `base64Encode` [funktionen](search-indexer-field-mappings.md#base64EncodeFunction).
 * Om inget av alternativen ovan fungerar kan du lägga till en anpassad metadataegenskapen till blobarna. Det här alternativet, men kräver blob överföringsprocessen att lägga till metadataegenskapen i alla BLOB. Eftersom nyckeln är en obligatorisk egenskap, misslyckas alla BLOB som inte har egenskapen indexeras.
 
@@ -230,9 +230,9 @@ Om båda `indexedFileNameExtensions` och `excludedFileNameExtensions` parametrar
 
 Du kan styra vilka delar av blobar som indexeras med det `dataToExtract` konfigurationsparameter. Det kan ha följande värden:
 
-* `storageMetadata`-Anger att endast den [standard blob-egenskaper och användardefinierade metadata](../storage/blobs/storage-properties-metadata.md) indexeras.
-* `allMetadata`-Anger att metadata för lagring och [innehållstypen specifika metadata](#ContentSpecificMetadata) extraheras från blob innehåll som indexeras.
-* `contentAndMetadata`-Anger att alla metadata och textinnehåll extraheras från blob som indexeras. Detta är standardvärdet.
+* `storageMetadata` -Anger att endast den [standard blob-egenskaper och användardefinierade metadata](../storage/blobs/storage-properties-metadata.md) indexeras.
+* `allMetadata` -Anger att metadata för lagring och [innehållstypen specifika metadata](#ContentSpecificMetadata) extraheras från blob innehåll som indexeras.
+* `contentAndMetadata` -Anger att alla metadata och textinnehåll extraheras från blob som indexeras. Detta är standardvärdet.
 
 Använd till exempel för att indexera endast metadata för lagring:
 
@@ -251,8 +251,8 @@ De konfigurationsparametrar som beskrivs ovan gäller för alla BLOB. Ibland kan
 
 | Egenskapsnamn | Egenskapsvärde | Förklaring |
 | --- | --- | --- |
-| AzureSearch_Skip |”true” |Instruerar blob indexeraren att helt och hållet blob. Varken metadata eller innehåll extrahering görs. Detta är användbart när en viss blob misslyckas flera gånger och avbryter indexering processen. |
-| AzureSearch_SkipContent |”true” |Detta är likvärdiga med `"dataToExtract" : "allMetadata"` inställningen beskrivs [ovan](#PartsOfBlobToIndex) begränsade till en viss blob. |
+| AzureSearch_Skip |"true" |Instruerar blob indexeraren att helt och hållet blob. Varken metadata eller innehåll extrahering görs. Detta är användbart när en viss blob misslyckas flera gånger och avbryter indexering processen. |
+| AzureSearch_SkipContent |"true" |Detta är likvärdiga med `"dataToExtract" : "allMetadata"` inställningen beskrivs [ovan](#PartsOfBlobToIndex) begränsade till en viss blob. |
 
 <a name="DealingWithErrors"></a>
 ## <a name="dealing-with-errors"></a>Hantera fel
@@ -271,6 +271,10 @@ Som standard avbryts blob-indexering så snart den stöter på en blob med en st
 Azure Search kan inte fastställa innehållstypen för vissa BLOB eller går inte att bearbeta ett dokument för annars stöds content-type. Om du vill ignorera det här felet läget, ange den `failOnUnprocessableDocument` konfigurationsparameter till false:
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+Azure Search begränsar storleken på blobbar som indexeras. Dessa gränser dokumenteras i [Tjänstbegränsningarna i Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Stora blobbar behandlas som fel som standard. Men du kan fortfarande indexera stora BLOB storage metadata om du ställer in `indexStorageMetadataOnlyForOversizedDocuments` konfigurationsparameter SANT: 
+
+    "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
 Du kan också fortsätta indexera om fel inträffa när som helst bearbetning, antingen vid parsning av blobbar eller när du lägger till dokument i ett index. Om du vill ignorera ett visst antal fel, ange den `maxFailedItems` och `maxFailedItemsPerBatch` konfigurationsparametrar till önskade värden. Exempel:
 
@@ -371,7 +375,7 @@ I följande tabell sammanfattas bearbetas för respektive format och beskriver m
 | XLS (application/vnd.ms-excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Extrahera text, inklusive embedded dokument |
 | PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extrahera text, inklusive embedded dokument |
 | PPT (application/vnd.ms-powerpoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extrahera text, inklusive embedded dokument |
-| Meddelande (outlook-program/vnd.ms) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extrahera text, inklusive bifogade filer |
+| MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extrahera text, inklusive bifogade filer |
 | ZIP (program/zip) |`metadata_content_type` |Extrahera text från alla dokument i arkivet |
 | XML (application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |Remsans XML-koden och extrahera text |
 | JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Extrahera text<br/>Obs: Om du behöver extrahera flera dokumentfält från en JSON-blob finns [indexering JSON-blobbar](search-howto-index-json-blobs.md) information |

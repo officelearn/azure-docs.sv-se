@@ -1,11 +1,11 @@
 ---
 title: Visual redigering i Azure Data Factory | Microsoft Docs
-description: "Lär dig hur du använder visual redigering i Azure Data Factory"
+description: Lär dig hur du använder visual redigering i Azure Data Factory
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 954693ee208dc7868a5a5ad0e774c5c352036627
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bce74c80f53eda654bb0289a1ff8a6cb88fd13f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visual redigering i Azure Data Factory
 Azure Data Factory användargränssnittet experience (UX) kan du visuellt skapa och distribuera resurser för din data factory utan att behöva skriva någon kod. Du kan dra aktiviteter till en pipeline-arbetsyta, utföra testkörningar, felsöka upprepade gånger, och distribuera och övervaka din pipeline-körs. Det finns två tillvägagångssätt för att utföra visual redigering med UX:

@@ -1,11 +1,12 @@
 ---
-title: "Felkoder för Azure Machine Learning REST API | Microsoft Docs"
-description: "Dessa felkoder kunde returneras av en åtgärd på en Azure Machine Learning-webbtjänst."
-keywords: 
+title: Felkoder för Azure Machine Learning REST API | Microsoft Docs
+description: Dessa felkoder kunde returneras av en åtgärd på en Azure Machine Learning-webbtjänst.
+keywords: ''
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.author: garye
-ms.openlocfilehash: 5cf7d5bb878f323e4e3559822dc745359e43608e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ba44b2a93bcd542db1350def2d0554c8c44233c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="machine-learning-rest-api-error-codes"></a>Machine Learning felkoder för REST API
  
@@ -71,7 +71,7 @@ Fel i den här klassen innebär ett argument som tillhandahålls någonstans var
 | RequestBodyInvalid | Inga begärandetexten tillhandahålls eller fel vid avserialisering av innehållet för begäran. |
 | RequestIsEmpty | Ingen förfrågan. Ange en giltig begäran och försök igen. |
 | UnexpectedParameter | Oväntat parametrar som ges. Kontrollera alla parameternamn är rättstavade endast förväntade parametrar har skickats och försök igen. |
-| UnknownError | Ett okänt fel. |
+| UnknownError | Okänt fel. |
 | UserParameterInvalid | {0} |
 | WebServiceConcurrentRequestRequirementInvalid | Det går inte att ändra samtidiga begäranden krav för {0}-webbtjänsten. |
 | WebServiceIdInvalid | Ogiltig webbtjänst-id angavs. Webbtjänst-id måste vara ett giltigt guid. |
@@ -205,7 +205,7 @@ Ett internt fel inträffade vid körning.
 | UnknownModuleError |  |
 | UpdateWebServiceResourceFailed |  |
 | WebServiceGroupNotFound |  |
-| WebServicePackageInvalid | InvalidWebServicePackage, information: {0} |
+| WebServicePackageInvalid | InvalidWebServicePackage, Details: {0} |
 | WorkerAuthorizationFailed |  |
 | WorkerUnreachable |  |
  

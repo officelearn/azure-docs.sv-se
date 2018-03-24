@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med CylancePROTECT | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och CylancePROTECT."
+title: 'Självstudier: Azure Active Directory-integrering med CylancePROTECT | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och CylancePROTECT.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 3b0afd52ccfa3aa637a64e57601cd5f43fe8df10
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a4b8cbbe3d75702f38b5060957aff9f5c30e1daa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Självstudier: Azure Active Directory-integrering med CylancePROTECT
 
@@ -138,7 +138,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![CylancePROTECT konfiguration](./media/active-directory-saas-cylanceprotect-tutorial/tutorial_cylanceprotect_configure.png) 
 
-7. Konfigurera enkel inloggning på **CylancePROTECT** sida, måste du skicka den hämtade **Certificate(Base64), Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** till [ CylancePROTECT supportteamet](mailto:Ibrahim.nafea@toyota.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
+7. Konfigurera enkel inloggning på **CylancePROTECT** sida, måste du skicka den hämtade **Certificate(Base64), Sign-Out URL, SAML enhets-ID och SAML inloggning tjänst-URL för enkel** till konsolen administratören. De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -177,7 +177,7 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
   
 ### <a name="create-a-cylanceprotect-test-user"></a>Skapa en testanvändare CylancePROTECT
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i CylancePROTECT. Arbeta med [CylancePROTECT supportteamet](mailto:Ibrahim.nafea@toyota.com) att lägga till användare i CylancePROTECT-plattformen. Innehavaren för Azure Active Directory-konto ett e-postmeddelande och länken för att bekräfta sina konton innan den aktiveras.
+I det här avsnittet skapar du en användare som kallas Britta Simon i CylancePROTECT. Arbeta med konsolen administratören lägga till användare i CylancePROTECT-plattformen. Innehavaren för Azure Active Directory-konto ett e-postmeddelande och länken för att bekräfta sina konton innan den aktiveras.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

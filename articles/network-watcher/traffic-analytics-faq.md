@@ -1,11 +1,11 @@
 ---
-title: "Vanliga frågor och svar om Azure trafik Analytics | Microsoft Docs"
-description: "Få svar på några av de vanligaste frågorna om trafik Analytics."
+title: Vanliga frågor och svar om Azure trafik Analytics | Microsoft Docs
+description: Få svar på några av de vanligaste frågorna om trafik Analytics.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: fd97e0ca7615691c537dcb1dc18643627046742d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b9090f91db11b5bde53f3652028030201f135fa5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafik Analytics
 
@@ -29,6 +29,18 @@ ms.lasthandoff: 03/09/2018
     - NSG-flöde loggar aktiverad för NSG: er som du vill övervaka
     - Ett Azure Storage-konto för lagring av rådata flog loggar
     - En arbetsyta med läs- och skrivbehörighet logganalys (OMS)
+    - Ditt konto måste tilldelas på Microsoft.Network-providern följande åtgärder:
+
+        - Microsoft.Network/applicationGateways/read
+        - Microsoft.Network/connections/read
+        - Microsoft.Network/loadBalancers/read 
+        - Microsoft.Network/localNetworkGateways/read 
+        - Microsoft.Network/networkInterfaces/read 
+        - Microsoft.Network/networkSecurityGroups/read 
+        - Microsoft.Network/publicIPAddresses/read
+        - Microsoft.Network/routeTables/read
+        - Microsoft.Network/virtualNetworkGateways/read 
+        - Microsoft.Network/virtualNetworks/read
 
 2.  Vilka Azure-regioner är trafik Analytics?
 
@@ -94,7 +106,7 @@ ms.lasthandoff: 03/09/2018
 
 14.  Hur prissätts trafik Analytics?
 
-        Inga avgifter debiteras medan trafik Analytics Public Preview. Generering av NSG flöda loggar och förvaring av data i en OMS-arbetsyta regleras av avgifter vid publicerade priser.
+        Trafik Analytics förbrukade för att utöka minskade loggar och lagra förbättrad loggar i logganalys-arbetsytan. Under förhandsgranskning, debiteras trafiken Analytics inte för att utöka minskade loggarna, men förvaring av data i en arbetsyta regleras fakturering på publicerade priser. Det här svaret kommer att uppdateras när priser för trafik Analytics är tillgänglig.
 
 15.  Hur kan jag navigera på tangentbordet i Geo kartvyn?
 

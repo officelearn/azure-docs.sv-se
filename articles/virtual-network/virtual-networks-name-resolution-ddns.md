@@ -1,11 +1,11 @@
 ---
-title: "Med dynamisk DNS för att registrera värdnamn"
-description: "Den här sidan ger information om hur du ställer in dynamisk DNS för att registrera värdnamn i DNS-servrarna."
+title: Med dynamisk DNS för att registrera värdnamn
+description: Den här sidan ger information om hur du ställer in dynamisk DNS för att registrera värdnamn i DNS-servrarna.
 services: dns
 documentationcenter: na
 author: GarethBradshawMSFT
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c315961a-fa33-45cf-82b9-4551e70d32dd
 ms.service: dns
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: garbrad
-ms.openlocfilehash: 440a062e5fff73526b2d77d7d0a7c52ca72a66f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d62c40bfc909915fa222db12413634aa7ce7158
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Med dynamisk DNS för att registrera värdnamn i DNS-servern
 [Azure tillhandahåller namnmatchning](virtual-networks-name-resolution-for-vms-and-role-instances.md) för virtuella datorer (VM) och rollinstanser. När din namnmatchning måste utöver de som tillhandahålls av Azure, kan du ange DNS-servrarna. Detta ger dig möjlighet att anpassa din DNS-lösning så att de passar dina egna behov. Du kan behöva åtkomst till lokala resurser via Active Directory-domänkontrollant.
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 När din anpassade DNS-servrar är värd för som virtuella Azure-datorer kan du vidarebefordra hostname frågor för samma virtuella nätverk till Azure för att matcha värdnamn. Om du inte vill använda den här vägen kan du registrera VM-värdnamn i DNS-servern med hjälp av dynamisk DNS.  Azure behöver inte möjligheten (t.ex. autentiseringsuppgifter) direkt skapa poster i DNS-servrar så att andra åtgärder krävs ofta. Här följer några vanliga scenarier med andra alternativ.
 
 ## <a name="windows-clients"></a>Windows-klienter
-Icke-domänanslutna Windows-klienter försöker oskyddat dynamisk DNS (DDNS) uppdateringar när de startar eller när IP-adresser ändras. DNS-namnet är värdnamnet plus det primära DNS-suffixet. Azure låter primärt DNS-suffix som är tom, men du kan ange detta i den virtuella datorn den [UI](https://technet.microsoft.com/library/cc794784.aspx) eller [med hjälp av automation](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).
+Icke-domänanslutna Windows-klienter försöker oskyddat dynamisk DNS (DDNS) uppdateringar när de startar eller när IP-adresser ändras. DNS-namnet är värdnamnet plus det primära DNS-suffixet. Azure låter primärt DNS-suffix som är tom, men du kan ange detta i den virtuella datorn den [UI](https://technet.microsoft.com/library/cc794784.aspx) eller [med hjälp av automation som beskrivs här](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).
 
 Domänanslutna Windows-klienter för att registrera sina IP-adresser med domänkontrollanten med hjälp av säkra dynamiska DNS. Processen för domänanslutning anger primärt DNS-suffix på klienten och skapar och underhåller förtroenderelationen.
 

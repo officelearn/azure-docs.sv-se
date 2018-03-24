@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect-synkronisering: ändra tjänstkontot för Azure AD Connect Sync | Microsoft Docs"
-description: "Här avsnittet beskrivs krypteringsnyckeln och hur du avbryta den när lösenordet ändras."
+title: 'Azure AD Connect-synkronisering: ändra tjänstkontot för Azure AD Connect Sync | Microsoft Docs'
+description: Här avsnittet beskrivs krypteringsnyckeln och hur du avbryta den när lösenordet ändras.
 services: active-directory
-keywords: "Azure AD-synkroniseringstjänstkontot, lösenord"
-documentationcenter: 
+keywords: Azure AD-synkroniseringstjänstkontot, lösenord
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: faa6d667b514563516c23e0484437ac9572e52b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Ändra lösenord för tjänstkonto i Azure AD Connect-synkronisering
 Om du ändrar lösenord för tjänstkonto i Azure AD Connect sync kommer synkroniseringstjänsten inte att kunna starta korrekt förrän du har avbrutna krypteringsnyckeln och initieras på nytt lösenord för tjänstkonto i Azure AD Connect-synkronisering. 
@@ -30,7 +30,7 @@ Krypteringsnyckeln är säkrad via [Windows Data Protection (DPAPI)](https://msd
 
 Om du behöver ändra tjänstkontots lösenord du kan använda procedurerna i [överges krypteringsnyckeln Azure AD Connect Sync](#abandoning-the-azure-ad-connect-sync-encryption-key) att åstadkomma detta.  De här procedurerna bör också användas om du behöver avbryta krypteringsnyckeln av någon anledning.
 
-##<a name="issues-that-arise-from-changing-the-password"></a>Problem som uppstår när du ändrar lösenordet
+## <a name="issues-that-arise-from-changing-the-password"></a>Problem som uppstår när du ändrar lösenordet
 Det finns två saker som behöver göras när du ändrar tjänstkontots lösenord.
 
 Du måste först ändra lösenordet under Windows Service Control Manager.  Tills problemet är löst visas följande fel:
@@ -72,9 +72,9 @@ Avbryt den befintliga krypteringsnyckeln så att nya krypteringsnyckeln kan skap
 
 2. Starta en ny PowerShell-session.
 
-3. Navigera till mappen:`$env:Program Files\Microsoft Azure AD Sync\bin\`
+3. Navigera till mappen: `$env:Program Files\Microsoft Azure AD Sync\bin\`
 
-4. Kör kommandot:`./miiskmu.exe /a`
+4. Kör kommandot: `./miiskmu.exe /a`
 
 ![Azure AD Connect Sync kryptering viktiga verktyg](media/active-directory-aadconnectsync-encryption-key/key5.png)
 

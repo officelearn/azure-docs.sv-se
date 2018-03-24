@@ -2,9 +2,10 @@
 title: Azure AI-galleriet anpassade moduler | Microsoft Docs
 description: Identifiera anpassade machine learning-moduler i Azure AI-galleriet.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 16037a84-dad0-4a8c-9874-a1d3bd551cf0
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.author: garye
-ms.openlocfilehash: bec2860d1da5044ad6969e2b23142256aa90042e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 26cd814980af0824cbf40052a4a9f47161b8cc62
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Identifiera anpassade machine learning-moduler i Azure AI-galleriet
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -34,7 +34,7 @@ Bläddra anpassade moduler [i galleriet](http://gallery.cortanaintelligence.com)
 
 ![Välj Anpassad moduler på startsidan galleri](./media/gallery-custom-modules/select-custom-modules-in-gallery.png)
 
-Den  **[anpassade moduler](https://gallery.cortanaintelligence.com/customModules)**  sidan visar en lista över nyligen tillagda och populära moduler. Om du vill visa alla anpassade moduler, Välj den **se alla** knappen. Om du vill söka efter en anpassad modul, Välj **se alla**, och välj sedan filtreringsvillkor. Du kan även ange sökorden i den **Sök** rutan längst upp på sidan Gallery.
+Den **[anpassade moduler](https://gallery.cortanaintelligence.com/customModules)** sidan visar en lista över nyligen tillagda och populära moduler. Om du vill visa alla anpassade moduler, Välj den **se alla** knappen. Om du vill söka efter en anpassad modul, Välj **se alla**, och välj sedan filtreringsvillkor. Du kan även ange sökorden i den **Sök** rutan längst upp på sidan Gallery.
 
 ![Välj ”se alla” att bläddra i alla anpassade moduler](./media/gallery-custom-modules/click-see-all-for-all-custom-modules.png)
 

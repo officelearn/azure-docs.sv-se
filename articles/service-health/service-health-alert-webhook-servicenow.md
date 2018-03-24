@@ -1,10 +1,10 @@
 ---
-title: "Konfigurera aviseringar för Azure-tjänstens hälsotillstånd med ServiceNow | Microsoft Docs"
-description: "Hämta anpassade meddelanden om tjänstens hälsa händelser till ServiceNow-instans."
+title: Konfigurera aviseringar för Azure-tjänstens hälsotillstånd med ServiceNow | Microsoft Docs
+description: Hämta anpassade meddelanden om tjänstens hälsa händelser till ServiceNow-instans.
 author: shawntabrizi
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 625718ab82443c897d1b15c2eac51dea3d0dfeb4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 867a8c0b478df9d2b7690b8b914ded7c42558583
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>Konfigurera tjänsten health-aviseringar med ServiceNow
 
@@ -49,9 +49,9 @@ Den här artikeln visar hur du integrerar hälsovarningar för Azure-tjänsten m
 
     >[!NOTE]
     >Du måste uppdatera de `<secret>`,`<group>`, och `<email>` värdet i skriptet nedan.
-    >* `<secret>`måste vara en slumpmässig sträng som ett GUID
-    >* `<group>`bör vara den ServiceNow-grupp som du vill tilldela incident till
-    >* `<email>`bör vara specifika personer som du vill tilldela incident till (valfritt)
+    >* `<secret>` måste vara en slumpmässig sträng som ett GUID
+    >* `<group>` bör vara den ServiceNow-grupp som du vill tilldela incident till
+    >* `<email>` bör vara specifika personer som du vill tilldela incident till (valfritt)
     >
 
     ```javascript
@@ -183,7 +183,7 @@ Den här artikeln visar hur du integrerar hälsovarningar för Azure-tjänsten m
 5. Välj **spara** när du är klar för att uppdatera åtgärdsgruppen.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testa din webhook-integrering via en HTTP POST-begäran
-1. Skapa nyttolasten av tjänstens hälsa som du vill skicka. Du hittar en webhook exempel tjänstens hälsa nyttolast på [Webhooks för Azure aktiviteten Logga varningar](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Skapa service hälsa nyttolast som du vill skicka. Du hittar en exempel-tjänsten hälsa webhook nyttolast på [Webhooks för Azure aktiviteten Logga varningar](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
 2. Skapa en HTTP POST-begäran på följande sätt:
 
@@ -192,7 +192,7 @@ Den här artikeln visar hur du integrerar hälsovarningar för Azure-tjänsten m
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. Du bör få ett `200 OK` svar med meddelandet ”Incident skapad”.
 

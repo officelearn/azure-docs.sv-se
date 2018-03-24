@@ -1,24 +1,24 @@
 ---
-title: "Installera Azure AD Connect med administratörsbehörighet för SQL delegerad | Microsoft Docs"
-description: "Det här avsnittet beskriver en uppdatering till Azure AD Connect som gör det möjligt för installation med ett konto som har bara SQL dbo-behörigheter."
-documentationcenter: 
+title: Installera Azure AD Connect med administratörsbehörighet för SQL delegerad | Microsoft Docs
+description: Det här avsnittet beskriver en uppdatering till Azure AD Connect som gör det möjligt för installation med ett konto som har bara SQL dbo-behörigheter.
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: jparsons
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: c2d77c37f2f65c9a7db1fd5c4010fc43bcbc7ebf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2686bdef9c25f4540f9b2a21594b18cbe0404e08
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installera Azure AD Connect med administratörsbehörighet för SQL delegerad
 Innan den senaste versionen i Azure AD Connect stöds administrativa delegering, när du distribuerar konfigurationer som krävs för SQL, inte.  Användare som vill installera Azure AD Connect som behövs för att ha administratörsbehörighet för servern (SA) på SQLServer.
@@ -51,6 +51,8 @@ Använd följande steg för att tillhandahålla databasen out of band och instal
 
 ## <a name="additional-information"></a>Ytterligare information
 När databasen har etablerats kan Azure AD Connect-administratören installera och konfigurera synkronisering av lokala när vill.  
+
+Den **/UseExistingDatabase** flaggan krävs när du använder en i förväg skapade databasen.  Den används inte endast i situationer för återställning.
 
 Förutom stöd för nya installationer av Azure AD Connect är den här funktionen gör det också möjligt delegering för scenarier med den **/UseExistingDatabase** flaggan.  Mer information om hur du installerar Azure AD Connect med en befintlig databas finns [installera Azure AD Connect med en befintlig ADSync-databas](active-directory-aadconnect-existing-database.md)
 

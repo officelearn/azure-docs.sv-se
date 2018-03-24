@@ -1,20 +1,20 @@
 ---
-title: "Kopiera data från Amazon enkla lagringstjänsten med Azure Data Factory | Microsoft Docs"
-description: "Läs mer om hur du kopierar data från Amazon enkla Storage-tjänst (S3) till stöds sink datalager med hjälp av Azure Data Factory."
+title: Kopiera data från Amazon enkla lagringstjänsten med Azure Data Factory | Microsoft Docs
+description: Läs mer om hur du kopierar data från Amazon enkla Storage-tjänst (S3) till stöds sink datalager med hjälp av Azure Data Factory.
 services: data-factory
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b5dbf4b7ae0fc1f8871fbf6df1a29f0f7324d83a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82d46d29b1e75995c5436b985717f45104dad955
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Kopiera data från Amazon enkla lagringstjänsten med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,8 +36,8 @@ Mer specifikt stöder den här Amazon S3-anslutningen kopierar filer som-är ell
 
 Om du vill kopiera data från Amazon S3, kontrollera att du har beviljats följande behörigheter:
 
-- `s3:GetObject`och `s3:GetObjectVersion` för Amazon S3 objekt åtgärder.
-- `s3:ListBucket`eller `s3:GetBucketLocation` för Amazon S3 Bucket-åtgärder. Om du använder guiden Data Factory kopiera `s3:ListAllMyBuckets` krävs också.
+- `s3:GetObject` och `s3:GetObjectVersion` för Amazon S3 objekt åtgärder.
+- `s3:ListBucket` eller `s3:GetBucketLocation` för Amazon S3 Bucket-åtgärder. Om du använder guiden Data Factory kopiera `s3:ListAllMyBuckets` krävs också.
 
 Mer information om en fullständig lista över Amazon S3 behörigheter finns [att ange behörigheter i en princip](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 

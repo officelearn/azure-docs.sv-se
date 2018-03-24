@@ -1,10 +1,11 @@
 ---
-title: "Steg 4: Träna och utvärdera de analytiska förutsägelsemodeller | Microsoft Docs"
-description: "Steg 4 i utveckla en förutsägelselösning genomgång: tåg och poängsätta och utvärdera flera modeller i Azure Machine Learning Studio."
+title: 'Steg 4: Träna och utvärdera de analytiska förutsägelsemodeller | Microsoft Docs'
+description: 'Steg 4 i utveckla en förutsägelselösning genomgång: tåg och poängsätta och utvärdera flera modeller i Azure Machine Learning Studio.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: 5a545b9f9f7f935be91fed743779ebd6b4d930a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f722fa314b42501e0f6144f71b9d74c0a9127e9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>Genomgång steg 4: Utbilda i och utvärdera förutsägbara analytiska modeller
 Det här avsnittet innehåller det fjärde steget i den här genomgången [utveckla en förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -71,7 +71,7 @@ Nu behöver vi berätta det [Träningsmodell] [ train-model] modul som vi vill m
 
 1. Välj den [Träningsmodell] [ train-model] modul. I den **egenskaper** rutan klickar du på **starta kolumnväljaren**.
 
-2. I den **Markera en kolumn** dialogrutan Skriv ”kredit risk” i sökfältet under **tillgängliga kolumner**, markerar ”kredit risk” nedan och klicka på högerpilen ( **>** ) att flytta ”kreditrisk” till **valda kolumner**. 
+2. I den **Markera en kolumn** dialogrutan Skriv ”kredit risk” i sökfältet under **tillgängliga kolumner**, markerar ”kredit risk” nedan och klicka på högerpilen (**>**) att flytta ”kreditrisk” till **valda kolumner**. 
 
     ![Välj kolumnen kreditrisken för träningsmodellmodulen][0]
 

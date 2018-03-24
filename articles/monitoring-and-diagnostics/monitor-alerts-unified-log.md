@@ -1,9 +1,9 @@
 ---
-title: "Loggen aviseringar i Azure-Monitor - aviseringar (förhandsversion) | Microsoft Docs"
-description: "Aktivera e-postmeddelanden, meddelanden, anropa webbplatser URL: er (webhooks) eller automation när de komplicerade frågan du anger villkor för aviseringar i Azure (förhandsversion)."
+title: Logga varningar i Azure-Monitor - aviseringar | Microsoft Docs
+description: 'Aktivera e-postmeddelanden, meddelanden, anropa webbplatser URL: er (webhooks) eller automation när de komplicerade frågan du anger villkor för Azure-aviseringar.'
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
@@ -12,35 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/17/2018
 ms.author: vinagara
-ms.openlocfilehash: 0cee8bf77e0facc12159b823152b8859ce5cedd8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5928bbcec08d6ba4ac0b0d03b66fa4bfc8f5e3d7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Loggen aviseringar i Azure-Monitor - aviseringar (förhandsgranskning)
-Den här artikeln innehåller information om hur Varningsregler i Analytics-frågor fungerar i Azure varningar (förhandsversion) och beskrivs skillnaderna mellan olika typer av loggen Varningsregler. Mer information om måttet aviseringar via loggar avser [nära realtid mått aviseringar](monitoring-near-real-time-metric-alerts.md)
+# <a name="log-alerts-in-azure-monitor---alerts"></a>Loggen aviseringar i Azure-Monitor - aviseringar 
+Den här artikeln innehåller information om hur Varningsregler i Analytics-frågor fungerar i Azure-varningar och beskrivs skillnaderna mellan olika typer av loggen Varningsregler. Mer information om måttet aviseringar via loggar avser [nära realtid mått aviseringar](monitoring-near-real-time-metric-alerts.md)
 
-För närvarande Azure aviseringar (förhandsversion) stöder Logga varningar på frågor från [Azure logganalys](../log-analytics/log-analytics-tutorial-viewdata.md) och [Programinsikter](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
+För närvarande Azure aviseringar stöder Logga varningar på frågor från [Azure logganalys](../log-analytics/log-analytics-tutorial-viewdata.md) och [Programinsikter](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
 > [!WARNING]
 
-> Loggen avisering i Azure aviseringar (förhandsversion) stöder för närvarande inte mellan arbetsytan eller mellan appar frågor.
+> Loggen avisering i Azure aviseringar stöder för närvarande inte mellan arbetsytan eller mellan appar frågor. Och logga varningar för Application Insights är tillgänglig som förhandsversion - funktioner och användarupplevelse kan ändras.
 
-Användare kan också perfekt deras frågor i Analytics platform valt i Azure och sedan *importera dem för användning i aviseringar (förhandsgranskning) genom att spara frågan*. Steg att följa:
+Användare kan också perfekt deras frågor i Analytics platform valt i Azure och sedan *importera dem för användning i aviseringar genom att spara frågan*. Steg att följa:
 - För Application Insights: Gå till Analytics-portalen Validera frågan och dess resultat. Spara med unika namn i *delade frågor*.
 - För Log Analytics: Gå till loggen sökning, verifiera frågan och dess resultat. Använder sedan spara med det unika namnet i en kategori.
 
-Sedan när [skapar en avisering om loggen i aviseringar (förhandsgranskning)](monitor-alerts-unified-usage.md), visas den sparade fråga som signaltypen **logg (sparad fråga)**; som visas i exemplet nedan: ![sparad fråga importeras till aviseringar](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+Sedan när [skapar en avisering om loggen i aviseringar ](monitor-alerts-unified-usage.md), visas den sparade fråga som signaltypen **logg (sparad fråga)**; som visas i exemplet nedan: ![sparad fråga importeras till aviseringar](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
 
 > [!NOTE]
 > Med hjälp av **logg (sparad fråga)** resulterar i en import till aviseringar. Alla ändringar som gjorts efter i Analytics kommer därför inte att reflekterande i sparade Varningsregler och vice versa.
 
 ## <a name="log-alert-rules"></a>Logga Varningsregler
 
-Aviseringar skapas av aviseringar i Azure (förhandsversion) för att köra frågor i loggen automatiskt med jämna mellanrum.  Om resultatet av logg-fråga matchar särskilda villkor, skapas en avisering post. Regeln kan sedan automatiskt köra en eller flera åtgärder för att proaktivt meddelar dig om aviseringen eller anropa en annan process som skickar data till externt program med hjälp av [json-baserade webhook](monitor-alerts-unified-log-webhook.md)med hjälp av [åtgärdsgrupper](monitoring-action-groups.md). Olika typer av Varningsregler använda olika logik för att utföra den här analysen.
+Aviseringar skapas med Azure aviseringar för att köra frågor i loggen automatiskt med jämna mellanrum.  Om resultatet av logg-fråga matchar särskilda villkor, skapas en avisering post. Regeln kan sedan automatiskt köra en eller flera åtgärder för att proaktivt meddelar dig om aviseringen eller anropa en annan process som skickar data till externt program med hjälp av [json-baserade webhook](monitor-alerts-unified-log-webhook.md)med hjälp av [åtgärdsgrupper](monitoring-action-groups.md). Olika typer av Varningsregler använda olika logik för att utföra den här analysen.
 
 Varningsregler definieras av följande information:
 
@@ -118,7 +118,7 @@ I det här exemplet skulle separata aviseringar skapas för srv02 och srv03 efte
 
 ## <a name="next-steps"></a>Nästa steg
 * Förstå [Webhook-åtgärder för logg-aviseringar](monitor-alerts-unified-log-webhook.md)
-* [Få en översikt över Azure aviseringar (förhandsgranskning)](monitoring-overview-unified-alerts.md)
-* Lär dig mer om [med aviseringar i Azure (förhandsversion)](monitor-alerts-unified-usage.md)
+* [Få en översikt över Azure aviseringar ](monitoring-overview-unified-alerts.md)
+* Lär dig mer om [med hjälp av Azure-aviseringar ](monitor-alerts-unified-usage.md)
 * Lär dig mer om [Application Insights](../application-insights/app-insights-analytics.md)
 * Lär dig mer om [logganalys](../log-analytics/log-analytics-overview.md).    

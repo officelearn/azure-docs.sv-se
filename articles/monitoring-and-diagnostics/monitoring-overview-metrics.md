@@ -1,9 +1,9 @@
 ---
-title: "Översikt över mått i Microsoft Azure | Microsoft Docs"
-description: "Översikt över mått och deras användning i Microsoft Azure"
-author: johnkemnetz
+title: Översikt över mått i Microsoft Azure | Microsoft Docs
+description: Översikt över mått och deras användning i Microsoft Azure
+author: anirudhcavale
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: johnkem
-ms.openlocfilehash: 4a78236f9c6945bb982466b59690b221f35a1804
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 03/19/2018
+ms.author: ancav
+ms.openlocfilehash: 88020b27403f06ab8f1c0a1c45b798db02f517f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Översikt över mått i Microsoft Azure
 Den här artikeln beskriver vilka mått som finns i Microsoft Azure sina fördelar och hur du börjar använda dem.  
@@ -38,9 +38,9 @@ Mått är en del av telemetri och gör att du kan göra följande:
 ## <a name="what-are-the-characteristics-of-metrics"></a>Vad är egenskaper hos mått?
 Mått har följande egenskaper:
 
-* Alla mätvärden har **minut frekvens**. Du får ett värde varje minut från din resurs så att du nära realtid insyn i tillstånd och hälsotillståndet för din resurs.
+* Alla mätvärden har **minut frekvens** (om inget annat anges i definitionen för ett mått). Du får ett värde varje minut från din resurs så att du nära realtid insyn i tillstånd och hälsotillståndet för din resurs.
 * Mått är **tillgängliga omedelbart**. Du behöver inte välja eller konfigurera ytterligare diagnostik.
-* Du kan komma åt **30 dagar från historiken** för varje mått. Du kan snabbt se senaste och en månadsvis trender i prestanda eller hälsotillståndet för din resurs.
+* Du kan komma åt **93 dagar tidigare** för varje mått. Du kan snabbt se senaste och en månadsvis trender i prestanda eller hälsotillståndet för din resurs.
 * Vissa mått kan ha namn-värdepar attribut kallas **dimensioner**. Dessa kan du ytterligare segmentera och utforska ett mått på ett bättre sätt.
 
 Du kan också:
@@ -93,7 +93,7 @@ Azure mått kan nås via API: er för Azure-Monitor. Det finns två API: er som 
 * Använd den [Azure övervakaren mått REST API](https://docs.microsoft.com/rest/api/monitor/metrics) segmentera, filtrera och komma åt data faktiska mått.
 
 > [!NOTE]
-> Den här artikeln beskriver mätvärden via den [nya API: et för mått](https://docs.microsoft.com/rest/api/monitor/) för Azure-resurser. API-versionen för den nya måttdefinitioner och mått API: er är 2017-05-01-preview. Äldre måttdefinitioner och mått kan nås med API-version 2014-04-01.
+> Den här artikeln beskriver mätvärden via den [nya API: et för mått](https://docs.microsoft.com/rest/api/monitor/) för Azure-resurser. API-versionen för den nya måttdefinitioner och mått API: er är 2018-01-01. Äldre måttdefinitioner och mått kan nås med API-version 2014-04-01.
 >
 >
 

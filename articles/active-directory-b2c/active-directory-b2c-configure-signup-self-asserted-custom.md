@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Ändra logga in i anpassade principer och konfigurera självbetjäningsportalen vars provider"
-description: "En genomgång för att lägga till anspråk som ska logga och konfigurera användarindata"
+title: 'Azure Active Directory B2C: Ändra logga in i anpassade principer och konfigurera självbetjäningsportalen vars provider'
+description: En genomgång för att lägga till anspråk som ska logga och konfigurera användarindata
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: tbd
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/29/2017
-ms.author: joroja
-ms.openlocfilehash: e9eb9fa941569c508c4dddc6b85786537a5a0fac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: b9ea48f0700509194602dd15ff42c7c689685a53
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: Ändra logga in för att lägga till nya anspråk och konfigurera indata från användaren.
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 12/11/2017
 
 I den här artikeln, ska du lägga till en ny post för användare som har angetts (ett anspråk) din anmälan användaren resa.  Du kan konfigurera posten som en listrutan och definiera om det behövs.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Utför stegen i artikeln [komma igång med principer för anpassade](active-directory-b2c-get-started-custom.md).  Testa signup/inloggning användaren resa till registreringen ett nytt lokalt konto innan du fortsätter.
 
@@ -47,11 +44,11 @@ Kan be användaren för sina ort.  Lägg till följande elementet så att den `<
 ```
 Det finns ytterligare alternativ som du gör här anpassa anspråket.  En fullständig schemat finns i den **identitet upplevelse Framework teknisk referenshandbok**.  Den här guiden kommer att publiceras snart i referensavsnittet.
 
-* `<DisplayName>`är en sträng som definierar användarinriktade *etikett*
+* `<DisplayName>` är en sträng som definierar användarinriktade *etikett*
 
-* `<UserHelpText>`hjälper användaren att förstå vad som krävs
+* `<UserHelpText>` hjälper användaren att förstå vad som krävs
 
-* `<UserInputType>`innehåller följande fyra alternativ markerade nedan:
+* `<UserInputType>` innehåller följande fyra alternativ markerade nedan:
     * `TextBox`
 ```xml
 <ClaimType Id="city">
@@ -62,7 +59,7 @@ Det finns ytterligare alternativ som du gör här anpassa anspråket.  En fullst
 </ClaimType>
 ```
 
-    * `RadioSingleSelectduration`-Tillämpar ett val.
+    * `RadioSingleSelectduration` -Tillämpar ett val.
 ```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
@@ -76,7 +73,7 @@ Det finns ytterligare alternativ som du gör här anpassa anspråket.  En fullst
 </ClaimType>
 ```
 
-    * `DropdownSingleSelect`-Du kan välja endast giltigt värde.
+    * `DropdownSingleSelect` -Du kan välja endast giltigt värde.
 
 ![Skärmbild som visar dropdown alternativet](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
@@ -95,7 +92,7 @@ Det finns ytterligare alternativ som du gör här anpassa anspråket.  En fullst
 ```
 
 
-* `CheckboxMultiSelect`Gör det möjligt för att välja ett eller flera värden.
+* `CheckboxMultiSelect` Gör det möjligt för att välja ett eller flera värden.
 
 ![Skärmbild av multiselect alternativet](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
@@ -188,7 +185,7 @@ Det finns ytterligare alternativ som du gör här anpassa anspråket.  En fullst
   </TechnicalProfile>
   ```
 
-3. Lägga till anspråk till TechnicalProfile som läser från katalogen när en användare loggar in som en`<OutputClaim ClaimTypeReferenceId="city" />`
+3. Lägga till anspråk till TechnicalProfile som läser från katalogen när en användare loggar in som en `<OutputClaim ClaimTypeReferenceId="city" />`
 
   ```xml
   <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">

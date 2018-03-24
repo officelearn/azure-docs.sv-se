@@ -1,24 +1,24 @@
 ---
-title: "Snabbstart: Skala ut beräkning i Azure SQL Data Warehouse - PowerShell | Microsoft Docs"
-description: "PowerShell-uppgifter som ska skalas ut beräkningsresurser genom att justera informationslagerenheter."
+title: 'Snabbstart: Skala ut beräkning i Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
+description: PowerShell-uppgifter som ska skalas ut beräkningsresurser genom att justera informationslagerenheter.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 01/31/2018
+ms.date: 03/16/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: a3a435d6bdb0d35c96349540d5e9f9b5be61bd9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3236c0ad9676712afd220a3c8a9326f3ea1f59d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Snabbstart: Skala compute i Azure SQL Data Warehouse i PowerShell
 
@@ -64,7 +64,7 @@ Följ dessa steg för att hitta platsen för ditt informationslager.
 
     ![Namn och resursen servergrupp](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Skriv ned namnet på datalager som ska användas som databasnamn på. Även Skriv ned namnet på servern och resursgruppen. Du använder dem i pausen och återuppta kommandon.
+4. Skriv ned namnet på datalager, som ska användas som databasnamn på. Kom ihåg att ett informationslager är en typ av databas. Även Skriv ned namnet på servern och resursgruppen. Du använder dem i pausen och återuppta kommandon.
 5. Om din server är foo.database.windows.net Använd bara den första delen som servernamn i PowerShell-cmdlets. I den föregående bilden är det fullständiga servernamnet newserver 20171113.database.windows.net. Vi använder **newserver 20171113** som servernamn i PowerShell-cmdleten.
 
 ## <a name="scale-compute"></a>Skala beräkning
@@ -77,12 +77,13 @@ Du kan ändra informationslagerenheter den [Set-AzureRmSqlDatabase](/powershell/
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
 ```
 
-## <a name="check-database-state"></a>Kontrollera databasens status
+## <a name="check-data-warehouse-state"></a>Kontrollera tillstånd för datalager
 
 Det aktuella tillståndet för datalagret, Använd den [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) PowerShell-cmdlet. Detta hämtar tillståndet för den **mySampleDataWarehouse** databasen i ResourceGroup **myResourceGroup** och server **mynewserver 20171113.database.windows.net**.
 
 ```powershell
-Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database
 ```
 
 Vilket leder till ungefär så här:
@@ -113,7 +114,13 @@ ReadScale                     : Disabled
 ZoneRedundant                 : False
 ```
 
-Du kan sedan kontrollera om du vill se den **Status** av databasen. I det här fallet kan du se att den här databasen är online.  När du kör det här kommandot får statusvärdet Online, pausa, inställd på återupptar, skalning eller pausas.
+Du kan se den **Status** i databasen i utdata. I det här fallet kan du se att den här databasen är online.  När du kör det här kommandot får statusvärdet Online, pausa, inställd på återupptar, skalning eller pausas. 
+
+Om du vill se status för ensamt, använder du följande kommando:
+
+```powershell
+$database | Select-Object DatabaseName,Status
+```
 
 ## <a name="next-steps"></a>Nästa steg
 Nu har du lärt dig hur du kan skala beräkning för ditt informationslager. Om du vill veta mer om Azure SQL Data Warehouse kan fortsätta med självstudiekursen om att läsa in data.

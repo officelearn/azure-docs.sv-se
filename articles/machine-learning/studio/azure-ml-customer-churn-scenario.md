@@ -1,10 +1,11 @@
 ---
-title: "Analysera kunden Omsättningsuppdateringar med Machine Learning | Microsoft Docs"
-description: "Fallstudie för att utveckla en integrerad modell för att analysera och bedömningen kunden omsättning"
+title: Analysera kunden Omsättningsuppdateringar med Machine Learning | Microsoft Docs
+description: Fallstudie för att utveckla en integrerad modell för att analysera och bedömningen kunden omsättning
 services: machine-learning
-documentationcenter: 
-author: jeannt
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
@@ -13,14 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: jeannt
-ms.openlocfilehash: e0b82fe8e8c8bc4ac9c45370d90fa9330d749878
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 6c64444fc8d42782065d42ed5ee0c193678bb1f1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analysera kundens omsättning med hjälp av Azure Machine Learning
+# <a name="analyzing-customer-churn-using-azure-machine-learning"></a>Analysera kunden Omsättningsuppdateringar med hjälp av Azure Machine Learning
 ## <a name="overview"></a>Översikt
 Den här artikeln beskriver en för referensimplementering av en omsättning analys kundprojekt som skapats med hjälp av Azure Machine Learning. I den här artikeln tar vi upp associerade allmänna modeller för att lösa problemet med industriella kunden omsättning helhetsmässigt. Vi också mäta riktighet modeller som har skapats med hjälp av Machine Learning och utvärdera anvisningarna för ytterligare utveckling.  
 
@@ -192,7 +192,7 @@ I branschen telekommunikation flera metoder har vuxit fram för att analysera om
 
 * Härledd mätvärden för fyra grundläggande kategorier:
   * **Entitet (till exempel en prenumeration)**. Etablera grundläggande information om prenumerationen och/eller kund som omfattas av omsättning.
-  * **Aktiviteten**. Hämta alla möjliga användningsinformation som är relaterad till entitet, till exempel antal inloggningar.
+  * **Aktivitet**. Hämta alla möjliga användningsinformation som är relaterad till entitet, till exempel antal inloggningar.
   * **Teknisk support**. Samla information från kunden stöd loggar för att indikera om prenumerationen har problem eller interaktioner med teknisk support.
   * **Konkurrenskraftiga-och**. Hämta möjliga information om kunden (till exempel kan vara otillgänglig eller svårt att spåra).
 * Använd betydelse för val av funktioner för enheten. Detta innebär att den förstärkta träd modellen alltid är en Orderlöfte metod.  

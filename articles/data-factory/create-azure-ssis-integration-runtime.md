@@ -1,11 +1,10 @@
 ---
-title: "Skapa Azure-SSIS-integrering körning i Azure Data Factory | Microsoft Docs"
-description: "Lär dig hur du skapar en Azure-SSIS-integrering körning så att du kan köra SSIS-paket i Azure-molnet."
+title: Skapa Azure-SSIS-integrering körning i Azure Data Factory | Microsoft Docs
+description: Lär dig hur du skapar en Azure-SSIS-integrering körning så att du kan köra SSIS-paket i Azure-molnet.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 879489dffbf713b5fadb72a58638e462938aaf26
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: dc4c690633d14163eddfa70e8417a645f95a0861
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Skapa en Azure-SSIS-integrering körning i Azure Data Factory
 Den här artikeln innehåller steg för att etablera en Azure-SSIS-integrering körning i Azure Data Factory. Sedan kan du använda SQL Server Data Tools (SSDT) eller SQL Server Management Studio (SSMS) för att distribuera SQL Server Integration Services-paket (SSIS) till den här körningen i Azure.
@@ -34,7 +33,7 @@ Självstudier: [Självstudier: distribuera paket för SQL Server Integration Ser
 ## <a name="overview"></a>Översikt
 Den här artikeln beskrivs olika sätt att etablera ett Azure-SSIS-IR:
 
-- [Azure-portalen](#azure-portal)
+- [Azure Portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [Azure Resource Manager-mall](#azure-resource-manager-template)
 

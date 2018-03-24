@@ -1,24 +1,24 @@
 ---
-title: "Standard Azure belastningsutjämnare och tillgänglighet zoner | Microsoft Docs"
-description: "Standard belastningsutjämnare och tillgänglighet zoner"
+title: Standard Azure belastningsutjämnare och tillgänglighet zoner | Microsoft Docs
+description: Standard belastningsutjämnare och tillgänglighet zoner
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 61e0e7cf960d7eb2294bc294ec1eec9d80428a81
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70b39b854a3b7cb28716d3cb290998690dbeb549
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard belastningsutjämnare och tillgänglighet zoner
 
@@ -151,7 +151,7 @@ Om du använder befintliga Resource Manager-mallar i konfigurationen, lägger du
 
 Globala zonen nätverksbelastning är belastningsutjämnare förmåga att nå en backend-slutpunkt i alla zoner och är oberoende av klientdelen och dess zonality.
 
-Om du vill justera och garantera din distribution med en zon justera zonal klientdel och zonal serverdelsresurser till samma zon. Ingen ytterligare åtgärd krävs.
+Om du vill justera och garantera din distribution inom en zon justera zonal klientdel och zonal serverdelsresurser till samma zon. Ingen ytterligare åtgärd krävs.
 
 ### <a name="backend"></a>Serverdel
 
@@ -210,7 +210,7 @@ Zonredundant kan tillhandahålla en zon-oberoende och på samma tid flexibla alt
 
 Zonal kan ge en explicit garanti till en zon dela omvandling med hälsotillståndet för zonen. Associera en zonal IP kan-adress eller zonal belastningsutjämnaren klientdel vara attributet önskvärt eller rimliga särskilt om dina anslutna resursen är en zonal virtuell dator i samma zon.  Eller kanske explicit kunskap om vilken zon finns en resurs i krävs för ditt program och du vill skäl om tillgänglighet i separata zoner explicit.  Du kan välja att exponera flera zonal frontends för en slutpunkt till slutpunkt-tjänst som är fördelade på zoner (det vill säga per zon zonal frontends för flera zonal virtuella skala anger).  Och om din zonal frontends offentliga IP-adresser, kan du använda dessa flera zonal frontends för att visa din tjänst med [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Eller du kan använda flera zonal frontends för att få per zon insikter om hälsa och prestanda via tredje part övervakningslösningar och exponera övergripande tjänsten med zonredundant klientdel. Du bör bara hantera zonal resurser med zonal frontends justeras till samma zon och undvika potentiellt skadligt mellan zon scenarier för zonal resurser.  Det finns endast zonal resurser i regioner där tillgänglighet zoner finns.
 
-Det finns inga allmänna riktlinjer som en är ett bättre alternativ än andra utan att känna till tjänsten slutpunkt till slutpunkt.
+Det finns inga allmänna riktlinjer som en är ett bättre alternativ än andra utan att känna till service-arkitektur.
 
 ## <a name="limitations"></a>Begränsningar
 

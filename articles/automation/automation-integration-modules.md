@@ -1,6 +1,6 @@
 ---
-title: "Skapa en Azure Automation-modul för integrering"
-description: "Självstudie som steg för steg beskriver hur du skapar, testar och använder integreringsmoduler i Azure Automation."
+title: Skapa en Azure Automation-modul för integrering
+description: Självstudie som steg för steg beskriver hur du skapar, testar och använder integreringsmoduler i Azure Automation.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: e1bcdb2938d1dcb2743b4c1c523ccefb322dd428
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7b7aa09776045705ce98a472adbbe2f36d827ccc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-integration-modules"></a>Azure Automation-integreringsmoduler
 PowerShell är den grundläggande tekniken bakom Azure Automation. Eftersom Azure Automation bygger på PowerShell är PowerShell-moduler fundamentala för att kunna expandera Azure Automation. I den här artikeln hur vi du egenskaperna för Azure Automation-användning av PowerShell-moduler som kallas ”integreringsmoduler” och metodtips för att skapa egna PowerShell-moduler för att kontrollera att de fungerar som integreringsmoduler i Azure Automatisering. 

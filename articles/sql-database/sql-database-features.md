@@ -1,19 +1,19 @@
 ---
-title: "Azure SQL Database-funktionsjämförelse | Microsoft Docs"
-description: "Den här artikeln jämförs funktionerna i Azure SQL Database och hanterade instanser med varandra och med SQL Server."
+title: Azure SQL Database-funktionsjämförelse | Microsoft Docs
+description: Den här artikeln jämförs funktionerna i Azure SQL Database och hanterade instanser med varandra och med SQL Server.
 services: sql-database
 author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/21/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 4c50adeef0d6e811af6e144aa7351d9b65c1bd76
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 842c65987dc97872751071dbcf138794a14940e2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Funktionsjämförelse: Azure SQL Database och SQL Server 
 
@@ -34,7 +34,7 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [AlwaysOn-Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över verksamhetskontinuitet med Azure SQL Database](sql-database-business-continuity.md) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över verksamhetskontinuitet med Azure SQL Database](sql-database-business-continuity.md) |
 | [Ansluta en databas](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Nej | Nej |
 | [Programroller](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Ja | Ja |
-|[Granskning](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Ja](sql-database-auditing.md)| Ja - finns [granskning skillnader](sql-database-managed-instance-transact-sql-information.md#auditing) |
+|[Granskning](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Ja](sql-database-auditing.md)| [Ja](sql-database-managed-instance-auditing.md) |
 | [Automatisk säkerhetskopiering](sql-database-automated-backups.md) | Ja | Ja |
 | [Automatisk justering (markörplan)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Ja](sql-database-automatic-tuning.md)| [Ja](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [Automatisk justering (index)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Ja](sql-database-automatic-tuning.md)| Nej |
@@ -45,7 +45,7 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [Registrering av ändringsdata](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Nej | Ja |
 | [Spårning av ändringar](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Ja |Ja |
 | [Instruktioner för sortering](https://docs.microsoft.com/sql/t-sql/statements/collations) | Ja | Ja |
-| [Columnstore-index](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Ja - [endast Premium edition](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Ja |
+| [Columnstore-index](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Ja - [Premium-nivå och Standardnivå - S3 och senare](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Ja |
 | [CLR (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Nej | Ja - finns [CLR skillnader](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Inneslutna databaser](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Ja | Ja |
 | [Inneslutna användare](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Ja | Ja |
@@ -91,6 +91,11 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [Minimal loggning i massimport](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Nej | Nej |
 | [Ändra systemdata](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | Nej | Ja |
 | [Indexåtgärder online](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | Ja | Ja |
+| [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql)|Nej|Ja - finns [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md)|
+| [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql)|Ja|Ja|
+| [OPENQUERY](https://docs.microsoft.com/sql/t-sql/functions/openquery-transact-sql)|Nej|Ja - finns [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md)|
+| [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)|Nej|Ja - finns [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md)|
+| [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql)|Ja|Ja|
 | [Operatörer](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | De flesta - finns i enskilda operatorer |Ja - finns [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md) |
 | [Partitionering](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Ja | Ja |
 | [Återställning vid tidpunkt databas](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Ja - finns [återställning av SQL-databasen](sql-database-recovery-using-backups.md#point-in-time-restore) | Ja - finns [återställning av SQL-databasen](sql-database-recovery-using-backups.md#point-in-time-restore) |
@@ -128,6 +133,7 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [System katalogvyer](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Vissa - se enskilda vyer | Ja - finns [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md) |
 | [Temporary tables](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) (Temporära tabeller) | Lokala och databas-omfattande globala temporära tabeller | Lokala och instans omfång globala temporära tabeller |
 | [Temporala tabeller](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | Ja | Ja |
+|Hotidentifiering|  [Ja](sql-database-threat-detection.md)|[Ja](sql-database-managed-instance-threat-detection.md)|
 | [Spårningsflaggor](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Nej | Nej |
 | [Variabler](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Ja | Ja |
 | [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Ja | Nej, inte i Public Preview |

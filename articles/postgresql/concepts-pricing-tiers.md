@@ -1,6 +1,6 @@
 ---
-title: "Prisnivåer i Azure-databas för PostgreSQL"
-description: "Den här artikeln beskriver prisnivåerna i Azure-databas för PostgreSQL."
+title: Prisnivåer i Azure-databas för PostgreSQL
+description: Den här artikeln beskriver prisnivåerna i Azure-databas för PostgreSQL.
 services: postgresql
 author: jan-eng
 ms.author: janeng
@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ee75af9b1d7b77799fe02d87da257ff73bc567e6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 21f8eb795aa1675e2bbd5284f88b39c76ad59228
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure-databas för PostgreSQL prisnivåer
 
@@ -21,8 +21,8 @@ En Azure-databas för PostgreSQL-server kan skapas i ett av tre olika prisnivåe
 
 |    | **Basic** | **Generella** | **Minnesoptimerade** |
 |:---|:----------|:--------------------|:---------------------|
-| Compute-generering | Gen 4 Gen 5 | Gen 4 Gen 5 | Gen 5 |
-| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16, 32 |
+| Compute-generering | Gen 4 Gen 5 | Gen 4 Gen 5 | Generation 5 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Minne per vCore | 1x | 2x Basic | 2 x generella |
 | Lagringsstorlek | 5 GB till 1 TB | 5 GB till 1 TB | 5 GB till 1 TB |
 | Lagringstyp | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
@@ -40,7 +40,32 @@ När du har skapat en server, kan antalet vCores ändras uppåt eller nedåt ino
 
 ## <a name="compute-generations-vcores-and-memory"></a>Beräkna generationer, vCores och minne
 
-Beräkningsresurser tillhandahålls som vCores, som representerar den underliggande maskinvaran logiska Processorn. För närvarande erbjuds två beräkning generationer Gen 4 och 5 Gen som du kan välja från. Logiska generation 4-CPU:er baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer. Logiska generation 5-CPU:er baseras på Intel E5-2673 v4 (Haswell) 2,3 GHz-processorer.
+Beräkningsresurser tillhandahålls som vCores, som representerar den underliggande maskinvaran logiska Processorn. För närvarande erbjuds två beräkning generationer Gen 4 och 5 Gen som du kan välja från. Logiska generation 4-CPU:er baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer. Logiska generation 5-CPU:er baseras på Intel E5-2673 v4 (Haswell) 2,3 GHz-processorer. Gen 4 och 5 Gen finns i följande regioner (”X” anger tillgängliga): 
+
+| **Azure Region** | **Generation 4** | **Generation 5** |
+|:---|:----------:|:--------------------:|
+| Centrala USA |  | X |
+| Östra USA | X | X |
+| Östra USA 2 | X |  |
+| Norra centrala USA | X |  |
+| Södra centrala USA | X |  |
+| Västra USA | X | X |
+| Västra USA 2 |  | X |
+| Centrala Kanada | X | X |
+| Östra Kanada | X | X |
+| Södra Brasilien | X |  |
+| Norra Europa | X | X |
+| Västra Europa | X | X |
+| Storbritannien, västra |  | X |
+| Storbritannien, södra |  | X |
+| Östasien | X |  |
+| Sydostasien | X |  |
+| Östra Australien |  | X |
+| Indien, centrala | X |  |
+| Indien, västra | X |  |
+| Östra Japan | X |  |
+| Västra Japan | X |  |
+| Sydkorea |  | X |
 
 Beroende på prisnivå, är varje vCore utrustad med en viss mängd minne. Om du ökar eller minskar antalet vCores serverns minne ökar eller minskar proportionerligt. Generella nivån innehåller dubbla mängden minne per vCore jämfört med den grundläggande nivån. Den Minnesoptimerade nivån innehåller dubbla mängden minne jämfört med generella nivån.
 

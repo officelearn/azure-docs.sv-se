@@ -1,12 +1,12 @@
 ---
-title: "Konfigurera meddelanden om hälsostatus för befintliga problem system med hjälp av en webhook | Microsoft Docs"
-description: "Hämta anpassade meddelanden om tjänsten hälsa händelser till din befintliga problem hanteringssystem."
+title: Konfigurera meddelanden om hälsostatus för befintliga problem system med hjälp av en webhook | Microsoft Docs
+description: Hämta anpassade meddelanden om tjänsten hälsa händelser till din befintliga problem hanteringssystem.
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: b6a5f61f61675b825dcfe9c706c80944f5890538
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 0e233fe537ea37da97ebe5d4e8221d24f656fd10
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Konfigurera meddelanden om hälsostatus för befintliga problem system med hjälp av en webhook
 
-Den här artikeln visar hur du konfigurerar aviseringar tjänstens hälsa för att skicka data via Webhooks till ditt befintliga notification system.
+Den här artikeln visar hur du konfigurerar tjänsten health-aviseringar för att skicka data via Webhooks till ditt befintliga notification system.
 
-Idag, kan du konfigurera tjänsten Health-aviseringar så att när en Incident för Azure-tjänsten påverkar dig du få meddelanden via SMS eller e-post.
+Idag, kan du konfigurera tjänsten health-aviseringar så att när en Incident för Azure-tjänsten påverkar dig du få meddelanden via SMS eller e-post.
 Du kanske redan har befintliga externa aviseringar system som du vill använda.
 Det här dokumentet visas de viktigaste delarna i webhook-nyttolasten och hur du kan skapa anpassade aviseringar att visa ett meddelande när problem med tjänsten påverkar dig.
 
@@ -34,11 +34,11 @@ Om du vill använda en förkonfigurerad integration se så här:
 * [Konfigurera aviseringar med OpsGenie](service-health-alert-webhook-opsgenie.md)
 
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>Konfigurera ett anpassat meddelande med hjälp av tjänstens hälsa webhook nyttolast
-Om du vill ställa in din egen anpassade webhook-integration måste att parsa JSON-nyttolast som skickas under tjänstens hälsa för meddelanden.
+Om du vill ställa in din egen anpassade webhook-integration måste att parsa JSON-nyttolast som skickas när meddelanden om hälsostatus.
 
-Leta [här om du vill se ett exempel](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) om vad den `Service Health` webhook nyttolast ser ut.
+Leta [här om du vill se ett exempel](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) om vad den `ServiceHealth` webhook nyttolast ser ut.
 
-Du kan identifiera det här är en avisering om tjänstens hälsa genom att titta på `context.eventSource == "ServiceHealth"`. Därifrån är de egenskaper som är mest relevant för att mata in:
+Du kan identifiera det här är en avisering om tjänsten hälsa genom att titta på `context.eventSource == "ServiceHealth"`. Därifrån är de egenskaper som är mest relevant för att mata in:
  * `data.context.activityLog.status`
  * `data.context.activityLog.level`
  * `data.context.activityLog.subscriptionId`
@@ -48,13 +48,13 @@ Du kan identifiera det här är en avisering om tjänstens hälsa genom att titt
  * `data.context.activityLog.properties.impactedServices`
  * `data.context.activityLog.properties.trackingId`
 
-## <a name="creating-a-direct-link-to-azure-service-health-for-an-incident"></a>Skapa en direktlänk till Azure-tjänstens hälsa för en incident
-Du kan skapa en direktlänk till din anpassade Azure tjänstens hälsa incident på skrivbordet eller mobila genom att generera en särskild URL. Använd den `trackingId`, samt de första och sista tre siffrorna i din `subscriptionId`, för att bilda:
+## <a name="creating-a-direct-link-to-the-service-health-dashboard-for-an-incident"></a>Skapa en direktlänk till instrumentpanelen tjänstens hälsa för en incident
+Du kan skapa en direktlänk till instrumentpanelen tjänstens hälsa på skrivbordet eller mobila genom att generera en särskild URL. Använd den `trackingId`, samt de första och sista tre siffrorna i din `subscriptionId`, för att bilda:
 ```
 https://app.azure.com/h/<trackingId>/<first and last three digits of subscriptionId>
 ```
 
-Till exempel om din `subscriptionId` är `bba14129-e895-429b-8809-278e836ecdb3` och `trackingId` är `0DET-URB`, och sedan din anpassade Azure hälsa URL är:
+Till exempel om din `subscriptionId` är `bba14129-e895-429b-8809-278e836ecdb3` och `trackingId` är `0DET-URB`, och sedan hälsa URL är:
 
 ```
 https://app.azure.com/h/0DET-URB/bbadb3
@@ -101,7 +101,7 @@ Det visar att det finns problem med ”aviseringar och mått” i både östra o
 
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testa din webhook-integrering via en HTTP POST-begäran
-1. Skapa nyttolasten av tjänstens hälsa som du vill skicka. Du hittar en webhook exempel tjänstens hälsa nyttolast på [Webhooks för Azure aktiviteten Logga varningar](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Skapa service hälsa nyttolast som du vill skicka. Du hittar en exempel-tjänsten hälsa webhook nyttolast på [Webhooks för Azure aktiviteten Logga varningar](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
 2. Skapa en HTTP POST-begäran på följande sätt:
 
@@ -110,7 +110,7 @@ Det visar att det finns problem med ”aviseringar och mått” i både östra o
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. Du bör få ett `2XX - Successful` svar.
 

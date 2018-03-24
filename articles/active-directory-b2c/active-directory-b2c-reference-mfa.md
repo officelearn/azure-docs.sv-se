@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: Multifaktorautentisering | Microsoft Docs'
 description: Hur du aktiverar Multifaktorautentisering i konsumentinriktade program som skyddas av Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: 8fc6c43a0197c203cda5b2200e0a5c01258d1613
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 0f560a02a51239cff0a7d4057ec7beb2f0f5c5c5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C: Aktivera Multi-Factor Authentication i dina konsumentinriktade program
 Azure Active Directory (AD Azure) B2C integreras direkt med [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) så att du kan lägga till ett andra säkerhetslager upplevelserna registrering och inloggning i dina konsumentinriktade program. Och du kan göra detta utan att skriva en enda rad kod. Vi stöder för närvarande telefonsamtal och SMS-verifiering. Du kan aktivera Multifaktorautentisering även om du redan har skapat principer för registrering och inloggning.

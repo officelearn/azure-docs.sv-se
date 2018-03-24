@@ -1,24 +1,24 @@
 ---
-title: "Mänsklig interaktion och timeout i varaktiga funktioner – Azure"
-description: "Lär dig mer om att hantera mänsklig interaktion och timeout i tillägget varaktiga funktioner för Azure Functions."
+title: Mänsklig interaktion och timeout i varaktiga funktioner – Azure
+description: Lär dig mer om att hantera mänsklig interaktion och timeout i tillägget varaktiga funktioner för Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 071a9ffb8305a30b0fedeaa49c4a95d91fbce6c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Mänsklig interaktion i varaktiga funktioner - Phone verifiering exempel
 
@@ -28,8 +28,8 @@ Det här exemplet implementerar en SMS-baserade phone verifieringssystem. Dessa 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Följ instruktionerna i [installera varaktiga funktioner](durable-functions-install.md) att ställa in provet.
-* Den här artikeln förutsätter att du redan har gått igenom de [Hello sekvens](durable-functions-sequence.md) exempel genomgången.
+* [Installera varaktiga funktioner](durable-functions-install.md).
+* Slutför den [Hello sekvens](durable-functions-sequence.md) genomgången.
 
 ## <a name="scenario-overview"></a>Scenarioöversikt
 
@@ -50,7 +50,7 @@ Den här artikeln innehåller stegvisa följande funktioner i exempelappen:
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-I följande avsnitt beskrivs konfiguration och kod som används för utveckling av Azure portal. Kod för Visual Studio-utveckling visas i slutet av artikeln.
+I följande avsnitt beskrivs konfiguration och kod som används för C# skript. Kod för Visual Studio-utveckling visas i slutet av artikeln.
  
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS verifiering orchestration (Visual Studio Code och Azure portal exempelkod) 
 

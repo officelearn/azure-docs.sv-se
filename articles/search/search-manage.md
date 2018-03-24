@@ -1,11 +1,11 @@
 ---
-title: "Administration av tjänsten för Azure Search i Azure-portalen"
-description: "Hantera Azure Search värdbaserade moln search-tjänsten på Microsoft Azure med Azure-portalen."
+title: Administration av tjänsten för Azure Search i Azure-portalen
+description: Hantera Azure Search värdbaserade moln search-tjänsten på Microsoft Azure med Azure-portalen.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-portal
 ms.assetid: c87d1fdd-b3b8-4702-a753-6d7e29dbe0a2
 ms.service: search
@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d19683291e001c3c3f2a7bfc5c203b5121a8a418
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administration av tjänsten för Azure Search i Azure-portalen
 > [!div class="op_single_selector"]
@@ -44,26 +44,12 @@ Observera att *uppgradera* inte anges som administrativa åtgärder. Eftersom re
 ## <a name="administrator-rights"></a>Administratörsbehörighet
 Etablera eller inaktivering av själva tjänsten kan göras av en administratör för Azure-prenumeration eller en medadministratör.
 
-Inom en tjänst har alla med åtkomst till tjänsten URL: en och en admin api-nyckel skrivskyddad åtkomst till tjänsten. Läs-/ skrivåtkomst ger möjlighet att lägga till, ta bort eller ändra serverobjekt, inklusive api-nycklar, index, indexerare, datakällor, scheman och rolltilldelningar som implementeras via [RBAC användardefinierade roller](#rbac).
+Inom en tjänst har alla med åtkomst till tjänsten URL: en och en admin api-nyckel skrivskyddad åtkomst till tjänsten. Läs-/ skrivåtkomst ger möjlighet att lägga till, ta bort eller ändra serverobjekt, inklusive api-nycklar, index, indexerare, datakällor, scheman och rolltilldelningar som implementeras via [RBAC användardefinierade roller](search-security-rbac.md).
 
-Alla användarinteraktion med Azure Search hamnar i ett läge: skrivskyddad åtkomst till tjänsten (administratörsbehörighet) eller skrivskyddad åtkomst till tjänsten (frågan rättigheter). Mer information finns i [hantera api-nycklar](#manage-keys).
+Alla användarinteraktion med Azure Search hamnar i ett läge: skrivskyddad åtkomst till tjänsten (administratörsbehörighet) eller skrivskyddad åtkomst till tjänsten (frågan rättigheter). Mer information finns i [hantera api-nycklar](search-security-api-keys.md).
 
 <a id="sys-info"></a>
 
-## <a name="set-rbac-roles-for-administrative-access"></a>Ange RBAC-roller för administrativ åtkomst
-Azure tillhandahåller en [globala rollbaserad auktoriseringsmodellen](../active-directory/role-based-access-control-configure.md) hanteras via portalen eller Resource Manager API: er för alla tjänster. Ägare, deltagare och läsare roller avgör vilken åtkomstnivå för tjänsten administration för Active Directory-användare, grupper och säkerhetsobjekt som tilldelats till varje roll. 
-
-RBAC behörigheter avgör följande administrativa uppgifter för Azure Search:
-
-| Roll | Aktivitet |
-| --- | --- |
-| Ägare |Skapa eller ta bort tjänsten eller ett objekt på tjänsten, inklusive api-nycklar, index, indexerare, indexeraren datakällor och indexeraren scheman.<p>Visa status för tjänsten, inklusive antalet och lagringsstorlek.<p>Lägg till eller ta bort rollmedlemskap (endast en ägare kan hantera medlemskap).<p>Prenumerationsadministratörer och tjänstens ägare är automatisk medlemmar i rollen som ägare. |
-| Deltagare |Samma åtkomstnivå som ägare, minus RBAC rollhantering. Till exempel en deltagare kan visa och återskapa `api-key`, men det går inte att ändra medlemskap i roller. |
-| Läsare |Visa tjänstens status och fråga nycklar. Medlemmar i den här rollen kan inte ändra tjänstkonfigurationen eller visa admin nycklar. |
-
-Roller bevilja inte åtkomsträttigheter till tjänstslutpunkten. Sök tjänståtgärder, till exempel indexhantering, ifyllning av indexet och frågor på sökdata styrs via api-nycklar, inte roller. Mer information finns i ”tillstånd för hantering jämfört med dataåtgärder” i [vad är rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-what-is.md).
-
-<a id="secure-keys"></a>
 ## <a name="logging-and-system-information"></a>Loggning och Systeminformation
 Azure Search visar inte gränssnittshändelsen loggfiler för en enskild tjänst antingen via portalen eller programgränssnitt. På den grundläggande nivån och över Microsoft övervakar Azure Search-tjänster för 99,9% tillgänglighet per servicenivåavtal (SLA). Om tjänsten är långsam eller dataflödet för begäran understiger SLA tröskelvärden supportteam Granska loggfilerna som är tillgängliga för dem och åtgärda problemet.
 
@@ -72,38 +58,6 @@ Vad gäller allmän information om tjänsten, kan du hämta information på föl
 * I portalen på instrumentpanelen i tjänsten via meddelanden, egenskaper och statusmeddelanden.
 * Med hjälp av [PowerShell](search-manage-powershell.md) eller [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) till [hämta tjänstegenskaper](https://docs.microsoft.com/rest/api/searchmanagement/services), eller status på index Resursanvändning.
 * Via [söka trafik analytics](search-traffic-analytics.md), som nämndes tidigare.
-
-<a id="manage-keys"></a>
-
-## <a name="manage-api-keys"></a>Hantera api-nycklar
-Alla förfrågningar till en söktjänst måste api-nyckel som har skapats specifikt för din tjänst. Den här api-nyckel är den enda mekanismen för att autentisera åtkomst till Sök-tjänsteslutpunkt. 
-
-En api-nyckel är en sträng som består av slumpmässigt genererat siffror och bokstäver. Via [RBAC behörigheter](#rbac), kan du ta bort eller läsa nycklarna, men du kan inte ersätta en nyckel med ett användardefinierat lösenord. 
-
-Två typer av nycklar används för åtkomst till din söktjänst:
-
-* Admin (gäller för alla skrivskyddad åtgärder mot tjänsten)
-* Fråga (gäller för skrivskyddade åtgärder, till exempel frågor mot ett index)
-
-En admin api-nyckel skapas när tjänsten har etablerats. Det finns två admin-nycklar, utses *primära* och *sekundära* för att hålla dem direkt, men i själva verket de är utbytbara. Varje tjänst har två admin-nycklar så att rulla en över utan att förlora åtkomsten till tjänsten. Du kan återskapa antingen administrationsnyckeln, men du kan inte lägga till antalet totala admin. Det finns högst två admin nycklar per söktjänst.
-
-Frågan nycklar är utformade för klientprogram som anropar Sök direkt. Du kan skapa upp till 50 frågan nycklar. I programkoden anger du URL: en för sökning och fråga api-nyckel för att tillåta skrivskyddad åtkomst till tjänsten. Programkoden anger också det index som används av ditt program. Tillsammans definiera slutpunkten, en api-nyckel för skrivskyddad åtkomst och ett mål index omfång och åtkomst för anslutningen från klientprogrammet.
-
-Öppna service instrumentpanelen för att få eller återskapa api-nycklar. Klicka på **nycklar** på bilden öppna sidan nyckelhantering. Kommandon för att återskapa eller skapa nycklar är överst på sidan. Som standard skapas endast admin nycklar. Frågan api-nycklar måste skapas manuellt.
-
- ![][9]
-
-<a id="rbac"></a>
-
-## <a name="secure-api-keys"></a>Säkra api-nycklar
-Nyckelsäkerhet säkerställs genom att begränsa åtkomst via portalen eller Resource Manager-gränssnitt (kommandoradsgränssnittet eller PowerShell). Som nämnts, kan prenumerationsadministratörer visa och återskapa alla api-nycklar. Granska rolltilldelningar för att förstå vem som har åtkomst till admin-nycklar som en säkerhetsåtgärd.
-
-1. Klicka på ikonen åtkomst till bilden öppna bladet användare i instrumentpanelen för tjänsten.
-   ![][7]
-2. Granska befintliga rolltilldelningar i användare. Som förväntat, har prenumerationsadministratörer redan fullständig åtkomst till tjänsten via rollen som ägare.
-3. Om du vill visa, klickar du på **prenumerationsadministratörer** och sedan expandera rollen tilldelning om du vill se vem som har administrationsbehörighet för samtidigt på din söktjänst.
-
-Ett annat sätt att visa behörigheter för åtkomst är att klicka på **roller** på bladet användare. Detta visar tillgängliga roller och antalet användare eller grupper som tilldelas till varje roll.
 
 <a id="sub-5"></a>
 
@@ -184,9 +138,6 @@ Vi rekommenderar också att granska den [prestanda och optimering artikel](searc
 En annan rekommenderar vi att titta på videon som anges i föregående avsnitt. Det ger djupare täckning av tekniker som nämns i det här avsnittet.
 
 <!--Image references-->
-[7]: ./media/search-manage/rbac-icon.png
-[8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
-[9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
 
 

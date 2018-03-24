@@ -1,31 +1,31 @@
 ---
-title: "Azure Service Fabric - Konfigurera övervakning med OMS-Agent | Microsoft Docs"
-description: "Lär dig hur du ställer in OMS-agenten för övervakning av behållare och prestandaräknare för Azure Service Fabric-kluster."
+title: Azure Service Fabric - Konfigurera övervakning med OMS-Agent | Microsoft Docs
+description: Lär dig hur du ställer in OMS-agenten för övervakning av behållare och prestandaräknare för Azure Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/31/2017
+ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: 095db20e7d22bd517337f24fc9a81b84988d1465
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 4c4095071235dac7e8be3c16b614bdfa5b706a1c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="add-the-oms-agent-to-a-cluster"></a>Lägga till OMS-Agent till ett kluster
 
-Den här artikeln beskriver stegen för att lägga till OMS-agenten som en virtuell dator skala ange tillägg i klustret och ansluta till befintliga OMS logganalys-arbetsytan. Detta gör att samla in diagnostikdata om behållare, program och prestandaövervakning. Genom att lägga till den som ett tillägg, Azure Resource Manager ser till att det installeras på varje nod skalning även när klustret.
+Den här artikeln beskriver stegen för att lägga till OMS-agenten som en virtuell dator skala ange tillägg i klustret och koppla den till befintlig Azure logganalys-arbetsytan. Detta gör att samla in diagnostikdata om behållare, program och prestandaövervakning. Genom att lägga till den som ett tillägg, Azure Resource Manager ser till att det installeras på varje nod skalning även när klustret.
 
 > [!NOTE]
-> Den här artikeln förutsätter att du har en OMS logganalys-arbetsyta som redan har konfigurerat. Om du inte vill gå till [konfigurera OMS logganalys](service-fabric-diagnostics-oms-setup.md)
+> Den här artikeln förutsätter att du har en Azure logganalys-arbetsyta som redan har konfigurerat. Om du inte vill gå till [ställa in Azure logganalys](service-fabric-diagnostics-oms-setup.md)
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Lägga till filnamnstillägget agenten via Azure CLI
 
@@ -33,9 +33,9 @@ Det bästa sättet att lägga till OMS-Agent till ditt kluster anges via virtuel
 
 1. När molnet gränssnittet begärs, kontrollera att du arbetar i samma prenumeration som din resurs. Kontrollera detta med `az account show` och kontrollera att värdet för ”name” matchar ditt kluster prenumeration.
 
-2. Gå till resursgruppen där din OMS-arbetsyta finns i portalen. Klicka till logganalys resurs (typ av resursen ska vara logganalys), i navigeringen till höger, bläddra nedåt och klicka på **egenskaper**.
+2. Gå till resursgruppen där logganalys-arbetsytan finns i portalen. Klicka till logganalys resurs (typ av resursen ska vara logganalys), i navigeringen till höger, bläddra nedåt och klicka på **egenskaper**.
 
-    ![OMS-egenskapssidan](media/service-fabric-diagnostics-oms-agent/oms-properties.png)
+    ![Log Analytics-egenskapssidan](media/service-fabric-diagnostics-oms-agent/oms-properties.png)
 
     Anteckna din `workspaceId`. 
 
@@ -59,7 +59,14 @@ Det bästa sättet att lägga till OMS-Agent till ditt kluster anges via virtuel
 
     ![OMS-agenten cli kommando](media/service-fabric-diagnostics-oms-agent/cli-command.png)
  
-    Det bör ta mindre än 15 min ska kunna lägga till agenten noderna. Du kan kontrollera att agenterna har lagts till med hjälp av den `az vmss extension list` API:
+5. Kör kommandot för att tillämpa den här konfigurationen på dina VM-instanser som redan finns:  
+
+
+    ```sh
+    az vmss update-instances
+    ```
+
+Det bör ta mindre än 15 min ska kunna lägga till agenten noderna. Du kan kontrollera att agenterna har lagts till med hjälp av den `az vmss extension list` API:
 
     ```sh
     az vmss extension list --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType>
@@ -67,11 +74,11 @@ Det bästa sättet att lägga till OMS-Agent till ditt kluster anges via virtuel
 
 ## <a name="add-the-agent-via-the-resource-manager-template"></a>Lägg till agenten via Resource Manager-mall
 
-Exempel Resource Manager-mallar som distribuerar en OMS logganalys-arbetsytan och lägga till en agent till var och en av noderna är tillgänglig för [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) eller [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
+Exempel Resource Manager-mallar som distribuera ett Azure logganalys-arbetsytan och lägga till en agent till var och en av noderna är tillgänglig för [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) eller [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
 
 Du kan hämta och ändra den här mallen för att distribuera ett kluster som passar dig bäst.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Samla in relevanta [prestandaräknare](service-fabric-diagnostics-event-generation-perf.md). Konfigurera OMS-agent för specifika prestandaräknare, head till OMS-portalen (länkad överst i OMS logganalys-resurs). Klicka på **Start > Inställningar > Data > Windows prestandaräknare** eller **Linux prestandaräknare** och välj de räknare du vill samla in.
-* Konfigurera OMS att ställa in [automatiserade aviseringar](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik
+* Samla in relevanta [prestandaräknare](service-fabric-diagnostics-event-generation-perf.md). Om du vill konfigurera OMS-agent för att samla in specifika prestandaräknare, granska [konfigurera datakällor](../log-analytics/log-analytics-data-sources.md#configuring-data-sources).
+* Konfigurera logganalys att ställa in [automatiserade aviseringar](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik

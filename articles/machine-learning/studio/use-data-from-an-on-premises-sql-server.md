@@ -1,10 +1,11 @@
 ---
-title: "Använda en lokal SQLServer i Azure Machine Learning | Microsoft Docs"
-description: "Använd data från en lokal SQL Server-databas för att utföra avancerade analyser med Azure Machine Learning."
+title: Använda en lokal SQLServer i Azure Machine Learning | Microsoft Docs
+description: Använd data från en lokal SQL Server-databas för att utföra avancerade analyser med Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 08e4610d-02b6-4071-aad7-a2340ad8e2ea
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.author: garye;krishnan
-ms.openlocfilehash: 79ae5cd78ce07fcc84be49c2693773d58a15771e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 73b68ec612f10fabe0891bfddfa7783b981642bc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Utföra avancerade analyser med Azure Machine Learning med hjälp av data från en lokal SQL Server-databas
 
@@ -83,7 +83,7 @@ Det första steget är att skapa och konfigurera gatewayen för att få åtkomst
 2. Klicka på den **inställningar** bladet till vänster och klicka sedan på den **DATAGATEWAYAR** högst upp.
 3. Klicka på **nya DATA GATEWAY** längst ned på skärmen.
 
-    ![Nya Datagateway](./media/use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
+    ![New Data Gateway](./media/use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
 4. I den **nya datagateway** dialogrutan, ange den **Gatewaynamnet** och eventuellt lägga till en **beskrivning**. Klicka på pilen i det nedre högra hörnet att gå till nästa steg i konfigurationen.
 
     ![Ange gatewaynamn och beskrivning](./media/use-data-from-an-on-premises-sql-server/new-data-gateway-dialog-enter-name.png)

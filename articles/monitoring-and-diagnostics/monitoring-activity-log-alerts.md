@@ -1,33 +1,32 @@
 ---
-title: Skapa aktivitet loggen aviseringar | Microsoft Docs
-description: "Ett meddelande via SMS, webhook och e-post när vissa händelser inträffar i aktivitetsloggen."
+title: Skapa klassiska aktivitet loggen aviseringar | Microsoft Docs
+description: Ett meddelande via SMS, webhook och e-post när vissa händelser inträffar i aktivitetsloggen.
 author: johnkemnetz
-manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 03/18/2017
 ms.author: johnkem
-ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0d92fcd6d3cbd50a2bcb8166b27b11bc86aad83
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-activity-log-alerts"></a>Skapa aktivitet Logga varningar
+# <a name="create-activity-log-alerts-classic"></a>Skapa aktivitet Logga varningar (klassisk)
 
 ## <a name="overview"></a>Översikt
 Aktiviteten loggen aviseringar är aviseringar som aktiverar när en ny aktivitet logga en händelse inträffar som matchar de villkor som anges i aviseringen. De är Azure-resurser, så att de kan skapas med hjälp av en Azure Resource Manager-mall. De kan också skapa, uppdatera, eller tas bort i Azure-portalen. Den här artikeln beskriver begrepp bakom aktivitet loggen aviseringar. Den sedan visar hur du använder Azure-portalen för att ställa in en avisering på aktiviteten logghändelser.
 
 > [!NOTE]
 
->  [Aviseringar (förhandsgranskning)](monitoring-overview-unified-alerts.md) erbjuder en förbättrad upplevelse av att skapa och hantera aktivitetsloggar för tillfället.  [Läs mer](monitoring-activity-log-alerts-new-experience.md).
+>  Den nya [aviseringar](monitoring-overview-unified-alerts.md) upplevelse har ersatts av den här proceduren. Den här artikeln ges som referens för tidigare erfarenheter. [Läs mer](monitoring-activity-log-alerts-new-experience.md).
 
 Normalt skapar du aktiviteten loggen aviseringar för att ta emot meddelanden när:
 
@@ -59,11 +58,11 @@ Läs mer om åtgärdsgrupper i [skapa och hantera åtgärdsgrupper i Azure porta
 
 Läs mer om meddelanden om hälsostatus i [varningar aktivitet loggen på meddelanden om hälsostatus](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Skapa en avisering på en aktivitet logga en händelse med en ny grupp med hjälp av Azure portal
+## <a name="create-an-alert-classic-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Skapa en avisering (klassiskt) på en aktivitet logga en händelse med en ny grupp med hjälp av Azure portal
 1. I den [portal](https://portal.azure.com)väljer **övervakaren**.
 
     ![Tjänsten ”Övervakaren”](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. I den **aktivitetsloggen** väljer **aviseringar**.
+2. I den **aktivitetsloggen** väljer **aviseringar (klassisk)**.
 
     ![Fliken ”aviseringar”](./media/monitoring-activity-log-alerts/alerts-blades.png)
 3. Välj **Lägg till aktivitet loggen avisering**, och Fyll i fälten.

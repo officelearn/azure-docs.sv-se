@@ -1,24 +1,24 @@
 ---
-title: "Datorgrupper i Azure Log Analytics logga sökningar | Microsoft Docs"
-description: "Datorgrupper i logganalys kan du omfång loggen sökningen till en viss uppsättning datorer.  Den här artikeln beskriver de olika metoder som du kan använda för att skapa datorgrupper och hur de används i en sökning i loggen."
+title: Datorgrupper i Azure Log Analytics logga sökningar | Microsoft Docs
+description: Datorgrupper i logganalys kan du omfång loggen sökningen till en viss uppsättning datorer.  Den här artikeln beskriver de olika metoder som du kan använda för att skapa datorgrupper och hur de används i en sökning i loggen.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a6f0aa58762966f8da76387f3da7a7895801fcb9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Datorgrupper i logganalys logga sökningar
 
@@ -49,7 +49,7 @@ I följande tabell beskrivs de egenskaper som definierar en datorgrupp.
 | Visningsnamn   | Namn på sökningen ska visas i portalen. |
 | Kategori       | Kategori för att organisera sökningar i portalen. |
 | Fråga          | Frågan för datorgruppen. |
-| Funktionen alias | Ett unikt alias som används för att identifiera datorgruppen i en fråga. |
+| Funktionsalias | Ett unikt alias som används för att identifiera datorgruppen i en fråga. |
 
 Använd följande procedur för att skapa en datorgrupp från en logg sökning i Azure-portalen.
 
@@ -66,12 +66,6 @@ Använd följande procedur för att skapa en datorgrupp från en logg sökning i
 5. Ange värden för varje egenskap för datorgruppen. 
 
 
->[!NOTE]
-> Om arbetsytan fortfarande använder den [äldre Log Analytics-frågespråket](log-analytics-log-search-upgrade.md) du använda samma procedur för att skapa en datorgrupp, men du måste använda syntaxen för äldre frågespråket.
-
-
-### <a name="log-search-api"></a>Logga Sök-API
-Datorgrupper som skapats med loggen Sök API är samma som sökningar som skapats med en logg-sökning.  Mer information om hur du skapar en datorgrupp med hjälp av loggen Sök-API finns [datorgrupper i logganalys-loggen Sök REST API](log-analytics-log-search-api.md#computer-groups).
 
 ### <a name="active-directory"></a>Active Directory
 När du konfigurerar logganalys importera Active Directory-gruppmedlemskap, analyserar gruppmedlemskap för alla domänanslutna datorer med OMS-agent.  En datorgrupp skapas i Log Analytics för varje säkerhetsgrupp i Active Directory och varje dator läggs till datorgrupper som motsvarar de säkerhetsgrupper som de är medlemmar i.  Det här medlemskapet uppdateras kontinuerligt var fjärde timme.  
@@ -129,18 +123,6 @@ Följande fråga returnerar UpdateSummary poster för endast datorer i Domändat
   UpdateSummary | where Computer in (ADComputers)
   ```
 
-
-
-  
-
->[!NOTE]
-> Om arbetsytan fortfarande använder den [äldre Log Analytics-frågespråket](log-analytics-log-search-upgrade.md)>, kan du använda följande syntax för att referera till en datorgrupp i en sökning i loggen.  Ange den **kategori** > är valfria och endast krävs om du har datorgrupper med samma namn i olika kategorier. 
->
->    `$ComputerGroups[Category: Name]`
->
->Datorgrupper används vanligtvis med den **IN** satsen Sök i loggfilen som i följande exempel:
->
->    `Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]`
 
 
 

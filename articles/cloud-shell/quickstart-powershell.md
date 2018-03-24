@@ -1,12 +1,12 @@
 ---
-title: "PowerShell i Snabbstart i Azure-molnet Shell (förhandsversion) | Microsoft Docs"
-description: "Snabbstart för PowerShell i molnet Shell"
+title: PowerShell i Snabbstart i Azure-molnet Shell (förhandsversion) | Microsoft Docs
+description: Snabbstart för PowerShell i molnet Shell
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendmsft
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: 71ae70c13b4de87593345fd957a773741294b49c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4b0831173212d3324c851ad1bd04ec443a9face5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Snabbstart för PowerShell i Azure-molnet Shell (förhandsgranskning)
 
@@ -33,7 +33,7 @@ Det här dokumentet beskriver hur du använder PowerShell i molnet Shell i den [
 
   ![](media/quickstart-powershell/shell-icon.png)
 
-2. Välj i listrutan PowerShell-miljö och du kan i Azure-enheten`(Azure:)`
+2. Välj i listrutan PowerShell-miljö och du kan i Azure-enheten `(Azure:)`
 
   ![](media/quickstart-powershell/environment-ps.png)
 
@@ -62,7 +62,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     PS Azure:\> dir
     ```
 
- 2. `cd`prenumerationen prioriterade
+ 2. `cd` prenumerationen prioriterade
 
     ``` PowerShell
     PS Azure:\> cd MySubscriptionName
@@ -118,7 +118,7 @@ Du kan alltid använda `dir -Force` att uppdatera data.
 
 ### <a name="navigate-storage-resources"></a>Navigera lagringsresurser
     
-Genom att ange i den `StorageAccounts` mappen som du kan enkelt navigera dina lagringsresurser
+Genom att ange i den `StorageAccounts` directory som du kan enkelt navigera dina lagringsresurser
     
 ``` PowerShell 
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
@@ -227,7 +227,7 @@ Du kan också navigera till den `VirtualMachines` directory första och kör `En
 
 ### <a name="discover-webapps"></a>Identifiera Webbappar
 
-Genom att ange i den `WebApps` mappen som du kan enkelt navigera resurserna web apps
+Genom att ange i den `WebApps` directory som du kan enkelt navigera resurserna web apps
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -274,11 +274,11 @@ Generera nyckelpar för privat-offentligt moln Shell för att autentisera till s
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>Med hjälp av en anpassad profil för att bevara GIT och SSH-inställningar
 
-Eftersom sessioner inte sparas vid utloggning spara din `$env:USERPROFILE\.ssh` mappen `CloudDrive` eller skapa en symlink molnet Shell hämtar startades.
+Eftersom sessioner inte sparas vid utloggning spara din `$env:USERPROFILE\.ssh` katalogen `CloudDrive` eller skapa en symlink molnet Shell hämtar startades.
 Lägg till följande kodfragment i din profile.ps1 för att skapa en symlink till CloudDrive.
 
 ``` PowerShell
-# Check if the .ssh folder exists
+# Check if the .ssh directory exists
 if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }
@@ -357,7 +357,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-Nästa gång när du använder PowerShell molnet Shell, den `helloworld.ps1` filen kommer att finnas den `CloudDrive` mapp som monterar filer för Azure-resurs.
+Nästa gång när du använder PowerShell molnet Shell, den `helloworld.ps1` filen kommer att finnas den `CloudDrive` katalog som monterar filer för Azure-resurs.
 
 ## <a name="use-custom-profile"></a>Använd anpassad profil
 

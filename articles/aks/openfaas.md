@@ -1,6 +1,6 @@
 ---
-title: "Använda OpenFaaS med Azure Container Service (AKS)"
-description: "Distribuera och använda OpenFaaS med Azure Container Service (AKS)"
+title: Använda OpenFaaS med Azure Container Service (AKS)
+description: Distribuera och använda OpenFaaS med Azure Container Service (AKS)
 services: container-service
 author: justindavies
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 06706450d8af6f571f002789815290f75da9623d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d531bb40421716bf9fb3c253a3e76207b2806912
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-openfaas-on-aks"></a>Med hjälp av OpenFaaS på AKS
 
@@ -230,7 +230,7 @@ Du kan också testa funktionen inom OpenFaaS UI.
 
 ![alternativ text](media/container-service-serverless/OpenFaaSUI.png)
 
-# <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 Standarddistribution av OpenFaas måste vara låst för både OpenFaaS Gateway och funktioner. [Alex Ellis blogginlägget](https://blog.alexellis.io/lock-down-openfaas/) innehåller mer information om säker konfigurationsalternativ. 
 

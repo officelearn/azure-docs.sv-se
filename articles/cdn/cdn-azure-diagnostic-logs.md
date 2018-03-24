@@ -1,12 +1,12 @@
 ---
 title: Azure diagnostikloggar | Microsoft Docs
-description: "Kunden kan aktivera logganalys för Azure CDN."
+description: Kunden kan aktivera logganalys för Azure CDN.
 services: cdn
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f9711f9cfaab1ef22da220a773689c95b1103970
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 
@@ -48,7 +48,7 @@ Läs mer om diagnostikloggar [diagnostikloggar](https://docs.microsoft.com/azure
 
 Följ dessa steg aktivera loggning med CDN core analytics:
 
-Logga in på [Azure Portal](http://portal.azure.com). Om du inte redan har CDN som aktiverats för ditt arbetsflöde [aktivera Azure CDN](cdn-create-new-endpoint.md) innan du fortsätter.
+Logga in på [Azure-portalen](http://portal.azure.com). Om du inte redan har CDN som aktiverats för ditt arbetsflöde [aktivera Azure CDN](cdn-create-new-endpoint.md) innan du fortsätter.
 
 1. I portalen, går du till **CDN-profilen**.
 2. Välj en CDN-profil och sedan CDN-slutpunkt som du vill aktivera **diagnostik loggar**.
@@ -109,7 +109,7 @@ Läs mer om logga data fördröjningar [logga data fördröjningar](#log-data-de
 
 I följande exempel visas hur du aktiverar diagnostikloggar via Azure PowerShell-Cmdlets.
 
-###<a name="enabling-diagnostic-logs-in-a-storage-account"></a>Aktivera diagnostik loggar i ett Lagringskonto
+### <a name="enabling-diagnostic-logs-in-a-storage-account"></a>Aktivera diagnostik loggar i ett Lagringskonto
 
 Först logga in och välj en prenumeration:
 
@@ -165,7 +165,7 @@ Innan du kan komma åt core analysdata från Azure Storage-konto, måste du för
 |År|  4-siffrig representation år, till exempel 2017|
 |Månad| 2-siffrig representation av månadsnummer. 01 = januari... 12 = December|
 |Dag|   2-siffrig representation av dagen i månaden|
-|PT1H.JSON| Faktiska JSON-fil där analytics-data lagras|
+|PT1H.json| Faktiska JSON-fil där analytics-data lagras|
 
 ### <a name="exporting-the-core-analytics-data-to-a-csv-file"></a>Exportera core analytics data till en CSV-fil
 
@@ -173,7 +173,7 @@ Om du vill göra det enklare att komma åt core analytics, tillhandahålls exemp
 
 Här är hur du kan använda verktyget:
 
-1.  Gå till github-länk: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
+1.  Gå till github-länk: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
 2.  Hämta koden.
 3.  Följ instruktionerna för att kompilera och konfigurera.
 4.  Kör verktyget.
@@ -411,7 +411,7 @@ Exempel egenskaper:
 * [Azure diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Core analytics via Azure CDN kompletterande portalen](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
 * [Azure OMS logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
-* [Azure logganalys REST-API](https://docs.microsoft.com/rest/api/loganalytics)
+* [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 
 

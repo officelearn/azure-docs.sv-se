@@ -1,10 +1,9 @@
 ---
-title: "Felsökning av problem med Data Management Gateway | Microsoft Docs"
-description: "Innehåller tips för att felsöka problem som rör Data Management Gateway."
+title: Felsökning av problem med Data Management Gateway | Microsoft Docs
+description: Innehåller tips för att felsöka problem som rör Data Management Gateway.
 services: data-factory
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
 ms.workload: data-services
@@ -14,17 +13,17 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b3b34921168661089946b5c5dd9e6d489880733b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d82592bfda3eaf44d28f67b8bb6599aa4ae4bae7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Felsöka problem med gateway för datahantering
 Den här artikeln innehåller information om felsökning av problem med att använda Data Management Gateway.
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Azure Data Factory som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [egenvärdbaserat integrering körning i Data Factory version 2](../create-self-hosted-integration-runtime.md).
+> Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [egenvärdbaserat integrering körning i Data Factory version 2](../create-self-hosted-integration-runtime.md).
 
 Finns det [Data Management Gateway](data-factory-data-management-gateway.md) artikel detaljerad information om gatewayen. Finns det [flytta data mellan lokalt och i molnet](data-factory-move-data-between-onprem-and-cloud.md) artikeln en genomgång för att flytta data från en lokal SQL Server-databas till Microsoft Azure Blob storage med hjälp av gatewayen.
 
@@ -206,7 +205,7 @@ SSL-certifikatet kan ha varit förlorat på gateway-datorn. Gateway-datorn kan i
 Följ dessa steg för att lösa problemet:
 
 1. Starta Data Management Gateway Configuration Manager.
-2. Växla till den **inställningar** fliken.  
+2. Växla till fliken **Settings** (Inställningar).  
 3. Klicka på den **ändra** om du vill ändra SSL-certifikatet.
 
    ![Ändra certifikat för](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)

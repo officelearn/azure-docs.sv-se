@@ -1,23 +1,21 @@
 ---
 title: 'Azure Active Directory B2C: KMSI | Microsoft Docs'
-description: "Ett avsnitt som visar hur du ställer in 'keep mig inloggad'"
+description: Ett avsnitt som visar hur du ställer in 'keep mig inloggad'
 services: active-directory-b2c
-documentationcenter: 
-author: vigunase
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-ms.assetid: 926e9711-71c0-49e8-b658-146ffb7386c0
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2016
-ms.author: vigunase
-ms.openlocfilehash: a3d78945f862d1ae12cec05da0cf0ea7df511f43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 073ba8eef7f2f42d1c308fb20d3bfdbfc8d321b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-enable-keep-me-signed-in-kmsi"></a>Azure Active Directory B2C: Aktivera ”jag vill förbli inloggad (KMSI)”  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -29,7 +27,7 @@ Vi rekommenderar mot användare med det här alternativet på offentliga datorer
 ![bild](images/kmsi.PNG)
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure AD B2C-klient som är konfigurerad för att tillåta lokala kontot sign-upp/inloggning, enligt beskrivningen i [komma igång](active-directory-b2c-get-started-custom.md).
 
@@ -94,7 +92,7 @@ Kan du definiera lokala konto logga in som en anspråksprovider för den `<Claim
 
 Lägg till program-ID i tilläggsfilen (`TrustFrameworkExtensions.xml`):
 
-1. Hitta element i tilläggsfilen (TrustFrameworkExtensions.xml) `<TechnicalProfile Id="login-NonInteractive">` och`<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
+1. Hitta element i tilläggsfilen (TrustFrameworkExtensions.xml) `<TechnicalProfile Id="login-NonInteractive">` och `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
 
 2. Ersätt alla förekomster av `IdentityExperienceFrameworkAppId` med program-ID för identitet upplevelse Framework-program som beskrivs i [komma igång](active-directory-b2c-get-started-custom.md). Här är ett exempel:
 
@@ -166,11 +164,11 @@ Därefter uppdaterar du filen förlitande part (RP) som initierar transporten an
 
 4. KMSI har konfigurerats i `UserJourneyBehaviors`. 
 
-5. **`KeepAliveInDays`**Anger hur länge användaren är inloggad. I följande exempel KMSI sessionen automatiskt upphör att gälla efter 14 dagar oavsett hur ofta användaren utför tyst autentisering.
+5. **`KeepAliveInDays`** Anger hur länge användaren är inloggad. I följande exempel KMSI sessionen automatiskt upphör att gälla efter 14 dagar oavsett hur ofta användaren utför tyst autentisering.
 
    Ange `KeepAliveInDays` värdet 0 inaktiverar KMSI funktioner. Det här värdet är 0 som standard
 
-6. Om  **`SessionExpiryType`**  är *rullande*, och sedan KMSI sessionen utökas med 14 dagar varje gång användaren utför tyst autentisering.  Om *rullande* har markerats, rekommenderar vi att du hålla minsta antalet dagar. 
+6. Om **`SessionExpiryType`** är *rullande*, och sedan KMSI sessionen utökas med 14 dagar varje gång användaren utför tyst autentisering.  Om *rullande* har markerats, rekommenderar vi att du hålla minsta antalet dagar. 
 
        <RelyingParty>
        <DefaultUserJourney ReferenceId="SignUpOrSignInWithKmsi" />

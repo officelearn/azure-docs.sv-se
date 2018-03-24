@@ -1,6 +1,6 @@
 ---
-title: "Etablering av guide för Windows SQL Server-datorer i Azure portal | Microsoft Docs"
-description: "Den här instruktioner beskriver alternativen för att skapa Windows SQL Server 2017 virtuella datorer i Azure-portalen."
+title: Etablering av guide för Windows SQL Server-datorer i Azure portal | Microsoft Docs
+description: Den här instruktioner beskriver alternativen för att skapa Windows SQL Server 2017 virtuella datorer i Azure-portalen.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 7e55227773820af26435100b11dfefce058e7e78
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 33b7c82f08f63199cd128055bc497f61cb30fc4a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hur du etablerar en virtuell dator i Windows SQL Server i Azure-portalen
 
@@ -27,7 +27,7 @@ Den här guiden innehåller information om de olika alternativ som är tillgäng
 Använd den här guiden för att skapa din egen SQL Server-VM. Eller använda den som en referens för de tillgängliga alternativen i Azure-portalen.
 
 > [!TIP]
-> Om du har frågor om SQL Server-datorer finns i [vanliga frågor och svar](virtual-machines-windows-sql-server-iaas-faq.md).
+> Om du har frågor om virtuella SQL Server-datorer kan du läsa [Vanliga frågor](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -59,7 +59,7 @@ När du skapar en virtuell dator med SQL Server kan välja du en av flera förko
    > Utvecklarversionen används i den här genomgången eftersom det är en komplett, ledigt utgåva av SQL Server för att testa utveckling. Du betalar endast för kostnaden för den VM som körs. Men kan du välja någon av bilderna som ska användas i den här genomgången. En beskrivning av tillgängliga avbildningar finns i [SQL Server Windows virtuella datorer – översikt](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 
    > [!TIP]
-   > Licensieringskostnaderna för SQL Server ingår i prissättning per minut för den virtuella datorn som du skapar och varierar av edition och kärnor. SQL Server Developer edition är gratis för utveckling/testning (inte produktion) och SQL Express är gratis för lightweight arbetsbelastningar (mindre än 1 GB minne med mindre än 10 GB lagringsutrymme). Du kan också bring-your-äger-licens (BYOL) och betala endast för den virtuella datorn. Dessa avbildningsnamn föregås av {BYOL}. 
+   > Licensieringskostnaderna för SQL Server ingår i prissättning per sekund på den virtuella datorn som du skapar och varierar av edition och kärnor. SQL Server Developer edition är gratis för utveckling/testning (inte produktion) och SQL Express är gratis för lightweight arbetsbelastningar (mindre än 1 GB minne med mindre än 10 GB lagringsutrymme). Du kan också bring-your-äger-licens (BYOL) och betala endast för den virtuella datorn. Dessa avbildningsnamn föregås av {BYOL}. 
    >
    > Mer information om alternativen finns i [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
 

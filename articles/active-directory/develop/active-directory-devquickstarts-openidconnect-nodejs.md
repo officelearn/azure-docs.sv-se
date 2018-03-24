@@ -1,11 +1,11 @@
 ---
-title: "Azure AD-Node.js-webbapp komma igång | Microsoft Docs"
-description: "Lär dig hur du skapar en Node.js Express MVC-webbapp som kan integreras med Azure AD för inloggning."
+title: Azure AD-Node.js-webbapp komma igång | Microsoft Docs
+description: Lär dig hur du skapar en Node.js Express MVC-webbapp som kan integreras med Azure AD för inloggning.
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0a3bbfe32bde0cd3971450f5a9a909dcf8b5d793
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 477056581b847693ae115f94c2f6466036add765
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD-Node.js-webbapp komma igång
 Här kan vi använda Passport:
@@ -402,7 +402,7 @@ Nu `app.js` är klar. Vi behöver bara lägga till vägarna och vyerna som visar
     </html>
     ```
 
-##<a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Slutligen skapar och kör din app. Kör `node app.js`, gå sedan till `http://localhost:3000`.
 
 Logga in med ett personligt microsoftkonto eller ett konto för arbetet eller skolan och hur användarens identitet visas i listan över /account. Nu har du en webbapp som skyddas med standardprotokollen som kan autentisera användare med både sina personliga och arbete/skola konton.

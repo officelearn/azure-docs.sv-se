@@ -1,32 +1,32 @@
 ---
-title: "Funktionen länkning i varaktiga funktioner – Azure"
-description: "Lär dig hur du kör ett exempel på varaktiga funktioner som exekverar en följd av funktioner."
+title: Funktionen länkning i varaktiga funktioner – Azure
+description: Lär dig hur du kör ett exempel på varaktiga funktioner som exekverar en följd av funktioner.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 0020f19e00f3365c4a0d80ebb67aeeedd7fe76df
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Funktionen länkning i varaktiga funktioner - Hello sekvens-exempel
 
 Funktionen länkning avser mönstret för att köra en sekvens av funktioner i en viss ordning. Ofta måste resultatet av en funktion tillämpas på indata för en annan funktion. Den här artikeln beskrivs ett exempel som använder [varaktiga funktioner](durable-functions-overview.md) att implementera funktionen länkning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Följ instruktionerna i [installera varaktiga funktioner](durable-functions-install.md) att ställa in provet.
+* [Installera varaktiga funktioner](durable-functions-install.md).
 
 ## <a name="the-functions"></a>Funktionerna
 
@@ -35,7 +35,7 @@ Den här artikeln beskriver följande funktioner i exempelappen:
 * `E1_HelloSequence`: En orchestrator-funktion som anropar `E1_SayHello` flera gånger i en sekvens. Den lagrar utdata från den `E1_SayHello` anropar och registrerar resultaten.
 * `E1_SayHello`: En aktivitet funktion som läggs en sträng med ”Hello”.
 
-I följande avsnitt beskrivs konfiguration och kod som används för utveckling av Azure portal. Kod för Visual Studio-utveckling visas i slutet av artikeln.
+I följande avsnitt beskrivs konfiguration och kod som används för C# skript. Kod för Visual Studio-utveckling visas i slutet av artikeln.
  
 ## <a name="functionjson-file"></a>Function.JSON fil
 
@@ -71,7 +71,7 @@ Implementeringen av `E1_SayHello` är en relativt trivial sträng formatering ig
 
 Den här funktionen har en parameter av typen [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), som används för att hämta indata som skickades till den av funktionen orchestrator anrop till [ `CallActivityAsync<T>` ](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
 
-## <a name="run-the-sample"></a>Köra exemplet
+## <a name="run-the-sample"></a>Kör exemplet
 
 Att köra den `E1_HelloSequence` orchestration, skicka följande HTTP POST-begäran.
 

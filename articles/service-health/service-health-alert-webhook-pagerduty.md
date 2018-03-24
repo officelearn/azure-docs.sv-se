@@ -1,12 +1,12 @@
 ---
-title: "Konfigurera aviseringar för Azure-tjänstens hälsotillstånd med PagerDuty | Microsoft Docs"
-description: "Hämta anpassade meddelanden om tjänstens hälsa händelser till PagerDuty-instans."
+title: Konfigurera aviseringar för Azure-tjänstens hälsotillstånd med PagerDuty | Microsoft Docs
+description: Hämta anpassade meddelanden om tjänstens hälsa händelser till PagerDuty-instans.
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 9edcb727b9f0af348cacd5533523c4f2e8214703
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6e9fcf20d368e270f9af4551c539acd873335498
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>Konfigurera tjänsten health-aviseringar med PagerDuty
 
@@ -79,7 +79,7 @@ Den här artikeln visar hur du ställer in meddelanden om hälsostatus för Azur
 5. Välj **spara** när du är klar för att uppdatera åtgärdsgruppen.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testa din webhook-integrering via en HTTP POST-begäran
-1. Skapa nyttolasten av tjänstens hälsa som du vill skicka. Du hittar en webhook exempel tjänstens hälsa nyttolast på [Webhooks för Azure aktiviteten Logga varningar](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Skapa service hälsa nyttolast som du vill skicka. Du hittar en exempel-tjänsten hälsa webhook nyttolast på [Webhooks för Azure aktiviteten Logga varningar](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
 2. Skapa en HTTP POST-begäran på följande sätt:
 
@@ -88,7 +88,7 @@ Den här artikeln visar hur du ställer in meddelanden om hälsostatus för Azur
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. Du bör få en `202 Accepted` med ett meddelande som innehåller ditt ”händelse-ID”
 

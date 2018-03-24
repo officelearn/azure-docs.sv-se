@@ -1,11 +1,11 @@
 ---
-title: "Vad är nytt i Enterprise programhantering i Azure Active Directory | Microsoft Docs"
-description: "Lär dig vad är nytt i Enterprise programhantering i Azure Active Directory."
+title: Vad är nytt i Enterprise programhantering i Azure Active Directory | Microsoft Docs
+description: Lär dig vad är nytt i Enterprise programhantering i Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 949eae51c469205489153c271a7c20fcc843ad46
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Vad är nytt i Enterprise programhantering i Azure Active Directory 
 
@@ -147,7 +147,7 @@ När du har lagt till många nya program, kanske vill du tillåta användarna at
 1. Om du vill komma igång, kan du välja den **självbetjäning** alternativet från programmet har lämnat navigeringsmenyn och ange den **Tillåt användare att begära åtkomst till det här programmet?** att '**Ja**'. 
 2. Detta gör att du konfigurerar som har tillåtelse att godkänna åtkomst till det här programmet och vilken grupp Självbetjäningsanvändare läggs. Dessutom, om programmet har konfigurerats för lösenord enkel inloggning på, får du också se ett annat alternativ som gör att du kan låta de godkännarna för att hantera de lösenord som tilldelats programmet.
 
-##<a name="feedback"></a>Feedback
+## <a name="feedback"></a>Feedback
 
 Vi hoppas att du vill med hjälp av den förbättrade Azure AD-upplevelse. Skriv ned feedback kommer! Publicera din feedback och förslag på förbättringar i den **administrationsportalen** avsnitt i vår [Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Vi är glada om hur du skapar nya nya produkter varje dag, och använder din information i form och definiera vad vi bygga härnäst.
 

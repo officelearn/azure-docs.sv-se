@@ -1,6 +1,6 @@
 ---
-title: "Migrera din MySQL-databas med hjälp av dump och återställa i Azure-databas för MySQL"
-description: "Den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i din Azure-databas för MySQL, med hjälp av verktyg som mysqldump, MySQL arbetsstationen och PHPMyAdmin."
+title: Migrera din MySQL-databas med hjälp av dump och återställa i Azure-databas för MySQL
+description: Den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i din Azure-databas för MySQL, med hjälp av verktyg som mysqldump, MySQL arbetsstationen och PHPMyAdmin.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 0c5a6b6d971d434a52bf80da6b34d7f6949589bc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: ef35ee881923c69d41b79fd6cb8464c695c614f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrera MySQL-databas till Azure-databas för MySQL med dump och återställning
 Den här artikeln förklarar två vanliga sätt att säkerhetskopiera och återställa databaser i din Azure-databas för MySQL
@@ -87,10 +87,12 @@ $ mysqldump -u root -p --all-databases > alldb_backup.sql
 ## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>Skapa en databas på mål Azure-databas för MySQL-server
 Skapa en tom databas på Azure-databas för målet för MySQL-server där du vill migrera data. Använda ett verktyg som MySQL arbetsstationen, Toad eller Navicat för att skapa databasen. Databasen kan ha samma namn som den databas som innehåller dumpade data eller du kan skapa en databas med ett annat namn.
 
-Leta upp informationen på sidan Egenskaper i din Azure-databas för MySQL för att hämta ansluten.
-![Hitta anslutningsinformationen i Azure-portalen](./media/concepts-migrate-dump-restore/1_server-properties-name-login.png)
+Om du vill hämta ansluten, hitta anslutningsinformationen i den **översikt** för din Azure-databas för MySQL.
+
+![Hitta anslutningsinformationen i Azure-portalen](./media/concepts-migrate-dump-restore/1_server-overview-name-login.png)
 
 Lägg till informationen i MySQL-arbetsstationen.
+
 ![MySQL-arbetsstationen anslutningssträngen](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
 
 

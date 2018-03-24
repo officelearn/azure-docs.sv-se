@@ -1,24 +1,18 @@
 ---
-title: Hantera Azure Automation-konto | Microsoft Docs
-description: "Den här artikeln beskriver hur du hanterar konfigurationen av Automation-kontot, till exempel certifikatförnyelse, borttagning och felaktig konfiguration."
+title: Hantera Azure Automation-konto
+description: Den här artikeln beskriver hur du hanterar konfigurationen av Automation-kontot, till exempel certifikatförnyelse, borttagning och felaktig konfiguration.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
 ms.topic: article
-ms.date: 04/13/2017
-ms.author: magoedte
-ms.openlocfilehash: 56216f16ba3730d1488e45c0e7a81e87dbad6410
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+manager: carmonm
+ms.openlocfilehash: b9ccc46192950af212975304329497785b0babbd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-azure-automation-account"></a>Hantera Azure Automation-konto
 Någon gång innan Automation-kontot går ut måste du förnya certifikatet. Om du tror att ditt Kör som-konto har komprometterats kan du ta bort och återskapa det. Det här avsnittet beskriver hur du utför dessa åtgärder.

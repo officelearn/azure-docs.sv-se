@@ -1,25 +1,25 @@
 ---
-title: "Starta diagnostik för virtuella Linux-datorer i Azure | Microsoft-dokument"
-description: "Översikt över de två felsökning funktionerna för Linux virtuella datorer i Azure"
+title: Starta diagnostik för virtuella Linux-datorer i Azure | Microsoft-dokument
+description: Översikt över de två felsökning funktionerna för Linux virtuella datorer i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: Deland-Han
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 03/19/2018
 ms.author: delhan
-ms.openlocfilehash: 70254d39b5c6326166f7e29fdfc99533835502f9
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: bf8e1b338012898ed3de3f443cf492b6890af796
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>Hur du använder startdiagnostikinställningar för att felsöka Linux virtuella datorer i Azure
 
@@ -39,9 +39,9 @@ De här båda funktionerna finns för Azure Virtual Machines i alla regioner. T�
 
 ## <a name="common-boot-errors"></a>Vanliga startfel
 
-- [Problem med filens system](https://blogs.msdn.microsoft.com/linuxonazure/2016/09/13/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes/)
-- [Kernel-problem](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems/)
-- [FSTAB fel](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/ )
+- [Problem med filens system](https://support.microsoft.com/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) 
+- [Kernel-problem](https://support.microsoft.com/help/4091524/how-recovery-azure-linux-vm-from-kernel-related-boot-related-issues/) 
+- [FSTAB fel](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Aktivera diagnostik på en ny virtuell dator
 1. När du skapar en ny virtuell dator från förhandsversionsportalen, väljer du **Azure Resource Manager** från listrutan med distributionsmodeller:
@@ -79,3 +79,7 @@ De här båda funktionerna finns för Azure Virtual Machines i alla regioner. T�
 Du kan uppdatera en befintlig virtuell dator via portalen om du vill aktivera startdiagnostikinställningar via portalen. Välj alternativet Startdiagnostik och Spara. Starta om den virtuella datorn så att ändringarna börjar gälla.
 
 ![Uppdatera befintlig virtuell dator](./media/boot-diagnostics/screenshot5.png)
+
+## <a name="next-steps"></a>Nästa steg
+
+Om du ser felet ”Det gick inte att hämta innehållet i loggen” när du använder VM Startdiagnostikinställningar finns [det gick inte att hämta innehållet i logga fel i VM-Startdiagnostikinställningar](https://support.microsoft.com/help/4094480/failed-to-get-contents-of-the-log-error-in-vm-boot-diagnostics-in-azur).

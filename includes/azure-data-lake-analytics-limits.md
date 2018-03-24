@@ -3,6 +3,6 @@ Med Datasjöanalys blir den komplicerade uppgiften med att hantera distribuerad 
 | **Resurs** | **Standardgräns** | **Kommentarer** |
 | --- | --- | --- |
 | Maximalt antal samtidiga jobb |20 | |
-| Maximalt antal Analytics (Australien) per konto |250 | Använda valfri kombination av upp till högst 250 Australien över 20 jobb. |
+| Maximalt antal Analytics (Australien) per konto |250 | Använda valfri kombination av upp till högst 250 Australien över 20 jobb.  Kontakta Microsoft support om du vill höja denna gräns. |
 | Skript för maximal storlek för jobbet | 3 MB | |
-
+| Maximalt antal ADLA konton per region per prenumeration | 5 | Kontakta Microsoft support om du vill höja denna gräns. |

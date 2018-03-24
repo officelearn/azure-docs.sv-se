@@ -1,10 +1,11 @@
 ---
 title: 'Steg 1: Skapa en arbetsyta i Machine Learning | Microsoft Docs'
-description: "Steg 1 av utveckla en förutsägelselösning genomgång: Lär dig hur du ställer in en ny Azure Machine Learning Studio-arbetsyta."
+description: 'Steg 1 av utveckla en förutsägelselösning genomgång: Lär dig hur du ställer in en ny Azure Machine Learning Studio-arbetsyta.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: b3c97e3d-16ba-4e42-9657-2562854a1e04
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: 58b37cf8927926cb128928e4d0e438945074f6e5
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 88f928599f62cbb39d65cd29a978e3a9d25d863f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-1-create-a-machine-learning-workspace"></a>Genomgång steg 1: Skapa en arbetsyta i Machine Learning
 Detta är det första steget i den här genomgången [utveckla en förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md).

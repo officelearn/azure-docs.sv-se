@@ -1,11 +1,11 @@
 ---
-title: "Direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet | Microsoft Docs"
-description: "Det här avsnittet beskriver hur du ställer in en kanal som tar emot en direktsänd dataström med enkel bithastighet från en lokala kodare och utför sedan live encoding till ström med anpassningsbar bithastighet med Media Services. Dataströmmen kan sedan levereras till klienten uppspelning program via en eller flera Strömningsslutpunkter, med någon av följande protokoll för anpassningsbar strömning: HLS, Smooth Stream, MPEG DASH."
+title: Direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet | Microsoft Docs
+description: 'Det här avsnittet beskriver hur du ställer in en kanal som tar emot en direktsänd dataström med enkel bithastighet från en lokala kodare och utför sedan live encoding till ström med anpassningsbar bithastighet med Media Services. Dataströmmen kan sedan levereras till klienten uppspelning program via en eller flera Strömningsslutpunkter, med någon av följande protokoll för anpassningsbar strömning: HLS, Smooth Stream, MPEG DASH.'
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: anilmur
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
 ms.workload: media
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 9d89849bb982804515b21de8c251859591dbf6ce
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
+
+> [!NOTE]
+> Startar den 12 maj 2018 live-kanaler kommer inte längre stöd för RTP/MPEG-2-transportström infogningsprotokollet. Migrera från RTP/MPEG-2 till RTMP eller fragmenterad MP4 (Smooth Streaming) infognings-protokoll.
+
 ## <a name="overview"></a>Översikt
 I Azure Media Services (AMS), en **kanal** representerar en pipeline för bearbetning av liveströmmat innehåll. En **kanal** tar emot live indata i ett av två sätt:
 
@@ -217,7 +221,7 @@ När du skapar kanalen kan du få förhandsgransknings-URL. Om du vill hämta We
 När kanalen startar mata in data, kan du förhandsgranska dataströmmen.
 
 > [!NOTE]
-> Förhandsgranska dataströmmen kan för närvarande bara levereras i fragmenterad MP4 (Smooth Streaming) format oavsett angivna Indatatyp. Du kan använda den [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player att testa Smooth Stream. Du kan också använda en spelare som finns i Azure-portalen för att visa din dataström.
+> Förhandsgranska dataströmmen kan för närvarande bara levereras i fragmenterad MP4 (Smooth Streaming) format oavsett angivna Indatatyp. Du kan använda den [ http://smf.cloudapp.net/healthmonitor ](http://smf.cloudapp.net/healthmonitor) player att testa Smooth Stream. Du kan också använda en spelare som finns i Azure-portalen för att visa din dataström.
 > 
 > 
 
@@ -270,10 +274,10 @@ Observera att om du behöver anpassade förinställningar, bör du kontakta amsl
 | Bithastighet | Bredd | Höjd | MaxFPS | Profil | Namn på utdata Stream |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Hög |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Main |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Main |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Main |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Main |Video_384x216_550kbps |
+| 2200 |960 |540 |30 |Huvud |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Huvud |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Huvud |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Huvud |Video_384x216_550kbps |
 | 350 |340 |192 |30 |Baslinje |Video_340x192_350kbps |
 | 200 |340 |192 |30 |Baslinje |Video_340x192_200kbps |
 
@@ -381,7 +385,7 @@ Följande tabell visar hur kanaltillstånd mappas till faktureringsläge.
 * Som standard kan du bara lägga till 5 kanaler Media Services-kontot. Det här är en icke-begränsande kvot för alla nya konton. Mer information finns i [kvoter och begränsningar](media-services-quotas-and-limitations.md).
 * Du kan inte ändra indataprotokollet när kanalen eller dess associerade program körs. Om du behöver olika protokoll får du skapa separata kanaler för varje indataprotokoll.
 * Du debiteras endast när din kanal är i den **kör** tillstånd. Mer information finns i [detta](media-services-manage-live-encoder-enabled-channels.md#states) avsnitt.
-* Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived@microsoft.com om du behöver köra en kanal under längre tid.
+* Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
 * Se till att ha den strömningsslutpunkt från vilken du vill strömma innehåll i den **kör** tillstånd.
 * När mata in flera språkspår och utföra live encoding med Azure, endast RTP stöds för flera språk indata. Du kan ange upp till 8 ljudströmmar med MPEG-2 TS över RTP. Vill föra in flera ljud spår med RTMP eller Smooth streaming stöds inte för närvarande. När du gör live encoding med [lokalt live kodar](media-services-live-streaming-with-onprem-encoders.md), det finns ingen sådan begränsning eftersom det skickas till AMS passerar genom en kanal utan vidare bearbetning.
 * Kodning förinställningen använder begreppet ”max bildfrekvens” på 30 fps. Om indata är 60fps 59.97i, inkommande ramarna är bort/de-interlaced till 30/29,97 fps. Om indata är 50fps/50i, är inkommande ramarna bort/de-interlaced till 25 bildrutor per sekund. Om indata är 25 bildrutor förblir utdata 25 bildrutor per sekund.

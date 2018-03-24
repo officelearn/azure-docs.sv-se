@@ -1,11 +1,11 @@
 ---
-title: "Förstå Azure Active Directorys programmanifest | Microsoft Docs"
-description: "Detaljerad täckning av Azure Active Directory-programmanifestet som representerar ett programs identitet konfiguration i en Azure AD-klient och används för att underlätta OAuth auktorisering, medgivande upplevelse och mycket mer."
+title: Förstå Azure Active Directorys programmanifest | Microsoft Docs
+description: Detaljerad täckning av Azure Active Directory-programmanifestet som representerar ett programs identitet konfiguration i en Azure AD-klient och används för att underlätta OAuth auktorisering, medgivande upplevelse och mycket mer.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: sureshja
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: sureshja
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: f3284d4cbb15f21522549c678410815b54344744
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: ee4e7eb6625cab274455ca787feeb7f267e11051
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-application-manifest"></a>Azure Active Directory-programmanifestet
 Appar som integreras med Azure AD måste vara registrerad med Azure AD-klient. Den här appen kan konfigureras med appmanifestet (under Azure AD-bladet) i den [Azure-portalen](https://portal.azure.com).
@@ -32,31 +32,31 @@ Appar som integreras med Azure AD måste vara registrerad med Azure AD-klient. D
 |Nyckel  |Värdetyp |Exempelvärde  |Beskrivning  |
 |---------|---------|---------|---------|
 |appID     |  Strängen för meddelandealternatividentifieraren       |""|  Den unika identifieraren för det program som har tilldelats en app av Azure AD.|
-|appRoles     |    Typ av matris     |[{<br>&emsp;”allowedMemberTypes”: [<br>&emsp;&nbsp;&nbsp;&nbsp;”Användare”<br>&emsp;],<br>&emsp;”Beskrivning”: ”Läs åtkomsten endast till enhetsinformation”,<br>&emsp;”Visningsnamn”: ”Read Only”,<br>&emsp;”id”: guid,<br>&emsp;”isEnabled”: true<br>&emsp;”värde”: ”ReadOnly”<br>}]|Roller som ett program kan förklara samling. Rollerna kan tilldelas användare, grupper eller tjänstens huvudnamn.|
-|AvailableToOtherTenants|Booleskt värde|true|Om det här värdet anges till true, programmet är tillgängligt för andra klienter.  Den är registrerad i om inställt på false, appen är bara tillgängliga för klienten.  Läs mer: [loggar in alla Azure Active Directory (AD)-användare med flera innehavare programmönster](active-directory-devhowto-multi-tenant-overview.md). |
-|Visningsnamn     |sträng         |MyRegisteredApp         |Visningsnamn för programmet. |
-|errorURL     |sträng         |http:<i></i>//MyRegisteredAppError         |URL till fel påträffades i ett program. |
-|GroupMembershipClaims     |    sträng     |    1     |   En bitmask som konfigurerar ”grupper”-anspråket utfärdat i en användare eller OAuth 2.0-åtkomsttoken som programmet förväntas. Värdena är: 0: ingen 1: säkerhetsgrupper och Azure AD-roller, 2: reserverade och 4: reserverat. Ange bitmask till 7 får alla säkerhetsgrupper, distributionsgrupper och Azure AD directory roller som den inloggade användaren är medlem i.      |
-|optionalClaims     |  sträng       |     null    |    Valfria anspråk i token som returnerades av säkerhetstokentjänsten för den här specifika appen.     |
-|acceptMappedClaims    |      Booleskt värde   | true        |    Om det här värdet anges till true, kan ett program att använda anspråk mappning utan att ange en anpassad signeringsnyckeln.|
-|Startsida     |  sträng       |http:<i></i>//MyRegistererdApp         |    URL till programmets startsida.     |
-|identifierUris     |  Strängmatris       | http:<i></i>//MyRegistererdApp        |   Användardefinierade URI(s) som unikt identifierar ett webbprogram i sin Azure AD-klient eller i en anpassad domän för verifierade om programmet är flera innehavare.      |
-|keyCredentials     |   Typ av matris      |   [{<br>&nbsp;”customKeyIdentifier”: null.<br>”endDate” ”: 2018-09-13T00:00:00Z”,<br>”keyId” ”:\<guid >”,<br>”startDate” ”: 2017-09-12T00:00:00Z”,<br>”typ”: ”AsymmetricX509Cert”<br>”användning”: ”Verifiera”<br>”värde”: null<br>}]      |   Den här egenskapen innehåller referenser till programmet tilldelade autentiseringsuppgifter, string-baserade delade hemligheter och X.509-certifikat.  Dessa autentiseringsuppgifter komma till användning när du begär åtkomst-token (när appen fungerar som en klient i stället som som resurs).     |
-|knownClientApplications     |     Typ av matris    |    [guid]     |     Värdet används för sammanföra medgivande om du har en lösning som innehåller två delar, ett klientprogram och en anpassad webbplats API-program. Om du anger appID av klientprogrammet i det här värdet kan måste användaren bara godkänna en gång till klientprogrammet. Azure AD vet att principer för klienten innebär implicit principer för webb-API och kommer automatiskt att etablera tjänstens huvudnamn för både klient- och webb-API på samma gång (både klienten och webb-API-program måste vara registrerad i samma innehavaren).|
-|logoutUrl     |   sträng      |     http:<i></i>//MyRegisteredAppLogout    |   Logga ut från programmet URL-adress.      |
-|oauth2AllowImplicitFlow     |   Booleskt värde      |  false       |       Anger om det här webbprogrammet kan begära OAuth2.0 implicita flödet för token. Standardvärdet är FALSKT. Det här används för webbläsarbaserade appar som Javascript-ensidesappar. |
-|oauth2AllowUrlPathMatching     |   Booleskt värde      |  false       |   Anger om, Azure AD som en del av OAuth 2.0 token-förfrågningar, ska tillåta sökvägsmatchning för omdirigerings-URI mot programmets replyUrls. Standardvärdet är FALSKT.      |
-|oauth2Permissions     | Typ av matris         |      [{<br>”adminConsentDescription”: ”Tillåt programmet åtkomst till resurser å den inloggade användaren vägnar”.,<br>”adminConsentDisplayName”: ”åtkomst resource1”<br>”id” ”:\<guid >”,<br>”isEnabled”: true<br>”typ”: ”användare”<br>”userConsentDescription”: ”Tillåt programmet åtkomst resource1 å dina vägnar”.,<br>”userConsentDisplayName”: ”komma åt resurser”<br>”värde”: ”user_impersonation”<br>}]   |  Insamling av behörighetsomfattningen för OAuth 2.0 som webb-API (resurs)-program visar för klientprogram. Klientprogram kan bevilja dessa behörighetsomfattningen under medgivande. |
-|oauth2RequiredPostResponse     | Booleskt värde        |    false     |      Anger om, Azure AD som en del av OAuth 2.0 token-förfrågningar, ska tillåta POST-begäranden, till skillnad från GET-begäranden. Standardvärdet är FALSKT, vilket innebär att GET-begäranden ska tillåtas.   
-|objekt-ID     | Strängen för meddelandealternatividentifieraren        |     ""    |    Unik identifierare för programmet i katalogen.  Detta är inte det ID som används för att identifiera appen i någon transaktion för protokollet.  Användaren är refererar till objektet i directory-frågor.|
-|passwordCredentials     | Typ av matris        |   [{<br>”customKeyIdentifier”: null.<br>”endDate” ”: 2018-10-19T17:59:59.6521653Z”,<br>”keyId” ”:\<guid >”,<br>”startDate” ”: 2016-10-19T17:59:59.6521653Z”,<br>”värde”: null<br>}]      |    Se beskrivningen för egenskapen keyCredentials.     |
-|PublicClient     |  Booleskt värde       |      false   | Anger om ett program är en offentlig klient (till exempel ett installerat program som körs på en mobil enhet). Standardvärdet är false.        |
-|supportsConvergence     |  Booleskt värde       |   false      | Den här egenskapen bör inte redigeras.  Acceptera standardvärdet.        |
-|replyUrls     |  Strängmatris       |   http:<i></i>//localhost     |  Flera värden egenskapen innehåller listan över registrerade redirect_uri värden som Azure AD tar emot som mål när returining token. |
-|RequiredResourceAccess     |     Typ av matris    |    [{<br>”resourceAppId”: ”00000002-0000-0000-c000-000000000000”<br>”resourceAccess”: [{<br>&nbsp;&nbsp;&nbsp;&nbsp;”id”: ”311a71cc-e848-46a1-bdf8-97ff7156d8e6”<br>&nbsp;&nbsp;&nbsp;&nbsp;”typ”: ”omfång”<br>&nbsp;&nbsp;}]<br>}]     |   Anger resurser som det här programmet kräver åtkomst till och uppsättning behörighetsomfattningen för OAuth och roller för programmet som krävs under var och en av dessa resurser. Den här före konfiguration av nödvändiga resursåtkomst enheter medgivande-upplevelse.|
+|appRoles     |    Typ av matris     |<code>[{<br>&emsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&emsp;],<br>&emsp;"description":"Read-only access to device information",<br>&emsp;"displayName":"Read Only",<br>&emsp;"id":guid,<br>&emsp;"isEnabled":true,<br>&emsp;"value":"ReadOnly"<br>}]</code>|Roller som ett program kan förklara samling. Rollerna kan tilldelas användare, grupper eller tjänstens huvudnamn.|
+|AvailableToOtherTenants|boolesk|`true`|Om det här värdet anges till true, programmet är tillgängligt för andra klienter.  Den är registrerad i om inställt på false, appen är endast tillgänglig för innehavaren.  Mer information finns: [loggar in alla Azure Active Directory (AD)-användare med flera innehavare programmönster](active-directory-devhowto-multi-tenant-overview.md). |
+|displayName     |sträng         |`MyRegisteredApp`         |Visningsnamn för programmet. |
+|errorURL     |sträng         |`http://MyRegisteredAppError`         |URL till fel påträffades i ett program. |
+|GroupMembershipClaims     |    sträng     |    `1`     |   En bitmask som konfigurerar ”grupper”-anspråket utfärdat i en användare eller OAuth 2.0-åtkomsttoken som programmet förväntas. Värdena är: 0: ingen 1: säkerhetsgrupper och Azure AD-roller, 2: reserverade och 4: reserverat. Ange bitmask till 7 får alla säkerhetsgrupper, distributionsgrupper och Azure AD directory roller som den inloggade användaren är medlem i.      |
+|optionalClaims     |  sträng       |     `null`    |    Den [valfria anspråk](active-directory-optional-claims.md) i token som returnerades av säkerhetstokentjänsten för den här specifika appen.     |
+|acceptMappedClaims    |      boolesk   | `true`        |    Om det här värdet anges till true, kan ett program att använda anspråk mappning utan att ange en anpassad signeringsnyckeln.|
+|Startsida     |  sträng       |`http://MyRegistererdApp`         |    URL till programmets startsida.     |
+|identifierUris     |  Strängmatris       | `http://MyRegistererdApp`        |   Användardefinierade URI(s) som unikt identifierar ett webbprogram i sin Azure AD-klient eller i en anpassad domän för verifierade om programmet är flera innehavare.      |
+|keyCredentials     |   Typ av matris      | <code>[{<br>&nbsp;"customKeyIdentifier":null,<br>"endDate":"2018-09-13T00:00:00Z",<br>"keyId":"\<guid>",<br>"startDate":"2017-09-12T00:00:00Z",<br>"type":"AsymmetricX509Cert",<br>"usage":"Verify",<br>"value":null<br>}]</code>      |   Den här egenskapen innehåller referenser till programmet tilldelade autentiseringsuppgifter, string-baserade delade hemligheter och X.509-certifikat.  Dessa autentiseringsuppgifter används när du begär åtkomst-token (när appen fungerar som en klient i stället som som resurs).     |
+|knownClientApplications     |     Typ av matris    |    [guid]     |     Värdet används för sammanföra medgivande om du har en lösning som innehåller två delar, ett klientprogram och en anpassad webbplats API-program. Om du anger appID av klientprogrammet i det här värdet kan måste användaren bara godkänna en gång till klientprogrammet. Azure AD vet att principer för klienten innebär implicit principer för webb-API och kommer automatiskt att etablera tjänstens huvudnamn för både klient- och webb-API på samma gång.  Både klienten och webb-API-program måste registreras i samma klientorganisation.|
+|logoutUrl     |   sträng      |     `http://MyRegisteredAppLogout`    |   Logga ut från programmet URL-adress.      |
+|oauth2AllowImplicitFlow     |   boolesk      |  `false`       |       Anger om det här webbprogrammet kan begära OAuth2.0 implicita flödet för token. Standardvärdet är FALSKT. Den här flaggan används för webbläsarbaserade appar som Javascript-ensidesappar. |
+|oauth2AllowUrlPathMatching     |   boolesk      |  `false`       |   Anger om, Azure AD som en del av OAuth 2.0 token-förfrågningar, ska tillåta sökvägsmatchning för omdirigerings-URI mot programmets replyUrls. Standardvärdet är FALSKT.      |
+|oauth2Permissions     | Typ av matris         |      <code>[{<br>"adminConsentDescription":"Allow the application to access resources on behalf of the signed-in user.",<br>"adminConsentDisplayName":"Access resource1",<br>"id":"\<guid>",<br>"isEnabled":true,<br>"type":"User",<br>"userConsentDescription":"Allow the application to access resource1 on your behalf.",<br>"userConsentDisplayName":"Access resources",<br>"value":"user_impersonation"<br>}]  </code> |  Insamling av behörighetsomfattningen för OAuth 2.0 som webb-API (resurs)-program visar för klientprogram. Klientprogram kan bevilja dessa behörighetsomfattningen under medgivande. |
+|oauth2RequiredPostResponse     | boolesk        |    `false`     |      Anger om, Azure AD som en del av OAuth 2.0 token-förfrågningar, ska tillåta POST-begäranden, till skillnad från GET-begäranden. Standardvärdet är FALSKT, vilket innebär att GET-begäranden ska tillåtas.   
+|objectId     | Strängen för meddelandealternatividentifieraren        |     ""    |    Unik identifierare för programmet i katalogen.  Detta ID är inte det ID som används för att identifiera appen i någon transaktion för protokollet.  Användaren är refererar till objektet i directory-frågor.|
+|passwordCredentials     | Typ av matris        |   <code>[{<br>"customKeyIdentifier":null,<br>"endDate":"2018-10-19T17:59:59.6521653Z",<br>"keyId":"\<guid>",<br>"startDate":"2016-10-19T17:59:59.6521653Z",<br>"value":null<br>}]  </code>    |    Se beskrivningen för egenskapen keyCredentials.     |
+|publicClient     |  boolesk       |      `false`   | Anger om ett program är en offentlig klient (till exempel ett installerat program som körs på en mobil enhet). Standardvärdet är false.        |
+|supportsConvergence     |  boolesk       |   `false`      | Den här egenskapen bör inte redigeras.  Acceptera standardvärdet.        |
+|replyUrls     |  Strängmatris       |   `http://localhost`     |  Flera värden egenskapen innehåller listan över registrerade redirect_uri värden som Azure AD tar emot som mål när du returnerar token. |
+|RequiredResourceAccess     |     Typ av matris    |    <code>[{<br>"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>"resourceAccess":[{<br>&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;}]<br>}] </code>    |   Anger resurser som det här programmet kräver åtkomst till och uppsättning behörighetsomfattningen för OAuth och roller för programmet som krävs under var och en av dessa resurser. Den här före konfiguration av nödvändiga resursåtkomst enheter medgivande-upplevelse.|
 |resourceAppId     |    Strängen för meddelandealternatividentifieraren     |  ""      |   Den unika identifieraren för den resurs som programmet kräver åtkomst till. Det här värdet ska vara lika med appId som deklarerats i målprogrammet för resursen.     |
 |resourceAccess     |  Typ av matris       | Se exempelvärdet för egenskapen requiredResourceAccess.        |   Listan över OAuth2.0 behörighetsomfattningen och app-roller som programmet kräver för den angivna resursen (innehåller värdena ID och typ av de angivna resurserna)        |
-|samlMetadataUrl|sträng|http:<i></i>//MyRegisteredAppSAMLMetadata|URL för SAML-metadata för programmet.| 
+|samlMetadataUrl    |sträng| `http://MyRegisteredAppSAMLMetadata` |URL:en till SAML-metadatan för programmet.| 
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om förhållandet mellan ett program program och tjänstens huvudnamn objekt [program och tjänstens huvudnamn objekt i Azure AD][AAD-APP-OBJECTS].

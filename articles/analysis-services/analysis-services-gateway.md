@@ -1,25 +1,25 @@
 ---
 title: Lokala datagateway | Microsoft Docs
-description: "En lokal gateway är nödvändigt om Analysis Services-server i Azure ansluter till lokala datakällor."
+description: En lokal gateway är nödvändigt om Analysis Services-server i Azure ansluter till lokala datakällor.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 03/19/2018
 ms.author: owend
-ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2bb85eafc7722840b6a35956403c29d4ac642cc1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Ansluter till lokala datakällor med Azure-lokala Data Gateway
 Lokala datagateway fungerar som en brygga som tillhandahåller säker dataöverföring mellan lokala datakällor och dina Azure Analysis Services-servrar i molnet. Förutom att arbeta med flera Azure Analysis Services-servrar i samma region fungerar även den senaste versionen av gatewayen med Azure Logikappar, Power BI, Power appar och Microsoft Flow. Du kan associera flera tjänster i samma region med en enda gateway. 
@@ -36,7 +36,7 @@ Hämtar installationsprogrammet gatewayen första gången är en process i fyra 
 
 Om du vill komma igång nu direkt, se [installera och konfigurera lokala datagateway](analysis-services-gateway-install.md).
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"> </a>Så här fungerar det
 Den gateway som du installerar på en dator i din organisation körs som en windowstjänst **lokala datagateway**. Den här lokal tjänst har registrerats med Gateway-Molntjänsten via Azure Service Bus. Du kan sedan skapa en gateway-resurs Gateway Cloud Service för din Azure-prenumeration. Azure Analysis Services-servrar är nu ansluten till din gateway-resurs. När modeller på servern behöver ansluta till dina lokala data källor för frågor eller bearbetning, passerar fråga och dataflöde gatewayresursen, Azure Service Bus, lokala lokala data gateway-tjänsten och dina datakällor. 
 
 ![Hur det fungerar](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
@@ -50,18 +50,18 @@ Frågor och dataflöde:
 5. Gatewayen skickar frågan till datakällan för körning.
 6. Resultatet skickas från datakällan, tillbaka till gateway och sedan på Molntjänsten och servern.
 
-## <a name="windows-service-account"></a>För Windows-tjänstkontot
+## <a name="windows-service-account"> </a>Windows-tjänstkontot
 Lokala datagateway är konfigurerad för att använda *NT SERVICE\PBIEgwService* för Windows-tjänsten inloggning autentiseringsuppgifter. Som standard har rätt att logga in som en tjänst. i samband med den dator som du installerar en gateway på. Den här autentiseringsuppgiften är inte samma konto som används för att ansluta till lokala datakällor eller ditt Azure-konto.  
 
 Om du får problem med proxyservern på grund av autentisering du kanske vill ändra Windows-tjänstkontot till en domänanvändare eller Hanterat tjänstkonto.
 
-## <a name="ports"></a>Portar
+## <a name="ports"> </a>Portar
 Gatewayen skapar en utgående anslutning till Azure Service Bus. Den kommunicerar på utgående portar: TCP 443 (standard), 5671, 5672, 9350 via 9354.  Gatewayen kräver inte ingående portar.
 
 Vi rekommenderar att du listan över godkända IP-adresser för dina dataområdet i brandväggen. Du kan hämta den [Microsoft Azure-Datacenter IP-lista](https://www.microsoft.com/download/details.aspx?id=41653). Den här listan uppdateras varje vecka.
 
 > [!NOTE]
-> IP-adresser i listan Azure Datacenter IP finns i CIDR-notering. Till exempel innebär inte 10.0.0.0/24 10.0.0.0 via 10.0.0.24. Lär dig mer om den [CIDR-notering](http://whatismyipaddress.com/cidr).
+> IP-adresser i listan Azure Datacenter IP finns i CIDR-notering. Läs mer i [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 >
 >
 
@@ -141,7 +141,7 @@ Du kan använda verktyg från tredje part Azure hastighet testa appen för att m
 **Q**: Vad är fördelen med återställningsnyckeln? <br/>
 **En**: återställningsnyckeln är ett sätt att migrera eller återställa gatewayinställningarna efter en katastrof.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"> </a>Felsökning
 
 **Q**: Varför ser jag min gateway i listan över gateway-instanser vid försök att skapa en gateway-resurs i Azure? <br/>
 **En**: det finns två möjliga orsaker. Första är en resurs redan har skapats för gatewayen i aktuellt eller några andra prenumerationer. Om du vill undvika den möjligheten att räkna upp resurser av typen **lokala Data Gateways** från portalen. Se till att markera alla prenumerationer vid uppräkning av alla resurser. När resursen skapas visas gatewayen inte i listan över gateway-instanser i Skapa resurs för Gateway-portaler. Det andra alternativet är att Azure AD-identiteten för den användare som installerade gatewayen skiljer sig från användaren loggat in på Azure-portalen. Lös genom att logga in på portalen med samma konto som den användare som har installerat din gateway.

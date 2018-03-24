@@ -1,11 +1,11 @@
 ---
-title: "Introduktion till resursen felsökning i Azure-Nätverksbevakaren | Microsoft Docs"
-description: "Den här sidan innehåller en översikt över funktioner för felsökning av Nätverksbevakaren resurs"
+title: Introduktion till resursen felsökning i Azure-Nätverksbevakaren | Microsoft Docs
+description: Den här sidan innehåller en översikt över funktioner för felsökning av Nätverksbevakaren resurs
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
 ms.service: network-watcher
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: a37c92e1aa58184ed29185742ec727c120fe593f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646caa5e4aacd58377c0a2b5985a69277d00cec3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduktion till felsökning i Azure Nätverksbevakaren resurs
 
-Virtuella Nätverksgatewayer anslutningsbarhet mellan lokala resurser och andra virtuella nätverk i Azure. Övervakning av dessa gateways och deras anslutningar är avgörande för att säkerställa kommunikationen är inte skadad. Nätverksbevakaren ger möjlighet att felsöka virtuella Nätverksgatewayer och anslutningar. Det kan anropas via portalen, PowerShell, CLI eller REST API. När den anropas, Nätverksbevakaren diagnostiserar hälsotillståndet för den virtuella nätverksgatewayen eller anslutning och rätt resultat returneras. Denna begäran är en tidskrävande transaktion, returneras resultaten när diagnosen är klar.
+Virtuella Nätverksgatewayer anslutningsbarhet mellan lokala resurser och andra virtuella nätverk i Azure. Övervakning gateways och deras anslutningar är viktiga för att säkerställa kommunikationen är inte skadad. Nätverksbevakaren ger möjlighet att felsöka gateways och anslutningar. Kapacitet kan anropas via portalen, PowerShell, Azure CLI eller REST API. När den anropas, Nätverksbevakaren diagnostiserar hälsotillståndet för gateway eller anslutningen och returnerar en rapport. Begäran är en tidskrävande transaktion. Resultaten returneras när diagnosen är klar.
 
 ![portal][2]
 
@@ -50,44 +50,44 @@ Följande tabeller visar vilka typer av olika fel (id under resultat från före
 
 | Feltypen | Orsak | Logga|
 |---|---|---|
-| NoFault | Om inga fel har identifierats. |Ja|
-| GatewayNotFound | Det går inte att hitta Gateway eller Gateway inte har etablerats. |Nej|
-| PlannedMaintenance |  Gateway-instans är under underhåll.  |Nej|
-| UserDrivenUpdate | När en användare uppdatering pågår. Detta kan vara en åtgärd för storleksändring. | Nej |
-| VipUnResponsive | Det går inte att nå den primära instansen av Gateway. Detta händer när hälsoavsökningen misslyckas. | Nej |
+| NoFault | Om inga fel har identifierats |Ja|
+| GatewayNotFound | Det går inte att hitta gateway eller gateway inte har etablerats |Nej|
+| PlannedMaintenance |  Gateway-instans är under Underhåll  |Nej|
+| UserDrivenUpdate | Det här felet uppstår när en användare uppdatering pågår. Uppdateringen kan vara en åtgärd för storleksändring. | Nej |
+| VipUnResponsive | Det här felet uppstår när den primära instansen av gateway inte kan nås på grund av ett hälsotillstånd, uteblivna avsökning. | Nej |
 | PlatformInActive | Det finns ett problem med plattformen. | Nej|
 | ServiceNotRunning | Den underliggande tjänsten körs inte. | Nej|
-| NoConnectionsFoundForGateway | Det finns inga anslutningar på gateway. Detta är endast en varning.| Nej|
-| ConnectionsNotConnected | Anslutningar är inte ansluten. Detta är endast en varning.| Ja|
-| GatewayCPUUsageExceeded | Den aktuella Gateway CPU-användningen är > 95%. | Ja |
+| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Det här felet är bara en varning.| Nej|
+| ConnectionsNotConnected | Anslutningar är inte ansluten. Det här felet är bara en varning.| Ja|
+| GatewayCPUUsageExceeded | Aktuell gateway CPU-användning är > 95%. | Ja |
 
 ### <a name="connection"></a>Anslutning
 
 | Feltypen | Orsak | Logga|
 |---|---|---|
-| NoFault | Om inga fel har identifierats. |Ja|
-| GatewayNotFound | Det går inte att hitta Gateway eller Gateway inte har etablerats. |Nej|
-| PlannedMaintenance | Gateway-instans är under underhåll.  |Nej|
-| UserDrivenUpdate | När en användare uppdatering pågår. Detta kan vara en åtgärd för storleksändring.  | Nej |
-| VipUnResponsive | Det går inte att nå den primära instansen av Gateway. Det händer när hälsoavsökningen misslyckas. | Nej |
-| ConnectionEntityNotFound | Konfigurationen för anslutningen saknas. | Nej |
-| ConnectionIsMarkedDisconnected | Anslutningen har markerats ”frånkopplad”. |Nej|
+| NoFault | Om inga fel har identifierats |Ja|
+| GatewayNotFound | Det går inte att hitta gateway eller gateway inte har etablerats |Nej|
+| PlannedMaintenance | Gateway-instans är under Underhåll  |Nej|
+| UserDrivenUpdate | Det här felet uppstår när en användare uppdatering pågår. Uppdateringen kan vara en åtgärd för storleksändring.  | Nej |
+| VipUnResponsive | Det här felet uppstår när den primära instansen av gateway inte kan nås på grund av ett hälsotillstånd, uteblivna avsökning. | Nej |
+| ConnectionEntityNotFound | Konfigurationen för anslutningen saknas | Nej |
+| ConnectionIsMarkedDisconnected | Anslutningen har markerats ”frånkopplad” |Nej|
 | ConnectionNotConfiguredOnGateway | Den underliggande tjänsten har inte konfigurerats anslutningen. | Ja |
 | ConnectionMarkedStandy | Den underliggande tjänsten har markerats som vänteläge.| Ja|
-| Autentisering | I förväg delad nyckel matchar inte. | Ja|
+| Autentisering | I förväg delad nyckel stämmer inte | Ja|
 | PeerReachability | Peer-gateway kan inte nås. | Ja|
 | IkePolicyMismatch | Peer-gateway har IKE-principer som inte stöds av Azure. | Ja|
 | WfpParse fel | Ett fel uppstod vid parsning WFP-loggen. |Ja|
 
 ## <a name="supported-gateway-types"></a>Gateway-typer som stöds
 
-I följande lista visas stödet visar vilka gateways och anslutningar stöds med Nätverksbevakaren felsökning.
+I följande tabell visas vilka gateways och anslutningar stöds med Nätverksbevakaren Felsökning:
+
 |  |  |
 |---------|---------|
 |**Gateway-typer**   |         |
 |VPN      | Stöds        |
 |ExpressRoute | Stöds inte |
-|Hypernet | Stöds inte|
 |**VPN-typer** | |
 |Vägen baserat | Stöds|
 |Principbaserad | Stöds inte|
@@ -95,7 +95,6 @@ I följande lista visas stödet visar vilka gateways och anslutningar stöds med
 |IPSec| Stöds|
 |VNet2Vnet| Stöds|
 |ExpressRoute| Stöds inte|
-|Hypernet| Stöds inte|
 |VPNClient| Stöds inte|
 
 ## <a name="log-files"></a>Loggfiler
@@ -147,11 +146,11 @@ Error: On-prem device sent invalid payload.
      based on log : IkeFindPayloadInPacket failed with Windows error 13843(ERROR_IPSEC_IKE_INVALID_PAYLOAD)
 ```
 
-### <a name="scrubbed-wfpdiagtxt"></a>Befordras wfpdiag.txt
+### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag.txt
 
 Den **Scrubbed wfpdiag.txt** loggfilen innehåller wfp-loggen. Den här loggfilen innehåller loggning av paketet släpp och IKE/AuthIP fel.
 
-I följande exempel visar innehållet i filen Scrubbed wfpdiag.txt. I det här exemplet var den delade nyckeln för en anslutning inte på rätt sätt kan ses från 3: e raden längst ned. I följande exempel är bara ett fragment av hela loggen eftersom loggen kan vara tidskrävande beroende på problemet.
+I följande exempel visar innehållet i filen Scrubbed wfpdiag.txt. I det här exemplet var den delade nyckeln för en anslutning inte på rätt sätt kan ses från den tredje raden längst ned. I följande exempel är bara ett fragment av hela loggen eftersom loggen kan vara tidskrävande beroende på problemet.
 
 ```
 ...
@@ -180,7 +179,7 @@ I följande exempel visar innehållet i filen Scrubbed wfpdiag.txt. I det här e
 ...
 ```
 
-### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.SUM
+### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.sum
 
 Den **wfpdiag.txt.sum** filen är en logg som innehåller buffertar och händelser som har bearbetats.
 

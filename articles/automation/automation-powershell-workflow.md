@@ -1,6 +1,6 @@
 ---
-title: "Learning PowerShell-arbetsflöde för Azure Automation"
-description: "Den här artikeln är avsedd som en snabb lektionen för författare som är bekanta med PowerShell att förstå de specifika skillnaderna mellan PowerShell och PowerShell-arbetsflöde och begrepp som gäller för Automation-runbooks."
+title: Learning PowerShell-arbetsflöde för Azure Automation
+description: Den här artikeln är avsedd som en snabb lektionen för författare som är bekanta med PowerShell att förstå de specifika skillnaderna mellan PowerShell och PowerShell-arbetsflöde och begrepp som gäller för Automation-runbooks.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: b8d78d6dfd258fb51e7b30832b6c214c67ac0fec
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 32f991f0b0017e673828b1ceb832511e118efa92
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Learning nyckelbegrepp i Windows PowerShell-arbetsflöde för Automation-runbooks 
 Azure Automation-Runbooks implementeras som Windows PowerShell-arbetsflöden.  En Windows PowerShell-arbetsflöde är liknar en Windows PowerShell-skript men vissa viktiga skillnader som kan vara förvirrande för en ny användare.  När den här artikeln är avsedd att hjälpa dig att skriva runbooks med PowerShell-arbetsflöde, rekommenderar vi att du skriver runbooks med PowerShell om du inte behöver kontrollpunkter.  Det finns flera syntax skillnader vid redigering av runbooks med PowerShell-arbetsflöde och skillnaderna kräver lite mer arbete att skriva effektiva arbetsflöden.  

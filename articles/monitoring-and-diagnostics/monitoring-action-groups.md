@@ -1,24 +1,24 @@
 ---
-title: "Skapa och hantera åtgärdsgrupper i Azure portal | Microsoft Docs"
-description: "Lär dig hur du skapar och hanterar åtgärdsgrupper i Azure-portalen."
+title: Skapa och hantera åtgärdsgrupper i Azure portal | Microsoft Docs
+description: Lär dig hur du skapar och hanterar åtgärdsgrupper i Azure-portalen.
 author: dkamstra
 manager: chrad
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 03/12/2018
 ms.author: dukek
-ms.openlocfilehash: 772b9c2b9532bd2cc37ad89db92545297eecd903
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a7f8697b7a92de1c19ceb65fadbcd7e4186e83f7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure-portalen
 ## <a name="overview"></a>Översikt ##
@@ -29,7 +29,7 @@ Du kan konfigurera en lista med åtgärder med åtgärdsgrupper. Dessa grupper k
 En grupp kan ha upp till 10 för varje åtgärdstyp av. Varje åtgärd består av följande egenskaper:
 
 * **Namnet**: en unik identifierare inom åtgärdsgruppen.  
-* **Åtgärdstyp**: skicka ett SMS, skicka ett e-postmeddelande, anropa en webhook, skicka data till ett ITSM verktyg, anropa en Azure-program eller kör en Automation-runbook.
+* **Åtgärdstyp**: skicka ett vanligt telefonsamtal eller SMS, skicka ett e-postmeddelande, anropa en webhook, skicka data till ett ITSM verktyg, anropa en Azure-app eller kör en Automation-runbook.
 * **Information om**: motsvarande phone nummer, e-postadress, webhook URI eller ITSM anslutningsinformation.
 
 Information om hur du använder Azure Resource Manager-mallar för att konfigurera åtgärdsgrupper finns [åtgärd grupp Resource Manager-mallar](monitoring-create-action-group-with-resource-manager-template.md).
@@ -56,7 +56,7 @@ Information om hur du använder Azure Resource Manager-mallar för att konfigure
 
     a. **Namnet**: Ange en unik identifierare för den här åtgärden.
 
-    b. **Åtgärdstyp**: Välj Azure-e-post/SMS-appen, Webhook, ITSM eller Automation-Runbook.
+    b. **Åtgärdstyp**: Välj e-post/SMS/Push/röst Webhook, ITSM eller Automation-Runbook.
 
     c. **Information om**: baserat på typen av Ange telefonnummer, e-postadress, webhook URI, Azure-app, ITSM anslutning eller Automation-runbook. Ange dessutom för ITSM åtgärd **arbetsobjekt** och andra fält ITSM-verktyget kräver.
 

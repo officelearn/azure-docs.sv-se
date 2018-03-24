@@ -1,11 +1,11 @@
 ---
-title: "Live med lokala kodare som skapar dataströmmar i multibithastighet - Azure strömmen | Microsoft Docs"
-description: "Det här avsnittet beskriver hur du ställer in en kanal som tar emot en direktsänd dataström med multibithastighet från en lokala kodare. Dataströmmen kan sedan levereras till klienten uppspelning program via en eller flera strömningsslutpunkter, med någon av följande protokoll för anpassningsbar strömning: HLS, Smooth Streaming STRECK."
+title: Live med lokala kodare som skapar dataströmmar i multibithastighet - Azure strömmen | Microsoft Docs
+description: 'Det här avsnittet beskriver hur du ställer in en kanal som tar emot en direktsänd dataström med multibithastighet från en lokala kodare. Dataströmmen kan sedan levereras till klienten uppspelning program via en eller flera strömningsslutpunkter, med någon av följande protokoll för anpassningsbar strömning: HLS, Smooth Streaming STRECK.'
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services
 ms.workload: media
@@ -14,13 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: fae123d2cc594bb741fb1cdb0da62bef05a2a8c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Direktsänd strömning med lokala kodare som skapar dataströmmar i multibithastighet
+
+> [!NOTE]
+> Startar den 12 maj 2018 live-kanaler kommer inte längre stöd för RTP/MPEG-2-transportström infogningsprotokollet. Migrera från RTP/MPEG-2 till RTMP eller fragmenterad MP4 (Smooth Streaming) infognings-protokoll.
+
 ## <a name="overview"></a>Översikt
 I Azure Media Services en *kanal* representerar en pipeline för bearbetning av live-streaming innehåll. En kanal som tar emot live indata i ett av två sätt:
 

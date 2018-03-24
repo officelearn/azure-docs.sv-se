@@ -1,23 +1,23 @@
 ---
-title: "Så här schemalägger du Azure SSIS-integrering runtime | Microsoft Docs"
-description: "Den här artikeln beskriver hur du schemalägger starta och stoppa en körning för Azure SSIS-integrering med Azure Automation och Data Factory."
+title: Så här schemalägger du Azure SSIS-integrering runtime | Microsoft Docs
+description: Den här artikeln beskriver hur du schemalägger starta och stoppa en körning för Azure SSIS-integrering med Azure Automation och Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 5a9d1ba4d72bc6d4b297695c478438079d34c6e7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: cc9ab244c784cab608a75092b542dea0a6f69f22
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Så här schemalägger du starta och stoppa en integration Azure SSIS-körning 
 Kör en Azure SSIS (SQL Server Integration Services) integration körning har (IR) en avgift som associeras med den. Du vill därför IR endast körs när du behöver köra SSIS-paket i Azure och stoppa den när du inte behöver den. Du kan använda Data Factory Användargränssnittet eller PowerShell för Azure att [manuellt starta eller stoppa ett Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)). Den här artikeln beskriver hur du schemalägger starta och stoppa en Azure SSIS-integrering körning (IR) med hjälp av Azure Automation och Azure Data Factory. Här följer de övergripande stegen som beskrivs i den här artikeln:
@@ -340,7 +340,7 @@ När du skapar och testar pipeline, skapa en schema-utlösare och associera med 
 4. Anslut den **lagrade proceduren** aktiviteten till senast **Web** aktivitet.
 
     ![Fullständig pipeline](./media/how-to-schedule-azure-ssis-integration-runtime/full-pipeline.png)
-5. Verifiera inställningarna för pipeline genom att klicka på **verifiera** i verktygsfältet. Stäng den **Pipeline verifieringsrapport** genom att klicka på  **>>**  knappen. 
+5. Verifiera inställningarna för pipeline genom att klicka på **verifiera** i verktygsfältet. Stäng den **Pipeline verifieringsrapport** genom att klicka på **>>** knappen. 
 
     ![Verifiera pipeline](./media/how-to-schedule-azure-ssis-integration-runtime/validate-pipeline.png)
 

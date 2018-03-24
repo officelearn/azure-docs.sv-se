@@ -1,11 +1,11 @@
 ---
-title: "Hur du använder en Användartilldelad hanterade tjänstidentiteten för att skaffa en åtkomst-token på en virtuell dator."
-description: "Stegvisa åtkomst anvisningar och exempel för att använda en Användartilldelad MSI från en Azure VM för att skaffa en OAuth-token."
+title: Hur du använder en Användartilldelad hanterade tjänstidentiteten för att skaffa en åtkomst-token på en virtuell dator.
+description: Stegvisa åtkomst anvisningar och exempel för att använda en Användartilldelad MSI från en Azure VM för att skaffa en OAuth-token.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6c6422bc2b13c0c40e48dabf0470c821b13e7851
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Skaffa en åtkomst-token för en virtuell dator Användartilldelad hanteras Service identitet (MSI)
 
@@ -42,7 +42,9 @@ Ett klientprogram kan begära en MSI [endast app-åtkomst-token](~/articles/acti
 | [Hämta en token med CURL](#get-a-token-using-curl) | Exempel på användning av MSI REST-slutpunkt från en Bash/CURL-klient |
 | [Hantera token upphör att gälla](#handling-token-expiration) | Riktlinjer för att hantera åtkomsttoken har upphört att gälla |
 | [Felhantering](#error-handling) | Riktlinjer för hantering av HTTP-fel som returneras från slutpunkten för MSI-token |
+| [Begränsning vägledning](#throttling-guidance) | Riktlinjer för hantering av begränsning av MSI token slutpunkten |
 | [Resurs-ID för Azure-tjänster](#resource-ids-for-azure-services) | Var du kan hämta resurs-ID för stöds Azure-tjänster |
+
 
 ## <a name="get-a-token-using-http"></a>Hämta en token med HTTP 
 
@@ -155,7 +157,7 @@ Det här avsnittet beskrivs möjliga felsvar. En ”200 OK” status är ett lyc
 
 | Statuskod | Fel | Felbeskrivning | Lösning |
 | ----------- | ----- | ----------------- | -------- |
-| 400 Felaktig förfrågan | invalid_resource | AADSTS50001: Programmet heter  *\<URI\>*  hittades inte i klient med namnet  *\<klient-ID\>*. Detta kan inträffa om programmet inte har installerats av administratör för klienten eller godkänt för av alla användare i klienten. Du har kanske skickar din begäran om autentisering fel klienten. \ | (Endast Linux) |
+| 400 Felaktig förfrågan | invalid_resource | AADSTS50001: Programmet heter *\<URI\>* hittades inte i klient med namnet  *\<klient-ID\>*. Detta kan inträffa om programmet inte har installerats av administratör för klienten eller godkänt för av alla användare i klienten. Du har kanske skickar din begäran om autentisering fel klienten. \ | (Endast Linux) |
 | 400 Felaktig förfrågan | bad_request_102 | Metadata som krävs huvud har inte angetts | Antingen den `Metadata` begäran huvudfältet saknas från begäran, eller är felaktigt formaterad. Värdet måste anges som `true`, alla med gemener. Se ”exempelbegäran” i den [hämta en token som använder HTTP](#get-a-token-using-http) avsnittet ett exempel.|
 | 401 obehörig | unknown_source | Okänd källa  *\<URI\>* | Kontrollera att din HTTP GET-begäran URI är korrekt formaterad. Den `scheme:host/resource-path` del måste anges som `http://169.254.169.254/metadata/identity/oath2/token` eller `http://localhost:50342/oauth2/token`. Se ”exempelbegäran” i den [hämta en token som använder HTTP](#get-a-token-using-http) avsnittet ett exempel.|
 |           | invalid_request | Begäran saknar en obligatorisk parameter, innehåller ett ogiltigt parametervärde, innehåller en parameter mer än en gång eller på annat sätt är felaktig. |  |
@@ -164,6 +166,16 @@ Det här avsnittet beskrivs möjliga felsvar. En ”200 OK” status är ett lyc
 |           | unsupported_response_type | Auktorisering servern stöder inte att erhålla en åtkomst-token med den här metoden. |  |
 |           | invalid_scope | Det begärda omfånget är ogiltigt, okänt eller felaktigt format. |  |
 | 500 Internt serverfel | okänt | Det gick inte att hämta token från Active directory. Mer information finns i loggarna i  *\<filsökväg\>* | Kontrollera att MSI har aktiverats på den virtuella datorn. Se [konfigurera en virtuell dator hanteras Service identitet (MSI) med hjälp av Azure portal](msi-qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfiguration.<br><br>Kontrollera också att din HTTP GET URI-begäran har formaterats korrekt, särskilt resursen URI som angetts i frågesträngen. Finns i ”exempelbegäran” i den [hämta en token som använder HTTP](#get-a-token-using-http) avsnittet exempelvis eller [Azure-tjänster som stöder Azure AD-autentisering](msi-overview.md#azure-services-that-support-azure-ad-authentication) en lista över tjänster och deras respektive resurs-ID.
+
+## <a name="throttling-guidance"></a>Begränsning vägledning 
+
+Bandbreddsbegränsning begränsningar gäller för antalet anrop till MSI IMDS slutpunkten. När bandbreddsbegränsning tröskelvärdet överskrids begränsar MSI IMDS slutpunkten eventuella ytterligare begäranden när begränsningen tillämpas. Under denna tid MSI IMDS slutpunkten returneras HTTP-statuskoden 429 (”för många begäranden”), och begäranden att misslyckas. 
+
+Vi rekommenderar följande strategin för nytt försök: 
+
+| **Återförsöksstrategi** | **Inställningar** | **Värden** | **Hur det fungerar** |
+| --- | --- | --- | --- |
+|ExponentialBackoff |Antal återförsök<br />Min. backoff<br />Max. backoff<br />Deltabackoff<br />Första snabba återförsöket |5<br />0 sek.<br />60 sek.<br />2 sek.<br />false |Försök 1 – 0 sek. fördröjning<br />Försök 2 – ~2 sek. fördröjning<br />Försök 3 – ~6 sek. fördröjning<br />Försök 4 – ~14 sek. fördröjning<br />Försök 5 – ~30 sek. fördröjning |
 
 ## <a name="resource-ids-for-azure-services"></a>Resurs-ID för Azure-tjänster
 

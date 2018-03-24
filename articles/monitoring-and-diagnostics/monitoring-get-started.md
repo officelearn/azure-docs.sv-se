@@ -1,9 +1,9 @@
 ---
-title: "Kom igång med Azure-Monitor | Microsoft Docs"
-description: "Kom igång med Azure Monitor och få insyn i dina resursers användning och vidta åtgärder som är baserade på data."
+title: Kom igång med Azure-Monitor | Microsoft Docs
+description: Kom igång med Azure Monitor och få insyn i dina resursers användning och vidta åtgärder som är baserade på data.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 9c352c67aa0e9392c9e9d68822abeb27344bd8b7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 69ec5392f034ffe94315c17366a9242d86c69d6d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>Kom igång med Azure Monitor
-Azure Monitor är plattformstjänst som tillhandahåller en enda källa för övervakning av Azure-resurser. Med Azure Monitor kan du visualisera, fråga, vidarebefordra, aktivera och vidta åtgärder för mått och loggar från resurser i Azure.  Du kan arbeta med data med med hjälp av Azure portal [PowerShell-Cmdlets för övervakaren](insights-powershell-samples.md), [plattformsoberoende CLI](insights-cli-samples.md), eller [Azure övervakaren REST API: er](https://msdn.microsoft.com/library/dn931943.aspx). I den här artikeln går vi igenom några av de viktigaste komponenterna i Azure Monitor, med portalen för demonstration.
+Azure Monitor är plattformstjänst som tillhandahåller en enda källa för övervakning av Azure-resurser. Med Azure-Monitor kan du visualisera, fråga, vidarebefordra, arkivera och annars utför en åtgärd på mått och loggar som kommer från resurser i Azure. Du kan arbeta med data med med hjälp av Azure portal [PowerShell-Cmdlets för övervakaren](insights-powershell-samples.md), [plattformsoberoende CLI](insights-cli-samples.md), eller [Azure övervakaren REST API: er](https://msdn.microsoft.com/library/dn931943.aspx). I den här artikeln går vi igenom några av de viktigaste komponenterna i Azure Monitor, med portalen för demonstration.
 
 ## <a name="walkthrough"></a>Genomgång
 1. I portalen, går du till **alla tjänster** och Sök efter den **övervakaren** alternativet. Klicka på stjärnikonen för att lägga till det här alternativet i favoritlistan så att det alltid är lättillgängligt från det vänstra navigeringsfältet.
@@ -39,7 +39,7 @@ Azure Monitor är plattformstjänst som tillhandahåller en enda källa för öv
     I [**aktivitetsloggen**](monitoring-overview-activity-logs.md) beskrivs alla åtgärder som utförts på resurser i din prenumeration. Med aktivitetsloggen kan du bestämma ”vad, vem och när” för att skapa, uppdatera eller ta bort resurser i din prenumeration. Aktivitetsloggen anger exempelvis när en webbapp har stoppats och vem som stoppade den. Händelser i aktivitetsloggen finns lagrade i plattformen och kan frågas i 90 dagar.
 
     Du kan skapa och spara frågor för vanliga filter och fästa de viktigaste frågorna till en instrumentpanel i portalen så att du alltid vet om det har inträffat några händelser som uppfyller dina kriterier.
-4. Filtrera vyn till en viss resursgrupp under den senaste veckan, och klicka sedan på knappen **Spara**.
+4. Filtrera vyn till en viss resursgrupp under den senaste veckan, och klicka sedan på knappen **Spara**. Namnge din fråga. 
 
     ![Spara aktivitetsloggfråga](./media/monitoring-get-started/monitor-act-log-save.png)
 5. Klicka nu på knappen **Fäst**.

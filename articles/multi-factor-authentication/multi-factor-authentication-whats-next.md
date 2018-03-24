@@ -1,8 +1,8 @@
 ---
 title: Konfigurera Azure Multi-Factor Authentication | Microsoft Docs
-description: "Den här artikeln beskriver hur du konfigurerar Azure Multi-Factor Authentication-inställningar för rapporter, bedrägerivarningar, enstaka förbikopplingar, anpassade röstmeddelanden cachelagring tillförlitliga IP-adresser och applösenord."
+description: Den här artikeln beskriver hur du konfigurerar Azure Multi-Factor Authentication-inställningar för rapporter, bedrägerivarningar, enstaka förbikopplingar, anpassade röstmeddelanden cachelagring tillförlitliga IP-adresser och applösenord.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 4421b995e69e115fbb6c7379af79aaef537aed0d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera Azure Multi-Factor Authentication-inställningar
 
-Den här artikeln hjälper dig att hantera Azure Multi-Factor Authentication är igång. Den omfattar olika avsnitt som hjälper dig att få ut mesta möjliga av Azure Multi-Factor Authentication. Alla funktioner är inte tillgängliga i varje [versionen av Azure Multi-Factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need).
+Den här artikeln hjälper dig att hantera Azure Multi-Factor Authentication är igång. Den omfattar olika avsnitt som hjälper dig att få ut mesta möjliga av Azure Multi-Factor Authentication. Alla funktioner är inte tillgängliga i varje [versionen av Azure Multi-Factor Authentication](multi-factor-authentication-get-started.md#what-features-do-i-need).
 
 | Funktion | Beskrivning | 
 |:--- |:--- |
@@ -73,7 +73,7 @@ Konfigurera den _bedrägerivarning_ funktion så att användarna kan rapportera 
 ### <a name="configuration-options"></a>Konfigurationsalternativ
 
 - **Blockera användare när bedrägeri rapporteras**: om en användare rapporterar bedrägeri, sitt konto blockeras i 90 dagar eller tills en administratör avblockeras sitt konto. En administratör kan granska inloggningar med hjälp av rapporten inloggning och vidta lämpliga åtgärder för att förhindra framtida bedrägeri. En administratör kan sedan [avblockera](#unblock-a-user) användarens konto.
-- **Kod för att rapportera bedrägeri under inledande hälsning**: när användaren tar emot ett telefonsamtal för att utföra tvåstegsverifiering, de normalt trycker  **#**  bekräfta sina inloggning. Att rapportera bedrägeri användaren anger en kod innan du trycker på  **#** . Den här koden är **0** som standard, men du kan anpassa den.
+- **Kod för att rapportera bedrägeri under inledande hälsning**: när användaren tar emot ett telefonsamtal för att utföra tvåstegsverifiering, de normalt trycker **#** bekräfta sina inloggning. Att rapportera bedrägeri användaren anger en kod innan du trycker på **#**. Den här koden är **0** som standard, men du kan anpassa den.
 
   >[!NOTE]
   >Standard-rösthälsning från Microsoft Instruera användarna att trycka på **0#** att skicka en bedrägeriavisering om. Om du vill använda en kod än **0**, registrera och överför din egen anpassade rösthälsning med lämpliga instruktioner för dina användare.

@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Lägga till AD FS som en SAML-identitetsprovider anpassade principer"
+title: 'Azure Active Directory B2C: Lägga till AD FS som en SAML-identitetsprovider anpassade principer'
 description: En artikel om hur du konfigurerar AD FS 2016 med SAML-protokoll och anpassade principer
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: 22b360aec8878925ebe8d2c67c76d275a42ca7a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: af102bbc3bc7608fe641db19f4af8c760907a564
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Lägga till AD FS som en SAML-identitetsprovider anpassade principer
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 12/11/2017
 
 Den här artikeln visar hur du aktiverar inloggning för användare från AD FS-konto med [anpassade principer](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md) artikel.
 
@@ -63,7 +60,7 @@ Medlemskap i **administratörer**, eller motsvarande på den lokala datorn kräv
 7.  På den **konfigurera URL** väljer den **aktivera stöd för protokollet SAML 2.0 WebSSO** kryssrutan. Under **URL för förlitande part SAML 2.0 SSO**skriver Security Assertion Markup Language (SAML) tjänsten slutpunkts-URL för den här förlitande parten och klickar sedan på **nästa**.  För den **URL för förlitande part SAML 2.0 SSO**, klistra in den `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}`. Ersätt {klient} med namnet för din klient (till exempel contosob2c.onmicrosoft.com) och Ersätt {principen} med tillägg-principnamn (till exempel B2C_1A_TrustFrameworkExtensions).
     > [!IMPORTANT]
     >Principnamnet är den som signup_or_signin princip ärver från, i det här fallet är det: `B2C_1A_TrustFrameworkExtensions`.
-    >URL: en kan till exempel vara: https://login.microsoftonline.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
+    >URL: en kan till exempel vara: https://login.microsoftonline.com/te/ **contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
 
     ![Förlitande part SAML 2.0 SSO-tjänstens URL](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-6.png)
 8. På den **konfigurera identifierare** , ange samma Webbadress som i föregående steg, klickar du på **Lägg till** lägger till dem i listan och klicka sedan på **nästa**.
@@ -163,10 +160,10 @@ Nu har identitetsleverantören ställts in.  Det är dock inte tillgänglig i al
 4.  Klistra in hela innehållet i `<UserJournesy>` nod som du kopierade som underordnad till den `<UserJourneys>` element.
 
 ### <a name="display-the-button"></a>Visa knappen
-Den `<ClaimsProviderSelections>` elementet definierar en lista över alternativ för val av anspråk providern och deras inbördes ordning.  `<ClaimsProviderSelection>`elementet är detsamma som knappen identity-providern på en sign-upp/inloggningssidan. Om du lägger till en `<ClaimsProviderSelection>` element för AD FS-konto, en ny knapp visas när en användare de hamnar på sidan. Lägg till det här elementet:
+Den `<ClaimsProviderSelections>` elementet definierar en lista över alternativ för val av anspråk providern och deras inbördes ordning.  `<ClaimsProviderSelection>` elementet är detsamma som knappen identity-providern på en sign-upp/inloggningssidan. Om du lägger till en `<ClaimsProviderSelection>` element för AD FS-konto, en ny knapp visas när en användare de hamnar på sidan. Lägg till det här elementet:
 
 1.  Hitta de `<UserJourney>` nod som innehåller `Id="SignUpOrSignIn"` i transporten användare som du kopierade.
-2.  Leta upp den `<OrchestrationStep>` nod som innehåller`Order="1"`
+2.  Leta upp den `<OrchestrationStep>` nod som innehåller `Order="1"`
 3.  Lägg till följande XML-kodstycke under `<ClaimsProviderSelections>` nod:
 
 ```xml
@@ -206,7 +203,7 @@ Du kanske vill lägga till identitetsleverantören ADFS kontot också till dina 
 ### <a name="display-the-button"></a>Visa knappen
 1.  Öppna filen för tillägg av principen (till exempel TrustFrameworkExtensions.xml).
 2.  Hitta de `<UserJourney>` nod som innehåller `Id="ProfileEdit"` i transporten användare som du kopierade.
-3.  Leta upp den `<OrchestrationStep>` nod som innehåller`Order="1"`
+3.  Leta upp den `<OrchestrationStep>` nod som innehåller `Order="1"`
 4.  Lägg till följande XML-kodstycke under `<ClaimsProviderSelections>` nod:
 
 ```xml

@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory villkorlig åtkomst | Microsoft Docs"
-description: "Lär dig hur villkorlig åtkomst i Azure Active Directory kan hjälpa dig att hantera åtkomstkontroll från en central plats."
+title: Azure Active Directory villkorlig åtkomst | Microsoft Docs
+description: Lär dig hur villkorlig åtkomst i Azure Active Directory kan hjälpa dig att hantera åtkomstkontroll från en central plats.
 services: active-directory
-keywords: "villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst"
-documentationcenter: 
+keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 7e4a65d81a7dade9ae63a24657d15a97a3a588b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 74a87065416b397b4eebbcaa54c769711176708d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Villkorlig åtkomst i Azure Active Directory
 
@@ -49,7 +49,7 @@ Följande är några vanliga problem för åtkomst som villkorlig åtkomst kan h
 
 - **[Nätverksplats](active-directory-conditional-access-locations.md)**: Azure AD kan nås från var som helst. Vad händer om en åtkomstförsök utförs från en nätverksplats som inte kontrolleras av IT-avdelningen? Med hjälp av en kombination av användarnamn och lösenord kan vara bra tillräckligt som bevis på identitet för åtkomst försöker dina resurser från företagsnätverket. Vad händer om du behovet av en starkare identitetsbevis åtkomst försöker som initieras från andra oväntat länder eller regioner världen? Vad händer om du även vill blockera åtkomst försöker från vissa platser?  
 
-- **[Enhetshantering](active-directory-conditional-access-conditions.md#device-platforms)**: I Azure AD användare har åtkomst till molnappar från en mängd olika enheter, inklusive mobila och personliga enheter. Vad händer om du behöver den åtkomstförsök bara ska utföras användare som använder enheter som hanteras av IT-avdelningen? Vad händer om du vill även blockera vissa typer av formuläret Enhetsåtkomst i molnappar i din miljö? 
+- **[Enhetshantering](active-directory-conditional-access-conditions.md#device-platforms)**: I Azure AD användare har åtkomst till molnappar från en mängd olika enheter, inklusive mobila och personliga enheter. Vad händer om du kräver att åtkomstförsök bör bara utföras med hjälp av enheter som hanteras av IT-avdelningen? Vad händer om du vill även blockera vissa typer av enheter från åtkomst till molnappar i din miljö? 
 
 - **[Klientprogrammet](active-directory-conditional-access-conditions.md#client-apps)**: idag, du kan komma åt många molnappar med hjälp av olika apptyper som till exempel webbaserade appar, mobila appar eller skrivbordsprogram. Vad händer om en åtkomstförsök utförs med hjälp av en typ av klient app som orsakar kända problem? Vad händer om du behöver en enhet som hanteras av IT-avdelningen för vissa typer av appen? 
 

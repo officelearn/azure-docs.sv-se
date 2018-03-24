@@ -1,11 +1,11 @@
 ---
-title: "Kopiera data från en FTP-server med hjälp av Azure Data Factory | Microsoft Docs"
-description: "Lär dig mer om att kopiera data från en FTP-server till ett datalager för mottagare som stöds med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen."
+title: Kopiera data från en FTP-server med hjälp av Azure Data Factory | Microsoft Docs
+description: Lär dig mer om att kopiera data från en FTP-server till ett datalager för mottagare som stöds med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 69b8581399d2bf7e0f2196f7bbad4e6522979239
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 132242e7f1eb516d53b6a31a24095094eed58668
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Kopiera data från FTP-servern med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -120,7 +120,7 @@ Ange egenskapen type för datauppsättningen till för att kopiera data från FT
 | typ | Egenskapen type för dataset måste anges till: **filresursen** |Ja |
 | folderPath | Sökvägen till mappen. Till exempel: mappen/undermappen / |Ja |
 | fileName | Ange namnet på filen i den **folderPath** om du vill kopiera från en viss fil. Om du inte anger något värde för den här egenskapen dataset pekar på alla filer i mappen som källa. |Nej |
-| fileFilter | Ange ett filter som används för att välja en delmängd av filer i mappsökvägen i stället för alla filer. Gäller bara när filnamn har inte angetts. <br/><br/>Tillåtna jokertecken är: `*` (flera tecken) och `?` (valfritt tecken).<br/>-Exempel 1:`"fileFilter": "*.log"`<br/>-Exempel 2:`"fileFilter": 2017-09-??.txt"` |Nej |
+| fileFilter | Ange ett filter som används för att välja en delmängd av filer i mappsökvägen i stället för alla filer. Gäller bara när filnamn har inte angetts. <br/><br/>Tillåtna jokertecken är: `*` (flera tecken) och `?` (valfritt tecken).<br/>-Exempel 1: `"fileFilter": "*.log"`<br/>-Exempel 2: `"fileFilter": 2017-09-??.txt"` |Nej |
 | format | Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner.<br/><br/>Om du vill tolka filer med ett specifikt format format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binära kopiera scenario) |
 | Komprimering | Ange typ och kompression för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |
 | useBinaryTransfer | Ange om du vill använda binär överföringsläget. Värdena är true för en binär (standard) och FALSKT för ASCII. |Nej |

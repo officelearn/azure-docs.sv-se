@@ -1,12 +1,12 @@
 ---
-title: "Övervaka och felsöka Azure Site Recovery | Microsoft Docs"
-description: "Övervaka och felsöka problem med Azure Site Recovery replikering och åtgärder med hjälp av portalen"
+title: Övervaka och felsöka Azure Site Recovery | Microsoft Docs
+description: Övervaka och felsöka problem med Azure Site Recovery replikering och åtgärder med hjälp av portalen
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: bsiva
 manager: abhemraj
 editor: raynew
-ms.assetid: 
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: bsiva
-ms.openlocfilehash: bb453f6c16440fae8a12cc1c4890a473ce541f45
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b357a3231dac6dfa54cb02fe921baf771c0880f4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>Övervakning och felsökning av Azure Site Recovery
 
@@ -145,7 +145,7 @@ Vyn infrastruktur omfattar kontexten för en enskild dator för replikering är 
 **S.** Infrastruktur visa funktionen är endast tillgänglig för virtuella datorer som replikerar till Azure. Funktionen är för närvarande inte tillgängligt för virtuella datorer som replikerar mellan lokala platser.
 
 **F.** Varför visas antalet virtuella datorer i valvet infrastruktur vyn skiljer sig från det totala antalet i ringen för replikerade objekt?</br>
-**S.** Vyn valvet infrastruktur omfattas av replikeringarna. Endast virtuella datorer som ingår i det markerade replikering scenariot tas med i antalet virtuella datorer visas i vyn infrastruktur. För det valda scenariot ingår också endast virtuella datorer som är konfigurerade för att replikera till Azure i antal virtuella datorer visas i vyn infrastruktur (för till exempel: redundansväxling av virtuella datorer, virtuella datorer som replikeras tillbaka till en lokal plats ingår inte i vyn infrastruktur.)
+**S.** Vyn valvet infrastruktur omfattas av replikeringarna. Endast virtuella datorer som ingår i det markerade replikering scenariot tas med i antalet virtuella datorer visas i vyn infrastruktur. För det valda scenariot ingår också endast virtuella datorer som är konfigurerade för att replikera till Azure i antal virtuella datorer visas i vyn infrastruktur (för exempel: misslyckades för virtuella datorer, virtuella datorer som replikeras tillbaka på en lokal plats ingår inte i vyn infrastruktur.)
 
 **F.** Varför är antalet replikerade objekt visas i essentials lådan på översiktssidan skiljer sig från det totala antalet replikerade objekt visas i ringdiagram på instrumentpanelen?</br>
 **S.** Endast de virtuella datorerna för vilka den inledande replikeringen har slutförts tas med i antalet som visas i lådan essentials. Den totala replikerade objekt ringen innehåller alla virtuella datorer i valvet inklusive servrar för vilka den inledande replikeringen pågår.

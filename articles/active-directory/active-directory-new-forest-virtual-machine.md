@@ -1,12 +1,12 @@
 ---
-title: "Installera Active Directory-skog på Azure-nätverk | Microsoft Docs"
-description: "En självstudiekurs som beskriver hur du skapar en ny Active Directory-skog på en virtuell dator (VM) på Azure-nätverk."
+title: Installera Active Directory-skog på Azure-nätverk | Microsoft Docs
+description: En självstudiekurs som beskriver hur du skapar en ny Active Directory-skog på en virtuell dator (VM) på Azure-nätverk.
 services: active-directory, virtual-network
 keywords: 'Active directory virtuell dator, installera active directory-skog, azure active directory-videor '
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
-tags: 
+tags: ''
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: c98082b7d839490410132f19fdbf653c61d7165c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0b98b475f49847589398ca743fc3ac3b8bcbb381
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Installera en ny Active Directory-skog på Azure-nätverk
 Den här artikeln visar hur du skapar en ny Windows Server Active Directory-miljö på en virtuell dator (VM) på en [virtuella Azure-nätverket](../virtual-network/virtual-networks-overview.md). I det här fallet är virtuella Azure-nätverket inte ansluten till ett lokalt nätverk.
@@ -31,7 +31,7 @@ Du kan också vara intresserad av dessa relaterade artiklar:
 * Konceptuell vägledning om hur du installerar Active Directory Domain Services (AD DS) på Azure-nätverk finns i [riktlinjer för att distribuera Windows Server Active Directory på Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## <a name="scenario-diagram"></a>Scenario-Diagram
-I det här scenariot externa användare som behöver åtkomst till program som körs på servrar som ingår i domänen. Virtuella datorer som kör programmet och de virtuella datorer som kör domänkontrollanter installeras installerat i sina egna Molntjänsten i Azure-nätverk. De ingår också i en tillgänglighetsuppsättning för förbättrad feltolerans.
+I det här scenariot externa användare som behöver åtkomst till program som körs på servrar som ingår i domänen. Virtuella datorer som kör programmet och de virtuella datorer som kör domänkontrollanter är installerade i sina egna Molntjänsten i Azure-nätverk. De ingår också i en tillgänglighetsuppsättning för förbättrad feltolerans.
 
 ![Active Directory-skog på en virtuell dator på Azure Virtual Network ][1] 7
 

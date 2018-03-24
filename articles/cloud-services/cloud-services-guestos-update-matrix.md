@@ -1,24 +1,24 @@
 ---
-title: "Lär dig mer om de senaste versionerna av Azure gäst-OS | Microsoft Docs"
-description: "Den senaste versionen nyheterna och SDK-kompatibilitet för Azure Cloud Services Gästoperativsystem."
+title: Lär dig mer om de senaste versionerna av Azure gäst-OS | Microsoft Docs
+description: Den senaste versionen nyheterna och SDK-kompatibilitet för Azure Cloud Services Gästoperativsystem.
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/27/2018
+ms.date: 3/19/2018
 ms.author: raiye
-ms.openlocfilehash: dac0efdb1ce76ad6f143479782f164d3304aeaf3
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 0456bf8d8cdd84078d12c3fc0f48d16b0370cddd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst-OS-versioner och SDK-kompatibilitetsmatris
 Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem släpper för molntjänster. Den här informationen hjälper dig att planera din uppgradering innan ett gäst-OS är inaktiverad. Om du konfigurerar dina roller att använda *automatisk* Gästoperativsystem uppdateras enligt beskrivningen i [Azure gäst-OS uppdateringsinställningar][Azure Guest OS Update Settings], inte är det viktigt att du läser den här sidan.
@@ -42,6 +42,9 @@ Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem slä
 Osäker på om vilka Gästoperativsystem är eller hur gäst-OS släpper arbete? Läs [detta](#how-it-works) avsnitt.
 
 ## <a name="news-updates"></a>Nyheter
+###### <a name="march-19-2018"></a>**19 mars 2018**
+Gästoperativsystem februari har publicerat.
+
 ###### <a name="january-29-2018"></a>**Den 29 januari 2018**
 Gästoperativsystem januari har släppts för OS-familjer 2 (WA-GUEST-OS-2.70_201801-01) & 3 (WA-GÄST-OS-3.57_201801-01)
 
@@ -72,12 +75,6 @@ Juli Gästoperativsystem har publicerat.
 ###### <a name="july-19-2017"></a>**19 juli 2017**
 Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 augusti.
 
-###### <a name="july-7-2017"></a>**7 juli 2017**
-Juni Gästoperativsystem har publicerat.
-
-###### <a name="june-16-2017"></a>**16 juni 2017**
-Juni gäst-OS-distributionen startar 16 juni och har en planerade version av 11 juli.
-
 
 ## <a name="releases"></a>Versioner
 ## <a name="family-5-releases"></a>Familj 5 versioner
@@ -93,8 +90,9 @@ Juni gäst-OS-distributionen startar 16 juni och har en planerade version av 11 
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.16_201802-01 |12 mars 2018 |Bokför 5.18 |TBD |
 | WA-GUEST-OS-5.15_201801-01 |4 januari 2018 |Bokför 5,17 |TBD |
-| WA-GUEST-OS-5.14_201712-01 |4 januari 2018 |Post 5.16 |TBD |
+|~~WA-GUEST-OS-5.14_201712-01~~ |4 januari 2018 |12 mars 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 december 2017 |4 januari 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
@@ -118,8 +116,9 @@ Juni gäst-OS-distributionen startar 16 juni och har en planerade version av 11 
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.51_201802-01 |12 mars 2018 |Post 4,53 |TBD |
 | WA-GUEST-OS-4.50_201801-01 |4 januari 2018 |Bokför 4.52 |TBD |
-| WA-GUEST-OS-4.49_201712-01 |4 januari 2018 |Bokför 4.51 |TBD |
+|~~WA-GUEST-OS-4.49_201712-01~~ |4 januari 2018 |12 mars 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 december 2017 |4 januari 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
@@ -143,8 +142,9 @@ Juni gäst-OS-distributionen startar 16 juni och har en planerade version av 11 
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.58_201802-01 |19 mars 2018 |Post 3,60 |TBD |
 | WA-GUEST-OS-3.57_201801-01 |Den 29 januari 2018 |Bokför 3.59 |TBD |
-| WA-GUEST-OS-3.56_201712-01 |4 januari 2018 |Post 3,58 |TBD |
+|~~WA-GUEST-OS-3.56_201712-01~~ |4 januari 2018 |19 mars 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 december 2017 |Den 29 januari 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
@@ -168,8 +168,9 @@ Juni gäst-OS-distributionen startar 16 juni och har en planerade version av 11 
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.71_201802-01 |12 mars 2018 |Bokför 2,73 |TBD |
 | WA-GUEST-OS-2.70_201801-01 |Den 29 januari 2018 |Bokför 2.72 |TBD |
-| WA-GUEST-OS-2.69_201712-01 |4 januari 2018 |Post 2.71 |TBD |
+|~~WA-GUEST-OS-2.69_201712-01~~ |4 januari 2018 |12 mars 2018 |TBD |
 |~~WA-GUEST-OS-2.68_201711-01~~ |14 december 2017 |Den 29 januari 2018 |TBD |
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |

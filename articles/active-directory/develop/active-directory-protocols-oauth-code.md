@@ -1,24 +1,24 @@
 ---
-title: "Förstå OAuth 2.0-auktoriseringskodflödet i Azure AD"
-description: "Den här artikeln beskriver hur du använder HTTP-meddelanden för att bevilja åtkomst till webbprogram och webb-API: er i din klient med hjälp av Azure Active Directory och OAuth 2.0."
+title: Förstå OAuth 2.0-auktoriseringskodflödet i Azure AD
+description: 'Den här artikeln beskriver hur du använder HTTP-meddelanden för att bevilja åtkomst till webbprogram och webb-API: er i din klient med hjälp av Azure Active Directory och OAuth 2.0.'
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
-ms.author: dastrock
+ms.date: 03/19/2018
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 77df32710f17f8c5b749c39af9f6c64f0cc0b376
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 87a24ae9b620557e3106eb7f51b3f002cd76dd03
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Auktorisera åtkomst till webbprogram med OAuth 2.0 och Azure Active Directory
 Azure Active Directory (AD Azure) använder OAuth 2.0 för att du ska bevilja åtkomst till webbprogram och webb-API: er i Azure AD-klienten. Den här guiden är språkoberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda någon av våra bibliotek med öppen källkod.
@@ -50,15 +50,17 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
 | klient |Krävs |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet.  Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
-| client_id |Krävs |Program-Id som tilldelats din app när du har registrerat med Azure AD. Du hittar du i Azure Portal. Klicka på **Active Directory**, klickar du på katalogen, Välj programmet och klicka på **konfigurera** |
+| client_id |Krävs |Program-ID som tilldelats din app när du har registrerat med Azure AD. Du hittar du i Azure Portal. Klicka på **Active Directory**, klickar du på katalogen, Välj programmet och klicka på **konfigurera** |
 | response_type |Krävs |Måste innehålla `code` för auktoriseringskodflödet. |
 | redirect_uri |Rekommenderas |Redirect_uri för din app, där autentisering svar kan skickas och tas emot av din app.  Den måste matcha en redirect_uris som du har registrerat i portalen, förutom det måste vara url-kodade.  Du bör använda standardvärdet för interna & mobila appar, `urn:ietf:wg:oauth:2.0:oob`. |
-| response_mode |Rekommenderas |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app.  Kan vara `query` eller `form_post`. |
+| response_mode |Rekommenderas |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app.  Det kan vara `query` eller `form_post`. |
 | state |Rekommenderas |Ett värde som ingår i denna begäran returneras också token svar. Ett slumpmässigt genererat unikt värde används vanligtvis för [förhindra attacker med förfalskning av begäran](http://tools.ietf.org/html/rfc6749#section-10.12).  Tillståndet används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
 | resurs |valfri |App-ID URI för webb-API (skyddad resurs). Om du vill hitta URI: N för App-ID för webb-API, i Azure-portalen klickar du på **Active Directory**, klicka på katalogen programmet och klicka sedan på **konfigurera**. |
 | kommandotolk |valfri |Ange vilken typ av användarinteraktion som krävs.<p> Giltiga värden är: <p> *inloggningen*: användaren ska uppmanas att autentiseras. <p> *medgivande*: tillstånd har beviljats, men behöver uppdateras. Användaren ska uppmanas att godkänna. <p> *admin_consent*: en administratör ska ange tillstånd för alla användare i organisationen |
 | login_hint |valfri |Kan användas för att fylla före adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sitt lösenord i förväg.  Ofta appar använder den här parametern under omautentisering som redan har extraherats användarnamnet från en tidigare inloggning med hjälp av den `preferred_username` anspråk. |
 | domain_hint |valfri |Ger en ledtråd om klient eller domän som användaren ska använda för att logga in. Värdet för domain_hint är en registrerad domän för klienten. Om klienten är federerat till en lokal katalog, omdirigerar AAD till den angivna innehavare federationsservern. |
+| code_challenge_method | valfri    | Den metod som används för att koda den `code_verifier` för den `code_challenge` parameter. Kan vara något av `plain` eller `S256`.  Om inte, `code_challenge` antas vara klartext om `code_challenge` ingår.  Azure AAD version 2.0 stöder både `plain` och `S256`. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge        | valfri    | Används för att säkra auktorisering kod ger via bevis nyckel för koden Exchange (PKCE) från en ursprunglig-klient. Krävs om `code_challenge_method` ingår.  Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]
 > Om användaren är en del av en organisation, kan en administratör i organisationen medgivande eller neka för användarens räkning eller Tillåt användaren att godkänna. Användaren har möjlighet att godkänna endast när administratören tillåter det.
@@ -104,7 +106,7 @@ I följande tabell beskrivs de olika felkoder som kan returneras i den `error` p
 | --- | --- | --- |
 | invalid_request |Protokollfel, till exempel en obligatorisk parameter saknas. |Åtgärda och skicka begäran igen. Detta är ett utvecklingsfel och vanligtvis fångas upp under inledande testningen. |
 | unauthorized_client |Klientprogrammet är inte tillåtet att begära en auktoriseringskod. |Detta inträffar vanligtvis när klientprogrammet inte har registrerats i Azure AD eller har inte lagts till användarens Azure AD-klient. Programmet kan be användare med instruktioner för att installera programmet och lägga till den i Azure AD. |
-| Om ACCESS_DENIED |Resursägare nekad medgivande |Klientprogrammet kan meddela användaren om att det går inte att fortsätta om användaren godkänner. |
+| access_denied |Resursägare nekad medgivande |Klientprogrammet kan meddela användaren om att det går inte att fortsätta om användaren godkänner. |
 | unsupported_response_type |Auktorisering servern stöder inte svarstypen i begäran. |Åtgärda och skicka begäran igen. Detta är ett utvecklingsfel och vanligtvis fångas upp under inledande testningen. |
 | server_error |Ett oväntat fel uppstod på servern. |Gör om begäran. Dessa fel kan bero på tillfälliga förhållanden. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt fel. |
 | temporarily_unavailable |Servern är tillfälligt för upptagen för att hantera begäran. |Gör om begäran. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt tillstånd. |
@@ -138,6 +140,7 @@ grant_type=authorization_code
 | redirect_uri |Krävs |Samma `redirect_uri` värde som användes för att hämta den `authorization_code`. |
 | client_secret |krävs för webbprogram |Den hemlighet som programmet som du skapade i portalen för registrering av app för din app.  Den bör inte användas i en intern app eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter.  Det krävs för webbappar och webb-API: er som har möjlighet att lagra den `client_secret` på ett säkert sätt på serversidan. |
 | resurs |krävs om anges i tillståndet begäran, annars valfritt |App-ID URI för webb-API (skyddad resurs). |
+| code_verifier | valfri              | Samma code_verifier som användes för att hämta authorization_code.  Krävs om PKCE användes i tillståndet kod bevilja begäran.  Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
 
 Om du vill hitta URI: N för App-ID i Azure-hanteringsportalen, klickar du på **Active Directory**, klickar du på katalogen, klicka på programmet och klicka sedan på **konfigurera**.
 
@@ -205,17 +208,17 @@ Den `id_token` parametern innehåller följande anspråkstyper:
 | Anspråkstyp | Beskrivning |
 | --- | --- |
 | eller |Målgruppen för token. När token som utfärdas till ett klientprogram, den är den `client_id` av klienten. |
-| EXP |Förfallotid. Den tid när token upphör att gälla. För token ska vara giltigt måste aktuellt datum och tid vara mindre än eller lika med den `exp` värde. Tiden representeras som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills giltigheten token upphör att gälla.|
+| exp |Förfallotid. Den tid när token upphör att gälla. För token ska vara giltigt måste aktuellt datum och tid vara mindre än eller lika med den `exp` värde. Tiden representeras som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills giltigheten token upphör att gälla.|
 | family_name |Användarens senaste eller efternamn. Programmet kan visa det här värdet. |
 | given_name |Användarens förnamn. Programmet kan visa det här värdet. |
 | IAT |Utfärdad för närvarande. Tiden då JWT utfärdades. Tiden representeras som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills token har utfärdats. |
 | ISS |Identifierar token utfärdaren |
-| NBF |Inte före tiden. Den tid när token träder i kraft. Aktuellt datum och tid måste vara större än eller lika med värdet Nbf för token ska vara giltigt. Tiden representeras som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills token har utfärdats. |
-| OID |Objektidentifierare (ID) för användarobjektet i Azure AD. |
+| nbf |Inte före tiden. Den tid när token träder i kraft. Aktuellt datum och tid måste vara större än eller lika med värdet Nbf för token ska vara giltigt. Tiden representeras som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills token har utfärdats. |
+| oid |Objektidentifierare (ID) för användarobjektet i Azure AD. |
 | Sub |Token ämne identifierare. Det här är en permanent och oåterkallelig identifierare för användaren som beskrivs i token. Använd det här värdet i cachelagring logik. |
 | tid |Klient identifierare (ID) för Azure AD-klienten som utfärdade token. |
 | unique_name |En unik identifierare för som kan visas för användaren. Detta är vanligtvis ett UPN (user Principal name). |
-| UPN |Användarens huvudnamn för användaren. |
+| upn |Användarens huvudnamn för användaren. |
 | ver |Version. Versionen av JWT-token, vanligtvis 1.0. |
 
 ### <a name="error-response"></a>Felsvar
@@ -290,10 +293,10 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### <a name="error-parameters"></a>Felparametrar
 | Parameter | Beskrivning |
 | --- | --- |
-| authorization_uri |URI: N (fysiska slutpunkt) för auktorisering-servern. Det här värdet används också som en sökning för att hämta mer information om servern från en slutpunkt för identifiering. <p><p> Klienten måste verifiera att tillståndet servern är betrodd. När resursen skyddas av Azure AD, räcker det att verifiera att URL som börjar med https://login.microsoftonline.com eller ett annat värdnamn som har stöd för Azure AD. En klient-specifik resurs ska alltid returnera ett klient-specifika tillstånd URI. |
+| authorization_uri |URI: N (fysiska slutpunkt) för auktorisering-servern. Det här värdet används också som en sökning för att hämta mer information om servern från en slutpunkt för identifiering. <p><p> Klienten måste verifiera att tillståndet servern är betrodd. När resursen skyddas av Azure AD, det räcker att verifiera att URL som börjar med https://login.microsoftonline.com eller ett annat värdnamn som har stöd för Azure AD. En klient-specifik resurs ska alltid returnera ett klient-specifika tillstånd URI. |
 | fel |Ett felvärde kod som definierats i avsnittet 5.2 av den [OAuth 2.0 auktorisering Framework](http://tools.ietf.org/html/rfc6749). |
 | error_description |En mer detaljerad beskrivning av felet. Det här meddelandet är inte avsedd att vara slutanvändarens eget. |
-| resursid |Returnerar den unika identifieraren för resursen. Klientprogrammet kan använda den här identifieraren som värde för den `resource` parametern vid begäran om en token för resursen. <p><p> Det är viktigt att verifiera det här värdet klientprogrammet, annars skadliga service kanske kan orsaka en **höjning av privilegier** attack <p><p> Den rekommenderade strategin för att förhindra angrepp är att kontrollera att den `resource_id` matchar basen för web API-URL som ska användas. Om exempelvis https://service.contoso.com/data används den `resource_id` kan vara htttps://service.contoso.com/. Klientprogrammet måste avvisa en `resource_id` som inte börjar med en bas-URL Om det inte finns en tillförlitlig alternativa sätt att kontrollera id. |
+| resursid |Returnerar den unika identifieraren för resursen. Klientprogrammet kan använda den här identifieraren som värde för den `resource` parametern vid begäran om en token för resursen. <p><p> Det är viktigt att verifiera det här värdet klientprogrammet, annars skadliga service kanske kan orsaka en **höjning av privilegier** attack <p><p> Den rekommenderade strategin för att förhindra angrepp är att kontrollera att den `resource_id` matchar basen för web API-URL som ska användas. Till exempel om https://service.contoso.com/data används, den `resource_id` kan vara htttps://service.contoso.com/. Klientprogrammet måste avvisa en `resource_id` som inte börjar med en bas-URL Om det inte finns en tillförlitlig alternativa sätt att kontrollera id. |
 
 #### <a name="bearer-scheme-error-codes"></a>Felkoder för ägar-schema
 Specifikationen RFC 6750 definierar följande fel för resurser som använder WWW-Authenticate-huvud och ägar-schemat i svaret.

@@ -1,11 +1,11 @@
 ---
-title: "Gränser och -konfiguration – Azure Logic Apps | Microsoft Docs"
-description: "Tjänsten gränser och konfigurationsvärden för Azure Logic Apps"
+title: Gränser och -konfiguration – Azure Logic Apps | Microsoft Docs
+description: Tjänsten gränser och konfigurationsvärden för Azure Logic Apps
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 54a35607e107a09188373cc5f71bb3068b4c6bab
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 740a31f4b5e0ffe9fe2ae04d3dac51cf25ab3055
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps gränser och konfiguration
 
@@ -86,7 +86,7 @@ Här följer gränser för en enskild logik app-instansen:
 
 | Namn | Gräns | Anteckningar | 
 | ----- | ----- | ----- | 
-| Åtgärder körningar per 5 minuter | 100,000 | Om du vill öka gränsen för 300,000, kan du köra en logikapp i `High Througput` läge. Konfigurera hög genomströmning-läge under den `runtimeConfiguration` av arbetsflödet resurs, ange den `operationOptions` egenskapen `OptimizedForHighThroughput`. <p>**Obs**: hög genomströmning läge är en förhandsversion. Du kan också distribuera en arbetsbelastning över flera appar efter behov. | 
+| Åtgärder körningar per 5 minuter | 100,000 | Om du vill öka gränsen för 300,000, kan du köra en logikapp i `High Throughput` läge. Konfigurera hög genomströmning-läge under den `runtimeConfiguration` av arbetsflödet resurs, ange den `operationOptions` egenskapen `OptimizedForHighThroughput`. <p>**Obs**: hög genomströmning läge är en förhandsversion. Du kan också distribuera en arbetsbelastning över flera appar efter behov. | 
 | Åtgärder samtidiga utgående anrop | ~2,500 | Minska antalet samtidiga begäranden eller minska tidsåtgången efter behov. | 
 | Runtime-slutpunkten: samtidiga inkommande samtal |~1,000 | Minska antalet samtidiga begäranden eller minska tidsåtgången efter behov. | 
 | Runtime-slutpunkten: läsa anrop per 5 minuter  | 60,000 | Kan fördela belastningen över flera appar efter behov. | 

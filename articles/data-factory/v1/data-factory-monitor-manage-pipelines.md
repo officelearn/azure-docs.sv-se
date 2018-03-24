@@ -1,11 +1,10 @@
 ---
-title: "Övervaka och hantera pipelines med hjälp av Azure portal och PowerShell | Microsoft Docs"
-description: "Lär dig hur du använder Azure-portalen och Azure PowerShell för att övervaka och hantera Azure datafabriker och pipelines som du har skapat."
+title: Övervaka och hantera pipelines med hjälp av Azure portal och PowerShell | Microsoft Docs
+description: Lär dig hur du använder Azure-portalen och Azure PowerShell för att övervaka och hantera Azure datafabriker och pipelines som du har skapat.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b361ca67ebece9ba1ced1010835eb90586dd7359
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: f3fb7c0be6f69f15b5b761f0c36d983f008282e9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av Azure portal och PowerShell
 > [!div class="op_single_selector"]
@@ -624,7 +623,7 @@ Ersätt *subscriptionId*, *resourceGroupName*, och *dataFactoryName* i exemplet 
 * FailedRuns
 * SuccessfulRuns
 
-Distribuera aviseringen
+**Distribuera aviseringen**
 
 Använda Azure PowerShell-cmdlet för att distribuera aviseringen **ny AzureRmResourceGroupDeployment**som visas i följande exempel:
 

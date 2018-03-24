@@ -1,28 +1,25 @@
 ---
 title: 'Azure Active Directory B2C: Google + configuration | Microsoft Docs'
-description: "Ange registrering och inloggning för konsumenter med Google + konton i dina program som skyddas av Azure Active Directory B2C."
+description: Ange registrering och inloggning för konsumenter med Google + konton i dina program som skyddas av Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 4dcca66f-29e4-4b4d-8840-50baad736bd7
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: 93589352094fdd556811ba906ee27e7b8ac1d8b5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: db3044754e0c1316b49eda0600d41e3009c1ba16
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-google-accounts"></a>Azure Active Directory B2C: Ange registrering och inloggning för konsumenter med Google + konton
 ## <a name="create-a-google-application"></a>Skapa ett Google +-program
-Om du vill använda Google + som en identitetsleverantör i Azure Active Directory (AD Azure) B2C, måste du skapa ett Google +-program och ange rätt parametrar. Du behöver ett Google +-konto om du vill. Om du inte har något du kan hämta den på [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
+Om du vill använda Google + som en identitetsleverantör i Azure Active Directory (AD Azure) B2C, måste du skapa ett Google +-program och ange rätt parametrar. Du behöver ett Google +-konto om du vill. Om du inte har något du kan hämta den på [ https://accounts.google.com/SignUp ](https://accounts.google.com/SignUp).
 
 1. Gå till den [Google utvecklare konsolen](https://console.developers.google.com/) och logga in med Google + autentiseringsuppgifterna för ditt konto.
 2. Klicka på **skapa projekt**, ange en **projektnamn**, och klicka sedan på **skapa**.

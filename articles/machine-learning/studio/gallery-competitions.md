@@ -1,10 +1,11 @@
 ---
-title: "Azure AI-galleriet tävlingar | Microsoft Docs"
-description: "Identifiera tävlingar i Azure AI-galleriet."
+title: Azure AI-galleriet tävlingar | Microsoft Docs
+description: Identifiera tävlingar i Azure AI-galleriet.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: ef74f411-bce4-4b02-aa34-902fc8d7b519
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: 35f269f6d0dc55fd4a419ee1d7fe41b4f12ebb4c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d12da450fe929361b32ea607a09d3afbbd2639b9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-competitions-in-the-azure-ai-gallery"></a>Identifiera tävlingar i Azure AI-galleriet
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/03/2018
 Svar på vanliga frågor om tävlingar finns [Microsoft Cortana Intelligence tävlingar FAQ](competition-faq.md).
 
 ## <a name="discover"></a>Utforska
-Den  **[tävlingar](https://gallery.cortanaintelligence.com/competitions)**  sida ([aka.ms/CIComp](http://aka.ms/CIComp)) visar en lista över de mest populära tävlingarna.
+Den **[tävlingar](https://gallery.cortanaintelligence.com/competitions)** sida ([aka.ms/CIComp](http://aka.ms/CIComp)) visar en lista över de mest populära tävlingarna.
 
 ![Välj tävlingar från galleriet startsida](./media/gallery-competitions/select-competitions-in-gallery.png)
 
@@ -50,7 +50,7 @@ Om den är öppen, status på informationssidan är **Active**. Om du vill ange 
 
 Om konkurrensen har slutförts, visas en lista över vinnarna.
 
-**[GÅ TILL I GALLERIET >>](http://gallery.cortanaintelligence.com)**
+**[GÅ TILL I GALLERIET &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

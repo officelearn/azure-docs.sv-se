@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: Anpassade principer (landningssida) | Microsoft Docs'
 description: Utveckla konsumentinriktade program med Azure Active Directory B2C med anpassade principer
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: f2079f53-a637-4f2d-b3a0-61a9647ad433
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 5/06/2017
-ms.author: parakhj
-ms.openlocfilehash: 304500d2adc2d5093c3d053a1b982bac4da374bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: HT
+ms.author: davidmu
+ms.openlocfilehash: f3db8c80d6faef3af0909efb7306dd7aa0336ab0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies"></a>Azure Active Directory B2C: Registrera och logga in användare i dina program med anpassade principer
 Anpassade principer är konfigurationsfiler som definierar beteendet för din Azure AD B2C-klient. Identitetsutvecklare kan redigera dessa för att utföra ett nästan obegränsat antal uppgifter.

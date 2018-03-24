@@ -1,13 +1,13 @@
 ---
-title: "Azure Blob storage-bindningar för Azure Functions"
-description: "Förstå hur du använder Azure Blob storage-utlösare och bindningar i Azure Functions."
+title: Azure Blob storage-bindningar för Azure Functions
+description: Förstå hur du använder Azure Blob storage-utlösare och bindningar i Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure functions, funktioner, händelsebearbetning, dynamiska beräkning serverlösa arkitektur"
+editor: ''
+tags: ''
+keywords: Azure functions, funktioner, händelsebearbetning, dynamiska beräkning serverlösa arkitektur
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 221a049ae37cc6934d04e90b6b8035e2a020e811
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf2c4a12d1344ec17ce9688e1c7192f57104dc7b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -233,12 +233,12 @@ I C# och C#-skript, kan du använda följande parametertyper för utlösande blo
 * `string`
 * `Byte[]`
 * En POCO serialiserbara som JSON
-* `ICloudBlob` (kräver ”inout” bindning riktning i *function.json*)
-* `CloudBlockBlob` (kräver ”inout” bindning riktning i *function.json*)
-* `CloudPageBlob` (kräver ”inout” bindning riktning i *function.json*)
-* `CloudAppendBlob` (kräver ”inout” bindning riktning i *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Som anges är en del av dessa typer kräver en `inout` bindning riktning i *function.json*. Den här riktningen stöds inte av standardredigeraren i Azure-portalen så du måste använda redigeraren.
+<sup>1</sup> kräver ”inout” bindning `direction` i *function.json* eller `FileAccess.ReadWrite` i en C#-klassbiblioteket.
 
 Bindning till `string`, `Byte[]`, eller POCO rekommenderas endast om blobbstorleken är liten, som hela blob innehållet är inlästa i minnet. Vanligtvis är det bättre att använda en `Stream` eller `CloudBlockBlob` typen. Mer information finns i [samtidighet och minnesanvändning](#trigger---concurrency-and-memory-usage) senare i den här artikeln.
 
@@ -364,7 +364,7 @@ Finns i det språkspecifika:
 
 ### <a name="input---c-example"></a>Indata - C#-exempel
 
-Följande exempel är en [C#-funktionen](functions-dotnet-class-library.md) som använder en kö-utlösare och en inkommande blob-bindning. Kön messagge innehåller namnet på blob och funktionen loggar storleken på blobben.
+Följande exempel är en [C#-funktionen](functions-dotnet-class-library.md) som använder en kö-utlösare och en inkommande blob-bindning. Funktionen loggar storleken på blobben kömeddelandet innehåller namnet på blob.
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -374,7 +374,6 @@ public static void Run(
     TraceWriter log)
 {
     log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
-
 }
 ```        
 
@@ -534,12 +533,12 @@ I C# och C#-skript, kan du använda följande parametertyper för blob-indatabin
 * `Byte[]`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob` (kräver ”inout” bindning riktning i *function.json*)
-* `CloudBlockBlob` (kräver ”inout” bindning riktning i *function.json*)
-* `CloudPageBlob` (kräver ”inout” bindning riktning i *function.json*)
-* `CloudAppendBlob` (kräver ”inout” bindning riktning i *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Som anges är en del av dessa typer kräver en `inout` bindning riktning i *function.json*. Den här riktningen stöds inte av standardredigeraren i Azure-portalen så du måste använda redigeraren.
+<sup>1</sup> kräver ”inout” bindning `direction` i *function.json* eller `FileAccess.ReadWrite` i en C#-klassbiblioteket.
 
 Bindning till `string` eller `Byte[]` rekommenderas endast om blobbstorleken är liten, eftersom hela blobbinnehållet läses in i minnet. Vanligtvis är det bättre att använda en `Stream` eller `CloudBlockBlob` typen. Mer information finns i [samtidighet och minnesanvändning](#trigger---concurrency-and-memory-usage) tidigare i den här artikeln.
 
@@ -737,21 +736,23 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 ## <a name="output---usage"></a>Utdata - användning
 
-I C# och C#-skript kan du använda följande parametertyper för blob-utdatabindning:
+I C# och C#-skript kan binda du till följande typer att skriva BLOB:
 
 * `TextWriter`
 * `out string`
 * `out Byte[]`
 * `CloudBlobStream`
 * `Stream`
-* `CloudBlobContainer`
+* `CloudBlobContainer`<sup>1</sup>
 * `CloudBlobDirectory`
-* `ICloudBlob` (kräver ”inout” bindning riktning i *function.json*)
-* `CloudBlockBlob` (kräver ”inout” bindning riktning i *function.json*)
-* `CloudPageBlob` (kräver ”inout” bindning riktning i *function.json*)
-* `CloudAppendBlob` (kräver ”inout” bindning riktning i *function.json*)
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
 
-Som anges är en del av dessa typer kräver en `inout` bindning riktning i *function.json*. Den här riktningen stöds inte av standardredigeraren i Azure-portalen så du måste använda redigeraren.
+<sup>1</sup> kräver ”i” bindning `direction` i *function.json* eller `FileAccess.Read` i en C#-klassbiblioteket.
+
+<sup>2</sup> kräver ”inout” bindning `direction` i *function.json* eller `FileAccess.ReadWrite` i en C#-klassbiblioteket.
 
 I async-funktion, använder du det returnera värdet eller `IAsyncCollector` i stället för en `out` parameter.
 

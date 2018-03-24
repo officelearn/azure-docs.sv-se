@@ -1,11 +1,11 @@
 ---
-title: "Azure Cosmos DB: Komma igång med .NET Core självstudiekursen SQL API | Microsoft Docs"
-description: "En självstudiekurs som skapar en onlinedatabas och C#-konsolprogram har med Azure Cosmos DB SQL API .NET Core SDK."
+title: 'Azure Cosmos DB: Komma igång med .NET Core självstudiekursen SQL API | Microsoft Docs'
+description: En självstudiekurs som skapar en onlinedatabas och C#-konsolprogram har med Azure Cosmos DB SQL API .NET Core SDK.
 services: cosmos-db
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: arramac
 ms.custom: devcenter
-ms.openlocfilehash: 90b720c174ab5730237f27d5ebb253976a70b071
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 460b963f09384e246d914cd7c4aeca046da83dd3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: Komma igång med SQL-API och .NET Core
 > [!div class="op_single_selector"]
@@ -51,9 +51,6 @@ Den här kursen ingår:
 Har du inte tid? Oroa dig inte! Den kompletta lösningen finns på [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). En snabbguide finns i avsnittet [Hämta den kompletta lösningen](#GetSolution).
 
 Vill du skapa en Xamarin-iOS, Android eller formulär program med hjälp av SQL-API och SDK för .NET Core? Se [bygga mobila program med Xamarin och Azure Cosmos DB](mobile-apps-with-xamarin.md).
-
-> [!NOTE]
-> Azure Cosmos DB .NET Core SDK används i den här kursen är inte kompatibel med den universella Windowsplattformen (UWP) appar ännu. Om du vill prova en förhandsversion av .NET Core SDK som stöder UWP-appar skickar du ett e-postmeddelande till [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 Nu sätter vi igång!
 

@@ -1,6 +1,6 @@
 ---
-title: "Köra runbooks på Azure Automation Hybrid Runbook Worker"
-description: "Den här artikeln innehåller information om runbooks som körs på datorer i ditt lokala datacenter eller molnprovider med Hybrid Runbook Worker-rollen."
+title: Köra runbooks på Azure Automation Hybrid Runbook Worker
+description: Den här artikeln innehåller information om runbooks som körs på datorer i ditt lokala datacenter eller molnprovider med Hybrid Runbook Worker-rollen.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 6e1e6272009b4357162339643580f3d31dc6062e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4a334b63856a348838cbe61dfc0ab724f58100fb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks som körs på en Hybrid Runbook Worker 
 Det finns ingen skillnad i runbooks som körs i Azure Automation och de som körs på en Hybrid Runbook Worker-strukturen. Runbooks som du använder med varje troligen påtagligt skiljer sig dock eftersom runbooks inriktning på en Hybrid Runbook Worker vanligtvis hantera resurser på den lokala datorn sig själv eller mot resurser i den lokala miljön där den distribueras, medan runbooks i Azure Automation kan vanligtvis hantera resurser i Azure-molnet.

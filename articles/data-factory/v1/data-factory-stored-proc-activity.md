@@ -1,11 +1,10 @@
 ---
 title: SQLServer lagrade Proceduraktiviteten
-description: "Lär dig hur du kan använda lagrade Proceduraktiviteten för SQL Server för att anropa en lagrad procedur i en Azure SQL Database eller Azure SQL Data Warehouse från Data Factory-pipelinen."
+description: Lär dig hur du kan använda lagrade Proceduraktiviteten för SQL Server för att anropa en lagrad procedur i en Azure SQL Database eller Azure SQL Data Warehouse från Data Factory-pipelinen.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: f6da8c18c1ac8fbcea217f41c34d50a86b001b11
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 60df540d847a1e7422e87bc375220819dac4b25c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQLServer lagrade Proceduraktiviteten
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -87,7 +86,7 @@ Den här genomgången använder aktiviteten lagrad procedur i en pipeline för a
     ```
 
    > [!IMPORTANT]
-   > **Namnet** och **skiftläge** för parametern (DateTime i det här exemplet) måste matcha parameter som anges i pipeline/aktivitet JSON. I den lagrade proceduren definitionen, kontrollerar du att  **@**  används som ett prefix för parametern.
+   > **Namnet** och **skiftläge** för parametern (DateTime i det här exemplet) måste matcha parameter som anges i pipeline/aktivitet JSON. I den lagrade proceduren definitionen, kontrollerar du att **@** används som ett prefix för parametern.
 
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
 1. Logga in på [Azure-portalen](https://portal.azure.com/).

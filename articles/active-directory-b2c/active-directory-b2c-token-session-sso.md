@@ -1,24 +1,21 @@
 ---
-title: "Token, session och enkel inloggning-konfiguration – Azure AD B2C | Microsoft Docs"
+title: Token, session och enkel inloggning-konfiguration – Azure AD B2C | Microsoft Docs
 description: Token, session och enkel inloggning-konfiguration i Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: e78e6344-0089-49bf-8c7b-5f634326f58c
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: parakhj
-ms.openlocfilehash: 76feb172ce9b08d4feef9c86e74a592553a3c7f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 925313b6f2a00826f2ec8086457315c60f70b007
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: Token, session och konfiguration för enkel inloggning
 
@@ -32,7 +29,7 @@ Den här funktionen ger dig finmaskig kontroll på en [per princip bas](active-d
 För inbyggda principer, kan du använda den här funktionen i Azure AD B2C-katalogen på följande sätt:
 
 1. Följ dessa steg för att [gå till menyn B2C funktioner](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) på Azure-portalen.
-2. Klicka på **principer för registrering eller inloggning**. *Obs: Du kan använda den här funktionen på alla principtypen inte bara på **principer för registrering eller inloggning***.
+2. Klicka på **principer för registrering eller inloggning**. * Obs: Du kan använda den här funktionen på alla principtypen, inte bara på ** registrering eller inloggning principer ***.
 3. Öppna en princip genom att klicka på den. Klicka till exempel på **B2C_1_SiUpIn**.
 4. Klicka på **redigera** längst upp på menyn.
 5. Klicka på **Token, session och enkel inloggning config**.
@@ -67,7 +64,7 @@ Det här är några användningsområden som kan aktiveras med hjälp av egenska
     > 
     > 
 
-## <a name="token-compatibility-settings"></a>Token kompatibilitetsinställningar
+## <a name="token-compatibility-settings"></a>Inställningar för tokenkompatibilitet
 
 Vi har gjort ändringar på viktiga anspråk i säkerhetstoken som sänds av Azure AD B2C. Detta gjordes för att förbättra vår standardprotokoll support och för bättre samverkan med tredjeparts-identity-bibliotek. Om du vill behålla befintliga appar kan vi dock skapas om du vill att kunder kan anmäla sig vid behov följande egenskaper:
 
@@ -81,7 +78,7 @@ Vi har gjort ändringar på viktiga anspråk i säkerhetstoken som sänds av Azu
   * **tfp**: Detta är standardvärdet.
   * **ACR**: det finns bara för bakåtkompatibilitet och vi rekommenderar att du växla till `tfp` när du ska kunna.
 
-## <a name="session-behavior"></a>Sessionen fungerar
+## <a name="session-behavior"></a>Sessionsbeteende
 
 Azure AD B2C stöder den [autentiseringsprotokollet OpenID Connect](active-directory-b2c-reference-oidc.md) för att aktivera säker inloggning till webbprogram. Dessa är egenskaper som du kan använda för att hantera web-program körs:
 

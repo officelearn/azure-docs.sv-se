@@ -1,10 +1,11 @@
 ---
-title: "Steg 5: Distribuera webbtjänsten för Machine Learning | Microsoft Docs"
-description: "Steg 5 i utveckla en förutsägelselösning genomgång: distribuera en prediktivt experiment i Machine Learning Studio som en webbtjänst."
+title: 'Steg 5: Distribuera webbtjänsten för Machine Learning | Microsoft Docs'
+description: 'Steg 5 i utveckla en förutsägelselösning genomgång: distribuera en prediktivt experiment i Machine Learning Studio som en webbtjänst.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: ba8f1678d87159088c58cf0e05e0fe5a6579b358
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 416a6d1c151fae01a00d00282ab9118e7391fbb7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Genomgång steg 5: Distribuera Azure Machine Learning-webbtjänsten
 Det här är det femte steget i den här genomgången [utveckla en förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md)

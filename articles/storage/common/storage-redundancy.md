@@ -1,6 +1,6 @@
 ---
 title: Replikering i Azure Storage | Microsoft Docs
-description: "Data i ditt Microsoft Azure Storage-konto replikeras för hållbarhet och hög tillgänglighet. Replikeringsalternativ är lokalt redundant lagring (LRS), zonredundant lagring (ZRS), geo-redundant lagring (GRS) och geo-redundant lagring med läsbehörighet (RA-GRS)."
+description: Data i ditt Microsoft Azure Storage-konto replikeras för hållbarhet och hög tillgänglighet. Replikeringsalternativ är lokalt redundant lagring (LRS), zonredundant lagring (ZRS), geo-redundant lagring (GRS) och geo-redundant lagring med läsbehörighet (RA-GRS).
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 600b66af3b7da24c5a40d09d5cdf76f2d5be67ac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-storage-replication"></a>Azure Storage-replikering
 
@@ -30,7 +30,7 @@ När du skapar ett lagringskonto kan du välja något av följande replikeringsa
 * [Geo-redundant lagring (GRS)](#geo-redundant-storage)
 * [Geo-redundant lagring med läsbehörighet (RA-GRS)](#read-access-geo-redundant-storage)
 
-Geo-redundant lagring med läsbehörighet (RA-GRS) är standardalternativet när du skapar ett lagringskonto.
+Lokalt redundant lagring (LRS) är standardalternativet när du skapar ett lagringskonto.
 
 Följande tabell ger en snabb överblick över skillnaderna mellan LRS-, ZRS-, GRS- och RA-GRS. Följande avsnitt i den här artikeln adress varje typ av replikering i detalj.
 
@@ -54,9 +54,9 @@ Se [priser för Azure Storage](https://azure.microsoft.com/pricing/details/stora
 
 ### <a name="zrs-classic-accounts"></a>ZRS klassiska konton
 
-Den befintliga ZRS-kapaciteten är nu kallas ZRS klassiska. ZRS klassiska konton är bara tillgängligt för blockblobbar i allmänna V1 storage-konton. 
+Den befintliga ZRS-kapaciteten är nu kallas ZRS klassiska. ZRS Classic-konton är endast tillgängliga för blockblobar i allmänna V1-lagringskonton. 
 
-ZRS klassiska replikerar data asynkront i datacenter inom en till två regioner. En replik kanske inte tillgängligt om inte Microsoft initierar redundans för sekundärt. 
+ZRS Classic replikerar data asynkront i datacenter i en eller två regioner. En replik kanske inte är tillgänglig om inte Microsoft initierar sekundär redundans. 
 
 ZRS klassiska konton kan inte konverteras till eller från LRS-, GRS- eller RA-GRS. ZRS klassiska konton stöder inte heller mått eller loggning.   
 
@@ -148,5 +148,5 @@ När den första zonen skulle krascha, fortsätter ZRS att skriva repliker av da
 * [Prissättning för Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
 * [Om Azure storage-konton](../storage-create-storage-account.md)
 * [Skalbarhets- och prestandamål i Azure Storage](storage-scalability-targets.md)
-* [Microsoft Azure Storage redundans alternativ och läsbehörighet geo-redundant lagring](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+* [Microsoft Azure Storage redundans alternativ och läsbehörighet geo-redundant lagring ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 * [SOSP Paper - Azure Storage: En högtillgänglig lagring molntjänst med stark konsekvens](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

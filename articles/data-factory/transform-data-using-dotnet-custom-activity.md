@@ -1,11 +1,11 @@
 ---
-title: "Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)"
-description: "Lär dig hur du skapar anpassade aktiviteter och använda dem i ett Azure Data Factory-pipelinen."
+title: Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
+description: Lär dig hur du skapar anpassade aktiviteter och använda dem i ett Azure Data Factory-pipelinen.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 6aaeaaacdc9ee67ebbed3ea3090455dde2357c3d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 770187c16ed9d0eacfaf99e571ad048c6723a9cf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -298,7 +298,7 @@ Om du vill använda innehållet i stdout.txt i underordnade aktiviteter kan du f
   > - Activity.json, linkedServices.json och datasets.json lagras i mappen körning av aktiviteten Batch. I det här exemplet activity.json, linkedServices.json och datasets.json lagras i ”https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/” sökväg. Om det behövs, måste du rensa dem separat. 
   > - För länkade tjänster använder Self-Hosted integrering Runtime, känslig information som nycklar eller lösenord krypteras av Self-Hosted integrering körningen så autentiseringsuppgifter definierats förblir i kunden privata nätverksmiljö. Vissa känsliga fält kan vara saknas när refereras av din anpassade programkod på detta sätt. Använd SecureString i extendedProperties istället för att använda länkade tjänstreferensen om det behövs. 
 
-## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a>Jämför v2 anpassad aktivitet och version 1 (Custom) DotNet-aktivitet
+## <a name="compare-v2-v1"></a> Jämför v2 anpassad aktivitet och version 1 (Custom) DotNet-aktivitet
 
   I Azure Data Factory version 1 du implementerar en (anpassat) DotNet aktivitet genom att skapa en .net-klassbiblioteket projekt med en klass som implementerar det `Execute` metod för den `IDotNetActivity` gränssnitt. Länkade tjänster, datauppsättningar och utökade egenskaper i JSON-nyttolast för en aktivitet för DotNet (anpassat) skickas till metoden körning som strikt typkontroll objekt. Mer information om hur version 1 finns [(anpassat) DotNet i version 1](v1/data-factory-use-custom-activities.md). På grund av den här implementeringen version 1 DotNet aktivitet koden har som mål .net Framework 4.5.2. Version 1 DotNet aktivitet har även ska köras på Windows-baserade Azure Batch-Pool noder. 
 

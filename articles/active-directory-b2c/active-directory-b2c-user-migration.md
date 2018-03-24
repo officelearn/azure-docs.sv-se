@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Användaren migrering metoder"
-description: "Diskutera grundläggande och avancerade begrepp på användarmigrering använda Graph API och du kan också använda Azure AD B2C anpassade principer."
+title: 'Azure Active Directory B2C: Användaren migrering metoder'
+description: Diskutera grundläggande och avancerade begrepp på användarmigrering använda Graph API och du kan också använda Azure AD B2C anpassade principer.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/04/2017
-ms.author: yoelh
-ms.openlocfilehash: 25023359e3f1eeb241f6f0e70bcb179aa32974af
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: be80ea534be6de4fad2b072cf531669f45eda527
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Användarmigrering
 När du migrerar identitetsprovider till Azure Active Directory B2C (Azure AD B2C) du kan också behöva migrera användarkontot. Den här artikeln förklarar hur du migrerar befintliga användarkonton från alla identitetsleverantören till Azure AD B2C. Artikeln är inte avsett att vara normativ, men i stället beskrivs två av många olika sätt. Utvecklaren ansvarar för lämplighet varje metod.
@@ -51,7 +48,7 @@ För att kommunicera med Graph API måste måste du först ha ett tjänstkonto m
 
 Först registrera ditt program för migrering i Azure AD. Sedan skapar en tangent (programhemlighet) och ställa in programmet med skrivrättigheter.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj din Azure AD **B2C** klient genom att välja ditt konto överst höger i fönstret.
 
@@ -97,7 +94,7 @@ Nu har du ett program med behörighet att skapa, läsa och uppdatera användare 
 Läsa och skriva data katalogbehörigheter gör *inte* inkludera behörighet att ta bort användare. Om du vill ge ditt program möjlighet att ta bort användare (för att rensa din miljö), måste du utföra ytterligare ett steg, som omfattar att köra PowerShell för att ange behörighet för användaren kontoadministratör. Annars kan du gå vidare till nästa avsnitt.
 
 > [!IMPORTANT]
-> Du måste använda ett administratörskonto för B2C-klient som är *lokala* till B2C-klient. Namnsyntaxen konto är  *admin@contosob2c.onmicrosoft.com* .
+> Du måste använda ett administratörskonto för B2C-klient som är *lokala* till B2C-klient. Namnsyntaxen konto är *admin@contosob2c.onmicrosoft.com*.
 
 >[!NOTE]
 > Följande PowerShell-skript kräver [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
@@ -149,7 +146,7 @@ Redigera JSON-filen genom att öppna den `AADB2C.UserMigration.sln` Visual Studi
 
 Som du kan se innehåller filen en lista över enheter som användaren. Varje enhet som användaren har följande egenskaper:
 * e-post
-* Visningsnamn
+* displayName
 * Förnamn
 * Efternamn
 * lösenord (kan vara tom)

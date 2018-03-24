@@ -1,11 +1,11 @@
 ---
-title: "Övervaka Azure datafabriker visuellt | Microsoft Docs"
-description: "Lär dig att övervaka visuellt Azure datafabriker"
+title: Övervaka Azure datafabriker visuellt | Microsoft Docs
+description: Lär dig att övervaka visuellt Azure datafabriker
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: shlo
-ms.openlocfilehash: 60d7897caebcb138180d99358ec754c1b9594fe5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b67c384ffd04176653ad434d39361ee67dc1ffea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Visuellt övervaka Azure datafabriker
 Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du kan skapa datadrivna arbetsflöden i molnet för att samordna och automatisera dataförflyttning och dataomvandling. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan föra in data från olika datalager, bearbeta/omvandla data med beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning och publicera utgående data till datalager som Azure SQL Data Warehouse för BI-program (business intelligence) kan använda.
@@ -29,7 +29,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="monitor-data-factory-v2-pipelines"></a>Övervaka data factory v2 pipelines
 
-1. Starta **Microsoft Edge** eller **Google Chrome** webbläsare. Data Factory UI stöds för närvarande bara i Microsoft Edge och Google Chrome webbläsare.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 2. Logga in på den [Azure-portalen](https://portal.azure.com/).
 3. Navigera till bladet skapade data factory i Azure-portalen och klicka på panelen 'Övervaka och hantera'. Detta startar ADF v2 visual övervakningen.
 

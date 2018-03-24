@@ -1,32 +1,32 @@
 ---
-title: "Konfigurera portar för hög tillgänglighet för Azure belastningsutjämnare | Microsoft Docs"
-description: "Lär dig mer om hög tillgänglighet portar för intern trafik på alla portar för belastningsutjämning"
+title: Konfigurera portar för hög tillgänglighet för Azure belastningsutjämnare | Microsoft Docs
+description: Lär dig mer om hög tillgänglighet portar för intern trafik på alla portar för belastningsutjämning
 services: load-balancer
 documentationcenter: na
 author: rdhillon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2017
+ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 36bc3d7a35f41384706cbc7101457d00848639b2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Konfigurera portar för hög tillgänglighet för en intern belastningsutjämnare
 
 Den här artikeln innehåller ett exempel på distribution med hög tillgänglighet portar på en intern belastningsutjämnare. Mer information om konfigurationer som är specifika för nätverks-virtuella installationer (NVAs) finns på motsvarande provider-webbplatser.
 
 >[!NOTE]
-> Funktionen för hög tillgänglighet portar är för närvarande under förhandsgranskning. Under förhandsgranskningen inkluderas kanske funktionen inte samma grad av tillgänglighet och tillförlitlighet som viktiga funktioner som är i allmänhet tillgänglighet. Mer information finns i [de kompletterande villkoren för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Azures Load Balancer stöder två typer: grundläggande och standard. Den här artikeln beskrivs Standard belastningsutjämnaren. Läs mer om grundläggande belastningsutjämnaren [belastningsutjämnaren översikt](load-balancer-overview.md).
 
 Bilden visar exempel för distribution som beskrivs i den här artikeln följande konfiguration:
 

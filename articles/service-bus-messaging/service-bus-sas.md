@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Bus-åtkomstkontroll med signaturer för delad åtkomst | Microsoft Docs"
-description: "Översikt över åtkomstkontroll för Service Bus använder signaturer för delad åtkomst översikt, information om SAS-auktorisering med Azure Service Bus."
+title: Azure Service Bus-åtkomstkontroll med signaturer för delad åtkomst | Microsoft Docs
+description: Översikt över åtkomstkontroll för Service Bus använder signaturer för delad åtkomst översikt, information om SAS-auktorisering med Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: sethm;clemensv
-ms.openlocfilehash: f6bb77ad6df09e36419b24b24924dac7ecd79065
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 21e9e0a20842e365e40b71ac96888e7cd2056e52
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus åtkomstkontroll med signaturer för delad åtkomst
 
@@ -273,6 +273,7 @@ I följande tabell visas de behörigheter som krävs för olika åtgärder på S
 | Systemkön ett meddelande |Lyssna |En giltig kö-adress |
 | Hämta status som är kopplade till en message queue-session |Lyssna |En giltig kö-adress |
 | Ange tillstånd som associeras med en message queue-session |Lyssna |En giltig kö-adress |
+| Schemalägga ett meddelande för senare leverans. till exempel [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Lyssna | En giltig kö-adress
 | **Avsnittet** | | |
 | Skapa ett ämne |Hantera |Alla adresser i namnområdet |
 | Ta bort ett ämne |Hantera |En giltig avsnittet adress |

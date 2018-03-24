@@ -1,6 +1,6 @@
 ---
-title: "Runbook-körningen i Azure Automation"
-description: "Innehåller information om hur en runbook i Azure Automation bearbetas."
+title: Runbook-körningen i Azure Automation
+description: Innehåller information om hur en runbook i Azure Automation bearbetas.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: edfd317e7d3f7595f656c6c24ad65f3d87fea14c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 18059ef1e0efba4f030a6e99198f0b7c72b7daf3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körningen i Azure Automation
 När du startar en runbook i Azure Automation skapas ett jobb. Ett jobb är en enskild körningsinstans av en runbook. En Azure Automation arbetare ska köras varje jobb. När anställda delas av flera Azure-konton, är jobb från olika Automation-konton isolerade från varandra. Du kan inte har styra vilken Worker services-begäran för jobbet. En enstaka runbook kan ha flera jobb körs samtidigt.  Körningsmiljön för jobb från samma Automation-kontot kan återanvändas. När du visar listan över runbooks i Azure-portalen visar status för alla jobb som har startats för varje runbook. Du kan visa listan över jobb för varje runbook för att kunna spåra statusen för var och en. En beskrivning av olika jobbstatus [jobbstatus](#job-statuses).
@@ -46,7 +46,7 @@ I följande tabell beskrivs de olika statuslägen som är möjliga för ett jobb
 | Pausar |Systemet försöker att pausa arbetet på begäran av användaren. Runbooken måste nå nästa kontrollpunkt innan den kan pausas. Om den redan passerat den sista kontrollpunkten sedan är klar innan den kan pausas.  Gäller för [grafisk och PowerShell-arbetsflöde runbooks](automation-runbook-types.md) endast. |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Visa jobbstatus från Azure-portalen
-Du kan visa en sammanfattande status för alla runbook-jobb eller visa detaljer om en specifik runbook-jobb på Azure-portalen eller genom att konfigurera integrering med Microsoft Operations Management Suite (OMS) logganalys-arbetsytan att vidarebefordra runbook jobbstatus och jobb dataströmmar.  Mer information om hur du integrerar med OMS Log Analytics finns [vidarebefordra jobbstatus och jobbet strömmar från Automation till logganalys (OMS)](automation-manage-send-joblogs-log-analytics.md).  
+Du kan visa en sammanfattande status för alla runbook-jobb eller visa detaljer om en viss runbook-jobb i Azure-portalen eller genom att konfigurera integration med logganalys-arbetsytan att vidarebefordra dataströmmar för jobbet status och jobb för runbook.  Mer information om hur du integrerar med Log Analytics finns [vidarebefordra jobbstatus och jobbet strömmar från Automation till logganalys](automation-manage-send-joblogs-log-analytics.md).  
 
 ### <a name="automation-runbook-jobs-summary"></a>Automation runbook-jobb sammanfattning
 Till höger om det valda Automation-kontot, visas en sammanfattning av alla runbook-jobb för ett valt Automation-konto under **jobbet statistik** panelen.<br><br> ![Jobbet statistik panelen](./media/automation-runbook-execution/automation-account-job-status-summary.png).<br> Den här panelen visar antalet och grafisk representation av jobbstatus för alla jobb som körs.  

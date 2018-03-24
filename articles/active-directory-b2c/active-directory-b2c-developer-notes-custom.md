@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Kommentarer för utvecklare om hur du använder anpassade principer | Microsoft Docs"
-description: "Information för utvecklare på Konfigurera och underhålla Azure AD B2C med anpassade principer"
+title: 'Azure Active Directory B2C: Kommentarer för utvecklare om hur du använder anpassade principer | Microsoft Docs'
+description: Information för utvecklare på Konfigurera och underhålla Azure AD B2C med anpassade principer
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/13/2017
-ms.author: joroja
-ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: davidmu
+ms.openlocfilehash: cf76f158d7e87a2f2f902551fdc751b295b6915b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Viktig information för en förhandsversion av Azure Active Directory B2C anpassad princip
 Funktionsuppsättningen anpassad princip är nu tillgänglig för utvärdering under förhandsversion för alla Azure Active Directory B2C (Azure AD B2C) kunder. Den här funktionsuppsättningen är inriktad på avancerade identitet utvecklare som bygger mest komplexa identitetslösningar.  

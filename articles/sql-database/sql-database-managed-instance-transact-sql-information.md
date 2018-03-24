@@ -1,20 +1,20 @@
 ---
 title: Azure SQL Database hanteras instans T-SQL skillnader | Microsoft Docs
-description: "Den här artikeln beskrivs skillnaderna mellan hanterade Azure SQL Database-instans och SQL Server T-SQL."
+description: Den här artikeln beskrivs skillnaderna mellan hanterade Azure SQL Database-instans och SQL Server T-SQL.
 services: sql-database
 author: jovanpop-msft
 ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: bd8733590819faa3c4286c1940f0b9258842c930
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b633c3c4a4f476cb8e89afde8adeb94558643d4b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database hanteras instans T-SQL-skillnader från SQL Server 
 
@@ -393,7 +393,11 @@ Returnerar olika resultat följande variabler, uppgifter och vyer:
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Överstiger lagringsutrymme med små databasfiler
 
-Varje hanteras instans har upp till 35 TB reserverat lagringsutrymme och varje databasfil till en början är placerad på 128 GB lagring allokeringsenhet. Databaser med många små filer kan placeras på 128 GB-enheter som totalt överskrider gränsen för 35 TB. I det här fallet inte nya databaser skapas eller återställs, även om den totala storleken på alla databaser inte når storleksgränsen för instansen. Fel som returneras kanske i så fall inte är klar.
+Varje hanteras instans har till 35 TB lagringsutrymme som är reserverade för Azure Premium diskutrymme och varje databasfil placeras på en separat fysisk disk. Diskstorlekar kan vara 128 GB, 256 GB, 512 GB, 1 TB eller 4 TB. Debiteras inte outnyttjat utrymme på disken, men den totala summan av Azure Premium diskstorlekar får inte överskrida 35 TB. I vissa fall kan innebära en hanterad instanstjänsten som inte behöver 8 TB totalt 35 TB Azure gränsen lagringsstorleken på grund av interna fragmentering. 
+
+En hanterad instans kan till exempel ha en fil med 1,2 TB storlek som använder en disk med 4 TB och 248 filer med 1 GB varje som placeras på 248 diskar med 128 GB storlek. I det här exemplet är den totala lagringsstorleken 1 x 4 TB + 248 x 128 GB = 35 TB. Totalt antal reserverade instansstorleken för databaser är dock 1 x 1.2 TB + 248 x 1 GB = 1,4 TB. Detta visar att under vissa omständigheter på grund av en särskild fördelning av filer, en hanterad instans kan nå lagringsgränsen för Azure Premium-Disk där du inte kan förväntar. 
+
+Det är något fel på befintliga databaser och de kan växa utan problem om nya filer läggs inte, men nya databaser kan inte skapas eller återställas eftersom det inte finns tillräckligt med utrymme för nya diskenheter används, även om den totala storleken på alla databaser inte når t han instansen storleksgränsen. Fel som returneras är i så fall inte klar.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Felaktig konfiguration av SAS-nyckel under databasen återställa
 

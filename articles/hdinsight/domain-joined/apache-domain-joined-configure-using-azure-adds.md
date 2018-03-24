@@ -1,35 +1,33 @@
 ---
-title: "Konfigurera domänanslutna HDInsight-kluster med Azure Active Directory Domain Services - Azure | Microsoft Docs"
-description: "Lär dig hur du skapar och konfigurerar domänanslutna HDInsight-kluster med Azure Active Directory Domain Services"
+title: Konfigurera domänanslutna HDInsight-kluster med Azure Active Directory Domain Services - Azure | Microsoft Docs
+description: Lär dig hur du skapar och konfigurerar domänanslutna HDInsight-kluster med Azure Active Directory Domain Services
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: jhubbard
 editor: cgronlun
-tags: 
+tags: ''
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 03/20/2018
 ms.author: bhanupr
-ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ae7ccaf3d167176a1fc6015e84b0eb023da945d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Konfigurera domänanslutna HDInsight-kluster med Azure Active Directory Domain Services
 
 Domänanslutna kluster ger flera användare företaget säkerhetsfunktioner i HDInsight. Domänanslutna HDInsight-kluster är anslutna till active directory-domäner, så att användarna kan använda sina domänautentiseringsuppgifter att autentisera med kluster och köra jobb för stordata. 
 
-Det finns två sätt att konfigurera en domänkontrollant så att en domänansluten HDInsight-kluster kan ansluta till:
-
-- Azure Active Directory Domain Services (Azure AD DS)
-- Active Directory-domänkontrollant på Azure IaaS-VM
-
 I den här artikeln får du lära dig hur du konfigurerar en domänansluten HDInsight-kluster med Azure Active Directory Domain Services.
+
+> [!NOTE]
+> Active Directory på Azure IaaS-VM stöds inte längre.
 
 ## <a name="create-azure-adds"></a>Skapa Azure ADDS
 

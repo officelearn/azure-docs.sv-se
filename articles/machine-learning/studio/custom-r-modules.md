@@ -1,10 +1,11 @@
 ---
 title: Redigera anpassade R-moduler i Azure Machine Learning | Microsoft Docs
-description: "Snabbstart för att skapa anpassade R-moduler i Azure Machine Learning."
+description: Snabbstart för att skapa anpassade R-moduler i Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: cgronlun
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.author: bradsev;ankarlof;garye
-ms.openlocfilehash: 16442a30f130e7cc9b60d2d9ae9c86d7282471ff
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 945c238411dac8f2e64666935308ef3c1cb2f0ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Skapa anpassade R-moduler i Azure Machine Learning
 Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R-modul i Azure Machine Learning. Det förklarar anpassade R-moduler är och vilka filer som används för att definiera dessa. Det visar hur du skapar filer som definierar en modul och att registrera modulen för distribution i en Machine Learning-arbetsytan. Element och attribut som används i definitionen av den anpassa modulen sedan beskrivs i detalj. Hur du använder extra funktioner och filer och flera utflöden diskuteras också. 

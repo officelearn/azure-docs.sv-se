@@ -1,11 +1,10 @@
 ---
-title: "Data Management Gateway för Data Factory | Microsoft Docs"
-description: "Konfigurera en datagateway för att flytta data mellan lokalt och i molnet. Flytta dina data med hjälp av Data Management Gateway i Azure Data Factory."
+title: Data Management Gateway för Data Factory | Microsoft Docs
+description: Konfigurera en datagateway för att flytta data mellan lokalt och i molnet. Flytta dina data med hjälp av Data Management Gateway i Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1f83b3568cf5c6ad0650f2289263d855ab395772
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9ed679c555d9bb363ffb4d896e791dcbd1b90f8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
@@ -237,7 +236,7 @@ Förutom dessa punkter måste du också kontrollera att Microsoft Azure finns i 
 Om du stöter på fel liknande följande dem, är det troligen på grund av felaktig konfiguration av servern brandvägg eller proxyserver, vilket blockerar gateway ansluter till Data Factory för att autentisera sig själv. Se föregående avsnitt för att se till att brandväggen och proxyservern konfigureras korrekt.
 
 1. När du försöker registrera gatewayen som du får följande fel: ”Det gick inte att registrera gateway-nyckeln. Innan du försöker registrera gateway-nyckeln igen, bekräfta att data management gateway är i anslutet tillstånd och Data Management Gateway-värdtjänsten har startats ”.
-2. När du öppnar Configuration Manager kan se du status som ”frånkopplad” eller ”ansluter”. När du visar Windows-händelseloggar, under ”Loggboken” > ”program och tjänstloggar” > ”Data Management Gateway” felmeddelanden visas till exempel följande fel:`Unable to connect to the remote server`
+2. När du öppnar Configuration Manager kan se du status som ”frånkopplad” eller ”ansluter”. När du visar Windows-händelseloggar, under ”Loggboken” > ”program och tjänstloggar” > ”Data Management Gateway” felmeddelanden visas till exempel följande fel: `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
 ### <a name="open-port-8050-for-credential-encryption"></a>Öppna port 8050 för kryptering av autentiseringsuppgifter

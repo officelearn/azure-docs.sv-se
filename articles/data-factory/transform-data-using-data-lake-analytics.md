@@ -1,11 +1,11 @@
 ---
-title: "Transformera data med hjälp av U-SQL - skript i Azure | Microsoft Docs"
-description: "Lär dig hur du bearbetar eller Transformera data genom att köra U-SQL-skript på Azure Data Lake Analytics-tjänsten för beräkning."
+title: Transformera data med hjälp av U-SQL - skript i Azure | Microsoft Docs
+description: Lär dig hur du bearbetar eller Transformera data genom att köra U-SQL-skript på Azure Data Lake Analytics-tjänsten för beräkning.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: a2cf2ac8ac099a92e1534c72d80be6c9647bec59
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e55249ed187ad9fa74a39634bbb254c9b0b8b8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformera data genom att köra U-SQL-skript på Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Följande tabell innehåller beskrivningar för allmänna egenskaper som använd
 
 | Egenskap                 | Beskrivning                              | Krävs                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **typ**                 | Typegenskapen bör anges till: **AzureDataLakeAnalytics**. | Ja                                      |
+| **Typ**                 | Typegenskapen bör anges till: **AzureDataLakeAnalytics**. | Ja                                      |
 | **Kontonamn**          | Azure Data Lake Analytics-kontonamn.  | Ja                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI.           | Nej                                       |
 | **subscriptionId**       | Azure prenumerations-ID                    | Nej (om den inte anges data factory-prenumeration används). |
@@ -60,7 +60,7 @@ Använd service principal autentisering genom att ange följande egenskaper:
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Ange programmets klient-ID.     | Ja      |
 | **servicePrincipalKey** | Ange programmets nyckeln.           | Ja      |
-| **klient**              | Ange information om klient (domain name eller klient ID) under där programmet finns. Du kan hämta den hovrar muspekaren i det övre högra hörnet i Azure-portalen. | Ja      |
+| **Klient**              | Ange information om klient (domain name eller klient ID) under där programmet finns. Du kan hämta den hovrar muspekaren i det övre högra hörnet i Azure-portalen. | Ja      |
 
 **Exempel: Service principal autentisering**
 ```json
@@ -165,7 +165,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-I ovanstående exempel på skript, indata och utdata till skriptet har definierats i  **@in**  och  **@out**  parametrar. Värdena för  **@in**  och  **@out**  parametrar i U-SQL-skriptet skickas dynamiskt av Data Factory med hjälp av avsnittet-Parametrar'. 
+I ovanstående exempel på skript, indata och utdata till skriptet har definierats i **@in** och **@out** parametrar. Värdena för **@in** och **@out** parametrar i U-SQL-skriptet skickas dynamiskt av Data Factory med hjälp av avsnittet-Parametrar'. 
 
 Du kan ange andra egenskaper, till exempel degreeOfParallelism och prioritet samt i pipeline-definitionen för de jobb som körs på Azure Data Lake Analytics-tjänsten.
 

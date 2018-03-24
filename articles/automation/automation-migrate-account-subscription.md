@@ -1,24 +1,18 @@
 ---
-title: Migrera Automation-konto och resurser | Microsoft Docs
-description: "Den här artikeln beskriver hur du flyttar ett Automation-konto i Azure Automation och associerade resurser från en prenumeration till en annan."
+title: Migrera Automation-konto och resurser
+description: Den här artikeln beskriver hur du flyttar ett Automation-konto i Azure Automation och associerade resurser från en prenumeration till en annan.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 9c2db4a2-f324-48dc-8ce7-3343bf7230d5
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/29/2017
-ms.author: magoedte
-ms.openlocfilehash: 40567d1b1f450c499715682cf8c22f0c79c7d0c7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: carmonm
+ms.openlocfilehash: a9e76634a7392bca93ba06749741505e7b34cb41
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrate-automation-account-and-resources"></a>Migrera Automation-konto och resurser
 För Automation-konton och dess associerade resurser (det vill säga tillgångar, runbooks, moduler, etc.) som du har skapat i Azure-portalen och vill migrera från en resursgrupp till en annan eller från en prenumeration till en annan kan göra du det enkelt med den [flyttar resurser](../azure-resource-manager/resource-group-move-resources.md) funktion i Azure-portalen. Men innan du fortsätter med den här åtgärden, bör du först granska följande [checklistan innan du flyttar resurser](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources) och dessutom följande lista för automatisering.  

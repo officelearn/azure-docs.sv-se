@@ -1,11 +1,11 @@
 ---
-title: "Prestandarelaterade Metodtips för SQL Server i Azure | Microsoft Docs"
-description: "Innehåller metodtips för att optimera prestanda för SQL Server i virtuella Microsoft Azure-datorer."
+title: Prestandarelaterade Metodtips för SQL Server i Azure | Microsoft Docs
+description: Innehåller metodtips för att optimera prestanda för SQL Server i virtuella Microsoft Azure-datorer.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/29/2018
+ms.date: 03/20/2018
 ms.author: jroth
-ms.openlocfilehash: 3458e2f1a09b597c50c01d59eb6522b3fa521310
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2aa066caf6239f29038228c3c91607d913e70682
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Prestandametodtips för SQL Server på virtuella Azure-datorer
 
@@ -41,8 +41,8 @@ Följande är en snabb kontroll lista för optimala prestanda av SQL Server på 
 | --- | --- |
 | [VM-storlek](#vm-size-guidance) |[DS3](../sizes-memory.md) eller högre för SQL Enterprise edition.<br/><br/>[DS2](../sizes-memory.md) eller högre för SQL Standard och webb-utgåvor. |
 | [Storage](#storage-guidance) |Använd [Premiumlagring](../premium-storage.md). Standardlagring rekommenderas endast för utveckling och testning.<br/><br/>Behåll den [lagringskonto](../../../storage/common/storage-create-storage-account.md) och SQL Server-VM i samma region.<br/><br/>Inaktivera Azure [geo-redundant lagring](../../../storage/common/storage-redundancy.md) (geo-replikering) på lagringskontot. |
-| [Diskar](#disks-guidance) |Använd minst 2 [P30 diskar](../premium-storage.md#scalability-and-performance-targets) (1 för loggfiler, 1 för datafiler och TempDB).<br/><br/>Undvik att använda operativsystem eller tillfälliga diskar för databaslagring eller loggning.<br/><br/>Aktivera Läs cachelagring på diskarna som värd för filer och TempDB.<br/><br/>Aktivera inte cachelagring på diskarna som är värd för loggfilen.<br/><br/>Viktigt: Stoppa SQL Server-tjänsten när du ändrar inställningar för cachelagring för en virtuell dator i Azure-disken.<br/><br/>Stripe-flera Azure datadiskar för att få ökad i/o-genomströmning.<br/><br/>Formatera med dokumenterade allokering storlekar. |
-| [I/O](#io-guidance) |Aktivera komprimering för databas-sidan.<br/><br/>Aktivera omedelbara filen initiering av datafiler.<br/><br/>Begränsa eller inaktivera automatisk storleksökning på databasen.<br/><br/>Inaktivera autoshrink på databasen.<br/><br/>Flytta alla databaser till datadiskar, inklusive systemdatabaser.<br/><br/>Flytta SQL Server fel logg- och spårningsfiler kataloger till datadiskar.<br/><br/>Konfigurera säkerhetskopiering och databasen standardsökvägar.<br/><br/>Aktivera låsta sidor.<br/><br/>Tillämpa korrigeringar för SQL Server-prestanda. |
+| [Diskar](#disks-guidance) |Använd minst 2 [P30 diskar](../premium-storage.md#scalability-and-performance-targets) (1 för loggfiler, 1 för datafiler och TempDB).<br/><br/>Undvik att använda operativsystem eller tillfälliga diskar för databaslagring eller loggning.<br/><br/>Aktivera cachelagring för läsning på diskarna som värd för filer och datafiler i TempDB.<br/><br/>Aktivera inte cachelagring på diskarna som är värd för loggfilen.<br/><br/>Viktigt: Stoppa SQL Server-tjänsten när du ändrar inställningar för cachelagring för en virtuell dator i Azure-disken.<br/><br/>Stripe-flera Azure datadiskar för att få ökad i/o-genomströmning.<br/><br/>Formatera med dokumenterade allokering storlekar. |
+| [I/O](#io-guidance) |Aktivera komprimering för databas-sidan.<br/><br/>Aktivera omedelbara filen initiering av datafiler.<br/><br/>Begränsa autogrow på databasen.<br/><br/>Inaktivera autoshrink på databasen.<br/><br/>Flytta alla databaser till datadiskar, inklusive systemdatabaser.<br/><br/>Flytta SQL Server fel logg- och spårningsfiler kataloger till datadiskar.<br/><br/>Konfigurera säkerhetskopiering och databasen standardsökvägar.<br/><br/>Aktivera låsta sidor.<br/><br/>Tillämpa korrigeringar för SQL Server-prestanda. |
 | [Funktionsspecifika](#feature-specific-guidance) |Säkerhetskopiera direkt till blob storage. |
 
 Mer information om *hur* och *varför* för att göra dessa anpassningar kan granska information och riktlinjer som anges i följande avsnitt.
@@ -118,7 +118,7 @@ För virtuella datorer som har stöd för Premium-lagring (DS-serien, DSv2-serie
 
   * Om du inte använder Premium-lagring (scenarier för utveckling och testning), rekommenderar vi att lägga till det maximala antalet datadiskar som stöds av din [VM-storlek](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och använda Disk Striping.
 
-* **Princip för cachelagring av**: för Premium-lagring datadiskar aktivera cachelagring för läsning på datadiskar som värd för endast datafiler och TempDB. Om du inte använder Premium-lagring, aktivera inte någon cachelagring på eventuella hårddiskar. Anvisningar för hur du konfigurerar cachelagring på disk, finns i följande artiklar. Den klassiska distributionsmodellen (ASM) finns: [Set AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) och [Set AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager-distributionsmodellen finns: [Set AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) och [Set AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
+* **Princip för cachelagring av**: hårddiskar för Premium-lagring, aktivera cachelagring för läsning på datadiskar som är värd för datafiler och TempDB-datafiler. Om du inte använder Premium-lagring, aktivera inte någon cachelagring på eventuella hårddiskar. Anvisningar för hur du konfigurerar cachelagring på disk, finns i följande artiklar. Den klassiska distributionsmodellen (ASM) finns: [Set AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) och [Set AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager-distributionsmodellen finns: [Set AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) och [Set AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
 
   > [!WARNING]
   > Stoppa tjänsten SQL Server när du ändrar cache-inställningen för Virtuella Azure-diskar för att undvika risken för databasen är skadad.
@@ -171,4 +171,4 @@ Vissa distributioner kan uppnå ytterligare prestandafördelarna med mer avancer
 
 Metodtips för säkerhet, se [säkerhetsaspekter för SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 
-Granska andra artiklar för virtuell dator med SQL Server på [SQL Server på Azure virtuella datorer – översikt](virtual-machines-windows-sql-server-iaas-overview.md). Om du har frågor om SQL Server-datorer finns i [vanliga frågor och svar](virtual-machines-windows-sql-server-iaas-faq.md).
+Granska andra artiklar för virtuell dator med SQL Server på [SQL Server på Azure virtuella datorer – översikt](virtual-machines-windows-sql-server-iaas-overview.md). Om du har frågor om virtuella SQL Server-datorer kan du läsa [Vanliga frågor](virtual-machines-windows-sql-server-iaas-faq.md).

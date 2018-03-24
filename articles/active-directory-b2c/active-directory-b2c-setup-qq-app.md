@@ -1,24 +1,21 @@
 ---
 title: 'Azure Active Directory B2C: QT konfiguration | Microsoft Docs'
-description: "Ange registrering och inloggning för konsumenter med QT konton i dina program som skyddas av Azure Active Directory B2C."
+description: Ange registrering och inloggning för konsumenter med QT konton i dina program som skyddas av Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 18c2cf94-8004-4de1-81c2-e45be65ce12d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
-ms.author: parakhj
-ms.openlocfilehash: d4cc26d4f206baf9137feae0825b1f9fa5a7c8d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 12daed5f90e2b073a7520c061f18761baaed5c03
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-qq-accounts"></a>Azure Active Directory B2C: Ange registrering och inloggning för konsumenter med QT konton
 
@@ -28,12 +25,12 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="create-a-qq-application"></a>Skapa ett QT-program
 
-Om du vill använda QT som en identitetsleverantör i Azure Active Directory (AD Azure) B2C måste du skapa ett QT program och ange rätt parametrar. Du behöver en QT-konto för att göra detta. Om du inte har någon kan du skaffa ett på [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
+Om du vill använda QT som en identitetsleverantör i Azure Active Directory (AD Azure) B2C måste du skapa ett QT program och ange rätt parametrar. Du behöver en QT-konto för att göra detta. Om du inte har någon kan du skaffa ett på [ https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033 ](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
 
 ### <a name="register-for-the-qq-developer-program"></a>Registrera dig för utvecklarprogram QT
 
 1. Gå till den [QT developer-portalen](http://open.qq.com) och logga in med autentiseringsuppgifterna för ditt QT.
-2. När du har loggat in kan du gå till [http://open.qq.com/reg](http://open.qq.com/reg) att registrera dig som en utvecklare.
+2. När du har loggat in kan du gå till [ http://open.qq.com/reg ](http://open.qq.com/reg) att registrera dig som en utvecklare.
 3. Välj på menyn**个人**(enskilda developer).
 4. Ange nödvändig information i formuläret och klicka på**下一步**(nästa steg).
 5. Slutföra verifieringsprocessen för e-post.

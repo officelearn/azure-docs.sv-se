@@ -1,11 +1,11 @@
 ---
-title: "Virtuella Azure-nätverket | Microsoft Docs"
-description: "Läs mer om Azure Virtual Network koncept och funktioner."
+title: Virtuella Azure-nätverket | Microsoft Docs
+description: Läs mer om Azure Virtual Network koncept och funktioner.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 9633de4b-a867-4ddf-be3c-a332edf02e24
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/1/2018
 ms.author: jdial
-ms.openlocfilehash: fadc1994cd930df36387a5bfb302c00d66f74fad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8d02afcc590482fdca4705ac582d85bb985dd3c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-virtual-network"></a>Vad är Azure Virtual Network?
 
@@ -32,7 +32,7 @@ Virtuella Azure-nätverket innehåller följande allmänna funktioner:
 - **[Virtuell nätverksanslutning:](#connect-vnets)**  virtuella nätverk kan vara anslutna till varandra, aktivera resurser i något virtuellt nätverk för att kommunicera med resurser i det virtuella nätverket.
 - **[Lokal anslutning:](#connect-on-premises)**  ett virtuellt nätverk kan vara ansluten till ett lokalt nätverk, aktivera resurser för att kommunicera med varandra.
 - **[Trafikfiltrering:](#filtering)**  kan du filtrera nätverkstrafik till och från resurser i ett virtuellt nätverk med källans IP-adress och port, mål-IP-adress och port och protokoll.
-- **[Routning:](#routing)**  du kan du åsidosätta Azures standard routning genom att konfigurera egna vägar eller genom att sprida BGP vägar via en nätverksgateway.
+- **[Routning:](#routing)**  Alternativt kan du åsidosätta Azures standard routning genom att konfigurera egna vägar eller genom att sprida border gateway protocol (BGP) vägar via en nätverksgateway.
 
 ## <a name = "isolation"></a>Isolering av nätverk och segmentering
 

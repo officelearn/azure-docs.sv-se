@@ -2,9 +2,10 @@
 title: Azure AI-galleriet experimenten | Microsoft Docs
 description: Identifiera och dela experiment i Azure AI-galleriet.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.author: garye
-ms.openlocfilehash: 80c2ab0cd97ce5afef7e38bad9f0fa0e4f3f363c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d6de7aa6d16196f415688d68251e8c1b0a4b9aee
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Identifiera experiment i Azure AI-galleriet
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -34,7 +34,7 @@ Galleriet har ett stort antal [experiment](https://gallery.cortanaintelligence.c
 ## <a name="discover"></a>Utforska
 Att bläddra bland experiment [i galleriet](http://gallery.cortanaintelligence.com), markera överst på sidan galleri **experiment**.
 
-Den  **[experiment](https://gallery.cortanaintelligence.com/experiments)**  sidan visas en lista över nyligen tillagda och populära experiment. Om du vill se alla experiment, Välj den **se alla** knappen. Om du vill söka efter en specifik experiment, Välj **se alla**, och välj sedan filtreringsvillkor. Du kan även ange sökorden i den **Sök** rutan längst upp på sidan Gallery.
+Den **[experiment](https://gallery.cortanaintelligence.com/experiments)** sidan visas en lista över nyligen tillagda och populära experiment. Om du vill se alla experiment, Välj den **se alla** knappen. Om du vill söka efter en specifik experiment, Välj **se alla**, och välj sedan filtreringsvillkor. Du kan även ange sökorden i den **Sök** rutan längst upp på sidan Gallery.
 
 Du kan få mer information om ett experiment på informationssidan experiment. Om du vill öppna ett experiment sidan Välj experimentet. På ett experiment information sidan den **kommentarer** avsnitt, du kan kommentera, ge feedback eller ställa frågor om experimentet. Du kan också dela experimentet med vänner och kollegor på Twitter och LinkedIn. Du kan också skicka en länk till sidan experiment information att bjuda in andra användare att visa sidan.
 

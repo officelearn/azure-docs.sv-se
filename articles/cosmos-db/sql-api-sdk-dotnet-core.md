@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: SQL .NET Core API, SDK & resurser | Microsoft Docs'
-description: "Lär dig mer om SQL .NET Core API och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av Azure Cosmos DB .NET Core SDK."
+description: Lär dig mer om SQL .NET Core API och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av Azure Cosmos DB .NET Core SDK.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c7981bc0388fee763396e68d6de3375a01178a7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f9bdec9f019a3add62610f7f05c7dfd86e66d5d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -56,9 +56,6 @@ ms.lasthandoff: 03/16/2018
 ## <a name="release-notes"></a>Viktig information
 
 Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av den [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
-
-> [!NOTE] 
-> Azure Cosmos DB .NET Core SDK är inte kompatibel med den universella Windowsplattformen (UWP) appar ännu. Om du är intresserad av att .NET Core SDK som stöder UWP-appar kan skicka e-post till [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
 ### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
 

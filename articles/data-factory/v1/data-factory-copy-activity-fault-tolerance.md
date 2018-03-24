@@ -1,11 +1,10 @@
 ---
-title: "Lägg till feltolerans i Azure Data Factory-Kopieringsaktiviteten genom att hoppa över inkompatibla rader | Microsoft Docs"
-description: "Hur du lägger till feltolerans i Azure Data Factory-Kopieringsaktiviteten genom att hoppa över inkompatibla rader vid kopiering"
+title: Lägg till feltolerans i Azure Data Factory-Kopieringsaktiviteten genom att hoppa över inkompatibla rader | Microsoft Docs
+description: Hur du lägger till feltolerans i Azure Data Factory-Kopieringsaktiviteten genom att hoppa över inkompatibla rader vid kopiering
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6e7923e2e0a23f22f7dff8c316050a1757310456
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 29c78eb850b418772126dea50b40e924b6e71423
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Lägg till feltolerans i en Kopieringsaktivitet genom att hoppa över inkompatibla rader
 > [!NOTE]
@@ -71,7 +70,7 @@ I följande exempel innehåller en JSON-definitionen om du vill konfigurera hopp
 | **enableSkipIncompatibleRow** | Aktivera hoppar inkompatibla rader under kopia eller inte. | True<br/>FALSKT (standard) | Nej |
 | **redirectIncompatibleRowSettings** | En grupp egenskaper som kan anges när du vill logga inkompatibla rader. | &nbsp; | Nej |
 | **linkedServiceName** | Den länkade tjänsten av Azure Storage för att lagra loggen som innehåller raderna hoppades över. | Namnet på en [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) eller [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) länkade tjänst som refererar till den instans av lagring som du vill använda för att lagra loggfilen. | Nej |
-| **sökväg** | Sökvägen till loggfilen som innehåller raderna hoppades över. | Ange sökvägen för Blob-lagring som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg, skapas en behållare av tjänsten. | Nej |
+| **Sökväg** | Sökvägen till loggfilen som innehåller raderna hoppades över. | Ange sökvägen för Blob-lagring som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg, skapas en behållare av tjänsten. | Nej |
 
 ## <a name="monitoring"></a>Övervakning
 När kopieringsaktiviteten kör har slutförts kan se du antalet överhoppade rader i avsnittet övervakning:

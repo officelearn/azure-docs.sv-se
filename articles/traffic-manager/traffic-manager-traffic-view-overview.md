@@ -1,31 +1,28 @@
 ---
 title: Visa i Azure Traffic Manager-trafik | Microsoft Docs
-description: "Introduktion till vyn för Traffic Manager-trafik"
+description: Introduktion till vyn för Traffic Manager-trafik
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 11/11/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: 6b4378cb293824702dd52dcdeb86619f957b83ea
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.custom: ''
+ms.openlocfilehash: 7ce51017fdee92e5589c06b398c9650930d5436d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic Manager trafik vy
-
->[!NOTE]
->Funktionen trafik vyn i Traffic Manager finns i Public Preview och kanske inte har samma nivå av tillgänglighet och tillförlitlighet som viktiga funktioner som är i allmänhet tillgänglighet. Funktionen stöds inte, kan ha begränsad kapacitet och kanske inte tillgänglig på alla platser i Azure. Den senaste meddelanden på tillgänglighet och status för den här funktionen, kontrollera den [Azure Traffic Manager uppdaterar](https://azure.microsoft.com/updates/?product=traffic-manager) sidan.
 
 Traffic Manager ger du med DNS-nivå routning så att användarna dirigeras till Felfri slutpunkter baserat på routningsmetod angav när du skapade profilen. Trafik vyn ger en överblick över dina användarbaser (på en DNS-matchare filnivå) och deras trafik mönster Traffic Manager. När du aktiverar trafik visa bearbetas informationen för att ge dig tillämplig insikter. 
 
@@ -43,7 +40,7 @@ Visa trafik fungerar genom att låta Traffic Manager titta på inkommande frågo
 I nästa steg Traffic Manager korrelerar användaren grundläggande region för Azure-region-mappning med nätverket intelligence latens tabeller som det finns för olika slutanvändarens nätverk för att förstå genomsnittlig svarstid användare från dessa regioner upplever när ansluter till Azure-regioner. Dessa beräkningar kombineras sedan på en per lokala DNS-matchare IP-nivå innan den visas för dig. Du kan använda informationen på olika sätt.
 
 >[!NOTE]
->Latens som beskrivs i trafik vyn är en representativ fördröjning mellan användaren och Azure-regioner som de hade anslutet till och är inte DNS-sökning svarstiden.
+>Latens som beskrivs i trafik vyn är en representativ fördröjning mellan användaren och Azure-regioner som de hade anslutet till och är inte DNS-sökning svarstiden. Trafik vyn gör en bästa prestanda uppskattning av fördröjningen mellan den lokala DNS-matcharen och Azure-regionen frågan har vidarebefordrats till, om det finns tillräckligt med data och sedan svarstiden returnerade ska vara null. 
 
 ## <a name="visual-overview"></a>Visuell översikt
 
@@ -61,12 +58,12 @@ Om du hovrar över en DNS-matchare plats i kartan visas:
 
 ### <a name="endpoint-information"></a>Slutpunkten
 
-Azure-regioner där slutpunkterna finns visas som blå punkterna i kartan. Klicka på någon slutpunkt som finns på olika platser (baserat på DNS-matcharen används) från när trafiken har skickas till denna slutpunkt. Anslutningarna visas som en rad mellan slutpunkten och DNS-matchare plats och färgade enligt representativt fördröjningen mellan paret. Dessutom kan du se namnet på slutpunkten, Azure-regionen där den körs och det totala antalet begäranden som kommer till den av den här trafikhanterarprofilen.
+Azure-regioner där slutpunkterna finns visas som blå punkterna i kartan. Om slutpunkten är extern och har inte mappats till en Azure-region, visas den överst på kartan. Klicka på någon slutpunkt som finns på olika platser (baserat på DNS-matcharen används) från när trafiken har skickas till denna slutpunkt. Anslutningarna visas som en rad mellan slutpunkten och DNS-matchare plats och färgade enligt representativt fördröjningen mellan paret. Dessutom kan du se namnet på slutpunkten, Azure-regionen där den körs och det totala antalet begäranden som kommer till den av den här trafikhanterarprofilen.
 
 
 ## <a name="tabular-listing-and-raw-data-download"></a>Hämta Tabular lista och rådata
 
-Du kan visa trafik visa data i tabellformat i Azure-portalen. Det finns en post för varje DNS-matchare IP / name slutpunkt-par som visar den geografiska platsen för DNS-matchning (om tillgängligt) för Azure-regionen där slutpunkten finns volymen av begäranden som är associerade med den DNS-matcharen och i representant svarstid som är kopplade till användare med hjälp av DNS (i förekommande fall). Du kan också hämta trafik visa data som en CSV-fil som kan användas som en del av ett arbetsflöde för analytics önskat.
+Du kan visa trafik visa data i tabellformat i Azure-portalen. Det finns en post för varje DNS-matchare IP / endpoint koppla som visar IP-adressen för DNS-matchning, namn och geografiska platsen för Azure-regionen i som slutpunkten finns (om tillgängligt), volymen av begäranden är kopplade till den DNS-matchning till denna slutpunkt och representativ svarstid som är kopplade till användare med hjälp av DNS (i förekommande fall). Du kan också hämta trafik visa data som en CSV-fil som kan användas som en del av ett arbetsflöde för analytics önskat.
 
 ## <a name="billing"></a>Fakturering
 

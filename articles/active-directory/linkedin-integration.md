@@ -1,23 +1,23 @@
 ---
-title: "Aktivera LinkedIn-anslutningar för Microsoft-appar och tjänster i Azure Active Directory | Microsoft Docs"
-description: "Beskriver hur du aktiverar eller inaktiverar LinkedIn konto anslutningar för Microsoft-appar i Azure Active Directory"
+title: Aktivera LinkedIn-anslutningar för Microsoft-appar och tjänster i Azure Active Directory | Microsoft Docs
+description: Beskriver hur du aktiverar eller inaktiverar LinkedIn konto anslutningar för Microsoft-appar i Azure Active Directory
 services: active-directory
 author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3bf224edea9e6da0d0eadb6fb6a409248de3d0e3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>LinkedIn konto anslutningar för Microsoft-appar och tjänster
 I den här artikeln får du lära dig hur hantera LinkedIn konto anslutningar för din klient i administrationscentret för Azure Active Directory (AD Azure). 
@@ -56,9 +56,9 @@ Funktion för anslutningar av LinkedIn-kontot är aktiverat som standard för di
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Aktivera eller inaktivera LinkedIn konto anslutningar för din organisation Office 2016 appar med hjälp av Grupprincip
 
 1. Hämta den [filer för Office 2016 administrativa mallar (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
-2. Extrahera den **ADMX** filer och kopiera dem till din **centrallager**.
+2. Extrahera den **ADMX** filer och kopiera dem till centrala lagringsplatsen.
 3. Öppna Grupprinciphantering.
-4. Skapa ett grupprincipobjekt med följande inställning: **Användarkonfiguration** > **Administrationsmallar** > **Microsoft Office 2016**  >  **Diverse** > **möjliggör Integration LinkedIn**.
+4. Skapa ett grupprincipobjekt med följande inställning: **Användarkonfiguration** > **Administrationsmallar** > **Microsoft Office 2016**  >  **Diverse** > **visa LinkedIn-funktioner i Office-program**.
 5. Välj **aktiverat** eller **inaktiverade**.
   * När principen är **aktiverad**, **visa LinkedIn-funktioner i Office-program** hittades i dialogrutan Alternativ för Office 2016 är aktiverad. Det innebär också att användare i organisationen kan använda LinkedIn-funktionerna i Office-programmen.
   * När principen är **inaktiverad**, **visa LinkedIn-funktioner i Office-program** hittades i alternativen för Office 2016 dialogrutan anges till inaktiverat tillstånd och slutanvändarna kan inte ändra den här inställningen. Användare i din organisation kan inte använda LinkedIn-funktioner i sina program för Office 2016. 

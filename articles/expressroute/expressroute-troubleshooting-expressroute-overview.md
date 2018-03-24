@@ -1,12 +1,12 @@
 ---
-title: "Verifiera anslutningsbarhet: Azure ExpressRoute felsökningsguide för | Microsoft Docs"
-description: "Den här sidan innehåller instruktioner för felsökning och verifiera slutpunkt till slutpunkt-anslutningen för en ExpressRoute-krets."
+title: 'Verifiera anslutningsbarhet: Azure ExpressRoute felsökningsguide för | Microsoft Docs'
+description: Den här sidan innehåller instruktioner för felsökning och verifiera slutpunkt till slutpunkt-anslutningen för en ExpressRoute-krets.
 documentationcenter: na
 services: expressroute
 author: rambk
 manager: tracsman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 74b6589a7e06570d978dfe40c5f5bf140e092cc6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5d01f2e402e4b793274761703ec3ca1ea3ff8164
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifiera en ExpressRoute-anslutning
 ExpressRoute som sträcker sig ett lokalt nätverk via en privat anslutning som möjliggörs med hjälp av en provider för anslutning till Microsoft cloud omfattar följande tre separata nätverkszoner:
@@ -68,7 +68,7 @@ Om du vill validera en ExpressRoute-krets beskrivs följande steg (med den nätv
 
 Mer verifieringar och kontroller som läggs i framtida, kontrollerar tillbaka varje månad!
 
-##<a name="validate-circuit-provisioning-and-state"></a>Validera kretsetablering och tillstånd
+## <a name="validate-circuit-provisioning-and-state"></a>Validera kretsetablering och tillstånd
 En ExpressRoute-krets måste skapas och därför en nyckel genereras för kretsetablering oavsett connectivity-modell. Etablera en ExpressRoute-krets upprättar en redundant nivå 2-anslutningar mellan PE-MSEEs (4) och MSEEs (5). Mer information om hur du skapar, ändra, konfigurera och verifiera en ExpressRoute-krets finns i artikeln [skapa och ändra en ExpressRoute-krets][CreateCircuit].
 
 >[!TIP]
@@ -76,7 +76,7 @@ En ExpressRoute-krets måste skapas och därför en nyckel genereras för kretse
 >
 >
 
-###<a name="verification-via-the-azure-portal"></a>Verifiering via Azure portal
+### <a name="verification-via-the-azure-portal"></a>Verifiering via Azure portal
 I Azure-portalen, status för en ExpressRoute-krets kan kontrolleras genom att välja ![2][2] på vänster sidorutan-menyn och sedan välja ExpressRoute-kretsen. Om du markerar en ExpressRoute öppnas krets som anges under ”alla resurser” bladet ExpressRoute-kretsen. I den ![3][3] på bladet ExpressRoute essentials listas som visas i följande skärmbild visar:
 
 ![4][4]    
@@ -90,7 +90,7 @@ För en ExpressRoute-krets ska fungera, den *krets status* måste vara *aktivera
 >
 >
 
-###<a name="verification-via-powershell"></a>Verifiering via PowerShell
+### <a name="verification-via-powershell"></a>Verifiering via PowerShell
 Om du vill visa en lista med alla ExpressRoute-kretsar i en resursgrupp, använder du följande kommando:
 
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
@@ -139,7 +139,7 @@ För att bekräfta om en ExpressRoute-krets fungerar, särskilt noga följande f
 >
 >
 
-###<a name="verification-via-powershell-classic"></a>Verifiering via PowerShell (klassisk)
+### <a name="verification-via-powershell-classic"></a>Verifiering via PowerShell (klassisk)
 Om du vill visa en lista med alla ExpressRoute-kretsar under en prenumeration, använder du följande kommando:
 
     Get-AzureDedicatedCircuit
@@ -167,10 +167,10 @@ För att bekräfta om en ExpressRoute-krets fungerar, särskilt noga följande f
 >
 >
 
-##<a name="validate-peering-configuration"></a>Verifiera Peering konfiguration
+## <a name="validate-peering-configuration"></a>Verifiera Peering konfiguration
 När etableringen ExpressRoute-kretsen tjänstleverantör har slutförts kan du skapa en routningskonfiguration via ExpressRoute-kretsen mellan MSEE fso (4) och MSEEs (5). Varje ExpressRoute-kretsen kan ha en, två eller tre routning kontexter aktiverad: Azure privat peering (trafik till privata virtuella nätverk i Azure), Azure offentlig peering (trafik till den offentliga IP-adresser i Azure) och Microsoft peering (trafik till Office 365 och Dynamics 365). Mer information om hur du skapar och ändra konfigurationen för routning finns i artikeln [skapa och ändra routning för en ExpressRoute-krets][CreatePeering].
 
-###<a name="verification-via-the-azure-portal"></a>Verifiering via Azure portal
+### <a name="verification-via-the-azure-portal"></a>Verifiering via Azure portal
 
 >[!NOTE]
 >Om nivå 3 tillhandahålls av leverantören och peerkopplingar är tomma på portalen, uppdatera krets konfigurationen med hjälp av uppdateringsknappen på den protal. Den här åtgärden gäller rätt routningskonfiguration kretsen. 
@@ -188,7 +188,7 @@ I föregående exempel, som noterats Azure är privat peering routning kontext a
 >
 >
 
-###<a name="verification-via-powershell"></a>Verifiering via PowerShell
+### <a name="verification-via-powershell"></a>Verifiering via PowerShell
 För att få Azure privat peering konfigurationsinformation, använder du följande kommandon:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
@@ -364,7 +364,7 @@ I följande exempel visas svaret i kommandot för en peering inte finns:
 
     Route Table Info:
 
-##<a name="check-the-traffic-statistics"></a>Kontrollera trafik statistik
+## <a name="check-the-traffic-statistics"></a>Kontrollera trafik statistik
 Om du vill få kombinerade primära och sekundära sökväg trafik statistik--använder byte in och ut – för en peering kontext, du följande kommando:
 
     Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private

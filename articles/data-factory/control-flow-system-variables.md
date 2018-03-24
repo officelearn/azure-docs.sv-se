@@ -1,11 +1,11 @@
 ---
 title: Systemvariabler i Azure Data Factory | Microsoft Docs
-description: "Den här artikeln beskriver systemvariabler som stöds av Azure Data Factory. Du kan använda dessa variabler i uttryck när du definierar Data Factory entiteter."
+description: Den här artikeln beskriver systemvariabler som stöds av Azure Data Factory. Du kan använda dessa variabler i uttryck när du definierar Data Factory entiteter.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: bdf1754226852145e9bf5597256339549f253071
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 77285692846d2a301e091426801e20203816181a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Systemvariabler som stöds av Azure Data Factory
 Den här artikeln beskriver systemvariabler som stöds av Azure Data Factory. Du kan använda dessa variabler i uttryck när du definierar Data Factory entiteter. 
@@ -36,7 +36,7 @@ Den här artikeln beskriver systemvariabler som stöds av Azure Data Factory. Du
 | @pipeline().TriggerType | Typen av utlösare som anropade pipeline (manuell, Schemaläggaren) | 
 | @pipeline().TriggerId| ID för utlösaren som anropar pipeline |
 | @pipeline().TriggerName| Namnet på utlösaren som anropar pipeline |
-| @pipeline().TriggerTime| Tid då utlösaren som anropade pipeline. Utlösaren tid är den faktiska Eldad tiden inte den schemalagda tiden. Till exempel `13:20:08.0149599Z` returneras i stället för`13:20:00.00Z` |
+| @pipeline().TriggerTime| Tid då utlösaren som anropade pipeline. Utlösaren tid är den faktiska Eldad tiden inte den schemalagda tiden. Till exempel `13:20:08.0149599Z` returneras i stället för `13:20:00.00Z` |
 
 ## <a name="trigger-scope"></a>Utlösaren omfattning:
 

@@ -1,11 +1,11 @@
 ---
-title: "Kom igång med Azure-tabellagring och Visual Studio anslutna tjänster (ASP.NET) | Microsoft Docs"
-description: "Hur du kommer igång med Azure-tabellagring i ASP.NET-projekt i Visual Studio efter anslutning till ett lagringskonto med hjälp av Visual Studio anslutna Services"
+title: Kom igång med Azure-tabellagring och Visual Studio anslutna tjänster (ASP.NET) | Microsoft Docs
+description: Hur du kommer igång med Azure-tabellagring i ASP.NET-projekt i Visual Studio efter anslutning till ett lagringskonto med hjälp av Visual Studio anslutna Services
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
 manager: ghogen
-editor: 
+editor: ''
 ms.assetid: af81a326-18f4-4449-bc0d-e96fba27c1f8
 ms.service: storage
 ms.workload: web
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: kraigb
-ms.openlocfilehash: 32a57e77bf6fe3cff88b9d6772ede9e6669ec75f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646ff3a12d1b28f99376ea67af25f1b6858d675a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure-tabellagring och Visual Studio anslutna tjänster (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -29,7 +29,7 @@ Azure Table storage kan du lagra stora mängder strukturerade data. Tjänsten ä
 
 Den här kursen visar hur du skriver ASP.NET-kod för några vanliga scenarier med hjälp av Azure table storage entiteter. Dessa scenarier som inkluderar att skapa en tabell och lägga till, fråga och ta bort tabellentiteter. 
 
-##<a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage-konto](../storage/common/storage-create-storage-account.md#create-a-storage-account)

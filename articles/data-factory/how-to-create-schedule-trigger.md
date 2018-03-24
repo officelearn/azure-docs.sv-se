@@ -1,11 +1,11 @@
 ---
-title: "Skapa schemat utlösare i Azure Data Factory | Microsoft Docs"
-description: "Lär dig hur du skapar en utlösare i Azure Data Factory som kör en pipeline enligt ett schema."
+title: Skapa schemat utlösare i Azure Data Factory | Microsoft Docs
+description: Lär dig hur du skapar en utlösare i Azure Data Factory som kör en pipeline enligt ett schema.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 51e2dddbe66ca372d89fc8efeb24bdab9fe6a442
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 6466d6cb535bbe0042d7c4c3e828e576e23d5d07
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Skapa en utlösare som kör en pipeline enligt ett schema
 Den här artikeln innehåller information om utlösaren schema och stegen för att skapa, starta och övervaka en schema-utlösare. För andra typer av utlösare finns [Pipeline körning och utlösare](concepts-pipeline-execution-triggers.md).
@@ -25,7 +25,7 @@ Den här artikeln innehåller information om utlösaren schema och stegen för a
 När du skapar en utlösare för schemat måste du ange ett schema (startdatum, återkommande, slutdatum o.s.v.) för utlösare och associeras med en rörledning. Pipeliner och utlösare har en många-till-många-relation. Flera utlösare kan starta en pipeline. En enskild utlösare kan starta flera pipeliner.
 
 > [!NOTE]
-> Den här artikeln gäller för Azure Data Factory version 2, vilket är för närvarande under förhandsgranskning. Om du använder Azure Data Factory version 1, som är allmänt tillgänglig (GA), se [Kom igång med Azure Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Den här artikeln gäller för version 2 av Azure Data Factory, som för närvarande är en förhandsversion. Om du använder Azure Data Factory version 1, som är allmänt tillgänglig (GA), se [Kom igång med Azure Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Följande avsnitt innehåller steg för att skapa en schema-utlösare på olika sätt. 
 
@@ -306,101 +306,101 @@ Följande JSON-definitionen visar hur du skapar en utlösare för schema med sch
 ```
 
 > [!IMPORTANT]
->  Den **parametrar** -egenskapen är en obligatorisk egenskap för den **pipelines** element. Om din pipeline tar inga parametrar, måste du inkludera ett tomt JSON-definitionen för den **parametrar** egenskapen.
+>  Egenskapen **parameters** är en obligatorisk egenskap i elementet **pipelines**. Om din pipeline inte tar emot några parametrar måste du ta med en JSON-definition för egenskapen **parameters**.
 
 
-### <a name="schema-overview"></a>Översikt över schema
-Följande tabell innehåller en översikt över större schemaelement som är relaterade till upprepning och schemaläggning av en utlösare:
+### <a name="schema-overview"></a>Schemaöversikt
+I följande tabell ges en översikt över de viktigaste schemaelementen relaterade till upprepning och schemaläggning i en utlösare:
 
 | JSON-egenskap | Beskrivning |
 |:--- |:--- |
-| **startTime** | Ett datum / tid-värde. För enkel scheman, värdet för den **startTime** egenskap gäller för den första förekomsten. För komplexa scheman utlösaren startar inga snabbare än det angivna **startTime** värde. |
-| **Sluttid** | Slutdatum och sluttid för utlösaren. Utlösaren köra inte efter angivna slutdatum och sluttid. Värdet för egenskapen får inte vara tidigare. Den här egenskapen är valfri. |
-| **timeZone** | Tidszon. För närvarande stöds endast UTC-tidszonen. |
-| **upprepning** | Ett återkommande objekt som anger reglerna för upprepning för utlösaren. Återkommande objekt stöder den **frekvens**, **interva**l, **endTime**, **antal**, och **schema**element. När ett återkommande objekt definieras i **frekvens** -element krävs. Andra element för upprepning objektet är valfria. |
-| **frekvens** | Enheten för att utlösaren ska återkomma frekvens. Värdena som stöds omfattar ”minute”, ”timmar”, ”dag”, ”vecka” och ”månad”. |
-| **interval** | Ett positivt heltal som anger intervallet för den **frekvens** -värde som anger hur ofta utlösaren körs. Till exempel om den **intervall** är 3 och **frekvens** ”vecka” utlösaren återkommer var 3 veckor. |
-| **schema** | Upprepningsschemat för utlösaren. En utlösare med en angiven **frekvens** värde ändrar dess upprepning baserat på ett återkommande schema. Den **schema** egenskap innehåller ändringar för återkommande som baseras på minuter, timmar, veckodagar, dagar i månaden och veckonumret.
+| **startTime** | Ett datum/tid-värde. För enkla scheman gäller värdet för egenskapen **startTime** den första förekomsten. För komplexa scheman startar utlösaren tidigast vid det angivna värdet för **startTime**. |
+| **endTime** | Slutdatum och tidpunkt för utlösaren. Utlösaren körs inte efter angivet slutdatum och sluttid. Värdet för egenskapen kan inte ha passerat. Den här egenskapen är valfri. |
+| **timeZone** | Tidszonen. För närvarande stöds bara tidszonen UTC. |
+| **recurrence** | Ett upprepningsobjekt som anger upprepningsregler för utlösaren. Återkommande objekt stöder den **frekvens**, **interva**l, **endTime**, **antal**, och **schema**element. När du definierar ett upprepningsobjekt är elementet **frequency** obligatoriskt. De andra elementen är valfria. |
+| **frequency** | Frekvensen som utlösaren ska upprepas med. Du kan använda värden som ”minute”, ”hour”, ”day”, ”week” och ”month”. |
+| **interval** | Ett positivt heltal som anger intervallet för värdet för **frequency** och som avgör hur ofta utlösaren körs. Om **interval** till exempel är 3 och **frequency** är ”week” (vecka) upprepas utlösaren var tredje vecka. |
+| **schedule** | Upprepningsschemat för utlösaren. En utlösare med ett angivet värde för **frequency** ändrar sin upprepning baserat på ett upprepningsschema. Egenskapen **schedule** innehåller ändringar för upprepningen som baseras på minuter, timmar, veckodagar, dagar i månaden och veckonummer.
 
 
-### <a name="schema-defaults-limits-and-examples"></a>Standardvärdena för schemat, begränsningar och exempel
+### <a name="schema-defaults-limits-and-examples"></a>Standardvärden för scheman, begränsningar och exempel
 
 | JSON-egenskap | Typ | Krävs | Standardvärde | Giltiga värden | Exempel |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | Sträng | Ja | Ingen | ISO 8601-datum/tid | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **upprepning** | Objekt | Ja | Ingen | Upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **recurrence** | Objekt | Ja | Ingen | Upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Tal | Nej | 1 | 1 till 1 000 | `"interval":10` |
-| **Sluttid** | Sträng | Ja | Ingen | Ett datum / tid-värde som representerar en tidpunkt i framtiden. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schema** | Objekt | Nej | Ingen | Schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **endTime** | Sträng | Ja | Ingen | Ett datum/tid-värde som representerar en tidpunkt i framtiden. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **schedule** | Objekt | Nej | Ingen | Schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Egenskapen startTime
-Följande tabell visar hur **startTime** styr egenskapen en utlösare som kör:
+I följande tabell visas hur egenskapen **startTime** styr körningen av en utlösare:
 
 | startTime-värde | Upprepning utan schema | Upprepning med schema |
 |:--- |:--- |:--- |
-| Starttid i förfluten tid | Beräknar den första framtida körningstiden efter starttiden och körs vid den tiden.<br/><br/>Kör efterföljande körningar baserat på Beräkna från den senaste körningstiden.<br/><br/>Se exemplet som följer den här tabellen. | Utlösaren startar _inte sooner än_ den angivna starttiden. Den första förekomsten är baserad på det schema som beräknas utifrån starttiden.<br/><br/>Kör efterföljande körningar baserat på det återkommande schemat. |
-| Starttid i framtiden eller aktuell tid | Kör en gång vid den angivna starttiden.<br/><br/>Kör efterföljande körningar baserat på Beräkna från den senaste körningstiden. | Utlösaren startar _tidigast_ än den angivna starttiden. Den första förekomsten är baserad på det schema som beräknas utifrån starttiden.<br/><br/>Kör efterföljande körningar baserat på det återkommande schemat. |
+| Starttid i förfluten tid | Beräknar första framtida körningstid efter starttiden och körs vid den tidpunkten.<br/><br/>Utför efterföljande körningar baserat på beräkningar från senaste körningstid.<br/><br/>Se exemplet som följer den här tabellen. | Utlösaren startar _tidigast_ den angivna starttiden. Den första förekomsten baseras på schemat som beräknas från starttiden.<br/><br/>Kör efterföljande körningar baserat på upprepningsschemat. |
+| Starttid i framtiden eller aktuell tid | Körs en gång på angiven starttid.<br/><br/>Utför efterföljande körningar baserat på beräkningar från senaste körningstid. | Utlösaren startar _tidigast_ den angivna starttiden. Den första förekomsten baseras på schemat som beräknas från starttiden.<br/><br/>Kör efterföljande körningar baserat på upprepningsschemat. |
 
-Låt oss se ett exempel på vad som händer när starttiden är tidigare med ett återkommande, men inget schema. Anta att den aktuella tiden är `2017-04-08 13:00`, starttiden är `2017-04-07 14:00`, och upprepningen är två dagar. (Den **återkommande** värdet definieras genom att ange den **frekvens** egenskapen ”dag” och **intervall** egenskap till 2.) Observera att den **startTime** värde är i förflutna och inträffar före aktuell tid.
+Låt oss se vad som händer när starttiden har passerat, med upprepning men utan schema. Anta att den aktuella tiden är `2017-04-08 13:00`, starttiden är `2017-04-07 14:00` och upprepningen är varannan dag. (**Upprepningen** definieras genom att du sätter egenskapen **frequency** till ”day” och egenskapen **interval** till 2.) Observera att värdet för **startTime** har passerat och inträffat före aktuell tid.
 
-Med dessa villkor sker den första körningen `2017-04-09 at 14:00`. Scheduler-motor beräknar körningsförekomster från starttiden. Alla tidigare instanser ignoreras. Motorn använder nästa förekomst som förekommer i framtiden. I det här scenariot starttiden är `2017-04-07 at 2:00pm`, så nästa förekomst är två dagar från den tid, vilket är `2017-04-09 at 2:00pm`.
+Med dessa villkor sker den första körningen `2017-04-09 at 14:00`. Scheduler-motor beräknar körningsförekomster från starttiden. Alla tidigare instanser ignoreras. Motorn använder nästa förekomst som förekommer i framtiden. I det här fallet är starttiden `2017-04-07 at 2:00pm`, så nästa förekomst är två dagar från den tiden, vilket är `2017-04-09 at 2:00pm`.
 
-Den första körningstiden är samma även om den **startTime** värdet är `2017-04-05 14:00` eller `2017-04-01 14:00`. Efter den första körningen beräknas efterföljande körningar med hjälp av schemat. Efterföljande körningar är därför vid `2017-04-11 at 2:00pm`, sedan `2017-04-13 at 2:00pm`, sedan `2017-04-15 at 2:00pm`och så vidare.
+Den första körningstiden är samma oavsett om värdet för **startTime** är `2017-04-05 14:00` eller `2017-04-01 14:00`. Efter den första körningen beräknas efterföljande körningar med hjälp av schemat. Efterföljande körningar är därför `2017-04-11 at 2:00pm`, sedan `2017-04-13 at 2:00pm`, sedan `2017-04-15 at 2:00pm` och så vidare.
 
-Slutligen när timmar eller minuter har ställts in i schemat för en utlösare, används timmar eller minuter efter den första körningen som standard.
+När inga timmar eller minuter anges i schemat för en utlösare används som standard samma timmar och minuter som i den första körningen.
 
-### <a name="schedule-property"></a>schemat för egenskapen
-Dels måste kan användning av ett schema begränsa antalet utlösaren körningar. Om en utlösare med en månatlig frekvens är schemalagd att köras endast på dag 31, till exempel körs utlösaren bara på de månader som har 31 dagar.
+### <a name="schedule-property"></a>Egenskapen schedule
+Å ena sidan kan ett schema begränsa antalet utlösarkörningar. Om en utlösare med månatlig frekvens till exempel har ett schema som bara körs dag 31 så körs utlösaren bara de månader som har en 31:a dag.
 
-Ett schema kan å andra sidan även utöka antalet utlösarkörningar. Till exempel körs en utlösare med en månatlig frekvens som har schemalagts för att köras med dagar i månaden 1 och 2, 1 och 2 dagar i månaden, snarare än en gång i månaden.
+Ett schema kan å andra sidan även utöka antalet utlösarkörningar. En utlösare med månatlig frekvens som har schemalagts för att köras dag 1 och 2 körs två snarare än en gång i månaden.
 
-Om flera **schema** element anges är utvärderingsordningen från det största till inställningen för minsta schema. Utvärderingen börjar med vecka antal och sedan månad, dag, veckodag, timme, och slutligen minut.
+Om du anger flera **schedule**-element utvärderas de från största till minsta schemainställning. Utvärderingen börjar med veckonummer, sedan dag i månaden, veckodag, timme och slutligen minut.
 
-I följande tabell beskrivs de **schema** element i detalj:
+I följande tabell beskrivs **schedule**-elementen i detalj:
 
 
 | JSON-element | Beskrivning | Giltiga värden |
 |:--- |:--- |:--- |
-| **minuter** | Minuter för den timme då utlösaren körs. | <ul><li>Integer</li><li>Heltalsmatris</li></ul>
-| **timmar** | Timmar på dagen då utlösaren körs. | <ul><li>Integer</li><li>Heltalsmatris</li></ul> |
-| **Veckodagar** | Dagar i veckan då utlösaren körs. Värdet kan anges med en vecka frekvens. | <ul><li>Måndag, tisdag, onsdag, torsdag, fredag, lördag, söndag</li><li>Matris med-Dagvärden (maximal matrislängd storlek är 7)</li><li>Detta värde är inte skiftlägeskänsliga</li></ul> |
-| **monthlyOccurrences** | Dagar i månaden som utlösaren körs. Värdet kan anges med en månatlig frekvens. | <ul><li>Matris med **monthlyOccurence** objekt: `{ "day": day,  "occurrence": occurence }`.</li><li>Den **dag** attributet är veckodag då utlösaren körs. Till exempel en **monthlyOccurrences** egenskap med ett **dag** värdet för `{Sunday}` innebär varje söndag i månaden. Den **dag** -attribut krävs.</li><li>Den **förekomsten** attributet är förekomsten av det angivna **dag** under månaden. Till exempel en **monthlyOccurrences** egenskap med **dag** och **förekomsten** värdena för `{Sunday, -1}` innebär sista söndagen i månaden. Den **förekomsten** attributet är valfritt.</li></ul> |
-| **monthDays** | Dagen i månaden som utlösaren körs. Värdet kan anges med en månatlig frekvens. | <ul><li>Ett värde < = -1 och > =-31</li><li>Ett värde > = 1 och < = 31</li><li>Matris med-värden</li></ul> |
+| **minutes** | Minuter för den timme då utlösaren körs. | <ul><li>Integer</li><li>Heltalsmatris</li></ul>
+| **hours** | Timmar på dagen då utlösaren körs. | <ul><li>Integer</li><li>Heltalsmatris</li></ul> |
+| **weekDays** | Veckodagar som utlösaren körs på. Värdet kan bara anges med en veckofrekvens. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday och Sunday</li><li>Matris med dagvärden (maximal matrisstorlek är 7)</li><li>Dagvärdena är inte skiftlägeskänsliga</li></ul> |
+| **monthlyOccurrences** | Dagar i månaden som utlösaren körs på. Värdet kan bara anges med en månadsfrekvens. | <ul><li>Matris med **monthlyOccurence-objekt**: `{ "day": day,  "occurrence": occurence }`.</li><li>Attributet **day** är veckodagen som utlösaren körs på. Om egenskapen **monthlyOccurrences** till exempel har **day**-värdet `{Sunday}` innebär det varje söndag i månaden. Attributet **day** är obligatoriskt.</li><li>Attributet **occurrence** är förekomsten av **day**-värdet i månaden. Om egenskapen **monthlyOccurrences** till exempel har **day**- och **occurrence**-värdena `{Sunday, -1}` innebär det den sista söndagen i månaden. Attributet **occurrence** är valfritt.</li></ul> |
+| **monthDays** | Dagar i månaden som utlösaren körs på. Värdet kan bara anges med en månadsfrekvens. | <ul><li>Ett värde < = -1 och > =-31</li><li>Ett värde > = 1 och < = 31</li><li>Matris med värden</li></ul> |
 
 
-## <a name="examples-of-trigger-recurrence-schedules"></a>Exempel på utlösare återkommande scheman
-Det här avsnittet innehåller exempel på återkommande scheman och fokuserar på de **schema** objektet och dess element.
+## <a name="examples-of-trigger-recurrence-schedules"></a>Exempel på scheman för upprepning av utlösare
+I det här avsnittet ges exempel på upprepningsscheman med fokus på objektet **schedule** och dess element.
 
-I exempel anta att den **intervall** värdet är 1 och att den **frekvens** värdet är korrekt enligt schemadefinitionen. Du kan till exempel har en **frekvens** värdet för ”dag” och har också en ”monthDays” ändring den **schema** objekt. Begränsningar som dessa anges i tabellen i föregående avsnitt.
+I exemplen antas att värdet för **interval** är 1 och att värdet för **frequency** är giltigt enligt schemadefinitionen. Du kan till exempel inte använda **frequency**-värdet ”day” och samtidigt ha en ”monthDays”-modifiering i **schedule**-objektet. De här begränsningarna tas upp i tabellen i föregående avsnitt.
 
 | Exempel | Beskrivning |
 |:--- |:--- |
-| `{"hours":[5]}` | Kör på 5:00:00 varje dag. |
-| `{"minutes":[15], "hours":[5]}` | Kör kl 5:15 varje dag. |
-| `{"minutes":[15], "hours":[5,17]}` | Kör på 5:15 AM och 17:15:00 varje dag. |
-| `{"minutes":[15,45], "hours":[5,17]}` | Kör kl 5:15, 5:45 AM, 17:15:00 och 17:45:00 varje dag. |
-| `{"minutes":[0,15,30,45]}` | Kör var 15: e minut. |
-| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Kör varje timme. Den här utlösaren körs varje timme. Protokollet styrs av den **startTime** när ett värde har angetts. Om ett värde som angetts styrs i minuter av tiden för skapandet av. Till exempel om starttiden eller skapelsetid (beroende på vilket) är 12:25 PM, utlösaren så körs 00:25, 01:25 02:25,..., och 23:25.<br/><br/>Det här schemat motsvarar med en utlösare med en **frekvens** värdet för ”timme” en **intervall** värdet 1 och Nej **schema**.  Det här schemat kan användas med olika **frekvens** och **intervall** värden för att skapa andra utlösare. Till exempel, när den **frekvens** värdet är ”månad”, schemat körs bara en gång i månaden i stället för varje dag, när den **frekvens** värdet är ”dag”. |
-| `{"minutes":[0]}` | Kör varje timme timma. Den här utlösaren körs varje timma som börjar vid 12:00:00, 1:00:00, 2:00:00, och så vidare.<br/><br/>Det här schemat motsvarar en utlösare med en **frekvens** värdet för ”timme” och en **startTime** värdet noll minuter, eller på Nej **schema** men **frekvens**  värdet för ”dag”. Om den **frekvens** värdet är ”vecka” eller ”månad” schemat körs en dag som en vecka eller en dag i månaden, endast. |
-| `{"minutes":[15]}` | Kör 15 minuter över varje timme. Den här utlösaren körs varje 15 minuter efter den timme från kl 00:15, 1:15 AM, 2:15 AM, och så vidare och sista kl 23:15. |
-| `{"hours":[17], "weekDays":["saturday"]}` | Kör på 17:00:00 på lördagar varje vecka. |
-| `{"hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Kör på 17:00:00 på måndag, onsdag och fredag varje vecka. |
-| `{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Kör på 17:15:00 och 17:45:00 på måndag, onsdag och fredag varje vecka. |
-| `{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Kör var 15: e minut på veckodagar. |
-| `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Kör var 15: e minut på vardagar mellan 9:00:00 och 4:45 PM. |
-| `{"weekDays":["tuesday", "thursday"]}` | Kör varje tisdag och torsdag vid den angivna starttiden. |
-| `{"minutes":[0], "hours":[6], "monthDays":[28]}` | Kör på 6:00:00 28 dagen varje månad (förutsatt att en **frekvens** värdet för ”månad”). |
-| `{"minutes":[0], "hours":[6], "monthDays":[-1]}` | Kör på 6:00:00 på den sista dagen i månaden. Använd -1 om du vill köra en utlösare på den sista dagen i månaden i stället för dag 28, 29, 30 och 31. |
-| `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` | Kör på 6:00:00 på första och sista dag i månaden. |
-| `{monthDays":[1,14]}` | Kör den första och 14 dagen varje månad på den angivna starttiden. |
-| `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Kör den första fredagen i månaden på 5:00:00. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Kör den första fredagen i månaden på den angivna starttiden. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}` | Kör den tredje fredagen från slutet av månad, varje månad, vid den angivna starttiden. |
-| `{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Kör första och sista fredagen i varje månad kl 5:15. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Kör första och sista fredagen i månaden på den angivna starttiden. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` | Kör den femte fredagen i månaden på den angivna starttiden. När det finns inga femte fredag i en månad, körs pipelinen inte, eftersom den har schemalagts för att köras endast på femte fredagar. Att köra utlösaren på sist fredagen i månaden, inträffar bör du använda -1 i stället för 5 för den **förekomsten** värde. |
-| `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Kör var 15: e minut på den sista fredagen i månaden. |
-| `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Kör kl 5:15, 5:45 AM, 17:15:00 och 17:45:00 på den tredje onsdagen varje månad. |
+| `{"hours":[5]}` | Kör kl. 05.00 varje dag. |
+| `{"minutes":[15], "hours":[5]}` | Kör kl. 05.15 varje dag. |
+| `{"minutes":[15], "hours":[5,17]}` | Kör kl. 05.15 och 17.15 varje dag |
+| `{"minutes":[15,45], "hours":[5,17]}` | Kör kl. 05.15, 5.45, 17.15 och 17.45 varje dag. |
+| `{"minutes":[0,15,30,45]}` | Kör var 15:e minut. |
+| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Kör varje timme. Den här utlösaren körs varje timme. Minuterna styrs av **startTime**-värdet när du anger ett sådant. Om du inte anger något värde styrs minuterna av tiden för skapandet. Om starttiden eller skapandetiden (beroende på vilken som gäller) till exempel är 00.25 körs utlösaren 00.25, 01.25, 02.25, …, 23:25.<br/><br/>Schemat motsvarar att ha en utlösare med **frequency**-värdet hour (timme), **interval**-värdet 1 och inget **schema**.  Det här schemat kan användas med andra värden för **frequency** och **interval** om du vill skapa andra utlösare. När värdet för **frequency** till exempel är ”month” körs schemat bara en gång i månaden, snarare än varje dag när värdet för **frequency** är ”day”. |
+| `{"minutes":[0]}` | Körs varje hel timme. Den här utlösaren körs varje timma med början vid 00.00, 01.00, 02.00 och så vidare.<br/><br/>Det här schemat motsvarar en utlösare med **frequency**-värdet ”hour” och **startTime**-värdet noll minuter, eller inget **schema** men **frequency**-värdet ”day”. Om **frequency**-värdet är ”week” eller ”month” körs schemat en dag i veckan eller en dag i månaden. |
+| `{"minutes":[15]}` | Körs 15 minuter efter varje hel timme. Den här utlösaren körs 15 minuter efter varje timme med början vid 00.15, 01.15, 02.15 och så vidare. |
+| `{"hours":[17], "weekDays":["saturday"]}` | Körs 17.00 varje lördag. |
+| `{"hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Körs 17.00 varje måndag, onsdag och fredag. |
+| `{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Körs 17.15 och 17.45 varje måndag, onsdag och fredag. |
+| `{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Körs var 15:e minut på vardagar. |
+| `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Körs var 15:e minut på vardagar mellan 09.00 och 16.45. |
+| `{"weekDays":["tuesday", "thursday"]}` | Körs varje tisdag och torsdag den angivna starttiden. |
+| `{"minutes":[0], "hours":[6], "monthDays":[28]}` | Körs 06.00 den 28:e dagen varje månad (förutsatt att **frequency**-värdet är ”month”). |
+| `{"minutes":[0], "hours":[6], "monthDays":[-1]}` | Körs 06.00 den sista dagen i månaden. Om du vill köra en utlösare den sista dagen i månaden ska du använda -1 istället för dag 28, 29, 30 eller 31. |
+| `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` | Körs 06.00 den första och sista dagen varje månad. |
+| `{monthDays":[1,14]}` | Körs den första och den fjortonde dagen i varje månad den angivna starttiden. |
+| `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Körs den första fredagen i varje månad 05.00. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Körs den första fredagen i varje månad vid den angivna starttiden. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}` | Körs den tredje fredagen från slutet av månad, varje månad, vid den angivna starttiden. |
+| `{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Körs den första och sista fredagen i varje månad 05.15. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Körs den första och sista fredagen i varje månad vid den angivna starttiden. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` | Körs den femte fredagen i varje månad vid den angivna starttiden. När det inte finns någon femte fredag i en månad körs inte pipelinen, eftersom den är schemalagd att bara köras på den femte fredagen. Om du vill köra utlösaren på den sista fredagen i månaden kan du använda -1 istället för 5 som värde för **occurrence**. |
+| `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Körs var 15:e minut den sista fredagen i månaden. |
+| `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Körs 05.15, 05.45, 17.15 och 17.45 den tredje onsdagen varje månad. |
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,11 +1,11 @@
 ---
-title: "Reliable Actors tillstånd management | Microsoft Docs"
-description: "Beskriver hur Reliable Actors tillstånd hanteras, beständiga och replikeras för hög tillgänglighet."
+title: Reliable Actors tillstånd management | Microsoft Docs
+description: Beskriver hur Reliable Actors tillstånd hanteras, beständiga och replikeras för hög tillgänglighet.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f196b2e54efc5ecbbd93e48e1f115edb99e5c858
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d5d38e7fa80db3484c397d9840bbc6092e4f18bb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="reliable-actors-state-management"></a>Tillförlitliga aktörer tillståndshantering
 Reliable Actors är enkeltrådad objekt som kan kapsla både logik och tillstånd. Eftersom aktörer körs på Reliable Services, upprätthålla de tillstånd på ett tillförlitligt sätt med hjälp av samma beständiga och replikeringsmekanismer. Det här sättet aktörer förlorar inte deras tillstånd efter fel på återaktivering efter skräpinsamling eller när de flyttas mellan noder i ett kluster på grund av resursen NLB eller uppgraderingar.
@@ -111,299 +111,7 @@ Tillstånd manager nycklar måste vara strängar. Värden är generisk och kan h
 
 Tillståndshanterarens visar vanliga ordlista metoder för att hantera tillstånd, liknar de som finns i tillförlitliga ordlistan.
 
-## <a name="accessing-state"></a>Åtkomst till tillstånd
-Tillstånd kan nås via tillståndshanterarens av nyckeln. Tillstånd manager metoder är alla asynkrona eftersom de kan kräva disk-i/o när aktörer beständiga tillstånd. Vid första åtkomst cachelagras tillstånd objekt i minnet. Upprepa åtkomst operations access-objekt direkt från minnet och returnera synkront utan att det medför i/o eller asynkrona kontexten-växla omkostnader. Ett tillstånd objekt tas bort från cachen i följande fall:
-
-* En aktörsmetod utlöser ett undantag när det hämtar ett objekt från hanteraren tillstånd.
-* En aktör återaktiveras när de har inaktiverats eller efter fel.
-* Tillstånd providern sidor status till disk. Det här problemet beror på tillstånd providerns implementering. Standardprovidern för tillstånd för den `Persisted` har problemet.
-
-Du kan hämta tillstånd genom att använda ett standard- *hämta* åtgärden utlöser `KeyNotFoundException`(C#) eller `NoSuchElementException`(Java) om det inte finns en post för nyckeln:
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task<int> GetCountAsync()
-    {
-        return this.StateManager.GetStateAsync<int>("MyState");
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture<Integer> getCountAsync()
-    {
-        return this.stateManager().getStateAsync("MyState");
-    }
-}
-```
-
-Du kan också hämta tillstånd med hjälp av en *TryGet* metod som inte genereras om det inte finns en post för en nyckel:
-
-```csharp
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task<int> GetCountAsync()
-    {
-        ConditionalValue<int> result = await this.StateManager.TryGetStateAsync<int>("MyState");
-        if (result.HasValue)
-        {
-            return result.Value;
-        }
-
-        return 0;
-    }
-}
-```
-```Java
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture<Integer> getCountAsync()
-    {
-        return this.stateManager().<Integer>tryGetStateAsync("MyState").thenApply(result -> {
-            if (result.hasValue()) {
-                return result.getValue();
-            } else {
-                return 0;
-            });
-    }
-}
-```
-
-## <a name="saving-state"></a>Sparar tillstånd
-Tillstånd manager hämtning metoder returnerar en referens till ett objekt i lokalt minne. Ändra det här objektet i lokala minnet enbart orsakar inte den sparas varaktigt. När ett objekt som hämtats från tillståndshanterarens och ändras, måste den igen i tillståndshanterarens sparas varaktigt.
-
-Du kan infoga tillstånd med hjälp av en ovillkorlig *ange*, som motsvarar den `dictionary["key"] = value` syntax:
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task SetCountAsync(int value)
-    {
-        return this.StateManager.SetStateAsync<int>("MyState", value);
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture setCountAsync(int value)
-    {
-        return this.stateManager().setStateAsync("MyState", value);
-    }
-}
-```
-
-Du kan lägga till tillstånd med hjälp av en *Lägg till* metod. Den här metoden genererar `InvalidOperationException`(C#) eller `IllegalStateException`(Java) vid försök att lägga till en nyckel som redan finns.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task AddCountAsync(int value)
-    {
-        return this.StateManager.AddStateAsync<int>("MyState", value);
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture addCountAsync(int value)
-    {
-        return this.stateManager().addOrUpdateStateAsync("MyState", value, (key, old_value) -> old_value + value);
-    }
-}
-```
-
-Du kan också lägga till tillstånd med hjälp av en *TryAdd* metod. Den här metoden genereras inget när den försöker lägga till en nyckel som redan finns.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task AddCountAsync(int value)
-    {
-        bool result = await this.StateManager.TryAddStateAsync<int>("MyState", value);
-
-        if (result)
-        {
-            // Added successfully!
-        }
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture addCountAsync(int value)
-    {
-        return this.stateManager().tryAddStateAsync("MyState", value).thenApply((result)->{
-            if(result)
-            {
-                // Added successfully!
-            }
-        });
-    }
-}
-```
-
-I slutet av en aktörsmetod sparar tillståndshanterarens automatiskt alla värden som har lagts till eller ändrats av en insert eller update-åtgärd. ”Spara” kan innehålla beständighet till disk och replikering, beroende på inställningarna som används. Värden som inte har ändrats beständiga eller replikeras inte. Om inga värden har ändrats, spara åtgärden händer ingenting. Om du sparar misslyckas ändringstillstånd ignoreras och det ursprungliga tillståndet läses.
-
-Du kan också spara tillstånd manuellt genom att anropa den `SaveStateAsync` metod i basen aktören:
-
-```csharp
-async Task IMyActor.SetCountAsync(int count)
-{
-    await this.StateManager.AddOrUpdateStateAsync("count", count, (key, value) => count > value ? count : value);
-
-    await this.SaveStateAsync();
-}
-```
-```Java
-interface MyActor {
-    CompletableFuture setCountAsync(int count)
-    {
-        this.stateManager().addOrUpdateStateAsync("count", count, (key, value) -> count > value ? count : value).thenApply();
-
-        this.stateManager().saveStateAsync().thenApply();
-    }
-}
-```
-
-## <a name="removing-state"></a>Ta bort tillstånd
-Du kan ta bort tillstånd permanent från en aktör tillstånd manager genom att anropa den *ta bort* metod. Den här metoden genererar `KeyNotFoundException`(C#) eller `NoSuchElementException`(Java) vid försök att ta bort en nyckel som inte finns.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task RemoveCountAsync()
-    {
-        return this.StateManager.RemoveStateAsync("MyState");
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture removeCountAsync()
-    {
-        return this.stateManager().removeStateAsync("MyState");
-    }
-}
-```
-
-Du kan också ta bort tillstånd permanent med hjälp av den *TryRemove* metod. Den här metoden genereras inget när den försöker ta bort en nyckel som inte finns.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task RemoveCountAsync()
-    {
-        bool result = await this.StateManager.TryRemoveStateAsync("MyState");
-
-        if (result)
-        {
-            // State removed!
-        }
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture removeCountAsync()
-    {
-        return this.stateManager().tryRemoveStateAsync("MyState").thenApply((result)->{
-            if(result)
-            {
-                // State removed!
-            }
-        });
-    }
-}
-```
+Exempel för att hantera aktörstillstånd läsa [åtkomst, spara och ta bort Reliable Actors statusen](service-fabric-reliable-actors-access-save-remove-state.md).
 
 ## <a name="best-practices"></a>Bästa praxis
 Här följer några rekommendationer och felsökningstips för att hantera dina aktörstillstånd.
@@ -412,7 +120,7 @@ Här följer några rekommendationer och felsökningstips för att hantera dina 
 Detta är avgörande för prestanda och resursanvändningen för ditt program. När alla skrivning/uppdateringar ”namngivna tillstånd” en aktörs serialiseras hela värdet som motsvarar det ”namngiven tillståndet” och skickas över nätverket till de sekundära replikerna.  Sekundära skriver den till lokal disk och svar tillbaka till den primära repliken. När den primära servern tar emot bekräftelser från ett kvorum av sekundära repliker, skriver tillståndet till den lokala disken. Anta till exempel att värdet är en klass som har 20 medlemmar och en storlek på 1 MB. Även om du bara ändrat något av klassmedlemmar som är av storlek 1 KB du hamnar betalar kostnaden för serialisering och nätverks- och skrivåtgärder för fullständig 1 MB. På liknande sätt, om värdet är en samling (t.ex en lista, matris eller ordlista), betalar du kostnaden för den kompletta samlingen även om du ändrar en av dess medlemmar. Gränssnittet StateManager i klassen aktören påminner om en ordlista. Du bör alltid modellen datastrukturen som representerar aktörstillstånd ovanpå den här ordlistan.
  
 ### <a name="correctly-manage-the-actors-life-cycle"></a>Hantera korrekt skådespelare, livscykel
-Du bör ha Rensa princip om att hantera storleken på tillstånd i varje partition för en aktören-tjänst. Aktören tjänsten ska ha ett fast antal aktörer och återanvända en mycket som möjligt. Om du skapar nya aktörer kontinuerligt, måste du ta bort dem när de har sitt arbete. Aktören framework lagrar vissa metadata om varje aktören finns. Ta bort alla tillstånd för en aktör tas inte bort metadata om att aktören. Du måste ta bort aktören (finns [ta bort aktörer och deras tillstånd](service-fabric-reliable-actors-lifecycle.md#deleting-actors-and-their-state)) ta bort all information om den lagras i systemet. Som en extra kontroll ska du fråga tjänsten aktören (se [uppräkning aktörer](service-fabric-reliable-actors-platform.md)) ibland att kontrollera antalet aktörer inom det förväntade intervallet.
+Du bör ha Rensa princip om att hantera storleken på tillstånd i varje partition för en aktören-tjänst. Aktören tjänsten ska ha ett fast antal aktörer och återanvända en mycket som möjligt. Om du skapar nya aktörer kontinuerligt, måste du ta bort dem när de har sitt arbete. Aktören framework lagrar vissa metadata om varje aktören finns. Ta bort alla tillstånd för en aktör tas inte bort metadata om att aktören. Du måste ta bort aktören (finns [ta bort aktörer och deras tillstånd](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) ta bort all information om den lagras i systemet. Som en extra kontroll ska du fråga tjänsten aktören (se [uppräkning aktörer](service-fabric-reliable-actors-platform.md)) ibland att kontrollera antalet aktörer inom det förväntade intervallet.
  
 Om du ser någonsin att databasens filstorlek för en tjänst aktören öka bortom den förväntade storleken, kontrollerar du att du följer riktlinjerna ovan. Om du följer dessa riktlinjer och är fortfarande databasen problem-filens storlek, bör du [skapar ett supportärende](service-fabric-support.md) med Produktteamet för att få hjälp.
 

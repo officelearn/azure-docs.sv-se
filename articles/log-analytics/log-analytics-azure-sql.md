@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL Analytics lösning i Log Analytics | Microsoft Docs"
-description: "Azure SQL Analytics lösningen hjälper dig att hantera dina Azure SQL-databaser."
+title: Azure SQL Analytics lösning i Log Analytics | Microsoft Docs
+description: Azure SQL Analytics lösningen hjälper dig att hantera dina Azure SQL-databaser.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 5fb7fd0be8b131ee098689b06c34c4e7c333801e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d6bc7824687f5418f1270e22b216f8637578aa6d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsgranskning) i logganalys
 
@@ -87,10 +87,6 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ## <a name="using-the-solution"></a>Använda lösningen
 
->[!NOTE]
-> Uppgradera din Log Analytics för att få den senaste versionen av Azure SQL Analytics.
->
-
 När du lägger till lösningen till din arbetsyta Azure SQL Analytics panel har lagts till din arbetsyta och det visas i Översikt. Panelen visar antalet Azure SQL-databaser och elastiska pooler i Azure SQL som lösningen är ansluten till.
 
 ![Azure SQL Analytics sida vid sida](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
@@ -141,8 +137,6 @@ Genom att fråga varaktighet och perspektiv för fråga väntar korrelera du pre
 ### <a name="analyze-data-and-create-alerts"></a>Analysera data och skapa varningar
 
 Du kan enkelt skapa aviseringar med data från Azure SQL Database-resurser. Här följer några användbara [loggen Sök](log-analytics-log-searches.md) frågor som du kan använda för aviseringar:
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 
 *Hög DTU på Azure SQL-databas*

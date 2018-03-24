@@ -1,24 +1,21 @@
 ---
 title: 'Azure Active Directory B2C: Inbyggda principer | Microsoft Docs'
-description: "Ett ämne på expanderbara principramverk av Azure Active Directory B2C och hur du skapar olika principtyper"
+description: Ett ämne på expanderbara principramverk av Azure Active Directory B2C och hur du skapar olika principtyper
 services: active-directory-b2c
-documentationcenter: 
-author: sama
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 0d453e72-7f70-4aa2-953d-938d2814d5a9
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
-ms.author: sama
-ms.openlocfilehash: f0aa3d19e15837b75888293f0cd19683b7621a6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 35b31c46b350474caa1472829d705b4d068d9642
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: Inbyggda principer
 
@@ -63,9 +60,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
-Mer information om principen framework finns [i det här blogginlägget om Azure AD B2C på Enterprise Mobility and Security Blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
-
-## <a name="create-a-sign-up-or-sign-in-policy"></a>Skapa en princip för registrering eller inloggning
+## <a name="create-a-sign-up-or-sign-in-policy"></a>Skapa en registrerings- eller inloggningsprincip
 
 Den här principen hanterar upplevelser för registrering och inloggning i båda konsumenten med en enda konfiguration. Konsumenterna ledde till rätt sökvägen (registrering eller inloggning) beroende på kontext. Här beskrivs också innehållet i token som programmet ska ta emot lyckats logga in eller inloggningar.  En kodexempel för registrering eller inloggning principen är [tillgänglig här](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Är det rekommenderade att du använder den här principen via en principen för registrering och inloggning princip.  
 
@@ -79,11 +74,11 @@ Den här principen hanterar upplevelser för registrering och inloggning i båda
 
 [!INCLUDE [active-directory-b2c-create-sign-in-policy](../../includes/active-directory-b2c-create-sign-in-policy.md)]
 
-## <a name="create-a-profile-editing-policy"></a>Skapa en profil Redigera princip
+## <a name="create-a-profile-editing-policy"></a>Skapa en profilredigeringsprincip
 
 [!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
 
-## <a name="create-a-password-reset-policy"></a>Skapa en princip för lösenordsåterställning
+## <a name="create-a-password-reset-policy"></a>Skapa en princip för återställning av lösenord
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
@@ -92,7 +87,7 @@ Den här principen hanterar upplevelser för registrering och inloggning i båda
 ### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Hur länkar en princip för registrering eller inloggning med en princip för lösenordsåterställning?
 När du skapar en princip för registrering eller inloggning (med lokala konton) visas en **har du glömt lösenordet?** länk på den första sidan i miljön. Klicka på den här länken återställs inte utlösaren lösenord automatiskt princip. 
 
-I stället felkoden  **`AADB2C90118`**  returneras till din app. Din app behöver hantera felet genom att aktivera en specifik princip för lösenordsåterställning. Mer information finns i en [exempel som visar metoden länka principer för](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+I stället felkoden **`AADB2C90118`** returneras till din app. Din app behöver hantera felet genom att aktivera en specifik princip för lösenordsåterställning. Mer information finns i en [exempel som visar metoden länka principer för](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
 ### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>Bör jag använda en princip för registrering eller inloggning eller en princip för registrering och en princip för inloggning?
 Vi rekommenderar att du använder en princip för registrering eller inloggning via en princip för registrering och en princip för inloggning.  

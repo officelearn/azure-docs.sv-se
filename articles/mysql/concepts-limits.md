@@ -1,6 +1,6 @@
 ---
-title: "Begränsningar i Azure-databas för MySQL"
-description: "Den här artikeln beskriver begränsningar i Azure-databas för MySQL, till exempel antal anslutning och lagringsalternativ för motorn."
+title: Begränsningar i Azure-databas för MySQL
+description: Den här artikeln beskriver begränsningar i Azure-databas för MySQL, till exempel antal anslutning och lagringsalternativ för motorn.
 services: mysql
 author: kamathsun
 ms.author: sukamat
@@ -8,42 +8,41 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 85e57170c1cbd977d2de6e7e614916333c79e047
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Begränsningar i Azure-databas för MySQL
-Azure-databasen för MySQL-tjänsten är tillgänglig som förhandsversion. I följande avsnitt beskrivs kapacitet, stödet för lagring, privilegium support, stöd för data manipulation instruktionen och funktionella gränser i databastjänsten för. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) avser MySQL database engine.
+I följande avsnitt beskrivs kapacitet, stödet för lagring, privilegium support, stöd för data manipulation instruktionen och funktionella gränser i databastjänsten för. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) avser MySQL database engine.
 
 ## <a name="service-tier-maximums"></a>Tjänsten nivå maxkapacitet
 Azure MySQL-databas har flera tjänstnivåer för att välja mellan när du skapar en server. Mer information finns i [Azure-databas för MySQL prisnivåer](concepts-pricing-tiers.md).  
 
-Det finns ett maximalt antal anslutningar, Compute enheter och lagring i varje tjänstnivå under förhandsgranskningen gör på följande sätt: 
+Det finns ett maximalt antal anslutningar, Compute enheter och lagring i varje tjänstnivå: 
 
 |**Prisnivå**| **Compute-generering**|**vCore(s)**| **Högsta antal anslutningar**|
 |---|---|---|---|
-|Basic| Gen 4| 1| 50|
-|Basic| Gen 4| 2| 100|
-|Basic| Gen 5| 1| 50|
-|Basic| Gen 5| 2| 100|
-|Generellt syfte| Gen 4| 2| 200|
-|Generellt syfte| Gen 4| 4| 400|
-|Generellt syfte| Gen 4| 8| 800|
-|Generellt syfte| Gen 4| 16| 1600|
-|Generellt syfte| Gen 4| 32| 3200|
-|Generellt syfte| Gen 5| 2| 200|
-|Generellt syfte| Gen 5| 4| 400|
-|Generellt syfte| Gen 5| 8| 800|
-|Generellt syfte| Gen 5| 16| 1600|
-|Generellt syfte| Gen 5| 32| 3200|
-|Minnesoptimerad| Gen 5| 2| 600|
-|Minnesoptimerad| Gen 5| 4| 1250|
-|Minnesoptimerad| Gen 5| 8| 2500|
-|Minnesoptimerad| Gen 5| 16| 5000|
-|Minnesoptimerad| Gen 5| 32| 10000| 
+|Basic| Generation 4| 1| 50|
+|Basic| Generation 4| 2| 100|
+|Basic| Generation 5| 1| 50|
+|Basic| Generation 5| 2| 100|
+|Generellt syfte| Generation 4| 2| 300|
+|Generellt syfte| Generation 4| 4| 625|
+|Generellt syfte| Generation 4| 8| 1250|
+|Generellt syfte| Generation 4| 16| 2500|
+|Generellt syfte| Generation 4| 32| 5000|
+|Generellt syfte| Generation 5| 2| 300|
+|Generellt syfte| Generation 5| 4| 625|
+|Generellt syfte| Generation 5| 8| 1250|
+|Generellt syfte| Generation 5| 16| 2500|
+|Generellt syfte| Generation 5| 32| 5000|
+|Minnesoptimerad| Generation 5| 2| 600|
+|Minnesoptimerad| Generation 5| 4| 1250|
+|Minnesoptimerad| Generation 5| 8| 2500|
+|Minnesoptimerad| Generation 5| 16| 5000|
 
 När för många anslutningar har uppnåtts, får du följande fel:
 > FEL 1040 (08004): För många anslutningar
@@ -74,7 +73,7 @@ När för många anslutningar har uppnåtts, får du följande fel:
 ### <a name="unsupported"></a>Stöds inte
 - VÄLJ... I UTFIL
 
-## <a name="preview-functional-limitations"></a>Funktionella begränsningar i förhandsversionen
+## <a name="functional-limitations"></a>Funktionella begränsningar
 
 ### <a name="scale-operations"></a>Skalningsåtgärder
 - Dynamisk skalning av servrar över prisnivåer stöds inte för närvarande. Att växla mellan Basic generella och Minnesoptimerade prisnivåer.

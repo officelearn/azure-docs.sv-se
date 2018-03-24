@@ -1,12 +1,12 @@
 ---
-title: "Webhook-åtgärder för logg-aviseringar i Azure aviseringar (förhandsversion) | Microsoft Docs"
-description: "Den här artikeln beskriver hur till en logg aviseringsregel med hjälp av log analytics eller application insights, skickar data som HTTP-webhook och information om olika anpassningar möjligt."
+title: Webhook-åtgärder för logg-aviseringar i Azure-aviseringar | Microsoft Docs
+description: Den här artikeln beskriver hur till en logg aviseringsregel med hjälp av log analytics eller application insights, skickar data som HTTP-webhook och information om olika anpassningar möjligt.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 5852eb099f6620656aa69e5085447c2a8b4e0c01
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för log Varningsregler
-När en [aviseringen har skapats i Azure (förhandsversion)](monitor-alerts-unified-usage.md), har möjlighet att [konfigurera med åtgärdsgrupper](monitoring-action-groups.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika webhook-åtgärder som är tillgängliga och information om hur du konfigurerar anpassade JSON-baserade webhooken.
+När en [aviseringen har skapats i Azure ](monitor-alerts-unified-usage.md), har möjlighet att [konfigurera med åtgärdsgrupper](monitoring-action-groups.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika webhook-åtgärder som är tillgängliga och information om hur du konfigurerar anpassade JSON-baserade webhooken.
 
 
 ## <a name="webhook-actions"></a>Webhook-åtgärder
@@ -33,7 +33,7 @@ Webhook-åtgärder kräver egenskaperna i följande tabell:
 | Egenskap | Beskrivning |
 |:--- |:--- |
 | Webhooksadressen |URL till webhooken. |
-| Anpassad JSON-nyttolast |Anpassad nyttolast skickar med webhooken, när det här alternativet väljs under skapande av varning. Information som finns på [Hantera aviseringar via Azure aviseringar (förhandsgranskning)](monitor-alerts-unified-usage.md) |
+| Anpassad JSON-nyttolast |Anpassad nyttolast skickar med webhooken, när det här alternativet väljs under skapande av varning. Information som finns på [Hantera aviseringar via Azure-aviseringar ](monitor-alerts-unified-usage.md) |
 
 > [!NOTE]
 > Testa Webhook-knappen bredvid *inkludera anpassad JSON-nyttolast för webhook* för loggen avisering, utlöser dummy anrop för att testa Webhooksadressen. Den innehåller inte faktiska data och representativ för JSON-schema för logg-aviseringar. 
@@ -157,6 +157,8 @@ Följande är ett exempel nyttolasten för en standard webhook *utan anpassade J
     }
     }
 
+> [!NOTE]
+> Loggen aviseringar för Application Insights är för närvarande offentlig Förhandsgranska - funktionerna och användarupplevelse kan ändras.
 
 #### <a name="log-alert-with-custom-json-payload"></a>Logga avisering med anpassad JSON-nyttolast
 Om du vill skapa en anpassad nyttolast som innehåller bara aviseringsnamn och sökresultaten kan du till exempel använda följande: 
@@ -194,7 +196,7 @@ Följande är ett exempel nyttolasten för en anpassad webhook-åtgärder för a
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [loggen aviseringar i Azure aviseringar (förhandsgranskning)](monitor-alerts-unified-log.md)
+- Lär dig mer om [Logga varningar i Azure-aviseringar ](monitor-alerts-unified-log.md)
 - Skapa och hantera [åtgärdsgrupper i Azure](monitoring-action-groups.md)
 - Lär dig mer om [Application Insights](../application-insights/app-insights-analytics.md)
 - Lär dig mer om [logganalys](../log-analytics/log-analytics-overview.md). 

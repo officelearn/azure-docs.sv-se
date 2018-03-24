@@ -1,26 +1,26 @@
 ---
-title: "Dirigera nätverkstrafik - PowerShell | Microsoft Docs"
-description: "Lär dig mer om att dirigera nätverkstrafik till en routingtabell med hjälp av PowerShell."
+title: Dirigera nätverkstrafik - Azure PowerShell | Microsoft Docs
+description: Lär dig mer om att dirigera nätverkstrafik till en routingtabell med hjälp av PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 49c7b6158beee9d47ecd224e6a0750310d2b68c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: f7be6aa58c6779150d3e79893e6e179d08611567
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Dirigera nätverkstrafik till en routingtabell med hjälp av PowerShell
 
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt i den här artikeln kräver Azure PowerShell Modulversion 5.4.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. 
+Om du väljer att installera och använda PowerShell lokalt i den här artikeln kräver Azure PowerShell Modulversion 5.4.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. 
 
 ## <a name="create-a-route-table"></a>Skapa en routingtabell
 
@@ -242,7 +242,7 @@ Ange användarnamn och lösenord som du angav när du skapar den virtuella dator
 Kommandot tracert.exe används i ett senare steg att testa routning. Tracert använder den kontrollen meddelandet ICMP (Internet Protocol), som nekas via Windows-brandväggen. Aktivera ICMP via Windows-brandväggen genom att skriva följande kommando från PowerShell:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 Även om tracert används för att testa routning i den här artikeln, rekommenderas inte att tillåta ICMP via Windows-brandväggen för Produktionsdistribution.
@@ -272,7 +272,7 @@ mstsc /v:myVmPublic
 Aktivera ICMP via Windows-brandväggen genom att skriva följande kommando från PowerShell:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 Att testa routning av nätverkstrafik till den *myVmPrivate* virtuell dator från den *myVmPublic* VM, anger du följande kommando från PowerShell:
@@ -332,4 +332,4 @@ I den här artikeln, skapa en routingtabell och som är kopplad till ett undern�
 Resurser för vissa Azure PaaS-tjänster kan inte distribueras till ett virtuellt nätverk medan du kan distribuera många Azure-resurser inom ett virtuellt nätverk. Du kan fortfarande begränsa åtkomsten till resurser av vissa Azure PaaS-tjänster till trafik från ett undernät för virtuellt nätverk men. Gå vidare till nästa kurs att lära dig att begränsa nätverksåtkomsten till Azure PaaS-resurser.
 
 > [!div class="nextstepaction"]
-> [Begränsa nätverksåtkomst till PaaS-resurser](virtual-network-service-endpoints-configure.md#azure-powershell)
+> [Begränsa nätverksåtkomst till PaaS-resurser](tutorial-restrict-network-access-to-resources-powershell.md)

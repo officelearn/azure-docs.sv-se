@@ -2,10 +2,10 @@
 title: Azure Service Bus meddelandet sessioner | Microsoft Docs
 description: Hantera sekvenser av Azure Service Bus-meddelanden med sessioner.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 551432cd13c16fdd5423c46ed9c6f740353808f8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Meddelande sessioner: först in, först ut (FIFO) 
 
@@ -53,13 +53,7 @@ Låset frigörs när **Stäng** eller **CloseAsync** kallas, eller när låset u
 
 När flera samtidiga mottagare hämtar från kön, skickas de meddelanden som tillhör en viss session till specifika mottagare som för närvarande innehar låset för den aktuella sessionen. Med åtgärden, en överlagrad meddelandeströmmen som finns i en kö eller prenumeration är klar Frigör multiplex till olika mottagare och dessa mottagare kan också live på olika klientdatorer, eftersom Lås management händer tjänsten på klientsidan, inuti Service Bus.
 
-En kö är dock fortfarande en kö: det finns inga direktåtkomst. Om flera samtidiga mottagare väntetiden för att acceptera specifika sessioner eller vänta tills meddelanden från specifika sessioner och det finns ett meddelande längst upp i en kö som hör till en session som har ingen mottagare ännu gällande håller leveranser tills en session mottagare anspråk som sessionen.
-
-I föregående bild visas tre samtidiga session mottagare, som aktivt måste vidta meddelanden från kön för varje mottagare fortsätta. Den senaste sessionen med `SessionId` = 4 har inga aktiva, ägande klienten, vilket innebär att inga meddelanden levereras till någon tills meddelandet har tagits av en nyligen skapade äger sessionen mottagare.
-
-Medan som visas för att begränsa kan en enda mottagare process hantera många samtidiga sessioner enkelt, särskilt när de skrivs med strikt asynkron kod. Samtidig användning av flera dussin samtidiga sessioner är effektivt automatisk med återanrop modellen.
-
-Strategi för hantering av många samtidiga sessioner, där varje session bara ibland tar emot meddelanden, för hanteraren om att ta bort sessionen efter en ledig tid och fortsätta att bearbeta när sessionen accepteras när nästa session anländer.
+I föregående bild visas tre samtidiga session mottagare. En Session med `SessionId` = 4 har inga aktiva, ägande klienten, vilket innebär att inga meddelanden levereras från den här specifika sessionen. En session fungerar på många sätt som en en sub-kö.
 
 Låset för session för session mottagaren är ett samlingsnamn för meddelande-lås som används av den *titt Lås* betalning läge. En mottagare kan inte ha två meddelanden samtidigt ”som rör sig”, men meddelandena som måste bearbetas i ordning. Ett nytt meddelande kan endast hämtas när det föregående meddelandet har slutförts eller förlorade lettered. Avbryter en meddelandet orsaker samma meddelande till hanteras igen nästa för att ta emot åtgärden.
 

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med GoToMeeting | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och GoToMeeting."
+title: 'Självstudier: Azure Active Directory-integrering med GoToMeeting | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och GoToMeeting.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 4826dee82e62ffac70d7ca3d6dcfe005129de764
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d26b78fb5be96e979fb7b375acf6e907d858b706
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Självstudier: Azure Active Directory-integrering med GoToMeeting
 
@@ -108,77 +108,32 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och GoToMeeting domän med enkel inloggning information](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    I den **identifierare** textruta anger du URL:`https://login.citrixonline.com/saml/sp`
+    I den **identifierare** textruta anger du URL: `https://authentication.logmeininc.com/saml/sp`
 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+4. Klicka på **Visa URL för avancerad konfiguration** och konfigurera den nedan URL: er
 
-    ![Länken hämta certifikatet](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_certificate.png) 
-
+    **Logga in URL: en** (Håll detta tomt)
+    
+    **Reply URL**: `https://authentication.logmeininc.com/saml/acs`
+    
+    **RelayState**:
+    
+    - För GoToMeeting appen Använd `https://global.gotomeeting.com`
+    
+    - GoToTraining, använda `https://global.gototraining.com`
+    
+    - GoToWebinar, använda `https://global.gotowebinar.com` 
+    
+    - GoToAssist, använda `https://app.gotoassist.com`
+    
 5. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-gotomeeting-tutorial/tutorial_general_400.png)
 
-6. Att generera den **Metadata** url, utför följande steg:
+6. I en annan webbläsare och logga in på ditt [GoToMeeting organisation Center](https://organization.logmeininc.com/). Du uppmanas att bekräfta att IdP har uppdaterats
 
-    a. Klicka på **App registreringar**.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
-   
-    b. Klicka på **slutpunkter** att öppna **slutpunkter** dialogrutan.  
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
+7. Aktivera kryssrutan ”min identitetsleverantören har uppdaterats med den nya domänen”. Klicka på **klar** när du är klar.
 
-    c. Klicka på kopieringsknappen för att kopiera **FEDERATION METADATADOKUMENTET** url och klistra in den i anteckningar.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
-     
-    d. Gå till egenskapssidan för **GoToMeeting** och kopiera den **program-Id** med **kopiera** knappen och klistra in den i anteckningar.
- 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
-
-    e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
-
-7. På den **GoToMeeting Configuration** klickar du på **konfigurera GoToMeeting** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
-
-    ![GoToMeeting konfiguration](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
-
-8. I en annan webbläsare och logga in på ditt [GoToMeeting organisation Center](https://organization.logmeininc.com/)
-
-9. Under **identitetsleverantör** fliken kan du konfigurera Azure inställningar antingen genom att tillhandahålla den genererade **URL för tjänstmetadata** eller den hämtade **metadatafil** eller **Manuell**.
-
-10. För **URL för tjänstmetadata** utför följande steg:
-
-    ![GoToMeeting konfiguration](./media/active-directory-saas-gotomeeting-tutorial/config1.png)
-
-    a. I den **hur du vill konfigurera SAML-IDP?**väljer **automatisk** i listrutan.
-
-    b. Klistra in den **URL för tjänstmetadata**, som du har genererat i föregående steg i den **URL för tjänstmetadata** textruta.
-
-    c. Klicka på **Spara**.
-
-11. För **metadatafil** utför följande steg:
-
-    ![GoToMeeting konfiguration](./media/active-directory-saas-gotomeeting-tutorial/config2.png)
-
-    a. I den **hur du vill konfigurera SAML-IDP?**väljer **överför SAML-metadatafil** i listrutan.
-
-    b. Om du vill överföra din hämtade metadatafil klickar du på **överför metadatafil**.
-
-    c. Klicka på **Spara**.
-
-12. För **manuell** utför följande steg:
-
-    ![GoToMeeting konfiguration](./media/active-directory-saas-gotomeeting-tutorial/config3.png)
-
-    a.  I **inloggning Sidadress** textruta klistra in värdet för **SAML inloggning tjänst-URL för enkel** som du har kopierat från Azure-portalen.
-
-    b.  I **URL för utloggning** textruta klistra in värdet för **Sign-Out URL** som du har kopierat från Azure-portalen.
-
-    c.  I **identitet providern enhets-ID** textruta klistra in värdet för **SAML enhets-ID** som du har kopierat från Azure-portalen.
-
-    d. Extrahera X509Certificate från hämtade metadatafilen och överföra det här certifikatet genom att klicka på **överför certifikat**.
-
-    e. Klicka på **Spara**.
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

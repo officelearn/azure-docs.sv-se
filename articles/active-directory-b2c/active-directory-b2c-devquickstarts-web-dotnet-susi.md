@@ -1,25 +1,21 @@
 ---
-title: "Autentisering, registrering för lösenordsåterställning ASP.NET Azure Active Directory B2C"
-description: "Hur du skapar ett webbprogram som har sign-upp/inloggning, Redigera profil och lösenordsåterställning med hjälp av Azure Active Directory B2C."
+title: Autentisering, registrering för lösenordsåterställning ASP.NET Azure Active Directory B2C
+description: Hur du skapar ett webbprogram som har sign-upp/inloggning, Redigera profil och lösenordsåterställning med hjälp av Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: barbaraselden
-ms.assetid: 30261336-d7a5-4a6d-8c1a-7943ad76ed25
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: parakhj
-ms.custom: seohack1
-ms.openlocfilehash: ffc46f4348a2ac3cae51c859a24c609756a710fe
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: davidmu
+ms.openlocfilehash: f7b7cce84f8ff7be14120568e710432be639ce8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Skapa en ASP.NET-webbapp med Azure Active Directory B2C profil för registrering, inloggning, redigera och återställning av lösenord
 
@@ -65,11 +61,11 @@ Välj inställningarna för **identitetsleverantörer** och välj signup använd
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
-### <a name="create-a-profile-editing-policy"></a>Skapa en profil Redigera princip
+### <a name="create-a-profile-editing-policy"></a>Skapa en profilredigeringsprincip
 
 [!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
 
-### <a name="create-a-password-reset-policy"></a>Skapa en princip för lösenordsåterställning
+### <a name="create-a-password-reset-policy"></a>Skapa en princip för återställning av lösenord
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
@@ -83,7 +79,7 @@ Koden för den här självstudiekursen finns på [GitHub](https://github.com/Azu
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-När du har laddat ned exempelkoden öppnar du SLN-filen i Visual Studio för att sätta igång. Lösningsfilen innehåller två projekt: `TaskWebApp` och `TaskService`. `TaskWebApp`är MVC-webbapp som användaren interagerar med. `TaskService` är appens backend-webb-API som lagrar varje användares att göra-lista. I den här artikeln beskrivs bara `TaskWebApp`-programmet. Mer information om hur du skapar `TaskService` med Azure AD B2C finns i [våra självstudier för .NET web api](active-directory-b2c-devquickstarts-api-dotnet.md).
+När du har laddat ned exempelkoden öppnar du SLN-filen i Visual Studio för att sätta igång. Lösningsfilen innehåller två projekt: `TaskWebApp` och `TaskService`. `TaskWebApp` är MVC-webbapp som användaren interagerar med. `TaskService` är appens backend-webb-API som lagrar varje användares att göra-lista. I den här artikeln beskrivs bara `TaskWebApp`-programmet. Mer information om hur du skapar `TaskService` med Azure AD B2C finns i [våra självstudier för .NET web api](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## <a name="update-code-to-use-your-tenant-and-policies"></a>Uppdatera koden för att använda din klient och principer
 
@@ -97,7 +93,7 @@ Det här exemplet är konfigurerat att använda principerna och klient-ID:t för
 * `ida:ResetPasswordPolicyId` med namnet på din lösenordsåterställningsprincip
 
 ## <a name="launch-the-app"></a>Starta appen
-Starta appen från Visual Studio. Gå till fliken Uppgiftslista och skriver ner webbadressen: https://login.microsoftonline.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id =*YourclientID*...
+Starta appen från Visual Studio. Gå till fliken Uppgiftslista och skriver ner webbadressen: https://login.microsoftonline.com/ *YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id =*YourclientID*.....
 
 Registrera dig för appen genom att använda din e-postadress eller användaren namn. Logga ut och sedan logga in igen och redigera profilen eller återställa lösenordet. Logga ut och logga in som en annan användare. 
 

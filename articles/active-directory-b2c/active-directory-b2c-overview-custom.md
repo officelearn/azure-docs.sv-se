@@ -1,24 +1,21 @@
 ---
 title: 'Azure Active Directory B2C: Anpassade principer | Microsoft Docs'
-description: "Ett ämne på Azure Active Directory B2C anpassade principer"
+description: Ett ämne på Azure Active Directory B2C anpassade principer
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 1ff398a4-2079-4615-94f1-57de22c0aad6
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/04/2017
-ms.author: parakhj
-ms.openlocfilehash: 6c59075bb1eacb05599b23be3d8731fa40eabf98
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 269b65662796c092190cd2622c240756f6bd1cf7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: Anpassade policys
 
@@ -37,7 +34,7 @@ Anpassade principer är konfigurationsfiler som definierar beteendet för din Az
 |Anpassning av Användargränssnittet | Fullständig anpassning av Användargränssnittet, inklusive HTML, CSS och javascript-stöd (kräver anpassade domäner)<br><br>Stöd för flera språk med anpassade strängar | samma |
 | Attributanpassning | Standard- och anpassade attribut | samma |
 |Hantering av token och session | Anpassade token och flera olika sessionsalternativ för | samma |
-|Identitetsleverantörer| **Idag**: fördefinierade lokal, sociala provider<br><br>**Framtida**: standardbaserad OIDC SAML OAuth | **Idag**: standardbaserad OIDC OAUTH SAML<br><br>**Framtida**: WsFed |
+|Identitetsproviders| **Idag**: fördefinierade lokal, sociala provider<br><br>**Framtida**: standardbaserad OIDC SAML OAuth | **Idag**: standardbaserad OIDC OAUTH SAML<br><br>**Framtida**: WsFed |
 |Identitet uppgifter (exempel) | Registrera dig eller logga in med lokala och många sociala konton<br><br>Återställning av lösenord för självbetjäning<br><br>Redigera profil<br><br>Multi-Factor Authentication-scenarier<br><br>Anpassa token och sessioner<br><br>Åtkomsttoken flödar | Utföra samma åtgärder som inbyggda principer med hjälp av anpassade identitetsleverantörer eller använda anpassade omfattningar<br><br>Etablera användare i ett annat system vid tiden för registrering<br><br>Skicka ett välkomstmeddelande med din egen e-post-leverantör<br><br>Använd en användararkivet utanför B2C<br><br>Verifiera användarens angivna information med en betrodd dator via API |
 
 ## <a name="policy-files"></a>Principfiler
@@ -94,7 +91,7 @@ En anpassad princip representeras som en eller flera XML-formaterade filer som r
 |---------------------|--------------------|-----------------|---------------|
 | BAS |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Innehåller grundläggande anspråk schemat, anspråksomvandlingar, Anspråksproviders och användaren resor konfigureras av Microsoft<br><br>Göra minimala ändringar i filen | Ingen |
 | Tillägget (EXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | Konsolidera dina ändringar i grundläggande filen<br><br>Ändrade Anspråksproviders<br><br>Ändrade användaren resor<br><br>Anpassat schemadefinitionerna | BAS-fil |
-| Förlitande part (RP) | B2C_1A_sign_up_sign_in.XML| Ändra token form och session här| Extensions(ext) fil |
+| Förlitande part (RP) | B2C_1A_sign_up_sign_in.xml| Ändra token form och session här| Extensions(ext) fil |
 
 ### <a name="inheritance-model"></a>Arv modellen
 

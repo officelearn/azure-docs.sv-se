@@ -1,17 +1,17 @@
 ---
 title: Installation av insamlaren i Azure migrera | Microsoft Docs
-description: "En översikt över insamlaren installation och hur du konfigurerar den."
+description: En översikt över insamlaren installation och hur du konfigurerar den.
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="collector-appliance"></a>Installation av insamlaren
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="overview"></a>Översikt
 
-En Azure migrera insamlare är en installation av lighweight som kan användas för att identifiera lokala vCenter-miljö. Den här enheten identifieras lokala VMware-datorer och skickar metadata om dem till Azure migrera-tjänsten.
+En Azure migrera insamlare är en förenklad installation som kan användas för att identifiera lokala vCenter-miljö. Den här enheten identifieras lokala VMware-datorer och skickar metadata om dem till Azure migrera-tjänsten.
 
 Insamlaren installation är ett OVF som du kan hämta från Azure migrera projektet. Den instantierar en VMware-dator med 4 kärnor, 8 GB RAM-minne och en disk på 80 GB. Enhetens operativsystemet är Windows Server 2012 R2 (64-bitars).
 
@@ -172,6 +172,15 @@ I följande tabell visas de prestandaräknare som samlas in och visar också utv
 Insamlaren endast identifieras data för den dator och skickar den till projektet. Projektet kan ta längre tid innan identifierade data visas på portalen och du kan börja skapa en utvärdering.
 
 Baserat på antalet virtuella datorer i det valda omfånget, tar det upp till 15 minuter för att skicka statiska metadata i projektet. När statiska metadata är tillgängliga på portalen kan du se en lista över datorer i portalen och börja skapa grupper. En utvärdering kan inte skapas förrän samling jobbet har slutförts och projektet har bearbetat data. En gång samling jobbet slutförs på insamlaren, det kan ta upp till en timme för prestandadata ska vara tillgängliga på portalen, baserat på antalet virtuella datorer i det valda omfånget.
+
+## <a name="locking-down-the-collector-appliance"></a>Låsa insamlaren-enhet
+Vi rekommenderar att du kör kontinuerligt Windows-uppdateringar på insamlaren-enhet. Om insamling och inte har uppdaterats för 45 dagar startar insamlaren automatiskt stänga av datorn. Om en identifiering körs inaktiveras datorn inte, även om den har passerat dess 45 dagar. Efter identifiering av jobbet har slutförts, kommer datorn att stängas av. Om du använder insamlaren mer än 45 dagar, rekommenderar vi att hålla datorn uppdateras vid alla tidpunkter genom att köra Windows update.
+
+Vi rekommenderar också att följande steg för att skydda din enhet
+1. Dela eller inte misplace administratörslösenord med obehöriga personer.
+2. Stäng av enheten som.
+3. Placera enheten i ett skyddat nätverk.
+4. När arbetet migreringen är klar, ta bort en enhet-instans. Se till att även ta bort disken säkerhetskopiera filer (VMDKs) som diskarna kanske har vCenter autentiseringsuppgifter cachelagras på dem.
 
 ## <a name="how-to-upgrade-collector"></a>Så här uppgraderar du insamlaren
 

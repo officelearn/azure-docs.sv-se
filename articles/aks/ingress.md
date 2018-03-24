@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera ingång med Azure Container Service (AKS)-kluster"
-description: "Installera och konfigurera en domänkontrollant för en NGINX-ingång i ett kluster med Azure Container Service (AKS)."
+title: Konfigurera ingång med Azure Container Service (AKS)-kluster
+description: Installera och konfigurera en domänkontrollant för en NGINX-ingång i ett kluster med Azure Container Service (AKS).
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 908910b44a9de28f184906dd4e904e651fe034ce
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4294169e89533150cade700fb89e14c4121c4404
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>HTTPS-ingång på Azure Container Service (AKS)
 
@@ -31,21 +31,20 @@ Uppdatera schema-databasen.
 helm repo update
 ```
 
-Installera NGINX ingång domänkontrollant.
+Installera NGINX ingång domänkontrollant. Det här exemplet installerar domänkontrollant i den `kube-system` namnområde, kan du ändra det till ett namnområde som du väljer.
 
 ```
-helm install stable/nginx-ingress
+helm install stable/nginx-ingress --namespace kube-system
 ```
 
 Under installationen skapas en Azure offentliga IP-adress för meddelande om ingångs-styrenhet. Använd kommandot kubectl get-tjänsten för att hämta den offentliga IP-adressen. Det kan ta lite tid innan IP-adress tilldelas till tjänsten.
 
 ```console
-$ kubectl get service
+$ kubectl get service -l app=nginx-ingress --namespace kube-system
 
-NAME                                          TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                      AGE
-kubernetes                                    ClusterIP      10.0.0.1       <none>           443/TCP                      3d
-toned-spaniel-nginx-ingress-controller        LoadBalancer   10.0.236.223   52.224.125.195   80:30927/TCP,443:31144/TCP   18m
-toned-spaniel-nginx-ingress-default-backend   ClusterIP      10.0.5.86      <none>           80/TCP                       18m
+NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)                      AGE
+eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   13.82.238.45   80:30920/TCP,443:30426/TCP   20m
+eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>         80/TCP                       20m
 ```
 
 Eftersom inga meddelanden om ingångs-regler har skapats om du bläddrar till den offentliga IP-adressen, dirigeras till NGINX ingång domänkontrollanter standard 404-sidan.

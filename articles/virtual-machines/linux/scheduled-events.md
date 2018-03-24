@@ -1,13 +1,13 @@
 ---
-title: "Schemalagda händelser för Linux virtuella datorer i Azure | Microsoft Docs"
-description: "Schemalägga händelser med hjälp av Azure Metadata Service för din virtuella Linux-datorer."
+title: Schemalagda händelser för Linux virtuella datorer i Azure | Microsoft Docs
+description: Schemalägga händelser med hjälp av Azure Metadata Service för din virtuella Linux-datorer.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: ericrad
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: e697a8f1160aff5774dc416c81819220c316707a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: c87dd5bdbdc87bf238f34d145bd7380a61b90cb6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Metadata Azure: Schemalagda händelser för virtuella Linux-datorer
 
@@ -129,7 +129,7 @@ I fall där det finns schemalagda händelser, svaret innehåller en matris av h�
 | ResourceType | Typ av resurs som påverkar den här händelsen. <br><br> Värden: <ul><li>`VirtualMachine`|
 | Resurser| Lista över resurser som påverkar den här händelsen. Listan innehåller datorerna från högst ett garanterat [uppdateringsdomän](manage-availability.md), men det kanske inte innehåller alla datorer i UD. <br><br> Exempel: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status för den här händelsen. <br><br> Värden: <ul><li>`Scheduled`: Den här händelsen har schemalagts att starta efter den tid som anges i den `NotBefore` egenskapen.<li>`Started`: Den här händelsen har startats.</ul> Inte `Completed` eller liknande status tillhandahålls någonsin. Händelsen returneras inte längre när händelsen är klar.
-| Inte före| Tid som den här händelsen kan starta. <br><br> Exempel: <br><ul><li> 2016-09-19T18:29:47Z  |
+| Inte före| Tid som den här händelsen kan starta. <br><br> Exempel: <br><ul><li> Mån, 19 Sep 2016 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>Schemaläggning av händelse
 Varje händelse schemaläggs en minimal mängd tidpunkt i framtiden baserat på vilken typ av händelse. Nu visas i en händelse `NotBefore` egenskapen. 

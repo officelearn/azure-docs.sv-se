@@ -1,11 +1,11 @@
 ---
-title: "Så här skalar du Azure Redis-Cache | Microsoft Docs"
-description: "Lär dig hur du skala Azure Redis-Cache-instanser"
+title: Så här skalar du Azure Redis-Cache | Microsoft Docs
+description: Lär dig hur du skala Azure Redis-Cache-instanser
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: b0a9208681b164fe7be33bf9ef5f635358284ba3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0cf0e41fe03bf3be7ecf2172cff3e6ab5f3eb65d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Så här skalar du Azure Redis-Cache
 Azure Redis-Cache har olika cache-erbjudanden som ger flexibilitet vid val av cachestorlek och funktioner. När en cache har skapats kan skala du storlek och prisnivå för cachen om kraven för ditt program ändrar. Den här artikeln visar hur du skala din cache med hjälp av Azure-portalen och verktyg som Azure PowerShell och Azure CLI.
@@ -111,6 +111,7 @@ I följande lista innehåller svar på vanliga frågor om Azure Redis-Cache skal
 * [Jag förlorar data från min cache under skalning?](#will-i-lose-data-from-my-cache-during-scaling)
 * [Är mina egna databaser inställningen påverkas under skalning?](#is-my-custom-databases-setting-affected-during-scaling)
 * [Kommer min cache vara tillgängliga under skalning?](#will-my-cache-be-available-during-scaling)
+* [Med Geo-replikering konfigureras, varför kan jag inte vill skala min cache eller ändra delar i ett kluster?](#scaling-limitations-with-geo-relication)
 * [Åtgärder som inte stöds](#operations-that-are-not-supported)
 * [Hur lång tid skalning tar?](#how-long-does-scaling-take)
 * [Hur vet jag när skalning är klar?](#how-can-i-tell-when-scaling-is-complete)
@@ -151,6 +152,12 @@ Standard och Premium har ett SLA för 99,9% för tillgänglighet, finns men det 
 * **Standard** och **Premium** cacheminnen finns kvar under åtgärden skalning. Anslutningen signaler kan dock uppstå vid skalning Standard och Premium och även vid skalning från enkel till Standard cacheminnen. Dessa anslutning signaler förväntas vara små och redis-klienter ska kunna återupprätta anslutningen omedelbart.
 * **Grundläggande** cacheminnen är offline under skalning åtgärder till en annan storlek. Grundläggande cacheminnen är tillgängliga vid skalning från **grundläggande** till **Standard** men kan ha en liten anslutning blip. Om en anslutning blip inträffar ska redis-klienter kunna återupprätta anslutningen omedelbart.
 
+
+### <a name="scaling-limitations-with-geo-relication"></a>Skalning med Geo-relication
+
+När du har lagt till en länk för Geo-replikering mellan två cacheminnen kan att du inte längre kunna starta en åtgärd för skalning eller ändra antalet delar i ett kluster. Du måste ta bort länken cache för att utfärda dessa kommandon. Mer information finns i [konfigurera Geo-replikering](cache-how-to-geo-replication.md).
+
+
 ### <a name="operations-that-are-not-supported"></a>Åtgärder som inte stöds
 * Du kan skala från en högre prisnivå till en lägre prisnivå.
   * Du kan skala från en **Premium** cachelagra ned till en **Standard** eller en **grundläggande** cache.
@@ -160,6 +167,7 @@ Standard och Premium har ett SLA för 99,9% för tillgänglighet, finns men det 
 * Du kan skala från en större storlek för den **C0 (250 MB)** storlek.
 
 Om en skalning misslyckas tjänsten försöker återställa igen och cachen återgår till den ursprungliga storleken.
+
 
 ### <a name="how-long-does-scaling-take"></a>Hur lång tid skalning tar?
 Skalning tar cirka 20 minuter beroende på hur mycket data finns i cacheminnet.

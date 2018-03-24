@@ -1,11 +1,10 @@
 ---
-title: "Flytta data till/från Azure Cosmos DB | Microsoft Docs"
-description: "Lär dig hur du ska flytta data till/från Azure Cosmos DB samlingen med hjälp av Azure Data Factory"
+title: Flytta data till/från Azure Cosmos DB | Microsoft Docs
+description: Lär dig hur du ska flytta data till/från Azure Cosmos DB samlingen med hjälp av Azure Data Factory
 services: data-factory, cosmosdb
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: c9297b71-1bb4-4b29-ba3c-4cf1f5575fac
 ms.service: multiple
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 89b860bb4174a06c17da1db2bce2eaa11832b0b2
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 996fdd9934d79f1640e58c7853564ac05ebb90bb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Flytta data till och från Azure Cosmos-databasen med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -125,7 +124,7 @@ Vid kopieringsaktiviteten när datakällan är av typen **DocumentDbCollectionSo
 
 | **Egenskap** | **Beskrivning** | **Tillåtna värden** | **Krävs** |
 | --- | --- | --- | --- |
-| DocumentDB |Ange frågan som läser data. |Frågesträng stöds av Azure Cosmos DB. <br/><br/>Exempel:`SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nej <br/><br/>Om inget annat anges, SQL-instruktionen som körs:`select <columns defined in structure> from mycollection` |
+| DocumentDB |Ange frågan som läser data. |Frågesträng stöds av Azure Cosmos DB. <br/><br/>Exempel: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nej <br/><br/>Om inget annat anges, SQL-instruktionen som körs: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Specialtecken som visar att dokumentet är kapslad |Valfritt tecken. <br/><br/>Azure Cosmos-DB är en NoSQL store för JSON-dokument, där kapslade strukturer är tillåtna. Azure Data Factory gör det möjligt för användaren att ange hierarkin via nestingSeparator, vilket är ””. i ovanstående exempel. Med avgränsare, kopieringsaktiviteten genererar ”Name”-objektet med tre underordnade element först mellan- och efternamn enligt ”Name.First”, ”Name.Middle” och ”Name.Last” i tabelldefinitionen. |Nej |
 
 **DocumentDbCollectionSink** stöder följande egenskaper:

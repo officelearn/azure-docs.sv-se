@@ -1,11 +1,11 @@
 ---
-title: "Förrän aktivitet i Azure Data Factory | Microsoft Docs"
-description: "Aktiviteten till kör en uppsättning aktiviteter i en slinga tills som är associerad med aktiviteten villkoret utvärderas till true eller tidsgränsen uppnås."
+title: Förrän aktivitet i Azure Data Factory | Microsoft Docs
+description: Aktiviteten till kör en uppsättning aktiviteter i en slinga tills som är associerad med aktiviteten villkoret utvärderas till true eller tidsgränsen uppnås.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: da15ddd47580a37a7fdb35adfd80482b698074fd
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 14abd3f069cb5cd49265a6b27e4b1c4363a21441
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Förrän aktivitet i Azure Data Factory
 Aktiviteten till fungerar på samma sätt som ett-tills slingor strukturen innehåller programmeringsspråk. En uppsättning aktiviteter körs i en loop tills det villkor som är associerat med aktiviteten utvärderas till sant. Du kan ange en tidsgräns för Until-aktiviteten i Data Factory. 
@@ -60,7 +60,7 @@ Egenskap | Beskrivning | Tillåtna värden | Krävs
 namn | Namnet på den `Until` aktivitet. | Sträng | Ja
 typ | Måste anges till **tills**. | Sträng | Ja
 expression | Uttryck som måste utvärderas till true eller false | Uttryck.  | Ja
-timeout | Do-tills loop gånger ut efter den angivna tiden. | Sträng. `d.hh:mm:ss`(eller) `hh:mm:ss`. Standardvärdet är 7 dagar. Högsta tillåtna värde är: 90 dagar. | Nej
+timeout | Do-tills loop gånger ut efter den angivna tiden. | Sträng. `d.hh:mm:ss` (eller) `hh:mm:ss`. Standardvärdet är 7 dagar. Högsta tillåtna värde är: 90 dagar. | Nej
 Aktiviteter | Uppsättning aktiviteter körs tills uttrycket utvärderas till `true`. | Matris med aktiviteter. |  Ja
 
 ## <a name="example-1"></a>Exempel 1

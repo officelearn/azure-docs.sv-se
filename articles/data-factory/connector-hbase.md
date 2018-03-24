@@ -1,11 +1,11 @@
 ---
-title: "Kopiera data från HBase med hjälp av Azure Data Factory | Microsoft Docs"
-description: "Lär dig hur du kopierar data från HBase till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen."
+title: Kopiera data från HBase med hjälp av Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kopierar data från HBase till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 543d0ec5d0c94b793b1e825d44356039b366908a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: ee4fe897bc8b0b1c969ea2fbfc1289d6a5bba7c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Kopiera data från HBase med hjälp av Azure Data Factory 
 

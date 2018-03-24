@@ -1,11 +1,11 @@
 ---
 title: Azure CDN regler motorn matchar villkoren | Microsoft Docs
-description: "I referensdokumentationen för Azure Content Delivery Network regler motorn matchar villkoren."
+description: I referensdokumentationen för Azure Content Delivery Network regler motorn matchar villkoren.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: e4b7113f27e5e15d69dfdd1efd13e255ef4a8ab7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN regelmotor matchar villkoren 
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga matchar villkoren för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
@@ -526,15 +526,15 @@ Viktig information:
 
      Till exempel: https:\//&lt;endpoint&gt;.azureedge.net/**MinMapp**/index.htm 
 
-     Den här URL: en pekar till följande Verizon CDN-värdnamn: http:\//wpc.0001.&lt; Domän&gt;/800001/myorigin/**MinMapp**/index.htm
+     Den här URL: en pekar till följande Verizon CDN-värdnamn: http:\//wpc.0001.&lt; domän&gt;/800001/myorigin/**MinMapp**/index.htm
 
 - En kant CNAME URL: en skrivs till en CDN-URL innan du URL: en jämförelse.
 
     Till exempel båda av följande webbadresser peka på samma tillgång och därför har samma URL-sökväg.
-    - CDN-URL: http:\//wpc.0001.&lt; Domän&gt;/800001/CustomerOrigin/path/asset.htm
+    - CDN-URL: http:\//wpc.0001.&lt; domän&gt;/800001/CustomerOrigin/path/asset.htm
     
     - Edge CNAME-URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
+    
     Ytterligare information:
     - Anpassad domän: https:\//my.domain.com/path/asset.htm
     
@@ -640,21 +640,21 @@ Viktig information:
     Följande värden är tillgängliga för den **relativt** alternativ:
      - **Roten**: Anger att URL: en jämförelse punkten börjar direkt efter CDN-värdnamn.
 
-       Till exempel: http:\//wpc.0001.&lt; Domän&gt;/**800001/myorigin/myfolder/index.htm**
+       Till exempel: http:\//wpc.0001.&lt; domän&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **Ursprung**: Anger att URL: en jämförelse punkten börjar efter innehålls åtkomstpunkt (till exempel /000001 eller/800001/myorigin). Eftersom den \*. azureedge.net CNAME skapas i förhållande till katalogen ursprung på Verizon CDN-värdnamn som standard, Azure CDN-användare bör använda den **ursprung** värde. 
 
        Till exempel: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     Den här URL: en pekar till följande Verizon CDN-värdnamn: http:\//wpc.0001.&lt; Domän&gt;/800001/myorigin/**myfolder/index.htm**
+     Den här URL: en pekar till följande Verizon CDN-värdnamn: http:\//wpc.0001.&lt; domän&gt;/800001/myorigin/**myfolder/index.htm**
 
 - En kant CNAME URL Om till en CDN-URL innan en URL-jämförelse.
 
-   Till exempel båda av följande webbadresser peka på samma tillgång och därför har samma URL-sökväg:
-    - CDN-URL: http:\//wpc.0001.&lt; Domän&gt;/800001/CustomerOrigin/path/asset.htm
+    Till exempel båda av följande webbadresser peka på samma tillgång och därför har samma URL-sökväg:
+    - CDN-URL: http:\//wpc.0001.&lt; domän&gt;/800001/CustomerOrigin/path/asset.htm
     - Edge CNAME-URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
-   Ytterligare information:
+    
+    Ytterligare information:
     
     - URL-sökväg (i förhållande till rot): /800001/CustomerOrigin/path/asset.htm
    
@@ -662,7 +662,7 @@ Viktig information:
 
 - Frågesträngar i Webbadressen ignoreras.
 - Använd den **Ignorera skiftläge** alternativet att styra om gemener utförs.
-- Det angivna värdet för det här matchar villkoret ska jämföras med den relativa sökvägen för exakt begäran från klienten.
+- Det angivna värdet för det här matchar villkoret jämförs med den relativa sökvägen för exakt begäran från klienten.
 
 - Om du vill matcha alla begäranden som görs till en viss katalog, använder den [URL-sökväg Directory](#url-path-directory) eller [URL-sökväg med jokertecken](#url-path-wildcard) matchar villkoret.
 
@@ -681,13 +681,13 @@ Den **matchar**/**matchar inte** alternativet avgör de villkor under vilka URL-
 Viktig information:
 - En kant CNAME URL: en skrivs till en CDN-URL innan du URL: en jämförelse. 
  
-   Båda URL pekar på samma tillgång och därför har samma URL-sökväg.
+    Båda URL pekar på samma tillgång och därför har samma URL-sökväg.
 
-     - CDN-URL: http:\//wpc.0001.&lt; Domän&gt;/800001/CustomerOrigin/path/asset.htm
+     - CDN-URL: http:\//wpc.0001.&lt; domän&gt;/800001/CustomerOrigin/path/asset.htm
 
      - Edge CNAME-URL: http:\//my.domain.com/path/asset.htm
-
-   Ytterligare information:
+    
+    Ytterligare information:
     
      - URL-sökväg: /800001/CustomerOrigin/path/asset.htm
 
@@ -715,21 +715,21 @@ Viktig information:
    Det här alternativet kan ha följande värden:
      - **Roten**: Anger att URL: en jämförelse punkten börjar direkt efter CDN-värdnamn.
 
-       Till exempel: http:\//wpc.0001.&lt; Domän&gt;/**800001/myorigin/myfolder/index.htm**
+       Till exempel: http:\//wpc.0001.&lt; domän&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **Ursprung**: Anger att URL: en jämförelse punkten börjar efter innehålls åtkomstpunkt (till exempel /000001 eller/800001/myorigin). Eftersom den \*. azureedge.net CNAME skapas i förhållande till katalogen ursprung på Verizon CDN-värdnamn som standard, Azure CDN-användare bör använda den **ursprung** värde. 
 
        Till exempel: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     Den här URL: en pekar till följande Verizon CDN-värdnamn: http:\//wpc.0001.&lt; Domän&gt;/800001/myorigin/**myfolder/index.htm**
+     Den här URL: en pekar till följande Verizon CDN-värdnamn: http:\//wpc.0001.&lt; domän&gt;/800001/myorigin/**myfolder/index.htm**
 
 - En kant CNAME URL: en skrivs till en CDN-URL innan du URL: en jämförelse.
 
-   Till exempel båda av följande webbadresser peka på samma tillgång och därför har samma URL-sökväg:
-     - CDN-URL: http://wpc.0001. &lt;Domän&gt;/800001/CustomerOrigin/path/asset.htm
+    Till exempel båda av följande webbadresser peka på samma tillgång och därför har samma URL-sökväg:
+     - CDN-URL: http://wpc.0001. &lt;domän&gt;/800001/CustomerOrigin/path/asset.htm
      - Edge CNAME-URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
-   Ytterligare information:
+    
+    Ytterligare information:
     
      - URL-sökväg (i förhållande till rot): /800001/CustomerOrigin/path/asset.htm
     
@@ -757,7 +757,7 @@ Värde                   | Relativt till    | Resultat
 /80ABCD/origin/text/*   | Rot           | Det här mönstret matchas när den begärda tillgången uppfyller följande kriterier: <br />-Det måste finnas på en kund ursprung som kallas ”ursprung”. <br />-Den relativa sökvägen måste börja med en mapp med namnet ”text”. Det vill säga kan den begärda tillgången finnas antingen i mappen ”text” eller en av dess rekursiv undermappar.
 */CSS/* */js/*          | Rot- eller ursprung | Det här mönstret matchas av alla CDN eller edge CNAME-adresser som innehåller en css- eller js mapp.
 *.jpg *.gif *.png       | Rot- eller ursprung | Det här mönstret matchas av alla CDN eller edge CNAME URL: er med JPG, GIF eller .png. Ett annat sätt att ange det här mönstret är med i [URL-sökvägen tillägget matchar villkoret](#url-path-extension).
-/images/* /media/*      | Ursprung         | Det här mönstret matchas av CDN eller edge CNAME-URL: er vars relativa sökvägar som börjar med en mapp ”bilder” eller ”media”. <br />-CDN URL: http:\//wpc.0001.&lt; Domän&gt;/800001/myorigin/images/sales/event1.png<br />-Exempel edge CNAME-URL: http:\//cdn.mydomain.com/images/sales/event1.png
+/images/* /media/*      | Ursprung         | Det här mönstret matchas av CDN eller edge CNAME-URL: er vars relativa sökvägar som börjar med en mapp ”bilder” eller ”media”. <br />-CDN URL: http:\//wpc.0001.&lt; domän&gt;/800001/myorigin/images/sales/event1.png<br />-Exempel edge CNAME-URL: http:\//cdn.mydomain.com/images/sales/event1.png
 
 [Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -867,11 +867,11 @@ Viktig information:
 #### <a name="sample-scenarios"></a>Exempelscenarier
 I följande exempel visar hur det här alternativet fungerar i vissa situationer:
 
-Namn      | Värde |  Resultat
-----------|-------|--------
-Användare      | Joe   | Det här mönstret matchas när frågesträngen för en begärd URL är ”? användare = joe”.
-Användare      | *     | Det här mönstret matchas när frågesträngen för en begärd URL innehåller en parameter för användaren.
-Joe e-post | *     | Det här mönstret matchas när frågesträngen för en begärd URL innehåller en parameter av e-post som börjar med ”jan”.
+Namn  | Värde |  Resultat
+------|-------|--------
+Användare  | Joe   | Det här mönstret matchas när frågesträngen för en begärd URL är ”? användare = joe”.
+Användare  | *     | Det här mönstret matchas när frågesträngen för en begärd URL innehåller en parameter för användaren.
+E-post | Joe\* | Det här mönstret matchas när frågesträngen för en begärd URL innehåller en parameter av e-post som börjar med ”jan”.
 
 [Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -908,7 +908,7 @@ Viktig information:
    Värde | Tolkas som 
    ------|---------------
    \\+    | +
-   \\\+   | \\+
+   \\\\+   | \\+
 
 - På grund av det sätt som i vilken cache inställningar spåras är det här matchar villkoret inte kompatibel med följande funktioner:
    - Slutföra Cache Fill
@@ -970,8 +970,8 @@ användare = joe              | Det här mönstret matchas när frågesträngen 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Översikt över Azure Content Delivery Network](cdn-overview.md)
-* [Regler modulreferens](cdn-rules-engine-reference.md)
-* [Regler motorn villkorsuttryck](cdn-rules-engine-reference-conditional-expressions.md)
-* [Regler motorn funktioner](cdn-rules-engine-reference-features.md)
+* [Regelmotor – referens](cdn-rules-engine-reference.md)
+* [Regelmotor – villkorliga uttryck](cdn-rules-engine-reference-conditional-expressions.md)
+* [Regelmotor – funktioner](cdn-rules-engine-reference-features.md)
 * [Åsidosätta standardbeteendet i HTTP-motorn regler](cdn-rules-engine.md)
 

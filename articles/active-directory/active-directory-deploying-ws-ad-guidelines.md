@@ -1,24 +1,24 @@
 ---
-title: "Riktlinjer för att distribuera Windows Server Active Directory på Azure Virtual Machines | Microsoft Docs"
-description: "Om du vet hur du distribuerar AD DS och AD federationstjänster lokalt lär du dig hur de fungerar på virtuella Azure-datorer."
+title: Riktlinjer för att distribuera Windows Server Active Directory på Azure Virtual Machines | Microsoft Docs
+description: Om du vet hur du distribuerar AD DS och AD federationstjänster lokalt lär du dig hur de fungerar på virtuella Azure-datorer.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 03/20/2018
 ms.author: femila
-ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c2d58e056cdb285be51d259492e11e6ae37b253e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Riktlinjer för att distribuera Windows Server Active Directory på Azure virtual machines
 Den här artikeln beskriver viktiga skillnader mellan distribuera Windows Server Active Directory Domain Services (AD DS) och Active Directory Federation Services (AD FS) lokalt och distribuera dem på Microsoft Azure-datorer.
@@ -71,8 +71,10 @@ Se [virtuellt nätverk](http://azure.microsoft.com/documentation/services/virtua
 > 
 > 
 
-### <a name="static-ip-addresses-must-be-configured-with-azure-powershell"></a>Statiska IP-adresser konfigureras med Azure PowerShell.
-Dynamiska adresser tilldelas som standard, men Använd cmdlet Set-AzureStaticVNetIP för att tilldela en statisk IP-adress i stället. Som anger en statisk IP-adress som behålls via tjänsten återställning och VM avstängning/restart. Mer information finns i [Statiska interna IP-adress för virtuella datorer](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/).
+### <a name="static-ip-addresses-can-be-configured-with-azure-powershell"></a>Statiska IP-adresser kan konfigureras med Azure PowerShell
+Dynamiska adresser tilldelas som standard, men Använd cmdlet Set-AzureStaticVNetIP om du vill tilldela en statisk IP-adress i stället. Denna cmdlet anger en statisk IP-adress som behålls via tjänsten återställning och VM avstängning/restart. Mer information finns i [Statiska interna IP-adress för virtuella datorer](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/). Du kan också konfigurera en statisk IP-adress när du skapar den virtuella datorn i Azure-portalen. Mer information finns i [skapa en virtuell dator med en statisk offentlig IP-adress med hjälp av Azure portal](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md).
+
+![Skärmbild av att lägga till statisk IP-adress när du skapar en virtuell dator](media/active-directory-deploying-ws-ad-guidelines/static-ip.png)
 
 ## <a name="BKMK_Glossary"></a>Termer och definitioner
 Följande är en ofullständig lista över villkor för olika Azure tekniker som kommer att referera till i den här artikeln.
@@ -408,7 +410,7 @@ Du måste välja om du vill distribuera skrivskyddade eller skrivbara domänkont
 
 Fysiska säkerhetsrisk på ett filialkontor finns inte i Azure, men skrivskyddade domänkontrollanter kan fortfarande visar sig vara mer kostnadseffektivt eftersom de funktioner som de tillhandahåller är väl lämpade för dessa miljöer än för mycket olika skäl. Skrivskyddade domänkontrollanter har ingen utgående replikering och kunna fylla selektivt hemligheter (lösenord). Bristen på dessa hemligheter kan kräva på begäran utgående trafik för att validera dem som en användare eller datorn autentiserar på Nackdelen med. Men hemligheter kan selektivt förinställd och cachelagras.
 
-Skrivskyddade domänkontrollanter ger ytterligare en fördel i och runt HBI-och personligt identifierbar information eftersom du kan lägga till attribut som innehåller känsliga data till RODC filtrerad attributuppsättning (FAS). FAS motsvarar anpassningsbara attribut som inte replikeras till RODC. Du kan använda FAS som ett skydd om du inte har behörighet eller inte vill lagra personligt identifierbar information eller Affärskritiska på Azure. Mer information finns i [RODC filtrerade attributuppsättningen [(https://technet.microsoft.com/library/cc753459)].
+Skrivskyddade domänkontrollanter ger ytterligare en fördel i och runt HBI-och personligt identifierbar information eftersom du kan lägga till attribut som innehåller känsliga data till RODC filtrerad attributuppsättning (FAS). FAS motsvarar anpassningsbara attribut som inte replikeras till RODC. Du kan använda FAS som ett skydd om du inte har behörighet eller inte vill lagra personligt identifierbar information eller Affärskritiska på Azure. Mer information finns i [RODC filtrerad attributuppsättning [(https://technet.microsoft.com/library/cc753459)].
 
 Se till att program kommer att vara kompatibel med RODC: er som du tänker använda. Många Windows Server Active Directory-aktiverade program fungerar bra med RODC: er, men vissa program kan utföra ineffektivt eller misslyckas om de inte har åtkomst till en skrivbar Domänkontrollant. Mer information finns i [guide för skrivskyddade domänkontrollanter kompatibilitet](https://technet.microsoft.com/library/cc755190).
 

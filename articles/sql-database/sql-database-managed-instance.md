@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL Database hanteras instans översikt | Microsoft Docs"
-description: "Det här avsnittet beskriver en Azure SQL Database hanteras och förklarar hur det fungerar och hur den skiljer sig från en enskild databas i Azure SQL Database."
+title: Azure SQL Database hanteras instans översikt | Microsoft Docs
+description: Det här avsnittet beskriver en Azure SQL Database hanteras och förklarar hur det fungerar och hur den skiljer sig från en enskild databas i Azure SQL Database.
 services: sql-database
 author: bonova
 ms.reviewer: carlrab
@@ -8,17 +8,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/21/2018
 ms.author: bonova
-ms.openlocfilehash: bc9c16462f28d129efa8c47183c6325e69bb64f3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e13583e0364b01c3a4560d88882eb1dcf82b8c99
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad-instans (förhandsgranskning)?
 
-Azure SQL-hanterade databasinstans (förhandsversion) är en ny funktion i Azure SQL Database, tillhandahåller nästan 100% kompatibilitet med SQL Server on-premises genom att tillhandahålla ett ursprungligt [virtuella nätverk (VNet)](../virtual-network/virtual-networks-overview.md) implementering som adresser vanliga säkerhetsfrågor, och en [affärsmodell](https://azure.microsoft.com/pricing/details/sql-database/) fördelaktig för lokala SQL Server-kunder. Hanterade instansen tillåter befintliga SQL Server-kunder att lyfta och flytta sina lokala program till molnet med minimala ändringar för programmet och databasen. På samma gång bevarar hanteras instans alla PaaS funktioner (automatiska uppdateringar för uppdatering och version, säkerhetskopiering, hög tillgänglighet), som minskar drastiskt hanteringskostnader och TCO.
+Azure SQL-hanterade databasinstans (förhandsversion) är en ny funktion i Azure SQL Database tillhandahåller nästan 100% kompatibilitet med SQL Server lokalt (Enterprise Edition), vilket ger ett ursprungligt [virtuella nätverk (VNet)](../virtual-network/virtual-networks-overview.md) implementering som tar upp vanliga säkerhetsfrågor, och en [affärsmodell](https://azure.microsoft.com/pricing/details/sql-database/) fördelaktig för lokala SQL Server-kunder. Hanterade instansen tillåter befintliga SQL Server-kunder att lyfta och flytta sina lokala program till molnet med minimala ändringar för programmet och databasen. På samma gång bevarar hanteras instans alla PaaS funktioner (automatiska uppdateringar för uppdatering och version, säkerhetskopiering, hög tillgänglighet), som minskar drastiskt hanteringskostnader och TCO.
 
 > [!IMPORTANT]
 > En lista över regioner där hanteras instans är tillgänglig för närvarande finns [migrera dina databaser till en helt hanterad tjänst med Azure SQL-hanterade databasinstans](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
@@ -58,6 +58,9 @@ I följande tabell visas flera egenskaper, tillgängligt via Transact SQL som du
 
 ## <a name="key-features-and-capabilities-of-a-managed-instance"></a>Viktiga funktioner och funktioner på en instans av hanterade 
 
+> [!IMPORTANT]
+> En hanterad instans körs med alla funktioner i den senaste versionen av SQL Server, inklusive online operations, automatisk plan korrigeringar och andra företag prestandaförbättringar. 
+
 | **PaaS fördelar** | **Verksamhetskontinuitet** |
 | --- | --- |
 |Ingen maskinvara inköp och hantering <br>Ingen hantering omkostnader för att hantera underliggande infrastruktur <br>Snabb etablering och skalning för tjänsten <br>Automatisk uppdatering och version uppgradering <br>Integrering med andra tjänster för PaaS-data |99,99% drifttid SERVICENIVÅAVTAL  <br>Inbyggd hög tillgänglighet <br>Data som skyddas med automatisk säkerhetskopiering <br>Kunden kan konfigureras säkerhetskopiering kvarhållningsperiod (fast till 7 dagar i förhandsversion) <br>Användarinitierad säkerhetskopieringar <br>Punkt i tiden databasen återställa kapaciteten |
@@ -90,6 +93,7 @@ Följande beskriver viktiga funktioner i tjänstnivån generella:
 | SQL Server-version / skapa | SQL Server senaste (tillgänglig) |
 | Min lagringsstorlek | 32 GB |
 | Maxstorlek för lagring | 8 TB |
+| Maximalt lagringsutrymme per databas | 4 TB |
 | Förväntade lagring IOPS | 500-7500 IOPS per fil (beroende på datafilen). Se [Premium-lagring](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Antalet datafiler (rader) per databasen | Flera | 
 | Antal loggfiler (loggning) per databas | 1 | 
@@ -120,7 +124,7 @@ Följande diagram ger en översikt över isolering design:
 
 ### <a name="auditing-for-compliance-and-security"></a>Granskning för efterlevnad och säkerhet 
 
-Hanterade instans [granskning](sql-database-auditing.md) spårar databashändelser och skriver dem till en granskningslogg logga i Azure storage-konto-databas. Granskning kan det hjälpa att upprätthålla regelefterlevnad, Förstå Databasaktivitet och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser. 
+[Hanterade instans granskning](sql-database-managed-instance-auditing.md) spårar databashändelser och skriver dem till en granskningslogg logga i Azure storage-konto-databas. Granskning kan det hjälpa att upprätthålla regelefterlevnad, Förstå Databasaktivitet och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser. 
 
 ### <a name="data-encryption-in-motion"></a>Datakryptering i rörelse 
 
@@ -138,7 +142,7 @@ SQL-databas [dynamisk datamaskning](/sql/relational-databases/security/dynamic-d
 
 ### <a name="threat-detection"></a>Hotidentifiering 
 
-Azure SQL Database [Hotidentifiering](sql-database-threat-detection.md) kompletterar granskning genom att tillhandahålla ett extra lager av säkerhet för tillgångsinformation är inbyggda i tjänsten som identifierar onormal och potentiellt skadliga försök att komma åt eller utnyttja databaser. Du meddelas om misstänkta aktiviteter, potentiella säkerhetsproblem och SQL injection attacker samt avvikande databasen åtkomstmönster. Hotidentifieringsaviseringar kan visas från [Azure Security Center](https://azure.microsoft.com/services/security-center/) och ange information om misstänkt aktivitet och rekommenderar åtgärd att undersöka och minska risken.  
+[Hanterade instans Hotidentifiering](sql-database-managed-instance-threat-detection.md) kompletterar [hanteras instans granskning](sql-database-managed-instance-auditing.md) genom att tillhandahålla ett extra lager av säkerhet för tillgångsinformation är inbyggda i tjänsten som identifierar onormal och potentiellt skadliga försök att komma åt eller utnyttja databaser. Du meddelas om misstänkta aktiviteter, potentiella säkerhetsproblem och SQL injection attacker samt avvikande databasen åtkomstmönster. Hotidentifieringsaviseringar kan visas från [Azure Security Center](https://azure.microsoft.com/services/security-center/) och ange information om misstänkt aktivitet och rekommenderar åtgärd att undersöka och minska risken.  
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory-integrering och multifaktorautentisering 
 
@@ -197,4 +201,4 @@ Hanterade instans aktivera systemadministratören att fokusera på vad gäller d
 
 - För en funktioner och jämförelse lista, se [SQL vanliga funktioner](sql-database-features.md).
 - En självstudiekurs som skapar en instans som hanteras och återställer en databas från en säkerhetskopia finns [skapa en instans för hanterade](sql-database-managed-instance-tutorial-portal.md).
-- En självstudiekurs som använder Azure databas migrering Service (DMS) för migrering finns [hanteras instans migrering med hjälp av DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+- En självstudie om hur du använder Azure Database Migration Service (DMS) för migrering finns i avsnittet om [migrering av hanterade instanser med DMS](../dms/tutorial-sql-server-to-managed-instance.md).

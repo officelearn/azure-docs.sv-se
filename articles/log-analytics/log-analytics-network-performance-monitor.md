@@ -1,11 +1,11 @@
 ---
-title: "Network Performance Monitor-lösning i Azure | Microsoft Docs"
-description: "Prestandaövervakaren i Azure Network hjälper dig att övervaka prestanda för ditt nätverk – i nära verkliga tid-om du vill identifiera och hitta flaskhalsar i nätverket."
+title: Network Performance Monitor-lösning i Azure | Microsoft Docs
+description: Prestandaövervakaren i Azure Network hjälper dig att övervaka prestanda för ditt nätverk – i nära verkliga tid-om du vill identifiera och hitta flaskhalsar i nätverket.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: abshamsft
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 399fe552d5c7d9a96cdabc2a1dfafe99635d4a61
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 90fd9b09f90d5b209e0eb8cc6996ef7fb1e7e0b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -38,6 +38,8 @@ NPM erbjuder tre allmänna funktioner:
 Den här funktionen hjälper dig att utföra http, HTTPS, TCP och ICMP-baserade tester för att övervaka i nära realtid eller tidigare tillgänglighet och svarstid för din tjänst och nätverket i paketförlust och fördröjning bidrag. Du kan använda nätverket topologisk karta för att isolera fördröjningar i nätverket genom att identifiera problem platser som sker längs sökvägen från noden till tjänsten med latens data på varje hopp. Övervaka nätverksanslutning till Office 365 och Dynamics CRM utan någon före konfiguration med inbyggda tester. Med den här funktionen kan du övervaka nätverksanslutning till alla kompatibla TCP-slutpunkt som webbplatser, SaaS, PaaS program, SQL-databaser osv.  
 
 [Övervakare för ExpressRoute](log-analytics-network-performance-monitor-expressroute.md): övervaka slutpunkt till slutpunkt-anslutning och prestanda mellan dina lokalkontor och Azure, över Azure ExpressRoute.  
+
+Mer information om de olika funktioner som stöds av [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) är ansluten till.
  
 
 ## <a name="set-up-and-configure"></a>Installera och konfigurera

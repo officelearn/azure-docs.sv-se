@@ -1,0 +1,25 @@
+- name: Chef-dokumentation
+  href: index.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: 'Automatisera: Snabbstartsmall'
+      href: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview'
+- name: Självstudier
+  items:
+    - name: Automatisera virtuella datorer
+      href: /azure/virtual-machines/windows/chef-automation
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 'Blogg: VSTS och Chef'
+      href: 'https://blog.chef.io/2017/05/10/integrate-chef-into-your-build-and-release-pipelines-with-microsoft-visual-studio-team-services/'
+    - name: Chef och Azure PS
+      href: 'https://docs.microsoft.com/powershell/module/azure/get-azurevmchefextension?view=azuresmps-4.0.0'
+    - name: Chef och VSTS
+      href: 'https://github.com/chef-partners/vsts-chef/wiki/Getting-Started'
+    - name: Chef-webbplats
+      href: 'https://www.chef.io'
+    - name: 'Video: Chef och VSTS'
+      href: 'https://channel9.msdn.com/Events/TechDaysOnline/UK-TechDays-Online-2016/Release-Management-with-VSTS--integration-with-Azure--Chef-Deployment'

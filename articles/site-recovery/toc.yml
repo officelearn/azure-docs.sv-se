@@ -103,6 +103,8 @@
               href: hyper-v-vmm-architecture.md
     - name: Haveriberedskap för appar
       href: site-recovery-workload.md
+    - name: Om återställningsplaner
+      href: recovery-plan-overview.md
     - name: Om migrering
       href: migrate-overview.md
     - name: Om rollbaserad åtkomstkontroll med Site Recovery
@@ -273,6 +275,12 @@
           items:
             - name: Köra ett programåterställningstest till Azure
               href: site-recovery-test-failover-to-azure.md
+            - name: Konfigurera återställningsplaner
+              href: site-recovery-create-recovery-plans.md
+            - name: Lägga till VMM-skript i återställningsplaner
+              href: hyper-v-vmm-recovery-script.md
+            - name: Lägga till Azure-runbookflöden i återställningsplaner
+              href: site-recovery-runbook-automation.md
             - name: Köra en redundans i Azure
               href: site-recovery-failover.md
             - name: Redundansväxla från Azure till Hyper-V

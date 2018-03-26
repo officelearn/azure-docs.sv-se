@@ -1,11 +1,11 @@
 ---
-title: "Kopiera data från HDFS med hjälp av Azure Data Factory | Microsoft Docs"
-description: "Lär dig hur du kopierar data från en källa för molnet eller lokala HDFS till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen."
+title: Kopiera data från HDFS med hjälp av Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kopierar data från en källa för molnet eller lokala HDFS till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 400c58abf04d28dd0e5f1d7aac204f09c43b942e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 98a03bf1637ce21320b749feb7dfb55096bf091c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Kopiera data från HDFS med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -329,7 +329,7 @@ Det finns två alternativ för att konfigurera den lokala miljön för att anvä
 
   **Starta om** KDC-tjänsten efter konfigurationen.
 
-2.  Förbereda en huvudansvarig med namnet  **krbtgt/REALM.COM@AD.COM**  i KDC-server med följande kommando:
+2.  Förbereda en huvudansvarig med namnet **krbtgt/REALM.COM@AD.COM** i KDC-server med följande kommando:
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
@@ -342,7 +342,7 @@ Det finns två alternativ för att konfigurera den lokala miljön för att anvä
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Upprätta förtroende från Windows-domän till Kerberos-sfär. [lösenord] är lösenordet för objektet  **krbtgt/REALM.COM@AD.COM** .
+2.  Upprätta förtroende från Windows-domän till Kerberos-sfär. [lösenord] är lösenordet för objektet **krbtgt/REALM.COM@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 

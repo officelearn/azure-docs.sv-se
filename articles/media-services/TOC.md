@@ -236,6 +236,7 @@
 ## [REST](/rest/api/media/mediaservice)
 ## Specifikationer
 ### [Live-inmatning – specifikation för live-inmatning av fragmenterad MP4](media-services-fmp4-live-ingest-overview.md)
+### [Liveinmatning – signalering av metadata med tidsgräns i liveuppspelning](media-services-specifications-live-timed-metadata.md)
 ### [Smooth Streaming – HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
 
 # Resurser

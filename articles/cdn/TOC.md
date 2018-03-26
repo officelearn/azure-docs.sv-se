@@ -74,7 +74,9 @@
 ## [REST](/rest/api/cdn/)
 
 # Resurser
-## [Azure CDN POP-platser](cdn-pop-locations.md)
+## Azure CDN POP-platser
+### [POP-platser efter region](cdn-pop-locations.md)
+### [POP-platser efter förkortning](cdn-pop-abbreviations.md)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/cdn/)

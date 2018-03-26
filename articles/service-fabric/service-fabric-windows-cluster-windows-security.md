@@ -1,11 +1,11 @@
 ---
-title: "Skydda ett kluster som kör Windows med hjälp av Windows-säkerhet | Microsoft Docs"
-description: "Lär dig hur du konfigurerar säkerhet nod till nod och klient-till-nod på en fristående kluster som körs på Windows med hjälp av Windows-säkerhet."
+title: Skydda ett kluster som kör Windows med hjälp av Windows-säkerhet | Microsoft Docs
+description: Lär dig hur du konfigurerar säkerhet nod till nod och klient-till-nod på en fristående kluster som körs på Windows med hjälp av Windows-säkerhet.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ce3bf686-ffc4-452f-b15a-3c812aa9e672
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: e093a631b0cf81195981a8e3d345504ebce02723
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eac453ad866910839088892de457c2cec48791c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Skydda ett fristående kluster på Windows med hjälp av Windows-säkerhet
 För att förhindra obehörig åtkomst till ett Service Fabric-kluster, måste du skydda klustret. Säkerhet är särskilt viktigt när klustret körs produktionsarbetsbelastningar. Den här artikeln beskriver hur du konfigurerar säkerhet nod till nod och klient-till-nod med hjälp av Windows-säkerhet i den *ClusterConfig.JSON* fil.  Processen motsvarar konfigurera säkerhetssteg i [skapa ett fristående kluster som körs på Windows](service-fabric-cluster-creation-for-windows-server.md). Mer information om hur Service Fabric använder Windows-säkerhet finns [kluster säkerhetsscenarier](service-fabric-cluster-security.md).
@@ -32,10 +32,12 @@ För att förhindra obehörig åtkomst till ett Service Fabric-kluster, måste d
 Exemplet *ClusterConfig.gMSA.Windows.MultiMachine.JSON* konfigurationsfilen hämtas med den [Microsoft.Azure.ServiceFabric.WindowsServer.<version>. ZIP](http://go.microsoft.com/fwlink/?LinkId=730690) fristående klusterpaket innehåller en mall för att konfigurera Windows-säkerhet med [Grupphanterat tjänstkonto (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
 
 ```  
-"security": {  
+"security": {
+            "ClusterCredentialType": "Windows",
+            "ServerCredentialType": "Windows",
             "WindowsIdentities": {  
-                "ClustergMSAIdentity": "accountname@fqdn"  
-                "ClusterSPN": "fqdn"  
+                "ClustergMSAIdentity": "[gMSA Identity]", 
+                "ClusterSPN": "[Registered SPN for the gMSA account]",
                 "ClientIdentities": [  
                     {  
                         "Identity": "domain\\username",  
@@ -45,16 +47,18 @@ Exemplet *ClusterConfig.gMSA.Windows.MultiMachine.JSON* konfigurationsfilen häm
             }  
         }  
 ```  
-  
-| **Konfigurationsinställningen** | **Beskrivning** |  
-| --- | --- |  
+
+| **Konfigurationsinställningen** | **Beskrivning** |
+| --- | --- |
+| ClusterCredentialType |Ange till *Windows* att aktivera Windows-säkerhet för kommunikation från nod nod.  | 
+| ServerCredentialType |Ange till *Windows* att aktivera Windows-säkerhet för kommunikation från klient-nod. |  
 | WindowsIdentities |Innehåller klustret och klienten identiteter. |  
 | ClustergMSAIdentity |Konfigurerar nod till noden säkerhet. En grupp Hanterat tjänstkonto. |  
-| ClusterSPN |Fullständigt kvalificerat domännamn SPN för gMSA-kontot|  
-| ClientIdentities |Konfigurerar säkerhet för klient-till-nod. En matris med användarkonton för klienten. |  
-| Identitet |Klientidentiteten domänanvändare. |  
-| IsAdmin |SANT anger att domänanvändaren har administratören klientåtkomst false för klientåtkomst för användaren. |  
-  
+| ClusterSPN |Registrerade SPN för gMSA-kontot|  
+| ClientIdentities |Konfigurerar säkerhet för klient-till-nod. En matris med användarkonton för klienten. | 
+| Identitet |Lägg till domänanvändaren domän\användarnamn för klientens identitet. |  
+| IsAdmin |Anges till true för att ange att domänanvändaren har klienten administratörsåtkomst eller false för klientåtkomst för användaren. |  
+
 [Nod till noden säkerhet](service-fabric-cluster-security.md#node-to-node-security) konfigureras genom att ange **ClustergMSAIdentity** när service fabric måste köras under gMSA. För att skapa betrodda relationer mellan noder, måste de göras medveten om varandra. Detta kan åstadkommas på två olika sätt: Ange den Grupphanterat tjänstkonto som innehåller alla noder i klustret eller datorn domängrupp som innehåller alla noder i klustret. Vi rekommenderar starkt med hjälp av den [Grupphanterat tjänstkonto (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) metod, särskilt för större kluster (fler än 10 noder) eller för kluster som sannolikt kommer att öka eller minska.  
 Den här metoden kräver inte att skapa en domängrupp som klusteradministratörer har gett behörigheter att lägga till och ta bort medlemmar. Dessa konton är också användbara för automatisk lösenordshantering. Mer information finns i [komma igång med Grupphanterade tjänstkonton](http://technet.microsoft.com/library/jj128431.aspx).  
  
@@ -63,10 +67,12 @@ Den här metoden kräver inte att skapa en domängrupp som klusteradministratör
 I följande exempel **säkerhet** avsnittet konfigurerar Windows-säkerhet som använder gMSA och anger att datorer i *ServiceFabric.clusterA.contoso.com* gMSA tillhör klustret och att  *CONTOSO\usera* har åtkomst till admin-klienten:  
   
 ```  
-"security": {  
+"security": {
+    "ClusterCredentialType": "Windows",            
+    "ServerCredentialType": "Windows",
     "WindowsIdentities": {  
         "ClustergMSAIdentity" : "ServiceFabric.clusterA.contoso.com",  
-        "ClusterSPN" : "clusterA.contoso.com",  
+        "ClusterSPN" : "http/servicefabric/clusterA.contoso.com",  
         "ClientIdentities": [{  
             "Identity": "CONTOSO\\usera",  
             "IsAdmin": true  
@@ -76,7 +82,7 @@ I följande exempel **säkerhet** avsnittet konfigurerar Windows-säkerhet som a
 ```  
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Konfigurera Windows-säkerhet med hjälp av en grupp datorer  
-Exemplet *ClusterConfig.Windows.MultiMachine.JSON* konfigurationsfilen hämtas med den [Microsoft.Azure.ServiceFabric.WindowsServer.<version>. ZIP](http://go.microsoft.com/fwlink/?LinkId=730690) fristående klusterpaket innehåller en mall för att konfigurera Windows-säkerhet.  Windows-säkerhet har konfigurerats i den **egenskaper** avsnitt: 
+Den här modellen används längre. Rekommendationen är att använda gMSA enligt beskrivningen ovan. Exemplet *ClusterConfig.Windows.MultiMachine.JSON* konfigurationsfilen hämtas med den [Microsoft.Azure.ServiceFabric.WindowsServer.<version>. ZIP](http://go.microsoft.com/fwlink/?LinkId=730690) fristående klusterpaket innehåller en mall för att konfigurera Windows-säkerhet.  Windows-säkerhet har konfigurerats i den **egenskaper** avsnitt: 
 
 ```
 "security": {
@@ -94,8 +100,8 @@ Exemplet *ClusterConfig.Windows.MultiMachine.JSON* konfigurationsfilen hämtas m
 
 | **Konfigurationsinställningen** | **Beskrivning** |
 | --- | --- |
-| ClusterCredentialType |**ClusterCredentialType** är inställd på *Windows* om ClusterIdentity anger en Active Directory datorn gruppnamn. |  
-| ServerCredentialType |Ange till *Windows* att aktivera Windows-säkerhet för klienter.<br /><br />Detta anger att klienter i klustret och själva klustret körs inom en Active Directory-domän. |  
+| ClusterCredentialType |Ange till *Windows* att aktivera Windows-säkerhet för kommunikation från nod nod.  | 
+| ServerCredentialType |Ange till *Windows* att aktivera Windows-säkerhet för kommunikation från klient-nod. |  
 | WindowsIdentities |Innehåller klustret och klienten identiteter. |  
 | ClusterIdentity |Använd en dator gruppnamn domain\machinegroup, om du vill konfigurera nod till noden säkerhet. |  
 | ClientIdentities |Konfigurerar säkerhet för klient-till-nod. En matris med användarkonton för klienten. |  

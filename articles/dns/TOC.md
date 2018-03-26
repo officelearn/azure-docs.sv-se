@@ -7,28 +7,31 @@
 ## [DNS-delegering med Azure DNS](dns-domain-delegation.md)
 ## [Vanliga frågor och svar om DNS](dns-faq.md)
 ## [Använda privata DNS-zoner](private-dns-overview.md)
+## [Privata DNS-scenarier](private-dns-scenarios.md)
+
 
 # Kom igång
 
 ## Skapa en DNS-zon och -post
-### [Azure-portalen](dns-getstarted-portal.md)
+### [Azure Portal](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [Azure CLI](dns-getstarted-cli.md)
 
 ## Skapa en privat DNS-zon och -post
 ### [PowerShell](private-dns-getstarted-powershell.md)
+### [Azure CLI](private-dns-getstarted-cli.md)
 ## [Delegera din domän till Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [Skapa anpassade DNS-poster för en webbapp](dns-web-sites-custom-domain.md)
 
 # Gör så här för att
 
 ## Hantera DNS-zoner
-### [Azure-portalen](dns-operations-dnszones-portal.md)
+### [Azure Portal](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Azure CLI](dns-operations-dnszones-cli.md)
 
 ## Hantera DNS-poster
-### [Azure-portalen](dns-operations-recordsets-portal.md)
+### [Azure Portal](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
 ### [Azure CLI](dns-operations-recordsets-cli.md)
 

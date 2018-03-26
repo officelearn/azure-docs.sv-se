@@ -1,0 +1,27 @@
+- name: Cloud Foundry-dokumentation
+  href: index.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Marketplace-mall
+      href: 'https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry'
+- name: Självstudier
+  items:
+    - name: Distribuera CF-app till Azure
+      href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
+    - name: CloudFoundry på Azure
+      href: /azure/virtual-machines/linux/cloudfoundry-get-started
+    - name: Distribuera CF OMS Nozzle
+      href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Cloud Foundry-webbplats
+      href: 'https://docs.cloudfoundry.org/'
+    - name: Installera CF på Azure
+      href: 'https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html'
+    - name: Pivotal och Azure
+      href: 'https://pivotal.io/partners/microsoft'
+    - name: VSTS-pluginprogram för CF
+      href: 'https://github.com/Microsoft/vsts-cloudfoundry'

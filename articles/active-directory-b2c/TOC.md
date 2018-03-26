@@ -91,7 +91,8 @@
 #### [Lösenordskomplexitet](active-directory-b2c-reference-password-complexity-custom.md)
 #### [Lösenordsändring](active-directory-b2c-reference-password-change-custom.md)
 #### [Aktivera ”Håll mig inloggad”](active-directory-b2c-reference-kmsi-custom.md)
-### Felsökning
+### Felsökning och händelseloggar
+#### [Analysera anpassade händelser med Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md)
 #### [Samla in loggar med Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referens
 ### [Viktig information](active-directory-b2c-developer-notes-custom.md)

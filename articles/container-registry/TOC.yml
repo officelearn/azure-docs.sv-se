@@ -33,6 +33,8 @@
   items:
     - name: 'SKU:er för Container Registry'
       href: container-registry-skus.md
+    - name: Bildlagring
+      href: container-registry-storage.md
     - name: Geo-replikering (förhandsversion)
       href: container-registry-geo-replication.md
     - name: Registrera metodtips

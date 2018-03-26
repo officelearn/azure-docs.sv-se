@@ -131,6 +131,8 @@
           items:
             - name: Arkitektur
               href: service-fabric-reliable-actors-platform.md
+            - name: Implementering av funktioner på servicenivå
+              href: service-fabric-reliable-actors-using.md
             - name: Livscykel och skräpinsamling
               href: service-fabric-reliable-actors-lifecycle.md
             - name: Tillståndshantering
@@ -389,7 +391,15 @@
               href: service-fabric-reliable-services-backup-restore.md
         - name: Skapa en Reliable Actors-tjänst
           items:
-            - name: Skicka meddelanden
+            - name: 'Komma åt, spara och ta bort aktörstillstånd'
+              href: service-fabric-reliable-actors-access-save-remove-state.md
+            - name: Räkna upp aktörer
+              href: service-fabric-reliable-actors-enumerate.md
+            - name: Ta bort aktörer och deras tillstånd
+              href: service-fabric-reliable-actors-delete-actors.md
+            - name: Säkerhetskopiera och återställa aktörer
+              href: service-fabric-reliable-actors-backup-and-restore.md
+            - name: Skicka meddelanden till aktören
               href: service-fabric-reliable-actors-events.md
             - name: Ställ in timrar och påminnelser
               href: service-fabric-reliable-actors-timers-reminders.md

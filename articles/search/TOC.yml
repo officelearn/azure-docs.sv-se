@@ -77,11 +77,15 @@
           href: search-performance-optimization.md
     - name: Säkerhet
       items:
-        - name: Data- och driftsäkerhet
+        - name: Säkerhetsöversikt
           href: search-security-overview.md
-        - name: Skydda med hjälp av identitetsfilter
+        - name: Hantering av servicenycklar
+          href: search-security-api-keys.md
+        - name: Rollbaserad administratörsåtkomst
+          href: search-security-rbac.md
+        - name: Säkerhetsfilter
           href: search-security-trimming-for-azure-search.md
-        - name: Skydda med hjälp av Active Directory
+        - name: Filtrera efter identiteter i AAD
           href: search-security-trimming-for-azure-search-with-aad.md
     - name: Utveckling
       items:

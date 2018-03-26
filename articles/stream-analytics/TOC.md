@@ -41,6 +41,7 @@
 ### [Twitter-attitydanalys](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Identifiering av bedrägerier i realtid](stream-analytics-real-time-fraud-detection.md)
 ### [Köra jobb i IoT Edge](stream-analytics-edge.md) 
+### [Vägtull för sensordataanalys](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
 ### [Köra JavaScript UDA](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Handel med hög frekvens](stream-analytics-high-frequency-trading.md)
 ### [Köra Azure Functions](stream-analytics-with-azure-functions.md)

@@ -56,7 +56,10 @@
 #### [Olika distributionsmodeller – samma prenumeration](create-peering-different-deployment-models.md)
 #### [Olika distributionsmodeller – olika prenumerationer](create-peering-different-deployment-models-subscriptions.md)
 
-### [Slutpunkter för virtuellt nätverk](virtual-network-service-endpoints-configure.md)
+### Slutpunkter för virtuellt nätverk
+#### [Azure Portal](tutorial-restrict-network-access-to-resources.md)
+#### [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md)
+#### [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md)
 
 ### Virtuella datorer
 #### [Nätverksdataflöde för virtuella datorer](virtual-machine-network-throughput.md)
@@ -176,8 +179,12 @@
 ### [Problem med anslutning mellan virtuella datorer](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 ### [Konfigurera PTR för SMTP-banderollskontroll](create-ptr-for-smtp-service.md)
 
+## Exempelskript
+### [Azure CLI](cli-samples.md)
+### [Azure PowerShell](powershell-samples.md)
+
 # Referens
-## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
+## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell (klassisk)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)

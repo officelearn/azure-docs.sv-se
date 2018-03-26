@@ -1,27 +1,53 @@
 ---
-title: "Azure Resource Health – Självstudier | Microsoft Docs"
-description: "Azure Service Health ger anpassad vägledning och support om du upplever problem med Azures tjänster och du får hjälp att förbereda dig inför planerat, framtida underhåll. Azure Service Health aviserar dig och teamen via målanpassade, flexibla meddelanden."
-services: Resource health
+title: Azure Service Health | Microsoft Docs
+description: Azure Service Health är en uppsättning upplevelser som ger anpassad vägledning och support när problem med Azure-tjänsterna påverkar dig.
+services: Azure Service Health
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 07/07/2017
 ms.author: carolz
-ms.openlocfilehash: 17f7d334380032eec4be7d0ce3071a62b04fdc62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f362acf85af392253fe556ed9b97a325f22ca7b0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-service-health-documentation"></a>Azure Service Health-dokumentation
 
-Azure Service Health ger anpassad vägledning och support om du upplever problem med Azures tjänster och du får hjälp att förbereda dig inför planerat, framtida underhåll. Azure Service Health aviserar dig och teamen via målanpassade, flexibla meddelanden.
+Azure Service Health är en uppsättning upplevelser som ger anpassad vägledning och support när problem med Azure-tjänsterna påverkar dig. Tjänsten kan meddela dig, hjälpa dig att förstå hur olika problem påverkar dig och hålla dig uppdaterad under tiden att problemen blir lösta. Dessutom får du hjälp med förberedelser inför planerat underhåll och ändringar som kan påverka tillgängligheten för dina resurser.
+
+Azure Service Health består av:
+ 1. **Azure-status** – En global vy över Azure-tjänsternas hälsotillstånd
+ 2. **Service Health** – En anpassad vy över Azure-tjänsternas hälsotillstånd
+ 3. **Resource Health** – En mer djupgående vy över hälsotillståndet för de enskilda resurserna som Azure-tjänsterna tillhandahåller
+
+Sammantaget ger dessa upplevelser dig en heltäckande översikt över hälsotillståndet för Azure, med den precision som är mest relevant för dig.
+
 <ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/azure/service-health/azure-status-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/GlobeSuccess.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Läs mer om Azure-status</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
     <li>
         <a href="/azure/service-health/service-health-overview">
         <div class="cardSize">
@@ -33,7 +59,7 @@ Azure Service Health ger anpassad vägledning och support om du upplever problem
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Läs mer om Azure Service Health</h3>
+                        <h3>Läs mer om Service Health</h3>
                     </div>
                 </div>
             </div>
@@ -41,17 +67,17 @@ Azure Service Health ger anpassad vägledning och support om du upplever problem
         </a>
     </li>
     <li>
-        <a href="/azure/service-health/resource-health-checks-resource-types">
+        <a href="/azure/service-health/resource-health-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/ResourceDefault.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Läs mer om resurstyper och hälsokontroller i Resource Health</h3>
+                        <h3>Läs mer om Resource Health</h3>
                     </div>
                 </div>
             </div>

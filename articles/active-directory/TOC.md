@@ -77,7 +77,8 @@
 ## [Hantera grupper och medlemmar](active-directory-manage-groups.md)
 ### Hantera grupper
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure PowerShell Azure Resource Manager-modellen](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Klassisk distributionsmodell för Azure PowerShell](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Hantera gruppmedlemmar](active-directory-groups-members-azure-portal.md)
 ### [Hantera gruppägare](active-directory-accessmanagement-managing-group-owners.md)
 ### [Hantera gruppmedlemskap](active-directory-groups-membership-azure-portal.md)
@@ -94,9 +95,8 @@
 ### [Visa alla grupper](active-directory-groups-view-azure-portal.md)
 ### [Hantera gruppåtkomst till SaaS-appar](active-directory-accessmanagement-group-saasapps.md)
 ### [Återställa en borttagen Office 365-grupp](active-directory-groups-restore-azure-portal.md)
-### Hantera gruppinställningar
-#### [Azure Portal](active-directory-groups-settings-azure-portal.md)
-#### [Cmdletar](active-directory-accessmanagement-groups-settings-cmdlets.md)
+### [Hantera gruppinställningar](active-directory-groups-settings-azure-portal.md)
+
 ### Skapa avancerade regler
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Konfigurera självbetjäningsgrupper](active-directory-accessmanagement-self-service-group-management.md)
@@ -215,12 +215,12 @@
 ##### [Anpassad startsida](application-proxy-office365-app-launcher.md)
 ##### [Översätt infogade länkar](application-proxy-link-translation.md)
 ##### [Program med jokertecken](active-directory-application-proxy-wildcard.md)
-
+##### [Azure AD-programproxy och Qlik Sense](active-directory-application-proxy-qlik.md) 
 #### Publicera genomgångar
 ##### [Fjärrskrivbord](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
-#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)
+#### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [Felsöka](active-directory-application-proxy-troubleshoot.md)
 
 

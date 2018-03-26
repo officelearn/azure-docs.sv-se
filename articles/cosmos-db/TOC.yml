@@ -237,8 +237,6 @@
                   href: sql-api-python-samples.md
             - name: Resurser
               items:
-                - name: Facit för SQL-grammatik
-                  href: sql-api-sql-query-cheat-sheet.md
                 - name: Videoklipp
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Tjänstuppdateringar
@@ -435,6 +433,8 @@
           href: graph-sdk-dotnet.md
 - name: Resurser
   items:
+    - name: Översiktsblad för frågor
+      href: query-cheat-sheet.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Testa Azure Cosmos DB kostnadsfritt

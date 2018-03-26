@@ -7,20 +7,40 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa en Databricks-arbetsyta
+    - name: Skapa en Databricks-arbetsyta – portalen
       href: quickstart-create-databricks-workspace-portal.md
+    - name: Skapa en Databricks-arbetsyta – Resource Manager-mall
+      href: quickstart-create-databricks-workspace-resource-manager-template.md
 - name: Självstudier
   items:
+    - name: Utföra ETL-åtgärder
+      href: databricks-extract-load-sql-data-warehouse.md
     - name: Strömma data med Event Hubs
       href: databricks-stream-from-eventhubs.md
     - name: Attitydanalys med Cognitive Services
       href: databricks-sentiment-analysis-cognitive-services.md
+    - name: Strömma data från HDInsight Kafka
+      href: 'https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html'
 - name: Instruktionsguider
   items:
+    - name: Skapa ett Spark-kluster
+      href: 'https://docs.azuredatabricks.net/user-guide/clusters/index.html'
+    - name: Arbeta med bärbara datorer
+      href: 'https://docs.azuredatabricks.net/user-guide/notebooks/index.html'
+    - name: Köra Spark-jobb
+      href: 'https://docs.azuredatabricks.net/user-guide/jobs.html'
+    - name: Anslut till datakällor
+      href: databricks-connect-to-data-sources.md
     - name: 'Ansluta till Excel, R och Python'
       href: connect-databricks-excel-python-r.md
     - name: Använda Databricks CLI från Azure Cloud Shell
       href: databricks-cli-from-azure-cloud-shell.md
+    - name: Använda BI-verktyg
+      href: 'https://docs.azuredatabricks.net/user-guide/bi/index.html'
+- name: Referens
+  items:
+    - name: REST-API
+      href: /rest/api/databricks
 - name: Resurser
   items:
     - name: Vanliga frågor

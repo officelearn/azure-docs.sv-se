@@ -1,11 +1,11 @@
 ---
-title: "Översikt över VPN Gateway: Skapa VPN-anslutningar till virtuella Azure-nätverk på olika platser | Microsoft Docs"
-description: "Den här artikeln beskriver vad en VPN-gateway är och visar hur du kan ansluta till virtuella Azure-nätverk med hjälp av en VPN-anslutning via Internet. Översikten innehåller också diagram över grundläggande anslutningskonfigurationer."
+title: 'Översikt över VPN Gateway: Skapa VPN-anslutningar till virtuella Azure-nätverk på olika platser | Microsoft Docs'
+description: Den här artikeln beskriver vad en VPN-gateway är och visar hur du kan ansluta till virtuella Azure-nätverk med hjälp av en VPN-anslutning via Internet. Översikten innehåller också diagram över grundläggande anslutningskonfigurationer.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/16/2018
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: dadddeaac2a7856f8e249db981b018de070e1f3f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ef6d61e9dfc7c30910d897478f07dabc14136b48
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="about-vpn-gateway"></a>Om VPN Gateway
 
@@ -53,12 +53,15 @@ När du konfigurerar en VPN-gateway varierar instruktionerna som du följer bero
 
 Tabellen nedan kan hjälpa dig att bestämma det bästa anslutningsalternativet för din lösning.
 
-[!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
-
+[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## <a name="gwsku"></a>Gateway-SKU:er
 
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+När du skapar en virtuell nätverksgateway anger du vilken gateway-SKU som du vill använda. Välj den SKU som uppfyller dina krav baserat på typerna av arbetsbelastning, dataflöden, funktioner och serviceavtal. Mer information om gateway-SKU:er, inklusive funktioner som stöds, produktion och dev/test och konfigurationsanvisningar finns i [Gateway-SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+
+### <a name="benchmark"></a>Gateway-SKU:er efter tunnel, anslutning och dataflöde
+
+[!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ## <a name="diagrams"></a>Diagram för anslutningstopologi
 
@@ -86,7 +89,7 @@ Den här typen av anslutning är en variant av plats-till-plats-anslutningen. Du
 
 ### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>Distributionsmodeller och metoder för plats-till-plats och flera platser
 
-[!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
+[!INCLUDE [site-to-site and multi-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 ## <a name="P2S"></a>Punkt-till-plats (VPN via IKEv2 eller SSTP)
 

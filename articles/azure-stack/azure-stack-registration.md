@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: e51a15b197e875c35997cfe2ac96d673c01a80f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1dc3d9a96b9b27927cc8cc66b5e80987fba4f8ea
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure stacken med Azure
 Registrera [Azure Stack](azure-stack-poc.md) med Azure kan du hämta marketplace-objekt från Azure och Ställ in commerce rapporterar tillbaka till Microsoft. När du har registrerat Azure Stack användning rapporteras till Azure handel och du kan se den under den prenumeration som används för registrering. 
@@ -58,7 +58,7 @@ Anslutna miljöer kan komma åt internet och Azure. För dessa miljöer måste d
 
 ### <a name="register-the-azure-stack-resource-provider"></a>Registerresursleverantören Azure Stack
 Starta Powershell ISE som administratör och kör följande PowerShell-kommandon för att registrera Azure Stack-resursprovidern med Azure. Dessa kommandon kommer att:
-- Uppmanar dig att logga in som en ägare av Azure-prenumerationen ska användas och ange den `EnvironmentName` parameter till **AzureCloud**.
+- Uppmanar dig att logga in som en ägare av Azure-prenumerationen ska användas och ange den **EnvironmentName** parameter till **AzureCloud**.
 - Registrera Azure-resursprovider **Microsoft.AzureStack**.
 
 1. Lägg till Azure-konto som används för att registrera Azure stacken. Lägg till kontot genom att köra den **Add-AzureRmAccount** cmdlet. Du uppmanas att ange dina autentiseringsuppgifter för global administratör för Azure-konto och du kan behöva använda 2-faktor-autentisering baserat på konfigurationen för ditt konto.
@@ -95,7 +95,7 @@ PowerShell för att köra:
 
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
@@ -104,7 +104,7 @@ Set-AzsRegistration `
 
 |Parameter|Beskrivning|
 |-----|-----|
-|CloudAdminCredential|PowerShell-objekt som innehåller information om autentiseringsuppgifter (användarnamn och lösenord) för ägaren av Azure-prenumerationen.|
+|CloudAdminCredential|PowerShell-objekt som innehåller information om autentiseringsuppgifter (användarnamn och lösenord) används för att komma åt den privilegierade slutpunkten.|
 |PrivilegedEndpoint|En förkonfigurerad PowerShell fjärrkonsolen ger tillgång till funktioner som Logginsamling och andra post distributionsåtgärder. Mer information finns i den [med Privilegierade slutpunkten](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint#access-the-privileged-endpoint) artikel.|
 |BillingModel|Vilken faktureringsmodell som tillämpas med din prenumeration. Tillåtna värden för den här parametern är: kapacitet, PayAsYouUse och utveckling.|
 
@@ -114,7 +114,7 @@ Följ samma anvisningar som användes för registrering med hjälp av fakturerin
 PowerShell för att köra:
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `

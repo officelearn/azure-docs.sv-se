@@ -3,25 +3,17 @@ title: Vad är tjänsten Azure SQL Database? | Microsoft Docs
 description: 'Få en introduktion till SQL Database: teknisk information och funktioner i Microsofts relationella databashanteringssystem (RDBMS) i molnet.'
 keywords: introduktion till sql, sql-introduktion, vad är sql database
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
+manager: craigg
 ms.service: sql-database
-ms.custom: overview
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.date: 03/07/2018
-ms.workload: Active
 ms.author: carlrab
-ms.reviewer: carlrab
-ms.openlocfilehash: a1c4426acec8e9e006c2349b886297f45cc8ecb2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a06ed8433ebcf728c7b090f5e984d4e3ebeb846
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Vad är tjänsten Azure SQL Database? 
 
@@ -37,7 +29,8 @@ SQL-databas delar sin kodbas med [Microsoft SQL Server-databasmotorn](https://do
 
 SQL Database levererar förutsägbar prestanda på flera servicenivåer som ger dynamisk skalbarhet utan driftstopp, inbyggd intelligent optimering, global skalbarhet och tillgänglighet samt alternativ för avancerad säkerhet – allt detta med nästan obefintlig administration. Dessa funktioner gör att du kan fokusera på snabb apputveckling och att accelerera din tid till marknaden, istället för att ägna värdefull tid och resurser åt att hantera virtuella datorer och infrastruktur. SQL Database-tjänsten används för närvarande i 38 datacenter runtom i världen och många fler datacenter ansluter sig hela tiden, vilket innebär att du kan köra din databas från ett datacenter nära dig.
 
-> [VIKTIGT!] SQL Database Managed Instance finns för närvarande i förhandsversion och är endast tillgänglig på en enda servicenivå. Mer information finns i [SQL Database Managed Instance](sql-database-managed-instance.md).
+> [!IMPORTANT]
+> SQL Database Managed Instance finns för närvarande i förhandsversion och är endast tillgänglig på en enda servicenivå. Mer information finns i [SQL Database Managed Instance](sql-database-managed-instance.md).
 >
 
 ## <a name="scalable-performance-and-pools"></a>Skalbar prestanda och pooler

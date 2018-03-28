@@ -1,12 +1,12 @@
 ---
-title: "Skapa ditt första automatiserade arbetsflöde – Azure Logic Apps | Microsoft Docs"
-description: "I den här snabbstarten får du lära dig att automatisera ditt första arbetsflöde med Azure Logic Apps för systemintegrering och EAI-scenarion (Enterprise Application Integration) som integrerar system och molntjänster"
+title: Skapa ditt första automatiserade arbetsflöde – Azure Logic Apps | Microsoft Docs
+description: I den här snabbstarten får du lära dig att automatisera ditt första arbetsflöde med Azure Logic Apps för systemintegrering och EAI-scenarion (Enterprise Application Integration) som integrerar system och molntjänster
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
 keywords: workflows, cloud services, system integration, enterprise application integration, EAI
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 1/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: d382144c202b2b7f5623f2cca2a82c384387e8ca
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ccd00fbb3c5dc0f78a31adcaed31bbe6e4a6e785
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>Snabbstart: Skapa ditt första arbetsflöde för logikapp – Azure Portal
 
@@ -60,6 +60,8 @@ Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
    ![Välja tom mall för logikapp](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
 Lägg därefter till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts) som utlöses när ett nytt RSS-flödesobjekt kommer. Varje logikapp måste börja med en utlösare som utlöses när en specifik händelse sker eller när ett särskilt villkor uppfylls. Varje gång utlösaren körs skapar Logic Apps-motorn en logikappinstans som startar och kör ditt arbetsflöde.
+
+<a name="add-rss-trigger"></a>
 
 ## <a name="check-rss-feed-with-a-trigger"></a>Kontrollera RSS-feed med en utlösare
 
@@ -144,7 +146,7 @@ Nu lägger du till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-
       ![Lägg till innehåll för e-postmeddelandets brödtext](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
       | Inställning | Beskrivning | 
-      | ----- | ----------- | 
+      | ------- | ----------- | 
       | **Flödesrubrik** | Objektets rubrik | 
       | **Flödet publicerat den** | Objektets publiceringsdatum och -tid | 
       | **Flödets primära länk** | Objektets webbadress | 
@@ -156,15 +158,16 @@ Testa därefter logikappen.
 
 ## <a name="run-your-logic-app"></a>Kör logikappen
 
-Om du vill starta logikappen manuellt väljer du **Kör** i Designer-verktygsfältet. Eller vänta tills logikappen körs på ditt angivna schema (varje minut). Om RSS-flödet innehåller nya objekt skickar din logikapp ett e-postmeddelande för varje nytt objekt. Men om flödet inte innehåller några nya objekt hoppar den över aktiveringen av utlösaren väntar på nästa intervall innan nästa kontroll. 
+Om du vill starta logikappen manuellt väljer du **Kör** i Designer-verktygsfältet. Eller vänta tills logikappen har kontrollerat RSS-flödet baserat på ditt angivna schema (varje minut). Om RSS-flödet innehåller nya objekt skickar din logikapp ett e-postmeddelande för varje nytt objekt. Annars väntar logikappen tills nästa intervall innan kontrollen utförs på nytt. 
 
-Här är ett exempel på ett e-postmeddelade som den här logikappen skickar:
+Här är ett exempel på ett e-postmeddelande som den här logikappen skickar. Om du inte får e-post kan du titta i mappen Skräppost.
 
 ![E-postmeddelande skickat för nytt RSS-flödesobjekt](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-Om du inte får e-post kan du titta i mappen Skräppost. Ditt skräppostfilter kan dirigera om dessa typer av e-post. 
+När utlösaren kontrollerar RSS-flödet och hittar nya objekt utlöses den och Logic Apps-motorn skapar en instans av ditt logikapparbetsflöde som kör åtgärderna i arbetsflödet.
+Om utlösaren inte hittar nya objekt utlöses den inte, och den ”hoppar över” att instansiera arbetsflödet.
 
-Gratulerar! Du har skapat och kört din första logikapp.
+Grattis! Nu har du skapar och kört din första logikapp med Azure Portal!
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

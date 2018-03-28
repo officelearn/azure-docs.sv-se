@@ -1,8 +1,8 @@
 ---
-title: "Diagnostisera prestandaproblem med hjälp av Azure Application Insights | Microsoft Docs"
-description: "Självstudie om att hitta och diagnostisera prestandaproblem i dina program med hjälp av Azure Application Insights."
+title: Diagnostisera prestandaproblem med hjälp av Azure Application Insights | Microsoft Docs
+description: Självstudie om att hitta och diagnostisera prestandaproblem i dina program med hjälp av Azure Application Insights.
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/18/2017
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 26f5acf369dd80d7877ab760806e0e08a49cfe6d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8489992303425cc00c15994b55ade958d77549e4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Hitta och diagnostisera prestandaproblem med Azure Application Insights
 
@@ -41,7 +41,7 @@ För att slutföra den här självstudien behöver du:
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="identify-slow-server-operations"></a>Identifiera långsamma serveråtgärder
-Application Insights samlar in prestandainformation för de olika åtgärderna i ditt program.  Genom att identifiera vilka åtgärder som tar längst tid kan du diagnostisera potentiella problem och fatta välgrundade beslut kring din pågående utveckling för att förbättra programmets prestanda.
+Application Insights samlar in prestandainformation för de olika åtgärderna i ditt program. Genom att identifiera vilka åtgärder som tar längst tid kan du diagnostisera potentiella problem och fatta välgrundade beslut kring din pågående utveckling för att förbättra programmets prestanda.
 
 1. Välj **Application Insights** och sedan din prenumeration.  
 1. Du öppnar panelen **Prestanda** genom att antingen välja **Prestanda** på menyn **Undersök** eller klicka på diagrammet **Serversvarstid**.

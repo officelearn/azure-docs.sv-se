@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7725c5a9a7b6359257efadcc46366a7a360ec69c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2b306cc9dc9bbf435eb70315cc46e7faf4268b47
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Komma igång med PowerShell i Azure-stacken
 
@@ -174,6 +174,9 @@ Nu när du har konfigurerat PowerShell kan testa du konfigurationen genom att sk
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
+> [!note]  
+> Om du vill ange en resursgrupp, behöver du ha en resursgrupp i din prenumeration. Mer information om prenumerationer finns [Plan, erbjudande, kvoter och prenumeration översikt](azure-stack-plan-offer-quota-overview.md)
+
 När resursgruppen har skapats kan den **Etableringsstatus** egenskap är inställd på **lyckades**.
 
 ## <a name="next-steps"></a>Nästa steg
@@ -181,10 +184,3 @@ När resursgruppen har skapats kan den **Etableringsstatus** egenskap är instä
 * [Installera och konfigurera CLI](azure-stack-connect-cli.md)
 
 * [Utveckla mallar](user/azure-stack-develop-templates.md)
-
-
-
-
-
-
-

@@ -1,21 +1,21 @@
 ---
-title: "Snabbstart – Skapa din första Azure Container Instances-behållare med Azure Portal"
-description: "Distribuera och kom igång med Azure Container Instances"
+title: Snabbstart – Skapa din första Azure Container Instances-behållare med Azure Portal
+description: I den här snabbstarten använder du Azure Portal för att distribuera en behållare i Azure Container Instances
 services: container-instances
 author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 03/19/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 63f22544276da07ec98e779cc524879603655db6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 18238c94ba9acff15497a666a63b65b95779d4ac
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="create-your-first-container-in-azure-container-instances"></a>Skapa din första behållare i Azure Container Instances
+# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Snabbstart: Skapa din första behållare i Azure Container Instances
 
 Med Azure Container Instances är det enkelt att skapa och hantera behållare i Azure. I den här snabbstarten skapar du en behållare i Azure och gör den tillgänglig på Internet med en offentlig IP-adress. Den här åtgärden genomförs via Azure Portal. Efter några klickningar visas det här i webbläsaren:
 

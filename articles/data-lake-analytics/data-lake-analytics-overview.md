@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: a788c7ad6eca0abea6f6ab400cbe2d0e5914eed8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4ee0bdf486fa59c2d32b0d28ee25618996a57c6e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-of-azure-data-lake-analytics"></a>Översikt över Azure Data Lake Analytics
 
@@ -46,7 +46,7 @@ Data Lake Analytics är en kostnadseffektiv lösning för arbetsbelastningar av 
     
 ### <a name="works-with-all-your-azure-data"></a>Fungerar med alla dina Azure-data
   
-Data Lake Analytics samverkar med Azure Data Lake Store för högsta prestanda, dataflöde och parallellisering. Det fungerar också med Azure Storage-blobbar, Azure SQL Database och Azures informationslager.
+Data Lake Analytics samverkar med Azure Data Lake Store för högsta prestanda, dataflöde och parallellisering. Det fungerar också med Azure Storage-blobar, Azure SQL Database och Azures informationslager.
 
 ### <a name="next-steps"></a>Nästa steg
  

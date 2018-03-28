@@ -1,23 +1,23 @@
 ---
-title: Distribuera en modellsjälvstudie för Azure Machine Learning (förhandsversion) | Microsoft Docs
-description: I den här kompletta självstudien får du lära dig att använda Azure Machine Learning (förhandsversionen) från slutpunkt till slutpunkt. Detta är en del tre som beskriver hur du distribuerar modellen.
+title: Distribuera en självstudie om modeller i Azure Machine Learning
+description: I den här kompletta självstudien får du lära dig att använda Azure Machine Learning från slutpunkt till slutpunkt. Detta är en del tre som beskriver hur du distribuerar modellen.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, j-martens, aashishb
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
+ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
-ms.openlocfilehash: 13ddc0ef8c7eac86e6cd7abb684ce35ae18fba84
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.date: 3/13/2018
+ms.openlocfilehash: 87d1e605bfd7603e4e07f6b427033fe2c1d2b83e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-classify-iris-part-3-deploy-a-model"></a>Självstudie: Klassificera Iris del 3: Distribuera en modell
+# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Självstudie 3: Klassificera Iris – distribuera en modell
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys för datatekniker. Datatekniker kan använda den för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
 
 Den här självstudien är **del tre i en serie med tre delar**. I den här delen av självstudien använder du Machine Learning (förhandsversion) för att:
@@ -30,17 +30,15 @@ Den här självstudien är **del tre i en serie med tre delar**. I den här dele
 > * Köra realtidswebbtjänsten.
 > * Granska blob-utdata. 
 
-Den här självstudien använder den tidlösa [Iris-datauppsättningen](https://en.wikipedia.org/wiki/iris_flower_data_set). Skärmbilderna är Windows-specifika, men upplevelsen är nästan identisk i Mac OS.
-
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Den här självstudien använder den tidlösa [Iris-datauppsättningen](https://en.wikipedia.org/wiki/Iris_flower_data_set). 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-Gå igenom de första två delarna i självstudieserien:
 
-   * Gå igenom [självstudien Förbereda data](tutorial-classifying-iris-part-1.md), där du får skapa Machine Learning-resurser och installera Azure Machine Learning Workbench.
-   * Gå igenom [självstudien Skapa en modell](tutorial-classifying-iris-part-2.md) där du får skapa en Logistic Regression-modell i Machine Learning.
-
-En Docker-motor måste vara installerad och köras lokalt. Du kan även distribuera ett Azure Container Service-kluster i Azure.
+För att slutföra den här kursen behöver du:
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+- Ett experimentkonto och Azure Machine Learning Workbench installerad enligt anvisningarna i denna [snabbstart](quickstart-installation.md)
+- Klassificeringsmodellen från [del 2 av självstudiekursen](tutorial-classifying-iris-part-2.md)
+- En Docker-motor måste vara installerad och köras lokalt
 
 ## <a name="download-the-model-pickle-file"></a>Ladda ned pickle-modellfilen
 I föregående del av självstudien kördes skriptet **iris_sklearn.py** i Machine Learning Workbench lokalt. Den här åtgärden serialiserade Logistic Regression-modellen med hjälp av det populära Python-paketet för objektserialisering [pickle](https://docs.python.org/3/library/pickle.html). 
@@ -91,7 +89,7 @@ Om du vill distribuera webbtjänsten tillsammans med modellfilen behöver du ock
 
 4. Kör skriptet för att skapa schemafilen. Välj miljön **lokalt** och skriptet **score_iris.py** i kommandofältet och välj sedan **Kör**. 
 
-5. Det här skriptet skapar en JSON-fil i avsnittet **Utdata**, som fångar det indataschema som behövs i modellen.
+   Det här skriptet skapar en JSON-fil i avsnittet **Utdata**, som fångar det indataschema som behövs i modellen.
 
 6. Notera fönstret **Jobb** till höger om fönstret **Project Dashboard** (Instrumentpanel för projekt). Vänta tills det senaste jobbet **score_iris.py** visar den gröna statusen **Slutfört**. Välj hyperlänken **score_iris.py** för den senaste jobbkörningen så att du ser körningsdetaljerna för körningen. 
 
@@ -128,7 +126,10 @@ Använd _lokalt läge_ som distribution för att köra i Docker-behållare lokal
 Du kan använda _lokalt läge_ för utveckling och testning. Docker-motorn måste köras lokalt när du ska utföra följande steg och operationalisera modellen. Du kan använda flaggan `-h` i slutet av varje kommando för att visa motsvarande hjälpmeddelande.
 
 >[!NOTE]
->Om du inte har en lokal Docker-motor kan du ändå gå vidare genom att skapa ett kluster i Azure för distribution. Se bara till att ta bort klustret efter självstudien så att du inte drar på dig löpande kostnader.
+>Om du inte har Docker-motorn lokalt kan du ändå gå vidare genom att skapa ett kluster i Azure för distribution. Du kan behålla klustret för återanvändning eller ta bort det efter självstudien så att du inte drar på dig löpande kostnader.
+
+>[!NOTE]
+>Webbtjänster som distribuerats lokalt visas inte i Azure Portals lista över tjänster. De körs i Docker på den lokala datorn.
 
 1. Öppna kommandoradsgränssnittet (CLI).
    Välj på **Öppna kommandotolken** i menyn **Arkiv** i Machine Learning Workbench.

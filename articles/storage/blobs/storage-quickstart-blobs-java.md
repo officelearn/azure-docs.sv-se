@@ -1,19 +1,19 @@
 ---
-title: "Azure-snabbstart – Ladda upp, ladda ned och lista blobar i Azure Storage med Java | Microsoft Docs"
-description: "I den här snabbstarten skapar du ett lagringskonto och en behållare. Sedan använder du lagringsklientbiblioteket för Java och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare."
+title: Azure-snabbstart – Ladda upp, ladda ned och lista blobar i Azure Storage med Java | Microsoft Docs
+description: I den här snabbstarten skapar du ett lagringskonto och en behållare. Sedan använder du lagringsklientbiblioteket för Java och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
 services: storage
 author: roygara
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: cde366e75e4111a911be67795a2ad4dfa73778ea
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 44e5f921ca9303e680c76d439ab7503ea3c39680
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Java
 
@@ -202,6 +202,19 @@ downloadedFile.deleteOnExit();
 if(sourceFile != null)
 sourceFile.deleteOnExit();
 ```
+
+## <a name="resources-for-developing-java-applications-with-blobs"></a>Resurser för utveckling av Java-program med blobbar
+
+Se följande ytterligare resurser för Java-utveckling med blobblagring:
+
+### <a name="binaries-and-source-code"></a>Binärfiler och källkod
+
+- Visa och ladda ned [Java-klientbibliotekets källkod](https://github.com/Azure/azure-storage-java) för Azure Storage på GitHub.
+
+### <a name="client-library-reference-and-samples"></a>Referens och exempel för klientbiblioteket
+
+- Mer information om Java-klientbiblioteket finns i [API-referens för Java](https://docs.microsoft.com/en-us/java/api/overview/azure/storage).
+- Utforska [Blobblagringsexempel](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob) som skrivits med Java-klientbiblioteket.
 
 ## <a name="next-steps"></a>Nästa steg
 

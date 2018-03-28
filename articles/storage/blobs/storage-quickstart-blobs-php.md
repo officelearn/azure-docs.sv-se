@@ -8,13 +8,13 @@ ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: 474c03921369035cd7334fdddd9806f8f90b7d58
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4adad6fe3da16653bbd654a3e93e14f9e68b7c90
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Överföra objekt till och från Azure Blob Storage med hjälp av PHP
 I den här snabbstarten får du lära dig att använda PHP för att ladda upp, ladda ned och lista blockblobar i Azure Blob-lagring. 
@@ -23,7 +23,7 @@ I den här snabbstarten får du lära dig att använda PHP för att ladda upp, l
 
 För att slutföra den här snabbstarten behöver du: 
 * Installera [PHP](http://php.net/downloads.php)
-* Installera [Azure SDK för PHP](https://github.com/Azure/azure-storage-php)
+* Installera [Azure Storage SDK för PHP](https://github.com/Azure/azure-storage-php)
 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -196,6 +196,13 @@ Om du inte längre behöver blobarna som laddades upp i den här snabbstarten ka
     echo "<br />";
     unlink($fileToUpload);   
 ```
+
+## <a name="resources-for-developing-php-applications-with-blobs"></a>Resurser för utveckling av PHP-program med blobbar
+
+Se följande ytterligare resurser för PHP-utveckling med blobblagring:
+
+- Visa, ladda ned och installera [PHP-klientbibliotekets källkod](https://github.com/Azure/azure-storage-php) för Azure Storage på GitHub.
+- Utforska [Blobblagringsexempel](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=php&term=blob) som skrivits med PHP-klientbiblioteket.
 
 ## <a name="next-steps"></a>Nästa steg
  

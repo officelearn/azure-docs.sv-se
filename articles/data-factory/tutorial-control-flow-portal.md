@@ -1,8 +1,8 @@
 ---
 title: Branchning i Azure Data Factory-pipeline | Microsoft Docs
-description: "Lär dig hur du styr flödet av data i Azure Data Factory genom branchning och kedjesammansättning av aktiviteter."
+description: Lär dig hur du styr flödet av data i Azure Data Factory genom branchning och kedjesammansättning av aktiviteter.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 00b377b8ed7454c64d146a2de1867eca8ab1fb67
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
 I den här självstudiekursen skapar du en Data Factory-pipeline som visar några av funktionerna för att styra flödet. Den här pipelinen skapar en enkel kopia från en behållare i Azure Blob Storage till en annan behållare i samma lagringskonto. Om kopieringen lyckas skickar pipelinen information om den lyckade kopieringsåtgärden (till exempel hur mycket data som har skrivits) i ett e-postmeddelande. Om kopieringen misslyckas skickar pipelinen information om att kopieringen misslyckades (till exempel ett felmeddelande) i ett e-postmeddelande. I självstudiekursen visas olika exempel på hur du skickar parametrar.
@@ -129,7 +129,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Data Factory-användargränssnittet stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
    
    ![Nytt->DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
@@ -268,7 +268,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
         ```
 
         ![Inställningar för den andra webbaktiviteten](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
-22. Välj **kopieringsaktiviteten** i pipelinedesignen och klicka på  **+->**  och välj **Fel**.  
+22. Välj **kopieringsaktiviteten** i pipelinedesignen och klicka på **+->** och välj **Fel**.  
 
     ![Inställningar för den andra webbaktiviteten](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
 23. Dra den **röda** knappen bredvid kopieringsaktiviteten till den andra webbaktiviteten, **SendFailureEmailActivity**. Du kan flytta aktiviteterna så att pipelinen ser ut som på följande bild: 
@@ -309,7 +309,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
 3. Gör följande i fönstret **Pipeline Run** (Pipelinekörning): 
 
     1. Ange **adftutorial/dummy/input** för parametern **sourceBlobContainer**. Se till att mappen dummy inte finns i behållaren adftutorial. 
-    2. Ange **adftutorial/dummy/inputt** för parametern **sinkBlobContainer**. 
+    2. Ange **adftutorial/dummy/output** för parametern **sinkBlobContainer**. 
     3. Ange en **e-postadress** för **mottagaren**. 
     4. Klicka på **Slutför**.
 

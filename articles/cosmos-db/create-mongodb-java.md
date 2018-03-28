@@ -1,33 +1,33 @@
 ---
 title: 'Azure Cosmos DB: Skapa en konsolapp med Java och MongoDB-API:t | Microsoft Docs'
-description: "Presenterar ett Java-kodexempel som du kan använda för att ansluta till och ställa frågor via Azure Cosmos DB MongoDB-API:t"
+description: Presenterar ett Java-kodexempel som du kan använda för att ansluta till och ställa frågor via Azure Cosmos DB MongoDB-API:t
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 81bf338d3be18905fd04e07a53284432b5feb491
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 199ea35d7df405ebc148185094a6865a1c373941
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en MongoDB API-konsolapp med Java och Azure Portal
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-I den här snabbstarten visas hur du skapar ett Azure Cosmos DB-konto, en dokumentdatabas och en samling med hjälp av Azure Portal. Sedan kommer du att skapa och distribuera en konsolapp som är byggd med [MondoDB Java-drivrutinen](https://docs.mongodb.com/ecosystem/drivers/java/). 
+Den här snabbstarten demonstrerar hur man skapar ett Azure Cosmos DB-konto, en dokumentdatabas och en samling med hjälp av Azure-portalen. Sedan kommer du att skapa och distribuera en konsolapp som är byggd med [MondoDB Java-drivrutinen](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du kan köra det här exemplet måste du uppfylla följande krav:
 * JDK 1.7+ (Kör `apt-get install default-jdk` om du inte har JDK)
@@ -58,11 +58,11 @@ Nu ska vi klona en MongoDB API-app från github, ange anslutningssträngen och k
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-getting-started.git
     ```
 
-3. Öppna därefter lösningsfilen i Visual Studio. 
+3. Öppna sedan koden i det redigeringsprogram du föredrar. 
 
 ## <a name="review-the-code"></a>Granska koden
 
-Vi gör en snabb genomgång av vad som händer i appen. Öppna filen `Program.cs` så ser du att de här kodraderna skapar Azure Cosmos DB-resurserna. 
+Vi gör en snabb genomgång av vad som händer i appen. Öppna filen `Program.java` så ser du att de här kodraderna skapar Azure Cosmos DB-resurserna. 
 
 * DocumentClient initieras.
 
@@ -100,7 +100,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 1. Från Konto väljer du **Snabbstart**, Java och kopierar sedan anslutningssträngen till Urklipp
 
-2. Öppna filen `Program.java` och ersätt argumentet för konstruktorn MongoClientURI med anslutningssträngen. Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
+2. Öppna filen `Program.java` och ersätt argumentet för konstruktorn MongoClientURI med anslutningssträngen. Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
     
 ## <a name="run-the-console-app"></a>Kör konsolappen
 

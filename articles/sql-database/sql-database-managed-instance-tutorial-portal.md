@@ -7,18 +7,15 @@ author: bonova
 ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: ''
 ms.topic: tutorial
-ms.date: 03/07/2018
+ms.date: 03/14/2018
 ms.author: bonova
-manager: cguyer
-ms.openlocfilehash: 0d6261392dfdab0d48cb0c524d1fcf416c85d72c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: craigg
+ms.openlocfilehash: 774a761465cfd886b85378a35dd43ac656a7ee48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Skapa en hanterad Azure SQL Database-instans i Azure-portalen
 
@@ -26,6 +23,9 @@ I den här självstudien visas det hur du skapar en hanterad Azure SQL Database-
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
+> [!IMPORTANT]
+> En lista över regioner där hanterade instanser är tillgängliga finns i [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Migrera dina databaser till en helt hanterad tjänst med Azure SQL Database Managed Instance).
+ 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure-portalen](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
@@ -64,12 +64,12 @@ Följande steg visar hur du skapar ett nytt virtuellt [Azure Resource Manager](.
 
    | Inställning| Föreslaget värde | Beskrivning |
    | ------ | --------------- | ----------- |
-   |**Namn**|Valfritt giltigt namn|Se [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) för giltiga namn.|
+   |**Namn**|Valfritt giltigt namn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Adressutrymme**|Giltiga adressintervall, t.ex. 10.14.0.0/24|Det virtuella nätverkets adressnamn i CIDR-notation.|
    |**Prenumeration**|Din prenumeration|Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions).|
-   |**Resursgrupp**|Giltiga resursgrupper (nya eller befintliga)|Se [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) för giltiga namn.|
+   |**Resursgrupp**|Giltiga resursgrupper (nya eller befintliga)|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Plats**|Valfri giltig plats| För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/).|
-   |**Namn på undernät**|Giltiga undernätsnamn, t.ex. mi_subnet|Se [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) för giltiga namn.|
+   |**Namn på undernät**|Giltiga undernätsnamn, t.ex. mi_subnet|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Adressintervall för undernätet**|Giltiga adressintervall, t.ex. 10.14.0.0/28. Använd ett adressutrymme för undernät som är mindre än själva adressutrymmet för att ge utrymme för att skapa andra undernät i samma virtuella nätverk, t.ex. ett undernät som värd för test/klientappar eller gateway-undernät för att ansluta från lokala nätverk eller andra virtuella nätverk.|Undernätets adressintervall i CIDR-notation. Detta måste finnas i det virtuella nätverkets adressutrymme|
    |**Serviceslutpunkter**|Disabled|Aktivera en eller flera slutpunkter för det här undernätet|
    ||||
@@ -205,7 +205,7 @@ Följande steg visar hur du skapar ett andra undernät i det virtuella nätverke
    |**Adressintervall (CIDR-block)**|Giltiga adressintervall inom det virtuella nätverket (använd standardvärdet)||
    |**Nätverkssäkerhetsgrupp**|Inget||
    |**Routningstabell**|Inget||
-   |**Tjänstens slutpunkter**|Inget||
+   |**Tjänstens slutpunkter**|Ingen||
 
    ![vm subnet details](./media/sql-database-managed-instance-tutorial/vm-subnet-details.png)
 
@@ -284,7 +284,7 @@ Följande steg visar hur du laddar ned och installerar SSMS och sedan ansluter t
     ![internet explorer enhanced security configuration](./media/sql-database-managed-instance-tutorial/internet-explorer-security-configuration.png)  
 4. Öppna **Internet Explorer** från Aktivitetsfältet.
 5. Välj alternativet för att **använda rekommenderade inställningar för säkerhet och kompatibilitet** och klicka sedan på **OK** för att slutföra installationen av Internet Explorer 11.
-6. Ange https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms i URL-adressfältet och tryck på **Enter**. 
+6. Skriv in https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms i webbadressfältet och klicka på **Retur**. 
 7. Ladda ned den senaste versionen av SQL Server Management Studio och klicka på **Kör** när du blir uppmanad att göra det.
 8. När du uppmanas till detta klickar du på **Installera** för att börja.
 9. När installationen är klar klickar du på **Stäng**.
@@ -299,7 +299,7 @@ När du ansluter kan du visa system- och användardatabaserna i noden för datab
 
 Använd följande steg för att ladda ned Wide World Importers – standardsäkerhetskopian.
 
-I Internet Explorer anger du https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak i URL-adressrutan och när du uppmanas till det klickar du på **Spara** för att spara filen i mappen med **nedladdningar**.
+Öppna Internet Explorer och skriv in https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak i webbadressfältet. När du uppmanas göra det klickar du på **Spara** och sparar filen i mappen **Hämtade filer**.
 
 ## <a name="create-azure-storage-account-and-upload-backup-file"></a>Skapa ett Azure lagringskonto och ladda upp säkerhetskopian
 

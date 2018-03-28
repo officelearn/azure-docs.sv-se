@@ -1,150 +1,150 @@
 ---
-title: Azure Security Center- och Linux virtuella datorer i Azure | Microsoft Docs
-description: "Lär dig om säkerhet för dina virtuella Azure Linux-datorer med Azure Security Center."
+title: Azure Security Center och virtuella Linux-datorer i Azure | Microsoft Docs
+description: Lär dig mer om säkerhetsåtgärder för dina virtuella Linux-datorer i Azure med Azure Security Center.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/07/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: dbba39f5b9f18aaca6449e08aa584224fc2126d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 6b791b2e1dbaffc90145c325dea7a85bd8abd98c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Övervaka virtuella säkerhet med hjälp av Azure Security Center
+# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Övervaka säkerheten för virtuella datorer med hjälp av Azure Security Center
 
-Azure Security Center kan hjälpa dig få insyn i Azure-resurs säkerhetsåtgärder. Security Center ger övervakning av integrerad säkerhet. Det kan upptäcka hot som annars kan förbli oupptäckta. I kursen får du lära dig om Azure Security Center och hur du:
+Med Azure Security Center kan du få bättre överblick över säkerhetsåtgärderna för Azure-resurserna. Security Center tillhandahåller integrerad säkerhetsövervakning. Här kan du upptäcka hot som annars kan förbli oupptäckta. I den här självstudiekursen får du lära dig mer om Azure Security Center och hur du gör följande:
  
 > [!div class="checklist"]
 > * Konfigurera datainsamling
-> * Ställa in säkerhetsprinciper
-> * Visa och lösa konfigurationsproblem hälsa
+> * Konfigurera säkerhetsprinciper
+> * Visa och åtgärda problem med konfigurationshälsan
 > * Granska identifierade hot  
 
 ## <a name="security-center-overview"></a>Översikt över Security Center
 
-Security Center identifierar potentiella konfigurationsproblem för virtuell dator (VM) och mål säkerhetshot. Dessa kan innehålla virtuella datorer som saknar nätverkssäkerhetsgrupper och okrypterade diskar brute force-attacker för Remote Desktop Protocol (RDP). Informationen visas på instrumentpanelen i Security Center i lätt att läsa diagram.
+Security Center identifierar potentiella konfigurationsproblem för virtuella datorer och potentiella mål för säkerhetsintrång. Dessa problem kan omfatta virtuella datorer som saknar nätverkssäkerhetsgrupper, okrypterade diskar och brute force-attacker med Remote Desktop Protocol (RDP). Informationen visas på instrumentpanelen i Security Center i form av lättförståeliga diagram.
 
-För att komma åt instrumentpanelen i Security Center i Azure-portalen på menyn, Välj **Security Center**. På instrumentpanelen, se säkerhetshälsa för Azure-miljön, hitta antalet aktuella rekommendationer och visa aktuell status för hot aviseringar. Du kan expandera varje övergripande diagram om du vill se mer information.
+För att komma åt instrumentpanelen i Security Center går du till Azure-portalen och väljer **Security Center** i menyn. På instrumentpanelen visas säkerhetshälsa för Azure-miljön, antalet aktuella rekommendationer och aktuell status för hotaviseringar. Du kan expandera varje diagram på den högsta nivån för att visa mer information.
 
-![Instrumentpanelen Security Center](./media/tutorial-azure-security/asc-dash.png)
+![Instrumentpanelen i Security Center](./media/tutorial-azure-security/asc-dash.png)
 
-Security Center är mer omfattande än identifiering av data för att ge rekommendationer för problem som upptäcks. Om en virtuell dator har distribuerats utan ett anslutet nätverkssäkerhetsgrupp, visar Säkerhetscenter en rekommendation med steg du kan vidta. Du kan hämta automatiska reparationer utan att lämna samband med Security Center.  
+Security Center gör mer än att identifiera data och lämna rekommendationer för de problem som upptäcks. Om en virtuell dator har distribuerats utan en ansluten nätverkssäkerhetsgrupp visar Security Center en rekommendation med åtgärder som du kan vidta. Du kan avhjälpa problemen automatiskt utan att behöva stänga Security Center.  
 
 ![Rekommendationer](./media/tutorial-azure-security/recommendations.png)
 
 ## <a name="set-up-data-collection"></a>Konfigurera datainsamling
 
-Innan du kan få en överblick över VM säkerhetskonfigurationer, måste du ställer in insamling av Security Center. Detta innebär att aktivera insamling av data och skapa ett Azure storage-konto för att lagra data som samlats in. 
+Innan du kan få en överblick över säkerhetskonfigurationerna för virtuella datorer måste du ställa in datainsamling i Security Center. Detta innebär att du måste aktivera insamling av data och skapa ett Azure-lagringskonto för att lagra de data som samlats in. 
 
-1. Klicka på instrumentpanelen i Security Center **säkerhetsprincip**, och sedan välja din prenumeration. 
-2. För **datainsamling**väljer **på**.
-3. Om du vill skapa ett lagringskonto **väljer något lagringskonto**. Markera **OK**.
-4. På den **säkerhetsprincip** bladet väljer **spara**. 
+1. Gå till instrumentpanelen i Security Center, klicka på **Säkerhetsprincip** och markera sedan din prenumeration. 
+2. Välj **På** för **Datainsamling**.
+3. Skapa ett lagringskonto genom att välja **Välj ett lagringskonto**. Välj **OK**.
+4. På bladet **Säkerhetsprincip** väljer du **Spara**. 
 
-Security Center data collection agent installeras på alla virtuella datorer och datainsamlingen påbörjas. 
+Datainsamlingsagenten från Security Center installeras på alla virtuella datorer och datainsamlingen påbörjas. 
 
-## <a name="set-up-a-security-policy"></a>Ställ in en säkerhetsprincip
+## <a name="set-up-a-security-policy"></a>Konfigurera en säkerhetsprincip
 
-IPSec-principer används för att definiera objekten som Säkerhetscenter samlar in data och ger rekommendationer. Du kan använda olika principer för olika uppsättningar av Azure-resurser. Även om Azure-resurser som standard ska utvärderas mot alla principobjekt kan du inaktivera enskilda principobjekt för alla Azure-resurser eller för en resursgrupp. Detaljerad information om säkerhetsprinciper från security Center finns [ställa in säkerhetsprinciper i Azure Security Center](../../security-center/security-center-policies.md). 
+Säkerhetsprinciper används för att definiera objekten för vilka Security Center samlar in data och lämnar rekommendationer. Du kan använda olika säkerhetsprinciper för olika uppsättningar av Azure-resurser. Även om Azures standardresurser ska utvärderas mot alla principobjekt kan du inaktivera enskilda principobjekt för alla Azure-resurser eller för en viss resursgrupp. Detaljerad information om säkerhetsprinciper i Security Center finns i [Ange säkerhetsprinciper i Azure Security Center](../../security-center/security-center-policies.md). 
 
-Att ställa in en säkerhetsprincip för alla Azure-resurser:
+Så här konfigurerar du en säkerhetsprincip för alla Azure-resurser:
 
-1. Välj på instrumentpanelen i Security Center **säkerhetsprincip**, och sedan välja din prenumeration.
-2. Välj **skyddsprincip**.
+1. Gå till instrumentpanelen i Security Center, klicka på **Säkerhetsprincip** och markera sedan din prenumeration.
+2. Välj **Skyddsprincip**.
 3. Aktivera eller inaktivera principobjekt som du vill koppla till alla Azure-resurser.
-4. När du är klar med att välja inställningarna väljer **OK**.
-5. På den **säkerhetsprincip** bladet väljer **spara**. 
+4. När du är klar med inställningarna väljer du **OK**.
+5. På bladet **Säkerhetsprincip** väljer du **Spara**. 
 
-Att konfigurera en princip för en viss resursgrupp:
+Så här konfigurerar du en princip för en viss resursgrupp:
 
-1. Välj på instrumentpanelen i Security Center **säkerhetsprincip**, och välj sedan en resursgrupp.
-2. Välj **skyddsprincip**.
-3. Aktivera eller inaktivera principobjekt som du vill koppla till resursgruppen.
-4. Under **arv**väljer **unik**.
-5. När du är klar med att välja inställningarna väljer **OK**.
-6. På den **säkerhetsprincip** bladet väljer **spara**.  
+1. Gå till instrumentpanelen i Security Center, klicka på **Säkerhetsprincip** och markera sedan en resursgrupp.
+2. Välj **Skyddsprincip**.
+3. Aktivera eller inaktivera principobjekt som du vill tillämpa på resursgrupper.
+4. Under **ARV** väljer du **Unik**.
+5. När du är klar med inställningarna väljer du **OK**.
+6. På bladet **Säkerhetsprincip** väljer du **Spara**.  
 
-Du kan också stänga av insamling av data för en viss resursgrupp på den här sidan.
+Du kan också stänga av datainsamling för en viss resursgrupp på den här sidan.
 
-I följande exempel skapas en unik princip för en resursgrupp med namnet *myResoureGroup*. Disk kryptering och web application brandväggen rekommendationer är inaktiverade i den här principen.
+I följande exempel skapas en unik princip för en resursgrupp med namnet *myResoureGroup*. Rekommendationer för diskkryptering och brandvägg för webbaserade program är inaktiverade i den här principen.
 
 ![Unik princip](./media/tutorial-azure-security/unique-policy.png)
 
-## <a name="view-vm-configuration-health"></a>Visa konfigurationshälsa för VM
+## <a name="view-vm-configuration-health"></a>Visa konfigurationshälsa för virtuella datorer
 
-När du har aktiverat datainsamling och ange en säkerhetsprincip för, börjar Security Center att ge aviseringar och rekommendationer. Eftersom virtuella datorer distribueras är data collection agenten installerad. Security Center består av data för de nya virtuella datorerna. Detaljerad information om hälsa för VM-konfiguration, se [skydda dina virtuella datorer i Security Center](../../security-center/security-center-virtual-machine-recommendations.md). 
+När du har aktiverat datainsamling och angett en säkerhetsprincip börjar Security Center att skicka aviseringar och rekommendationer. Datainsamlingsagenterna installeras i takt med att de virtuella datorerna distribueras. Security Center fylls sedan med data från de nya virtuella datorerna. Detaljerad information om konfigurationshälsa för virtuella datorer finns i [Protect your VMs in Security Center](../../security-center/security-center-virtual-machine-recommendations.md) (Skydda dina virtuella datorer i Security Center). 
 
-När data har samlats in sammanställs resurshälsa för varje virtuell dator och relaterade Azure-resurs. Informationen visas i ett enkelt att läsa diagram. 
+När data samlats in sammanställs information om resurshälsa för varje virtuell dator och relaterad Azure-resurs. Informationen visas i ett lättförståeligt diagram. 
 
-Visa resurshälsa:
+Så här visar du information om resurshälsa:
 
-1.  På Security Center instrumentpanelen under **resurssäkerhetshälsa**väljer **Compute**. 
-2.  På den **Compute** bladet väljer **virtuella datorer**. Den här vyn visar en sammanfattning av status för konfiguration för dina virtuella datorer.
+1.  Gå till instrumentpanelen i Security Center och välj **Compute** under **Resurssäkerhetshälsa**. 
+2.  På bladet **Compute** väljer du **Virtuella datorer**. Den här vyn visar en sammanfattning av konfigurationsstatusarna för alla dina virtuella datorer.
 
-![Beräkna hälsa](./media/tutorial-azure-security/compute-health.png)
+![Beräkningshälsa](./media/tutorial-azure-security/compute-health.png)
 
-Om du vill se alla rekommendationer för en virtuell dator, väljer du den virtuella datorn. Rekommendationer och reparation beskrivs närmare i nästa avsnitt i den här kursen.
+Markera en virtuell dator för att visa alla rekommendationer för den virtuella datorn. Rekommendationer och åtgärder beskrivs närmare i nästa avsnitt av den här självstudiekursen.
 
-## <a name="remediate-configuration-issues"></a>Åtgärda problem med konfiguration
+## <a name="remediate-configuration-issues"></a>Åtgärda konfigurationsproblem
 
-När Security Center börjar fylla med konfigurationsdata, görs rekommendationer baserat på den säkerhetsprincip som du konfigurerar. Till exempel om en virtuell dator har konfigurerats utan en nätverkssäkerhetsgrupp görs en rekommendation för att skapa en. 
+När Security Center börjar fyllas med konfigurationsdata görs rekommendationer utifrån den säkerhetsprincip som du har konfigurerat. Om du t.ex. har konfigurerat en virtuell dator utan en associerad nätverkssäkerhetsgrupp får du en rekommendation om att skapa en. 
 
-Visa en lista över alla rekommendationer: 
+Gör så här för att visa en lista över alla rekommendationer: 
 
-1. Välj på instrumentpanelen i Security Center **rekommendationer**.
-2. Välj en specifik rekommendation. En lista över alla resurser som rekommendationen gäller visas.
-3. Välj en specifik resurs för att tillämpa en rekommendation. 
-4. Följ anvisningarna för steg. 
+1. Gå till instrumentpanelen i Security Center och välj **Rekommendationer**.
+2. Välj en specifik rekommendation. Då visas en lista över alla resurser som rekommendationen gäller för.
+3. Välj en viss resurs för att kunna tillämpa en rekommendation. 
+4. Följ reparationsstegen. 
 
-I många fall innehåller Security Center tillämplig steg som du kan vidta en rekommendation utan att lämna Security Center. I följande exempel identifierar Security Center en nätverkssäkerhetsgrupp som har en obegränsad inkommande regel. På sidan rekommendation kan du välja den **redigera regler för inkommande trafik** knappen. Användargränssnittet som behövs för att ändra regeln visas. 
+I många fall kan Security Center tillhandahålla lämpliga åtgärder som du kan vidta för att följa en rekommendation utan att behöva lämna Security Center. I följande exempel identifierar Security Center en nätverkssäkerhetsgrupp som har en regel för obegränsat inkommande. På rekommendationssidan kan du klicka på knappen **Redigera regler för inkommande trafik**. Användargränssnittet som behövs för att ändra regeln visas. 
 
 ![Rekommendationer](./media/tutorial-azure-security/remediation.png)
 
-De är märkta som löst som rekommendationer har åtgärdats. 
+I takt med att rekommendationerna åtgärdats markeras de som lösta. 
 
 ## <a name="view-detected-threats"></a>Visa identifierade hot
 
-Förutom resurs konfigurationsrekommendationer visas hotidentifieringsaviseringar i Security Center. Aviseringar säkerhetsfunktion sammanställer data som samlas in från varje VM, Azure nätverk loggar och anslutna partnerlösningar att upptäcka säkerhetshot mot Azure-resurser. För detaljerad information om funktionerna i Security Center threat detection Se [identifieringsfunktionerna i Azure Security Center](../../security-center/security-center-detection-capabilities.md).
+Utöver konfigurationsrekommendationer för resurserna visas även aviseringar om identifierade säkerhetshot. Funktionen för säkerhetsvarningar sammanställer de data som samlas in från varje virtuell dator, Azures nätverksloggar och anslutna partnerlösningar i syfte att upptäcka säkerhetshot mot Azure-resurserna. Mer information om hur hotidentifieringsfunktionerna i Security Center fungerar finns i [Identifieringsfunktioner i Azure Security Center](../../security-center/security-center-detection-capabilities.md).
 
-Aviseringar säkerhetsfunktion kräver Security Center prisnivån ökas från *lediga* till *Standard*. En 30-dagars **kostnadsfri utvärderingsversion** är tillgänglig när du flyttar till den här högre prisnivå. 
+Om du vill kunna använda funktionen för säkerhetsvarningar måste du uppgradera prisnivån för Security Center från *Kostnadsfri* till *Standard*. Om du uppgraderar till en högre prisnivå kan du använda dig av en **kostnadsfri utvärderingsversion** i 30 dagar. 
 
-Ändra prisnivån:  
+Så här ändrar du prisnivån:  
 
-1. Klicka på instrumentpanelen i Security Center **säkerhetsprincip**, och sedan välja din prenumeration.
-2. Välj **prisnivå**.
-3. Välj ny nivå och välj sedan **Välj**.
-4. På den **säkerhetsprincip** bladet väljer **spara**. 
+1. Gå till instrumentpanelen i Security Center, klicka på **Säkerhetsprincip** och markera sedan din prenumeration.
+2. Välj **Prisnivå**.
+3. Välj ny nivå och sedan **Välj**.
+4. På bladet **Säkerhetsprincip** väljer du **Spara**. 
 
-När du har ändrat prisnivån börjar säkerhet aviseringar diagrammet fylla som säkerhet hot upptäcks.
+När du har ändrat prisnivån fylls diagrammet för säkerhetsvarningarna på i takt med att säkerhetshoten upptäcks.
 
 ![Säkerhetsaviseringar](./media/tutorial-azure-security/security-alerts.png)
 
-Välj en avisering för att visa information. Du kan till exempel se en beskrivning av hotet, identifieringstid, alla hot försök och de rekommenderade åtgärderna. I följande exempel upptäcktes en RDP brute force-attacker med 294 RDP lösenordsförsök. En rekommenderad lösning på problemet.
+Välj en avisering för att visa information. Du kan t.ex. visa en beskrivning av hotet, identifieringstid, alla intrångsförsök och rekommenderade åtgärder. I följande exempel upptäcktes en RDP-baserad brute force-attack med 294 misslyckade RDP-försök. En rekommenderad lösning på problemet tillhandahålls.
 
 ![RDP-attack](./media/tutorial-azure-security/rdp-attack.png)
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen, Ställ in Azure Security Center och granskas virtuella datorer i Security Center. Du har lärt dig att:
+I den här självstudiekursen har du konfigurerat Azure Security Center och granskat virtuella datorer i Security Center. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Konfigurera datainsamling
-> * Ställa in säkerhetsprinciper
-> * Visa och lösa konfigurationsproblem hälsa
+> * Konfigurera säkerhetsprinciper
+> * Visa och åtgärda problem med konfigurationshälsan
 > * Granska identifierade hot
 
-Gå vidare till nästa kurs vill veta mer om hur du skapar en CI/CD-pipeline med Jenkins, GitHub och Docker.
+Gå vidare till nästa självstudiekurs om vill veta mer om hur du skapar en CI/CD-pipeline med Jenkins, GitHub och Docker.
 
 > [!div class="nextstepaction"]
 > [Skapa CI/CD-infrastruktur med Jenkins, GitHub och Docker](tutorial-jenkins-github-docker-cicd.md)

@@ -1,11 +1,11 @@
 ---
-title: "Autoskala virtuella skalningsuppsättningarna med Azure CLI | Microsoft Docs"
-description: "Hur du skapar automatiska regler för den virtuella datorn anger med Azure CLI 2.0"
+title: Autoskala virtuella skalningsuppsättningarna med Azure CLI | Microsoft Docs
+description: Hur du skapar automatiska regler för den virtuella datorn anger med Azure CLI 2.0
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 83e93d9c-cac0-41d3-8316-6016f5ed0ce4
 ms.service: virtual-machine-scale-sets
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
 ms.openlocfilehash: 8552f6b2723fef2c61d49a34d2d60c2a6c209a32
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Skala automatiskt en virtuell dator-skala med Azure CLI 2.0
 När du skapar en skaluppsättning för definiera antalet VM-instanser som du vill köra. När din begäran för program ändras, kan du automatiskt öka eller minska antalet VM-instanser. Möjligheten att Autoskala kan du Håll dig uppdaterad med kundernas behov eller svara på ändringar i programmet prestanda under hela livscykeln för din app.
@@ -66,14 +66,14 @@ Följande parametrar används för den här regeln:
 | Parameter         | Förklaring                                                                                                         | Värde           |
 |-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
 | *metricName*      | Prestanda-mått för att övervaka och tillämpa skala ange åtgärder på.                                                   | Processorprocentandel  |
-| *Tidskorn*       | Hur ofta mätvärdena som har samlats in för analys.                                                                   | 1 minut        |
+| *timeGrain*       | Hur ofta mätvärdena som har samlats in för analys.                                                                   | 1 minut        |
 | *timeAggregation* | Definierar hur mätvärdena som samlats in ska aggregeras för analys.                                                | Medel         |
-| *värdet timeWindow*      | Tidsperiod som övervakas innan värdena mått och tröskelvärdet jämförs.                                   | 10 minuter      |
-| *operatorn*        | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än    |
+| *timeWindow*      | Tidsperiod som övervakas innan värdena mått och tröskelvärdet jämförs.                                   | 10 minuter      |
+| *operator*        | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än    |
 | *Tröskelvärde*       | Det värde som regeln Autoskala kan utlösa en åtgärd.                                                      | 70%             |
-| *riktning*       | Anger om skaluppsättning bör skala upp eller ned när regeln gäller.                                             | Höj        |
-| *typ*            | Anger att antalet VM-instanser som ska ändras som ett procenttal.                                 | Procentuell förändring  |
-| *värdet*           | Hur många VM-instanser som ska skalas uppåt eller nedåt när regeln gäller.                                            | 20              |
+| *Riktning*       | Anger om skaluppsättning bör skala upp eller ned när regeln gäller.                                             | Höj        |
+| *Typ*            | Anger att antalet VM-instanser som ska ändras som ett procenttal.                                 | Procentuell förändring  |
+| *Värdet*           | Hur många VM-instanser som ska skalas uppåt eller nedåt när regeln gäller.                                            | 20              |
 | *cooldown*        | Hur lång tid ska gå innan regeln tillämpas igen så att automatiska åtgärder har tid att börja gälla. | 5 minuter       |
 
 I följande exempel definierar regeln för att skala ut antalet VM-instanser. Den *metricResourceUri* använder de variabler som tidigare definierats för prenumerations-ID, resursgruppens namn och skala namn:

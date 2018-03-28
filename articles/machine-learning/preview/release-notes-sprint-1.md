@@ -1,6 +1,6 @@
 ---
-title: "Azure ML-arbetsstationen viktig information för sprint den 1 November 2017"
-description: "Det här dokumentet beskriver uppdateringar för sprint 1-versionen av Azure ML"
+title: Azure ML-arbetsstationen viktig information för sprint den 1 November 2017
+description: Det här dokumentet beskriver uppdateringar för sprint 1-versionen av Azure ML
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
 ms.openlocfilehash: a4945c77be5763ffeda328184149f712572937c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="sprint-1---november-2017"></a>Sprint 1 – november 2017 
 
@@ -46,7 +46,7 @@ Nedan visas en lista över detaljerade uppdateringar under varje komponent i Azu
 - Om användaren har experiment konton i Azure-regioner, och om en region händer blir otillgänglig, avbryter appen inte längre.
 - När autentisering inte har slutförts och dialogrutan autentisering visas fortfarande försöker appen inte längre läsa arbetsytan från lokala cacheminne.
 
-### <a name="workbench-app"></a>Arbetsstationen App
+### <a name="workbench-app"></a>Workbench App
 - Syntaxmarkering för Python-kod är aktiverat i textredigeraren.
 - Knappen Redigera i textredigeraren kan du redigera filen antingen i en IDE (VS-kod och PyCharm stöds) eller i den inbyggda textredigeraren.
 - Textredigerare är i skrivskyddat läge som standard. 
@@ -96,14 +96,14 @@ Nedan visas en lista över detaljerade uppdateringar under varje komponent i Azu
 - Avslutande appen stör inte längre jobb som har inletts i CLI.
 - Jobb som har inletts CLI nu fortsätter att dela ut standard ut även efter körning av en timme.
 - Bättre felmeddelanden visas när prep datapaketet körs inte i Python/PySpark.
-- `az ml experiment clean`Rensar nu Docker-avbildningar i samt fjärranslutna VM.
-- `az ml experiment clean`nu fungerar korrekt för lokala mål i macOS.
+- `az ml experiment clean` Rensar nu Docker-avbildningar i samt fjärranslutna VM.
+- `az ml experiment clean` nu fungerar korrekt för lokala mål i macOS.
 - Felmeddelanden när målobjekt för lokal eller fjärransluten Docker körs rensas upp och lättare att läsa.
 - Bättre felmeddelande visas när HDInsight-klustrets huvudnod namn inte har utformats korrekt när anslutna som ett mål för körning.
 - Bättre felmeddelande visas när hemlighet inte hittades i tjänsten autentiseringsuppgifter. 
 - MMLSpark biblioteket har uppgraderats till stöd för Apache Spark 2.2.
 - MMLSpark innehåller nu ämne kodning transformeringen (nät kodning) för medicinska dokument.
-- `matplotlib`version 2.1.0 är nu levereras out av den ruta arbetsstationen.
+- `matplotlib` version 2.1.0 är nu levereras out av den ruta arbetsstationen.
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
 - Bärbar dator namnsökning fungerar nu korrekt i vyn bärbara datorer.
@@ -128,10 +128,10 @@ Nedan visas en lista över detaljerade uppdateringar under varje komponent i Azu
 
 ### <a name="sample-projects"></a>Exempelprojekt
 - [_Klassificera Iris_ ](./tutorial-classifying-iris-part-1.md) exempelprojektet:
-    - `iris_pyspark.py`har bytt namn till `iris_spark.py`.
-    - `iris_score.py`har bytt namn till `score_iris.py`.
-    - `iris.dprep`och `iris.dsource` uppdateras för att återspegla de senaste uppdateringarna för data prep-motorn.
-    - `iris.ipynb`Bärbar dator ändras för att fungera i HDInsight-kluster.
+    - `iris_pyspark.py` har bytt namn till `iris_spark.py`.
+    - `iris_score.py` har bytt namn till `score_iris.py`.
+    - `iris.dprep` och `iris.dsource` uppdateras för att återspegla de senaste uppdateringarna för data prep-motorn.
+    - `iris.ipynb` Bärbar dator ändras för att fungera i HDInsight-kluster.
     - Kör historik är aktiverat i `iris.ipynb` anteckningsboken cell.
 - [_Avancerade Data Prep med cykeln filresurs-Data_ ](./tutorial-bikeshare-dataprep.md) exempelprojektet ”hantera felvärde” steg som har åtgärdats.
 - [_MMLSpark på vuxna inventering Data_ ](https://github.com/Azure/MachineLearningSamples-mmlspark) exempelprojektet `docker.runconfig` format uppdateras från JSON till YAML.

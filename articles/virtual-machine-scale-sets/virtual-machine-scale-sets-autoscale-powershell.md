@@ -1,11 +1,11 @@
 ---
-title: "Autoskala virtuella skalningsuppsättningarna med Azure PowerShell | Microsoft Docs"
-description: "Hur du skapar automatiska regler för den virtuella datorn anger med Azure PowerShell"
+title: Autoskala virtuella skalningsuppsättningarna med Azure PowerShell | Microsoft Docs
+description: Hur du skapar automatiska regler för den virtuella datorn anger med Azure PowerShell
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
 ms.openlocfilehash: 8928e56f353858234db314714d411a9c2990eb4e
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Skala automatiskt en virtuell dator-skala med Azure PowerShell
 När du skapar en skaluppsättning för definiera antalet VM-instanser som du vill köra. När din begäran för program ändras, kan du automatiskt öka eller minska antalet VM-instanser. Möjligheten att Autoskala kan du Håll dig uppdaterad med kundernas behov eller svara på ändringar i programmet prestanda under hela livscykeln för din app.
@@ -50,9 +50,9 @@ Följande parametrar används för den här regeln:
 | Parameter               | Förklaring                                                                                                         | Värde          |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
 | *-MetricName*           | Prestanda-mått för att övervaka och tillämpa skala ange åtgärder på.                                                   | Processorprocentandel |
-| *-Tidskorn*            | Hur ofta mätvärdena som har samlats in för analys.                                                                   | 1 minut       |
+| *-TimeGrain*            | Hur ofta mätvärdena som har samlats in för analys.                                                                   | 1 minut       |
 | *-MetricStatistic*      | Definierar hur mätvärdena som samlats in ska aggregeras för analys.                                                | Medel        |
-| *-Värdet TimeWindow*           | Tidsperiod som övervakas innan värdena mått och tröskelvärdet jämförs.                                   | 10 minuter      |
+| *-TimeWindow*           | Tidsperiod som övervakas innan värdena mått och tröskelvärdet jämförs.                                   | 10 minuter      |
 | *-Operatorn*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än   |
 | *-Tröskelvärde*            | Det värde som regeln Autoskala kan utlösa en åtgärd.                                                      | 70%            |
 | *-ScaleActionDirection* | Anger om skaluppsättning bör skala upp eller ned när regeln gäller.                                             | Höj       |

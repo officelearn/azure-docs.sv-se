@@ -1,6 +1,6 @@
 ---
-title: "Skapa och använda en intern belastningsutjämnare med en Azure App Service-miljö"
-description: "Information om hur du skapar och använder en internetisolerad Azure App Service-miljö"
+title: Skapa och använda en intern belastningsutjämnare med en Azure App Service-miljö
+description: Information om hur du skapar och använder en internetisolerad Azure App Service-miljö
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Skapa och använda en intern belastningsutjämnare med en App Service-miljö #
 
@@ -139,7 +139,7 @@ Konvertera/spara SSL-certifikatet som en .pfx-fil. .pfx-filen måste innehålla 
 
 Om du vill skapa ett självsignerat certifikat kan du använda PowerShell-kommandona här. Se till att använda din ILB ASE-domännamn istället för *internal.contoso.com*: 
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "\*.internal-contoso.com","\*.scm.internal-contoso.com"
+    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
     
     $certThumbprint = "cert:\localMachine\my\" +$certificate.Thumbprint
     $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText

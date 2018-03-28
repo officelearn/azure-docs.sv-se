@@ -1,6 +1,6 @@
 ---
-title: "Självstudie – Utforma din första Azure Database for PostgreSQL med Azure CLI"
-description: "I den här självstudien visar vi hur du skapar, konfigurerar och frågar din första Azure Database for PostgreSQL-server med Azure CLI."
+title: 'Självstudie: Utforma Azure Database for PostgreSQL med Azure CLI'
+description: I den här självstudien visar vi hur du skapar, konfigurerar och frågar din första Azure Database for PostgreSQL-server med Azure CLI.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -11,13 +11,13 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: 7eeb3b01ddaea56b1e11fc37bbeba7d3f328772d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 56425ec7ccb1d6629b82db6683a02a57ab9999b4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Självstudie: Utforma din första Azure Database for PostgreSQL med Azure CLI 
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Självstudie: Utforma Azure Database for PostgreSQL med Azure CLI 
 I den här självstudien kommer du att använda Azure CLI (kommandoradsgränssnittet) och andra verktyg till följande:
 > [!div class="checklist"]
 > * Skapa en Azure Database för PostgreSQL-server
@@ -163,9 +163,9 @@ CREATE DATABASE mypgsqldb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Skapa tabeller i databasen
-Nu när du vet hur du ansluter till Azure Database for PostgreSQL-databasen kan vi gå igenom hur du utför några grundläggande uppgifter.
+Nu när du vet hur du ansluter till Azure Database for PostgreSQL-databasen, kan du utföra några grundläggande uppgifter:
 
-Först kan vi skapa en tabell och fylla den med lite data. Vi skapar en tabell som spårar lagerinformation:
+Skapa först en tabell och läs in lite data till den. Skapa till exempel en tabell som spårar lagerinformation:
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -180,7 +180,7 @@ Du kan se den nyligen skapade tabellen i listan med tabeller genom att skriva:
 ```
 
 ## <a name="load-data-into-the-table"></a>Läsa in data i tabellen
-Nu när vi har en tabell kan vi infoga lite data i den. Kör följande fråga i den öppna kommandotolken för att infoga några datarader:
+Nu när du har skapat en tabell infogar du lite data i den. Kör följande fråga i den öppna kommandotolken för att infoga några datarader:
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);

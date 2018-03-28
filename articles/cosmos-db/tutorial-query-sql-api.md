@@ -1,41 +1,41 @@
 ---
-title: "Hur man frågan med SQL i Azure Cosmos DB? | Microsoft Docs"
-description: "Lär dig att fråga med SQL i Azure Cosmos DB"
+title: Hur frågar man med SQL i Azure Cosmos DB? | Microsoft Docs
+description: Lär dig att fråga med SQL i Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: ffef6ec2120a80d907449470efb7b4ab6dca8037
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 60910b602f9386738f9d8895fd151d15f3ebf058
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB: Hur man frågan med hjälp av SQL?
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Självstudie: Fråga Azure Cosmos DB med hjälp av SQL API
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Azure Cosmos DB [SQL API](documentdb-introduction.md) stöder frågar dokument med hjälp av SQL. Den här artikeln innehåller ett exempel på dokument och två exempel SQL-frågor och resultat.
+Azure Cosmos DB [SQL API](documentdb-introduction.md) stöder frågedokument med hjälp av SQL. Den här artikeln innehåller ett dokumentexempel och två exempel på SQL-frågor och resultat.
 
-Den här artikeln omfattar följande aktiviteter: 
+Den här artikeln beskriver följande uppgifter: 
 
 > [!div class="checklist"]
-> * Hämtning av data med SQL
+> * Fråga efter data med SQL
 
-## <a name="sample-document"></a>Exempel på ett dokument
+## <a name="sample-document"></a>Exempeldokument
 
-SQL-frågor i den här artikeln använder följande exempeldokumentet.
+SQL-frågorna i artikeln använder följande exempeldokument.
 
 ```json
 {
@@ -67,18 +67,18 @@ SQL-frågor i den här artikeln använder följande exempeldokumentet.
 ```
 ## <a name="where-can-i-run-sql-queries"></a>Var kan jag köra SQL-frågor?
 
-Du kan köra frågor med Data Explorer i Azure-portalen den [REST-API och SDK](sql-api-sdk-dotnet.md), och även [Query playground](https://www.documentdb.com/sql/demo), som körs frågor på en befintlig uppsättning exempeldata.
+Du kan köra frågor med Datautforskaren i Azure-portalen via [REST-API och SDK](sql-api-sdk-dotnet.md), och även [Query Playground](https://www.documentdb.com/sql/demo) som kör frågor på en befintlig uppsättning exempeldata.
 
-Mer information om SQL-frågor finns:
+Mer information om SQL-frågor finns i:
 * [SQL-fråga och SQL-syntax](sql-api-sql-query.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Den här kursen förutsätter att du har ett konto för Azure Cosmos DB och samling. Har inte något av de? Slutför den [5 minuter quickstart](create-mongodb-nodejs.md) eller [developer kursen](tutorial-develop-mongodb.md) att skapa ett konto och samling.
+Den här självstudien förutsätter att du har ett konto för Azure Cosmos DB och en samling. Har du detta? Slutför [snabbstarten på 5 minuter](create-mongodb-nodejs.md) eller [självstudien för utvecklare](tutorial-develop-mongodb.md) om du behöver skapa ett konto och en samling.
 
 ## <a name="example-query-1"></a>Exempelfråga 1
 
-Exempel family dokumentet ovan får följande SQL-frågan returnerar dokument där fältet id matchar `WakefieldFamily`. Eftersom det är en `SELECT *` -instruktionen utdata från frågan är klar JSON-dokumentet:
+I exemplet på familjedokumentet ovan returnerar följande SQL-fråga dokument där ID-fältet matchar `WakefieldFamily`. Eftersom det är en `SELECT *`-instruktion är utdatan från frågan ett komplett JSON-dokument:
 
 **Fråga**
 
@@ -86,7 +86,7 @@ Exempel family dokumentet ovan får följande SQL-frågan returnerar dokument d�
     FROM Families f 
     WHERE f.id = "WakefieldFamily"
 
-**Resultat**
+**Results**
 
 ```json
 {
@@ -119,7 +119,7 @@ Exempel family dokumentet ovan får följande SQL-frågan returnerar dokument d�
 
 ## <a name="example-query-2"></a>Exempelfråga 2
 
-Nästa fråga returnerar alla angivna namnen på underordnade i familjen vars id matchar `WakefieldFamily` sorterade efter deras klass.
+Nästa fråga returnerar alla angivna namn på barnen i familjen vars ID matchar `WakefieldFamily`, sorterade efter deras klass.
 
 **Fråga**
 
@@ -129,7 +129,7 @@ Nästa fråga returnerar alla angivna namnen på underordnade i familjen vars id
     WHERE f.id = 'WakefieldFamily'
     ORDER BY f.children.grade ASC
 
-**Resultat**
+**Results**
 
     [
       { "givenName": "Jesse" }, 
@@ -139,12 +139,12 @@ Nästa fråga returnerar alla angivna namnen på underordnade i familjen vars id
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen kommer du har gjort följande:
+I den här självstudien har du gjort följande:
 
 > [!div class="checklist"]
-> * Lärt dig hur man frågan med SQL  
+> * Lärt dig hur man frågar med SQL  
 
-Du kan nu fortsätta till nästa kurs att lära dig hur du distribuerar dina data globalt.
+Du kan nu fortsätta till nästa självstudie för att lära dig hur du distribuerar dina data globalt.
 
 > [!div class="nextstepaction"]
 > [Distribuera dina data globalt](tutorial-global-distribution-sql-api.md)

@@ -7,13 +7,13 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: 8d1f09a39e865500aa8e4d093473d4989f134c3d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 716e61840f4bfb5a68a995683e67dae0b43d3854
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med .NET
 
@@ -253,13 +253,13 @@ Se dessa ytterligare resurser för .NET-utveckling med Blob-lagring:
 
 ### <a name="binaries-and-source-code"></a>Binärfiler och källkod
 
-- Ladda ned NuGet-paketet för den senaste versionen av [Storage .NET-klientbiblioteket](https://www.nuget.org/packages/WindowsAzure.Storage/). 
-- Visa [källkoden för Storage .NET-klientbiblioteket](https://github.com/Azure/azure-storage-net) på GitHub.
+- Ladda ned NuGet-paketet för den senaste versionen av [.NET-klientbiblioteket](https://www.nuget.org/packages/WindowsAzure.Storage/) för Azure Storage. 
+- Visa [källkoden för .NET-klientbiblioteket](https://github.com/Azure/azure-storage-net) på GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Referens och exempel för klientbiblioteket
 
-- Mer information om klientbiblioteket finns i [API-referens för Storage .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage).
-- Utforska [Bloblagringsexempel](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) som skrivits med Storage .NET-klientbiblioteket.
+- Mer information om klientbiblioteket för .NET finns i [API-referens för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage).
+- Utforska [Blobblagringsexempel](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) som skrivits med .NET-klientbiblioteket.
 
 ## <a name="next-steps"></a>Nästa steg
 

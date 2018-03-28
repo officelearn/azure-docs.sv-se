@@ -1,25 +1,24 @@
 ---
-title: "Metodtips för Azure SQL Data Warehouse | Microsoft Docs"
-description: "Rekommendationer och metodtips som du bör känna till när du utvecklar lösningar för Azure SQL Data Warehouse. De hjälper dig att lyckas!"
+title: Metodtips för Azure SQL Data Warehouse | Microsoft Docs
+description: Rekommendationer och metodtips som du bör känna till när du utvecklar lösningar för Azure SQL Data Warehouse. De hjälper dig att lyckas!
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
-editor: 
-ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 02/20/2018
+ms.date: 03/15/2018
 ms.author: barbkess
-ms.openlocfilehash: 50d02b657ec3063b0ca4078844563b4ba7932f37
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 53ad9f654c498f562d66de461a2a489895d0a46b
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Metodtips för Azure SQL Data Warehouse
 Den här artikeln innehåller en samling metodtips som hjälper dig att uppnå optimala prestanda med Azure SQL Data Warehouse.  Vissa begrepp i artikeln är grundläggande och enkla att förklara. Andra begrepp är mer avancerade och vi kommer bara att skrapa på ytan i den här artikeln.  Avsikten med den här artikeln är att ge dig grundläggande vägledning och att göra dig uppmärksam på viktiga områden som du bör fokusera på när du skapar ditt informationslager.  Varje avsnitt innehåller en introduktion till ett begrepp och hänvisar till mer detaljerade artiklar som beskriver begreppet i mer detalj.
@@ -89,12 +88,12 @@ Se även [Table indexes][Table indexes] (Tabellindex), [Columnstore indexes guid
 ## <a name="use-larger-resource-class-to-improve-query-performance"></a>Använda en större resursklass för att förbättra frågeprestanda
 SQL Data Warehouse använder resursgrupper som ett sätt att allokera minne till frågor.  Alla användare tilldelas som standard den mindre resursklassen som ger 100 MB minne per distribution.  Eftersom det alltid är 60 distributioner och varje distribution tilldelas minst 100 MB, är den totala minnesallokeringen i systemet 6 000 MB, eller strax under 6 GB.  Vissa frågor, t.ex. stora kopplingar eller inläsningar till grupperade columnstore-tabeller, kan dra nytta av större minnesallokeringar.  Vissa frågor, t.ex. rena genomsökningar, har ingen nytta av detta.  Å andra sidan påverkar användningen av större resursklasser samtidiga körningar, något som du bör ha i åtanke innan du flyttar alla dina användare till en stor resursklass.
 
-Se även [Concurrency and workload management][Concurrency and workload management] (Hantering av samtidiga körningar och arbetsbelastningar)
+Se även [Resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md)
 
 ## <a name="use-smaller-resource-class-to-increase-concurrency"></a>Använda den mindre resursklassen för bättre prestanda vid samtidig körning
 Om du märker att användarfrågor har långa fördröjningar kan det bero på att användarna kör i större resursklasser och förbrukar många samtidighetsfack, vilket gör att andra frågor måste placeras i kö.  Du kan se om användarnas frågor köas genom att köra `SELECT * FROM sys.dm_pdw_waits` för att se om några rader returneras.
 
-Se även [Concurrency and workload management][Concurrency and workload management] (Hantering av samtidiga körningar och arbetsbelastningar) och [sys.dm_pdw_waits][sys.dm_pdw_waits]
+Se även [Resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md), [sys.dm_pdw_waits][sys.dm_pdw_waits]
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>Använda DMV:er för att övervaka och optimera frågor
 SQL Data Warehouse har flera datahanteringsvyer (DMV) som du kan använda för att övervaka frågekörningen.  Artikeln om övervakning nedan innehåller stegvisa anvisningar för hur du analyserar informationen från en fråga som körs.  För att snabbt hitta frågor i dessa DMV:er kan det vara bra att använda alternativet LABEL med dina frågor.
@@ -112,7 +111,6 @@ Avslutningsvis ber vi dig att använda sidan för [Azure SQL Data Warehouse-feed
 
 <!--Article references-->
 [Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Create table as select (CTAS)]: ./sql-data-warehouse-develop-ctas.md
 [Table overview]: ./sql-data-warehouse-tables-overview.md
 [Table data types]: ./sql-data-warehouse-tables-data-types.md

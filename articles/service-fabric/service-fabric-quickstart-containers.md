@@ -1,12 +1,12 @@
 ---
-title: "Skapa ett Windows-behållarprogram i Azure Service Fabric | Microsoft Docs"
-description: "I den här snabbstarten skapar du ditt första Windows-behållarprogram i Azure Service Fabric."
+title: Skapa ett Windows-behållarprogram i Azure Service Fabric | Microsoft Docs
+description: I den här snabbstarten skapar du ditt första Windows-behållarprogram i Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
 editor: vturecek
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: quickstart
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7a8d28ef842ba77355628c79c20fa7fd3c693380
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d4fe2d410152fc4d65f2d22bc26e5e72b91bc282
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Snabbstart: Distribuera ett Windows-behållarprogram för Service Fabric i Azure
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och behållare. 
@@ -83,7 +83,7 @@ Konfigurera behållarens portmappning från port till värd så att inkommande b
 En fullständig ApplicationManifest.xml -exempelfil finns i slutet av den här artikeln.
 
 ## <a name="create-a-cluster"></a>Skapa ett kluster
-Om du vill distribuera programmet till ett kluster i Azure kan du välja att ansluta till ett partykluster. Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster i Azure som körs av Service Fabric-teamet där vem som helst kan distribuera program och lära sig mer om plattformen. Klustret använder ett enda självsignerade certifikat för nod-till nod- samt klient-till-nod-säkerhet. 
+Om du vill distribuera programmet till ett kluster i Azure kan du välja att ansluta till ett partykluster. Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster i Azure som körs av Service Fabric-teamet där vem som helst kan distribuera program och lära sig mer om plattformen.  Klustret använder ett enda självsignerade certifikat för nod-till nod- samt klient-till-nod-säkerhet. Partykluster stöder behållare. Om du konfigurerar ett eget kluster måste klustret köras på Windows Server 2016 med behållare för att du ska kunna köra behållare.
 
 Logga in och [ansluta till ett Windows-kluster](http://aka.ms/tryservicefabric). Hämta PFX-certifikatet till datorn genom att klicka på **PFX**-länken. Certifikatet och värdet **Anslutningens slutpunkt** används i följande steg.
 
@@ -118,7 +118,7 @@ Klicka på **Publicera**.
 
 Varje program i klustret måste ha ett unikt namn.  Partkluster är en offentlig, delad miljö men det kan finnas en konflikt med ett befintligt program.  Om det finns en namnkonflikt byter du namn på Visual Studio-projektet och distribuerar igen.
 
-Öppna en webbläsare och gå till http://zwin7fh14scd.westus.cloudapp.azure.com:80. Du bör se IIS-standardwebbsidan: ![IIS-standardwebbsidan][iis-default]
+Öppna en webbläsare och navigera till http://zwin7fh14scd.westus.cloudapp.azure.com:80. Du bör se IIS-standardwebbsidan: ![IIS-standardwebbsidan][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Komplett exempel på Service Fabric-app och tjänstmanifest
 Här är de fullständiga tjänst- och programmanifesten som används i den här snabbstarten.

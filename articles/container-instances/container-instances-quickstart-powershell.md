@@ -1,25 +1,23 @@
 ---
-title: "Snabbstart – Skapa din första Azure Container Instances-behållare med PowerShell"
-description: "Kom igång med Azure Container Instances genom att skapa en Windows-behållarinstans med PowerShell."
+title: Snabbstart – Skapa din första Azure Container Instances-behållare med PowerShell
+description: I den här snabbstarten använder du Azure PowerShell för att distribuera en Windows-behållare i Azure Container Instances
 services: container-instances
 author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 03/19/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 18a342fed7e99e82082764d6f5a3429a3ce794b7
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 6e43a525010ac57a75f6db4c43f6f1407dab93a8
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="create-your-first-container-in-azure-container-instances"></a>Skapa din första behållare i Azure Container Instances
+# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Snabbstart: Skapa din första behållare i Azure Container Instances
 
-Azure Container Instances gör det enkelt att skapa och hantera Docker-behållare i Azure, utan att behöva etablera virtuella datorer eller gå upp till en högre tjänstnivå.
-
-I den här snabbstarten skapar du en Windows-behållare i Azure och gör den tillgänglig på Internet med en offentlig IP-adress. Den här åtgärden utförs med ett enda kommando. Inom kort kan du se programmet köras i webbläsaren:
+Azure Container Instances gör det enkelt att skapa och hantera Docker-behållare i Azure, utan att behöva etablera virtuella datorer eller gå upp till en högre tjänstnivå. I den här snabbstarten skapar du en Windows-behållare i Azure och gör den tillgänglig på Internet med ett fullständigt kvalificerat domännamn (FQDN). Den här åtgärden utförs med ett enda kommando. Inom kort kan du se programmet köras i webbläsaren:
 
 ![App som distribuerats via Azure Container Instances visas i webbläsare][qs-powershell-01]
 
@@ -27,7 +25,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 5.5 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -39,23 +37,28 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Skapa en behållare
 
-Du kan skapa en behållare genom att ange ett namn, en Docker-avbildning och en Azure-resursgrupp i cmdleten [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Du kan också göra behållaren tillgänglig på Internet med en offentlig IP-adress. I detta fall använder vi en Nano Server-behållare som kör Internet Information Services (IIS).
+Du kan skapa en behållare genom att ange ett namn, en Docker-avbildning och en Azure-resursgrupp i cmdleten [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Du kan också göra behållaren tillgänglig på Internet med hjälp av en DNS-namnetikett.
+
+Kör följande kommando för att starta en Nano Server-behållare som kör Internet Information Services (IIS). Värdet `-DnsNameLabel` måste vara unikt i den Azure-region där du skapar instansen, så du kan behöva ändra värdet för att det ska vara unikt.
 
  ```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
+New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
-Om några sekunder bör du få ett svar på din begäran. Först har behållaren statusen **Creating** (skapas) men den bör starta inom någon minut. Du kan kontrollera status med hjälp av cmdleten [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
+Om några sekunder bör du få ett svar på din begäran. Först har behållaren statusen **Creating** (skapas) men den bör starta inom någon minut. Du kan kontrollera status för distributionen med hjälp av cmdleten [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
 
  ```azurepowershell-interactive
 Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
-Behållarens etableringsstatus och IP-adress visas i cmdletens utdata:
+Behållarens etableringsstatus, fullständiga kvalificerade domännamn (FQDN) och IP-adress visas i cmdletens utdata:
 
-```
+```console
+PS Azure:\> Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+
+
 ResourceGroupName        : myResourceGroup
-Id                       : /subscriptions/12345678-1234-1234-1234-12345678abcd/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroups/mycontainer
+Id                       : /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroups/mycontainer
 Name                     : mycontainer
 Type                     : Microsoft.ContainerInstance/containerGroups
 Location                 : eastus
@@ -63,14 +66,18 @@ Tags                     :
 ProvisioningState        : Creating
 Containers               : {mycontainer}
 ImageRegistryCredentials :
-RestartPolicy            :
-IpAddress                : 40.71.248.73
+RestartPolicy            : Always
+IpAddress                : 52.226.19.87
+DnsNameLabel             : aci-demo-win
+Fqdn                     : aci-demo-win.eastus.azurecontainer.io
 Ports                    : {80}
 OsType                   : Windows
 Volumes                  :
+State                    : Pending
+Events                   : {}
 ```
 
-När behållarens status **ProvisioningState** övergår till `Succeeded` kan du nå den via webbläsaren med den angivna IP-adressen.
+När behållaren **ProvisioningState** flyttas till `Succeeded` navigerar du till dess `Fqdn` i webbläsaren:
 
 ![IIS som distribuerats via Azure Container Instances visas i webbläsaren][qs-powershell-01]
 

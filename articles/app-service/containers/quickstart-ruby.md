@@ -1,12 +1,12 @@
 ---
 title: Skapa en Ruby-app och distribuera till App Service on Linux | Microsoft Docs
-description: "Lär dig skapa Ruby-appar med App Service on Linux."
+description: Lär dig skapa Ruby-appar med App Service on Linux.
 keywords: azure app service, linux, oss, ruby
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: SyntaxC4
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.service: app-service
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: db3086724c22e485e2a9a69c36a990fc5b8016a9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6668f02bb7ac9588e1bb11b3848d0a3e25cbed67
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Skapa en Ruby-app i App Service on Linux
 
@@ -58,7 +58,7 @@ Navigera till `http://localhost:3000` i webbläsaren om du vill testa appen loka
 
 ## <a name="modify-app-to-display-welcome-message"></a>Visa ett välkomstmeddelande i appen
 
-Gör ändringar i appen så att ett välkomstmeddelande visas. Först måste du ställa in en väg genom att ändra filen *~/workspace/ruby-docs-hello-world/config/routes.rb* så att den innehåller en väg med namnet `hello`.
+Gör ändringar i appen så att ett välkomstmeddelande visas. Först måste du konfigurera en väg genom att ändra filen *~/workspace/ruby-docs-hello-world/config/routes.rb* så att den innehåller en väg med namnet `hello`.
 
   ```ruby
   Rails.application.routes.draw do
@@ -88,37 +88,23 @@ Nu har appen konfigurerats. Navigera till `http://localhost:3000` i webbläsaren
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-## <a name="create-a-ruby-web-app-on-azure"></a>Skapa en Ruby-webbapp på Azure
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
-Det måste finnas en resursgrupp som innehåller de tillgångar som behövs för din webbapp. Använd kommandot [`az group create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) för att skapa en resursgrupp.
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-```azurecli-interactive
-az group create --location westeurope --name myResourceGroup
-```
+## <a name="create-a-web-app"></a>Skapa en webbapp
 
-Använd kommandot [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) för att skapa en apptjänstplan för din webbapp.
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
-```
-
-Utfärda därefter kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) för att skapa webbappen som använder den nya tjänstplanen. Observera att körningen har angetts till `ruby|2.3`. Glöm inte att ersätta `<app name>` med ett unikt appnamn.
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
---runtime "ruby|2.3" --deployment-local-git
-```
-
-Utdata från kommandot visar information om den nya webbappen och URL:en för distribution. Det bör se ut ungefär som i följande exempel. Kopiera URL:en för senare användning i den här självstudiekursen.
+Gå till webbplatsen för att se din nya webbapp med den inbyggda avbildningen. Ersätt _&lt;app name>_ med namnet på din webbapp.
 
 ```bash
-https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
+http://<app_name>.azurewebsites.net
 ```
 
-När webbappen har skapats kan du visa en **översiktssida**. Navigera till den. Följande välkomstsida visas:
+Så här bör din nya webbapp se ut:
 
 ![Välkomstsida](./media/quickstart-ruby/splash-page.png)
-
 
 ## <a name="deploy-your-application"></a>Distribuera appen
 

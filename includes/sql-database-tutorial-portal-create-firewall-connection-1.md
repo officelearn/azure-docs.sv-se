@@ -47,7 +47,7 @@ Följ de här stegen om du vill skapa en tom SQL-databas.
    > [!IMPORTANT]
    > \*Lagringsstorlekar som är större än mängden lagringsutrymme som ingår finns i förhandsversionen, och extra kostnader tillkommer. Mer information finns i [Priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* På Premium-nivån är mer än 1 TB lagringsutrymme för närvarande tillgängligt i följande regioner: östra Australien, sydöstra Australien, centrala Kanada, östra Kanada, centrala Frankrike, centrala Tyskland, östra Japan, centrala Korea, södra centrala USA, Sydostasien, östra USA 2, västra USA, Virginia (USA-förvaltad region) och Västeuropa. Se [sidan 11-15 i Aktuella begränsningar](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* På Premium-nivån är mer än 1 TB lagringsutrymme för närvarande tillgängligt i följande regioner: centrala Kanada, östra Kanada, centrala Frankrike, centrala Tyskland, östra Japan, centrala Korea, södra centrala USA, Sydostasien, östra USA 2, västra USA, Virginia (USA-förvaltad region) och Västeuropa. Se [sidan 11-15 i Aktuella begränsningar](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. När du har valt tjänstenivå, antalet DTU:er och mängden lagring klickar du på **Apply** (Använd).  

@@ -1,25 +1,25 @@
 ---
-title: "Kom igång med Apache Kafka – Azure HDInsight | Microsoft Docs"
-description: "Lär dig hur du skapar ett Apache Kafka-kluster i Azure HDInsight. Lär dig hur du skapar ämnen, prenumeranter och konsumenter."
+title: Kom igång med Apache Kafka – Azure HDInsight | Microsoft Docs
+description: Lär dig hur du skapar ett Apache Kafka-kluster i Azure HDInsight. Lär dig hur du skapar ämnen, prenumeranter och konsumenter.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
+ms.devlang: ''
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: e00ab06a26d60dd5beca11362df58f35812491d9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 27e6472480dac104de799ebf0e7579a7987f6c4c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>Kom igång med Apache Kafka i HDInsight
 
@@ -39,6 +39,15 @@ Använd följande steg om du vill skapa ett Kafka i HDInsight-kluster:
 
     * **Klusternamn**: Namnet på HDInsight-klustret. Det här namnet måste vara unikt.
     * **Prenumeration**: Välj den prenumeration som du vill använda.
+    * **Klustertyp**: Välj den här posten och ange följande värden från **Klusterkonfiguration**:
+
+        * **Klustertyp**: Kafka
+        * **Version**: Kafka 0.10.0 (HDI 3.6)
+
+        Använd knappen **Välj** för att spara klustertypinställningarna.
+
+        ![Välj klustertyp](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
+
     * **Användarnamn för klusterinloggning** och **Lösenord för klusterinloggning**: Inloggningen vid åtkomst till klustret via HTTPS. Du kan använda dessa autentiseringsuppgifter för att få åtkomst till tjänster som Ambari-webbgränssnittet eller REST API.
     * **Secure Shell-användarnamn (SSH)**: Den inloggning som används vid åtkomst till klustret via SSH. Som standard är lösenordet detsamma som lösenordet för klusterinloggning.
     * **Resursgrupp**: Resursgruppen som klustret ska skapas i.
@@ -49,24 +58,15 @@ Använd följande steg om du vill skapa ett Kafka i HDInsight-kluster:
    
  ![Välj en prenumeration](./media/apache-kafka-get-started/hdinsight-basic-configuration.png)
 
-3. Välj **Klustertyp** och ange följande värden från **Klusterkonfiguration**:
-   
-    * **Klustertyp**: Kafka
-    * **Version**: Kafka 0.10.0 (HDI 3.6)
+3. Använd knappen __Nästa__ för att slutföra den grundläggande konfigurationen.
 
-    Slutligen kan spara inställningarna med kommandot **Välj**.
-     
- ![Välj klustertyp](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
-
-4. När du har valt klustertypen anger du klustertypen med hjälp av knappen __Välj__. Använd sedan knappen __Nästa__ och slutföra den grundläggande konfigurationen.
-
-5. Från **Lagring** ska du välja eller skapa ett lagringskonto. Lämna övriga fält på standardvärden för stegen i det här dokumentet. Spara lagringskonfigurationen genom att klicka på __Nästa__.
+4. Från **Lagring** ska du välja eller skapa ett lagringskonto. Lämna övriga fält på standardvärden för stegen i det här dokumentet. Spara lagringskonfigurationen genom att klicka på __Nästa__.
 
     ![Ange inställningarna för lagringskontot för HDInsight](./media/apache-kafka-get-started/set-hdinsight-storage-account.png)
 
-6. Från __Program (valfritt)__ väljer du __Nästa__ för att fortsätta. Inga program krävs för det här exemplet.
+5. Från __Program (valfritt)__ väljer du __Nästa__ för att fortsätta. Inga program krävs för det här exemplet.
 
-7. Från __Klusterstorlek__ väljer du __Nästa__ för att fortsätta.
+6. Från __Klusterstorlek__ väljer du __Nästa__ för att fortsätta.
 
     > [!WARNING]
     > Klustret måste innehålla minst tre arbetsnoder för att garantera tillgängligheten för Kafka i HDInsight. Mer information finns i avsnittet [Hög tillgänglighet för data](#data-high-availability).
@@ -76,9 +76,9 @@ Använd följande steg om du vill skapa ett Kafka i HDInsight-kluster:
     > [!IMPORTANT]
     > Antalet **diskar per arbetsnod** konfigurerar hur skalbart Kafka i HDInsight är. Kafka på HDInsight använder den lokala disken för virtuella datorer i klustret. Kafka är i/o-stor, och därför används [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) för att tillhandahålla hög genomströmning och ge mer lagringsutrymme per nod. Typen av hanterade diskar kan vara antingen __Standard__ (HDD) eller __Premium__ (SSD). Premiumdiskar används med DS- och GS-serien virtuella datorer. Alla andra typer av virtuella dator använder standard.
 
-8. Från __Avancerade inställningar__ väljer du __Nästa__ för att fortsätta.
+7. Från __Avancerade inställningar__ väljer du __Nästa__ för att fortsätta.
 
-9. Från **Sammanfattning** kan du granska konfigurationen för klustret. Använd länkarna __Redigera__ om du behöver ändra eventuella inställningar som är felaktiga. Till sist skapar du klustret genom att klicka på Skapa.
+8. Från **Sammanfattning** kan du granska konfigurationen för klustret. Använd länkarna __Redigera__ om du behöver ändra eventuella inställningar som är felaktiga. Till sist skapar du klustret genom att klicka på Skapa.
    
     ![Sammanfattning av klusterkonfiguration](./media/apache-kafka-get-started/hdinsight-configuration-summary.png)
    

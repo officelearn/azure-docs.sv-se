@@ -1,12 +1,12 @@
 ---
-title: "Skapa din första funktion i Azure med Visual Studio | Microsoft Docs"
-description: "Skapa och publicera en enkel HTTP-utlöst funktion till Azure med Azure Functions Tools för Visual Studio."
+title: Skapa din första funktion i Azure med Visual Studio | Microsoft Docs
+description: Skapa och publicera en enkel HTTP-utlöst funktion till Azure med Azure Functions Tools för Visual Studio.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: azure functions, functions, event processing, compute, serverless architecture
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: functions
@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 03/13/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fa17a021526a728c6fabc9607b1d00f5521cbb21
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9b43ec7106c70b7d9b326208043d2fe874fb7e20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Skapa din första funktion med Visual Studio
 
@@ -37,11 +37,13 @@ Det här avsnittet innehåller [en video](#watch-the-video) som visar samma grun
 
 För att slutföra den här kursen behöver du:
 
-* Installera [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/) eller en senare version, inklusive arbetsbelastningen **Azure Development**.
+* Installera [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) eller en senare version, inklusive arbetsbelastningen **Azure-utveckling**.
 
     ![Installera Visual Studio 2017 med arbetsbelastningen Azure Development](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-* Kontrollera att du har uppdaterat till den senaste versionen av Azure Functions och WebJobs Tools. Det gör du under **Uppdateringar** > **Visual Studio Marketplace** i **Extensions and Updates** (Tillägg och uppdateringar).
+    Om du redan har installerat Visual Studio kontrollerar du att du har installerat eventuella väntande uppdateringar. 
+
+* Om du har installerat arbetsbelastningen för Azure-utveckling med Visual Studio 2017 version 15.4 eller tidigare kan du också behöva [uppdatera Azure Functions-verktygen](functions-develop-vs.md#check-your-tools-version). 
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

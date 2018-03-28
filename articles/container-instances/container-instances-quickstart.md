@@ -1,21 +1,22 @@
 ---
-title: "Snabbstart – Skapa din första Azure Container Instances-behållare | Azure Docs"
-description: "Distribuera och kom igång med Azure Container Instances"
+title: Snabbstart – Skapa din första Azure Container Instances-behållare | Azure Docs
+description: I den här snabbstarten använder du kommandogränssnittet i Azure för att distribuera en behållare i Azure Container Instances
 services: container-instances
-author: seanmck
+author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 02/22/2018
-ms.author: seanmck
+ms.date: 03/19/2018
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: f8fe53f834e4fcf7f16174222cb51d89e40305ec
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b85c38bb561e4f1dc9a0545595590719ce1883e4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="create-your-first-container-in-azure-container-instances"></a>Skapa din första behållare i Azure Container Instances
+# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Snabbstart: Skapa din första behållare i Azure Container Instances
+
 Azure Container Instances gör det enkelt att skapa och hantera Docker-behållare i Azure, utan att behöva etablera virtuella datorer eller gå upp till en högre tjänstnivå. I den här snabbstarten skapar du en behållare i Azure och gör den tillgänglig på Internet med ett fullständigt kvalificerat domännamn (FQDN). Den här åtgärden utförs med ett enda kommando. Inom några sekunder visas det här i webbläsaren:
 
 ![App som distribuerats via Azure Container Instances visas i webbläsare][aci-app-browser]
@@ -28,7 +29,7 @@ Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Azure Container Instances är Azure-resurser och måste vara placerade i en Azure-resursgrupp, en logisk samling dit Azure-resurser distribueras och hanteras.
+Azure Container Instances måste precis som alla Azure-resurser placeras i en Azure-resursgrupp, en logisk samling dit Azure-resurser distribueras och hanteras.
 
 Skapa en resursgrupp med kommandot [az group create][az-group-create].
 
@@ -75,12 +76,41 @@ Du kan hämta loggar för den behållare du skapade med hjälp av kommandot [az 
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-Resultat:
+Du bör se utdata som liknar följande:
 
-```bash
+```console
+$ az container logs --resource-group myResourceGroup -n mycontainer
 listening on port 80
-::ffff:10.240.255.107 - - [29/Nov/2017:20:48:50 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
-::ffff:10.240.255.107 - - [29/Nov/2017:20:48:50 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://52.224.178.107/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
+::ffff:10.240.255.105 - - [15/Mar/2018:21:18:26 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+::ffff:10.240.255.105 - - [15/Mar/2018:21:18:26 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+```
+
+## <a name="attach-output-streams"></a>Ansluta utdataströmmar
+
+Förutom att eftersläpa loggarna kan du ansluta dina lokala standardströmmar för utdata och fel till behållarens dataström.
+
+Börja med att köra kommandot [az container attach][az-container-attach] för att ansluta din lokala konsol till behållarens utdataströmmar:
+
+```azurecli-interactive
+az container attach --resource-group myResourceGroup -n mycontainer
+```
+
+När anslutningen är klar uppdaterar du webbläsaren ett antal gånger för att generera ytterligare utdata. Avsluta med att koppla från konsolen med `Control+C`. Du bör se utdata som liknar följande:
+
+```console
+$ az container attach --resource-group myResourceGroup -n mycontainer
+Container 'mycontainer' is in state 'Running'...
+(count: 1) (last timestamp: 2018-03-15 21:17:59+00:00) pulling image "microsoft/aci-helloworld"
+(count: 1) (last timestamp: 2018-03-15 21:18:05+00:00) Successfully pulled image "microsoft/aci-helloworld"
+(count: 1) (last timestamp: 2018-03-15 21:18:05+00:00) Created container with id 3534a1e2ee392d6f47b2c158ce8c1808d1686fc54f17de3a953d356cf5f26a45
+(count: 1) (last timestamp: 2018-03-15 21:18:06+00:00) Started container with id 3534a1e2ee392d6f47b2c158ce8c1808d1686fc54f17de3a953d356cf5f26a45
+
+Start streaming logs:
+listening on port 80
+::ffff:10.240.255.105 - - [15/Mar/2018:21:18:26 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+::ffff:10.240.255.105 - - [15/Mar/2018:21:18:26 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+::ffff:10.240.255.107 - - [15/Mar/2018:21:18:44 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+::ffff:10.240.255.107 - - [15/Mar/2018:21:18:47 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
 ```
 
 ## <a name="delete-the-container"></a>Ta bort behållaren
@@ -117,12 +147,13 @@ Om du vill testa alternativ för att köra behållare i ett orkestreringssystem 
 [node-js]: http://nodejs.org
 
 <!-- LINKS - Internal -->
-[az-group-create]: /cli/azure/group?view=azure-cli-latest#az_group_create
-[az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
-[az-container-delete]: /cli/azure/container?view=azure-cli-latest#az_container_delete
-[az-container-list]: /cli/azure/container?view=azure-cli-latest#az_container_list
-[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[az-container-attach]: /cli/azure/container#az_container_attach
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-delete]: /cli/azure/container#az_container_delete
+[az-container-list]: /cli/azure/container#az_container_list
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
 [service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

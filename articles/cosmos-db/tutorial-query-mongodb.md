@@ -1,39 +1,39 @@
 ---
-title: "Azure Cosmos DB: Hur man frågan med MongoDB-API: et? | Microsoft Docs"
-description: "Lär dig att fråga med MongoDB-API: et för Azure Cosmos DB"
+title: 'Azure Cosmos DB: Hur används MongoDB API för att ställa frågor? | Microsoft Docs'
+description: Lär dig att fråga med MongoDB-API:et för Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 05/10/2017
+ms.workload: ''
+ms.date: 03/16/2018
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 1818476a95ddf373701ad93860b02ea4c2ad761d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 7c51a2a1cace89305b971d5fb0f56c360cbf93cb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB: Hur man frågan med API för MongoDB?
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Självstudie: Fråga mot Azure Cosmos DB med hjälp av MongoDB API
 
-Azure Cosmos DB [API för MongoDB](mongodb-introduction.md) stöder [MongoDB shell frågor](https://docs.mongodb.com/manual/tutorial/query-documents/). 
+Azure Cosmos DB-[API:et för MongoDB](mongodb-introduction.md) stöder [frågor mot MongoDB-gränssnittet](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
-Den här artikeln omfattar följande aktiviteter: 
+I den här artikeln beskrivs följande uppgifter: 
 
 > [!div class="checklist"]
-> * Datafrågor med MongoDB
+> * Fråga efter data med MongoDB
 
-## <a name="sample-document"></a>Exempel på ett dokument
+## <a name="sample-document"></a>Exempeldokument
 
-Frågorna i den här artikeln använder följande exempeldokumentet.
+Frågorna i den här artikeln använder följande exempeldokument.
 
 ```json
 {
@@ -63,15 +63,15 @@ Frågorna i den här artikeln använder följande exempeldokumentet.
   "isRegistered": false
 }
 ```
-## <a id="examplequery1"></a>Exempelfråga 1 
+## <a id="examplequery1"></a> Exempelfråga 1 
 
-Exempel family dokumentet ovan får följande fråga returnerar dokument där fältet id matchar `WakefieldFamily`.
+Med exemplet på familjedokumentet ovan returnerar följande fråga dokument där ID-fältet matchar `WakefieldFamily`.
 
 **Fråga**
     
     db.families.find({ id: “WakefieldFamily”})
 
-**Resultat**
+**Results**
 
     {
     "_id": "ObjectId(\"58f65e1198f3a12c7090e68c\")",
@@ -119,9 +119,9 @@ Nästa fråga returnerar alla underordnade i familjen.
 
 **Fråga**
     
-    db.familes.find( { id: “WakefieldFamily” }, { children: true } )
+    db.families.find( { id: “WakefieldFamily” }, { children: true } )
 
-**Resultat**
+**Results**
 
     {
     "_id": "ObjectId("58f65e1198f3a12c7090e68c")",
@@ -148,21 +148,21 @@ Nästa fråga returnerar alla underordnade i familjen.
 
 ## <a id="examplequery3"></a>Exempelfråga 3 
 
-Nästa fråga returnerar familjer som är registrerad. 
+Nästa fråga returnerar alla familjer som är registrerade. 
 
 **Fråga**
     
     db.families.find( { "isRegistered" : true })
-**Resultaten** inget dokument kommer att returneras. 
+**Resultat** Inget dokument returneras. 
 
 ## <a id="examplequery4"></a>Exempelfråga 4
 
-Nästa fråga returnerar familjer som inte är registrerad. 
+Nästa fråga returnerar alla familjer som inte är registrerade. 
 
 **Fråga**
     
     db.families.find( { "isRegistered" : false })
-**Resultat**
+**Results**
 
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
@@ -201,13 +201,13 @@ Nästa fråga returnerar familjer som inte är registrerad.
 
 ## <a id="examplequery5"></a>Exempelfråga 5
 
-Nästa fråga returnerar alla serier som inte är registrerad och tillstånd är NY. 
+Nästa fråga returnerar alla familjer med statusen NY som inte är registrerade. 
 
 **Fråga**
     
      db.families.find( { "isRegistered" : false, "address.state" : "NY" })
 
-**Resultat**
+**Results**
 
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
@@ -247,13 +247,13 @@ Nästa fråga returnerar alla serier som inte är registrerad och tillstånd är
 
 ## <a id="examplequery6"></a>Exempelfråga 6
 
-Nästa returnerar frågan alla familjer där underordnade klasser är 8.
+Nästa fråga returnerar alla familjer där värdet för underordnade klasser är 8.
 
 **Fråga**
   
      db.families.find( { children : { $elemMatch: { grade : 8 }} } )
 
-**Resultat**
+**Results**
 
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
@@ -292,24 +292,24 @@ Nästa returnerar frågan alla familjer där underordnade klasser är 8.
 
 ## <a id="examplequery7"></a>Exempelfråga 7
 
-Nästa returnerar frågan alla familjer där storleken på underordnade matris är 3.
+Nästa fråga returnerar alla familjer där den underordnade matrisens storlek är 3.
 
 **Fråga**
   
       db.Family.find( {children: { $size:3} } )
 
-**Resultat**
+**Results**
 
-Inga resultat returneras som vi inte har mer än 2 underordnade. Endast när parametern är 2 kommer den här frågan lyckas och returnerar det fullständiga dokumentet.
+Inga resultat returneras, eftersom vi inte har mer än 2 underordnade. Endast när parametern är 2 kommer frågan att lyckas och returnera det fullständiga dokumentet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen kommer du har gjort följande:
+I den här självstudien har du gjort följande:
 
 > [!div class="checklist"]
-> * Lärt dig hur man frågan med MongoDB 
+> * Lärt dig hur du frågar med MongoDB 
 
-Du kan nu fortsätta till nästa kurs att lära dig hur du distribuerar dina data globalt.
+Du kan nu fortsätta till nästa självstudie för att lära dig hur du distribuerar dina data globalt.
 
 > [!div class="nextstepaction"]
 > [Distribuera dina data globalt](tutorial-global-distribution-sql-api.md)

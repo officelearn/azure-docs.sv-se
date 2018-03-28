@@ -1,6 +1,6 @@
 ---
-title: "Översikt över Service Fabric i Azure | Microsoft Docs"
-description: "En översikt över Service Fabric där program sammanställs av flera mikrotjänster för att ge skalning och återhämtning. Service Fabric är en plattform med distribuerade system som används för att skapa skalbara, tillförlitliga och lätthanterade program för molnet."
+title: Översikt över Service Fabric i Azure | Microsoft Docs
+description: En översikt över Service Fabric där program sammanställs av flera mikrotjänster för att ge skalning och återhämtning. Service Fabric är en plattform med distribuerade system som används för att skapa skalbara, tillförlitliga och lätthanterade program för molnet.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -15,18 +15,17 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: aab15e6981e4f5f3c69ea6a85995fd2db69ff8b8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d5bd75dfff87e73fa4104901c1c0ac0989b1e3bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-of-azure-service-fabric"></a>Översikt över Azure Service Fabric
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och behållare. Service Fabric tar också itu med betydande utmaningar vid utveckling och hantering av inbyggda molnprogram. Utvecklare och administratörer kan undvika komplexa infrastrukturproblem och fokusera på att implementera verksamhetskritiska, krävande arbetsbelastningar som är skalbara, tillförlitliga och hanterbara. Service Fabric representerar nästa generations plattform för att skapa och hantera dessa molskalningsprogram i företagsklass på nivå 1 som körs i behållare.
 
-Denna korta video presenterar Service Fabric och mikrotjänster: <center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
-<img src="./media/service-fabric-overview/OverviewVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+Denna korta video presenterar Service Fabric och mikrotjänster:
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 ## <a name="applications-composed-of-microservices"></a>Program som består av mikrotjänster 
 Med Service Fabric kan du skapa och hantera skalbara och tillförlitliga program som består av mikrotjänster och som körs med hög densitet på en delad pool med datorer, som kallas ett kluster. Det ger en avancerad och lättviktig körning för att skapa distribuerade, skalbara, tillståndslösa och tillståndskänsliga mikrotjänster som körs i behållare. Det ger även omfattande funktioner för programhantering för att etablera, distribuera, övervaka, uppgradera/korrigera och ta bort distribuerade program, inklusive tjänster i behållare.
@@ -42,7 +41,7 @@ Service Fabric ger omfattande funktioner för körning och livscykelhantering i 
 Mer information om att använda mikrotjänster finns i [Why a microservices approach to building applications?](service-fabric-overview-microservices.md) (Varför använda mikrotjänster för att bygga program?).
 
 ## <a name="container-deployment-and-orchestration"></a>Distribution och orkestrering i behållare
-Service Fabric är Microsofts [behållarinitierare](service-fabric-cluster-resource-manager-introduction.md) som distribuerar mikrotjänster i ett kluster med datorer. Mikrotjänster kan utvecklas på många sätt, t.ex. genom att använda [programmeringsmodeller för Service Fabric](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) eller distribuera [valfri kod](service-fabric-deploy-existing-app.md). Det viktiga är att du kan blanda både tjänster i processer och tjänster i behållare i samma program. Om du bara vill [distribuera och hantera behållare](service-fabric-containers-overview.md) är Service Fabric ett utmärkt val som behållarinitierare.
+Service Fabric är Microsofts [behållarinitierare](service-fabric-cluster-resource-manager-introduction.md) som distribuerar mikrotjänster i ett kluster med datorer. Mikrotjänster kan utvecklas på många sätt, t.ex. genom att använda [programmeringsmodeller för Service Fabric](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) eller distribuera [valfri kod](service-fabric-guest-executables-introduction.md). Det viktiga är att du kan blanda både tjänster i processer och tjänster i behållare i samma program. Om du bara vill [distribuera och hantera behållare](service-fabric-containers-overview.md) är Service Fabric ett utmärkt val som behållarinitierare.
 
 ## <a name="any-os-any-cloud"></a>Alla OS, alla moln
 Service Fabric kan köras överallt. Du kan skapa kluster för Service Fabric i många miljöer, inklusive Azure eller lokalt, på Windows Server eller på Linux. Du kan till och med skapa kluster i andra offentliga moln. Dessutom är utvecklingsmiljön i SDK **identisk** med produktionsmiljön, helt utan emulatorer. Det innebär med andra ord att det som körs i det lokala distributionsklustret distribueras till klustren i andra miljöer.

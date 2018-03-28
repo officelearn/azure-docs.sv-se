@@ -1,19 +1,19 @@
 ---
-title: "Azure-snabbstart – Ladda upp, ladda ned och lista blobar i Azure Storage med Python | Microsoft Docs"
-description: "I den här snabbstarten skapar du ett lagringskonto och en behållare. Sedan använder du lagringsklientbiblioteket för Python och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare."
+title: Azure-snabbstart – Ladda upp, ladda ned och lista blobar i Azure Storage med Python | Microsoft Docs
+description: I den här snabbstarten skapar du ett lagringskonto och en behållare. Sedan använder du lagringsklientbiblioteket för Python och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: a82ec92449730a784e7cd36d7f364a9a4516c15f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d4c489bc41a9c04b15e2ee28b944edc1f15ef81c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Python
 
@@ -23,7 +23,7 @@ I den här snabbstarten får du lära dig att använda Python för att ladda upp
 
 För att slutföra den här snabbstarten behöver du: 
 * Installera [Python](https://www.python.org/downloads/)
-* Ladda ned och installera [Azure Storage SDK för Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python). 
+* Ladda ned och installera [Azure Storage SDK för Python](storage-python-how-to-use-blob-storage.md). 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -160,6 +160,18 @@ block_blob_service.delete_container(container_name)
 os.remove(full_path_to_file)
 os.remove(full_path_to_file2)
 ```
+## <a name="resources-for-developing-python-applications-with-blobs"></a>Resurser för att utveckla Python-tillämpningar med blobar
+
+Se dessa ytterligare resurser för Python-utveckling med Blob-lagring:
+
+### <a name="binaries-and-source-code"></a>Binärfiler och källkod
+
+- Visa, ladda ned och installera [Python-klientens bibliotekskällkod](https://github.com/Azure/azure-storage-python) för Azure Storage på GitHub.
+
+### <a name="client-library-reference-and-samples"></a>Referens och exempel för klientbiblioteket
+
+- Mer information om Python-klientbiblioteket finns i [API-referens för Python](https://docs.microsoft.com/python/api/overview/azure/storage).
+- Utforska [Bloblagringsexempel](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob) som skrivits med Python-klientbiblioteket.
 
 ## <a name="next-steps"></a>Nästa steg
  
@@ -168,5 +180,4 @@ I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal 
 > [!div class="nextstepaction"]
 > [Anvisningar för Blob Storage-åtgärder](./storage-python-how-to-use-blob-storage.md)
  
-
 Mer information om Storage Explorer och blobar finns i [Hantera Azure Blob Storage-resurser med Storage Explorer ](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

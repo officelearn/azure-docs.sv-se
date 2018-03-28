@@ -1,8 +1,8 @@
 ---
-title: "Jämförelse av Azure App Service, Virtual Machines, Service Fabric och Cloud Services | Microsoft Docs"
-description: "Lär dig hur du väljer mellan Azure App Service, Virtual Machines, Service Fabric och Cloud Services som värd för webbappar."
+title: Jämförelse av Azure App Service, Virtual Machines, Service Fabric och Cloud Services | Microsoft Docs
+description: Lär dig hur du väljer mellan Azure App Service, Virtual Machines, Service Fabric och Cloud Services som värd för webbappar.
 services: app-service\web, virtual-machines, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: erikre
 editor: jimbe
@@ -15,15 +15,14 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 627782d3d6dd9f2eeff1b79e9cf721f9a4eb4ac2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f930cec984a8b92e00ec613ce3bba91a40518911
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Jämförelse mellan Azure App Service, Virtual Machines, Service Fabric och Cloud Services
 ## <a name="overview"></a>Översikt
-
 Azure erbjuder flera värdalternativ för webbplatser: [Azure App Service][Azure App Service], [Virtual Machines][Virtual Machines], [Service Fabric][Service Fabric] och [Cloud Services][Cloud Services]. Den här artikeln hjälper dig att förstå alternativen och fatta rätt beslut för din webbapp.
 
 Azure App Service är det bästa alternativet för de flesta webbapparna. Distribution och hantering finns integrerat i plattformen, platser kan skalas snabbt för att hantera hög trafikbelastning och inbyggd belastningsutjämning och Traffic Manager ger hög tillgänglighet. Du kan enkelt flytta befintliga webbplatser till Azure App Service med ett [onlinemigreringsverktyg](https://www.migratetoazure.net/), använda en app baserad på öppen källkod från webbappgalleriet eller skapa en ny webbplats med hjälp av ramverket och verktyg som du väljer själv. Med funktionen [WebJobs][WebJobs] kan du enkelt lägga till bearbetning av bakgrundsjobb i din App Service-webbapp.
@@ -50,7 +49,7 @@ I följande tabell jämförs funktionerna i App Service, Cloud Services, Virtual
 | Värd för webb- eller webbtjänstnivå i en arkitektur med flera nivåer |X |X |X |X | |
 | Värd för mellannivå i en arkitektur med flera nivåer |X |X |X |X |En App Service-webbapp kan enkelt vara värd för en REST API-mellannivå och [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226)-funktionen kan vara värd för jobb som bearbetas i bakgrunden. Du kan köra WebJobs på en dedikerad webbplats för att få oberoende skalbarhet för nivån. |
 | Integrerat stöd för MySQL som en tjänst |X |X | | | |
-| Stöd för ASP.NET, klassisk ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric stöder skapande av frontwebb med [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) eller så kan du distribuera valfri programtyp (Node.js, Java m.m.) som en [körbar gästfil](../service-fabric/service-fabric-deploy-existing-app.md). |
+| Stöd för ASP.NET, klassisk ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric stöder skapande av frontwebb med [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) eller så kan du distribuera valfri programtyp (Node.js, Java m.m.) som en [körbar gästfil](../service-fabric/service-fabric-guest-executables-introduction.md). |
 | Skala ut till flera instanser utan omdistribution |X |X |X |X |Virtual Machines kan skala ut till flera instanser, men tjänsterna som körs på dem måste skrivas om för att hantera utskalningen. Du måste konfigurera en belastningsutjämnare för att dirigera begäranden mellan datorer och skapa en tillhörighetsgrupp för att förhindra samtidiga omstarter av alla instanser på grund av underhåll eller maskinvarufel. |
 | Stöd för SSL |X |X |X |X |När det gäller App Service-webbappar stöds SSL för anpassade domännamn endast för lägena Basic och Standard. Information om hur du använder SSL med webbappar finns i [Configuring an SSL certificate for an Azure Website](app-service-web-tutorial-custom-ssl.md) (Konfigurera ett SSL-certifikat för en Azure-webbplats). |
 | Integrering med Visual Studio |X |X |X |X | |
@@ -60,7 +59,7 @@ I följande tabell jämförs funktionerna i App Service, Cloud Services, Virtual
 | Stöd för [Azure Traffic Manager](/azure/traffic-manager/) |X |X |X |X | |
 | Integrerad slutpunktsövervakning |X |X |X | | |
 | Fjärrskrivbordsåtkomst till servrar | |X |X |X | |
-| Installera eventuella anpassade MSI | |X |X |X |Med Service Fabric kan du vara värd för körbara filer som en [körbar gästfil](../service-fabric/service-fabric-deploy-existing-app.md) eller installera appar på de virtuella datorerna. |
+| Installera eventuella anpassade MSI | |X |X |X |Med Service Fabric kan du vara värd för körbara filer som en [körbar gästfil](../service-fabric/service-fabric-guest-executables-introduction.md) eller installera appar på de virtuella datorerna. |
 | Möjlighet att definiera/köra startåtgärder | |X |X |X | |
 | Kan lyssna på ETW-händelser | |X |X |X | |
 

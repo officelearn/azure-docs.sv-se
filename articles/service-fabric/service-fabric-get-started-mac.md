@@ -1,11 +1,11 @@
 ---
-title: "Konfigurera en utvecklingsmiljö i Mac OS X så att den fungerar med Azure Service Fabric | Microsoft Docs"
-description: "Installera runtime, SDK och verktyg och skapa ett lokalt utvecklingskluster. När du är färdig med den här konfigurationen kommer du att kunna börja skapa appar i Mac OS X."
+title: Konfigurera en utvecklingsmiljö i Mac OS X så att den fungerar med Azure Service Fabric | Microsoft Docs
+description: Installera runtime, SDK och verktyg och skapa ett lokalt utvecklingskluster. När du är färdig med den här konfigurationen kommer du att kunna börja skapa appar i Mac OS X.
 services: service-fabric
 documentationcenter: java
 author: sayantancs
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 4ac26c02e1893097c858380c07f520e6570fd3db
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: bf0a03ace2f6b6e6b1c845785a452d0b75f35de8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurera din utvecklingsmiljö i Mac OS X
 > [!div class="op_single_selector"]
@@ -99,6 +99,12 @@ Utför följande steg för att konfigurera en lokal Docker-behållare och köra 
 
 Följ anvisningarna på [Service Fabric CLI](service-fabric-cli.md#cli-mac) för att installera Service Fabric CLI (`sfctl`) på en Mac-dator.
 Med CLI-kommandona kan du interagera med Service Fabric-entiteter som kluster, program och tjänster.
+
+1. Om du vill ansluta till klustret innan du distribuerar programmen kör du kommandot nedan. 
+
+```bash
+sfctl cluster select --endpoint http://localhost:19080
+```
 
 ## <a name="create-your-application-on-your-mac-by-using-yeoman"></a>Skapa ditt program på Mac med Yeoman
 

@@ -1,11 +1,11 @@
 ---
-title: "Översikt över integration av Azure Service Bus till Event Grid | Microsoft Docs"
+title: Översikt över integration av Azure Service Bus till Event Grid | Microsoft Docs
 description: Beskrivning av Service Bus-meddelanden och Event Grid-integration
 services: service-bus-messaging
 documentationcenter: .net
 author: ChristianWolf42
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
 ms.workload: na
@@ -14,44 +14,46 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: bf771428505081cb60ca4417f87a4f6c2afbd25d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8bd1c431788d78ae937cc047e82cb41504a19075
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-service-bus-to-azure-event-grid-integration-overview"></a>Översikt över integration av Azure Service Bus till Azure Event Grid
+# <a name="azure-service-bus-to-event-grid-integration-overview"></a>Översikt över integration av Azure Service Bus till Event Grid
 
-Azure Service Bus startar en ny integration till Azure Event Grid. Det viktiga scenario som funktionen aktiverar är att Service Bus-köer eller prenumerationer som har en låg volym av meddelanden, inte behöver ha någon mottagare som söker efter meddelanden vid alla tidpunkter. Service Bus kan nu generera händelser till Azure Event Grid när det finns meddelanden i en kö eller prenumeration utan att det finns några mottagare. Du kan skapa Azure Event Grid-prenumerationer till Service Bus-namnområden, lyssna på dessa händelser och reagera på dem genom att starta en mottagare. Med den här funktionen kan Service Bus användas i reaktiva programmeringsmodeller.
+Azure Service Bus har en ny integration till Azure Event Grid. Detta möjliggör scenarier där Service Bus-köer eller prenumerationer med en låg volym av meddelanden inte behöver ha någon mottagare som kontinuerligt söker efter meddelanden. 
+
+Nu kan Service Bus generera händelser till Event Grid när det finns meddelanden i en kö eller prenumeration utan att det finns några mottagare. Du kan skapa Event Grid-prenumerationer till Service Bus-namnområden, lyssna på dessa händelser och sedan reagera på dem genom att starta en mottagare. Med den här funktionen kan du använda Service Bus i reaktiva programmeringsmodeller.
 
 Om du vill aktivera funktionen behöver du följande:
 
-* Ett Azure Service Bus Premium-namnområde med minst en Service Bus-kö eller ett Service Bus-ämne med minst en prenumeration.
-* Deltagaråtkomst till Azure Service Bus-namnområdet.
-* Dessutom behöver du en prenumeration på Azure Event Grid för Service Bus-namnområdet. Den här prenumerationen får meddelandet från Azure Event Grid om det finns meddelanden som ska hämtas. Vanliga prenumeranter kan vara Logic Apps, Azure Functions eller en webhook som kontaktar en webbapp, som i sin tur bearbetar meddelanden. 
+* Ett Service Bus Premium-namnområde med minst en Service Bus-kö eller ett Service Bus-ämne med minst en prenumeration.
+* Deltagaråtkomst till Service Bus-namnområdet.
+* Dessutom behöver du en prenumeration på Event Grid för Service Bus-namnområdet. Den här prenumerationen får ett meddelande från Event Grid om det finns meddelanden som ska hämtas. Vanliga prenumeranter kan vara Logic Apps-funktionen i Azure App Service, Azure Functions eller en webhook som kontaktar en webbapp. Prenumeranten bearbetar sedan dessa meddelanden. 
 
 ![19][]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Kontrollera att du har deltagarbehörighet
 
-Gå till ditt Service Bus-namnområde och välj ”Åtkomstkontroll (IAM)” enligt nedan:
+Gå till ditt Service Bus-namnområde och välj **Åtkomstkontroll (IAM)** enligt nedan:
 
 ![1][]
 
 ### <a name="events-and-event-schemas"></a>Händelser och händelsescheman
 
-Azure Service Bus skickar händelser för två scenarier i dag.
+Service Bus skickar händelser för två scenarier:
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
 
-Dessutom använder den standardsäkerhet för Azure Event Grid och [autentiseringsmekanismer](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication).
+Dessutom använder Service Bus standardsäkerhet för Event Grid och [autentiseringsmekanismer](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication).
 
-Om du vill ha mer information om händelsescheman i Event Grid kan du följa [denna](https://docs.microsoft.com/en-us/azure/event-grid/event-schema) länk.
+Mer information finns i [Azure Event Grid event schemas](https://docs.microsoft.com/en-us/azure/event-grid/event-schema) (Händelsescheman i Azure Event Grid).
 
 #### <a name="active-messages-available-event"></a>Aktiva meddelanden, tillgänglig händelse
 
-Denna händelse genereras om det finns aktiva meddelanden i en kö eller prenumeration och inga mottagare lyssnar.
+Den här händelsen genereras om det finns aktiva meddelanden i en kö eller prenumeration och inga mottagare lyssnar.
 
 Schemat för den här händelsen är följande:
 
@@ -75,11 +77,11 @@ Schemat för den här händelsen är följande:
 }
 ```
 
-#### <a name="dead-lettered-messages-available-event"></a>Obeställbara meddelanden, tillgänglig händelse
+#### <a name="dead-letter-messages-available-event"></a>Obeställbara meddelanden, tillgänglig händelse
 
 Du kan hämta minst en händelse per kö för obeställbara meddelanden, som innehåller meddelanden utan aktiva mottagare.
 
-Schemat för den här händelsen är följande:
+Schemat för den här händelsen ser ut så här:
 
 ```JSON
 [{
@@ -101,44 +103,49 @@ Schemat för den här händelsen är följande:
 }]
 ```
 
-### <a name="how-often-and-how-many-events-are-emitted"></a>Hur ofta och hur många händelser genereras?
+### <a name="how-many-events-are-emitted-and-how-often"></a>Hur många händelser genereras, och hur ofta?
 
-Om du har flera köer och ämnen/prenumerationer i namnområdet, får du minst en händelse per kö och en per prenumeration. Händelserna genereras omedelbart om det inte finns några meddelanden i Service Bus-entiteten och ett nytt meddelande anländer, eller varannan minut såvida inte Azure Service Bus upptäcker en aktiv mottagare. Bläddring bland meddelanden avbryter inte händelserna.
+Om du har flera köer och ämnen eller prenumerationer i namnområdet, får du minst en händelse per kö och en per prenumeration. Händelserna genereras omedelbart om det inte finns några meddelanden i Service Bus-entiteten och ett nytt meddelande anländer. Eller så genereras händelserna varannan minut, om inte Service Bus identifierar en aktiv mottagare. Bläddring bland meddelanden avbryter inte händelserna.
 
-Som standard genererar Azure Service Bus händelser för alla entiteter i namnområdet. Om du enbart vill hämta händelser för specifika entiteter kan du läsa mer i följande filtreringsavsnitt.
+Som standard genererar Service Bus händelser för alla entiteter i namnområdet. Om du enbart vill hämta händelser för specifika entiteter kan du läsa mer i nästa avsnitt.
 
-### <a name="filtering-limiting-from-where-you-get-events"></a>Filtrering, begränsa var du kan hämta händelser ifrån
+### <a name="use-filters-to-limit-where-you-get-events-from"></a>Använda filter för att begränsa var du hämtar händelser från
 
-Om du enbart vill hämta händelser till exempelvis en kö eller en prenumeration inom namnområdet, kan du använda filtren ”Börja med” eller ”Slutar med” som finns i Azure Event Grid. I vissa gränssnitt kallas filtren ”För” och ”Suffix”. Om du vill hämta händelser för flera men inte alla köer och prenumerationer, kan du skapa flera olika Azure Event Grid-prenumerationer och ange ett filter för varje.
+Om du enbart vill hämta händelser från exempelvis en kö eller en prenumeration inom namnområdet, kan du använda filtren *Börjar med* eller *Slutar med* som finns i Event Grid. I vissa gränssnitt kallas filtren *För* och *Suffix*. Om du vill hämta händelser för flera, men inte alla, köer och prenumerationer, kan du skapa flera Event Grid-prenumerationer och ange ett filter för varje.
 
-## <a name="how-to-create-azure-event-grid-subscriptions-for-service-bus-namespaces"></a>Skapa Azure Event Grid-prenumerationer för Service Bus-namnområden
+## <a name="create-event-grid-subscriptions-for-service-bus-namespaces"></a>Skapa Event Grid-prenumerationer för Service Bus-namnområden
 
-Det finns tre olika metoder att skapa Event Grid-prenumerationer för Service Bus-namnområden.
+Du kan skapa Event Grid-prenumerationer för Service Bus-namnområden på tre sätt:
 
-* [Azure Portal](#portal-instructions)
-* [Azure CLI](#azure-cli-instructions)
-* [PowerShell](#powershell-instructions)
+* I [Azure Portal](#portal-instructions)
+* I [Azure CLI](#azure-cli-instructions)
+* I [PowerShell](#powershell-instructions)
 
-## <a name="portal-instructions"></a>Portalinstruktioner
+## <a name="azure-portal-instructions"></a>Instruktioner för Azure Portal
 
-Gå till namnområdet i Azure-portalen för att skapa en ny Azure Event Grid-prenumeration och välj bladet Event Grid. Klicka på ”+ Händelseprenumeration” nedan för att visa ett namnområde som redan innehåller några Event Grid-prenumerationer.
+Så här skapar du en ny Event Grid-prenumeration:
+1. Gå till ditt namnområde i Azure Portal.
+2. Välj **Event Grid** i rutan till vänster. 
+3. Välj **Händelseprenumeration**.  
 
-![20][]
+   Följande bild visar ett namnområde som har några Event Grid-prenumerationer:
 
-Följande skärmbild visar ett exempel på hur du prenumererar på en Azure-funktion eller en webhook utan någon specifik filtrering:
+   ![20][]
 
-![21][]
+   Följande bild visar hur du prenumererar på en funktion eller en webhook utan någon specifik filtrering:
+
+   ![21][]
 
 ## <a name="azure-cli-instructions"></a>Azure CLI-instruktioner
 
-Kontrollera först att du har minst Azure CLI version 2.0 installerat. Du kan hämta installationsprogrammet här. Tryck sedan på ”Windows + X” och öppna en ny PowerShell-konsol med administratörsbehörighet. Du kan också använda en kommandotolk i Azure-portalen.
+Kontrollera först att du har Azure CLI version 2.0 eller senare installerad. [Ladda ned installationsprogrammet](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). Välj **Windows + X** och öppna sedan en ny PowerShell-konsol med administratörsbehörighet. Du kan också använda en kommandotolk i Azure Portal.
 
 Kör följande kod:
 
-```PowerShell
+```PowerShell-interactive
 Az login
 
-Aa account set -s “THE SUBSCRIPTION YOU WANT TO USE”
+Az account set -s “THE SUBSCRIPTION YOU WANT TO USE”
 
 $namespaceid=(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name “<yourNamespace>“--resource-group “<Your Resource Group Name>” --query id --output tsv)
 
@@ -147,9 +154,9 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>PowerShell-instruktioner
 
-Kontrollera att du har Azure PowerShell installerat. Du hittar den här. Tryck sedan på ”Windows + X” och öppna en ny PowerShell-konsol med administratörsbehörighet. Du kan också använda en kommandotolk i Azure-portalen.
+Kontrollera att du har Azure PowerShell installerat. [Ladda ned installationsprogrammet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Välj **Windows + X** och öppna sedan en ny PowerShell-konsol med administratörsbehörighet. Du kan också använda en kommandotolk i Azure Portal.
 
-```PowerShell
+```PowerShell-interactive
 Login-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
@@ -167,11 +174,11 @@ Härifrån kan du utforska andra installationsalternativ eller [testa händelser
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Service Bus- och Event Grid-[exempel](service-bus-to-event-grid-integration-example.md).
-* Läs mer om [Azure Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Hämta Service Bus- och Event Grid-[exempel](service-bus-to-event-grid-integration-example.md).
+* Läs mer om [Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/).
 * Läs mer om [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Läs mer om [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/).
-* Läs mer om [Azure Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Läs mer om [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/).
+* Läs mer om [Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

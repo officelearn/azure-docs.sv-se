@@ -1,42 +1,35 @@
 ---
-title: "Utforma din första Azure SQL database - C# | Microsoft Docs"
-description: "Lär dig att utforma din första Azure SQL-databas och ansluta till den med ett C#-program med hjälp av ADO.NET."
+title: Utforma din första Azure SQL-databas – C# | Microsoft Docs
+description: Lär dig hur du utformar din första Azure SQL-databas och ansluter till den med ett C#-program med hjälp av ADO.NET.
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg-msft
-editor: CarlRabeler
-tags: 
-ms.assetid: 
+ms.reviewer: CarlRabeler
 ms.service: sql-database
 ms.custom: develop databases, mvc, devcenter
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: On Demand
-ms.date: 01/12/2018
-ms.author: genemi
-ms.openlocfilehash: d99456b488302c9b3fa44510af84641876861afe
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
-ms.translationtype: MT
+ms.date: 03/15/2018
+ms.openlocfilehash: 3b6f260983e3c826bf558f0fe6d1a0fa6ae6b3af
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Utforma en Azure SQL database och ansluta med C & #x23; och ADO.NET
+# <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Utforma en Azure SQL databas och anslut med C&#x23; och ADO.NET
 
-Azure SQL Database är en relationell databas-som-en tjänst (DBaaS) i Microsoft Cloud (Azure). I kursen får du lära dig hur du använder Azure portal och ADO.NET med Visual Studio för att: 
+Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Microsoft Cloud (Azure). I de här självstudierna får du lära dig att använda Azure-portalen och ADO.NET med Visual Studio för att: 
 
 > [!div class="checklist"]
 > * Skapa en databas på Azure-portalen
-> * Konfigurera en brandväggsregel på servernivå i Azure-portalen
+> * Skapade en brandväggsregel på servernivå på Azure-portalen
 > * Ansluta till databasen med ADO.NET och Visual Studio
 > * Skapa tabeller med ADO.NET
 > * Infoga, uppdatera och ta bort data med ADO.NET 
-> * Fråga efter data ADO.NET
+> * Fråga efter data med ADO.NET
 
-Om du inte har en Azure-prenumeration [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 En installation av [Visual Studio Community 2017, Visual Studio Professional 2017 eller Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
 
@@ -56,7 +49,7 @@ And it starts with a ## H2.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får du lärt dig grundläggande uppgifter som skapar en databas och tabeller, läsa in fråga efter data och återställa databasen till en tidigare tidpunkt. Du har lärt dig att:
+I de här självstudierna har du lärt dig grundläggande databasuppgifter, till exempel att skapa en databas och tabeller, läsa in och fråga efter data, samt återställa databasen till en tidigare tidpunkt. Du har lärt dig att:
 > [!div class="checklist"]
 > * Skapa en databas
 > * Konfigurera en brandväggsregel
@@ -65,7 +58,7 @@ I kursen får du lärt dig grundläggande uppgifter som skapar en databas och ta
 > * Infoga, uppdatera och ta bort data
 > * Frågedata
 
-Gå vidare till nästa kurs att lära dig om att migrera dina data.
+Gå vidare till nästa självstudie om du vill lära dig mer om hur du migrerar dina data.
 
 > [!div class="nextstepaction"]
 >[Migrera din SQL Server-databas till Azure SQL Database](sql-database-migrate-your-sql-server-database.md)

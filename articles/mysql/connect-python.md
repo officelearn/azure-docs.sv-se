@@ -1,6 +1,6 @@
 ---
-title: "Ansluta till Azure Database for MySQL från Python"
-description: "I den här snabbstarten finns flera kodexempel i Python som du kan använda för att ansluta till och fråga efter data från Azure Database för MySQL."
+title: Ansluta till Azure Database for MySQL från Python
+description: I den här snabbstarten finns flera kodexempel i Python som du kan använda för att ansluta till och fråga efter data från Azure Database för MySQL.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 4003c1258fcc0a6d04c4ae8d234eba4d0224b8a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 08725493f9d050da762a6527363b77af6eeed6e6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database för MySQL: Använda Python för att ansluta och fråga efter data
 Den här snabbstarten visar hur du använder [Python](https://python.org) för att ansluta till en Azure Database för MySQL. SQL-instruktioner används för att fråga, infoga, uppdatera och ta bort data i databasen i Mac OS, Ubuntu Linux och Windows-plattformar. Det här avsnittet förutsätter att du är van att utveckla i Python och att du saknar erfarenhet av Azure Database for MySQL.
@@ -37,7 +37,7 @@ Installera [Python](https://www.python.org/downloads/) och [MySQL Connector för
 1. I Linux (Ubuntu) installeras vanligtvis Python som en del av standardinstallationen.
 2. Kontrollera Python-installationen genom att starta Bash-gränssnittet. Kör kommandot `python -V` med -V (versal) för att visa versionsnumret.
 3. Kontrollera PIP-installationen genom att köra kommandot `pip show pip -V` och se versionsnumret. 
-4. PIP kan ingå i vissa versioner av Python. Om PIP inte har installerats kan du installera [PIP]-paketet (https://pip.pypa.io/en/stable/installing/) genom att köra kommandot `sudo apt-get install python-pip`.
+4. PIP kan ingå i vissa versioner av Python. Om PIP inte har installerats kan du installera [PIP](https://pip.pypa.io/en/stable/installing/)-paketet genom att köra kommandot `sudo apt-get install python-pip`.
 5. Uppdatera PIP till den senaste versionen genom att köra kommandot `pip install -U pip`.
 6. Installera MySQL Connector för Python och dess beroenden med hjälp av PIP-kommandot:
 

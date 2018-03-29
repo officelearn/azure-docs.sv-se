@@ -27,6 +27,8 @@
   items:
     - name: Använda Azure Stack Portal
       href: azure-stack-use-portal.md
+    - name: Använda Azure API-stacken
+      href: azure-stack-rest-api-use.md
     - name: Säkerhet och efterlevnad
       items:
         - name: Hantera RBAC

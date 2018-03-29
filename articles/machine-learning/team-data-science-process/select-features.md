@@ -1,8 +1,8 @@
 ---
 title: Funktionen val i Team av vetenskapliga data | Microsoft Docs
-description: "Förklarar ändamålet med val av funktioner och ger exempel på deras roll i förbättring av data för maskininlärning."
+description: Förklarar ändamålet med val av funktioner och ger exempel på deras roll i förbättring av data för maskininlärning.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: zhangya;bradsev
-ms.openlocfilehash: c69e7a7e86ccea2073209eabe123049e59a2b8e3
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev
+ms.openlocfilehash: 44159516a1785f5d65357935000eccc42a7458aa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Funktionsval i TDSP (Team Data Science Process)
 Den här artikeln beskriver för val av funktioner och innehåller exempel på sin roll i förbättring av data för machine learning. Dessa exempel hämtas från Azure Machine Learning Studio. 
@@ -62,7 +62,7 @@ Motsvarande resultat för de valda funktionerna visas i följande bild:
 
 Genom att använda detta [Filter-baserade Funktionsurval] [ filter-based-feature-selection] modulen, 50 av 256 funktioner är markerade eftersom de har mest korrelerade funktioner med en målvariabel ”Kol1” baserat på bedömningsprofil metoden ”kvadratvärdet korrelation”.
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Funktionen tekniker och Funktionsurval är två ofta utformad och de valda funktionerna ökar effektiviteten för utbildning-process som försöker hämta viktig information som finns i data. De kan också förbättra kraften hos dessa modeller att klassificera indata korrekt och att förutsäga mer robustly resultat av intresse. Funktionen tekniker och val kan också kombinera om du vill göra learning mer beräkningsmässigt tractable. Den gör detta genom att öka och minska antalet funktioner som behövs för att kalibrera eller tränar en modell. Funktioner som markerats för att träna modellen är matematiskt sett en minimal uppsättning oberoende variabler som beskriver mönster i data och förutsäga resultat har.
 
 Det är inte alltid nödvändigtvis att utföra Funktionsurval teknik eller funktion. Om det behövs eller inte beroende av insamlade data och algoritmen valda målet för experimentet.

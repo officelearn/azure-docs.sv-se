@@ -1,12 +1,12 @@
 ---
-title: "Översikt över livscykeln för Azure Service Fabric Reliable Services | Microsoft Docs"
-description: "Lär dig mer om livscykeln för olika händelser i Service Fabric Reliable Services"
+title: Översikt över livscykeln för Azure Service Fabric Reliable Services | Microsoft Docs
+description: Lär dig mer om livscykeln för olika händelser i Service Fabric Reliable Services
 services: Service-Fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
 editor: vturecek;
-ms.assetid: 
+ms.assetid: ''
 ms.service: Service-Fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ebfe23ea1e07e7578e8bd352a482ecb1016829de
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9cb017997c528c987403186097599a721ee591bc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Tillförlitliga tjänstöversikt livscykel
 > [!div class="op_single_selector"]
@@ -45,9 +45,9 @@ Livscykeln för tillståndslösa tjänsten är enkelt. Här är ordningen för h
 
 1. Tjänsten har skapats.
 2. Sedan parallellt saker två:
-    - `StatelessService.CreateServiceInstanceListeners()`har anropats och eventuella returneras lyssnare öppnas. `ICommunicationListener.OpenAsync()`anropas på varje lyssnare.
+    - `StatelessService.CreateServiceInstanceListeners()` har anropats och eventuella returneras lyssnare öppnas. `ICommunicationListener.OpenAsync()` anropas på varje lyssnare.
     - Tjänstens `StatelessService.RunAsync()` metoden anropas.
-3. Om den finns i tjänstens `StatelessService.OnOpenAsync()` metoden anropas. Det här anropet är en ovanligt åsidosättning, men den är tillgänglig.
+3. Om den finns i tjänstens `StatelessService.OnOpenAsync()` metoden anropas. Det här anropet är en ovanligt åsidosättning, men den är tillgänglig. Uppgifter för initiering av utökade tjänsten kan startas just nu.
 
 Tänk på att det finns ingen ordning mellan anrop för att skapa och öppna lyssnarna och **RunAsync**. Lyssnarna kan öppna innan **RunAsync** har startats. På samma sätt som du kan anropa **RunAsync** innan kommunikationslyssnarna är öppna eller även konstruerade. Om ingen synkronisering krävs, måste lämnas den som Övning till Implementeraren. Här följer några vanliga lösningar:
 
@@ -61,19 +61,19 @@ Tänk på att det finns ingen ordning mellan anrop för att skapa och öppna lys
 För att stänga en tillståndslös tjänst följs samma mönster bara i omvänd:
 
 1. Parallellt:
-    - Alla öppna lyssnare stängs. `ICommunicationListener.CloseAsync()`anropas på varje lyssnare.
+    - Alla öppna lyssnare stängs. `ICommunicationListener.CloseAsync()` anropas på varje lyssnare.
     - Annullering-token som skickades till `RunAsync()` har avbrutits. En kontroll av token annullering `IsCancellationRequested` -egenskap returnerar true, och om den anropas token `ThrowIfCancellationRequested` metoden returnerar en `OperationCanceledException`.
-2. Efter `CloseAsync()` har slutförts på varje lyssnare och `RunAsync()` också är klar tjänstens `StatelessService.OnCloseAsync()` metoden anropas, om sådan finns. Det är ovanligt att åsidosätta `StatelessService.OnCloseAsync()`.
+2. Efter `CloseAsync()` har slutförts på varje lyssnare och `RunAsync()` också är klar tjänstens `StatelessService.OnCloseAsync()` metoden anropas, om sådan finns.  OnCloseAsync anropas när instansen för tillståndslösa tjänsten kommer att smidigt att stänga av. Detta kan inträffa när tjänstens kod uppgraderas, tjänstinstansen flyttas på grund av belastningsutjämning eller ett tillfälligt fel har identifierats. Det är ovanligt att åsidosätta `StatelessService.OnCloseAsync()`, men den kan användas för att på ett säkert sätt stänga resurser stoppa behandling i bakgrunden, Slutför sparar externa tillstånd eller stänga ned befintliga anslutningar.
 3. Efter `StatelessService.OnCloseAsync()` slutförs, serviceobjektet destructed.
 
 ## <a name="stateful-service-startup"></a>Tillståndskänsliga startades
 Tillståndskänsliga tjänster har ett liknande mönster tillståndslösa tjänster med några ändringar. För att starta en tillståndskänslig service är ordningen för händelser:
 
 1. Tjänsten har skapats.
-2. `StatefulServiceBase.OnOpenAsync()`anropas. Det här anropet ofta inte har åsidosatts i tjänsten.
+2. `StatefulServiceBase.OnOpenAsync()` anropas. Det här anropet ofta inte har åsidosatts i tjänsten.
 3. Följande saker parallellt:
-    - `StatefulServiceBase.CreateServiceReplicaListeners()`anropas. 
-      - Om tjänsten är en primär service, öppnas alla returnerade lyssnare. `ICommunicationListener.OpenAsync()`anropas på varje lyssnare.
+    - `StatefulServiceBase.CreateServiceReplicaListeners()` anropas. 
+      - Om tjänsten är en primär service, öppnas alla returnerade lyssnare. `ICommunicationListener.OpenAsync()` anropas på varje lyssnare.
       - Om tjänsten är en sekundär service kan endast dessa lyssnare markerad som `ListenOnSecondary = true` öppnas. Med lyssnare som är öppna på sekundärservrar är mindre vanliga.
     - Om tjänsten är en primär, tjänstens `StatefulServiceBase.RunAsync()` metoden anropas.
 4. När alla replik lyssnarens `OpenAsync()` anropar Slutför och `RunAsync()` anropas, `StatefulServiceBase.OnChangeRoleAsync()` anropas. Det här anropet ofta inte har åsidosatts i tjänsten.
@@ -84,7 +84,7 @@ Liksom för tillståndslösa tjänster, det finns inga samordning mellan den ord
 Precis som tillståndslösa tjänster Livscykelhändelser vid avstängningen är samma som under starten men ångras. När en tillståndskänslig service stängs av, händer följande:
 
 1. Parallellt:
-    - Alla öppna lyssnare stängs. `ICommunicationListener.CloseAsync()`anropas på varje lyssnare.
+    - Alla öppna lyssnare stängs. `ICommunicationListener.CloseAsync()` anropas på varje lyssnare.
     - Annullering-token som skickades till `RunAsync()` har avbrutits. En kontroll av token annullering `IsCancellationRequested` -egenskap returnerar true, och om den anropas token `ThrowIfCancellationRequested` metoden returnerar en `OperationCanceledException`.
 2. Efter `CloseAsync()` har slutförts på varje lyssnare och `RunAsync()` också är klar tjänstens `StatefulServiceBase.OnChangeRoleAsync()` anropas. Det här anropet ofta inte har åsidosatts i tjänsten.
 
@@ -101,7 +101,7 @@ När en tillståndskänslig service körs, de primära replikerna av de tillstå
 För den primära repliken nedgraderas, måste Service Fabric replikeringen att avbryta behandlar meddelanden och avsluta alla bakgrundsjobbet avbrytas. Därför kan det här steget ser ut som om när tjänsten är avstängd. En skillnaden är att tjänsten inte är destructed eller stängts eftersom det fortfarande som en sekundär. Följande API: er anropas:
 
 1. Parallellt:
-    - Alla öppna lyssnare stängs. `ICommunicationListener.CloseAsync()`anropas på varje lyssnare.
+    - Alla öppna lyssnare stängs. `ICommunicationListener.CloseAsync()` anropas på varje lyssnare.
     - Annullering-token som skickades till `RunAsync()` har avbrutits. En kontroll av token annullering `IsCancellationRequested` -egenskap returnerar true, och om den anropas token `ThrowIfCancellationRequested` metoden returnerar en `OperationCanceledException`.
 2. Efter `CloseAsync()` har slutförts på varje lyssnare och `RunAsync()` också är klar tjänstens `StatefulServiceBase.OnChangeRoleAsync()` anropas. Det här anropet ofta inte har åsidosatts i tjänsten.
 
@@ -109,7 +109,7 @@ För den primära repliken nedgraderas, måste Service Fabric replikeringen att 
 Service Fabric måste dessutom den sekundära repliken som höjs så här startar lyssnar efter meddelanden på kabeln bakgrundsaktiviteter som behövs för att slutföra. Därför kan den här processen ser ut som den visades när tjänsten skapas, förutom att repliken själva finns redan. Följande API: er anropas:
 
 1. Parallellt:
-    - `StatefulServiceBase.CreateServiceReplicaListeners()`har anropats och eventuella returneras lyssnare öppnas. `ICommunicationListener.OpenAsync()`anropas på varje lyssnare.
+    - `StatefulServiceBase.CreateServiceReplicaListeners()` har anropats och eventuella returneras lyssnare öppnas. `ICommunicationListener.OpenAsync()` anropas på varje lyssnare.
     - Tjänstens `StatefulServiceBase.RunAsync()` metoden anropas.
 2. När alla replik lyssnarens `OpenAsync()` anropar Slutför och `RunAsync()` anropas, `StatefulServiceBase.OnChangeRoleAsync()` anropas. Det här anropet ofta inte har åsidosatts i tjänsten.
 
@@ -128,10 +128,10 @@ Hantering av undantag som härrör från användning av den `ReliableCollections
   - Det är giltigt för en tjänst att slutföra `RunAsync()` har och RETUR från den. Slutför är inte ett fel inträffar. Slutför `RunAsync()` betyder det att bakgrundsjobbet för tjänsten har slutförts. För tillståndskänsliga reliable services `RunAsync()` anropas igen om repliken är nedgraderas från primär till sekundär och sedan befordras till primära.
   - Om en tjänst avslutas från `RunAsync()` genom att vissa oväntat undantag utgör detta ett fel. Serviceobjektet stängs av och ett hälsotillstånd fel rapporteras.
   - Även om det finns ingen tidsgräns på returneras från dessa metoder kan du att förlora omedelbart möjligheten att skriva till tillförlitliga samlingar, och därför kan slutföra inte något verkligt arbete. Vi rekommenderar att du returnera så snabbt som möjligt vid mottagning av begäran om att avbryta. Om tjänsten inte svarar på dessa API-anrop i rimlig tid, Service Fabric framtvingar säga upp din tjänst. Vanligtvis sker detta endast under programuppgraderingar eller när en tjänst tas bort. Det här är 15 minuter som standard.
-  - Fel i den `OnCloseAsync()` sökväg resultatet i `OnAbort()` anropas, vilket är ett sista chansen bästa möjlighet för tjänsten för att rensa och frigör alla resurser som de har begärts.
+  - Fel i den `OnCloseAsync()` sökväg resultatet i `OnAbort()` anropas, vilket är ett sista chansen bästa möjlighet för tjänsten för att rensa och frigör alla resurser som de har begärts. Detta kallas vanligtvis när ett permanent fel identifieras på noden, eller när Service Fabric inte kan på ett tillförlitligt sätt hantera livscykeln för instansen för tjänsten på grund av ett internt fel.
+  - `OnChangeRoleAsync()` anropas när repliken tillståndskänslig service är rollen ändras, till exempel till primär eller sekundär. Primära repliker får skrivstatus (ska kunna skapa och skriva till tillförlitliga samlingar). Sekundära repliker ges Lässtatus (kan bara läsa från befintliga tillförlitliga samlingar). De flesta arbetsobjekt i en tillståndskänslig service utförs på den primära repliken. Sekundära repliker kan utföra skrivskyddade validering rapportgenerering, datautvinning eller andra skrivskyddade jobb.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Introduktion till Reliable Services](service-fabric-reliable-services-introduction.md)
 - [Snabbstart för Reliable Services](service-fabric-reliable-services-quick-start.md)
-- [Reliable Services avancerade användning](service-fabric-reliable-services-advanced-usage.md)
 - [Repliker och instanser](service-fabric-concepts-replica-lifecycle.md)

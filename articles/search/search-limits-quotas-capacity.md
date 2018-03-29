@@ -1,11 +1,11 @@
 ---
-title: "Gränser i Azure Search | Microsoft Docs"
-description: "Tjänstbegränsningarna som används för kapacitetsplanering och övre gräns för begäranden och -svar för Azure Search."
+title: Gränser i Azure Search | Microsoft Docs
+description: Tjänstbegränsningarna som används för kapacitetsplanering och övre gräns för begäranden och -svar för Azure Search.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-portal
 ms.assetid: 857a8606-c1bf-48f1-8758-8032bbe220ad
 ms.service: search
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/09/2017
+ms.date: 03/26/2018
 ms.author: heidist
-ms.openlocfilehash: 3deb0ff81114c840798c5927ad7311d7e603813d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fb2234e79e8deb98a94068f31a40c8f0b415d7ba
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Tjänstbegränsningarna i Azure Search
 Gränsvärdet på lagring, arbetsbelastningar och mängder index, dokument och andra objekt är beroende av om du [etablera Azure Search](search-create-service-portal.md) på en **lediga**, **grundläggande**, eller **Standard** prisnivån.
@@ -32,35 +32,40 @@ Gränsvärdet på lagring, arbetsbelastningar och mängder index, dokument och a
 > En tjänst har etablerats på en specifik nivå. Hoppa över nivåer för att få kapacitet innebär att etablera en ny tjänst (det finns ingen uppgradering på plats). Mer information finns i [Välj en SKU- eller nivå](search-sku-tier.md). Mer information om hur du justerar inom en tjänst som du redan har etablerat finns [skala resursen nivåer för fråga och indexering arbetsbelastningar](search-capacity-planning.md).
 >
 
-## <a name="per-subscription-limits"></a>Per prenumerationsbegränsningar
+## <a name="subscription-limits"></a>Prenumerationsbegränsningar
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
-## <a name="per-service-limits"></a>Per tjänstbegränsningarna
+## <a name="service-limits"></a>Tjänstbegränsningar
 [!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
 
-## <a name="per-index-limits"></a>Per index gränser
-Det finns en motsvarande mellan index begränsningar och gränser indexerare. Får högst 200 index är maxgränsen för indexerare också 200 för samma tjänst.
+## <a name="index-limits"></a>Index gränser
 
 | Resurs | Kostnadsfri | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
-| Index: maximala fält per index |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
-| Index: maximalt bedömningen profiler per index |100 |100 |100 |100 |100 |100 |
-| Index: maximala funktioner per profil |8 |8 |8 |8 |8 |8 |
-| Indexerare: största indexering belastning per anrop |10 000 dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |EJ TILLÄMPLIGT <sup>2</sup> |
-| Indexerare: maximala körtiden | 1-3 minuter <sup>3</sup> |24 timmar |24 timmar |24 timmar |24 timmar |EJ TILLÄMPLIGT <sup>2</sup> |
-| BLOB-indexeraren: maximala blob, storlek i MB |16 |16 |128 |256 |256 |EJ TILLÄMPLIGT <sup>2</sup> |
-| BLOB-indexeraren: maximala antalet tecken innehåll extraheras från ett blob |32,000 |64,000 |4 miljoner |4 miljoner |4 miljoner |EJ TILLÄMPLIGT <sup>2</sup> |
+| Maximal fält per index |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
+| Maximal bedömningsprofil profiler per index |100 |100 |100 |100 |100 |100 |
+| Maximal funktioner per profil |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> grundnivån är endast SKU: N med en nedre gräns på 100 fält per index.
 
-<sup>2</sup> S3 HD inte stöder indexerare. Kontakta Azure-supporten om du har angeläget för den här funktionen.
+## <a name="indexer-limits"></a>Indexerare gränser
 
-<sup>3</sup> indexeraren maximala körningstiden för den kostnadsfria nivån är 3 minuter för blobbkällorna och 1 minut för alla andra datakällor.
+| Resurs | Kostnadsfri | Basic | S1 | S2 | S3 | S3 HD |
+| --- | --- | --- | --- | --- | --- | --- |
+| Maximal indexering belastning per anrop |10 000 dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |EJ TILLÄMPLIGT <sup>1</sup> |
+| Maximal körtid | 1-3 minuter <sup>2</sup> |24 timmar |24 timmar |24 timmar |24 timmar |EJ TILLÄMPLIGT <sup>1</sup> |
+| BLOB-indexeraren: maximala blob, storlek i MB |16 |16 |128 |256 |256 |EJ TILLÄMPLIGT <sup>1</sup> |
+| BLOB-indexeraren: maximala antalet tecken innehåll extraheras från ett blob |32,000 |64,000 |4 miljoner |4 miljoner |4 miljoner |EJ TILLÄMPLIGT <sup>1</sup> |
+
+<sup>1</sup> S3 HD inte stöder indexerare. Kontakta Azure-supporten om du har angeläget för den här funktionen.
+
+<sup>2</sup> indexeraren maximala körningstiden för den kostnadsfria nivån är 3 minuter för blobbkällorna och 1 minut för alla andra datakällor.
+
 
 ## <a name="document-size-limits"></a>Storleksgränser för dokumentet
 | Resurs | Kostnadsfri | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
-| Dokumentstorlek för enskilda per Index API |< 16 MB |< 16 MB |< 16 MB |< 16 MB |< 16 MB |< 16 MB |
+| Dokumentstorlek för enskilda per Index API |<16 MB |<16 MB |<16 MB |<16 MB |<16 MB |<16 MB |
 
 Avser den maximala storleken när du anropar en API-Index. Dokumentet är faktiskt en gräns för storleken på begärandetexten Index API. Eftersom du kan överföra en grupp med flera dokument till indexet API på samma gång, beror faktiskt storleksgränsen på hur många dokument är i batchen. Den maximala storleken är 16 MB JSON för en grupp med ett enskilt dokument.
 

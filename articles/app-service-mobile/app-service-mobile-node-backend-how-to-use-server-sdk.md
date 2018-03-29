@@ -1,11 +1,11 @@
 ---
-title: "Hur du arbetar med SDK för Node.js backend-Server för Mobile Apps | Microsoft Docs"
-description: "Lär dig hur du arbetar med SDK för Node.js backend-Server för Azure Apptjänst Mobilappar."
+title: Hur du arbetar med SDK för Node.js backend-Server för Mobile Apps | Microsoft Docs
+description: Lär dig hur du arbetar med SDK för Node.js backend-Server för Azure Apptjänst Mobilappar.
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: elamalani
 manager: elamalani
-editor: 
+editor: ''
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bd423d6fb62b2ace16832f665c8834b4aea7e26f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Hur du använder Mobile Apps-SDK för Node.js
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -119,7 +119,7 @@ Visual Studio 2015 kräver ett tillägg till utvecklar Node.js-program i IDE. St
         app.use(mobile);
 
    Spara filen.
-10. Kör programmet lokalt (API: N hanteras på http://localhost: 3000) eller publicera till Azure.
+10. Antingen köra programmet lokalt (API: et levereras på http://localhost:3000) eller publicera till Azure.
 
 ### <a name="create-node-backend-portal"></a>Skapa en Node.js-serverdel med hjälp av Azure portal
 Du kan skapa en Mobile Apps serverdel direkt i den [Azure-portalen]. Du kan utföra följande steg eller skapa en klient och server tillsammans genom att följa den [skapar en mobil app](app-service-mobile-ios-get-started.md) kursen. Vägledningen innehåller en förenklad version av dessa anvisningar och är bäst för proof of concept projekt.
@@ -135,7 +135,7 @@ När du skapar en Node.js Mobile Apps serverdel med hjälp av portalen **Snabbst
 Följande procedur använder en Git-lagringsplats för att hämta Projektkod Snabbstart:
 
 1. Installera Git om du inte redan gjort det. Anvisningar för att installera Git variera mellan olika operativsystem. Operativsystemspecifika distributioner och installationer finns på [installerar Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
-2. Följ stegen i [aktivera databasen för Apptjänst-app](../app-service/app-service-deploy-local-git.md#Step3) att aktivera Git-lagringsplats för backend-platsen. Anteckna distribution användarnamn och lösenord.
+2. Se [förbereda databasen](../app-service/app-service-deploy-local-git.md#prepare-your-repository) att aktivera Git-lagringsplats för backend-platsen. Anteckna distribution användarnamn och lösenord.
 3. I fönstret för Mobile Apps serverdel, notera den **URL för Git-klon** inställningen.
 4. Köra den `git clone` kommandot med hjälp av URL för Git-klonen. Ange ditt lösenord vid behov, som i följande exempel:
 

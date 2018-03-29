@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 4a334b63856a348838cbe61dfc0ab724f58100fb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d635938558a5c2bf68e7c20c287b16c672bdf962
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks som körs på en Hybrid Runbook Worker 
 Det finns ingen skillnad i runbooks som körs i Azure Automation och de som körs på en Hybrid Runbook Worker-strukturen. Runbooks som du använder med varje troligen påtagligt skiljer sig dock eftersom runbooks inriktning på en Hybrid Runbook Worker vanligtvis hantera resurser på den lokala datorn sig själv eller mot resurser i den lokala miljön där den distribueras, medan runbooks i Azure Automation kan vanligtvis hantera resurser i Azure-molnet.
@@ -20,7 +20,7 @@ Det finns ingen skillnad i runbooks som körs i Azure Automation och de som kör
 Du kan redigera en runbook för Hybrid Runbook Worker i Azure Automation, men du kan det vara svårt att testa runbook i redigeraren.  PowerShell-moduler som har åtkomst till lokala resurser kan inte installeras i Azure Automation-miljö i vilket fall testet misslyckas.  Om du installerar modulerna som krävs, körs runbook, men det kommer inte att få åtkomst till lokala resurser för en testning.
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Starta en runbook på Hybrid Runbook Worker
-[Starta en Runbook i Azure Automation](automation-starting-a-runbook.md) beskrivs olika metoder för att starta en runbook.  Runbook Worker-hybrid lägger till en **RunOn** alternativet där du kan ange namnet på en Hybrid Runbook Worker-gruppen.  Om en grupp anges hämtas runbook och kör av av de anställda i gruppen.  Om det här alternativet inte anges, sedan körs i Azure Automation som vanligt.
+[Starta en Runbook i Azure Automation](automation-starting-a-runbook.md) beskrivs olika metoder för att starta en runbook.  Runbook Worker-hybrid lägger till en **RunOn** alternativet där du kan ange namnet på en Hybrid Runbook Worker-gruppen.  Om en grupp anges hämtas runbook och kör någon av de anställda i gruppen.  Om det här alternativet inte anges, sedan körs i Azure Automation som vanligt.
 
 När du startar en runbook i Azure portal visas med en **körs på** där du kan välja alternativet **Azure** eller **Hybrid Worker**.  Om du väljer **Hybrid Worker**, kan du markera gruppen en listrutan.
 

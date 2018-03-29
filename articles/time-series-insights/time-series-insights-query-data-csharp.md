@@ -1,22 +1,22 @@
 ---
-title: "Fråga efter data från en Azure tid serien Insights-miljö med hjälp av C#-kod | Microsoft Docs"
-description: "Den här artikeln beskriver hur du frågar efter data från en Azure tid serien Insights-miljö genom att skriva en anpassad app som skrivits i C# (C-skarpa) .NET-språk."
+title: Fråga efter data från en Azure tid serien Insights-miljö med hjälp av C#-kod | Microsoft Docs
+description: Den här artikeln beskriver hur du frågar efter data från en Azure tid serien Insights-miljö genom att skriva en anpassad app som skrivits i C# (C-skarpa) .NET-språk.
 services: time-series-insights
 ms.service: time-series-insights
 author: ankryach
 ms.author: ankryach
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
-reviewer: v-mamcge, jasonwhowell, kfile, tsidocs
+reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 561ad848e7bddc6bf9d71328db4ddbba9bc5d2b4
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.date: 03/23/2018
+ms.openlocfilehash: 2cbdf4a5c7272e88430b1db7b853f8b6d441c893
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Fråga efter data från Azure tid serien Insights-miljön med hjälp av C#
 
@@ -26,6 +26,11 @@ Exemplet visar flera grundläggande exempel på användning av fråge-API:
 2. Hämta listan över miljöer som användaren har åtkomst till. En av miljöerna hämtas som miljön intressanta och ytterligare data efterfrågas för den här miljön.
 3. Som ett exempel på en HTTPS-begäran begärs tillgänglighetsdata för den intressanta miljön.
 4. Som ett exempel på en webbsocket-begäran begärs händelsens aggregerade data för den intressanta miljön. Data krävs för hela tillgänglighetstidsintervallet.
+
+Den här exempelkod är också tillgänglig på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+
+## <a name="project-references"></a>Projektreferenser
+Lägg till NuGet-paket `Microsoft.IdentityModel.Clients.ActiveDirectory` och `Newtonsoft.Json` för det här exemplet. 
 
 ## <a name="c-example"></a>C#-exempel
 

@@ -1,26 +1,26 @@
 ---
-title: "Säkerhetsbegrepp i Azure IoT Hub-enhet etablering Service | Microsoft Docs"
-description: "Beskriver säkerhet etablering begrepp som är specifika för enheter med etablering av tjänst- och IoT-hubb"
+title: Säkerhetsbegrepp i Azure IoT Hub-enhet etablering Service | Microsoft Docs
+description: Beskriver säkerhet etablering begrepp som är specifika för enheter med etablering av tjänst- och IoT-hubb
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 03/27/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ab2bfff571af659552eef8117de041ca6367ce56
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 5e35a802349bd85b50a13a3d9a7e0c78945937bd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT-hubb enheten Etableringstjänsten säkerhetsbegrepp 
 
-IoT-hubb Device etablering Service är en helper-tjänsten för IoT-hubb som används för att konfigurera zero touch enhet etablering till en angiven IoT-hubb. Du kan etablera miljontals enheter på en säker och skalbar sätt med enheten Etableringstjänsten. Den här artikeln ger en översikt över de *säkerhet* begrepp som är involverad i enhetsetableringen. Den här artikeln är relevant för alla personer som är inblandade i att förbereda en enhet för distribution.
+IoT-hubb Device etablering Service är en helper-tjänsten för IoT-hubb som används för att konfigurera zero touch enhet etablering till en angiven IoT-hubb. Med enhetsetableringstjänsten kan du etablera miljontals enheter på ett säkert och skalbart sätt. Den här artikeln ger en översikt över de *säkerhet* begrepp som är involverad i enhetsetableringen. Den här artikeln är relevant för alla personer som är inblandade i att förbereda en enhet för distribution.
 
 ## <a name="attestation-mechanism"></a>Mekanism för hälsoattestering
 
@@ -31,7 +31,7 @@ Mekanism för attestering är den metod som används för att bekräfta identite
 
 Etablering av tjänst stöder två typer av intyg:
 * **X.509-certifikat** baserat på standard autentiseringsflödet för X.509-certifikat.
-* **SAS-token** baserat på ett tillfälligt anrop med TPM-standarden för nycklar. Detta kräver inte en fysisk TPM på enheten, men tjänsten förväntar att bekräfta att använda bekräftelsenyckeln per den [TPM-specifikationen](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Trusted Platform Module (TPM)** baserat på ett temporärt ID utmaningen med TPM-standard nycklarna för att presentera en signerad delade signatur åtkomst (SAS)-token. Detta kräver inte en fysisk TPM på enheten, men tjänsten förväntar att bekräfta att använda bekräftelsenyckeln per den [TPM-specifikationen](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## <a name="hardware-security-module"></a>Maskinvarusäkerhetsmodul
 
@@ -42,13 +42,13 @@ Maskinvarusäkerhetsmodul eller HSM, används för säker, maskinvarubaserad lag
 
 Enheten hemligheter kan också lagras i programvaran (minne), men det är en mindre säker form av lagring än en HSM.
 
-## <a name="trusted-platform-module-tpm"></a>Trusted Platform Module (TPM)
+## <a name="trusted-platform-module"></a>Trusted Platform Module
 
 TPM kan referera till en standard för säker lagring av nycklar som används för att autentisera plattformen eller den kan referera till i/o-gränssnitt som används för att interagera med moduler som implementerar standarden. TPM: er kan finnas som diskreta maskinvara, inbyggd maskinvara, inbyggd programvara eller programvara. Lär dig mer om [TPM: er och TPM-nyckelattestering](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Etablering av tjänst stöder endast TPM 2.0.
 
 ### <a name="endorsement-key"></a>Bekräftelsenyckel
 
-Bekräftelsenyckeln är en asymmetrisk nyckel finns inuti TPM som internt genererats eller matas in vid tillverkning tid och är unikt för varje TPM. Bekräftelsenyckeln kan inte ändras eller tas bort. Den privata delen av bekräftelsenyckeln är inte tillgänglig utanför TPM, medan den offentliga delen av bekräftelsenyckeln används för att identifiera en äkta TPM. Lär dig mer om den [bekräftelsenyckel](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
+Bekräftelsenyckeln är en asymmetrisk nyckel finns inuti TPM, som internt genererats eller matas in vid tillverkning tid och är unikt för varje TPM. Bekräftelsenyckeln kan inte ändras eller tas bort. Den privata delen av bekräftelsenyckeln är inte tillgänglig utanför TPM, medan den offentliga delen av bekräftelsenyckeln används för att identifiera en äkta TPM. Lär dig mer om den [bekräftelsenyckel](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
 
 ### <a name="storage-root-key"></a>Lagringsrotnyckel
 
@@ -76,10 +76,10 @@ Lövcertifikatet eller slutentitetscertifikat, identifierar certifikatinnehavare
 
 Tjänsten etablering visar två typer av registrering posten som du kan använda för att kontrollera åtkomsten för enheter som använder mekanismen för attestering X.509:  
 
-- [Registrering av enskilda](./concepts-service.md#individual-enrollment) poster har konfigurerats med enhetens certifikat som är associerade med en specifik enhet. Dessa poster styr registrering för specifika enheter.
-- [Registrering grupp](./concepts-service.md#enrollment-group) poster som är associerade med en specifik mellanliggande eller certifikatet för rotcertifikatutfärdaren. Dessa poster styr registrering för alla enheter som har som mellanliggande eller rot certifikat i sina certifikatkedjan. 
+- [Registrering av enskilda](./concepts-service.md#individual-enrollment) poster har konfigurerats med enhetens certifikat som är associerade med en specifik enhet. Dessa poster styr registreringar för specifika enheter.
+- [Registrering grupp](./concepts-service.md#enrollment-group) poster som är associerade med en specifik mellanliggande eller certifikatet för rotcertifikatutfärdaren. Dessa poster styr registreringar för alla enheter som har som mellanliggande eller rot certifikat i sina certifikatkedjan. 
 
-När en enhet som ansluter till tjänsten etablering, prioriterar tjänsten mer specifika registrering transaktioner över mindre specifikt registrering poster. Om det inte finns en enskild registrering för enhetens gäller etablering tjänsten som är posten. Om det inte finns några enskilda registrering för enhetens och en registrering för det första mellanliggande certifikatet i certifikatkedjan för enhetens finns, gäller posten, och så vidare upp i kedjan till roten i tjänsten. Tjänsten gäller den första tillämpliga posten som hittas, så att:
+När en enhet som ansluter till tjänsten etablering, prioriterar tjänsten mer specifika registrering transaktioner över mindre specifikt registrering poster. Om det inte finns en enskild registrering för enhetens gäller etablering tjänsten som är posten. Om det inte finns några enskilda registrering för enhetens och en registrering för det första mellanliggande certifikatet i certifikatkedjan för enhetens finns, gäller tjänsten att posten och så vidare upp i kedjan till roten. Tjänsten gäller den första tillämpliga posten som hittas, så att:
 
 - Om den första registrering posten som hittades är aktiverad, Etablerar tjänsten enheten.
 - Om den första registrering posten som hittades är inaktiverad kommer tjänsten inte att etablera enheten.  

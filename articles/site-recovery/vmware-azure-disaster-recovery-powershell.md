@@ -1,6 +1,6 @@
 ---
-title: "Replikera och redundansväxla virtuella VMware-datorer till Azure med PowerShell i Azure Site Recovery | Microsoft Docs"
-description: "Lär dig hur du ställer in replikering och redundans till Azure för VMwares virtuella datorer med PowerShell i Azure Site Recovery."
+title: Replikera och redundansväxla virtuella VMware-datorer till Azure med PowerShell i Azure Site Recovery | Microsoft Docs
+description: Lär dig hur du ställer in replikering och redundans till Azure för VMwares virtuella datorer med PowerShell i Azure Site Recovery.
 services: site-recovery
 author: bsiva
 manager: abhemraj
@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: bsiva
-ms.openlocfilehash: 9a2edb874ca969813a4f826cd80ef855e391dc4b
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: cbb76aafe97e9e9b45c48a2b13bd1a6566b51fa5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Replikera och redundansväxla virtuella VMware-datorer till Azure med PowerShell
 
@@ -115,6 +115,18 @@ ResourceName      ResourceGroupName ResourceNamespace          ResouceType
 ------------      ----------------- -----------------          -----------
 VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
 ```
+
+> [!TIP]
+> Som ett alternativ till cmdlet Set-ASRVaultContext använda en också cmdleten Import AzureRmRecoveryServicesAsrVaultSettingsFile för att ange valvet kontext. Ange sökvägen där valvet registreringsnyckelfilen finns som parametern - path till cmdleten Import AzureRmRecoveryServicesAsrVaultSettingsFile.
+>
+>Exempel:
+>
+>```azurepowershell
+>Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
+>
+>Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials"
+>```
+>
 
 Nedanstående avsnitt i den här artikeln förutsätter att kontexten valv för Azure Site Recovery-åtgärder har ställts in.
 

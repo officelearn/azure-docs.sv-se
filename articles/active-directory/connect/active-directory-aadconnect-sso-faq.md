@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Sömlös Single Sign-On - vanliga frågor och svar | Microsoft Docs"
-description: "Svar på vanliga frågor och svar om Azure Active Directory sömlös enkel inloggning."
+title: 'Azure AD Connect: Sömlös Single Sign-On - vanliga frågor och svar | Microsoft Docs'
+description: Svar på vanliga frågor och svar om Azure Active Directory sömlös enkel inloggning.
 services: active-directory
-keywords: "Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 8a91960f150e9298515cd52fe192ec1abdd89f9c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c34293796860e0ab72eecedab9cd8b023237050d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sömlös enkel inloggning: vanliga frågor och svar
 
@@ -38,16 +38,23 @@ Nej. Sömlös SSO är endast tillgängligt i den globala instansen av Azure AD.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Vilka program utnyttja `domain_hint` eller `login_hint` parametern möjligheterna för sömlös SSO?
 
-Nedan följer en ofullständig lista över program som skickar dessa parametrar till Azure AD och därför ger användarna en tyst inloggning med sömlös SSO:
+Nedan följer en ofullständig lista över program som skickar dessa parametrar till Azure AD och därför ger användarna en tyst inloggning med sömlös SSO (d.v.s. behöver för användarna att ange sina användarnamn):
 
 | Programnamn | Programmets URL som ska användas |
 | -- | -- |
 | Åtkomstpanelen | myapps.microsoft.com/contoso.com |
 | Outlook på webben | outlook.office365.com/contoso.com |
 
-Ersätt ”contoso.com” i tabellen ovan med ditt domännamn för att få rätt program URL: er för din klient.
+Dessutom kan användare få en tyst inloggning om ett program skickar inloggningsförfrågningar till Azure AD-innehavare slutpunkter – det vill säga https://login.microsoftonline.com/contoso.com/<..> eller https://login.microsoftonline.com/<tenant_ID>/<..> – i stället för Azure AD vanliga endpoint – det vill säga https://login.microsoftonline.com/common/<...>. Nedan följer en ofullständig lista över program som gör dessa typer av inloggningsförfrågningar.
 
-Om du har andra program som du är intresserad av att berätta för oss kommentarer.
+| Programnamn | Programmets URL som ska användas |
+| -- | -- |
+| sharepoint online | contoso.sharepoint.com |
+| Azure Portal | portal.azure.com/contoso.com |
+
+Ersätt ”contoso.com” i tabellerna ovan med ditt domännamn för att få rätt program URL: er för din klient.
+
+Om du vill att andra program med hjälp av vår tyst inloggning berätta för oss i avsnittet feedback.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Stöder sömlös SSO `Alternate ID` som användarnamn, i stället för `userPrincipalName`?
 

@@ -1,6 +1,6 @@
 ---
-title: "Skyddar redundansväxlade virtuella Azure-datorer tillbaka till den primära regionen som Azure med Azure Site Recovery | Microsoft Docs"
-description: "Beskriver hur du skyddar virtuella Azure-datorer i en sekundär region efter växling från en primär region med hjälp av Azure Site Recovery."
+title: Skyddar redundansväxlade virtuella Azure-datorer tillbaka till den primära regionen som Azure med Azure Site Recovery | Microsoft Docs
+description: Beskriver hur du skyddar virtuella Azure-datorer i en sekundär region efter växling från en primär region med hjälp av Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: 47056c85c6cb66a7fa28d623a4472b827d970dab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4171a904626d3b624b39b8a3a261df0d342012df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Skyddar redundansväxlade virtuella Azure-datorer till den primära regionen
 
@@ -57,7 +57,8 @@ Du kan anpassa följande egenskaper för målet VMe under återaktivera skydd.
 |---------|---------|
 |Målresursgruppen     | Ändra målresursgruppen där den virtuella datorn skapas. Målet VM som del av återaktivera skydd, har tagits bort. Du kan välja en ny resursgrupp som du vill skapa den virtuella datorn efter växling vid fel under.        |
 |Mål virtuellt nätverk     | Målnätverket kan inte ändras under Skapa nytt jobb. Gör om nätverksmappningen om du vill ändra i nätverket.         |
-|Mål-Lagringskontot     | Du kan ändra lagringskontot som den virtuella datorn använder efter växling vid fel.         |
+|Mål-Lagringskontot (sekundära virtuella datorn inte använder hanterade diskar)     | Du kan ändra lagringskontot som den virtuella datorn använder efter växling vid fel.         |
+|Replik hanterade diskar (sekundär virtuell dator använder hanterade diskar)    | Site Recovery skapar diskar replik som hanteras i den primära regionen för spegling av hanterade diskar för den sekundära virtuella datorn.         | 
 |Cache Storage     | Du kan ange ett cache-lagringskonto som ska användas vid replikering. Som standard är ett nytt lagringskonto för cachen skapas om den inte finns.         |
 |Tillgänglighetsuppsättning     |Om den virtuella datorn i den sekundära regionen är en del av en tillgänglighetsuppsättning, kan du välja en tillgänglighetsuppsättning för målet VM i den primära regionen. Site Recovery som standard försöker hitta den befintliga tillgänglighetsuppsättning i den primära regionen och använda den. Vid anpassning, kan du ange en ny tillgänglighetsuppsättning.         |
 
@@ -68,7 +69,8 @@ Som standard sker följande:
 
 1. Ett cache-lagringskonto skapas i den primära regionen
 2. Om mål-lagringskontot (det ursprungliga storage-kontot i den primära regionen) inte finns, skapas en ny. Tilldelade lagringskontonamn är namnet på lagringskontot som används av den sekundära virtuella datorn med ”asr” suffixet.
-3. Om tillgänglighet måluppsättningen inte finns, skapas en ny som en del av jobbet skydda igen om det behövs. Om du har anpassade inställningar för återaktivera skydd används den markerade uppsättningen.
+3. Om den virtuella datorn använder hanterade diskar, replik hanteras diskar skapas i den primära regionen att lagra data som replikeras från den sekundära Virtuella diskar. 
+4. Om tillgänglighet måluppsättningen inte finns, skapas en ny som en del av jobbet skydda igen om det behövs. Om du har anpassade inställningar för återaktivera skydd används den markerade uppsättningen.
 
 När du utlösa ett jobb som skyddar och målet VM finns inträffar följande:
 

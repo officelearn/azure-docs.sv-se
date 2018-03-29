@@ -1,19 +1,19 @@
 ---
-title: "Azure-snabbstart – Ladda upp, ladda ned och lista blobar i Azure Storage med Azure CLI | Microsoft Docs"
-description: "I den här snabbstarten använder du Azure CLI för att skapa ett lagringskonto och en behållare. Sedan använder du CLI för att ladda upp en blob till Azure Storage, ladda ned en blob och lista blobarna i en behållare."
+title: Azure-snabbstart – Ladda upp, ladda ned och lista blobar i Azure Storage med Azure CLI | Microsoft Docs
+description: I den här snabbstarten använder du Azure CLI för att skapa ett lagringskonto och en behållare. Sedan använder du CLI för att ladda upp en blob till Azure Storage, ladda ned en blob och lista blobarna i en behållare.
 services: storage
-author: tamram
+author: roygara
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
-ms.author: tamram
-ms.openlocfilehash: 2c567f06ca501799c895448c54955c8858705611
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.author: rogarana
+ms.openlocfilehash: 673392f393d3fb5d7351c0b4ad4782179a99da2a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Azure CLI
 

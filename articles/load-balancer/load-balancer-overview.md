@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 4f46e796ff1ab85c0061c70ff9a725a6945a4f5d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3a5d1e897d8ffe063ecf9277bef346c8b7c5092b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-load-balancer-overview"></a>Översikt över belastningsutjämnaren i Azure
 
@@ -41,7 +41,7 @@ Azure belastningsutjämnare kan användas för att:
 
 
 >[!NOTE]
-> Azure tillhandahåller en uppsättning helt hanterad lösningar för dina scenarier för belastningsutjämning.  Om du letar efter TLS uppsägning (”SSL avlastning”) eller HTTP/HTTPS application layer bearbetning, granska [Programgateway](../application-gateway/application-gateway-introduction.md).  Om du behöver för globala DNS belastningsutjämning, granska [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Slutpunkt till slutpunkt-scenarier kan dra nytta av att kombinera dessa lösningar efter behov.
+> Azure tillhandahåller en uppsättning helt hanterad lösningar för dina scenarier för belastningsutjämning.  Om du behöver för TLS-avslutning (”SSL avlastning”) eller per HTTP/HTTPS-begäran application layer bearbetning, granska [Programgateway](../application-gateway/application-gateway-introduction.md).  Om du behöver för globala DNS belastningsutjämning, granska [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Slutpunkt till slutpunkt-scenarier kan dra nytta av att kombinera dessa lösningar efter behov.
 
 ## <a name="what-is-load-balancer"></a>Vad är belastningsutjämnare?
 
@@ -107,7 +107,7 @@ Azure belastningsutjämnare stöder två olika SKU: er: Basic och Standard.  Det
 Beroende på vilket SKU är valt, kan konfigurationsdetaljer för hela scenariot dock variera. I dokumentationen till belastningsutjämnaren anropar när det gäller en artikel till en specifik SKU. Granska följande tabellen nedan för att jämföra och förstå skillnaderna.  Granska [Standard översikt över belastningsutjämnare belastningen](load-balancer-standard-overview.md) för mer information.
 
 >[!NOTE]
-> Nya designer ska använda Standard belastningsutjämnare. 
+> Nya Designer bör använda Standard belastningsutjämnaren. 
 
 Fristående virtuella datorer, tillgänglighetsuppsättningar och skalningsuppsättningar i virtuella datorer kan bara vara ansluten till en SKU aldrig båda. När det används med offentliga IP-adresser, både belastningsutjämnare och offentliga IP-adressen SKU måste överensstämma. Belastningsutjämnare och offentliga IP-SKU: er är inte föränderliga.
 
@@ -118,15 +118,15 @@ _Det är bäst att ange de SKU: er explicit, även om det inte är ännu obligat
 
 | | [Standard-SKU](load-balancer-standard-overview.md) | Grundläggande SKU |
 | --- | --- | --- |
-| Storlek för backend-pool | upp till 1 000 instanser | upp till 100 instanser|
+| Storlek för backend-pool | upp till 1 000 instanser | upp till 100 instanser |
 | Backend-pool-slutpunkter | En virtuell dator i ett enda virtuellt nätverk, inklusive blandning av virtuella datorer, tillgänglighetsuppsättningar virtuella datorn anger. | virtuella datorer i en enda tillgänglighet eller en virtuell dator skala |
 | Tillgänglighetszoner | Zonredundant och zonal frontends för inkommande och utgående, utgående flöden mappningar klara zonen fel, cross-zon belastningsutjämning | / |
-| Diagnostik | Övervakare för Azure flerdimensionella mått, t.ex. byte och paket räknare, hälsa avsökning status, anslutningsförsök (TCP SYN), utgående anslutningshälsa (SNAT lyckade och misslyckade flöden), aktiva data plan mått | Azure logganalys för offentliga belastningsutjämnare, SNAT uttömning avisering, backend poolen hälsa antal |
+| Diagnostik | Övervakare för Azure flerdimensionella mått, t.ex. byte och paket räknare, hälsa avsökning status, anslutningsförsök (TCP SYN), utgående anslutningshälsa (SNAT lyckade och misslyckade flöden), aktiva data plan mått | Azure Log Analytics för offentliga belastningsutjämnare, SNAT uttömning avisering, backend poolen hälsa antal |
 | Hög tillgänglighet portar | Interna belastningsutjämnare | / |
-| Som standard | offentliga IP- och belastningsutjämnare slutpunkter alltid som standard stängs, säkerhetsgrupp för nätverk som används för att uttryckligen godkända | Standardvärden öppnas nätverkssäkerhetsgruppen som är valfritt |
-| Utgående anslutningar | Flera frontends per regel CEIP. Associering av en virtuell dator med en utgående adress _måste_ skapas explicit.  Detta omfattar att anslutningen till andra Azure-PaaS-tjänster eller [VNet Tjänsteslutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md) måste användas. Utgående anslutningar via standard SNAT är inte tillgängliga när bara en intern belastningsutjämnare används av en virtuell dator. | Enskild klientdel. Standard SNAT används när endast interna belastningsutjämnare används av en virtuell dator |
+| Som standard | standard stängd för offentliga IP- och belastningsutjämnare slutpunkter och en nätverkssäkerhetsgrupp måste användas för att explicit godkända för trafiken flöda | standard öppen nätverkssäkerhetsgruppen valfria |
+| Utgående anslutningar | Flera frontends med per regel CEIP. Ett scenario för utgående _måste_ skapas explicit för den virtuella datorn för att kunna använda utgående anslutning.  [VNet Tjänsteslutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md) kan nås utan utgående anslutning och räknas inte mot data som bearbetas.  Alla offentliga IP-adresser, inklusive Azure PaaS tjänster inte är tillgängliga som VNet Tjänsteslutpunkter måste uppnås via utgående anslutning och antal mot data som bearbetas. När bara en intern belastningsutjämnare används av en virtuell dator, är utgående anslutningar via standard SNAT inte tillgängliga. Utgående SNAT programmering är transportprotokollet specifika baserat på protokollet för inkommande regel för belastningsutjämning. | Enskild klientdel slumpmässigt valda när det finns flera frontends.  När endast interna belastningsutjämnare används av en virtuell dator, används standardvärdet SNAT. |
 | Flera frontends | Inkommande och utgående | Endast inkommande |
-| Åtgärder | De flesta åtgärder < 30 sekunder | 60-90 sekunder vanliga |
+| Hanteringsåtgärder | De flesta åtgärder < 30 sekunder | 60-90 sekunder vanliga |
 | SLA | 99,99% för datasökväg med två felfri virtuella datorer | Implicit i VM SLA | 
 | Prissättning | Debiteras baserat på antalet regler bearbetade data inkommande eller utgående som hör till resursen  | Utan kostnad |
 

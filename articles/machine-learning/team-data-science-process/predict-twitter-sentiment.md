@@ -1,24 +1,24 @@
 ---
-title: "Förutsäga Twitter-åsikter med word inbäddningar med hjälp av Team av vetenskapliga data i Azure | Microsoft Docs"
-description: "De steg som behövs för att köra datavetenskap projekt."
+title: Förutsäga Twitter-åsikter med word inbäddningar med hjälp av Team av vetenskapliga data i Azure | Microsoft Docs
+description: De steg som behövs för att köra datavetenskap projekt.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: bradsev;
-ms.openlocfilehash: 9bae3971f438659c121bfc18a23746a016e5ef97
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.author: bradsev
+ms.openlocfilehash: f22da892868a10ac18fdcd703249eaa172f8bf65
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Förutsäga Twitter-åsikter med word inbäddningar med hjälp av Team av vetenskapliga data
 
@@ -129,7 +129,7 @@ Toning förstärkning modellen med funktionen SSWE ger bästa prestanda när du 
 
 Det sista steget är distributionen av utbildade sentiment förutsägelse modellen till en webbtjänst på ett kluster i Azure Container Service. Modellen toning förstärkning används med algoritmen SSWE inbäddning som den tränade modellen. Operationalization miljön etablerar Docker och Kubernetes i klustret för att hantera distributionen av webbtjänsten som visas i följande bild: 
 
-![Kubernetes instrumentpanelen](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
+![Kubernetes-instrumentpanel](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
 Läs mer om operationalization [distribuera en Azure Machine Learning-modell som en webbtjänst](../preview/model-management-service-deploy.md).
 

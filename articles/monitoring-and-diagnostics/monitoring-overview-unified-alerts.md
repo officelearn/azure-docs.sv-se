@@ -12,59 +12,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/23/2018
 ms.author: mamit
 ms.custom: ''
-ms.openlocfilehash: bc9d788367ab14751f9f9158ac88149dc420368a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 356988e8ae743d73c8e2cc7cc106cbc5b0d1a423
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="explore-the-alerts-experience-in-azure-monitor"></a>Utforska aviseringar upplevelse i Azure-Monitor
+# <a name="the-new-alerts-experience-in-azure-monitor"></a>Nya aviseringar uppstår i Azure-Monitor
 
 ## <a name="overview"></a>Översikt
- Aviseringar upplevelse i Azure har en ny ser ut och uppdaterade funktionerna. Den nya upplevelsen är tillgänglig från den **aviseringar** under Azure-Monitor på fliken. Följande är några av fördelarna med att använda den nya aviseringar upplevelsen jämfört med aviseringar (klassisk)-upplevelse:
+Aviseringar har nya upplevelsen. Äldre aviseringar upplevelse är nu under fliken aviseringar (klassisk). Den nya aviseringar miljön har följande fördelar över aviseringar (klassisk)-upplevelse:
 
- - **Uppdelning av Fired aviseringar och avisering regler** – i den nya aviseringar upplevelsen avisering regler (definition av villkor som utlöser en avisering) och utlöses aviseringar (en instans av varningsregeln att) särskiljs därför operativa och konfiguration av vyer är åtskilda.
- - **En enhetlig redigering miljö för måttet, aktivitetsloggen och logga varningar** - nya aviseringar redigering upplevelse guider användaren längs processen att konfigurera en aviseringsregel, vilket gör det enklare att identifiera rätt saker att få ett meddelande om.
- - **Visa utlöses logganalys aviseringar i Azure-portalen** -upplevelse i aviseringar, nu kan du också se utlöses logganalys aviseringar i din prenumeration.  
+ - **Uppdelning av Fired aviseringar och avisering regler** - avisering regler (definition av villkor som utlöser en avisering) och utlöses aviseringar (en instans av varningsregeln att) särskiljs så vyer för drift och konfiguration är åtskilda.
+ - **En enhetlig redigering miljö** – alla Varna skapande för statistik, loggar och aktiviteten logga via Azure-Monitor, Log Analytics och Application Insights finns på en plats. 
+ - **Visa utlöses logganalys aviseringar i Azure-portalen** -du kan nu också se utlöses logganalys aviseringar i din prenumeration. Tidigare var dessa i en separat portal. 
+ - **Bättre arbetsflöde** - nya aviseringar redigering upplevelse guider användaren längs processen att konfigurera en aviseringsregel, vilket gör det enklare att identifiera rätt saker att få ett meddelande om.
  
 
 I följande avsnitt beskrivs, i detalj, hur den nya upplevelsen fungerar.
 
-## <a name="taxonomy"></a>Taxonomy
-Aviseringar upplevelsen använder följande begrepp för att separera Aviseringsregel och utlöste aviseringen objekt när enhetlig redigering användarupplevelse av alla olika aviseringstyper.
+## <a name="alert-rules-terminology"></a>Varningsregler terminologi
+Den nya aviseringar upplevelsen använder följande begrepp för att separera Aviseringsregel och utlöste aviseringen objekt när enhetlig redigering användarupplevelse av alla olika aviseringstyper.
 
 - **Rikta resurs** -ett mål kan vara Azure-resurser. Målresurs definierar omfång och signaler som är tillgängliga för aviseringar. Exempel mål: en virtuell dator, ett lagringskonto, en skaluppsättning för virtuell dator, en logganalys-arbetsytan eller Application Insights-resurs.
 
 - **Kriterier** - kriteriet är en kombination av Signal och logik tillämpas på en målresurs. Exempel: Procent CPU > 70%, serversvarstid > 4 ms, antal resultat av en logg fråga > 100 osv. 
 
-- **Signal** – signalerar sänds av målresurs och kan vara av flera typer. Den här förhandsversionen stöder **mått**, **aktivitetsloggen**, **Programinsikter** och **loggen** som signaltyper.
+- **Signal** – signalerar sänds av målresurs och kan vara av flera typer. **Måttet**, **aktivitetsloggen**, **Programinsikter**, och **loggen** är signaltyper som stöds.
 
 - **Logik** -användardefinierade logik för att kontrollera om signalen förväntade intervall/värden.  
  
-- **Åtgärden** -ett specifikt anrop som skickas till en mottagare av ett meddelande (till exempel e-posta en adress eller bokföring till en Webhooksadressen). Meddelanden kan vanligtvis utlösa flera åtgärder. Aviseringstyper som stöds i den här förhandsgranskningen supportgrupper för åtgärden.  
+- **Åtgärden** – en specifik åtgärd när aviseringen utlöses. Till exempel e-posta en e-postadress eller anropa en Webhooksadressen. Flera åtgärder kan uppstå när en avisering utlöses. Dessa aviseringar stöd för åtgärdsgrupper.  
  
-- **Varningsregeln** -definitionen av ett villkor som ska utlösa aviseringen. I den här förhandsgranskningen avisering regeln samlar in mål- och villkor för aviseringar. Varningsregeln kan vara i ett aktiverat eller inaktiverat tillstånd.
+- **Varningsregeln** -villkoret som ska utlösa aviseringen. Regeln samlar in mål- och villkor för aviseringar. Varningsregeln kan vara i ett aktiverat eller inaktiverat tillstånd.
  
     > [!NOTE]
     > Detta skiljer sig från aviseringar (klassisk)-upplevelse där aviseringen representerar både regeln och Eldad aviseringen och därför kan det vara i något av varning, aktiv eller inaktiverad tillstånd.
     >
 
 ## <a name="single-place-to-view-and-manage-alerts"></a>Enda plats att visa och hantera aviseringar
-Målet av aviseringar (förhandsversion) är att vara den enda platsen att visa och hantera alla dina Azure-aviseringar. Följande avsnitt beskriver funktionerna i varje enskild skärmen i den nya upplevelsen.
+Målet aviseringar erfarenhet är att vara den enda platsen att visa och hantera alla dina Azure-aviseringar. Följande avsnitt beskriver funktionerna i varje enskild skärmen i den nya upplevelsen.
 
-### <a name="alerts-preview-overview-page"></a>Aviseringsöversikt (förhandsgranskning)
-**Övervakaren - aviseringar (förhandsgranskning)** översiktssidan visar aggregerade sammanfattning av alla Eldad aviseringar och totalt konfigurerats aktiveras Varningsregler. Den visar även en lista över alla Eldad aviseringar. Ändra prenumerationer eller filterparametrarna uppdaterar aggregat och aviseringarna utlöses lista.
+### <a name="alerts-overview-page"></a>Aviseringsöversikt
+**Övervakaren - aviseringar** översiktssidan visar aggregerade sammanfattning av alla Eldad aviseringar och totalt konfigurerats aktiveras Varningsregler. Den visar även en lista över alla Eldad aviseringar. Ändra prenumerationer eller filterparametrarna uppdaterar aggregat och aviseringarna utlöses lista.
 
 > [!NOTE]
-> Eldad aviseringar som visas i aviseringar som är begränsade till stöds mått och activitylog aviseringar; Översikt över Azure övervakaren visar antalet brand aviseringar, inklusive de på äldre Azure aviseringar
+> Eldad aviseringar som visas i aviseringar som är begränsade till stöds mått och aktivitet Logga varningar; Översikt över Azure övervakaren visar antalet Eldad aviseringar, inklusive de på äldre Azure aviseringar
 
  ![Översikt över aviseringar](./media/monitoring-overview-unified/alerts-preview-overview.png) 
 
 ### <a name="alert-rules-management"></a>Varningsregler management
-**Övervakaren - aviseringar (förhandsgranskning) > regler** är en enstaka sida för att hantera alla Varningsregler över dina Azure-prenumerationer. Visar alla Varningsregler (aktiverat eller inaktiverat) och kan sorteras utifrån target-resurser, resursgrupper, regelnamn eller status. Varningsregler kan även aktiveras eller inaktiveras eller redigeras från den här sidan.  
+**Övervakaren - aviseringar > regler** är en enstaka sida för att hantera alla Varningsregler över dina Azure-prenumerationer. Visar alla Varningsregler (aktiverat eller inaktiverat) och kan sorteras utifrån target-resurser, resursgrupper, regelnamn eller status. Varningsregler kan även aktiveras eller inaktiveras eller redigeras från den här sidan.  
 
  ![regler för aviseringar](./media/monitoring-overview-unified/alerts-preview-rules.png)
 
@@ -75,19 +76,19 @@ Aviseringar kan skrivas i ett konsekvent sätt oavsett övervakningstjänsten el
 Redigera en avisering är en aktivitet i tre steg där användaren först hämtar ett mål för aviseringen, följt av att välja rätt signalen och sedan ange logiken som ska tillämpas på signalen som en del av regeln. Förenklad redigering processen kräver inte längre att användaren vet övervakning käll- eller signaler som stöds innan du väljer en Azure-resurs. Vanliga redigeringsfunktionerna automatiskt filtrerar listan över tillgängliga signalerar baserat på valda målresurs och hjälper att skapa aviseringen logik
 
 Du kan lära dig mer om hur du skapar följande aviseringstyper [här](monitor-alerts-unified-usage.md).
-- Mått aviseringar (kallas nära realtid mått aviseringar i aktuella experience)
+- Måttaviseringar
 - Loggen aviseringar (logganalys)
 - Loggen aviseringar (aktivitetsloggar)
 - Loggen aviseringar (Application Insights)
 
  
 
-## <a name="alert-types-supported-in-this-preview"></a>Aviseringstyper som stöds i den här förhandsgranskningen
+## <a name="alert-types-supported"></a>Aviseringstyper som stöds
 
 
 | **Typen av signal** | **Övervakare för källa** | **Beskrivning** | 
 |-------------|----------------|-------------|
-| Mått | Övervakare för Azure | Kallas [ **nära realtid mått aviseringar**](monitoring-near-real-time-metric-alerts.md), aviseringarna mått utvärderar mått villkor så ofta som 1 min. och för flera mått regler. En lista över resurstyper som stöds är tillgänglig [här](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported). Äldre mått aviseringar enligt [här](monitoring-overview-alerts.md#alerts-in-different-azure-services) stöds inte i den nya aviseringar upplevelse. Du hittar dem under aviseringar (klassisk)|
+| Mått | Övervakare för Azure | Kallas även [ **nära realtid mått aviseringar**](monitoring-near-real-time-metric-alerts.md), aviseringarna mått utvärderar mått villkor så ofta som 1 min. och för flera mått regler. En lista över resurstyper som stöds är tillgänglig [här](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported). Äldre mått aviseringar enligt [här](monitoring-overview-alerts.md#alerts-in-different-azure-services) stöds inte i den nya aviseringar upplevelse. Du hittar dem under aviseringar (klassisk)|
 | Logs  | Log Analytics | Ta emot meddelanden eller köra automatiserade åtgärder när en logg sökfråga över mått och/eller händelse data uppfyller vissa villkor.|
 | Aktivitetslogg | Aktivitetsloggar | Den här kategorin innehåller poster för alla skapa, uppdatera, och ta bort åtgärder som utförs via det valda målet (resursen/resursgruppen grupp eller prenumeration). |
 | Logs  | Tjänsten hälsa loggar | Stöds inte i aviseringar upplevelse.   |

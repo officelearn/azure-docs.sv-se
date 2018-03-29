@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: SQL Node.js API, SDK & resurser | Microsoft Docs'
-description: "Lär dig mer om SQL Node.js API och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av Azure Cosmos DB Node.js SDK."
+description: Lär dig mer om SQL Node.js API och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av Azure Cosmos DB Node.js SDK.
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8869d8a8eead8bdaeda5dc1d6eeb2f81b16928e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 58d043ac7037567d37321cb874804ad0e6cb5ed8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/02/2018
 > * [.NET ändra Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Asynkrona Java](sql-api-sdk-async-java.md)
+> * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -35,8 +35,6 @@ ms.lasthandoff: 03/02/2018
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -164,7 +162,7 @@ ms.lasthandoff: 03/02/2018
 
 ### <a name="1.2.0"/>1.2.0</a>
 * Stöd för GeoSpatial indexet har lagts till.
-* Verifierar id-egenskapen för alla resurser. ID för resurser kan inte innehålla?, /, #, &#47; &#47; tecken eller sluta med ett blanksteg.
+* Verifierar id-egenskapen för alla resurser. ID för resurser kan inte innehålla?, /, #, &#47; &#47;, tecken eller sluta med ett blanksteg.
 * Lägger till nya rubriken ”index omvandling pågår” ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0</a>

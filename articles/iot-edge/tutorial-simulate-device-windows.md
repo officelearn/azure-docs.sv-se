@@ -1,8 +1,8 @@
 ---
-title: "Simulera Azure IoT kanten på Windows | Microsoft Docs"
-description: "Installera Azure IoT kant körning på en simulerad enhet i Windows och distribuera din första modulen"
+title: Simulera Azure IoT kanten på Windows | Microsoft Docs
+description: Installera Azure IoT kant körning på en simulerad enhet i Windows och distribuera din första modulen
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0207418cf71902ce9bc9d2911124d1d46889d893
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: ae974162a460289a34443879a9e78224684d94ed
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Distribuera Azure IoT kanten på en simulerad enhet i Windows - förhandsgranskning
 
@@ -31,7 +31,7 @@ I den här självstudiekursen får du lära du dig att:
 
 Den simulerade enheten som du skapar i den här kursen är en Övervakare på en vind turbin som genererar temperatur, fuktighet och tryck data. Du är intresserad av den här informationen eftersom din turbiner utföras på olika nivåer av effektivitet beroende på väder. Andra kurser i Azure IoT kant bygger på det arbete som du gör här genom att distribuera moduler som analyserar data för affärsinsikter. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här kursen förutsätter att du använder en dator eller virtuell dator som kör Windows för att simulera en Sakernas Internet-enhet. 
 
@@ -86,7 +86,7 @@ IoT kant runtime distribueras på alla kant för IoT-enheter. Det består av tv�
 Konfigurera körningen med anslutningssträngen IoT kant enheten från föregående avsnitt.
 
 ```cmd
-iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Starta körningen.

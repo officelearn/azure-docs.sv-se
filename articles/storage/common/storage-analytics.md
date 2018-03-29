@@ -1,10 +1,10 @@
 ---
-title: "Använd Azure Storage Analytics för att samla in loggar och mått data | Microsoft Docs"
-description: "Storage Analytics gör det möjligt att spåra mått data för alla storage-tjänster och för att samla in loggar för lagring av Blob, köer och tabellen."
+title: Använd Azure Storage Analytics för att samla in loggar och mått data | Microsoft Docs
+description: Storage Analytics gör det möjligt att spåra mått data för alla storage-tjänster och för att samla in loggar för lagring av Blob, köer och tabellen.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 7894993b-ca42-4125-8f17-8f6dfe3dca76
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: tamram
-ms.openlocfilehash: 9ae9dd0b078911a695d441cd3891be720dc204ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rogarana
+ms.openlocfilehash: edda01cbfe1b53d934f9f4a7bb01c645fa680873
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="storage-analytics"></a>Lagringsanalys
 
@@ -79,7 +79,7 @@ I följande tabell beskrivs alla attribut i namnet på loggen.
 
 | Attribut | Beskrivning |
 | --- | --- |
-| < tjänstnamn > |Namnet på storage-tjänst. Till exempel: blob-, tabell- eller köberoenden. |
+| <service-name> |Namnet på storage-tjänst. Till exempel: blob-, tabell- eller köberoenden. |
 | ÅÅÅÅ |Fyrsiffriga år för loggen. Till exempel: 2011. |
 | MM |Månad med två siffror i loggen. Till exempel: 07. |
 | DD |Månad med två siffror i loggen. Till exempel: 07. |
@@ -95,7 +95,7 @@ Följande är ett exempel på en URI som kan användas för åtkomst till den ti
 
     https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log
 
-När en begäran om lagring loggas motsvarar resulterande loggnamn timmen när den begärda åtgärden slutförts. Om exempelvis en begäran om GetBlob slutfördes klockan 6:30. loggen skulle skrivas med prefixet på 2011-7-31:`blob/2011/07/31/1800/`
+När en begäran om lagring loggas motsvarar resulterande loggnamn timmen när den begärda åtgärden slutförts. Om exempelvis en begäran om GetBlob slutfördes klockan 6:30. loggen skulle skrivas med prefixet på 2011-7-31: `blob/2011/07/31/1800/`
 
 ### <a name="log-metadata"></a>Log-metadata
 Alla loggen BLOB lagras med metadata som kan användas för att identifiera vilka loggningsdata som innehåller blob. I följande tabell beskrivs varje metadataattribut.
@@ -109,10 +109,10 @@ Alla loggen BLOB lagras med metadata som kan användas för att identifiera vilk
 
 Följande lista visar fullständigt exempel metadata med hjälp av föregående exempel.
 
-* LogType = skriva
-* StartTime = 2011-07-31T18:21:46Z
-* EndTime = 2011-07-31T18:22:09Z
-* LogVersion = 1.0
+* LogType=write
+* StartTime=2011-07-31T18:21:46Z
+* EndTime=2011-07-31T18:22:09Z
+* LogVersion=1.0
 
 ### <a name="accessing-logging-data"></a>Åtkomst till loggningsdata
 Alla data i den `$logs` behållare kan nås med hjälp av API: er för Blob-tjänsten, inklusive .NET API: er som tillhandahålls av Azure hanterade biblioteket. Lagringskontoadministratören kan läsa och ta bort loggar, men det går inte att skapa eller uppdatera dem. Både den log-metadata och loggnamn kan användas när du frågar efter en logg. Det är möjligt för en given timme loggarna visas i ordning, men metadata anger alltid timespan poster i en logg. Därför kan du använda en kombination av namn på loggen och metadata när du söker efter en viss logg.
@@ -157,7 +157,7 @@ Alla mätvärdesdata för var och en av lagringstjänsterna lagras i tre tabelle
 | Minut statistik, sekundär plats |$MetricsMinuteSecondaryTransactionsBlob <br/>$MetricsMinuteSecondaryTransactionsTable <br/>$MetricsMinuteSecondaryTransactionsQueue |Alla versioner, inklusive 2013-08-15. Läsbehörighet geo-redundant replikering måste aktiveras. |
 | Kapacitet (endast Blob-tjänst) |$MetricsCapacityBlob |Alla versioner, inklusive 2013-08-15. |
 
-Dessa tabeller skapas automatiskt när Storage Analytics har aktiverats för ett lagringskonto. De kan nås via namnområdet för lagringskontot, till exempel:`https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`
+Dessa tabeller skapas automatiskt när Storage Analytics har aktiverats för ett lagringskonto. De kan nås via namnområdet för lagringskontot, till exempel: `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`
 
 ### <a name="accessing-metrics-data"></a>Dataåtkomst mått
 Alla data i tabellerna mått kan nås med hjälp av tabelltjänsten API: er, inklusive .NET API: er som tillhandahålls av Azure hanterade biblioteket. Lagringskontoadministratören kan läsa och ta bort tabellentiteter, men det går inte att skapa eller uppdatera dem.

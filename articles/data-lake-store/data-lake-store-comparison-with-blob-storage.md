@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Store jämförelse med Azure Storage Blob | Microsoft Docs"
-description: "Azure Data Lake Store jämförelse med Azure Storage Blob"
+title: Azure Data Lake Store jämförelse med Azure Storage Blob | Microsoft Docs
+description: Azure Data Lake Store jämförelse med Azure Storage Blob
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a8831278ef0e83571bf05d48e5d671f8dee92850
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: acdd829785c44f6683c356c135587be183cce392
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Jämförelse mellan Azure Data Lake Store och Azure Blob Storage
 Tabellen nedan sammanfattar skillnaderna mellan Azure Data Lake Store och Azure Blob Storage längs vissa viktiga aspekter av stora databearbetning. Azure Blob Storage är en generell, lager skalbara objekt som är avsedd för en mängd olika scenarier för lagring. Azure Data Lake Store är en storskalig lagringsplats som är optimerad för arbetsbelastningar för analyser av stordata.
@@ -34,7 +34,7 @@ Tabellen nedan sammanfattar skillnaderna mellan Azure Data Lake Store och Azure 
 | Hadoop-filen System klienten |Ja |Ja |
 | Dataåtgärder - autentisering |Baserat på [identiteter med Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) |Baserat på delade hemligheter - [Åtkomstnycklarna konto](../storage/common/storage-create-storage-account.md#manage-your-storage-account) och [delade snabbtangenter signatur](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Dataåtgärder - autentiseringsprotokoll |OAuth 2.0. Anrop måste innehålla en giltig JWT som (JSON Web Token) utfärdat av Azure Active Directory |Hashbaserad meddelandeautentiseringskod (HMAC). Anrop måste innehålla en Base64-kodad SHA-256-hash över en del av HTTP-begäran. |
-| Dataåtgärder - auktorisering |POSIX åtkomstkontrollistor (ACL).  ACL: er baserat på Azure Active Directory identiteter kan ställas in fil- och nivå. |Kontonivå auktorisering – Använd [Åtkomstnycklarna för konto](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Använd för konto, behållare eller auktorisering av blob - [delade signatur snabbtangenter](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
+| Dataåtgärder - auktorisering |POSIX åtkomstkontrollistor (ACL).  ACL: er baserat på Azure Active Directory identiteter kan ställas in på fil- och nivå. |Kontonivå auktorisering – Använd [Åtkomstnycklarna för konto](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Använd för konto, behållare eller auktorisering av blob - [delade signatur snabbtangenter](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Dataåtgärder - granskning |Tillgänglig. Se [här](data-lake-store-diagnostic-logs.md) information. |Tillgänglig |
 | Krypteringsdata i vila |<ul><li>Transparent, på serversidan</li> <ul><li>Med service-hanterade nycklar</li><li>Med kundhanterad nycklar i Azure KeyVault</li></ul></ul> |<ul><li>Transparent, på serversidan</li> <ul><li>Med service-hanterade nycklar</li><li>Med kundhanterad nycklar i Azure KeyVault (förhandsgranskning)</li></ul><li>Kryptering av klientsidan</li></ul> |
 | Hanteringsåtgärder (t.ex. Skapa konto) |[Rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-what-is.md) (RBAC) tillhandahålls av Azure för kontohantering |[Rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-what-is.md) (RBAC) tillhandahålls av Azure för kontohantering |
@@ -46,7 +46,4 @@ Tabellen nedan sammanfattar skillnaderna mellan Azure Data Lake Store och Azure 
 | Regional tillgänglighet |Se [här](https://azure.microsoft.com/regions/#services) |Tillgänglig i alla Azure-regioner |
 | Pris |Se [priser](https://azure.microsoft.com/pricing/details/data-lake-store/) |Se [priser](https://azure.microsoft.com/pricing/details/storage/) |
 
-### <a name="next-steps"></a>Nästa steg
-* [Översikt över Azure Data Lake Store](data-lake-store-overview.md)
-* [Kom igång med Data Lake Store](data-lake-store-get-started-portal.md)
 

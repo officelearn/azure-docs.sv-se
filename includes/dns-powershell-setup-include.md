@@ -8,11 +8,11 @@ ms.topic: include file for PowerShell for Azure DNS
 ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for PowerShell for Azure DNS
-ms.openlocfilehash: e96b312f03069256396261bd6efe2f2586cdadea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1ddfd1ae8dffbc5d381773ea9679713e93a44a32
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>Konfigurera Azure PowerShell för Azure DNS
 
@@ -27,7 +27,17 @@ Dessutom för att använda privata zoner (förhandsversion), måste du kontrolle
 * AzureRM.Dns - [version 4.1.0](https://www.powershellgallery.com/packages/AzureRM.Dns/4.1.0) eller senare
 * AzureRM.Network - [version 5.4.0](https://www.powershellgallery.com/packages/AzureRM.Network/5.4.0) eller senare
 
-Du kan hämta ovan moduler från PowerShell-galleriet med hjälp av länkarna ovan bredvid modul-versioner. Du kan installera dem med hjälp av den nedan kommandon. Båda modulerna som krävs och är helt bakåtkompatibla. 
+```powershell 
+Find-Module -Name AzureRM.Dns 
+``` 
+ 
+```powershell 
+Find-Module -Name AzureRM.Network 
+``` 
+ 
+Utdata från kommandona ovan behöver för att visa att versionen av AzureRM.Dns är 4.1.0 eller högre version, och för AzureRM.Network 5.4.0 eller en senare version.  
+
+Om systemet har tidigare versioner, kan du antingen installera den senaste versionen av Azure PowerShell eller hämta och installera ovan moduler från PowerShell-galleriet med hjälp av länkarna ovan bredvid modul-versioner. Du kan installera dem med hjälp av den nedan kommandon. Båda modulerna som krävs och är helt bakåtkompatibla. 
 
 ```powershell
 Install-Module -Name AzureRM.Dns -Force

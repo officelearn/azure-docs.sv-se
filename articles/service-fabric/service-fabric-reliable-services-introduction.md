@@ -1,6 +1,6 @@
 ---
-title: "Översikt över tillförlitlig tjänst för Service Fabric-programmeringsmodell | Microsoft Docs"
-description: "Lär dig mer om programmeringsmodell för tillförlitlig tjänst för Service Fabric och börja skriva egna tjänster."
+title: Översikt över tillförlitlig tjänst för Service Fabric-programmeringsmodell | Microsoft Docs
+description: Lär dig mer om programmeringsmodell för tillförlitlig tjänst för Service Fabric och börja skriva egna tjänster.
 services: Service-Fabric
 documentationcenter: .net
 author: masnider
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: 1cbc116a8d595cfea0e87cd17b556e005f276774
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 66e3939a59f09650ce76488c38eb46699ab9f63f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reliable-services-overview"></a>Översikt över Reliable Services
 Azure Service Fabric gör det enklare att skriva och hantera tillståndslösa och tillståndskänsliga Reliable Services. Detta avsnitt:
@@ -111,5 +111,5 @@ Om något av följande karaktäriserar behöver ditt program bör du överväga 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Snabbstart för Reliable Services](service-fabric-reliable-services-quick-start.md)
-* [Reliable Services avancerade användning](service-fabric-reliable-services-advanced-usage.md)
+* [Tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md)
 * [Programmeringsmodell för Reliable Actors](service-fabric-reliable-actors-introduction.md)

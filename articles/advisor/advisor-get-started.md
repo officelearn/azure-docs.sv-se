@@ -1,12 +1,12 @@
 ---
-title: "Kom igång med Azure Advisor | Microsoft Docs"
-description: "Kom igång med Azure Advisor."
+title: Kom igång med Azure Advisor | Microsoft Docs
+description: Kom igång med Azure Advisor.
 services: advisor
 documentationcenter: NA
 author: manbeenkohli
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: 5a7864597e50294c8e1227cbab7a3be73dde0a7f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cd64515beabec43a5209d62dccf2b55b21702c16
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Kom igång med Azure Advisor
 
@@ -35,10 +35,7 @@ Lär dig att komma åt Advisor via Azure portal, få rekommendationer och implem
 
 4. Advisor-instrumentpanelen visar en sammanfattning av rekommendationer för alla valda prenumerationer.  Du kan välja de prenumerationer som du vill rekommendationer som ska visas för att använda prenumerationen filtrera listrutan.
 
-5. Få rekommendationer för en viss kategori klickar du på någon av flikarna: **hög tillgänglighet**, **säkerhet**, **prestanda**, eller **kostnaden**.
- 
-> [!NOTE]
-> Du använder Azure Advisor med en prenumeration på en prenumeration *ägare* får starta Advisor-instrumentpanelen.  Den här åtgärden registrerar prenumerationen med Advisor.  Från den punkten på någon prenumeration *ägare*, *deltagare*, eller *Reader* kan komma åt Advisor-rekommendationer för prenumerationen.  
+5. Få rekommendationer för en viss kategori klickar du på någon av flikarna: **hög tillgänglighet**, **säkerhet**, **prestanda**, eller **kostnaden**. 
 
   ![Azure Advisor-instrumentpanelen](./media/advisor-overview/advisor-dashboard.png)
 

@@ -1,11 +1,11 @@
 ---
-title: "Konfiguration av vanliga frågor och svar för Azure-webbappar | Microsoft Docs"
-description: "Få svar på vanliga frågor och svar om konfiguration och hantering av problem för funktionen Web Apps i Azure App Service."
+title: Konfiguration av vanliga frågor och svar för Azure-webbappar | Microsoft Docs
+description: Få svar på vanliga frågor och svar om konfiguration och hantering av problem för funktionen Web Apps i Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Konfiguration och hantering av vanliga frågor och svar för Web Apps i Azure
 
@@ -251,7 +251,7 @@ Läs mer om schemalagda WebJobs [skapa schemalagda Webbjobb med hjälp av ett Cr
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Hur gör intrång testa för Apptjänst-app?
 
-Att utföra intrång tester [skicka en begäran om](https://security-forms.azure.com/penetration-testing/terms).
+Att utföra intrång tester [skicka en begäran om](https://portal.msrc.microsoft.com/en-us/engage/pentest).
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Konfigurera ett anpassat domännamn för en Apptjänst-webbapp som använder Traffic Manager?
 

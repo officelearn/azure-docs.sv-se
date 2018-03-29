@@ -1,11 +1,11 @@
 ---
-title: "Planera kapacitet för Service Fabric-kluster | Microsoft Docs"
-description: "Service Fabric-kluster kapacitetsplaneringsöverväganden. Nodetypes får, åtgärder, hållbarhet och tillförlitlighet nivåer"
+title: Planera kapacitet för Service Fabric-kluster | Microsoft Docs
+description: Service Fabric-kluster kapacitetsplaneringsöverväganden. Nodetypes får, åtgärder, hållbarhet och tillförlitlighet nivåer
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b39c22fb45b0e20a3aa7a6dcf59619a87df32ca1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-kluster kapacitetsplaneringsöverväganden
 För alla Produktionsdistribution är kapacitetsplanering ett viktigt steg. Här är några av de objekt som du måste väga som en del av den här processen.
@@ -69,7 +69,7 @@ Hållbarhetsnivån används för att ange att systemet de privilegier som din vi
 
 Den här behörigheten uttrycks i följande värden:
 
-* Guld - infrastruktur-jobb kan pausas under en period på två timmar per UD. Guld hållbarhet kan endast aktiveras fullständig nod VM SKU: er L32s, GS5, G5, DS15_v2 osv D15_v2 (i allmänhet VM-storlekar som anges i http://aka.ms/vmspecs som har markerats som ”instans är isolerad till maskinvara som är dedikerad till en kund” i noteringen Fullständig nod virtuella datorer)
+* Guld - infrastruktur-jobb kan pausas under en period på två timmar per UD. Guld hållbarhet kan endast aktiveras fullständig nod VM SKU: er L32s, GS5, G5, DS15_v2 osv D15_v2 (i allmänhet VM-storlekar som anges i http://aka.ms/vmspecs, som är markerade som ”instans är isolerad till maskinvara som är dedikerad till en kund” i noteringen, fullständig nod virtuella datorer)
 * Silver - infrastruktur-jobb kan pausas för en varaktighet på 10 minuter per UD och är tillgänglig på alla standard virtuella datorer med enkel kärna och senare.
 * Brons - inga privilegier. Detta är standardinställningen. Endast använda den här nivån av hållbarhet för nodtyper som kör _endast_ tillståndslösa arbetsbelastningar. 
 
@@ -87,7 +87,7 @@ Du får välja hållbarhet nivå för var och en av dina nodtyper. Du kan välja
 **Nackdelarna med att använda Silver eller guld hållbarhet nivåer**
  
 1. Distributioner till Skalningsuppsättning i virtuell dator och andra relaterade Azure-resurser) kan vara fördröjd, kan tar för lång tid eller blockeras helt efter problem i klustret eller på infrastrukturnivå. 
-2. Ökar antalet [replik Livscykelhändelser](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (till exempel primära växlingar) på grund av automatiserad nod avaktiveringar under Azure-infrastrukturen.
+2. Ökar antalet [replik Livscykelhändelser](service-fabric-reliable-services-lifecycle.md) (till exempel primära växlingar) på grund av automatiserad nod avaktiveringar under Azure-infrastrukturen.
 3. Tar noder out-of-service för tidsperioder när programuppdateringar för Azure-plattformen eller maskinvara Underhåll aktiviteter som utförs. Du kan se noder med status inaktiverar/inaktiverad under dessa aktiviteter. Detta minskar kapaciteten på klustret tillfälligt, men inte ska påverka tillgängligheten för ditt kluster eller ett program.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Rekommendationer för när du ska använda Silver eller guld hållbarhet nivåer
@@ -101,10 +101,10 @@ Använda Silver eller guld hållbarhet för alla nodtyper som värd för tillst�
 
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Operativa rekommendationer för noden ange att du har angett till silver eller guld hållbarhet nivå.
 
-1. Skydda klustret och program felfria vid alla tidpunkter och se till att program ska svara alla [tjänsten replik Livscykelhändelser](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (t.ex. replik i build har fastnat) inom rimlig tid.
+1. Skydda klustret och program felfria vid alla tidpunkter och se till att program ska svara alla [tjänsten replik Livscykelhändelser](service-fabric-reliable-services-lifecycle.md) (t.ex. replik i build har fastnat) inom rimlig tid.
 2. Anta säkrare sätt att göra en ändring (skala upp eller ned) för VM-SKU: ändra VM SKU för en Virtual Machine Scale Set kombination är en osäker åtgärd och så bör undvikas om möjligt. Här är den process som du kan följa för att undvika vanliga problem.
     - **För icke-primära nodetypes får:** bör du skapa nya virtuella datorn Scale Set, ändra begränsningen service placering för att inkludera den nya virtuella datorn Set/nodtypen och minska den gamla instansen för Skaluppsättning för virtuell dator Antal 0, en nod i taget (detta är att se till att ta bort noder inte påverkar tillförlitligheten i klustret).
-    - **För den primära nodetype:** vår rekommendation är att du inte ändrar den primära nodtypen VM SKU. Ändring av den primära nodtypen SKU inte stöds. Om orsaken till det nya SKU är kapacitet, rekommenderar vi att lägga till flera instanser. Om den inte kan skapa ett nytt kluster och [Återställ programtillstånd](service-fabric-reliable-services-backup-restore.md) (om tillämpligt) från ditt gamla kluster. Du behöver inte återställa alla service systemtillståndet kan de återskapas när du distribuerar ditt program till det nya klustret. Om du bara tillståndslösa program som körs på klustret och sedan behöver du bara distribuera ditt program till det nya klustret, du har inte något att återställa. Om du vill gå stöds inte vägen och vill ändra VM SKU gör du ändringar till Virtual Machine Scale ange modell-definitionen så att den återger den nya SKU: N. Om klustret har endast en nodetype, kontrollerar du att alla tillståndskänsliga program svarar på alla [tjänsten replik Livscykelhändelser](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (t.ex. replik i build har fastnat) i rimlig tid och att tjänsten repliken återskapa varaktighet är mindre än fem minuter (Silver hållbarhet nivå). 
+    - **För den primära nodetype:** vår rekommendation är att du inte ändrar den primära nodtypen VM SKU. Ändring av den primära nodtypen SKU inte stöds. Om orsaken till det nya SKU är kapacitet, rekommenderar vi att lägga till flera instanser. Om den inte kan skapa ett nytt kluster och [Återställ programtillstånd](service-fabric-reliable-services-backup-restore.md) (om tillämpligt) från ditt gamla kluster. Du behöver inte återställa alla service systemtillståndet kan de återskapas när du distribuerar ditt program till det nya klustret. Om du bara tillståndslösa program som körs på klustret och sedan behöver du bara distribuera ditt program till det nya klustret, du har inte något att återställa. Om du vill gå stöds inte vägen och vill ändra VM SKU gör du ändringar till Virtual Machine Scale ange modell-definitionen så att den återger den nya SKU: N. Om klustret har endast en nodetype, kontrollerar du att alla tillståndskänsliga program svarar på alla [tjänsten replik Livscykelhändelser](service-fabric-reliable-services-lifecycle.md) (t.ex. replik i build har fastnat) i rimlig tid och att tjänsten repliken återskapa varaktighet är mindre än fem minuter (Silver hållbarhet nivå). 
 
 
 > [!WARNING]

@@ -1,11 +1,11 @@
 ---
-title: "SQL Data Warehouse kapacitetsbegränsningar | Microsoft Docs"
-description: "Högsta tillåtna värden för anslutningar, databaser, tabeller och frågor för SQL Data Warehouse."
+title: SQL Data Warehouse kapacitetsbegränsningar | Microsoft Docs
+description: Högsta tillåtna värden för anslutningar, databaser, tabeller och frågor för SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: e1eac122-baee-4200-a2ed-f38bfa0f67ce
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 03/15/2018
+ms.date: 03/27/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: b1ff33f80a8dd0a0861a5c39731c9f59689db101
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fa7d8a9880ff97f30dc583d792e39aa914ea5435
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapacitetsbegränsningar
 Följande tabeller innehåller de högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
@@ -39,13 +39,13 @@ Följande tabeller innehåller de högsta värden som tillåts för olika kompon
 |:--- |:--- |:--- |
 | Databas |Maxstorlek |240 TB komprimerat på disk<br/><br/>Här är oberoende av utrymme i tempdb- eller loggfil och därför detta utrymme har reserverats för permanenta tabeller.  Det grupperade columnstore-komprimering uppskattas till 5 X.  Den här komprimeringen låter databasen växa till ungefär 1 PB när alla tabeller som är grupperade columnstore (standard tabelltyp). |
 | Tabell |Maxstorlek |60 TB komprimerat på disk |
-| Tabell |Tabeller per databas |2 miljarder |
+| Tabell |Tabeller per databas |10 000 |
 | Tabell |Kolumner per tabell |1 024 kolumner |
 | Tabell |Byte per kolumn |Beroende på kolumnen [datatyp][data type].  Gränsen är 8000 för datatyperna char, 4000 för nvarchar eller 2 GB för MAX-datatyper. |
 | Tabell |Byte per rad, definierad storlek |8 060 byte<br/><br/>Antalet byte per rad beräknas på samma sätt som för SQL Server med sidan komprimering. T.ex. SQL Server SQL Data Warehouse stöder raden spill lagringen, vilket gör att **kolumner med variabel längd** ska kunna skickas utanför raden. När variabel längd rader skickas utanför raden, lagras endast 24 byte roten i den huvudsakliga posten. Mer information finns i [raden spill Data mer än 8 KB][Row-Overflow Data Exceeding 8 KB]. |
 | Tabell |Partitioner per tabell |15,000<br/><br/>För hög prestanda, rekommenderar vi att minimera antalet partitioner måste du medan fortfarande stöd för dina affärsbehov. När antalet partitioner växer växer CPU-användningen för Data Definition Language (DDL) och Data Manipulation Language (DML) och orsakar långsammare. |
 | Tabell |Tecken per partition gränsvärdet. |4000 |
-| Index |Icke-grupperade index per tabell. |999<br/><br/>Gäller endast rowstore-tabeller. |
+| Index |Icke-grupperade index per tabell. |50<br/><br/>Gäller endast rowstore-tabeller. |
 | Index |Grupperade index per tabell. |1<br><br/>Gäller för både rowstore och columnstore-tabeller. |
 | Index |Indexnyckelstorleken. |900 byte.<br/><br/>Gäller endast rowstore-index.<br/><br/>Index för varchar kolumner med en maximal storlek på mer än 900 byte kan skapas om befintliga data i kolumnerna som inte överskrida 900 byte när indexet skapas. Dock Infoga senare eller uppdateringsåtgärder på de kolumner som orsakar den totala storleken överskrida 900 byte misslyckas. |
 | Index |Nyckelkolumner per index. |16<br/><br/>Gäller endast rowstore-index. Grupperade columnstore-index omfattar alla kolumner. |
@@ -72,8 +72,9 @@ Följande tabeller innehåller de högsta värden som tillåts för olika kompon
 | Välj |Kapslade underfrågor |32<br/><br/>Du kan aldrig ha fler än 32 kapslade underfrågor i en SELECT-instruktion. Det är inte säkert att du alltid har 32. Exempelvis kan en koppling införa en underfråga i frågeplanen. Antalet underfrågor kan också begränsas av tillgängligt minne. |
 | Välj |Kolumner per koppling |1 024 kolumner<br/><br/>Du kan aldrig ha fler än 1024 kolumner i KOPPLINGEN. Det är inte säkert att du alltid har 1024. Om koppling planen kräver en tillfällig tabell med fler kolumner än kopplingsresultatet, gäller 1024 gränsen den temporära tabellen. |
 | Välj |Antal byte per GROUP BY-kolumner. |8060<br/><br/>Kolumner i GROUP BY-satsen kan ha högst 8 060 byte. |
-| Välj |Byte per ORDER BY kolumner |8 060 byte.<br/><br/>Kolumner i ORDER BY-satsen kan ha högst 8 060 byte. |
-| Identifierare och konstanter per instruktionen |Antalet refererade identifierare och konstanter. |65,535<br/><br/>SQL Data Warehouse begränsar antalet identifierare och konstanter som kan finnas i ett enda uttryck i en fråga. Den här gränsen är 65 535. Överstiger det här antalet resultat i SQL Server-fel 8632. Mer information finns i [internt fel: en uttryckstjänstgräns har nåtts][Internal error: An expression services limit has been reached]. |
+| Välj |Byte per ORDER BY kolumner |8 060 byte<br/><br/>Kolumner i ORDER BY-satsen kan ha högst 8 060 byte |
+| Identifierare per instruktionen |Antalet refererade identifierare |65,535<br/><br/>SQL Data Warehouse begränsar antalet identifierare som kan finnas i ett enda uttryck i en fråga. Överstiger det här antalet resultat i SQL Server-fel 8632. Mer information finns i [internt fel: en uttryckstjänstgräns har nåtts][Internal error: An expression services limit has been reached]. |
+| Stränglitteraler | Antal stränglitteraler i ett uttryck | 20,000 <br/><br/>SQL Data Warehouse limites antalet strängkonstanter som kan finnas i ett enda uttryck i en fråga. Överstiger det här antalet resultat i SQL Server-fel 8632. Mer information finns i [internt fel: en uttryckstjänstgräns har nåtts][Internal error: An expression services limit has been reached]. |
 
 ## <a name="metadata"></a>Metadata
 | Visa system | Max antal rader |

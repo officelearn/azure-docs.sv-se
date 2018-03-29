@@ -1,11 +1,11 @@
 ---
-title: "Skapa ett namnområde för Azure Event Hubs och aktivera avbildningsfunktionen med hjälp av en mall | Microsoft Docs"
-description: "Skapa ett namnområde för Azure Event Hubs med en händelsehubb och aktivera avbildningsfunktionen med hjälp av Azure Resource Manager-mallar"
+title: Skapa ett namnområde för Azure Event Hubs och aktivera avbildningsfunktionen med hjälp av en mall | Microsoft Docs
+description: Skapa ett namnområde för Azure Event Hubs med en händelsehubb och aktivera avbildningsfunktionen med hjälp av Azure Resource Manager-mallar
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8bdda6a2-5ff1-45e3-b696-c553768f1090
 ms.service: event-hubs
 ms.devlang: tbd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 09345b32e80008d4afe61078bd4d272fafe631d2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c241b8c38aab355729cd1bea318e70e85cf4ff1f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Skapa en namnrymd med händelsehubb och aktivera avbildning med hjälp av en mall
 
@@ -177,7 +177,7 @@ Det storleksintervall inom vilket avbildningsfunktionen börjar samla in data.
 }
 ```
 
-###<a name="capturenameformat"></a>captureNameFormat
+### <a name="capturenameformat"></a>captureNameFormat
 
 Det namnformat som används av Event Hubs Capture för att skriva Avro-filer. Observera att namnformatet för avbildningsfunktionen måste innehålla fälten `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}` och `{Second}`. Dessa kan ordnas i valfri ordning, med eller utan avgränsare.
  
@@ -236,7 +236,7 @@ Blob-behållaren dit du kan avbilda dina händelsedata.
 
 Använd följande parametrar om du väljer Azure Data Lake Store som mål. Du måste ange behörigheter för den Data Lake Store-sökväg som du vill avbilda händelsen på. Information om hur du anger behörigheter finns [i den här artikeln](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account).
 
-###<a name="subscriptionid"></a>subscriptionId
+### <a name="subscriptionid"></a>subscriptionId
 
 Prenumerations-ID för namnområdet för Event Hubs och Azure Data Lake Store. Båda dessa resurser måste vara under samma prenumerations-ID.
 
@@ -249,7 +249,7 @@ Prenumerations-ID för namnområdet för Event Hubs och Azure Data Lake Store. B
  }
 ```
 
-###<a name="datalakeaccountname"></a>dataLakeAccountName
+### <a name="datalakeaccountname"></a>dataLakeAccountName
 
 Azure Data Lake Store-namnet för de avbildade händelserna.
 
@@ -262,7 +262,7 @@ Azure Data Lake Store-namnet för de avbildade händelserna.
 }
 ```
 
-###<a name="datalakefolderpath"></a>dataLakeFolderPath
+### <a name="datalakefolderpath"></a>dataLakeFolderPath
 
 Sökvägen till målmappen för de avbildade händelserna. Detta är mappen i din Data Lake Store dit händelserna ska skickas under avbildningen. Se [Använda Data Lake Store för att hämta data från Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md) för att ange behörigheter för den här mappen.
 

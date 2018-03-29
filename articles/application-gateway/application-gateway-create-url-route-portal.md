@@ -1,21 +1,20 @@
 ---
-title: "Skapa en Programgateway med URL-sökväg-baserade regler för routning - Azure-portalen | Microsoft Docs"
-description: "Lär dig mer om att skapa URL-sökväg-baserade routningsregler för en Programgateway och skaluppsättningen för virtuell dator med hjälp av Azure portal."
+title: Skapa en Programgateway med URL-sökväg-baserade regler för routning - Azure-portalen
+description: Lär dig mer om att skapa URL-sökväg-baserade routningsregler för en Programgateway och skaluppsättningen för virtuell dator med hjälp av Azure portal.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 62063c42ab15a071a4500417a5d8adf6bfeac97f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.date: 3/26/2018
+ms.author: victorh
+ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Skapa en Programgateway med sökväg-baserade regler för routning med Azure-portalen
 
@@ -36,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [http://portal.azure.com](http://portal.azure.com)
+Logga in på Azure portal [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
@@ -154,11 +153,11 @@ I det här exemplet kan du skapa tre virtuella datorer som ska användas som bac
 
     ![Registrera programmet gateway offentlig IP-adress](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Kopiera den offentliga IP-adressen och klistra in den i adressfältet i webbläsaren. Till exempel http://http: / / 40.121.222.19.
+2. Kopiera den offentliga IP-adressen och klistra in den i adressfältet i webbläsaren. T.ex, http://http://40.121.222.19.
 
     ![Testa bas-URL i Programgateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
-3. Ändra Webbadressen till http://&lt;ip-adress&gt;: 8080/video/test.htm, ersätter &lt;ip-adress&gt; med IP-adress, och du bör se något som liknar följande exempel:
+3. Ändra Webbadressen till http://&lt;ip-adress&gt;: 8080/images/test.htm, ersätter &lt;ip-adress&gt; med IP-adress, och du bör se något som liknar följande exempel:
 
     ![Testa URL: en för bilder i Programgateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 

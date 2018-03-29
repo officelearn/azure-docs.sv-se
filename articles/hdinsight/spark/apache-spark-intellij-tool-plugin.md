@@ -1,8 +1,8 @@
 ---
-title: "Azure Toolkit för IntelliJ: skapa Spark-program för ett HDInsight-kluster | Microsoft Docs"
-description: "Använd Azure-verktygen för IntelliJ för att utveckla Spark-program som skrivits i Scala och skicka dem till ett HDInsight Spark-kluster."
+title: 'Azure Toolkit för IntelliJ: skapa Spark-program för ett HDInsight-kluster | Microsoft Docs'
+description: Använd Azure-verktygen för IntelliJ för att utveckla Spark-program som skrivits i Scala och skicka dem till ett HDInsight Spark-kluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 69f5857f89271b3e4865b93e42e5233ead572715
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2ebf87b0436dbc5ee12a1c41d33ff3d17af1f043
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Använda Azure Toolkit för IntelliJ för att skapa Spark-program för ett HDInsight-kluster
 
@@ -44,6 +44,10 @@ Skapa projektet genom att visa den [skapa Spark-program med Azure Toolkit för I
 
 ## <a name="install-azure-toolkit-for-intellij"></a>Installera Azure Toolkit för IntelliJ
 Installationsanvisningar finns i [installera Azure Toolkit för IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation).
+
+## <a name="get-started"></a>Kom igång
+Användare kan antingen [logga in på Azure-prenumeration](#sign-in-to-your-azure-subscription), eller [länka ett HDInsight-kluster](#link-a-cluster) med Ambari användarnamn/lösenord eller domän ansluten autentiseringsuppgifter för att starta.
+
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Logga in till din Azure-prenumeration
 
@@ -75,12 +79,14 @@ Du kan länka en normal kluster med Ambari hanteras användarnamn, även länka 
 
    ![länken klustrets snabbmenyn](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. Ange **klusternamnet**, **Lagringskonto**, **Lagringsnyckel**, välj sedan en behållare från **lagringsbehållaren**, minst, ange användarnamn och lösenord. Du måste kontrollera användarnamn och lösenord om hämta autentisering misslyckades.
+2. Ange **klusternamn**, **användarnamn** och **lösenord**. Du måste kontrollera användarnamn och lösenord om du har fått autentisering misslyckades. Du kan också lägga till Lagringskontot, nyckeln för Säkerhetslagring, och välj sedan en behållare lagringsbehållaren. Storage-informationen är för Lagringsutforskaren i vänster träd
    
    ![länka klustret dialog](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
 
    > [!NOTE]
-   > Vi använder länkade lagringsnyckel, användarnamn och lösenord om klustret både inloggad i Azure-prenumeration och länka ett kluster. 
+   > Vi använder länkade lagringsnyckel, användarnamn och lösenord om klustret både inloggad i Azure-prenumeration och länka ett kluster.
+   > ![Lagringsutforskaren i IntelliJ](./media/apache-spark-intellij-tool-plugin/storage-explorer-in-IntelliJ.png)
+
    
 3. Du kan se ett länkade kluster i **HDInsight** nod om informationen om indata är rätt. Nu kan du skicka ett program till den här länkade klustret.
 

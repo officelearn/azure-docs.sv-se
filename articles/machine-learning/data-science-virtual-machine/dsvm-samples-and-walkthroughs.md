@@ -1,25 +1,25 @@
 ---
-title: "Exemplen och genomgång för den datavetenskap virtuella - Azure | Microsoft Docs"
-description: "Exemplen och genomgång för datavetenskap virtuell dator."
-keywords: "datavetenskap verktyg, datavetenskap virtuell dator, verktyg för datavetenskap, datavetenskap för linux"
+title: Exemplen och genomgång för den datavetenskap virtuella - Azure | Microsoft Docs
+description: Exemplen och genomgång för datavetenskap virtuell dator.
+keywords: datavetenskap verktyg, datavetenskap virtuell dator, verktyg för datavetenskap, datavetenskap för linux
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: gopitk
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: fb9a7e900c489b3d22594dfcb6e1faa736c3c490
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: gokuma
+ms.openlocfilehash: 6c5b5c8c9dbb03a2189eb5f1539499ace55e7dfc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Exempel på datavetenskap virtuella datorer (DSVM)
 
@@ -47,22 +47,22 @@ DSVMs medföljer inkluderade fullständigt arbetat ut exempel i form av Jupyter-
 
 ## <a name="access-jupyter"></a>Åtkomst Jupyter 
 
-Besök Jupyter hem genom att gå till  **`https://localhost:9999`**  i Windows eller  **`https://localhost:8000`**  på Ubuntu.
+Besök Jupyter hem genom att gå till **`https://localhost:9999`** i Windows eller **`https://localhost:8000`** på Ubuntu.
 
 
 ### <a name="enabling-jupyter-access-from-browser"></a>Aktivera Jupyter åtkomst från webbläsare
 
 **Windows DSVM**
 
-Kör  **`Jupyter SetPassword`**  från genväg på skrivbordet och följ anvisningarna för att ange/återställning av lösenordet för Jupyter och starta Jupyter bearbeta. 
+Kör **`Jupyter SetPassword`** från genväg på skrivbordet och följ anvisningarna för att ange/återställning av lösenordet för Jupyter och starta Jupyter bearbeta. 
 <br/>![Aktivera Jupyter-undantag](./media/jupyter-setpassword.png)<br/>
-Du kan komma åt Jupyter hem när Jupyter-processen har startats på den virtuella datorn genom att besöka  **`https://localhost:9999`**  i webbläsaren. Se skärmbilden att lägga till undantag och aktivera Jupyter åtkomst via webbläsaren
+Du kan komma åt Jupyter hem när Jupyter-processen har startats på den virtuella datorn genom att besöka **`https://localhost:9999`** i webbläsaren. Se skärmbilden att lägga till undantag och aktivera Jupyter åtkomst via webbläsaren
 <br/>![Aktivera Jupyter-undantag](./media/windows-jupyter-exception.png)<br/>
 Logga in med det nya lösenordet som du bara har angett.
 <br/>
 **Linux DSVM**
 
-Du kan komma åt Jupyter hem på den virtuella datorn genom att besöka  **`https://localhost:8000`**  i webbläsaren. Se skärmbilden att lägga till undantag och aktivera Jupyter åtkomst via webbläsaren.
+Du kan komma åt Jupyter hem på den virtuella datorn genom att besöka **`https://localhost:8000`** i webbläsaren. Se skärmbilden att lägga till undantag och aktivera Jupyter åtkomst via webbläsaren.
 <br/>![Aktivera Jupyter-undantag](./media/ubuntu-jupyter-exception.png)<br/>
 Logga in med samma lösenord som din inloggningsinformation för DSVM.
 <br/>

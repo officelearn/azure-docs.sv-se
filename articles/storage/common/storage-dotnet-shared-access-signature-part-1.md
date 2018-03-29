@@ -1,10 +1,10 @@
 ---
-title: "Använda signaturer för delad åtkomst (SAS) i Azure Storage | Microsoft Docs"
-description: "Lär dig använda signaturer för delad åtkomst (SAS) för att delegera åtkomst till Azure Storage-resurser, inklusive blobbar, köer, tabeller och filer."
+title: Använda signaturer för delad åtkomst (SAS) i Azure Storage | Microsoft Docs
+description: Lär dig använda signaturer för delad åtkomst (SAS) för att delegera åtkomst till Azure Storage-resurser, inklusive blobbar, köer, tabeller och filer.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: craigshoemaker
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 46fd99d7-36b3-4283-81e3-f214b29f1152
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2017
-ms.author: tamram
-ms.openlocfilehash: 32e92e6ffc376d27297810596691f0371770e86d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: d3f8b3261f9e2e86dbcaa41b92111545abeffe54
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="using-shared-access-signatures-sas"></a>Använda signaturer för delad åtkomst (SAS)
 
@@ -27,7 +27,7 @@ En signatur för delad åtkomst (SAS) ger dig ett sätt att ge begränsad åtkom
 Ytterligare kodexempel med hjälp av SAS utöver de som visas här finns [komma igång med Azure Blob Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) och andra exempel som är tillgängliga i den [Azure kodexempel](https://azure.microsoft.com/documentation/samples/?service=storage) bibliotek. Du kan hämta exempelprogrammen och köra dem eller bläddra koden på GitHub.
 
 ## <a name="what-is-a-shared-access-signature"></a>Vad är en signatur för delad åtkomst?
-En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt lagringskonto. Med en SAS beviljar du klienter åtkomst till resurser i ditt lagringskonto, utan att dela dina nycklar för kontot. Detta är den nyckel använder signaturer för delad åtkomst i dina program – en SAS är ett säkert sätt att dela dina lagringsresurser utan att kompromissa med dina nycklar för kontot.
+En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt lagringskonto. Med en SAS beviljar du klienter åtkomst till resurser i ditt lagringskonto, utan att dela dina nycklar för kontot. Det här är en viktig aspekt av att använda signaturer för delad åtkomst i dina program – en SAS är ett säkert sätt att dela dina lagringsresurser utan att kompromissa med lagringsnycklar.
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
@@ -62,7 +62,7 @@ Dessutom behöver du använda en SAS för att autentisera källobjektet i en kop
 ## <a name="types-of-shared-access-signatures"></a>Typer av signaturer för delad åtkomst
 Du kan skapa två typer av signaturer för delad åtkomst:
 
-* **Tjänst-SAS.** En tjänst-SAS delegerar åtkomst till en resurs i en av lagringstjänsterna: blobb-, kö-, tabell- eller filtjänsten. Se [hur du skapar en tjänst-SAS](https://msdn.microsoft.com/library/dn140255.aspx) och [Service SAS exempel](https://msdn.microsoft.com/library/dn140256.aspx) för detaljerad information om hur du skapar service SAS-token.
+* **Service SAS.** En tjänst-SAS delegerar åtkomst till en resurs i en av lagringstjänsterna: blobb-, kö-, tabell- eller filtjänsten. Se [hur du skapar en tjänst-SAS](https://msdn.microsoft.com/library/dn140255.aspx) och [Service SAS exempel](https://msdn.microsoft.com/library/dn140256.aspx) för detaljerad information om hur du skapar service SAS-token.
 * **Konto-SAS.** Den konto SAS delegater åtkomsten till resurser i en eller flera av lagringstjänsterna. Alla åtgärder som är tillgängliga via en tjänst-SAS finns också tillgängliga via en konto-SAS. Med konto-SAS, kan du dessutom delegera åtkomst till åtgärder som gäller för en viss tjänst som **Get/Set-tjänstegenskaper** och **få statistik för tjänsten**. Du kan också delegera åtkomst till läs-, skriv- och borttagningsåtgärder i blobbbehållare, tabeller, köer och filresurser som inte tillåts med en tjänst-SAS. Se [hur du skapar ett konto-SAS](https://msdn.microsoft.com/library/mt584140.aspx) för detaljerad information om hur du skapar kontot SAS-token.
 
 ## <a name="how-a-shared-access-signature-works"></a>Så här fungerar en signatur för delad åtkomst
@@ -85,8 +85,8 @@ Konto-SAS och tjänsten SAS-token innehåller några vanliga parametrar och tar 
 * **Starttid.** Det här är den tid då SAS börjar gälla. Starttiden för en signatur för delad åtkomst är valfritt. Om en starttid utelämnas är SAS gälla omedelbart. Starttiden måste anges i UTC (Coordinated Universal Time) med en särskild UTC beteckning (”Z”), till exempel `1994-11-05T13:15:30Z`.
 * **Förfallotiden.** Detta är den tid då SAS inte är giltig längre. Bästa praxis rekommenderar att du antingen ange en förfallotiden för en SAS eller koppla den till en princip för lagrade åtkomst. Förfallotid måste anges i UTC (Coordinated Universal Time) med en särskild UTC beteckning (”Z”), till exempel `1994-11-05T13:15:30Z` (se mer nedan).
 * **Behörigheter.** Behörigheter som anges på SAS visar vilka åtgärder som klienten kan utföra mot storage-resursen med hjälp av SAS. Tillgängliga behörigheter skiljer sig för en konto-SAS och en tjänst-SAS.
-* **IP-ADRESSEN.** En valfri parameter som anger en IP-adress eller ett intervall med IP-adresser utanför Azure (finns i avsnittet [konfiguration av Routning sessionstillstånd](../../expressroute/expressroute-workflows.md#routing-session-configuration-state) för Express Route) som du vill acceptera förfrågningar från.
-* **Protokoll.** En valfri parameter som anger vilket protokoll som tillåts för en begäran. Möjliga värden är HTTPS- och HTTP (`https,http`), vilket är standardvärdet eller HTTPS endast (`https`). Observera att HTTP endast inte är tillåtna värdet.
+* **IP.** En valfri parameter som anger en IP-adress eller ett intervall med IP-adresser utanför Azure (finns i avsnittet [konfiguration av Routning sessionstillstånd](../../expressroute/expressroute-workflows.md#routing-session-configuration-state) för Express Route) som du vill acceptera förfrågningar från.
+* **Protocol.** En valfri parameter som anger vilket protokoll som tillåts för en begäran. Möjliga värden är HTTPS- och HTTP (`https,http`), vilket är standardvärdet eller HTTPS endast (`https`). Observera att HTTP endast inte är tillåtna värdet.
 * **Signatur.** Signaturen har skapats från de andra parametrar som angetts som en del token och sedan krypteras. Den används för att autentisera SAS.
 
 ### <a name="parameters-for-a-service-sas-token"></a>Parametrar för en tjänst-SAS-token
@@ -118,7 +118,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | BLOB-URI |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Adressen till blob. Observera att med hjälp av HTTPS rekommenderas starkt. |
 | Storage services version |`sv=2015-04-05` |För lagringstjänster version 12-02-2012 och senare kan den här parametern anger versionen som ska användas. |
 | Starttid |`st=2015-04-29T22%3A18%3A26Z` |Angivet i UTC-tid. Om du vill SAS ska gälla omedelbart, utelämna starttiden. |
-| Förfallotiden |`se=2015-04-30T02%3A23%3A26Z` |Angivet i UTC-tid. |
+| Förfallotid |`se=2015-04-30T02%3A23%3A26Z` |Angivet i UTC-tid. |
 | Resurs |`sr=b` |Resursen är en blob. |
 | Behörigheter |`sp=rw` |De behörigheter som utfärdats av SAS omfattar Read (r) och skriva (b). |
 | IP-intervall |`sip=168.1.5.60-168.1.5.70` |Intervallet av IP-adresser som en begäran kommer att accepteras. |
@@ -422,7 +422,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 }
 ```
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Signaturer för delad åtkomst är användbara för att tillhandahålla begränsade behörigheter till ditt lagringskonto till klienter som inte ska ha kontonyckel. Därför att de är en viktig del av säkerhetsmodellen för alla program som använder Azure Storage. Om du följer bästa praxis som anges här kan du använda SAS för större flexibilitet för åtkomst till resurser i ditt lagringskonto, utan att kompromettera säkerheten för ditt program.
 
 ## <a name="next-steps"></a>Nästa steg

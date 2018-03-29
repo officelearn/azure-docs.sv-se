@@ -1,6 +1,6 @@
 ---
 title: Azure Automation Windows Hybrid Runbook Worker
-description: "Den här artikeln innehåller information om hur du installerar en Azure Automation Hybrid Runbook Worker som gör det möjligt att köra runbooks på Windows-datorer i ditt lokala datacenter eller molnmiljö."
+description: Den här artikeln innehåller information om hur du installerar en Azure Automation Hybrid Runbook Worker som gör det möjligt att köra runbooks på Windows-datorer i ditt lokala datacenter eller molnmiljö.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c03b124e21603056219a6ff6458469b4ecd60969
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fa74f2e2d8fb9fc9f11810a4af4978fb4b443bcc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Så här distribuerar du en Windows-Hybrid Runbook Worker
 
@@ -68,7 +68,7 @@ Utför följande steg för att automatisera installationen och konfigurationen a
         -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
         -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfOMSWorkspace>
 
-4. Du uppmanas att komma överens om att installera **NuGet** och du uppmanas att autentisera med dina autentiseringsuppgifter för Azure.<br><br> ![Ny OnPremiseHybridWorker skript körs](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
+4. Du uppmanas att komma överens om att installera **NuGet** och du uppmanas att autentisera med dina autentiseringsuppgifter för Azure.<br><br>![Ny OnPremiseHybridWorker skript körs](/media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
 5. När skriptet har slutförts, sidan Hybrid Worker-grupper visas den nya gruppen och antal medlemmar eller om en befintlig grupp, ökar antalet medlemmar.  Du kan välja grupp från listan på den **Hybrid Worker grupper** och välja den **hybrider** panelen.  På den **hybrider** kan du se varje medlem i gruppen i listan.  
 

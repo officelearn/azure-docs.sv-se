@@ -1,25 +1,25 @@
 ---
-title: "Regional växling vid fel i Azure Cosmos DB | Microsoft Docs"
-description: "Läs mer om hur manuell och automatisk redundans fungerar med Azure Cosmos DB."
+title: Regional växling vid fel i Azure Cosmos DB | Microsoft Docs
+description: Läs mer om hur manuell och automatisk redundans fungerar med Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 03/27/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8da3e2c970ab1e60e3396cb0aaeaba64dba1713c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Automatisk regional växling vid fel för kontinuitet i Azure Cosmos DB
 Azure Cosmos-DB förenklar globala fördelning av data genom att erbjuda fullständigt hanterade [flera regioner databasen konton](distribute-data-globally.md) som ger tydliga kompromisser mellan konsekvens, tillgänglighet och prestanda, alla med motsvarande garanterar. Cosmos DB konton ger hög tillgänglighet, siffra ms latens [väldefinierade konsekvensnivåer](consistency-levels.md), transparent regional växling vid fel med flera API: er och möjligheten att skala Elastiskt genomflöde och lagring på globalt. 
@@ -30,9 +30,10 @@ Cosmos DB stöder både explicit och principen drivs växling vid fel som gör d
 * Hur automatisk redundans arbete i Cosmos-DB och vad som händer när data center går ned?
 * Hur kan du använda manuell växling vid fel i programarkitekturer?
 
-Du kan också information om regional växling vid fel i den här Azure fredag video med Scott Hanselman och huvudnamn tekniker Manager Karthik Raman.
+Du kan också information om regional växling vid fel i den här videon av Azure Cosmos DB Programhanteraren Andrew Liu, som visar funktionerna global distributionsplatsen inklusive regional växling vid fel.
 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+>[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ## <a id="ConfigureMultiRegionApplications"></a>Konfigurera flera regioner program
 Innan vi fördjupa dig i redundans lägen titta vi på hur du kan konfigurera ett program kan dra nytta av flera regional tillgänglighet och bli motståndskraftiga i händelse av regional växling vid fel.

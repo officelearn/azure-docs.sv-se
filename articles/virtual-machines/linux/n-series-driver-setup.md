@@ -1,11 +1,11 @@
 ---
-title: "Azure N-serien drivrutinsinstallation för Linux | Microsoft Docs"
-description: "Hur du ställer in NVIDIA GPU drivrutiner för N-serien virtuella datorer som kör Linux i Azure"
+title: Azure N-serien drivrutinsinstallation för Linux | Microsoft Docs
+description: Hur du ställer in NVIDIA GPU drivrutiner för N-serien virtuella datorer som kör Linux i Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
 ms.service: virtual-machines-linux
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d353adcafed02832243277118da8480e54544ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d97afd2b5dccca64db2df7cb0d4f110987642cfb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera drivrutiner för NVIDIA GPU på N-serien virtuella datorer som kör Linux
 
-För att dra nytta av funktionerna i Azure N-serien virtuella datorer som kör Linux GPU installera stöd för grafik drivrutinerna. Den här artikeln innehåller drivrutinen konfigurationsstegen när du distribuerar en virtuell dator i N-serien. Inställningsinformation för drivrutinen är också tillgängligt för [virtuella Windows-datorer](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Om du vill dra nytta av funktionerna i Azure N-serien virtuella datorer som kör Linux GPU installeras grafik drivrutinerna. Den här artikeln innehåller drivrutinen konfigurationsstegen när du distribuerar en virtuell dator i N-serien. Inställningsinformation för drivrutinen är också tillgängligt för [virtuella Windows-datorer](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 N-serien VM specifikationerna, lagringskapacitet, och diskinformation finns [GPU Linux VM-storlekar](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
@@ -32,15 +32,12 @@ N-serien VM specifikationerna, lagringskapacitet, och diskinformation finns [GPU
 
 ## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>Installera CUDA drivrutiner för NC, NCv2, NCv3 och ND-serien virtuella datorer
 
-Här följer stegen för att installera drivrutinerna från NVIDIA CUDA Toolkit på N-serien virtuella datorer. 
+Här följer stegen för att installera drivrutiner för CUDA från NVIDIA CUDA Toolkit på N-serien virtuella datorer. 
+
 
 C och C++ utvecklare kan välja att installera fullständig Toolkit för att skapa GPU-snabbare program. Mer information finns i [CUDA installationsguiden](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
-> [!NOTE]
-> CUDA drivrutinen länkar som anges här aktuella vid tiden för publikationen. De senaste drivrutinerna för CUDA, finns det [NVIDIA](https://developer.nvidia.com/cuda-zone) webbplats.
->
-
-Om du vill installera CUDA Toolkit gör du en SSH-anslutning på varje virtuell dator. Kontrollera att systemet har en CUDA-kompatibla GPU genom att köra följande kommando:
+Om du vill installera CUDA drivrutiner skapar du en SSH-anslutning på varje virtuell dator. Kontrollera att systemet har en CUDA-kompatibla GPU genom att köra följande kommando:
 
 ```bash
 lspci | grep -i NVIDIA
@@ -162,16 +159,13 @@ RDMA-nätverksanslutning kan aktiveras på RDMA-kompatibla N-serien virtuella da
 
 ### <a name="distributions"></a>Distributioner
 
-Distribuera RDMA-kompatibla N-serien virtuella datorer från en avbildning i Azure Marketplace som stöder RDMA-anslutningar på N-serien virtuella datorer:
+Distribuera RDMA-kompatibla N-serien virtuella datorer från en av avbildningarna i Azure Marketplace som stöder RDMA-anslutningar på N-serien virtuella datorer:
   
 * **Ubuntu 16.04 LTS** – konfigurera RDMA drivrutiner på den virtuella datorn och registrera med Intel hämta Intel MPI:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-> [!NOTE]
-> CentOS-baserade HPC-avbildningar rekommenderas inte för RDMA-anslutning på N-serien virtuella datorer. RDMA stöds inte på den senaste CentOS 7.4 kernel som stöder NVIDIA GPU-kort.
-> 
-
+* **CentOS-baserade 7.4 HPC** -RDMA drivrutiner och Intel MPI 5.1 är installerade på den virtuella datorn.
 
 ## <a name="install-grid-drivers-for-nv-series-vms"></a>Installera drivrutiner för rutnät för NV-serien virtuella datorer
 
@@ -321,10 +315,10 @@ EndSection
  
 Dessutom uppdatera din `"Screen"` avsnittet om du vill använda den här enheten.
  
-BusID hittar du genom att köra
+Decimaltecknet BusID hittar du genom att köra
 
 ```bash
-/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1
+echo $((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
 ```
  
 BusID kan ändras när en virtuell dator hämtar omfördelats startas om. Därför kan du kanske vill använda ett skript för att uppdatera BusID i X11 konfiguration när en virtuell dator startas. Exempel:

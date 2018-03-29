@@ -1,18 +1,18 @@
 ---
-title: "Säkerhetsguiden för Azure Storage | Microsoft Docs"
-description: "Information på många metoder för att skydda Azure Storage, inklusive men inte begränsat till RBAC, Storage Service-kryptering, kryptering på klientsidan, SMB 3.0 och Azure Disk Encryption."
+title: Säkerhetsguiden för Azure Storage | Microsoft Docs
+description: Information på många metoder för att skydda Azure Storage, inklusive men inte begränsat till RBAC, Storage Service-kryptering, kryptering på klientsidan, SMB 3.0 och Azure Disk Encryption.
 services: storage
-author: tamram
+author: craigshoemaker
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: tamram
-ms.openlocfilehash: d1a81a9029f2e9b8a36ecebdcc4be44984e82515
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: cshoe
+ms.openlocfilehash: e0a398075b01b3c3750a33a9dd74b5ad1c0f71fd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-säkerhetsguiden
 
@@ -296,7 +296,7 @@ SSE är aktiverat för alla lagringskonton och kan inte inaktiveras. SSE krypter
 
 Nycklar som används för SSE hanteras av Microsoft. Microsoft genererar nycklarna ursprungligen och hanterar sina säker lagring samt rotationen reguljära som definieras av intern Microsoft-princip. Kundhanterad nycklar kommer så småningom finnas, tillsammans med en migreringsvägen från Microsoft-hanterad nycklar till kundhanterad nycklar.
 
-SSE krypteras automatiskt data i alla prestandanivåer (Standard och Premium), alla distributionsmodeller (Azure Resource Manager och klassisk) och alla Azure Storage-tjänster (Blob, kön, tabell och filen). 
+SSE krypterar automatiskt data på alla prestandanivåer (Standard och Premium), alla distributionsmodeller (Azure Resource Manager och klassisk) och alla Azure Storage-tjänster (blob, kö, tabell och fil). 
 
 ### <a name="client-side-encryption"></a>Kryptering på klientsidan
 Kryptering på klientsidan nämndes när det handlar om kryptering av data under överföringen. Den här funktionen kan du kryptera data i klientprogram innan den skickas över nätverket som ska skrivas till Azure Storage och programmässigt dekryptera data efter hämtning från Azure Storage via programmering.
@@ -376,7 +376,7 @@ Kryptering på klientsidan är mer belastningen på klienten och du behöver kon
 
 #### <a name="storage-service-encryption-sse"></a>Storage Service-kryptering (SSE)
 
-SSE hanteras av Azure Storage. SSE ger inte för att skydda data under överföring, men den krypterar data som skrivs till Azure Storage. SSE påverkar inte prestanda för Azure Storage.
+SSE hanteras av Azure Storage. SSE ger inte för att skydda data under överföring, men den krypterar data som skrivs till Azure Storage. SSE påverkar inte Azure Storage-prestanda.
 
 Du kan kryptera alla typer av data för storage-konto med hjälp av SSE (blockblobbar, tilläggsblobbar, sidblobar, tabelldata, kö-data och filer).
 

@@ -1,8 +1,8 @@
 ---
-title: "Anpassa HDInsight-kluster med skriptåtgärder - Azure | Microsoft Docs"
-description: "Lägga till anpassade komponenter till Linux-baserade HDInsight-kluster med skriptåtgärder. Skriptåtgärder är Bash-skript som kan användas för att anpassa klusterkonfigurationen eller lägga till ytterligare tjänster och verktyg som Hue, Solr eller R."
+title: Anpassa HDInsight-kluster med skriptåtgärder - Azure | Microsoft Docs
+description: Lägga till anpassade komponenter till Linux-baserade HDInsight-kluster med skriptåtgärder. Skriptåtgärder är Bash-skript som kan användas för att anpassa klusterkonfigurationen eller lägga till ytterligare tjänster och verktyg som Hue, Solr eller R.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 42bf760b793f3c035a766c4d39524e03c1cbe6ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bc8078a1681b8977a0748f633df02beb2f2bdc8a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder
 
@@ -210,17 +210,19 @@ Det här avsnittet innehåller exempel på olika sätt som du kan använda scrip
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Använd en skriptåtgärd från Azure Resource Manager-mallar
 
-Skriptåtgärder kan användas med Azure Resource Manager-mallar. Ett exempel finns [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/).
+Skriptåtgärder kan användas med Azure Resource Manager-mallar. Ett exempel finns [ https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/ ](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/).
 
 I det här exemplet skriptåtgärden lades till med följande kod:
 
-    "scriptActions": [
-        {
-            "name": "setenvironmentvariable",
-            "uri": "[parameters('scriptActionUri')]",
-            "parameters": "headnode"
-        }
-    ]
+```json
+"scriptActions": [
+    {
+        "name": "setenvironmentvariable",
+        "uri": "[parameters('scriptActionUri')]",
+        "parameters": "headnode"
+    }
+]
+```
 
 Information om hur du distribuerar en mall finns i följande dokument:
 
@@ -305,15 +307,21 @@ Innan du fortsätter bör du kontrollera att du har installerat och konfigurerat
 
 1. Om du vill växla till läget Azure Resource Manager, använder du följande kommando på kommandoraden:
 
-        azure config mode arm
+    ```bash
+    azure config mode arm
+    ```
 
 2. Använd följande för att autentisera till Azure-prenumeration.
 
-        azure login
+    ```bash
+    azure login
+    ```
 
 3. Använd följande kommando för att tillämpa en skriptåtgärd till ett kluster som körs
 
-        azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```bash
+    azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```
 
     Om du utelämnar parametrar för kommandot uppmanas för dessa. Om skriptet som du anger med `-u` accepterar parametrar, så kan du ange dem med hjälp av den `-p` parameter.
 
@@ -337,7 +345,7 @@ Se [kör skriptåtgärder på ett kluster som körs](https://msdn.microsoft.com/
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>Tillämpa en skriptåtgärd till ett kluster som körs från HDInsight .NET SDK
 
-Ett exempel på med .NET SDK för att använda skript till ett kluster, se [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+Ett exempel på med .NET SDK för att använda skript till ett kluster, se [ https://github.com/Azure-Samples/hdinsight-dotnet-script-action ](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 ## <a name="view-history-promote-and-demote-script-actions"></a>Visa historik, uppgradera och degradera skriptåtgärder
 
@@ -396,7 +404,7 @@ Följande exempelskript visar med hjälp av cmdlets befordra och sedan nedgrader
 
 ### <a name="using-the-hdinsight-net-sdk"></a>Med HDInsight .NET SDK
 
-Ett exempel på med .NET SDK för att hämta skriptet historik från ett kluster, uppgradera eller degradera skript, se [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+Ett exempel på med .NET SDK för att hämta skriptet historik från ett kluster, uppgradera eller degradera skript, se [ https://github.com/Azure-Samples/hdinsight-dotnet-script-action ](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 > [!NOTE]
 > Det här exemplet visar även hur du installerar ett HDInsight-program med .NET SDK.
@@ -413,7 +421,7 @@ Det finns två typer av komponenter som öppen källkod som är tillgängliga i 
 > [!WARNING]
 > Komponenter som ingår i HDInsight-kluster stöds fullt ut. Microsoft Support hjälper till att identifiera och lösa problem relaterade till komponenterna.
 >
-> Anpassade komponenter få kommersiellt rimliga stöd för att hjälpa dig att felsöka problemet ytterligare. Microsoft-supporten kanske kan lösa problemet eller de be dig att delta tillgängliga kanaler för öppen källkod där djup expertis för att teknik finns. Det finns till exempel många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Apache-projekt har också project-webbplatser [http://apache.org](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/).
+> Anpassade komponenter få kommersiellt rimliga stöd för att hjälpa dig att felsöka problemet ytterligare. Microsoft-supporten kanske kan lösa problemet eller de be dig att delta tillgängliga kanaler för öppen källkod där djup expertis för att teknik finns. Det finns till exempel många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache-projekt har också project-webbplatser [ http://apache.org ](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/).
 
 HDInsight-tjänst finns flera sätt att använda anpassade komponenter. Samma nivå av stöd gäller oavsett hur en komponent används eller installeras i klustret. I följande lista beskrivs de vanligaste sätt att anpassade komponenter kan användas på HDInsight-kluster:
 
@@ -429,7 +437,7 @@ Du kan använda Ambari-webbgränssnittet för att visa information som loggas av
 
 ### <a name="using-the-ambari-web-ui"></a>Använda Ambari-webbgränssnittet
 
-1. Navigera till https://CLUSTERNAME.azurehdinsight.net i din webbläsare. Ersätt KLUSTERNAMN med namnet på ditt HDInsight-kluster.
+1. Öppna webbläsaren och navigera till https://CLUSTERNAME.azurehdinsight.net. Ersätt KLUSTERNAMN med namnet på ditt HDInsight-kluster.
 
     När du uppmanas, anger du kontonamnet för admin (admin) och lösenord för klustret. Du kan behöva ange administratörsautentiseringsuppgifter i ett webbformulär.
 
@@ -493,7 +501,7 @@ __Orsak__: det här felet uppstår om du uppgraderar Python Azure Storage-klient
 
 __Lösning__: åtgärda felet manuellt ansluta till varje nod med `ssh` och använda följande kommando för att installera om rätt lagring klientversionen:
 
-```
+```bash
 sudo pip install azure-storage==0.20.0
 ```
 

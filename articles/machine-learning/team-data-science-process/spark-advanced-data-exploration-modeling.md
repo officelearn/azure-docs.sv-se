@@ -1,8 +1,8 @@
 ---
 title: Avancerade datagranskning och modellering med Spark | Microsoft Docs
-description: "Använda HDInsight Spark datagranskning och träna binär klassificering och regression modeller med korsvalidering och hyperparameter optimering."
+description: Använda HDInsight Spark datagranskning och träna binär klassificering och regression modeller med korsvalidering och hyperparameter optimering.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 016d7760895e9b8cca082bac4e14388680fbbc05
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: bradsev
+ms.openlocfilehash: 3d4cd29596b14e6de07fdf06191f7d69c2d39641
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Avancerad datagranskning och modellering med Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -87,7 +87,7 @@ Följande kodexempel anger platsen för data som ska läsas och sökvägen för 
 
 **UTDATA**
 
-datetime.datetime (2016, 4, 18, 17, 36, 27, 832799)
+datetime.datetime(2016, 4, 18, 17, 36, 27, 832799)
 
 ### <a name="import-libraries"></a>Importera bibliotek
 Importera nödvändiga bibliotek med följande kod:
@@ -1199,7 +1199,7 @@ Här är koden för att rita data med Jupyter-server.
     plt.axis([-1, 15, -1, 15])
     plt.show(ax)
 
-![Aktuella-vs-förutsade-tips-belopp](./media/spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
+![Actual-vs-predicted-tip-amounts](./media/spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
 
 ## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>Bilaga: Ytterligare regression uppgifter med parametern Svep mellan verifiering
 Den här bilagan innehåller kod som visar hur du gör KA med elastisk net för linjär regression och hur du gör KA med parametern Svep med anpassad kod för slumpmässiga skog regression.
@@ -1430,11 +1430,11 @@ logisticRegFileLoc = modelDir + ”LogisticRegressionWithLBFGS_2016-05-0316_47_3
 
 linearRegFileLoc = modelDir + ”LinearRegressionWithSGD_2016-05-0316_51_28.433670”
 
-randomForestClassificationFileLoc = modelDir + ”RandomForestClassification_2016-05-0316_50_17.454440”
+randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-05-0316_50_17.454440"
 
-randomForestRegFileLoc = modelDir + ”RandomForestRegression_2016-05-0316_51_57.331730”
+randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-05-0316_51_57.331730"
 
-BoostedTreeClassificationFileLoc = modelDir + ”GradientBoostingTreeClassification_2016-05-0316_50_40.138809”
+BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification_2016-05-0316_50_40.138809"
 
 BoostedTreeRegressionFileLoc = modelDir + ”GradientBoostingTreeRegression_2016-05-0316_52_18.827237”
 

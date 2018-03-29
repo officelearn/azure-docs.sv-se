@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 6f74dd4d9cb78c1316c87bd5a261e751b9b34923
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 89469af2b1d02ef00fc347e47719956885e7f142
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer som utlösare för Azure Functions 
 
@@ -52,6 +52,10 @@ Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) so
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
 {
+    if(myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
     log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
 }
 ```
@@ -144,19 +148,19 @@ module.exports = function (context, myTimer) {
 
 I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
-Attributets konstruktorn har ett CRON-uttryck som visas i följande exempel:
+Attributets konstruktorn har ett CRON-uttryck eller en `TimeSpan`. Du kan använda `TimeSpan` endast om funktionsapp körs på en App Service-plan. I följande exempel visas ett CRON-uttryck:
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
 {
-   ...
+    if (myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
 }
  ```
-
-Du kan ange en `TimeSpan` i stället för ett CRON-uttryck om funktionen appen körs i en apptjänstplan (inte en plan för förbrukning).
-
-En komplett exempel finns [C#-exempel](#c-example).
 
 ## <a name="configuration"></a>Konfiguration
 
@@ -167,75 +171,11 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**Typ** | Saknas | Måste anges till ”timerTrigger”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**Riktning** | Saknas | Måste anges till ”i”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar timer-objekt i funktionskoden. | 
-|**schedule**|**ScheduleExpression**|Du kan definiera scheman med ett CRON-uttryck på förbrukning-plan. Om du använder en App Service-Plan kan du också använda en `TimeSpan` sträng. I följande avsnitt beskrivs CRON-uttryck. Du kan placera schema-uttrycket i en appinställning och ange egenskapen till ett värde som kapslas in i **%** tecken, som i följande exempel: ”% NameOfAppSettingWithCRONExpression %”. |
+|**schedule**|**ScheduleExpression**|En [CRON-uttryck](#cron-expressions) eller en [TimeSpan](#timespan) värde. En `TimeSpan` kan endast användas för en funktionsapp som körs på en App Service-Plan. Du kan placera schema-uttrycket i en appinställning och ange egenskapen till appen inställningsnamn kapslas in i **%** tecken, som i följande exempel: ”% NameOfAppSettingWithScheduleExpression %”. |
+|**runOnStartup**|**RunOnStartup**|Om `true`, funktionen anropas när körningen startar. Exempelvis startar körningen när appen funktionen aktiveras efter att inaktiveras på grund av inaktivitet. När funktionen appen startas om på grund av funktionen ändringar och när appen funktionen skalas ut. Så **runOnStartup** bör sällan om någonsin anges till `true`, vilket gör koden köra vid hög oväntade tidpunkter. Om du behöver utlösa funktionen utanför timer-schemat kan du skapa en annan funktion med en annan utlösartypen och dela koden mellan de två funktionerna. Kan till exempel att utlösa för distribution [anpassa distributionen](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) att anropa funktionen sekund genom att göra en HTTP-begäran när distributionen är klar.|
+|**useMonitor**|**UseMonitor**|Ange till `true` eller `false` att indikera om schemat bör övervakas. Övervakning av schemat kvarstår schema förekomster till stöd för schemat underhålls på rätt sätt när du startar om funktionen app-instanser. Om den inte har angetts explicit är standardvärdet `true` för scheman som har ett intervall som är större än 1 minut. För scheman som utlöser mer än en gång per minut som standard är `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
-
-### <a name="cron-format"></a>CRON-format 
-
-En [CRON-uttryck](http://en.wikipedia.org/wiki/Cron#CRON_expression) för Azure Functions-timer-utlösare innehåller fälten sex: 
-
-```
-{second} {minute} {hour} {day} {month} {day-of-week}
-```
-
->[!NOTE]   
->Många av CRON-uttryck som du hittar online utelämna den `{second}` fältet. Om du kopierar från en av dem, lägger du till den saknade `{second}` fältet.
-
-### <a name="cron-time-zones"></a>CRON tidszoner
-
-Standardtidszon används med CRON-uttryck är Coordinated Universal Time (UTC). Om du vill att din CRON-uttryck baserat på en annan tidszon, skapa en ny appinställning för funktionen appen med namnet `WEBSITE_TIME_ZONE`. Ange värdet till namnet på tidszonen som visas i den [Microsoft tidszon Index](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx). 
-
-Till exempel *Eastern, normaltid* är UTC-05:00. Har din timer Utlös brand på 10:00 AM GMT varje dag, använder du följande CRON-uttryck i för UTC-tid:
-
-```json
-"schedule": "0 0 15 * * *",
-``` 
-
-Alternativt kan du lägga till en ny appinställning för funktionen appen med namnet `WEBSITE_TIME_ZONE` och ange värdet **Eastern, normaltid**.  Följande CRON-uttryck kan sedan användas för 10:00 AM GMT: 
-
-```json
-"schedule": "0 0 10 * * *",
-``` 
-### <a name="cron-examples"></a>CRON-exempel
-
-Här följer några exempel på CRON-uttryck som du kan använda för utlösaren i Azure Functions timer. 
-
-Att utlösa en gång var femte minut:
-
-```json
-"schedule": "0 */5 * * * *"
-```
-
-Att utlösa en gång längst upp i varje timme:
-
-```json
-"schedule": "0 0 * * * *",
-```
-
-Att utlösa en gång varannan timme:
-
-```json
-"schedule": "0 0 */2 * * *",
-```
-
-Att utlösa en gång i timmen från 9: 00 och 17: 00:
-
-```json
-"schedule": "0 0 9-17 * * *",
-```
-
-Att utlösa på 9:30:00 varje dag:
-
-```json
-"schedule": "0 30 9 * * *",
-```
-
-Att utlösa på 9:30:00 varje vardag:
-
-```json
-"schedule": "0 30 9 * * 1-5",
-```
 
 ## <a name="usage"></a>Användning
 
@@ -246,20 +186,91 @@ När en timer utlösaren funktionen anropas på [timer-objekt](https://github.co
     "Schedule":{
     },
     "ScheduleStatus": {
-        "Last":"2016-10-04T10:15:00.012699+00:00",
+        "Last":"2016-10-04T10:15:00+00:00",
+        "LastUpdated":"2016-10-04T10:16:00+00:00",
         "Next":"2016-10-04T10:20:00+00:00"
     },
     "IsPastDue":false
 }
 ```
 
+Den `IsPastDue` egenskapen är `true` när den aktuella funktionsanrop är senare än förväntat. Till exempel kan en funktion app omstart orsaka ett anrop till missas.
+
+## <a name="cron-expressions"></a>CRON-uttryck 
+
+Ett CRON-uttryck för Azure Functions timer-utlösare innehåller sex fält: 
+
+`{second} {minute} {hour} {day} {month} {day-of-week}`
+
+Varje fält kan ha något av följande typer av värden:
+
+|Typ  |Exempel  |När den utlöses  |
+|---------|---------|---------|
+|Ett specifikt värde |<nobr>"0 5 * * * *"</nobr>|vid hh:05:00 där hh är varje Timma (en gång i timmen)|
+|Alla värden (`*`)|<nobr>"0 * 5 * * *"</nobr>|vid 5:mm: 00 varje dag, mm är där varje minuten i timmen (60 gånger per dag)|
+|Ett intervall (`-` operatorn)|<nobr>"5-7 * * * * *"</nobr>|på hh:mm:05, hh:mm:06 och hh:mm:07 där HH är minuten i timmen (3 gånger minut)|  
+|En uppsättning värden (`,` operatorn)|<nobr>"5,8,10 * * * * *"</nobr>|på hh:mm:05, hh:mm:08 och hh:mm:10 där HH är minuten i timmen (3 gånger minut)|
+|Ett intervallvärde (`/` operatorn)|<nobr>"0 */5 * * * *"</nobr>|hh:05:00, hh:10:00, hh:15:00 och så vidare till hh:55:00 där hh är varje Timma (12 gånger i timmen)|
+
+### <a name="cron-examples"></a>CRON-exempel
+
+Här följer några exempel på CRON-uttryck som du kan använda för utlösaren i Azure Functions timer.
+
+|Exempel|När den utlöses  |
+|---------|---------|
+|"0 */5 * * * *"|en gång var femte minut|
+|"0 0 * * * *"|en gång längst upp i varje timme|
+|"0 0 */2 * * *"|en gång varannan timme|
+|"0 0 9-17 * * *"|en gång i timmen från 9: 00 och 17: 00|
+|"0 30 9 * * *"|på 9:30:00 varje dag|
+|"0 30 9 * * 1-5"|på 9:30:00 varje vardag|
+
+>[!NOTE]   
+>Du kan hitta CRON exempel på uttryck online, men många av dem utelämna den `{second}` fältet. Om du kopierar från en av dem, lägger du till den saknade `{second}` fältet. Vanligtvis vill du noll i fältet, inte en asterisk.
+
+### <a name="cron-time-zones"></a>CRON tidszoner
+
+Siffrorna i ett CRON-uttryck referera till ett datum och klockslag, inte ett tidsintervall. Till exempel en 5 i den `hour` fältet refererar till 5:00:00, inte var 5: e timme.
+
+Standardtidszon används med CRON-uttryck är Coordinated Universal Time (UTC). Om du vill att din CRON-uttryck baserat på en annan tidszon, skapa en appinställning för appen funktion med namnet `WEBSITE_TIME_ZONE`. Ange värdet till namnet på tidszonen som visas i den [Microsoft tidszon Index](https://technet.microsoft.com/library/cc749073). 
+
+Till exempel *Eastern, normaltid* är UTC-05:00. Har din timer Utlös brand på 10:00 AM GMT varje dag, använder du följande CRON-uttryck i för UTC-tid:
+
+```json
+"schedule": "0 0 15 * * *",
+``` 
+
+Eller skapa en appinställning för appen funktion med namnet `WEBSITE_TIME_ZONE` och ange värdet **Eastern, normaltid**.  Sedan använder du följande CRON-uttryck: 
+
+```json
+"schedule": "0 0 10 * * *",
+``` 
+
+## <a name="timespan"></a>TimeSpan
+
+ En `TimeSpan` kan endast användas för en funktionsapp som körs på en App Service-Plan.
+
+Till skillnad från ett CRON-uttryck, en `TimeSpan` värdet anger tidsintervallet mellan varje funktionsanrop. När en funktion är klar när du har kört längre än det angivna intervallet anropar timern direkt funktionen igen.
+
+Uttryckt i form av en sträng i `TimeSpan` format är `hh:mm:ss` när `hh` är mindre än 24. När de två första siffrorna är 24 eller större, formatet är `dd:hh:mm`. Här följer några exempel:
+
+|Exempel |När den utlöses  |
+|---------|---------|
+|"01:00:00" | Varje timme        |
+|"00:01:00"|Varje minut         |
+|"24:00:00" | var 24: e dag        |
+
 ## <a name="scale-out"></a>Skalbarhet
 
-Timer-utlösare stöder flera instanser skalbar. En instans av en viss timerfunktion körs i alla instanser.
+Om en funktionsapp skalas ut till flera instanser, körs bara en instans av en funktion som utlöses av timer över alla instanser.
 
 ## <a name="function-apps-sharing-storage"></a>Funktionen appar som delar lagring
 
 Om du delar ett lagringskonto över flera funktionen appar, se till att varje funktionsapp har en annan `id` i *host.json*. Du kan hoppa över den `id` egenskapen eller manuellt ange varje funktionsapp `id` till ett annat värde. Timer-utlösaren använder lagring Lås så att endast en timer-instans när en funktionsapp skalas ut till flera instanser. Om två funktionen appar med samma `id` och varje använder en timer som utlösare, körs bara en timer.
+
+## <a name="retry-behavior"></a>Omförsök
+
+Till skillnad från kön-utlösaren igen inte timer utlösaren efter en funktion misslyckas. När en funktion inte den is't anropas igen förrän nästa gång i schemat.
 
 ## <a name="next-steps"></a>Nästa steg
 

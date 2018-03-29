@@ -1,13 +1,13 @@
 ---
-title: "Azure Stream Analytics: Förstå och justera enheter för strömning | Microsoft Docs"
-description: "Förstå vilka faktorer som påverkar prestanda i Azure Stream Analytics."
-keywords: "Streaming unit frågeprestanda"
+title: 'Azure Stream Analytics: Förstå och justera enheter för strömning | Microsoft Docs'
+description: Förstå vilka faktorer som påverkar prestanda i Azure Stream Analytics.
+keywords: Streaming unit frågeprestanda
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JSeb225
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5c60b1808959c73759a78141566c5c49f0350e2f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Förstå och justera enheter för strömning
 
@@ -88,18 +88,18 @@ Tillstånd storleken på en temporal koppling är proportionell mot antalet hän
 
 Antalet omatchade händelser i kopplingen påverkar minnesanvändning för frågan. Följande fråga söker efter reklamannonser som genererar klick:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks 
-    INNER JOIN, impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
+    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
 
 I det här exemplet är det möjligt att många annonser visas och några få personer klickar du på den och det krävs att alla händelser under tidsperioden. Förbrukat minne beror på tidsperiodens längd och händelsens frekvens. 
 
 Om du vill reparera det här skicka händelser till Händelsehubben partitioneras vid koppling nycklar (id i detta fall) och skala ut frågan genom att låta systemet att bearbeta varje inkommande partition separat med **PARTITION BY** som visas:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks PARTITION BY PartitionId
     INNER JOIN impressions PARTITION BY PartitionId 
-    ON impression.PartitionId = clocks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
+    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
 </code>
 
 När frågan är utpartitionerad sprids den ut över flera noder. Därför minskas antalet händelser som kommer till varje nod, vilket minskar storleken på tillståndet sparas i fönstret ansluta till. 

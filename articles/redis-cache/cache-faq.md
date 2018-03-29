@@ -1,11 +1,11 @@
 ---
-title: "Azure Redis-Cache vanliga frågor och svar | Microsoft Docs"
-description: "Läs svaren på vanliga frågor, mönster och bästa praxis för Azure Redis-Cache"
+title: Azure Redis-Cache vanliga frågor och svar | Microsoft Docs
+description: Läs svaren på vanliga frågor, mönster och bästa praxis för Azure Redis-Cache
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 82c01419d65e00ddf27dfeb8fd444d5d3d81803c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 66340e690e5a6ac3e440b8b4d26e1a8b2abab266
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Vanliga frågor och svar för Azure Redis Cache
 Lär dig svar på vanliga frågor, mönster och bästa praxis för Azure Redis-Cache.
@@ -89,7 +89,7 @@ Det finns flera sätt som du kan komma igång med Azure Redis-Cache.
 
 * Du kan checka ut en av våra självstudier som är tillgängliga för [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md), och [Python](cache-python-get-started.md).
 * Du kan titta på [hur du skapar högpresterande appar med Microsoft Azure Redis-Cache](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
-* Du kan checka ut i dokumentationen för klienter för klienter som matchar ditt projekt och se hur du använder Redis programmeringsspråk. Det finns många Redis-klienter som kan användas med Azure Redis-Cache. En lista över Redis-klienter finns [http://redis.io/clients](http://redis.io/clients).
+* Du kan checka ut i dokumentationen för klienter för klienter som matchar ditt projekt och se hur du använder Redis programmeringsspråk. Det finns många Redis-klienter som kan användas med Azure Redis-Cache. En lista över Redis-klienter finns [ http://redis.io/clients ](http://redis.io/clients).
 
 Om du inte redan har ett Azure-konto, kan du:
 
@@ -111,7 +111,7 @@ Följande är att tänka på för att välja ett erbjudande för cachen.
 * **Redis-kluster**: skapa cachelagrar större än 53 GB och Fragmentera data över flera Redis-noder, du kan använda Redis-kluster som är tillgängliga i Premium-nivån. Varje nod består av två primära/replik cache för hög tillgänglighet. Mer information finns i [Konfigurera klustring för premium Azure Redis-cache](cache-how-to-premium-clustering.md).
 * **Förbättrad säkerhet och nätverk isolerade**: distribution av Azure virtuella nätverk (VNET) ger förbättrad säkerhet och isolering för Azure Redis-Cache, samt undernät, principer för åtkomstkontroll och andra funktioner för att ytterligare begränsa åtkomsten. Mer information finns i [Konfigurera Virtual Network-stöd för premium Azure Redis-cache](cache-how-to-premium-vnet.md).
 * **Konfigurera Redis**: I både Standard- och Premium-nivåer, kan du konfigurera Redis för Keyspace-meddelanden.
-* **Maximalt antal klientanslutningar**: I Premium-nivån erbjuder det maximala antalet klienter som kan ansluta till Redis med ett högre antal anslutningar för större storlek. Mer information finns i [priser för Azure Redis-Cache](https://azure.microsoft.com/pricing/details/cache/).
+* **Maximalt antal klientanslutningar**: I Premium-nivån erbjuder det maximala antalet klienter som kan ansluta till Redis med ett högre antal anslutningar för större storlek. Antalet anslutningar som är tillgängliga för en klustrad cache ökar inte kluster. Mer information finns i [priser för Azure Redis-Cache](https://azure.microsoft.com/pricing/details/cache/).
 * **Dedikerade Redis Server Core**: I Premium-nivån alla storlekar för cache har en dedikerad kärna för Redis. I Basic/Standard nivåer, C1 storlek och senare har en dedikerad kärna för Redis-servern.
 * **Redis är enkeltrådad** så att ha fler än två kärnor ger inte nytta över med två kärnor, men större VM-storlekar har vanligtvis mer bandbredd än är mindre. Om cacheserver eller klienten når gränser för bandbredd, får du timeout på klientsidan.
 * **Prestandaförbättringar**: Cacheminnena i Premium-nivån har distribuerats på maskinvara som har snabba processorer kan ge bättre prestanda jämfört med nivån Basic eller Standard. Premium-nivån cacheminnen har högre genomflöde och lägre latens.

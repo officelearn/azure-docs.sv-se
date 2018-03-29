@@ -1,11 +1,11 @@
 ---
-title: "Hantera Skalningsuppsättningar i virtuella datorer med Azure PowerShell | Microsoft Docs"
-description: "Vanliga Azure PowerShell-cmdletar för att hantera Skalningsuppsättningar i virtuella datorer, till exempel att starta och stoppa en instans eller ändra skalan Ange kapacitet."
+title: Hantera Skalningsuppsättningar i virtuella datorer med Azure PowerShell | Microsoft Docs
+description: Vanliga Azure PowerShell-cmdletar för att hantera Skalningsuppsättningar i virtuella datorer, till exempel att starta och stoppa en instans eller ändra skalan Ange kapacitet.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d35fa77a-de96-4ccd-a332-eb181d1f4273
 ms.service: virtual-machine-scale-sets
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 5b5f3eb05f0d6c10f7efe8af1b93b2cb4fc585c5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c463dd26c106b3178becc977a8afd742220d7973
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Hantera en virtuell dator-skala med Azure PowerShell
-Du kan behöva köra en eller flera administrativa uppgifter i hela livscykeln för en skaluppsättning för virtuell dator. Dessutom kanske du vill skapa skript som automatiserar olika livscykel-uppgifter. Den här artikeln beskrivs några vanliga Azure PowerShell-cmdlets som gör att du kan utföra dessa uppgifter.
+Du kan behöva köra en eller flera administrativa uppgifter i hela livscykeln för en skaluppsättning för virtuell dator. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. Den här artikeln beskrivs några vanliga Azure PowerShell-cmdlets som gör att du kan utföra dessa uppgifter.
 
-För att slutföra dessa hanteringsaktiviteter, behöver du den senaste Azure PowerShell-modulen. Mer information om hur du installerar och använder den senaste versionen finns [komma igång med Azure PowerShell](/powershell/azure/get-started-azureps). Om du behöver skapa en skaluppsättning för virtuell dator kan du [skapa en skala som angetts i Azure portal](virtual-machine-scale-sets-create-portal.md).
+För att slutföra dessa hanteringsaktiviteter, behöver du den senaste Azure PowerShell-modulen. Mer information finns i [komma igång med Azure PowerShell](/powershell/azure/get-started-azureps). Om du behöver skapa en skaluppsättning för virtuell dator kan du [skapa en skala med Azure PowerShell](quick-create-powershell.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Visa information om en skaluppsättning
@@ -35,7 +35,7 @@ Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet
 ```
 
 
-## <a name="view-vms-in-a-scale-set"></a>Visa virtuella datorer i en skaluppsättning
+## <a name="view-vms-in-a-scale-set"></a>Visa virtuella datorer i en skalningsuppsättning
 Du kan visa en lista över VM-instans i en skaluppsättning [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). I följande exempel visa en lista med alla VM-instanser i skaluppsättningen namngivna *myScaleSet* och i den *myResourceGroup* resursgruppen. Ange egna värden för dessa namn:
 
 ```powershell

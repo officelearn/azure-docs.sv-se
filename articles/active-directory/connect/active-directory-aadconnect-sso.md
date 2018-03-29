@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Sömlös enkel inloggning | Microsoft Docs"
-description: "Det här avsnittet beskriver Azure Active Directory (AD Azure) sömlös enkel inloggning och hur du kan ange SANT enkel inloggning för fjärrskrivbord företagsanvändare i företagsnätverket."
+title: 'Azure AD Connect: Sömlös enkel inloggning | Microsoft Docs'
+description: Det här avsnittet beskriver Azure Active Directory (AD Azure) sömlös enkel inloggning och hur du kan ange SANT enkel inloggning för fjärrskrivbord företagsanvändare i företagsnätverket.
 services: active-directory
-keywords: "Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 14018db3cbe34c9eca9048ceaf376ff3a06a4353
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b1c82727e97b85fae5f315ceb1cd79cfdd111b45
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sömlös enkel inloggning
 
@@ -50,7 +50,8 @@ Sömlös SSO kan kombineras med antingen den [synkronisering av lösenords-hash-
 
 - Logga in användarnamnet kan vara antingen lokalt Standardanvändarnamnet (`userPrincipalName`) eller ett annat attribut som konfigurerats i Azure AD Connect (`Alternate ID`). Båda använder fall arbete eftersom sömlös SSO använder den `securityIdentifier` anspråk i Kerberos-biljetten att leta upp motsvarande användarobjekt i Azure AD.
 - Sömlös SSO är en opportunistisk funktion. Om det misslyckas av någon anledning går inloggning för användaren tillbaka till sitt vanliga beteende - dvs, användaren måste ange sina lösenord på sidan logga in.
-- Om ett program vidarebefordrar en `domain_hint` (OpenID Connect) eller `whr` (SAML) parameter - identifierar din klient eller `login_hint` parameter - identifierar användaren i Azure AD-inloggning begäran användare loggas automatiskt in utan dem anger användarnamn eller lösenord.
+- Om ett program (till exempel https://myapps.microsoft.com/contoso.com) vidarebefordrar en `domain_hint` (OpenID Connect) eller `whr` (SAML) parameter - identifierar din klient eller `login_hint` parameter - identifierar användaren användare finns i Azure AD-inloggning begäran Du loggas in automatiskt utan dem anger användarnamn eller lösenord.
+- Användarna får också en tyst inloggning om ett program (till exempel https://contoso.sharepoint.com) skickar inloggningsförfrågningar till Azure AD-innehavare slutpunkter – det vill säga https://login.microsoftonline.com/contoso.com/<..> eller https://login.microsoftonline.com/<tenant_ID>/<..> – i stället för Azure AD vanliga endpoint – det vill säga https://login.microsoftonline.com/common/<...>.
 - Logga ut stöds. Detta ger användarna att välja en annan Azure AD-konto för att logga in med i stället för att automatiskt loggas in automatiskt med sömlös SSO.
 - Office 365-klienter (16.0.8730.xxxx och senare) stöds med hjälp av en icke-interaktiv flöde.
 - Den kan aktiveras via Azure AD Connect.

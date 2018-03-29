@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus Geo-katastrofåterställning | Microsoft Docs"
-description: "Hur du använder geografiska regioner för redundans och utföra katastrofåterställning i Azure Service Bus"
+title: Azure Service Bus Geo-katastrofåterställning | Microsoft Docs
+description: Hur du använder geografiska regioner för redundans och utföra katastrofåterställning i Azure Service Bus
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: christianwolf42
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 9cbeff82f7a237c813ea91cd83e9273cad934991
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 652adcf78add8ae699a7f827a915e90ce1694c61
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus Geo-katastrofåterställning
 
@@ -86,12 +86,13 @@ Om du har ett scenario där du inte kan ändra anslutningar för producenter och
 
 ## <a name="samples"></a>Exempel
 
-Den [exemplen på GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) visar hur du ställer in och initiera redundans. De här exemplen visar följande:
+Den [exemplen på GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) visar hur du ställer in och initiera redundans. De här exemplen visar följande:
 
-- Inställningar som krävs i Azure Active Directory för att använda Azure Resource Manager med Service Bus. 
-- Steg som krävs för att köra exempelkoden. 
-- Skicka och ta emot från det aktuella primära namnområdet. 
+- Ett exempel på .net och inställningar som krävs i Azure Active Directory för att använda Azure Resource Manager med Service Bus att konfigurera och aktivera Geo-återställning.
+- Steg som krävs för att köra exempelkoden.
 - Hur du använder ett befintligt namnområde som alias.
+- Steg för att du kan också aktivera Geo-återställning via PowerShell eller CLI.
+- [Skicka och ta emot](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) från det primära eller sekundära namnområdet med hjälp av alias.
 
 ## <a name="considerations"></a>Överväganden
 

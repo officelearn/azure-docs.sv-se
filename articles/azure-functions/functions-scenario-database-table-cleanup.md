@@ -1,12 +1,12 @@
 ---
-title: "Använd Azure Functions för att utföra en databas uppgift | Microsoft Docs"
-description: "Använd Azure Functions för att schemalägga en aktivitet som ansluter till Azure SQL Database för att regelbundet rensa rader."
+title: Använd Azure Functions för att utföra en databas uppgift | Microsoft Docs
+description: Använd Azure Functions för att schemalägga en aktivitet som ansluter till Azure SQL Database för att regelbundet rensa rader.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: functions
 ms.devlang: multiple
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: 9d8261a22f5ea9ce61bcdc79d24a6c054597039b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 2947fc6da0c4559e81cf97255b8375b020e0b657
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Använd Azure Functions för att ansluta till en Azure SQL Database
-Det här avsnittet visar hur du använder Azure Functions för att skapa ett schemalagt jobb som rensar upp rader i en tabell i Azure SQL-databas. Den nya C#-funktionen skapas baserat på en fördefinierad timer utlösaren mall i Azure-portalen. För att stödja det här scenariot måste du också ange en anslutningssträng för databasen som en appinställning i funktionen appen. Det här scenariot använder en massåtgärd mot databasen. 
+Det här avsnittet visar hur du använder Azure Functions för att skapa ett schemalagt jobb som rensar upp rader i en tabell i Azure SQL-databas. Nytt C# skript funktionen skapas baserat på en fördefinierad timer utlösaren mall i Azure-portalen. För att stödja det här scenariot måste du också ange en anslutningssträng för databasen som en appinställning i funktionen appen. Det här scenariot använder en massåtgärd mot databasen. 
 
 Har din funktion processen individuella skapa, Läs-, update- och borttagningsåtgärder (CRUD) i en tabell för Mobile Apps ska du i stället använda [Mobile Apps bindningar](functions-bindings-mobile-apps.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Det här avsnittet använder en som utlöste-timerfunktion. Utför stegen i avsnittet [skapa en funktion i Azure som utlöses av en timer](functions-create-scheduled-function.md) att skapa en C#-version av den här funktionen.   
 
@@ -40,7 +40,7 @@ Du måste hämta anslutningssträngen för databasen du skapade när du slutför
  
 3. Välj **SQL-databaser** i den vänstra menyn och väljer din databas på den **SQL-databaser** sidan.
 
-4. Välj **visa databasanslutningssträngar** och kopiera hela **ADO.NET** anslutningssträngen.
+4. Välj **visa databasanslutningssträngar** och kopiera hela **ADO.NET** anslutningssträngen. 
 
     ![Kopiera ADO.NET-anslutningssträngen.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -70,14 +70,16 @@ Nu kan du lägga till C#-Funktionskoden som ansluter till SQL-databasen.
 
 ## <a name="update-your-function-code"></a>Uppdatera din funktionskod
 
-1. Välj funktionen timer-utlösta i appen funktion.
+1. Välj funktionen timer-utlösta i appen funktionen i portalen.
  
-3. Lägg till följande sammansättningsreferenser överst i den befintliga Funktionskoden:
+3. Lägg till följande sammansättningsreferenser överst i den befintliga C# skript Funktionskoden:
 
     ```cs
     #r "System.Configuration"
     #r "System.Data"
     ```
+    >[!NOTE]
+    >Koden i de här exemplen är C# skript från portalen. När du utvecklar en förkompilerade C#-funktion lokalt, måste du i stället lägga till referenser till dessa monterar i projektet lokalt.  
 
 3. Lägg till följande `using` instruktioner till funktionen:
     ```cs

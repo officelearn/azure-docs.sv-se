@@ -1,8 +1,8 @@
 ---
-title: "Power BI-instrumentpanel för vehicle hälso- och köra vanor - Azure | Microsoft Docs"
-description: "Använda funktionerna i Cortana Intelligence och få insikter om i realtid och förutsägbara på vehicle hälsa och köra vanor."
+title: Power BI-instrumentpanel för vehicle hälso- och köra vanor - Azure | Microsoft Docs
+description: Använda funktionerna i Cortana Intelligence och få insikter om i realtid och förutsägbara på vehicle hälsa och köra vanor.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 085ce90311d4d89b365f7fe51a95c00c1a734196
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Vehicle telemetri Analytics lösning mallen Power BI dashboard instruktioner
 Den här menyn innehåller länkar till kapitlen i den här playbook: 
@@ -308,7 +308,7 @@ Du har konfigurerat rapporten ”fordon kräver Underhåll” realtid. Du kan sk
 
     ![Information, förklaring och axelns storlek områden](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
-25. Ändra diagrammet **rubrik** till **medelvärde för bränsle medelvärdet av engineTemperature och antal vin av modellen och modell**.
+25. Ändra diagrammet **rubrik** till **medelvärde för bränsle medelvärdet av engineTemperature och antal vin av modell**.
 
     ![Punktdiagram diagrammets rubrik](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ii.png)
 

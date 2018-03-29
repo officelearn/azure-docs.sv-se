@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric omvänd proxy diagnostik | Microsoft Docs"
-description: "Lär dig mer om att övervaka och diagnostisera behandling av begäranden på omvänd proxy."
+title: Azure Service Fabric omvänd proxy diagnostik | Microsoft Docs
+description: Lär dig mer om att övervaka och diagnostisera behandling av begäranden på omvänd proxy.
 services: service-fabric
 documentationcenter: .net
 author: kavyako
 manager: vipulm
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 1c62d2390709577bfde6225b783642fb55396a6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e645d86e4527cab1e650575c4d9a10dbd4b9de4e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Övervaka och diagnostisera behandling av begäranden på omvänd proxy
 
 Från och med 5.7 för Service Fabric omvänd proxyhändelser som är tillgängliga för samlingen. Händelserna som är tillgängliga i två kanaler, en med endast felhändelser relaterade till behandling av begäranden fel i omvänd proxy och andra kanalen som innehåller utförlig händelser med poster för både slutförda och misslyckade begäranden.
 
-Referera till [samla in händelser för omvänd proxy](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events) att aktivera att samla in händelser från dessa kanaler i lokala grupper och Azure Service Fabric-kluster.
+Referera till [samla in händelser för omvänd proxy](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) att aktivera att samla in händelser från dessa kanaler i lokala grupper och Azure Service Fabric-kluster.
 
 ## <a name="troubleshoot-using-diagnostics-logs"></a>Felsöka med diagnostik-loggar
 Här följer några exempel på hur du tolkar vanliga fel loggarna som en kan uppstå:

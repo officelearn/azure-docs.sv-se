@@ -1,6 +1,6 @@
 ---
-title: "Introduktion till tillförlitliga samlingar i Azure Service Fabric tillståndskänsliga tjänster | Microsoft Docs"
-description: "Service Fabric tillståndskänsliga tjänster har tillförlitliga samlingar som gör det möjligt att skriva hög tillgänglighet, skalbara och låg latens molnprogram."
+title: Introduktion till tillförlitliga samlingar i Azure Service Fabric tillståndskänsliga tjänster | Microsoft Docs
+description: Service Fabric tillståndskänsliga tjänster har tillförlitliga samlingar som gör det möjligt att skriva hög tillgänglighet, skalbara och låg latens molnprogram.
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: 0e89df79d2ff619343f914ce3a5ffe87b7bf25de
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: c6425f7642d9dbecafc6779184a2a5b0cc1a2cab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introduktion till tillförlitliga samlingar i Azure Service Fabric tillståndskänsliga tjänster
 Tillförlitliga samlingar kan du skriva hög tillgänglighet, skalbara och låg latens molnprogram som om du skriver datorprogram. Klasserna i den **Microsoft.ServiceFabric.Data.Collections** namnområde ger en uppsättning av samlingar som automatiskt ge ditt tillstånd hög tillgänglighet. Utvecklare måste programmet bara tillförlitliga samling API: er och låta tillförlitliga samlingar som hanterar replikeras och lokala tillstånd.
@@ -44,7 +44,7 @@ För att uppnå svagare konsekvenskontroll bekräftar program tillbaka till klie
 API: er för tillförlitlig samlingar är en utveckling av samtidiga samlingar API: er (finns i den **System.Collections.Concurrent** namnområde):
 
 * Asynkron: Returnerar en aktivitet eftersom, till skillnad från samlingar med samtidiga åtgärder replikeras och beständig.
-* Inte out-parametrar: använder `ConditionalValue<T>` att returnera bool och ett värde i stället för out-parametrar. `ConditionalValue<T>`liknar `Nullable<T>` men kräver inte T vara en struktur.
+* Inte out-parametrar: använder `ConditionalValue<T>` att returnera bool och ett värde i stället för out-parametrar. `ConditionalValue<T>` liknar `Nullable<T>` men kräver inte T vara en struktur.
 * Transaktioner: Använder ett transaction-objekt för att hjälpa användarna att gruppera åtgärder på flera tillförlitliga samlingar i en transaktion.
 
 Idag **Microsoft.ServiceFabric.Data.Collections** innehåller tre samlingar:
@@ -57,7 +57,6 @@ Idag **Microsoft.ServiceFabric.Data.Collections** innehåller tre samlingar:
 * [Riktlinjer för tillförlitlig samling & rekommendationer](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Arbeta med Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transaktioner och lås](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Tillförlitliga tillstånd Manager och samling Internals](service-fabric-reliable-services-reliable-collections-internals.md)
 * Datahantering
   * [Säkerhetskopiering och återställning](service-fabric-reliable-services-backup-restore.md)
   * [Meddelanden](service-fabric-reliable-services-notifications.md)

@@ -1,8 +1,8 @@
 ---
-title: "Disaster recovery-vägledning för Azure Data Lake Store | Microsoft Docs"
-description: "Riktlinjer för katastrofåterställning för Azure Data Lake Store"
+title: Disaster recovery-vägledning för Azure Data Lake Store | Microsoft Docs
+description: Riktlinjer för katastrofåterställning för Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: d76f756e7a6fe77886f0d4e00ab8b23273b4e09d
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9a2705a2372ea4f2fbea1e27bf675679dfda28f8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Disaster recovery-vägledning för data i Data Lake Store
 
-Data i ditt Azure Data Lake Store-konto är motståndskraftiga mot tillfälliga maskinvarufel inom en region, tack vare automatisk replikering. Detta säkerställer hållbarheten och hög tillgänglighet, vilket uppfyller SLA för Azure Data Lake Store. Den här artikeln innehåller råd om hur du ytterligare skydda dina data från sällsynta region hela avbrott eller oavsiktliga borttagningar.
+Azure Data Lake Store ger lokalt redundant lagring (LRS). Därför kan är data i Azure Data Lake Store-konto känsligt för tillfälliga maskinvarufel inom en region via automatisk repliker. Detta säkerställer hållbarheten och hög tillgänglighet, vilket uppfyller SLA för Azure Data Lake Store. Den här artikeln innehåller råd om hur du ytterligare skydda dina data från sällsynta region hela avbrott eller oavsiktliga borttagningar.
 
 ## <a name="disaster-recovery-guidance"></a>Vägledning om haveriberedskap
-Det är viktigt för varje kund att förbereda en plan för haveriberedskap. I Azure-dokumentationen nedan finns information om hur du skapar din haveriberedskapsplan. Här finns resurser som hjälper dig att skapa ett eget schema.
+Det är viktigt för varje kund att förbereda en plan för haveriberedskap. Läs informationen i den här artikeln för att skapa din plan för katastrofåterställning. Här finns resurser som hjälper dig att skapa ett eget schema.
 
 * [Haveriberedskap och hög tillgänglighet för Azure-program](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 * [Azure-återhämtning, tekniska riktlinjer](../resiliency/resiliency-technical-guidance.md)

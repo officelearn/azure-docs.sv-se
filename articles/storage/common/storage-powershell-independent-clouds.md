@@ -3,21 +3,21 @@ title: Hantera lagring i Azure oberoende moln med Azure PowerShell | Microsoft D
 description: Hantera lagring i Kina molnet, offentliga moln och tyska moln med Azure PowerShell
 services: storage
 documentationcenter: na
-author: robinsh
-manager: timlt
-ms.assetid: 
+author: roygara
+manager: jeconnoc
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: robinsh
-ms.openlocfilehash: 08e1af929d7ddc30c7dc149f6305ca1ca0bc22ae
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.author: rogarana
+ms.openlocfilehash: 31b36e6fb6a1ebf09c559b2777ffa5f554c3cfa0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Hantera lagring i Azure oberoende moln med hjälp av PowerShell
 
@@ -25,7 +25,7 @@ De flesta använder offentliga Azure-molnet för sina globala Azure-distribution
 
 * [Azure Government-moln](https://azure.microsoft.com/features/gov/)
 * [Kina Azuremolnet drivs av 21Vianet i Kina](http://www.windowsazure.cn/)
-* [Tyska Azuremolnet](../../germany/germany-welcome.md)
+* [Azure German Cloud](../../germany/germany-welcome.md)
 
 ## <a name="using-an-independent-cloud"></a>Med hjälp av ett oberoende moln 
 
@@ -85,10 +85,10 @@ Det här kommandot returnerar följande resultat.
 
 | Namn| StorageEndpointSuffix|
 |----|----|
-|AzureChinaCloud | Core.chinacloudapi.CN|
-| AzureCloud | Core.Windows.NET |
-| AzureGermanCloud | Core.cloudapi.de|
-| AzureUSGovernment | Core.usgov.cloudapi.NET |
+|AzureChinaCloud | core.chinacloudapi.cn|
+| AzureCloud | core.windows.net |
+| AzureGermanCloud | core.cloudapi.de|
+| AzureUSGovernment | core.usgov.cloudapi.net |
 
 
 Om du vill hämta alla egenskaper för den angivna miljön anropa **Get-AzureRmEnvironment** och ange namnet på det moln. Det här kodstycket returnerar en lista med egenskaper. Leta efter **StorageEndpointSuffix** i listan. I följande exempel är för tyska molnet.
@@ -103,14 +103,14 @@ Resultatet liknar följande:
 |----|----|
 | Namn | AzureGermanCloud |
 | EnableAdfsAuthentication | False |
-| ActiveDirectoryServiceEndpointResourceI | http://Management.Core.cloudapi.de/ |
-| GalleryURL | https://Gallery.cloudapi.de/ |
-| ManagementPortalUrl | https://Portal.microsoftazure.de/ | 
-| ServiceManagementUrl | https://Manage.Core.cloudapi.de/ |
-| PublishSettingsFileUrl| https://Manage.microsoftazure.de/publishsettings/index |
-| ResourceManagerUrl | http://Management.microsoftazure.de/ |
-| SqlDatabaseDnsSuffix | . database.cloudapi.de |
-| **StorageEndpointSuffix** | Core.cloudapi.de |
+| ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
+| GalleryURL | https://gallery.cloudapi.de/ |
+| ManagementPortalUrl | https://portal.microsoftazure.de/ | 
+| ServiceManagementUrl | https://manage.core.cloudapi.de/ |
+| PublishSettingsFileUrl| https://manage.microsoftazure.de/publishsettings/index |
+| ResourceManagerUrl | http://management.microsoftazure.de/ |
+| SqlDatabaseDnsSuffix | .database.cloudapi.de |
+| **StorageEndpointSuffix** | core.cloudapi.de |
 | ... | ... | 
 
 Om du vill hämta bara lagring suffix slutpunktsegenskapen hämta specifika molnet och frågar efter precis som en egenskap.

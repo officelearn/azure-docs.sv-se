@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 03/20/2018
 ms.author: sedusch
-ms.openlocfilehash: 27fa58042b1d3dbed111d6ec7f3b3e96a9161180
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 75615de523f1fba808f44fb1a1015138fb190edc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -28,14 +28,13 @@ ms.lasthandoff: 03/23/2018
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
 
-![Pacemaker på SLES översikt](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
-
-
 Det finns två alternativ för att konfigurera ett Pacemaker kluster i Azure. Du kan antingen använda en avgränsningar-agent som tar hand om att starta om noden via Azure-API: erna eller du kan använda en enhet uppstår.
 
 Uppstår enheten kräver en ytterligare virtuell dator som fungerar som en iSCSI-målservern och ger en uppstår enhet. ISCSI-målservern kan dock vara delas med andra Pacemaker kluster. Fördelen med att använda en uppstår-enhet är en snabbare redundans och om du använder uppstår enheter lokalt, kräver inte några ändringar på hur du använder pacemaker klustret. Uppstår avgränsningar kan fortfarande använda Azure avgränsningstecken agenten som en säkerhetskopia inhägnad mekanism om iSCSI-målservern inte är tillgänglig.
 
 Du kan också använda Azure avgränsningstecken agenten om du inte vill att investera i ytterligare en virtuell dator. Nackdelen är att en växling vid fel kan ta mellan 10 – 15 minuter om en resurs stoppa misslyckas eller klusternoder kan inte kommunicera som varandra längre.
+
+![Pacemaker på SLES översikt](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 ## <a name="sbd-fencing"></a>Uppstår avgränsningar
 
@@ -61,12 +60,11 @@ Du måste först skapa en iSCSI-målet virtuell dator om du inte har något reda
 
 1. Aktivera iSCSI-Måltjänsten
 
-   <pre><code>
-   # This will make sure that targetcli was called at least once and the initial configuration was done.
-   sudo targetcli --help
-   
+   <pre><code>   
    sudo systemctl enable target
+   sudo systemctl enable targetcli
    sudo systemctl start target
+   sudo systemctl start targetcli
    </code></pre>
 
 ### <a name="create-iscsi-device-on-iscsi-target-server"></a>Skapa iSCSI-enhet på iSCSI-målservern
@@ -79,15 +77,28 @@ Kör följande kommando på den **iSCSI-målet VM** att skapa en iSCSI-disk för
 # List all data disks with the following command
 sudo ls -al /dev/disk/azure/scsi1/
 
+# total 0
+# drwxr-xr-x 2 root root  80 Mar 26 14:42 .
+# drwxr-xr-x 3 root root 160 Mar 26 14:42 ..
+# lrwxrwxrwx 1 root root  12 Mar 26 14:42 lun0 -> ../../../<b>sdc</b>
+# lrwxrwxrwx 1 root root  12 Mar 26 14:42 lun1 -> ../../../sdd
+
+# Then use the disk name to list the disk id
+sudo ls -l /dev/disk/by-id/scsi-* | grep sdc
+
+# lrwxrwxrwx 1 root root  9 Mar 26 14:42 /dev/disk/by-id/scsi-14d53465420202020a50923c92babda40974bef49ae8828f0 -> ../../sdc
+# lrwxrwxrwx 1 root root  9 Mar 26 14:42 <b>/dev/disk/by-id/scsi-360022480a50923c92babef49ae8828f0 -> ../../sdc</b>
+
 # Use the data disk that you attached for this cluster to create a new backstore
-sudo targetcli backstores/block create <b>cl1</b> /dev/disk/azure/scsi1/<b>lun0</b>
+sudo targetcli backstores/block create <b>cl1</b> <b>/dev/disk/by-id/scsi-360022480a50923c92babef49ae8828f0</b>
 
 sudo targetcli iscsi/ create iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>
 sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/luns/ create /backstores/block/<b>cl1</b>
 sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/acls/ create iqn.2006-04.<b>prod-cl1-0.local:prod-cl1-0</b>
 sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/acls/ create iqn.2006-04.<b>prod-cl1-1.local:prod-cl1-1</b>
 
-# restart the iSCSI target service to persist the changes
+# save the targetcli changes
+sudo targetcli saveconfig
 sudo systemctl restart target
 </code></pre>
 
@@ -370,7 +381,7 @@ STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Mi
    Gå till egenskaperna och Skriv ned Directory-ID. Det här är den **klient-ID**.
 1. Klicka på appen registreringar
 1. Klicka på Lägg till
-1. Ange ett namn, Välj typ av program ”Web app/API”, ange en inloggnings-URL (till exempel http://localhost) och klicka på Skapa
+1. Ange ett namn, Välj typ av program ”Web app/API”, ange en URL för inloggning (till exempel http://localhost) och klicka på Skapa
 1. URL för inloggning används inte och kan vara en giltig URL
 1. Välj den nya appen och klicka på nycklar på fliken Inställningar
 1. Ange en beskrivning för en ny nyckel, Välj ”upphör aldrig att gälla” och klicka på Spara
@@ -436,7 +447,7 @@ sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
 Om du vill använda en uppstår enhet fortfarande bör du använda en Azure avgränsningstecken agent som en säkerhetskopia om iSCSI-målservern inte är tillgänglig.
 
 <pre><code>
-fencing_topology \
+sudo crm configure fencing_topology \
   stonith-sbd rsc_st_azure
 
 </code></pre>

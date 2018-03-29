@@ -1,10 +1,10 @@
 ---
-title: "Azure Storage skalbarhets- och prestandamål | Microsoft Docs"
-description: "Läs mer om skalbarhets- och prestandamål för Azure Storage, inklusive kapacitet, förfrågningar och inkommande och utgående bandbredd för både standard och premium storage-konton. Förstå prestandamål för partitioner inom varje Azure Storage-tjänster."
+title: Azure Storage skalbarhets- och prestandamål | Microsoft Docs
+description: Läs mer om skalbarhets- och prestandamål för Azure Storage, inklusive kapacitet, förfrågningar och inkommande och utgående bandbredd för både standard och premium storage-konton. Förstå prestandamål för partitioner inom varje Azure Storage-tjänster.
 services: storage
 documentationcenter: na
-author: tamram
-manager: timlt
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: be721bd3-159f-40a1-88c1-96418537fe75
 ms.service: storage
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/24/2017
-ms.author: tamram
-ms.openlocfilehash: f62f2020d40e473886cb679cdfe1c164b95f7114
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: rogarana
+ms.openlocfilehash: e393bb9e7615b893699caf5a931ede5803046892
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Skalbarhets- och prestandamål i Azure Storage
 ## <a name="overview"></a>Översikt
@@ -63,6 +63,6 @@ Mer information om mål för skalning och prestanda för Azure-filer och Azure f
 * [Storage-priser](https://azure.microsoft.com/pricing/details/storage/)
 * [Azure-prenumeration och tjänsten gränser, kvoter och begränsningar](../../azure-subscription-service-limits.md)
 * [Azure Storage-replikering](../storage-redundancy.md)
-* [Microsoft Azure Storage-prestanda och skalbarhet Checklista](../storage-performance-checklist.md)
+* [Prestanda och skalbarhetschecklista för Microsoft Azure Storage](../storage-performance-checklist.md)
 * [Microsoft Azure Storage: En högtillgänglig lagring molntjänst med stark konsekvens](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

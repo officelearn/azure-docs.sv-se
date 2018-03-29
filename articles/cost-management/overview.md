@@ -10,17 +10,17 @@ ms.topic: overview
 ms.service: cost-management
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: e2f12a989eb275e645c8b3bde3494928c5cbdb47
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e5caff5ff1af79154baddf39bf465ddea5aadae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-cost-management"></a>Vad är Azure Cost Management?
 
 Azure Cost Management licensieras av Cloudyn, ett dotterbolag till Microsoft, och gör det möjligt att spåra molnanvändning och utgifter för dina Azure-resurser och andra molnleverantörer, inklusive AWS och Google. Instrumentpanelsrapporter som är lätta att förstå hjälper dig med kostnadsallokering och kostnadsrapporter/återbetalningar. Cost Management hjälper dig att optimera molnutgifterna genom att identifiera underutnyttjade resurser som du sedan kan hantera och anpassa.
 
-En introduktionsvideo finns i [Introduction to Azure Cost Management ](https://youtu.be/NWIRny6Wpsk) (Introduktion till Azure Cost Management).
+En introduktionsvideo finns i [Introduction to Azure Cost Management ](https://azure.microsoft.com/en-us/resources/videos/azure-cost-management-overview-and-demo) (Introduktion till Azure Cost Management).
 
 ## <a name="monitor-usage-and-spending"></a>Övervaka användning och utgifter
 

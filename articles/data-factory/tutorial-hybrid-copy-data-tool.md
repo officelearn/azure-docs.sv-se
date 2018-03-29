@@ -1,21 +1,21 @@
 ---
 title: Kopiera lokala data med Azure-verktyget Kopiera data | Microsoft Docs
-description: "Skapa en Azure-datafabrik och kopiera sedan data från en lokal SQL Server-databas till Azure Blob Storage med hjälp av verktyget Kopiera data."
+description: Skapa en Azure-datafabrik och kopiera sedan data från en lokal SQL Server-databas till Azure Blob Storage med hjälp av verktyget Kopiera data.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
 ms.date: 01/04/2018
 ms.author: jingwang
-ms.openlocfilehash: 77090d9a61945c9edc42cde7d647c75e91f54dd6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 85b721df1e666903c4966ca240c433ded01c06b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Kopiera data från en lokal SQL Server-databas till Azure Blob Storage med hjälp av verktyget Kopiera data
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -73,7 +73,7 @@ I den här självstudien använder du en lokal SQL Server-databas som *källdata
     ```
 
 ### <a name="azure-storage-account"></a>Azure Storage-konto
-I den här självstudien använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för destination/mottagare. Om du inte har något allmänt lagringskonto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account). Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den här lokala SQL Server-databasen (källa) till Blob Storage (mottagare). 
+I den här självstudien använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för destination eller mottagare. Om du inte har något allmänt lagringskonto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account). Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den här lokala SQL Server-databasen (källa) till Blob Storage (mottagare). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Hämta lagringskontots namn och åtkomstnyckel
 Du använder namnet och nyckeln för lagringskontot i den här självstudien. Gör så här för att hämta namnet och nyckeln till lagringskontot: 
@@ -109,7 +109,7 @@ I det här avsnittet skapar du en blobbehållare med namnet **adftutorial** i Bl
 
 4. Välj **adftutorial** i listan över behållare.
 
-    ![Val av behållare](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Behållarval](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
 
 5. Låt **behållarfönstret** för **adftutorial** vara öppet. Du kommer att använda den för att bekräfta utdata i slutet av självstudien. Data Factory skapar automatiskt utdatamappen i den här behållaren, så du behöver inte skapa en.
 
@@ -125,7 +125,7 @@ I det här avsnittet skapar du en blobbehållare med namnet **adftutorial** i Bl
       
      ![Ny datafabrik](./media/tutorial-hybrid-copy-data-tool/new-azure-data-factory.png)
  
-   Namnet på datafabriken måste vara *globalt unikt*. Om följande felmeddelande visas för namnfältet ändrar du namnet på datafabriken (t.ex. dittnamnADFTutorialDataFactory). Se artikeln [om namnregler för datafabriker](naming-rules.md) för namnregler för datafabriksartefakter.
+   Namnet på datafabriken måste vara *globalt unikt*. Om följande felmeddelande visas för namnfältet ändrar du namnet på datafabriken (t.ex. dittnamnADFTutorialDataFactory). Se artikeln [Namnregler för Data Factory](naming-rules.md) för namnregler för Data Factory-artefakter.
   
    ![Namn på ny datafabrik](./media/tutorial-hybrid-copy-data-tool/name-not-available-error.png)
 3. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i. 
@@ -135,8 +135,8 @@ I det här avsnittet skapar du en blobbehållare med namnet **adftutorial** i Bl
 
       - Välj **Skapa ny** och ange namnet på en resursgrupp. 
          
-      Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
-5. För **Version** väljer du **V2 (förhandsversion)**.
+      Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
+5. Under **Version** väljer du **V2 (förhandsversion)**.
 6. Under **Plats** väljer du en plats för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (t.ex. Azure Storage och SQL-databas) och beräkningarna (t.ex. Azure HDInsight) som används i Data Factory kan finnas på andra platser/i andra regioner.
 7. Välj **fäst till instrumentpanelen**. 
 8. Välj **Skapa**.
@@ -164,7 +164,7 @@ I det här avsnittet skapar du en blobbehållare med namnet **adftutorial** i Bl
    ![Skapa Integration Runtime med lokal installation](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-link.png)
 5. I dialogrutan **Skapa Integration Runtime** går du till **Namn** och anger **TutorialIntegration Runtime**. Välj sedan **Skapa**. 
 
-   ![Namn på Integration Runtime](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog.png)
+   ![Namn på integreringskörning](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog.png)
 6. Välj **Starta expressinstallation på den här datorn**. Med den här åtgärden installeras integreringskörningen på datorn och registreras med Data Factory. Alternativt kan du använda det manuella installationsalternativet för att ladda ned installationsfilen, köra den och använda nyckeln för att registrera integreringskörning. 
 
     ![Länken Starta expressinstallation på den här datorn](./media/tutorial-hybrid-copy-data-tool/launch-express-setup-link.png)

@@ -1,8 +1,8 @@
 ---
-title: "Översikt över datavetenskap med Spark på Azure HDInsight | Microsoft Docs"
-description: "Spark MLlib toolkit ger betydande maskininlärning integrera affärsmodelleringsfunktioner för distribuerade HDInsight-miljö."
+title: Översikt över datavetenskap med Spark på Azure HDInsight | Microsoft Docs
+description: Spark MLlib toolkit ger betydande maskininlärning integrera affärsmodelleringsfunktioner för distribuerade HDInsight-miljö.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: e1c4a507214b9686154fc8311121b56f42f5cd40
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: bradsev
+ms.openlocfilehash: a12e2f1af945c8186067b791c4e96a52eb23f52f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Översikt över datavetenskap med Spark på Azure HDInsight
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -44,9 +44,9 @@ Dessa datorer är att köras i pySpark-kerneln Jupyter-anteckningsbok Server.
 ### <a name="spark-20-notebooks"></a>Spark 2.0 bärbara datorer
 Dessa datorer är att köra i kernelns pySpark3 Jupyter-anteckningsbok Server.
 
-- [Spark2.0-pySpark3-Machine-Learning-data-Science-Spark-Advanced-data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): den här filen innehåller information om hur du utför datagranskning modellering, och bedömningen i Spark 2.0-kluster med NYC Taxi resa och avgiften datauppsättning beskrivs [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Den här anteckningsboken kan vara en bra utgångspunkt för att snabbt utforska koden som vi har angetts för Spark 2.0. För en mer detaljerad anteckningsbok analyserar NYC Taxi data, finns i nästa anteckningsboken i den här listan. Om du hittar information efter den här listan som jämför dessa datorer. 
-- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): den här filen visar hur du utför data wrangling (Spark SQL och dataframe operations), utforskning modellering och bedömningen med NYC Taxi resa och avgiften datauppsättning beskrivs [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
-- [Spark2.0 pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): den här filen visar hur du utför data wrangling (Spark SQL och dataframe operations), utforskning modellering och bedömningen med välkända flygbolag i tid avvikelse datauppsättningen från 2011 och 2012. Vi integrerad flygbolag dataset med flygplats väder data (t.ex. vindhastigheten temperatur, höjd etc.) innan du modellera, så att funktionerna väder kan ingå i modellen.
+- [Spark2.0-pySpark3-Machine-Learning-data-Science-Spark-Advanced-data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): den här filen innehåller information om hur du utför datagranskning modellering, och bedömningen i 2.0 Spark-kluster med NYC Taxi resan och avgiften-datauppsättning beskrivs [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Den här anteckningsboken kan vara en bra utgångspunkt för att snabbt utforska koden som vi har angetts för Spark 2.0. För en mer detaljerad anteckningsbok analyserar NYC Taxi data, finns i nästa anteckningsboken i den här listan. Om du hittar information efter den här listan som jämför dessa datorer. 
+- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): den här filen visar hur du utför data wrangling (Spark SQL och dataframe operations), utforskning modellering och bedömningen med NYC Taxi resa och avgiften datauppsättning beskrivs [här ](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark2.0 pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): den här filen visar hur du utför data wrangling (Spark SQL och dataframe operations), utforskning modellering och bedömningen med välkända flygbolag i tid avvikelse DataSet från 2011 och 2012. Vi integrerad flygbolag dataset med flygplats väder data (t.ex. vindhastigheten temperatur, höjd etc.) innan du modellera, så att funktionerna väder kan ingå i modellen.
 
 <!-- -->
 
@@ -70,7 +70,7 @@ Spark 2.0 anteckningsböcker på NYC taxi och flygbolag svarta fördröjning-dat
 
 Vägledning om operationalization av en Spark 2.0 och modellen förbrukningen för resultatfunktioner finns i [Spark 1.6 dokumentet på förbrukningen](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) ett exempel som beskriver de steg som krävs. Om du vill använda detta på Spark 2.0, ersätter filen Python-kod med [filen](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Följande procedurer relaterade till Spark 1.6. Använd anteckningsböcker beskrivs och länka till tidigare Spark 2.0-versionen. 
 
 1. Du måste ha en Azure-prenumeration. Om du inte redan har en, se [hämta kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -147,7 +147,7 @@ Vi har tagit en 0,1% exempel på dessa filer och ansluten resan\_data och resa\_
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Köra kod från en Jupyter notebook i Spark-klustret
 Du kan starta Jupyter-anteckningsbok från Azure-portalen. Spark-kluster på instrumentpanelen och klicka på den för att ange hanteringssidan för klustret. Klicka för att öppna den bärbara datorn som är associerade med Spark-klustret **Klusterinstrumentpaneler** -> **Jupyter-anteckningsbok** .
 
-![Klustret instrumentpaneler](./media/spark-overview/spark-jupyter-on-portal.png)
+![Klusterinstrumentpaneler](./media/spark-overview/spark-jupyter-on-portal.png)
 
 Du kan även bläddra till ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** till Jupyter-anteckningsböcker. Ersätt det KLUSTERNAMN som en del av denna URL med namnet på ditt eget kluster. Du behöver lösenordet för ditt administratörskonto att få åtkomst till de bärbara datorerna.
 
@@ -181,7 +181,7 @@ Nu kan du:
 ## <a name="whats-next"></a>Nästa steg
 Nu när du har konfigurerat ett HDInsight Spark-kluster och har överfört Jupyter-anteckningsböcker är du redo att gå igenom de avsnitt som motsvarar tre PySpark bärbara datorer. De visar hur du utforska dina data och hur du skapar och använda modeller. Avancerade undersökning och modellering bärbar dator visar hur du inkludera korsvalidering, hyper-parametern omfattande, och modellerar utvärdering. 
 
-**Datagranskning och modellering med Spark:** utforska datauppsättningen och skapa poängsätta och utvärdera modeller för maskininlärning genom att utföra den [skapa binär klassificering och regression modeller för data med Spark MLlib toolkit](spark-data-exploration-modeling.md) avsnittet.
+**Datagranskning och modellering med Spark:** utforska datauppsättningen och skapa poängsätta och utvärdera modeller för maskininlärning genom att utföra den [skapa binär klassificering och regression modeller för data med Spark MLlib Toolkit](spark-data-exploration-modeling.md) avsnittet.
 
 **Modellen förbrukning:** information om hur du poängsätta klassificering och regression modeller som skapats i det här avsnittet finns [poängsätta och utvärdera Spark-inbyggda machine learning-modeller](spark-model-consumption.md).
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: cfc789b3768c21efc7a03c11370b17ac6c3985cd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d7ee74a19f806faed0bcfcfa5f1c5de3937d9f31
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Översikt över Azure Load Balancer Standard
 
@@ -39,7 +39,7 @@ En viktig del är omfånget för det virtuella nätverket för resursen.  Även 
 Läs in belastningsutjämnaren resurser är objekt inom vilken express hur Azure ska programmet sin infrastruktur för flera innehavare för att få det scenario som du vill skapa.  Det finns ingen direkt relation mellan belastningsutjämnaren resurser och faktiska infrastruktur. Skapa en belastningsutjämnare inte skapa en instans, kapacitet är alltid tillgängligt och det finns ingen start- eller skalning fördröjningar att tänka på. 
 
 >[!NOTE]
-> Azure tillhandahåller en uppsättning helt hanterad lösningar för dina scenarier för belastningsutjämning.  Om du letar efter TLS uppsägning (”SSL avlastning”) eller HTTP/HTTPS application layer bearbetning, granska [Programgateway](../application-gateway/application-gateway-introduction.md).  Om du behöver för globala DNS belastningsutjämning, granska [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Slutpunkt till slutpunkt-scenarier kan dra nytta av att kombinera dessa lösningar efter behov.
+> Azure tillhandahåller en uppsättning helt hanterad lösningar för dina scenarier för belastningsutjämning.  Om du behöver för TLS-avslutning (”SSL avlastning”) eller per HTTP/HTTPS-begäran application layer bearbetning, granska [Programgateway](../application-gateway/application-gateway-introduction.md).  Om du behöver för globala DNS belastningsutjämning, granska [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Slutpunkt till slutpunkt-scenarier kan dra nytta av att kombinera dessa lösningar efter behov.
 
 ## <a name="why-use-standard-load-balancer"></a>Varför använda Standard belastningsutjämnaren?
 
@@ -58,7 +58,7 @@ Granska tabellen nedan ger en översikt över skillnaderna mellan Standard belas
 | Diagnostik | Övervakare för Azure flerdimensionella mått, t.ex. byte och paket räknare, hälsa avsökning status, anslutningsförsök (TCP SYN), utgående anslutningshälsa (SNAT lyckade och misslyckade flöden), aktiva data plan mått | Azure Log Analytics för offentliga belastningsutjämnare, SNAT uttömning avisering, backend poolen hälsa antal |
 | Hög tillgänglighet portar | Interna belastningsutjämnare | / |
 | Som standard | standard stängd för offentliga IP- och belastningsutjämnare slutpunkter och en nätverkssäkerhetsgrupp måste användas för att explicit godkända för trafiken flöda | standard öppen nätverkssäkerhetsgruppen valfria |
-| Utgående anslutningar | Flera frontends med per regel CEIP. Ett scenario för utgående _måste_ skapas explicit för den virtuella datorn för att kunna använda utgående anslutning.  [VNet Tjänsteslutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md) kan nås utan utgående anslutning och räknas inte mot data som bearbetas.  Alla offentliga IP-adresser, inklusive Azure PaaS tjänster inte är tillgängliga som VNet Tjänsteslutpunkter måste uppnås via utgående anslutning och antal mot data som bearbetas. När bara en intern belastningsutjämnare används av en virtuell dator, är utgående anslutningar via standard SNAT inte tillgängliga. | Enskild klientdel slumpmässigt valda när det finns flera frontends.  När endast interna belastningsutjämnare används av en virtuell dator, används standardvärdet SNAT.  Utgående SNAT programmering är transportprotokollet specifika. |
+| Utgående anslutningar | Flera frontends med per regel CEIP. Ett scenario för utgående _måste_ skapas explicit för den virtuella datorn för att kunna använda utgående anslutning.  [VNet Tjänsteslutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md) kan nås utan utgående anslutning och räknas inte mot data som bearbetas.  Alla offentliga IP-adresser, inklusive Azure PaaS tjänster inte är tillgängliga som VNet Tjänsteslutpunkter måste uppnås via utgående anslutning och antal mot data som bearbetas. När bara en intern belastningsutjämnare används av en virtuell dator, är utgående anslutningar via standard SNAT inte tillgängliga. Utgående SNAT programmering är transportprotokollet specifika baserat på protokollet för inkommande regel för belastningsutjämning. | Enskild klientdel slumpmässigt valda när det finns flera frontends.  När endast interna belastningsutjämnare används av en virtuell dator, används standardvärdet SNAT. |
 | Flera frontends | Inkommande och utgående | Endast inkommande |
 | Hanteringsåtgärder | De flesta åtgärder < 30 sekunder | 60-90 sekunder vanliga |
 | SLA | 99,99% för datasökväg med två felfri virtuella datorer | Implicit i VM SLA | 
@@ -218,13 +218,9 @@ Standard belastningsutjämnare är en produkt som debiteras baserat på antalet 
 
 ## <a name="limitations"></a>Begränsningar
 
-Följande begränsningar gäller vid tidpunkten för förhandsgranskning och kan komma att ändras:
-
 - Belastningen belastningsutjämnaren backend-instanser kan inte finnas i peerkoppla virtuella nätverk just nu. Backend-instanser måste vara i samma region.
 - SKU: er är inte föränderliga. Du kan inte ändra SKU av en befintlig resurs.
 - En fristående virtuell datorresurs, tillgänglighetsuppsättning resurs eller virtuell scale set datorresurs kan referera till en SKU aldrig båda.
-- Aktivera Azure DDoS-skydd på det virtuella nätverket påverkar varaktigheten för hanteringsåtgärder.
-- IPv6 stöds inte.
 - [Azure övervaka aviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) stöds inte just nu.
 - [Flytta prenumeration operations](../azure-resource-manager/resource-group-move-resources.md) stöds inte för Standard SKU LB och PIP resurser.
 

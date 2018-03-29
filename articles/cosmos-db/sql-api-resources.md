@@ -1,9 +1,9 @@
 ---
 title: Azure DB Cosmos-resursmodell och begrepp | Microsoft Docs
-description: "Läs mer om Azure Cosmos DB hierarkiska modell för databaser, samlingar, användardefinierad funktion (UDF), dokument, behörighet att hantera resurser och mycket mer."
-keywords: Hierarkisk modellen cosmosdb, azure, Microsoft azure
+description: Läs mer om Azure Cosmos DB hierarkiska modell för databaser, samlingar, användardefinierad funktion (UDF), dokument, behörighet att hantera resurser och mycket mer.
+keywords: Hierarchical model, cosmosdb, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
@@ -12,18 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a88f17a658987e1ff3ae0e0f38d6551c3acee1da
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: f64d79cd3929a279c7e279e74b0b21d163c0fa45
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Hierarkisk Azure Cosmos DB-resursmodell och huvudkoncept
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Databasenheter som hanterar Azure Cosmos DB kallas **resurser**. Varje resurs identifieras unikt med en logisk URI. Du kan interagera med resurser med HTTP-verb som standard, frågor och svar sidhuvuden och statuskoder. 
 
@@ -34,6 +32,12 @@ Den här artikeln innehåller svar på följande frågor:
 * Hur åtgärdar en resurs?
 * Hur fungerar med samlingar?
 * Hur fungerar med lagrade procedurer, utlösare och användardefinierade funktioner (UDF)?
+
+I följande video vägleder dig genom Azure Cosmos DB resursmodell i Azure Cosmos DB Programhanteraren Andrew Liu. 
+
+> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
+>
+>
 
 ## <a name="hierarchical-resource-model"></a>Hierarkiska resursmodell
 Som i följande diagram illustreras Azure Cosmos DB hierarkiska **resursmodell** består av uppsättningar av resurser under ett databaskonto varje adresserbara via en logisk och stabil URI. En uppsättning resurser kallas för en **feed** i den här artikeln. 
@@ -74,7 +78,7 @@ Resurser, till exempel databasen konton, databaser, samlingar, användare, behö
         <tr>
             <td valign="top"><p><strong>Egenskap</strong></p></td>
             <td valign="top"><p><strong>Ange användar- eller genereras av systemet?</strong></p></td>
-            <td valign="top"><p><strong>Syfte</strong></p></td>
+            <td valign="top"><p><strong>Purpose</strong></p></td>
         </tr>
         <tr>
             <td valign="top"><p>_rid</p></td>
@@ -113,15 +117,15 @@ Alla resurser är adresserbara URI. Värdet för den **_self** egenskap för en 
 | Värdet för _self | Beskrivning |
 | --- | --- |
 | /DBS |Feed med databaser under ett databaskonto |
-| /DBS/ {dbName} |Databasen med id matchar värdet {dbName} |
+| /dbs/{dbName} |Databasen med id matchar värdet {dbName} |
 | /DBS/ {dbName} /colls/ |Feeden av samlingar under en-databas |
-| /DBS/ {dbName} /colls/ {collName} |Samling med id matchar värdet {collName} |
+| /dbs/{dbName}/colls/{collName} |Samling med id matchar värdet {collName} |
 | /DBS/ {dbName} /colls/ {collName} / docs |Feeden dokument under en samling |
-| /DBS/ {dbName} /colls/ {collName} /docs/ {docId} |Dokument med ett id som matchar värdet {doc} |
-| /DBS/ {dbName} /users/ |Flöde för användare under en-databas |
-| /DBS/ {dbName} /users/ {userId} |Användare med ett id som matchar värdet {user} |
-| /DBS/ {dbName} /users/ {userId} / behörigheter |Feeden behörigheter under en användare |
-| /DBS/ {dbName} /users/ {userId} /permissions/ {permissionId} |Behörighet med id matchar värdet {behörighet} |
+| /dbs/{dbName}/colls/{collName}/docs/{docId} |Dokument med ett id som matchar värdet {doc} |
+| /dbs/{dbName}/users/ |Flöde för användare under en-databas |
+| /dbs/{dbName}/users/{userId} |Användare med ett id som matchar värdet {user} |
+| /dbs/{dbName}/users/{userId}/permissions |Feeden behörigheter under en användare |
+| /dbs/{dbName}/users/{userId}/permissions/{permissionId} |Behörighet med id matchar värdet {behörighet} |
 
 Varje resurs har ett unikt användardefinierat namn som exponeras via id-egenskapen. Obs: för dokument, om användaren inte anger ett id SDK: erna automatiskt generera ett unikt id för dokumentet. ID: t är en användardefinierad sträng med upp till 256 tecken som är unikt inom ramen för en viss överordnade resurs. 
 
@@ -132,7 +136,7 @@ REST-API: er har stöd för adressering av resurser och routning av begäran av 
 ## <a name="database-accounts"></a>Databasen konton
 Du kan etablera ett eller flera Cosmos DB databasen konton med din Azure-prenumeration.
 
-Du kan skapa och hantera konton för Cosmos-DB-databasen via Azure portal på [http://portal.azure.com/](https://portal.azure.com/). Skapa och hantera ett databaskonto kräver administratörsbehörighet och kan bara genomföras under din Azure-prenumeration. 
+Du kan skapa och hantera konton för Cosmos-DB-databasen via Azure portal på [ http://portal.azure.com/ ](https://portal.azure.com/). Skapa och hantera ett databaskonto kräver administratörsbehörighet och kan bara genomföras under din Azure-prenumeration. 
 
 ### <a name="database-account-properties"></a>Egenskaper för databas
 Som en del av etablera och hantera ett konto kan du konfigurera och läsa följande egenskaper:  

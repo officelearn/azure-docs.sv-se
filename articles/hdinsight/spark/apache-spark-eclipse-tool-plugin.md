@@ -1,8 +1,8 @@
 ---
-title: "Azure Toolkit för Eclipse: skapa Scala program för HDInsight Spark | Microsoft Docs"
-description: "Använda HDInsight Tools i Azure Toolkit för Eclipse för att utveckla Spark-program som skrivits i Scala och skicka dem till ett HDInsight Spark-kluster direkt från Eclipse IDE."
+title: 'Azure Toolkit för Eclipse: skapa Scala program för HDInsight Spark | Microsoft Docs'
+description: Använda HDInsight Tools i Azure Toolkit för Eclipse för att utveckla Spark-program som skrivits i Scala och skicka dem till ett HDInsight Spark-kluster direkt från Eclipse IDE.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: 8ac118593ecc93a2dd9e53ff7ad9ecf13daef017
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4ff67ebcbac5b1b85345421b16036c96f8e807cc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Använda Azure Toolkit för Eclipse för att skapa Spark-program för ett HDInsight-kluster
 
@@ -51,6 +51,8 @@ När du öppnar Eclipse identifierar HDInsight verktyget automatiskt om du har i
 
 ![Automatisk installation av Scala plugin-program](./media/apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
+Användare kan antingen [logga in på Azure-prenumeration](#Sign-in-to-your-Azure-subscription), eller [länka ett HDInsight-kluster](#Link-a-cluster) med Ambari användarnamn/lösenord eller domän ansluten autentiseringsuppgifter för att starta. 
+
 ## <a name="sign-in-to-your-azure-subscription"></a>Logga in till din Azure-prenumeration
 1. Starta Eclipse IDE och öppna Utforskaren i Azure. På den **fönstret** väljer du **visa**, och välj sedan **andra**. I dialogrutan som öppnas, expandera **Azure**väljer **Azure Explorer**, och välj sedan **OK**.
 
@@ -75,12 +77,13 @@ Du kan länka en normal kluster med Ambari hanteras användarnamn, även länka 
 
    ![länken klustrets snabbmenyn](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. Ange **klusternamnet**, **Lagringskonto**, **Lagringsnyckel**, välj sedan en behållare från **lagringsbehållaren**, minst, ange användarnamn och lösenord. Klicka på OK för att länka klustret.
+2. Ange **klusternamnet**, **användarnamn** och **lösenord**, klicka på OK för att länka klustret. Du kan också ange Lagringskonto, Lagringsnyckel och välj sedan lagringsbehållare som Lagringsutforskaren ska fungera i den vänstra trädvyn
    
    ![länka klustret dialog](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
    > [!NOTE]
    > Vi använder länkade lagringsnyckel, användarnamn och lösenord om klustret både inloggad i Azure-prenumeration och länka ett kluster.
+   > ![Lagringsutforskaren i Eclipse](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
 3. Du kan se ett länkade kluster i **HDInsight** nod när du klickar på OK-knappen, om den inkommande informationen är rätt. Nu kan du skicka ett program till den här länkade klustret.
 
@@ -212,7 +215,7 @@ Lös felet [ladda ned den körbara filen](http://public-repo-1.hortonworks.com/h
 ### <a name="run-a-local-spark-scala-application"></a>Kör ett lokalt Spark Scala-program
 1. Starta Eclipse och skapa ett projekt. I den **nytt projekt** dialogrutan följande alternativ och välj sedan **nästa**.
    
-   * I den vänstra rutan, Välj **HDInsight**.
+   * Välj **HDInsight** i den vänstra fönsterrutan.
    * I den högra rutan, Välj **Spark på HDInsight lokala kör sampel (Scala)**.
 
    ![Dialogrutan Nytt projekt](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)

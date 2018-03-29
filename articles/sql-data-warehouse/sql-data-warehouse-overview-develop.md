@@ -1,24 +1,24 @@
 ---
-title: "Resurser för att utveckla ett data warehouse i Azure | Microsoft Docs"
-description: "Begrepp för utveckling, designbeslut, rekommendationer och kodning tekniker för SQL Data Warehouse."
+title: Resurser för att utveckla ett data warehouse i Azure | Microsoft Docs
+description: Begrepp för utveckling, designbeslut, rekommendationer och kodning tekniker för SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: barbkess
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: develop
-ms.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: 329217faaf865052b79a1d44200cc3c788702046
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c81a6f9af556a86f10d2482333fdc98f9cfb1454
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Designbeslut och kodning tekniker för SQL Data Warehouse
 Titta igenom dessa development artiklar för att bättre förstå viktiga designbeslut, rekommendationer och kodning tekniker för SQL Data Warehouse.
@@ -49,7 +49,7 @@ Dessa artiklar markera specifika kodning tekniker, tips och rekommendationer fö
 * [Variabeltilldelning][variable assignment]
 
 ## <a name="next-steps"></a>Nästa steg
-Mer referensinformation, finns i [Transact-SQL referens] [ Transact-SQL reference] för SQL Data Warehouse.
+Läs mer till referens [SQL Data Warehouse T-SQL-uttryck](sql-data-warehouse-reference-tsql-statements.md).
 
 <!--Image references-->
 
@@ -71,7 +71,7 @@ Mer referensinformation, finns i [Transact-SQL referens] [ Transact-SQL referenc
 [user-defined schemas]: ./sql-data-warehouse-develop-user-defined-schemas.md
 [variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
 [views]: ./sql-data-warehouse-develop-views.md
-[Transact-SQL reference]: ./sql-data-warehouse-overview-reference.md
+
 
 <!--MSDN references-->
 [renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx

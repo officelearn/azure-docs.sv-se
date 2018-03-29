@@ -1,8 +1,8 @@
 ---
-title: "Konfigurera principer för Hive i HDInsight med domänanslutna - Azure | Microsoft Docs"
-description: "Läs mer ..."
+title: Konfigurera principer för Hive i HDInsight med domänanslutna - Azure | Microsoft Docs
+description: Läs mer ...
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: saurinsh
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 919a0a45c4c8c94b19ed1d602ed20df0afabd09a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Konfigurera principer för Hive i HDInsight-domänansluten
 Ta reda på mer om hur du konfigurerar Apache Ranger-principer för Hive. I den här artikeln skapar du två Ranger-principer för att begränsa åtkomsten till hivesampletable. Hivesampletable medföljer HDInsight-kluster. När du har konfigurerat principerna kan du använda Excel och ODBC-drivrutinen för att ansluta till Hive-tabeller i HDInsight.
@@ -45,10 +45,10 @@ Ta reda på mer om hur du konfigurerar Apache Ranger-principer för Hive. I den 
     För närvarande fungerar Ranger bara med Yarn och Hive.
 
 ## <a name="create-domain-users"></a>Skapa domänanvändare
-I [Konfigurera domänanslutna HDInsight-kluster](apache-domain-joined-configure.md#optional-create-ad-users-and-groups) har du skapat hiveruser1 och hiveuser2. Du kan använda två användarkontot i den här självstudiekursen.
+Se [skapar en domänansluten HDInsight-kluster](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster), information om hur du skapar hiveruser1 och hiveuser2. Du kan använda två användarkonton i den här självstudiekursen.
 
 ## <a name="create-ranger-policies"></a>Skapa Ranger-principer
-I det här avsnittet skapar du två Ranger principer för att komma åt hivesampletable. Du kan ge select-behörighet för olika uppsättningar med kolumner. Båda användarna skapades i [Konfigurera domänanslutna HDInsight-kluster](apache-domain-joined-configure.md#optional-create-ad-users-and-groups).  I nästa avsnitt ska du testa två principer i Excel.
+I det här avsnittet skapar du två Ranger principer för att komma åt hivesampletable. Du kan ge select-behörighet för olika uppsättningar med kolumner. Både användare har skapats med [skapar en domänansluten HDInsight-kluster](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster). I nästa avsnitt ska du testa två principer i Excel.
 
 **Skapa Ranger-principer**
 

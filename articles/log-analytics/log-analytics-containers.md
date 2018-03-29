@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: 0041a58c8da58785ebc3ead6c8128316b153728c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6d2c85225ab74c912183a0bb8d7f100d1354e6c5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Lösning för övervakning av behållare i logganalys
 
@@ -547,15 +547,15 @@ I följande tabell visas exempel på poster som samlas in av lösningen behålla
 
 | Datatyp | Datatypen i loggen Sök | Fält |
 | --- | --- | --- |
-| Prestanda för värdar och -behållare | `Type=Perf` | Dator, objektnamn, CounterName &#40;läser MB tid i procent för Processor, Disk, Disk skriver MB minne användning MB nätverket tar emot byte, nätverket skicka byte, Processor användning s, nätverket&#41;, CounterValue, TimeGenerated, räknarsökväg, SourceSystem |
-| Behållaren inventering | `Type=ContainerInventory` | TimeGenerated, dator, behållarnamn ContainerHostname, bild, ImageTag, ContainerState, ExitCode, EnvironmentVar, kommandot, CreatedTime, StartedTime, FinishedTime, SourceSystem, behållar-ID, ImageID |
-| Behållaren image inventering | `Type=ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
-| Behållaren logg | `Type=ContainerLog` | TimeGenerated, dator, avbildnings-ID, behållarnamn LogEntrySource, LogEntry, SourceSystem, behållar-ID |
-| Behållaren loggfiler | `Type=ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
-| Behållaren nod inventering | `Type=ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Kubernetes inventering | `Type=KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
-| Behållaren process | `Type=ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Kubernetes händelser | `Type=KubeEvents_CL` | TimeGenerated, Computer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, Message |
+| Prestanda för värdar och -behållare | `Perf` | Dator, objektnamn, CounterName &#40;läser MB tid i procent för Processor, Disk, Disk skriver MB minne användning MB nätverket tar emot byte, nätverket skicka byte, Processor användning s, nätverket&#41;, CounterValue, TimeGenerated, räknarsökväg, SourceSystem |
+| Behållaren inventering | `ContainerInventory` | TimeGenerated, dator, behållarnamn ContainerHostname, bild, ImageTag, ContainerState, ExitCode, EnvironmentVar, kommandot, CreatedTime, StartedTime, FinishedTime, SourceSystem, behållar-ID, ImageID |
+| Behållaren image inventering | `ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
+| Behållaren logg | `ContainerLog` | TimeGenerated, dator, avbildnings-ID, behållarnamn LogEntrySource, LogEntry, SourceSystem, behållar-ID |
+| Behållaren loggfiler | `ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
+| Behållaren nod inventering | `ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
+| Kubernetes inventering | `KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
+| Behållaren process | `ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
+| Kubernetes händelser | `KubeEvents_CL` | TimeGenerated, Computer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, Message |
 
 Etiketter som läggs till *PodLabel* datatyper är egna etiketter. Tillagda PodLabel etiketterna visas i tabellen är exempel. Därför `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` kommer skiljer sig åt i din miljö datauppsättning och allmänt likna `PodLabel_yourlabel_s`.
 
@@ -610,7 +610,7 @@ Logganalys markerar en behållare som **misslyckades** om den har avslutats med 
    ![behållare tillstånd](./media/log-analytics-containers/containers-log-search.png)
 3. Klicka sedan på aggregerade värdet för misslyckade behållarna för att visa ytterligare information. Expandera **visa fler** att visa det bild-ID.  
    ![misslyckade behållare](./media/log-analytics-containers/containers-state-failed.png)  
-4. Därefter skriver du följande i frågan. `Type=ContainerInventory <ImageID>` du vill se information om avbildningen som avbildningens storlek och antal bilder har stoppats och misslyckade.  
+4. Därefter skriver du följande i frågan. `ContainerInventory <ImageID>` du vill se information om avbildningen som avbildningens storlek och antal bilder har stoppats och misslyckade.  
    ![misslyckade behållare](./media/log-analytics-containers/containers-failed04.png)
 
 ## <a name="search-logs-for-container-data"></a>Sökloggar för behållardata
@@ -628,17 +628,17 @@ När du felsöker ett visst fel hjälper det för att se om det förekommer i di
 
 
 ### <a name="to-search-logs-for-container-data"></a>Att söka i loggar för behållardata
-* Välj en bild som du vet misslyckades nyligen och hitta felloggarna för den. Börja med att hitta ett behållarnamn som körs på avbildningen med en **ContainerInventory** sökning. Till exempel söka efter `Type=ContainerInventory ubuntu Failed`  
+* Välj en bild som du vet misslyckades nyligen och hitta felloggarna för den. Börja med att hitta ett behållarnamn som körs på avbildningen med en **ContainerInventory** sökning. Till exempel söka efter `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Sök efter Ubuntu behållare](./media/log-analytics-containers/search-ubuntu.png)
 
-  Namnet på behållaren bredvid **namn**, och Sök efter dessa loggar. I det här exemplet är det `Type=ContainerLog cranky_stonebreaker`.
+  Namnet på behållaren bredvid **namn**, och Sök efter dessa loggar. I det här exemplet är det `ContainerLog | where Name == "cranky_stonebreaker"`.
 
 **Visa information om prestanda**
 
 När du börjat skapa frågor, hjälper det för att se vad du kan göra först. Försök till exempel en bred fråga om du vill se alla prestandadata genom att skriva följande sökfråga.
 
 ```
-Type=Perf
+Perf
 ```
 
 ![behållare prestanda](./media/log-analytics-containers/containers-perf01.png)
@@ -646,7 +646,7 @@ Type=Perf
 Du kan definiera de prestandadata som det uppstår till en viss behållare genom att skriva namnet på den till höger om din fråga.
 
 ```
-Type=Perf <containerName>
+Perf <containerName>
 ```
 
 Som visar en lista över prestandamått som samlas in för en enskild behållare.
@@ -655,8 +655,6 @@ Som visar en lista över prestandamått som samlas in för en enskild behållare
 
 ## <a name="example-log-search-queries"></a>Exempel loggen sökfrågor
 Det vara bra att skapa frågor som börjar med ett exempel eller två och ändra dem så att de passar din miljö. Som en startpunkt som du kan experimentera med den **exempelfrågor** område för att hjälpa dig att skapa mer avancerade frågor.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Behållare frågor](./media/log-analytics-containers/containers-queries.png)
 

@@ -1,8 +1,8 @@
 ---
-title: "Flytta Data till och från Azure Blob Storage | Microsoft Docs"
-description: "Flytta data till och från Azure Blob Storage"
+title: Flytta Data till och från Azure Blob Storage | Microsoft Docs
+description: Flytta data till och från Azure Blob Storage
 services: machine-learning,storage
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;sachouks
-ms.openlocfilehash: f282705b6d5d1f6867ea87737f19b5550054789a
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: 16988d7dd466eb0f893dc0b1f8fdc6511115d0a7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Flytta data till och från Azure Blob Storage
 [!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
@@ -43,7 +43,7 @@ Alternativt kan du använda [Azure Data Factory](https://azure.microsoft.com/ser
 
 Mer information finns i [skapa förutsägande pipelines med hjälp av Azure Data Factory och Azure Machine Learning](../../data-factory/v1/data-factory-azure-ml-batch-execution-activity.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Det här dokumentet förutsätter att du har en Azure-prenumeration, ett lagringskonto och motsvarande lagringsnyckel för det kontot. Innan du laddar upp/hämtar data, måste du känna till din Azure storage-konto och nyckel.
 
 * Om du vill konfigurera en Azure-prenumeration finns [kostnadsfri utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).

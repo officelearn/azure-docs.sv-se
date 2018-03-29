@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vinagara
-ms.openlocfilehash: 9361c2a0a4854f463eb2d679c3884f84f6858997
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 76b7481223566f16a5da8c08d9d76f2bdb6b542a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="initiate-extending-alerts-from-oms-into-azure"></a>Initiera utöka aviseringar från OMS i Azure
 Från **23 April 2018**, alla kunder som använder aviseringar som har konfigurerats i [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), utökas till Azure. Aviseringar som har utökats till Azure fungerar på samma sätt som i OMS. Övervakningsfunktioner förblir intakta. Utöka aviseringar som skapats i OMS till Azure ger många fördelar. Mer information om fördelar och utöka aviseringar från OMS till Azure finns [utöka aviseringar från OMS till Azure](monitoring-alerts-extend.md).
@@ -40,16 +40,14 @@ En exempel-skärmen nedan.
 
     ![Utöka aviseringar från OMS till Azure - steg 2](./media/monitor-alerts-extend/ExtendStep2.png)
 
-    > [!NOTE]
-    > Om redigeringen Varna alternativ som visas ovan, används. användaren kommer inte att återgå till. Och kräver att starta om processen för att utöka aviseringar från OMS i Azure, från steg 1. Listan visar föreslagna ändringen sammanfattning faktiska resultatet varierar baserat på ändringar som görs också parallellt.
 
-4. I det sista steget i guiden kan du be OMS att schemalägga Utöka alla aviseringar i Azure - genom att skapa nya åtgärdsgrupper och kopplar dem till aviseringar, som visas på skärmen tidigare. Fortsätta väljer ”ha OMS automatiskt alla aviseringar i arbetsytan till Azure”, klicka på Slutför och bekräfta i Kommandotolken för att starta processen. Kunder kan använda ett nytt Log Analytics API - för att manuellt initiera utöka aviseringar genom att klicka på alternativ. 
+4. I det sista steget i guiden kan du be OMS att schemalägga Utöka alla aviseringar i Azure - genom att skapa nya åtgärdsgrupper och kopplar dem till aviseringar, som visas på skärmen tidigare. Fortsätta väljer Klicka på Slutför och bekräfta i Kommandotolken för att starta processen. Du kan också kan kunder också ge e-postadresser som de vill OMS att skicka en rapport om Slutför bearbetningen.
 
     ![Utöka aviseringar från OMS till Azure - steg 3](./media/monitor-alerts-extend/ExtendStep3.png)
 
-5. När guiden har slutförts, kontrollen kommer tillbaka till sidan aviseringsinställningar och ”utöka i Azure” alternativet kommer att tas bort. I bakgrunden schemalägger OMS aviseringar i OMS utökas till Azure; Detta kan ta lite tid och när åtgärden startar för en kort period aviseringar i OMS blir inte tillgängliga för redigering. När bakgrundsprocessen har slutförts, ska ett e-postmeddelande skickas till alla användare med rollen Administratör eller deltagare. med detaljer om åtgärdsgrupper som skapats och respektive aviseringar har de arbetat med. 
+5. När guiden har slutförts, kontrollen kommer tillbaka till sidan aviseringsinställningar och ”utöka i Azure” alternativet kommer att tas bort. I bakgrunden schemalägger OMS aviseringar i OMS utökas till Azure; Detta kan ta lite tid och när åtgärden startar för en kort period aviseringar i OMS blir inte tillgängliga för redigering. Aktuell status visas via banderoll och om-e-postadresser where anges under steg 4, kommer att vara informeras när bakgrunden har utökar alla aviseringar i Azure. 
 
-6. Aviseringar fortsätter att visas i OMS, även när de få utökats till Azure.
+6. Aviseringar fortsätter att visas i OMS, även när de få har utökats till Azure.
 
     ![När du utökar aviseringar i OMS till Azure](./media/monitor-alerts-extend/PostExtendList.png)
 
@@ -141,10 +139,11 @@ Om alla aviseringar i arbetsytan angivna redan har utökats till Azure - är sva
 }
 ```
 
-Initiera en POST-API: et för att initiera schemaläggning för att utöka aviseringar i OMS till Azure. Om du gör detta anrop/kommando bekräftar användarens avsikt samt godkännande har sina aviseringar i OMS utökats till Azure och utföra ändringarna som anges i GET-anrop till API-svar.
+Initiera en POST-API: et för att initiera schemaläggning för att utöka aviseringar i OMS till Azure. Om du gör detta anrop/kommando bekräftar användarens avsikt samt godkännande har sina aviseringar i OMS utökats till Azure och utföra ändringarna som anges i GET-anrop till API-svar. Användaren kan du kan också ange en lista över e-postadresser som e OMS en rapport när schemalagda bakgrunden för att utöka aviseringar i OMS till Azure slutförs.
 
 ```
-armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
+$emailJSON = “{‘Recipients’: [‘a@b.com’, ‘b@a.com’]}”
+armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $emailJSON
 ```
 
 > [!NOTE]

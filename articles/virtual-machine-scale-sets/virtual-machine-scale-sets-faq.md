@@ -1,11 +1,11 @@
 ---
-title: "Skala virtuell Azure-dator Anger vanliga frågor och svar | Microsoft Docs"
-description: "Få svar på vanliga frågor och svar om virtuella datorer."
+title: Skala virtuell Azure-dator Anger vanliga frågor och svar | Microsoft Docs
+description: Få svar på vanliga frågor och svar om virtuella datorer.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -16,15 +16,55 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4dd908908877a222c708c9b2ab6255ab9a4b414a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Skala virtuell Azure-dator Anger vanliga frågor och svar
 
 Få svar på vanliga frågor och svar om virtuella datorer i Azure.
+
+## <a name="top-frequently-asked-questions-for-scale-sets"></a>Vanliga frågor om skaluppsättningar upp
+**F.** Hur många virtuella datorer kan man ha i en skalningsuppsättning?
+
+**S.** En skalningsuppsättning kan innehålla mellan 0 och 1 000 virtuella datorer baserade på plattformsavbildningar, eller mellan 0 och 300 virtuella datorer baserade på anpassade avbildningar. 
+
+**F.** Kan datadiskar användas i skalningsuppsättningar?
+
+**S.** Ja. En skalningsuppsättning kan definiera en konfiguration för anslutna datadiskar som gäller för alla virtuella datorer i uppsättningen. Mer information finns i [Azure scale sets and attached data disks (Azure-skalningsuppsättningar och anslutna datadiskar)](virtual-machine-scale-sets-attached-disks.md). Andra alternativ för att lagra data är:
+
+* Azure-filer (delade SMB-enheter)
+* OS-enhet
+* Temporär enhet (lokal, backas inte upp av Azure Storage)
+* Azure-datatjänst (t.ex. Azure-tabeller, Azure-blobbar)
+* Extern datatjänst (t.ex. fjärrdatabas)
+
+**F.** Vilka Azure-regioner har stöd för skalningsuppsättningar?
+
+**S.** Alla regioner stöder skalningsuppsättningar.
+
+**F.** Hur skapar jag en skalningsuppsättning med en anpassad avbildning?
+
+**S.** Skapa en hanterad disk baserat på den anpassade virtuella hårddiskavbildningen (VHD) och referera till den i din mall för skalningsuppsättningen. [Här är ett exempel](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os).
+
+**F.** Vilka virtuella datorer tas bort om jag minskar skalningsuppsättningens kapacitet från 20 till 15?
+
+**S.** Virtuella datorer tas bort från skalningsuppsättningen jämnt bland uppgraderingsdomäner och feldomäner för att maximera tillgängligheten. Virtuella datorer med högst ID tas bort först.
+
+**F.** Hur blir om det om jag sedan ökar kapaciteten från 15 till 18?
+
+**S.** Om du ökar kapaciteten till 18 skapas 3 nya virtuella datorer. Varje gång ökas den virtuella datorinstansens ID från det tidigare högsta värdet (t.ex. 20, 21, 22). Virtuella datorer balanseras mellan feldomäner och uppdateringsdomäner.
+
+**F.** Kan jag framtvinga en körning av sekvensen när jag använder flera tillägg i en skalningsuppsättning?
+
+**S.** Inte direkt, men för tillägget customScript kan skriptet vänta på att ytterligare ett tillägg slutförs. Ytterligare hjälp med ordningsföljden för tillägg finns i det här blogginlägget: [Ordningsföljd för skalningsuppsättningar för virtuella Microsoft Azure-datorer](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+
+**F.** Fungerar skalningsuppsättningar med Azures tillgänglighetsuppsättningar?
+
+**S.** Ja. En skalningsuppsättning är en implicit tillgänglighetsuppsättning med fem feldomäner och fem uppdateringsdomäner. Skalningsuppsättningar med mer än 100 virtuella datorer sträcker sig över flera *placeringsgrupper* som är likvärdiga med flera tillgänglighetsuppsättningar. Mer information om placeringsgrupper finns i [Arbeta med stora skalningsuppsättningar för virtuella datorer](virtual-machine-scale-sets-placement-groups.md). En tillgänglighetsuppsättning för virtuella datorer kan finnas i samma virtuella nätverk som en skalningsuppsättning för virtuella datorer. En vanlig konfiguration är att placera virtuella kontrollnodsdatorer (som ofta kräver unika konfigurationer) i en tillgänglighetsuppsättning och placera datanoder i skalningsuppsättningen.
+
 
 ## <a name="autoscale"></a>Automatisk skalning
 
@@ -558,7 +598,7 @@ Lägg till ett dnsSettings JSON-paket till avsnittet scale set networkInterfaceC
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Hur konfigurerar en skala som anger att tilldela en offentlig IP-adress till varje virtuell dator?
 
-Om du vill skapa en skaluppsättning för virtuell dator som tilldelar en offentlig IP-adress till varje virtuell dator, kontrollera att API-versionen av resursen Microsoft.Compute/virtualMAchineScaleSets är 2017-03-30 och lägga till en _publicipaddressconfiguration_ JSON paketet till skalan ange ipConfigurations avsnitt. Exempel:
+Om du vill skapa en skaluppsättning för virtuell dator som tilldelar en offentlig IP-adress till varje virtuell dator, kontrollera att API-versionen av resursen Microsoft.Compute/virtualMachineScaleSets är 2017-03-30 och lägga till en _publicipaddressconfiguration_ JSON paketet till skalan ange ipConfigurations avsnitt. Exempel:
 
 ```json
     "publicipaddressconfiguration": {
@@ -694,7 +734,7 @@ För att få information om egenskaper för varje virtuell dator utan att göra 
 
 ### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>Kan jag skicka annat tillägg argument till olika virtuella datorer i en skaluppsättning för virtuell dator?
 
-Nej, kan du ange olika tillägg argument för olika virtuella datorer i en skaluppsättning för virtuell dator. Tillägg kan dock fungera baserat på unika egenskaperna för den virtuella datorn körs på, så som på namnet på datorn. Tillägg kan också fråga instans metadata på http://169.254.169.254 för mer information om den virtuella datorn.
+Nej, kan du ange olika tillägg argument för olika virtuella datorer i en skaluppsättning för virtuell dator. Tillägg kan dock fungera baserat på unika egenskaperna för den virtuella datorn körs på, så som på namnet på datorn. Tillägg också kan fråga instans metadata på http://169.254.169.254 för mer information om den virtuella datorn.
 
 ### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Varför är det glapp mellan min Virtuella datornamn på virtuell dator skala och VM-ID: N? Till exempel: 0, 1, 3...
 

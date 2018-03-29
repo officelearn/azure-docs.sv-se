@@ -1,11 +1,11 @@
 ---
-title: "Översikt över Autoskala med skalningsuppsättningar i virtuella Azure-datorn | Microsoft Docs"
-description: "Lär dig mer om de olika sätten att du kan skala automatiskt en virtuell dator i Azure-skala in baserat på prestanda eller ett fast schema"
+title: Översikt över Autoskala med skalningsuppsättningar i virtuella Azure-datorn | Microsoft Docs
+description: Lär dig mer om de olika sätten att du kan skala automatiskt en virtuell dator i Azure-skala in baserat på prestanda eller ett fast schema
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
 ms.service: virtual-machine-scale-sets
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 868523a3aca441a47218297be2ce9f9e46dd84a1
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 03053f8427fbd20b0a7288d930dca258ee3070b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Översikt över Autoskala med en virtuell dator i Azure skala anger
 En skaluppsättning för virtuell dator i Azure kan automatiskt öka eller minska antalet VM-instanser som kör programmet. Det här beteendet för automatisk och elastiska minskar de hanteringskostnader för att övervaka och optimera prestanda för ditt program. Du kan skapa regler som definierar minimalt acceptabel prestanda för en positiv kundupplevelse. När dessa definierade tröskelvärden uppfylls vidta Autoskala regler åtgärder för att justera kapaciteten för din skaluppsättning. Du kan också schemalägga händelser för att automatiskt öka eller minska kapacitet för din skaluppsättning på fast gånger. Den här artikeln innehåller en översikt av vilka mått som är tillgängliga och vilka åtgärder Autoskala kan utföra.
@@ -40,8 +40,9 @@ Du kan skapa automatiska regler som tillgängliga mått för inbyggda värden fr
 Regler för automatisk skalning som använder värdbaserade mått kan skapas med något av följande verktyg:
 
 - [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
-- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+- [Azure PowerShell](tutorial-autoscale-powershell.md)
+- [Azure CLI 2.0](tutorial-autoscale-cli.md)
+- [Azure-mall](tutorial-autoscale-template.md)
 
 Om du vill skapa automatiska regler som använder mer detaljerad prestandamått, kan du [installera och konfigurera Azure diagnostics tillägget](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) på VM-instanser eller [konfigurera din App Insights använder](#application-level-metrics-with-app-insights).
 
@@ -50,7 +51,7 @@ Autoskala regler som använder värdbaserad mått,-Gäst VM mått med Azure-diag
 ### <a name="metric-sources"></a>Mått källor
 Autoskala regler kan använda mått från någon av följande källor:
 
-| Mått källa        | Användningsfall                                                                                                                     |
+| Måttkälla        | Användningsfall                                                                                                                     |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Aktuella skaluppsättning    | För värdbaserade mått som inte kräver ytterligare agenter som ska installeras eller konfigureras.                                  |
 | Lagringskonto      | Azure-diagnostik tillägget skriver prestandamått till Azure-lagring som används för att utlösa Autoskala regler. |
@@ -61,39 +62,39 @@ Autoskala regler kan använda mått från någon av följande källor:
 ### <a name="autoscale-rule-criteria"></a>Autoskala villkor
 Följande värdbaserad mått är tillgängliga för användning när du skapar automatiska regler. Om du använder Azure-diagnostik tillägget eller App Insights kan definiera du vilka mått för att övervaka och använda med Autoskala regler.
 
-| Måttnamnet               |
+| Måttnamn               |
 |---------------------------|
-| Procentandel CPU            |
-| Nätverk i                |
+| Processorprocentandel            |
+| Nätverk in                |
 | Nätverk ut               |
-| Disk lästa byte           |
-| Disk byte för skrivning          |
-| Disk-lästa åtgärder/sek  |
-| Disk skrivåtgärder per sekund |
-| CPU-kredit kvar     |
-| CPU-krediter som används      |
+| Lästa byte på disk           |
+| Skrivna byte på disk          |
+| Läsåtgärder på disk/sek  |
+| Skrivåtgärder på disk/sek |
+| Återstående CPU-krediter     |
+| Förbrukade CPU-krediter      |
 
 När du skapar automatiska regler för att övervaka ett visst mått reglerna att titta på en sammanställning av följande mått:
 
 | Sammansättningstyp |
 |------------------|
-| Genomsnittlig          |
+| Medel          |
 | Minimum          |
-| Maximalt          |
+| Maximal          |
 | Totalt            |
-| senaste             |
+| Sista             |
 | Antal            |
 
 Regler för automatiska sedan utlöses när mätvärdena jämförs med din angivet tröskelvärde med något av följande operatorer:
 
-| Operatorn                 |
+| Operator                 |
 |--------------------------|
 | Större än             |
 | Större än eller lika med |
 | Mindre än                |
 | Mindre än eller lika med    |
 | Lika med                 |
-| Är inte lika med             |
+| Inte lika med             |
 
 
 ### <a name="actions-when-rules-trigger"></a>Åtgärder när regler utlösa
@@ -101,12 +102,12 @@ När en regel utlösare Autoskala skala din skaluppsättning automatiskt i någo
 
 | Skalningsåtgärden     | Användningsfall                                                                                                                               |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| Öka antalet av   | Ett fast antal VM-instanser för att skapa. Användbart i skalningsuppsättningar med ett mindre antal virtuella datorer.                                           |
-| Öka procent av | En del-baserade ökning av VM-instanser. Bra för större skala anger där en fast ökning kan avsevärt förbättrar inte prestandan. |
-| Öka antalet till   | Skapa många VM-instanser som krävs för att nå en önskad längsta.                                                            |
-| Minska antalet till   | Ett fast antal VM-instanser som ska tas bort. Användbart i skalningsuppsättningar med ett mindre antal virtuella datorer.                                           |
-| Minska procent av | En del-baserade minskning av VM-instanser. Bra för större skala anger där en fast ökning kan avsevärt minskar inte resursförbrukning och kostnader. |
-| Minska antalet till   | Ta bort många VM-instanser som krävs för att nå önskad minsta möjliga.                                                            |
+| Öka antal med   | Ett fast antal VM-instanser för att skapa. Användbart i skalningsuppsättningar med ett mindre antal virtuella datorer.                                           |
+| Öka procent med | En del-baserade ökning av VM-instanser. Bra för större skala anger där en fast ökning kan avsevärt förbättrar inte prestandan. |
+| Öka antal till   | Skapa många VM-instanser som krävs för att nå en önskad längsta.                                                            |
+| Minska antal till   | Ett fast antal VM-instanser som ska tas bort. Användbart i skalningsuppsättningar med ett mindre antal virtuella datorer.                                           |
+| Minska procent med | En del-baserade minskning av VM-instanser. Bra för större skala anger där en fast ökning kan avsevärt minskar inte resursförbrukning och kostnader. |
+| Minska antal till   | Ta bort många VM-instanser som krävs för att nå önskad minsta möjliga.                                                            |
 
 
 ## <a name="in-guest-vm-metrics-with-the-azure-diagnostics-extension"></a>-Gäst VM mått med filnamnstillägget Azure-diagnostik
@@ -136,9 +137,9 @@ I följande exempel finns scenarier som kan få användning av schemabaserade Au
 ## <a name="next-steps"></a>Nästa steg
 Du kan skapa automatiska regler som använder värdbaserad mått med något av följande verktyg:
 
-- [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
-- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+- [Azure PowerShell](tutorial-autoscale-powershell.md)
+- [Azure CLI 2.0](tutorial-autoscale-cli.md)
+- [Azure-mall](tutorial-autoscale-template.md)
 
 Den här översikten beskrivs hur du använder automatiska regler för att skala horisontellt och öka eller minska den *nummer* i VM-instanser i nivå. Du kan även skala lodrätt för att öka eller minska den Virtuella datorinstansen *storlek*. Mer information finns i [lodräta Autoskala med Virtual Machine-skalningsuppsättningar](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 

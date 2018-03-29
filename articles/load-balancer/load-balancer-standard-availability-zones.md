@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 70b39b854a3b7cb28716d3cb290998690dbeb549
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9f5a68972015f54e2333199652075cda2535a3c8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard belastningsutjämnare och tillgänglighet zoner
 
 Har stöd för Azure belastningsutjämnare Standard SKU [tillgänglighet zoner](../availability-zones/az-overview.md) scenarier. Flera nya begrepp är tillgängliga med Standard belastningsutjämnare, vilket gör att du kan optimera tillgänglighet i slutpunkt till slutpunkt-scenario genom att justera resurser med zoner samt distribuera dem i zoner.  Granska [tillgänglighet zoner](../availability-zones/az-overview.md) för anvisningar om tillgänglighet zoner är, vilka regioner som för närvarande stöder tillgänglighet zoner och andra relaterade begrepp och produkter. Tillgänglighet zoner i kombination med Standard belastningsutjämnare är en omfattande och flexibel funktionsuppsättning som kan skapa många olika scenarier.  Granska det här dokumentet för att förstå dessa [begrepp](#concepts) och grundläggande scenario [utforma vägledning](#design).
 
 >[!NOTE]
-> Load Balancer Standard-SKU är för närvarande under förhandsgranskning. Under förhandsgranskningen gör kanske funktionen inte samma grad av tillgänglighet och tillförlitlighet som viktiga funktioner som är i allmänhet tillgänglighet. Mer information finns i [de kompletterande villkoren för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Använd den allmänt tillgängliga [Load Balancer grundläggande SKU](load-balancer-overview.md) för produktion-tjänster. Att använda [tillgänglighet zoner Preview](https://aka.ms/availabilityzones) med den här förhandsversionen kräver en [separat anmälan](https://aka.ms/availabilityzones), förutom att registrera dig för belastningsutjämnaren [Standard preview](#preview-sign-up).
+>Granska [tillgänglighet zoner Preview](https://aka.ms/availabilityzones) för andra relaterade ämnen. 
 
 ## <a name="concepts"></a> Tillgänglighet zoner begrepp som används för belastningsutjämnare
 

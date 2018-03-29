@@ -1,47 +1,31 @@
 ---
-title: Hantera hemligheter i Service Fabric-program | Microsoft Docs
-description: "Den här artikeln beskriver hur du skyddar hemliga värden i ett Service Fabric-program."
+title: Hantera Azure Service Fabric application hemligheter | Microsoft Docs
+description: Lär dig att skydda hemliga värden i ett Service Fabric-program.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
+ms.date: 03/21/2018
 ms.author: vturecek
-ms.openlocfilehash: bb40f841c6c2671621624e0599a5f3a36a36ab26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 931667509a9aa5e898cd01ad26ff046e30acd3fe
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="managing-secrets-in-service-fabric-applications"></a>Hantera hemligheter i Service Fabric-program
+# <a name="manage-secrets-in-service-fabric-applications"></a>Hantera hemligheter i Service Fabric-program
 Den här guiden vägleder dig genom stegen för att hantera hemligheter i ett Service Fabric-program. Hemligheter kan vara känslig information, till exempel storage-anslutningssträngar, lösenord eller andra värden som inte ska hanteras i oformaterad text.
 
-Den här guiden använder Azure Key Vault för att hantera nycklar och hemligheter. Dock *med* hemligheter i ett program är molnet plattformsoberoende så att program som ska distribueras till ett kluster som värd var som helst. 
+[Azure Key Vault] [ key-vault-get-started] används här som en säker lagringsplats för certifikat och som ett sätt att få certifikat installeras på Service Fabric-kluster i Azure. Om du inte distribuerar till Azure, behöver du inte använda Nyckelvalv för att hantera hemligheter i Service Fabric-program. Dock *med* hemligheter i ett program är molnet plattformsoberoende så att program som ska distribueras till ett kluster som värd var som helst. 
 
-## <a name="overview"></a>Översikt
-Det rekommenderade sättet att hantera konfigurationsinställningar för tjänsten sker via [tjänsten konfigurationspaket][config-package]. Konfigurationspaket namnges och uppdateras via hanterade samlade uppgraderingar med hälsovalideringsutdrag och automatisk återställning. Detta är att föredra global konfiguration eftersom det minskar risken för ett avbrott i tjänsten för global. Krypterade hemligheter är inget undantag. Service Fabric har inbyggda funktioner för att kryptera och dekryptera värden i en paketet Settings.xml konfigurationsfil med hjälp av för certifikatkryptering.
-
-Följande diagram illustrerar det grundläggande flödet för hemliga hantering i ett Service Fabric-program:
-
-![Översikt över hemliga management][overview]
-
-Det finns fyra steg i det här flödet:
-
-1. Skaffa ett certifikat för chiffrering av data.
-2. Installera certifikatet i klustret.
-3. Kryptera hemliga värden när du distribuerar ett program med certifikatet och mata in dem i en tjänst Settings.xml konfigurationsfilen.
-4. Läsa krypterade värden utanför Settings.xml genom att dekryptera med samma chiffrering av certifikat. 
-
-[Azure Key Vault] [ key-vault-get-started] används här som en säker lagringsplats för certifikat och som ett sätt att få certifikat installeras på Service Fabric-kluster i Azure. Om du inte distribuerar till Azure, behöver du inte använda Nyckelvalv för att hantera hemligheter i Service Fabric-program.
-
-## <a name="data-encipherment-certificate"></a>Data chiffrering av certifikat
+## <a name="obtain-a-data-encipherment-certificate"></a>Skaffa ett certifikat för chiffrering av data
 Data chiffrering certifikat används enbart för kryptering och dekryptering av konfiguration av värdena i en tjänst Settings.xml och är inte användas för autentisering eller signering av chiffertext. Certifikatet måste uppfylla följande krav:
 
 * Certifikatet måste innehålla en privat nyckel.
@@ -58,7 +42,7 @@ Data chiffrering certifikat används enbart för kryptering och dekryptering av 
 Det här certifikatet måste installeras på varje nod i klustret. Den används vid körning för att dekryptera värden som lagras i Settings.xml för en tjänst. Se [hur du skapar ett kluster med Azure Resource Manager] [ service-fabric-cluster-creation-via-arm] för instruktioner. 
 
 ## <a name="encrypt-application-secrets"></a>Kryptera hemligheter i programmet
-Fabric-SDK-tjänsten har inbyggda hemliga funktioner för kryptering och dekryptering. Hemliga värden kan krypteras på inbyggda tid och sedan dekryptera och läsa programmässigt i Tjänstkod. 
+När du distribuerar ett program kan kryptera hemliga värden med certifikatet och mata in dem i en tjänst Settings.xml konfigurationsfilen. Fabric-SDK-tjänsten har inbyggda hemliga funktioner för kryptering och dekryptering. Hemliga värden kan krypteras på inbyggda tid och sedan dekryptera och läsa programmässigt i Tjänstkod. 
 
 Följande PowerShell-kommando används för att kryptera en hemlighet. Det här kommandot endast krypterar värde. Det gör **inte** logga chiffertext. Du måste använda samma chiffrering av certifikat som installeras i klustret för att producera chiffertext för hemliga värden:
 
@@ -66,7 +50,7 @@ Följande PowerShell-kommando används för att kryptera en hemlighet. Det här 
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
 ```
 
-Base64-strängen innehåller både den hemliga ciphertext samt information om det certifikat som användes för att kryptera den.  Base64-kodad sträng kan infogas i en parameter i konfigurationsfilen för din tjänst Settings.xml med den `IsEncrypted` -attributet inställt på `true`:
+Base64-kodade strängen innehåller både den hemliga ciphertext samt information om det certifikat som användes för att kryptera den.  Base64-kodad sträng kan infogas i en parameter i konfigurationsfilen för din tjänst Settings.xml med den `IsEncrypted` -attributet inställt på `true`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -140,7 +124,7 @@ await fabricClient.ApplicationManager.CreateApplicationAsync(applicationDescript
 ```
 
 ## <a name="decrypt-secrets-from-service-code"></a>Dekryptera hemligheter från Tjänstkod
-Tjänster i Service Fabric körs under NÄTVERKSTJÄNST som standard i Windows och har inte tillgång till certifikat som är installerade på nod utan några extra installationen.
+Du kan läsa krypterade värden utanför Settings.xml genom att dekryptera dem med chiffrering av certifikatet som används för att kryptera hemligheten. Tjänster i Service Fabric körs under NÄTVERKSTJÄNST som standard i Windows och har inte tillgång till certifikat som är installerade på nod utan några extra installationen.
 
 När använder ett certifikat för chiffrering av data, måste du se till att NETWORK SERVICE eller det användarkonto som tjänsten körs under har åtkomst till certifikatets privata nyckel. Service Fabric hanterar åtkomst beviljades för din tjänst automatiskt om du konfigurerar den för att göra det. Den här konfigurationen kan göras i ApplicationManifest.xml genom att definiera användare och säkerhetsprinciper för certifikat. I följande exempel ges kontot NETWORK SERVICE tillgång till läsåtkomst till ett certifikat som definieras av dess tumavtryck:
 
@@ -176,7 +160,7 @@ SecureString mySecretValue = configPackage.Settings.Sections["MySettings"].Param
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om [program som körs med olika behörigheter](service-fabric-application-runas-security.md)
+Lär dig mer om [program och tjänster](service-fabric-application-and-service-security.md)
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/key-vault-get-started.md

@@ -1,10 +1,10 @@
 ---
-title: "Aktivera storage-mätvärden i Azure portal | Microsoft Docs"
-description: "Så här aktiverar du storage-mätvärden för Blob, kön, tabell och filen tjänster"
+title: Aktivera storage-mätvärden i Azure portal | Microsoft Docs
+description: Så här aktiverar du storage-mätvärden för Blob, kön, tabell och filen tjänster
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 0407adfc-2a41-4126-922d-b76e90b74563
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
-ms.author: tamram
-ms.openlocfilehash: 8abb4f968c1fa84e03c8cc807826d3684713847a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rogarana
+ms.openlocfilehash: 0caa4eff80877ad4bf8d501a276e82922b1a84c7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Aktivera Azure Storage-mätvärden och visa mått data
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -135,12 +135,12 @@ För att komma åt tabellerna analytics programmässigt Observera analytics tabe
 
 Du kan hitta fullständig information om scheman för dessa tabeller på [Storage Analytics mätvärden tabellschemat](https://msdn.microsoft.com/library/azure/hh343264.aspx). Raderna exemplet nedan visar endast en delmängd av kolumnerna som är tillgängliga, men illustrera vissa viktiga funktioner av Storage-mätvärden sparar dessa mått:
 
-| PartitionKey | RowKey | tidsstämpel | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Tillgänglighet | AverageE2ELatency | AverageServerLatency | PercentSuccess |
+| PartitionKey | RowKey | Tidsstämpel | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Tillgänglighet | AverageE2ELatency | AverageServerLatency | PercentSuccess |
 | --- |:---:| ---:| --- | --- | --- | --- | --- | --- | --- | --- |
-| 20140522T1100 |användaren. Alla |2014-05-22T11:01:16.7650250Z |7 |7 |4003 |46801 |100 |104.4286 |6.857143 |100 |
+| 20140522T1100 |user;All |2014-05-22T11:01:16.7650250Z |7 |7 |4003 |46801 |100 |104.4286 |6.857143 |100 |
 | 20140522T1100 |användaren. QueryEntities |2014-05-22T11:01:16.7640250Z |5 |5 |2694 |45951 |100 |143.8 |7.8 |100 |
-| 20140522T1100 |användaren. QueryEntity |2014-05-22T11:01:16.7650250Z |1 |1 |538 |633 |100 |3 |3 |100 |
-| 20140522T1100 |användaren. UpdateEntity |2014-05-22T11:01:16.7650250Z |1 |1 |771 |217 |100 |9 |6 |100 |
+| 20140522T1100 |user;QueryEntity |2014-05-22T11:01:16.7650250Z |1 |1 |538 |633 |100 |3 |3 |100 |
+| 20140522T1100 |user;UpdateEntity |2014-05-22T11:01:16.7650250Z |1 |1 |771 |217 |100 |9 |6 |100 |
 
 I det här exemplet minut mätvärdesdata kan används Partitionsnyckeln vid matchning av minut. Radnyckeln identifierar typ av information som lagras på raden. Radnyckeln består av två typer av information, vilken åtkomsttyp och typ av begäran:
 

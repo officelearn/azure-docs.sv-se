@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/21/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b5dbc4cfd884538c8435371aa353b22cabef7400
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 157db4a9de41c9895d39469d3d42a45c1a929649
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatisera resurser i ditt datacenter eller molnet med Hybrid Runbook Worker
 
@@ -73,7 +73,7 @@ Utför följande steg för att automatisera installationen och konfigurationen a
      > Det finns för närvarande endast Automation regioner som stöds för integrering med logganalys - **Australien sydost**, **östra USA 2**, **Sydostasien**, och  **Västra Europa**. Om ditt Automation-konto inte är i någon av de regionerna, skriptet skapar en logganalys-arbetsyta men den varnar dig om att det går inte att länka dem tillsammans.
 
 2. På datorn, startar **Windows PowerShell** från den **starta** skärm i administratörsläge.
-3. Från PowerShell-kommandoradsgränssnitt, navigera till mappen som innehåller skriptet som du hämtade och köra den ändra värdena för parametrarna *- AutomationAccountName*, *- ResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, och *- WorkspaceName*.
+3. Från PowerShell-kommandoradsgränssnitt, navigera till mappen som innehåller skriptet som du hämtade och köra den ändra värdena för parametrarna *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, och *- WorkspaceName*.
 
      > [!NOTE]
      > Du uppmanas att autentisera med Azure när du kör skriptet. Du **måste** logga in med ett konto som är medlem i rollen administratörer för prenumeration och medadministratör för prenumerationen.

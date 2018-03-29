@@ -1,24 +1,24 @@
 ---
-title: "Serverlösa databasen computing - Azure Functions och Azure Cosmos DB | Microsoft Docs"
-description: "Lär dig hur Azure Cosmos DB och Azure Functions kan användas tillsammans att skapa händelsedriven serverlösa IT-appar."
+title: Serverlösa databasen computing - Azure Functions och Azure Cosmos DB | Microsoft Docs
+description: Lär dig hur Azure Cosmos DB och Azure Functions kan användas tillsammans att skapa händelsedriven serverlösa IT-appar.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: 297f8929ec11b37a2cbbfb79bb442da75b4368a8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 39155a2407efa0cc13236a1bbbbcd292daac86b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Computing serverlösa databasen med hjälp av Azure-funktioner
 
@@ -113,12 +113,16 @@ I alla dessa användningsfall, eftersom funktionen har fristående själva appen
 
 ## <a name="tooling"></a>Tooling
 
-Intern integrering mellan Azure Cosmos DB och Azure Functions finns i Azure-portalen.
+Intern integrering mellan Azure Cosmos DB och Azure Functions är tillgängliga i Azure-portalen och i Visual Studio-2017.
 * Du kan skapa en Azure DB som Cosmos-utlösare i Azure Functions-portalen. Snabbstart instruktioner finns i [skapa en Azure DB som Cosmos-utlösare i Azure portal](https://aka.ms/cosmosdbtriggerportalfunc) ![skapa en Azure DB som Cosmos-utlösare i Azure Functions-portalen](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png) 
 * I Azure Functions-portalen kan du också lägga till Azure Cosmos DB inkommande bindningar och utdata bindningar till andra typer av utlösare. Snabbstart instruktioner finns i [lagra Ostrukturerade data med hjälp av Azure Functions och Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md).
     ![Skapa en Azure DB som Cosmos-utlösare i Azure Functions-portalen](./media/serverless-computing-database/function-portal-input-binding.png)
 *   Du kan lägga till en Azure DB som Cosmos-utlösare i en befintlig app i Azure-funktion i samma resursgrupp i Azure DB som Cosmos-portalen.
     ![Skapa en Azure DB som Cosmos-utlösare i Azure Functions-portalen](./media/serverless-computing-database/cosmos-db-portal.png)
+* Du kan skapa en Azure DB som Cosmos-utlösare med mallen integrerad i Visual Studio 2017:
+
+    >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
+
 
 ## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>Varför ska jag välja Azure Functions-integrering för serverlösa beräkningsresurser?
 

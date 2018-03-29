@@ -13,19 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/27/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa95cae5d62ebe23d6822232c4a5ab872e1f2c6a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5b0e46eb001e0b100ad1e181b02c18cfe67648f9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Data justerbara konsekvensnivåer i Azure Cosmos DB
 Azure Cosmos-DB är utformad från grunden upp med global distributionsplatsen i åtanke för varje datamodell. Den är utformad att erbjuda förutsägbar låg latens garantier och flera väldefinierade Avslappnad konsekvenskontroll modeller. För närvarande Azure Cosmos DB innehåller fem konsekvensnivåer: stark, begränsat föråldrad, session, konsekvent prefix och eventuell. Begränsat föråldrad, session, konsekvent prefix och eventuell är kallas ”Avslappnad konsekvenskontroll modeller” eftersom de ger mindre konsekvent än starkt, vilket är de flesta hög konsekvent modell tillgänglig. 
 
 Förutom den **starkt** och **slutliga konsekvensen** modeller ofta erbjuds av distribuerade databaser Azure Cosmos DB erbjuder tre mer noggrant kodade och operationalized konsekvenskontroll modeller:  **begränsat föråldrad**, **session**, och **konsekvent prefixet**. Användbarhet var och en av dessa konsekvensnivåer har verifierats mot verkligheten användningsfall. Gemensamt att dessa fem konsekvensnivåer du kan göra välmotiverat avvägningarna mellan konsekvens, tillgänglighet och svarstid. 
+
+I följande videoklipp visar Azure Cosmos DB Programhanteraren Andrew Liu NYCKELFÄRDIGT global distributionsplatsen-funktioner.
+
+>[!VIDEO https://www.youtube.com/embed/-4FsGysVD14]
 
 ## <a name="distributed-databases-and-consistency"></a>Distribuerade databaser och konsekvenskontroll
 Kommersiella distribuerade databaser är indelade i två kategorier: databaser som erbjuder väldefinierade provable konsekvenskontroll val alls och databaser som erbjuder två extrema programmering alternativ (stark kontra slutliga konsekvensen). 

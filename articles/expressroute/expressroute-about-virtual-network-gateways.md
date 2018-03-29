@@ -1,11 +1,11 @@
 ---
-title: "Om ExpressRoute-gateway för virtuellt nätverk | Microsoft Docs"
-description: "Läs mer om virtuella nätverks-gateway för ExpressRoute."
+title: Om ExpressRoute-gateway för virtuellt nätverk | Microsoft Docs
+description: Läs mer om virtuella nätverks-gateway för ExpressRoute.
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager, azure-service-management
 ms.assetid: 7e0d9658-bc00-45b0-848f-f7a6da648635
 ms.service: expressroute
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2018
+ms.date: 03/22/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0517caed3a7d6632c1a5650147f4db240dbe0a17
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ae971e7743d6dd3269c0a4f976bd2a5316300f58
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Om virtuella nätverksgatewayer för ExpressRoute
 En virtuell nätverksgateway används för att skicka trafik mellan virtuella Azure-nätverk och lokala platser. När du konfigurerar en ExpressRoute-anslutning, måste du skapa och konfigurera en virtuell nätverksgateway och gateway för virtuell nätverksanslutning.
@@ -35,13 +35,13 @@ Varje virtuellt nätverk kan bara ha en VNet-gateway per gateway-typ. Du kan exe
 
 Om du vill uppgradera din gateway till en kraftigare gateway SKU kan du använda 'Storleksändring AzureRmVirtualNetworkGateway' PowerShell-cmdleten i de flesta fall. Den här metoden fungerar för uppgradering till Standard- och HighPerformance SKU: er. Men om du vill uppgradera till UltraPerformance SKU, behöver du skapa gatewayen på nytt.
 
-### <a name="aggthroughput"></a>Beräknad sammanställda genomflöde av gateway-SKU
-Följande tabell visar gateway-typerna och beräknat aggregerat dataflöde. Tabellen gäller både för Resource Manager- och den klassiska distributionsmodellen.
+### <a name="aggthroughput"></a>Beräknad resultaten av gateway-SKU
+I följande tabell visas de gateway-typerna och de uppskattade prestanda. Tabellen gäller både för Resource Manager- och den klassiska distributionsmodellen.
 
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
 > [!IMPORTANT]
-> Dataflöde för programmet är beroende av flera faktorer, till exempel slutpunkt till slutpunkt-svarstid och antal trafikflöden programmet öppnas. Siffrorna i tabellen representerar den övre gränsen som programmet teoretiskt nå i en perfekt miljö. 
+> Programprestanda beror på flera faktorer, till exempel slutpunkt till slutpunkt-svarstid och antal trafikflöden programmet öppnas. Siffrorna i tabellen representerar den övre gränsen som programmet teoretiskt nå i en perfekt miljö. 
 > 
 >
 

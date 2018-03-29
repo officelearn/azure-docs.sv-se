@@ -1,27 +1,28 @@
 ---
-title: "Hantera referensdata i Azure tid serien Insights-miljö med C# | Microsoft Docs"
-description: "Den här artikeln beskriver hur du hanterar referensdata för en Azure tid serien Insights-miljö genom att skapa ett anpassat program som skrivits i C# (c-skarpa) .NET språk."
+title: Hantera referensdata i Azure tid serien Insights-miljö med C# | Microsoft Docs
+description: Den här artikeln beskriver hur du hanterar referensdata för en Azure tid serien Insights-miljö genom att skapa ett anpassat program som skrivits i C# (c-skarpa) .NET språk.
 services: time-series-insights
 ms.service: time-series-insights
 author: venkatgct
 ms.author: venkatja
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
-ms.openlocfilehash: b08b6af7abccb550884adc6cc90d180cfcadb2af
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.date: 03/23/2018
+ms.openlocfilehash: 61375ae3b304959d5cda37c4ce0364d566d576a5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Hantera referensdata för en Azure tid serien Insights-miljö med hjälp av C#
 
-Det här avsnittet beskriver C# exempelkoden du kompilera om du vill hantera referensdata för en Azure tid serien Insights-miljö.
+Den här artikeln beskrivs ett exempel C#-projekt du kompilera om du vill hantera referensdata för en Azure tid serien Insights-miljö.
 
+## <a name="prerequistes"></a>Nödvändiga förutsättningar
 Utför följande steg innan du kompilera och köra exempelkod:
 1. [Skapa en referens datauppsättning](time-series-insights-add-reference-data-set.md).
 
@@ -30,6 +31,11 @@ Utför följande steg innan du kompilera och köra exempelkod:
    Information om hur du ställer in icke-interaktiva program finns [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md).
 
 3. Redigera exempelkoden om du vill ersätta exempel konstanter, anges vid **DUMMY #**, nära i början av koden. 
+
+Den här exempelkod är också tillgänglig på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+
+## <a name="project-references"></a>Projektreferenser
+Lägg till NuGet-paket `Microsoft.IdentityModel.Clients.ActiveDirectory` och `Newtonsoft.Json` för det här exemplet. 
 
 ## <a name="c-sample-code"></a>C#-exempelkod 
 ```csharp

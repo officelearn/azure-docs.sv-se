@@ -1,11 +1,11 @@
 ---
-title: "Säkerhetsaspekter för SQLServer i Azure | Microsoft Docs"
-description: "Det här avsnittet innehåller allmänna riktlinjer för att skydda SQL Server som körs i en virtuell dator i Azure."
+title: Säkerhetsaspekter för SQLServer i Azure | Microsoft Docs
+description: Det här avsnittet innehåller allmänna riktlinjer för att skydda SQL Server som körs i en virtuell dator i Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: d710c296-e490-43e7-8ca9-8932586b71da
 ms.service: virtual-machines-sql
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/02/2017
+ms.date: 03/23/2018
 ms.author: jroth
-ms.openlocfilehash: 609e18cf2bdfdd84c71b67e31b66cd0ca7d47577
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b91638b6b76675711150323bee4aa9ad9d9a73d1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Säkerhetsöverväganden för SQL Server på Azure Virtual Machines
 
@@ -44,7 +44,7 @@ När du skapar en virtuell dator med SQL Server med en avbildning av galleriet, 
 
 ![SQL Server-anslutning](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
-För bästa säkerhet mest restriktiva välja för ditt scenario. Till exempel om du kör ett program som har åtkomst till SQL Server på samma VM sedan **lokala** är säkrast. Om du kör ett Azure-program som kräver åtkomst till SQL Server, sedan **privata** skyddar kommunikation till SQL Server inom den angivna [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). Om du behöver **offentliga** (internest) åtkomst till SQLServer VM, kontrollera att följa övriga rekommendationer i det här avsnittet för att minska din angreppsytan.
+För bästa säkerhet mest restriktiva välja för ditt scenario. Till exempel om du kör ett program som har åtkomst till SQL Server på samma VM sedan **lokala** är säkrast. Om du kör ett Azure-program som kräver åtkomst till SQL Server, sedan **privata** skyddar kommunikation till SQL Server inom den angivna [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). Om du behöver **offentliga** (internet) åtkomst till SQL Server-VM ska du se till att följa övriga rekommendationer i det här avsnittet för att minska din angreppsytan.
 
 De valda alternativen i portalen använder inkommande säkerhetsregler på de virtuella datorerna [Nätverkssäkerhetsgruppen](../../../virtual-network/virtual-networks-nsg.md) (NSG) för att tillåta eller neka trafik till den virtuella datorn. Du kan ändra eller skapa nya regler för inkommande NSG för att tillåta trafik till SQL Server-porten (standard 1433). Du kan också ange specifika IP-adresser som ska kunna kommunicera via den här porten.
 
@@ -98,5 +98,5 @@ Vi rekommenderar att du granskar och implementera de traditionella lokala säker
 
 Om du är intresserad av bästa praxis för prestanda, se [prestandarelaterade Metodtips för SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
-Andra avsnitt relaterade till SQL Server som körs i virtuella Azure-datorer, se [SQL Server på Azure virtuella datorer – översikt](virtual-machines-windows-sql-server-iaas-overview.md). Om du har frågor om SQL Server-datorer finns i [vanliga frågor och svar](virtual-machines-windows-sql-server-iaas-faq.md).
+Andra avsnitt relaterade till SQL Server som körs i virtuella Azure-datorer, se [SQL Server på Azure virtuella datorer – översikt](virtual-machines-windows-sql-server-iaas-overview.md). Om du har frågor om virtuella SQL Server-datorer kan du läsa [Vanliga frågor](virtual-machines-windows-sql-server-iaas-faq.md).
 

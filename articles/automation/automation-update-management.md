@@ -1,6 +1,6 @@
 ---
 title: Uppdateringshantering i Azure
-description: "Den här artikeln är avsedd att hjälpa dig att förstå hur du använder den här lösningen för att hantera uppdateringar för dina Windows- och Linux-datorer."
+description: Den här artikeln är avsedd att hjälpa dig att förstå hur du använder den här lösningen för att hantera uppdateringar för dina Windows- och Linux-datorer.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 202c75366477ae3445f607f75d08faf0335de79f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e426f2b90e3ac3ac6bcb9825c7848c76e52a1021
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering i Azure
 
@@ -36,7 +36,7 @@ Följande diagram visar en översikt över beteendet och dataflöde med hur lös
 
 När en dator som utför en sökning för att kontrollera uppdateringskompatibilitet, vidarebefordrar agenten information gruppvis till logganalys. På en Window-dator utförs en kompatibilitetssökning var 12:e timme som standard. Förutom schema för genomsökning initieras genomsökningen efter uppdateringsefterlevnad inom 15 minuter om Microsoft Monitoring Agent (MMA) startas innan uppdateringsinstallationen och efter installationen av uppdateringen. Kompatibilitetsgenomsökningen utförs var 3:e timme som standard med en Linux-dator och en kompatibilitetsgenomsökning initieras inom 15 minuter efter att MMA-agenten startas om.
 
-Lösningen rapporterar hur uppdaterad datorn är utifrån vilken källa du är konfigurerad att synkronisera med. Om Windows-datorn är konfigurerad för att rapportera till WSUS kan resultatet variera beroende på vad Microsoft Updates visar, beroende på när WSUS senast synkroniserades med Microsoft Update. Samma sak gäller för Linux-datorer som är konfigurerade för att rapportera till en lokal repo versus en offentlig repo.
+Lösningen rapporterar hur uppdaterad datorn är utifrån vilken källa du är konfigurerad att synkronisera med. Om Windows-datorn är konfigurerad för att rapportera till WSUS kan resultatet variera beroende på vad Microsoft Updates visar, beroende på när WSUS senast synkroniserades med Microsoft Update. Det här är samma för Linux-datorer som är konfigurerad för att rapportera till en lokal lagringsplatsen jämfört med en offentlig lagringsplatsen.
 
 Du kan distribuera och installera programuppdateringar på datorer som kräver uppdateringarna genom att skapa en schemalagd distribution. Uppdateringar som klassificeras som *valfria* ingår inte i distributionsomfattningen för Windows-datorer, utan endast nödvändiga uppdateringar. Schemalagd distribution definierar vilka datorer ta emot uppdateringar, antingen genom att explicit ange datorer eller välja en [datorgrupp](../log-analytics/log-analytics-computer-groups.md) som baseras på loggen söker i en viss uppsättning datorer. Du kan även ange ett schema för att godkänna och ange en tidsperiod när uppdateringar ska kunna installeras. Uppdateringar installeras av runbooks i Azure Automation. Du kan inte kan se dessa runbook-flöden och de kräver inte någon konfigurering. När en uppdateringsdistribution skapas så skapar den ett schema som startar en masteruppdaterings-runbook vid den angivna tidpunkten för de datorer som ingår. Denna master-runbook startar en underordnad runbook på varje agent som utför installationen av de nödvändiga uppdateringarna.
 

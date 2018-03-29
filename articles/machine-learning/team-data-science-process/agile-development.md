@@ -1,23 +1,23 @@
 ---
 title: Flexibel utveckling av datavetenskap projekt - Azure Machine Learning | Microsoft Docs
-description: "Hur utvecklare kan köra ett datavetenskap projekt i en systematiskt, version kontrollerade och samarbetsfunktioner sätt projektteamet med hjälp av Team av vetenskapliga data."
-documentationcenter: 
+description: Hur utvecklare kan köra ett datavetenskap projekt i en systematiskt, version kontrollerade och samarbetsfunktioner sätt projektteamet med hjälp av Team av vetenskapliga data.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev;
-ms.openlocfilehash: 686f751b241d49d116948711c683f4b504d5d5f9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.author: bradsev
+ms.openlocfilehash: dbaf2df0f5572c9b269000c741f1d736a7521d73
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="agile-development-of-data-science-projects"></a>Flexibel utveckling av datavetenskap projekt
 
@@ -89,7 +89,7 @@ Du kan också länka den här funktionen i projekt-databasen. Klicka på **länk
 
 ## 4. <a name='AddStoryunderfeature-4'></a>Lägga till artikeln under funktionen 
 
-Under funktionen kan artiklar läggas till beskriver viktiga steg som behövs för att slutföra projektet (funktion). Lägg till en ny artikel, klicka på den  **+**  logga till vänster om funktionen i eftersläpning vyn.  
+Under funktionen kan artiklar läggas till beskriver viktiga steg som behövs för att slutföra projektet (funktion). Lägg till en ny artikel, klicka på den **+** logga till vänster om funktionen i eftersläpning vyn.  
 
 ![4](./media/agile-development/4-sprint-add-story.png)
 
@@ -106,7 +106,7 @@ Du kan länka den här artikeln till en befintlig databas genom att klicka på *
 
 Uppgifter som är specifika detaljerade steg som krävs för att slutföra varje artikel. När alla aktiviteter i en artikel har slutförts, bör artikeln slutföras för. 
 
-Om du vill lägga till en aktivitet i en artikel, klickar du på den  **+**  bredvid objektet artikeln väljer **uppgiften**, och fyll sedan i den detaljerade informationen för den här aktiviteten i popup-fönstret.
+Om du vill lägga till en aktivitet i en artikel, klickar du på den **+** bredvid objektet artikeln väljer **uppgiften**, och fyll sedan i den detaljerade informationen för den här aktiviteten i popup-fönstret.
 
 ![7](./media/agile-development/7-sprint-add-task.png)
 
@@ -117,7 +117,7 @@ När funktioner, artiklar och uppgifter har skapats kan du visa dem i den **efte
 ![9](./media/agile-development/9-link-to-a-new-branch.png)
 
 
-## 6. <a name='set-up-agile-dsp-6'></a>Konfigurera en flexibel TDSP arbete mall i Visual Studio Online
+## 6. <a name='set-up-agile-dsp-6'></a> Konfigurera en flexibel TDSP arbete mall i Visual Studio Online
 
 Den här artikeln förklarar hur du ställer in en flexibel datavetenskap processmall som använder livscykelstadier för TDSP datavetenskap och spårar arbetsuppgifter med Visual Studio Online (vso). Stegen nedan gå igenom ett exempel på hur du konfigurerar det data vetenskap-specifikt flexibel bearbeta mallen *AgileDataScienceProcess* och visar hur du skapar arbetsuppgifter vetenskap utifrån mallen.
 
@@ -184,8 +184,8 @@ När du har skapat mallen datavetenskap processer du skapar och spårar dina dat
 
 Här är ytterligare länkar till resurser på flexibel processer.
 
-- Flexibel processen [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
-- Flexibel processen objekttyper för arbetsobjekt och arbetsflöde [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
+- Flexibel process   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
+- Flexibel processen objekttyper för arbetsobjekt och arbetsflöde   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
 
 
 Genomgång som visar alla steg i processen för **specifika scenarier** tillhandahålls också. De anges och är kopplad till miniatyr beskrivningar i den [exempel genomgång](walkthroughs.md) artikel. De visar hur du kombinerar moln, lokala verktyg och tjänster i ett arbetsflöde eller en rörledning för att skapa ett intelligent program. 

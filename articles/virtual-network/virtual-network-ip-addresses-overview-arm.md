@@ -1,11 +1,11 @@
 ---
 title: IP-adresstyper i Azure | Microsoft Docs
-description: "Läs mer om offentliga och privata IP-adresser i Azure."
+description: Läs mer om offentliga och privata IP-adresser i Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 610b911c-f358-4cfe-ad82-8b61b87c3b7e
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: e3baedba814cf6ac19df72c49e1c95ea2cd5cf73
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: a5cda1b5ecb686c9b03da27bdbca42ddc1a74f54
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adresstyper och allokeringsmetoder i Azure
 
@@ -68,13 +68,10 @@ Offentliga IP-adresser för standard-SKU:
 
 - Tilldelas endast med den statiska allokeringsmetoden.
 - Tilldelas till nätverksgränssnitt eller internetuppkopplade belastningsutjämnare av standardtyp. Mer information om SKU:er för belastningsutjämnare i Azure finns i [Standard-SKU för Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Zonredundant som standard. Kan skapas zonindelat och garanteras i en viss tillgänglighetszon.  Mer information om tillgänglighetszoner finns i [Översikt över tillgänglighetszoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Zonredundant som standard. Kan skapas zonindelat och garanteras i en viss tillgänglighetszon. Mer information om tillgänglighetszoner finns i [Översikt över tillgänglighetszoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
-> När du tilldelar en offentlig IP-adress för standard-SKU till en virtuell dators nätverksgränssnitt måste du uttryckligen tillåta den avsedda trafiken med en [nätverkssäkerhetsgrupp](security-overview.md#network-security-groups).  Kommunikationen med resursen misslyckas tills du har skapat och kopplat en nätverkssäkerhetsgrupp och uttryckligen tillåtit önskad trafik.
-
-Standard-SKU är i förhandsversion. Innan du skapar en offentlig IP-adress för standard-SKU måste du först registrera dig för förhandsversionen och skapa adressen på en plats som stöds. Information om hur du registrerar dig för förhandsversionen finns i [registrera dig för förhandsversionen av standard-SKU](virtual-network-public-ip-address.md#register-for-the-standard-sku-preview). En lista över platser som stöds (regioner) finns i [Regional tillgänglighet](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability) och du kan övervaka sidan [Uppdateringar för Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network) för ytterligare regionsstöd.
-
+> När du tilldelar en offentlig IP-adress för standard-SKU till en virtuell dators nätverksgränssnitt måste du uttryckligen tillåta den avsedda trafiken med en [nätverkssäkerhetsgrupp](security-overview.md#network-security-groups). Kommunikationen med resursen misslyckas tills du har skapat och kopplat en nätverkssäkerhetsgrupp och uttryckligen tillåtit önskad trafik.
 
 ### <a name="allocation-method"></a>Allokeringsmetod
 
@@ -180,7 +177,7 @@ Följande tabell visar den specifika egenskapen som kan användas för att assoc
 ## <a name="limits"></a>Begränsningar
 Gränserna som gäller för IP-adressering anges i den fullständiga förteckningen över [nätverksgränserna](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) i Azure. Gränserna anges per region och per prenumeration. Du kan [kontakta supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om du vill öka standardgränserna upp till de maximala gränserna utifrån dina affärsbehov.
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 Offentliga IP-adresser kan medföra en nominell avgift. Mer information om priserna för IP-adresser i Azure finns på sidan med [priser för IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses).
 
 ## <a name="next-steps"></a>Nästa steg

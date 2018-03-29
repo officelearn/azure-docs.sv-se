@@ -1,9 +1,9 @@
 ---
-title: "Självstudieartikel för förhandsfunktioner i Azure Machine Learning – Kommandoradsgränssnitt | Microsoft Docs"
-description: "Den här självstudien visar alla steg som krävs för att slutföra en Iris-klassificering från slutpunkt till slutpunkt från kommandoradsgränssnittet."
+title: Självstudieartikel för förhandsfunktioner i Azure Machine Learning – Kommandoradsgränssnitt | Microsoft Docs
+description: Den här självstudien visar alla steg som krävs för att slutföra en Iris-klassificering från slutpunkt till slutpunkt från kommandoradsgränssnittet.
 services: machine-learning
 author: ahgyger
-ms.author: ahgyger, ritbhat
+ms.author: ahgyger
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: ad81cd02ba0c46cbe58de7071d2164aaefea6514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 2d7965c0028e8f2e82db2e3ddd4eed6e20f4f443
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Självstudie: Klassificera Iris med hjälp av kommandoradsgränssnittet
 Azure Machine Learning-tjänsterna (förhandsversionen) är en integrerad lösning för datavetenskap och analys från slutpunkt till slutpunkt som datatekniker kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.

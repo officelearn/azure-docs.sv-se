@@ -1,11 +1,11 @@
 ---
-title: "Vanliga frågor om virtuella Linux-datorer i Azure | Microsoft Docs"
-description: "Innehåller svar på några vanliga frågor om Linux virtuella datorer som skapats med Resource Manager-modellen."
+title: Vanliga frågor om virtuella Linux-datorer i Azure | Microsoft Docs
+description: Innehåller svar på några vanliga frågor om Linux virtuella datorer som skapats med Resource Manager-modellen.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-management
 ms.assetid: 3648e09c-1115-4818-93c6-688d7a54a353
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: f7fb3f24e9ca6b1827028d118cf833aad830e6a1
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 8a4d93ff12affac56c12c0eab85168c609400ee2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Vanliga frågor och svar om virtuella Linux-datorer
 Den här artikeln tar några vanliga frågor om Linux virtuella datorer som skapats i Azure med hjälp av Resource Manager-distributionsmodellen. Windows-versionen av det här avsnittet finns [vanliga frågor om Windows-datorer](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -58,34 +58,35 @@ Ja. Namnet kan vara högst 64 tecken. Se [Naming conventions regler och begräns
 Ja. Resursgruppens namn kan vara upp till 90 tecken långt. Se [Naming conventions regler och begränsningar](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) mer information om resursgrupper.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Vilka är kraven för användarnamn när du skapar en virtuell dator?
-Användarnamn måste vara 1 och 64 tecken.
+
+Användarnamn ska vara 1-32 tecken.
 
 Följande användarnamn är inte tillåtna:
 
 <table>
     <tr>
-        <td style="text-align:center">Administratören </td><td style="text-align:center"> Admin </td><td style="text-align:center"> Användaren </td><td style="text-align:center"> Användare1</td>
+        <td style="text-align:center">Administratören </td><td style="text-align:center"> administratör </td><td style="text-align:center"> användare </td><td style="text-align:center"> Användare1</td>
     </tr>
     <tr>
-        <td style="text-align:center">Test </td><td style="text-align:center"> Användare2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> USER3</td>
+        <td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> USER3</td>
     </tr>
     <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> A</td>
+        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
     </tr>
     <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> ADM </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> ASPNET</td>
+        <td style="text-align:center">actuser  </td><td style="text-align:center"> ADM </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
     </tr>
     <tr>
         <td style="text-align:center">säkerhetskopiering </td><td style="text-align:center"> Konsolen </td><td style="text-align:center"> David </td><td style="text-align:center"> Gäst</td>
     </tr>
     <tr>
-        <td style="text-align:center">John </td><td style="text-align:center"> Ägare </td><td style="text-align:center"> rot </td><td style="text-align:center"> server</td>
+        <td style="text-align:center">john </td><td style="text-align:center"> ägare </td><td style="text-align:center"> rot </td><td style="text-align:center"> server</td>
     </tr>
     <tr>
-        <td style="text-align:center">SQL </td><td style="text-align:center"> Support </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
+        <td style="text-align:center">sql </td><td style="text-align:center"> support </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
     </tr>
     <tr>
-        <td style="text-align:center">Test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> Användare4 lade </td><td style="text-align:center"> user5</td>
+        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> Användare4 lade </td><td style="text-align:center"> user5</td>
     </tr>
 </table>
 
@@ -106,7 +107,7 @@ Följande lösenord är inte tillåtna:
         <td style="text-align:center">P@$$w0rd</td>
         <td style="text-align:center">P@ssw0rd</td>
         <td style="text-align:center">P@ssword123</td>
-        <td style="text-align:center">Pa$ $word</td>
+        <td style="text-align:center">Pa$$word</td>
     </tr>
     <tr>
         <td style="text-align:center">pass@word1</td>

@@ -1,8 +1,8 @@
 ---
-title: "Vad är Team av vetenskapliga data? | Microsoft Docs"
-description: "Ger en datavetenskap metod för att leverera förutsägelseanalyslösningar och intelligent program."
+title: Vad är TDSP (Team Data Science Process)? | Microsoft Docs
+description: Ger en datavetenskap metod för att leverera förutsägelseanalyslösningar och intelligent program.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: bradsev;
-ms.openlocfilehash: 75e170f29f9a6abeeb3393e43e6a4c355749044d
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.author: bradsev
+ms.openlocfilehash: f7c081dcd74164f4b1f054f5a65f2ff6aaabebd7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="what-is-the-team-data-science-process"></a>Vad är Team av vetenskapliga data?
+# <a name="what-is-the-team-data-science-process"></a>Vad är TDSP (Team Data Science Process)?
 
-Team Data vetenskap processen (TDSP) är en flexibel och iterativ datavetenskap metoder att leverera förutsägelseanalyslösningar och intelligent program effektivt. TDSP hjälper till att förbättra gruppsamarbete och utbildning. Den innehåller en destillation av bästa praxis och strukturer från Microsoft och andra i branschen som underlättar lyckad implementering av datavetenskap initiativ. Målet är att hjälpa företag att helt dra nytta av deras analytics-programmet.
+Team Data vetenskap processen (TDSP) är en flexibel och iterativ datavetenskap metoder att leverera förutsägelseanalyslösningar och intelligent program effektivt. TDSP hjälper till att förbättra samarbete mellan grupper och inlärning. Du får de bästa metodtipsen och strukturerna från Microsoft och andra i branschen, vilket underlättar implementeringen av datavetenskapsinitiativ. Målet är att hjälpa företag att dra nytta av sina analysprogram fullt ut.
 
 Den här artikeln innehåller en översikt över TDSP och dess huvudsakliga komponenter. Vi ger en allmän beskrivning av processen som kan implementeras med en mängd olika verktyg. En mer detaljerad beskrivning av projektaktiviteter och roller som ingår i livscykeln för processen erbjuder ytterligare länkade avsnitt. Information om hur du implementerar TDSP med en specifik uppsättning verktyg och Microsoft infrastruktur som vi använder för att implementera TDSP i våra tillhandahålls också.
 
@@ -54,7 +54,7 @@ Livscykeln beskrivs viktiga steg som projekt vanligtvis köra, ofta upprepade g�
 
 Här är en bild av den **Team datavetenskap Process livscykel**. 
 
-![TDSP Lifecycle2](./media/overview/tdsp-lifecycle2.png) 
+![TDSP-Lifecycle2](./media/overview/tdsp-lifecycle2.png) 
 
 Mål, uppgifter och dokumentation artefakter för varje steg i livscykeln i TDSP beskrivs i den [Team datavetenskap Process livscykel](lifecycle.md) avsnittet. Dessa uppgifter och artefakter är kopplade till Projektroller:
 
@@ -96,7 +96,7 @@ Infrastruktur för analys och lagring kan vara i molnet eller lokalt. Detta lagr
 
 Här är ett exempel på ett team arbetar på flera projekt och dela olika moln analytics-infrastrukturkomponenter.
 
-![TDSP-infrastruktur](./media/overview/tdsp-analytics-infra.png)
+![TDSP-infrastructure](./media/overview/tdsp-analytics-infra.png)
 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Verktyg och hjälpmedel för projektet körning

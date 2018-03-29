@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 7567ce516e6d08a458ff96f4554d9e92934408f5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8c976e5508c928943e2a5e4820f72520554f9b5d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Använd Azure HDInsight Tools för Visual Studio Code
 
@@ -69,9 +69,9 @@ Skapa en arbetsyta i VS-kod innan du kan ansluta till Azure.
 
 4. Öppna **XXXX_hdi_settings.json** från **EXPLORER**, eller högerklicka på Skriptredigeraren att välja **ange konfiguration**. Du kan konfigurera inloggningen transaktionen, standardkluster och skicka parametrar som visas i exemplet i filen. Du också lämna återstående parametrar tom.
 
-## <a name="connect-to-azure"></a>Anslut till Azure
+## <a name="connect-to-hdinsight-cluster"></a>Ansluta till HDInsight-kluster
 
-Innan du kan skicka skript till HDInsight-kluster från VS-kod, måste du ansluta till ditt Azure-konto.
+Innan du kan skicka skript till HDInsight-kluster från VS-kod, måste du ansluta till ditt Azure-konto eller länka ett kluster (med Ambari användarnamn/lösenord eller domän domänansluten konto).
 
 **Att ansluta till Azure**
 

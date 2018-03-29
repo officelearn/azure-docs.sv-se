@@ -1,9 +1,9 @@
 ---
 title: Arkivera Azure aktivitetsloggen | Microsoft Docs
-description: "Lär dig mer om att arkivera dina Azure-aktivitetsloggen för långsiktig kvarhållning i ett lagringskonto."
+description: Lär dig mer om att arkivera dina Azure-aktivitetsloggen för långsiktig kvarhållning i ett lagringskonto.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 0b041cc6a986c6f7a11d213f03294c9716c20d04
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ee634b3acf0fa8815b69aef21e6213aee636ce1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Arkivera Azure-aktivitetsloggen
 I den här artikeln visar vi hur du kan använda Azure-portalen, PowerShell-Cmdlets och plattformsoberoende CLI för att arkivera dina [ **Azure-aktivitetsloggen** ](monitoring-overview-activity-logs.md) i ett lagringskonto. Det här alternativet är användbart om du vill behålla din aktivitetsloggen som är längre än 90 dagar (med fullständig kontroll över bevarandeprincipen) för granskning, statiska analys eller säkerhetskopiering. Om du bara behöver lagra dina händelser i 90 dagar eller mindre och du behöver inte konfigurera arkivering till ett lagringskonto eftersom aktivitetsloggen händelser lagras i Azure-plattformen i 90 dagar utan att aktivera arkivering.
@@ -164,7 +164,7 @@ Varje händelse lagras i filen PT1H.json i matrisen ”innehåller” följa det
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Ladda ned blobbar för analys](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
+* [Ladda ned blobbar för analys](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Dataströmmen aktivitetsloggen i Händelsehubbar](monitoring-stream-activity-logs-event-hubs.md)
 * [Läs mer om aktivitetsloggen](monitoring-overview-activity-logs.md)
 

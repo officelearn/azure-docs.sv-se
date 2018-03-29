@@ -1,19 +1,19 @@
 ---
 title: Azure principstruktur definition | Microsoft Docs
-description: "Beskriver hur resurs principdefinitionen används av Azure principen för att etablera konventioner för resurser i din organisation genom att beskriva när principen tillämpas och åtgärd att vidta."
+description: Beskriver hur resurs principdefinitionen används av Azure principen för att etablera konventioner för resurser i din organisation genom att beskriva när principen tillämpas och åtgärd att vidta.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
-ms.custom: 
-ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.custom: ''
+ms.openlocfilehash: 50965010d821d4edf94e2f5727546cb56f61f5db
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -70,7 +70,9 @@ Den **läge** bestämmer vilka typer av resurser som ska utvärderas för en pri
 * `all`: utvärderar resursgrupper och alla typer av resurser 
 * `indexed`: endast utvärdera resurstyper som har stöd för etiketter och plats
 
-Vi rekommenderar att du ställer in **läge** till `all`. Alla principdefinitioner som skapats via portalen användningen av `all` läge. Om du använder PowerShell eller Azure CLI, måste du ange den **läge** parametern och ange det till `all`. 
+Vi rekommenderar att du ställer in **läge** till `all` i de flesta fall. Alla principdefinitioner som skapats via portalen användningen av `all` läge. Om du använder PowerShell eller Azure CLI, måste du ange den **läge** parametern manuellt.
+
+`indexed` ska användas när du skapar principer som tillämpar taggar eller platser. Detta är inte obligatoriskt, men de resurser som inte stöder taggar och platser ska visas som icke-kompatibla i kompatibilitetsresultaten. Det enda undantaget är **resursgrupper**. Principer som försöker använda plats eller taggarna i en resursgrupp ska ange **läge** till `all` och specifikt mål för den `Microsoft.Resources/subscriptions/resourceGroup` typen. Ett exempel finns [genomdriva grupp resurstaggar](scripts/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>Parametrar
 
@@ -126,7 +128,7 @@ I den **sedan** block du definiera vad som händer när de **om** villkor är up
     <condition> | <logical operator>
   },
   "then": {
-    "effect": "deny | audit | append"
+    "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
   }
 }
 ```
@@ -165,16 +167,22 @@ Du kan kapsla logiska operatorer. Följande exempel visar en **inte** åtgärden
 Utvärderar ett villkor om en **fältet** uppfyller vissa villkor. Villkor som stöds är:
 
 * `"equals": "value"`
+* `"notEquals": "value"`
 * `"like": "value"`
+* `"notLike": "value"`
 * `"match": "value"`
+* `"notMatch": "value"`
 * `"contains": "value"`
+* `"notContains": "value"`
 * `"in": ["value1","value2"]`
+* `"notIn": ["value1","value2"]`
 * `"containsKey": "keyName"`
+* `"notContainsKey": "keyName"`
 * `"exists": "bool"`
 
-När du använder den **som** tillstånd, kan du ange ett jokertecken (*) i värdet.
+När du använder den **som** och **notLike** villkor, kan du ange ett jokertecken (*) i värdet.
 
-När du använder den **matchar** villkor, ange `#` som representerar en siffra `?` för en bokstav och alla andra tecken som representerar det faktiska tecknet. Exempel finns i [godkända VM-avbildningar](scripts/allowed-custom-images.md).
+När du använder den **matchar** och **notMatch** villkor, ger `#` som representerar en siffra `?` för en bokstav och alla andra tecken som representerar det faktiska tecknet. Exempel finns i [godkända VM-avbildningar](scripts/allowed-custom-images.md).
 
 ### <a name="fields"></a>Fält
 Villkor bildas genom att använda fält. Ett fält representerar egenskaper i nyttolasten för begäran resurs som används för att beskriva tillståndet för resursen.  
@@ -182,12 +190,28 @@ Villkor bildas genom att använda fält. Ett fält representerar egenskaper i ny
 Följande fält stöds:
 
 * `name`
+* `fullName`
+  * Returnerar det fullständiga namnet på resursen, inklusive överordnade (t.ex. ”MinServer/mindatabas”)
 * `kind`
 * `type`
 * `location`
 * `tags`
-* `tags.*`
+* `tags.tagName`
+* `tags[tagName]`
+  * Den här syntaxen för hakparentes stöder taggnamn som innehåller punkter
 * Egenskapen alias - lista, se [alias](#aliases).
+
+### <a name="alternative-accessors"></a>Alternativa accessorer
+**Fältet** är primär accessorn används i regler. Den kontrollerar direkt till resursen som utvärderas. Dock stöder en andra accessor **källa**.
+
+```json
+"source": "action",
+"equals": "Microsoft.Compute/virtualMachines/write"
+```
+
+**Källan** stöder bara ett värde, **åtgärd**. Åtgärd returnerar tillstånd-åtgärd för den begäran som utvärderas. Auktorisering åtgärder visas i avsnittet auktorisering i den [aktivitetsloggen](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
+
+När principen utvärderas befintliga resurser i bakgrunden anger **åtgärd** till en `/write` tillstånd-åtgärd för den resurstypen.
 
 ### <a name="effect"></a>Verkan
 Stöder följande typer av gälla:
@@ -212,7 +236,7 @@ För **bifoga**, måste du ange följande information:
 
 Värdet kan vara en sträng eller ett JSON-format-objekt.
 
-Med **AuditIfNotExists** och **DeployIfNotExists** du kan utvärdera förekomsten av en underordnad resurs och tillämpa en regel och en motsvarande effekt när resursen inte finns. Du kan till exempel kräva att en nätverksbevakaren distribueras för alla virtuella nätverk.
+Med **AuditIfNotExists** och **DeployIfNotExists** du kan utvärdera förekomsten av en relaterad resurs och tillämpa en regel och en motsvarande effekt när resursen inte finns. Du kan till exempel kräva att en nätverksbevakaren distribueras för alla virtuella nätverk.
 Ett exempel på granskning när ett tillägg för virtuell dator inte har distribuerats, se [granska om tillägg inte finns](scripts/audit-ext-not-exist.md).
 
 

@@ -1,8 +1,8 @@
 ---
-title: "Team vetenskap av data i praktiken: använda SQL Data Warehouse | Microsoft Docs"
-description: "Processen för avancerade analyser och teknik i åtgärd"
+title: 'Team vetenskap av data i praktiken: använda SQL Data Warehouse | Microsoft Docs'
+description: Processen för avancerade analyser och teknik i åtgärd
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: bradsev;weig
-ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: bradsev
+ms.openlocfilehash: 6566db5f186b92179df3125deaf5ad17c6f9e974
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team vetenskap av data i praktiken: använda SQL Data Warehouse
 I den här självstudiekursen vi beskriver hur du skapar och distribuerar en maskininlärningsmodell med hjälp av SQL Data Warehouse (SQL DW) för en offentligt tillgängliga dataset--den [NYC Taxi resor](http://www.andresmh.com/nyctaxitrips/) dataset. Binär klassificering modellen konstrueras beräknar huruvida ett tips betalat för en resa och modeller för multiklass-baserad klassificering och regression beskrivs också som förutsäga fördelningen för tips belopp betald.
@@ -319,7 +319,7 @@ Den geografiska platsen för dina lagringskonton påverkar inläsningstiden.
 Du måste bestämma vilka gör om du har dubbla käll- och filer.
 
 > [!NOTE]
-> Om CSV-filer som ska kopieras från den offentliga blob storage till privata blob storage-konto finns redan i ditt privata blob storage-konto, AzCopy tillfrågas du om du vill skriva över. Om du inte vill skriva över inkommande  **n**  när du tillfrågas. Om du vill skriva över **alla** av dem, ange **en** när du tillfrågas. Du kan också ange **y** att skriva över CSV-filer separat.
+> Om CSV-filer som ska kopieras från den offentliga blob storage till privata blob storage-konto finns redan i ditt privata blob storage-konto, AzCopy tillfrågas du om du vill skriva över. Om du inte vill skriva över inkommande **n** när du tillfrågas. Om du vill skriva över **alla** av dem, ange **en** när du tillfrågas. Du kan också ange **y** att skriva över CSV-filer separat.
 > 
 > 
 
@@ -836,7 +836,7 @@ I den här övningen har vi redan utforskade och utformad data i SQL Data Wareho
    
     ![Azure ML-importera Data][17]
 2. Välj **Azure SQL Database** som den **datakällan** i den **egenskaper** panelen.
-3. Ange DNS-namnet för databasen i den **Databasservernamnet** fältet. Format:`tcp:<your_virtual_machine_DNS_name>,1433`
+3. Ange DNS-namnet för databasen i den **Databasservernamnet** fältet. Format: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Ange den **databasnamnet** i motsvarande fält.
 5. Ange den *användarnamn för SQL* i den **Server användarkontonamnet**, och *lösenord* i den **serverlösenord**.
 7. I den **databasfrågan** redigera texten, klistrar in frågan som extraherar nödvändiga databasfält (inklusive eventuella beräknade fält, till exempel etiketter) och ned exempel data till den önskade provtagning.
@@ -874,7 +874,7 @@ När bedömningsprofil experimentet har skapats kan du granska den och göra jus
 
 Ett exempel bedömningen experiment finns i bilden nedan. När du är klar att distribuera klickar du på den **publicera WEBBTJÄNSTEN** knappen i det nedre Åtgärdsfältet.
 
-![Azure ML publicera][11]
+![Azure ML Publish][11]
 
 ## <a name="summary"></a>Sammanfattning
 Om du vill Sammanfattningsvis vad vi har gjort i den här genomgången självstudiekursen, du har skapat ett Azure datavetenskap miljö, arbetat med en stor offentliga datauppsättning tar genom Team vetenskap av data, allt från datainsamling till modellen utbildning och sedan till den distribution av en Azure Machine Learning-webbtjänst.

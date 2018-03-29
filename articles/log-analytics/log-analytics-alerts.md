@@ -1,8 +1,8 @@
 ---
-title: "Förstå aviseringar i Azure Log Analytics | Microsoft Docs"
-description: "Aviseringar i Log Analytics kan identifiera viktig information i OMS-databasen och proaktivt meddelar dig om problem eller anropa åtgärder om du vill försöka åtgärda.  Den här artikeln beskrivs de olika typerna av Varningsregler och hur de definieras."
+title: Förstå aviseringar i Azure Log Analytics | Microsoft Docs
+description: Aviseringar i Log Analytics kan identifiera viktig information i OMS-databasen och proaktivt meddelar dig om problem eller anropa åtgärder om du vill försöka åtgärda.  Den här artikeln beskrivs de olika typerna av Varningsregler och hur de definieras.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/05/2018
 ms.author: bwren
-ms.openlocfilehash: 07e8312d5e113eeb9016dcc832b1cf66f8001c5f
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: ece2e7eeb53aebbb18bce4bb34e03307b0aea74c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Förstå aviseringar i logganalys
 
-Aviseringar i Log Analytics identifiera viktig information i logganalys-databasen.  Den här artikeln beskrivs några av designbeslut som måste göras baserat på samlingen frekvensen av data som efterfrågade, slumpmässig fördröjning med datapåfyllning kan orsakas av nätverksfördröjning eller bearbetningskapaciteten och sparar data till loggen Analytics-databas.  Den innehåller information om hur Varningsregler i logganalys arbete och beskrivs skillnaderna mellan olika typer av Varningsregler.
+Med aviseringar i Log Analytics kan du identifiera viktig information på Log Analytics-lagringsplatsen.  Den här artikeln beskrivs några av designbeslut som måste göras baserat på samlingen frekvensen av data som efterfrågade, slumpmässig fördröjning med datapåfyllning kan orsakas av nätverksfördröjning eller bearbetningskapaciteten och sparar data till loggen Analytics-databas.  Den innehåller information om hur Varningsregler i logganalys arbete och beskrivs skillnaderna mellan olika typer av Varningsregler.
 
 Processen att skapa Varningsregler, finns i följande artiklar:
 
@@ -39,9 +39,9 @@ Information om data collection frekvensen för olika lösningar och -datatypen �
 - Innan en avisering kan utlösas måste data skrivas till databasen så att den är tillgänglig när en förfrågan. På grund av latens som beskrivs ovan, är samling frekvensen inte samma som den tid som data är tillgängliga för frågor. Till exempel när data kan samlas in exakt var 10 minut, blir data tillgängligt i databasen oregelbundet data. Data som samlas in vid noll, 10 och 20 minuters intervall kanske målföretag, är tillgänglig för sökning 25 28 och 35 minuter respektive eller på något annat oregelbundna intervall påverkas av införandet svarstid. Värsta fall dessa fördröjningar dokumenteras i den [SLA för Log Analytics](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1), som inte innehåller en fördröjning som introducerades av samlingen frekvens eller nätverket fördröjningen mellan datorn och Log Analytics-tjänsten.
 
 
-## <a name="alert-rules"></a>Aviseringsregler
+## <a name="alert-rules"></a>Varningsregler
 
-Aviseringar skapas med Varningsregler som automatiskt kör loggen söker regelbundet.  Om resultatet av loggen sökningen matchar särskilda skapas en avisering post.  Regeln kan sedan automatiskt köra en eller flera åtgärder för att proaktivt meddelar dig om aviseringen eller anropa en annan process.  Olika typer av Varningsregler använda olika logik för att utföra den här analysen.
+Aviseringar skapas från varningsregler som automatiskt kör regelbundna loggsökningar.  Om resultatet av loggen sökningen matchar särskilda skapas en avisering post.  Regeln kan sedan automatiskt köra en eller flera åtgärder för att proaktivt meddela dig om aviseringen eller anropa en annan process.  Olika typer av Varningsregler använda olika logik för att utföra den här analysen.
 
 ![Log Analytics-aviseringar](media/log-analytics-alerts/overview.png)
 
@@ -102,12 +102,12 @@ Om du vill Varna när processorn körs exempelvis över 90%, använder du en fr�
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-Om du vill meddela när processorn var i genomsnitt över 90% för ett visst tidsintervall du vill använda en fråga med hjälp av den [mäta kommandot](log-analytics-search-reference.md#commands) följande med tröskelvärdet för varningsregeln **större än 0**.
+Om du vill meddela när processorn var i genomsnitt över 90% för ett visst tidsintervall du vill använda en fråga med hjälp av den `measure` kommandot på följande med tröskelvärdet för varningsregeln **större än 0**.
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
 >[!NOTE]
-> Om ditt arbetsområde har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), sedan senare frågorna skulle ändra till följande:`Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
+> Om ditt arbetsområde har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), sedan senare frågorna skulle ändra till följande: `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
 > `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
 
 
@@ -119,7 +119,7 @@ Om du vill meddela när processorn var i genomsnitt över 90% för ett visst tid
 **Mått mätning** Varningsregler skapar en avisering för varje objekt i en fråga med ett värde som överskrider ett angivet tröskelvärde.  De har olika följande skillnader från **antalet resultat** Varna regler.
 
 #### <a name="log-search"></a>Loggsökning
-Du kan använda en fråga för en **antalet resultat** avisering regel att det finns särskilda krav frågan för ett mått mätning varningsregel.  Det måste innehålla en [mäta kommandot](log-analytics-search-reference.md#commands) gruppering av resultaten på ett visst fält. Det här kommandot måste innehålla följande element.
+Du kan använda en fråga för en **antalet resultat** avisering regel att det finns särskilda krav frågan för ett mått mätning varningsregel.  Det måste innehålla en `measure` kommando för att gruppera resultaten på ett visst fält. Det här kommandot måste innehålla följande element.
 
 - **Mängdfunktion**.  Anger beräkningen som utförs och kan vara ett numeriskt fält ska aggregeras.  Till exempel **count()** returnerar antalet poster i frågan, **avg(CounterValue)** Returnerar medelvärdet för fältet CounterValue under period.
 - **Gruppera fältet**.  En post med ett insamlat värde skapas för varje instans av det här fältet och en avisering genereras för varje.  Till exempel om du vill generera en avisering för varje dator du vill använda **per dator**.   

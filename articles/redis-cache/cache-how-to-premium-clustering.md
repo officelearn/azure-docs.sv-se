@@ -1,24 +1,24 @@
 ---
-title: "Konfigurera Redis klustring för Premium Azure Redis-Cache | Microsoft Docs"
-description: "Lär dig hur du skapar och hanterar Redis klustring för Premium-nivån Azure Redis-Cache-instanser"
+title: Konfigurera Redis klustring för Premium Azure Redis-Cache | Microsoft Docs
+description: Lär dig hur du skapar och hanterar Redis klustring för Premium-nivån Azure Redis-Cache-instanser
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 03/26/2018
 ms.author: wesmc
-ms.openlocfilehash: 16281cca4e4bc95e145317365d42382ab11fde93
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 4af6545058ab0031d7cd1b38618b6d80204f83b9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>Konfigurera Redis klustring för Premium Azure Redis-Cache
 Azure Redis-Cache har olika cache-erbjudanden som ger flexibilitet vid val av cachestorlek och funktioner, inklusive funktioner för Premium-nivån, till exempel klustring, beständiga och stöd för virtuella nätverk. Den här artikeln beskriver hur du konfigurerar kluster i en premium Azure Redis-Cache-instans.
@@ -33,7 +33,7 @@ Azure Redis-Cache erbjuder Redis cluster som [implementeras i Redis](http://redi
 * Flera genomströmning: genomströmning linjärt ökar om du ökar antalet delar. 
 * Flera minnesstorleken: linjärt ökar om du ökar antalet delar.  
 
-Mer information om storlek, genomflöde och bandbredd med premium cacheminnen finns [vilka Redis-Cache erbjudande och vilken storlek ska jag använda?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+Antalet anslutningar som är tillgängliga för en klustrad cache ökar inte kluster. Mer information om storlek, genomflöde och bandbredd med premium cacheminnen finns [vilka Redis-Cache erbjudande och vilken storlek ska jag använda?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 I Azure erbjuds Redis cluster som primär replik/modell där varje Fragmentera har två primära/replik med replikering där replikeringen hanteras av Azure Redis-Cache-tjänsten. 
 
@@ -75,6 +75,8 @@ Exempel om hur du arbetar med kluster med StackExchange.Redis-klienten, finns de
 ![Redis klusterstorleken][redis-cache-redis-cluster-size]
 
 Om du vill ändra klusterstorleken skjutreglaget eller ange ett tal mellan 1 och 10 i den **Fragmentera antal** textrutan och klicka på **OK** att spara.
+
+Om du ökar klusterstorleken ökas max genomflöde och cachestorleken. Öka klusterstorleken öka inte max. anslutningar som är tillgängliga för klienter.
 
 > [!NOTE]
 > Skala ett kluster som kör den [MIGRERA](https://redis.io/commands/migrate) kommandot, vilket är en kostsam kommando så för minimal påverkan Överväg att köra den här åtgärden vid låg belastning. Under migreringen visas en topp i belastningen på servern. Skala ett kluster körs lång processen och mängden tid det tar beror på antalet nycklar och storleken på de värden som är associerade med nycklarna.
@@ -132,7 +134,7 @@ För närvarande inte alla klienter har stöd för Redis-kluster. StackExchange.
 Du kan ansluta till ditt cacheminne som använder samma [slutpunkter](cache-configure.md#properties), [portar](cache-configure.md#properties), och [nycklar](cache-configure.md#access-keys) som du använder när du ansluter till en cache som inte har aktiverat-kluster. Redis hanterar kluster på serverdelen så att du inte hantera den från din klient.
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>Kan jag ansluta direkt till enskilda delar min-cache?
-Detta stöds inte officiellt. Med som säger består varje Fragmentera av en primär/replik cache-par gemensamt kallas en cache-instans. Du kan ansluta till instanserna cache med hjälp av verktyget redis-cli i den [instabilt](http://redis.io/download) gren av databasen som Redis på GitHub. Den här versionen implementerar grundläggande stöd när den startas med den `-c` växla. Mer information finns i [spelar med klustret](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) på [http://redis.io](http://redis.io) i den [Redis cluster kursen](http://redis.io/topics/cluster-tutorial).
+Detta stöds inte officiellt. Med som säger består varje Fragmentera av en primär/replik cache-par gemensamt kallas en cache-instans. Du kan ansluta till instanserna cache med hjälp av verktyget redis-cli i den [instabilt](http://redis.io/download) gren av databasen som Redis på GitHub. Den här versionen implementerar grundläggande stöd när den startas med den `-c` växla. Mer information finns i [spelar med klustret](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) på [ http://redis.io ](http://redis.io) i den [Redis cluster kursen](http://redis.io/topics/cluster-tutorial).
 
 För icke-ssl, använder du följande kommandon.
 

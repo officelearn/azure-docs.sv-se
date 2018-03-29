@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: 9de332324ba853d3df0aacce2db4bbc3d4d9d62d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e7e45a6af0857520eec27263281a0f0a43b30013
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
@@ -338,13 +338,17 @@ Resultatet som skulle ge åtkomst för att läsa alla enheten identiteter, är:
 
 ## <a name="supported-x509-certificates"></a>Stöds X.509-certifikat
 
-Du kan använda alla X.509-certifikat för autentisering av en enhet med IoT-hubben. Certifikat är:
+Du kan använda alla X.509-certifikat för autentisering av en enhet med IoT-hubben genom att överföra ett certifikat-tumavtryck eller en certifikatutfärdare (CA) till Azure IoT Hub. Autentisering med hjälp av endast certifikattumavtryck verifierar att presenterades tumavtryck matchar det konfigurerade tumavtrycket. Autentisering med hjälp av certifikatutfärdare verifierar certifikatkedjan. 
 
-* **Ett befintligt X.509-certifikat**. En enhet kanske redan har ett X.509-certifikat som är kopplade till den. Enheten kan använda certifikatet för att autentisera med IoT-hubben.
-* **En egen genereras och självsignerade certifikat för X-509**. En enhetstillverkaren eller interna deployer kan generera dessa certifikat och lagra motsvarande privata nyckel (och certifikat) på enheten. Du kan använda verktyg som [OpenSSL] [ lnk-openssl] och [Windows SelfSignedCertificate] [ lnk-selfsigned] utility för detta ändamål.
-* **X.509-certifikat som signerats av Certifikatutfärdaren**. För att identifiera en enhet och autentisera med IoT-hubb, kan du använda ett X.509-certifikat som genereras och signerade av en certifikatutfärdare (CA). IoT-hubb verifierar endast att tumavtrycket visas överensstämmer med det konfigurerade tumavtrycket. IotHub kan inte valideras certifikatkedjan.
+Certifikat som stöds är:
+
+* **Ett befintligt X.509-certifikat**. En enhet kanske redan har ett X.509-certifikat som är kopplade till den. Enheten kan använda certifikatet för att autentisera med IoT-hubben. Fungerar med tumavtryck eller CA-autentisering. 
+* **X.509-certifikat som signerats av Certifikatutfärdaren**. För att identifiera en enhet och autentisera med IoT-hubb, kan du använda ett X.509-certifikat som genereras och signerade av en certifikatutfärdare (CA). Fungerar med tumavtryck eller CA-autentisering.
+* **En egen genereras och självsignerade certifikat för X-509**. En enhetstillverkaren eller interna deployer kan generera dessa certifikat och lagra motsvarande privata nyckel (och certifikat) på enheten. Du kan använda verktyg som [OpenSSL] [ lnk-openssl] och [Windows SelfSignedCertificate] [ lnk-selfsigned] utility för detta ändamål. Fungerar bara med tumavtryck för autentisering. 
 
 En enhet kan antingen använda ett X.509-certifikat eller en säkerhetstoken för autentisering, men inte båda.
+
+Mer information om autentisering med hjälp av certifikatutfärdaren finns [grundläggande förståelse för X.509-certifikat](iot-hub-x509ca-concept.md).
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Registrera ett X.509-certifikat för en enhet
 
@@ -354,10 +358,7 @@ Den [Azure IoT Service SDK för C#] [ lnk-service-sdk] (version 1.0.8+) har stö
 
 Den **RegistryManager** klassen innehåller en programmässiga sättet att registrera en enhet. I synnerhet de **AddDeviceAsync** och **UpdateDeviceAsync** metoder kan du registrera och uppdatera en enhet i IoT-hubb identitetsregistret. Dessa två metoder ta en **enhet** instansen som indata. Den **enhet** klassen innehåller en **autentisering** egenskap som kan du ange primära och sekundära X.509-certifikattumavtryck. Certifikatets tumavtryck representerar en SHA-1-hash för X.509-certifikat (som lagras med hjälp av binär kodning DER). Du har möjlighet att ange tumavtryck för en primär eller sekundär tumavtryck eller båda. Primära och sekundära tumavtryck stöds för att hantera scenarier för förnyelse av certifikat.
 
-> [!NOTE]
-> IoT-hubb inte kräver eller lagra hela X.509-certifikat, endast tumavtrycket.
-
-Här följer ett exempel på C\# kodfragmentet att registrera en enhet med ett X.509-certifikat:
+Här följer ett exempel på C\# kodfragmentet att registrera en enhet med ett X.509-tumavtryck för certifikat:
 
 ```csharp
 var device = new Device(deviceId)

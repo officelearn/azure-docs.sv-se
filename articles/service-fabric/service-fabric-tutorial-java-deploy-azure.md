@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 5245e53429278f2a346077cdb70426aaca339488
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 92445ffa7954d42ec1a864264fbfc7555986ad58
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Självstudie: Distribuera en Java-tillämpning till ett Service Fabric-kluster i Azure
 Den här självstudien är del tre i en serie. Här får du se hur du distribuerar en Service Fabric-tillämpning till ett kluster i Azure.
@@ -32,7 +32,7 @@ I den tredje delen i serien får du lära dig att:
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
-> *  [Skapa ett Java Service Fabric-program (tillförlitliga tjänster)](service-fabric-tutorial-create-java-app.md)
+> *  [Skapa ett Java Service Fabric Reliable Services-program](service-fabric-tutorial-create-java-app.md)
 > * [Distribuera och felsöka programmet på ett lokalt kluster](service-fabric-tutorial-debug-log-local-cluster.md)
 > * Distribuera programmet till ett Azure-kluster
 > * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
@@ -106,7 +106,7 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
 8. Kopiera kontots SAS-URL och ha den tillgänglig när du skapar ditt Service Fabric-kluster. Den liknar följande URL:
 
     ```
-    https://teststorageaccount.table.core.windows.net/?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
+    ?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
     ```
 
 9. Skapa en resursgrupp som innehåller Event Hub-resurserna. Event Hubs används för att skicka meddelanden från Service Fabric till den server som kör ELK-resurserna.
@@ -163,10 +163,10 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
     Kopiera värdet från fältet **sr** i den JSON som returneras. Fältvärdet **sr** används som SAS-token för EventHubs. Följande URL är ett exempel på fältet **sr**:
 
     ```bash
-    https%3A%2F%2Ftesteventhubs.servicebus.windows.net%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=<policy_name>
+    https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    Din SAS URL för EventHubs följer strukturen: https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. Till exempel, https://testeventhubs.servicebus.windows.net/testeventhubs?sr=https%3A%2F%2Ftesteventhubs.servicebus.windows.net%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
+    Din SAS URL för EventHubs följer strukturen: https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. Till exempel, https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
 12. Öppna filen *sfdeploy.parameters.json* och ersätt följande innehåll från föregående steg 
 

@@ -1,11 +1,11 @@
 ---
 title: Uppgradering av Service Fabric programmet | Microsoft Docs
-description: "Den här artikeln innehåller en introduktion till uppgraderar ett Service Fabric-program, inklusive att välja uppgradera lägen och utför hälsokontroller."
+description: Den här artikeln innehåller en introduktion till uppgraderar ett Service Fabric-program, inklusive att välja uppgradera lägen och utför hälsokontroller.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 765931d8a888432e0cc77ff86d597b6e2a029a2a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 60bbd75496b6e835a76edb4251aac6ea249187b3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>Uppgradera Service Fabric-programmet
 Ett program med Azure Service Fabric är en samling tjänster. Under en uppgradering, Service Fabric jämför de nya [programmanifestet](service-fabric-application-and-service-manifests.md) med den tidigare versionen och avgör vilka tjänster i kräver programuppdateringar. Service Fabric Jämför version siffror i tjänsten visar med versionsnummer i den tidigare versionen. Om en tjänst inte har ändrats, uppgraderas att tjänsten inte.
@@ -57,6 +57,13 @@ När en uppgradering av programmet återställs, återställs standardparametrar
 
 > [!TIP]
 > Den [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) Konfigurationsinställningen för klustret måste vara *SANT* att aktivera regler 2) och 3) ovan (standard service uppdatering och borttagning). Den här funktionen stöds från och med Service Fabric version 5.5.
+
+## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Uppgradera flera program med HTTPS-slutpunkter
+Du måste vara noga med att inte använda den **samma port** för olika instanser av samma program när du använder HTTP**S**. Anledningen är att Service Fabric inte kommer att kunna uppgradera cert för någon av instanserna för programmet. Om exempelvis programmet båda 1 eller ett program 2 vill uppgradera sina certifikat 1 till cert 2. När uppgraderingen sker kan Service Fabric ha rensas certifikat 1 registreringen med http.sys även om det andra programmet fortfarande använder den. Om du vill förhindra detta identifierar Service Fabric att det finns redan en annan programinstansen registrerade på porten med certifikatet (på grund av http.sys) och misslyckas åtgärden.
+
+Därför Service Fabric stöder inte uppgradering två olika tjänster med hjälp av **samma port** i olika programinstanser. Med andra ord kan du använda samma certifikat på olika tjänster på samma port. Om du behöver ha ett delade certifikat på samma port måste du se till att tjänsterna är placerade på olika datorer med placeringen. Eller Överväg att använda dynamiska portar för Service Fabric om möjligt för varje tjänst i varje instans av programmet. 
+
+Om du ser en uppgradering misslyckas med https, ett fel varning som säger ”Windows HTTP-servern API inte stöder flera certifikat för program som delar en port”.
 
 ## <a name="application-upgrade-flowchart"></a>Uppgradera flödesschema för programmet
 Flödesschemat följande stycke kan hjälpa dig att förstå uppgraderingen av ett Service Fabric-program. I synnerhet flödet beskrivs hur timeout, inklusive *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, och *UpgradeHealthCheckInterval*, hjälper dig att kontrollera när uppgraderingen i en uppdateringsdomän betraktas som en lyckats eller misslyckats.

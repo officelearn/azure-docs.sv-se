@@ -1,26 +1,26 @@
 ---
 title: Enheten koncept i Azure enhetsetableringen | Microsoft Docs
-description: "Beskriver begrepp som är specifika för enheter med etablering av tjänst- och IoT-hubb för etablering av enheter"
+description: Beskriver begrepp som är specifika för enheter med etablering av tjänst- och IoT-hubb för etablering av enheter
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
 ms.date: 09/05/2017
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5297bc57729d9e983d63244c71eb21995cf73f0e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5482801461e2afea33d65d559723116f37a35d1f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>IoT-hubb enheten Etableringstjänsten enheten begrepp
 
-IoT-hubb Device etablering Service är en helper-tjänsten för IoT-hubb som används för att konfigurera zero touch enhet etablering till en angiven IoT-hubb. Du kan etablera miljontals enheter på en säker och skalbar sätt med enheten Etableringstjänsten.
+IoT-hubb Device etablering Service är en helper-tjänsten för IoT-hubb som används för att konfigurera zero touch enhet etablering till en angiven IoT-hubb. Med enhetsetableringstjänsten kan du etablera miljontals enheter på ett säkert och skalbart sätt.
 
 Den här artikeln ger en översikt över de *enhet* begrepp som är involverad i enhetsetableringen. Den här artikeln är mest relevant för personer som ingår i den [tillverkning steg](about-iot-dps.md#manufacturing-step) för att få en enhet som är klar för distribution.
 
@@ -33,7 +33,7 @@ Mekanism för attestering är den metod som används för att bekräfta identite
 
 Etablering av tjänst stöder två typer av intyg:
 * **X.509-certifikat** baserat på standard autentiseringsflödet för X.509-certifikat.
-* **SAS-token** baserat på ett tillfälligt anrop med TPM-standarden för nycklar. Detta kräver inte en fysisk TPM på enheten, men tjänsten förväntar att bekräfta att använda bekräftelsenyckeln per den [TPM-specifikationen](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Trusted Platform Module (TPM)** baserat på ett temporärt ID utmaningen med TPM-standard nycklarna för att presentera en signerad delade signatur åtkomst (SAS)-token. Detta kräver inte en fysisk TPM på enheten, men tjänsten förväntar att bekräfta att använda bekräftelsenyckeln per den [TPM-specifikationen](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## <a name="hardware-security-module"></a>Maskinvarusäkerhetsmodul
 

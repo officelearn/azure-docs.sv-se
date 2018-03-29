@@ -1,8 +1,8 @@
 ---
-title: "Övervaka och hantera Azure HDInsight med Ambari-Webbgränssnittet | Microsoft Docs"
-description: "Lär dig använda Ambari och övervaka och hantera Linux-baserade HDInsight-kluster. I det här dokumentet lär du dig att använda Ambari-Webbgränssnittet som ingår i HDInsight-kluster."
+title: Övervaka och hantera Azure HDInsight med Ambari-Webbgränssnittet | Microsoft Docs
+description: Lär dig använda Ambari och övervaka och hantera Linux-baserade HDInsight-kluster. I det här dokumentet lär du dig att använda Ambari-Webbgränssnittet som ingår i HDInsight-kluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/04/2018
+ms.date: 03/23/2018
 ms.author: larryfr
-ms.openlocfilehash: dc1265c7af011b92a9f862cf2e91b47c3998b2e4
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 922dfd475f27f182d8958887087fc2f4945cc43a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Hantera HDInsight-kluster med Ambari-Webbgränssnittet
 
@@ -41,7 +41,7 @@ Ambari-Webbgränssnittet är som standard med HDInsight-kluster som använder Li
 
 ## <a name="connectivity"></a>Anslutning
 
-Ambari-Webbgränssnittet är tillgängligt på ditt HDInsight-kluster på HTTPS://CLUSTERNAME.azurehdidnsight.net, där **KLUSTERNAMN** är namnet på klustret.
+Ambari-Webbgränssnittet är tillgängligt på ditt HDInsight-kluster på HTTPS://CLUSTERNAME.azurehdinsight.net, där **KLUSTERNAMN** är namnet på klustret.
 
 > [!IMPORTANT]
 > Ansluter till Ambari på HDInsight kräver HTTPS. När du uppmanas för autentisering, Använd admin-kontonamnet och lösenordet du angav när klustret skapades.
@@ -50,7 +50,7 @@ Ambari-Webbgränssnittet är tillgängligt på ditt HDInsight-kluster på HTTPS:
 
 När Ambari för klustret kan komma åt direkt via Internet, exponeras inte vissa länkar från Ambari-Webbgränssnittet (till exempel JobTracker) på internet. För att komma åt dessa tjänster måste du skapa en SSH-tunnel. Mer information finns i [använda SSH-tunnlar med HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-## <a name="ambari-web-ui"></a>Ambari-webbgränssnittet
+## <a name="ambari-web-ui"></a>Ambari Web UI
 
 > [!WARNING]
 > Inte alla funktioner i Ambari-Webbgränssnittet stöds i HDInsight. Mer information finns i [stöds inte operations](#unsupported-operations) i det här dokumentet.
@@ -85,10 +85,10 @@ När sidan öppnas Observera längst upp. Det här fältet innehåller följande
 
 Följande lista innehåller vanliga avisering status som används av Ambari:
 
-* **OKEJ**
+* **OK**
 * **Varning**
-* **KRITISKA**
-* **OKÄND**
+* **CRITICAL**
+* **UNKNOWN**
 
 Aviseringar än **OK** orsaka det **# aviseringar** överst på sidan för att visa antalet aviseringar. Om du markerar den här posten visas aviseringar och deras status.
 

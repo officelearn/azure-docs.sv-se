@@ -1,13 +1,13 @@
 ---
-title: "Hantera Skalningsuppsättningar i virtuella datorer med Azure CLI 2.0 | Microsoft Docs"
-description: "Vanliga Azure CLI 2.0-kommandon för att hantera Skalningsuppsättningar i virtuella datorer, till exempel att starta och stoppa en instans eller ändra skalan Ange kapacitet."
+title: Hantera Skalningsuppsättningar i virtuella datorer med Azure CLI 2.0 | Microsoft Docs
+description: Vanliga Azure CLI 2.0-kommandon för att hantera Skalningsuppsättningar i virtuella datorer, till exempel att starta och stoppa en instans eller ändra skalan Ange kapacitet.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: a484cf6734ff663a852be1a46e2b2ca2f75bb17d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1afb43b65203406a7d49b0e3f641bc22d164a4a9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Hantera en virtuell dator-skala med Azure CLI 2.0
-Du kan behöva köra en eller flera administrativa uppgifter i hela livscykeln för en skaluppsättning för virtuell dator. Dessutom kanske du vill skapa skript som automatiserar olika livscykel-uppgifter. Den här artikeln beskrivs några av de vanliga Azure CLI 2.0-kommandon som gör att du kan utföra dessa uppgifter.
+Du kan behöva köra en eller flera administrativa uppgifter i hela livscykeln för en skaluppsättning för virtuell dator. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. Den här artikeln beskrivs några av de vanliga Azure CLI 2.0-kommandon som gör att du kan utföra dessa uppgifter.
 
-Om du vill utföra dessa hanteringsuppgifter, behöver du den senaste versionen av Azure CLI 2.0. Mer information om hur du installerar och använder den senaste versionen finns [installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du behöver skapa en skaluppsättning för virtuell dator kan du [skapa en skala som angetts i Azure portal](virtual-machine-scale-sets-create-portal.md).
+Om du vill utföra dessa hanteringsuppgifter, måste den senaste Azure CLI 2.0. Mer information finns i [installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du behöver skapa en skaluppsättning för virtuell dator kan du [skapa en skala med Azure CLI 2.0](quick-create-cli.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Visa information om en skaluppsättning
@@ -35,7 +35,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 ```
 
 
-## <a name="view-vms-in-a-scale-set"></a>Visa virtuella datorer i en skaluppsättning
+## <a name="view-vms-in-a-scale-set"></a>Visa virtuella datorer i en skalningsuppsättning
 Du kan visa en lista över VM-instans i en skaluppsättning [az vmss listinstanserna](/cli/azure/vmss#list-instances). I följande exempel visa en lista med alla VM-instanser i skaluppsättningen namngivna *myScaleSet* i den *myResourceGroup* resursgruppen. Ange egna värden för dessa namn:
 
 ```azurecli
@@ -68,7 +68,7 @@ az vmss list-instance-connection-info \
 ## <a name="change-the-capacity-of-a-scale-set"></a>Ändra kapaciteten för en skaluppsättning
 Föregående kommandona visade information om din skaluppsättning och VM-instanser. Du kan ändra kapacitet för att öka eller minska antalet instanser i skaluppsättning. Skaluppsättning skapar eller tar bort antalet virtuella datorer som krävs och sedan konfigurerar de virtuella datorerna för att ta emot trafik för programmet.
 
-Om du vill se antalet instanser som du har för närvarande i en skaluppsättning [az vmss visa](/cli/azure/vmss#az_vmss_show) och fråga på *sku.capacity*:
+Om du vill se antalet instanser som du för närvarande har i en skalningsuppsättning använder du [az vmss show](/cli/azure/vmss#az_vmss_show) och frågar efter *sku.capacity*:
 
 ```azurecli
 az vmss show \
@@ -78,7 +78,7 @@ az vmss show \
     --output table
 ```
 
-Du kan manuellt öka eller minska antalet virtuella datorer i skaluppsättningen med [az vmss skala](/cli/azure/vmss#az_vmss_scale). I följande exempel anger hur många virtuella datorer i din skaluppsättningen *5*:
+Du kan sedan manuellt öka eller minska antalet virtuella datorer i skalningsuppsättningen med [az vmss scale](/cli/azure/vmss#az_vmss_scale). I följande exempel anger hur många virtuella datorer i din skaluppsättningen *5*:
 
 ```azurecli
 az vmss scale \

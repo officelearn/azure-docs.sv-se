@@ -1,11 +1,11 @@
 ---
-title: Azure-trafik Analytics | Microsoft Docs
-description: "Lär dig att analysera Azure-nätverk grupp flödet säkerhetsloggar med trafik Analytics."
+title: Azure-trafik analytics | Microsoft Docs
+description: Lär dig att analysera Azure-nätverk grupp flödet säkerhetsloggar med trafik analytics.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,56 +13,56 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: 9fc44fdd6ce01452ffc2506c599e3d05aa0803e1
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ffb13d1190535dacbe3a0781a1d3b425a970d26e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="traffic-analytics"></a>Traffic Analytics
+# <a name="traffic-analytics"></a>Trafik analytics
 
-Trafik Analytics är en molnbaserad lösning som ger inblick i användar- och programaktivitet i molnet nätverk. Trafik Analytics analyserar Nätverksbevakaren nätverk grupp (NSG) flöde säkerhetsloggar för att ge insikter om trafikflöde i Azure-molnet. Med trafik Analytics kan du:
+Trafik analytics är en molnbaserad lösning som ger inblick i användar- och programaktivitet i molnet nätverk. Trafik analytics analyserar Nätverksbevakaren nätverk grupp (NSG) flöde säkerhetsloggar för att ge insikter om trafikflöde i Azure-molnet. Med trafik analytics kan du:
 
 - Visualisera nätverksaktivitet över dina Azure-prenumerationer och identifiera anslutningar.
 - Identifiera säkerhetshot till och skydda ditt nätverk, med information, till exempel öppna portar, program försöker tillgång till internet och virtuella datorer (VM) som ansluter till obehöriga nätverk.
 - Förstå trafikmönster flödet i Azure-regioner och internet för att optimera din nätverksdistribution för prestanda och kapacitet.
 - Identifiera nätverket felaktiga konfigurationer leda till misslyckade anslutningar i nätverket.
 
-## <a name="why-traffic-analytics"></a>Varför trafik Analytics?
+## <a name="why-traffic-analytics"></a>Varför trafik analytics?
 
 Är det viktigt att övervaka, hantera och känner till ditt eget nätverk för kompromisslös säkerhet, efterlevnad och prestanda. Känna till din egen miljö är av avgörande betydelse för att skydda och optimera den. Du behöver ofta veta det aktuella tillståndet för nätverket som ansluter, vilka portar är öppna för internet, är förväntat nätverk, oregelbundna nätverksproblem och plötslig stiger i trafik.
 
 Molnet nätverk skiljer sig från lokala företagets nätverk, där du har Netflow eller motsvarande protokollet kompatibla routrar och växlar, som gör möjligheten att samla in IP-nätverkstrafik när den anländer till eller lämnar ett nätverksgränssnitt. Du kan skapa en analys av flödet i nätverkstrafiken och volymen genom att analysera trafikinformation flödet.
 
-Virtuella Azure-nätverk har NSG flödet loggarna, vilket ger dig information om ingång och utgång IP-trafik via en Nätverkssäkerhetsgrupp som är kopplade till enskilda nätverksgränssnitt, virtuella datorer eller undernät. Genom att analysera rådata NSG flöda loggar och infoga intelligence för säkerhet, topologi och geografi trafik Analytics kan ge dig insikter om trafikflöde i din miljö. Trafik Analytics innehåller information som mest kommunicerande värdar, mest kommunicerande programprotokoll, mest konversation värdepar, tillåtna/blockerade trafik, inkommande/utgående trafik, öppna internet-portar, mest blockerande regler, trafik distributionsplatser per Azure-datacenter, virtuella nätverk, undernät, eller obehöriga nätverk.
+Virtuella Azure-nätverk har NSG flödet loggarna, vilket ger dig information om ingång och utgång IP-trafik via en Nätverkssäkerhetsgrupp som är kopplade till enskilda nätverksgränssnitt, virtuella datorer eller undernät. Genom att analysera NSG flödet loggarna och infoga intelligence säkerhet, topologi och geografi, trafik kan analytics ge dig insikter om trafikflöde i din miljö. Trafik Analytics innehåller information som mest kommunicerande värdar, mest kommunicerande programprotokoll, mest konversation värdepar, tillåtna/blockerade trafik, inkommande/utgående trafik, öppna internet-portar, mest blockerande regler, trafik distributionsplatser per Azure-datacenter, virtuella nätverk, undernät, eller obehöriga nätverk.
 
 ## <a name="key-components"></a>Nyckelkomponenter 
 
 - **Nätverkssäkerhetsgrupp (NSG)**: innehåller en lista över säkerhetsregler som tillåter eller nekar nätverkstrafik till resurser som är anslutna till ett virtuellt Azure-nätverk. Nätverkssäkerhetsgrupper kan kopplas till undernät, enskilda virtuella datorer (klassisk) eller enskilda nätverkskort (NIC) som är anslutna till virtuella datorer (Resource Manager). Mer information finns i [nätverk Säkerhetsöversikt för gruppen](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Network Security Group (NSG) flöde loggar**: gör att du kan visa information om ingående och utgående IP-trafik via en nätverkssäkerhetsgrupp. NSG flödet loggarna skrivs i json-format och visa utgående och inkommande flöden på grundval av per regel NIC flödet gäller för 5-tuppel information om flödet (källan/målet IP-adress, källan/målet port och protokoll), och om trafiken tilläts eller nekad. Mer information om flödet NSG-loggar finns [NSG flödet loggar](network-watcher-nsg-flow-logging-overview.md).
-- **Logga Analytics**: Azure-tjänst som samlar in övervakningsdata och lagrar data i en central databas. Dessa data kan omfatta händelser, prestandadata eller anpassade data som tillhandahålls via Azure API. När data har samlats in är de tillgängliga för avisering, analys och export. Övervakning av program som Network Performance Monitor och trafik Analytics är byggda med logganalys som grund. Mer information finns i [logga analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Logga Analytics-arbetsyta**: en instans av logganalys data som hör till ett Azure-konto ska lagras. Mer information om Log Analytics arbetsytor finns [skapa logganalys-arbetsytan](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Nätverk säkerhetsloggar grupp (NSG) flöde**: gör att du kan visa information om ingående och utgående IP-trafik via en nätverkssäkerhetsgrupp. NSG flödet loggarna skrivs i json-format och visa utgående och inkommande flöden på grundval av per regel NIC flödet gäller för 5-tuppel information om flödet (källan/målet IP-adress, källan/målet port och protokoll), och om trafiken tilläts eller nekad. Mer information om flödet NSG-loggar finns [NSG flödet loggar](network-watcher-nsg-flow-logging-overview.md).
+- **Logga Analytics**: Azure-tjänst som samlar in övervakningsdata och lagrar data i en central databas. Dessa data kan omfatta händelser, prestandadata eller anpassade data som tillhandahålls via Azure API. När data har samlats in är de tillgängliga för avisering, analys och export. Övervakning av program som nätverket performance monitor och trafik analytics är byggda med logganalys som grund. Mer information finns i [logga analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Logga analytics-arbetsyta**: en instans av logganalys data som hör till ett Azure-konto ska lagras. Mer information om log analytics arbetsytor finns [skapa logganalys-arbetsytan](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Nätverk Watcher**: en regionala tjänst som gör att du kan övervaka och diagnostisera villkor på en nivå för scenariot i Azure. Du kan aktivera NSG flödet loggar och inaktivera med Nätverksbevakaren. Mer information finns i [Nätverksbevakaren](network-watcher-monitoring-overview.md#network-watcher).
 
-## <a name="how-traffic-analytics-works"></a>Hur fungerar trafiken Analytics 
+## <a name="how-traffic-analytics-works"></a>Hur fungerar trafiken analytics 
 
-Trafik Analytics undersöks flödet av loggarna NSG och samlar in minskade loggar genom insamling av vanliga flöden mellan samma käll-IP-adress, mål-IP-adress, målport och protokoll. Till exempel värddator 1 (IP-adress: 10.10.10.10) kommunicera med värddator 2 (IP-adress: 10.10.20.10), 100 gånger under en period 1 timme med hjälp av port (till exempel 80) och protokoll (exempelvis http). Minskad loggen har en post som värddator 1 & värddator 2 kommunicerat 100 gånger under en period på 1 timme som använder port *80* och protokoll *HTTP*, i stället för med 100 poster. Minskad loggar utökats med geografi, säkerhet och topologiinformation och lagras sedan i logganalys-arbetsytan. Följande bild visar dataflödet:
+Trafik analytics undersöks flödet av loggarna NSG och samlar in minskade loggar genom insamling av vanliga flöden mellan samma käll-IP-adress, mål-IP-adress, målport och protokoll. Till exempel värddator 1 (IP-adress: 10.10.10.10) kommunicera med värddator 2 (IP-adress: 10.10.20.10), 100 gånger under en period 1 timme med hjälp av port (till exempel 80) och protokoll (exempelvis http). Minskad loggen har en post som värddator 1 & värddator 2 kommunicerat 100 gånger under en period på 1 timme som använder port *80* och protokoll *HTTP*, i stället för med 100 poster. Minskad loggar utökats med geografi, säkerhet och topologiinformation och lagras sedan i en log analytics-arbetsyta. Följande bild visar dataflödet:
 
 ![Dataflöde för NSG flödet loggar bearbetning](media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Trafik Analytics är tillgängliga i förhandsversionen. Funktioner i förhandsversionen har inte samma grad av tillgänglighet och tillförlitlighet som funktioner i allmänhet versionen.  I förhandsversionen kan du använda trafik Analytics för NSG: er i något av följande områden: Väst centrala USA, östra USA, östra USA 2, norra centrala USA, södra centrala USA, centrala USA, västra USA, västra USA 2, Västeuropa, Norra Europa, västra Storbritannien, Syd Storbritannien, Östra Australien , och Australien sydost. Logganalys-arbetsytan måste finnas i West centrala USA, östra USA, västra Europa, Östra Australien, sydost eller Syd Storbritannien region.
+Trafik analytics är tillgängliga i förhandsversionen. Funktioner i förhandsversionen har inte samma grad av tillgänglighet och tillförlitlighet som funktioner i allmänhet versionen.  I förhandsversionen kan du använda trafik analytics för NSG: er i något av följande områden: Väst centrala USA, östra USA, östra USA 2, norra centrala USA, södra centrala USA, centrala USA, västra USA, västra USA 2, Västeuropa, Norra Europa, västra Storbritannien, Syd Storbritannien, Östra Australien , och Australien sydost. Log analytics-arbetsyta måste finnas i West centrala USA, östra USA, västra Europa, Östra Australien, sydost eller Syd Storbritannien region.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="enable-network-watcher"></a>Aktivera Nätverksbevakaren 
 
-Om du vill analysera trafik, måste du ha en befintlig Nätverksbevakaren eller [aktivera en Azure nätverksbevakaren](network-watcher-create.md) trafik för varje region där NSG: er som du vill analysera. Trafik Analytics kan aktiveras för NSG: er som finns i någon av de [regioner som stöds](#supported-regions).
+Om du vill analysera trafik, måste du ha en befintlig nätverksbevakaren eller [aktivera en nätverksbevakaren](network-watcher-create.md) trafik för varje region där NSG: er som du vill analysera. Trafik analytics kan aktiveras för NSG: er som finns i någon av de [regioner som stöds](#supported-regions).
 
 ### <a name="re-register-the-network-resource-provider"></a>Registrera resursen nätverksprovider 
 
-Innan du kan använda trafik Analytics under förhandsgranskningen, måste du registrera din nätverksresursprovidern. Klicka på **prova** i rutan följande kod för att öppna Azure Cloud-gränssnittet. Molnet Shell loggas du automatiskt in på Azure-prenumerationen. Ange följande kommando för att registrera nätverksresursprovidern när Cloud-gränssnittet är öppet:
+Innan du kan använda trafik analytics under förhandsgranskningen, måste du registrera din nätverksresursprovidern. Klicka på **prova** i rutan följande kod för att öppna Azure Cloud-gränssnittet. Molnet Shell loggas du automatiskt in på Azure-prenumerationen. Ange följande kommando för att registrera nätverksresursprovidern när Cloud-gränssnittet är öppet:
 
 ```azurepowershell-interactive
 Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
@@ -76,7 +76,7 @@ På vänster sida av Azure portal, väljer **övervakaren**, sedan **nätverksbe
 
 ![Val av NSG: er som kräver aktivering av NSG flödet logg](media/traffic-analytics/selection-of-nsgs-that-require- enablement-of-nsg-flow-logging.png)
 
-Om du försöker aktivera trafik Analytics för en NSG som finns i en region än den [regioner som stöds](#supported-regions), felmeddelande ”kunde inte hittas”. 
+Om du försöker aktivera trafik analytics för en NSG som finns i en region än den [regioner som stöds](#supported-regions), felmeddelande ”kunde inte hittas”. 
 
 ## <a name="enable-flow-log-settings"></a>Aktivera flödet logginställningar
 
@@ -107,14 +107,14 @@ Välj följande alternativ som visas i bilden:
 4. Välj *på* för **trafik Analytics Status**.
 5. Välj en befintlig arbetsyta logganalys (OMS) eller välj **Skapa ny arbetsyta** att skapa en ny. Logganalys-arbetsytan används av trafik Analytics för att lagra de aggregerade och indexerade data som sedan används för att generera analytics. Om du väljer en befintlig arbetsyta, det måste finnas i något av de [regioner som stöds](#traffic-analytics-supported-regions) och har uppgraderats till det nya språket i fråga. Om du inte vill uppgradera en befintlig arbetsyta eller har inte en arbetsyta i en region som stöds, kan du skapa en ny. Mer information om frågespråk finns [Azure logganalys uppgradera till ny logg sökning](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    Arbetsytan logganalys (OMS) som värd för trafik Analytics-lösningen och de NSG: er behöver inte finnas i samma region. Till exempel kanske du trafik Analytics i en arbetsyta i regionen Västeuropa, medan du kan ha NSG: er i östra USA och västra USA. Flera NSG: er kan konfigureras i samma arbetsyta.
+    Log analytics-arbetsyta som värd för analytics-lösningen trafik och de NSG: er behöver inte finnas i samma region. Till exempel kanske du trafik analytics i en arbetsyta i regionen Västeuropa, medan du kan ha NSG: er i östra USA och västra USA. Flera NSG: er kan konfigureras i samma arbetsyta.
 6. Välj **Spara**.
 
     ![Valet av lagringskonto, logganalys-arbetsytan och trafik Analytics aktivering](media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
 
-Upprepa de här stegen för alla andra NSG: er som du vill aktivera trafik Analytics för. Data från flödet loggar skickas till arbetsytan, så se till att den lokala lagar och förordningar i ditt land tillåter lagring av data i den region där arbetsytan finns.
+Upprepa de här stegen för alla andra NSG: er som du vill aktivera trafik analytics för. Data från flödet loggar skickas till arbetsytan, så se till att den lokala lagar och förordningar i ditt land tillåter lagring av data i den region där arbetsytan finns.
 
-## <a name="view-traffic-analytics"></a>Visa trafik Analytics
+## <a name="view-traffic-analytics"></a>Visa trafik analytics
 
 På vänster sida av portalen, väljer **alla tjänster**, ange *övervakaren* i den **Filter** rutan. När **övervakaren** visas i sökresultaten väljer den. Om du vill börja utforska trafik analyser och dess funktioner, Välj **nätverksbevakaren**, sedan **trafik Analytics (förhandsgranskning)**.
 
@@ -276,4 +276,4 @@ Har du skadlig trafik i din miljö? Där den härstammar från? Där är den som
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-För att få svar på vanliga frågor och svar, se [trafik Analytics FAQ](traffic-analytics-faq.md).
+För att få svar på vanliga frågor och svar, se [trafik analytics vanliga frågor och svar](traffic-analytics-faq.md).

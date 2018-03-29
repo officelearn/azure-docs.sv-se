@@ -1,8 +1,8 @@
 ---
-title: "Samla in data i Azure blob-behållare, SQL Server och Hive tabeller | Microsoft Docs"
-description: "Så här utforska data som lagras i olika Azure enviromnents."
+title: Samla in data i Azure blob-behållare, SQL Server och Hive tabeller | Microsoft Docs
+description: Så här utforska data som lagras i olika Azure enviromnents.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: garye;bradsev
-ms.openlocfilehash: 202a70bf17f9cbf655cb4220c4480a5bcc8563f1
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: bradsev
+ms.openlocfilehash: 3dede87191b2122168cc9ad2cdf0a27c5e4908b4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="heading"></a>Exempeldata i Azure blob-behållare, SQL Server och Hive tabeller
 Det här innehåller dokumentlänkar till artiklar som beskriver hur du samla in data som lagras i något av tre olika Azure platser:

@@ -1,8 +1,8 @@
 ---
-title: "Skalbar datavetenskap med Azure Data Lake: en slutpunkt till slutpunkt genomgången | Microsoft Docs"
-description: "Hur du använder Azure Data Lake till aktiviteter för data-undersökning och binär klassificering på en datamängd."
+title: 'Skalbar datavetenskap med Azure Data Lake: en slutpunkt till slutpunkt genomgången | Microsoft Docs'
+description: Hur du använder Azure Data Lake till aktiviteter för data-undersökning och binär klassificering på en datamängd.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev; weig
-ms.openlocfilehash: b18b454d1fcdfb2b6e8ea77508f779aeabdc87a0
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 6d0f889e1cc76eced172d66755a0a9275e6b7bdf
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Skalbar datavetenskap med Azure Data Lake: en genomgång för slutpunkt till slutpunkt
 Den här genomgången visar hur du använder Azure Data Lake datagranskning och binär klassificering uppgifter på ett sampel från NYC taxi resan och färdavgiften dataset för att förutsäga huruvida ett tips betalar en avgiften. Den vägleder dig genom stegen för den [Team datavetenskap Process](http://aka.ms/datascienceprocess), slutpunkt-till-slutpunkt, från datainsamling modellera utbildning och sedan till distributionen av en webbtjänst som publicerar modellen.
@@ -42,7 +42,7 @@ Azure Machine Learning Studio används för att skapa och distribuera förutsäg
 ### <a name="scripts"></a>Skript
 Bara de viktigaste stegen beskrivs i den här genomgången. Du kan hämta fullständigt **U-SQL-skript** och **Jupyter-anteckningsbok** från [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar dessa avsnitt, måste du ha följande:
 
 * En Azure-prenumeration. Om du inte redan har en, se [hämta kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -149,7 +149,7 @@ Om du vill köra U-SQL, öppna Visual Studio klickar du på **filen--> Ny--> pro
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>Datapåfyllning: Läsa data från offentliga blob
-Platsen för data i Azure blob hänvisas till som  **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**  och extraheras med **Extractors.Csv()**. Ersätt behållarens namn och lagringskontonamn i följande skript för container_name@blob_storage_account_name i wasb-adress. Eftersom filnamnen finns i samma format, är det möjligt att använda **resa\_data_ {\*\}.csv** att läsa i alla 12 resa filer. 
+Platsen för data i Azure blob hänvisas till som **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** och extraheras med **Extractors.Csv()**. Ersätt behållarens namn och lagringskontonamn i följande skript för container_name@blob_storage_account_name i wasb-adress. Eftersom filnamnen finns i samma format, är det möjligt att använda **resa\_data_ {\*\}.csv** att läsa i alla 12 resa filer. 
 
     ///Read in Trip data
     @trip0 =
@@ -562,7 +562,7 @@ Vill du operationalisera maskininlärning modellen när den har skapats. Binär 
 
 * Hitta din arbetsyta autentiseringsuppgifter från Azure ML studio inställningar. I Azure Machine Learning Studio klickar du på **inställningar** --> **namn** --> **auktorisering token**. 
   
-    ![C3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
+    ![c3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
 
         workspaceid = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
         auth_token = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'

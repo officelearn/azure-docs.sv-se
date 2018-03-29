@@ -1,13 +1,13 @@
 ---
-title: "Skapa en Azure skala med låg prioritet för virtuella datorer (förhandsversion) | Microsoft Docs"
-description: "Lär dig hur du skapar skalningsuppsättningar i virtuella Azure-datorn med låg prioritet virtuella datorer för att spara på kostnader"
+title: Skapa en Azure skala med låg prioritet för virtuella datorer (förhandsversion) | Microsoft Docs
+description: Lär dig hur du skapar skalningsuppsättningar i virtuella Azure-datorn med låg prioritet virtuella datorer för att spara på kostnader
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: rajraj
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: memccror
-ms.openlocfilehash: 9e4970ecc538caab537281931b89bfd57d994cfa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f25e4d1e3906a610e7c60e348f872a78d7db8fd3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Låg prioritet virtuella datorer på skaluppsättningar (förhandsgranskning)
 
@@ -48,7 +48,7 @@ Om du vill distribuera låg prioritet virtuella datorer på skalningsuppsättnin
 
 ## <a name="use-the-azure-cli-20"></a>Använda Azure CLI 2.0
 
-Processen för att skapa en skala med låg prioritet virtuella datorer är samma som i den [komma igång artikel](virtual-machine-scale-sets-create-cli.md). Lägg bara till de '--prioritet ' parametern cli anropa och Ställ in den på *låg* som visas i exemplet nedan:
+Processen för att skapa en skala med låg prioritet virtuella datorer är samma som i den [komma igång artikel](quick-create-cli.md). Lägg bara till de '--prioritet ' parametern cli anropa och Ställ in den på *låg* som visas i exemplet nedan:
 
 ```azurecli
 az vmss create \
@@ -63,7 +63,7 @@ az vmss create \
 
 ## <a name="use-azure-powershell"></a>Använda Azure PowerShell
 
-Processen för att skapa en skala med låg prioritet virtuella datorer är samma som i den [komma igång artikel](virtual-machine-scale-sets-create-powershell.md).
+Processen för att skapa en skala med låg prioritet virtuella datorer är samma som i den [komma igång artikel](quick-create-powershell.md).
 Lägg bara till de '-prioritet ' parametern till den [ny AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) och ange det till *låg* som visas i exemplet nedan:
 
 ```powershell
@@ -77,7 +77,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 ## <a name="use-azure-resource-manager-templates"></a>Använd Azure Resource Manager-mallar
 
-Processen för att skapa en skalningsuppsättning med låg prioritet virtuella datorer är samma som detaljerad i komma igång-artikel för [Linux](virtual-machine-scale-sets-create-template-linux.md) eller [Windows](virtual-machine-scale-sets-create-template-windows.md). Lägga till egenskapen 'priority' till den *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* resurs Skriv i mallen och ange *låg* som värde. Se till att använda *2017-10-30-preview* API-version eller högre. 
+Processen för att skapa en skalningsuppsättning med låg prioritet virtuella datorer är samma som detaljerad i komma igång-artikel för [Linux](quick-create-template-linux.md) eller [Windows](quick-create-template-windows.md). Lägga till egenskapen 'priority' till den *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* resurs Skriv i mallen och ange *låg* som värde. Se till att använda *2017-10-30-preview* API-version eller högre. 
 
 Lägg till parametern 'evictionPolicy' för att ställa in principen för borttagning tas bort, och ange det till *ta bort*.
 

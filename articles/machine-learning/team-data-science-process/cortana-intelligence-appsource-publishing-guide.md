@@ -1,8 +1,8 @@
 ---
 title: Cortana Intelligence AppSource publiceringsguide | Microsoft Docs
-description: "Här är alla steg som du behöver utföra för att publicera Cortana Intelligence-lösningen till AppSource som Microsoft-Partner."
+description: Här är alla steg som du behöver utföra för att publicera Cortana Intelligence-lösningen till AppSource som Microsoft-Partner.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
-ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: anupams
+ms.openlocfilehash: 1a5671eda967c1bba585d31b001bb465526709f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Cortana Intelligence AppSource publiceringsguide
 
@@ -109,10 +109,10 @@ Det är därför partners fundera de enkelt på AppSource som en försäljning o
 ## <a name="publish-your-app-on-the-publishing-portal"></a>Publicera appen i publishing portal
 När vi har utvärderats stegen ovan för programmet, du får åtkomst till publishing portal och kan se [hur du publicerar ett erbjudande Cortana Intelligence via molnet partnerportalen](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app) detaljerad information om nästa steg.
 
-Om du behöver information om något av fälten e- < appsourcecissupport@microsoft.com >.
+Om du behöver information om något av fälten e- <appsourcecissupport@microsoft.com>.
 ## <a name="my-app-is-published-on-appsource---now-what"></a>Min app har publicerats på AppSource - vad?
 Det första publicerade Gratulerar komma din app.
 Andelen returnerar dig från att publicera en app på AppSource kraftigt beror på hur du påverka målgrupp. Se [hackningsförsök Cortana Intelligence appen på AppSource tillväxt](http://aka.ms/aagrowthhackguide) för mer information om hur du kan utnyttja returnerar.
 
-Om du har några frågor eller förslag, nå oss på < appsourcecissupport@microsoft.com >.
+Om du har några frågor eller förslag, nå oss på <appsourcecissupport@microsoft.com>.
 

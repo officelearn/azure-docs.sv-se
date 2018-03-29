@@ -1,12 +1,12 @@
 ---
 title: Azure DB Cosmos skala och prestandatester | Microsoft Docs
-description: "Lär dig hur du utföra skalnings- och prestandatester med Azure Cosmos DB"
+description: Lär dig hur du utföra skalnings- och prestandatester med Azure Cosmos DB
 keywords: Prestandatestning
 services: cosmos-db
 author: arramac
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: f4c96ebd-f53c-427d-a500-3f28fe7b11d0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,15 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 36665c0c26dad4e3b667b341b63c5859ece7605b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Prestanda och skalning testa med Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Prestanda och skalningstester är ett viktigt steg programutveckling. För många program har på databasnivå en betydande inverkan på övergripande prestanda och skalbarhet. Därför är en kritisk komponent i prestandatester. [Azure Cosmos-DB](https://azure.microsoft.com/services/cosmos-db/) är specialbyggt för elastisk skalbarhet och förutsägbar prestanda. Dessa funktioner är det en bra val för program som behöver en hög prestanda databasnivå. 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 8a24987ae3423a02647b1dd246b40179be100c06
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ec13109173f89b53e32f903febcec13c7f38c574
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="outbound-connections-classic"></a>Utgående anslutningar (klassisk)
 
@@ -60,7 +60,7 @@ Den [algoritm som används för Förallokering av tillfälliga portar](#ephemera
 
 Den virtuella datorn har en instans nivå offentliga IP-går kopplade till den i det här scenariot. Utgående anslutningar är fråga det spelar ingen roll om den virtuella datorn har belastningsutjämnade endpoint eller inte. Det här scenariot har företräde framför andra. När en går används för den virtuella datorn använder går för alla utgående flöden.  
 
-Port imiterade (PATRIK) används inte och den virtuella datorn har alla tillfälliga portar som är tillgängliga för användning.
+En offentlig IP som tilldelats till en virtuell dator är en 1:1 relation (inte 1:many) och implementeras som en tillståndslös 1:1-NAT.  Port imiterade (PATRIK) används inte och den virtuella datorn har alla tillfälliga portar som är tillgängliga för användning.
 
 Om ditt program initierar många utgående flöden och SNAT port resursöverbelastning uppstår, kan du överväga att tilldela en [går att minimera SNAT begränsningar](#assignilpip). Granska [hantera SNAT resursuttömning](#snatexhaust) i sin helhet.
 

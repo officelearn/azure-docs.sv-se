@@ -1,10 +1,10 @@
 ---
-title: "Konfigurera en anslutningssträng för Azure Storage | Microsoft Docs"
-description: "Konfigurera en anslutningssträng för ett Azure storage-konto. En anslutningssträng innehåller den information som krävs för att autentisera åtkomst till ett lagringskonto från ditt program vid körning."
+title: Konfigurera en anslutningssträng för Azure Storage | Microsoft Docs
+description: Konfigurera en anslutningssträng för ett Azure storage-konto. En anslutningssträng innehåller den information som krävs för att autentisera åtkomst till ett lagringskonto från ditt program vid körning.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: craigshoemaker
+manager: jeconnoc
 editor: tysonn
 ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: tamram
-ms.openlocfilehash: 192799cb44dc9a56c65a6414c1267c506252fe29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: dee0fd68ccaf80ff6e44ee10fa24bb19e220d0d5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Konfigurera Azure Storage-anslutningssträngar
 

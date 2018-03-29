@@ -1,6 +1,6 @@
 ---
-title: "Åtkomst till datamängder med Machine Learning Python klientbiblioteket | Microsoft Docs"
-description: "Installera och använda Python klientbiblioteket komma åt och hantera Azure Machine Learning data på ett säkert sätt från en lokal Python-miljö."
+title: Åtkomst till datamängder med Machine Learning Python klientbiblioteket | Microsoft Docs
+description: Installera och använda Python klientbiblioteket komma åt och hantera Azure Machine Learning data på ett säkert sätt från en lokal Python-miljö.
 services: machine-learning
 documentationcenter: python
 author: bradsev
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: huvalo;bradsev
-ms.openlocfilehash: 3cffb90baadef570bbb7e4e2d96741cc0420b0a2
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 5f0823e07f0e583e32829b664a1d3d463092169e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Åtkomst till datauppsättningar med Python med hjälp av Python-klientbiblioteket i Azure Machine Learning
 Förhandsgranskning av Microsoft Azure Machine Learning Python klientbiblioteket kan aktivera säker åtkomst till din Azure Machine Learning datamängder från en lokal Python-miljö och möjliggör skapande och hantering av datauppsättningar i en arbetsyta.
@@ -41,7 +41,7 @@ Klientbibliotek för Python har testats enligt följande miljöer:
 Det finns ett beroende på följande paket:
 
 * förfrågningar
-* Python-dateutil
+* python-dateutil
 * pandas
 
 Vi rekommenderar att du använder en Python-distribution som [Anaconda](http://continuum.io/downloads#all) eller [trädtak](https://store.enthought.com/downloads/), som medföljer Python, IPython och tre paket i listan ovan installerad. Även om IPython inte är absolut nödvändigt, är det en bra miljö för hantering och visualisera data interaktivt.

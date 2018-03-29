@@ -1,11 +1,11 @@
 ---
-title: "Dragits tillbaka Azure Cosmos DB prestandanivåer | Microsoft Docs"
-description: "Läs mer om S1, S2 och S3 prestandanivåer som tidigare fanns i Azure Cosmos DB."
+title: Dragits tillbaka Azure Cosmos DB prestandanivåer | Microsoft Docs
+description: Läs mer om S1, S2 och S3 prestandanivåer som tidigare fanns i Azure Cosmos DB.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,19 +15,17 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4cab6297e45dc7a14826d7bb10cf22a8a300355f
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 62ef3c8988b0f11d6d8bcb69080f4e1b98a44641
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Ta bort prestandanivåer S1, S2 och S3
 
 > [!IMPORTANT] 
 > Prestandanivåer S1, S2 och S3 i den här artikeln är som har återkallats och är inte längre tillgängliga för den nya Azure Cosmos DB konton.
 >
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Den här artikeln innehåller en översikt över S1, S2 och S3 prestandanivåer och beskriver hur de samlingar som använder dessa prestandanivåer kommer att migreras till enskilda partitionssamlingar sent i 2017. När du har läst den här artikeln kommer du att kunna svara på följande frågor:
 

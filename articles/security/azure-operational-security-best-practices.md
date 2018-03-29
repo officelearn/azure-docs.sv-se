@@ -1,12 +1,12 @@
 ---
-title: "Azure Operational säkerhetsmetoder | Microsoft Docs"
-description: "Den här artikeln innehåller en uppsättning av bästa praxis för Azure operativ säkerhet."
+title: Azure Operational säkerhetsmetoder | Microsoft Docs
+description: Den här artikeln innehåller en uppsättning av bästa praxis för Azure operativ säkerhet.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb7e0df046ecc2ffcd3fa59ac53edf36095933c7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure Operational säkerhetsmetoder
 Azure operativ säkerhet refererar till tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda sina data, program och andra resurser i Microsoft Azure. Azure operativ säkerhet bygger på ett ramverk som innehåller kunskap via olika funktioner som är unika för Microsoft, inklusive den Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center-program och djup medvetenhet om hotbild cybersecurity.
@@ -126,7 +126,7 @@ Hotidentifiering Security Center fungerar genom att automatiskt samla in säkerh
 -   Använd den [rekommendationer i Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations) som hjälper dig att skydda dina Azure-resurser.
 -   Granska och hantera din aktuella [säkerhetsaviseringar](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts).
 
-Med hjälp av [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Härifrån kan du övervaka och hantera principer för alla Azureprenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
+Med hjälp av [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
 
 Security Center innehåller lättanvända och effektiva funktioner som finns inbyggda i Azure och som kan användas för att förebygga, upptäcka och åtgärda hot. Här är de viktigaste funktionerna:
 
@@ -167,10 +167,10 @@ Mer information om hur du konfigurerar nätverksbevakaren och hur du aktiverar d
 Detta är listan över Azure DevOps praxis i det här Microsoft Cloud-utrymme, vilket gör att företag och team produktiv och effektiv.
 
 -   **Infrastruktur som kod (IaC):** infrastruktur som koden är en uppsättning tekniker och metoder som hjälper IT-proffs ta bort belastningen som är associerade med dagliga bygg- och hantering av modulära infrastruktur. Det gör att IT-proffs att bygga och underhålla sina moderna servermiljö på ett sätt som liknar hur för utvecklare att bygga och underhålla programkod. För Azure, har vi [Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) kan du etablera dina program med en deklarativ mall. I samma mall kan du distribuera flera tjänster tillsammans med deras beroenden. Du använder samma mall till att upprepade gånger distribuera ditt program i varje fas av programmets livscykel.
--   **Kontinuerlig integrering och distribution:** kan du konfigurera din Visual Studio Online grupprojekt att [automatiskt skapa och distribuera](https://www.visualstudio.com/docs/build/overview) till Azure-webbappar eller molntjänster. VSO distribuerar binärfilerna automatiskt när du har gjort en build till Azure efter varje kod incheckning. Paketet build-processen som beskrivs här motsvarar kommandot paketet i Visual Studio och publishing stegen är likvärdiga med kommandot Publicera i Visual Studio.
+-   **Kontinuerlig integrering och distribution:** kan du konfigurera dina team projekt i Visual Studio Team Services VSTS () till [automatiskt skapa och distribuera](https://www.visualstudio.com/docs/build/overview) till Azure-webbappar eller molntjänster. VSTS distribuerar binärfilerna automatiskt när du har gjort en build till Azure efter varje kod incheckning. Paketet build-processen som beskrivs här motsvarar kommandot paketet i Visual Studio och publishing stegen är likvärdiga med kommandot Publicera i Visual Studio.
 -   **Versionshantering:** Visual Studio [släpper Management](https://msdn.microsoft.com/library/vs/alm/release/overview) är en bra lösning för att automatisera distributionen av flera steg och hantera release-processen. Skapa hanterade kontinuerlig distribution pipelines att släppa snabbt, enkelt och ofta. Vi kan mycket automatisera våra versionen med släpper Management och vi kan fördefinierade godkännandearbetsflöden. Distribuera lokalt till molnet, utöka och anpassa efter behov.
 -   **Appen prestanda övervakning:** identifiera problem, lösa problem och kontinuerligt förbättra dina program. Diagnostisera snabbt problem i ditt liveprogram. Förstå vad användarna gör med det. Konfigurationen är enkelt frågan för att lägga till JS kod och en webconfig-post och du endast ser resultat inom minuter i portalen med informationen. [App insights](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) hjälper företag för snabbare identifiering av problem & reparation.
--   **Läsa in testar & Autoskala:** vi hittar prestandaproblem i vår app för att förbättra kvaliteten för distribution och se till vår app alltid är igång eller tillgängliga för att tillgodose verksamheten behöver. Kontrollera att din app kan hantera trafik för nästa start eller marknadsföring kampanjen. Börja köra molnbaserade [tester för att läsa in](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) nästan ingen tid med Visual Studio Online.
+-   **Läsa in testar & Autoskala:** vi hittar prestandaproblem i vår app för att förbättra kvaliteten för distribution och se till vår app alltid är igång eller tillgängliga för att tillgodose verksamheten behöver. Kontrollera att din app kan hantera trafik för nästa start eller marknadsföring kampanjen. Börja köra molnbaserade [tester för att läsa in](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) nästan ingen tid med VSTS.
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [Azure operativ säkerhet](https://docs.microsoft.com/azure/security/azure-operational-security).

@@ -1,8 +1,8 @@
 ---
-title: "Exempeldata i SQLServer på Azure | Microsoft Docs"
-description: "Exempeldata i SQLServer på Azure"
+title: Exempeldata i SQLServer på Azure | Microsoft Docs
+description: Exempeldata i SQLServer på Azure
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgeonlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: garye;bradsev
-ms.openlocfilehash: a82e4703f68271d6d10719e6be8465efa9b71a79
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: bradsev
+ms.openlocfilehash: e854f35cb68ddf0bc93e7c7959d14ef79a346c6e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="heading"></a>Exempeldata i SQL Server på Azure
 Den här artikeln visar hur du samla in data som lagras i SQL Server på Azure med hjälp av SQL- eller Python-programmeringsspråket. Den visar även hur du flyttar samplade data till Azure Machine Learning genom att spara den till en fil, överföra den till en Azure blob och läsa den i Azure Machine Learning Studio.

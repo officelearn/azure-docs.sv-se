@@ -1,7 +1,7 @@
 ---
-title: "Självstudiekurs om Java-programutveckling med Azure Cosmos DB | Microsoft Docs"
-description: "Den här självstudien Java visar hur du använder Azure Cosmos-databas och SQL-API för att lagra och komma åt data från en Java-program på Azure Websites."
-keywords: "Programutveckling, database-självstudier, java-program, java självstudien, azure, Microsoft azure"
+title: Självstudiekurs om Java-programutveckling med Azure Cosmos DB | Microsoft Docs
+description: Den här självstudien Java visar hur du använder Azure Cosmos-databas och SQL-API för att lagra och komma åt data från en Java-program på Azure Websites.
+keywords: Application development, database tutorial, java application, java web application tutorial, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 8507b772c537ac50bd40367fbde260a8d72375ca
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 816ea6e575759186973e23c6adfccd389c6920d9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Skapa en Java-webbapp med Azure Cosmos-databas och SQL-API
 > [!div class="op_single_selector"]
@@ -29,8 +29,6 @@ ms.lasthandoff: 12/18/2017
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Den här självstudien Java visar hur du använder den [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) -tjänsten för att lagra och komma åt data från en Java-program på Azure App Service Web Apps. I det här avsnittet får du veta följande:
 
@@ -107,7 +105,7 @@ För att kunna göra det måste du konvertera ditt projekt till ett Maven-projek
      
    * Eller lägga till beroendet XML för grupp-Id och artefakt-Id direkt till pom.xml via en textredigerare:
      
-        <dependency><groupId>com.microsoft.azure</groupId> <artifactId>azure documentdb</artifactId> <version>1.9.1</version></dependency>
+        <dependency> <groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version> </dependency>
 6. Klicka på **OK** så installerar Maven SQL Java SDK.
 7. Spara filen pom.xml.
 
@@ -729,7 +727,7 @@ Azure webbplatser kan du distribuera Java-program bara exportera appen som en WA
 3. Nu när du har en WAR-fil i hand, du kan bara ladda upp den till Azure webbplatsens **webbappar** directory. Anvisningar för uppladdning av filen finns [lägga till en Java-program i Azure App Service Web Apps](../app-service/web-sites-java-add-app.md).
    
     När WAR-filen har laddats upp till katalogen Webbappar identifierar körningsmiljön att du har lagt till den och läser in den automatiskt.
-4. Om du vill visa din färdiga produkt, gå till http://YOUR\_plats\_NAME.azurewebsites.net/azure-java-sample/ och börja lägga till aktiviteter!
+4. Om du vill visa din färdiga produkt, gå till http://YOUR \_plats\_NAME.azurewebsites.net/azure-java-sample/ och börja lägga till aktiviteter!
 
 ## <a id="GetProject"></a>Hämta projektet från GitHub
 Alla exempel i den här självstudien finns i projektet [Todo](https://github.com/Azure-Samples/documentdb-java-todo-app) på GitHub. Om du vill importera Todo-projektet till Eclipse ska du se till att du har de program och resurser som anges i avsnittet [Förutsättningar](#Prerequisites) och sedan göra följande:
@@ -739,7 +737,7 @@ Alla exempel i den här självstudien finns i projektet [Todo](https://github.co
 3. I **Arkiv**-menyn i Eclipse klickar du på **Importera**.
 4. I fönstret **Importera** klickar du på **Git**, **Projekt från Git** och **Nästa**.
 5. På skärmen **Välj lagerkälla** klickar du på **Klona URI**.
-6. På den **Git-Lagerkälla** skärmen i den **URI** rutan Ange https://github.com/Azure-Samples/java-todo-app.git och klicka sedan på **nästa**.
+6. På den **Git-Lagerkälla** skärmen i den **URI** ange https://github.com/Azure-Samples/java-todo-app.git, och klicka sedan på **nästa**.
 7. På skärmen**Val av gren** kontrollerar du att **master** är markerat och klickar sedan på **Nästa**.
 8. På skärmen **Lokal destination** klickar du på **Bläddra** och väljer en mapp dit lagret kan kopieras och klickar sedan på **Nästa**.
 9. På skärmen **Välj en guide för importprojekt** kontrollerar du att **Importera befintliga projekt** är markerat och klickar sedan på **Nästa**.
@@ -754,6 +752,6 @@ Alla exempel i den här självstudien finns i projektet [Todo](https://github.co
 18. På fliken **Servrar** längst ned på skärmen högerklickar du på **Tomcat v7.0-server på localhost** och klickar sedan på **Lägg till och ta bort**.
 19. I fönstret **Lägg till och ta bort** flyttar du **azure-documentdb-java-sample** till rutan **Konfigurerad** och klickar sedan på **Slutför**.
 20. I den **servrar** genom att högerklicka på **Tomcat v7.0-Server på localhost**, och klicka sedan på **starta om**.
-21. Navigera till http://localhost:8080/azure-documentdb-java-sample/ i webbläsaren och börja lägga till aktiviteter i listan. Om du har ändrat portarnas standardvärden ändrar du 8080 till värdet du har valt.
+21. I en webbläsare, navigera till http://localhost:8080/azure-documentdb-java-sample/ och börja lägga till aktiviteter i listan. Om du har ändrat portarnas standardvärden ändrar du 8080 till värdet du har valt.
 22. [Steg 6 innehåller information om hur du distribuerar ditt projekt till en Azure-webbplats. Distribuera programmet till Azure webbplatser](#Deploy).
 

@@ -1,10 +1,10 @@
 ---
 title: Azure Storage-prestanda och skalbarhet Checklista | Microsoft Docs
-description: "En checklista beprövade metoder för användning med Azure Storage i utvecklar performant program."
+description: En checklista beprövade metoder för användning med Azure Storage i utvecklar performant program.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: tamram
-ms.openlocfilehash: 6f5a136d1be7a4bb4093baad820271770305b718
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rogarana
+ms.openlocfilehash: 945289a172270eea56625287baf437fd4b70c7f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Prestanda och skalbarhetschecklista för Microsoft Azure Storage
 ## <a name="overview"></a>Översikt
@@ -206,7 +206,7 @@ Parallellitet kan vara bra prestanda, vara försiktig med att använda unbounded
 Använd alltid senaste som Microsoft tillhandahåller klientbibliotek och verktyg. Vid tidpunkten som skrivs finns klientbibliotek för .NET, Windows Phone, Windows Runtime, Java och C++ samt preview bibliotek för andra språk. Dessutom har Microsoft släppt PowerShell-cmdlets och Azure CLI-kommandona för att arbeta med Azure Storage. Microsoft aktivt utvecklar dessa verktyg med prestanda, för att hålla dem uppdaterade med de senaste versionerna av tjänsten och garanterar de hanterar många av aktuella beprövade prestanda internt.  
 
 ### <a name="retries"></a>Antal försök
-#### <a name="subheading14"></a>Begränsning/ServerBusy
+#### <a name="subheading14"></a>Throttling/ServerBusy
 I vissa fall lagringstjänsten kan begränsa tillämpningsprogrammet eller helt enkelt går inte att hantera begäran på grund av vissa övergående tillstånd och returnerar meddelandet ”503 servern upptagen” eller ”tidsgräns för 500”.  Detta kan inträffa om tillämpningsprogrammet närmar sig något skalbarhetsmål, eller om systemet är ombalansering partitionerade data för bättre genomströmning.  Klientprogrammet bör normalt gör om åtgärden som orsakar ett sådant fel: försöker samma begäran senare kan genomföras. Men göra om lagringstjänsten begränsning är ditt program eftersom det överskrider skalbarhetsmål eller om tjänsten kunde inte svara på begäran av någon anledning, aggressivt återförsök oftast problemet worse. Därför bör du använda en exponentiell undantagsläge (klienten bibliotek standard till det här beteendet). Programmet kan t.ex, försök igen efter 2 sekunder sedan 4 sekunder sedan 10 sekunder sedan 30 sekunder och ge helt. Detta resulterar i ditt program avsevärt minska belastningen på tjänsten i stället exacerbating eventuella problem.  
 
 Observera att anslutningsfel kan göras omedelbart, eftersom de inte är resultatet av begränsning och förväntas vara tillfälligt.  
@@ -246,7 +246,7 @@ Mer information finns i [kopiera Blob](http://msdn.microsoft.com/library/azure/d
 #### <a name="subheading18"></a>Använda AzCopy
 Azure Storage-teamet har publicerat ett kommandoradsverktyg ”AzCopy” som är tänkt att hjälpa med bulk överför många BLOB till, från och mellan lagringskonton.  Det här verktyget är optimerad för det här scenariot och uppnå hög överföringshastighet.  Används rekommenderas för bulk-överföringen, hämtning och kopiera scenarier. Om du vill veta mer om den och ladda ned den finns [överföra data med kommandoradsverktyget Azcopy](storage-use-azcopy.md).  
 
-#### <a name="subheading19"></a>Tjänsten Azure Import/Export
+#### <a name="subheading19"></a>Azure Import/Export Service
 För mycket stora mängder data (mer än 1TB) erbjuder Azure Storage Import/Export-tjänsten, som gör det möjligt att överföra och ladda ned från blob storage med leverans hårddiskar.  Du kan publicera dina data på en hårddisk och skickar informationen till Microsoft för överföring eller skicka en tom hårddisk till Microsoft för att hämta data.  Mer information finns i [använda tjänsten Microsoft Azure Import/Export för att överföra Data till Blob Storage](../storage-import-export-service.md).  Det kan vara mycket effektivare än att överföra/hämta volymen av data över nätverket.  
 
 ### <a name="subheading20"></a>Använda metadata
@@ -261,7 +261,7 @@ Om du vill överföra blobbar snabb, är den första frågan besvaras: är du ö
 Om du vill överföra en enda stor blob snabbt klientprogrammet ladda upp dess block eller sidor parallellt (är uppmärksam på skalbarhetsmål för enskilda blobbar och lagringskontot som helhet).  Observera att de officiella Microsoft RTM lagring klientbibliotek (.NET, Java) ha möjlighet att göra detta.  För varje bibliotek använder den under angivna objektegenskaper att ställa in samtidighet:  
 
 * .NET: Ange ParallelOperationThreadCount på ett BlobRequestOptions-objekt som ska användas.
-* Java/Android: Använda BlobRequestOptions.setConcurrentRequestCount()
+* Java/Android: Use BlobRequestOptions.setConcurrentRequestCount()
 * Node.js: Använd parallelOperationThreadCount alternativen begäran eller blob-tjänsten.
 * C++: Använda metoden blob_request_options::set_parallelism_factor.
 
@@ -298,7 +298,7 @@ Nagles algoritmen implementeras över TCP/IP-nätverk som används för att för
 
 Mer information finns i vår blogginlägget [Nagles algoritmen är inte egna gentemot små begäran](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx), som förklarar varför Nagles algoritmen dåligt samverkar med tabell- och köegenskaper begäranden och visar hur du inaktiverar det i ditt klientprogram.  
 
-### <a name="schema"></a>Schemat
+### <a name="schema"></a>Schema
 Hur du representera och fråga data är den största en faktor som påverkar prestanda för tabelltjänsten. Varje program är olika, beskrivs i det här avsnittet några allmänna beprövade metoder som relaterar till:  
 
 * Tabelldesign
@@ -408,5 +408,5 @@ Du bör använda köer för att göra din programarkitektur skalbara. Här nedan
 * Du kan använda köer för att skapa eftersläpningar för bearbetning och Utjämna arbetsbelastningar i ditt program. Du kan till exempel köa-begäranden från användare arbetar processor, till exempel storleksändring överförda bilder.
 * Du kan använda köer för att frikoppla delar av ditt program så att du kan skala oberoende av varandra. Till exempel placera en webbklientdel undersökningsresultat från användare i en kö för senare analys och lagring. Du kan lägga till flera worker rollinstanser för att bearbeta kön data vid behov.  
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Den här artikeln beskrivs några av de vanligaste, beprövade metoder för att optimera prestanda när du använder Azure Storage. Vi rekommenderar att alla programutvecklare utvärderar sina program med hjälp av ovanstående metoder, och överväger att följa rekommendationerna för att få ut mesta möjliga av de program som använder sig av Azure-lagring.

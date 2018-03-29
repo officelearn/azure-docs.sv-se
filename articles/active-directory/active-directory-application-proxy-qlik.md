@@ -8,15 +8,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/26/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c34af889f65e0fa91f97655803af099dadcabc5d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 331f8ed2e77a076dd8969dc37add1cdeafc852dc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Application Proxy och Qlik mening 
 Azure Active Directory Application Proxy och Qlik mening samarbetar tillsammans för att säkerställa att du kan enkelt använda programproxy för att ge fjärråtkomst för distributionen Qlik mening.  
@@ -24,7 +24,7 @@ Azure Active Directory Application Proxy och Qlik mening samarbetar tillsammans 
 ## <a name="prerequisites"></a>Förutsättningar 
 Resten av det här scenariot förutsätter att du har gjort följande:
  
-- Konfigurerad [Qlik meningsfullt](https://help.qlik.com/sense/1.1/Content/Introduction.htm). 
+- Konfigurerad [Qlik meningsfullt](https://community.qlik.com/docs/DOC-19822). 
 - Har installerat en Application Proxy connector 
 
 ## <a name="install-an-application-proxy-connector"></a>Installera en Application Proxy connector 

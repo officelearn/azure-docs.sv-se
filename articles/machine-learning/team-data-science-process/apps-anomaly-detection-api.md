@@ -1,8 +1,8 @@
 ---
 title: Azure Machine Learning Avvikelseidentifiering API | Microsoft Docs
-description: "Avvikelseidentifiering identifiering API är ett exempel som skapats med Microsoft Azure Machine Learning som identifierar avvikelser i tid series-data med numeriska värden som jämnt fördelade i tid."
+description: Avvikelseidentifiering identifiering API är ett exempel som skapats med Microsoft Azure Machine Learning som identifierar avvikelser i tid series-data med numeriska värden som jämnt fördelade i tid.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: alokkirpal
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
-ms.author: alok;rotimpe
-ms.openlocfilehash: e2adfffa00a726fe2c452c25dd777ef054319b04
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: alok
+ms.openlocfilehash: e3f6f0de16fcb84872fe7b420eb0d54e86682f23
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Maskininlärning Avvikelseidentifiering API
 ## <a name="overview"></a>Översikt
@@ -122,8 +122,8 @@ Mer detaljerad information om dessa indataparametrar anges i tabellen nedan:
 | --- | --- | --- | --- | --- | --- |
 | detectors.historyWindow |Historik (i antal datapunkter) som används för avvikelseidentifiering poäng beräkning |500 |heltal |10-2000 |Tidsserie beroende |
 | detectors.spikesdips | Om du vill identifiera endast ger spikar i diagrammet, endast korta eller båda |Både |Räkna upp |Båda toppar, korta |Både |
-| bileveldetector.sensitivity |Känslighet för dubbelriktad nivå ändra detektor. |3.25 |dubbel |Ingen |3,25 5 (färre värden innebär mer känslig) |
-| trenddetector.sensitivity |Känslighet för positivt trend detektor. |3.25 |dubbel |Ingen |3,25 5 (färre värden innebär mer känslig) |
+| bileveldetector.sensitivity |Känslighet för dubbelriktad nivå ändra detektor. |3.25 |dubbla |Ingen |3,25 5 (färre värden innebär mer känslig) |
+| trenddetector.sensitivity |Känslighet för positivt trend detektor. |3.25 |dubbla |Ingen |3,25 5 (färre värden innebär mer känslig) |
 | tspikedetector.sensitivity |Känslighet för TSpike detektor |3 |heltal |1-10 |3-5 (färre värden innebär mer känslig) |
 | zspikedetector.sensitivity |Känslighet för ZSpike detektor |3 |heltal |1-10 |3-5 (färre värden innebär mer känslig) |
 | postprocess.tailRows |Antal senaste datapunkter som ska behållas i resultatet |0 |heltal |0 (Håll alla datapunkter), eller ange antalet punkter som ska behållas i resultaten |Gäller inte |
@@ -161,14 +161,14 @@ Mer detaljerad information om dessa indataparametrar anges i tabellen nedan:
 | preprocess.replaceMissing |Värden som används för att sedan imputera data som saknas |lkv (senaste kända värdet) |Räkna upp |noll, lkv, medelvärde |Gäller inte |
 | detectors.historyWindow |Historik (i antal datapunkter) som används för avvikelseidentifiering poäng beräkning |500 |heltal |10-2000 |Tidsserie beroende |
 | detectors.spikesdips | Om du vill identifiera endast ger spikar i diagrammet, endast korta eller båda |Både |Räkna upp |Båda toppar, korta |Både |
-| bileveldetector.sensitivity |Känslighet för dubbelriktad nivå ändra detektor. |3.25 |dubbel |Ingen |3,25 5 (färre värden innebär mer känslig) |
-| postrenddetector.sensitivity |Känslighet för positivt trend detektor. |3.25 |dubbel |Ingen |3,25 5 (färre värden innebär mer känslig) |
-| negtrenddetector.sensitivity |Känslighet för negativa utvecklingen detektor. |3.25 |dubbel |Ingen |3,25 5 (färre värden innebär mer känslig) |
+| bileveldetector.sensitivity |Känslighet för dubbelriktad nivå ändra detektor. |3.25 |dubbla |Ingen |3,25 5 (färre värden innebär mer känslig) |
+| postrenddetector.sensitivity |Känslighet för positivt trend detektor. |3.25 |dubbla |Ingen |3,25 5 (färre värden innebär mer känslig) |
+| negtrenddetector.sensitivity |Känslighet för negativa utvecklingen detektor. |3.25 |dubbla |Ingen |3,25 5 (färre värden innebär mer känslig) |
 | tspikedetector.sensitivity |Känslighet för TSpike detektor |3 |heltal |1-10 |3-5 (färre värden innebär mer känslig) |
 | zspikedetector.sensitivity |Känslighet för ZSpike detektor |3 |heltal |1-10 |3-5 (färre värden innebär mer känslig) |
-| seasonality.enable |Om säsongsvärdet analys ska utföras |sant |boolesk |SANT, FALSKT |Tidsserie beroende |
+| seasonality.enable |Om säsongsvärdet analys ska utföras |true |boolesk |SANT, FALSKT |Tidsserie beroende |
 | seasonality.numSeasonality |Maximalt antal periodiska cykler ska identifieras |1 |heltal |1, 2 |1-2 |
-| seasonality.transform |Om säsongsbaserade (och) trend komponenter bör tas bort innan du tillämpar avvikelseidentifiering |deseason |Räkna upp |Ingen, deseason deseasontrend |Gäller inte |
+| seasonality.transform |Om säsongsbaserade (och) trend komponenter bör tas bort innan du tillämpar avvikelseidentifiering |deseason |Räkna upp |none, deseason, deseasontrend |Gäller inte |
 | postprocess.tailRows |Antal senaste datapunkter som ska behållas i resultatet |0 |heltal |0 (Håll alla datapunkter), eller ange antalet punkter som ska behållas i resultaten |Gäller inte |
 
 ### <a name="output"></a>Resultat

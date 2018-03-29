@@ -1,11 +1,11 @@
 ---
-title: "Azure Key Vault-lösning i Log Analytics | Microsoft Docs"
-description: "Du kan använda Azure Key Vault-lösning i Log Analytics till Azure Key Vault-loggarna."
+title: Azure Key Vault-lösning i Log Analytics | Microsoft Docs
+description: Du kan använda Azure Key Vault-lösning i Log Analytics till Azure Key Vault-loggarna.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 651586e0846ffb22a23e64b73c2cc614980d9b92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c4b16ec11d1990de687014c5385314f0e0c602a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Azure Key Vault Analytics lösning i logganalys
 
@@ -119,7 +119,7 @@ Azure Key Vault-lösningen analyserar poster som har en typ av **KeyVaults** som
 | ResourceGroup |Resursgruppen för nyckelvalvet |
 | Resurs-ID |Azure Resource Manager Resource-ID. För Key Vault loggar är Key Vault-resurs-ID. |
 | ResourceProvider |*MICROSOFT. KEYVAULT* |
-| ResourceType | *VALV* |
+| ResourceType | *VAULTS* |
 | ResultSignature |HTTP-status (till exempel *OK*) |
 | ResultType |Resultatet av REST API-begäran (till exempel *lyckade*) |
 | SubscriptionId |Azure prenumerations-ID för den prenumeration som innehåller Key Vault |
@@ -137,13 +137,13 @@ Använda den uppdaterade lösningen:
 2. Aktivera Azure Key Vault-lösning med hjälp av den process som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md)
 3. Uppdatera alla sparade frågor, instrumentpaneler eller aviseringar för att använda den nya datatypen
   + Typen är ändra från: KeyVaults till AzureDiagnostics. Du kan använda resurstypens för att filtrera till Key Vault loggar.
-  - I stället för: `Type=KeyVaults`, använda`Type=AzureDiagnostics ResourceType=VAULTS`
+  - I stället för: `KeyVaults`, använda `AzureDiagnostics | where ResourceType'=="VAULTS"`
   + Fält: (fältnamn är skiftlägeskänsligt)
   - För alla fält som har suffixet \_s, \_d, eller \_g i namnet, ändra det första tecknet till gemener
-  - För alla fält som har suffixet \_o i namn data delas upp i enskilda fält baserat på de kapslade fältnamn. Till exempel är UPN för anroparen lagrad i ett fält`identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+  - För alla fält som har suffixet \_o i namn data delas upp i enskilda fält baserat på de kapslade fältnamn. Till exempel är UPN för anroparen lagrad i ett fält `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
    - Fältet CallerIpAddress ändras till CallerIPAddress
    - Fältet RemoteIPCountry finns inte längre
-4. Ta bort den *Key Vault Analytics (inaktuell)* lösning. Om du använder PowerShell använder du`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
+4. Ta bort den *Key Vault Analytics (inaktuell)* lösning. Om du använder PowerShell använder du `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
 Data som samlas in innan ändringen inte visas i den nya lösningen. Du kan fortsätta att fråga efter data med hjälp av den gamla typen och fältnamn.
 

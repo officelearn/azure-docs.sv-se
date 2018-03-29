@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 2689befc6a686d0ffc25d1fccbacb66cc6e10725
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3b7ae08446e672c218e7278cff4f77739286fead
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Vad är Azure-databas för MySQL?
 Azure MySQL-databas är en relationsdatabastjänst i molnet Microsoft baserat på de [MySQL Community Edition](https://www.mysql.com/products/community/) databasmotorn. Det ger Azure MySQL-databas:
@@ -47,7 +47,7 @@ Hur avgör du när du ska reglera upp eller ner? Du kan använda inbyggda presta
 Azures branschledande 99,99% tillgänglighet servicenivåavtal (SLA) tillhandahålls av ett globalt nätverk av Microsoft-hanterade Datacenter gör att din app igång 24/7. Med varje Azure-databas för MySQL-server kan du dra nytta av inbyggd säkerhet, feltolerans och dataskydd som du annars skulle behöva köpa eller utforma, skapa och hantera. Du kan använda point-in-time-återställning med Azure-databas för MySQL för att återställa en server till ett tidigare tillstånd, så långt tillbaka som 35 dagar.
 
 ## <a name="secure-your-data"></a>Skydda dina data
-Tjänster för Azure-databas har en tradition av säkerhet för data som Azure-databas för MySQL upprätthåller, med funktioner som begränsar åtkomst, skydda data i vila och under rörelse och hjälper dig att övervaka aktiviteten. Besök [Azure Säkerhetscenter](https://www.microsoft.com/en-us/TrustCenter/Security/default.aspx) för information om Azures plattformssäkerhet.
+Tjänster för Azure-databas har en tradition av säkerhet för data som Azure-databas för MySQL upprätthåller, med funktioner som begränsar åtkomst, skydda data i vila och under rörelse och hjälper dig att övervaka aktiviteten. Besök [Azure Säkerhetscenter](https://www.microsoft.com/en-us/trustcenter/security) för information om Azures plattformssäkerhet.
 
 Azure-databas för MySQL-tjänst som använder kryptering för data i vila. Data, inklusive säkerhetskopior, krypteras på disken (med undantag av tillfälliga filer som skapas av motorn när du kör frågor). Tjänsten använder chiffer med AES 256 bitar som ingår i Azures lagringskryptering, och nycklarna hanteras av systemet. Lagringskrypteringen är alltid igång och kan inte inaktiveras.
 

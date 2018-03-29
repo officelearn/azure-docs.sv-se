@@ -1,11 +1,11 @@
 ---
-title: "Azure Traffic Manager och slutpunktsövervakning | Microsoft Docs"
-description: "Den här artikeln kan hjälpa dig att förstå hur Traffic Manager använder slutpunktsövervakning och automatisk endpoint redundans för att Azure-kunder distribuera program med hög tillgänglighet"
+title: Azure Traffic Manager och slutpunktsövervakning | Microsoft Docs
+description: Den här artikeln kan hjälpa dig att förstå hur Traffic Manager använder slutpunktsövervakning och automatisk endpoint redundans för att Azure-kunder distribuera program med hög tillgänglighet
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 3b30aa04854b779c25582abafc0f9ebba65b71ba
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: c54454dd2e7b56820834e4f3cd7452be10d5ddca
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Slutpunktsövervakning av Traffic Manager
 
@@ -56,7 +56,7 @@ Alla slutpunkter i en Traffic Manager-profil dela inställningarna för övervak
 
 Du kan aktivera och inaktivera Traffic Manager-profiler och slutpunkter. Men inträffa en ändring i slutpunkt status även som ett resultat av Traffic Manager automatiserade inställningar och processer.
 
-### <a name="endpoint-status"></a>Status för endpoint
+### <a name="endpoint-status"></a>Slutpunktsstatus
 
 Du kan aktivera eller inaktivera en viss slutpunkt. Den underliggande tjänsten som kanske ändå felfri, påverkas inte. Ändra status för endpoint kontrollerar tillgängligheten för slutpunkt i Traffic Manager-profilen. När en slutpunkt status är inaktiverad Traffic Manager kontrollerar inte dess hälsa och slutpunkten ingår inte i ett DNS-svar.
 
@@ -68,16 +68,19 @@ Använder profilinställningen för status kan du aktivera eller inaktivera en v
 
 Övervaka status för endpoint är ett Traffic Manager-värde som visar status för slutpunkten. Du kan inte ändra den här inställningen manuellt. Status för endpoint övervakaren är en kombination av resultaten av slutpunktsövervakning och konfigurerad slutpunkt status. Övervaka status för endpoint möjliga värden visas i följande tabell:
 
-| Profilstatusen | Status för endpoint | Övervaka status för endpoint | Anteckningar |
+| Profilstatusen | Slutpunktsstatus | Övervaka status för endpoint | Anteckningar |
 | --- | --- | --- | --- |
-| Disabled |Enabled |Inaktiva |Profilen har inaktiverats. Även om slutpunkten är aktiverad, företräde profilstatusen (inaktiverat). Slutpunkter i inaktiverad profiler övervakas inte. Ett NXDOMAIN svarskoden returneras för DNS-frågan. |
+| Disabled |Enabled |Inaktiv |Profilen har inaktiverats. Även om slutpunkten är aktiverad, företräde profilstatusen (inaktiverat). Slutpunkter i inaktiverad profiler övervakas inte. Ett NXDOMAIN svarskoden returneras för DNS-frågan. |
 | &lt;alla&gt; |Disabled |Disabled |Slutpunkten har inaktiverats. Inaktiverad slutpunkter övervakas inte. Slutpunkten ingår inte i DNS-svar, därför kan den tar emot inte trafik. |
 | Enabled |Enabled |Online |Slutpunkten övervakas och är felfri. Den ingår i DNS-svar och kan ta emot trafik. |
-| Enabled |Enabled |Försämrad |Slutpunkten övervakning hälsokontroller misslyckas. Slutpunkten ingår inte i DNS-svar och tar inte emot trafik. <br>Ett undantag är om alla slutpunkter är försämrade då alla betraktas som ska returneras i svaret på frågan).</br>|
+| Enabled |Enabled |Degraderad |Slutpunkten övervakning hälsokontroller misslyckas. Slutpunkten ingår inte i DNS-svar och tar inte emot trafik. <br>Ett undantag är om alla slutpunkter är försämrade då alla betraktas som ska returneras i svaret på frågan).</br>|
 | Enabled |Enabled |CheckingEndpoint |Slutpunkten övervakas, men resultatet av den första avsökningen ännu inte tagits emot. CheckingEndpoint är ett tillfälligt tillstånd som vanligtvis sker omedelbart efter att lägga till eller aktivera en slutpunkt i profilen. En slutpunkt i det här tillståndet ingår i DNS-svar och kan ta emot trafik. |
 | Enabled |Enabled |Stoppad |Tjänsten eller web molnappen som slutpunkten pekar på är inte igång. Kontrollera inställningarna för cloud service eller web app. Detta kan också inträffa om slutpunkten är av typen kapslade slutpunkt och underordnade profilen har inaktiverats eller är inaktiv. <br>En slutpunkt med status stoppad övervakas inte. Den ingår inte i DNS-svar och ta emot inte trafik. Ett undantag är om alla slutpunkter är försämrade då alla betraktas som returneras i svaret på frågan.</br>|
 
 Mer information om hur övervaka status för endpoint beräknas för kapslade slutpunkter finns [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md).
+
+>[!NOTE]
+> Status för övervakaren stoppats Endpoint kan inträffa på Apptjänst om webbprogrammet inte körs på standardnivån eller senare. Mer information finns i [Traffic Manager-integrering med Apptjänst](/azure/app-service/web-sites-traffic-manager).
 
 ### <a name="profile-monitor-status"></a>Övervaka profilstatusen
 
@@ -86,10 +89,10 @@ Profilstatusen för övervakaren är en kombination av konfigurerade profilstatu
 | Profilstatusen (som har konfigurerats) | Övervaka status för endpoint | Övervaka profilstatusen | Anteckningar |
 | --- | --- | --- | --- |
 | Disabled |&lt;alla&gt; eller en profil med några definierade slutpunkter. |Disabled |Profilen har inaktiverats. |
-| Enabled |Status för minst en slutpunkt har degraderats. |Försämrad |Granska statusvärden enskilda slutpunkt för att avgöra vilka slutpunkter kräva ytterligare åtgärder. |
+| Enabled |Status för minst en slutpunkt har degraderats. |Degraderad |Granska statusvärden enskilda slutpunkt för att avgöra vilka slutpunkter kräva ytterligare åtgärder. |
 | Enabled |Status för minst en slutpunkt är Online. Inga slutpunkter har statusen degraderad. |Online |Tjänsten tar emot trafik. Ingen ytterligare åtgärd krävs. |
 | Enabled |Status för minst en slutpunkt är CheckingEndpoint. Inga slutpunkter är Online eller degraderad status. |CheckingEndpoints |Den här övergångstillstånd inträffar när en profil om skapade eller aktiverade. Slutpunkten hälsa kontrolleras för första gången. |
-| Enabled |Status för alla slutpunkter i profilen är inaktiverad eller stoppad eller att profilen har inga definierade slutpunkter. |Inaktiva |Inga slutpunkter är aktiv, men profilen är fortfarande aktiverat. |
+| Enabled |Status för alla slutpunkter i profilen är inaktiverad eller stoppad eller att profilen har inga definierade slutpunkter. |Inaktiv |Inga slutpunkter är aktiv, men profilen är fortfarande aktiverat. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Slutpunkten redundans och återställning
 

@@ -1,6 +1,6 @@
 ---
 title: Konvertera XML-data med transformeringar - Azure Logic Apps | Microsoft Docs
-description: "Skapa transformeringar eller mapps att konvertera XML-data mellan formaten i logikappar med hjälp av Enterprise Integration-SDK"
+description: Skapa transformeringar eller mapps att konvertera XML-data mellan formaten i logikappar med hjälp av Enterprise Integration-SDK
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f4ca7004432d28233888483424164456b008e992
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: fd59b6b3f51adb538e774bc5bb089880ca22e97e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Enterprise integration med XML-transformeringar
 ## <a name="overview"></a>Översikt
@@ -64,6 +64,7 @@ Nu är du klar med att ställa in kartan. I ett verkligt program kanske du vill 
 
 Nu kan du testa din transformeringen genom att göra en begäran till HTTP-slutpunkten.  
 
+
 ## <a name="features-and-use-cases"></a>Funktioner och användningsområden
 * Transformering som skapats i en karta kan vara enkel, till exempel kopiera ett namn och adress från ett dokument till en annan. Eller så kan du skapa mer komplexa omformningar med hjälp av åtgärderna out box-karta.  
 * Flera kartan operations eller funktioner är tillgängliga, inklusive strängar, datum tidsfunktioner och så vidare.  
@@ -73,11 +74,49 @@ Nu kan du testa din transformeringen genom att göra en begäran till HTTP-slutp
 * Överför befintliga mappningar  
 * Innehåller stöd för XML-format.
 
-## <a name="adanced-features"></a>Adanced funktioner
-Följande funktioner kan endast nås från kodvyn.
+## <a name="advanced-features"></a>Avancerade funktioner
+
+### <a name="reference-assembly-or-custom-code-from-maps"></a>Referenssammansättning eller anpassad kod från maps 
+Åtgärden transformeringen också stöder maps eller transformerar med extern sammansättningsresurs. Den här funktionen gör det möjligt för anrop till anpassad .NET-kod direkt från XSLT-maps. Här är förutsättningar för att använda sammansättningen i maps.
+
+* Kartan och sammansättningen refereras från karta måste vara [har överförts till kontot på integrering](./logic-apps-enterprise-integration-maps.md). 
+
+  > [!NOTE]
+  > Karta och sammansättningen måste överföras i någon viss ordning. Du måste överföra sammansättningen innan du laddar upp kartan som refererar till sammansättningen.
+
+* Kartan måste också ha dessa attribut och ett CDATA-avsnitt som innehåller anrop till sammansättningen koden:
+
+    * **namnet** är anpassade sammansättningsnamn.
+    * **namnområdet** namnområde i sammansättningen som innehåller anpassad kod.
+
+  Det här exemplet illustrerar en karta som refererar till en sammansättning med namnet ”XslUtilitiesLib” och anropar den `circumreference` metoden från sammansättningen.
+
+  ````xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
+  <msxsl:script language="C#" implements-prefix="user">
+    <msxsl:assembly name="XsltHelperLib"/>
+    <msxsl:using namespace="XsltHelpers"/>
+    <![CDATA[public double circumference(int radius){ XsltHelper helper = new XsltHelper(); return helper.circumference(radius); }]]>
+  </msxsl:script>
+  <xsl:template match="data">
+     <circles>
+        <xsl:for-each select="circle">
+            <circle>
+                <xsl:copy-of select="node()"/>
+                    <circumference>
+                        <xsl:value-of select="user:circumference(radius)"/>
+                    </circumference>
+            </circle>
+        </xsl:for-each>
+     </circles>
+    </xsl:template>
+    </xsl:stylesheet>
+  ````
+
 
 ### <a name="byte-order-mark"></a>Byte-ordningsmarkering
-Som standard startar svaret från omvandlingen med Byte ordning markering (BOM). Om du vill inaktivera den här funktionen, ange `disableByteOrderMark` för den `transformOptions` egenskapen:
+Som standard startar svaret från omvandlingen med Byte ordning markering (BOM). Du kan komma åt den här funktionen endast när du arbetar i kodvy-redigeraren. Om du vill inaktivera den här funktionen, ange `disableByteOrderMark` för den `transformOptions` egenskapen:
 
 ````json
 "Transform_XML": {
@@ -94,6 +133,10 @@ Som standard startar svaret från omvandlingen med Byte ordning markering (BOM).
     "type": "Xslt"
 }
 ````
+
+
+
+
 
 ## <a name="learn-more"></a>Läs mer
 * [Mer information om Enterprise-Integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md "Lär dig mer om Enterprise-Integrationspaket")  

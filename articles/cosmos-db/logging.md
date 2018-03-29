@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mimig
-ms.openlocfilehash: b1921820b5a1d94c6f5d6413204ee7814cc25c74
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3b7c9f1acd79a2f170ecead9dedd200ad37d9388
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos-diagnostikloggning
 
-När du börjar använda en eller flera Azure Cosmos DB-databaser, kanske du vill övervaka hur och när databaserna används. Den här artikeln innehåller en översikt över de loggar som är tillgängliga på Azure-plattformen. Du lär dig att aktivera diagnostikloggning för övervakning att skicka loggar för [Azure Storage](https://azure.microsoft.com/services/storage/), så att strömma loggarna [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), och hur du exporterar loggar till [Azure logganalys ](https://azure.microsoft.com/services/log-analytics/), vilket är en del av [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+När du börjar använda en eller flera Azure Cosmos DB-databaser, kanske du vill övervaka hur och när databaserna används. Den här artikeln innehåller en översikt över de loggar som är tillgängliga på Azure-plattformen. Du lär dig att aktivera diagnostikloggning för övervakning att skicka loggar för [Azure Storage](https://azure.microsoft.com/services/storage/), så att strömma loggarna [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), och hur du exporterar loggar till [Azure logganalys ](https://azure.microsoft.com/services/log-analytics/).
 
 ## <a name="logs-available-in-azure"></a>Loggar som är tillgängliga i Azure
 
@@ -57,7 +57,7 @@ Aktivitetsloggar (kontroll plan operations) kan vara bättre till sin natur och 
 
 Azure diagnostikloggar orsakat av en resurs och ger omfattande, ofta data om användningen av den här resursen. Innehållet i de här loggarna varierar beroende på resurstypen. Resursnivå diagnostikloggar också skilja sig från OS gästnivå diagnostikloggar. Gästoperativsystem diagnostiska loggar samlas in av en agent som körs i en virtuell dator eller andra stöd för resurstypen. Resursnivå diagnostikloggar kräver ingen agent och avbilda resurs-specifika data från själva Azure-plattformen. Gäst-OS-nivå diagnostikloggar samla in data från operativsystemet och program som körs på en virtuell dator.
 
-![Diagnostikloggning till lagring, Händelsehubbar eller Operations Management Suite via logganalys](./media/logging/azure-cosmos-db-logging-overview.png)
+![Diagnostikloggning till lagring, Händelsehubbar eller logganalys](./media/logging/azure-cosmos-db-logging-overview.png)
 
 ### <a name="what-is-logged-by-azure-diagnostic-logs"></a>Vad är inloggad med Azure diagnostikloggar?
 

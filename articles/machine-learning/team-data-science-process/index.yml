@@ -3,37 +3,37 @@ documentType: LandingData
 title: Dokumentation om Team Data Science Process
 metadata:
   title: Dokumentation om Team Data Science Process
-  description: "Lär dig hur du använder TDSP (Team Data Science Process)."
+  description: Lär dig hur du använder TDSP (Team Data Science Process).
   services: machine-learning
-  author: carolz
-  manager: carolz
+  author: bradsev
+  manager: cgronlun
   ms.service: machine-learning
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/18/2018
   ms.author: bradsev
-  ms.openlocfilehash: 05f47b7511108f4a94c6fd132c9b7fd18c6e267d
-  ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+  ms.openlocfilehash: a12326f4e3822bc32b863dd61de3b5f2a440dd23
+  ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 02/13/2018
+  ms.lasthandoff: 03/28/2018
 abstract:
-  description: "Team Data Science Process är en flexibel, iterativ datavetenskapsmetod för att leverera prediktiva analyslösningar och intelligenta program effektivt. TDSP hjälper till att förbättra samarbete mellan grupper och inlärning. Du får de bästa metodtipsen och strukturerna från Microsoft och andra i branschen, vilket underlättar implementeringen av datavetenskapsinitiativ. Målet är att hjälpa företag att dra nytta av sina analysprogram fullt ut."
+  description: Team Data Science Process är en flexibel, iterativ datavetenskapsmetod för att leverera prediktiva analyslösningar och intelligenta program effektivt. TDSP hjälper till att förbättra samarbete mellan grupper och inlärning. Du får de bästa metodtipsen och strukturerna från Microsoft och andra i branschen, vilket underlättar implementeringen av datavetenskapsinitiativ. Målet är att hjälpa företag att dra nytta av sina analysprogram fullt ut.
 sections:
-- title: "Snabbstarter på 5 minuter"
+- title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: "Läs mer om TDSP (Team Data Science Process):"
+    text: 'Läs mer om TDSP (Team Data Science Process):'
   - type: list
     style: unordered
     items:
-    - html: "<a href:\"overview\">Översikt</a>"
+    - html: <a href:"overview">Översikt</a>
     - html: <a href:"lifecycle">Livscykel</a>
-- title: "Steg för steg-självstudier"
+- title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: "Lär dig hur du använder TDSP (Team Data Science Process) i olika scenarier:"
+    text: 'Lär dig hur du använder TDSP (Team Data Science Process) i olika scenarier:'
   - type: list
     style: ordered
     items:

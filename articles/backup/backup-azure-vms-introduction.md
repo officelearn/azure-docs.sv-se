@@ -1,44 +1,44 @@
 ---
-title: "Planera din infrastruktur för VM-säkerhetskopiering i Azure | Microsoft Docs"
-description: "Viktiga överväganden när du planerar att säkerhetskopiera virtuella datorer i Azure"
+title: Planera din infrastruktur för VM-säkerhetskopiering i Azure | Microsoft Docs
+description: Viktiga överväganden när du planerar att säkerhetskopiera virtuella datorer i Azure
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "Säkerhetskopiera virtuella datorer, säkerhetskopiera virtuella datorer"
+editor: ''
+keywords: Säkerhetskopiera virtuella datorer, säkerhetskopiera virtuella datorer
 ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/18/2017
+ms.date: 3/23/2018
 ms.author: markgal;trinadhk
-ms.openlocfilehash: 66b64c803dfea6a1e4c7795d10e4b4ba064f1cf7
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 47d5da880f47831274fe05817ac9c488464d3096
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planera din infrastruktur för VM-säkerhetskopiering i Azure
 Den här artikeln innehåller prestanda och resursen förslag på hur du planerar din infrastruktur för säkerhetskopiering av VM. Den definierar även viktiga aspekter av säkerhetskopieringstjänsten; dessa aspekter kan vara avgörande för att fastställa din arkitektur kapacitetsplanering och schemaläggning. Om du har [förbereda din miljö](backup-azure-arm-vms-prepare.md), planering är nästa steg innan du börjar [att säkerhetskopiera virtuella datorer](backup-azure-arm-vms.md). Om du behöver mer information om virtuella Azure-datorer finns i [virtuella datorer dokumentationen](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Hur fungerar Azure säkerhetskopiera virtuella datorer?
-När tjänsten Azure Backup initierar en säkerhetskopiering på den schemalagda tiden, utlöser reservanknytning för att ta en ögonblicksbild i tidpunkt. Azure Backup-tjänsten används den _VMSnapshot_ tillägget i Windows, och _VMSnapshotLinux_ tillägget Linux. Tillägget installeras under den första säkerhetskopieringen. Om du vill installera tillägget måste du köra den virtuella datorn. Om inte den virtuella datorn körs, tar en ögonblicksbild av det underliggande lagringsutrymmet i Backup-tjänsten (eftersom inga program skrivningar inträffar när den virtuella datorn stoppas).
+När tjänsten Azure Backup initierar en säkerhetskopiering på den schemalagda tiden tjänsten triggers reservanknytning att ta en ögonblicksbild i tidpunkt. Azure Backup-tjänsten används den _VMSnapshot_ tillägget i Windows, och _VMSnapshotLinux_ tillägget Linux. Tillägget installeras under den första säkerhetskopieringen. Om du vill installera tillägget måste du köra den virtuella datorn. Om den virtuella datorn inte körs tar Backup-tjänsten en ögonblicksbild av snapshot det underliggande lagringsutrymmet (eftersom ingen programskrivning medan den virtuella datorn stoppas).
 
 När en ögonblicksbild av virtuella Windows-datorer, samordnar Backup-tjänsten med Volume Shadow Copy Service (VSS) att hämta en programkonsekvent ögonblicksbild av den virtuella datorns diskar. Om du säkerhetskopierar virtuella Linux-datorer, kan du skriva egna skript för att säkerställa konsekvens när en VM-ögonblicksbild. Information om att aktivera dessa skript finns senare i den här artikeln.
 
-När Azure Backup-tjänsten tar ögonblicksbilden kan överföra data till valvet. För att maximera effektiviteten, tjänsten identifierar och överför endast block av data som har ändrats sedan den tidigare säkerhetskopian.
+När Azure Backup-tjänsten har tagit ögonblicksbilden överförs data till valvet. För att maximera effektiviteten identifierar och överför tjänsten endast de datablock som har ändrats sedan föregående säkerhetskopia.
 
 ![Arkitektur för virtuell dator i Azure-säkerhetskopiering](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
 
-När dataöverföringen har slutförts ögonblicksbilden tas bort och skapa en återställningspunkt.
+När dataöverföringen har slutförts tas ögonblicksbilden bort och en återställningspunkt skapas.
 
 > [!NOTE]
 > 1. Under säkerhetskopieringen innehåller Azure Backup inte den tillfälliga disk som är ansluten till den virtuella datorn. Mer information finns i bloggen på [tillfällig lagring](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
-> 2. Eftersom Azure Backup tar en ögonblicksbild lagringsnivå och överför denna ögonblicksbild till valvet, ändras inte lagringskontonycklarna tills jobbet har slutförts.
-> 3. För premium virtuella datorer kan kopiera vi ögonblicksbilden till storage-konto. Detta är att se till att Azure Backup-tjänsten hämtar tillräcklig IOPS för att överföra data till valvet. Den här ytterligare en kopia av lagring debiteras enligt den virtuella datorn allokerade storleken. 
+> 2. Azure Backup tar en lagringsnivå ögonblicksbilden och överför denna ögonblicksbild till valvet, ändras inte lagringskontonycklarna tills jobbet har slutförts.
+> 3. För virtuella datorer premium säkerhetskopior Azure ögonblicksbilden till lagringskontot. Detta är att se till att tjänsten Backup använder tillräckligt IOPS för överföring av data till valvet. Den här ytterligare en kopia av lagring debiteras enligt den virtuella datorn allokerade storleken. 
 >
 
 ### <a name="data-consistency"></a>Datakonsekvens
@@ -64,7 +64,7 @@ Den här tabellen beskrivs typerna av konsekvens och de villkor som de sker unde
 | --- | --- | --- |
 | Programkonsekvens |Ja för Windows|Programkonsekvens är idealisk för arbetsbelastningar som det säkerställer att:<ol><li> Den virtuella datorn *startar*. <li>Det finns *inte är skadad*. <li>Det finns *ingen dataförlust*.<li> Data är konsekventa till program som använder data, genom att programmet vid tidpunkten för säkerhetskopiering – med hjälp av VSS eller före/post skript.</ol> <li>*Virtuella Windows-datorer*-mest Microsoft-arbetsbelastningar har VSS-skrivare som gör belastningsspecifikt åtgärder som rör datakonsekvens. Till exempel har Microsoft SQL Server en VSS-skrivare som garanterar att skrivningar till transaktionsloggfilen och databasen utförs korrekt. För Virtuella för Windows Azure-säkerhetskopior om du vill skapa en programkonsekvent återställningspunkt måste säkerhetskopiering tillägget anropa VSS-arbetsflöde och slutför den innan VM-ögonblicksbild. För en Azure VM-ögonblicksbild vara korrekt VSS-skrivare för alla Virtuella Azure-program måste du slutföra samt. (Läs den [grunderna i VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) och fördjupa dig djupare i information om [hur det fungerar](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *Virtuella Linux-datorer*-kunder kan köra [anpassat skript för före och efter skript för att garantera programmets konsekvens](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
 | Filsystemskonsekvens |Ja – för Windows-baserade datorer |Det finns två scenarier där återställningspunkt kan vara *konsekvent filsystemet*:<ul><li>Säkerhetskopior av virtuella Linux-datorer i Azure, utan Förproduktion-script/efter-script eller om Förproduktion-script/efter-script misslyckades. <li>VSS-fel vid säkerhetskopiering för virtuella Windows-datorer i Azure.</li></ul> I båda dessa fall är det bäst att göra så att: <ol><li> Den virtuella datorn *startar*. <li>Det finns *inte är skadad*.<li>Det finns *ingen dataförlust*.</ol> Program måste implementera sina egna ”korrigering av” mekanism för återställda data. |
-| Kraschkonsekvens |Nej |Den här situationen är detsamma som en virtuell dator som har en ”krasch” (via antingen en mjuk eller hård reset). Kraschkonsekvens inträffar oftast när den virtuella Azure-datorn är avstängd vid tidpunkten för säkerhetskopiering. En kraschkonsekvent återställningspunkt ger inga garantier runt konsekvenskontroll av data på lagringsmedium--ur operativsystemet eller programmet. Endast de data som finns på disken redan vid tidpunkten för säkerhetskopieringen fångas och säkerhetskopieras. <br/> <br/> Det finns inga garantier, vanligtvis, operativsystemet startas, följt av disk-kontrollerar proceduren som chkdsk, åtgärda eventuella skador fel. Alla data i minnet eller skrivningar som inte har överförts till disken går förlorade. Programmet följer vanligen med sin egen verifiering om återställning av data som behöver göras. <br><br>Exempelvis om transaktionsloggen har poster som inte finns i databasen gör sedan databasprogrammet en återställning tills data är konsekventa. När data sprids över flera virtuella diskar (till exempel volymer), ger inga garantier för data i en kraschkonsekvent återställningspunkt. |
+| Kraschkonsekvens |Nej |Den här situationen är detsamma som en virtuell dator som har en ”krasch” (via antingen en mjuk eller hård reset). Kraschkonsekvens inträffar oftast när den virtuella Azure-datorn är avstängd vid tidpunkten för säkerhetskopiering. En kraschkonsekvent återställningspunkt ger inga garantier runt konsekvenskontroll av data på lagringsmedium--ur operativsystemet eller programmet. Endast de data som finns på disken redan vid tidpunkten för säkerhetskopieringen fångas och säkerhetskopieras. <br/> <br/> Det finns inga garantier, vanligtvis, operativsystemet startas, följt av disk-kontrollerar proceduren som chkdsk, åtgärda eventuella skador fel. Alla data i minnet eller skrivningar som inte har överförts till disken går förlorade. Programmet följer vanligen med sin egen verifiering om återställning av data som behöver göras. <br><br>Exempelvis om transaktionsloggen har poster finns inte i databasen, samlar databasens programvara tillbaka förrän data är konsekventa. När data sprids över flera virtuella diskar (till exempel volymer), ger inga garantier för data i en kraschkonsekvent återställningspunkt. |
 
 ## <a name="performance-and-resource-utilization"></a>Prestanda och Resursanvändning
 Som säkerhetskopieringsprogram som är distribuerade på plats bör du planera för kapacitet och resursanvändningen behov när du säkerhetskopierar virtuella datorer i Azure. Den [Azure Storage begränsar](../azure-subscription-service-limits.md#storage-limits) definiera hur du struktur distribueringar av Virtuella datorer för att få högsta prestanda med minimal påverkan på arbetsbelastningar som körs.
@@ -125,24 +125,24 @@ Vi rekommenderar följande dessa metoder när du konfigurerar säkerhetskopierin
 Azure-säkerhetskopiering Kryptera inte data som en del av säkerhetskopieringen. Men du kan kryptera data i den virtuella datorn och säkerhetskopiera skyddade data sömlöst (Läs mer om [säkerhetskopiering av krypterade data](backup-azure-vms-encryption.md)).
 
 ## <a name="calculating-the-cost-of-protected-instances"></a>Beräkna kostnaden för skyddade instanser
-Virtuella Azure-datorer som säkerhetskopieras via Azure Backup är föremål för [priser för Azure Backup](https://azure.microsoft.com/pricing/details/backup/). Skyddade instanser beräkningen baseras på den *faktiska* storlek för den virtuella datorn, vilket är summan av alla data i den virtuella datorn och exklusive ”resurs-disk”.
+Virtuella Azure-datorer som säkerhetskopieras via Azure Backup är föremål för [priser för Azure Backup](https://azure.microsoft.com/pricing/details/backup/). Skyddade instanser beräkningen baseras på den *faktiska* storlek för den virtuella datorn, vilket är summan av alla data i den virtuella datorn och exklusive tillfällig lagring.
 
-Priser för säkerhetskopiering av virtuella datorer är *inte* baserat på den maximala storleken som stöds för varje datadisk som är ansluten till den virtuella datorn. Priser baseras på faktiska data som lagras i datadisk. Växeln lagring för säkerhetskopiering är på samma sätt, baserat på mängden data som lagras i Azure Backup, vilket är summan av den faktiska data i varje återställningspunkt.
+Priser för att säkerhetskopiera virtuella datorer baseras inte på den maximala storleken som stöds för varje datadisk som är ansluten till den virtuella datorn. Priser baseras på faktiska data som lagras i datadisk. Växeln lagring för säkerhetskopiering är på samma sätt, baserat på mängden data som lagras i Azure Backup, vilket är summan av den faktiska data i varje återställningspunkt.
 
 Till exempel ta en Standard A2-storlek virtuell dator med två ytterligare hårddiskar med en maximal storlek på 1 TB. Följande tabell innehåller de faktiska data som lagras på var och en av dessa diskar:
 
 | Disktyp | Maxstorlek | Faktiska data finns |
-| --- | --- | --- |
+| --------- | -------- | ----------- |
 | Operativsystemdisk |1 023 GB |17 GB |
-| Lokal disk / resurs disk |135 GB |5 GB (ingår inte för säkerhetskopiering) |
+| Lokal disk / tillfälliga disk |135 GB |5 GB (ingår inte för säkerhetskopiering) |
 | Datadisk 1 |1 023 GB |30 GB |
 | Datadisk 2 |1 023 GB |0 GB |
 
-Den *faktiska* storleken på den virtuella datorn är i det här fallet 17 GB + 30 GB + 0 GB = 47 GB. Den här skyddade instansstorleken (47 GB) blir till grund för den månatliga fakturan. När mängden data i den virtuella datorn växer används skyddade instansstorleken för fakturering ändringar därefter.
+Den verkliga storleken på den virtuella datorn är i det här fallet 17 GB + 30 GB + 0 GB = 47 GB. Den här skyddade instansstorleken (47 GB) blir till grund för den månatliga fakturan. När mängden data i den virtuella datorn växer används skyddade instansstorleken för fakturering ändringar därefter.
 
-Faktureringen startar inte förrän den första lycka säkerhetskopieringen har slutförts. Nu inleds faktureringen för både lagring och skyddade instanser. Fakturering fortsätter så länge det finns *någon säkerhetskopierade data lagras i ett valv* för den virtuella datorn. Om du stoppar skydd på den virtuella datorn, men säkerhetskopierade data för virtuella datorer finns i ett valv, fortsätter fakturering.
+Faktureringen startar inte förrän den första lycka säkerhetskopieringen har slutförts. Nu inleds faktureringen för både lagring och skyddade instanser. Fakturering fortsätter så länge det finns säkerhetskopierade data lagras i ett valv för den virtuella datorn. Om du stoppar skydd på den virtuella datorn, men säkerhetskopierade data för virtuella datorer finns i ett valv, fortsätter fakturering.
 
-Faktureringen för en angiven virtuell dator slutar endast om skyddet har stoppats *och* alla säkerhetskopierade data tas bort. När skydd stanna och det finns inga aktiva jobb för säkerhetskopiering, storleken på den senaste lyckade säkerhetskopieringen blir skyddade-instansstorleken används för varje månad.
+Fakturering för en angiven virtuell dator stoppar om skyddet har stoppats och alla säkerhetskopierade data tas bort. När skydd stanna och det finns inga aktiva jobb för säkerhetskopiering, storleken på den senaste lyckade säkerhetskopieringen blir skyddade-instansstorleken används för varje månad.
 
 ## <a name="questions"></a>Har du några frågor?
 Om du har frågor eller om du saknar en funktion är du välkommen att [lämna feedback](http://aka.ms/azurebackup_feedback).

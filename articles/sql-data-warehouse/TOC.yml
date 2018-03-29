@@ -41,8 +41,8 @@
           href: what-is-a-data-warehouse-unit-dwu-cdwu.md
         - name: 'Skala ut, pausa och återuppta'
           href: sql-data-warehouse-manage-compute-overview.md
-        - name: Säkerhetskopior av informationslager
-          href: sql-data-warehouse-backups.md
+        - name: Säkerhetskopiering och återställning
+          href: backup-and-restore.md
         - name: Granskning
           href: sql-data-warehouse-auditing-overview.md
         - name: Kapacitetsbegränsningar

@@ -1,6 +1,6 @@
 ---
-title: "DNS-namnmatchningsalternativ för Linux virtuella datorer i Azure"
-description: "Namnet upplösning scenarier för Linux virtuella datorer i Azure IaaS, inklusive tillhandahålls DNS-tjänster, hybrid externa DNS- och ta med din egen DNS-server."
+title: DNS-namnmatchningsalternativ för Linux virtuella datorer i Azure
+description: Namnet upplösning scenarier för Linux virtuella datorer i Azure IaaS, inklusive tillhandahålls DNS-tjänster, hybrid externa DNS- och ta med din egen DNS-server.
 services: virtual-machines
 documentationcenter: na
 author: RicksterCDN
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: cc06ee9305b4d3034154a0825c1aea53fe446f80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a445de3e1bfbeb2cd2e5674418688d6bb610a3c2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Alternativ för DNS-namnmatchningen för Linux virtuella datorer i Azure
 Azure tillhandahåller DNS-namnmatchning som standard för alla virtuella datorer som är i ett enda virtuellt nätverk. Du kan implementera din egen lösning för DNS-namnet lösning genom att konfigurera dina egna DNS-tjänster på dina virtuella datorer som är värd för Azure. Följande scenarier bör hjälpa dig att välja det som passar din situation.
@@ -112,7 +112,7 @@ Filen resolv.conf genereras automatiskt och bör inte redigeras. De specifika st
 2. Kör netconfig-uppdateringen att uppdatera.
 
 **CentOS av falska Wave-programvara (tidigare OpenLogic)** (använder NetworkManager)
-1. Lägga till 'echo ”alternativ timeout:1 försök: 5”' ' / etc/NetworkManager/dispatcher.d/11-dhclient'.
+1. Lägg till ' RES_OPTIONS = ”timeout:1 försök: 5” ”till” / etc/sysconfig/nätverk ”.
 2. Kör 'tjänsten network omstart' att uppdatera.
 
 ## <a name="name-resolution-using-your-own-dns-server"></a>Namnmatchning med hjälp av DNS-servern

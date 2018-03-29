@@ -1,25 +1,25 @@
 ---
-title: "Arbeta med ändringen feeds stöd i Azure Cosmos DB | Microsoft Docs"
-description: "Använda Azure Cosmos DB ändra feed stöd för att spåra ändringar i dokument och utföra händelsebaserat bearbetning som utlösare och uppdatera cacheminnen och analyser system kontinuerligt."
-keywords: "Ändra feed"
+title: Arbeta med ändringen feeds stöd i Azure Cosmos DB | Microsoft Docs
+description: Använda Azure Cosmos DB ändra feed stöd för att spåra ändringar i dokument och utföra händelsebaserat bearbetning som utlösare och uppdatera cacheminnen och analyser system kontinuerligt.
+keywords: Ändra feed
 services: cosmos-db
 author: rafats
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: e0940ab11f8840ffa2dbdbfd739340f8af5caf51
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 16f339540767246ef82bce020aacf9846c8d2e0b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Arbeta med ändringen feeds stöd i Azure Cosmos DB
 
@@ -34,7 +34,13 @@ Den **ändra feed stöd** i Azure Cosmos DB gör att du kan skapa skalbara lösn
 ![Med hjälp av Azure Cosmos DB ändra feed power analys i realtid och händelsedriven datascenarier](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Ändra feed support tillhandahålls för alla datamodeller och behållare i Azure Cosmos DB. Ändra feeden läses med hjälp av SQL-klienten och Serialiserar objekt i JSON-format. På grund av formatering, JSON MongoDB klienter får ett matchningsfel mellan BSON formaterade dokument och JSON-formaterad ändra feed. 
+> Ändra feed support tillhandahålls för alla datamodeller och behållare i Azure Cosmos DB. Ändra feeden läses med hjälp av SQL-klienten och Serialiserar objekt i JSON-format. På grund av formatering, JSON MongoDB klienter får ett matchningsfel mellan BSON formaterade dokument och JSON-formaterad ändra feed.
+
+I följande videoklipp visar Azure Cosmos DB Programhanteraren Andrew Liu hur Azure Cosmos DB ändringen feed fungerar.
+
+> [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
+>
+>
 
 ## <a name="how-does-change-feed-work"></a>Hur feed arbete av ändringen?
 

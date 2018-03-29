@@ -1,6 +1,6 @@
 ---
-title: "Aktivera replikering till Azure för VMwares virtuella datorer med Azure Site Recovery | Microsoft Docs"
-description: "Den här artikeln beskriver hur du ställer in replikering av virtuella VMware-datorer till Azure med Azure Site Recovery."
+title: Aktivera replikering till Azure för VMwares virtuella datorer med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du ställer in replikering av virtuella VMware-datorer till Azure med Azure Site Recovery.
 services: site-recovery
 author: asgang
 manager: rochakm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: asgang
-ms.openlocfilehash: 17cd6a931563c7d33576749453d742aca253526b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 48d84f59a80ea14c2b40821d886fc410c7e3f2c3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivera replikering till Azure för virtuella VMware-datorer
 
@@ -112,15 +112,15 @@ Därefter måste kontrollera du egenskaperna för källdatorn. Kom ihåg att det
     Om en källdator har två nätverkskort och måldatorn stöder fyra har måldatorn två nätverkskort. Om källdatorn har två nätverkskort men målstorleken endast stöder ett har bara en kort med måldatorn.
     - Om den virtuella datorn har flera nätverkskort, ansluta alla till samma nätverk. Dessutom den första som visas i listan blir den *standard* nätverkskort i den virtuella Azure-datorn.
 
-### <a name="azure-hybrid-use-benefit"></a>Azure Hybrid-förmånen
+### <a name="azure-hybrid-benefit"></a>Azure Hybrid-förmån
 
-Microsoft Software Assurance-kunder kan använda Azure Hybrid använda fördelen att spara på licensieringskostnader för Windows Server-datorer som har migrerats till Azure eller att använda Azure för katastrofåterställning. Om du är berättigad att använda den Azure Hybrid använda dra kan ange du att den virtuella datorn som tilldelats den här funktionen är en Azure Site Recovery skapas om det finns en växling vid fel. Gör så här:
+Microsoft Software Assurance-kunder kan använda Azure Hybrid fördelen att spara på licensieringskostnader för Windows Server-datorer som har migrerats till Azure eller använda Azure för katastrofåterställning. Om du är berättigad att använda Azure-Hybrid förmån kan ange du att den virtuella datorn som tilldelats den här funktionen är en Azure Site Recovery skapas om det finns en växling vid fel. Gör så här:
 - Gå till avsnittet beräknings- och egenskaper för den replikerade virtuella datorn.
-- Besvara frågan som frågar om du har en Windows Server-licens som gör att du är berättigad till Azure Hybrid Använd förmånen.
-- Markera kryssrutan för att bekräfta att du har en berättigad Windows Server-licens med Software Assurance, som du kan använda för att tillämpa Hybrid använda fördelen på den dator som kommer att skapas på växling vid fel.
+- Besvara frågan som frågar om du har en Windows Server-licens som gör att du är berättigad till Azure Hybrid-förmånen.
+- Markera kryssrutan för att bekräfta att du har en berättigad Windows Server-licens med Software Assurance, som du kan använda för att tillämpa förmån för Azure-Hybrid på den dator som kommer att skapas på växling vid fel.
 - Spara inställningarna för den replikerade datorn.
 
-Lär dig mer om [Azure Hybrid Använd förmån](https://aka.ms/azure-hybrid-use-benefit-pricing).
+Lär dig mer om [Azure Hybrid förmån](https://aka.ms/azure-hybrid-benefit-pricing).
 
 ## <a name="common-issues"></a>Vanliga problem
 

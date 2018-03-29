@@ -1,6 +1,6 @@
 ---
-title: "SQL-servertillgänglighet grupper - virtuella datorer i Azure - kursen | Microsoft Docs"
-description: "Den här kursen visar hur du skapar en SQL Server alltid på tillgänglighetsgrupp på Azure Virtual Machines."
+title: SQL-servertillgänglighet grupper - virtuella datorer i Azure - kursen | Microsoft Docs
+description: Den här kursen visar hur du skapar en SQL Server alltid på tillgänglighetsgrupp på Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Konfigurera alltid på Tillgänglighetsgruppen i Azure VM manuellt
 
@@ -356,7 +356,7 @@ På Azure virtual machines kräver en belastningsutjämnare i en SQL Server-till
    | **Virtuellt nätverk** |Använd namnet på virtuella Azure-nätverket. |
    | **Undernät** |Använd namnet på det undernät som den virtuella datorn finns i.  |
    | **IP-adresstilldelning** |Statisk |
-   | **IP-adress** |Använd en tillgänglig adress från undernätet. |
+   | **IP-adress** |Använd en tillgänglig adress från undernätet. Observera att detta skiljer sig från klustrets IP-adress |
    | **Prenumeration** |Använd samma prenumeration som den virtuella datorn. |
    | **Plats** |Använd samma plats som den virtuella datorn. |
 

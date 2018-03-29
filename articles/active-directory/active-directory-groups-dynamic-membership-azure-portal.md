@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 03/23/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 22fdb448dda1c824ae5e1fee6f9b2e7377680d6b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2b42840bc1053e9574e7c8ab1c68611c3b2bc7df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Skapa attributbaserade regler för dynamiska gruppmedlemskap i Azure Active Directory
 Du kan skapa avancerade regler för att aktivera avancerade attributbaserad dynamiskt medlemskap för grupper i Azure Active Directory (AD Azure). Den här artikeln beskrivs de attribut och syntax för att skapa regler för dynamiskt medlemskap för användare eller enheter.
@@ -74,7 +74,7 @@ Fullständig lista över parametrar som stöds och uttryck regeln operatorer, fi
 Den totala längden på innehållet i avancerade regeln får inte överskrida 2048 tecken.
 
 > [!NOTE]
-> Sträng och regex åtgärder är inte skiftlägeskänsliga. Du kan också utföra Null-kontroller med hjälp av *null* som en konstant, till exempel user.department - eq *null*.
+> Sträng och regex åtgärder är inte skiftlägeskänsliga. Du kan också utföra null-kontrollerna med hjälp av *null* som en konstant, till exempel user.department - eq *$null*.
 > Strängar som innehåller citattecken ”ska avgränsas med-tecken, till exempel user.department - eq \`” försäljning ”.
 
 ## <a name="supported-expression-rule-operators"></a>Stöds uttryck regeln operatorer
@@ -160,32 +160,32 @@ Tillåtna operatörer
 
 | Egenskaper | Tillåtna värden | Användning |
 | --- | --- | --- |
-| city |Någon strängvärde eller *null* |(user.city - eq ”värde”) |
-| Land |Någon strängvärde eller *null* |(User.Country. - eq ”värde”) |
-| companyName | Någon strängvärde eller *null* | (user.companyName -eq "value") |
-| Avdelning |Någon strängvärde eller *null* |(user.department - eq ”värde”) |
+| city |Någon strängvärde eller *$null* |(user.city - eq ”värde”) |
+| Land |Någon strängvärde eller *$null* |(User.Country. - eq ”värde”) |
+| companyName | Någon strängvärde eller *$null* | (user.companyName -eq "value") |
+| Avdelning |Någon strängvärde eller *$null* |(user.department - eq ”värde”) |
 | displayName |Ett värde |(user.displayName -eq "value") |
-| employeeId |Ett värde |(user.employeeId - eq ”värde”)<br>(user.employeeId - ne *null*) |
-| facsimileTelephoneNumber |Någon strängvärde eller *null* |(user.facsimileTelephoneNumber - eq ”värde”) |
-| givenName |Någon strängvärde eller *null* |(user.givenName - eq ”värde”) |
-| Befattning |Någon strängvärde eller *null* |(user.jobTitle - eq ”värde”) |
-| E-post |Någon strängvärde eller *null* (SMTP-adressen för användaren) |(user.mail - eq ”värde”) |
+| employeeId |Ett värde |(user.employeeId - eq ”värde”)<br>(user.employeeId - ne *$null*) |
+| facsimileTelephoneNumber |Någon strängvärde eller *$null* |(user.facsimileTelephoneNumber - eq ”värde”) |
+| givenName |Någon strängvärde eller *$null* |(user.givenName - eq ”värde”) |
+| Befattning |Någon strängvärde eller *$null* |(user.jobTitle - eq ”värde”) |
+| E-post |Någon strängvärde eller *$null* (SMTP-adressen för användaren) |(user.mail - eq ”värde”) |
 | mailNickName |Ett värde (e postalias för användaren) |(user.mailNickName - eq ”värde”) |
-| mobila |Någon strängvärde eller *null* |(user.mobile - eq ”värde”) |
+| mobila |Någon strängvärde eller *$null* |(user.mobile - eq ”värde”) |
 | objectId |GUID för användarobjektet |(user.objectId - eq ”1111111-1111-1111-1111-111111111111”) |
 | onPremisesSecurityIdentifier | Lokalt säkerhetsidentifierare (SID) för användare som har synkroniserats från lokalt till molnet. |(user.onPremisesSecurityIdentifier - eq ”S-1-1-11-1111111111-1111111111-1111111111-1111111”) |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Någon strängvärde eller *null* |(user.physicalDeliveryOfficeName -eq "value") |
-| Postnummer |Någon strängvärde eller *null* |(user.postalCode - eq ”värde”) |
+| physicalDeliveryOfficeName |Någon strängvärde eller *$null* |(user.physicalDeliveryOfficeName -eq "value") |
+| Postnummer |Någon strängvärde eller *$null* |(user.postalCode - eq ”värde”) |
 | preferredLanguage |ISO 639-1-kod |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |Någon strängvärde eller *null* |(user.sipProxyAddress -eq "value") |
-| state |Någon strängvärde eller *null* |(user.state - eq ”värde”) |
-| streetAddress |Någon strängvärde eller *null* |(user.streetAddress - eq ”värde”) |
-| Efternamn |Någon strängvärde eller *null* |(user.surname - eq ”värde”) |
-| telephoneNumber |Någon strängvärde eller *null* |(user.telephoneNumber - eq ”värde”) |
+| sipProxyAddress |Någon strängvärde eller *$null* |(user.sipProxyAddress -eq "value") |
+| state |Någon strängvärde eller *$null* |(user.state - eq ”värde”) |
+| streetAddress |Någon strängvärde eller *$null* |(user.streetAddress - eq ”värde”) |
+| Efternamn |Någon strängvärde eller *$null* |(user.surname - eq ”värde”) |
+| telephoneNumber |Någon strängvärde eller *$null* |(user.telephoneNumber - eq ”värde”) |
 | usageLocation |Två bokstäver landskod |(user.usageLocation -eq "US") |
 | userPrincipalName |Ett värde |(user.userPrincipalName -eq "alias@domain") |
-| UserType |medlemmen gäst *null* |(user.userType - eq ”medlem”) |
+| UserType |medlemmen gäst *$null* |(user.userType - eq ”medlem”) |
 
 ### <a name="properties-of-type-string-collection"></a>Egenskaper av typen sträng samling
 Tillåtna operatörer
@@ -226,11 +226,11 @@ Följande uttryck väljer alla användare som har alla service-plan som är asso
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-## <a name="use-of-null-values"></a>Null-värden
+## <a name="use-of-null-values"></a>Användning av null-värden
 
 Om du vill ange ett null-värde i en regel som du kan använda den *null* värde. Var noga med att inte använda citattecken runt ordet *null* -om du gör det tolkas som en teckensträng. Beskriver hur du refererar till det null-värdet är:
 ```
-   user.mail –ne null
+   user.mail –ne $null
 ```
 
 ## <a name="extension-attributes-and-custom-attributes"></a>Tilläggsattribut och anpassade attribut

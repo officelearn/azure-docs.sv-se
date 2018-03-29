@@ -1,24 +1,24 @@
 ---
-title: "DNS-Analytics lösning i Azure Log Analytics | Microsoft Docs"
-description: "Konfigurera och använda DNS-Analytics-lösning i logganalys att samla in insikter om DNS-infrastrukturen på säkerhet, prestanda och åtgärder."
+title: DNS-Analytics lösning i Azure Log Analytics | Microsoft Docs
+description: Konfigurera och använda DNS-Analytics-lösning i logganalys att samla in insikter om DNS-infrastrukturen på säkerhet, prestanda och åtgärder.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 8ead058108f39eca8682eccc296760d4b756d336
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 6a59cf8b9444fe7cb197501c51d10dae81acb027
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in insikter om din DNS-infrastruktur med DNS-Analytics Preview-lösning
 
@@ -145,7 +145,6 @@ Informationen hjälper dig att identifiera den:
 
 **Exempel på DDI Analytics frågor**. Innehåller en lista över de vanligaste sökfrågor som hämta rådata analysdata direkt.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Exempelfrågor](./media/log-analytics-dns/queries.png)
 
@@ -166,7 +165,7 @@ Du kan använda de här frågorna som utgångspunkt för att skapa egna frågor 
 
 På sidan Logga, kan du skapa en fråga. Du kan filtrera sökresultaten genom att använda aspekten kontroller. Du kan också skapa avancerade frågor för att transformera, filter och rapporten på dina resultat. Starta med hjälp av följande frågor:
 
-1. I den **frågan sökrutan**, typen `Type=DnsEvents` att visa alla DNS-händelser som genererats av DNS-servrar som hanteras av lösningen. Loggdata för alla händelser relaterade till sökning-frågor, dynamiska registreringar och konfigurationsändringar resultatlistan.
+1. I den **frågan sökrutan**, typen `DnsEvents` att visa alla DNS-händelser som genererats av DNS-servrar som hanteras av lösningen. Loggdata för alla händelser relaterade till sökning-frågor, dynamiska registreringar och konfigurationsändringar resultatlistan.
 
     ![DnsEvents loggen Sök](./media/log-analytics-dns/log-search-dnsevents.png)  
 
@@ -176,7 +175,7 @@ På sidan Logga, kan du skapa en fråga. Du kan filtrera sökresultaten genom at
 
     c. Om du vill visa loggdata för konfigurationsändringar **ConfigurationChange** som den **undertyp** filter från aspekten kontrollen till vänster. En tabell som listar alla konfigurationsändringshändelserna för den valda tidsperioden visas.
 
-2. I den **frågan sökrutan**, typen `Type=DnsInventory` att visa alla DNS-inventeringsrelaterade data för de DNS-servrar som hanteras av lösningen. Loggdata för DNS-servrar, DNS-zoner och resursposter resultatlistan.
+2. I den **frågan sökrutan**, typen `DnsInventory` att visa alla DNS-inventeringsrelaterade data för de DNS-servrar som hanteras av lösningen. Loggdata för DNS-servrar, DNS-zoner och resursposter resultatlistan.
 
     ![DnsInventory loggen Sök](./media/log-analytics-dns/log-search-dnsinventory.png)
 

@@ -1,8 +1,8 @@
 ---
-title: "Kör bakgrundsaktiviteter med WebJobs i Azure App Service"
-description: "Lär dig hur du använder WebJobs för att köra bakgrundsaktiviteter i Azure App Service web apps, API apps och mobilappar."
+title: Kör bakgrundsaktiviteter med WebJobs i Azure App Service
+description: Lär dig hur du använder WebJobs för att köra bakgrundsaktiviteter i Azure App Service web apps, API apps och mobilappar.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: tdykstra
 manager: erikre
 editor: jimbe
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 3652e0171e0c6a53c16fb5b5fde20df9ed2ab7c7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f41cc83bfb18146e46e7d8501318acd68ce9c421
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Kör bakgrundsaktiviteter med WebJobs i Azure App Service
 
@@ -170,15 +170,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="cron-expressions"></a>CRON-uttryck
 
-En [CRON-uttryck](https://en.wikipedia.org/wiki/Cron) består av sex fält: `{second} {minute} {hour} {day} {month} {day of the week}`.  Här följer några exempel:
-
-* Var 15: e minut: `0 */15 * * * *`
-* Varje timme (det vill säga när antalet minuter är 0): `0 0 * * * *` 
-* Varje timme från 9: 00 och 17: 00: `0 0 9-17 * * *` 
-* På 9:30:00 varje dag: `0 30 9 * * *`
-* På 9:30:00 varje vardag: `0 30 9 * * 1-5`
-
-Du kan ange CRON-uttryck i portalen eller inkluderar en `settings.job` filen i roten på din Webbjobb *.zip* filen, som i följande exempel:
+Du kan ange en [CRON-uttryck](../azure-functions/functions-bindings-timer.md#cron-expressions) i portalen eller innehåller en `settings.job` filen i roten på din Webbjobb *.zip* filen, som i följande exempel:
 
 ```json
 {

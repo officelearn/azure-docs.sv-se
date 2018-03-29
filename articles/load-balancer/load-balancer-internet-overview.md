@@ -1,6 +1,6 @@
 ---
-title: "Översikt över belastningen belastningsutjämnare mot Internet | Microsoft Docs"
-description: "Översikt för Internet facing belastningsutjämnare och dess funktioner. Hur fungerar en belastningsutjämnare för Azure med hjälp av virtuella datorer och molntjänster."
+title: Översikt över belastningen belastningsutjämnare mot Internet | Microsoft Docs
+description: Översikt för Internet facing belastningsutjämnare och dess funktioner. Hur fungerar en belastningsutjämnare för Azure med hjälp av virtuella datorer och molntjänster.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5b9ffeadf6b1ffc4eaf4f49b85ba752c27da0e46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14375dc7777a4f24db9f7246e6e99f26bd0eb858
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="internet-facing-load-balancer-overview"></a>Internet Internetriktade belastningen översikt över belastningsutjämnare
 
@@ -38,7 +38,7 @@ Följande bild visar en belastningsutjämnad slutpunkt för webbtrafik som delas
 
 Bild 1 - belastningsutjämnade slutpunkt för webbtrafik
 
-När Internet-klienter skickar webbsida begäranden till den offentliga IP-adressen för Molntjänsten på TCP-port 80, distribuerar Azure belastningsutjämnare begäranden mellan tre virtuella datorer i den belastningsutjämnade uppsättningen. Mer information om belastningen belastningsutjämnaren algoritmer finns i [belastningen belastningsutjämnaren översiktssidan](load-balancer-overview.md#load-balancer-features).
+När Internet-klienter skickar webbsida begäranden till den offentliga IP-adressen för Molntjänsten på TCP-port 80, distribuerar Azure belastningsutjämnare begäranden mellan tre virtuella datorer i den belastningsutjämnade uppsättningen. Mer information om belastningen belastningsutjämnaren algoritmer finns i [grundläggande belastningen belastningsutjämnaren översiktssidan](load-balancer-overview.md#fundamental-load-balancer-features).
 
 Som standard distribuerar Azure belastningsutjämnare nätverkstrafik jämnt mellan flera virtuella datorer. Du kan också konfigurera sessionen tillhörighet mer information finns i [belastningsdistributionsläget nätverksbelastningsutjämning](load-balancer-distribution-mode.md).
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 3/23/2018
 ms.author: amitsriva
-ms.openlocfilehash: c739d98f81bafb6474995b141cab3400bcb4dc33
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dfa451a06fbadbb63c83f800ac164db399efd583
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Backend-hälsotillstånd, diagnostikloggar och mått för Programgateway
 
@@ -176,7 +176,7 @@ Azure genererar aktivitetsloggen som standard. Loggarna finns kvar i 90 dagar i 
 |clientPort     | Ursprungliga port för begäran.       |
 |HttpMethod     | HTTP-metod som används av begäran.       |
 |requestUri     | URI för tog emot begäran.        |
-|RequestQuery     | **Server-dirigerat**: backend-pool-instans som begäran skickades. </br> **X-AzureApplicationGateway-LOG-ID**: Korrelations-ID som används för begäran. Det kan användas för att felsöka problem med trafik på backend-servrar. </br>**SERVER-STATUS**: HTTP-svarskoden Programgateway togs emot från serverdelen.       |
+|RequestQuery     | **Server-dirigerat**: backend-pool-instans som begäran skickades.</br>**X-AzureApplicationGateway-LOG-ID**: Korrelations-ID som används för begäran. Det kan användas för att felsöka problem med trafik på backend-servrar. </br>**SERVER-STATUS**: HTTP-svarskoden Programgateway togs emot från serverdelen.       |
 |UserAgent     | Användaragent från HTTP-huvudet i begäran.        |
 |httpStatus     | HTTP-statuskod som returneras till klienten från Application Gateway.       |
 |httpVersion     | HTTP-version för begäran.        |
@@ -316,9 +316,21 @@ Du kan också ansluta till ditt lagringskonto och hämta JSON-loggposter för å
 
 ## <a name="metrics"></a>Mått
 
-Mått är en funktion för vissa Azure-resurser där du kan visa prestandaräknare i portalen. För Programgateway är ett enskilt mått tillgängligt nu. Det här måttet är genomflöde och du kan se den i portalen. Bläddra till en Programgateway och på **mått**. Välj om du vill visa värden genomflöde i den **tillgängliga mått** avsnitt. I följande bild kan se du ett exempel med de filter som du kan använda för att visa data i olika tidsintervall.
+Mått är en funktion för vissa Azure-resurser där du kan visa prestandaräknare i portalen. För Programgateway finns följande mått:
 
-![Måttvy med filter][5]
+- Aktuella anslutningar
+- Misslyckade förfrågningar
+- Felfri värden antal
+- Response-Status
+- Dataflöde
+- Totalt antal begäranden
+- Felaktiga värden antal
+
+Bläddra till en Programgateway under **övervakning** klickar du på **mått**. Om du vill visa tillgängliga värden, Välj den **mått** listrutan.
+
+I följande bild kan se du ett exempel med tre mått som visas för de senaste 30 minuterna:
+
+[![](media/application-gateway-diagnostics/figure5.png "Måttvy")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 Om du vill se en lista över mått finns [stöds mått med Azure-Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
@@ -336,7 +348,7 @@ I följande exempel vägleder dig genom att skapa en aviseringsregel som skickar
 
    * I den **villkoret** selector, Välj ett av de fyra värdena: **större än**, **större än eller lika med**, **mindre än**, eller **mindre än eller lika med**.
 
-   * I den **Period** selector, Välj en period mellan 5 och 6 timmar.
+   * I den **Period** selector, Välj en tid från fem minuter till sex timmar.
 
    * Om du väljer **e-ägare, deltagare och läsare**, e-postmeddelandet kan vara dynamiska baserat på de användare som har åtkomst till resursen. Annars kan du ange en kommaavgränsad lista över användare i den **ytterligare administratören email(s)** rutan.
 

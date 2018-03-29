@@ -1,8 +1,8 @@
 ---
-title: "Simulera Azure IoT kanten på Linux | Microsoft Docs"
-description: "Installera Azure IoT kant körning på en simulerad enhet i Linux och distribuera din första modulen"
+title: Simulera Azure IoT kanten på Linux | Microsoft Docs
+description: Installera Azure IoT kant körning på en simulerad enhet i Linux och distribuera din första modulen
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 65a3f6d71c0c0d92f703a5d48760dd348c726ba4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Distribuera Azure IoT kanten på en simulerad enhet i Linux eller MacOS - förhandsgranskning
 
@@ -37,6 +37,11 @@ Den här kursen använder din dator eller virtuell dator som en Sakernas Interne
 
 * Python pip att installera IoT kant-körningsmiljön.
    * Linux: `sudo apt-get install python-pip`.
+     * _Observera att på vissa distributioner (t.ex. Raspbian), måste du kanske också vill uppgradera vissa pip-paket och installera ytterligare beroenden:_
+     ```
+     sudo pip install --upgrade setuptools pip
+     sudo apt-get install python2.7-dev libffi-dev libssl-dev
+     ```
    * MacOS: `sudo easy_install pip`.
 * Docker att köra IoT-Edge moduler
    * [Installera Docker för Linux] [ lnk-docker-ubuntu] och se till att den körs. 
@@ -70,7 +75,7 @@ sudo pip install -U azure-iot-edge-runtime-ctl
 
 Konfigurera körningen med anslutningssträngen IoT kant enheten från föregående avsnitt:
 ```cmd
-sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Starta körningen:

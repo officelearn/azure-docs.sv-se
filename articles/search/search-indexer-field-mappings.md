@@ -1,11 +1,11 @@
 ---
-title: "Fältet avbildningar i Azure Search indexerare"
-description: "Konfigurera Azure Search indexeraren fältet diagrammen efter skillnader mellan fältnamn och representationer av data"
+title: Fältet avbildningar i Azure Search indexerare
+description: Konfigurera Azure Search indexeraren fältet diagrammen efter skillnader mellan fältnamn och representationer av data
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 0325a4de-0190-4dd5-a64d-4e56601d973b
 ms.service: search
 ms.devlang: rest-api
@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: 3f2ead208ea1525489a40d1fb637da47cd8a9b24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4d6960e540641405b879064a8064d45521dc04f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Fältet avbildningar i Azure Search indexerare
 När du använder Azure Search indexerare hittar ibland du själv i situationer där dina indata ganska inte matchar schemat för mål-index. I sådana fall kan du använda **fältet mappningar** att omvandla dina data till önskad form.
@@ -60,7 +60,7 @@ En indexerare kan ha flera fältmappningar. Till exempel här är hur du kan ”
 
 "fieldMappings" : [
     { "sourceFieldName" : "text", "targetFieldName" : "textStandardEnglishAnalyzer" },
-    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" },
+    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }
 ]
 ```
 

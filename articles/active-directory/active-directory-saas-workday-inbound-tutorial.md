@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Konfigurera Workday för automatisk användaretablering med Azure Active Directory | Microsoft Docs"
-description: "Lär dig hur du använder Workday som datakälla identitet för Active Directory och Azure Active Directory."
+title: 'Självstudier: Konfigurera Workday för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du använder Workday som datakälla identitet för Active Directory och Azure Active Directory.
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 976d7e7cb304a24f235e51952ce04826776e2789
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -397,9 +397,9 @@ När du har installerat agenten, kör Powershell-kommandona nedan att konfigurer
 
 **Kommandot #1**
 
-> CD C:\\programfiler\\Microsoft Azure Active Directory-synkronisering Agent\\moduler\\AADSyncAgent
+> CD ”C:\Program Files\Microsoft Azure AD Connect etablering Agent\Modules\AADSyncAgent”-agenten\\moduler\\AADSyncAgent
 
-> import-module AADSyncAgent.psd1
+> Import-Module ”C:\Program Files\Microsoft Azure AD Connect etablering Agent\Modules\AADSyncAgent\AADSyncAgent.psd1”
 
 **Kommandot #2**
 
@@ -416,6 +416,9 @@ När du har installerat agenten, kör Powershell-kommandona nedan att konfigurer
 
 >[!IMPORTANT]
 >Det finns för närvarande ett känt problem med global administratörsbehörighet fungerar inte om de använder en anpassad domän (exempel: admin@contoso.com). Som en tillfällig lösning kan du skapa och använda ett globalt administratörskonto med en onmicrosoft.com-domän (exempel: admin@contoso.onmicrosoft.com)
+
+>[!IMPORTANT]
+>Det finns för närvarande ett känt problem med global administratörsbehörighet fungerar inte om de har multifaktorautentisering aktiveras. Inaktivera multifaktorautentisering för den globala administratören som en lösning.
 
 
 **Kommandot #4**

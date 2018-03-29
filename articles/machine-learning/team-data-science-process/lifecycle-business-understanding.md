@@ -1,24 +1,24 @@
 ---
-title: "Företag att förstå fas i livscykeln Team datavetenskap Process - Azure | Microsoft Docs"
-description: "Mål, uppgifter och produkterna för företag att förstå steg i datavetenskap projekt"
+title: Företag att förstå fas i livscykeln Team datavetenskap Process - Azure | Microsoft Docs
+description: Mål, uppgifter och produkterna för företag att förstå steg i datavetenskap projekt
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 82784cbfd5f12297c376a395b54a817a2ae915a5
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: daaaccaeac196b5f4651183173c8e83085d5184d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="business-understanding"></a>Förståelse för verksamheten
 
@@ -80,7 +80,7 @@ Till exempel kanske du upptäcker att de befintliga system behöver samla in och
 Här följer resultat i det här steget:
 
    * [Auktoriserad dokumentet](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): en standardmall tillhandahålls i TDSP projektet struktur definitionen. Auktoriserad dokumentet är en levande. Du kan uppdatera mallen i projektet som du gör nya identifieringar och som företagets behov förändras. Nyckeln är att iterera när det här dokumentet, lägga till fler detaljer slutföra identifieringsprocessen. Behåll kunden och andra berörda parter som är involverad i att göra ändringarna och tydligt kommunicera skälen för att ändringarna ska dem.  
-   * [Datakällor](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): den **rådata källor** avsnitt i den **datadefinitioner** rapporten som finns i projektet TDSP **Data rapporten** mappen innehåller de datakällor. Det här avsnittet anger de ursprungliga- och målplatserna för rådata. I senare steg kan du fylla i ytterligare information som skript för att flytta data till din analytiska miljö.  
+   * [Datakällor](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): den **rådata källor** avsnitt i den **datadefinitioner** rapporten som finns i projektet TDSP **Data rapporten** mappen innehåller data källor. Det här avsnittet anger de ursprungliga- och målplatserna för rådata. I senare steg kan du fylla i ytterligare information som skript för att flytta data till din analytiska miljö.  
    * [Data ordlistor](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): det här dokumentet innehåller beskrivningar av de data som tillhandahålls av klienten. Dessa beskrivningar innehåller information om schemat (datatyper och information om valideringsregler, om sådana finns) och entitet relations-diagram, om det är tillgängligt.
 
 ## <a name="next-steps"></a>Nästa steg

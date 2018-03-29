@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor och svar om Azure trafik Analytics | Microsoft Docs
-description: Få svar på några av de vanligaste frågorna om trafik Analytics.
+title: Vanliga frågor och svar om Azure-trafik analytics | Microsoft Docs
+description: Få svar på några av de vanligaste frågorna om trafik analytics.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: b9090f91db11b5bde53f3652028030201f135fa5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 01d5150bff8642a1a3fe9b7ac063923916f191c0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafik Analytics
+# <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafik analytics
 
-1.  Vilka är kraven att använda trafik Analytics?
+1.  Vilka är kraven att använda trafik analytics?
 
     Trafik Analytics kräver följande förutsättningar:
 
@@ -42,9 +42,9 @@ ms.lasthandoff: 03/23/2018
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
 
-2.  Vilka Azure-regioner är trafik Analytics?
+2.  Vilka Azure-regioner är trafik analytics?
 
-    I förhandsversionen kan du använda trafik Analytics för NSG: er i något av följande **regioner som stöds**: Väst centrala USA, östra USA, östra USA 2, norra centrala USA, södra centrala USA, centrala USA, västra USA, västra USA 2, Västeuropa, Norra Europa , Västra Storbritannien, Syd Storbritannien, Östra Australien och Australien sydost. Logganalys-arbetsytan måste finnas i i West centrala USA, östra USA, västra Europa, Östra Australien, sydost eller Syd Storbritannien region.
+    I förhandsversionen kan du använda trafik analytics för NSG: er i något av följande **regioner som stöds**: Väst centrala USA, östra USA, östra USA 2, norra centrala USA, södra centrala USA, centrala USA, västra USA, västra USA 2, Västeuropa, Norra Europa , Västra Storbritannien, Syd Storbritannien, Östra Australien och Australien sydost. Logganalys-arbetsytan måste finnas i i West centrala USA, östra USA, västra Europa, Östra Australien, sydost eller Syd Storbritannien region.
 
 3.  Kan NSG: er som jag aktivera flödet loggar för finnas i olika regioner än OMS-arbetsytan?
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/23/2018
 12.  Om följande meddelande: ”1) analysera din NSG trafikflödet loggar för första gången. Den här processen kan ta 20 – 30 minuter att slutföra. Kontrollera igen efter en stund. 2) om steget ovan fungerar inte och din arbetsyta är under den kostnadsfria SKU: N och sedan kontrollera din användning av arbetsytan här för att verifiera över kvoten, eller Läs i vanliga frågor och svar för ytterligare information ”, hur löser jag det?
 
         Du får felet av följande skäl:
-        - Trafik Analytics kan har nyligen ändrats och kan sammanställa tillräckligt med data att härleda insikter som beskrivande innan några rapporter kan genereras. I det här fallet, försök igen efter 30 minuter
+        - Trafik analytics kan har nyligen ändrats och kan sammanställa tillräckligt med data att härleda insikter som beskrivande innan några rapporter kan genereras. I det här fallet, försök igen efter 30 minuter
         - Din OMS-arbetsyta är under den kostnadsfria SKU: N och det utsatts för intrång kvotgränserna. I det här fallet kan du behöva använda en arbetsyta i en SKU med större kapacitet.
     
         Om problem kvarstår höja frågor i den [röst användarforum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
@@ -104,9 +104,9 @@ ms.lasthandoff: 03/23/2018
 
         Du ser resurser information på instrumentpanelen; dock finns inga flödet-relaterad statistik. Data finns inte på grund av ingen kommunikation som flödar mellan resurser. Vänta 60 minuter och kontrollera status. Om du är säker på att kommunikationsflöden mellan resurserna finns, och sedan öka frågor i den [röst användarforum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14.  Hur prissätts trafik Analytics?
+14.  Hur prissätts trafik analytics?
 
-        Trafik Analytics förbrukade för att utöka minskade loggar och lagra förbättrad loggar i logganalys-arbetsytan. Under förhandsgranskning, debiteras trafiken Analytics inte för att utöka minskade loggarna, men förvaring av data i en arbetsyta regleras fakturering på publicerade priser. Det här svaret kommer att uppdateras när priser för trafik Analytics är tillgänglig.
+        Trafik analytics förbrukade för att utöka minskade loggar och lagra förbättrad loggar i logganalys-arbetsytan. Under förhandsgranskning, debiteras trafiken analytics inte för att utöka minskade loggarna, men förvaring av data i en arbetsyta regleras fakturering på publicerade priser. Det här svaret kommer att uppdateras när priser för trafik analytics är tillgänglig.
 
 15.  Hur kan jag navigera på tangentbordet i Geo kartvyn?
 

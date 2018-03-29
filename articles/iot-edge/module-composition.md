@@ -1,19 +1,19 @@
 ---
-title: "Azure IoT kant modulsammansättningen | Microsoft Docs"
-description: "Lär dig vad hamnar i Azure IoT kant-moduler och hur de kan återanvändas"
+title: Azure IoT kant modulsammansättningen | Microsoft Docs
+description: Lär dig vad hamnar i Azure IoT kant-moduler och hur de kan återanvändas
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/14/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4b59a715919e38e68c3b7518932617e9950940e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7df566ced755e1e817b3107dac8f17e9f6e9b8e4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Förstå hur IoT kant moduler kan användas, konfigurerad, och återanvänds - förhandsgranskning
 
@@ -134,32 +134,21 @@ Källan anger om meddelanden kommer från. Det kan vara något av följande vär
 ### <a name="condition"></a>Villkor
 Villkoret är valfritt i en deklaration för vägen. Om du vill skicka alla meddelanden från sink till källan lämna den **där** satsen helt. Eller så kan du använda den [IoT-hubb frågespråket] [ lnk-iothub-query] för vissa filtrera meddelanden eller meddelandetyper som uppfyller villkoret.
 
-Azure IoT-meddelanden formateras som JSON och alltid ha minst en **brödtext** parameter. Exempel:
+Meddelanden som skickas mellan moduler i IoT kant formateras samma som de meddelanden som skickas mellan enheter och Azure IoT Hub. Alla meddelanden som är formaterade som JSON och har **systemProperties**, **appProperties**, och **brödtext** parametrar. 
 
-```json
-"message": {
-    "body":{
-        "ambient":{
-            "temperature": 54.3421,
-            "humidity": 25
-        },
-        "machine":{
-            "status": "running",
-            "temperature": 62.2214
-        }
-    },
-    "appProperties":{
-        ...
-    }
-}
+Du kan bygga frågor kring alla tre parametrar med följande syntax: 
+
+* Systemegenskaper: `$<propertyName>` eller `{$<propertyName>}`
+* Egenskaper för program: `<propertyName>`
+* Brödtext egenskaper: `$body.<propertyName>` 
+
+Exempel om hur du skapar frågor för meddelandeegenskaper finns [enhet till moln meddelandet vägar fråga uttryck](../iot-hub/iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
+
+Ett exempel som är specifik för IoT-gräns är när du vill filtrera efter meddelanden som anlänt på en gateway-enhet från en lägsta enhet. Meddelanden som kommer från moduler innehåller en systemegenskap som kallas **connectionModuleId**. Så om du vill skicka meddelanden från löv enheter direkt till IoT-hubb, Använd följande väg för att utesluta modulen meddelanden:
+
+```sql
+FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
-
-Det här exempelmeddelandet får finns ett antal villkor som ska kunna definieras som:
-* `WHERE $body.machine.status != "running"`
-* `WHERE $body.ambient.temperature <= 60 AND $body.machine.temperature >= 60`
-
-Villkoret kan också användas för att sortera meddelandetyper, till exempel i en gateway som du vill skicka meddelanden som kommer från löv enheter. Meddelanden som kommer från moduler innehåller en specifik egenskap som kallas **connectionModuleId**. Så om du vill skicka meddelanden från löv enheter direkt till IoT-hubb, Använd följande väg för att utesluta modulen meddelanden:
-* `FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream`
 
 ### <a name="sink"></a>Mottagare
 Sink definierar där meddelanden skickas. Det kan vara något av följande värden:

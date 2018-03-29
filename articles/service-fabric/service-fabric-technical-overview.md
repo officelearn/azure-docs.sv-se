@@ -1,6 +1,6 @@
 ---
-title: "Läs Azure Service Fabric-terminologi | Microsoft Docs"
-description: "En terminologi översikt över Service Fabric. Beskriver viktiga termer begrepp och termer som används i resten av dokumentationen."
+title: Läs Azure Service Fabric-terminologi | Microsoft Docs
+description: En terminologi översikt över Service Fabric. Beskriver viktiga termer begrepp och termer som används i resten av dokumentationen.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/18/2017
+ms.date: 03/26/2018
 ms.author: ryanwi
-ms.openlocfilehash: dc7e536ce40bf95e1950e1e44844cd8fe26ea1a1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: bd57b6344baef3bdf97c850564ae2d3afa9c811e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-terminology-overview"></a>Översikt över Service Fabric-terminologi
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster. Den här artikeln beskrivs de termer som används av Service Fabric att du förstår de termer som används i dokumentationen.
@@ -26,7 +26,7 @@ Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att
 Koncept i det här avsnittet beskrivs också i följande videor för Microsoft Virtual Academy: <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">viktiga begrepp</a>, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">designläge begrepp</a>, och <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">Runtime begrepp</a>.
 
 ## <a name="infrastructure-concepts"></a>Begrepp för infrastrukturen
-**Klustret**: en nätverksansluten uppsättning virtuella eller fysiska datorer som din mikrotjänster distribueras och hanteras.  Kluster kan skalas till tusentals datorer.
+**Klustret**: en nätverksansluten uppsättning virtuella eller fysiska datorer som din mikrotjänster distribueras och hanteras.  Kluster kan skalas upp till tusentals datorer.
 
 **Noden**: en dator eller virtuell dator som ingår i ett kluster kallas en *nod*. Varje nod har tilldelats ett nodnamn (en sträng). Noder har egenskaper som till exempel placeringsegenskaper. Varje dator eller virtuell dator har en Windows-tjänsten för automatisk start, `FabricHost.exe`, som startar vid start och startar sedan två körbara filer: `Fabric.exe` och `FabricGateway.exe`. Dessa två körbara filer som utgör noden. För att testa scenarier, du kan vara värd för flera noder i en enskild dator eller virtuell dator genom att köra flera instanser av `Fabric.exe` och `FabricGateway.exe`.
 
@@ -89,12 +89,22 @@ Läs den [distribuera ett program](service-fabric-deploy-remove-applications.md)
    - Samordnar program och kluster uppgraderingar.
    - Samverkar med andra systemkomponenter.
 
+**Reparera Manager-tjänsten**: Detta är ett valfritt systemtjänst som gör att repareringsåtgärder kan utföras på ett kluster på ett sätt som är felsäkert automatable och transparent. Reparera manager används på:
+   - Utföra Azure Underhåll reparerar på [Silver- och guld hållbarhet](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Azure Service Fabric-kluster.
+   - Utföra reparationsåtgärder för [korrigering Orchestration-program](service-fabric-patch-orchestration-application.md)
+
 ## <a name="built-in-programming-models"></a>Inbyggda programmeringsmodeller
-.NET Framework programmeringsmodeller är tillgängliga för dig att skapa Service Fabric-tjänster:
+.NET Framework och Java programmeringsmodeller är tillgängliga för dig att skapa Service Fabric-tjänster:
 
 **Reliable Services**: en API för att skapa tillståndslösa och tillståndskänsliga tjänster. Tillståndskänsliga tjänster lagrar sina tillstånd i tillförlitliga samlingar, till exempel en ordlista eller en kö. Du kan också ansluta olika kommunikation stackar, till exempel webb-API och Windows Communication Foundation (WCF).
 
 **Reliable Actors**: en API för att skapa tillståndslösa och tillståndskänsliga objekt genom virtuella aktören programmeringsmiljö. Den här modellen är användbart när du har många oberoende enheter av beräkning eller tillstånd. Den här modellen används en bygger trådade modell, så det är bäst att undvika kod som anropar till andra aktörer eller tjänster, eftersom en enskilda aktören inte kan behandla andra inkommande begäranden tills alla utgående förfrågningar är klar.
+
+Du kan också köra befintliga program på Service Fabric:
+
+**Behållare**: Service Fabric stöder distribution av Docker-behållare i Linux och Windows Server-behållare på Windows Server 2016 tillsammans med stöd för Hyper-V-isoleringsläge. I Service Fabric [programmodell](service-fabric-application-model.md), en behållare representerar en programvärd i vilken flera tjänst repliker placeras. Service Fabric kan köra behållare och scenariot liknar gäst körbara scenariot, där du paketerar ett befintligt program i en behållare. Dessutom kan du [köra Service Fabric-tjänster i behållare](service-fabric-services-inside-containers.md) samt.
+
+**Gästen körbara filer**: du kan köra alla typer av kod, exempelvis Node.js, Java eller C++ i Azure Service Fabric som en tjänst. Service Fabric refererar till dessa typer av tjänster som gäst körbara filer som behandlas som tillståndslösa tjänster. Fördelarna med att köra gäst körbara i ett Service Fabric-kluster innehåller hög tillgänglighet, övervakning av hälsotillstånd, livscykelhantering för programmet, hög densitet och synlighet.
 
 Läs den [väljer du en programmeringsmodell för din tjänst](service-fabric-choose-framework.md) artikel för mer information.
 

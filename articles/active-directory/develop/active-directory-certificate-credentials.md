@@ -1,33 +1,33 @@
 ---
 title: Certifikat autentiseringsuppgifter i Azure AD | Microsoft Docs
-description: "Den här artikeln beskrivs registrering och användning av autentiseringsuppgifter för certifikat för autentisering"
+description: Den här artikeln beskrivs registrering och användning av autentiseringsuppgifter för certifikat för autentisering
 services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 03/15/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7c58b4ebd840aca555b52a03cf44ace311b64e3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Autentiseringsuppgifter för certifikat för autentisering
 
-Azure Active Directory kan ett program att använda sina egna autentiseringsuppgifter för autentisering, till exempel i flödet för OAuth 2.0 klientens autentiseringsuppgifter Grant ([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)) och On-Behalf-Of-flöde ([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
+Azure Active Directory kan ett program att använda sina egna autentiseringsuppgifter för autentisering. Till exempel i flödet för OAuth 2.0 klientens autentiseringsuppgifter Grant ([v1](active-directory-protocols-oauth-service-to-service.md), [v2](active-directory-v2-protocols-oauth-client-creds.md)) och On-Behalf-Of-flöde ([v1](active-directory-protocols-oauth-on-behalf-of.md), [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 En form av autentiseringsuppgifter som kan användas är en JSON Web Token(JWT) assertion signeras med ett certifikat som programmet äger.
 
 ## <a name="format-of-the-assertion"></a>Formatet på kontrollen
-Om du vill beräkna kontrollen, vill du förmodligen använda en av många [JSON Web Token](https://jwt.io/) bibliotek på önskat språk. Informationen som token är:
+Om du vill beräkna kontrollen, vill du förmodligen använda en av många [JSON Web Token](https://jwt.ms/) bibliotek på önskat språk. Informationen som token är:
 
 #### <a name="header"></a>Sidhuvud
 
@@ -43,10 +43,10 @@ Om du vill beräkna kontrollen, vill du förmodligen använda en av många [JSON
 | --- | --- |
 | `aud` | Målgrupp: Bör vara  **https://login.microsoftonline.com/ *tenant_Id*  /oauth2/token** |
 | `exp` | Förfallodatum: det datum då token upphör att gälla. Tiden representeras som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills giltigheten token upphör att gälla.|
-| `iss` | Utgivare: bör vara client_id (program-Id för klient-tjänst) |
+| `iss` | Utgivare: bör vara client_id (program-ID för klient-tjänst) |
 | `jti` | GUID: JWT ID |
 | `nbf` | Inte före: datum före vilken token inte kan användas. Tiden representeras som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills token har utfärdats. |
-| `sub` | Ämne: som för `iss`, bör vara client_id (program-Id för klient-tjänst) |
+| `sub` | Ämne: som för `iss`, bör vara client_id (program-ID för klient-tjänst) |
 
 #### <a name="signature"></a>Signatur
 
@@ -85,7 +85,14 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Registrera ditt certifikat med Azure AD
 
-Om du vill associera certifikat-autentiseringsuppgifter med klientprogrammet i Azure AD, måste du redigera programmanifestet.
+Du kan associera certifikat-autentiseringsuppgifter med klientprogrammet i Azure AD via Azure-portalen med hjälp av följande metoder:
+
+**Överföring av certifikatfilen**
+
+I Azure-app-registrering för klientprogrammet klickar du på **inställningar**, klickar du på **nycklar** och klicka sedan på **överför offentliga nyckel**. Välj den certifikatfil du vill överföra och klicka på **spara**. När du sparar certifikatet som överförs och certifikatets tumavtryck startdatum och upphör att gälla visas värden. 
+
+**Uppdatera programmanifestet**
+
 Med undantag för ett certifikat, måste du beräkna:
 
 - `$base64Thumbprint`, vilket är base64-kodning av certifikat-Hash

@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Domain Services: Anslut en virtuell CoreOS Linux-dator till en hanterad domän | Microsoft Docs"
+title: 'Azure Active Directory Domain Services: Anslut en virtuell CoreOS Linux-dator till en hanterad domän | Microsoft Docs'
 description: Anslut en virtuell CoreOS Linux-dator till Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 790ad85df0dbf68674e2b9c6254858100ddfd0fd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c7290db73645a4e1e745142f266aabc6df735df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Anslut en virtuell CoreOS Linux-dator till en hanterad domän
 Den här artikeln visar hur du ansluter till en virtuell CoreOS Linux-dator i Azure till en hanterad Azure AD DS-domän.
@@ -140,7 +140,7 @@ Kontrollera om datorn har anslutit till den hanterade domänen. Ansluta till dom
 
 
 ## <a name="troubleshooting-domain-join"></a>Felsöka domänanslutning
-Referera till den [felsökning domänanslutning](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) artikel.
+Referera till den [felsökning domänanslutning](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) artikel.
 
 ## <a name="related-content"></a>Relaterat innehåll
 * [Azure AD Domain Services - komma igång-guide](active-directory-ds-getting-started.md)

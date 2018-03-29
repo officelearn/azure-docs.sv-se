@@ -1,6 +1,6 @@
 ---
-title: "Riktlinjer och rekommendationer för tillförlitlig samlingar i Azure Service Fabric | Microsoft Docs"
-description: "Riktlinjer och rekommendationer för att använda tillförlitliga samlingar för Service Fabric"
+title: Riktlinjer och rekommendationer för tillförlitlig samlingar i Azure Service Fabric | Microsoft Docs
+description: Riktlinjer och rekommendationer för att använda tillförlitliga samlingar för Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 27ea71bcc378100e613a8edd1c57a93f3c9ed925
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b0eb6a5aab5e71c0a8ac8263e177c493a07dafc0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Riktlinjer och rekommendationer för tillförlitlig samlingar i Azure Service Fabric
 Det här avsnittet innehåller riktlinjer för att använda tillförlitliga Tillståndshanterare och tillförlitlig samlingar. Målet är att hjälpa användare att undvika vanliga fallgropar.
@@ -52,7 +52,6 @@ Här följer några saker att tänka på:
 ### <a name="next-steps"></a>Nästa steg
 * [Arbeta med Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transaktioner och lås](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Tillförlitliga tillstånd Manager och samling Internals](service-fabric-reliable-services-reliable-collections-internals.md)
 * Datahantering
   * [Säkerhetskopiering och återställning](service-fabric-reliable-services-backup-restore.md)
   * [Meddelanden](service-fabric-reliable-services-notifications.md)

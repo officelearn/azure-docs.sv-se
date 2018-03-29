@@ -1,24 +1,24 @@
 ---
-title: "Med hjälp av Azure CLI 2.0 med Azure Storage | Microsoft Docs"
-description: "Lär dig hur du använder Azure-kommandoradsgränssnittet (Azure CLI) 2.0 med Azure Storage för att skapa och hantera storage-konton och arbeta med Azure-blobbar och filer. Azure CLI 2.0 är ett verktyg för flera plattformar som skrivits i Python."
+title: Med hjälp av Azure CLI 2.0 med Azure Storage | Microsoft Docs
+description: Lär dig hur du använder Azure-kommandoradsgränssnittet (Azure CLI) 2.0 med Azure Storage för att skapa och hantera storage-konton och arbeta med Azure-blobbar och filer. Azure CLI 2.0 är ett verktyg för flera plattformar som skrivits i Python.
 services: storage
 documentationcenter: na
-author: tamram
-manager: timlt
+author: roygara
+manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: tamram
-ms.openlocfilehash: 509c702054961c9d9fa525242ce0542059e32d81
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: rogarana
+ms.openlocfilehash: 99e67b9c8469f08f1cbfc980568eec35694d1ae2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Med hjälp av Azure CLI 2.0 med Azure Storage
 
@@ -95,10 +95,10 @@ Subgroups:
 
 Om du vill arbeta med resurserna i din Azure-prenumeration, du måste först logga in på ditt Azure-konto med `az login`. Det finns flera sätt som du kan logga in:
 
-* **Interaktiv inloggning**:`az login`
-* **Logga in med användarnamn och lösenord**:`az login -u johndoe@contoso.com -p VerySecret`
+* **Interaktiv inloggning**: `az login`
+* **Logga in med användarnamn och lösenord**: `az login -u johndoe@contoso.com -p VerySecret`
   * Detta fungerar inte med Microsoft-konton eller konton som använder multi-Factor authentication.
-* **Logga in med ett huvudnamn för tjänsten**:`az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
+* **Logga in med ett huvudnamn för tjänsten**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
 
 ## <a name="azure-cli-20-sample-script"></a>Azure CLI 2.0 exempelskript
 
@@ -146,11 +146,11 @@ echo "Done"
 
 3. När du har uppdaterat de nödvändiga variablerna, spara skriptet och avsluta redigeringsprogram. Nästa steg förutsätter att du har namngett skriptet **my_storage_sample.sh**.
 
-4. Markera skriptet som körbara, om det behövs:`chmod +x my_storage_sample.sh`
+4. Markera skriptet som körbara, om det behövs: `chmod +x my_storage_sample.sh`
 
-5. Kör skriptet. Till exempel i Bash:`./my_storage_sample.sh`
+5. Kör skriptet. Till exempel i Bash: `./my_storage_sample.sh`
 
-Du bör se utdata som liknar följande, och  **\<destination_file\>**  du angav i skriptet ska visas på den lokala datorn.
+Du bör se utdata som liknar följande, och **\<destination_file\>** du angav i skriptet ska visas på den lokala datorn.
 
 ```
 Creating the container...
@@ -187,10 +187,10 @@ az storage account create \
     --sku <account_sku>
 ```
 
-* `--location`[Krävs]: plats. Till exempel ”USA, västra”.
-* `--name`[Krävs]: lagringskontonamn. Namnet måste bestå av 3 till 24 tecken och Använd endast gemener alfanumeriska tecken.
-* `--resource-group`[Krävs]: namnet på resursgruppen.
-* `--sku`[Krävs]: lagringskontot SKU. Tillåtna värden:
+* `--location` [Krävs]: plats. Till exempel ”USA, västra”.
+* `--name` [Krävs]: lagringskontonamn. Namnet måste bestå av 3 till 24 tecken och Använd endast gemener alfanumeriska tecken.
+* `--resource-group` [Krävs]: namnet på resursgruppen.
+* `--sku` [Krävs]: lagringskontot SKU. Tillåtna värden:
   * `Premium_LRS`
   * `Standard_GRS`
   * `Standard_LRS`
@@ -236,7 +236,7 @@ az storage container create --name <container_name>
 
 Du kan ange en av tre nivåer för läsbehörighet för en ny behållare genom att ange den valfria `--public-access` argument:
 
-* `off`(standard): behållardata är privat för ägare.
+* `off` (standard): behållardata är privat för ägare.
 * `blob`: Offentlig läsbehörighet för blobbar.
 * `container`: Läs- och offentlig åtkomst till hela behållaren.
 
@@ -396,7 +396,7 @@ Exempel på utdata
 
 ### <a name="list-share-snapshots"></a>Lista resursen ögonblicksbilder
 
-Du kan visa resursen ögonblicksbilder av en viss filresurs med hjälp av`az storage share list --include-snapshots`
+Du kan visa resursen ögonblicksbilder av en viss filresurs med hjälp av `az storage share list --include-snapshots`
 
 ```cli
 az storage share list --include-snapshots
@@ -439,7 +439,7 @@ az storage share list --include-snapshots
 ```
 
 ### <a name="browse-share-snapshots"></a>Bläddra resursen ögonblicksbilder
-Du kan även bläddra i en viss resurs ögonblicksbild för att visa dess innehåll med hjälp av `az storage file list`. Behöver ange resursnamnet `--share-name <snare name>` och tidsstämpeln`--snapshot '2017-10-04T19:45:18.0000000Z'`
+Du kan även bläddra i en viss resurs ögonblicksbild för att visa dess innehåll med hjälp av `az storage file list`. Behöver ange resursnamnet `--share-name <snare name>` och tidsstämpeln `--snapshot '2017-10-04T19:45:18.0000000Z'`
 
 ```azurecli-interactive
 az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable

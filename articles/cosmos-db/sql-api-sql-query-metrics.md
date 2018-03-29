@@ -1,9 +1,9 @@
 ---
-title: "SQL-frågan mätvärden för Azure SQL DB-API Cosmos | Microsoft Docs"
-description: "Lär dig mer om hur du instrumentera och felsöka frågeprestanda SQL Azure DB som Cosmos-begäranden."
-keywords: "SQL-syntax, sql-fråga, sql-frågor, json-frågespråket, databasbegrepp och sql-frågor, mängdfunktioner"
+title: SQL-frågan mätvärden för Azure SQL DB-API Cosmos | Microsoft Docs
+description: Lär dig mer om hur du instrumentera och felsöka frågeprestanda SQL Azure DB som Cosmos-begäranden.
+keywords: SQL-syntax, sql-fråga, sql-frågor, json-frågespråket, databasbegrepp och sql-frågor, mängdfunktioner
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
 editor: monicar
@@ -15,15 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: a2a42fd65ba4344f703ca423dc451802f3f0ac76
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: a92d2ed1686765a54812ff82066bc30c1d48848d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Justera prestanda för frågor med Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos-DB tillhandahåller en [SQL API för datafrågor](sql-api-sql-query.md), utan att schemat eller sekundärindex. Den här artikeln innehåller följande information för utvecklare:
 
@@ -151,7 +149,7 @@ Följande är de vanligaste faktorer som påverkar Azure Cosmos DB frågeprestan
 | Partitionering och partitionsnycklar | Ge företräde åt frågor med partitionsnyckelvärde i filterinstruktionen för låg fördröjning. |
 | SDK-och frågealternativ | Följ Metodtips för SDK som direkt anslutning och finjustera frågealternativ körning på klientsidan. |
 | Svarstid för nätverk | Kontot för nätverk omkostnader i mått och använda flera API: er för att läsa från den närmaste regionen. |
-| Indexprincip | Se till att du har den nödvändiga sökvägar/indexprincip för frågan. |
+| Indexeringspolicy | Se till att du har den nödvändiga sökvägar/indexprincip för frågan. |
 | Mätvärden för körning av frågan | Analysera de mått för körning av frågan för att identifiera potentiella omskrivningar av frågor och former.  |
 
 ### <a name="provisioned-throughput"></a>Etablerat dataflöde
@@ -177,7 +175,7 @@ Mer information om partitionering och partitionsnycklar finns [partitionering i 
 Se [prestandatips](performance-tips.md) och [prestandatester](performance-testing.md) att få bästa möjliga prestanda för klientsidan från Azure Cosmos DB. Detta inkluderar med de senaste SDK: er, konfigurera plattformsspecifika konfigurationer som Standardantal anslutningar, frekvensen för skräpinsamling, samt med lightweight anslutningsalternativ som direkt/TCP. 
 
 
-#### <a name="max-item-count"></a>Max antal objekt
+#### <a name="max-item-count"></a>Max antal
 För frågor med värdet för `MaxItemCount` kan ha en betydande inverkan på Frågetid för slutpunkt till slutpunkt. Varje onödig kommunikation till servern returnerar inga fler än antalet objekt i `MaxItemCount` (standard 100 objekt). Ange detta till ett högre värde (-1 är högsta och rekommenderade) förbättrar din övergripande varaktighet för frågan genom att begränsa antalet sändningar mellan servern och klienten, särskilt för frågor med stora resultatuppsättningar.
 
 ```cs
@@ -191,7 +189,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 ```
 
 #### <a name="max-degree-of-parallelism"></a>Max grad av parallellitet
-Frågor, finjustera den `MaxDegreeOfParallelism` att identifiera de bästa konfigurationerna för programmet, särskilt om du utför mellan partition-frågor (utan ett filter på partitionsnyckel värdet). `MaxDegreeOfParallelism`Anger det maximala antalet parallella aktiviteter, t.ex. maximalt antalet partitioner som ska användas parallellt. 
+Frågor, finjustera den `MaxDegreeOfParallelism` att identifiera de bästa konfigurationerna för programmet, särskilt om du utför mellan partition-frågor (utan ett filter på partitionsnyckel värdet). `MaxDegreeOfParallelism`  Anger det maximala antalet parallella aktiviteter, t.ex. maximalt antalet partitioner som ska användas parallellt. 
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(

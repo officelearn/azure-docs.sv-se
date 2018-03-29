@@ -1,12 +1,12 @@
 ---
-title: "Det går inte att ansluta till RDP till en virtuell Windows-dator i Azure | Microsoft Docs"
-description: "Felsökning av problem när du inte ansluta till din Windows-dator i Azure med hjälp av fjärrskrivbord"
-keywords: "Remote desktop-fel, fel anslutning till fjärrskrivbord kan inte ansluta till en virtuell dator, felsökning: fjärrskrivbord"
+title: Det går inte att ansluta till RDP till en virtuell Windows-dator i Azure | Microsoft Docs
+description: Felsökning av problem när du inte ansluta till din Windows-dator i Azure med hjälp av fjärrskrivbord
+keywords: 'Remote desktop-fel, fel anslutning till fjärrskrivbord kan inte ansluta till en virtuell dator, felsökning: fjärrskrivbord'
 services: virtual-machines-windows
-documentationcenter: 
-author: genlin
+documentationcenter: ''
+author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 0d740f8e-98b8-4e55-bb02-520f604f5b18
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
-ms.author: genli
-ms.openlocfilehash: 4731a34d143d402372aaff7c03f95dbf0bb508a4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.date: 03/23/2018
+ms.author: danis
+ms.openlocfilehash: e2b792743f1b4ba458cff111ab6dd888b0c26d93
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Felsöka anslutningar till fjärrskrivbord till en virtuell Azure-dator
 Remote Desktop Protocol (RDP)-anslutning till din Windows-baserad Azure virtuell dator (VM) kan misslyckas av olika skäl, så att du inte har åtkomst till den virtuella datorn. Problemet kan vara med Remote Desktop-tjänsten på den virtuella datorn, nätverksanslutningen eller fjärrskrivbordsklienten på värddatorn. Den här artikeln hjälper dig att några av de vanligaste metoderna för att lösa RDP-anslutningsproblem. 
@@ -77,7 +77,7 @@ Försök ansluta till den virtuella datorn igen efter varje steg i felsökningen
     Välj den virtuella datorn i Azure-portalen. Bläddra nedåt inställningsfönstret till den **stöd + felsökning** avsnittet nästan längst ned i listan. Klicka på den **Resource health** knappen. En felfri VM rapporter som **tillgänglig**:
    
     ![Kontrollera tillstånd för VM-resurs i Azure-portalen](./media/troubleshoot-rdp-connection/check-resource-health.png)
-6. **Återställa autentiseringsuppgifter**. Den här åtgärden återställer lösenordet för ett lokalt administratörskonto när du är osäker på eller har glömt autentiseringsuppgifterna.
+6. **Återställa autentiseringsuppgifter**. Den här åtgärden återställer lösenordet för ett lokalt administratörskonto när du är osäker på eller har glömt autentiseringsuppgifterna.  När du har loggat in på den virtuella datorn, ska du återställa lösenordet för användaren.
    
     Välj den virtuella datorn i Azure-portalen. Bläddra nedåt inställningsfönstret till den **stöd + felsökning** avsnittet nästan längst ned i listan. Klicka på den **Återställ lösenord** knappen. Kontrollera att den **läge** är inställd på **Återställ lösenord** och ange ditt användarnamn och ett nytt lösenord. Klicka slutligen på den **uppdatering** knappen:
    
@@ -207,7 +207,7 @@ Försök ansluta till den virtuella datorn efter varje steg i felsökningen.
     Välj den virtuella datorn i Azure-portalen. Bläddra nedåt inställningsfönstret till den **stöd + felsökning** avsnittet nästan längst ned i listan. Klicka på den **Resource Health** knappen. En felfri VM rapporter som **tillgänglig**:
    
     ![Kontrollera tillstånd för VM-resurs i Azure-portalen](./media/troubleshoot-rdp-connection/classic-check-resource-health.png)
-5. **Återställa autentiseringsuppgifter**. Den här åtgärden återställer lösenordet för det lokala administratörskontot som du anger när du är osäker på eller har glömt autentiseringsuppgifterna.
+5. **Återställa autentiseringsuppgifter**. Den här åtgärden återställer lösenordet för det lokala administratörskontot som du anger när du är osäker på eller har glömt autentiseringsuppgifterna.  När du har loggat in på den virtuella datorn, ska du återställa lösenordet för användaren.
    
     Välj den virtuella datorn i Azure-portalen. Bläddra nedåt inställningsfönstret till den **stöd + felsökning** avsnittet nästan längst ned i listan. Klicka på den **Återställ lösenord** knappen. Ange ditt användarnamn och ett nytt lösenord. Klicka slutligen på den **spara** knappen:
    

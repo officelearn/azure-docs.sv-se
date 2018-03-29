@@ -1,8 +1,8 @@
 ---
-title: "Utveckling av skriptåtgärder med HDInsight - Azure | Microsoft Docs"
-description: "Lär dig hur du anpassar Hadoop-kluster med skriptåtgärder. Skriptåtgärder kan användas för att installera ytterligare programvara som körs på ett Hadoop-kluster eller ändra konfigurationen av program på ett kluster."
+title: Utveckling av skriptåtgärder med HDInsight - Azure | Microsoft Docs
+description: Lär dig hur du anpassar Hadoop-kluster med skriptåtgärder. Skriptåtgärder kan användas för att installera ytterligare programvara som körs på ett Hadoop-kluster eller ändra konfigurationen av program på ett kluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: d0e95014f6ebfc4e0286d3a12999c918f831b489
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ac2a087bb0a9d8cac15dfea2448a9c42cee4a1f4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Utveckla skriptåtgärd skript för HDInsight Windows-baserade kluster
 Lär dig hur du skriver skript för skriptåtgärder för HDInsight. Information om hur du använder skriptåtgärd skript finns [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster.md). Samma artikel skrivna för Linux-baserade HDInsight-kluster, se [utveckla skriptåtgärd skript för HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -96,18 +96,18 @@ Skriptet använder fyra parametrar, namnet på konfigurationsfilen, egenskapen d
 
     hive-site.xml hive.metastore.client.socket.timeout 90
 
-Dessa parametrar anger värdet hive.metastore.client.socket.timeout 90 i filen hive-site.XML.  Standardvärdet är 60 sekunder.
+Dessa parametrar anger hive.metastore.client.socket.timeout-värdet till 90 i filen hive-site.XML.  Standardvärdet är 60 sekunder.
 
-Det här exempelskriptet finns även på [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1).
+Det här exempelskriptet finns även på [ https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1 ](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1).
 
 HDInsight tillhandahåller flera skript för att installera ytterligare komponenter i HDInsight-kluster:
 
 | Namn | Skript |
 | --- | --- |
-| **Installera Spark** |https://hdiconfigactions.BLOB.Core.Windows.NET/sparkconfigactionv03/Spark-Installer-v03.ps1. Se [installera och använda Spark i HDInsight-kluster][hdinsight-install-spark]. |
-| **Installera R** |https://hdiconfigactions.BLOB.Core.Windows.NET/rconfigactionv02/r-Installer-v02.ps1. Se [installera och använda R i HDInsight-kluster][hdinsight-r-scripts]. |
-| **Installera Solr** |https://hdiconfigactions.BLOB.Core.Windows.NET/solrconfigactionv01/solr-Installer-v01.ps1. Se [installerar och använder Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md). |
-| - **Installera Giraph** |https://hdiconfigactions.BLOB.Core.Windows.NET/giraphconfigactionv01/giraph-Installer-v01.ps1. Se [installerar och använder Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md). |
+| **Installera Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Se [installera och använda Spark i HDInsight-kluster][hdinsight-install-spark]. |
+| **Installera R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Se [installera och använda R i HDInsight-kluster][hdinsight-r-scripts]. |
+| **Installera Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Se [installerar och använder Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md). |
+| - **Installera Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Se [installerar och använder Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md). |
 
 Skriptåtgärder kan distribueras från Azure-portalen, Azure PowerShell eller med hjälp av HDInsight .NET SDK.  Mer information finns i [anpassa HDInsight-kluster med skriptåtgärder][hdinsight-cluster-customize].
 
@@ -117,7 +117,7 @@ Skriptåtgärder kan distribueras från Azure-portalen, Azure PowerShell eller m
 >
 
 ## <a name="helper-methods-for-custom-scripts"></a>Hjälpmetoder för anpassade skript
-Skriptet åtgärd helper metoder är verktyg som du kan använda vid skrivning till anpassade skript. Dessa metoder är definierade i [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1), och kan ingå i ditt skript med hjälp av följande exempel:
+Skriptet åtgärd helper metoder är verktyg som du kan använda vid skrivning till anpassade skript. Dessa metoder är definierade i [ https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1 ](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1), och kan ingå i ditt skript med hjälp av följande exempel:
 
     # Download config action module from a well-known directory.
     $CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
@@ -141,10 +141,10 @@ Här följer hjälpmetoder som tillhandahålls av skriptet:
 | Hjälpmetod | Beskrivning |
 | --- | --- |
 | **Spara HDIFile** |Hämta en fil från den angivna identifieraren URI (Uniform Resource) till en plats på den lokala disken som associeras med den Virtuella Azure-noden som är tilldelade till klustret. |
-| **Expandera HDIZippedFile** |Packa upp ZIP. |
-| **Anropa HDICmdScript** |Köra ett skript från cmd.exe. |
+| **Expand-HDIZippedFile** |Packa upp ZIP. |
+| **Invoke-HDICmdScript** |Köra ett skript från cmd.exe. |
 | **Skriv HDILog** |Skriva utdata från skriptet som används för en skriptåtgärd. |
-| **Get-tjänster** |Hämta en lista över tjänster som körs på datorn där skriptet körs. |
+| **Get-Services** |Hämta en lista över tjänster som körs på datorn där skriptet körs. |
 | **Get-Service** |Med specifika tjänstnamnet som indata, får du detaljerad information för en specifik tjänst (namn på tjänst, process-ID, tillstånd, etc.) på datorn där skriptet körs. |
 | **Get-HDIServices** |Hämta en lista över HDInsight-tjänster som körs på datorn där skriptet körs. |
 | **Get-HDIService** |Med specifika HDInsight tjänstnamnet som indata, får du detaljerad information för en specifik tjänst (namn på tjänst, process-ID, tillstånd, etc.) på datorn där skriptet körs. |
@@ -166,14 +166,14 @@ Finns flera bästa praxis att tänka på när du utvecklar ett anpassat skript f
     Endast HDInsight version 3.1 (Hadoop 2.4) och högre support med skriptåtgärder installera anpassade komponenter på ett kluster. I ett skript, måste du använda den **Get-HDIHadoopVersion** hjälpmetod Kontrollera Hadoop-versionen innan du fortsätter med att utföra andra uppgifter i skriptet.
 * Ange stabil länkar till skriptresurser
 
-    Användare bör se till att alla skript och andra artefakter som används i anpassning av ett kluster förblir tillgängliga under hela livslängden för klustret och att versionerna av dessa filer inte ändrar under. Dessa resurser krävs om de återställning av avbildning av noder i klustret måste anges. Det bästa sättet är att hämta och arkivera allt innehåll i ett lagringskonto som användaren anger. Detta kan vara standardkontot för lagring eller någon av de ytterligare lagringskonton som anges vid tidpunkten för distribution av anpassade kluster.
-    Anpassade kluster prover i Spark och R anges i dokumentationen till exempel vi har gjort en lokal kopia av resurser i det här lagringskontot: https://hdiconfigactions.blob.core.windows.net/.
+    Användare bör se till att alla skript och andra artefakter som används i anpassning av ett kluster förblir tillgängliga under hela livslängden för klustret och att versionerna av dessa filer inte ändrar under. Dessa resurser krävs om de återställning av avbildning av noder i klustret måste anges. Det bästa sättet är att hämta och arkivera allt innehåll i ett lagringskonto som användaren anger. Det här kontot kan vara standardkontot för lagring eller någon av de ytterligare lagringskonton som anges vid tidpunkten för distribution av anpassade kluster.
+    Anpassade kluster prover i Spark och R anges i dokumentationen, till exempel finns en lokal kopia av resurser i det här lagringskontot: https://hdiconfigactions.blob.core.windows.net/.
 * Se till att klustret anpassning skriptet idempotent
 
     Förväntat att noder i ett HDInsight-kluster är avbildade under klustrets livslängd. Klustret anpassning skript körs när ett kluster avbildade. Det här skriptet måste utformas ska vara idempotent i den mening att efter återställning av avbildning, skriptet bör se till att klustret returneras till samma anpassade tillståndet den var i när skriptet kördes för första gången när klustret skapades. Till exempel om ett anpassat skript har installerat ett program på D:\AppLocation första körs på varje efterföljande körning vid återställning av avbildning, skriptet ska kontrollera om programmet redan finns på plats D:\AppLocation innan du fortsätter med andra steg i den skript.
 * Installera komponenter för anpassade optimala plats
 
-    Om klusternoderna är avbildade kan C:\ resurs enheten och D:\ systemenhet formateras om, vilket resulterar i förlust av data och program som har installerats på dessa enheter. Detta kan också inträffa om en virtuell Azure-dator (VM)-nod som ingår i klustret slutar fungera och ersätts av en ny nod. Du kan installera komponenterna på D:\-enhet eller på C:\apps plats på klustret. Alla andra platser på enhet C:\ är reserverade. Ange platsen för program eller bibliotek som ska installeras i klustret anpassning skriptet.
+    Om klusternoderna är avbildade kan C:\ resurs enheten och D:\ systemenhet formateras om, vilket resulterar i förlust av data och program som har installerats på dessa enheter. Den här förlusten kan också inträffa om en virtuell Azure-dator (VM)-nod som ingår i klustret slutar fungera och ersätts av en ny nod. Du kan installera komponenterna på D:\-enhet eller på C:\apps plats på klustret. Alla andra platser på enhet C:\ är reserverade. Ange platsen för program eller bibliotek som ska installeras i klustret anpassning skriptet.
 * Garantera hög tillgänglighet för kluster-arkitektur
 
     HDInsight har ett aktivt-passivt arkitektur för hög tillgänglighet som en huvudnod är i aktivt läge (där HDInsight-tjänsterna körs) och andra Huvudnoden är i vänteläge (i vilken HDInsight tjänster inte körs). Noderna växla mellan lägena aktiva och passiva om HDInsight tjänster avbryts. Om en skriptåtgärd används för att installera tjänster på båda huvudnoderna för hög tillgänglighet, Observera att mekanismen för HDInsight-redundans inte kan automatiskt växla över dessa användare installerade tjänster. Så användaren installerade tjänster på HDInsight huvudnoderna som förväntas ha hög tillgänglighet måste antingen ha sina egna mekanism för växling vid fel om i aktivt-passivt läge eller vara i läget för aktiv-aktiv.
@@ -246,7 +246,7 @@ Här följer de steg som vi har tagit när du förbereder att distribuera dessa 
 ## <a name="debug-custom-scripts"></a>Felsöka anpassade skript
 Felloggarna skriptet lagras tillsammans med andra utdata i standardkontot för lagring som angetts för klustret när skapandet. Loggfilerna lagras i en tabell med namnet *u < \cluster-name-fragment >< \time-stamp > setuplog*. Det här är sammanställda loggar som har poster från alla noder (huvudnod och arbetarnoder) där skriptet körs i klustret.
 
-Ett enkelt sätt att kontrollera loggarna är att använda HDInsight Tools för Visual Studio. För att installera verktygen finns [komma igång med Visual Studio Hadoop-verktyg för HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-and-upgrade-data-lake-tools-for-visual-studio)
+Ett enkelt sätt att kontrollera loggarna är att använda HDInsight Tools för Visual Studio. För att installera verktygen finns [komma igång med Visual Studio Hadoop-verktyg för HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-or-update-data-lake-tools-for-visual-studio)
 
 **Kontrollera loggen med hjälp av Visual Studio**
 
@@ -299,7 +299,7 @@ I den här loggen är det klart att skriptåtgärd Spark har körts på den virt
 
 I händelse av att ett körningsfel inträffar ingå utdata som beskriver den också i den här loggfilen. Informationen i dessa loggar är användbar vid felsökning av problem med skript som kan uppstå.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Anpassa HDInsight-kluster med skriptåtgärder][hdinsight-cluster-customize]
 * [Installera och använda Spark på HDInsight-kluster][hdinsight-install-spark]
 * [Installera och använda R i HDInsight-kluster][hdinsight-r-scripts]

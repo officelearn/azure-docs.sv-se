@@ -1,8 +1,8 @@
 ---
 title: Datavetenskap med den Linux datavetenskap virtuell dator i Azure | Microsoft Docs
-description: "Hur du utför flera gemensamma datavetenskap med Linux datavetenskap VM."
+description: Hur du utför flera gemensamma datavetenskap med Linux datavetenskap VM.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
-ms.author: bradsev;paulsh
-ms.openlocfilehash: 9b8a9b9bba242fd7c86dc285a77317a5821948df
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: bradsev
+ms.openlocfilehash: aff0dd17baa72b3f58ed5effbedb3a4c630f22c6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Datavetenskap med en Linux datavetenskap virtuell dator på Azure
 Den här genomgången visar hur du utför flera gemensamma datavetenskap med Linux datavetenskap VM. Linux Data vetenskap virtuell dator (DSVM) är en avbildning av virtuell dator som är tillgängliga på Azure som är förinstallerade med en samling verktyg som används ofta för dataanalys och maskininlärning. Viktiga programkomponenterna specificerade i den [etablera Linux datavetenskap virtuell dator](linux-dsvm-intro.md) avsnittet. VM-avbildning gör det enkelt att komma igång gör datavetenskap i minuter, utan att installera och konfigurera verktygen separat. Du kan enkelt skala upp den virtuella datorn, om det behövs och stoppa den inte under användning. Den här resursen är därför både elastisk och kostnadseffektiv.
@@ -473,7 +473,7 @@ Kom igång genom att starta Squirrel SQL på menyn program. Att ställa in drivr
 Konfigurera anslutningen till den lokala servern:
 
 * Välj **Windows**, sedan **Visa alias.**
-* Välj den  **+**  för att göra ett nytt alias.
+* Välj den **+** för att göra ett nytt alias.
 * Ge den namnet *skräppost databasen*, Välj **PostgreSQL** i den **drivrutinen** listrutan.
 * Ange Webbadressen *jdbc:postgresql://localhost/spam*.
 * Ange din *användarnamn* och *lösenord*.

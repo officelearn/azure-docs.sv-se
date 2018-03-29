@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Connect Health vanliga frågor och svar – Azure | Microsoft Docs"
-description: "Det här avsnittet får du svar frågor om Azure AD Connect Health. Avsnittet ger svar på frågor om hur du använder tjänsten, inklusive faktureringsmodellen, funktioner, begränsningar och support."
+title: Azure Active Directory Connect Health vanliga frågor och svar – Azure | Microsoft Docs
+description: Det här avsnittet får du svar frågor om Azure AD Connect Health. Avsnittet ger svar på frågor om hur du använder tjänsten, inklusive faktureringsmodellen, funktioner, begränsningar och support.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 312980ded8fad84f2ea4a41078597dd3a6cb8ca7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b4c977b54c87276bd4b168bc56e70f3b918e6634
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Connect Health
 Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om Azure Active Directory (AD Azure) Connect Health. Dessa vanliga frågor och svar tar upp frågor om hur du använder tjänsten, som innehåller fakturering modellen, funktioner, begränsningar och support.
@@ -175,6 +175,9 @@ CheckForMS17-010
 
 ```
 
+**F: Varför PowerShell-cmdleten <i>Get-MsolDirSyncProvisioningError</i> visa mindre synkroniseringsfel i resultatet?**
+
+<i>Get-MsolDirSyncProvisioningError</i> returnerar enbart DirSync etablering fel. Förutom att visas Connect Health-portalen även andra sync feltyper, till exempel exportfel. Detta är förenligt med Azure AD Connect delta resultat. Läs mer om [Azure AD Connect Sync-fel](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
 
 
 ## <a name="related-links"></a>Relaterade länkar

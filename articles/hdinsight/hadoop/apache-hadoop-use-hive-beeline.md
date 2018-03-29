@@ -1,8 +1,8 @@
 ---
-title: "Använda Beeline med Apache Hive - Azure HDInsight | Microsoft Docs"
-description: "Lär dig hur du använder Beeline klienten för att köra Hive-frågor med Hadoop i HDInsight. Beeline är ett verktyg för att arbeta med HiveServer2 över JDBC."
+title: Använda Beeline med Apache Hive - Azure HDInsight | Microsoft Docs
+description: Lär dig hur du använder Beeline klienten för att köra Hive-frågor med Hadoop i HDInsight. Beeline är ett verktyg för att arbeta med HiveServer2 över JDBC.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/02/2018
+ms.date: 03/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 5d4e9d6ffb7fa0c2e4b69c5b534f0078aec5f68c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f2beb42f51bbbf65abe7bb6d95579106cdf1857a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Använda Beeline klienten med Apache Hive
 
@@ -110,7 +110,7 @@ Beeline är en Hive-klient som ingår i huvudnoderna för ditt HDInsight-kluster
         | sessionpagevieworder  | bigint     |          |
         +-----------------------+------------+----------+--+
 
-    Den här informationen beskriver kolumnerna i tabellen. Medan vi kunde utföra några frågor mot dessa data vi istället skapa en helt ny tabell för att demonstrera hur du läser in data i Hive och använda ett schema.
+    Den här informationen beskriver kolumnerna i tabellen.
 
 4. Ange följande instruktioner om du vill skapa en tabell med namnet **log4jLogs** med exempeldata som medföljer HDInsight-kluster:
 
@@ -143,7 +143,7 @@ Beeline är en Hive-klient som ingår i huvudnoderna för ditt HDInsight-kluster
 
     * `SELECT` -Väljer en uppräkning av alla rader där kolumnen **t4** innehåller värdet **[fel]**. Den här frågan returnerar ett värde för **3** som det finns tre rader som innehåller det här värdet.
 
-    * `INPUT__FILE__NAME LIKE '%.log'` -Hive försöker använda schemat för alla filer i katalogen. I det här fallet innehåller katalogen filer som inte matchar schemat. För att förhindra ogiltiga data i resultaten visar den här instruktionen Hive vi bör endast returnera data från filer som slutar på. log.
+    * `INPUT__FILE__NAME LIKE '%.log'` -Hive försöker använda schemat för alla filer i katalogen. I det här fallet innehåller katalogen filer som inte matchar schemat. För att förhindra ogiltiga data i resultaten visar den här instruktionen Hive den bör endast returnera data från filer som slutar på. log.
 
   > [!NOTE]
   > Externa tabeller ska användas när du förväntar dig underliggande data uppdateras av en extern källa. Till exempel en automatisk överföring av data eller en MapReduce-åtgärd.

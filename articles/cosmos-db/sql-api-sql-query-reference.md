@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB: Referens SQL-syntax fråga | Microsoft Docs"
-description: "I referensdokumentationen för Azure Cosmos-Databasens SQL-frågespråket."
+title: 'Azure Cosmos DB: Referens SQL-syntax fråga | Microsoft Docs'
+description: I referensdokumentationen för Azure Cosmos-Databasens SQL-frågespråket.
 services: cosmos-db
 author: LalithaMV
 manager: jhubbard
 editor: mimig
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,15 +14,13 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 968f9e4d643228e02a1d09aae1b6ce82d6775f25
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 012fa27fdebebf1c86a324c49c53d665a15a91c2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Referens för Azure Cosmos-Databasens SQL-syntax
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure DB Cosmos stöder frågar dokument med hjälp av en bekant SQL (Structured Query Language) som grammatik över hierarkiska JSON-dokument utan explicita schema eller att sekundärindex. Det här avsnittet finns i referensdokumentationen för SQL-frågespråket som är kompatibla med SQL API-konton.
 
@@ -74,11 +72,11 @@ Alla blanktecken som inte är del av en sträng inom citattecken eller identifie
 
 Kommentarer för T-SQL-format som har stöd för frågespråket  
 
--   SQL-uttryck`-- comment text [newline]`  
+-   SQL-uttryck `-- comment text [newline]`  
 
 Medan tecken som blanksteg och kommentarer inte har någon betydelse i grammatik, måste de användas för att avgränsa token. Exempel: `-1e5` är ett enda nummer token, tag`: – 1 e5` följs minus token av nummer 1 och identifierare e5.  
 
-##  <a name="bk_select_query"></a>SELECT-satsen  
+##  <a name="bk_select_query"></a> SELECT-satsen  
 Satser i SELECT-instruktionen måste beställas som ovan. En av de valfria satserna kan utelämnas. Men när valfria satser används, måste de visas i rätt ordning.  
 
 **Syntax**  
@@ -119,7 +117,7 @@ Uttryck som representerar värdet ska beräknas. Se [skaläruttryck](#bk_scalar_
   
 **Kommentarer**  
   
-Den `SELECT *` syntax är bara giltigt om FROM-satsen har deklarerats exakt ett alias. `SELECT *`innehåller en identity-projektion som kan vara användbar om det behövs ingen projektion. Välj * är bara giltigt om FROM-satsen har angetts och införs bara en enda Indatakällan.  
+Den `SELECT *` syntax är bara giltigt om FROM-satsen har deklarerats exakt ett alias. `SELECT *` innehåller en identity-projektion som kan vara användbar om det behövs ingen projektion. Välj * är bara giltigt om FROM-satsen har angetts och införs bara en enda Indatakällan.  
   
 Observera att `SELECT <select_list>` och `SELECT *` är ”syntaktiska socker” och kan uttryckas också med hjälp av enkla SELECT-satser som visas nedan.  
   
@@ -140,7 +138,7 @@ Observera att `SELECT <select_list>` och `SELECT *` är ”syntaktiska socker”
 [Skalära uttryck](#bk_scalar_expressions)  
 [SELECT-satsen](#bk_select_query)  
   
-##  <a name="bk_from_clause"></a>FROM-satsen  
+##  <a name="bk_from_clause"></a> FROM-satsen  
 Anger källan eller anslutna källor. FROM-satsen är valfritt. Om inte angivna, andra satser körs fortfarande som om FROM-satsen som ett enskilt dokument.  
   
 **Syntax**  
@@ -173,11 +171,11 @@ Anger en datakälla med eller utan ett alias. Om alias inte anges kommer den hä
   
 -   Om uttrycket är `<collection_expression>`, och sedan property_name sedan property_name kommer att användas som ett alias. Om uttrycket är ett samlingsnamn, kommer samlingsnamn att användas som ett alias.  
   
-SOM`input_alias`  
+AS `input_alias`  
   
 Anger att den `input_alias` är en uppsättning värden som returneras av underliggande samlingsuttrycket.  
  
-`input_alias`I  
+`input_alias` IN  
   
 Anger att den `input_alias` bör vara en uppsättning värden som hämtas av iterera över alla matriselement i varje matrisen som returneras av underliggande samlingsuttrycket. Alla värden som returneras av underliggande samling uttryck som inte är en objektmatris ignoreras.  
   
@@ -237,7 +235,7 @@ Utvärderingen av kopplingen beror på kontexten omfånget för deltagande anger
   
 **Exempel på kopplingar:**  
   
-Nu ska vi titta på följande FROM-satsen:`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
+Nu ska vi titta på följande FROM-satsen: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
  Låt varje källa definiera `input_alias1, input_alias2, …, input_aliasN`. FROM-satsen returnerar en mängd med N-tupplar (tuppel med N värden). Varje tuppel har värden som genereras av alla samling alias iterera över sina respektive uppsättningar.  
   
@@ -247,11 +245,11 @@ Nu ska vi titta på följande FROM-satsen:`<from_source1> JOIN <from_source2> JO
   
 - Låt `<from_source2>` vara dokumentet definitionsområde refererar till input_alias1 och representerar anger:  
   
-    {1, 2} för`input_alias1 = A,`  
+    {1, 2} för `input_alias1 = A,`  
   
-    {3} för`input_alias1 = B,`  
+    {3} för `input_alias1 = B,`  
   
-    {4, 5} för`input_alias1 = C,`  
+    {4, 5} för `input_alias1 = C,`  
   
 - FROM-satsen `<from_source1> JOIN <from_source2>` resulterar i följande tupplar:  
   
@@ -265,23 +263,23 @@ Nu ska vi titta på följande FROM-satsen:`<from_source1> JOIN <from_source2> JO
   
 - Låt `<from_source2>` vara omfång dokumentet refererar till `input_alias1` och representerar anger:  
   
-    {1, 2} för`input_alias1 = A,`  
+    {1, 2} för `input_alias1 = A,`  
   
-    {3} för`input_alias1 = B,`  
+    {3} för `input_alias1 = B,`  
   
-    {4, 5} för`input_alias1 = C,`  
+    {4, 5} för `input_alias1 = C,`  
   
 - Låt `<from_source3>` vara omfång dokumentet refererar till `input_alias2` och representerar anger:  
   
-    {100, 200} för`input_alias2 = 1,`  
+    {100, 200} för `input_alias2 = 1,`  
   
-    {300} för`input_alias2 = 3,`  
+    {300} för `input_alias2 = 3,`  
   
 - FROM-satsen `<from_source1> JOIN <from_source2> JOIN <from_source3>` resulterar i följande tupplar:  
   
     (input_alias1, input_alias2, input_alias3):  
   
-    A-, 1, 100 (A, 1, 200), (B, 3, 300)  
+    (A, 1, 100), (A, 1, 200), (B, 3, 300)  
   
 > [!NOTE]
 > Avsaknad av tupplar för andra `input_alias1`, `input_alias2`, för vilka den `<from_source3>` returnerade inte några värden.  
@@ -294,17 +292,17 @@ Nu ska vi titta på följande FROM-satsen:`<from_source1> JOIN <from_source2> JO
   
 - Låt < from_source2 > att dokumentet omfång refererande input_alias1 och representerar anger:  
   
-    {1, 2} för`input_alias1 = A,`  
+    {1, 2} för `input_alias1 = A,`  
   
-    {3} för`input_alias1 = B,`  
+    {3} för `input_alias1 = B,`  
   
-    {4, 5} för`input_alias1 = C,`  
+    {4, 5} för `input_alias1 = C,`  
   
 - Låt `<from_source3>` vara begränsad till `input_alias1` och representerar anger:  
   
-    {100, 200} för`input_alias2 = A,`  
+    {100, 200} för `input_alias2 = A,`  
   
-    {300} för`input_alias2 = C,`  
+    {300} för `input_alias2 = C,`  
   
 - FROM-satsen `<from_source1> JOIN <from_source2> JOIN <from_source3>` resulterar i följande tupplar:  
   
@@ -319,7 +317,7 @@ Nu ska vi titta på följande FROM-satsen:`<from_source1> JOIN <from_source2> JO
   
  [SELECT-satsen](#bk_select_query)  
   
-##  <a name="bk_where_clause"></a>WHERE-satsen  
+##  <a name="bk_where_clause"></a> WHERE-satsen  
  Anger sökvillkor för dokument som returneras av frågan.  
   
  **Syntax**  
@@ -344,7 +342,7 @@ WHERE <filter_condition>
   
  Villkoret måste utvärderas till SANT för att dokumentet ska returneras ett uttryck har angetts som filter. Endast booleska värdet true kommer uppfyller villkoret andra värden: Odefinierad, null, false, antalet, matris eller ett objekt ska inte uppfyller villkoret.  
   
-##  <a name="bk_orderby_clause"></a>ORDER BY-sats  
+##  <a name="bk_orderby_clause"></a> ORDER BY-sats  
  Anger sorteringsordning för resultaten som returnerades av frågan.  
   
  **Syntax**  
@@ -382,7 +380,7 @@ ORDER BY <sort_specification>
   
  Medan frågegrammatik stöder flera ordning efter egenskaper, stöder Azure Cosmos DB frågan runtime sortering bara mot en enskild egenskap och bara mot egenskapsnamn, d.v.s. inte mot beräknade egenskaper. Sortering kräver också att indexprincip innehåller ett index för intervallet för egenskapen och den angivna typen med den maximala precisionen. Referera till indexeringstjänsten princip dokumentationen för mer information.  
   
-##  <a name="bk_scalar_expressions"></a>Skalära uttryck  
+##  <a name="bk_scalar_expressions"></a> Skalära uttryck  
  Ett skalärt uttryck som är en kombination av symboler och operatorer som kan utvärderas för att få ett enskilt värde. Enkla uttryck kan vara konstanter, egenskapsreferenser, matris referenser, alias referenser eller funktionsanrop. Enkla uttryck kan kombineras till komplexa uttryck med hjälp av operatörer.  
   
  Mer information om vilka skalärt uttryck som kan ha värden finns [konstanter](#bk_constants) avsnitt.  
@@ -475,7 +473,7 @@ ORDER BY <sort_specification>
   
  När du skapar en matris, ett elementvärde som är tilldelad **Odefinierad** värdet kommer att hoppas över och inte ingår i det skapade objektet. Detta innebär att nästa definierade element ska utföras så att den skapade matrisen inte kommer ha hoppas över index.  
   
-##  <a name="bk_operators"></a>Operatörer  
+##  <a name="bk_operators"></a> Operatörer  
  Det här avsnittet beskrivs operatorerna som stöds. Varje operatör kan tilldelas till exakt en kategori.  
   
  Se **operatorn kategorier** tabellen nedan, mer information om hantering av **Odefinierad** värden, krav för indatavärden för och hanteringen av värden med typer som inte matchar.  
@@ -484,28 +482,28 @@ ORDER BY <sort_specification>
   
 |**Kategori**|**Detaljer**|  
 |-|-|  
-|**aritmetiska**|Operatorn förväntar input(s) vara nummer. Utdata är också ett tal. Om någon av indata är **Odefinierad** eller annan typ än antalet sedan resultatet är **Odefinierad**.|  
-|**binär**|Operatorn förväntar input(s) vara 32-bitars heltal nummer. Utdata är också 32-bitars heltal nummer.<br /><br /> Att kommer avrundas valfritt heltal. Ett positivt värde avrundas nedåt, negativa värden avrunda uppåt.<br /><br /> Ett värde som är utanför intervallet för 32-bitars heltal konverteras med sista 32-bitar för dess två visas.<br /><br /> Om någon av indata är **Odefinierad** eller annan typ än siffra, och sedan resultatet är **Odefinierad**.<br /><br /> **Obs:** beteendet ovan är kompatibel med JavaScript binär operator-beteende.|  
-|**logiska**|Operatorn förväntar input(s) ska Boolean(s). Utdata är också ett booleskt värde.<br />Om någon av indata är **Odefinierad** eller annan typ än Boolean, och sedan resultatet blir **Odefinierad**.|  
-|**jämförelse**|Operatorn förväntar input(s) har samma typ och inte vara odefinierat. Utdata är ett booleskt värde.<br /><br /> Om någon av indata är **Odefinierad** eller indata har olika typer och sedan resultatet är **Odefinierad**.<br /><br /> Se **ordning med värden för jämförelse** tabellen för värdet ordning information.|  
-|**sträng**|Operatorn förväntar input(s) ska strängarna. Utdata är också en sträng.<br />Om någon av indata är **Odefinierad** eller annan typ än sträng sedan resultatet är **Odefinierad**.|  
+|**Aritmetiska**|Operatorn förväntar input(s) vara nummer. Utdata är också ett tal. Om någon av indata är **Odefinierad** eller annan typ än antalet sedan resultatet är **Odefinierad**.|  
+|**Binärt**|Operatorn förväntar input(s) vara 32-bitars heltal nummer. Utdata är också 32-bitars heltal nummer.<br /><br /> Att kommer avrundas valfritt heltal. Ett positivt värde avrundas nedåt, negativa värden avrunda uppåt.<br /><br /> Ett värde som är utanför intervallet för 32-bitars heltal konverteras med sista 32-bitar för dess två visas.<br /><br /> Om någon av indata är **Odefinierad** eller annan typ än siffra, och sedan resultatet är **Odefinierad**.<br /><br /> **Obs:** beteendet ovan är kompatibel med JavaScript binär operator-beteende.|  
+|**logical**|Operatorn förväntar input(s) ska Boolean(s). Utdata är också ett booleskt värde.<br />Om någon av indata är **Odefinierad** eller annan typ än Boolean, och sedan resultatet blir **Odefinierad**.|  
+|**comparison**|Operatorn förväntar input(s) har samma typ och inte vara odefinierat. Utdata är ett booleskt värde.<br /><br /> Om någon av indata är **Odefinierad** eller indata har olika typer och sedan resultatet är **Odefinierad**.<br /><br /> Se **ordning med värden för jämförelse** tabellen för värdet ordning information.|  
+|**Sträng**|Operatorn förväntar input(s) ska strängarna. Utdata är också en sträng.<br />Om någon av indata är **Odefinierad** eller annan typ än sträng sedan resultatet är **Odefinierad**.|  
   
  **Unära operatorer:**  
   
 |**Namn**|**Operatorn**|**Detaljer**|  
 |-|-|-|  
-|**aritmetiska**|+<br /><br /> -|Returnerar det numeriska värdet.<br /><br /> Binär negation. Returnerar negated numeriskt värde.|  
-|**binär**|~|De som har komplementet. Returnerar en uppsättning ett numeriskt värde.|  
+|**Aritmetiska**|+<br /><br /> -|Returnerar det numeriska värdet.<br /><br /> Binär negation. Returnerar negated numeriskt värde.|  
+|**Binärt**|~|De som har komplementet. Returnerar en uppsättning ett numeriskt värde.|  
 |**Logiska**|**INTE**|Negation. Returnerar negated booleskt värde.|  
   
  **Binära operatorer:**  
   
 |**Namn**|**Operatorn**|**Detaljer**|  
 |-|-|-|  
-|**aritmetiska**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Tillägg.<br /><br /> Subtraktion.<br /><br /> Multiplikation.<br /><br /> Division.<br /><br /> Modulering.|  
-|**binär**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Logiskt eller.<br /><br /> Binär och.<br /><br /> Bitvis XOR.<br /><br /> Vänsterskift.<br /><br /> Högerskift.<br /><br /> Noll fill högerskift.|  
-|**logiska**|**OCH**<br /><br /> **ELLER**|Logisk konjunktion. Returnerar **SANT** om båda argument är **SANT**, returnerar **FALSKT** annars.<br /><br /> Logisk konjunktion. Returnerar **SANT** om båda argument är **SANT**, returnerar **FALSKT** annars.|  
-|**jämförelse**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Lika med. Returnerar **SANT** om argument är lika returnerar **FALSKT** annars.<br /><br /> Är inte lika med. Returnerar **SANT** om argumenten inte är lika, returnerar **FALSKT** annars.<br /><br /> Större än. Returnerar **SANT** om det första argumentet är större än det andra returnerar **FALSKT** annars.<br /><br /> Större än eller lika med. Returnerar **SANT** om första argument är större än eller lika med det andra, returnera **FALSKT** annars.<br /><br /> Mindre än. Returnerar **SANT** om första argumentet är mindre än en sekund, returnera **FALSKT** annars.<br /><br /> Mindre än eller lika med. Returnerar **SANT** om det första argumentet är mindre än eller lika med det andra, returnerar **FALSKT** annars.<br /><br /> Slå samman. Returnerar det andra argumentet om det första argumentet är en **Odefinierad** värde.|  
+|**Aritmetiska**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Tillägg.<br /><br /> Subtraktion.<br /><br /> Multiplikation.<br /><br /> Division.<br /><br /> Modulering.|  
+|**Binärt**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Logiskt eller.<br /><br /> Binär och.<br /><br /> Bitvis XOR.<br /><br /> Vänsterskift.<br /><br /> Högerskift.<br /><br /> Noll fill högerskift.|  
+|**logical**|**OCH**<br /><br /> **OR**|Logisk konjunktion. Returnerar **SANT** om båda argument är **SANT**, returnerar **FALSKT** annars.<br /><br /> Logisk konjunktion. Returnerar **SANT** om båda argument är **SANT**, returnerar **FALSKT** annars.|  
+|**comparison**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Lika med. Returnerar **SANT** om argument är lika returnerar **FALSKT** annars.<br /><br /> Är inte lika med. Returnerar **SANT** om argumenten inte är lika, returnerar **FALSKT** annars.<br /><br /> Större än. Returnerar **SANT** om det första argumentet är större än det andra returnerar **FALSKT** annars.<br /><br /> Större än eller lika med. Returnerar **SANT** om första argument är större än eller lika med det andra, returnera **FALSKT** annars.<br /><br /> Mindre än. Returnerar **SANT** om första argumentet är mindre än en sekund, returnera **FALSKT** annars.<br /><br /> Mindre än eller lika med. Returnerar **SANT** om det första argumentet är mindre än eller lika med det andra, returnerar **FALSKT** annars.<br /><br /> Slå samman. Returnerar det andra argumentet om det första argumentet är en **Odefinierad** värde.|  
 |**Sträng**|**&#124;&#124;**|Sammanfogning. Returnerar en sammansättning av båda argumenten.|  
   
  **Ternär operator:**  
@@ -521,7 +519,7 @@ ORDER BY <sort_specification>
 |**Null**|Enstaka värde: **null**|  
 |**Antal**|Naturliga tal.<br /><br /> Negativt oändligt värde är mindre än numeriskt värde.<br /><br /> Positivt oändligt värde är större än värdet värde. **NaN** värde är inte jämförbar. Jämföra med **NaN** leder **Odefinierad** värde.|  
 |**Sträng**|Lexicographical ordning.|  
-|**Matris**|Ingen ordning, men balanserad.|  
+|**matris**|Ingen ordning, men balanserad.|  
 |**Objektet**|Ingen ordning, men balanserad.|  
   
  **Kommentarer**  
@@ -538,7 +536,7 @@ ORDER BY <sort_specification>
   
  Objekt är lika om både objekt har samma egenskaper som definierats och värden av matchande egenskaper också är lika. Om att jämföra ett par värden resultat Odefinierad är resultatet av objektet jämförelse odefinierad.  
   
-##  <a name="bk_constants"></a>Konstanter  
+##  <a name="bk_constants"></a> Konstanter  
  En konstant, även kallat ett litteralvärde eller ett skalärt värde är en symbol som representerar ett specifikt värde. Formatet för en konstant beror på det värde som representerar datatyp.  
   
  **Skalära datatyper som stöds:**  
@@ -550,7 +548,7 @@ ORDER BY <sort_specification>
 |**Booleskt värde**|Värden: **FALSKT**, **SANT**.|  
 |**Antal**|En dubbel precision flyttal, IEEE-754 som standard.|  
 |**Sträng**|En sekvens med noll eller flera Unicode-tecken. Strängar måste stå inom enkla eller dubbla citattecken.|  
-|**Matris**|En sekvens med noll eller flera element. Varje element kan vara ett värde med en skalär datatypen, utom Undefined.|  
+|**matris**|En sekvens med noll eller flera element. Varje element kan vara ett värde med en skalär datatypen, utom Undefined.|  
 |**Objektet**|En osorterad uppsättning noll eller flera namn/värde-par. Namnet är en Unicode-sträng, värdet kan vara av valfri skalära datatyp, utom **Undefined**.|  
   
  **Syntax**  
@@ -629,18 +627,18 @@ ORDER BY <sort_specification>
   
 |**Escape-sekvens**|**Beskrivning**|**Unicode-tecken**|  
 |-|-|-|  
-|\\'|apostrof (')|U + 0027|  
-|\\"|citattecken (”)|U + 0022|  
-|\\\|omvänd solidus (\\)|U + 005C|  
-|\\/|solidus (/)|U + 002F|  
-|\b|BACKSTEG|U + 0008|  
-|\f|formuläret feed|U + 000C|  
-|\n|radmatning|U + 000A|  
-|\r|vagnretur|U + 000D|  
-|\t|fliken|U + 0009|  
-|\uXXXX|En Unicode-tecken som definieras av 4 hexadecimala siffror.|U + XXXX|  
+|\\'|apostrof (')|U+0027|  
+|\\"|citattecken (”)|U+0022|  
+|\\\|omvänd solidus (\\)|U+005C|  
+|\\/|solidus (/)|U+002F|  
+|\b|BACKSTEG|U+0008|  
+|\f|formuläret feed|U+000C|  
+|\n|radmatning|U+000A|  
+|\r|vagnretur|U+000D|  
+|\t|tabb|U+0009|  
+|\uXXXX|En Unicode-tecken som definieras av 4 hexadecimala siffror.|U+XXXX|  
   
-##  <a name="bk_query_perf_guidelines"></a>Riktlinjer för frågan prestanda  
+##  <a name="bk_query_perf_guidelines"></a> Riktlinjer för frågan prestanda  
  Det bör använda filter som kan hanteras via ett eller flera index för en fråga som ska köras effektivt för en stor samling.  
   
  Följande filter beaktas för index sökning:  
@@ -663,7 +661,7 @@ ORDER BY <sort_specification>
   
 3.  Referera till ett alias som representerar vissa dokument sökvägsuttryck.  
   
-     **Syntaxen konventioner**  
+     **syntaxen konventioner**  
   
      I följande tabell beskrivs konventioner används för att beskriva syntax i följande SQL-referens.  
   
@@ -671,18 +669,18 @@ ORDER BY <sort_specification>
     |-|-|    
     |VERSALER|Skiftlägeskänsliga nyckelord.|  
     |gemener|Skiftlägeskänsligt nyckelord.|  
-    |\<nonterminal >|Öppen, som har definierats separat.|  
+    |\<nonterminal>|Öppen, som har definierats separat.|  
     |\<nonterminal >:: =|Syntax för definition av nonterminal.|  
     |other_terminal|Terminal (token), som beskrivs i detalj i ord.|  
-    |Identifierare|Identifierare. Gör följande endast tecken: a-z A-Z 0-9 _First tecknet får inte vara en siffra.|  
+    |identifier|Identifierare. Gör följande endast tecken: a-z A-Z 0-9 _First tecknet får inte vara en siffra.|  
     |”sträng”|Sträng inom citattecken. Gör att en giltig sträng. Se beskrivning av en string_literal.|  
     |'symbolen'|Literalen symbolen som är del av syntaxen.|  
-    |&#124; (lodrätt streck)|Alternativ för syntax objekt. Du kan använda endast en av de angivna objekt.|  
+    |&#124;(lodrätt streck)|Alternativ för syntax objekt. Du kan använda endast en av de angivna objekt.|  
     |[] /(brackets)|Hakparenteser innefatta en eller flera valfria objekt.|  
     |[ ,...n ]|Anger det föregående element kan vara upprepade n är antalet gånger. Förekomster avgränsas med kommatecken.|  
     |[ ...n ]|Anger det föregående element kan vara upprepade n är antalet gånger. Förekomster avgränsas med blanksteg.|  
   
-##  <a name="bk_built_in_functions"></a>Inbyggda funktioner  
+##  <a name="bk_built_in_functions"></a> Inbyggda funktioner  
  Azure Cosmos-DB innehåller många inbyggda SQL-funktioner. Kategorier av inbyggda funktioner i listan nedan.  
   
 |Funktion|Beskrivning|  
@@ -693,21 +691,21 @@ ORDER BY <sort_specification>
 |[Matrisfunktioner](#bk_array_functions)|Matrisfunktioner kan du utföra en åtgärd på en matris indatavärdet och returnera numeriska, Boolean eller matrisen värde.|  
 |[Spatial funktioner](#bk_spatial_functions)|Spatial funktioner utföra en åtgärd på ett indatavärde Rumsobjektet och returnera ett numeriskt eller booleskt värde.|  
   
-###  <a name="bk_mathematical_functions"></a>Matematiska funktioner  
+###  <a name="bk_mathematical_functions"></a> Matematiska funktioner  
  Följande funktioner utför en beräkning, vanligtvis baserat på värden som har angetts som argument och returnerar ett numeriskt värde.  
   
 ||||  
 |-|-|-|  
-|[ABS](#bk_abs)|[ARCCOS](#bk_acos)|[ARCSIN](#bk_asin)|  
-|[ARCTAN](#bk_atan)|[ATN2](#bk_atn2)|[TAK](#bk_ceiling)|  
-|[COS](#bk_cos)|[BET](#bk_cot)|[GRADER](#bk_degrees)|  
-|[EXP](#bk_exp)|[VÅNING](#bk_floor)|[LOGG](#bk_log)|  
+|[ABS](#bk_abs)|[ACOS](#bk_acos)|[ASIN](#bk_asin)|  
+|[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[TAK](#bk_ceiling)|  
+|[COS](#bk_cos)|[BET](#bk_cot)|[DEGREES](#bk_degrees)|  
+|[EXP](#bk_exp)|[VÅNING](#bk_floor)|[LOG](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
-|[RADIANER](#bk_radians)|[AVRUNDA](#bk_round)|[SIN](#bk_sin)|  
-|[ROT](#bk_sqrt)|[RUTA](#bk_square)|[LOGGA](#bk_sign)|  
+|[RADIANS](#bk_radians)|[AVRUNDA](#bk_round)|[SIN](#bk_sin)|  
+|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
 |[TAN](#bk_tan)|[AVKORTA](#bk_trunc)||  
   
-####  <a name="bk_abs"></a>ABS  
+####  <a name="bk_abs"></a> ABS  
  Returnerar det absoluta (positiva) värdet av uttryck.  
   
  **Syntax**  
@@ -740,7 +738,7 @@ SELECT ABS(-1), ABS(0), ABS(1)
 [{$1: 1, $2: 0, $3: 1}]  
 ```  
   
-####  <a name="bk_acos"></a>ARCCOS  
+####  <a name="bk_acos"></a> ACOS  
  Returnerar vinkeln i radianer, vars cosinus är det angivna numeriska uttrycket; kallas även cosinus.  
   
  **Syntax**  
@@ -773,7 +771,7 @@ SELECT ACOS(-1)
 [{"$1": 3.1415926535897931}]  
 ```  
   
-####  <a name="bk_asin"></a>ARCSIN  
+####  <a name="bk_asin"></a> ASIN  
  Returnerar vinkeln i radianer, vars sinus är ett uttryck. Detta kallas också arcsinus.  
   
  **Syntax**  
@@ -806,7 +804,7 @@ SELECT ASIN(-1)
 [{"$1": -1.5707963267948966}]  
 ```  
   
-####  <a name="bk_atan"></a>ARCTAN  
+####  <a name="bk_atan"></a> ARCTAN  
  Returnerar vinkeln i radianer, vars tangens är ett uttryck. Detta kallas också tangens.  
   
  **Syntax**  
@@ -839,7 +837,7 @@ SELECT ATAN(-45.01)
 [{"$1": -1.5485826962062663}]  
 ```  
   
-####  <a name="bk_atn2"></a>ATN2  
+####  <a name="bk_atn2"></a> ATN2  
  Returnerar huvudvärdet arctangens av y / x, uttryckt i radianer.  
   
  **Syntax**  
@@ -872,7 +870,7 @@ SELECT ATN2(35.175643, 129.44)
 [{"$1": 1.3054517947300646}]  
 ```  
   
-####  <a name="bk_ceiling"></a>TAK  
+####  <a name="bk_ceiling"></a> TAK  
  Returnerar det minsta heltalsvärdet större än eller lika med det angivna numeriska uttrycket.  
   
  **Syntax**  
@@ -905,7 +903,7 @@ SELECT CEILING(123.45), CEILING(-123.45), CEILING(0.0)
 [{$1: 124, $2: -123, $3: 0}]  
 ```  
   
-####  <a name="bk_cos"></a>COS  
+####  <a name="bk_cos"></a> COS  
  Returnerar trigonometriska värden cosinus för den angivna vinkeln i radianer i det angivna uttrycket.  
   
  **Syntax**  
@@ -938,7 +936,7 @@ SELECT COS(14.78)
 [{"$1": -0.59946542619465426}]  
 ```  
   
-####  <a name="bk_cot"></a>BET  
+####  <a name="bk_cot"></a> BET  
  Returnerar trigonometriska värden cotangens för den angivna vinkeln i radianer i uttryck.  
   
  **Syntax**  
@@ -971,7 +969,7 @@ SELECT COT(124.1332)
 [{"$1": -0.040311998371148884}]  
 ```  
   
-####  <a name="bk_degrees"></a>GRADER  
+####  <a name="bk_degrees"></a> GRADER  
  Returnerar en motsvarande vinkel i grader för en vinkel angiven i radianer.  
   
  **Syntax**  
@@ -1004,7 +1002,7 @@ SELECT DEGREES(PI()/2)
 [{"$1": 90}]  
 ```  
   
-####  <a name="bk_floor"></a>VÅNING  
+####  <a name="bk_floor"></a> VÅNING  
  Returnerar det största heltalet mindre än eller lika med det angivna numeriska uttrycket.  
   
  **Syntax**  
@@ -1037,7 +1035,7 @@ SELECT FLOOR(123.45), FLOOR(-123.45), FLOOR(0.0)
 [{$1: 123, $2: -124, $3: 0}]  
 ```  
   
-####  <a name="bk_exp"></a>EXP  
+####  <a name="bk_exp"></a> EXP  
  Returnerar exponentialfördelningen värdet för det angivna numeriska uttrycket.  
   
  **Syntax**  
@@ -1090,7 +1088,7 @@ SELECT EXP(LOG(20)), LOG(EXP(20))
 [{$1: 19.999999999999996, $2: 20}]  
 ```  
   
-####  <a name="bk_log"></a>LOGG  
+####  <a name="bk_log"></a> LOGG  
  Returnerar den naturliga logaritmen för uttryck.  
   
  **Syntax**  
@@ -1147,7 +1145,7 @@ SELECT EXP(LOG(10))
 [{$1: 10.000000000000002}]  
 ```  
   
-####  <a name="bk_log10"></a>LOG10  
+####  <a name="bk_log10"></a> LOG10  
  Returnerar 10-logaritmen av uttryck.  
   
  **Syntax**  
@@ -1184,7 +1182,7 @@ SELECT LOG10(100)
 [{$1: 2}]  
 ```  
   
-####  <a name="bk_pi"></a>PI  
+####  <a name="bk_pi"></a> PI  
  Returnerar värdet PI konstant.  
   
  **Syntax**  
@@ -1217,7 +1215,7 @@ SELECT PI()
 [{"$1": 3.1415926535897931}]  
 ```  
   
-####  <a name="bk_power"></a>POWER  
+####  <a name="bk_power"></a> POWER  
  Returnerar värdet för det angivna uttrycket till angiven potens.  
   
  **Syntax**  
@@ -1254,7 +1252,7 @@ SELECT POWER(2, 3), POWER(2.5, 3)
 [{$1: 8, $2: 15.625}]  
 ```  
   
-####  <a name="bk_radians"></a>RADIANER  
+####  <a name="bk_radians"></a> RADIANER  
  Returnerar radianer när ett numeriskt uttryck i grader anges.  
   
  **Syntax**  
@@ -1293,7 +1291,7 @@ SELECT RADIANS(-45.01), RADIANS(-181.01), RADIANS(0), RADIANS(0.1472738), RADIAN
    }]  
 ```  
   
-####  <a name="bk_round"></a>AVRUNDA  
+####  <a name="bk_round"></a> AVRUNDA  
  Returnerar ett tal avrundat till närmaste heltal.  
   
  **Syntax**  
@@ -1326,7 +1324,7 @@ SELECT ROUND(2.4), ROUND(2.6), ROUND(2.5), ROUND(-2.4), ROUND(-2.6)
 [{$1: 2, $2: 3, $3: 3, $4: -2, $5: -3}]  
 ```  
   
-####  <a name="bk_sign"></a>LOGGA  
+####  <a name="bk_sign"></a> SIGN  
  Returnerar positivt (+ 1), noll (0) eller minustecken (-1) för det angivna numeriskt uttrycket.  
   
  **Syntax**  
@@ -1359,7 +1357,7 @@ SELECT SIGN(-2), SIGN(-1), SIGN(0), SIGN(1), SIGN(2)
 [{$1: -1, $2: -1, $3: 0, $4: 1, $5: 1}]  
 ```  
   
-####  <a name="bk_sin"></a>SIN  
+####  <a name="bk_sin"></a> SIN  
  Returnerar trigonometriska värden sinus för den angivna vinkeln i radianer i det angivna uttrycket.  
   
  **Syntax**  
@@ -1392,7 +1390,7 @@ SELECT SIN(45.175643)
 [{"$1": 0.929607286611012}]  
 ```  
   
-####  <a name="bk_sqrt"></a>ROT  
+####  <a name="bk_sqrt"></a> ROT  
  Returnerar kvadratroten av det angivna numeriskt värdet.  
   
  **Syntax**  
@@ -1425,7 +1423,7 @@ SELECT SQRT(1), SQRT(2.0), SQRT(3)
 [{$1: 1, $2: 1.4142135623730952, $3: 1.7320508075688772}]  
 ```  
   
-####  <a name="bk_square"></a>RUTA  
+####  <a name="bk_square"></a> RUTA  
  Returnerar kvadratroten av det angivna numeriska värdet.  
   
  **Syntax**  
@@ -1458,7 +1456,7 @@ SELECT SQUARE(1), SQUARE(2.0), SQUARE(3)
 [{$1: 1, $2: 4, $3: 9}]  
 ```  
   
-####  <a name="bk_tan"></a>TAN  
+####  <a name="bk_tan"></a> TAN  
  Returnerar tangens för den angivna vinkeln i radianer i det angivna uttrycket.  
   
  **Syntax**  
@@ -1491,7 +1489,7 @@ SELECT TAN(PI()/2);
 [{"$1": 16331239353195370 }]  
 ```  
   
-####  <a name="bk_trunc"></a>AVKORTA  
+####  <a name="bk_trunc"></a> AVKORTA  
  Returnerar ett numeriskt värde trunkeras till närmaste heltal.  
   
  **Syntax**  
@@ -1524,7 +1522,7 @@ SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)
 [{$1: 2, $2: 2, $3: 2, $4: -2, $5: -2}]  
 ```  
   
-###  <a name="bk_type_checking_functions"></a>Ange kontrollerar funktioner  
+###  <a name="bk_type_checking_functions"></a> Ange kontrollerar funktioner  
  Följande funktioner stöder typkontroll mot indatavärden och varje returnera ett booleskt värde.  
   
 ||||  
@@ -1533,7 +1531,7 @@ SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)
 |[IS_NULL](#bk_is_null)|[IS_NUMBER](#bk_is_number)|[IS_OBJECT](#bk_is_object)|  
 |[IS_PRIMITIVE](#bk_is_primitive)|[IS_STRING](#bk_is_string)||  
   
-####  <a name="bk_is_array"></a>IS_ARRAY  
+####  <a name="bk_is_array"></a> IS_ARRAY  
  Returnerar ett booleskt värde som anger om det angivna uttrycket är en matris.  
   
  **Syntax**  
@@ -1573,7 +1571,7 @@ SELECT
 [{$1: false, $2: false, $3: false, $4: false, $5: false, $6: true}]  
 ```  
   
-####  <a name="bk_is_bool"></a>IS_BOOL  
+####  <a name="bk_is_bool"></a> IS_BOOL  
  Returnerar ett booleskt värde som anger om det angivna uttrycket är ett booleskt värde.  
   
  **Syntax**  
@@ -1613,7 +1611,7 @@ SELECT
 [{$1: true, $2: false, $3: false, $4: false, $5: false, $6: false}]  
 ```  
   
-####  <a name="bk_is_defined"></a>IS_DEFINED  
+####  <a name="bk_is_defined"></a> IS_DEFINED  
  Returnerar ett booleskt värde som anger om egenskapen har tilldelats ett värde.  
   
  **Syntax**  
@@ -1649,7 +1647,7 @@ SELECT IS_DEFINED({ "a" : 5 }.a), IS_DEFINED({ "a" : 5 }.b)
    }]  
 ```  
   
-####  <a name="bk_is_null"></a>IS_NULL  
+####  <a name="bk_is_null"></a> IS_NULL  
  Returnerar ett booleskt värde som anger om typ av det angivna uttrycket är null.  
   
  **Syntax**  
@@ -1689,7 +1687,7 @@ SELECT
 [{$1: false, $2: false, $3: false, $4: true, $5: false, $6: false}]  
 ```  
   
-####  <a name="bk_is_number"></a>IS_NUMBER  
+####  <a name="bk_is_number"></a> IS_NUMBER  
  Returnerar ett booleskt värde som anger om typ av det angivna uttrycket är ett tal.  
   
  **Syntax**  
@@ -1729,7 +1727,7 @@ SELECT
 [{$1: false, $2: true, $3: false, $4: false, $5: false, $6: false}]  
 ```  
   
-####  <a name="bk_is_object"></a>IS_OBJECT  
+####  <a name="bk_is_object"></a> IS_OBJECT  
  Returnerar ett booleskt värde som anger om det angivna uttrycket är ett JSON-objekt.  
   
  **Syntax**  
@@ -1769,7 +1767,7 @@ SELECT
 [{$1: false, $2: false, $3: false, $4: false, $5: true, $6: false}]  
 ```  
   
-####  <a name="bk_is_primitive"></a>IS_PRIMITIVE  
+####  <a name="bk_is_primitive"></a> IS_PRIMITIVE  
  Returnerar ett booleskt värde som anger om typ av det angivna uttrycket är en primitiv (string, Boolean, numeriska eller null).  
   
  **Syntax**  
@@ -1809,7 +1807,7 @@ SELECT
 [{"$1": true, "$2": true, "$3": true, "$4": true, "$5": false, "$6": false, "$7": false}]  
 ```  
   
-####  <a name="bk_is_string"></a>IS_STRING  
+####  <a name="bk_is_string"></a> IS_STRING  
  Returnerar ett booleskt värde som anger om det angivna uttrycket är en sträng.  
   
  **Syntax**  
@@ -1849,19 +1847,19 @@ SELECT
 [{$1: false, $2: false, $3: true, $4: false, $5: false, $6: false}]  
 ```  
   
-###  <a name="bk_string_functions"></a>Strängfunktioner  
+###  <a name="bk_string_functions"></a> Strängfunktioner  
  Följande skalärfunktioner utföra en åtgärd på ett inkommande värde och returnerar en sträng, numeriskt eller booleskt värde.  
   
 ||||  
 |-|-|-|  
 |[CONCAT](#bk_concat)|[INNEHÅLLER](#bk_contains)|[ENDSWITH](#bk_endswith)|  
 |[INDEX_OF](#bk_index_of)|[VÄNSTER](#bk_left)|[LÄNGD](#bk_length)|  
-|[LÄGRE](#bk_lower)|[LTRIM](#bk_ltrim)|[ERSÄTT](#bk_replace)|  
-|[Replikera](#bk_replicate)|[OMVÄND](#bk_reverse)|[HÖGER](#bk_right)|  
+|[LÄGRE](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
+|[Replikera](#bk_replicate)|[REVERSE](#bk_reverse)|[HÖGER](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[DELSTRÄNGEN](#bk_substring)|  
-|[ÖVRE](#bk_upper)|||  
+|[UPPER](#bk_upper)|||  
   
-####  <a name="bk_concat"></a>CONCAT  
+####  <a name="bk_concat"></a> CONCAT  
  Returnerar en sträng som är resultatet av att sammanfoga två eller flera strängvärden.  
   
  **Syntax**  
@@ -1894,7 +1892,7 @@ SELECT CONCAT("abc", "def")
 [{"$1": "abcdef"}  
 ```  
   
-####  <a name="bk_contains"></a>INNEHÅLLER  
+####  <a name="bk_contains"></a> INNEHÅLLER  
  Returnerar ett booleskt värde som anger om först stränguttryck innehåller andra.  
   
  **Syntax**  
@@ -1927,7 +1925,7 @@ SELECT CONTAINS("abc", "ab"), CONTAINS("abc", "d")
 [{"$1": true, "$2": false}]  
 ```  
   
-####  <a name="bk_endswith"></a>ENDSWITH  
+####  <a name="bk_endswith"></a> ENDSWITH  
  Returnerar ett booleskt värde som anger om först stränguttryck slutar med andra.  
   
  **Syntax**  
@@ -1960,7 +1958,7 @@ SELECT ENDSWITH("abc", "b"), ENDSWITH("abc", "bc")
 [{"$1": false, "$2": true}]  
 ```  
   
-####  <a name="bk_index_of"></a>INDEX_OF  
+####  <a name="bk_index_of"></a> INDEX_OF  
  Returnerar startpositionen för den första förekomsten av andra stränguttryck inom det första uttrycket i strängen, eller -1 om strängen inte hittas.  
   
  **Syntax**  
@@ -1993,7 +1991,7 @@ SELECT INDEX_OF("abc", "ab"), INDEX_OF("abc", "b"), INDEX_OF("abc", "c")
 [{"$1": 0, "$2": 1, "$3": -1}]  
 ```  
   
-####  <a name="bk_left"></a>VÄNSTER  
+####  <a name="bk_left"></a> VÄNSTER  
  Returnerar en sträng med det angivna antalet tecken vänstra del.  
   
  **Syntax**  
@@ -2030,7 +2028,7 @@ SELECT LEFT("abc", 1), LEFT("abc", 2)
 [{"$1": "a", "$2": "ab"}]  
 ```  
   
-####  <a name="bk_length"></a>LÄNGD  
+####  <a name="bk_length"></a> LÄNGD  
  Returnerar antalet tecken i angivet stränguttryck.  
   
  **Syntax**  
@@ -2063,7 +2061,7 @@ SELECT LENGTH("abc")
 [{"$1": 3}]  
 ```  
   
-####  <a name="bk_lower"></a>LÄGRE  
+####  <a name="bk_lower"></a> LÄGRE  
  Returnerar ett stränguttryck när versal data har konverterats till gemener.  
   
  **Syntax**  
@@ -2097,7 +2095,7 @@ SELECT LOWER("Abc")
   
 ```  
   
-####  <a name="bk_ltrim"></a>LTRIM  
+####  <a name="bk_ltrim"></a> LTRIM  
  Returnerar ett stränguttryck när den tar bort inledande blanksteg.  
   
  **Syntax**  
@@ -2130,7 +2128,7 @@ SELECT LTRIM("  abc"), LTRIM("abc"), LTRIM("abc   ")
 [{"$1": "abc", "$2": "abc", "$3": "abc   "}]  
 ```  
   
-####  <a name="bk_replace"></a>ERSÄTT  
+####  <a name="bk_replace"></a> ERSÄTT  
  Ersätter alla förekomster av ett angivet strängvärde med ett annat värde.  
   
  **Syntax**  
@@ -2163,7 +2161,7 @@ SELECT REPLACE("This is a Test", "Test", "desk")
 [{"$1": "This is a desk"}]  
 ```  
   
-####  <a name="bk_replicate"></a>REPLIKERA  
+####  <a name="bk_replicate"></a> REPLIKERA  
  Upprepar ett strängvärde till ett angivet antal gånger.  
   
  **Syntax**  
@@ -2200,7 +2198,7 @@ SELECT REPLICATE("a", 3)
 [{"$1": "aaa"}]  
 ```  
   
-####  <a name="bk_reverse"></a>OMVÄND  
+####  <a name="bk_reverse"></a> OMVÄND  
  Returnerar ett strängvärde omvänd ordning.  
   
  **Syntax**  
@@ -2233,7 +2231,7 @@ SELECT REVERSE("Abc")
 [{"$1": "cbA"}]  
 ```  
   
-####  <a name="bk_right"></a>HÖGER  
+####  <a name="bk_right"></a> HÖGER  
  Returnerar den högra delen av en sträng med det angivna antalet tecken.  
   
  **Syntax**  
@@ -2270,7 +2268,7 @@ SELECT RIGHT("abc", 1), RIGHT("abc", 2)
 [{"$1": "c", "$2": "bc"}]  
 ```  
   
-####  <a name="bk_rtrim"></a>RTRIM  
+####  <a name="bk_rtrim"></a> RTRIM  
  Returnerar ett stränguttryck när den tar bort avslutande blanksteg.  
   
  **Syntax**  
@@ -2303,7 +2301,7 @@ SELECT RTRIM("  abc"), RTRIM("abc"), RTRIM("abc   ")
 [{"$1": "   abc", "$2": "abc", "$3": "abc"}]  
 ```  
   
-####  <a name="bk_startswith"></a>STARTSWITH  
+####  <a name="bk_startswith"></a> STARTSWITH  
  Returnerar ett booleskt värde som anger om först stränguttryck börjar med andra.  
   
  **Syntax**  
@@ -2336,7 +2334,7 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
 [{"$1": false, "$2": true}]  
 ```  
   
-####  <a name="bk_substring"></a>DELSTRÄNGEN  
+####  <a name="bk_substring"></a> DELSTRÄNGEN  
  Returnerar en del av ett stränguttryck som börjar vid den angivna nollbaserade teckenpositionen och fortsätter med den angivna längden eller till slutet av strängen.  
   
  **Syntax**  
@@ -2373,7 +2371,7 @@ SELECT SUBSTRING("abc", 1, 1)
 [{"$1": "b"}]  
 ```  
   
-####  <a name="bk_upper"></a>ÖVRE  
+####  <a name="bk_upper"></a> ÖVRE  
  Returnerar ett stränguttryck när gemen data har konverterats till versaler.  
   
  **Syntax**  
@@ -2406,7 +2404,7 @@ SELECT UPPER("Abc")
 [{"$1": "ABC"}]  
 ```  
   
-###  <a name="bk_array_functions"></a>Matrisfunktioner  
+###  <a name="bk_array_functions"></a> Matrisfunktioner  
  Följande skalärfunktioner utföra en åtgärd på en matris indatavärdet och returnera numeriska, Boolean eller matrisen värde  
   
 ||||  
@@ -2414,7 +2412,7 @@ SELECT UPPER("Abc")
 |[ARRAY_CONCAT](#bk_array_concat)|[ARRAY_CONTAINS](#bk_array_contains)|[ARRAY_LENGTH](#bk_array_length)|  
 |[ARRAY_SLICE](#bk_array_slice)|||  
   
-####  <a name="bk_array_concat"></a>ARRAY_CONCAT  
+####  <a name="bk_array_concat"></a> ARRAY_CONCAT  
  Returnerar en matris som är resultatet av sammanfogar två eller flera matrisvärden.  
   
  **Syntax**  
@@ -2447,7 +2445,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 [{"$1": ["apples", "strawberries", "bananas"]}]  
 ```  
   
-####  <a name="bk_array_contains"></a>ARRAY_CONTAINS  
+####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
 Returnerar ett booleskt värde som anger om matrisen innehåller det angivna värdet. Ange om matchningen är fullständigt eller partiellt. 
 
  **Syntax**  
@@ -2509,7 +2507,7 @@ SELECT
 }] 
 ```  
   
-####  <a name="bk_array_length"></a>ARRAY_LENGTH  
+####  <a name="bk_array_length"></a> ARRAY_LENGTH  
  Returnerar antal element i matrisen uttrycket.  
   
  **Syntax**  
@@ -2542,7 +2540,7 @@ SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])
 [{"$1": 3}]  
 ```  
   
-####  <a name="bk_array_slice"></a>ARRAY_SLICE  
+####  <a name="bk_array_slice"></a> ARRAY_SLICE  
  Returnerar en del av ett matrisuttryck.
   
  **Syntax**  
@@ -2584,7 +2582,7 @@ SELECT
        }]  
 ```  
   
-###  <a name="bk_spatial_functions"></a>Spatial funktioner  
+###  <a name="bk_spatial_functions"></a> Spatial funktioner  
  Följande skalärfunktioner utföra en åtgärd på ett indatavärde Rumsobjektet och returnera ett numeriskt eller booleskt värde.  
   
 ||||  
@@ -2592,7 +2590,7 @@ SELECT
 |[ST_DISTANCE](#bk_st_distance)|[ST_WITHIN](#bk_st_within)|[ST_INTERSECTS](#bk_st_intersects)|[ST_ISVALID](#bk_st_isvalid)|  
 |[ST_ISVALIDDETAILED](#bk_st_isvaliddetailed)|||  
   
-####  <a name="bk_st_distance"></a>ST_DISTANCE  
+####  <a name="bk_st_distance"></a> ST_DISTANCE  
  Returnerar avståndet mellan de två GeoJSON punkt, Polygon eller LineString-uttrycken.  
   
  **Syntax**  
@@ -2629,7 +2627,7 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 }]  
 ```  
   
-####  <a name="bk_st_within"></a>ST_WITHIN  
+####  <a name="bk_st_within"></a> ST_WITHIN  
  Returnerar ett booleskt uttryck som anger om GeoJSON (Point, LineString eller Polygon) det angivna objektet i det första argumentet är i GeoJSON (Point, LineString eller Polygon) i det andra argumentet.  
   
  **Syntax**  
@@ -2671,7 +2669,7 @@ WHERE ST_WITHIN(f.location, {
 [{ "id": "WakefieldFamily" }]  
 ```  
 
-####  <a name="bk_st_intersects"></a>ST_INTERSECTS  
+####  <a name="bk_st_intersects"></a> ST_INTERSECTS  
  Returnerar ett booleskt uttryck som anger om GeoJSON (Point, LineString eller Polygon) det angivna objektet i det första argumentet korsar GeoJSON (Point, LineString eller Polygon) i det andra argumentet.  
   
  **Syntax**  
@@ -2713,7 +2711,7 @@ WHERE ST_INTERSECTS(a.location, {
 [{ "id": "IntersectingPolygon" }]  
 ```  
   
-####  <a name="bk_st_isvalid"></a>ST_ISVALID  
+####  <a name="bk_st_isvalid"></a> ST_ISVALID  
  Returnerar ett booleskt värde som anger om det angivna uttrycket GeoJSON punkt, Polygon eller LineString är giltig.  
   
  **Syntax**  
@@ -2750,7 +2748,7 @@ SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 [{ "$1": false }]  
 ```  
   
-####  <a name="bk_st_isvaliddetailed"></a>ST_ISVALIDDETAILED  
+####  <a name="bk_st_isvaliddetailed"></a> ST_ISVALIDDETAILED  
  Returnerar ett JSON-värde som innehåller ett booleskt värde värdet om det angivna uttrycket för GeoJSON punkt, Polygon eller LineString är giltiga och ogiltiga, dessutom orsak som ett strängvärde.  
   
  **Syntax**  

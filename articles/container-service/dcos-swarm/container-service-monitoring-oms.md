@@ -1,6 +1,6 @@
 ---
-title: "Övervaka Azure DC/OS-kluster - Verksamhetsstyrning"
-description: "Övervaka ett Azure Container Service DC/OS-kluster med Microsoft Operations Management Suite."
+title: Övervaka Azure DC/OS-kluster - Verksamhetsstyrning
+description: Övervaka ett Azure Container Service DC/OS-kluster med logganalys.
 services: container-service
 author: keikhara
 manager: timlt
@@ -9,45 +9,46 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: a675f0b57ed9e5d515cfa79a3a841e0f133fff6f
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ba76f8480dedb37326505f7ed756eb51a41ee0fe
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-operations-management-suite"></a>Övervaka ett Azure Container Service DC/OS-kluster med Operations Management Suite
+# <a name="monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>Övervaka ett Azure Container Service DC/OS-kluster med logganalys
 
-Microsoft Operations Management Suite (OMS) är Microsofts molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda din lokala och molnbaserade infrastruktur. Behållaren lösningen är en lösning i OMS logganalys, vilket gör det möjligt att visa behållaren inventering, prestanda och loggar på en enda plats. Du kan granska, Felsök behållare genom att visa loggarna på central plats och hitta störningar förbrukar överdriven behållare på en värd.
+Logganalys är Microsofts molnbaserade IT lösning som hjälper dig att hantera och skydda dina lokala och molnet infrastruktur. Behållaren lösningen är en lösning i logganalys som hjälper dig att visa behållaren inventering, prestanda och loggar på en enda plats. Du kan granska, Felsök behållare genom att visa loggarna på central plats och hitta störningar förbrukar överdriven behållare på en värd.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
 Mer information om behållaren lösning hittar du den [behållare lösning logganalys](../../log-analytics/log-analytics-containers.md).
 
-## <a name="setting-up-oms-from-the-dcos-universe"></a>Konfigurera OMS från DC/OS-universe
+## <a name="setting-up-log-analytics-from-the-dcos-universe"></a>Konfigurera logganalys från DC/OS-universe
 
 
 Den här artikeln förutsätter att du har skapat ett DC/OS och har distribuerat enkla behållaren webbprogram på klustret.
 
 ### <a name="pre-requisite"></a>Förhandskrav
 - [Microsoft Azure-prenumeration](https://azure.microsoft.com/free/) -du kan få detta kostnadsfritt.  
-- Installationsprogrammet för Microsoft OMS-arbetsytan - finns i ”steg 3” nedan
+- Logga Analytics arbetsytan installationsprogrammet - se ”steg 3” nedan
 - [DC/OS CLI](https://dcos.io/docs/1.8/usage/cli/install/) installerad.
 
 1. Klicka på DC/OS-instrumentpanel på Universe och Sök efter ”OMS-enligt nedan.
 
 ![](media/container-service-monitoring-oms/image2.png)
 
-2. Klicka på **Installera**. Du ser en pop upp med versionsinformation OMS och en **installera paket** eller **Installation i Avancerat** knappen. När du klickar på **Installation i Avancerat**, vilket innebär att du den **OMS specifika konfigurationsegenskaper** sidan.
+2. Klicka på **Installera**. Du ser en pop upp med versionsinformationen och en **installera paket** eller **Installation i Avancerat** knappen. När du klickar på **Installation i Avancerat**, vilket innebär att du den **OMS specifika konfigurationsegenskaper** sidan.
 
 ![](media/container-service-monitoring-oms/image3.png)
 
 ![](media/container-service-monitoring-oms/image4.png)
 
-3. Här kan du bli ombedd att ange den `wsid` (OMS arbetsytan ID) och `wskey` (OMS primära nyckeln för ditt arbetsyte-id). Att hämta både `wsid` och `wskey` måste du skapa en OMS-konto på <https://mms.microsoft.com>. Följ stegen för att skapa ett konto. När du är klar att skapa kontot, måste du skaffa din `wsid` och `wskey` genom att klicka på **inställningar**, sedan **anslutna källor**, och sedan **Linux-servrar**, enligt nedan.
+3. Här kan du bli ombedd att ange den `wsid` (logganalys arbetsytan ID) och `wskey` (den primära nyckeln för ditt arbetsyte-id). Att hämta både `wsid` och `wskey` måste du skapa ett konto på <https://mms.microsoft.com>.
+Följ stegen för att skapa ett konto. När du är klar att skapa kontot, måste du skaffa din `wsid` och `wskey` genom att klicka på **inställningar**, sedan **anslutna källor**, och sedan **Linux-servrar**, enligt nedan.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-4. Välj de nummer du OMS-instanser som du vill använda och klicka på knappen ”Granska och installera”. Normalt kommer du vilja ha antal OMS-instanser som är lika med antalet Virtuella datorer i klustret för agenten. OMS-Agent för Linux är en installation som enskilda behållare på varje virtuell dator som du vill samla in information för övervakning och loggning.
+4. Välj antalet instanser som du vill använda och klicka på knappen ”Granska och installera”. Normalt kommer du vilja ha antalet instanser som är lika med antalet Virtuella datorer i klustret för agenten. OMS-Agent för Linux installerar som enskilda behållare på varje virtuell dator som du vill samla in information för övervakning och loggning.
 
 ## <a name="setting-up-a-simple-oms-dashboard"></a>Konfigurera en enkel OMS-instrumentpanel
 
@@ -81,7 +82,7 @@ När du har valt din arbetsyta, klickar du på **skapa**.
 
 ![](media/container-service-monitoring-oms/image11.png)
 
-Mer information om lösningen i OMS-behållaren finns i den [behållare lösning logganalys](../../log-analytics/log-analytics-containers.md).
+Mer information om Log Analytics behållaren lösning hittar du den [behållare lösning logganalys](../../log-analytics/log-analytics-containers.md).
 
 ### <a name="how-to-scale-oms-agent-with-acs-dcos"></a>Så här skalar du OMS-Agent med ACS DC/OS 
 
@@ -106,4 +107,4 @@ Vad fungerar? Vad som saknas? Vad behöver du för att detta ska vara användbar
 
 ## <a name="next-steps"></a>Nästa steg
 
- Nu när du har ställt in OMS att övervaka din behållare[finns i instrumentpanelen behållaren](../../log-analytics/log-analytics-containers.md).
+ Nu när du har konfigurerat Log Analytics att övervaka din behållare[finns i instrumentpanelen behållaren](../../log-analytics/log-analytics-containers.md).

@@ -1,12 +1,12 @@
 ---
-title: "Verktyg för Azure Cosmos DB | Microsoft Docs"
-description: "Lär dig använda Migreringsverktyg för öppen källkod Azure Cosmos DB data för att importera data till Azure Cosmos DB från olika källor, inklusive MongoDB, SQL Server, Table storage, Amazon DynamoDB, CSV och JSON-filer. CSV-fil för JSON-konvertering."
-keywords: "CSV-fil för json Migreringsverktyg för databasen, konvertera csv till json"
+title: Verktyg för Azure Cosmos DB | Microsoft Docs
+description: Lär dig använda Migreringsverktyg för öppen källkod Azure Cosmos DB data för att importera data till Azure Cosmos DB från olika källor, inklusive MongoDB, SQL Server, Table storage, Amazon DynamoDB, CSV och JSON-filer. CSV-fil för JSON-konvertering.
+keywords: CSV-fil för json Migreringsverktyg för databasen, konvertera csv till json
 services: cosmos-db
 author: andrewhoh
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d173581d-782a-445c-98d9-5e3c49b00e25
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,15 +16,13 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: cf8b0e6a06f787c5b38622e9343e893d5d7daa12
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1276fb119199b9dbb9b50bed8ac12cff0a55d2dd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Verktyg för migrering av
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Den här kursen innehåller instruktioner om hur du använder verktyget Azure Cosmos DB datamigrering som kan importera data från olika källor till Azure Cosmos DB samlingar och tabeller. Du kan importera från JSON filer, CSV-filer, SQL, MongoDB, Azure Table storage, Amazon DynamoDB och även Azure SQL DB-API Cosmos-samlingar och du migrerar data till samlingar och tabeller för med Azure Cosmos DB. Verktyget migrering av Data kan också användas när du migrerar från en enda partition samling till en samling med flera partition för SQL-API.
 

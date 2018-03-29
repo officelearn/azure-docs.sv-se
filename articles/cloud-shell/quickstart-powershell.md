@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: 4b0831173212d3324c851ad1bd04ec443a9face5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: efee0842a2fca2afac28f179bba07c3b6682ee57
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Snabbstart för PowerShell i Azure-molnet Shell (förhandsgranskning)
 
@@ -182,7 +182,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 #### <a name="invoke-powershell-script-across-remote-vms"></a>Starta PowerShell-skript över remote virtuella datorer
 
  > [!WARNING]
- > Se [felsökning fjärrhantering av virtuella datorer i Azure](troubleshooting.md#powershell-resolutions).
+ > Se [felsökning fjärrhantering av virtuella datorer i Azure](troubleshooting.md#troubleshooting-remote-management-of-azure-vms).
 
   Anta att du har en virtuell dator, MyVM1, använder vi `Invoke-AzureRmVMCommand` att anropa ett PowerShell-skriptblock på fjärrdatorn.
 

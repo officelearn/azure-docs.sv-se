@@ -1,11 +1,11 @@
 ---
-title: "Java-utvecklare för Azure Functions | Microsoft Docs"
-description: "Förstå hur du utvecklar fungerar med Java."
+title: Java-utvecklare för Azure Functions | Microsoft Docs
+description: Förstå hur du utvecklar fungerar med Java.
 services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: "Azure functions, funktioner, händelsebearbetning, webhooks, dynamiska beräkning, serverlösa arkitektur, java"
+keywords: Azure functions, funktioner, händelsebearbetning, webhooks, dynamiska beräkning, serverlösa arkitektur, java
 ms.service: functions
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 71576e65d20d7e8cb7f5ff1c5f19c82439bb6807
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Utvecklarhandbok för Azure Functions Java
 > [!div class="op_single_selector"]
@@ -33,13 +33,13 @@ En Azure-funktion anropas vanligtvis på grund av en extern utlösare. Funktione
 
 Java-kommentarer ingår i den `azure-functions-java-core` paketet binda indata och utdata till din metoder. Utlösare för stöds indata och utdata bindning anteckningar ingår i följande tabell:
 
-Bindning | Anteckningen
+Bindning | Anteckning
 ---|---
 CosmosDB | Gäller inte
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
 Mobile Apps | Gäller inte
 Notification Hubs | Gäller inte
-Lagringsblob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
+Storage Blob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
 Lagringskö | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Tabell för lagring | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Timer | <ul><li>`TimerTrigger`</li></ul>
@@ -325,9 +325,33 @@ public class Function {
 }
 ```
 
+## <a name="environment-variables"></a>Miljövariabler
+
+Det är ofta önskvärt att extrahera hemlig information från källkoden av säkerhetsskäl. Detta gör att kod kan publiceras till källan kod repor utan att tillhandahålla autentiseringsuppgifter till andra utvecklare av misstag. Detta kan uppnås genom att använda miljövariabler, både när du kör Azure Functions lokalt och när du distribuerar dina funktioner till Azure.
+
+För att enkelt ange miljövariabler när du kör Azure Functions lokalt, kan du lägga till dessa variabler i local.settings.json-filen. Om en inte är tillgänglig i rotkatalogen för projektet funktionen passa på att skapa en. Här är hur filen ska se ut:
+
+```xml
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "AzureWebJobsDashboard": ""
+  }
+}
+```
+
+Varje nyckel / värde mappning i den `values` kartan ska göras tillgänglig vid körning som en miljövariabel som nås genom att anropa `System.getenv("<keyname>")`, till exempel `System.getenv("AzureWebJobsStorage")`. Lägga till ytterligare nyckel / värde-par accepteras och rekommenderar.
+
+> [!NOTE]
+> Om den här metoden är upptaget att kontrollera för att överväga om att lägga till local.settings.json filen till din databas ignorera filen, så att den inte är allokerad.
+
+Med koden nu beroende på de här miljövariablerna, kan du logga in på Azure-portalen och ange samma nyckel / värde-par i funktionen app-inställningar så att din kod equivalently fungerar när testningen lokalt och när du har distribuerat till Azure.
+
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i följande resurser:
 
 * [Metodtips för Azure Functions](functions-best-practices.md)
 * [Azure Functions, info för utvecklare](functions-reference.md)
 * [Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
+* [Fjärråtkomst Debug Java Azure Functions med Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)

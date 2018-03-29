@@ -1,8 +1,8 @@
 ---
 title: Egenskapsval i datavetenskap | Microsoft Docs
-description: "Beskrivs i syfte att funktionen tekniker ger exempel på sin roll i förbättring av data för maskininlärning."
+description: Beskrivs i syfte att funktionen tekniker ger exempel på sin roll i förbättring av data för maskininlärning.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: zhangya;bradsev
-ms.openlocfilehash: 72a412c08e57491a306f405f400665e2b0d25a3c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev
+ms.openlocfilehash: 70a78659bc14ce5ff9358ed11ad0af68be31bd17
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="feature-engineering-in-data-science"></a>Egenskapsval i datavetenskap
 Den här artikeln förklarar syftet med funktionen tekniker och ger exempel på sin roll i förbättring av data för maskininlärning. I exemplen som används för att illustrera den här processen hämtas från Azure Machine Learning Studio. 
@@ -70,7 +70,7 @@ En jämförelse av de fyra modellerna prestandaresultat sammanfattas i följande
 
 Bästa resultat visas funktionerna A + B + C. Observera att Felfrekvensen minskar när ytterligare funktioner ingår i utbildning-data. Verifierar antagandet att funktionsuppsättningen B och C ger ytterligare relevant information för aktiviteten regression. Men att lägga till funktionen D verkar inte ange några ytterligare minskning i frekvens för fel.
 
-## <a name="example2"></a>Exempel 2: Skapa funktioner i texten datautvinning
+## <a name="example2"></a> Exempel 2: Skapa funktioner i texten datautvinning
 Funktionen tekniker används ofta i uppgifter som rör text utvinningsmodellen, till exempel dokumentet klassificering och sentiment analys. Till exempel när du vill klassificera dokument i flera kategorier är vanliga antaganden att word/fraser som ingår i en doc-kategori mindre troligt att ske i en annan doc-kategori. Frekvensen av ord/fraser distribution kan med andra ord att beskriva olika kategorierna. I texten utvinningsmodellen program, eftersom enskilda delar av text-innehållet är vanligtvis indata, behövs funktionen tekniska processen för att skapa funktioner som rör /-fras frekvenser.
 
 För att uppnå den här uppgiften, en teknik som kallas **hash-funktionen** används för att aktivera effektivt godtycklig textfunktioner i index. I stället för att associera varje text-funktion (ord/fraser) till ett visst index, den här metoden fungerar genom att en hash-funktion funktioner och använda deras hashvärden som index direkt.
@@ -87,7 +87,7 @@ Följande bild visar vad de här nya funktionen ser ut.
 
 ![”Funktion Hashing” exempel](./media/create-features/feature-Hashing2.png)
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Bakåtkompilerade och valda funktioner ökar effektiviteten för utbildning-processen, vilket görs ett försök att extrahera den viktiga informationen i data. De kan också förbättra kraften hos dessa modeller att klassificera indata korrekt och att förutsäga mer robustly resultat av intresse. Funktionen tekniker och val kan också kombinera om du vill göra learning mer beräkningsmässigt tractable. Den gör detta genom att öka och minska antalet funktioner som behövs för att kalibrera eller tränar en modell. Funktioner som markerats för att träna modellen är matematiskt sett en minimal uppsättning oberoende variabler som beskriver mönster i data och förutsäga resultat har.
 
 Det är inte alltid nödvändigtvis att utföra Funktionsurval teknik eller funktion. Om det behövs eller inte beror på data till manuellt eller som samlas in, algoritmen valt och målet för experimentet.

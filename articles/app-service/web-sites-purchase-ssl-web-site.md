@@ -1,6 +1,6 @@
 ---
-title: "Köp och konfigurera ett SSL-certifikat för din Azure Apptjänst | Microsoft Docs"
-description: "Lär dig hur du köpa ett certifikat för App Service och binda den till din Apptjänst-app"
+title: Köp och konfigurera ett SSL-certifikat för din Azure Apptjänst | Microsoft Docs
+description: Lär dig hur du köpa ett certifikat för App Service och binda den till din Apptjänst-app
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 759bd1e8be8aaebbf98e1c02d67f3e56609354aa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för din Azure Apptjänst
 
@@ -42,8 +42,8 @@ Ange ett eget **namn** för SSL-certifikatet och ange den **domännamn**
 
 Välj din **prenumeration**, **resursgruppen**, och **certifikat SKU**
 
-> [!WARNING]
-> Apptjänstcertifikat kan endast användas av andra App-tjänster inom samma prenumeration.  
+> [!TIP]
+> Apptjänstcertifikat kan användas för Azure eller Azure Services och är inte begränsat till App-tjänster. Om du vill göra det, måste du skapa en lokal PFX-kopia av ett certifikat för App Service som du kan använda det var du vill. Mer information finns [skapar en lokal PFX-kopia av ett certifikat för App Service](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
 >
 
 ## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>Steg 3 – lagra certifikatet i Azure Key Vault
@@ -107,7 +107,7 @@ Klicka på **importera App Service certifikat** och välj det certifikat som du 
 
 ![Infoga bild av Importera certifikat](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
-I den **ssl-bindningar** avsnittet Klicka på **lägga till bindningar**, och de nedrullningsbara listorna väljer domännamn för att skydda med SSL och certifikatet för att använda. Du kan också välja om du vill använda  **[Server Servernamnsindikation (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)**  eller IP-baserade SSL.
+I den **ssl-bindningar** avsnittet Klicka på **lägga till bindningar**, och de nedrullningsbara listorna väljer domännamn för att skydda med SSL och certifikatet för att använda. Du kan också välja om du vill använda **[Server Servernamnsindikation (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** eller IP-baserade SSL.
 
 ![infoga bilden av SSL-bindningar](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
 

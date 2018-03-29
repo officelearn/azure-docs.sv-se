@@ -1,8 +1,8 @@
 ---
 title: Flytta Azure-resurser till nya prenumerationen eller resursen grupp | Microsoft Docs
-description: "Använd Azure Resource Manager för att flytta resurser till en ny resursgrupp eller prenumeration."
+description: Använd Azure Resource Manager för att flytta resurser till en ny resursgrupp eller prenumeration.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 94f11504597c127d505d103a417c3d78744d99d1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
@@ -87,6 +87,11 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
   az provider register --namespace Microsoft.Batch
   ```
 
+4. Flytta resurserna kontot måste ha minst följande behörigheter:
+
+   * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** på käll-resursgrupp.
+   * **Microsoft.Resources/subscriptions/resourceGroups/write** på mål-resursgrupp.
+
 ## <a name="when-to-call-support"></a>När anropet stöd
 
 Du kan flytta de flesta resurser via självbetjäning åtgärder visas i den här artikeln. Använd åtgärderna självbetjäning till:
@@ -105,6 +110,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 
 * API Management
 * Apptjänst-appar (webbprogram) - finns [Apptjänst begränsningar](#app-service-limitations)
+* App Service Certificate
 * Application Insights
 * Automation
 * Azure Cosmos DB
@@ -193,7 +199,9 @@ Du kan inte flytta ett virtuellt nätverk till en annan prenumeration om det vir
 
 ## <a name="app-service-limitations"></a>Begränsningar för App Service
 
-Begränsningar för att flytta resurser Apptjänst variera beroende på om du flyttar resurser inom en prenumeration eller till en ny prenumeration.
+Begränsningar för att flytta resurser Apptjänst variera beroende på om du flyttar resurser inom en prenumeration eller till en ny prenumeration. 
+
+De begränsningar som beskrivs i dessa avsnitt gäller överförda certifikat, inte Apptjänstcertifikat. Du kan flytta Apptjänstcertifikat till en ny resursgrupp eller prenumeration utan begränsningar. Om du har flera webbprogram som använder samma App Service certifikat, först flytta alla webbprogram, flyttar du certifikatet.
 
 ### <a name="moving-within-the-same-subscription"></a>Flytta inom samma prenumeration
 

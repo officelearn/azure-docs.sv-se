@@ -1,25 +1,25 @@
 ---
 title: Azure Functions HTTP och webhook bindningar
-description: "Förstå hur du använder HTTP och webhook utlösare och bindningar i Azure Functions."
+description: Förstå hur du använder HTTP och webhook utlösare och bindningar i Azure Functions.
 services: functions
 documentationcenter: na
-author: mattchenderson
+author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure functions, funktioner, händelse bearbetning, webhooks, dynamiska beräknings-, serverlösa arkitektur, HTTP, API REST"
+editor: ''
+tags: ''
+keywords: Azure functions, funktioner, händelse bearbetning, webhooks, dynamiska beräknings-, serverlösa arkitektur, HTTP, API REST
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: mahender
-ms.openlocfilehash: a46177183035a53128c5341a3ce4c63dbc3a7497
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: tdykstra
+ms.openlocfilehash: 94a039ab1973cbd4112ddd0cd7548baa69924d26
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP och webhook bindningar
 
@@ -536,7 +536,7 @@ Webhook-auktorisering hanteras av webhook mottagare komponent, en del av HTTP-ut
 
 ## <a name="trigger---limits"></a>Utlösaren - gränser
 
-Längden för HTTP-begäranden är begränsad till 100 kilobyte (102,400) och URL-längd är begränsad till 4 kB (4 096). Dessa värden anges av den `httpRuntime` elementet av runtime [Web.config-filen](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+Längden för HTTP-begäranden är begränsad till 100MB (104,857,600 byte) och URL-längd är begränsad till 4KB (4 096 byte). Dessa värden anges av den `httpRuntime` elementet av runtime [Web.config-filen](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
 
 Om en funktion som använder HTTP-utlösaren inte slutföra inom cirka 2,5 minuter, gateway kommer-timeout och returnera ett HTTP 502-fel. Funktionen kommer att fortsätta köras, men kan inte returnera ett HTTP-svar. För avancerade funktioner rekommenderar vi att du följer asynkront mönster och returnera en plats där du kan pinga status för begäran. Information om hur lång tid en funktion kan köra finns [skala och värd - förbrukning planera](functions-scale.md#consumption-plan). 
 

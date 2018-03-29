@@ -1,5 +1,5 @@
 ---
-title: "Nätverk säkerhetsbegrepp & krav i Azure | Microsoft Docs"
+title: Nätverk säkerhetsbegrepp & krav i Azure | Microsoft Docs
 description: " Den här artikeln är det enkelt för dig att förstå vad Microsoft Azure har att erbjuda i området för nätverkssäkerhet. Vi innehåller grundläggande information om grundläggande koncept för säkerhet och krav samt information om vad Azure har att erbjuda i dessa olika områden. "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: e477ce9a5f9f35d88a6faeb68ee4e0403f64c030
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e32cd1f4267b9ae0825fbb34ed00e25dd1b63b5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-network-security-overview"></a>Översikt över säkerheten i Azure-nätverk
 Microsoft Azure innehåller en stabil nätverksinfrastruktur för att stödja dina program och tjänsten anslutningskrav. Nätverksanslutningen är möjlig mellan resurser i Azure, mellan lokala och Azure värdbaserade resurser, och till och från Internet och Azure.
@@ -252,11 +252,11 @@ Azure tillhandahåller funktioner som hjälper dig i den här nyckeln området m
 ### <a name="azure-network-watcher"></a>Azure Network Watcher
 Azure Nätverksbevakaren innehåller ett stort antal funktioner som hjälp med felsökning samt ger en helt ny uppsättning av verktyg för att hjälpa till med identifiering av säkerhetsproblem.
 
-[Säkerhetsgrupp visa ](/network-watcher/network-watcher-security-group-view-overview.md) hjälper till med gransknings- och kompatibilitet för virtuella datorer och kan användas för att utföra programmässiga granskningar jämföra baslinjer-principer som definierats av organisationen för att effektivt regler för var och en av dina virtuella datorer. Detta kan hjälpa dig att identifiera eventuella konfigurationsavvikelser.
+[Säkerhetsgrupp visa ](../network-watcher/network-watcher-security-group-view-overview.md) hjälper till med gransknings- och kompatibilitet för virtuella datorer och kan användas för att utföra programmässiga granskningar jämföra baslinjer-principer som definierats av organisationen för att effektivt regler för var och en av dina virtuella datorer. Detta kan hjälpa dig att identifiera eventuella konfigurationsavvikelser.
 
-[Paketinsamling](/network-watcher/network-watcher-packet-capture-overview.md) kan du avbilda nätverkstrafik till och från den virtuella datorn. Förutom hjälpa genom att du kan samla in nätverksstatistik och med felsökning av problem med programmet vara paketinsamling ovärderlig i undersökning av intrång i nätverket. Du kan också använda den här funktionen tillsammans med Azure Functions för att starta nätverksinsamlingar som svar på specifika Azure-aviseringar.
+[Paketinsamling](../network-watcher/network-watcher-packet-capture-overview.md) kan du avbilda nätverkstrafik till och från den virtuella datorn. Förutom hjälpa genom att du kan samla in nätverksstatistik och med felsökning av problem med programmet vara paketinsamling ovärderlig i undersökning av intrång i nätverket. Du kan också använda den här funktionen tillsammans med Azure Functions för att starta nätverksinsamlingar som svar på specifika Azure-aviseringar.
 
-Mer information om Azure Nätverksbevakaren och hur du kan börja testa vissa funktioner i din labs ta en titt på den [Azure nätverksbevakaren översikt över övervakning](/network-watcher/network-watcher-monitoring-overview.md)
+Mer information om Azure Nätverksbevakaren och hur du kan börja testa vissa funktioner i din labs ta en titt på den [Azure nätverksbevakaren översikt över övervakning](../network-watcher/network-watcher-monitoring-overview.md)
 
 >[!NOTE]
 Azure nätverksbevakaren är fortfarande i förhandsversion så att den inte kanske har samma nivå av tillgänglighet och tillförlitlighet som viktiga tjänster som är i allmänhet tillgänglighet. Vissa funktioner kanske inte stöds, kan ha begränsad kapacitet och kanske inte tillgänglig på alla platser i Azure. De senaste meddelanden på tillgänglighet och status för den här tjänsten kontrollerar den [Azure uppdateringar](https://azure.microsoft.com/updates/?product=network-watcher)

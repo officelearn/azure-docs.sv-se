@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: davidmu
-ms.openlocfilehash: 2f95df26abcd2c0d5b62c395f92c359170d6d701
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ff3aa44a4e2513f4d3e5ac2eed84715b8fe9b004
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använda Azure AD Graph API
 
@@ -45,7 +45,7 @@ När du har en B2C-klient, måste du registrera ditt program via den [Azure Port
 3. I det vänstra navigeringsfönstret väljer **alla tjänster**, klickar du på **App registreringar**, och klicka på **Lägg till**.
 4. Följ anvisningarna och skapa ett nytt program. 
     1. Välj **Webbapp / API** typen av program.    
-    2. Ange **någon omdirigerings-URI** (t.ex. https://B2CGraphAPI) eftersom den inte är relevanta för det här exemplet.  
+    2. Ange **alla inloggnings-URL** (t.ex. https://B2CGraphAPI) eftersom den inte är relevanta för det här exemplet.  
 5. Det program kommer nu visas i listan med program, klickar du på den för att hämta den **program-ID** (även kallat klient-ID). Kopiera den som du behöver i ett senare avsnitt.
 6. I menyn inställningar klickar du på **nycklar** och lägga till en ny nyckel (även kallat klienthemlighet). Också kopiera den för användning i ett senare avsnitt.
 

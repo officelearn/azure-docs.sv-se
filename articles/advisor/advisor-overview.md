@@ -1,12 +1,12 @@
 ---
 title: Introduktion till Azure Advisor | Microsoft Docs
-description: "Använd Azure Advisor för att optimera din Azure-distributioner."
+description: Använd Azure Advisor för att optimera din Azure-distributioner.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0aa97a7557706f0b704d4e31a84e9d356d1ad087
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Introduktion till Azure Advisor
 
@@ -43,9 +43,6 @@ Advisor-instrumentpanelen innehåller anpassad rekommendationer för alla prenum
 
   ![Typer för Advisor-rekommendationer](./media/advisor-overview/advisor-dashboard.png)
 
-> [!NOTE]
-> Du använder Azure Advisor med en prenumeration på en prenumeration *ägare* får starta Advisor-instrumentpanelen.  Den här åtgärden registrerar prenumerationen med Advisor.  Från den punkten på någon prenumeration *ägare*, *deltagare*, eller *Reader* kan komma åt Advisor-rekommendationer för prenumerationen. 
-
 Du kan klicka på en kategori om du vill visa en lista över rekommendationerna i den kategorin Välj en rekommendation om du vill veta mer om den  Du kan också information om åtgärder som du kan utföra för att dra nytta av en affärsmöjlighet eller lösa ett problem.
 
 ![Advisor rekommendation kategori](./media/advisor-overview/advisor-ha-category-example.png) 
@@ -62,12 +59,12 @@ Du kan komma åt Advisor i den [Azure-portalen](https://aka.ms/azureadvisordashb
 Du kan också visa Advisor-rekommendationer via gränssnittet virtuella resursen. Välj en virtuell dator och bläddrar sedan till Advisor-rekommendationer i menyn. 
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Vilka behörigheter som behöver att komma åt Advisor?
-
-Du måste först registrera prenumerationen med Advisor för att erhålla Advisor-rekommendationer för en prenumeration. En prenumeration registreras när en prenumeration *ägare* startar Advisor-instrumentpanelen. Det här är en gång. När prenumerationen har registrerats kan du komma åt Advisor-rekommendationer som *ägare*, *deltagare*, eller *Reader* för en prenumeration.
+ 
+Du kan komma åt Advisor-rekommendationer som *ägare*, *deltagare*, eller *Reader* för en prenumeration.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Vilka resurser Advisor ger rekommendationer för?
 
-Advisor innehåller rekommendationer för virtuella datorer, tillgänglighetsuppsättningar, programgatewayer, Apptjänster, SQL-servrar, SQL-databaser och Redis-Cache.
+Advisor innehåller rekommendationer för virtuella datorer, tillgänglighetsuppsättningar, programgatewayer, Apptjänster, SQL-servrar och Redis-Cache.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Kan jag vänta eller stänga en rekommendation?
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric övervakning och diagnostik: översikt | Microsoft Docs"
-description: "Läs mer om övervakning och diagnostik för Azure Service Fabric-kluster, program och tjänster."
+title: 'Azure Service Fabric övervakning och diagnostik: översikt | Microsoft Docs'
+description: Läs mer om övervakning och diagnostik för Azure Service Fabric-kluster, program och tjänster.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f784576547f0d85a825ad9dd107c6c84cd261092
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Övervaknings- och diagnostikfunktionerna för Azure Service Fabric
 
@@ -86,7 +86,7 @@ Service Fabric-plattformen innehåller en hälsomodell som ger extensible hälso
 
 ![Instrumentpanelen för hälsotillstånd för SFX](media/service-fabric-diagnostics-overview/sfx-healthstatus.png)
 
-Förutom att visa senaste hälsorapporter i SFX finns också varje rapport som en händelse. Hälsotillstånd händelser kan samlas in via operativa kanalen (se [händelse aggregeringen med Azure-diagnostik](service-fabric-diagnostics-event-aggregation-wad.md#collect-health-and-load-events)), och lagras i OMS Log Analytics för varningar och frågor i framtiden. Detta hjälper dig att identifiera problem som kan påverka din tillgänglighet, så vi rekommenderar att du konfigurerar aviseringar för lämpliga scenarier (anpassade aviseringar via OMS).
+Förutom att visa senaste hälsorapporter i SFX finns också varje rapport som en händelse. Hälsotillstånd händelser kan samlas in via operativa kanalen (se [händelse aggregeringen med Azure-diagnostik](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)), och lagras i OMS Log Analytics för varningar och frågor i framtiden. Detta hjälper dig att identifiera problem som kan påverka din tillgänglighet, så vi rekommenderar att du konfigurerar aviseringar för lämpliga scenarier (anpassade aviseringar via OMS).
 
 ## <a name="monitoring-workflow"></a>Övervakning av arbetsflöde 
 

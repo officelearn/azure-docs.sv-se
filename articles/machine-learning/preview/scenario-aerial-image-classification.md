@@ -1,6 +1,6 @@
 ---
 title: Flygfoto avbildningen klassificering | Microsoft Docs
-description: "Innehåller instruktioner för verkligt scenario på Flygfoto avbildningen klassificering"
+description: Innehåller instruktioner för verkligt scenario på Flygfoto avbildningen klassificering
 author: mawah
 ms.author: mawah
 manager: mwinkle
@@ -10,11 +10,11 @@ ms.service: machine-learning
 services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 42ebb7dc3abf8fdb6049f1114dc8604a7b810a7e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="aerial-image-classification"></a>Flygfoto avbildningen klassificering
 
@@ -58,7 +58,7 @@ Följande instruktionerna leder dig igenom processen för att konfigurera körni
     - Du skapar ett HDInsight Spark-kluster med 40 arbetarnoder (168 kärnor totala). Kontrollera att ditt konto har tillräckligt med tillgängliga kärnor genom att granska ”användning + kvoter” för din prenumeration på Azure-portalen.
        - Om du har färre kärnor som är tillgängliga kan du ändra mallen HDInsight-kluster för att minska antalet personer som har etablerats. Instruktioner för detta visas under avsnittet ”Skapa HDInsight Spark-kluster”.
     - Det här exemplet skapar en Batch AI utbildning-kluster med två NC6 (1 GPU, 6 vCPU) virtuella datorer. Kontrollera att ditt konto har tillräckligt med tillgängliga kärnor i östra USA genom att granska ”användning + kvoter” för din prenumeration på Azure-portalen.
-- [Azure Machine Learning-arbetsstationen](./overview-what-is-azure-ml.md)
+- [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - Följ den [installera och skapa Quickstart](quickstart-installation.md) att installera Azure Machine Learning arbetsstationen och skapa undersökningar och konton för hantering av modellen.
 - [Batch-AI](https://github.com/Azure/BatchAI) Python SDK och Azure CLI 2.0
     - Gå igenom följande avsnitt i den [Batch AI recept viktigt](https://github.com/Azure/BatchAI/tree/master/recipes):
@@ -83,7 +83,7 @@ Det här exemplet kräver ett HDInsight Spark-kluster och ett Azure storage-kont
 
 Skapa ett nytt projekt med det här exemplet som mall:
 1.  Öppna Azure Machine Learning-arbetsstationen
-2.  På den **projekt** klickar du på den  **+**  och markera **nytt projekt**
+2.  På den **projekt** klickar du på den **+** och markera **nytt projekt**
 3.  I den **Skapa nytt projekt** rutan, fyller du i informationen för det nya projektet
 4.  I den **Sök projektmallar** sökrutan, Skriv ”Flygfoto avbildningen klassificering” och välj mallen
 5.  Klicka på **Skapa**
@@ -222,7 +222,7 @@ Batch AI-klustret har åtkomst till din utbildning data på en filserver i nätv
 1. Utfärda följande kommando för att skapa en filserver i nätverket:
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p "Dem0Pa$$w0rd" --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Kontrollera Etableringsstatus på filservern nätverk med följande kommando:
@@ -253,7 +253,7 @@ Om du vill kan du bekräfta att dataöverföringen har fortsatte som planerat ge
 1. Skapa klustret genom att följande kommando:
 
     ```
-    az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
+    az batchai cluster create -n landuseclassifier2 -u demoUser -p "Dem0Pa$$w0rd" --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
 1. Använd följande kommando för att kontrollera Etableringsstatus för klustret:
@@ -267,12 +267,12 @@ Om du vill kan du bekräfta att dataöverföringen har fortsatte som planerat ge
 #### <a name="record-batch-ai-training-credentials"></a>Registrera Batch AI utbildning autentiseringsuppgifter
 
 Medan du väntar för klustret tilldelning att slutföra, öppna den `settings.cfg` filen från underkatalogen ”kod” för det här projektet i textredigeraren önskat. Uppdatera följande variabler med dina autentiseringsuppgifter:
-- `bait_subscription_id`(36 tecken Azure-prenumeration ID)
-- `bait_aad_client_id`(Azure Active Directory-program/klient-ID anges i avsnittet ”förutsättningar”)
-- `bait_aad_secret`(Azure Active Directory programhemlighet anges i avsnittet ”förutsättningar”)
-- `bait_aad_tenant`(Azure Active Directory klient-ID anges i avsnittet ”förutsättningar”)
-- `bait_region`(när detta skrivs är det enda alternativet: eastus)
-- `bait_resource_group_name`(resursgrupp som du valde tidigare)
+- `bait_subscription_id` (36 tecken Azure-prenumeration ID)
+- `bait_aad_client_id` (Azure Active Directory-program/klient-ID anges i avsnittet ”förutsättningar”)
+- `bait_aad_secret` (Azure Active Directory programhemlighet anges i avsnittet ”förutsättningar”)
+- `bait_aad_tenant` (Azure Active Directory klient-ID anges i avsnittet ”förutsättningar”)
+- `bait_region` (när detta skrivs är det enda alternativet: eastus)
+- `bait_resource_group_name` (resursgrupp som du valde tidigare)
 
 När du har tilldelat dessa värden bör ändrade raderna i filen settings.cfg likna följande:
 

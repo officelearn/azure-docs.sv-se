@@ -5,6 +5,10 @@ Nyckeln transaktioner (Max transaktioner tillåts 10 sekunder per valvet per reg
 |RSA 2048-bitars|5|1000|10|2000|
 |RSA 3072-bitars|5|250|10|500|
 |RSA 4096 bitar|5|125|10|250|
+|ECC P-256|5|1000|10|2000|
+|ECC P-384|5|1000|10|2000|
+|ECC P 521|5|1000|10|2000|
+|ECC SECP256K1|5|1000|10|2000|
 |
 
 Hemligheter, hanteras Lagringskontonycklar och valvet transaktioner:

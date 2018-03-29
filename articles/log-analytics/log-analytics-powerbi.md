@@ -1,6 +1,6 @@
 ---
 title: Importera Azure logganalys data till Power BI | Microsoft Docs
-description: Powerbi är en molnbaserad business analytics-tjänst från Microsoft som innehåller omfattande visualiseringar och rapporter för analys av olika datauppsättningar.  Den här artikeln beskriver hur du konfigurerar importera logganalys data till Power BI och konfigurera den att uppdateras automatiskt.
+description: Powerbi är en molnbaserad business analytics-tjänst från Microsoft som innehåller omfattande visualiseringar och rapporter för analys av olika datauppsättningar.  Den här artikeln beskriver hur du konfigurerar och importera logganalys data till Power BI och konfigurera den att uppdateras automatiskt.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 6d7f8f89f90223dc5dd186a63b3912a13910cb34
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 725828c2acc5ac4bb53c5e6af14d20578a3d3652
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importera Azure logganalys data till Power BI
 
 
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) är en molnbaserad business analytics-tjänst från Microsoft som innehåller omfattande visualiseringar och rapporter för analys av olika datauppsättningar.  Du kan importera resultaten av en logganalys loggen till en Power BI-dataset så att du kan dra nytta av dess funktioner såsom combing data från olika källor och dela rapporter på webben och mobila enheter.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) är en molnbaserad business analytics-tjänst från Microsoft som innehåller omfattande visualiseringar och rapporter för analys av olika datauppsättningar.  Du kan importera resultaten av en logganalys loggen till en Power BI-dataset så att du kan dra nytta av dess funktioner, till exempel att kombinera data från olika källor och dela rapporter på webben och mobila enheter.
 
 ## <a name="overview"></a>Översikt
 Om du vill importera data från en logganalys-arbetsytan till Power BI, skapar du en datamängd i Power BI baserat på en logg sökfråga i logganalys.  Frågan körs varje gång dataset uppdateras.  Du kan sedan skapa Power BI-rapporter som använder data från datamängden.  För att skapa datauppsättningen i Power BI, exportera frågan från logganalys till [Power Query (M) språk](https://msdn.microsoft.com/library/mt807488.aspx).  Du sedan används för att skapa en fråga i Power BI Desktop och publicera det till Power BI som en datamängd.  Information för den här processen beskrivs nedan.

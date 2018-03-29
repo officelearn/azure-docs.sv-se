@@ -1,19 +1,19 @@
 ---
 title: Jenkins kontinuerlig distribution med Kubernetes i Azure Container Service
-description: "Automatisera en process för kontinuerlig distribution med Jenkins att distribuera och uppgradera en av app på Kubernetes i Azure Container Service"
+description: Automatisera en process för kontinuerlig distribution med Jenkins att distribuera och uppgradera en av app på Kubernetes i Azure Container Service
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1293fda45602203570a0f7f75481f67bdcb6edf3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8238e0f55b88e4fa207357630aa4228250c33249
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Kontinuerlig distribution med Jenkins och Azure Container Service
 
@@ -57,7 +57,7 @@ När förgrening har skapats kan du klona den utvecklingssystemet. Se till att d
 git clone https://github.com/<your-github-account>/azure-voting-app-redis.git
 ```
 
-Ändra kataloger så att du arbetar från den klonade katalogen.
+Ändra katalogerna så att du arbetar från den klonade katalogen.
 
 ```bash
 cd azure-voting-app-redis
@@ -71,7 +71,7 @@ docker-compose up -d
 
 När du är klar, kan du använda den [docker bilder] [ docker-images] kommandot för att se skapade avbildningen.
 
-Observera att tre bilder har hämtat eller skapat. Den `azure-vote-front` avbildningen som innehåller programmet och använder den `nginx-flask` avbildningen som bas. Den `redis` bilden används för att starta en Redis-instans.
+Observera att tre avbildningar har laddats ned eller skapats. `azure-vote-front`-avbildningen innehåller programmet och använder `nginx-flask`-avbildningen som bas. `redis`-avbildningen används för att starta en Redis-instans.
 
 ```console
 $ docker images
@@ -160,6 +160,20 @@ Open a browser to http://52.166.118.64:8080
 Enter the following to Unlock Jenkins:
 667e24bba78f4de6b51d330ad89ec6c6
 ```
+
+Om det uppstår problem som loggar in på Jenkins, skapa en SSH-session med Jenkins VM och starta om tjänsten Jenkins. IP-adressen för den virtuella datorn är samma adress som angavs av build-skriptet. VM-administratörsanvändarnamnet är `azureuser`.
+
+```bash
+ssh azureuser@52.166.118.64
+```
+
+Starta om tjänsten Jenkins.
+
+```bash
+sudo service jenkins restart
+```
+
+Uppdatera webbläsaren och inloggningsformulär Jenkins ska visas.
 
 ## <a name="jenkins-environment-variables"></a>Jenkins miljövariabler
 

@@ -1,11 +1,11 @@
 ---
 title: Azure Traffic Manager - trafikroutningsmetoder | Microsoft Docs
-description: "Det här artiklarna hjälper till att du förstår de olika trafikroutningsmetoder som används av Traffic Manager"
+description: Det här artiklarna hjälper till att du förstår de olika trafikroutningsmetoder som används av Traffic Manager
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: db1efbf6-6762-4c7a-ac99-675d4eeb54d0
 ms.service: traffic-manager
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: kumud
-ms.openlocfilehash: fe776e24a4f78b389c6096694055b38befa3c419
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9bd9b4913e38ed5c1f7f4ec8ee7e3210fa3be8f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager-dirigeringsmetoder
 
@@ -50,7 +50,7 @@ Metoden 'Viktat' routning av nätverkstrafik kan du distribuera trafiken jämnt 
 
 ![Azure Traffic Manager-viktad' routning av nätverkstrafik metod][2]
 
-I viktat routning av nätverkstrafik metoden tilldelar du varje slutpunkt i profilkonfigurationen för Traffic Manager. Vikten är ett heltal från 1 till 1000. Den här parametern är valfri. Om det utelämnas används trafik chefer en standard vikt '1'.
+I viktat routning av nätverkstrafik metoden tilldelar du varje slutpunkt i profilkonfigurationen för Traffic Manager. Vikten är ett heltal från 1 till 1000. Den här parametern är valfri. Om det utelämnas används trafik chefer en standard vikt '1'. Högre vikt, desto högre prioritet.
 
 För varje DNS-fråga tas emot, väljer slumpmässigt en tillgänglig slutpunkt i Traffic Manager. Sannolikheten för att välja en slutpunkt som baseras på viktningar som tilldelats till alla tillgängliga slutpunkterna. Med hjälp av samma vikt mellan alla slutpunkter resultat i en även trafikfördelning. Med högre eller lägre vikterna på specifika slutpunkter gör dessa slutpunkter som ska returneras mer eller mindre ofta i DNS-svar.
 

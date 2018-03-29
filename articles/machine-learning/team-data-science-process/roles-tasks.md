@@ -1,23 +1,23 @@
 ---
 title: Koppla datavetenskap Process roller och uppgifter - Azure | Microsoft Docs
-description: "En översikt över viktiga komponenter, personal roller och tillhörande uppgifter för en datavetenskap team projekt."
-documentationcenter: 
+description: En översikt över viktiga komponenter, personal roller och tillhörande uppgifter för en datavetenskap team projekt.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: b502a586cdb7351d5b22c6b0db966723b8ebb7b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: bradsev
+ms.openlocfilehash: b92bb8e633aa859324f2ff46f5d76a5934007ccf
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Team datavetenskap Process roller och aktiviteter
 
@@ -82,7 +82,7 @@ Följande åtgärder har utförts av Team leda eller en avsedda team projekt-adm
 - Om VSTS väljs ska koden Värdplattformen för versionshantering och samarbete, skapar du en **grupprojekt** på gruppens VSTS server. I annat fall kan den här aktiviteten hoppas över.
 - Skapa den **team projekt mallen databasen** under grupprojekt och seed det från grupp projekt mallen databasen har ställts in av grupp-manager eller en delegat av hanteraren. 
 - Skapa den **team verktyget databasen**, och Lägg till team-specifika verktyg i databasen. 
-- (Valfritt) Skapa  **[Azure file storage](https://azure.microsoft.com/services/storage/files/)**  som används för att lagra datatillgångar som kan vara användbara för hela gruppen. Andra gruppmedlemmar kan montera den här delade molnarkivet för filen på skrivbordet analytics.
+- (Valfritt) Skapa **[Azure file storage](https://azure.microsoft.com/services/storage/files/)** som används för att lagra datatillgångar som kan vara användbara för hela gruppen. Andra gruppmedlemmar kan montera den här delade molnarkivet för filen på skrivbordet analytics.
 - (Valfritt) Montera Azure file storage till den **datavetenskap virtuella** (DSVM) för teamet leda och Lägg till datatillgångar på den.
 - Ställ in den **säkerhetskontroll** genom att lägga till teammedlemmar och konfigurera sina privilegier. 
 

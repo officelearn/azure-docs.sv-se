@@ -1,6 +1,6 @@
 ---
-title: "Snabbstart: Skapa en Azure Database for MySQL-server – Azure Portal"
-description: "Den här artikeln beskriver hur du använder Azure Portal för att snabbt skapa ett exempel på en Azure-databas för MySQL-server på fem minuter."
+title: 'Snabbstart: Skapa en Azure Database for MySQL-server – Azure Portal'
+description: Den här artikeln beskriver hur du använder Azure Portal för att snabbt skapa ett exempel på en Azure-databas för MySQL-server på fem minuter.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -9,21 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
-<<<<<<< HEAD
-ms.date: 11/01/2017
-ms.openlocfilehash: 88fd06d45d0cd966199ce198578eedd349adc2c8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/20/2018
+ms.openlocfilehash: 8740da198036e9b628c633b97a02fb4963db9879
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
-=======
-ms.date: 02/28/2018
-ms.openlocfilehash: 925ea8f365c4a7e987809cb56dfbfbb638b103fd
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
->>>>>>> d7b96017f3c2d57f5135571d8789582901649dd0
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Skapa en Azure Database för MySQL-server med Azure Portal
 

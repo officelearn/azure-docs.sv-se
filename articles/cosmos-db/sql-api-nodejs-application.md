@@ -1,7 +1,7 @@
 ---
-title: "Skapa en Node.js-webbapp för Azure Cosmos DB | Microsoft Docs"
-description: "Den här självstudien om Node.js utforskar hur du använder Microsoft Azure Cosmos DB för att lagra och komma åt data från en Node.js Express-webbapp på Azure Websites."
-keywords: "Programutveckling, database-Självstudier lär dig använda node.js, självstudie om node.js"
+title: Skapa en Node.js-webbapp för Azure Cosmos DB | Microsoft Docs
+description: Den här självstudien om Node.js utforskar hur du använder Microsoft Azure Cosmos DB för att lagra och komma åt data från en Node.js Express-webbapp på Azure Websites.
+keywords: Programutveckling, database-Självstudier lär dig använda node.js, självstudie om node.js
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/23/2018
 ms.author: mimig
-ms.openlocfilehash: 441f352555f40c0467df4c466d58ac35e32f9e61
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: ad6e335c562e52d7e2336dd1f29e5c159fe46589
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="_Toc395783175"></a>Skapa ett Node.js-webbprogram med Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -29,8 +29,6 @@ ms.lasthandoff: 02/14/2018
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Den här självstudien om Node.js beskrivs hur du använder Azure Cosmos-databas och SQL-API för att lagra och komma åt data från ett node.Ja Express-program på Azure Websites. Du bygger ett enkelt webbaserat aktivitetshanteringsprogram, en ToDo-app, där du kan skapa, hämta och slutföra aktiviteter. Uppgifterna lagras som JSON-dokument i Azure Cosmos DB. Den här självstudien vägleder dig genom skapandet och distributionen av appen och förklarar vad som händer i varje kodfragment.
 
@@ -76,7 +74,7 @@ Nu ska vi skapa ett grundläggande Hello World Node.js-projekt med [Express](htt
 5. Kör det nya programmet.
    
         npm start
-6. Du kan visa det nya programmet genom att öppna [http://localhost:3000](http://localhost:3000) i webbläsaren.
+6. Du kan visa det nya programmet genom att navigera din webbläsare till [ http://localhost:3000 ](http://localhost:3000).
    
     ![Lär dig använda Node.js – Skärmdump av programmet Hello World i ett webbläsarfönster](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
@@ -154,7 +152,7 @@ Nu när vi har slutfört den första installationen och konfigurationen är det 
 
     ```nodejs
     let DocumentDBClient = require('documentdb').DocumentClient;
-    let docdbUtils = require('./docdbUtils');
+    let docdbUtils = require('./cosmosdb-manager.js');
     ```
 7. Sedan lägger du till kod för att definiera och exportera aktivitetsobjektet. Den ansvarar för att initiera vårt aktivitetsobjekt och konfigurera databasen och dokumentsamlingen som vi ska använda.  
 
@@ -411,7 +409,7 @@ Nu när vi har slutfört den första installationen och konfigurationen är det 
 6. Avsluta med att spara och stänga filen **app.js**. Vi är nästan klara.
 
 ## <a name="_Toc395783181"></a>Steg 5: Skapa ett användargränssnitt
-Nu är det dags att skapa användargränssnittet, så att användaren faktiskt kan samverka med vår app. Express-appen som vi skapade använder **Jade** som visningsmotor. Mer information om Jade finns på [http://jade-lang.com/](http://jade-lang.com/).
+Nu är det dags att skapa användargränssnittet, så att användaren faktiskt kan samverka med vår app. Express-appen som vi skapade använder **Jade** som visningsmotor. Mer information om Jade finns i [ http://jade-lang.com/ ](http://jade-lang.com/).
 
 1. Filen **layout.jade** i katalogen **views** används som en global mall för andra **.jade**-filer. I det här steget ändrar du den så att den använder [Twitter Bootstrap](https://github.com/twbs/bootstrap), vilket är en verktygslåda som gör det enkelt att utforma en snygg webbplats. 
 2. Öppna filen **layout.jade** i mappen **views** och ersätt innehållet med följande:
@@ -489,7 +487,7 @@ Det andra formuläret innehåller två inmatningsfält och en knapp som gör att
 Det här ska vara allt som behövs för att appen ska fungera.
 
 ## <a name="_Toc395783181"></a>Steg 6: Kör ditt program lokalt
-1. Om du vill testa programmet på din lokala dator kör du `npm start` i terminalen för att starta programmet, uppdatera därefter din [http://localhost:3000](http://localhost:3000)-webbläsarsida. Sidan ska nu se ut som på bilden nedan:
+1. Om du vill testa programmet på din lokala dator kör `npm start` i terminalen för att starta programmet, uppdatera din [ http://localhost:3000 ](http://localhost:3000) Webbläsarsida. Sidan ska nu se ut som på bilden nedan:
    
     ![Skärmdump av programmet MyTodo List i ett webbläsarfönster](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 

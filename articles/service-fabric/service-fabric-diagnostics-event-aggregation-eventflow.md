@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric händelse aggregeringen med EventFlow | Microsoft Docs"
-description: "Läs mer om sammanställa och samlar in händelser med hjälp av EventFlow för övervakning och diagnostik av Azure Service Fabric-kluster."
+title: Azure Service Fabric händelse aggregeringen med EventFlow | Microsoft Docs
+description: Läs mer om sammanställa och samlar in händelser med hjälp av EventFlow för övervakning och diagnostik av Azure Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: fd4c28c2317356cbc6e3fd4d46a10509c029d530
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 37cae133dda2f274a83db1df37e798c5da58c539
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Aggregering av händelse och med EventFlow
 
@@ -30,7 +30,7 @@ EventFlow binärfiler är tillgängliga som en uppsättning NuGet-paket. Om du v
 
 ![EventFlow NuGet-paket i Visual Studio-NuGet-Pakethanteraren UI](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
 
-En lista över olika paket visas, märkt med ”anger” och ”utdata” visas. EventFlow stöder olika providrar för olika loggning och analyzers. Tjänsten värd för EventFlow bör inkludera paket beroende på käll- och mål för programloggarna. Förutom core ServiceFabric paketet, du måste också ha minst ett indata och utdata har konfigurerats. Du kan till exempel lägga till följande paket skickade EventSource händelser till Application Insights:
+En lista över olika paket visas, märkt med ”anger” och ”utdata” visas. EventFlow stöder olika providrar för olika loggning och analyzers. Tjänsten värd för EventFlow bör inkludera paket beroende på käll- och mål för programloggarna. Förutom core ServiceFabric paketet, du måste också ha minst ett indata och utdata har konfigurerats. Du kan till exempel lägga till följande paket för att skicka EventSource händelser till Application Insights:
 
 * `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` att samla in data från EventSource tjänstklass och standard EventSources som *Microsoft ServiceFabric Services* och *Microsoft-ServiceFabric-aktörer*)
 * `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (vi ska skicka loggar till en Azure Application Insights-resurs)

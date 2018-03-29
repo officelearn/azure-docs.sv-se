@@ -1,8 +1,8 @@
 ---
 title: Azure Machine Learning automated data pipeline fusklapp | Microsoft Docs
-description: "En utskrivbar fusklapp som visar hur du ställer in en pipeline för automatisk data till din Azure Machine Learning-webbtjänst om dina data är lokalt, strömning i Azure, eller i en fristående molntjänst."
+description: En utskrivbar fusklapp som visar hur du ställer in en pipeline för automatisk data till din Azure Machine Learning-webbtjänst om dina data är lokalt, strömning i Azure, eller i en fristående molntjänst.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: garyericson
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: mithal;garye
-ms.openlocfilehash: a2b14dd39c0247c35ef006385eceebfa4fbe82d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: garye
+ms.openlocfilehash: f07e7cc9c97dcd5ef6ebc2d4c16d31b831869352
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Facit för en automatiserad datapipeline för Azure Machine Learning-förutsägelser
 Den **Microsoft Azure Machine Learning automated data pipeline fusklapp** kan du bläddra igenom den teknik som du kan använda för att hämta data till Machine Learning-webbtjänst där den kan bedömas av din prediktiva analysmodell.

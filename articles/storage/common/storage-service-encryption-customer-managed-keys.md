@@ -1,6 +1,6 @@
 ---
 title: Azure Storage Service-kryptering med kundhanterad nycklar i Azure Key Vault | Microsoft Docs
-description: "Funktionen Azure Storage Service-kryptering för att kryptera din Azure-Blobblagring på tjänstsidan när data lagrades och dekryptera den vid hämtning av data med kundhanterad nycklar."
+description: Funktionen Azure Storage Service-kryptering för att kryptera din Azure-Blobblagring på tjänstsidan när data lagrades och dekryptera den vid hämtning av data med kundhanterad nycklar.
 services: storage
 author: lakasa
 manager: jeconnoc
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: 1360d8bb0911c424747209c69b830fc1ee461798
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 04688f943ac9eba27ca193aa2054c69b6a94547d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Lagringstjänstens kryptering med kundhanterad nycklar i Azure Key Vault
 
@@ -111,11 +111,11 @@ Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Steg 5: Kopiera data till storage-konto
 
-Om du vill överföra data till det nya kontot så att den är krypterad, se steg3 i [komma igång i Lagringstjänstens kryptering av vilande Data](storage-service-encryption.md#step-3-copy-data-to-storage-account).
+Att överföra data till det nya kontot så att den är krypterad. Mer information finns i [vanliga frågor om tjänsten Lagringskryptering](storage-service-encryption.md#faq-for-storage-service-encryption).
 
 ### <a name="step-6-query-the-status-of-the-encrypted-data"></a>Steg 6: Fråga status för krypterade data
 
-Om du vill fråga status för krypterade data, finns i steg 4 i [komma igång i Lagringstjänstens kryptering av vilande Data](storage-service-encryption.md#step-4-query-the-status-of-the-encrypted-data).
+Fråga om status på krypterade data.
 
 ## <a name="faq-for-sse-with-customer-managed-keys"></a>Vanliga frågor om SSE med kunden hanterade nycklar
 

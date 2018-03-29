@@ -1,9 +1,9 @@
 ---
-title: "Överföra data för Hadoop-jobb i HDInsight | Microsoft Docs"
-description: "Lär dig mer om att överföra och komma åt data för Hadoop-jobb i HDInsight med hjälp av Azure CLI, Azure Lagringsutforskaren, Azure PowerShell, kommandorad för Hadoop eller Sqoop."
-keywords: "etl-hadoop, hämta data till hadoop, Läs in data för hadoop"
+title: Överföra data för Hadoop-jobb i HDInsight | Microsoft Docs
+description: Lär dig mer om att överföra och komma åt data för Hadoop-jobb i HDInsight med hjälp av Azure CLI, Azure Lagringsutforskaren, Azure PowerShell, kommandorad för Hadoop eller Sqoop.
+keywords: etl-hadoop, hämta data till hadoop, Läs in data för hadoop
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: cfe1b6bee9bc1f093b239f8f4acc523e47ad5d1a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ddb6291cdff7e2b65f54e89196c2b07dd6e4aaff
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Ladda upp data för Hadoop-jobb i HDInsight
 
@@ -176,7 +176,7 @@ eller
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-En lista med andra Hadoop-kommandon som fungerar med filer, finns [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+En lista över andra Hadoop-kommandon som fungerar med filer, se [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]
 > I HBase-kluster standard blockstorlek som används när data skrivs är 256 KB. När det här fungerar bra när du använder HBase APIs eller REST API: er med hjälp av den `hadoop` eller `hdfs dfs` kommandon för att skriva data som är större än ~ 12 GB resulterar i ett fel. Mer information finns i [skrivning till blob storage-undantag](#storageexception) i den här artikeln.
@@ -188,18 +188,18 @@ Det finns också flera program som ger ett grafiskt gränssnitt för att arbeta 
 
 | Client | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Microsoft Visual Studio-verktygen för HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
+| [Microsoft Visual Studio-verktygen för HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure Storage Explorer](http://storageexplorer.com/) |✔ |✔ |✔ |
-| [Molnet lagring Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
+| [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
 | [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>Visual Studio-verktygen för HDInsight
-Mer information finns i [navigera de länkade resurserna](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
+Mer information finns i [navigera de länkade resurserna](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources).
 
-#### <a id="storageexplorer"></a>Azure Lagringsutforskaren
-*Azure Lagringsutforskaren* är användbart för att kontrollera och ändra data i BLOB. Det är ett kostnadsfritt, Öppna källa verktyg som kan hämtas från [http://storageexplorer.com/](http://storageexplorer.com/). Källkoden är tillgänglig från den här länken samt.
+#### <a id="storageexplorer"></a>Azure Storage Explorer
+*Azure Lagringsutforskaren* är användbart för att kontrollera och ändra data i BLOB. Det är ett kostnadsfritt, Öppna källa verktyg som kan hämtas från [ http://storageexplorer.com/ ](http://storageexplorer.com/). Källkoden är tillgänglig från den här länken samt.
 
 Innan du använder verktyget, måste du känna till din Azure storage-konto och nyckel. Anvisningar om hur du får den här informationen finns i ”så här: visa, kopiera och generera lagring åtkomstnycklar” avsnitt i [skapa, hantera eller ta bort ett lagringskonto][azure-create-storage-account].
 
@@ -207,7 +207,7 @@ Innan du använder verktyget, måste du känna till din Azure storage-konto och 
 
     Ange namnet och nyckeln för storage-konto som används av ditt HDInsight-kluster och välj sedan **Spara & Öppna**.
 
-    ![HDI. AzureStorageExplorer][image-azure-storage-explorer]
+    ![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 2. I listan över behållare till vänster om gränssnittet, klickar du på namnet på behållaren som är kopplad till ditt HDInsight-kluster. Den är namnet på HDInsight-klustret som standard men kan skilja sig om du har angett ett specifikt namn när du skapar klustret.
 3. I verktygsfältet, väljer du ikonen överföringen.
 

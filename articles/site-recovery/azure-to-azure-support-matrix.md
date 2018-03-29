@@ -1,21 +1,21 @@
 ---
-title: "Azure Site Recovery stöd matrix för replikering från Azure till Azure | Microsoft Docs"
-description: "Sammanfattar de operativsystem som stöds och konfigurationer för Azure Site Recovery replikering av virtuella Azure-datorer (VM) från en region till en annan för disaster recovery (DR) behov."
+title: Azure Site Recovery stöd matrix för replikering från Azure till Azure | Microsoft Docs
+description: Sammanfattar de operativsystem som stöds och konfigurationer för Azure Site Recovery replikering av virtuella Azure-datorer (VM) från en region till en annan för disaster recovery (DR) behov.
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/24/2018
 ms.author: sujayt
-ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 30ee269b3f484256001af211181a517821d79617
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery stöd matrix för replikering från Azure till Azure
+# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
 
 >[!NOTE]
@@ -28,7 +28,7 @@ Den här artikeln beskriver konfigurationer som stöds och komponenter för Azur
 
 **Användargränssnittet** |  **Stöds / stöds inte**
 --- | ---
-**Azure-portalen** | Stöds
+**Azure Portal** | Stöds
 **Klassisk portal** | Stöds inte
 **PowerShell** | Stöds för närvarande inte
 **REST API** | Stöds för närvarande inte
@@ -149,7 +149,7 @@ Virtuella datorer migreras med hjälp av Site Recovery | Stöds | Om det är en 
 Maximal storlek för OS-disk | 2048 GB | Referera till [diskar som används av virtuella datorer.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Maximal datadiskstorleken | 4095 GB | Referera till [diskar som används av virtuella datorer.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Antalet datadiskar | Upp till 64 som stöds av en viss Azure VM-storlek | Referera till [storlekar för virtuella Azure-datorn](../virtual-machines/windows/sizes.md)
-Diskutrymme | Alltid uteslutas från replikering | Tillfällig disklagring har exkluderats från replikering alltid. Du bör inte spärra beständiga data diskutrymme enligt Azure guida ND. Referera till [diskutrymme på Azure Virtual Machines](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) för mer information.
+Diskutrymme | Alltid uteslutas från replikering | Tillfällig disklagring har exkluderats från replikering alltid. Du bör inte spärra beständiga data diskutrymme enligt vägledning för Azure. Referera till [diskutrymme på Azure Virtual Machines](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) för mer information.
 Förändringstakten för data på disken | Högst 10 Mbit/s per disk för Premium-lagring och 2 Mbit/s per disk för standardlagring | Om förändringstakten genomsnittlig data på disken är utöver 10 Mbit/s (för Premium) och 2 Mbit/s (för Standard) kontinuerligt, kommer inte replikeringen att fånga upp. Om det är en databearbetning burst och förändringstakten för data som är större än 10 Mbit/s (för Premium) och 2 Mbit/s (för Standard) under en viss tid och kommer, fånga replikering upp. I det här fallet kan du se något fördröjd återställningspunkter.
 Diskar på standard storage-konton | Stöds |
 Diskar på premium storage-konton | Stöds | Om en virtuell dator har diskar som är fördelade på premium- och standard storage-konton, kan du välja ett annat mål storage-konto för varje disk så du får samma lagringskonfigurationen i målregionen
@@ -179,7 +179,7 @@ Internet-belastningsutjämnare | Stöds | Du måste associera förkonfigurerade 
 Interna belastningsutjämnare | Stöds | Du måste associera förkonfigurerade belastningsutjämnaren med hjälp av en azure automation-skript i en återställningsplan.
 Offentlig IP-adress| Stöds | Du måste koppla en befintlig offentlig IP-adress till NIC eller skapa en och koppla till det nätverkskortet med hjälp av en azure automation-skript i en återställningsplan.
 NSG på nätverkskortet (Resource Manager)| Stöds | Du måste koppla NSG till nätverkskort med en azure automatiseringsskriptet i en återställningsplan.  
-NSG för undernätet (Resource Manager och klassisk)| Stöds | Du måste koppla NSG till nätverkskort med en azure automatiseringsskriptet i en återställningsplan.
+NSG för undernätet (Resource Manager och klassisk)| Stöds | Du måste koppla NSG till undernätet med hjälp av en azure automation-skript i en återställningsplan.
 NSG för den virtuella datorn (klassisk)| Stöds | Du måste koppla NSG till nätverkskort med en azure automatiseringsskriptet i en återställningsplan.
 Reserverade IP: N (statisk IP) / behålla käll-IP | Stöds | Om nätverkskortet på den Virtuella källdatorn har en statisk IP-konfiguration och mål-undernät har samma IP-Adressen tillgänglig, tilldelas redundans VM. Om mål-undernätet inte har samma IP-Adressen finns är en tillgänglig IP-adresser i undernätet reserverad för den här virtuella datorn. Du kan ange en fast IP-adress för valfritt ' replikerade objekt > Inställningar > beräkning och nätverk > nätverksgränssnitt '. Du kan markera nätverkskortet och ange undernät och IP-önskat.
 Dynamisk IP| Stöds | Om nätverkskortet på den Virtuella källdatorn har dynamisk IP-konfiguration, nätverkskortet på failover VM är också dynamisk som standard. Du kan ange en fast IP-adress för valfritt ' replikerade objekt > Inställningar > beräkning och nätverk > nätverksgränssnitt '. Du kan markera nätverkskortet och ange undernät och IP-önskat.

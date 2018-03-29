@@ -1,9 +1,9 @@
 ---
-title: "SQL-frågor för Azure Cosmos DB | Microsoft Docs"
-description: "Lär dig mer om SQL-syntax, databasbegrepp och SQL-frågor för Azure Cosmos DB. SQL kan användas som en JSON-frågespråket i Azure Cosmos-databasen."
-keywords: "SQL-syntax, sql-fråga, sql-frågor, json-frågespråket, databasbegrepp och sql-frågor, mängdfunktioner"
+title: SQL-frågor för Azure Cosmos DB | Microsoft Docs
+description: Lär dig mer om SQL-syntax, databasbegrepp och SQL-frågor för Azure Cosmos DB. SQL kan användas som en JSON-frågespråket i Azure Cosmos-databasen.
+keywords: SQL-syntax, sql-fråga, sql-frågor, json-frågespråket, databasbegrepp och sql-frågor, mängdfunktioner
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: LalithaMV
 manager: jhubbard
 editor: monicar
@@ -13,17 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a79b1a97909a38b4bfba06186db875d0c0c25f03
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>SQL-frågor för Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Microsoft Azure Cosmos DB stöder förfrågningar till dokument med SQL (Structured Query Language) som ett JSON-frågespråk på SQL-API-konton. Azure Cosmos-DB är verkligen schemafria. Tack vare dess åtagande att JSON-datamodell direkt i databasmotorn ger automatisk indexering av JSON-dokument utan explicita schema eller att sekundärindex.
 
@@ -34,11 +32,17 @@ När du utformar frågespråket för Cosmos DB hade vi två mål i åtanke:
 
 Vi tror att dessa funktioner är nyckeln till att minska friktionen mellan programmet och databasen och är avgörande för utvecklarproduktivitet.
 
-Vi rekommenderar att du börjar med att titta på nedanstående video, där visar Aravind Ramachandran Cosmos DB frågefunktioner, och genom att besöka vårt [Query Playground](http://www.documentdb.com/sql/demo), där du kan testa Cosmos DB och köra SQL-frågor mot vår datauppsättning.
+Vi rekommenderar att komma igång med att titta på nedanstående video, där Azure Cosmos DB Programhanteraren Andrew Liu visar Azure Cosmos DB frågar funktioner och visar online [Query Playground](http://www.documentdb.com/sql/demo), där du kan prova Azure Cosmos DB och kör SQL-frågor mot vår datauppsättning som visas i videon.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
-> 
-> 
+> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
+>
+>
+
+Mer avancerade frågor metoder visas i den här uppföljning video:
+
+> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
+>
+>
 
 Återvänd sedan till den här artikeln, där vi börjar med en SQL-fråga självstudiekurs som vägleder dig igenom några enkla JSON-dokument och SQL-kommandon.
 
@@ -2258,9 +2262,9 @@ I följande exempel visas hur du använder den Frågedokument i JavaScript-serve
 4. [Konsekvensnivåer för Azure Cosmos DB][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [http://json.org/](http://json.org/)
-7. Javascript Specification [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+7. JavaScript-specifikationen [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. Fråga utvärdering tekniker för stora databaser [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+9. Utvärdering av frågetekniker för stora databaser [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10. Bearbetning av frågor i parallella relationsdatabassystem, IEEE datorn Society Press, 1994
 11. Lu Ooi, Tan, bearbetning av frågor i parallella relationsdatabassystem, IEEE datorn Society Press, 1994.
 12. Kitts Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Report Anders Tomkins: Pig Latin: en inte så främmande språk för databehandling, SIGMOD 2008.

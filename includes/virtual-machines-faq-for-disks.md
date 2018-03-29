@@ -42,7 +42,7 @@ Nej.
 
 **Finns det några begränsningar för skalan för kunder som använder hanterade diskar?**
 
-Hanterade diskar eliminerar de gränser som är kopplade till storage-konton. Antalet hanterade diskar per prenumeration är dock begränsad till 2 000 som standard. Du kan kontakta support om du vill öka antalet.
+Hanterade diskar eliminerar de gränser som är kopplade till storage-konton. Den maximala gränsen och Standardgränsen, är dock 10 000 hanterade diskar per region och typ av disk för en prenumeration.
 
 **Kan jag göra en inkrementell ögonblicksbild av hanterade diskar?**
 

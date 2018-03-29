@@ -1,8 +1,8 @@
 ---
-title: "Datavetenskap med hjälp av Scala och Spark på Azure | Microsoft Docs"
-description: "Hur du använder Scala för övervakade machine learning aktiviteter med Spark skalbara MLlib och Spark ML paketen på ett Azure HDInsight Spark-kluster."
+title: Datavetenskap med hjälp av Scala och Spark på Azure | Microsoft Docs
+description: Hur du använder Scala för övervakade machine learning aktiviteter med Spark skalbara MLlib och Spark ML paketen på ett Azure HDInsight Spark-kluster.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;deguhath
-ms.openlocfilehash: 940911144993f30723ad395722742c81a4b0a71c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: dbd68508d83936964d213d94d5a30c15548cbdfc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Datavetenskap med Scala och Spark på Azure
 Den här artikeln visar hur du använder Scala för övervakade machine learning uppgifter med Spark skalbara MLlib och Spark ML paketen på ett Azure HDInsight Spark-kluster. Den vägleder dig igenom de aktiviteter som utgör den [datavetenskap processen](http://aka.ms/datascienceprocess): datapåfyllning och undersökning, visualisering, funktionen tekniker, modellering och förbrukning av modellen. Modeller i artikeln är logistic och linjär regression, slumpmässiga skogar och ökat toningen träd (GBTs), förutom två övervakat utföra vanliga:
@@ -41,7 +41,7 @@ Konfigurationsstegen och kod i den här artikeln gäller Azure HDInsight 3.4 Spa
 > 
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Du måste ha en Azure-prenumeration. Om du inte redan har en, [hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Du behöver ett Azure HDInsight 3.4 Spark 1.6 klustret för att slutföra följande procedurer. Om du vill skapa ett kluster, se anvisningarna i [komma igång: skapa Apache Spark på Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Anger typ av kluster och versionen på den **Välj typ av kluster** menyn.
 
@@ -77,14 +77,14 @@ Du kan ladda upp anteckningsboken direkt från GitHub på servern Jupyter Notebo
 
 Spark-kernlar som tillhandahålls med Jupyter-anteckningsböcker har förinställda sammanhang. Du behöver inte explicit inställd på Spark eller Hive-kontexterna innan du börjar arbeta med programmet som du utvecklar. De förinställda kontexterna är:
 
-* `sc`för SparkContext
-* `sqlContext`för HiveContext
+* `sc` för SparkContext
+* `sqlContext` för HiveContext
 
 ### <a name="spark-magics"></a>Spark användbara
 Spark-kärnan innehåller vissa fördefinierade ”användbara”, som är särskilda kommandon som kan anropas med `%%`. Två av dessa kommandon som används i följande kodexempel.
 
-* `%%local`Anger att koden i efterföljande rader körs lokalt. Koden måste vara en giltig Scala-kod.
-* `%%sql -o <variable name>`Kör en Hive-fråga mot `sqlContext`. Om den `-o` -parameter har skickats, resultatet av frågan sparas i den `%%local` Scala kontext som en Spark data ram.
+* `%%local` Anger att koden i efterföljande rader körs lokalt. Koden måste vara en giltig Scala-kod.
+* `%%sql -o <variable name>` Kör en Hive-fråga mot `sqlContext`. Om den `-o` -parameter har skickats, resultatet av frågan sparas i den `%%local` Scala kontext som en Spark data ram.
 
 För mer information om kärnor för Jupyter-anteckningsböcker och deras fördefinierade ”magics” som du anropar med `%%` (till exempel `%%local`), se [kernlar som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
@@ -262,7 +262,7 @@ När data hämtas i Spark är nästa steg i processen datavetenskap att få en b
 Som standard är resultatet av alla kodstycke som du kör från en Jupyter-anteckningsbok tillgänglig inom ramen för sessionen som sparas på arbetsnoderna. Om du vill spara en resa till arbetsnoderna för varje beräkning och om alla data som du behöver för din beräkning är tillgängligt lokalt på noden Jupyter (vilket är huvudnoden) kan du använda den `%%local` Magiskt tal för att köra kodfragmentet på Jupyter-servern.
 
 * **SQL-magic** (`%%sql`). HDInsight Spark-kernel stöder enkelt infogade HiveQL frågor mot SQLContext. Den (`-o VARIABLE_NAME`) argumentet kvarstår utdata från SQL-frågan som en Pandas data ram på Jupyter-servern. Det innebär att den ska vara tillgänglig i lokalt läge.
-* `%%local`**magic**. Den `%%local` magic körs koden lokalt på servern Jupyter som huvudnod HDInsight-klustret. Normalt använder du `%%local` magiskt tillsammans med den `%%sql` magiskt med den `-o` parameter. Den `-o` parametern skulle spara resultatet av SQL-frågan lokalt, och sedan `%%local` magic skulle leda till en uppsättning kodstycke kör lokalt mot utdata för SQL-frågor som sparas lokalt.
+* `%%local` **Magic**. Den `%%local` magic körs koden lokalt på servern Jupyter som huvudnod HDInsight-klustret. Normalt använder du `%%local` magiskt tillsammans med den `%%sql` magiskt med den `-o` parameter. Den `-o` parametern skulle spara resultatet av SQL-frågan lokalt, och sedan `%%local` magic skulle leda till en uppsättning kodstycke kör lokalt mot utdata för SQL-frågor som sparas lokalt.
 
 ### <a name="query-the-data-by-using-sql"></a>Fråga efter data med hjälp av SQL
 Den här frågan hämtar taxi resor av avgiften, passagerare antal, och tips belopp.
@@ -292,10 +292,10 @@ Du kan rita med hjälp av Python-kod när dataramen är i lokala kontext som en 
  Spark-kernel visualizes automatiskt utdata för SQL (HiveQL)-frågor när du kör kod. Du kan välja mellan flera olika typer av visualiseringar:
 
 * Tabell
-* Cirkeldiagram
+* Cirkel
 * Rad
 * Område
-* Fältet
+* Stapel
 
 Här är koden för att rita data:
 

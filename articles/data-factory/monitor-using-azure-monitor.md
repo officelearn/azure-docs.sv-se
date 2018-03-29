@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: d4022a89b8e0e08679e1c593dc1b691a23d21471
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8ab2e7cdc8472be9c0800eea5bef9322b0ed87f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Övervaka datafabriker med hjälp av Azure-Monitor  
 Molnprogram är komplicerade med många rörliga delar. Övervakning tillhandahåller data för att säkerställa att programmet in och körs i ett felfritt tillstånd. Det hjälper dig också att stave ut potentiella problem eller felsöka tidigare viktiga. Du kan dessutom använda övervakningsdata och få djupa insikter om ditt program. Den här kunskapen kan hjälpa dig att förbättra programmets prestanda eller underhålla eller automatisera åtgärder som annars skulle kräva manuella åtgärder.
@@ -381,7 +381,7 @@ Mer information här] ()https://msdn.microsoft.com/en-us/library/azure/dn931932.
 |start| Sträng | Start av utlösare brand i timespan UTC-format | `2017-06-26T20:55:29.5007959Z`|
 |status| Sträng | Slutlig status om åtgärden har utlösts (lyckades eller misslyckades) | `Succeeded`|
 
-### <a name="metrics"></a>Mått
+## <a name="metrics"></a>Mått
 
 Azure-Monitor kan du använda telemetri för att få insyn i prestanda och hälsotillståndet för dina arbetsbelastningar i Azure. Viktigaste är Azure telemetridata mätvärdena (kallas även prestandaräknare) sänds av mest Azure-resurser. Azure-Monitor finns flera sätt att konfigurera och använda de här måtten för övervakning och felsökning.
 
@@ -397,6 +397,51 @@ ADFV2 genererar följande mått
 | TriggerFailedRuns    | Det gick inte utlösaren körs mått     | Antal    | Totalt                | Totalt antal trigger kör misslyckades inom en minut period      |
 
 För att komma åt mätvärdena som följer du anvisningarna i artikeln- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+
+## <a name="alerts"></a>Aviseringar
+
+Du kan aktivera aviseringar om stöds mått i Data Factory. Klicka på den **aviseringar** Data Factory-knappen **övervakaren** sidan.
+
+![Alternativet för aviseringar](media/monitor-using-azure-monitor/alerts_image1.png)
+
+Då kommer du att den **aviseringar** sidan.
+
+![Sidan varningar](media/monitor-using-azure-monitor/alerts_image2.png)
+
+Du kan också logga in på Azure portal och klicka på **Monitor -&gt; aviseringar** att nå den **aviseringar** sidan direkt.
+
+![Aviseringar i menyn portal](media/monitor-using-azure-monitor/alerts_image3.png)
+
+### <a name="create-alerts"></a>Skapa aviseringar
+
+1.  Klicka på **+ ny varningsregeln** att skapa en ny avisering.
+
+    ![ny varningsregel](media/monitor-using-azure-monitor/alerts_image4.png)
+
+2.  Definiera den **Varna villkoret**.
+
+    > [!NOTE]
+    > Se till att välja **alla** i den **filtrera efter resurstyp**.
+
+    ![Varna villkor, skärm 1 av 3](media/monitor-using-azure-monitor/alerts_image5.png)
+
+    ![Varna villkor, sidan 2 av 3](media/monitor-using-azure-monitor/alerts_image6.png)
+
+    ![Varna villkor, skärmen 3 av 3](media/monitor-using-azure-monitor/alerts_image7.png)
+
+3.  Definiera den **aviseringsinformation**.
+
+    ![Aviseringsinformation](media/monitor-using-azure-monitor/alerts_image8.png)
+
+4.  Definiera den **grupp**.
+
+    ![Grupp, skärm 1 4](media/monitor-using-azure-monitor/alerts_image9.png)
+
+    ![Grupp, skärmen 2 av 4](media/monitor-using-azure-monitor/alerts_image10.png)
+
+    ![Grupp, skärmen 3 4](media/monitor-using-azure-monitor/alerts_image11.png)
+
+    ![Grupp, skärmen 4 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Se [övervaka och hantera pipelines programmässigt](monitor-programmatically.md) artikeln innehåller information om att övervaka och hantera pipelines genom att köra. 

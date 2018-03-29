@@ -1,8 +1,8 @@
 ---
-title: "Använd jobbet webbläsare och jobbet för Azure Data Lake Analytics-jobb | Microsoft Docs"
-description: "Lär dig hur du använder webbläsaren för jobbet och jobbet för Azure Data Lake Analytics-jobb. "
+title: Använd jobbet webbläsare och jobbet för Azure Data Lake Analytics-jobb | Microsoft Docs
+description: 'Lär dig hur du använder webbläsaren för jobbet och jobbet för Azure Data Lake Analytics-jobb. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/02/2017
 ms.author: jgao
-ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc9048566dd58733cd86aac0f9836763fa095843
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Använd jobbet webbläsare och jobbet för Azure Data lake Analytics-jobb
 Azure Data Lake Analytics-tjänsten arkiveras skickade jobb i en [frågearkivet](#query-store). Du lära dig hur du använder webbläsaren för jobbet och jobbet i Azure Data Lake-verktyg för Visual Studio för att hitta historiska Jobbinformationen i den här artikeln. 
 
 Som standard arkiveras Data Lake Analytics-tjänsten jobben i 30 dagar. Förfallotid perioden kan konfigureras från Azure portal genom att konfigurera en anpassad princip. Du kan inte komma åt jobbinformation efter förfallodatumet. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Se [Data Lake-verktyg för Visual Studio förutsättningar](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Öppna webbläsaren jobb
@@ -49,7 +49,7 @@ Jobbet innehåller:
       ![Azure Data Lake Analytics-jobbstatusen faser](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * Förbereder: Överföra skriptet till molnet, kompilering och optimera skriptet med hjälp av tjänsten kompilering.
-    * I kö: Jobb är köade vassle de väntar på att tillräckligt med resurser eller jobb överskrider de högsta antal samtidiga jobb per konto begränsning. Prioritetsinställningen bestämmer i vilken ordning köade jobb - Ju lägre nummer, desto högre prioritet.
+    * Köade: Jobb ställs i kö när de väntar på att tillräckligt med resurser eller jobb överskrider högsta antal samtidiga jobb per konto begränsning. Prioritetsinställningen bestämmer i vilken ordning köade jobb - Ju lägre nummer, desto högre prioritet.
     * Körs: Jobbet faktiskt körs i ditt Data Lake Analytics-konto.
     * Slutför: Jobbet slutförs (till exempel Slutför filen).
       

@@ -1,8 +1,8 @@
 ---
-title: "Översikt över säkerheten i Data Lake Store | Microsoft Docs"
-description: "Förstå hur Azure Data Lake Store är en säkrare stordataarkiv"
+title: Översikt över säkerheten i Data Lake Store | Microsoft Docs
+description: Förstå hur Azure Data Lake Store är en säkrare stordataarkiv
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: e3df23e8803d8b34cc4178f8047d0fe2172d04be
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 65319df8db339b1c124be47f27a841bbd7141921
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Säkerhet i Azure Data Lake Store
 Många företag att utnyttja analyser av stordata för affärsinsikter hjälper dem att fatta smarta beslut. En organisation kan ha en komplex och reglerade miljö med ett ökande antal olika användare. Det är viktigt för företaget att se till att affärskritiska data lagras säkrare, med rätt nivå av åtkomst till enskilda användare. Azure Data Lake Store är utformat för att uppfylla dessa säkerhetskrav. I den här artikeln lär dig mer om säkerhetsfunktioner för Data Lake Store, inklusive:
@@ -46,7 +46,7 @@ När en användare autentiseras av Azure Active Directory så att användaren ka
 * POSIX ACL för åtkomst till data i arkivet
 
 ### <a name="rbac-for-account-management"></a>RBAC för kontohantering
-Fyra grundläggande roller har definierats för Data Lake Store som standard. Rollerna tillåter olika åtgärder i ett Data Lake Store-konto via Azure-portalen, PowerShell-cmdletar och REST API: er. Rollerna ägare och deltagare kan utföra en mängd funktioner för administration på kontot. Du kan tilldela rollen Läsare för användare som bara kan interagerar med data.
+Fyra grundläggande roller har definierats för Data Lake Store som standard. Rollerna tillåter olika åtgärder i ett Data Lake Store-konto via Azure-portalen, PowerShell-cmdletar och REST API: er. Rollerna ägare och deltagare kan utföra en mängd funktioner för administration på kontot. Du kan tilldela användare som bara visar konto hanteringsdata rollen läsare.
 
 ![RBAC-roller](./media/data-lake-store-security-overview/rbac-roles.png "RBAC-roller")
 
@@ -65,9 +65,9 @@ Instruktioner finns i [tilldela användare eller säkerhetsgrupper datasjölager
 ### <a name="using-acls-for-operations-on-file-systems"></a>Med ACL: er för åtgärder på filsystem
 Data Lake Store är ett hierarkiskt filsystem som Hadoop Distributed File System (HDFS) och stöder [POSIX ACL: er](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Den styr läsa (r), skriva (b) och köra (behörigheter till resurser för rollen som ägare, för gruppen ägare och för andra användare och grupper x). I Data Lake Store kan ACL: er aktiveras på rotmappen för undermappar och på enskilda filer. Mer information om hur åtkomstkontrollposter fungerar i kontexten för Data Lake Store finns [Åtkomstkontroll i Data Lake Store](data-lake-store-access-control.md).
 
-Vi rekommenderar att du definierar ACL: er för flera användare med hjälp av [säkerhetsgrupper](../active-directory/active-directory-groups-create-azure-portal.md). Lägga till användare i en säkerhetsgrupp och tilldela sedan ACL: er för en fil eller mapp till säkerhetsgruppen. Detta är användbart när du vill ange anpassade åtkomst eftersom du är begränsad till att lägga till upp till nio poster för anpassade åtkomst. Mer information om hur du skyddar data som lagras i Data Lake Store med hjälp av Azure Active Directory-säkerhetsgrupper bättre finns [tilldela användare eller säkerhetsgrupp som ACL: er till Azure Data Lake Store-filsystem](data-lake-store-secure-data.md#filepermissions).
+Vi rekommenderar att du definierar ACL: er för flera användare med hjälp av [säkerhetsgrupper](../active-directory/active-directory-groups-create-azure-portal.md). Lägga till användare i en säkerhetsgrupp och tilldela sedan ACL: er för en fil eller mapp till säkerhetsgruppen. Detta är användbart när du vill ge tilldelade behörigheter eftersom du är begränsad till högst 28 poster för tilldelade behörigheter. Mer information om hur du skyddar data som lagras i Data Lake Store med hjälp av Azure Active Directory-säkerhetsgrupper bättre finns [tilldela användare eller säkerhetsgrupp som ACL: er till Azure Data Lake Store-filsystem](data-lake-store-secure-data.md#filepermissions).
 
-![Visa en lista över standard och anpassad åtkomst](./media/data-lake-store-security-overview/adl.acl.2.png "listan standard och anpassad åtkomst")
+![Visa åtkomstbehörighet](./media/data-lake-store-security-overview/adl.acl.2.png "lista åtkomstbehörigheter")
 
 ## <a name="network-isolation"></a>Isolering av nätverk
 Använd Data Lake Store för att styra åtkomsten till ditt datalager på nätverksnivån. Du kan fastställa brandväggar och definiera ett intervall med IP-adresser för dina betrodda klienter. Klienter som har en IP-adress inom det angivna intervallet kan ansluta till Data Lake Store med ett IP-adressintervall.
@@ -83,30 +83,30 @@ Data Lake Store innehåller också kryptering för data som lagras i kontot. Du 
 
 Data Lake Store ger två lägen för hantering, av nycklar för att hantera master krypteringsnycklarna (MEKs) som krävs för att dekryptera data som lagras i Data Lake Store. Du kan antingen låta Data Lake Store hantera MEKs för dig, eller välja att behålla ägarskap för MEKs med Azure Key Vault-konto. Du kan ange läget för nyckelhantering medan när du skapar ett Data Lake Store-konto. Mer information om hur du skapar en krypteringsrelaterad konfiguration finns i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md).
 
-## <a name="auditing-and-diagnostic-logs"></a>Granskning och diagnostiska loggar
-Du kan använda granskning eller av diagnostiska loggar, beroende på om du söker efter loggar för datorhanteringsrelaterade aktiviteter eller data som är relaterade aktiviteter.
+## <a name="activity-and-diagnostic-logs"></a>Aktiviteten och diagnostikloggar
+Du kan använda aktiviteten eller diagnostikloggar, beroende på om du söker efter loggar för kontot datorhanteringsrelaterade aktiviteter eller data som är relaterade aktiviteter.
 
-* Management-relaterade aktiviteter använder Azure Resource Manager API: er och är anslutna i Azure-portalen via granskningsloggar.
+* Kontot datorhanteringsrelaterade aktiviteter i Azure-portalen är anslutna via aktivitetsloggar använder Azure Resource Manager API: er.
 * Data som är relaterade aktiviteter använder WebHDFS REST API: er och är anslutna i Azure-portalen via diagnostikloggar.
 
-### <a name="auditing-logs"></a>Granskningsloggar
-För att följa föreskrifter kan kan en organisation kräva tillräcklig granskningshistorik om behöver gräva till specifika incidenter. Data Lake Store har inbyggd övervakning och granskning och loggar alla aktiviteter för hantering av kontot.
+### <a name="activity-log"></a>Aktivitetslogg
+Om du vill följa regelverk kan en organisation kräva tillräcklig granskningshistorik för kontot hanteringsaktiviteter om behöver gräva till specifika incidenter. Data Lake Store har inbyggd övervakning och loggar alla aktiviteter för hantering av kontot.
 
-Visa och välja de kolumner som du vill logga för granskningshistorik för kontot management. Du kan också exportera granskningsloggar till Azure Storage.
+Visa och välja de kolumner som du vill logga för granskningshistorik för kontot management. Du kan också exportera aktivitetsloggar till Azure Storage.
 
-![Granskningsloggar](./media/data-lake-store-security-overview/audit-logs.png "Granskningsloggar")
+![Aktivitetsloggen](./media/data-lake-store-security-overview/activity-logs.png "aktivitetsloggen")
 
-### <a name="diagnostic-logs"></a>Diagnostikloggar
-Du kan ange dataåtkomst granskningshistorik i Azure-portalen (i diagnostikinställningar) och skapa ett Azure Blob storage-konto som var loggfilerna lagras.
+Mer information om hur du arbetar med aktivitetsloggar finns [visa aktivitetsloggar granska åtgärder på resurser](../azure-resource-manager/resource-group-audit.md).
 
-![Diagnostikloggar](./media/data-lake-store-security-overview/diagnostic-logs.png "diagnostikloggar")
+### <a name="diagnostics-logs"></a>Diagnostikloggar
+Du kan aktivera granskning av data och diagnostiska loggar in på Azure-portalen och skicka dem till ett Azure Blob storage-konto, en händelsehubb eller logganalys.
 
-När du har konfigurerat diagnostikinställningar du kan visa loggarna på den **diagnostikloggar** fliken.
+![Diagnostik loggar](./media/data-lake-store-security-overview/diagnostic-logs.png "diagnostik loggar")
 
 Mer information om hur du arbetar med diagnostikloggar med Azure Data Lake Store finns [åtkomst till diagnostikloggarna för Data Lake Store](data-lake-store-diagnostic-logs.md).
 
 ## <a name="summary"></a>Sammanfattning
-Enterprise-kunder kräver en analytics molnet dataplattform som är säkert och enkelt att använda. Azure Data Lake Store är utformat för att dessa krav via Identitetshantering och autentisering via Azure Active Directory-integrering, ACL-baserad auktorisering, isolering av nätverk, datakryptering vid överföring och i vila (i framtiden kommer)-adressen och granskning.
+Enterprise-kunder kräver en analytics molnet dataplattform som är säkert och enkelt att använda. Azure Data Lake Store är utformade för att uppfylla dessa krav via Identitetshantering och autentisering via Azure Active Directory-integrering, ACL-baserad auktorisering, isolering av nätverk, kryptering under överföring och i vila och granskning.
 
 Om du vill se nya funktioner i Data Lake Store Skicka oss din feedback den [Data Lake Store UserVoice forum](https://feedback.azure.com/forums/327234-data-lake).
 

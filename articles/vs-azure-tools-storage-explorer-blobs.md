@@ -1,11 +1,11 @@
 ---
-title: "Hantera Azure Blob Storage-resurser med Lagringsutforskaren (förhandsversion) | Microsoft Docs"
-description: "Hantera Azure Blob-behållare och Blobbar med Lagringsutforskaren (förhandsversion)"
+title: Hantera Azure Blob Storage-resurser med Lagringsutforskaren (förhandsversion) | Microsoft Docs
+description: Hantera Azure Blob-behållare och Blobbar med Lagringsutforskaren (förhandsversion)
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
 ms.service: storage
 ms.devlang: multiple
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: c23b87cca66df0834a31494be7d8657ff9f2a865
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98a1016f78587b4139041f140634b98fa47edfd1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>Hantera Azure Blob Storage-resurser med Lagringsutforskaren (förhandsversion)
 ## <a name="overview"></a>Översikt
 [Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) är en tjänst för att lagra stora mängder Ostrukturerade data, till exempel text eller binära data som kan nås från var som helst i världen via HTTP eller HTTPS.
 Du kan använda Blob Storage för att exponera data offentligt eller lagra programdata privat. I den här artikeln lär du dig att använda Lagringsutforskaren (förhandsversion) att arbeta med blob-behållare och blobbar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att slutföra stegen i den här artikeln:
 
 * [Hämta och installera Lagringsutforskaren (förhandsversion)](http://www.storageexplorer.com)
 * [Ansluta till ett Azure-lagringskonto eller en Azure-lagringstjänst](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
-## <a name="create-a-blob-container"></a>Skapa en blobbbehållare
+## <a name="create-a-blob-container"></a>Skapa en blobbehållare
 Alla blobbar måste finnas i en blobbbehållare som är en logisk gruppering av blobbar. Ett konto kan innehålla ett obegränsat antal behållare, och varje behållare kan lagra ett obegränsat antal blobbar.
 
 Följande steg visar hur du skapar en blobbbehållare i Lagringsutforskaren (förhandsversion).
@@ -41,7 +41,7 @@ Följande steg visar hur du skapar en blobbbehållare i Lagringsutforskaren (fö
 3. Högerklicka på **Blobbbehållare**, och på snabbmenyn - väljer **skapa Blob-behållaren**.
 
    ![Skapa snabbmenyn för blob-behållare][0]
-4. En textruta ska visas under den **Blobbbehållare** mapp. Ange namn för blob-behållare. Finns det [behållare namngivningsregler](storage/blobs/storage-dotnet-how-to-use-blobs.md#create-a-container) avsnittet för en lista över regler och begränsningar för namngivning av blob-behållare.
+4. En textruta ska visas under den **Blobbbehållare** mapp. Ange namnet på blob-behållaren. Finns det [skapa behållaren och ange behörigheter](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) information om regler och begränsningar för namngivning av blob-behållare.
 
    ![Skapa Blob-behållare textruta][1]
 5. Tryck på **RETUR** när du är klar för att skapa blob-behållare eller **Esc** att avbryta. När blob-behållaren har skapats visas den den **Blobbbehållare** mapp för det valda lagringskontot.
@@ -170,11 +170,11 @@ Följande steg visar hur du hanterar blobbar (och mappar) i en blobbbehållare.
 
      1. Gå till verktygsfältet i huvudfönstret och välj **Överför**, och sedan **Överför filer** i den nedrullningsbara menyn.
 
-        ![Överföra filer][15]
+        ![Menyn Ladda upp filer][15]
      2. I dialogen **Överför filer** dialogrutan klickar du på knappen med tre punkter (**...** ) på höger sida av textrutan **Filer** och markerar den eller de filer du vill överföra.
 
         ![Ladda upp filer alternativ][16]
-     3. Ange vilken typ av **Blob typen**. Artikeln [komma igång med Azure Blob storage med hjälp av .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) beskrivs skillnaderna mellan de olika typerna av blob.
+     3. Ange vilken typ av **Blob typen**. Se [skapa behållaren och ange behörigheter](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) för mer information.
      4. Du kan också ange målmapp som de markerade filerna laddas upp. Om målmappen inte finns skapas den.
      5. Välj **Överför**.
    * **Ladda upp en mapp till en blob-behållare**
@@ -185,7 +185,7 @@ Följande steg visar hur du hanterar blobbar (och mappar) i en blobbbehållare.
      2. I dialogen **Överför mapp** klickar du på knappen med tre punkter (**...** ) på höger sida av textrutan **Mapp** och väljer den mapp vars innehåll du vill överföra.
 
         ![Överför Mappalternativ][18]
-     3. Ange vilken typ av **Blob typen**. Artikeln [komma igång med Azure Blob storage med hjälp av .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) beskrivs skillnaderna mellan de olika typerna av blob.
+     3. Ange vilken typ av **Blob typen**. Se [skapa behållaren och ange behörigheter](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) för mer information.
      4. Du kan även ange en målmapp som den markerade mappens innehåll ska överföras till. Om målmappen inte finns skapas den.
      5. Välj **Överför**.
    * **Hämta en blobb till den lokala datorn**

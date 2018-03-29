@@ -1,10 +1,10 @@
 ---
 title: Azure Cosmos DB indexering principer | Microsoft Docs
-description: "Förstå hur indexering fungerar i Azure Cosmos-databasen. Lär dig hur du konfigurerar och ändra indexprincip för automatisk indexering och bättre prestanda."
+description: Förstå hur indexering fungerar i Azure Cosmos-databasen. Lär dig hur du konfigurerar och ändra indexprincip för automatisk indexering och bättre prestanda.
 keywords: hur indexering fungerar automatisk indexering, indexering databas
 services: cosmos-db
-documentationcenter: 
-author: arramac
+documentationcenter: ''
+author: rafats
 manager: jhubbard
 editor: monicar
 ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/17/2017
-ms.author: arramac
-ms.openlocfilehash: b09f5323f0378721412baade9be9926ebd0c171e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 03/26/2018
+ms.author: rafats
+ms.openlocfilehash: 5610c5fdc6a04f9ef13d2e4592f0d7e5d8eba30c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hur fungerar Azure Cosmos DB indexinformationen?
 
 Alla Azure Cosmos DB data indexeras som standard. Även om många kunder är glada över att låta Azure Cosmos DB automatiskt hantera alla aspekter av indexering, kan du ange en anpassad *indexering princip* för samlingar i Azure Cosmos DB när den skapas. Indexering principer i Azure Cosmos DB är mer flexibel och kraftfull än sekundärindex som erbjuds i andra databasplattformar. Du kan utforma och anpassa formen av indexet utan att kompromissa flexibelt schema i Azure Cosmos-databasen. 
 
 Om du vill veta hur indexering fungerar i Azure Cosmos DB, är det viktigt att förstå att du kan göra detaljerade avvägningarna mellan Omkostnad för indexlagring, Skriv- och fråga genomflöde och fråga konsekvenskontroll när du hanterar indexprincip.  
+
+I följande videoklipp visar Azure Cosmos DB Programhanteraren Andrew Liu Azure Cosmos DB automatisk indexering funktioner och hur du ställer in och konfigurera indexprincip på Azure DB som Cosmos-behållare. 
+
+>[!VIDEO https://www.youtube.com/embed/uFu2D-GscG0]
 
 I den här artikeln titta vi Stäng på Azure Cosmos DB indexering principer på hur du anpassar indexprincip och associerade avvägningarna. 
 
@@ -37,7 +41,7 @@ När du har läst den här artikeln kommer du att kunna svara på följande frå
 * Hur gör ändringar till en samling indexprincip?
 * Hur jag jämföra lagrings- och prestandakrav för olika indexering principer?
 
-## Anpassa indexprincip i en samling<a id="CustomizingIndexingPolicy"></a>  
+## Anpassa indexprincip i en samling <a id="CustomizingIndexingPolicy"></a>  
 Du kan anpassa avvägningarna mellan lagring, Skriv- och prestanda för frågor och fråga konsekvens genom att åsidosätta standardvärdet indexering princip på en Azure DB som Cosmos-samling. Du kan konfigurera följande aspekter:
 
 * **Inkludera eller exkludera dokument och sökvägar till och från indexet**. Du kan exkludera eller inkludera specifika dokument i index när du infoga eller ersätta dokumenten i samlingen. Du kan även inkludera eller exkludera specifika JSON-egenskaper, kallas även *sökvägar*, indexeras i dokument som ingår i ett index. Sökvägar inkluderar mönster med jokertecken.
@@ -69,7 +73,7 @@ Du kan ändra indexprincip i en samling i Azure-portalen:
 2. Välj i den vänstra navigeringsmenyn **inställningar**, och välj sedan **indexering princip**. 
 3. Under **indexering princip**, ändra indexprincip och väljer sedan **OK**. 
 
-### Databasen indexering lägen<a id="indexing-modes"></a>  
+### Databasen indexering lägen <a id="indexing-modes"></a>  
 Azure Cosmos-DB stöder tre indexering lägen som du kan konfigurera via indexprincip på en samling Azure Cosmos DB: konsekvent, Lazy, och inget.
 
 **Konsekvent**: om en samling Azure Cosmos DB principen är konsekvent, samma konsekvensnivå som angetts för plats-läsningar följer du frågor för en specifik Azure DB som Cosmos-samling (stark, begränsat föråldrad, session eller senare). Indexet uppdateras synkront som en del av uppdateringen dokumentet (Infoga, Ersätt, uppdatera och ta bort ett dokument i en samling Azure Cosmos DB).
@@ -132,7 +136,7 @@ Här följer vanliga mönster för att ange index sökvägar:
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | /                   | Standardsökvägen för samlingen. Rekursiva och gäller för hela dokumentträdet.                                                                                                                                                                                                                                   |
 | / prop /?             | Index sökväg som krävs för att hantera frågor som följande (med Hash- eller typer respektive):<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop > 5<br><br>Välj samling c ORDER BY c.prop                                                                       |
-| / prop / *             | Index sökvägen för alla sökvägar under den angivna etiketten. Fungerar med följande frågor<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop.subprop > 5<br><br>Välj från samlingen-c WHERE c.prop.subprop.nextprop = ”värde”<br><br>Välj samling c ORDER BY c.prop         |
+| /prop/*             | Index sökvägen för alla sökvägar under den angivna etiketten. Fungerar med följande frågor<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop.subprop > 5<br><br>Välj från samlingen-c WHERE c.prop.subprop.nextprop = ”värde”<br><br>Välj samling c ORDER BY c.prop         |
 | [] / sammanställer / /?         | Index sökväg krävs för att hantera iteration och delta i frågor mot matriser av skalärer som [”a”, ”b”, ”c”]:<br><br>Välj taggen från tagg i collection.props var taggen = ”värde”<br><br>Välj tagg från samlingen c JOIN-tagg i c.props där tagga > 5                                                                         |
 | /Props/ [] /subprop/? | Index sökväg krävs för att hantera iteration och JOIN-frågor mot matriser av objekt som [{subprop: ”a”}, {subprop: ”b”}]:<br><br>Välj taggen från tagg i collection.props var tag.subprop = ”värde”<br><br>Välj taggen från samlingen c JOIN-tagg i c.props var tag.subprop = ”värde”                                  |
 | / prop/subprop /?     | Index sökväg som krävs för att hantera frågor (med Hash- eller typer respektive):<br><br>Välj från samlingen-c WHERE c.prop.subprop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop.subprop > 5                                                                                                                    |
@@ -365,7 +369,7 @@ Följande ändringar har införts i JSON-specifikationen:
 * Varje sökväg kan ha flera definitioner av indexet. Det kan ha en för varje datatyp.
 * Indexering precision stöder 1 till 8 för tal, 1 till 100 för strängar och -1 (maximal precision).
 * Sökvägssegment behöver inte ha ett citattecken för att undvika varje sökväg. Du kan till exempel lägga till en sökväg för   **/rubrik /?** i stället för **/ ”title” /?**.
-* Rotsökvägen som representerar ”alla sökvägar” kan representeras som  **/ \***  (förutom  **/** ).
+* Rotsökvägen som representerar ”alla sökvägar” kan representeras som **/ \*** (förutom **/**).
 
 Om du har kod som tillhandahåller samlingar med en anpassad indexprincip som skrivits med .NET SDK-version 1.1.0 eller en tidigare version om du vill flytta till SDK version 1.2.0, måste du ändra din programkod för att hantera de här ändringarna. Om du inte har koden som konfigurerar indexprincip eller om du vill fortsätta med en tidigare version av SDK några ändringar krävs.
 

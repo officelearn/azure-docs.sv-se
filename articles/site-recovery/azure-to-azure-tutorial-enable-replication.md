@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera programåterställning för virtuella Azure-datorer till en sekundär Azure-region med Azure Site Recovery (förhandsversion)"
-description: "Lär dig konfigurera programåterställning för virtuella Azure-datorer till annan Azure-region med Azure Site Recovery-tjänsten."
+title: Konfigurera programåterställning för virtuella Azure-datorer till en sekundär Azure-region med Azure Site Recovery (förhandsversion)
+description: Lär dig konfigurera programåterställning för virtuella Azure-datorer till annan Azure-region med Azure Site Recovery-tjänsten.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 03/16/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 47d9a1e8aecde8ba0f01034f1d172c3fbd87ccfe
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7dd0bfbd96e6ba7b5d2174334419797c4fd60a51
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Konfigurera programåterställning för virtuella Azure-datorer till en sekundär Azure-region (förhandsversion)
 
@@ -144,7 +144,9 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
 
 - **Cachelagringskonton**: Site Recovery använder ett lagringskonto i källregionen. Ändringar i virtuella källdatorer skickas till det här kontot innan replikering till målplatsen.
 
-- **Mållagringskonton**: Som standard skapar Site Recovery ett nytt lagringskonto i målregionen som speglar lagringskontot för den virtuella källdatorn.
+- **Rikta storage-konton (om datakällan inte använder VM-hanterade diskar)**: som standard skapar Site Recovery ett nytt lagringskonto i målregionen för spegling av källan VM storage-konto.
+
+- **Replik hanterade diskar (om Virtuella källdatorn använder hanterade diskar)**: som standard skapar Site Recovery replik som hanteras diskarna i målregionen för spegling av käll-VM hanterade diskar med samma lagringstyp (Standard eller premium) som den Virtuella källdatorns hanterad disk.
 
 - **Tillgänglighetsuppsättningar för mål**: Som standard skapar Site Recovery en ny tillgänglighetsuppsättning i målregionen med suffixet ”asr”. Det går bara att lägga till tillgänglighetsuppsättningar om virtuella datorer ingår i en tillgänglighetsuppsättning i källregionen.
 

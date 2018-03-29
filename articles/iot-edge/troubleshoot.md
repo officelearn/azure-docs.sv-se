@@ -6,15 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/15/2017
-ms.topic: tutorial
+ms.date: 03/23/2018
+ms.topic: article
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4d6dd0d46d909acfbfc04a23be74a571953ce660
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: HT
+ms.openlocfilehash: b03ece52c4ff77c9e0abbc794325cd7e9a20c915
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 
@@ -104,7 +104,8 @@ Edge-agenten har inte behörighet för att få åtkomst till en moduls avbildnin
 Försök köra kommandot `iotedgectl login` igen.
 
 ## <a name="iotedgectl-cant-find-docker"></a>iotedgectl kan inte hitta Docker
-iotedgectl kan inte köra konfigurationen eller startkommandot och skriver ut följande meddelande till loggarna:
+
+Kommandona `iotedgectl setup` eller `iotedgectl start` misslyckas och skriva till loggar följande meddelande:
 ```output
 File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
   info = self._client.info()
@@ -119,6 +120,33 @@ iotedgectl kan inte hitt Docker, vilket är et förhandskrav.
 
 ### <a name="resolution"></a>Lösning
 Installera Docker, se till att det körs och försök igen.
+
+## <a name="iotedgectl-setup-fails-with-an-invalid-hostname"></a>iotedgectl installationen misslyckas med ett ogiltigt värdnamn
+
+Kommandot `iotedgectl setup` misslyckas och följande meddelande: 
+
+```output
+Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
+```
+
+### <a name="root-cause"></a>Rotorsak
+IoT-Edge-körning stöder bara värdnamn som är kortare än 64 tecken. Detta vanligtvis inte ett problem för fysiska datorer, men kan uppstå när du ställer in körning på en virtuell dator. De automatiskt genererade värdnamn för Windows-datorerna i Azure, i synnerhet tenderar att vara lång. 
+
+### <a name="resolution"></a>Lösning
+När du ser det här felet kan åtgärda du det genom att konfigurera DNS-namnet på den virtuella datorn och sedan ange DNS-namn som värdnamnet i installationskommandot.
+
+1. Gå till översiktssidan av den virtuella datorn i Azure-portalen. 
+2. Välj **konfigurera** under DNS-namn. Om den virtuella datorn redan har konfigurerat en DNS-namn, behöver du inte konfigurera en ny. 
+
+   ![Konfigurera DNS-namn](./media/troubleshoot/configure-dns.png)
+
+3. Ange ett värde för **DNS-namnetikett** och välj **spara**.
+4. Kopiera den nya DNS-namn som ska vara i formatet  **\<DNSnamelabel\>.\< vmlocation\>. cloudapp.azure.com**.
+5. Inuti den virtuella datorn använder du följande kommando för att ställa in IoT kant runtime med DNS-namn:
+
+   ```input
+   iotedgectl setup --connection-string "<connection string>" --nopass --edge-hostname "<DNS name>"
+   ```
 
 ## <a name="next-steps"></a>Nästa steg
 Tror du att du har hittat ett fel i IoT Edge-plattformen? [Skicka in ett problem](https://github.com/Azure/iot-edge/issues) så att vi kan fortsätta att förbättra oss. 

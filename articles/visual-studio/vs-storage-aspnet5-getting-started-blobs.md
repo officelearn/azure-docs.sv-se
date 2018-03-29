@@ -1,11 +1,11 @@
 ---
-title: "Kom igång med blob storage och Visual Studio anslutna tjänster (ASP.NET Core) | Microsoft Docs"
-description: "Hur du kommer igång med Azure Blob storage i ett projekt i Visual Studio ASP.NET Core när du har skapat ett lagringskonto med hjälp av Visual Studio anslutna tjänster"
+title: Kom igång med blob storage och Visual Studio anslutna tjänster (ASP.NET Core) | Microsoft Docs
+description: Hur du kommer igång med Azure Blob storage i ett projekt i Visual Studio ASP.NET Core när du har skapat ett lagringskonto med hjälp av Visual Studio anslutna tjänster
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
 manager: ghogen
-editor: 
+editor: ''
 ms.assetid: 094b596a-c92c-40c4-a0f5-86407ae79672
 ms.service: storage
 ms.workload: web
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: kraigb
-ms.openlocfilehash: afd73bd0fd041a53fbe31aa3a5c23b3e27d7a9ec
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e3814533b955d5b6444692a7b565219d28002262
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Kom igång med Azure Blob storage och Visual Studio anslutna tjänster (ASP.NET kärnor)
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver hur du kommer igång med Azure Blob storage i Visual
 
 Azure Blob storage är en tjänst för att lagra stora mängder Ostrukturerade data som kan nås från var som helst i världen via HTTP eller HTTPS. En enda blob kan vara valfri storlek. Blobbar kan vara till exempel bilder, ljud- och bildfiler, rådata och dokumentfiler. Den här artikeln beskriver hur du kommer igång med blob storage när du har skapat ett Azure storage-konto med hjälp av Visual Studio **Connected Services** i ASP.NET Core-projekt.
 
-Precis som filer live i mappar, live storage-blobbar i behållare. När du har skapat en blobb skapar du en eller flera behållare i blobben. Till exempel i en blob som kallas ”klippboken” du kan skapa behållare som kallas ”bilder” för att lagra bilder och en annan som heter ”ljud” för att lagra ljudfiler. När du har skapat behållarna som kan du överföra enskilda filer till dem. Se [komma igång med Azure Blob storage med hjälp av .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) mer information om programmässigt manipulering blobbar.
+Precis som filer live i mappar, live storage-blobbar i behållare. När du har skapat en blobb skapar du en eller flera behållare i blobben. Till exempel i en blob som kallas ”klippboken” du kan skapa behållare som kallas ”bilder” för att lagra bilder och en annan som heter ”ljud” för att lagra ljudfiler. När du har skapat behållarna som kan du överföra enskilda filer till dem. Se [Snabbstart: Överför, hämtning och listan blobar med hjälp av .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) mer information om programmässigt manipulering blobbar.
 
 Vissa av Azure Storage-API: er är asynkron och koden i den här artikeln förutsätter asynkrona metoder som används. Se [asynkron programmering](https://docs.microsoft.com/dotnet/csharp/async) för mer information.
 
@@ -141,7 +141,7 @@ do
 } while (token != null);
 ```
 
-Se [komma igång med Azure Blob storage med hjälp av .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) för andra sätt att visa innehållet i en blob-behållare.
+Se [Snabbstart: Överför och hämta listan blobar med hjälp av .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) för andra sätt att visa innehållet i en blob-behållare.
 
 ## <a name="download-a-blob"></a>Ladda ned en blob
 
@@ -158,7 +158,7 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 }
 ```
 
-Se [komma igång med Azure Blob storage med hjälp av .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs) för andra sätt att spara blobbar som filer.
+Se [Snabbstart: Överför, hämtning och listan blobar med hjälp av .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) för andra sätt att spara blobbar som filer.
 
 ## <a name="delete-a-blob"></a>Ta bort en blob
 

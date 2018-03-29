@@ -1,23 +1,23 @@
 ---
 title: Gruppuppgifter datavetenskap processen projektet leda - Azure | Microsoft Docs
-description: "En översikt över aktiviteter för ett projekt leda på en datavetenskap team projekt."
-documentationcenter: 
+description: En översikt över aktiviteter för ett projekt leda på en datavetenskap team projekt.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: fe7cf1e6167de7d0dfaa5ed75c0b7f5ec23b18cf
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 5c769fda09e70cfb0a43e0305ffab4923fbe3307
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="project-lead-tasks"></a>Project Lead-aktiviteter
 
@@ -42,7 +42,7 @@ Den här kursen använder förkortade namn för databaser och kataloger. Dessa n
 - **D5**: den lokala katalogen klonad från R5.
 
 
-## <a name="0-prerequisites"></a>0. Krav
+## <a name="0-prerequisites"></a>0. Förutsättningar
 
 Krav uppfylls genom att genomföra aktiviteter som tilldelats av din gruppansvarig som beskrivs i [Gruppansvarig uppgifter för ett datavetenskap team](group-manager-tasks.md) och att du kopplar lead som beskrivs i [Team lead uppgifter för ett datavetenskap team](team-lead-tasks.md). 
 
@@ -127,7 +127,7 @@ I det här exemplet har vi:
 
 Om du använder VSTS som värd för kod-plattform vanligtvis den *SSH URL för team projekt mallen databasen* är:
 
-***SSH: / /\<VSTS servernamn\>@\<VSTS servernamn\>.visualstudio.com:22/\<din Teamprojektets namn > /_git/\<team projekt mallen databasen namnet\>.*** 
+***SSH: / /\<VSTS servernamn\>@\<VSTS servernamn\>.visualstudio.com:22/\<din Teamprojektets namn > /_git/\<ditt team projekt databasen mallnamn \>.*** 
 
 I det här exemplet har vi:
 
@@ -151,7 +151,7 @@ Om du använder VSTS som värd för kod-plattform vanligtvis den _HTTPS-URL för
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-Om du använder VSTS som värd för kod-plattform vanligtvis den _SSH URL för projektet databasen_ är _ssh: / / < VSTS servernamn\>@< VSTS servernamn\>.visualstudio.com:22/<Your Team Project Name> / \_git / < ditt projektnamn databasen\>. I det här exemplet har vi  ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1*** .
+Om du använder VSTS som värd för kod-plattform vanligtvis den _SSH URL för projektet databasen_ är _ssh: / / < VSTS servernamn\>@< VSTS servernamn\>.visualstudio.com:22/<Your Team Project Name> / \_git / < ditt projektnamn databasen\>. I det här exemplet har vi ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
 
 ### <a name="copy-contents-of-d3-to-d5"></a>Kopiera innehållet i D3 till D5 
 
@@ -186,7 +186,7 @@ Om ditt projekt måste vissa specifika kataloger eller dokument, än de som du f
 
 ### <a name="add-contents-of-dsproject1-in-d5-to-r5-on-your-group-vsts-server"></a>Lägga till innehållet i DSProject1 i D5 R5 på din grupp VSTS server
 
-Nu måste du push innehållet  **_DSProject1_**  till _R5_ databasen i projektet team på din grupp VSTS server. 
+Nu måste du push innehållet **_DSProject1_** till _R5_ databasen i projektet team på din grupp VSTS server. 
 
 
 - Ändra till katalogen **D5**. 

@@ -1,11 +1,11 @@
 ---
-title: "Distribuera Azure Log Analytics munstycket för övervakning av molnet Foundry | Microsoft Docs"
-description: "Stegvisa anvisningar om hur du distribuerar Cloud Foundry loggregator munstycket för Azure logganalys. Använd munstycket för att övervaka system molnet Foundry mått hälsotillstånd och prestanda."
+title: Distribuera Azure Log Analytics munstycket för övervakning av molnet Foundry | Microsoft Docs
+description: Stegvisa anvisningar om hur du distribuerar Cloud Foundry loggregator munstycket för Azure logganalys. Använd munstycket för att övervaka system molnet Foundry mått hälsotillstånd och prestanda.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: ningk
 manager: timlt
-editor: 
+editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: virtual-machines-linux
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0d13d39d2921c51c537534a5b000564a9df91880
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b900a42196eedab89af8e55d71a336ed7adc45a4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Distribuera Azure Log Analytics munstycket för molnet Foundry systemövervakning
 
-[Azure logganalys](https://azure.microsoft.com/services/log-analytics/) är en tjänst i Microsoft [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/) (OMS). Det hjälper dig att samla in och analysera data som genereras från molnet och lokala miljöer.
+[Azure logganalys](https://azure.microsoft.com/services/log-analytics/) är en tjänst i Azure. Det hjälper dig att samla in och analysera data som genereras från molnet och lokala miljöer.
 
 Log Analytics munstycket (munstycket) är en komponent i molnet Foundry (CF), som vidarebefordrar mått från den [moln Foundry loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) firehose till logganalys. Med munstycket, kan du samla in, visa och analysera dina CF system hälsotillstånd och prestanda statistik, och över flera distributioner.
 
-Lär dig hur du distribuerar munstycket till CF-miljön och komma åt data från logganalys OMS-konsolen i det här dokumentet.
+Lär dig hur du distribuerar munstycket till CF-miljön och komma åt data från konsolen logganalys i det här dokumentet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande är krav för distribution av munstycket.
 
@@ -53,9 +53,9 @@ Munstycket måste också behörighet till loggregator firehose och moln-styrenhe
 
 Kontrollera att Rubygems är installerade innan du installerar klienten UAA kommandoraden.
 
-### <a name="3-create-an-oms-workspace-in-azure"></a>3. Skapa en OMS-arbetsyta i Azure
+### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Skapa en logganalys-arbetsytan i Azure
 
-Du kan skapa OMS-arbetsytan manuellt eller genom att använda en mall. Läsa in förkonfigurerade OMS-vyer och aviseringar när du är klar munstycket distributionen.
+Du kan skapa logganalys-arbetsytan manuellt eller genom att använda en mall. Läsa in förkonfigurerade OMS-vyer och aviseringar när du är klar munstycket distributionen.
 
 Skapa arbetsytan manuellt:
 
@@ -70,7 +70,7 @@ Skapa arbetsytan manuellt:
 
 Mer information finns i [Kom igång med logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-Du kan också skapa OMS-arbetsytan via mallen OMS. Med den här metoden mallen läses in förkonfigurerade OMS-vyer och aviseringar automatiskt. Mer information finns i [Azure OMS logganalys lösning för molnet Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
+Du kan också skapa logganalys-arbetsytan med OMS-mall. Med den här metoden mallen läses in förkonfigurerade OMS-vyer och aviseringar automatiskt. Mer information finns i [Azure logganalys lösning för molnet Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
 
 ## <a name="deploy-the-nozzle"></a>Distribuera munstycket
 
@@ -116,16 +116,16 @@ git clone https://github.com/Azure/oms-log-analytics-firehose-nozzle.git
 cd oms-log-analytics-firehose-nozzle
 ```
 
-#### <a name="set-environment-variables"></a>Uppsättning miljövariabler
+#### <a name="set-environment-variables"></a>Ange miljövariabler
 
-Du kan nu ange miljövariabler i filen manifest.yml i den aktuella katalogen. Nedan visas appmanifestet för munstycket. Ersätt värden med din specifika information för OMS-arbetsytan.
+Du kan nu ange miljövariabler i filen manifest.yml i den aktuella katalogen. Nedan visas appmanifestet för munstycket. Ersätt värden med din specifika information för logganalys-arbetsytan.
 
 ```
-OMS_WORKSPACE             : OMS workspace ID: open OMS portal from your OMS workspace, select Settings, and select connected sources.
-OMS_KEY                   : OMS key: open OMS portal from your OMS workspace, select Settings, and select connected sources.
-OMS_POST_TIMEOUT          : HTTP post timeout for sending events to OMS Log Analytics. The default is 10 seconds.
-OMS_BATCH_TIME            : Interval for posting a batch to OMS Log Analytics. The default is 10 seconds.
-OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to OMS Log Analytics. The default is 1000.
+OMS_WORKSPACE             : Log Analytics workspace ID: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_KEY                   : OMS key: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
+OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
+OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
 API_ADDR                  : The API URL of the CF environment. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 DOPPLER_ADDR              : Loggregator's traffic controller URL. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 FIREHOSE_USER             : CF user you created in the preceding section, "Create a CF user and grant required privileges." This user has firehose and Cloud Controller admin access.
@@ -135,8 +135,8 @@ SKIP_SSL_VALIDATION       : If true, allows insecure connections to the UAA and 
 CF_ENVIRONMENT            : Enter any string value for identifying logs and metrics from different CF environments.
 IDLE_TIMEOUT              : The Keep Alive duration for the firehose consumer. The default is 60 seconds.
 LOG_LEVEL                 : The logging level of the Nozzle. Valid levels are DEBUG, INFO, and ERROR.
-LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to OMS Log Analytics as CounterEvents.
-LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to OMS Log Analytics. The default is 60 seconds.
+LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to Log Analytics as CounterEvents.
+LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Log Analytics. The default is 60 seconds.
 ```
 
 ### <a name="push-the-application-from-your-development-computer"></a>Push-programmet på utvecklingsdatorn
@@ -165,7 +165,7 @@ Kontrollera att OMS munstycket programmet körs.
 
 ### <a name="1-import-the-oms-view"></a>1. Importera OMS-vy
 
-Bläddra till OMS-portalen **Vydesigner** > **importera** > **Bläddra**, och välj en av filerna omsview. Välj exempelvis *moln Foundry.omsview*, och spara vyn. Nu visas en panel på OMS **översikt** sidan. Välj den för att se visualiserade mått.
+Bläddra till OMS-portalen **Vydesigner** > **importera** > **Bläddra**, och välj en av filerna omsview. Välj exempelvis *moln Foundry.omsview*, och spara vyn. Nu visas en sida vid sida på den **översikt** sidan. Välj den för att se visualiserade mått.
 
 Du kan anpassa dessa vyer eller skapa nya vyer via **Vydesigner**.
 
@@ -175,16 +175,16 @@ Den *”moln Foundry.omsview”* är en förhandsversion av molnet Foundry OMS v
 
 Du kan [skapa aviseringar](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts), och anpassa frågor och tröskelvärden efter behov. Följande rekommenderas aviseringar:
 
-| Sökfråga                                                                  | Generera en avisering baserat på | Beskrivning                                                                       |
+| Sökfråga                                                                  | Generera avisering baserat på | Beskrivning                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
-| Typ = CF_ValueMetric_CL Origin_s = bbs Name_s = ”Domain.cf-appar”                   | Antalet resultat < 1   | **BBS. Domain.CF appar** anger om domänen cf appar är uppdaterad. Det innebär att CF App begäranden från molnet Controller synkroniseras till bbs. LRPsDesired (Diego önskad AIs) för körning. Inga data tas emot innebär cf apps-domän inte är uppdaterad under den angivna tidsperioden. |
-| Typ = CF_ValueMetric_CL Origin_s = rep Name_s = UnhealthyCell Value_d > 1            | Antalet resultat > 0   | 0 betyder felfri för Diego celler och 1 innebär feltillstånd. Ange aviseringen om flera ohälsosamt Diego celler identifieras under den angivna tidsperioden. |
-| Typ = CF_ValueMetric_CL Origin_s = ”bosh-hm-vidarebefordraren” Name_s="system.healthy” Value_d = 0 | Antalet resultat > 0 | 1 innebär att systemet är felfri och 0 innebär att systemet inte är felfri. |
-| Typ = CF_ValueMetric_CL Origin_s = route_emitter Name_s = ConsulDownMode Value_d > 0 | Antalet resultat > 0   | Konsuln skickar med jämna mellanrum dess hälsostatus. 0 innebär att systemet är felfri och 1 innebär att vägen sändare upptäcker att konsuln ned. |
-| Typ = CF_CounterEvent_CL Origin_s = DopplerServer (Name_s="TruncatingBuffer.DroppedMessages” eller Name_s="doppler.shedEnvelopes”) Delta_d > 0 | Antalet resultat > 0 | Delta antal meddelanden som utelämnats avsiktligt av Doppler på grund av ligger. |
-| Typ = CF_LogMessage_CL SourceType_s = LGR MessageType_s = fel                      | Antalet resultat > 0   | Loggregator avger **LGR** att indikera problem med hur loggning. Ett exempel på sådana problem är när meddelandet loggutdata är för högt. |
-| Typ = CF_ValueMetric_CL Name_s = slowConsumerAlert                               | Antalet resultat > 0   | När munstycket tar emot en avisering om långsam konsumenten från loggregator, skickas den **slowConsumerAlert** ValueMetric till OMS. |
-| Typ = CF_CounterEvent_CL Job_s = munstycket Name_s = förlorade händelser Delta_d > 0              | Antalet resultat > 0   | Om antalet förlorade händelser delta når ett tröskelvärde, innebär det att munstycket kan ha problem med att köra. |
+| Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Antalet resultat < 1   | **BBS. Domain.CF appar** anger om domänen cf appar är uppdaterad. Det innebär att CF App begäranden från molnet Controller synkroniseras till bbs. LRPsDesired (Diego önskad AIs) för körning. Inga data tas emot innebär cf apps-domän inte är uppdaterad under den angivna tidsperioden. |
+| Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Antalet resultat > 0   | 0 betyder felfri för Diego celler och 1 innebär feltillstånd. Ange aviseringen om flera ohälsosamt Diego celler identifieras under den angivna tidsperioden. |
+| Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Antalet resultat > 0 | 1 innebär att systemet är felfri och 0 innebär att systemet inte är felfri. |
+| Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Antalet resultat > 0   | Konsuln skickar med jämna mellanrum dess hälsostatus. 0 innebär att systemet är felfri och 1 innebär att vägen sändare upptäcker att konsuln ned. |
+| Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | Antalet resultat > 0 | Delta antal meddelanden som utelämnats avsiktligt av Doppler på grund av ligger. |
+| Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Antalet resultat > 0   | Loggregator avger **LGR** att indikera problem med hur loggning. Ett exempel på sådana problem är när meddelandet loggutdata är för högt. |
+| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Antalet resultat > 0   | När munstycket tar emot en avisering om långsam konsumenten från loggregator, skickas den **slowConsumerAlert** ValueMetric till logganalys. |
+| Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Antalet resultat > 0   | Om antalet förlorade händelser delta når ett tröskelvärde, innebär det att munstycket kan ha problem med att köra. |
 
 ## <a name="scale"></a>Skala
 
@@ -218,7 +218,7 @@ I fönstret CF CLI, skriver du:
 cf delete <App Name> -r
 ```
 
-Om du tar bort munstycket är inte data i OMS-portalen bort automatiskt. Det går ut utifrån dina inställningar för kvarhållning av OMS logganalys.
+Om du tar bort munstycket är inte data i OMS-portalen bort automatiskt. Det går ut utifrån dina inställningar för kvarhållning av logganalys.
 
 ## <a name="support-and-feedback"></a>Support och feedback
 

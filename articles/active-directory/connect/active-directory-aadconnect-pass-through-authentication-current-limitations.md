@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Direkt autentisering - aktuella begränsningar | Microsoft Docs"
-description: "Den här artikeln beskriver aktuella begränsningar i Azure Active Directory (AD Azure) direkt-autentisering"
+title: 'Azure AD Connect: Direkt autentisering - aktuella begränsningar | Microsoft Docs'
+description: Den här artikeln beskriver aktuella begränsningar i Azure Active Directory (AD Azure) direkt-autentisering
 services: active-directory
-keywords: "Azure AD Connect direkt-autentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Azure AD Connect direkt-autentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 3e533b8b23c095a3de845d9b26a96aea9d8ee086
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 680e9967010771b8e3651c6f4eed81237f8fb4c3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory direkt-autentisering: Aktuella begränsningar
 
@@ -50,7 +50,7 @@ Följande scenarier är _inte_ stöds:
 - Den Apple Device Enrollment Program (Apple DEP) med hjälp av Installationsassistenten för iOS har inte stöd för modern autentisering. Detta kan inte registrera Apple DEP-enheter i Intune för hanterade domäner som använder direkt-autentisering. Överväg att använda den [företagsportalappen](https://blogs.technet.microsoft.com/intunesupport/2018/02/08/support-for-multi-token-dep-and-authentication-with-company-portal/) som ett alternativ.
 
 >[!IMPORTANT]
->Som en lösning för scenarier som inte stöds _endast_, aktivera synkronisering av lösenords-Hash för den [valfria funktioner](active-directory-aadconnect-get-started-custom.md#optional-features) sida i Azure AD Connect-guiden.
+>Som en lösning för scenarier som inte stöds _endast_, aktivera synkronisering av lösenords-Hash för den [valfria funktioner](active-directory-aadconnect-get-started-custom.md#optional-features) sida i Azure AD Connect-guiden. När användare logga in på program som anges i den ”stöds inte scenarier” avsnittet, är dessa begäranden för specifika inloggning _inte_ hanteras av direkt autentisering agenter och därför inte registreras i [ Direkt-autentisering loggar](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
 
 >[!NOTE]
 Aktivera synkronisering av lösenords-hash kan du välja att redundans-autentisering om din lokala infrastruktur avbryts. Den här redundansen från direkt autentisering för Active Directory-lösenord hash-synkronisering sker inte automatiskt. Du måste växla inloggningsmetod manuellt med hjälp av Azure AD Connect. Om den server som kör Azure AD Connect kraschar, ska du behöver hjälp från Microsoft Support om du vill inaktivera direkt-autentisering.

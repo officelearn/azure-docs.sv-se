@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: f93a7c2fe75a643553a4dd5a8ccfcea975b336bb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/23/2018
+---
 1. Till vänster på portalen klickar du på **+** och skriver ”Virtuell nätverksgateway” i sökrutan. I **Resultat** letar du upp och klickar på **Virtuell nätverksgateway**.
 2. Klicka på **Skapa** längst ned på sidan ”Virtuell nätverksgateway”. Då öppnas sidan **Skapa virtuell nätverksgateway**.
 
@@ -14,7 +30,7 @@
   - **Primär IP-konfiguration**: Sidan ”Välj offentlig IP-adress” skapar ett offentligt IP-adressobjekt som kopplas till VPN-gatewayen. Den offentliga IP-adressen tilldelas dynamiskt till detta objekt när en VPN-gateway skapas. VPN-gateway stöder för närvarande endast *dynamisk* offentlig IP-adressallokering. Det innebär emellertid inte att IP-adressen ändras när den har tilldelats din VPN-gateway. Den enda gången den offentliga IP-adressen ändras är när gatewayen tas bort och återskapas. Den ändras inte vid storleksändring, återställning eller annat internt underhåll/uppgraderingar av din VPN-gateway.
 
     - Klicka först på **Skapa en IP-gatewaykonfiguration** för att öppna sidan ”Välj offentlig IP-adress” och klicka sedan på **+Skapa ny** för att öppna sidan ”Skapa offentlig IP-adress”.
-    - Ange sedan ett **Namn** för den offentliga IP-adressen. Låt SKU:n vara angiven som **Grundläggande** om det inte finns en specifik anledning att ändra till något annat. Klicka sedan på **OK** längst ned på sidan för att spara ändringarna.
+    - Ange sedan ett **Namn** för den offentliga IP-adressen. Låt SKU:n vara angiven som **Grundläggande** om det inte finns särskild anledning att ändra till något annat. Klicka sedan på **OK** längst ned på sidan för att spara ändringarna.
 
       ![Skapa offentlig IP](./media/vpn-gateway-add-gw-s2s-rm-portal-include/gwip.png "Skapa offentlig IP")
 

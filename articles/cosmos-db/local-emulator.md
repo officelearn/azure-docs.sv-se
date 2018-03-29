@@ -1,12 +1,12 @@
 ---
 title: Utveckla lokalt med Azure Cosmos DB-emulatorn | Microsoft Docs
-description: "Med Azure Cosmos DB-emulatorn kan du utveckla och testa programmet lokalt för gratis, utan att skapa en Azure-prenumeration."
+description: Med Azure Cosmos DB-emulatorn kan du utveckla och testa programmet lokalt för gratis, utan att skapa en Azure-prenumeration.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 keywords: Azure Cosmos DB-emulatorn
 author: David-Noble-at-work
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: danoble
-ms.openlocfilehash: 1991157330f6607efcf42ad42694c6b4d19fe609
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4a393887d8e82e833b0c956666bf36e5adb19e70
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos DB-emulatorn för lokal utveckling och testning
 
@@ -43,7 +43,7 @@ Azure-emulatorn Cosmos DB tillhandahåller en lokal miljö som emulerar Azure DB
 > [!NOTE]
 > Just nu stöder Data Explorer i emulatorn endast SQL API samlingar och MongoDB-samlingar. Tabeller, diagram och Cassandra behållare stöds inte fullt ut. 
 
-Den här artikeln omfattar följande aktiviteter: 
+Den här artikeln beskriver följande uppgifter: 
 
 > [!div class="checklist"]
 > * Installerar emulatorn
@@ -105,7 +105,7 @@ Azure-emulatorn Cosmos DB installeras som standard till den `C:\Program Files\Az
 
 ## <a name="start-data-explorer"></a>Start Data Explorer
 
-När Azure DB som Cosmos-emulatorn startar visas automatiskt Azure Cosmos DB Data Explorer i webbläsaren. Adressen visas som [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Om du stänger Utforskaren och vill öppna den igen senare, kan du öppna URL: en i webbläsaren eller starta från Azure Cosmos-DB-emulatorn i Windows-ikon som visas nedan.
+När Azure DB som Cosmos-emulatorn startar visas automatiskt Azure Cosmos DB Data Explorer i webbläsaren. Adressen visas som [ https://localhost:8081/_explorer/index.html ](https://localhost:8081/_explorer/index.html). Om du stänger Utforskaren och vill öppna den igen senare, kan du öppna URL: en i webbläsaren eller starta från Azure Cosmos-DB-emulatorn i Windows-ikon som visas nedan.
 
 ![Azure DB Cosmos lokala emulatorn data explorer programstart](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
@@ -312,7 +312,7 @@ Om du försöker skapa en samling när det aktuella antalet partitioner har öve
     Sorry, we are currently experiencing high demand in this region, 
     and cannot fulfill your request at this time. We work continuously 
     to bring more and more capacity online, and encourage you to try again. 
-    Please do not hesitate to email docdbswat@microsoft.com at any time or 
+    Please do not hesitate to email askcosmosdb@microsoft.com at any time or
     for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
 
 Om du vill ändra antalet samlingar som är tillgängliga att Azure Cosmos DB-emulatorn gör du följande:
@@ -483,7 +483,7 @@ Många av de kunder som vi har talat om du vill ha sagt: det är bra om emulator
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen kommer du har gjort följande:
+I den här självstudien har du gjort följande:
 
 > [!div class="checklist"]
 > * Installerat lokala emulatorn

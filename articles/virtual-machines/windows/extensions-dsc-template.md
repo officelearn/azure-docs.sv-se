@@ -1,11 +1,11 @@
 ---
-title: "Desired State Configuration-tillägget med Azure Resource Manager-mallar | Microsoft Docs"
-description: "Läs mer om hanteraren för filserverresurser malldefinitionen för önskad tillstånd Configuration DSC ()-tillägget i Azure."
+title: Desired State Configuration-tillägget med Azure Resource Manager-mallar | Microsoft Docs
+description: Läs mer om hanteraren för filserverresurser malldefinitionen för önskad tillstånd Configuration DSC ()-tillägget i Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mgreenegit
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
@@ -14,99 +14,121 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 03/22/2018
 ms.author: migreene
-ms.openlocfilehash: 0f1c53c9eafcd96e49232b75d46ef34537a1160f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ea259fc316827872cb1df8bcec385dddf8d2a461
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration-tillägget med Azure Resource Manager-mallar
 
-Den här artikeln beskriver Azure Resource Manager-mallen för den [önskade tillstånd Configuration (DSC) tillägget hanteraren](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Den här artikeln beskriver Azure Resource Manager-mallen för den [önskade tillstånd Configuration (DSC) tillägget hanteraren](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
 > Du kan stöta på något annat schema exempel. Ändringen i schemat gjordes i oktober 2016-versionen. Mer information finns i [uppdatering från det tidigare formatet](#update-from-the-previous-format).
 
 ## <a name="template-example-for-a-windows-vm"></a>Exempel för en virtuell Windows-dator
 
-Följande kodavsnitt som ska ingå i den **resurs** avsnitt i mallen. DSC-tillägg ärver standardegenskaperna för tillägget. Mer information finns i [VirtualMachineExtension klassen](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
+Följande kodavsnitt som ska ingå i den **resurs** avsnitt i mallen.
+DSC-tillägg ärver standardegenskaperna för tillägget.
+Mer information finns i [VirtualMachineExtension klassen](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
 
 ```json
-            "name": "Microsoft.Powershell.DSC",
-            "type": "extensions",
-             "location": "[resourceGroup().location]",
-             "apiVersion": "2015-06-15",
-             "dependsOn": [
-                  "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-              ],
-              "properties": {
-                  "publisher": "Microsoft.Powershell",
-                  "type": "DSC",
-                  "typeHandlerVersion": "2.72",
-                  "autoUpgradeMinorVersion": true,
-                  "forceUpdateTag": "[parameters('dscExtensionUpdateTagVersion')]",
-                  "settings": {
-                    "configurationArguments": {
-                        {
-                            "Name": "RegistrationKey",
-                            "Value": {
-                                "UserName": "PLACEHOLDER_DONOTUSE",
-                                "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                            },
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+    "apiVersion": "2017-12-01",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "2.75",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "protectedSettings": {
+            "Items": {
+                        "registrationKeyPrivate": "registrationKey"
+            }
+            },
+            "publicSettings": {
+                "configurationArguments": [
+                    {
+                        "Name": "RegistrationKey",
+                        "Value": {
+                            "UserName": "PLACEHOLDER_DONOTUSE",
+                            "Password": "PrivateSettingsRef:registrationKeyPrivate"
                         },
-                        "RegistrationUrl" : "[parameters('registrationUrl1')]",
-                        "NodeConfigurationName" : "nodeConfigurationNameValue1"
-                        }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
-                                    }
-                        }
+                    },
+                    {
+                        "RegistrationUrl" : "registrationUrl",
+                    },
+                    {
+                        "NodeConfigurationName" : "nodeConfigurationName"
                     }
+                ]
+            }
+        },
+    }
+}
 ```
 
 ## <a name="template-example-for-windows-virtual-machine-scale-sets"></a>Exempel för Windows virtuella skala anger
 
-En virtuell dator scale set-nod har en **egenskaper** avsnitt som har en **VirtualMachineProfile extensionProfile** attribut. Under **tillägg**, lägga till DSC.
+En virtuell dator scale set-nod har en **egenskaper** avsnitt som har en **VirtualMachineProfile extensionProfile** attribut.
+Under **tillägg**, lägga till information för DSC-tillägg.
 
-DSC-tillägg ärver standardegenskaperna för tillägget. Mer information finns i [VirtualMachineScaleSetExtension klassen](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+DSC-tillägg ärver standardegenskaperna för tillägget.
+Mer information finns i [VirtualMachineScaleSetExtension klassen](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
-            "extensions": [
-                {
-                    "name": "Microsoft.Powershell.DSC",
-                    "properties": {
-                        "publisher": "Microsoft.Powershell",
-                        "type": "DSC",
-                        "typeHandlerVersion": "2.72",
-                        "autoUpgradeMinorVersion": true,
-                        "forceUpdateTag": "[parameters('DscExtensionUpdateTagVersion')]",
-                        "settings": {
-                            "configurationArguments": {
-                                {
-                                    "Name": "RegistrationKey",
-                                    "Value": {
-                                        "UserName": "PLACEHOLDER_DONOTUSE",
-                                        "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                                    },
-                                },
-                                "RegistrationUrl" : "[parameters('registrationUrl1')]",
-                                "NodeConfigurationName" : "nodeConfigurationNameValue1"
-                        }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
-                                    }
-                        }
+    "extensions": [
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+            "apiVersion": "2017-12-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Powershell",
+                "type": "DSC",
+                "typeHandlerVersion": "2.75",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "protectedSettings": {
+                    "Items": {
+                                "registrationKeyPrivate": "registrationKey"
                     }
-                ]
+                    },
+                    "publicSettings": {
+                        "configurationArguments": [
+                            {
+                                "Name": "RegistrationKey",
+                                "Value": {
+                                    "UserName": "PLACEHOLDER_DONOTUSE",
+                                    "Password": "PrivateSettingsRef:registrationKeyPrivate"
+                                },
+                            },
+                            {
+                                "RegistrationUrl" : "registrationUrl",
+                            },
+                            {
+                                "NodeConfigurationName" : "nodeConfigurationName"
+                            }
+                        ]
+                    }
+                },
             }
         }
+    ]
+}
 ```
 
 ## <a name="detailed-settings-information"></a>Information om detaljerade inställningar
@@ -175,7 +197,8 @@ En lista över de argument som är tillgängliga för standard-konfigurationsskr
 
 ## <a name="default-configuration-script"></a>Standard-konfigurationsskript
 
-Mer information om följande värden finns [Local Configuration Manager grundläggande inställningar](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings). Du kan använda DSC-tillägg standard-konfigurationsskript för att konfigurera endast MGM egenskaper som visas i följande tabell.
+Mer information om följande värden finns [Local Configuration Manager grundläggande inställningar](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings).
+Du kan använda DSC-tillägg standard-konfigurationsskript för att konfigurera endast MGM egenskaper som visas i följande tabell.
 
 | Egenskapsnamn | Typ | Beskrivning |
 | --- | --- | --- |
@@ -191,7 +214,10 @@ Mer information om följande värden finns [Local Configuration Manager grundlä
 
 ## <a name="settings-vs-protectedsettings"></a>Inställningar för vs. ProtectedSettings
 
-Alla inställningarna sparas i en textfil för inställningarna på den virtuella datorn. Egenskaper som anges **inställningar** är offentliga egenskaper. Offentliga egenskaper är inte krypterad i text inställningsfil. Egenskaper som anges **protectedSettings** krypteras med ett certifikat och visas inte i klartext i filen med inställningar på den virtuella datorn.
+Alla inställningarna sparas i en textfil för inställningarna på den virtuella datorn.
+Egenskaper som anges **inställningar** är offentliga egenskaper.
+Offentliga egenskaper är inte krypterad i text inställningsfil.
+Egenskaper som anges **protectedSettings** krypteras med ett certifikat och visas inte i klartext i filen med inställningar på den virtuella datorn.
 
 Om konfigurationen måste autentiseringsuppgifter, kan du inkludera autentiseringsuppgifterna i **protectedSettings**:
 
@@ -208,7 +234,9 @@ Om konfigurationen måste autentiseringsuppgifter, kan du inkludera autentiserin
 
 ## <a name="example-configuration-script"></a>Exempel konfigurationsskript
 
-I följande exempel visas standardbeteendet för DSC-tillägg som är att förse MGM Metadatainställningar och registrera med Automation DSC-tjänsten. Konfigurationen argument är obligatoriska.  Konfigurationen argument skickades till standard konfigurationsskript ange MGM metadata.
+I följande exempel visas standardbeteendet för DSC-tillägg som är att förse MGM Metadatainställningar och registrera med Automation DSC-tjänsten.
+Konfigurationen argument är obligatoriska.
+Konfigurationen argument skickades till standard konfigurationsskript ange MGM metadata.
 
 ```json
 "settings": {
@@ -233,7 +261,10 @@ I följande exempel visas standardbeteendet för DSC-tillägg som är att förse
 
 ## <a name="example-using-the-configuration-script-in-azure-storage"></a>Exempel på användning av konfigurationsskript i Azure Storage
 
-Följande exempel är från den [översikt över hanteraren av DSC-tillägget](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Det här exemplet använder Resource Manager-mallar i stället för cmdlets för att distribuera tillägget. Spara konfigurationen IisInstall.ps1, placera det i en .zip-fil och sedan ladda upp filen i en URL som kan nås. Det här exemplet används Azure Blob storage, men du kan hämta ZIP-filer från en valfri plats.
+Följande exempel är från den [översikt över hanteraren av DSC-tillägget](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Det här exemplet använder Resource Manager-mallar i stället för cmdlets för att distribuera tillägget.
+Spara konfigurationen IisInstall.ps1, placera det i en .zip-fil och sedan ladda upp filen i en URL som kan nås.
+Det här exemplet används Azure Blob storage, men du kan hämta ZIP-filer från en valfri plats.
 
 Följande kod instruerar i Resource Manager-mall så att ladda ned rätt fil och kör sedan funktionen PowerShell:
 
@@ -252,7 +283,8 @@ Följande kod instruerar i Resource Manager-mall så att ladda ned rätt fil och
 
 ## <a name="update-from-a-previous-format"></a>Uppdatera från ett tidigare format
 
-Alla inställningar i ett tidigare format för tillägget (och som har de gemensamma egenskaperna **ModulesUrl**, **ConfigurationFunction**, **SasToken**, eller  **Egenskaper för**) automatiskt anpassas till det aktuella formatet för tillägget. De köras på samma sätt som de gjorde före.
+Alla inställningar i ett tidigare format för tillägget (och som har de gemensamma egenskaperna **ModulesUrl**, **ConfigurationFunction**, **SasToken**, eller  **Egenskaper för**) automatiskt anpassas till det aktuella formatet för tillägget.
+De köras på samma sätt som de gjorde före.
 
 Följande schema visar vilka tidigare inställningar schemat kan se ut:
 
@@ -302,7 +334,9 @@ Här är hur det tidigare formatet anpassar sig till det aktuella formatet:
 
 ## <a name="troubleshooting---error-code-1100"></a>Felsökning – felkoden 1100
 
-Felkoden 1100 tyder på problem med användarindata DSC-tillägget. Texten för dessa fel varierar och kan ändras. Här följer några av de fel som kan uppstå och hur du kan åtgärda dem.
+Felkoden 1100 tyder på problem med användarindata DSC-tillägget.
+Texten för dessa fel varierar och kan ändras.
+Här följer några av de fel som kan uppstå och hur du kan åtgärda dem.
 
 ### <a name="invalid-values"></a>Ogiltiga värden
 
@@ -313,7 +347,8 @@ Endast möjliga värden är... ' senaste ' ”.
 
 **Problemet**: ett angivet värde tillåts inte.
 
-**Lösningen**: ändra det ogiltiga värdet till ett giltigt värde. Mer information finns i tabellen i [information](#details).
+**Lösningen**: ändra det ogiltiga värdet till ett giltigt värde.
+Mer information finns i tabellen i [information](#details).
 
 ### <a name="invalid-url"></a>Ogiltig URL
 
@@ -321,7 +356,8 @@ Endast möjliga värden är... ' senaste ' ”.
 
 **Problemet**: A angivna Webbadressen inte är giltig.
 
-**Lösningen**: Kontrollera alla dina angivna URL: er. Se till att alla URL: er motsvara giltiga platser att tillägget kan komma åt på fjärrdatorn.
+**Lösningen**: Kontrollera alla dina angivna URL: er.
+Se till att alla URL: er motsvara giltiga platser att tillägget kan komma åt på fjärrdatorn.
 
 ### <a name="invalid-configurationargument-type"></a>Ogiltig ConfigurationArgument-typ.
 
@@ -329,7 +365,8 @@ Endast möjliga värden är... ' senaste ' ”.
 
 **Problem**: den *ConfigurationArguments* egenskapen kan inte matchas till en **Hashtable** objekt.
 
-**Lösningen**: se din *ConfigurationArguments* egenskapen en **Hashtable**. Följ det format som anges i föregående exempel. Håll utkik efter citattecken, kommatecken och klammerparenteser.
+**Lösningen**: se din *ConfigurationArguments* egenskapen en **Hashtable**.
+Följ det format som anges i föregående exempel. Håll utkik efter citattecken, kommatecken och klammerparenteser.
 
 ### <a name="duplicate-configurationarguments"></a>Duplicera ConfigurationArguments
 

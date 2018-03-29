@@ -1,6 +1,6 @@
 ---
-title: Samråd Azure Marketplace-erbjudanden
-description: Kriterierna och publishing krav för nya erbjudandetypen i Azure Marketplace
+title: Azure Marketplace rådgivning
+description: Den här artikeln beskriver kriterierna och publishing krav för nya erbjudanden för samråd service i Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: ellacroi
@@ -14,22 +14,22 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: e063721f2fa2ac87b2f9dd7385b2d114a1b76cb3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8d414a7a2ad46fbe63cc6eb8e6a6a41bb76aa432
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-marketplace-consulting-services"></a>Samråd Azure Marketplace-tjänster
-Med mål vid anslutning av kunder med stöd för och utöka sin användning av Microsoft Azure-tjänster stöder Azure Marketplace lista över samråd services erbjudanden från partner System Integrator (SI) av Microsoft. 
+# <a name="azure-marketplace-consulting-services"></a>Azure Marketplace rådgivning
+Med ett mål vid anslutning av kunder med stöd för och utöka användningen av Azure-tjänster stöder Azure Marketplace lista över samråd Tjänsterbjudanden från partner System Integrator (SI) av Microsoft. 
 
-Dessa rådgivning erbjudanden är kundspecifika Användarsegmentet, fast i omfånget och varaktighet, kan åtgärdas pris eller frigör och har en definierad resultatet. Potentiella kunder kan enkelt begära kontaktas av partners på ett fritt friktion sätt. Partners få ett meddelande i sina CRM-systemet och syftet med att svara på användare inom 48hrs.
+Dessa samråd Tjänsterbjudanden är kundspecifika åtaganden. De är fast i omfattning och längd kan, vara fast pris eller ledigt och har en definierad resultatet. Potentiella kunder kan enkelt begära kontaktas av partners. Partners få ett meddelande i sina CRM-systemet och de syftar till att svara på begäranden inom 48 timmar.
 
-Tjänsten erbjuder baserat på Microsoft Dynamics 365, Microsoft Office 365 och Microsoft Power BI är berättigade ska visas på AppSource. Granska detaljerad [riktlinjer för dessa tjänster här](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+Service-erbjudanden som är baserade på Microsoft Dynamics 365, Office 365 och Power BI är berättigade ska visas på AppSource. Mer information finns i [Microsoft AppSource samråd services lista riktlinjer](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
 ## <a name="eligible-services-and-partners"></a>Berättigade tjänster och partners
 
-Partners måste också ha en silver eller guld kompetensen i området relevanta för service. Berättigad befogenheter finns nedan:
+Partners måste också ha en silver eller guld kompetensen i området relevanta för service. Berättigad behörighet finns i följande tabell:
 
 |Kompetensen  |Lösning område  |
 |---------|---------|
@@ -37,22 +37,21 @@ Partners måste också ha en silver eller guld kompetensen i området relevanta 
 |Programutveckling och ISV     |  Programmet utveckling, Programintegrationstyp, DevOps       |
 |Datahantering och analys    |  Data Analytics, Data Platform       |
 
-Erbjudanden måste vara av en av följande fem tjänsttyper. Observera att du kan ange fler än ett erbjudande: 
+Erbjudanden måste vara en följande fem typer av tjänster (du kan ange flera): 
 
-1. **Bedömning:** en utvärdering av en kunds miljö för att fastställa tillämplighet för en lösning och ange en uppskattning av kostnaderna och tidsinställning. 
-2. Genomgång: En introduktion till en lösning eller en rådgivning tjänst för att rita kunden intresse med hjälp av Kundexempel, demonstrationer och ramverk. 
-3. **Implementering:** som resulterar i en fullt fungerande lösning för en fullständig installation. Vi rekommenderar att begränsa till lösningar som kan vara implementerad i två veckor eller mindre. 
-4. **Konceptbevis:**en begränsad omfattning implementering för att avgöra om en lösning uppfyller kraven för en kund. 
-5. **Workshop:** ett interaktivt uppdrag utförs på kundens lokala som kan innebära utbildning genomgångar, bedömningar eller demonstrationer som bygger på kundens data eller miljö. 
+* **Bedömning**: en utvärdering av en kunds miljö för att fastställa tillämplighet för en lösning och ange en uppskattning av kostnaderna och tidsinställning. 
+* **Information till**: en introduktion till en lösning eller en rådgivning tjänst för att rita kunden intresse med hjälp av Kundexempel, demonstrationer och ramverk. 
+* **Implementering**: en fullständig installation som resulterar i en fullt fungerande lösning. Vi rekommenderar att begränsa den till lösningar som kan vara implementerad i två veckor eller mindre. 
+* **Konceptbevis**: en begränsad omfattning implementering att avgöra om en lösning uppfyller kraven för kunden. 
+* **Workshop**: ett interaktivt uppdrag som utförs av kundens lokala. Det kan omfatta utbildning genomgångar, bedömningar eller demonstrationer som bygger på kundens data eller miljö. 
 
-Förutom genomgångar, rådgivning erbjudas person (d.v.s. direkt på kundens plats eller en partner anläggning) eller nästan (d.v.s. via och telefonkonferenser, web konferens, remote implementering, etc.). Genomgångar måste erbjudas personligen.
+Undantag för den *genomgång* tjänsttypen rådgivning erbjuds person (det vill säga direkt på kundens plats eller en partner anläggning) eller nästan (det vill säga via och telefonkonferenser, web konferens eller fjärr implementering). Genomgångar måste erbjudas personligen.
 
-Läs mer om [befogenheter via Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies#simple-tab-content-1). 
+Mer information finns i [befogenheter via Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies). 
 
-## <a name="countries-supported"></a>Länder/regioner som stöds
+## <a name="supported-countries"></a>Länder som stöds
 
-SI partners kan skicka rådgivning services erbjudanden för följande 18 länder. 
-
+SI partners kan skicka samråd Tjänsterbjudanden för följande 18 länder. 
 
 |Berättigade länder |  |  |
 |---------|---------|---------|
@@ -63,16 +62,15 @@ SI partners kan skicka rådgivning services erbjudanden för följande 18 lände
 |Finland     |Mexiko         |Storbritannien         |
 |Frankrike     |Nederländerna         |USA         |
 
-Starta för Azure Marketplace samråd tjänster ska publiceras först för Australien, Kanada, Storbritannien och USA. Kataloger för andra länder ska publiceras när ett meningsfullt tal och tvingande val av tjänster erbjudanden har skickats av partners och godkänts av Microsoft.
+Starten av Azure Marketplace rådgivning går live första för Australien, Kanada, Storbritannien och USA. Kataloger för andra länder ska publiceras efter ett meningsfullt tal och intressant val av Tjänsterbjudanden har skickats av partners och godkänts av Microsoft.
 
 ## <a name="prepare-your-publishing-artifacts"></a>Förbered din publishing artefakter
 Innan du anger din tjänst kan du börja samla in och förbereda innehållet som hjälper din registrering förklara värdet för din tjänst och lösningen till kunden mål. 
 
-
 |Konfigurera för nya publikationer  |
 |---------|
 |MPN-ID     |
-|Logotyp (48 x 48, 216 x 216)     |
+|Företagets logotyper (48 &#215; 48, 216 &#215; 216)     |
 |Leda mål     |
 
 
@@ -80,20 +78,20 @@ Innan du anger din tjänst kan du börja samla in och förbereda innehållet som
 |---------|
 |Erbjuder namn (200 tecken) och en beskrivning (2000 tecken)    |
 |Kompetenser     |
-|Land/Region tillgänglighet     |
+|Land/region tillgänglighet     |
 |Varaktighet för engagement     |
 |Tillämpliga branscher, kategorier och sökord     |
-|Produkt-översikten    |
-|Skärmbilder (maximalt 5, minst 1 280 x 720)     |
-|Marknadsföring dokument (maximalt 3)     |
+|Produktöversikt video    |
+|Skärmbilder (högst 5, minst 1 280 &#215; 720)     |
+|Marknadsföring dokument (högst 3)     |
 
 
 ## <a name="publishing-process"></a>Process för att publicera
-Visar en lista över ditt rådgivning tjänsterbjudande på Azure Marketplace omfattar följande:
+Visar en lista över ditt samråd tjänsterbjudande på Azure Marketplace omfattar följande steg:
 
-1. **Begäran:** skicka din begäran [här](https://azuremarketplace.microsoft.com/en-us/sell/nominate) och berätta mer om din organisation. 
-2. **Verifiering:**din begäran kommer att granskas för att verifiera att du uppfyller kriterierna. Vi skickar du anvisningar för att visa en lista över dina rådgivning erbjudande. 
-3. **Skicka:** Tillhandahåll den information som krävs i anvisningarna. Allt innehåll och alla stödfiler material måste skickas på engelska. 
-4. **Granska:** våra marknadsföring och redaktionell teamet granskar din ansökan och göra ändringar för att optimera för läsbarhet, grammatik och effektivitet. 
-5. **Mellanlagring:** din ansökan kommer sedan mellanlagras för granskning av dig. 
-6. **Publicering:** när dig och Microsoft uppfylls med stegvis innehåll, registreringen är klar att publiceras på Azure Marketplace. Go live-datum för din registrering beror på det land som anges i dina erbjudanden. Om katalogen för det valda landet redan är live på Azure Marketplace visas din inom några timmar. I annat fall visas din registrering som lanseras katalogen för det valda landet.
+1. **Begäran**: skicka din begäran genom att använda den [Azure Marketplace kandidat formuläret](https://azuremarketplace.microsoft.com/en-us/sell/nominate) och berätta mer om din organisation. 
+2. **Verifieringen**: din begäran granskas för att säkerställa att du uppfyller kriterierna. Vi sedan skicka instruktioner för att visa en lista över dina rådgivning erbjudande. 
+3. **Skicka**: Ange nödvändig information som anges i anvisningarna. Allt innehåll och alla stödfiler material lämnas på engelska. 
+4. **Granska**: vårt team marknadsföring och redaktionell går igenom din ansökan och optimerar för läsbarhet, grammatik och effektivitet. 
+5. **Mellanlagring av**: din ansökan mellanlagras för granskning. 
+6. **Publicera**: när du och Microsoft uppfylls med stegvis innehåll, registreringen är klar att publiceras på Azure Marketplace. Go live-datum för din registrering beror på det land som anges i dina erbjudanden. Om katalogen för det valda landet redan är live på Azure Marketplace visas din inom några timmar. I annat fall visas den som lanseras i katalogen.

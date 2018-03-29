@@ -1,12 +1,12 @@
 ---
-title: "Kom igång med Azure Notification Hubs för Android-appar och Firebase Cloud Messaging | Microsoft Docs"
-description: "I de här självstudierna får du lära dig hur du använder Azure Notification Hubs och Firebase Cloud Messaging för att skicka push-meddelanden till Android-enheter."
+title: Kom igång med Azure Notification Hubs för Android-appar och Firebase Cloud Messaging | Microsoft Docs
+description: I de här självstudierna får du lära dig hur du använder Azure Notification Hubs och Firebase Cloud Messaging för att skicka push-meddelanden till Android-enheter.
 services: notification-hubs
 documentationcenter: android
-keywords: "push-meddelanden, push-meddelande, push-meddelande för android, fcm, firebase cloud messaging"
+keywords: push-meddelanden, push-meddelande, push-meddelande för android, fcm, firebase cloud messaging
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: 02298560-da61-4bbb-b07c-e79bd520e420
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,17 +15,16 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: 2cac554be145c3bb9ec2c71ef893bba947104a2d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 0f4c766bd68227a85e2438bc68b2d61c69ce706c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-android-apps-and-firebase-cloud-messaging"></a>Kom igång med Azure Notification Hubs för Android-appar och Firebase Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Översikt
-
 > [!IMPORTANT]
 > Den här artikeln visar push-meddelanden med Google Firebase Cloud Messaging (FCM). Se [Skicka push-meddelanden till Android med Azure Notification Hubs och GCM](notification-hubs-android-push-notification-google-gcm-get-started.md) om du fortfarande använder Googles Cloud Messaging (GCM).
 > 
@@ -286,9 +285,8 @@ Din meddelandehubb har nu konfigurerats för att fungera med Firebase Cloud Mess
         import android.util.Log;
         import android.widget.TextView;
         import android.widget.Toast;
-    ```
 
-3. Lägg till följande privata medlemmar högst upp i klassen. Du använder dessa för att [kontrollera tillgängligheten för Google Play-tjänster, enligt rekommendationer från Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
+3. Add the following private members at the top of the class. You use these to [check the availability of Google Play Services as recommended by Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
    
     ```java
         public static MainActivity mainActivity;

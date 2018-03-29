@@ -1,6 +1,6 @@
 ---
-title: "Snabbstart – Skapa en Azure Database for PostgreSQL-server med Azure Portal"
-description: "Snabbstartsguide för att skapa och hantera Azure-databas för PostgreSQL-server med användargränssnittet för Azure-portalen."
+title: Snabbstart – Skapa en Azure Database for PostgreSQL-server med Azure Portal
+description: Snabbstartsguide för att skapa och hantera Azure-databas för PostgreSQL-server med användargränssnittet för Azure-portalen.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -9,21 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-<<<<<<< HEAD
-ms.date: 11/03/2017
-ms.openlocfilehash: de35254183798dd0aea32b63eb0689d33ae5b247
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/20/2018
+ms.openlocfilehash: c1acb568598184974b65d666075032e74aa49eb3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
-=======
-ms.date: 02/28/2018
-ms.openlocfilehash: 83bdc6eba35f0deaaf541f2042854764ae513fb9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
->>>>>>> d7b96017f3c2d57f5135571d8789582901649dd0
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Snabbstart: Skapa en Azure Database for PostgreSQL-server i Azure Portal
 
@@ -183,17 +174,17 @@ Du anslöt till Azure Database for PostgreSQL-servern via psql i Cloud Shell och
 
 ## <a name="connect-to-the-postgresql-server-using-pgadmin"></a>Ansluta till PostgreSQL-servern med hjälp av pgAdmin
 
-pgAdmin är ett verktyg med öppen källkod som används med PostgreSQL. Du kan installera pgAdmin från [pgAdmin-webbplatsen](http://www.pgadmin.org/). pgAdmin-versionen som du använder kan skilja sig från vad som används i den här snabbstarten. Läs dokumentationen för pgAdmin om du behöver ytterligare hjälp.
+pgAdmin är ett verktyg med öppen källkod som används med PostgreSQL. Du kan installera pgAdmin från [pgAdmin-webbplatsen](http://www.pgadmin.org/). Den pgAdmin-version som du använder kan skilja sig från vad som används i den här snabbstarten. Läs dokumentationen för pgAdmin om du behöver ytterligare hjälp.
 
 1. Öppna pgAdmin-programmet på klientdatorn.
 
 2. Från verktygsfältet går du till **Objekt**, hovrar över **Skapa** och väljer **Server**.
 
-3. I dialogrutan **Skapa – server** på fliken **Allmänt** anger du ett unikt eget namn för servern, t.ex. **mydemoserver**.
+3. I dialogrutan **Skapa – Server** på fliken **Allmänt** anger du ett unikt eget namn för servern, t.ex. **mydemoserver**.
 
     ![Fliken ”Allmänt”](./media/quickstart-create-database-portal/9-pgadmin-create-server.png)
 
-4. Fyll i inställningstabellen på fliken **Anslutning** i dialogrutan **Skapa – server**.
+4. Fyll i inställningstabellen i dialogrutan **Skapa – Server** på fliken **Anslutning**.
 
    ![Fliken ”Anslutning”](./media/quickstart-create-database-portal/10-pgadmin-create-server.png)
 
@@ -211,19 +202,19 @@ pgAdmin är ett verktyg med öppen källkod som används med PostgreSQL. Du kan 
 
 6. I fönstret **Webbläsare** till vänster expanderar du noden **Servrar**. Välj din server, till exempel **mydemoserver**. Klicka för att ansluta till den.
 
-7. Expandera servernoden och expandera sedan **Databaser** under den. Listan bör innehålla din befintliga *postgres*-databas och andra databaser som du har skapat. Du kan skapa flera databaser per server med Azure Database for PostgreSQL.
+7. Expandera servernoden och expandera sedan **Databaser** under den. Listan bör innehålla din befintliga *postgres*-databas och eventuella andra databaser som du har skapat. Du kan skapa flera databaser per server med Azure Database for PostgreSQL.
 
 8. Högerklicka på **Databaser**, välj menyn **Skapa** och välj sedan **Databas**.
 
 9. Ange valfritt databasnamn i fältet **Databas**, till exempel **mypgsqldb2**.
 
-10. Välj **Ägare** för databasen från den nedrullningsbara listan. Välj ditt inloggningsnamn som administratör för servern, till exempel som i vårt exempel, **my admin**.
+10. Välj **Ägare** för databasen från den nedrullningsbara listan. Välj ditt inloggningsnamn som serveradministratör, förslagsvis som i vårt exempel: **my admin**.
 
-   ![Skapa en databas i pgadmin](./media/quickstart-create-database-portal/11-pgadmin-database.png)
+   ![Skapa en databas i pgAdmin](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 11. Välj **Spara** för att skapa en tom databas.
 
-12. I fönstret **Webbläsare** ser du den databas som du skapade i listan över databaser under servernamnet.
+12. I fönstret **Webbläsare** ser du den databas som du skapade i listan med databaser under servernamnet.
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

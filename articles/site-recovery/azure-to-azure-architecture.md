@@ -1,6 +1,6 @@
 ---
 title: Replikering i Azure till Azure-arkitekturen i Azure Site Recovery | Microsoft Docs
-description: "Den här artikeln innehåller en översikt över komponenter och arkitektur som används när du replikerar virtuella Azure-datorer mellan Azure-regioner med hjälp av Azure Site Recovery-tjänsten."
+description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används när du replikerar virtuella Azure-datorer mellan Azure-regioner med hjälp av Azure Site Recovery-tjänsten.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 126f5c4db355af19a7151a267115127757b17599
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 111217e9335b16659c93da88731e0b7ce6d5fecd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>I Azure till Azure-replikeringsarkitektur
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver arkitekturen som används när du replikera växla �
 ## <a name="architectural-components"></a>Arkitekturkomponenter
 
 Bilden nedan ger en övergripande bild av en Azure VM-miljö i en viss region (i det här exemplet östra USA platsen). I en miljö med virtuella Azure-datorn:
-- Appar kan köras på virtuella datorer med diskar som är fördelade på storage-konton.
+- Appar kan köras på virtuella datorer med hanterade diskar eller icke-hanterade diskar som är fördelade på storage-konton.
 - De virtuella datorerna kan ingå i en eller flera undernät i ett virtuellt nätverk.
 
 
@@ -49,7 +49,8 @@ När du aktiverar Azure VM-replikering skapas i följande resurser automatiskt i
 **Målresursgruppen** | Resursgruppen som tillhör replikerade virtuella datorer efter redundans.
 **Mål virtuellt nätverk** | Det virtuella nätverket som replikerade virtuella datorer finns efter växling vid fel. En nätverksmappning skapas mellan käll- och virtuella nätverk och vice versa.
 **Cache-lagringskonton** | De är spåras och skickas till cache-lagringskonto i källplats innan ändringar av datakällan VM replikeras till en mål-lagringskontot. Det här steget säkerställer minimal inverkan på produktionsprogram som körs på den virtuella datorn.
-**Mål-lagringskonton**  | Storage-konton på målplatsen data replikeras.
+**Rikta storage-konton (om datakällan inte använder VM-hanterade diskar)**  | Storage-konton på målplatsen data replikeras.
+** Replik hanterade diskar (om källa VM finns på hanterade diskar) **  | Hanterade diskar på målplatsen data replikeras.
 **Mål-tillgänglighetsuppsättningar**  | Tillgänglighetsuppsättningar i som de replikerade virtuella datorerna är placerade efter växling vid fel.
 
 ### <a name="step-2"></a>Steg 2
@@ -76,7 +77,7 @@ Om du vill att virtuella datorer med Linux ska vara med i en replikeringsgrupp m
 
 ### <a name="step-3"></a>Steg 3
 
-När kontinuerlig replikering pågår överföras Diskskrivningar omedelbart till cache-lagringskontot. Site Recovery bearbetar data och skickar det till mål-lagringskontot. När data har bearbetats skapas återställningspunkter i mål-lagringskontot med några minuters mellanrum.
+När kontinuerlig replikering pågår överföras Diskskrivningar omedelbart till cache-lagringskontot. Site Recovery bearbetar data och skickar den till mål-lagringskontot eller replik hanterade diskar. När data har bearbetats skapas återställningspunkter i mål-lagringskontot med några minuters mellanrum.
 
 ## <a name="failover-process"></a>Failover-processen
 

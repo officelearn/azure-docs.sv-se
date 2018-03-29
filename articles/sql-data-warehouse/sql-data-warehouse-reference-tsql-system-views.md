@@ -1,11 +1,11 @@
 ---
 title: SQL Data Warehouse systemvyer | Microsoft Docs
-description: "Länkar till system visar innehåll för SQL Data Warehouse."
+description: Länkar till system visar innehåll för SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 01/22/2018
 ms.author: barbkess
-ms.openlocfilehash: 51e2bf8e9e0bbd6b2e61d37b438bf51325192058
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 96bd74a9c68cc77d35832836afa966958ed37264
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="system-views"></a>Systemvyer
 ## <a name="sql-data-warehouse-catalog-views"></a>SQL Data Warehouse katalogvyer
@@ -233,12 +233,12 @@ Följande av DMV: er som gäller för SQL Data Warehouse, men måste köras geno
 * [VIEWS](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer till referens [översikt över SQL Data Warehouse-referens][SQL Data Warehouse reference overview].
+För mer Referensinformation Se [översikt för SQL Data Warehouse referens] [SQL Data Warehouse referens översikt].
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
+
 
 <!--MSDN references-->
 

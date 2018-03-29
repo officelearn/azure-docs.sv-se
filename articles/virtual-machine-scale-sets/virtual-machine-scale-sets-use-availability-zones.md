@@ -1,13 +1,13 @@
 ---
-title: "Skapa en Azure skala som använder tillgänglighet zoner (förhandsversion) | Microsoft Docs"
-description: "Lär dig hur du skapar skalningsuppsättningar i virtuella Azure-datorn som använder tillgänglighet zoner för ökad redundans mot avbrott"
+title: Skapa en Azure skala som använder tillgänglighet zoner (förhandsversion) | Microsoft Docs
+description: Lär dig hur du skapar skalningsuppsättningar i virtuella Azure-datorn som använder tillgänglighet zoner för ökad redundans mot avbrott
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 2de214f604469025a8a4accde44359fea0ded7e9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8b497af8bc7e3060e184dd6a029b23ccb2d2bbfb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>Skapa en skaluppsättning för virtuell dator som använder tillgänglighet zoner (förhandsgranskning)
 Du kan skapa en skala in över tillgänglighet zoner för att skydda din skalningsuppsättningar i virtuella datorer från fel datacenter-nivå. Azure-regioner som har stöd för tillgänglighet zoner har minst tre separata zoner med sina egna oberoende power käll-, nätverks- och kylning. Mer information finns i [översikt av tillgänglighet zoner](../availability-zones/az-overview.md).
@@ -34,14 +34,14 @@ När du skapar en skala som anges i en zon, styr vilken zon dessa VM-instanser k
 
 Om du vill använda tillgänglighet zoner din skaluppsättning måste skapas i en [stöd för Azure-region](../availability-zones/az-overview.md#regions-that-support-availability-zones). Du måste också [registrera för tillgänglighet zoner Förhandsgranska](http://aka.ms/azenroll). Du kan skapa en skalningsuppsättning som använder tillgänglighet zoner med någon av följande metoder:
 
-- [Azure-portalen](#use-the-azure-portal)
+- [Azure Portal](#use-the-azure-portal)
 - [Azure CLI 2.0](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager-mallar](#use-azure-resource-manager-templates)
 
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
-Processen för att skapa en skalningsuppsättning som använder en tillgänglighet zon är samma som i den [komma igång artikel](virtual-machine-scale-sets-create-portal.md). Se till att du har [registrerad för tillgänglighet zoner Förhandsgranska](http://aka.ms/azenroll). När du väljer en Azure-regionen stöds kan skapa du en skala som angetts i någon av de tillgängliga zonerna som visas i följande exempel:
+Processen för att skapa en skalningsuppsättning som använder en tillgänglighet zon är samma som i den [komma igång artikel](quick-create-portal.md). Se till att du har [registrerad för tillgänglighet zoner Förhandsgranska](http://aka.ms/azenroll). När du väljer en Azure-regionen stöds kan skapa du en skala som angetts i någon av de tillgängliga zonerna som visas i följande exempel:
 
 ![Skapa en skala som anges i en enda tillgänglighet zon](media/virtual-machine-scale-sets-use-availability-zones/create-portal-single-az.png)
 
@@ -49,7 +49,7 @@ Skaluppsättning och ge support för resurser, till exempel Azure belastningsutj
 
 
 ## <a name="use-the-azure-cli-20"></a>Använda Azure CLI 2.0
-Processen för att skapa en skalningsuppsättning som använder en tillgänglighet zon är samma som i den [komma igång artikel](virtual-machine-scale-sets-create-cli.md). För att använda zoner för tillgänglighet, måste du skapa din skalningsuppsättning i en Azure-regionen stöds och har [registrerad för tillgänglighet zoner Förhandsgranska](http://aka.ms/azenroll).
+Processen för att skapa en skalningsuppsättning som använder en tillgänglighet zon är samma som i den [komma igång artikel](quick-create-cli.md). För att använda zoner för tillgänglighet, måste du skapa din skalningsuppsättning i en Azure-regionen stöds och har [registrerad för tillgänglighet zoner Förhandsgranska](http://aka.ms/azenroll).
 
 Lägg till den `--zones` parametern till den [az vmss skapa](/cli/azure/vmss#az_vmss_create) kommando och ange vilken zon som ska användas (till exempel zonen *1*, *2*, eller *3*). I följande exempel skapas en enda zon skaluppsättningen namngivna *myScaleSet* i zonen *1*:
 
@@ -114,7 +114,7 @@ Det tar några minuter att skapa och konfigurera alla skaluppsättning resurser 
 
 
 ## <a name="use-azure-powershell"></a>Använda Azure PowerShell
-Processen för att skapa en skalningsuppsättning som använder en tillgänglighet zon är samma som i den [komma igång artikel](virtual-machine-scale-sets-create-powershell.md). För att använda zoner för tillgänglighet, måste du skapa din skalningsuppsättning i en Azure-regionen stöds och har [registrerad för tillgänglighet zoner Förhandsgranska](http://aka.ms/azenroll). Lägg till den `-Zone` parametern till den [ny AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) kommando och ange vilken zon som ska användas (till exempel zonen *1*, *2*, eller *3*). 
+Processen för att skapa en skalningsuppsättning som använder en tillgänglighet zon är samma som i den [komma igång artikel](quick-create-powershell.md). För att använda zoner för tillgänglighet, måste du skapa din skalningsuppsättning i en Azure-regionen stöds och har [registrerad för tillgänglighet zoner Förhandsgranska](http://aka.ms/azenroll). Lägg till den `-Zone` parametern till den [ny AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) kommando och ange vilken zon som ska användas (till exempel zonen *1*, *2*, eller *3*). 
 
 I följande exempel skapas en enskild zon scale set config med namnet *vmssConfig* i *östra USA 2* zon *1*:
 
@@ -178,7 +178,7 @@ En komplett exempel på en zonredundant skala och nätverksresurser finns i avsn
 
 
 ## <a name="use-azure-resource-manager-templates"></a>Använda Azure Resource Manager-mallar
-Processen för att skapa en skalningsuppsättning som använder en tillgänglighet zon är samma som detaljerad i komma igång-artikel för [Linux](virtual-machine-scale-sets-create-template-linux.md) eller [Windows](virtual-machine-scale-sets-create-template-windows.md). För att använda zoner för tillgänglighet, måste du skapa din skalningsuppsättning i en Azure-regionen stöds och har [registrerad för tillgänglighet zoner Förhandsgranska](http://aka.ms/azenroll). Lägg till den `zones` egenskapen till den *Microsoft.Compute/virtualMachineScaleSets* resurs Skriv i mallen och ange vilken zon som ska användas (till exempel zonen *1*, *2*, eller *3*).
+Processen för att skapa en skalningsuppsättning som använder en tillgänglighet zon är samma som detaljerad i komma igång-artikel för [Linux](quick-create-template-linux.md) eller [Windows](quick-create-template-windows.md). För att använda zoner för tillgänglighet, måste du skapa din skalningsuppsättning i en Azure-regionen stöds och har [registrerad för tillgänglighet zoner Förhandsgranska](http://aka.ms/azenroll). Lägg till den `zones` egenskapen till den *Microsoft.Compute/virtualMachineScaleSets* resurs Skriv i mallen och ange vilken zon som ska användas (till exempel zonen *1*, *2*, eller *3*).
 
 I följande exempel skapas en Linux enskild zon skaluppsättningen namngivna *myScaleSet* i *östra USA 2* zon *1*:
 

@@ -1,18 +1,18 @@
 ---
-title: "Om nätverksfunktionerna i Azure till Azure-haveriberedskap med hjälp av Azure Site Recovery | Microsoft Docs"
-description: "Ger en översikt över nätverk för replikering av virtuella Azure-datorer med hjälp av Azure Site Recovery."
+title: Om nätverksfunktionerna i Azure till Azure-haveriberedskap med hjälp av Azure Site Recovery | Microsoft Docs
+description: Ger en översikt över nätverk för replikering av virtuella Azure-datorer med hjälp av Azure Site Recovery.
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 5ce85761df4e0ad62c22a829f67464a3145fd827
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 48be55632d9c1bece3f1a6e4f9ac12a68f9cb7ab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Om nätverk i Azure till Azure-replikering
 
@@ -41,7 +41,7 @@ Oftast skyddas nätverk brandväggar och nätverkssäkerhetsgrupper (NSG: er). B
 > Med hjälp av en autentiserad proxyserver för att kontrollera nätverksanslutningen stöds inte av Site Recovery och det går inte att aktivera replikering.
 
 
-## <a name="outbound-connectivity-for-urls"></a>Utgående anslutning för URL: er
+## <a name="outbound-connectivity-for-urls"></a>Utgående anslutning för webbadresser
 
 Om du använder en URL-baserade brandväggen proxy för att styra utgående anslutning Tillåt webbadresserna Site Recovery:
 
@@ -154,9 +154,10 @@ Följ dessa riktlinjer för anslutningar mellan platsen och den lokala platsen:
 ### <a name="expressroute-configuration"></a>ExpressRoute-konfiguration
 Följa dessa rekommendationer för ExpressRoute-konfiguration:
 
-- Du måste skapa en ExpressRoute-krets i både käll- och områden. Sedan måste du skapa en anslutning mellan:
-  - Det virtuella nätverket för källa och ExpressRoute-kretsen.
-  - Det virtuella målnätverket och ExpressRoute-kretsen.
+- Skapa en ExpressRoute-krets i både käll- och områden. Sedan måste du skapa en anslutning mellan:
+    - Det virtuella nätverket för källa och det lokala nätverket via ExpressRoute-kretsen i området för källa.
+    - Det virtuella målnätverket och det lokala nätverket via ExpressRoute-kretsen i mål-region.
+
 
 - Som en del av ExpressRoute-standard, kan du skapa kretsar i samma geopolitiska region. Om du vill skapa ExpressRoute-kretsar i olika geopolitiska regioner Azure ExpressRoute Premium krävs, vilket innebär att en inkrementell kostnad. (Om du redan använder ExpressRoute Premium, det finns inget extra kostnad.) Mer information finns i [ExpressRoute platser dokumentet](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) och [ExpressRoute priser](https://azure.microsoft.com/pricing/details/expressroute/).
 

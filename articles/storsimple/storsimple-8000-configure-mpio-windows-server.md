@@ -1,30 +1,30 @@
 ---
-title: "Konfigurera MPIO för din StorSimple-enhet | Microsoft Docs"
-description: "Beskriver hur du konfigurerar MPIO (Multipath I/O) för din StorSimple-enhet som är ansluten till en värd som kör Windows Server 2012 R2."
+title: Konfigurera MPIO för din StorSimple-enhet | Microsoft Docs
+description: Beskriver hur du konfigurerar MPIO (Multipath I/O) för din StorSimple-enhet som är ansluten till en värd som kör Windows Server 2012 R2.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/05/2017
+ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 9fe3fa3a2df63d111de742ecb48b1469aad543cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f2b094604f486d283574f4669fcad6f72bd4431
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Konfigurera MPIO för din StorSimple-enhet
 
 Den här självstudiekursen beskriver de steg du bör följa för att installera och använda funktionen Multipath I/O (MPIO) på en värd som kör Windows Server 2012 R2 och ansluten till en fysiska StorSimple-enheten. Riktlinjerna i den här artikeln gäller StorSimple 8000-serien fysiska enheter. MPIO stöds för närvarande inte på en StorSimple-enhet för molnet.
 
-Microsoft har inbyggt stöd för MPIO (Multipath I/O)-funktion i Windows Server hjälp skapa hög tillgänglighet, feltolerant SAN konfigurationer. MPIO använder redundanta fysiska sökvägskomponenter – nätverkskort, kablar och växlar – att skapa logiska sökvägar mellan servern och lagringsenheten. Om det finns ett komponentfel orsakar logiska sökvägen misslyckas, använder multipathing-logik en alternativ sökväg för I/O så att program fortfarande kommer åt sina data. Dessutom beroende på din konfiguration kan MPIO också förbättra prestanda genom ombalansering belastningen över dessa sökvägar. Mer information finns i [översikt över MPIO](https://technet.microsoft.com/library/cc725907.aspx "MPIO översikt och funktioner").
+Microsoft har inbyggt stöd för MPIO (Multipath I/O)-funktion i Windows Server för att skapa hög tillgänglighet, feltolerant iSCSI nätverkskonfigurationer. MPIO använder redundanta fysiska sökvägskomponenter – nätverkskort, kablar och växlar – att skapa logiska sökvägar mellan servern och lagringsenheten. Om det finns ett komponentfel orsakar logiska sökvägen misslyckas, använder multipathing-logik en alternativ sökväg för I/O så att program fortfarande kommer åt sina data. Dessutom beroende på din konfiguration kan MPIO också förbättra prestanda genom ombalansering belastningen över dessa sökvägar. Mer information finns i [översikt över MPIO](https://technet.microsoft.com/library/cc725907.aspx "MPIO översikt och funktioner").
 
 MPIO bör vara konfigurerade på StorSimple-enheten för den hög tillgängligheten i StorSimple-lösningen. När MPIO har installerats på dina värdservrar som kör Windows Server 2012 R2 kan kan servrarna sedan tolerera länken, nätverk och fel.
 
@@ -49,7 +49,7 @@ Slutför följande procedur om du vill installera funktionen på Windows Server-
 
 1. Öppna Serverhanteraren på Windows Server-värd. Serverhanteraren startar som standard när en medlem i gruppen Administratörer loggar in på en dator som kör Windows Server 2012 R2 eller Windows Server 2012. Om Serverhanteraren inte redan är öppen klickar du på **Start > Serverhanteraren**.
    
-   ![Serverhanteraren](./media/storsimple-configure-mpio-windows-server/IC740997.png)
+   ![Server Manager](./media/storsimple-configure-mpio-windows-server/IC740997.png)
 
 2. Klicka på **Serverhanteraren > instrumentpanelen > Lägg till roller och funktioner**. Detta startar den **Lägg till roller och funktioner** guiden.
    
@@ -83,7 +83,7 @@ MPIO måste konfigureras för att identifiera StorSimple-volymer. Utför följan
 3. Välj **lägga till stöd för iSCSI-enheter**, och klicka sedan på **Lägg till**.  
    ![Identifiera flera sökvägar för MPIO-egenskaper](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 4. Starta om servern när du tillfrågas.
-5. I den **MPIO-egenskaper** dialogrutan klickar du på den **MPIO enheter** fliken. Klicka på **Lägg till**.
+5. I den **MPIO-egenskaper** dialogrutan klickar du på den **MPIO enheter** fliken. Klicka på **lägga till**.
     </br>![MPIO egenskaper MPIO enheter](./media/storsimple-configure-mpio-windows-server/IC741004.png)
 6. I den **lägga till stöd för MPIO** dialogrutan under **enhetens maskinvaru-ID**, ange serienumret för enheten. Komma åt Enhetshanteraren för StorSimple-tjänsten för att hämta enhetens serienummer. Gå till **enheter > instrumentpanelen**. Enhetens serienummer visas till höger **snabb i korthet** rutan i instrumentpanelen för enheten.
     </br>
@@ -149,12 +149,12 @@ När MPIO har konfigurerats på Windows Server, volymerna som skapats på StorSi
 
 ## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Steg 4: Konfigurera MPIO för hög tillgänglighet och belastningsutjämning
 
-För Multipath-baserad hög tillgänglighet och belastningsutjämning, måste flera sessioner läggas till manuellt deklarera olika sökvägar som är tillgängliga. Till exempel om värden har två gränssnitt som är anslutna till SAN-nätverk och enheten har två gränssnitt som är anslutna till SAN och behöver du fyra sessioner som är konfigurerad med rätt sökväg permutationer (endast två sessioner måste utföras om varje gränssnitt för DATA och värd-gränssnittet är i ett annat IP-undernät och inte är dirigerbart).
+För Multipath-baserad hög tillgänglighet och belastningsutjämning, måste flera sessioner läggas till manuellt deklarera olika sökvägar som är tillgängliga. Till exempel om värden har två gränssnitt som är ansluten till iSCSI-nätverk och enheten har två gränssnitt som är ansluten till iSCSI-nätverk och du behöver fyra sessioner som är konfigurerad med rätt sökväg permutationer (endast två sessioner måste utföras om varje gränssnitt för DATA och värd-gränssnittet är i ett annat IP-undernät och är inte dirigerbart).
 
 **Vi rekommenderar att du har minst 8 parallella aktiva sessioner mellan enheten och programmet-värden.** Detta kan uppnås genom att aktivera 4 nätverkskort på Windows Server-systemet. Använda fysiska nätverkskort eller virtuella gränssnitt via nätverket virtualiseringsteknik vilken maskinvara eller operativsystem på Windows Server-värd. Med två nätverksgränssnitt på enheten leder den här konfigurationen 8 aktiva sessioner. Den här konfigurationen hjälper till att optimera genomflödet enheten och i molnet.
 
 > [!IMPORTANT]
-> **Vi rekommenderar att du inte blandar 1 GbE och 10 GbE-nätverkskort. Om du använder två nätverksgränssnitt ska båda gränssnitten vara identiska typen.**
+> **Vi rekommenderar att du inte blandar 1 GbE och 10 GbE-nätverkskort. Om du använder två nätverksgränssnitt ska båda gränssnitten vara av en typ av identiska.**
 
 Följande procedur beskriver hur du lägger till sessioner när en StorSimple-enhet med två nätverkskort är anslutet till en värd med två nätverksgränssnitt. Detta ger dig endast 4 sessioner. Använd samma procedur med en StorSimple-enhet med två nätverksgränssnitt som är ansluten till en värd med fyra nätverksgränssnitt. Du behöver konfigurera 8 i stället för 4 sessioner som beskrivs här.
 
@@ -172,15 +172,15 @@ Följande procedur beskriver hur du lägger till sessioner när en StorSimple-en
 6. I den **avancerade inställningar** dialogrutan:
    
    1. På den **lokala kortet** listrutan, Välj **Microsoft iSCSI Initiator**.
-   2. På den **initieraren IP** listrutan väljer du IP-adressen för värden.
-   3. På den **Target Portal IP** listrutan, Välj IP-adressen för gränssnittet för data som är aktiverad på enheten.
+   2. På den **initieraren IP** listrutan väljer du den IP-adress som motsvarar det första gränssnittet på värden (iSCSI-gränssnitt).
+   3. På den **Target Portal IP** listrutan, Välj IP-adressen för gränssnittet första data aktiverad på enheten.
    4. Klicka på **OK** kan gå tillbaka till dialogrutan iSCSI-Initieraregenskaper.
 7. Klicka på **egenskaper**, och i den **egenskaper** dialogrutan klickar du på **lägga till sessionen**.
 8. I den **Anslut till målet** dialogrutan markerar du den **aktivera Multipath** kryssrutan och klicka sedan på **Avancerat**.
 9. I den **avancerade inställningar** dialogrutan:
    
    1. På den **lokala kortet** listrutan, Välj **Microsoft iSCSI Initiator**.
-   2. På den **initieraren IP** listrutan väljer du den IP-adress som motsvarar det andra gränssnittet på värden.
+   2. På den **initieraren IP** listrutan väljer du den IP-adress som motsvarar det andra iSCSI-gränssnittet på värden.
    3. På den **Target Portal IP** listrutan, Välj IP-adressen för gränssnittet andra data aktiverad på enheten.
    4. Klicka på **OK** att återgå till den **iSCSI-Initieraregenskaper** dialogrutan. Du har nu lagt till ytterligare en session till målet.
 10. Upprepa steg 8-10 för att lägga till ytterligare sessioner (sökvägar) till målet. Du kan lägga till summan av fyra sessioner med två gränssnitt på värden och två på enheten.

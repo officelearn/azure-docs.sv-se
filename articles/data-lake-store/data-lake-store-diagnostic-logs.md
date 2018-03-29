@@ -1,8 +1,8 @@
 ---
-title: "Visa diagnostikloggar för Azure Data Lake Store | Microsoft Docs"
-description: "Lär dig att konfigurera och komma åt diagnostikloggarna för Azure Data Lake Store "
+title: Visa diagnostikloggar för Azure Data Lake Store | Microsoft Docs
+description: 'Lär dig att konfigurera och komma åt diagnostikloggarna för Azure Data Lake Store '
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: b58a4b215b13d2e57a69a94a60e3e37471c926c8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5f1fa378c8eea68181d4596700238d03f360c5d0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Åtkomst till diagnostikloggarna för Azure Data Lake Store
 Lär dig att aktivera loggning för ditt Data Lake Store-konto och visa loggar som samlats in för ditt konto.
@@ -31,7 +31,7 @@ Organisationer kan aktivera diagnostikloggning för sina Azure Data Lake Store-k
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Aktivera diagnostikloggning för ditt Data Lake Store-konto
 1. Logga in på nya [Azure Portal](https://portal.azure.com).
-2. Öppna Data Lake Store-konto och ditt Data Lake Store-kontoblad klickar du på **inställningar**, och klicka sedan på **diagnostikloggar**.
+2. Öppna Data Lake Store-konto och ditt Data Lake Store-kontoblad klickar du på **diagnostikloggar**.
 3. I den **diagnostik loggar** bladet, klickar du på **aktivera diagnostiken**.
 
     ![Aktivera diagnostikloggning](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "aktivera diagnostikloggar")
@@ -150,6 +150,7 @@ Här är ett exempel i JSON-formaterad granskningsloggen. Varje blobb har en rot
              "category": "Audit",
              "operationName": "SeOpenStream",
              "resultType": "0",
+             "resultSignature": "0",
              "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
              "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
              "properties": {"StreamName":"adl://<data_lake_store_account_name>.azuredatalakestore.net/logs.csv"}
@@ -167,6 +168,7 @@ Här är ett exempel i JSON-formaterad granskningsloggen. Varje blobb har en rot
 | category |Sträng |Log-kategori. Till exempel **Audit**. |
 | operationName |Sträng |Namnet på åtgärden som är inloggad. Till exempel getfilestatus. |
 | resultType |Sträng |Status för åtgärden, till exempel 200. |
+| resultSignature |Sträng |Ytterligare information om åtgärden. |
 | correlationId |Sträng |ID för den logg som kan används för att gruppera en uppsättning relaterade loggposter |
 | identity |Objekt |Den identitet som skapar loggen |
 | properties |JSON |Mer information finns nedan |
@@ -186,7 +188,7 @@ search *
 ```
 
 
-Azure Data Lake Store ger ett exempel att bearbeta och analysera loggdata. Du kan hitta exempel på [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
+Azure Data Lake Store ger ett exempel att bearbeta och analysera loggdata. Du kan hitta exempel på [ https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample ](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 ## <a name="see-also"></a>Se också
 * [Översikt över Azure Data Lake Store](data-lake-store-overview.md)

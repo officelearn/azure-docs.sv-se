@@ -8,20 +8,20 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/22/2018
 ms.author: bonova
-ms.openlocfilehash: e13583e0364b01c3a4560d88882eb1dcf82b8c99
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad-instans (förhandsgranskning)?
 
 Azure SQL-hanterade databasinstans (förhandsversion) är en ny funktion i Azure SQL Database tillhandahåller nästan 100% kompatibilitet med SQL Server lokalt (Enterprise Edition), vilket ger ett ursprungligt [virtuella nätverk (VNet)](../virtual-network/virtual-networks-overview.md) implementering som tar upp vanliga säkerhetsfrågor, och en [affärsmodell](https://azure.microsoft.com/pricing/details/sql-database/) fördelaktig för lokala SQL Server-kunder. Hanterade instansen tillåter befintliga SQL Server-kunder att lyfta och flytta sina lokala program till molnet med minimala ändringar för programmet och databasen. På samma gång bevarar hanteras instans alla PaaS funktioner (automatiska uppdateringar för uppdatering och version, säkerhetskopiering, hög tillgänglighet), som minskar drastiskt hanteringskostnader och TCO.
 
 > [!IMPORTANT]
-> En lista över regioner där hanteras instans är tillgänglig för närvarande finns [migrera dina databaser till en helt hanterad tjänst med Azure SQL-hanterade databasinstans](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
+> En lista över regioner där hanterade instanser är tillgängliga finns i [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Migrera dina databaser till en helt hanterad tjänst med Azure SQL Database Managed Instance).
  
 Följande diagram ger en översikt över viktiga funktioner i den hanterade instans:
 
@@ -34,16 +34,16 @@ Hanterade instans envisioned som önskade plattform för följande scenarier:
 
 Efter allmän tillgänglighet hanteras instans syftet är att leverera nära ytan 100% kompatibilitet med den senaste lokala SQL Server-versionen via en mellanlagrad version plan. 
 
-Följande tabell beskrivs nyckeln skillnader och envisioned Användningsscenarier mellan SQL IaaS, Azure SQL Database och hanteras instans:
+Följande tabell beskrivs nyckeln skillnader och envisioned Användningsscenarier mellan SQL IaaS, Azure SQL Database och SQL-hanterade databasinstans:
 
 | | Användningsscenariot | 
 | --- | --- | 
-|Managed Instance |För kunder som planerar för att migrera ett stort antal appar från lokala eller IaaS, automatisk inbyggd eller ISV finns med som ansträngning låg migrering som möjligt, föreslå hanteras instans. Med hjälp av helt automatiserad [Data migrering Service (DMS)](/sql/dma/dma-overview) i Azure, kan kunder lyfta och flytta sina lokala SQL Server till en hanterad instans som är kompatibel med SQL Server lokalt och fullständig isolering av kunden instanser med inbyggt stöd för virtuella nätverk.  Med Software Assurance, kan du byta sina befintliga licenser för rabatterade priser på en SQL-hanterade databasinstans med hjälp av den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL-hanterade databasinstans är den bästa mål för migrering i molnet för SQL Server-instanser som kräver hög säkerhet och en omfattande programmering yta. |
-|Azure SQL Database |**Elastiska pooler**: för kunder att utveckla nya SaaS flera program eller avsiktligt omvandla sina befintliga lokala appar i en multitenant SaaS-app, föreslå elastiska pooler. Fördelarna med den här modellen är: <br><ul><li>Konvertering av modellen verksamhet från sälja licenser för att sälja prenumerationer (för ISV: er)</li></ul><ul><li>Enkel och punkt bevis klientisolering</li></ul><ul><li>En förenklad databasen till Central programmeringsmodell</li></ul><ul><li>Möjlighet att skala ut utan att en hård gräns</li></ul>**Enkel databaser**: för kunder att utveckla nya appar än SaaS flera innehavare, vars arbetsbelastning är stabila och förutsägbara, föreslå enskilda databaser. Fördelarna med den här modellen är:<ul><li>En förenklad databasen till Central programmeringsmodell</li></ul>  <ul><li>Förutsägbar prestanda för varje databas</li></ul>|
-|SQL-IaaS |För kunder som behöver anpassa operativsystemet eller den databasserver, samt kunder som har specifika krav som kör appar från tredje part vid sida med SQL Server (i samma VM), föreslå SQL virtuella datorer / IaaS som den bästa lösningen|
+|SQL Database Managed Instance |För kunder som planerar för att migrera ett stort antal appar från lokala eller IaaS, automatisk inbyggd eller ISV finns med som ansträngning låg migrering som möjligt, föreslå hanteras instans. Med hjälp av helt automatiserad [Data migrering Service (DMS)](/sql/dma/dma-overview) i Azure, kan kunder lyfta och flytta sina lokala SQL Server till en hanterad instans som är kompatibel med SQL Server lokalt och fullständig isolering av kunden instanser med inbyggt stöd för virtuella nätverk.  Med Software Assurance, kan du byta sina befintliga licenser för rabatterade priser på en SQL-hanterade databasinstans med hjälp av den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL-hanterade databasinstans är den bästa mål för migrering i molnet för SQL Server-instanser som kräver hög säkerhet och en omfattande programmering yta. |
+|Azure SQL Database (enkel eller pool) |**Elastiska pooler**: för kunder att utveckla nya SaaS flera program eller avsiktligt omvandla sina befintliga lokala appar i en multitenant SaaS-app, föreslå elastiska pooler. Fördelarna med den här modellen är: <br><ul><li>Konvertering av modellen verksamhet från sälja licenser för att sälja prenumerationer (för ISV: er)</li></ul><ul><li>Enkel och punkt bevis klientisolering</li></ul><ul><li>En förenklad databasen till Central programmeringsmodell</li></ul><ul><li>Möjlighet att skala ut utan att en hård gräns</li></ul>**Enkel databaser**: för kunder att utveckla nya appar än SaaS flera innehavare, vars arbetsbelastning är stabila och förutsägbara, föreslå enskilda databaser. Fördelarna med den här modellen är:<ul><li>En förenklad databasen till Central programmeringsmodell</li></ul>  <ul><li>Förutsägbar prestanda för varje databas</li></ul>|
+|Virtuell SQL IaaS-dator|För kunder som behöver anpassa operativsystemet eller den databasserver, samt kunder som har specifika krav som kör appar från tredje part vid sida med SQL Server (i samma VM), föreslå SQL virtuella datorer / IaaS som den bästa lösningen|
 |||
 
-![placering](./media/sql-database-managed-instance/positioning.png)
+<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>Så här identifierar du en instans som hanteras via programmering
 

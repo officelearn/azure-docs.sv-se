@@ -1,23 +1,23 @@
 ---
-title: "Konfigurera SAP HANA System replikering på virtuella Azure-datorer (VM) | Microsoft Docs"
-description: "Skapa hög tillgänglighet för SAP HANA på virtuella Azure-datorer (VM)."
+title: Konfigurera SAP HANA System replikering på virtuella Azure-datorer (VM) | Microsoft Docs
+description: Skapa hög tillgänglighet för SAP HANA på virtuella Azure-datorer (VM).
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/12/2017
+ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: 2bf9ed176f37c315aa4496894315f2318370ce7f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
-ms.translationtype: MT
+ms.openlocfilehash: b84b523f919e6b253462139b6888e5eb16248084
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Hög tillgänglighet för SAP HANA på virtuella Azure-datorer (VM)
 
@@ -40,14 +40,14 @@ ms.lasthandoff: 03/08/2018
 
 [suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
-[template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
+[template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged%2Fazuredeploy.json
 
 Lokalt, du kan använda antingen HANA System replikering eller använder delad lagring för att upprätta hög tillgänglighet för SAP HANA.
 På Azure VM HANA System-replikering i Azure är den enda stöd för funktionen för hög tillgänglighet hittills. SAP HANA replikering består av en primär nod och minst en sekundär nod. Ändringar av data på den primära noden replikeras till den sekundära noden synkront eller asynkront.
 
-Den här artikeln beskriver hur du distribuerar virtuella datorer, konfigurera de virtuella datorerna, installera kluster-framework installera och konfigurera replikering för SAP HANA-System.
-Installationen kommandon etc. instansnummer 03 och HANA System-ID HDB används i exempelkonfigurationer.
+Den här artikeln beskriver hur du distribuerar virtuella datorer, konfigurera virtuella datorer, installera kluster framework, installera och konfigurera SAP HANA System replikering.
+Installationen kommandon etc. instansnummer 03 och HANA System-ID HN1 används i exempelkonfigurationer.
 
 Läs följande SAP anteckningar och papper först
 
@@ -70,35 +70,77 @@ Läs följande SAP anteckningar och papper först
 * [Azure virtuella datorer DBMS-distribution för SAP på Linux][dbms-guide]
 * [Scenario för SAP HANA SR prestanda optimerade] [ suse-hana-ha-guide] guiden innehåller all nödvändig information för att ställa in SAP HANA System replikering på lokalt. Använd den här guiden som utgångspunkt.
 
+## <a name="overview"></a>Översikt
+
+För att uppnå hög tillgänglighet, installeras SAP HANA på två virtuella datorer. Data replikeras med HANA System replikering.
+
+![Hög tillgänglighet för SAP HANA-översikt](./media/sap-hana-high-availability/ha-suse-hana.png)
+
+Installationsprogrammet för SAP HANA SR använder en dedikerad virtuell värdnamn och virtuella IP-adresser. På Azure krävs en belastningsutjämnare för att använda en virtuell IP-adress. I följande lista visar konfigurationen av belastningsutjämnaren.
+
+* Konfiguration för klientdel
+  * IP-adress 10.0.0.13 för hn1-db
+* Backend-konfiguration
+  * Ansluten till primära nätverksgränssnitt för alla virtuella datorer som ska ingå i HANA System replikering
+* Avsökningsport
+  * Port 62503
+* Regler för belastningsutjämning
+  * 30313 TCP
+  * 30315 TCP
+  * 30317 TCP
+
 ## <a name="deploying-linux"></a>Distribuera Linux
 
 Resurs-agent för SAP HANA ingår i SUSE Linux Enterprise Server för SAP-program.
-Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP program 12 med BYOS (ta med din egen prenumeration) som du kan använda för att distribuera nya virtuella datorer.
+Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP program 12 som du kan använda för att distribuera nya virtuella datorer.
+
+### <a name="deploy-with-template"></a>Distribuera med mall
+Du kan använda en av quickstart mallar på github för att distribuera alla nödvändiga resurser. Mallen distribuerar virtuella datorer, belastningsutjämnare, tillgänglighetsuppsättning osv. Följ dessa steg om du vill distribuera mallen:
+
+1. Öppna den [databasen mallen] [ template-multisid-db] eller [konvergerat mallen] [ template-converged] på Azure-portalen. 
+   Mallen databasen skapas endast regler för belastningsutjämning för en databas medan mallen konvergerade skapar också regler för belastningsutjämning för en ASCS/SCS ÄNDARE (endast Linux)-instans. Om du planerar att installera ett SAP NetWeaver baserat system och du även vill installera ASCS/SCS-instans på samma datorer använder den [konvergerat mallen][template-converged].
+1. Ange följande parametrar
+    1. SAP System-ID  
+       Ange ID för SAP-system för SAP-system som du vill installera. ID som ska användas som ett prefix för de resurser som har distribuerats.
+    1. Stacken typ (gäller endast om du använder mallen konvergerade)   
+       Välj typ för SAP NetWeaver stack
+    1. OS-typen  
+       Välj en av Linux-distributioner. Det här exemplet väljer du SLES 12
+    1. DB-typ  
+       Välj HANA
+    1. Storlek för SAP-System  
+       Storleken på det nya systemet ska ge SAP. Om du inte vet hur många SAP systemet kräver, be din SAP-teknikpartner eller systemintegreraren
+    1. Systemets tillgänglighet  
+       Välj hög tillgänglighet
+    1. Användarnamn och lösenord för Admin administratör  
+       En ny användare skapas som kan användas för att logga in på datorn.
+    1. Ny eller befintlig undernät  
+       Avgör om ett nytt virtuellt nätverk och undernät som ska skapas eller ett befintligt undernät som ska användas. Om du redan har ett virtuellt nätverk som är anslutna till ditt lokala nätverk väljer du befintliga.
+    1. Undernät-ID  
+    ID för det undernät som de virtuella datorerna ska anslutas till. Om du vill ansluta den virtuella datorn till ditt lokala nätverk markerar du undernätet i det virtuella nätverket för VPN eller Expressroute. ID som ser oftast ut så /subscriptions/`<subscription ID`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
 
 ### <a name="manual-deployment"></a>Manuell distribution
 
 1. Skapa en resursgrupp
 1. Skapa ett virtuellt nätverk
-1. Skapa två Storage-konton
 1. Skapa en Tillgänglighetsuppsättning  
    Ange högsta uppdateringsdomän
 1. Skapa en belastningsutjämnare (internt)  
-   Välj VNET som skapats i det andra steget
-1. Skapa virtuell dator 1   
-   Använd minst SLES4SAP 12 SP1, i det här exemplet SLES4SAP 12 SP1 BYOS bilden https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
-   SLES för SAP program 12 SP1 (BYOS) används  
-   Välj Lagringskonto 1   
-   Välj Tillgänglighetsuppsättning  
-1. Skapa virtuell dator 2   
-   Använd minst SLES4SAP 12 SP1, i det här exemplet SLES4SAP 12 SP1 BYOS bilden https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
-   SLES för SAP program 12 SP1 (BYOS) används  
-   Välj Lagringskonto 2    
-   Välj Tillgänglighetsuppsättning  
+   Välj VNET som skapats i andra
+1. Skapa virtuell dator 1  
+   Använd minst SLES4SAP 12 SP1, i det här exemplet kommer vi att använda bilden SLES4SAP 12 SP2 https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM  
+   SLES för SAP 12 SP2 (Premium)  
+   Välj Tillgänglighetsuppsättning skapade tidigare  
+1. Skapa virtuell dator 2  
+   Använd minst SLES4SAP 12 SP1, i det här exemplet kommer vi att använda bilden SLES4SAP 12 SP1 BYOS https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM  
+   SLES för SAP 12 SP2 (Premium)  
+   Välj Tillgänglighetsuppsättning skapade tidigare  
 1. Lägg till Datadiskar
 1. Konfigurera belastningsutjämnaren
     1. Skapa en klientdel IP-adresspool
         1. Öppna belastningsutjämnaren, Välj klientdelens IP-pool och klicka på Lägg till
         1. Ange namnet på den nya klientdelens IP-adresspoolen (till exempel hana-klientdel)
+        1. Ange tilldelningen som statisk och ange IP-adress (till exempel **10.0.0.13**)
         1. Klicka på OK
         1. När du har skapat den nya klientdelens IP-poolen Skriv ned dess IP-adress
     1. Skapa en serverdelspool
@@ -117,159 +159,119 @@ Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP
         1. Öppna belastningsutjämnaren, Välj regler för belastningsutjämning och klicka på Lägg till
         1. Ange namnet på den nya regeln för belastningsutjämnare (till exempel hana-lb-3**03**15)
         1. Välj klientdelens IP-adress, serverdelspool och hälsoavsökningen som du skapade tidigare (till exempel hana-klientdel)
-        1. Håll protokollet TCP, ange port 3**03**15
+        1. Håll protokollet TCP, ange port 3**03**13
         1. Öka tidsgränsen för inaktivitet till 30 minuter
         1. **Se till att aktivera flytande IP**
         1. Klicka på OK
-        1. Upprepa stegen ovan för port 3**03**17
+        1. Upprepa stegen ovan för port 3**03**15 och 3**03**17
 
-### <a name="deploy-with-template"></a>Distribuera med mall
-Du kan använda en av quickstart mallar på github för att distribuera alla nödvändiga resurser. Mallen distribuerar virtuella datorer, belastningsutjämnare, tillgänglighetsuppsättning osv. Följ dessa steg om du vill distribuera mallen:
+## <a name="create-pacemaker-cluster"></a>Skapa Pacemaker kluster
 
-1. Öppna den [databasen mallen] [ template-multisid-db] eller [konvergerat mallen] [ template-converged] på Azure-portalen. 
-   Mallen databasen skapas endast regler för belastningsutjämning för en databas medan mallen konvergerade skapar också regler för belastningsutjämning för en ASCS/SCS ÄNDARE (endast Linux)-instans. Om du planerar att installera ett SAP NetWeaver baserat system och du även vill installera ASCS/SCS-instans på samma datorer använder den [konvergerat mallen][template-converged].
-1. Ange följande parametrar
-    1. SAP System-ID  
-       Ange ID för SAP-system för SAP-system som du vill installera. ID som ska användas som ett prefix för de resurser som har distribuerats.
-    1. Stacken typ (gäller endast om du använder mallen konvergerade)   
-       Välj typ för SAP NetWeaver stack
-    1. OS-typen  
-       Välj en av Linux-distributioner. Det här exemplet väljer du SLES 12 BYOS
-    1. DB-typ  
-       Välj HANA
-    1. Storlek för SAP-System  
-       Storleken på det nya systemet ska ge SAP. Om du inte vet hur många SAP systemet kräver, be din SAP-teknikpartner eller systemintegreraren
-    1. Systemets tillgänglighet  
-       Välj hög tillgänglighet
-    1. Användarnamn och lösenord för Admin administratör  
-       En ny användare skapas som kan användas för att logga in på datorn.
-    1. Ny eller befintlig undernät  
-       Avgör om ett nytt virtuellt nätverk och undernät som ska skapas eller ett befintligt undernät som ska användas. Om du redan har ett virtuellt nätverk som är anslutna till ditt lokala nätverk väljer du befintliga.
-    1. Undernät-ID  
-    ID för det undernät som de virtuella datorerna ska anslutas till. Om du vill ansluta den virtuella datorn till ditt lokala nätverk markerar du undernätet i det virtuella nätverket för VPN eller Expressroute. ID som ser oftast ut så /subscriptions/`<subscription ID`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
+Följ stegen i [konfigurerar Pacemaker på SUSE Linux Enterprise Server i Azure](high-availability-guide-suse-pacemaker.md) att skapa ett grundläggande Pacemaker kluster för den här HANA-servern. Du kan också använda samma Pacemaker kluster för SAP HANA och SAP NetWeaver (A) SCS.
 
-## <a name="setting-up-linux-ha"></a>Konfigurera Linux hög tillgänglighet
+## <a name="installing-sap-hana"></a>Installera SAP HANA
 
-Följande objekt med antingen [A] - prefixet gäller för alla noder är [1] – gäller endast för nod 1 eller [2] - gäller endast för nod 2.
+Följande objekt är prefixet antingen **[A]** - gäller för alla noder **[1]** – gäller endast för nod 1 eller **[2]** – gäller endast för nod 2 i Pacemaker klustret.
 
-1. [A] SLES SAP BYOS endast - registrera SLES för att kunna använda databaser
-1. [A] SLES för SAP BYOS endast - Lägg till offentliga moln modul
-1. [A] uppdatera SLES
-    ```bash
-    sudo zypper update
-
-    ```
-
-1. [1] aktivera ssh-åtkomst
-    ```bash
-    sudo ssh-keygen -tdsa
-    
-    # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
-    # Enter passphrase (empty for no passphrase): -> ENTER
-    # Enter same passphrase again: -> ENTER
-    
-    # copy the public key
-    sudo cat /root/.ssh/id_dsa.pub
-    ```
-
-2. [2] aktivera ssh-åtkomst
-    ```bash
-    sudo ssh-keygen -tdsa
-
-    # insert the public key you copied in the last step into the authorized keys file on the second server
-    sudo vi /root/.ssh/authorized_keys
-    
-    # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
-    # Enter passphrase (empty for no passphrase): -> ENTER
-    # Enter same passphrase again: -> ENTER
-    
-    # copy the public key    
-    sudo cat /root/.ssh/id_dsa.pub
-    ```
-
-1. [1] aktivera ssh-åtkomst
-    ```bash
-    # insert the public key you copied in the last step into the authorized keys file on the first server
-    sudo vi /root/.ssh/authorized_keys
-    
-    ```
-
-1. [A] installera tillägg för hög tillgänglighet
-    ```bash
-    sudo zypper install sle-ha-release fence-agents
-    
-    ```
-
-1. [A] disklayouten för installationsprogrammet för
+1. **[A]**  Disklayouten för installationen
     1. LVM  
-    Normalt bör du använda LVM för volymer som lagrar data och loggfiler. Följande exempel förutsätter att de virtuella datorerna har fyra datadiskar som är anslutna som ska användas för att skapa två volymer.
-        * Skapa fysiska volymer för alla diskar som du vill använda.
-    <pre><code>
-    sudo pvcreate /dev/sdc
-    sudo pvcreate /dev/sdd
-    sudo pvcreate /dev/sde
-    sudo pvcreate /dev/sdf
-    </code></pre>
-        * Skapa en volym grupp för datafiler, en volym grupp för loggfilerna och en för den delade katalogen för SAP HANA
-    <pre><code>
-    sudo vgcreate vg_hana_data /dev/sdc /dev/sdd
-    sudo vgcreate vg_hana_log /dev/sde
-    sudo vgcreate vg_hana_shared /dev/sdf
-    </code></pre>
-        * Skapa logiska volymer
-    <pre><code>
-    sudo lvcreate -l 100%FREE -n hana_data vg_hana_data
-    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log
-    sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared
-    sudo mkfs.xfs /dev/vg_hana_data/hana_data
-    sudo mkfs.xfs /dev/vg_hana_log/hana_log
-    sudo mkfs.xfs /dev/vg_hana_shared/hana_shared
-    </code></pre>
-        * Skapa mount-kataloger och kopiera alla logiska volymer UUID
-    <pre><code>
-    sudo mkdir -p /hana/data
-    sudo mkdir -p /hana/log
-    sudo mkdir -p /hana/shared
-    # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
-    sudo blkid
-    </code></pre>
-        * Skapa fstab poster för de tre logiska volymerna
-    <pre><code>
-    sudo vi /etc/fstab
-    </code></pre>
-    Infoga raden till /etc/fstab
-    <pre><code>
-    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_data/hana_data&gt;</b> /hana/data xfs  defaults,nofail  0  2
-    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_log/hana_log&gt;</b> /hana/log xfs  defaults,nofail  0  2
-    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_shared/hana_shared&gt;</b> /hana/shared xfs  defaults,nofail  0  2
-    </code></pre>
-        * Montera nya volymer
-    <pre><code>
-    sudo mount -a
-    </code></pre>
-    1. Vanlig diskar  
-       För små eller demonstrera system, du kan placera HANA data och loggfilen filer på en disk. Följande kommandon skapar en partition på /dev/sdc och formatera den med xfs.
-    ```bash
-    sudo fdisk /dev/sdc
-    sudo mkfs.xfs /dev/sdc1
+       
+       Normalt bör du använda LVM för volymer som lagrar data och loggfiler. Följande exempel förutsätter att de virtuella datorerna har fyra datadiskar som är anslutna som ska användas för att skapa två volymer.
+
+       Visa en lista över alla tillgängliga diskar
+       
+       <pre><code>
+       ls /dev/disk/azure/scsi1/lun*
+       </code></pre>
+       
+       Exempel på utdata
+       
+       ```
+       /dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2  /dev/disk/azure/scsi1/lun3
+       ```
+       
+       Skapa fysiska volymer för alla diskar som du vill använda.    
+       <pre><code>
+       sudo pvcreate /dev/disk/azure/scsi1/lun0
+       sudo pvcreate /dev/disk/azure/scsi1/lun1
+       sudo pvcreate /dev/disk/azure/scsi1/lun2
+       sudo pvcreate /dev/disk/azure/scsi1/lun3
+       </code></pre>
+
+       Skapa en volym grupp för datafiler, en volym grupp för loggfilerna och en för den delade katalogen för SAP HANA
+
+       <pre><code>
+       sudo vgcreate vg_hana_data_<b>HN1</b> /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
+       sudo vgcreate vg_hana_log_<b>HN1</b> /dev/disk/azure/scsi1/lun2
+       sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
+       </code></pre>
+       
+       Skapa logiska volymer
+
+       <pre><code>
+       sudo lvcreate -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+       sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
+       sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
+       sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data
+       sudo mkfs.xfs /dev/vg_hana_log_<b>HN1</b>/hana_log
+       sudo mkfs.xfs /dev/vg_hana_shared_<b>HN1</b>/hana_shared
+       </code></pre>
+       
+       Skapa mount-kataloger och kopiera alla logiska volymer UUID
+       
+       <pre><code>
+       sudo mkdir -p /hana/data/<b>HN1</b>
+       sudo mkdir -p /hana/log/<b>HN1</b>
+       sudo mkdir -p /hana/shared/<b>HN1</b>
+       # write down the ID of /dev/vg_hana_data_<b>HN1</b>/hana_data, /dev/vg_hana_log_<b>HN1</b>/hana_log and /dev/vg_hana_shared_<b>HN1</b>/hana_shared
+       sudo blkid
+       </code></pre>
+       
+       Skapa fstab poster för de tre logiska volymerna
+       
+       <pre><code>
+       sudo vi /etc/fstab
+       </code></pre>
+       
+       Infoga raden till /etc/fstab
+       
+       <pre><code>
+       /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_data_<b>HN1</b>-hana_data&gt;</b> /hana/data/<b>HN1</b> xfs  defaults,nofail  0  2
+       /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_log_<b>HN1</b>-hana_log&gt;</b> /hana/log/<b>HN1</b> xfs  defaults,nofail  0  2
+       /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_shared_<b>HN1</b>-hana_shared&gt;</b> /hana/shared/<b>HN1</b> xfs  defaults,nofail  0  2
+       </code></pre>
+       
+       Montera nya volymer
+       
+       <pre><code>
+       sudo mount -a
+       </code></pre>
     
-    # <a name="write-down-the-id-of-devsdc1"></a>Anteckna ID för /dev/sdc1
-    sudo/sbin/blkid sudo vi/etc/fstab
-    ```
+    1. Vanlig diskar  
+       Du kan placera HANA data och loggfilen filer på en disk för demo-system. Följande kommandon skapar en partition på /dev/disk/azure/scsi1/lun0 och formatera den med xfs.
 
-    Insert this line to /etc/fstab
-    <pre><code>
-    /dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
-    </code></pre>
+       <pre><code>
+       sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
+       sudo mkfs.xfs /dev/disk/azure/scsi1/lun0-part1
+       
+       # write down the ID of /dev/disk/azure/scsi1/lun0-part1
+       sudo /sbin/blkid
+       sudo vi /etc/fstab
+       </code></pre>
 
-    Create the target directory and mount the disk.
+       Infoga raden till /etc/fstab
+       <pre><code>
+       /dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
+       </code></pre>
 
-    ```bash
-    sudo mkdir /hana
-    sudo mount -a
-    ```
+       Skapa målkatalogen och montera disken.
 
-1. [A] konfigurera namnmatchning för alla värdar  
+       <pre><code>
+       sudo mkdir /hana
+       sudo mount -a
+       </code></pre>
+
+1. **[A]**  Konfigurera namnmatchning för alla värdar  
     Du kan använda en DNS-server, eller så kan du ändra de/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adressen och värdnamnet i följande kommandon
     ```bash
@@ -277,105 +279,40 @@ Följande objekt med antingen [A] - prefixet gäller för alla noder är [1] –
     ```
     Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet som matchar din miljö    
     
-    <pre><code>
-    <b>&lt;IP address of host 1&gt; &lt;hostname of host 1&gt;</b>
-    <b>&lt;IP address of host 2&gt; &lt;hostname of host 2&gt;</b>
-    </code></pre>
+   <pre><code>
+   <b>10.0.0.5 hn1-db-0</b>
+   <b>10.0.0.6 hn1-db-1</b>
+   </code></pre>
 
-1. [1] installera kluster
-    ```bash
-    sudo ha-cluster-init
-    
-    # Do you want to continue anyway? [y/N] -> y
-    # Network address to bind to (e.g.: 192.168.1.0) [10.79.227.0] -> ENTER
-    # Multicast address (e.g.: 239.x.x.x) [239.174.218.125] -> ENTER
-    # Multicast port [5405] -> ENTER
-    # Do you wish to use SBD? [y/N] -> N
-    # Do you wish to configure an administration IP? [y/N] -> N
-    ```
-        
-1. [2] Lägg till nod i klustret
-    ```bash
-    sudo ha-cluster-join
-        
-    # WARNING: NTP is not configured to start at system boot.
-    # WARNING: No watchdog device found. If SBD is used, the cluster will be unable to start without a watchdog.
-    # Do you want to continue anyway? [y/N] -> y
-    # IP address or hostname of existing node (e.g.: 192.168.1.1) [] -> IP address of node 1 e.g. 10.0.0.5
-    # /root/.ssh/id_dsa already exists - overwrite? [y/N] N
-    ```
-
-1. [A] ändra hacluster lösenord till samma lösenord
-    ```bash
-    sudo passwd hacluster
-    
-    ```
-
-1. [A] konfigurera corosync om du vill använda andra transport och lägga till nodelist. Annars kommer klustret inte att fungera. 
-    ```bash
-    sudo vi /etc/corosync/corosync.conf    
-    
-    ```
-
-    Lägg till följande fetstil innehåll i filen.
-    
-    <pre><code> 
-    [...]
-      interface { 
-          [...] 
-      }
-      <b>transport:      udpu</b>
-    } 
-    <b>nodelist {
-      node {
-        ring0_addr:     < ip address of node 1 >
-      }
-      node {
-        ring0_addr:     < ip address of node 2 > 
-      } 
-    }</b>
-    logging {
-      [...]
-    </code></pre>
-
-    Starta om tjänsten corosync
-
-    ```bash
-    sudo service corosync restart
-    
-    ```
-
-1. [A] Installationspaketen HANA hög tillgänglighet  
+1. **[A]**  Installera HANA HA paket  
     ```bash
     sudo zypper install SAPHanaSR
     
     ```
 
-## <a name="installing-sap-hana"></a>Installera SAP HANA
-
 Installera SAP HANA System Replication enligt kapitel 4 i den [SAP HANA SR prestanda optimerade scenariot guiden][suse-hana-ha-guide].
 
-1. [A] kör hdblcm från DVD: n HANA
+1. **[A]**  Kör hdblcm från DVD: n HANA
     * Välj installation -> 1
     * Välj ytterligare komponenter för installation -> 1
     * Ange installationssökväg [/ hana/delade]: RETUR ->
     * Ange lokala värdnamn [.]: -> RETUR
     * Vill du lägga till ytterligare värdar systemet? (j/n) [n]: RETUR ->
-    * Ange SAP HANA System-ID: <SID of HANA e.g. HDB>
+    * Ange SAP HANA System-ID: <SID of HANA e.g. HN1>
     * Ange instansnummer [00]:   
   HANA instansnummer. Använd 03 om du har använt Azure-mall eller följt manuell distribution
     * Välj läge för databasen / ange Index [1]: -> RETUR
     * Välj systemanvändning / ange Index [4]:  
   Välj system användning
-    * Ange platsen för datavolymer [/ hana/data/HDB]: RETUR ->
-    * Ange platsen för Loggvolymer [/ hana/log/HDB]: RETUR ->
+    * Ange platsen för datavolymer [/ hana/data/HN1]: RETUR ->
+    * Ange platsen för Loggvolymer [/ hana/log/HN1]: RETUR ->
     * Begränsa maximal minnesallokering? [n]: RETUR ->
     * Ange värdnamnet för certifikat för värden ”...” [...]: RETUR ->
     * Ange SAP värden Agent användare (sapadm) lösenord:
     * Bekräfta SAP värden Agent användare (sapadm) lösenord:
     * Ange systemadministratören (hdbadm) lösenord:
     * Bekräfta systemadministratören (hdbadm) lösenord:
-    * Ange System administratör arbetskatalog [/ usr/sap/HDB/hem]: RETUR ->
+    * Ange System administratör arbetskatalog [/ usr/sap/HN1/hem]: RETUR ->
     * Ange System inloggningsgränssnitt för administratör [/ bin/del]: RETUR ->
     * Ange systemadministratören användar-ID [1001]: -> RETUR
     * Ange ID för användargrupp (sapsys) [79]: RETUR ->
@@ -384,181 +321,204 @@ Installera SAP HANA System Replication enligt kapitel 4 i den [SAP HANA SR prest
     * Starta om systemet efter omstart av datorn? [n]: RETUR ->
     * Vill du fortsätta? (j/n):   
   Kontrollera sammanfattningen och ange y om du vill fortsätta
-1. [A] uppgradera SAP Värdagenten  
+
+1. **[A]**  Uppgradera SAP Värdagenten  
   Hämta senaste SAP Värdagenten arkivet från den [SAP Softwarecenter] [ sap-swcenter] och kör följande kommando för att uppgradera agenten. Ersätt sökvägen till arkivet så att den pekar till den fil som du hämtat.
     ```bash
     sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <path to SAP Host Agent SAR>
     ```
 
-1. [1] Skapa HANA replikering (som rot)  
-    Kör följande kommando. Se till att ersätta fetstil strängar (HANA System-ID HDB och instans antalet 03) med värden för SAP HANA-installationen.
+## <a name="configure-sap-hana-20-system-replication"></a>Konfigurera replikering för SAP HANA 2.0 System
+
+Följande objekt är prefixet antingen **[A]** - gäller för alla noder **[1]** – gäller endast för nod 1 eller **[2]** – gäller endast för nod 2 i Pacemaker klustret.
+
+1. **[1]**  Skapar klient-databas
+
+   Om du använder SAP HANA 2.0 eller MDC, skapa en klient-databas för SAP NetWeaver systemet. Ersätt NW1 med SID för SAP-system.
+
+   Logga in som `<hanasid`> adm och kör följande kommando
+
+   <pre><code>
+   hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
+   </code></pre>
+
+1. **[1]**  Konfigurera systemet replikering på den första noden
+   
+   Logga in som `<hanasid`> adm och säkerhetskopiera databaserna
+
+   <pre><code>
+   hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
+   hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
+   hdbsql -d <b>NW1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupNW1</b>')"
+   </code></pre>
+
+   Kopiera PKI systemfiler till sekundär
+
+   <pre><code>
+   scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/SSFS_<b>HN1</b>.DAT <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/
+   scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/SSFS_<b>HN1</b>.KEY <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/
+   </code></pre>
+
+   Skapa den primära platsen.
+
+   <pre><code>
+   hdbnsutil -sr_enable –-name=<b>SITE1</b>
+   </code></pre>
+
+1. **[2]**  Konfigurera systemet replikering på den andra noden
+    
+    Registrera den andra noden för att starta replikering för systemet. Logga in som `<hanasid`> adm och kör följande kommando
+
     <pre><code>
-    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
+    sapcontrol -nr <b>03</b> -function StopWait 600 10
+    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
+    </code></pre>
+
+## <a name="configure-sap-hana-10-system-replication"></a>Konfigurera replikering för SAP HANA 1.0 System
+
+1. **[1]**  Skapa nödvändiga användare
+
+    Logga in som rot och kör följande kommando. Se till att ersätta fetstil strängar (HANA System-ID HN1 och instans antalet 03) med värden för SAP HANA-installationen.
+
+    <pre><code>
+    PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
     hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"' 
     hdbsql -u system -i <b>03</b> 'GRANT DATA ADMIN TO <b>hdb</b>hasync' 
     hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
     </code></pre>
 
-1. [A] Skapa keystore-post (som rot)
+1. **[A]**  Skapa keystore-post
+   
+    Logga in som rot och kör följande kommando för att skapa en ny keystore-post.
+
     <pre><code>
-    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
+    PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
     hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
     </code></pre>
-1. [1] backup database (som rot)
-    <pre><code>
-    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
-    hdbsql -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
-    </code></pre>
-1. [1] växla till sapsid användare (till exempel hdbadm) och skapa den primära platsen.
+
+1. **[1]**  Backup database
+
+   Logga in som rot och säkerhetskopiera databaserna
+
+   <pre><code>
+   PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
+   hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
+   </code></pre>
+
+   Om du använder en installation med flera innehavare kan också säkerhetskopiera databasen för klient
+
+   <pre><code>   
+   hdbsql -d <b>HN1</b> -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
+   </code></pre>
+
+1. **[1]**  Konfigurera systemet replikering på den första noden
+    
+    Logga in som `<hanasid`> adm och skapa den primära platsen.
+
     <pre><code>
     su - <b>hdb</b>adm
     hdbnsutil -sr_enable –-name=<b>SITE1</b>
     </code></pre>
-1. [2] växla till sapsid användare (till exempel hdbadm) och skapa en sekundär plats.
+
+1. **[2]**  Konfigurera systemet replikering på den sekundära noden.
+
+    Logga in som `<hanasid`> adm och registrera den sekundära platsen.
+
     <pre><code>
-    su - <b>hdb</b>adm
     sapcontrol -nr <b>03</b> -function StopWait 600 10
-    hdbnsutil -sr_register --remoteHost=<b>saphanavm1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
+    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
     </code></pre>
 
-## <a name="configure-cluster-framework"></a>Konfigurera klustret Framework
+## <a name="create-sap-hana-cluster-resources"></a>Skapa SAP HANA klusterresurser
 
-Ändra standardinställningarna
+   Först skapa HANA-topologi. Kör följande kommandon på en av klusternoderna Pacemaker.
+   
+   <pre><code>
+   sudo crm configure property maintenance-mode=true
 
-<pre>
-sudo vi crm-defaults.txt
-# enter the following to crm-defaults.txt
-<code>
-property $id="cib-bootstrap-options" \
-  no-quorum-policy="ignore" \
-  stonith-enabled="true" \
-  stonith-action="reboot" \
-  stonith-timeout="150s"
-rsc_defaults $id="rsc-options" \
-  resource-stickiness="1000" \
-  migration-threshold="5000"
-op_defaults $id="op-options" \
-  timeout="600"
-</code>
+   # replace the bold string with your instance number and HANA system ID
+   
+   sudo crm configure primitive rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
+     operations \$id="rsc_sap2_<b>HN1</b>_HDB<b>03</b>-operations" \
+     op monitor interval="10" timeout="600" \
+     op start interval="0" timeout="600" \
+     op stop interval="0" timeout="300" \
+     params SID="<b>HN1</b>" InstanceNumber="<b>03</b>"
+   
+   sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
+     meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
+   </code></pre>
+   
+   Skapa sedan HANA-resurser.
+   
+   <pre><code>
+   # replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
+      
+   sudo crm configure primitive rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHana \
+     operations \$id="rsc_sap_<b>HN1</b>_HDB<b>03</b>-operations" \
+     op start interval="0" timeout="3600" \
+     op stop interval="0" timeout="3600" \
+     op promote interval="0" timeout="3600" \
+     op monitor interval="60" role="Master" timeout="700" \
+     op monitor interval="61" role="Slave" timeout="700" \
+     params SID="<b>HN1</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
+     DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
+   
+   sudo crm configure ms msl_SAPHana_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> \
+     meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
+     target-role="Started" interleave="true"
+   
+   sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \
+     meta target-role="Started" is-managed="true" \
+     operations \$id="rsc_ip_<b>HN1</b>_HDB<b>03</b>-operations" \
+     op monitor interval="10s" timeout="20s" \
+     params ip="<b>10.0.0.13</b>"
+   
+   sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> anything \
+     params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \
+     op monitor timeout=20s interval=10 depth=0
+   
+   sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
+   
+   sudo crm configure colocation col_saphana_ip_<b>HN1</b>_HDB<b>03</b> 2000: g_ip_<b>HN1</b>_HDB<b>03</b>:Started \
+     msl_SAPHana_<b>HN1</b>_HDB<b>03</b>:Master  
+   
+   sudo crm configure order ord_SAPHana_<b>HN1</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
+     msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
+   
+   # Cleanup the HANA resources. The HANA resources might have failed because of a known issue.
+   sudo crm resource cleanup rsc_SAPHana_<b>HN1</b>_HDB<b>03</b>
 
-# <a name="now-we-load-the-file-to-the-cluster"></a>Vi kan nu läsa in filen i klustret
-sudo crm konfigurera belastningen update crm-defaults.txt
-</pre>
+   sudo crm configure property maintenance-mode=false
+   </code></pre>
 
-### <a name="create-stonith-device"></a>Skapa STONITH enhet
+   Kontrollera att klustret status är ok och att alla resurser har startats. Det är inte viktigt i vilken nod som använder resurserna.
 
-STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Microsoft Azure. Följ dessa steg om du vill skapa ett huvudnamn för tjänsten.
-
-1. Gå till <https://portal.azure.com>
-1. Öppna bladet Azure Active Directory  
-   Gå till egenskaperna och Skriv ned Directory-ID. Detta ID är den **klient-ID**.
-1. Klicka på appen registreringar
-1. Klicka på Lägg till
-1. Ange ett namn, Välj typ av program ”Web app/API”, ange en inloggnings-URL (till exempel http://localhost) och klicka på Skapa
-1. URL för inloggning används inte och kan vara en giltig URL
-1. Välj den nya appen och klicka på nycklar på fliken Inställningar
-1. Ange en beskrivning för en ny nyckel, Välj ”upphör aldrig att gälla” och klicka på Spara
-1. Anteckna värdet. Den används som den **lösenord** för tjänstens huvudnamn
-1. Skriv ned program-ID. Den används som användarnamnet (**inloggnings-ID** i följande steg) av tjänstens huvudnamn
-
-Tjänstens huvudnamn har inte behörighet att komma åt Azure-resurser som standard. Ge behörighet att starta och stoppa tjänstens huvudnamn (frigöra) alla virtuella datorer i klustret.
-
-1. Gå till https://portal.azure.com
-1. Öppna bladet alla resurser
-1. Välj den virtuella datorn
-1. Klicka på åtkomstkontroll (IAM)
-1. Klicka på Lägg till
-1. Välj rollen ägare
-1. Ange namnet på programmet som du skapade i tidigare steg
-1. Klicka på OK
-
-När du har redigerat behörigheter för de virtuella datorerna kan du konfigurera STONITH-enheter i klustret.
-
-<pre>
-sudo vi crm-fencing.txt
-# enter the following to crm-fencing.txt
-# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
-<code>
-primitive rsc_st_azure_1 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
-
-primitive rsc_st_azure_2 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
-
-colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
-</code>
-
-# <a name="now-we-load-the-file-to-the-cluster"></a>Vi kan nu läsa in filen i klustret
-sudo crm konfigurera belastningen update crm-fencing.txt
-</pre>
-
-### <a name="create-sap-hana-resources"></a>Skapa SAP HANA-resurser
-
-<pre>
-sudo vi crm-saphanatop.txt
-# enter the following to crm-saphana.txt
-# replace the bold string with your instance number and HANA system ID
-<code>
-primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
-    operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
-    op monitor interval="10" timeout="600" \
-    op start interval="0" timeout="600" \
-    op stop interval="0" timeout="300" \
-    params SID="<b>HDB</b>" InstanceNumber="<b>03</b>"
-
-clone cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \
-    meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
-</code>
-
-# <a name="now-we-load-the-file-to-the-cluster"></a>Vi kan nu läsa in filen i klustret
-sudo crm konfigurera belastningen update crm-saphanatop.txt
-</pre>
-
-<pre>
-sudo vi crm-saphana.txt
-# enter the following to crm-saphana.txt
-# replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
-<code>
-primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
-    operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
-    op start interval="0" timeout="3600" \
-    op stop interval="0" timeout="3600" \
-    op promote interval="0" timeout="3600" \
-    op monitor interval="60" role="Master" timeout="700" \
-    op monitor interval="61" role="Slave" timeout="700" \
-    params SID="<b>HDB</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
-    DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
-
-ms msl_SAPHana_<b>HDB</b>_HDB<b>03</b> rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> \
-    meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
-    target-role="Started" interleave="true"
-
-primitive rsc_ip_<b>HDB</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \ 
-    meta target-role="Started" is-managed="true" \ 
-    operations $id="rsc_ip_<b>HDB</b>_HDB<b>03</b>-operations" \ 
-    op monitor interval="10s" timeout="20s" \ 
-    params ip="<b>10.0.0.21</b>" 
-primitive rsc_nc_<b>HDB</b>_HDB<b>03</b> anything \ 
-    params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \ 
-    op monitor timeout=20s interval=10 depth=0 
-group g_ip_<b>HDB</b>_HDB<b>03</b> rsc_ip_<b>HDB</b>_HDB<b>03</b> rsc_nc_<b>HDB</b>_HDB<b>03</b>
- 
-colocation col_saphana_ip_<b>HDB</b>_HDB<b>03</b> 2000: g_ip_<b>HDB</b>_HDB<b>03</b>:Started \ 
-    msl_SAPHana_<b>HDB</b>_HDB<b>03</b>:Master  
-order ord_SAPHana_<b>HDB</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \ 
-    msl_SAPHana_<b>HDB</b>_HDB<b>03</b>
-</code>
-
-# <a name="now-we-load-the-file-to-the-cluster"></a>Vi kan nu läsa in filen i klustret
-sudo crm konfigurera belastningen update crm-saphana.txt
-</pre>
+   <pre><code>
+   sudo crm_mon -r
+   
+   # Online: [ hn1-db-0 hn1-db-1 ]
+   #
+   # Full list of resources:
+   #
+   # stonith-sbd     (stonith:external/sbd): Started hn1-db-0
+   # rsc_st_azure    (stonith:fence_azure_arm):      Started hn1-db-1
+   # Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   #     Started: [ hn1-db-0 hn1-db-1 ]
+   # Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   #     Masters: [ hn1-db-0 ]
+   #     Slaves: [ hn1-db-1 ]
+   # Resource Group: g_ip_HN1_HDB03
+   #     rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
+   #     rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+   </code></pre>
 
 ### <a name="test-cluster-setup"></a>Inställningar för kluster
-Det här avsnittet beskrivs hur du kan testa din konfiguration. Varje test förutsätter att du är rot och SAP HANA master körs på den virtuella datorn saphanavm1.
+Det här avsnittet beskrivs hur du kan testa din konfiguration. Varje test förutsätter att du är rot och SAP HANA master körs på virtuella hn1-db-0.
 
 #### <a name="fencing-test"></a>Avgränsningar Test
 
-Du kan testa installationen av agenten avgränsningar genom att inaktivera nätverksgränssnittet på noden saphanavm1.
+Du kan testa installationen av agenten avgränsningar genom att inaktivera nätverksgränssnittet på noden hn1-db-0.
 
 <pre><code>
 sudo ifdown eth0
@@ -570,57 +530,57 @@ Om du ställer in stonith-åtgärd till av den virtuella datorn kommer att stopp
 När du startar den virtuella datorn igen SAP HANA-resurs som inte går att starta som sekundära om du ställer in AUTOMATED_REGISTER = ”false”. I detta fall konfigurera HANA-instans som sekundär genom att köra det här kommandot:
 
 <pre><code>
-su - <b>hdb</b>adm
+su - <b>hn1</b>adm
 
 # Stop the HANA instance just in case it is running
 sapcontrol -nr <b>03</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b>
+hdbnsutil -sr_register --remoteHost=<b>hn1-db-1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b>
 
 # switch back to root and cleanup the failed state
 exit
-crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
+crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
 #### <a name="testing-a-manual-failover"></a>Testa en manuell växling
 
-Du kan testa en manuell växling genom att stoppa tjänsten pacemaker på noden saphanavm1.
+Du kan testa en manuell växling genom att stoppa tjänsten pacemaker på noden hn1-db-0.
 <pre><code>
 service pacemaker stop
 </code></pre>
 
-Efter växling vid fel, kan du starta tjänsten igen. Om du ställer in AUTOMATED_REGISTER = ”false”, SAP HANA-resursen på saphanavm1 går inte att starta som sekundära. I detta fall konfigurera HANA-instans som sekundär genom att köra det här kommandot:
+Efter växling vid fel, kan du starta tjänsten igen. Om du ställer in AUTOMATED_REGISTER = ”false”, SAP HANA-resursen på hn1-db-0 går inte att starta som sekundära. I detta fall konfigurera HANA-instans som sekundär genom att köra det här kommandot:
 
 <pre><code>
 service pacemaker start
-su - <b>hdb</b>adm
+su - <b>hn1</b>adm
 
 # Stop the HANA instance just in case it is running
 sapcontrol -nr <b>03</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
+hdbnsutil -sr_register --remoteHost=<b>hn1-db-1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 
 
 # Switch back to root and cleanup the failed state
 exit
-crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
+crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
 #### <a name="testing-a-migration"></a>Testa en migrering
 
 Du kan migrera SAP HANA huvudnoden genom att köra följande kommando
 <pre><code>
-crm resource migrate msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
-crm resource migrate g_ip_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
+crm resource migrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b>
+crm resource migrate g_ip_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b>
 </code></pre>
 
-Om du ställer in AUTOMATED_REGISTER = ”false” den här kommandosekvens bör migrera SAP HANA-huvudnod och den grupp som innehåller saphanavm2 virtuella IP-adressen.
-Det inte går att starta som sekundära saphanavm1 SAP HANA resursen. I detta fall konfigurera HANA-instans som sekundär genom att köra det här kommandot:
+Om du ställer in AUTOMATED_REGISTER = ”false” den här kommandosekvens bör migrera SAP HANA-huvudnod och den grupp som innehåller den virtuella IP-adressen till hn1-db-1.
+Det inte går att starta som sekundära SAP HANA-resursen på hn1-db-0. I detta fall konfigurera HANA-instans som sekundär genom att köra det här kommandot:
 
 <pre><code>
-su - <b>hdb</b>adm
+su - <b>hn1</b>adm
 
 # Stop the HANA instance just in case it is running
 sapcontrol -nr <b>03</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
+hdbnsutil -sr_register --remoteHost=<b>hn1-db-1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code></pre>
 
 Migreringen skapar Platsbegränsningar som måste tas bort igen.
@@ -629,7 +589,7 @@ Migreringen skapar Platsbegränsningar som måste tas bort igen.
 crm configure edited
 
 # Delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
-location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
+location cli-prefer-g_ip_<b>HN1</b>_HDB<b>03</b> g_ip_<b>HN1</b>_HDB<b>03</b> role=Started inf: <b>hn1-db-1</b>
 </code></pre>
 
 Du måste också rensa det sekundära noden tillståndet
@@ -637,7 +597,7 @@ Du måste också rensa det sekundära noden tillståndet
 <pre><code>
 # Switch back to root and cleanup the failed state
 exit
-crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
+crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
 ## <a name="next-steps"></a>Nästa steg

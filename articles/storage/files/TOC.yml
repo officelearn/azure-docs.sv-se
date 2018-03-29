@@ -26,14 +26,20 @@
       items:
         - name: Alternativ för lagringskontot
           href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Planera för distribution av Azure Files
-          href: storage-files-planning.md
-        - name: Så här distribuerar du Azure Files
-          href: storage-files-deployment-guide.md
-        - name: Planera för distribution av Azure File Sync
-          href: storage-sync-files-planning.md
-        - name: Så här distribuerar du Azure File Sync
-          href: storage-sync-files-deployment-guide.md
+        - name: Distribuera Azure Files
+          items:
+            - name: Planera för distribution av Azure Files
+              href: storage-files-planning.md
+            - name: Så här distribuerar du Azure Files
+              href: storage-files-deployment-guide.md
+        - name: Distribuera Azure File Sync
+          items:
+            - name: Planera för distribution av Azure File Sync
+              href: storage-sync-files-planning.md
+            - name: Så här distribuerar du Azure File Sync
+              href: storage-sync-files-deployment-guide.md
+            - name: Inställningar för Azure File Sync-proxy och brandväggar
+              href: storage-sync-files-firewall-and-proxy.md
         - name: Om ögonblicksbilder av filresurser
           href: storage-snapshots-files.md
         - name: Så här arbetar du med ögonblicksbilder av filresurser

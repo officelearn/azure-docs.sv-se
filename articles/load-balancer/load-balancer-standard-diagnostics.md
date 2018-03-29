@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: Kumud
-ms.openlocfilehash: 1d39cdc13e69740dc99e67f935b60db218536044
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7d60925381abe617f6e2fac51176b8e30517c3ba
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Mått hälsa och diagnostik för Standard belastningsutjämnare
 
@@ -88,7 +88,7 @@ VIP-tillgänglighet misslyckas av följande skäl:
 - Distributionen har inga felfri virtuella datorer i serverdelspoolen. 
 - Ett avbrott i infrastrukturen har uppstått som orsakar VIP tillgänglighet misslyckas.
 
-Du kan använda den [VIP mått för tillgänglighet tillsammans med avsökning hälsostatus för att ställa diagnoser](https://aka.ms/lbdiagnostics#vipavailabilityandhealthprobes).
+Du kan använda den [VIP mått för tillgänglighet tillsammans med avsökning hälsostatus för att ställa diagnoser](#vipavailabilityandhealthprobes).
 
 Använd **genomsnittliga** som sammanställning för de flesta scenarier.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/23/2018
 ms.author: amitsriva
-ms.openlocfilehash: dfa451a06fbadbb63c83f800ac164db399efd583
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Backend-hälsotillstånd, diagnostikloggar och mått för Programgateway
 
@@ -27,7 +27,7 @@ Med hjälp av Azure Application Gateway kan övervaka du resurser på följande 
 
 * [Backend-hälsa](#back-end-health): Programgateway ger möjlighet att övervaka hälsotillståndet hos servrarna i backend-pooler via Azure-portalen och via PowerShell. Du kan också hitta hälsotillståndet för backend-pooler via prestanda diagnostikloggar.
 
-* [Loggar](#diagnostic-logs): loggar Tillåt för prestanda, åtkomst och andra data sparas eller förbrukad från en resurs för övervakning.
+* [Loggar](#diagnostic-logging): loggar Tillåt för prestanda, åtkomst och andra data sparas eller förbrukad från en resurs för övervakning.
 
 * [Mått](#metrics): Application Gateway har för närvarande ett enskilt mått. Mätvärdet mäter genomflödet av Programgateway i byte per sekund.
 

@@ -1,9 +1,9 @@
 ---
 title: 'Introduktion till Azure Cosmos DB Graph API: er | Microsoft Docs'
-description: "Lär dig hur du kan använda Azure Cosmos DB för att lagra, fråga och passerar massiv diagram med låg latens med hjälp av frågespråket för Apache TinkerPop Gremlin diagram."
+description: Lär dig hur du kan använda Azure Cosmos DB för att lagra, fråga och passerar massiv diagram med låg latens med hjälp av frågespråket för Apache TinkerPop Gremlin diagram.
 services: cosmos-db
-author: luisbosquez
-documentationcenter: 
+author: LuisBosquez
+documentationcenter: ''
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
 ms.workload: data-services
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: ba58377614326a10405be4a64d4b39f116b75bfe
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 50030434f3b2e59ba97efca2946be1a5115bc145
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introduktion till Azure Cosmos DB: Graph API
 
@@ -111,8 +111,8 @@ I följande tabell visas populära Gremlin drivrutiner som du kan använda mot A
 | --- | --- | --- |
 | [.NET](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Skapa diagram med hjälp av .NET](create-graph-dotnet.md) |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) | [Skapa diagram med Java](create-graph-java.md) |
-| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin JavaScript på Github](https://github.com/jbmusso/gremlin-javascript) | [Skapa diagram med Node.js](create-graph-nodejs.md) |
-| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin Python på Github](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Skapa diagram med hjälp av Python](create-graph-python.md) |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin JavaScript på GitHub](https://github.com/jbmusso/gremlin-javascript) | [Skapa diagram med Node.js](create-graph-nodejs.md) |
+| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin Python på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Skapa diagram med hjälp av Python](create-graph-python.md) |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin PHP på GitHub](https://github.com/PommeVerte/gremlin-php) | [Skapa diagram med hjälp av PHP](create-graph-php.md) |
 | [Gremlin konsolen](https://tinkerpop.apache.org/downloads.html) | [TinkerPop dokument](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Skapa diagram med Gremlin-konsolen](create-graph-gremlin-console.md) |
 

@@ -14,17 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: 258aac722aa1c94ecf2cbf0524a3e4b53b8a788c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f3e7b9c7432538c0f78662213544d4d691652f13
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-and-service-level-logging"></a>Programmet och service nivån loggning
 
 Instrumentering koden är grunden för de flesta andra aspekter av övervaka dina tjänster. Instrumentation är det enda sättet du kan veta att något är fel, och diagnostisera vad som behöver åtgärdas. Även om det är tekniskt möjligt att ansluta en felsökare till en tjänst för produktion, men det är inte vanligt. Därför är har detaljerad instrumentationsdata viktigt.
 
 Vissa produkter instrumentera automatiskt din kod. Även om dessa lösningar kan också fungera, krävs nästan alltid manuell instrumentation. Du måste ha tillräckligt med information för att felsöka kriminalteknikers programmet i slutet. Här beskrivs olika sätt att instrumentering koden och när du ska välja en metod över en annan.
+
+Exempel på hur du använder dessa förslag finns [lägga till loggning Service Fabric-programmet](service-fabric-how-to-diagnostics-log.md).
 
 ## <a name="eventsource"></a>eventSource
 

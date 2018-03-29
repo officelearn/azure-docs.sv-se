@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning 2017 Preview vanliga frågor och svar | Microsoft Docs"
-description: "Den här artikeln innehåller vanliga frågor och svar för Azure Machine Learning förhandsgranskningsfunktioner"
+title: Azure Machine Learning 2017 Preview vanliga frågor och svar | Microsoft Docs
+description: Den här artikeln innehåller vanliga frågor och svar för Azure Machine Learning förhandsgranskningsfunktioner
 services: machine-learning
 author: serinakaye
 ms.author: serinak
@@ -10,25 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 6146e1ce98144a05bef2ca29705f451aa3f5fb50
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 864e9ff5551637a93b957e5011a8857072c6eaaf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Machine Learning
 
+Azure Machine Learning är en helt hanterad Azure-tjänst som gör att du kan skapa, testa, hantera och distribuera machine learning och AI-modeller. Våra tjänster och hämtningsbart program erbjuder en kod första metod som utnyttjar moln, lokalt och kant för att tillhandahålla tåget, distribuera, hantera och övervaka modeller med ström, hastighet och flexibilitet. Azure Machine Learning Studio tillhandahåller också en webbläsarbaserad, visuell dra och släpp redigeringsmiljön där ingen kodning krävs. 
+
 ## <a name="general-product-questions"></a>Generella frågor
-
-**Vad är Azure Machine Learning?**
-
-Azure Machine Learning är en helt hanterad Azure-tjänst som gör att du kan skapa, testa, hantera och distribuera machine learning och AI-modeller. Vår nya tjänster hämtningsbart program erbjuder en kod första metod som utnyttjar moln, lokalt och kant för att tillhandahålla tåget, distribuera, hantera och övervaka modeller med ström, hastighet och flexibilitet. Azure Machine Learning Studio tillhandahåller också en webbläsarbaserad, visuell dra och släpp redigeringsmiljön där ingen kodning krävs. 
-
-**Regioner som är nya tjänster är tillgängliga?**
-
-Hitta Azure-regioner som stöds för undersökningar och modellen management-tjänsten under Azure Machine Learning på den [Azure produkter efter region](https://azure.microsoft.com/regions/services/) sidan.
-
-När vi utvecklar produkten läggs flera områden.  Du kan hjälpa oss att prioritera vilka regioner för distribution till på vår [Azure Machine Learning Feedback](https://feedback.azure.com/forums/257792-machine-learning) plats. 
 
 **Vilka andra Azure-tjänster krävs?**
 

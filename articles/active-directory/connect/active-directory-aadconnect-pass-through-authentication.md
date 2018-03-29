@@ -1,9 +1,9 @@
-﻿---
+---
 title: 'Azure AD Connect: Direkt-autentisering | Microsoft Docs'
-description: "Den här artikeln beskriver Azure Active Directory (AD Azure) direkt-autentisering och hur det kan Azure AD inloggningar genom att verifiera användarnas lösenord mot lokala Active Directory."
+description: Den här artikeln beskriver Azure Active Directory (AD Azure) direkt-autentisering och hur det kan Azure AD inloggningar genom att verifiera användarnas lösenord mot lokala Active Directory.
 services: active-directory
-keywords: "Vad är Azure AD Connect direkt autentisering, installera Active Directory, komponenter som krävs för Azure AD, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Vad är Azure AD Connect direkt autentisering, installera Active Directory, komponenter som krävs för Azure AD, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 5a559c749bc7ba3cabbbb1a171605b8baf601eef
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: d19e63e10f2d42d97bb6fabca9c9e47028cbaf39
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Användaren logga in med Azure Active Directory direkt-autentisering
 
@@ -28,7 +28,7 @@ Med direktautentisering för Azure Active Directory (AD Azure) kan användarna l
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Den här funktionen är ett alternativ till [Azure AD-lösenord hash-synkronisering](active-directory-aadconnectsync-implement-password-synchronization.md), vilket ger samma fördelen med autentisering i molnet och organisationer. Principer för säkerhet och efterlevnad i vissa organisationer tillåter dock inte dessa organisationer att skicka användarnas lösenord, även i en hashformaterats formuläret utanför deras interna gränser. Direkt-autentisering är den rätta lösningen för dessa organisationer.
+Den här funktionen är ett alternativ till [Azure AD-lösenord hash-synkronisering](active-directory-aadconnectsync-implement-password-hash-synchronization.md), vilket ger samma fördelen med autentisering i molnet och organisationer. Principer för säkerhet och efterlevnad i vissa organisationer tillåter dock inte dessa organisationer att skicka användarnas lösenord, även i en hashformaterats formuläret utanför deras interna gränser. Direkt-autentisering är den rätta lösningen för dessa organisationer.
 
 ![Azure AD-direkt-autentisering](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 

@@ -1,14 +1,14 @@
 ---
-title: "Microsoft Azure certifieringar för SAP | Microsoft Docs"
-description: "Uppdaterad lista över aktuella konfigurationer och SAP-certifieringar på Azure-plattformen."
+title: Microsoft Azure certifieringar för SAP | Microsoft Docs
+description: Uppdaterad lista över aktuella konfigurationer och SAP-certifieringar på Azure-plattformen.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
-ms.assetid: 
+keywords: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2017
 ms.author: rclaus
-ms.custom: 
-ms.openlocfilehash: 865fa54c908481b3f4c211f12293538c617b6129
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.custom: ''
+ms.openlocfilehash: 96a3b6f8f8a03019f0446aa7ba42f53298e21009
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>SAP-certifiering och konfigurationer som körs på Microsoft Azure
 
@@ -37,7 +37,7 @@ Referenser:
 | --- | --- | --- |
 | SAP HANA Developer Edition (inklusive klientprogrammet HANA består av SQLODBC, ODBO Windows endast, ODBC, JDBC-drivrutiner, HANA studio och HANA-databas) | Red Hat Enterprise Linux, SUSE Linux Enterprise | D-serien VM-familjen |
 | En på HANA för företag | SUSE Linux Enterprise | DS14_v2 |
-| SAP HANA FÖR S/4 |Red Hat Enterprise Linux, SUSE Linux Enterprise | Kontrollerade tillgänglighet för GS5, SAP HANA i Azure (stora instanser) |
+| SAP S/4 HANA |Red Hat Enterprise Linux, SUSE Linux Enterprise | Kontrollerade tillgänglighet för GS5, SAP HANA i Azure (stora instanser) |
 | Programsvit på HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 för enskild nod distributioner för icke-produktion scenarier SAP HANA i Azure (stora instanser) |
 | HANA Enterprise för BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 för enskild nod distributioner SAP HANA i Azure (stora instanser) |
 | SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 för enskild nod distributioner SAP HANA i Azure (stora instanser) |
@@ -51,10 +51,10 @@ Referenser:
 
 | SAP-produkt | Gäst-OS | RDBMS | Typer av virtuella datorer |
 | --- | --- | --- | --- |
-| SAP Business Suite-program |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQLServer, Oracle (Windows och endast Oracle Linux), DB2, SAP ASE |A5 till A11 D11 till D14 DS11 till DS14 DS11_v2 till DS15_v2 GS1 till GS5 M-serien |
-| SAP Business All-in-One |Windows, SUSE Linux Enterprise Red Hat Enterprise Linux |SQLServer, Oracle (Windows och endast Oracle Linux), DB2, SAP ASE |A5 till A11 D11 till D14 DS11 till DS14 DS11_v2 till DS15_v2 GS1 till GS5 M-serien |
-| SAP BusinessObjects BI |Windows |Saknas |A5 till A11 D11 till D14 DS11 till DS14 DS11_v2 till DS15_v2 GS1 till GS5 M-serien |
-| SAP NetWeaver |Windows, SUSE Linux Enterprise Red Hat Enterprise Linux |SQLServer, Oracle (Windows och endast Oracle Linux), DB2, SAP ASE |A5 till A11 D11 till D14 DS11 till DS14 DS11_v2 till DS15_v2 GS1 till GS5 M-serien |
+| SAP Business Suite-program |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQLServer, Oracle (Windows och endast Oracle Linux), DB2, SAP ASE |A5 till A11 D11 till D14 DS11 till DS14 DS11_v2 till DS15_v2 GS1 till GS5 D2s_v3 till D64s_v3 E2s_v3 till E64s_v3 M64s till M128ms |
+| SAP Business All-in-One |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQLServer, Oracle (Windows och endast Oracle Linux), DB2, SAP ASE |A5 till A11 D11 till D14 DS11 till DS14 DS11_v2 till DS15_v2 GS1 till GS5 D2s_v3 till D64s_v3 E2s_v3 till E64s_v3 M64s till M128ms |
+| SAP BusinessObjects BI |Windows |Gäller inte |A5 till A11 D11 till D14 DS11 till DS14 DS11_v2 till DS15_v2 GS1 till GS5 D2s_v3 till D64s_v3 E2s_v3 till E64s_v3 M64s till M128ms |
+| SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQLServer, Oracle (Windows och endast Oracle Linux), DB2, SAP ASE |A5 till A11 D11 till D14 DS11 till DS14 DS11_v2 till DS15_v2 GS1 till GS5 D2s_v3 till D64s_v3 E2s_v3 till E64s_v3 M64s till M128ms |
 
 ## <a name="other-sap-workload-supported-on-azure"></a>Andra SAP arbetsbelastning som stöds på Azure
 
@@ -63,5 +63,5 @@ Referenser:
 | SAP Business en på SQL-Server | Windows  | SQL Server | Alla NetWeaver certifierade VM-typer |
 | SAP BITAR 10.01 MS SP08 | Windows | | Alla typer av NetWeaver certifierade VM<br /> SAP-kommentar #2451795 |
 | SAP Business objekt BI plattform | Windows | | SAP-kommentar #2145537 |
-| SAP-datatjänster 4.2 | | | SAP-kommentar #2288344 |
-| SAP Hybris Commerce-plattformen 5.x och 6.x | Windows | SQLServer, Oracle | Alla NetWeaver certifierade VM-typer<br /> [Hybris Wiki](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud) |
+| SAP Data Services 4.2 | | | SAP-kommentar #2288344 |
+| SAP Hybris Commerce-plattformen 5.x och 6.x | Windows | SQL Server, Oracle | Alla NetWeaver certifierade VM-typer<br /> [Hybris Wiki](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud) |

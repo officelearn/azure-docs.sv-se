@@ -1,25 +1,25 @@
 ---
 title: Azure-supporten om Cosmos DB Gremlin | Microsoft Docs
-description: "Lär dig mer om Gremlin språk från Apache TinkerPop som funktioner och steg och är tillgängliga i Azure Cosmos DB"
+description: Läs mer om Gremlin språk från Apache TinkerPop. Lär dig mer om vilka funktioner och steg finns i Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
-author: luisbosquez
+documentationcenter: ''
+author: LuisBosquez
 manager: jhubbard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: b32838dfaf83ea3acfb7125322bb99124370bd8e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 453e11c31a01b6ce8e77deda89725ecd53fd2db9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Stöd för Azure Cosmos DB Gremlin diagram
 Har stöd för Azure Cosmos-DB [Apache Tinkerpop](http://tinkerpop.apache.org) kurva traversal språk [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), vilket är en Graph API för att skapa diagram entiteter och utför åtgärder i diagrammet frågan. Du kan använda Gremlin språk för att skapa diagram entiteter (formhörnen och kanter), ändra egenskaper i dessa enheter, utföra frågor och traversals och ta bort enheter. 
@@ -35,10 +35,10 @@ Nu ska vi använda ett diagram som exempel för att förstå hur frågor kan utt
 
 Det här diagrammet innehåller följande vertex (kallas ”etikett” i Gremlin):
 
-- Personer: diagrammet har tre personer Robin, Thomas och Ben
-- Intressen: deras intressen, i det här exemplet Football spel
+- Personer: Diagrammet har tre personer Robin, Thomas och Ben
+- Intressen: Deras intressen, i det här exemplet Football spel
 - : De enheter som de flesta använder
-- Operativsystem: de operativsystem som enheterna som körs på
+- Operativsystem: De operativsystem som enheterna som körs på
 
 Vi representerar relationerna mellan dessa enheter via följande edge typer/etiketter:
 
@@ -165,45 +165,45 @@ Gremlin åtgärderna fungerar sömlöst över diagramdata som sträcker sig öve
 ## <a name="gremlin-steps"></a>Gremlin steg
 Nu ska vi titta på Gremlin stegen som stöds av Azure Cosmos DB. En fullständig referens om Gremlin finns [TinkerPop referens](http://tinkerpop.apache.org/docs/current/reference).
 
-| Steg | Beskrivning | TinkerPop 3.2-dokumentation | Anteckningar |
-| --- | --- | --- | --- |
-| `addE` | Lägger till en kant mellan två formhörnen | [addE steg](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
-| `addV` | Lägger till en nod i diagrammet | [addV steg](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
-| `and` | Garanterar att alla traversals returnera ett värde | [och steg](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
-| `as` | Ett steg modulator att tilldela en variabel till utdata från ett steg | [steg](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
-| `by` | Ett steg modulator som används med `group` och `order` | [för steg](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
-| `coalesce` | Returnerar den första traversal som returnerar ett resultat | [sammanslagning av steg](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |
-| `constant` | Returnerar ett konstant värde. Används med `coalesce`| [konstant steg](http://tinkerpop.apache.org/docs/current/reference/#constant-step) | |
-| `count` | Returnerar antalet från övergången | [antal steg](http://tinkerpop.apache.org/docs/current/reference/#count-step) | |
-| `dedup` | Returnerar värden med borttagna dubbletter | [dedupliceringen steg](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) | |
-| `drop` | Släpper värden (vertex/kant) | [ta bort steg](http://tinkerpop.apache.org/docs/current/reference/#drop-step) | |
-| `fold` | Fungerar som en barriären som beräknar aggregering av resultat| [vikning steg](http://tinkerpop.apache.org/docs/current/reference/#fold-step) | |
-| `group` | Grupper värden baserat på etiketter för angivna| [grupp steg](http://tinkerpop.apache.org/docs/current/reference/#group-step) | |
-| `has` | Används för att filtrera egenskaper, formhörnen och kanter. Stöder `hasLabel`, `hasId`, `hasNot`, och `has` varianter. | [har steg](http://tinkerpop.apache.org/docs/current/reference/#has-step) | |
-| `inject` | Mata in värden i en dataström| [mata in steg](http://tinkerpop.apache.org/docs/current/reference/#inject-step) | |
-| `is` | Används för att utföra ett filter som använder ett booleskt uttryck | [är steg](http://tinkerpop.apache.org/docs/current/reference/#is-step) | |
-| `limit` | Används för att begränsa antalet objekt i övergången| [gränsen steg](http://tinkerpop.apache.org/docs/current/reference/#limit-step) | |
-| `local` | Lokal packar en del av en överträdelse liknar en underfråga | [lokala steg](http://tinkerpop.apache.org/docs/current/reference/#local-step) | |
-| `not` | Används för att producera negationer av ett filter | [inte steg](http://tinkerpop.apache.org/docs/current/reference/#not-step) | |
-| `optional` | Returnerar resultatet av den angivna traversal om den ger ett resultat annars returnerar den anropande elementet | [valfritt steg](http://tinkerpop.apache.org/docs/current/reference/#optional-step) | |
-| `or` | Garanterar att minst en av traversals returnerar ett värde | [eller -steg](http://tinkerpop.apache.org/docs/current/reference/#or-step) | |
-| `order` | Returnerar resultat i den angivna sorteringsordningen | [ordning steg](http://tinkerpop.apache.org/docs/current/reference/#order-step) | |
-| `path` | Returnerar den fullständiga sökvägen till övergången | [sökvägen steg](http://tinkerpop.apache.org/docs/current/reference/#path-step) | |
-| `project` | Projekt egenskaper som en karta | [projektet steg](http://tinkerpop.apache.org/docs/current/reference/#project-step) | |
-| `properties` | Returnerar egenskaperna för de angivna etiketterna | [Egenskaper för-steg](http://tinkerpop.apache.org/docs/current/reference/#properties-step) | |
-| `range` | Filter för att det angivna intervallet för värden| [intervallet steg](http://tinkerpop.apache.org/docs/current/reference/#range-step) | |
-| `repeat` | Upprepar steget för det angivna antalet gånger. Används för upprepning | [Upprepa steg](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) | |
-| `sample` | För exempel på resultat från övergången | [exempel steg](http://tinkerpop.apache.org/docs/current/reference/#sample-step) | |
+| Steg | Beskrivning | TinkerPop 3.2-dokumentation |
+| --- | --- | --- |
+| `addE` | Lägger till en kant mellan två formhörnen | [addE steg](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
+| `addV` | Lägger till en nod i diagrammet | [addV steg](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
+| `and` | Garanterar att alla traversals returnera ett värde | [och steg](http://tinkerpop.apache.org/docs/current/reference/#and-step) |
+| `as` | Ett steg modulator att tilldela en variabel till utdata från ett steg | [steg](http://tinkerpop.apache.org/docs/current/reference/#as-step) |
+| `by` | Ett steg modulator som används med `group` och `order` | [för steg](http://tinkerpop.apache.org/docs/current/reference/#by-step) |
+| `coalesce` | Returnerar den första traversal som returnerar ett resultat | [sammanslagning av steg](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
+| `constant` | Returnerar ett konstant värde. Används med `coalesce`| [konstant steg](http://tinkerpop.apache.org/docs/current/reference/#constant-step) |
+| `count` | Returnerar antalet från övergången | [antal steg](http://tinkerpop.apache.org/docs/current/reference/#count-step) |
+| `dedup` | Returnerar värden med borttagna dubbletter | [dedupliceringen steg](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
+| `drop` | Släpper värden (vertex/kant) | [ta bort steg](http://tinkerpop.apache.org/docs/current/reference/#drop-step) |
+| `fold` | Fungerar som en barriären som beräknar aggregering av resultat| [vikning steg](http://tinkerpop.apache.org/docs/current/reference/#fold-step) |
+| `group` | Grupper värden baserat på etiketter för angivna| [grupp steg](http://tinkerpop.apache.org/docs/current/reference/#group-step) |
+| `has` | Används för att filtrera egenskaper, formhörnen och kanter. Stöder `hasLabel`, `hasId`, `hasNot`, och `has` varianter. | [har steg](http://tinkerpop.apache.org/docs/current/reference/#has-step) |
+| `inject` | Mata in värden i en dataström| [mata in steg](http://tinkerpop.apache.org/docs/current/reference/#inject-step) |
+| `is` | Används för att utföra ett filter som använder ett booleskt uttryck | [är steg](http://tinkerpop.apache.org/docs/current/reference/#is-step) |
+| `limit` | Används för att begränsa antalet objekt i övergången| [gränsen steg](http://tinkerpop.apache.org/docs/current/reference/#limit-step) |
+| `local` | Lokal packar en del av en överträdelse liknar en underfråga | [lokala steg](http://tinkerpop.apache.org/docs/current/reference/#local-step) |
+| `not` | Används för att producera negationer av ett filter | [inte steg](http://tinkerpop.apache.org/docs/current/reference/#not-step) |
+| `optional` | Returnerar resultatet av den angivna traversal om den ger ett resultat annars returnerar den anropande elementet | [valfritt steg](http://tinkerpop.apache.org/docs/current/reference/#optional-step) |
+| `or` | Garanterar att minst en av traversals returnerar ett värde | [eller -steg](http://tinkerpop.apache.org/docs/current/reference/#or-step) |
+| `order` | Returnerar resultat i den angivna sorteringsordningen | [ordning steg](http://tinkerpop.apache.org/docs/current/reference/#order-step) |
+| `path` | Returnerar den fullständiga sökvägen till övergången | [sökvägen steg](http://tinkerpop.apache.org/docs/current/reference/#path-step) |
+| `project` | Projekt egenskaper som en karta | [projektet steg](http://tinkerpop.apache.org/docs/current/reference/#project-step) |
+| `properties` | Returnerar egenskaperna för de angivna etiketterna | [Egenskaper för-steg](http://tinkerpop.apache.org/docs/current/reference/#properties-step) |
+| `range` | Filter för att det angivna intervallet för värden| [intervallet steg](http://tinkerpop.apache.org/docs/current/reference/#range-step) |
+| `repeat` | Upprepar steget för det angivna antalet gånger. Används för upprepning | [Upprepa steg](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
+| `sample` | För exempel på resultat från övergången | [exempel steg](http://tinkerpop.apache.org/docs/current/reference/#sample-step) |
 | `select` | Används för att projektresultat från övergången |  [Välj steg](http://tinkerpop.apache.org/docs/current/reference/#select-step) | |
-| `store` | Används för icke-blockerande mängder från övergången | [lagra steg](http://tinkerpop.apache.org/docs/current/reference/#store-step) | |
-| `tree` | Sammanställd sökvägar från en nod i ett träd | [trädet steg](http://tinkerpop.apache.org/docs/current/reference/#tree-step) | |
-| `unfold` | Unroll en iterator som ett steg| [vika steg](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) | |
-| `union` | Sammanfoga resultat från flera traversals| [Union steg](http://tinkerpop.apache.org/docs/current/reference/#union-step) | |
-| `V` | Innehåller steg som krävs för traversals mellan hörn och kanter `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV`, och `otherV` för | [Vertex steg](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) | |
-| `where` | Används för att filtrera resultat från övergången. Stöder `eq`, `neq`, `lt`, `lte`, `gt`, `gte`, och `between` operatörer  | [steg där](http://tinkerpop.apache.org/docs/current/reference/#where-step) | |
+| `store` | Används för icke-blockerande mängder från övergången | [lagra steg](http://tinkerpop.apache.org/docs/current/reference/#store-step) |
+| `tree` | Sammanställd sökvägar från en nod i ett träd | [trädet steg](http://tinkerpop.apache.org/docs/current/reference/#tree-step) |
+| `unfold` | Unroll en iterator som ett steg| [vika steg](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
+| `union` | Sammanfoga resultat från flera traversals| [Union steg](http://tinkerpop.apache.org/docs/current/reference/#union-step) |
+| `V` | Innehåller steg som krävs för traversals mellan hörn och kanter `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV`, och `otherV` för | [Vertex steg](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
+| `where` | Används för att filtrera resultat från övergången. Stöder `eq`, `neq`, `lt`, `lte`, `gt`, `gte`, och `between` operatörer  | [steg där](http://tinkerpop.apache.org/docs/current/reference/#where-step) |
 
-Azure Cosmos-write-optimerad databasmotor har stöd för automatisk indexering av alla egenskaper i formhörnen och kanter som standard. Därför frågor med filter kan variera frågor, sortering eller mängder om en egenskap bearbetas från indexet och hanteras effektivt. Mer information om hur indexering fungerar i Azure Cosmos-databasen finns på vår [schema-oberoende indexering](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+Skriv-optimerad motorn tillhandahålls av Azure Cosmos DB har stöd för automatisk indexering av alla egenskaper i formhörnen och kanter som standard. Därför frågor med filter kan variera frågor, sortering eller mängder om en egenskap bearbetas från indexet och hanteras effektivt. Mer information om hur indexering fungerar i Azure Cosmos-databasen finns på vår [schema-oberoende indexering](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 ## <a name="next-steps"></a>Nästa steg
 * Komma igång med att skapa ett program i diagrammet [med hjälp av vår SDK](create-graph-dotnet.md) 
-* Lär dig mer om [Azure Cosmos DB graph-support](graph-introduction.md)
+* Lär dig mer om [kurva stöd](graph-introduction.md) i Azure Cosmos DB

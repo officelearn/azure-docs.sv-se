@@ -39,7 +39,7 @@
 ### Förberedelse av Azure-infrastruktur
 #### [Windows med delad disk för (A)SCS-instans](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [Windows med SOFS-filresurs för (A)SCS-instans](sap-high-availability-infrastructure-wsfc-file-share.md)
-#### [SUSE Linux med NFS för (A)SCS-instans](high-availability-guide-suse.md)
+#### [Hög tillgänglighet för NFS på virtuella Azure-datorer eller SLES](high-availability-guide-suse-nfs.md)
 #### [Pacemaker på SLES](high-availability-guide-suse-pacemaker.md)
 ### SAP-installation
 #### [Windows med delad disk för (A)SCS-instans](sap-high-availability-installation-wsfc-shared-disk.md)

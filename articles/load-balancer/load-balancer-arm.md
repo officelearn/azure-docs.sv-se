@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager-stöd för belastningsutjämnaren | Microsoft Docs"
-description: "Med hjälp av powershell för belastningsutjämnaren med Azure Resource Manager. Med hjälp av mallar för belastningsutjämnare"
+title: Azure Resource Manager-stöd för belastningsutjämnaren | Microsoft Docs
+description: Med hjälp av powershell för belastningsutjämnaren med Azure Resource Manager. Med hjälp av mallar för belastningsutjämnare
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 6ba329e55f03cf984ae795c1d3a509e196064e2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1d098f45c391363523b6a56ec0c6fdb40e64d68
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Med Azure belastningsutjämnare Azure Resource Manager-stöd
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Azure Resource Manager är prioriterade Hanteringsramen för tjänster i Azure. Azure belastningsutjämnare kan hanteras med Azure Resource Manager-baserade API: er och verktyg.
 
-## <a name="concepts"></a>Koncept
+## <a name="concepts"></a>Begrepp
 
 Med Resource Manager Azure belastningsutjämnare innehåller följande underordnade resurser:
 

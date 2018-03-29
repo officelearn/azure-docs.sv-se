@@ -1,6 +1,6 @@
 ---
 title: Azure Storage Service-kryptering av vilande Data | Microsoft Docs
-description: "Funktionen Azure Storage Service-kryptering för att kryptera Azure Blob storage på tjänstsidan när data lagrades och dekryptera den vid hämtning av data."
+description: Funktionen Azure Storage Service-kryptering för att kryptera Azure Blob storage på tjänstsidan när data lagrades och dekryptera den vid hämtning av data.
 services: storage
 author: lakasa
 manager: jeconnoc
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1963d011462255d45de327ec17b7fad564d87654
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage-tjänstens kryptering av vilande data
 
@@ -52,7 +52,7 @@ S: storage Service-kryptering är aktiverat som standard på alla befintliga Res
 
 **F: hur kryptera data i en Resource Manager storage-konto?**
 
-S: Storage Service-kryptering är aktiverat som standard för alla lagringskonton--klassiska och Resource Manager. Befintliga data är inte krypterad. För att kryptera befintliga data, kan du kopiera den till ett annat namn eller en annan behållare och tar bort okrypterad versioner. 
+S: Storage Service-kryptering är aktiverat som standard för alla lagringskonton--klassiska och hanteraren för filserverresurser, befintliga filer i storage-konto som har skapats innan kryptering aktiverades kommer retroaktivt hämta krypteras med kryptering bakgrunden.
 
 **F: kan jag skapa storage-konton med Lagringstjänstens kryptering aktiverat med hjälp av Azure PowerShell och Azure CLI?**
 

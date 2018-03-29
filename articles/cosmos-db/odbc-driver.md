@@ -1,25 +1,25 @@
 ---
-title: "Ansluta till Azure Cosmos-databasen med verktyg för BI analytics | Microsoft Docs"
-description: "Lär dig hur du använder Azure Cosmos DB ODBC-drivrutinen för att skapa tabeller och vyer så att normaliserade data kan visas i BI och data analytics-programvara."
+title: Ansluta till Azure Cosmos-databasen med verktyg för BI analytics | Microsoft Docs
+description: Lär dig hur du använder Azure Cosmos DB ODBC-drivrutinen för att skapa tabeller och vyer så att normaliserade data kan visas i BI och data analytics-programvara.
 keywords: ODBC, odbc-drivrutinen
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 03/22/2018
 ms.author: mimig
-ms.openlocfilehash: 3892f698ec2b0b45f71dc38491687897559821ba
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 445acafeef67027712826f644afaa1784569b30d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ansluta till Azure Cosmos-databasen med verktyg för analys av BI med ODBC-drivrutin
 
@@ -30,7 +30,7 @@ Azure Cosmos DB ODBC-drivrutinen är ODBC 3.8 kompatibel och stöder ANSI SQL-92
 ## <a name="why-do-i-need-to-normalize-my-data"></a>Varför måste normalisera Mina data?
 Azure Cosmos-DB är en schemalös databas så att den möjliggör snabb utveckling av appar genom att aktivera program för att iterera sina datamodellen direkt och inte begränsa dem till ett strikt schema. En enda Azure Cosmos-DB-databas kan innehålla olika strukturer JSON-dokument. Det är bra för snabb utveckling, men när du vill analysera och skapa rapporter för dina data med hjälp av dataanalys och BI-verktyg data behöver ofta förenklas och följa ett visst schema.
 
-Det är där ODBC-drivrutinen kommer in. Du kan nu renormalized data i Azure Cosmos DB i tabeller och vyer montering dina databehov för analys och rapportering med hjälp av ODBC-drivrutinen. Renormalized scheman har ingen inverkan på underliggande data och inte begränsa utvecklare att följa dem, de bara kan du utnyttja ODBC-kompatibel verktyg för att komma åt data. Nu Azure Cosmos-DB-databas kommer inte bara vara en favorit för Utvecklingsteamet, men data analytikerna kommer gillar det för.
+Det är där ODBC-drivrutinen kommer in. Med hjälp av ODBC-drivrutinen kan renormalize du nu data i Azure Cosmos DB i tabeller och vyer passning analys- och behov. Renormalized scheman har ingen inverkan på underliggande data och inte begränsa utvecklare att följa dem, kan du utnyttja ODBC-kompatibel verktyg för att komma åt data. Nu Azure Cosmos-DB-databas kommer inte bara vara en favorit för Utvecklingsteamet, men data analytikerna kommer gillar det för.
 
 Nu kan komma igång med ODBC-drivrutinen.
 
@@ -53,7 +53,7 @@ Nu kan komma igång med ODBC-drivrutinen.
 
 ## <a id="connect"></a>Steg 2: Anslut till din Azure Cosmos-DB-databas
 
-1. Efter [installera Azure Cosmos DB ODBC-drivrutinen](#install)i den **ODBC Data Source Administrator** -fönstret klickar du på **Lägg till**. Du kan skapa en användare eller System-DSN. I det här exemplet skapar vi ett användar-DSN.
+1. Efter [installera Azure Cosmos DB ODBC-drivrutinen](#install)i den **ODBC Data Source Administrator** -fönstret klickar du på **Lägg till**. Du kan skapa en användare eller System-DSN. I det här exemplet skapar du en användar-DSN.
 2. I den **Skapa ny datakälla** väljer **ODBC-drivrutinen för Microsoft Azure Cosmos DB**, och klicka sedan på **Slutför**.
 3. I den **SDN installationsprogram för Azure Cosmos DB ODBC-drivrutinen** Fyll i följande: 
 
@@ -71,7 +71,7 @@ Nu kan komma igång med ODBC-drivrutinen.
     - **Schemafilen**: du har ett antal alternativ här.
         - Som standard, lämnar den här posten är (tom) söker drivrutinen första sidan data för alla samlingar att fastställa schemat för varje samling. Detta kallas samlingen mappning. Drivrutinen har att utföra sökningen för varje drivrutin session utan en schemafilen som definierats och kan resultera i en högre starttiden för ett program med hjälp av DSN. Vi rekommenderar att du alltid associerar en schemafil för en Datakälla.
         - Om du redan har en schemafilen (eventuellt en som du skapat med hjälp av [schemat redigeraren](#schema-editor)), kan du klicka på **Bläddra**, navigera till filen, klicka på **spara**, och klicka sedan på **OK**.
-        - Om du vill skapa ett nytt schema, klickar du på **OK**, och klicka sedan på **schemat Editor** i huvudfönstret. Gå sedan vidare till den [schemat Editor](#schema-editor) information. När du skapar den nya schemafilen, Kom ihåg att gå tillbaka till den **avancerade alternativ** fönstret ska omfatta schemafilen nyligen skapade.
+        - Om du vill skapa ett nytt schema, klickar du på **OK**, och klicka sedan på **schemat Editor** i huvudfönstret. Gå sedan vidare till den [schemat Editor](#schema-editor) information. När du har skapat den nya schemafilen, Kom ihåg att gå tillbaka till den **avancerade alternativ** fönstret ska omfatta schemafilen nyligen skapade.
 
 6. När du slutför och stänger den **Azure Cosmos DB ODBC-drivrutinen DSN för** och den nya användaren DSN har lagts till i fliken användar-DSN.
 
@@ -114,10 +114,60 @@ Följande steg att skapa ett schema för data i en eller flera samlingar med hj�
 4. Klicka på **OK**. 
 5. När du har slutfört mappning definitioner för samlingarna du vill prova i den **schemat Editor** -fönstret klickar du på **exempel**.
      För varje kolumn, kan du ändra kolumnnamnet för SQL, SQL-typ, SQL-längd (om tillämpligt), skala (om tillämpligt), Precision (om tillämpligt) och kan ha värdet null.
-    - Du kan ange **Dölj kolumn** till **SANT** om du vill utesluta kolumnen från frågeresultat. Kolumner markerad Dölj kolumn = true returneras inte för val och projektion, även om de fortfarande är en del av schemat. Du kan till exempel dölja alla Azure Cosmos DB krävs systemegenskaperna börjar med ”_”.
+    - Du kan ange **Dölj kolumn** till **SANT** om du vill utesluta kolumnen från frågeresultat. Kolumner markerad Dölj kolumn = true returneras inte för val och projektion, även om de fortfarande är en del av schemat. Du kan till exempel dölja alla Azure Cosmos DB krävs systemegenskaperna från och med `_`.
     - Den **id** kolumn är det enda fält inte får vara dolda eftersom den används som primärnyckel i normaliserade schemat. 
 6. När du har definierat schemat klickar du på **filen** | **spara**, gå till katalogen för att spara schemat och klicka sedan på **spara**.
-7. I den **Azure Cosmos DB ODBC-drivrutinen DSN för** -fönstret klickar du på ** Avancerade alternativ **. I den **schemafilen** , navigera till den sparade schemafilen och klicka **OK**. Klicka på **OK** igen för att spara det DSN-namnet. Detta sparar det schema som du skapade det DSN-namnet. 
+7. I den **Azure Cosmos DB ODBC-drivrutinen DSN för** -fönstret klickar du på **avancerade alternativ**. I den **schemafilen** , navigera till den sparade schemafilen och klicka **OK**. Klicka på **OK** igen för att spara det DSN-namnet. Detta sparar det schema som du skapade det DSN-namnet. 
+
+## <a name="optional-set-up-linked-server-connection"></a>(Valfritt) Konfigurera länkad server-anslutning
+
+Du kan fråga Azure Cosmos DB från SQL Server Management Studio (SSMS) genom att skapa en länkad server-anslutning.
+
+1. Skapa en datakälla för system som beskrivs i [steg 2](#connect)med namnet till exempel `SDS Name`.
+2. [Installera SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+3. Skapa en länkad server-objekt i frågeredigeraren SSMS `DEMOCOSMOS` för datakällan med följande kommandon. Ersätt `DEMOCOSMOS` med namnet för den länkade servern och `SDS Name` med namnet på datakällan system.
+
+    ```sql
+    USE [master]
+    GO
+    
+    EXEC master.dbo.sp_addlinkedserver @server = N'DEMOCOSMOS', @srvproduct=N'', @provider=N'MSDASQL', @datasrc=N'SDS Name'
+    
+    EXEC master.dbo.sp_addlinkedsrvlogin @rmtsrvname=N'DEMOCOSMOS', @useself=N'False', @locallogin=NULL, @rmtuser=NULL, @rmtpassword=NULL
+    
+    GO
+    ```
+    
+Uppdatera listan med länkade servrar om du vill visa det nya namnet för länkad server.
+
+![Länkad Server i SSMS](./media/odbc-driver/odbc-driver-linked-server-ssms.png)
+
+### <a name="query-linked-database"></a>Fråga länkade databas
+
+Om du vill fråga länkade databasen anger du en fråga med SSMS. I det här exemplet väljer frågan från tabellen i samlingen med namnet `customers`:
+
+```sql
+SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
+```
+
+Köra frågan. Resultatet bör vara ungefär så här:
+
+```
+attachments/  1507476156    521 Bassett Avenue, Wikieup, Missouri, 5422   "2602bc56-0000-0000-0000-59da42bc0000"   2015-02-06T05:32:32 +05:00 f1ca3044f17149f3bc61f7b9c78a26df
+attachments/  1507476156    167 Nassau Street, Tuskahoma, Illinois, 5998   "2602bd56-0000-0000-0000-59da42bc0000"   2015-06-16T08:54:17 +04:00 f75f949ea8de466a9ef2bdb7ce065ac8
+attachments/  1507476156    885 Strong Place, Cassel, Montana, 2069       "2602be56-0000-0000-0000-59da42bc0000"   2015-03-20T07:21:47 +04:00 ef0365fb40c04bb6a3ffc4bc77c905fd
+attachments/  1507476156    515 Barwell Terrace, Defiance, Tennessee, 6439     "2602c056-0000-0000-0000-59da42bc0000"   2014-10-16T06:49:04 +04:00      e913fe543490432f871bc42019663518
+attachments/  1507476156    570 Ruby Street, Spokane, Idaho, 9025       "2602c156-0000-0000-0000-59da42bc0000"   2014-10-30T05:49:33 +04:00 e53072057d314bc9b36c89a8350048f3
+```
+
+> [!NOTE]
+> Den länkade Cosmos-DB-servern har inte stöd för namngivning av fyra delar. Ett fel returneras liknar följande meddelande:
+
+```
+Msg 7312, Level 16, State 1, Line 44
+
+Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server "DEMOCOSMOS". A four-part name was supplied, but the provider does not expose the necessary interfaces to use a catalog or schema.
+``` 
 
 ## <a name="optional-creating-views"></a>(Valfritt) Skapa vyer
 Du kan definiera och skapa vyer som en del av processen provtagning. Dessa vyer är likvärdiga med SQL-vyer. De är skrivskyddade och scope valen och projektioner av Azure Cosmos-Databasens SQL definieras. 

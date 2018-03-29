@@ -14,12 +14,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/20/2017
-ms.openlocfilehash: 17a95ab00ed7bbda85a8fba5456c758f3ee9f116
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 03/28/2018
+ms.openlocfilehash: e7fb545b985968b4d9e5a516c812cbf594352e08
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Vad är Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio är ett drag-och-släpp-verktyg där flera användare kan samarbeta för att bygga, testa och distribuera prediktiva analyslösningar utifrån dina data. Tjänsten Machine Learning Studio publicerar modeller som webbtjänster som enkelt kan användas av anpassade appar eller BI-verktyg som Excel.
@@ -50,7 +50,7 @@ Klicka på menyn uppe till vänster ![Meny](./media/what-is-ml-studio/menu.png) 
 ### <a name="cortana-intelligence"></a>Cortana Intelligence
 Om du klickar på **Cortana Intelligence** öppnas startsidan för [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite). Cortana Intelligence är en fullständigt hanterad programsvit för stordata och avancerad analys som hjälper dig att omvandla data till intelligenta åtgärder. På programsvitens startsida finns fullständig dokumentation, inklusive kundberättelser.
 
-### <a name="azure-machine-learning"></a>Azure Machine Learning
+### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 Det finns två alternativ här: **Start**, vilket är den sida där du startade, och **Studio**.
 
 Klicka på **Studio**, så kommer du till **Azure Machine Learning Studio**. Först uppmanas du att logga in med ditt Microsoft-konto eller ditt arbets- eller skolkonto. När du har loggat in visas följande flikar till vänster:
@@ -112,6 +112,56 @@ Om du vill få hjälp med att navigera genom det stora biblioteket med tillgäng
 När din prediktiva analysmodell är färdig kan du distribuera den som en webbtjänst direkt från Machine Learning Studio. Mer information om den här processen finns i [Distribuera en webbtjänst via Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
 [ml-studio-overview]:./media/what-is-ml-studio/azure-ml-studio-diagram.jpg
+
+
+
+## <a name="key-machine-learning-terms-and-concepts"></a>Viktiga termer och begrepp inom maskininlärning
+Maskininlärningstermerna kan vara förvirrande. Här följer definitioner av de viktigaste termerna. Skicka gärna kommentarer om det finns andra termer som du vill få förklarade.
+
+### <a name="data-exploration-descriptive-analytics-and-predictive-analytics"></a>Datagranskning, beskrivande analys och förutsägelseanalys
+
+**Datagranskning** är en process där du samlar in information om en stor och ofta ostrukturerad datauppsättning för att identifiera egenskaper för fokuserad analys.
+
+**Datautvinning** syftar på automatiserad datagranskning.
+
+**Beskrivande analys** är en process där du analyserar en datauppsättning för att sammanfatta vad som hänt. Merparten av alla företagsanalyser – försäljningsrapporter, mätvärden från webben och analys av sociala nätverk – är beskrivande.
+
+**Förutsägelseanalyser** är en process där du skapar modeller från historiska eller aktuella data för att förutsäga framtida resultat.
+
+### <a name="supervised-and-unsupervised-learning"></a>Övervakad och oövervakad inlärning
+ Algoritmer för **övervakad inlärning** tränas med märkta data, dvs. data bestående av exempel på önskade svar. En modell som identifierar falska kreditkort skulle exempelvis tränas från en datauppsättning med namngivna datapunkter för kända falska och giltiga debiteringar. Merparten av all maskininlärning är övervakad.
+
+ **Oövervakad inlärning** används med omärkta data och målet är att identifiera relationer i dessa data. Du kanske exempelvis vill identifiera grupperingar av kundområden med liknande köpvanor.
+
+### <a name="model-training-and-evaluation"></a>Träning och utvärdering av modeller
+En maskininlärningsmodell är en abstraktion av den fråga som du försöker besvara eller det resultat som du vill förutsäga. Modeller tränas och utvärderas från befintliga data.
+
+#### <a name="training-data"></a>Träningsdata
+När du tränar en modell från data använder du en känd datauppsättning och justerar modellen baserat på dataegenskaperna för att få det mest korrekta svaret. I Azure Machine Learning skapas en modell från en algoritmmodul som bearbetar träningsdata och funktionella moduler, t.ex. en poängsättningsmodul.
+
+Om du tränar en bedrägeriidentifieringsmodell med övervakad inlärning använder du en uppsättning transaktioner som är märkta som bedrägliga eller giltiga. Du delar datauppsättningen slumpmässigt och använder en del för att träna modellen och en del för att testa eller utvärdera modellen.
+
+#### <a name="evaluation-data"></a>Utvärdering av data
+När du har en tränad modell utvärderar du modellen med hjälp av återstående testdata. Du använder data vars resultat du redan känner till, så att du kan se om din modell gör korrekta förutsägelser.
+
+## <a name="other-common-machine-learning-terms"></a>Andra vanliga maskininlärningstermer
+* **algoritmen**: En fristående uppsättning regler som används för att lösa problem genom databearbetning, beräkning eller automatiserade resonemang.
+* **avvikelseidentifiering**: En modell som flaggar ovanliga händelser eller värden och hjälper dig att identifiera problem. Exempelvis letar en identifiering av falska kreditkort efter ovanliga köp.
+* **kategoriska data**: Data som är ordnade efter kategorier och som kan delas in i grupper. En uppsättning kategoriska data för bilar kan exempelvis definiera år, märke, modell och pris.
+* **klassificering**: En modell för att organisera datapunkter i kategorier baserat på en datauppsättning vars kategorigrupperingar redan är kända.
+* **egenskapsval**: En process för att extrahera eller välja egenskaper relaterade till en datauppsättning för att förbättra datauppsättningen och förbättra resultatet. Information om flygpriser kan till exempel förbättras med dagar i veckan och helgdagar. Mer information finns i avsnittet om [egenskapsval i Azure Machine Learning](../team-data-science-process/create-features.md).
+* **modul**: Ett funktionellt element i en Machine Learning Studio-modell, till exempel modulen Enter Data (Ange data), som kan användas för att mata in och redigera små datauppsättningar. En algoritm är också en typ av modul i Machine Learning Studio.
+* **modell**: En övervakad inlärningsmodell är produkten av ett maskininlärningsexperiment bestående av träningsdata, en algoritmmodul och funktionella moduler som modulen Score Model (Poängsätta modell).
+* **numeriska data**: Data som representerar mått (kontinuerliga data) eller antal (diskreta data). Kallas även *kvantitativa data*.
+* **partition**: En metod för att dela in data i prover. Mer information finns i [Partitionera och ta prover](https://msdn.microsoft.com/library/azure/dn905960.aspx).
+* **förutsägelse**: En förutsägelse är en prognos av värden från en maskininlärningsmodell. Du kan också se termen ”förutsägelsepoäng”. Detta är emellertid inte en modells slutgiltiga data. Poängsättningen följs av en utvärdering av modellen.
+* **regression**: En mall för att förutsäga ett värde baserat på oberoende variabler, till exempel att förutsäga priset på en bil baserat på dess år och märke.
+* **poäng**: Ett prognostiserat värde som genereras från en tränad klassificerings- eller regressionsmodell med hjälp av modulen [Poängsätta modell](https://msdn.microsoft.com/library/azure/dn905995.aspx) i Machine Learning Studio. Klassificeringsmodeller bedömer också sannolikheten för förutsägelsevärdet. När du har genererat poäng från en modell kan du utvärdera modellens precision med hjälp av modellen [Utvärdera modell](https://msdn.microsoft.com/library/azure/dn905915.aspx).
+* **prov**: En del av en datauppsättning som är avsedd att representera helheten. Prover kan väljas slumpmässigt eller baserat på specifika funktioner i datauppsättningen.
+
+## <a name="next-steps"></a>Nästa steg
+Du kan lära dig grunderna i förutsägelseanalyser och maskininlärning genom att gå en [självstudiekurs med stegvisa anvisningar](create-experiment.md) och genom att [bygga vidare på prover](sample-experiments.md).  
+
 
 <!-- Module References -->
 [convert-to-arff]: https://msdn.microsoft.com/library/azure/62d2cece-d832-4a7a-a0bd-f01f03af0960/

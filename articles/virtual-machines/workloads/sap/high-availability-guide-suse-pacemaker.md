@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: sedusch
-ms.openlocfilehash: 75615de523f1fba808f44fb1a1015138fb190edc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2982c8ba534b9a93a021a9d3a3819b904f09abc7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -280,7 +280,7 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
 1. **[A]**  Installationsprogrammet värdnamnsmatchning   
 
    Du kan använda en DNS-server, eller så kan du ändra de/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
-   Ersätt IP-adressen och värdnamnet i följande kommandon
+   Ersätt IP-adressen och värdnamnet i följande kommandon. Fördelen med att använda/etc/hosts är att klustret blir oberoende av DNS som kan vara en enda åtkomstpunkt för fel för.
 
    <pre><code>
    sudo vi /etc/hosts
@@ -329,10 +329,16 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
-   Lägg till följande fetstil innehåll i filen.
+   Lägg till följande fetstil innehåll i filen om du värdena inte är det eller en annan.
    
    <pre><code> 
    [...]
+     <b>token:          5000
+     token_retransmits_before_loss_const: 10
+     join:           60
+     consensus:      6000
+     max_messages:   20</b>
+     
      interface { 
         [...] 
      }

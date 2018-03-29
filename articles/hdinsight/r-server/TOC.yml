@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: R Server på HDInsight
   items:
-    - name: "Översikt\r\n"
+    - name: Översikt
       href: r-server-overview.md
     - name: Hadoop-komponenter på HDInsight
       href: ../hdinsight-component-versioning.md
@@ -21,6 +21,10 @@
   items:
     - name: Använd R Server
       items:
+        - name: Hantera R Server-kluster
+          href: r-server-hdinsight-manage.md
+        - name: Operationalisera R Server-kluster
+          href: r-server-operationalize.md
         - name: Lagringsalternativ
           href: r-server-storage.md
         - name: Beräkningskontext

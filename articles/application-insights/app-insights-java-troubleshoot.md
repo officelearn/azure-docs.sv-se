@@ -1,6 +1,6 @@
 ---
-title: "Felsöka Application Insights i ett Java-webbprojekt"
-description: "Felsökningsguide för - övervakning av live Java-appar med Application Insights."
+title: Felsöka Application Insights i ett Java-webbprojekt
+description: Felsökningsguide för - övervakning av live Java-appar med Application Insights.
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -13,38 +13,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 6b1cfa2b52e8e9e2b6a8ab87be6d4269cbe3f1cf
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 894b2234074dcfb262de9033a7728cad3bef2248
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Felsökning och vanliga frågor och svar för Application Insights för Java
 Frågor eller problem med [Azure Application Insights i Java][java]? Här följer några tips.
 
 ## <a name="build-errors"></a>Skapa fel
-**I Eclipse när du lägger till Application Insights SDK via Maven eller Gradle, visas build eller kontrollsumma verifieringsfel.**
+**I Eclipse eller Intellij Idea, när du lägger till Application Insights SDK via Maven eller Gradle, visas build eller kontrollsumma verifieringsfel.**
 
-* Om beroendet <version> elementet använder ett mönster med jokertecken (t.ex. (Maven) `<version>[1.0,)</version>` eller (Gradle) `version:'1.0.+'`), pröva en specifik version i stället som `1.0.2`. Finns det [viktig information](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) för den senaste versionen.
+* Om beroendet <version> elementet använder ett mönster med jokertecken (t.ex. (Maven) `<version>[2.0,)</version>` eller (Gradle) `version:'2.0.+'`), pröva en specifik version i stället som `2.0.1`. Finns det [viktig information](https://github.com/Microsoft/ApplicationInsights-Java/releases) för den senaste versionen.
 
 ## <a name="no-data"></a>Inga data
 **Jag har lagts till Application Insights och körde min app, men aldrig sett data i portalen.**
 
 * Vänta en minut och klicka på Uppdatera. Diagrammen uppdatera själva regelbundet, men du kan också uppdatera manuellt. Intervall för uppdatering är beroende av tidsintervallet i diagrammet.
-* Kontrollera att du har en instrumentation nyckel som definieras i filen ApplicationInsights.xml (i mappen resurser i ditt projekt)
+* Kontrollera att du har en instrumentation nyckel definieras i filen ApplicationInsights.xml (i mappen resurser i ditt projekt) eller konfigureras som miljövariabeln.
 * Kontrollera att det finns inga `<DisableTelemetry>true</DisableTelemetry>` noden i xml-filen.
 * Du kan behöva öppna TCP-portarna 80 och 443 för utgående trafik till dc.services.visualstudio.com i brandväggen. Finns det [fullständig lista över brandväggsundantag](app-insights-ip-addresses.md)
 * Starta board i Microsoft Azure, titta på tjänstkartan status. Om det finns vissa uppgifter som avisering, vänta tills de har återgått till OK och Stäng och öppna bladet din Application Insights-programmet igen.
-* Aktiverar loggning till konsolfönstret IDE genom att lägga till en `<SDKLogger />` rotnoden i ApplicationInsights.xml-filen (i mappen resurser i ditt projekt) och Sök efter poster som inleds med [fel]-element.
+* Aktiverar loggning till konsolfönstret IDE genom att lägga till en `<SDKLogger />` rotnoden i ApplicationInsights.xml-filen (i mappen resurser i ditt projekt) och Sök efter poster som inleds med AI-element: INFO/Varna/fel för misstänkt loggar.
 * Kontrollera att rätt ApplicationInsights.xml fil har har lästs in av Java-SDK genom att titta på konsolens Utdatameddelanden för en ”konfigurationsfilen har har hittat”-instruktion.
-* Om konfigurationsfilen inte finns, kontrollera utdata meddelandena som finns där konfigurationsfilen genomsöks efter och se till att ApplicationInsights.xml finns i något av dessa platser. Du kan placera konfigurationsfilen nära den Application Insights SDK JAR: er som en tumregel. Exempel: i Tomcat, detta betyder att mappen WEB-INF/lib.
+* Om konfigurationsfilen inte finns, kontrollera utdata meddelandena som finns där konfigurationsfilen genomsöks efter och se till att ApplicationInsights.xml finns i något av dessa platser. Du kan placera konfigurationsfilen nära den Application Insights SDK JAR: er som en tumregel. Exempel: i Tomcat, detta betyder att mappen WEB-INF/klasser. Du kan placera ApplicationInsights.xml i mappen resurser i ditt webbprojekt under utveckling.
+* Kontrollera också titta på [GitHub utfärdar sidan](https://github.com/Microsoft/ApplicationInsights-Java/issues) för kända problem med SDK.
+* Se till att använda samma version av Application Insights kärnor, webb-, agent och loggning appenders för att undvika eventuella version konflikt problem.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>Jag för att se data, men den har stoppats
 * Kontrollera den [status blogg](http://blogs.msdn.com/b/applicationinsights-status/).
 * Har du uppnått den månatliga kvoten för datapunkter? Öppna inställningar/kvoten och priser för att ta reda på. I så fall, kan du uppgradera din plan eller betala för extra kapacitet. Finns det [priser schemat](https://azure.microsoft.com/pricing/details/application-insights/).
+* Du nyss har uppgraderat din SDK? Se till att endast unika SDK burkar finns i projektkatalogen. Det får inte vara två olika versioner av SDK finns.
+* Tittar på rätt AI-resurs? Kontrollera matcha iKey för programmet till den resurs där du förväntar dig telemetri. De ska vara samma.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Alla data som jag förväntade visas inte
 * Öppna kvoter och prissättning bladet och kontrollera om [provtagning](app-insights-sampling.md) är i drift. (100% transmission innebär att provtagning inte är i drift.) Application Insights-tjänsten kan ställas in att godkänna en bråkdel av telemetri som tas emot från din app. Detta gör att inom din månatliga kvoten av telemetri. 
+* Har du SDK provtagning aktiverad? Om Ja, skulle data samlas in vid den angivna för alla tillämpliga typer.
+* Kör du en äldre version av Java SDK? Från och med version 2.0.1, har vi introducerade feltolerans mekanism för att hantera återkommande nätverk och backend-fel samt-datapersistence på lokala enheter.
+* Har du komma begränsats på grund av mycket telemetri? Om du aktiverar loggning INFO, en logg visas meddelandet ”App begränsas”. Vår aktuella gränsen är 32 kB telemetri objekt/sekund.
+
+### <a name="java-agent-cannot-capture-dependency-data"></a>Java-agenten kan inte hämta beroendedata
+* Har du konfigurerat Java-agenten genom att följa [konfigurera agenten för Java](app-insights-java-agent.md) ?
+* Kontrollera att både java agent jar och filen AI-Agent.xml placeras i samma mapp.
+* Se till att beroendet som du försöker att automatiskt samla stöds för automatisk insamling. Vi stöder för närvarande endast MySQL, MsSQL, Oracle-databas och samling för Redis-Cache-beroendet.
+* Du använder JDK 1.7 eller 1.8? För närvarande stöder vi inte beroende samling i JDK 9.
 
 ## <a name="no-usage-data"></a>Inga användningsdata
 **Information om begäranden och svarstider, men inga vyn sida, webbläsare eller användardata visas.**
@@ -67,7 +80,7 @@ I koden:
     config.setTrackingIsDisabled(true);
 ```
 
-**Eller** 
+**Or** 
 
 Uppdatera ApplicationInsights.xml (i mappen resurser i ditt projekt). Lägg till följande under rotnoden:
 
@@ -83,6 +96,7 @@ XML-metoden, måste du starta om programmet när du ändrar värdet.
 
 * [Hämta instrumentation nyckeln för den nya resursen.][java]
 * Om du har lagt till Application Insights i ditt projekt med hjälp av Azure-verktygen för Eclipse högerklickar du på webbprojektet, Välj **Azure**, **konfigurera Application Insights**, och ändra nyckeln.
+* Om du har konfigurerat nyckeln Instrumentation som miljövariabeln uppdatera värdet för miljövariabeln med nya iKey.
 * Annars uppdatera nyckeln i ApplicationInsights.xml i mappen resurser i ditt projekt.
 
 ## <a name="debug-data-from-the-sdk"></a>Felsöka data från SDK
@@ -143,6 +157,7 @@ Application Insights använder `org.apache.http`. Detta har flyttats i Applicati
 
 ## <a name="get-help"></a>Få hjälp
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Filen ett problem på GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->
 

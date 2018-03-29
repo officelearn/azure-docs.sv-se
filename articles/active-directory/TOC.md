@@ -77,8 +77,8 @@
 ## [Hantera grupper och medlemmar](active-directory-manage-groups.md)
 ### Hantera grupper
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell Azure Resource Manager-modellen](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Klassisk distributionsmodell för Azure PowerShell](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Azure AD PowerShell för Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline (v1)](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Hantera gruppmedlemmar](active-directory-groups-members-azure-portal.md)
 ### [Hantera gruppägare](active-directory-accessmanagement-managing-group-owners.md)
 ### [Hantera gruppmedlemskap](active-directory-groups-membership-azure-portal.md)

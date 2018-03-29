@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 455c74ca808f71258a12166c2e36bdd73d9a3e20
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a5712e556d7b3bdcce38b8b8d39a08414ce0fd2f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Krav för Azure Stack Public Key Infrastructure-certifikat
 Azure-stacken har en infrastruktur för offentliga nätverk med hjälp av externa offentliga IP-adresser tilldelas en liten uppsättning Azure Stack-tjänster och eventuellt klient virtuella datorer. PKI-certifikat med lämpliga DNS-namn för dessa Azure Stack infrastruktur för offentliga slutpunkter krävs under distributionen av Azure-stacken. Den här artikeln innehåller information om:
@@ -34,6 +34,9 @@ Azure-stacken har en infrastruktur för offentliga nätverk med hjälp av extern
 ## <a name="certificate-requirements"></a>Certifikatkrav
 I följande lista beskrivs kraven på certifikaten som behövs för att distribuera Azure Stack: 
 - Vara måste utfärdat certifikat från en intern certifikatutfärdare eller en offentlig certifikatutfärdare. Om du använder en offentlig certifikatutfärdare, måste det ingå i den grundläggande operativsystemavbildningen som en del av Microsoft Trusted Root myndigheten Program. Du hittar en fullständig lista: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
+- Infrastrukturen för Azure-stacken måste ha åtkomst till den certifikatutfärdare som används för att signera certifikat
+- När du roterar certifikat, måste certifikat vara antingen utfärdats från samma interna certifikatutfärdare används för att signera certifikat som anges i distribution eller en offentlig certifikatutfärdare från ovan
+- Användning av självsignerade certifikat stöds inte
 - Certifikatet kan vara ett enda jokertecken certifikat som omfattar alla namnutrymmen i fältet alternativt namn på CERTIFIKATMOTTAGARE. Du kan också använda certifikat med jokertecken för slutpunkter som acs och Nyckelvalv där de är obligatoriska. 
 - Signaturalgoritm certifikatet får inte vara SHA1, måste det vara bättre. 
 - Certifikatets format måste vara PFX, som både offentliga och privata nycklar som krävs för installationen av Azure-stacken. 
@@ -42,6 +45,9 @@ I följande lista beskrivs kraven på certifikaten som behövs för att distribu
 - Certifikatets ”utfärdat till”: fältet får inte vara samma som dess ”utfärdat av”: fältet.
 - Lösenorden för alla certifikat pfx-filer måste vara samma vid tidpunkten för distribution
 - Se till att ämnesnamn och Alternativt ämnesnamn över alla certifikat matchar de specifikationer som beskrivs i den här artikeln för att undvika inte kunde distribueras.
+
+> [!NOTE]
+> Self signerat certifikat inte stöds.
 
 > [!NOTE]
 > Förekomsten av mellanhand certifikatutfärdare i kedjan för förtroenden är för ett certifikat som stöds. 

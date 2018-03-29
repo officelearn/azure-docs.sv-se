@@ -1,13 +1,13 @@
 ---
-title: "Distribuera en Internetriktade belastningsutjämnare med IPv6 - Azure-mall | Microsoft Docs"
-description: "Så här distribuerar du IPv6-stöd för Azure belastningsutjämnare och belastningsutjämnade virtuella datorer."
+title: Distribuera en Internetriktade belastningsutjämnare med IPv6 - Azure-mall | Microsoft Docs
+description: Så här distribuerar du IPv6-stöd för Azure belastningsutjämnare och belastningsutjämnade virtuella datorer.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: "IPv6, azure belastningsutjämnare, dual stack, offentlig IP-adress, inbyggd ipv6, mobil, iot"
+keywords: IPv6, azure belastningsutjämnare, dual stack, offentlig IP-adress, inbyggd ipv6, mobil, iot
 ms.assetid: 2998e943-13fc-4ea9-a68c-875e53a08db3
 ms.service: load-balancer
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 90439d792eac618671a9de9938302d8930c986d8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 431b43979ac364d943c58c40b4199b7f30f9acf6
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Distribuera en Internetriktade belastningsutjämnare-lösning med IPv6 med en mall
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 > * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [Mall](load-balancer-ipv6-internet-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 En Azure belastningsutjämnare är en Layer 4-belastningsutjämnare (TCP, UDP). Belastningsutjämnaren ger hög tillgänglighet genom att distribuera inkommande trafik mellan felfria tjänstinstanser i molntjänster eller virtuella datorer i en belastningsutjämningsuppsättning. Azure belastningsutjämnare kan även presentera dessa tjänster på flera portar, flera IP-adresser eller både och.
 
@@ -54,11 +54,11 @@ Den här artikeln refererar till en mall som har publicerats i den [Azure Quicks
 1. Öppna Azure-portalen och logga in med ett konto som har behörighet att skapa virtuella datorer och nätverksresurser i en Azure-prenumeration. Om du inte använder befintliga resurser, måste kontot också behörighet att skapa en resursgrupp och ett lagringskonto.
 2. Klicka på ”+ ny” från menyn och anger ”mall” i sökrutan. Välj ”malldistribution” i sökresultatet.
 
-    ![lb-ipv6-portalen – steg 2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
+    ![lb-ipv6-portal-step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
 
 3. I den allt bladet, klickar du på ”malldistribution”.
 
-    ![lb-ipv6-portalen – steg 3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
+    ![lb-ipv6-portal-step3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
 
 4. Klicka på ”Skapa”.
 

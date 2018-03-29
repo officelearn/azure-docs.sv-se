@@ -1,6 +1,6 @@
 ---
-title: "Gränserna för Azure SQL Database | Microsoft Docs"
-description: "Den här sidan beskrivs några vanliga gränserna för Azure SQL Database."
+title: Gränserna för Azure SQL Database | Microsoft Docs
+description: Den här sidan beskrivs några vanliga gränserna för Azure SQL Database.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: ba192b6dba68f01af796a1099b064d6ec0bd3f1b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fb9cb15e96c4098151d220c2bd47fbb7f299687c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Gränserna för Azure SQL-databas
 
@@ -113,7 +113,7 @@ Du kan öka eller minska resurserna som är tillgängliga för en elastisk pool 
 | Maximal | Värde |
 | :--- | :--- |
 | Databaser per server | 5000 |
-| Antal servrar per prenumeration per region | 21 |
+| Antal servrar per prenumeration per region | 20 |
 |||
 
 > [!IMPORTANT]

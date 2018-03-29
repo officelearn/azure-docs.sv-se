@@ -1,6 +1,6 @@
 ---
-title: Nära realtid mått aviseringar i Azure-Monitor | Microsoft Docs
-description: Lär dig hur du använder nära mått aviseringar i realtid för att övervaka Azure-resurs med en frekvens som är så liten som 1 minut.
+title: Nyare mått aviseringar i Azure-Monitor stöds resurser | Microsoft Docs
+description: Referens för support mått och loggfiler för nyare Azure nära realtid mått aviseringar.
 author: snehithm
 manager: kmadnani1
 editor: ''
@@ -12,32 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: 15b9b0b69f3805b3e3af1d3973fd3a77bea62ab9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6ccb095f3739a90bdab2408965a742f9cbc19359
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="use-the-newer-metric-alerts-for-azure-services-in-azure-portal"></a>Använd de nyare mått aviseringarna för Azure-tjänster i Azure-portalen
-Azure-Monitor stöder en ny aviseringstyp kallas nära realtid mått aviseringar. 
+# <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Nyare mått aviseringar för Azure-tjänster i Azure-portalen
+Azure-Monitor stöder nu en ny avisering Måttyp. Nyare aviseringar skiljer sig från [klassiska mått aviseringar](insights-alerts-portal.md) på flera sätt:
 
-Nära realtid mått aviseringar som skiljer sig från [klassiska mått aviseringar](insights-alerts-portal.md) på flera sätt:
+- **Förbättrad latens**: nyare mått aviseringar kan köras så ofta som var en minut. Äldre mått aviseringar körs alltid en frekvens på 5 minuter. Loggen aviseringar fortfarande har en längre tid än en minut fördröjningen på grund av tiden är tar att mata in loggarna. 
+- **Stöd för flerdimensionella mått**: du kan meddela om dimensionell mått så att du kan övervaka en enda ett intressant segment av måttet. 
+- **Mer kontroll över mått villkor**: du kan definiera bättre Varningsregler. Nyare aviseringar stöd för övervakning maximala, minsta, genomsnittlig och totala värden för mått. 
+- **Kombinerade övervakning av flera mått**: du kan övervaka flera mått (för närvarande högst två mått) med en enskild regel. En varning aktiveras om båda mått bryta mot sina respektive tröskelvärden för den angivna tidsperioden. 
+- **Bättre meddelandesystem**: alla nya aviseringar använder [åtgärdsgrupper](monitoring-action-groups.md), som är namngiven grupper av meddelanden och åtgärder som kan återanvändas i flera aviseringar. Använd inte åtgärdsgrupper klassiska mått aviseringar och äldre logganalys-aviseringar. 
+- **Mått från loggar** (begränsad förhandsversion): logga data hamnar i logganalys nu kan extraheras och konverteras till Azure-Monitor mått och sedan visas på samma sätt som andra mått. 
 
-- **Förbättrad latens**: nära realtid mått aviseringar kan köras så ofta som var en minut. Äldre mått aviseringar körs alltid en frekvens på 5 minuter.
-- **Stöd för flerdimensionella mått**: du kan meddela om dimensionell mått så att du kan övervaka en intressant segmentet i måttet.
-- **Mer kontroll över mått villkor**: du kan definiera bättre Varningsregler i nära realtid mått aviseringar. Aviseringarna stöd för övervakning maximala, minsta, genomsnittlig och totala värden för mått.
-- **Kombinerade övervakning av flera mått**: nära realtid mått aviseringar kan du övervaka flera (för närvarande högst två mått) med en enskild regel. En varning aktiveras om båda mått bryta mot sina respektive tröskelvärden för den angivna tidsperioden.
-- **Modulära meddelandesystem**: nära realtid mått aviseringar använder [åtgärdsgrupper](monitoring-action-groups.md). Du kan använda åtgärdsgrupper skapa modulära åtgärder. Du kan återanvända åtgärdsgrupper för flera Varningsregler.
-- **Mått från loggar**: från populära loggdata som kommer till [logganalys](../log-analytics/log-analytics-overview.md), mått kan extraheras till Azure-Monitor och få information om nästan i realtid.
+Information om hur du skapar en avisering om nyare mått i Azure-portalen finns [skapa en aviseringsregel i Azure portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal). När den har skapats, kan du hantera aviseringen med hjälp av stegen som beskrivs i [Hantera aviseringar i Azure portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
+
+## <a name="portal-powershell-cli-rest-support"></a>Portalen PowerShell, CLI, REST-stöd
+För närvarande kan du skapa nyare mått aviseringar endast i Azure portal eller REST API. Stöd för att konfigurera nya aviseringar med PowerShell och Azure-kommandoradsgränssnittet (Azure CLI 2.0) kommer snart.
 
 ## <a name="metrics-and-dimensions-supported"></a>Mått och dimensioner som stöds
-Nära realtid mått stöder aviseringar aviseringar för mått som använder dimensioner. Du kan använda dimensioner för att filtrera dina mått för rätt nivå. Alla stöds mått tillsammans med tillämpliga dimensioner kan utforskade och visualiseras från [Azure-Monitor - Metrics Explorer (förhandsgranskning)](monitoring-metric-charts.md).
+Nyare mått aviseringar stöder aviseringar för mått som använder dimensioner. Du kan använda dimensioner för att filtrera dina mått för rätt nivå. Alla stöds mått tillsammans med tillämpliga dimensioner kan utforskade och visualiseras från [Azure-Monitor - Metrics Explorer (förhandsgranskning)](monitoring-metric-charts.md).
 
-Här är en fullständig lista över Azure övervakaren baserat mått källor som stöds för nära realtid mått aviseringar:
+Här är en fullständig lista över Azure övervakaren mått källor som stöds av de nyare aviseringarna:
 
 |Resurstyp  |Dimensioner som stöds  | Tillgängliga mått|
 |---------|---------|----------------|
@@ -60,25 +63,20 @@ Här är en fullständig lista över Azure övervakaren baserat mått källor so
 |Microsoft.Storage/storageAccounts/services     |     Ja    | [BLOB-tjänster](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [Filtjänster](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [kö Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) och [tabell tjänster](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  Gäller inte       | [Stream Analytics](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
 |Microsoft.CognitiveServices/accounts     |    Gäller inte     | [Cognitive Services](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
-|Microsoft.OperationalInsights/workspaces (förhandsgranskning) | Ja|[Log Analytics arbetsytor](#support-for-oms-logs-as-metrics-for-alerting)|
+|Microsoft.OperationalInsights/workspaces (förhandsgranskning) | Ja|[Log Analytics arbetsytor](#log-analytics-logs-as-metrics-for-alerting)|
 
 
-## <a name="create-a-newer-metric-alert"></a>Skapa en nyare mått
-För närvarande kan du skapa nyare mått aviseringar endast i Azure portal eller REST API. Stöd för att konfigurera nästan realtid mått aviseringar med hjälp av PowerShell, Azure-kommandoradsgränssnittet (Azure CLI) kommer snart.
+## <a name="log-analytics-logs-as-metrics-for-alerting"></a>Logganalys loggar som mätvärden för aviseringar 
 
-Information om hur du skapar en avisering om nyare mått i Azure-portalen finns [skapa en aviseringsregel i Azure portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
-
-## <a name="manage-newer-metric-alerts"></a>Hantera aviseringar för nyare mått
-När du har skapat en nära realtid mått avisering kan du hantera aviseringen med hjälp av stegen som beskrivs i [Hantera aviseringar i Azure portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
-
-## <a name="support-for-oms-logs-as-metrics-for-alerting"></a>Stöd för OMS-loggar som mätvärden för aviseringar
-
-Du kan också använda nära realtid mått aviseringar på populära OMS-loggarna extraherat som mått som en del av mätvärden från förhandsversionen av loggar.  
+Du kan också använda nyare mått aviseringar på populära logganalys loggarna extraherat som mått som en del av mätvärden från förhandsversionen av loggar.  
 - [Prestandaräknare](../log-analytics/log-analytics-data-sources-performance-counters.md) för Windows och Linux-datorer
 - [Heartbeat-poster för Agenthälsa](../operations-management-suite/oms-solution-agenthealth.md)
 - [Uppdateringshantering](../operations-management-suite/oms-solution-update-management.md) poster
+ 
+> [!NOTE]
+> Specifikt mått och/eller dimension visas bara om det finns data för den valda perioden. De här måtten är tillgängliga för kunder med arbetsytor i östra USA, västra centrala USA och Västeuropa som har valts i förhandsgranskningen. Om du vill ska vara en del av den här förhandsgranskningen kan logga med [undersökningen](https://aka.ms/MetricLogPreview).
 
-Här är en fullständig lista över OMS loggbaserade mått källor som stöds för nära realtid mått aviseringar:
+I följande lista över logganalys loggbaserade mått källor stöds:
 
 Mått Namnuppgifter  |Dimensioner som stöds  | Typ av logg  |
 |---------|---------|---------|
@@ -151,13 +149,11 @@ Mått Namnuppgifter  |Dimensioner som stöds  | Typ av logg  |
 |    Pulsslag  |     Yes - Computer, OSType, Version & SourceComputerId    |   Heartbeat-poster |
 |    Uppdatering |     Ja - dator, produkt, klassificering, UpdateState valfria & godkända    |   Uppdateringshantering |
 
-> [!NOTE]
-> Specifikt mått och/eller dimension visas bara om det finns data för den valda perioden. De här måtten är tillgängliga för kunder med arbetsytor i östra USA, västra centrala USA och Västeuropa som har valts i förhandsgranskningen. Om du vill ska vara en del av den här förhandsgranskningen kan logga med [undersökningen](https://aka.ms/MetricLogPreview).
 
 
 ## <a name="payload-schema"></a>Nyttolasten i schemat
 
-POST-åtgärden innehåller följande JSON-nyttolast och schemat för alla nära realtid mått aviseringar när korrekt konfigurerad [grupp](monitoring-action-groups.md) används:
+POST-åtgärden innehåller följande JSON-nyttolast och schemat för alla nära nyare mått varningar när en korrekt konfigurerad [grupp](monitoring-action-groups.md) används:
 
 ```json
 {"schemaId":"AzureMonitorMetricAlert","data":

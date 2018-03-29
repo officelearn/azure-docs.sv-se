@@ -1,6 +1,6 @@
 ---
-title: "Skydda en filserver med hjälp av Azure Site Recovery"
-description: "Den här artikeln beskriver hur du skyddar en filserver med hjälp av Azure Site Recovery"
+title: Skydda en filserver med hjälp av Azure Site Recovery
+description: Den här artikeln beskriver hur du skyddar en filserver med hjälp av Azure Site Recovery
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: f53a8641a50a6c968a6ba7b841e0e8f938b5d9f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 830f9c76d9d1bf11692fa9f2f5c49cbecdb69f25
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Skydda en filserver med hjälp av Azure Site Recovery 
 
@@ -48,7 +48,7 @@ I föregående diagram delta flera filservrar kallas medlemmar aktivt vid replik
 
     * Du kan använda den här metoden om dina virtuella datorer har konfigurationer som inte stöds av Site Recovery. Ett exempel är en delad klusterdisk, som ibland används i filen server-miljöer. DFSR också fungerar bra i miljöer med låg bandbredd med medelhög omsättningen. Du behöver överväga ytterligare kostnaden för att ha en Azure VM och igång hela tiden. 
 
-* **Använd Azure filsynkronisering för att replikera dina filer**: Om du planerar att använda molnet eller redan använder en Azure VM, kan du använda filsynkronisering. Filsynkronisering erbjuder synkroniseringen av helt hanterad filresurser i molnet som är tillgängliga via standardmässiga [Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) protokollet (SMB). Azure-filresurser kan sedan monteras samtidigt med molnet eller lokala distributioner av Windows, Linux och macOS. 
+* **Använd Azure filsynkronisering för att replikera dina filer**: Om du planerar att använda molnet eller redan använder en Azure VM, kan du använda Azure filen Sync. Azure filsynkronisering erbjuder synkroniseringen av helt hanterad filresurser i molnet som är tillgängliga via standardmässiga [Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) protokollet (SMB). Azure-filresurser kan sedan monteras samtidigt med molnet eller lokala distributioner av Windows, Linux och macOS. 
 
 Följande diagram hjälper dig att avgöra vilka strategin för din servermiljö och fil.
 

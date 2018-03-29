@@ -419,6 +419,8 @@
           href: extensions-nwa.md
         - name: VMAccess-tillägg
           href: using-vmaccess-extension.md
+        - name: Begränsa installation av tillägg
+          href: extensions-rmpolicy-howto-cli.md
     - name: Migrera virtuella datorer
       items:
         - name: Migrera AWS och lokala virtuella datorer
@@ -458,6 +460,8 @@
           href: understand-vm-reboot.md
         - name: Startdiagnostik
           href: boot-diagnostics.md
+        - name: Seriekonsol
+          href: serial-console.md
         - name: Åtkomst till program
           href: troubleshoot-app-connection.md
         - name: Allokeringsfel

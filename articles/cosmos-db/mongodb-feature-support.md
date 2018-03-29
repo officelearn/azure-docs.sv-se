@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 470ad2fe458c47392b8f55a8f46c75e54ccf87a3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 22ae56d9ebb2ea39acbd9f4536ef9ea5508b9867
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB-API-stöd för MongoDB-funktioner och syntax
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan kommunicera med databasens MongoDB API genom någon av klienten för öppen källkod MongoDB [drivrutiner](https://docs.mongodb.org/ecosystem/drivers). MongoDB-API som möjliggör användning av befintliga klientdrivrutiner genom att följa MongoDB [tråd protokollet](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-Med hjälp av Azure Cosmos DB MongoDB API kan du få fördelarna med MongoDB-APIs du ofta, med alla funktioner som Azure Cosmos DB enterprise: [global distributionsplatsen](distribute-data-globally.md), [automatisk delning](partition-data.md), tillgänglighet och svarstid garantier, automatisk indexering av varje fält, kryptering i vila, säkerhetskopior och mycket mer.
+Med hjälp av Azure Cosmos DB MongoDB API kan du dra nytta av fördelarna av MongoDB-APIs du ofta, med alla enterprise-funktioner som ger Azure Cosmos DB: [global distributionsplatsen](distribute-data-globally.md), [automatisk delning](partition-data.md), tillgänglighet och svarstid garantier, automatisk indexering av varje fält, kryptering i vila, säkerhetskopior och mycket mer.
 
 ## <a name="mongodb-query-language-support"></a>Språkstöd för MongoDB-fråga
 

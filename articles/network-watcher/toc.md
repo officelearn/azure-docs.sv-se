@@ -74,7 +74,7 @@
 ## Analysera NSG-flödesloggar
 ### [Läs NSG-flödesloggar](network-watcher-read-nsg-flow-logs.md)
 ### Trafikanalys
-#### [Använda Trafikanalys](traffic-analytics.md)
+#### [Använda trafikanalys](traffic-analytics.md)
 #### [Vanliga frågor och svar](traffic-analytics-faq.md)
 ### [Använd Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Använd Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)

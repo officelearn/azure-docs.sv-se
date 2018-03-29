@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/27/2018
 ms.author: shlo
-ms.openlocfilehash: f55e85bb424f4f5973fd6d633b6adf9fbca4d0ef
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Sökning aktivitet i Azure Data Factory
 Du kan använda sökning aktiviteten för att läsa eller söka efter en post, namn eller värde från en extern källa. Dessa utdata kan vidare refereras av efterföljande aktiviteter. 
@@ -30,12 +30,23 @@ Sökning aktivitet är användbart när du vill hämta en lista över filer, pos
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
 Följande datakällor stöds för närvarande för sökning:
-- JSON-fil i Azure Blob storage
-- JSON-fil i filsystemet
-- Azure SQL Database (JSON-data konverteras från fråga)
-- Azure SQL Data Warehouse (JSON-data konverteras från fråga)
-- SQL Server (JSON-data konverteras från fråga)
-- Azure Table storage (JSON-data konverteras från fråga)
+
+- Amazon Redshift
+- Azure Blob Storage
+- Azure Cosmos DB
+- Azure Data Lake Store
+- Azure File storage
+- Azure SQL Database
+- Azure SQL Data Warehouse
+- Azure Table Storage
+- Dynamics 365
+- Dynamics CRM
+- Filsystem
+- PostgreSQL
+- Salesforce
+- Salesforce Service Cloud
+- SFTP
+- SQL Server
 
 Det maximala antalet rader som returneras av sökning aktiviteten är **5000**, och upp till **10MB** i storlek.
 
@@ -62,9 +73,14 @@ Det maximala antalet rader som returneras av sökning aktiviteten är **5000**, 
 ## <a name="type-properties"></a>Typegenskaper
 Namn | Beskrivning | Typ | Krävs?
 ---- | ----------- | ---- | --------
-DataSet | Ger dataset-referens för sökningen. För närvarande är stöds dataset-typer:<ul><li>`AzureBlobDataset` för [Azure Blob storage](connector-azure-blob-storage.md#dataset-properties) som källa</li><li>`FileShareDataset` för [filsystemet](connector-file-system.md#dataset-properties) som källa</li><li>`AzureSqlTableDataset` för [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) eller [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) som källa</li><li>`SqlServerTable` för [SQL Server](connector-sql-server.md#dataset-properties) som källa</li><li>`AzureTableDataset` för [Azure Table storage](connector-azure-table-storage.md#dataset-properties) som källa</li> | Nyckel/värde-par | Ja
+DataSet | Ger dataset-referens för sökningen. Hämta information från avsnittet ”Egenskaper för datamängd” i varje motsvarande connector-artikel. | Nyckel/värde-par | Ja
 källa | Innehåller egenskaper för dataset-specifik datakälla, samma som kopieringskälla för aktiviteten. Hämta information från avsnittet ”Kopiera Aktivitetsegenskaper” i varje motsvarande connector-artikel. | Nyckel/värde-par | Ja
 firstRowOnly | Anger om du vill returnera endast den första raden eller alla rader. | Boolesk | Nej. Standardvärdet är `true`.
+
+Observera följande punkter:
+
+1. Källkolumnen med ByteArray typ stöds inte.
+2. Strukturen stöds inte i definitionen för datamängden. För textfiler specifikt, kan du använda rubrikraden för att ange ett kolumnnamn.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Använda sökning aktivitet resultat i en efterföljande aktivitet
 

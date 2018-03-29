@@ -1,26 +1,26 @@
 ---
-title: "Azure AD SSPR med tillbakaskrivning av lösenord | Microsoft Docs"
-description: "Använda Azure AD och Azure AD Connect att tillbakaskrivning av lösenord till en lokal katalog"
+title: Azure AD SSPR med tillbakaskrivning av lösenord | Microsoft Docs
+description: Använda Azure AD och Azure AD Connect att tillbakaskrivning av lösenord till en lokal katalog
 services: active-directory
-keywords: "Hantering av Active directory-lösenord, lösenordshantering, Azure AD self service för lösenordsåterställning"
-documentationcenter: 
+keywords: Hantering av Active directory-lösenord, lösenordshantering, Azure AD self service för lösenordsåterställning
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: bcb7074a6d590a08ad683c8746156245bc60c5e8
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a7a81f51e0873da38f25deb687e4d03ccf67e11a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="password-writeback-overview"></a>Översikt över tillbakaskrivning av lösenord
 
@@ -30,7 +30,7 @@ Tillbakaskrivning av lösenord innehåller följande funktioner:
 
 * **Ger feedback noll fördröjning**: tillbakaskrivning av lösenord är en synkron åtgärd. Användarna meddelas omedelbart om sina lösenord inte uppfyllde principen eller inte kunde återställa eller ändras av någon anledning.
 * **Har stöd för lösenordsåterställning för användare som använder Active Directory Federation Services (AD FS) eller andra tekniker för federation**: med tillbakaskrivning av lösenord, så länge som de federerade användarkontona synkroniseras till din Azure AD-klient som ska kunna hantera sina lokala Active Directory-lösenord från molnet.
-* **Har stöd för lösenordsåterställning för användare som använder** [lösenordshashsynkronisering](./connect/active-directory-aadconnectsync-implement-password-synchronization.md): när tjänsten för återställning av lösenord upptäcker att ett synkroniserade användarkonto är aktiverat för lösenordets hash-synkronisering, återställs både det här kontot Lokal och moln lösenord samtidigt.
+* **Har stöd för lösenordsåterställning för användare som använder** [lösenordshashsynkronisering](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md): när tjänsten för återställning av lösenord upptäcker att ett synkroniserade användarkonto är aktiverat för lösenordets hash-synkronisering, återställs både det här kontot Lokal och moln lösenord samtidigt.
 * **Har stöd för lösenordsåterställning för användare som använder direkt autentisering**: med tillbakaskrivning av lösenord, så länge direkt Authentication-konton synkroniseras till din Azure AD-klient som ska kunna hantera sina lokala Active Directory-lösenord från molnet.
 * **Har stöd för lösenord ändras från åtkomstpanelen och Office 365**: om sammanslaget eller lösenord synkroniseras användare kommer att ändra sina lösenord har upphört att gälla eller ej upphört att gälla, vi skriva tillbaka lösenord till din lokala Active Directory-miljö.
 * **Stöder tillbakaskrivning av lösenord när en administratör återställer dem från Azure portal**: när en administratör återställer ett lösenord i den [Azure-portalen](https://portal.azure.com)om användaren är federerat eller lösenord synkroniseras, vi ställer lösenordet administratören väljer i samt lokala Active Directory. Den här funktionen stöds inte för närvarande i administrationsportalen för Office.

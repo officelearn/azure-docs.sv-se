@@ -7,4 +7,4 @@
 | Jobbet Runtime - kostnadsfri nivå |500 minuter per prenumeration per månad |
 | Högsta mängd minne som tilldelas ett jobb |400 MB |
 | Högsta antal nätverk sockets tillåts per jobb |1000 |
-
+| Max antal Automation-konton i en prenumeration |Obegränsat |

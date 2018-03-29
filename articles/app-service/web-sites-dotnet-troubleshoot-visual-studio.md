@@ -1,11 +1,11 @@
 ---
-title: "Felsöka en webbapp i Azure App Service med Visual Studio"
-description: "Lär dig hur du felsöker ett Azure-webbapp med hjälp av fjärrfelsökning, spårning och loggningsverktyg som är inbyggda Visual Studio 2013."
+title: Felsöka en webbapp i Azure App Service med Visual Studio
+description: Lär dig hur du felsöker ett Azure-webbapp med hjälp av fjärrfelsökning, spårning och loggningsverktyg som är inbyggda Visual Studio 2013.
 services: app-service
 documentationcenter: .net
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7973f4311095b7c87ccd2394b048ec92c50f32a9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Felsöka en webbapp i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt
@@ -125,12 +125,14 @@ Det här avsnittet visar hur du felsöka med projektet som du skapar i [skapa en
 
 3. Ta bort den `About()` metoden och infoga följande kod i dess ställe.
 
-        public ActionResult About()
-        {
-            string currentTime = DateTime.Now.ToLongTimeString();
-            ViewBag.Message = "The current time is " + currentTime;
-            return View();
-        }
+``` c#
+public ActionResult About()
+{
+    string currentTime = DateTime.Now.ToLongTimeString();
+    ViewBag.Message = "The current time is " + currentTime;
+    return View();
+}
+```
 4. [Ange en brytpunkt](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) på den `ViewBag.Message` rad.
 
 5. I **Solution Explorer**, högerklicka på projektet och klicka på **publicera**.
@@ -171,7 +173,7 @@ Det här avsnittet visar hur du felsöka med projektet som du skapar i [skapa en
 
      ![Om sidan med nytt värde](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
-## <a name="remotedebugwj"></a>Fjärråtkomst felsökning WebJobs
+## <a name="remotedebugwj"></a> Fjärråtkomst felsökning WebJobs
 Det här avsnittet visar hur du felsöka med hjälp av projektet och webb-app som du skapar i [Kom igång med Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Funktioner som visas i det här avsnittet är endast tillgänglig i Visual Studio 2013 med Update 4 eller senare.
@@ -241,10 +243,12 @@ Om din funktion [skrev loggar](https://github.com/Azure/azure-webjobs-sdk/wiki),
 * När du felsöker skickar servern data till Visual Studio som kan påverka kostnader för bandbredd. Information om bandbredd priser finns [priser för Azure](https://azure.microsoft.com/pricing/calculator/).
 * Se till att den `debug` attribut för den `compilation` element i den *Web.config* fil har angetts till true. Den är inställd på true som standard när du publicerar en debug build-konfiguration.
 
-        <system.web>
-          <compilation debug="true" targetFramework="4.5" />
-          <httpRuntime targetFramework="4.5" />
-        </system.web>
+``` xml
+<system.web>
+  <compilation debug="true" targetFramework="4.5" />
+  <httpRuntime targetFramework="4.5" />
+</system.web>
+```
 * Om du upptäcker att felsökaren inte gå till den kod som du vill felsöka kan behöva du ändra inställningen bara min kod.  Mer information finns i [begränsa gå till bara min kod](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
 * En timer startar på servern när du aktiverar funktionen felsökning och efter 48 timmar funktionen inaktiveras automatiskt. Den här gränsen 48 timmar görs grund för säkerhet och prestanda. Du kan enkelt aktivera funktionen igen så många gånger. Vi rekommenderar att du lämnar inaktiverad när du inte aktivt felsökning.
 * Du kan manuellt koppla felsökaren till en process, inte bara web app processen (w3wp.exe). Mer information om hur du använder felsökningsläge i Visual Studio finns [felsökning i Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
@@ -277,32 +281,35 @@ För information om hur du skapar program som loggar in WebJobs, se [hur du arbe
 ### <a name="add-tracing-statements-to-the-application"></a>Lägga till spårning instruktioner för programmet
 1. Öppna *Controllers\HomeController.cs*, och Ersätt den `Index`, `About`, och `Contact` metoder med följande kod för att lägga till `Trace` instruktioner och en `using` -instruktion för `System.Diagnostics`:
 
-        public ActionResult Index()
-        {
-            Trace.WriteLine("Entering Index method");
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Index method");
-            return View();
-        }
+```c#
+public ActionResult Index()
+{
+    Trace.WriteLine("Entering Index method");
+    ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+    Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Index method");
+    return View();
+}
 
-        public ActionResult About()
-        {
-            Trace.WriteLine("Entering About method");
-            ViewBag.Message = "Your app description page.";
-            Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
-            Trace.WriteLine("Leaving About method");
-            return View();
-        }
+public ActionResult About()
+{
+    Trace.WriteLine("Entering About method");
+    ViewBag.Message = "Your app description page.";
+    Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
+    Trace.WriteLine("Leaving About method");
+    return View();
+}
 
-        public ActionResult Contact()
-        {
-            Trace.WriteLine("Entering Contact method");
-            ViewBag.Message = "Your contact page.";
-            Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Contact method");
-            return View();
-        }        
+public ActionResult Contact()
+{
+    Trace.WriteLine("Entering Contact method");
+    ViewBag.Message = "Your contact page.";
+    Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Contact method");
+    return View();
+}        
+```
+
 2. Lägg till en `using System.Diagnostics;` uttryck överst i filen.
 
 ### <a name="view-the-tracing-output-locally"></a>Visa spårning utdata lokalt
@@ -315,25 +322,30 @@ För information om hur du skapar program som loggar in WebJobs, se [hur du arbe
     Följande steg visar hur du kan visa spårningsinformationen i en webbsida, utan att kompilera i felsökningsläge.
 2. Öppna filen Web.config för programmet (det finns i projektmappen) och Lägg till en `<system.diagnostics>` element i slutet av filen precis före avslutande `</configuration>` element:
 
-          <system.diagnostics>
-            <trace>
-              <listeners>
-                <add name="WebPageTraceListener"
-                    type="System.Web.WebPageTraceListener,
-                    System.Web,
-                    Version=4.0.0.0,
-                    Culture=neutral,
-                    PublicKeyToken=b03f5f7f11d50a3a" />
-              </listeners>
-            </trace>
-          </system.diagnostics>
+``` xml
+<system.diagnostics>
+<trace>
+  <listeners>
+    <add name="WebPageTraceListener"
+        type="System.Web.WebPageTraceListener,
+        System.Web,
+        Version=4.0.0.0,
+        Culture=neutral,
+        PublicKeyToken=b03f5f7f11d50a3a" />
+  </listeners>
+</trace>
+</system.diagnostics>
+```
 
-    Den `WebPageTraceListener` kan du visa spårningsutdata genom att bläddra till `/trace.axd`.
+Den `WebPageTraceListener` kan du visa spårningsutdata genom att bläddra till `/trace.axd`.
 3. Lägg till en <a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">elementet trace</a> under `<system.web>` i filen Web.config, som i följande exempel:
 
-        <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+``` xml
+<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+```       
+
 4. Tryck på CTRL+F5 för att köra programmet.
-5. Lägg till i adressfältet i webbläsarfönstret *trace.axd* till URL och tryck på RETUR (URL: en är liknar http://localhost:53370/trace.axd).
+5. Lägg till i adressfältet i webbläsarfönstret *trace.axd* till URL och tryck på RETUR (URL: en liknar http://localhost:53370/trace.axd).
 6. På den **programmet Trace** klickar du på **visa information om** på den första raden (inte BrowserLink rad).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -646,15 +658,18 @@ Det finns inga omfattande och uppdaterad introduktioner för ASP.NET-spårning p
 * [Spårning i ASP.NET MVC Razor vyer](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Utöver spårning i Razor vyer Lär efter dig också att skapa ett filter för fel för att logga alla ohanterat undantag i ett MVC-program. Information om hur du loggar alla ohanterade undantag i ett Web Forms-program finns i Global.asax exemplet i [komplett exempel felhanterare](http://msdn.microsoft.com/library/bb397417.aspx) på MSDN. I MVC eller Web Forms om du vill logga vissa undantag, men låt standardvärdet ramen som hanterar börja gälla för dem, att fånga och skicka tillbaka som i följande exempel:
 
-        try
-        {
-           // Your code that might cause an exception to be thrown.
-        }
-        catch (Exception ex)
-        {
-            Trace.TraceError("Exception: " + ex.ToString());
-            throw;
-        }
+``` c#
+try
+{
+   // Your code that might cause an exception to be thrown.
+}
+catch (Exception ex)
+{
+    Trace.TraceError("Exception: " + ex.ToString());
+    throw;
+}
+```
+
 * [Strömmande diagnostik spårningsloggning från Azure Command Line (plus uppfattning!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   Använda kommandoraden för att göra vad den här kursen visar hur du gör i Visual Studio. [Uppfattning](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) är ett verktyg för felsökning av ASP.NET-program.
 * [Med Web Apps-loggning och diagnostik - med David Ebbo](/documentation/videos/azure-web-site-logging-and-diagnostics/) och [Direktuppspelningsloggar från Web Apps - med David Ebbo](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
@@ -669,7 +684,7 @@ Mer information om hur du analyserar webbserverloggar finns i följande resurser
 
 * [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Ett verktyg för att visa data i webbserverloggar (*.log* filer).
-* [Felsöka IIS prestandaproblem och programfel med LogParser](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [Felsöka IIS prestandaproblem och programfel med LogParser ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   En introduktion till verktyget Loggparser som du kan använda för att analysera webbloggar för servern.
 * [Blogginlägg av Robert McMurray med hjälp av LogParser](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [HTTP-statuskod i IIS 7.0, IIS 7.5 och IIS 8.0](http://support.microsoft.com/kb/943891)

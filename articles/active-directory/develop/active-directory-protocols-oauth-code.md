@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 87a24ae9b620557e3106eb7f51b3f002cd76dd03
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 241f872b3069a58a35df7104f3335964298c7a20
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Auktorisera åtkomst till webbprogram med OAuth 2.0 och Azure Active Directory
 Azure Active Directory (AD Azure) använder OAuth 2.0 för att du ska bevilja åtkomst till webbprogram och webb-API: er i Azure AD-klienten. Den här guiden är språkoberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda någon av våra bibliotek med öppen källkod.
@@ -138,9 +138,9 @@ grant_type=authorization_code
 | grant_type |Krävs |Måste vara `authorization_code` för auktoriseringskodflödet. |
 | Koden |Krävs |Den `authorization_code` som du har införskaffade i föregående avsnitt |
 | redirect_uri |Krävs |Samma `redirect_uri` värde som användes för att hämta den `authorization_code`. |
-| client_secret |krävs för webbprogram |Den hemlighet som programmet som du skapade i portalen för registrering av app för din app.  Den bör inte användas i en intern app eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter.  Det krävs för webbappar och webb-API: er som har möjlighet att lagra den `client_secret` på ett säkert sätt på serversidan. |
+| client_secret |krävs för webbprogram som inte är tillåtet för offentliga klienter |Den hemlighet som programmet som du skapade i portalen för registrering av app för din app.  Den kan inte användas i en intern app (offentliga klient), eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter.  Det krävs för webbappar och webb-API: er (alla konfidentiell klienter) som har möjlighet att lagra den `client_secret` på ett säkert sätt på serversidan. |
 | resurs |krävs om anges i tillståndet begäran, annars valfritt |App-ID URI för webb-API (skyddad resurs). |
-| code_verifier | valfri              | Samma code_verifier som användes för att hämta authorization_code.  Krävs om PKCE användes i tillståndet kod bevilja begäran.  Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
+| code_verifier | valfri              | Samma code_verifier som användes för att hämta authorization_code.  Krävs om PKCE användes i tillståndet kod bevilja begäran.  Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 
 Om du vill hitta URI: N för App-ID i Azure-hanteringsportalen, klickar du på **Active Directory**, klickar du på katalogen, klicka på programmet och klicka sedan på **konfigurera**.
 

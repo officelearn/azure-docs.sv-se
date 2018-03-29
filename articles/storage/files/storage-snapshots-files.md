@@ -1,5 +1,5 @@
 ---
-title: Översikt över dela ögonblicksbilder för Azure-filer (förhandsversion) | Microsoft Docs
+title: Översikt över dela ögonblicksbilder för Azure-filer | Microsoft Docs
 description: En ögonblicksbild av en resurs är en skrivskyddad version av en resurs i Azure-filer som hämtas vid en tidpunkt som ett sätt att säkerhetskopiera resursen.
 services: storage
 documentationcenter: .net
@@ -14,32 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 671e3737a620d85c732a091d5a62f35f35c1d515
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6499bdf1af676898f7b2911612cbd206bccfa4fa
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Översikt över dela ögonblicksbilder för Azure-filer 
 Azure Files ger möjlighet att ta resursen ögonblicksbilder av filresurser. Dela ögonblicksbilder avbilda tillstånd för filresurs då i tid. Den här artikeln beskrivs vilka funktioner som ger resursen ögonblicksbilder och hur du kan dra nytta av dem i din anpassade användningsfall.
 
-
 ## <a name="when-to-use-share-snapshots"></a>När du ska använda ögonblicksbilder för resursen
 
 ### <a name="protection-against-application-error-and-data-corruption"></a>Skydd mot fel och data skadas i programmet
-
 Program som använder filresurser filhantering skrivning, läsning, lagring, överföring och bearbetning. Om ett program är felaktigt konfigurerad eller en oavsiktlig bugg introduceras kan oavsiktliga överskrivning eller skada inträffa några block. För att skydda mot dessa scenarier, kan det ta en ögonblicksbild av en resurs innan du distribuerar nya programkod. Om ett programfel eller program fel introducerades i den nya distributionen, går du tillbaka till en tidigare version av dina data på den filresursen. 
 
 ### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Skydd mot oavsiktliga borttagningar eller oavsiktliga ändringar
-
 Anta att du arbetar med en textfil i en filresurs. När filen har stängts förlorar du möjligheten att ångra ändringarna. I dessa fall kan behöver du sedan återställa en tidigare version av filen. Du kan använda resursen ögonblicksbilder för att återställa tidigare versioner av filen om den har ändrats eller tagits bort av misstag.
 
 ### <a name="general-backup-purposes"></a>Allmän säkerhetskopiering
-
 När du skapar en filresurs, skapar du regelbundet en resurs ögonblicksbild av filresursen som ska användas för säkerhetskopiering av data. En resurs som en ögonblicksbild, när de tas med jämna mellanrum, hjälper till att underhålla tidigare versioner av data som kan användas för framtida granskningskrav eller katastrofåterställning.
 
 ## <a name="capabilities"></a>Funktioner
-
 En ögonblicksbild av en resurs är en tidpunkt i, skrivskyddad kopia av dina data. Du kan skapa, ta bort och hantera ögonblicksbilder med hjälp av REST API. Samma funktioner är också tillgängliga i klientbiblioteket, Azure CLI och Azure-portalen. 
 
 Du kan visa ögonblicksbilder av en resurs med hjälp av REST API- och SMB. Du kan hämta listan över versioner av katalogen eller filen och du kan montera en viss version direkt som en enhet. 
@@ -59,9 +54,7 @@ När du skapar en ögonblicksbild av en resurs på en filresurs, kopieras filern
 
 Du kan inte ta bort en resurs som innehåller ögonblicksbilder som andel om du först ta bort alla ögonblicksbilder för resursen.
 
-
 ## <a name="space-usage"></a>Användning av diskutrymme 
-
 Dela ögonblicksbilder är inkrementell till sin natur. Endast de data som har ändrats när din senaste dela ögonblicksbild har sparats. Detta minimerar den tid som krävs för att skapa ögonblicksbilden för resursen och sparar på lagringskostnader. Någon skrivåtgärd till objektet eller egenskapen eller metadata uppdateringsåtgärden räknas mot ”ändrade innehåll” och lagras i resursen ögonblicksbilden. 
 
 Du kan ta bort resursen ögonblicksbilden för perioden när dataomsättningen var högst för att spara utrymme.
@@ -71,13 +64,11 @@ Du kan ta bort resursen ögonblicksbilden för perioden när dataomsättningen v
 Ögonblicksbilder räknas inte in 5 TB resursen gränsen. Det finns ingen gräns för hur mycket utrymme resursen ögonblicksbilder uppta totalt. Lagringskontogränser gäller fortfarande.
 
 ## <a name="limits"></a>Begränsningar
-
 Det maximala antalet resursen ögonblicksbilder som Azure-filer kan idag är 200. Du måste ta bort äldre resursen ögonblicksbilder för att kunna skapa nya efter 200 resursen ögonblicksbilder. 
 
 Det finns ingen gräns för samtidiga anrop för att skapa ögonblicksbilder av resursen. Det finns ingen gräns för mängden utrymme som delar som kan använda ögonblicksbilder av en viss resurs. 
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Kopiera data till en resurs från resursen ögonblicksbild
-
 Kopieringsåtgärder som inbegriper filer och dela ögonblicksbilder följer dessa regler:
 
 Du kan kopiera enskilda filer i en filresursen Snabböversikt över till dess grundläggande resurs eller någon annan plats. Du kan återställa en tidigare version av en fil eller återställa fullständig filresursen genom att kopiera varje fil från dela ögonblicksbild. Ögonblicksbilden av resursen är inte befordras till grundläggande resursen. 
@@ -89,7 +80,6 @@ Du kan kopiera en fil i en ögonblicksbild av en resurs till ett mål med ett an
 När en målfil skrivs över med en kopia, bevaras resursen ögonblicksbilder som är kopplade till den ursprungliga målfilen.
 
 ## <a name="general-best-practices"></a>Allmänna Metodtips 
-
 När du kör infrastruktur på Azure, kan du automatisera säkerhetskopior för återställning av data när det är möjligt. Automatiska åtgärder är mer tillförlitligt än manuella processer, hjälper till att förbättra dataskydd och återställning. Du kan använda REST-API, klient-SDK eller skript för automatisering.
 
 Innan du distribuerar dela ögonblicksbild Schemaläggaren måste du noga överväga din resurs ögonblicksbild frekvens och inställningarna för datakvarhållning till att undvika onödiga kostnader.
@@ -97,6 +87,8 @@ Innan du distribuerar dela ögonblicksbild Schemaläggaren måste du noga överv
 Dela ögonblicksbilder skyddar bara på filnivå. Dela ögonblicksbilder hindra inte fat-fingeravtrycksläsare borttagningar på ett resurs eller lagring konto. Om du vill skydda ett lagringskonto från oavsiktliga borttagningar, kan du låsa storage-konto eller resursgruppen.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Arbeta med ögonblicksbilder för resursen](storage-how-to-use-files-snapshots.md)
-* [Dela ögonblicksbild vanliga frågor och svar](storage-files-faq.md#share-snapshots)
-
+- Arbeta med resursen ögonblicksbilder i:
+    - [Portal](storage-how-to-use-files-portal.md#create-and-modify-share-snapshots)
+    - [PowerShell](storage-how-to-use-files-powershell.md#create-and-modify-share-snapshots)
+    - [CLI](storage-how-to-use-files-cli.md#create-and-modify-share-snapshots)
+- [Dela ögonblicksbild vanliga frågor och svar](storage-files-faq.md#share-snapshots)

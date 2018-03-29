@@ -10,11 +10,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 338520f273a88866834e43e17da1f8b131ca38f7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d213a3f8bed5af526efba39868855b6f6727a7c0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (FAQ) 
 Den här sidan svar på vanliga frågor om Azure Active Directory (AD Azure) B2C. Hålla kontroll för uppdateringar.
@@ -28,7 +28,9 @@ Azure AD B2C kan inte användas för att autentisera användare för Microsoft O
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Vad är lokala konton i Azure AD B2C? Vad är de från arbets-eller skolkonton i Azure AD?
 I en Azure AD-klient användare som tillhör innehavaren logga in med en e-postadress i formatet `<xyz>@<tenant domain>`.  Den `<tenant domain>` är en av de verifierade domänerna i innehavaren eller första `<...>.onmicrosoft.com` domän. Den här typen av konto är ett konto för arbetet eller skolan.
 
-De flesta appar i Azure AD B2C-klient vill användaren att logga in med en godtycklig e-postadress (till exempel joe@comcast.net, bob@gmail.com, sarah@contoso.com, eller jim@live.com). Den här typen av konto är ett lokalt konto.  Vi stöder också godtycklig användarnamn som lokala konton (till exempel joe bob, Sara eller jim). Du kan välja något av dessa två typer av lokalt konto genom att konfigurera Azure AD B2C i Azure-portalen.
+De flesta appar i Azure AD B2C-klient vill användaren att logga in med en godtycklig e-postadress (till exempel joe@comcast.net, bob@gmail.com, sarah@contoso.com, eller jim@live.com). Den här typen av konto är ett lokalt konto.  Vi stöder också godtycklig användarnamn som lokala konton (till exempel joe bob, Sara eller jim). Du kan välja något av dessa två kontotyper av lokala när du konfigurerar identitetsleverantörer för Azure AD B2C i Azure-portalen. I din Azure AD B2C-klient klickar du på **identitetsleverantörer** och välj sedan **användarnamn** under lokala konton. 
+
+Användarkonton för program måste alltid skapas via en principen för registrering, registrering eller inloggning – i princip eller genom att använda Azure AD Graph API. Användarkonton som skapats i Azure portal används bara för administration av klienten.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Vilka sociala identitetsleverantörer du stöder nu? Vilka som planerar att stödja i framtiden?
 Vi stöder för närvarande Facebook, Google +, LinkedIn, Amazon, Twitter (förhandsgranskning), WeChat (förhandsgranskning), Weibo (förhandsversion) och QT (förhandsversion). Vi lägger till stöd för andra populära sociala identitetsleverantörer baserat på kundernas behov.

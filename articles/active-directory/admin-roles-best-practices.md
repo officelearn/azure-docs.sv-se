@@ -1,8 +1,8 @@
 ---
-title: "Metodtips för att skydda administrativ åtkomst i Azure AD | Microsoft Docs"
-description: "Kontrollera att din organisation åtkomst och admin administratörskonton är säker. För systemarkitekter och IT-proffs som konfigurera Azure AD Azure och Microsoft Online Services."
+title: Metodtips för att skydda administrativ åtkomst i Azure AD | Microsoft Docs
+description: Kontrollera att din organisation åtkomst och admin administratörskonton är säker. För systemarkitekter och IT-proffs som konfigurera Azure AD Azure och Microsoft Online Services.
 services: active-directory
-keywords: 
+keywords: ''
 author: curtand
 ms.author: curtand
 ms.date: 03/09/2018
@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 98665ab215c98ea60273ce3aae2757cf20817a90
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD
 
@@ -156,7 +156,7 @@ Kontrollera att alla användare har loggat in på sina administrativa konton och
 
 #### <a name="turn-on-password-synchronization"></a>Aktivera Lösenordssynkronisering
 
-Lösenordssynkronisering är en funktion som används för att synkronisera hash-värden för användarlösenord från en lokal Active Directory-instans för en molnbaserad Azure AD-instans. Även om du väljer att använda federation med Active Directory Federation Services (AD FS) eller andra identitetsleverantörer, kan du konfigurera Lösenordssynkronisering som en säkerhetskopia i fall din lokala infrastruktur, till exempel AD eller AD FS-servrar misslyckas eller så blir inte tillgänglig för tillfället. Användare kan logga in till tjänsten med samma lösenord som de använder för att logga in på sina lokala AD-instans. Dessutom kan identitetsskydd att identifiera avslöjade autentiseringsuppgifter genom att jämföra de lösenordshashvärden med kända äventyras, om en användare har utnyttjas sina samma e-postadress och lösenord på andra tjänster som inte är ansluten till Azure AD-lösenord.  Mer information finns i [implementera Lösenordssynkronisering med Azure AD Connect-synkronisering](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).
+Lösenordssynkronisering är en funktion som används för att synkronisera hash-värden för användarlösenord från en lokal Active Directory-instans för en molnbaserad Azure AD-instans. Även om du väljer att använda federation med Active Directory Federation Services (AD FS) eller andra identitetsleverantörer, kan du konfigurera Lösenordssynkronisering som en säkerhetskopia i fall din lokala infrastruktur, till exempel AD eller AD FS-servrar misslyckas eller så blir inte tillgänglig för tillfället. Användare kan logga in till tjänsten med samma lösenord som de använder för att logga in på sina lokala AD-instans. Dessutom kan identitetsskydd att identifiera avslöjade autentiseringsuppgifter genom att jämföra de lösenordshashvärden med kända äventyras, om en användare har utnyttjas sina samma e-postadress och lösenord på andra tjänster som inte är ansluten till Azure AD-lösenord.  Mer information finns i [implementera Lösenordssynkronisering med Azure AD Connect-synkronisering med hash-](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Kräv Multi-Factor authentication (MFA) för användare i alla Privilegierade roller samt exponerade användare
 

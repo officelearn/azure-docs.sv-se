@@ -9,18 +9,72 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: ac08baa6f478926a2c8dadd366049e9506272366
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9d16606665bf043e094bebdfbbce973910135f1a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Vad är nytt i Azure Machine Learning?
 
-I den här artikeln lär du dig om nya funktioner och kända problem för [Azure Machine Learning Services](overview-what-is-azure-ml.md). 
+I den här artikeln lär dig mer om de nya versionerna för [Azure Machine Learning Services](overview-what-is-azure-ml.md). 
+
+## <a name="2018-03-sprint-4"></a>2018-03 (sprint 4)
+**Versionsnumret**: 0.1.1801.24353 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+
+
+Välkommen till den femte uppdateringen Azure Machine Learning-arbetsstationen. Många av följande uppdateringar görs direkt resultatet av din feedback. Skriv ned dem kommer!
+
+**Viktiga nya funktioner och ändringar**
+
+- Stöd för att köra skript på fjärranslutna Ubuntu VMs internt på miljön utöver remote docker baserat körning.
+- Den nya miljön upplevelsen i arbetsstationen App kan du skapa beräkning mål och kör konfigurationer förutom våra CLI-baserad upplevelse.
+![Fliken miljöer](media/azure-machine-learning-release-notes/environment-page.png)
+- Anpassningsbara Körningshistorik rapporterar ![bild av nya kör rapporter om Enhetshistorik](media/azure-machine-learning-release-notes/new-run-history-reports.png)
+
+**Detaljerad uppdateringar**
+
+Nedan följer en lista över detaljerade uppdateringar under varje komponent i Azure Machine Learning i den här sprint.
+
+### <a name="workbench-ui"></a>Workbench UI
+- Anpassningsbara Körningshistorik rapporter
+  - Förbättrad diagram konfiguration för Körningshistorik rapporter
+    - Använda entrypoints kan ändras
+    - Översta filter kan läggas till och ändras ![Lägg till filter](media/azure-machine-learning-release-notes/add-filters.jpg)
+    - Diagram och statistik kan läggas till eller ändras (och dra och släpp ordnas om).
+    ![Skapa nya diagram](media/azure-machine-learning-release-notes/configure-charts.png)
+
+  - CRUD för Körningshistorik rapporter
+  - Flytta alla befintliga Kör listan historikvyn kalkylbladen för konfiguration på serversidan rapporter som fungerar som pipelines på körs från de valda startpunkterna.
+
+- Fliken miljöer
+  - Enkelt lägga till nya beräkning mål och kör konfigurationsfiler till projektet ![nytt Compute mål](media/azure-machine-learning-release-notes/add-new-environments.png)
+  - Hantera och uppdatera dina konfigurationsfiler med hjälp av en enkel, formulärbaserad UX
+  - Ny knapp för att förbereda dina miljöer för körning
+
+- Prestandaförbättringar i listan med filer i sidopanelen
+
+### <a name="data-preparation"></a>Förberedelse av data 
+- Azure Machine Learning arbetsstationen kan du nu för att kunna söka efter en kolumn med en känd kolumnnamnet.
+
+
+### <a name="experimentation"></a>Experimentering
+- Azure Machine Learning arbetsstationen stöder nu kör skripten internt på python eller pyspark miljön. För den här funktionen användaren skapar och hanterar sina egna miljö på fjärranslutna VM, och Använd Azure Machine Learning-arbetsstationen för att utföra sina skript på målet. Se [konfigurerar Azure Machine Learning experiment Service](experimentation-service-configuration.md) 
+
+### <a name="model-management"></a>Modellhantering
+- Stöd för att anpassa de behållare som distribuerats: gör det möjligt att anpassa avbildningen behållare genom att tillåta installation av externt bibliotek med lgh get etc. Det är inte längre begränsad till pip-installeras bibliotek. Finns det [dokumentationen](model-management-custom-container.md) för mer information.
+  - Använd den `--docker-file myDockerStepsFilename` flaggan och filnamnet med manifest-, image- eller skapa kommandon.
+  - Observera att basavbildningen är Ubuntu och kan inte ändras.
+  - Exempel-kommando: 
+  
+      ```shell
+      $ az ml image create -n myimage -m mymodel.pkl -f score.py --docker-file mydockerstepsfile
+      ```
+
+
 
 ## <a name="2018-01-sprint-3"></a>2018-01 (sprint 3) 
-**Versionsnumret**: 0.1.1712.18263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](known-issues-and-troubleshooting-guide.md))
+**Versionsnumret**: 0.1.1712.18263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Följande är uppdateringar och förbättringar i den här sprint. Många av dessa uppdateringar görs direkt följd av användarfeedback. 
 
@@ -55,7 +109,7 @@ Nedan följer en lista över detaljerade uppdateringar under varje komponent i A
   - Aktiverade lokala miljön kostnadsfritt konfigurera prenumerationer 
 
 ## <a name="2017-12-sprint-2-qfe"></a>2017 12 (Skriv 2 QFE) 
-**Versionsnumret**: 0.1.1711.15323 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](known-issues-and-troubleshooting-guide.md))
+**Versionsnumret**: 0.1.1711.15323 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Det här är version QFE (Quick Fix Engineering), en lägre version. Det tar flera telemetri frågor och hjälper Produktteamet för att bättre förstå hur produkten används. Informationen kan försättas i framtida ansträngningar för att förbättra upplevelsen för produkten. 
 
@@ -65,8 +119,7 @@ Dessutom finns två viktiga uppdateringar:
 - I kommandoradsverktyget behöver du inte längre vara en Azure-prenumeration ägare att etablera Machine Learning Compute ACS-kluster. 
 
 ## <a name="2017-12-sprint-2"></a>2017 – 12 (sprint 2)
-**Versionsnumret**: 0.1.1711.15263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](known-issues-and-troubleshooting-guide.md))
-
+**Versionsnumret**: 0.1.1711.15263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Välkommen till den tredje Azure Machine Learning-uppdateringen. Den här uppdateringen innehåller förbättringar i appen arbetsstationen, kommandoradsgränssnittet (CLI) och backend-tjänster. Tack för att skicka leenden och frowns. Många av följande uppdateringar görs direkt resultatet av din feedback. 
 
@@ -165,7 +218,7 @@ Mer information om hur du skapar beräkning mål finns [konfigurerar Azure Machi
     - `az ml computetarget attach --type cluster` är nu `az ml computetarget attach cluster`
 
 ## <a name="2017-11-sprint-1"></a>2017-11 (sprint 1) 
-**Versionsnumret**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](known-issues-and-troubleshooting-guide.md))
+**Versionsnumret**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Vi har gjort förbättringar av säkerhet, stabilitet och underhålla i appen arbetsstationen, CLI och backend-tjänster lagret i den här versionen. Tack för att mycket Skicka oss leenden och frowns. Många av de nedan uppdateringar görs direkt resultatet av din feedback. Låt dem kommer!
 
@@ -287,7 +340,7 @@ Nedan visas en lista över detaljerade uppdateringar under varje komponent i Azu
 
 
 ## <a name="2017-10-sprint-0"></a>2017 10 (sprint 0) 
-**Versionsnumret**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](known-issues-and-troubleshooting-guide.md))
+**Versionsnumret**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Välkommen till den första uppdateringen av Azure Machine Learning arbetsstationen efter vårt första förhandsversion på Microsoft Ignite 2017 konferens. De huvudsakliga uppdateringarna i den här versionen är tillförlitlighet och stabilisering åtgärdas.  Några av de viktiga problem vi är:
 

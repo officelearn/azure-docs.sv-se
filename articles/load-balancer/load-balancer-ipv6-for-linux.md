@@ -1,12 +1,12 @@
 ---
-title: "Konfigurera DHCPv6 för virtuella Linux-datorer | Microsoft Docs"
-description: "Hur du konfigurerar DHCPv6 för virtuella Linux-datorer."
+title: Konfigurera DHCPv6 för virtuella Linux-datorer | Microsoft Docs
+description: Hur du konfigurerar DHCPv6 för virtuella Linux-datorer.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
-keywords: "IPv6, azure belastningsutjämnare, dual stack, offentlig IP-adress, inbyggd ipv6, mobil, iot"
+editor: ''
+keywords: IPv6, azure belastningsutjämnare, dual stack, offentlig IP-adress, inbyggd ipv6, mobil, iot
 ms.assetid: b32719b6-00e8-4cd0-ba7f-e60e8146084b
 ms.service: load-balancer
 ms.devlang: na
@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: b46c2107dcfda5f02407e08daf08bd42d722dfda
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 6248ed2f55fb5bbcc2061af6ce1dedf2bd31ccad
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Konfigurera DHCPv6 för virtuella Linux-datorer
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Vissa bilder Linux virtuella datorer i Azure Marketplace har inte Dynamic Host Configuration Protocol version 6 (DHCPv6) konfigureras som standard. DHCPv6 måste konfigureras i Linux OS-distribution som du använder för att stödja IPv6. Olika Linux-distributioner konfigurera DHCPv6 i en mängd olika sätt, eftersom de använder olika paket.
 

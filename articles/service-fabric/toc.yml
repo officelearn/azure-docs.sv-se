@@ -93,7 +93,7 @@
       href: service-fabric-architecture.md
     - name: Terminologi
       href: service-fabric-technical-overview.md
-    - name: Programmeringsmodeller som stöds
+    - name: Bygga program
       href: service-fabric-choose-framework.md
       items:
         - name: Behållare
@@ -106,10 +106,14 @@
         - name: Reliable Services
           href: service-fabric-reliable-services-introduction.md
           items:
+            - name: Tjänstpartitionering
+              href: service-fabric-concepts-partitioning.md
             - name: 'Reliable Services-livscykel – C#'
               href: service-fabric-reliable-services-lifecycle.md
             - name: Reliable Services-livscykel – Java
               href: service-fabric-reliable-services-lifecycle-java.md
+            - name: Livscykel för replik och instans
+              href: service-fabric-concepts-replica-lifecycle.md
             - name: Reliable Collections
               href: service-fabric-reliable-services-reliable-collections.md
             - name: Riktlinjer och rekommendationer för Reliable Collections
@@ -122,10 +126,6 @@
               href: service-fabric-reliable-services-reliable-concurrent-queue.md
             - name: Reliable Collection-serialisering
               href: service-fabric-reliable-services-reliable-collections-serialization.md
-            - name: Internt i Reliable State Manager och Reliable Collection
-              href: service-fabric-reliable-services-reliable-collections-internals.md
-            - name: Avancerad användning
-              href: service-fabric-reliable-services-advanced-usage.md
         - name: Reliable Actors
           href: service-fabric-reliable-actors-introduction.md
           items:
@@ -153,18 +153,14 @@
           href: service-fabric-application-and-service-manifests.md
         - name: Värdmodell
           href: service-fabric-hosting-model.md
+        - name: Programsäkerhet
+          href: service-fabric-application-and-service-security.md
         - name: Tjänsttillstånd
           href: service-fabric-concepts-state.md
-        - name: Tjänstpartitionering
-          href: service-fabric-concepts-partitioning.md
         - name: Skalbarhet för program
           href: service-fabric-concepts-scalability.md
         - name: Tillgänglighet för tjänster
           href: service-fabric-availability-services.md
-        - name: Livscykel för replik och instans
-          href: service-fabric-concepts-replica-lifecycle.md
-        - name: Omkonfiguration
-          href: service-fabric-concepts-reconfiguration.md
         - name: Tjänstkommunikation
           href: service-fabric-connect-and-communicate-with-services.md
           items:
@@ -242,55 +238,29 @@
               href: service-fabric-cluster-resource-manager-movement-cost.md
     - name: Övervakning och diagnostik
       items:
-        - name: Övervaka och diagnostisera program
+        - name: Övervakningsöversikt
           href: service-fabric-diagnostics-overview.md
-        - name: Generera händelser
+        - name: Klusterloggning
+          href: service-fabric-diagnostics-event-generation-infra.md
           items:
-            - name: Generera händelser på plattformsnivå
-              href: service-fabric-diagnostics-event-generation-infra.md
-              items:
-                - name: Användningskanal
-                  href: service-fabric-diagnostics-event-generation-operational.md
-                - name: Reliable Services-händelser
-                  href: service-fabric-reliable-services-diagnostics.md
-                - name: Reliable Actors-händelser
-                  href: service-fabric-reliable-actors-diagnostics.md
-                - name: Prestandamått
-                  href: service-fabric-diagnostics-event-generation-perf.md
-                - name: Övervaka Service Remoting
-                  href: service-fabric-reliable-serviceremoting-diagnostics.md
-            - name: Generera händelser på programnivå
-              href: service-fabric-diagnostics-event-generation-app.md
-        - name: Inspektera program- och klusterhälsa
-          items:
-            - name: Övervaka Service Fabrics hälsa
-              href: service-fabric-health-introduction.md
-            - name: Rapportera och kontrollera hälsan hos tjänster
-              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-            - name: Lägg till anpassade hälsorapporter
-              href: service-fabric-report-health.md
-            - name: Felsök med systemhälsorapporter
-              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-            - name: Visa hälsorapporter
-              href: service-fabric-view-entities-aggregated-health.md
-        - name: Sammanfatta händelser
-          items:
-            - name: Sammanfatta händelser med EventFlow
-              href: service-fabric-diagnostics-event-aggregation-eventflow.md
-            - name: Sammanfatta händelser med Azure-diagnostik
-              items:
-                - name: Windows
-                  href: service-fabric-diagnostics-event-aggregation-wad.md
-                - name: Linux
-                  href: service-fabric-diagnostics-event-aggregation-lad.md
-        - name: Analysera händelser
-          items:
-            - name: Analysera händelser med Application Insights
-              href: service-fabric-diagnostics-event-analysis-appinsights.md
-            - name: Analysera händelser med OMS
-              href: service-fabric-diagnostics-event-analysis-oms.md
-        - name: Felsök ditt lokala kluster
-          href: service-fabric-troubleshoot-local-cluster-setup.md
+            - name: Användningskanal
+              href: service-fabric-diagnostics-event-generation-operational.md
+            - name: Reliable Services-händelser
+              href: service-fabric-reliable-services-diagnostics.md
+            - name: Reliable Actors-händelser
+              href: service-fabric-reliable-actors-diagnostics.md
+            - name: Prestandamått
+              href: service-fabric-diagnostics-event-generation-perf.md
+            - name: Övervaka Service Remoting
+              href: service-fabric-reliable-serviceremoting-diagnostics.md
+        - name: Programloggning
+          href: service-fabric-diagnostics-event-generation-app.md
+        - name: Översikt över hälsotillståndsmodell
+          href: service-fabric-health-introduction.md
+        - name: Rapportera hälsotillståndshändelser
+          href: service-fabric-report-health.md
+        - name: Övervaka med OMS
+          href: service-fabric-diagnostics-event-analysis-oms.md
     - name: Integrering med API Management
       href: service-fabric-api-management-overview.md
 - name: Instruktionsguider
@@ -347,8 +317,10 @@
               href: service-fabric-deploy-multiple-apps.md
         - name: Skapa en behållartjänst
           items:
-            - name: Behållarsäkerhet
+            - name: Använda certifikat i behållare
               href: service-fabric-securing-containers.md
+            - name: Konfigurera gMSA för Windows-behållare
+              href: service-fabric-setup-gmsa-for-windows-containers.md
             - name: Docker Compose (förhandsversion)
               href: service-fabric-docker-compose.md
             - name: Resursstyrning för behållare och tjänster
@@ -383,6 +355,8 @@
                   href: service-fabric-reliable-services-secure-communication.md
                 - name: Säker kommunikation – Java
                   href: service-fabric-reliable-services-secure-communication-java.md
+                - name: Säker WCF-kommunikation
+                  href: service-fabric-reliable-services-secure-communication-wcf.md
             - name: Konfigurera
               href: service-fabric-reliable-services-configuration.md
             - name: Skicka meddelanden
@@ -419,8 +393,12 @@
           items:
             - name: Hantera programhemligheter
               href: service-fabric-application-secret-management.md
-            - name: Konfigurera säkerhetsprinciper för ditt program
+            - name: Köra skript för start av tjänster som ett lokalt konto för användaren eller systemet
+              href: service-fabric-run-script-at-service-startup.md
+            - name: Köra en tjänst som ett lokalt konto för användaren eller systemet
               href: service-fabric-application-runas-security.md
+            - name: Tilldela en säkerhetsåtkomstprincip för slutpunkter
+              href: service-fabric-assign-policy-to-endpoint.md
     - name: Arbeta i en Windows/VS-utvecklarmiljö
       items:
         - name: Hantera program i Visual Studio
@@ -531,6 +509,8 @@
               href: service-fabric-cluster-security-update-certs-azure.md
             - name: Ta bort
               href: service-fabric-cluster-delete.md
+            - name: Fjärransluta till klusternod för virtuell dator
+              href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
         - name: Fristående kluster
           items:
             - name: Skapa
@@ -545,8 +525,14 @@
                   href: service-fabric-cluster-standalone-package-contents.md
             - name: Skala
               href: service-fabric-cluster-windows-server-add-remove-nodes.md
-            - name: Ange åtkomstkontroll
-              href: service-fabric-cluster-security-roles.md
+            - name: Konfigurera säkerhet
+              items:
+                - name: Ange åtkomstkontroll
+                  href: service-fabric-cluster-security-roles.md
+                - name: Köra tjänster som AD-användare eller -grupp
+                  href: service-fabric-run-service-as-ad-user-or-group.md
+                - name: Köra tjänster som grupphanterade tjänstkonton
+                  href: service-fabric-run-service-as-gmsa.md
             - name: Konfigurera
               href: service-fabric-cluster-manifest.md
             - name: Uppgradera
@@ -559,7 +545,7 @@
           href: service-fabric-patch-orchestration-application.md
     - name: Övervaka och diagnostisera
       items:
-        - name: OMS
+        - name: Analysera med OMS
           items:
             - name: Konfigurera OMS Log Analytics
               href: service-fabric-diagnostics-oms-setup.md
@@ -567,10 +553,26 @@
               href: service-fabric-diagnostics-oms-agent.md
             - name: Övervaka behållare
               href: service-fabric-diagnostics-oms-containers.md
-        - name: Prestandaövervakning
+        - name: Analysera med Application Insights
+          href: service-fabric-diagnostics-event-analysis-appinsights.md
+        - name: Sammanfatta händelser – EventFlow
+          href: service-fabric-diagnostics-event-aggregation-eventflow.md
+        - name: Sammanfatta händelser – Azure Diagnostics
           items:
-            - name: Prestandaövervakning med WAD
-              href: service-fabric-diagnostics-perf-wad.md
+            - name: Windows
+              href: service-fabric-diagnostics-event-aggregation-wad.md
+            - name: Linux
+              href: service-fabric-diagnostics-event-aggregation-lad.md
+        - name: Prestandaövervakning med WAD
+          href: service-fabric-diagnostics-perf-wad.md
+        - name: Rapportera och kontrollera hälsa
+          href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+        - name: Felsök med systemhälsorapporter
+          href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+        - name: Visa hälsorapporter
+          href: service-fabric-view-entities-aggregated-health.md
+        - name: Felsök ditt lokala kluster
+          href: service-fabric-troubleshoot-local-cluster-setup.md
 - name: Referens
   items:
     - name: Azure PowerShell

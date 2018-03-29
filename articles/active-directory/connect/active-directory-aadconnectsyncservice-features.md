@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect sync tjänstens funktioner och konfiguration | Microsoft Docs"
-description: "Beskriver funktioner för tjänsten på klientsidan för Azure AD Connect-synkroniseringstjänsten."
+title: Azure AD Connect sync tjänstens funktioner och konfiguration | Microsoft Docs
+description: Beskriver funktioner för tjänsten på klientsidan för Azure AD Connect-synkroniseringstjänsten.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b716e553f7c4c11f6d566b43d771217fdf4b3a93
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 534e4e6d8b6ea2bfc059383e3e55c0352678ee04
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect sync-tjänsten-funktioner
 Synkroniseringsfunktionen av Azure AD Connect har två komponenter:
@@ -37,7 +37,7 @@ Många av dessa inställningar kan bara ändras av Azure AD Connect.
 
 Följande inställningar kan konfigureras med `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Kommentera |
+| DirSyncFeature | Kommentar |
 | --- | --- |
 | [EnableSoftMatchOnUpn](#userprincipalname-soft-match) |Gör att objekt som ska delta i userPrincipalName utöver primära SMTP-adress. |
 | [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) |Gör att Synkroniseringsmotorn att uppdatera attributet userPrincipalName för hanterade/licensierade (ofedererad) användare. |
@@ -51,12 +51,12 @@ När du har aktiverat en funktion kan inaktiveras det inte igen.
 
 Följande inställningar konfigureras med Azure AD Connect och kan inte ändras av `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Kommentera |
+| DirSyncFeature | Kommentar |
 | --- | --- |
 | DeviceWriteback |[Azure AD Connect: Aktivera tillbakaskrivning av enheter](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect-synkronisering: katalogtillägg](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Tillåter ett attribut som ska placeras i karantän när det är en dubblett av ett annat objekt i stället misslyckas hela objektet under exporten. |
-| PasswordSync |[Implementera Lösenordssynkronisering med Azure AD Connect-synkronisering](active-directory-aadconnectsync-implement-password-synchronization.md) |
+| PasswordSync |[Implementera Lösenordssynkronisering med Azure AD Connect-synkronisering](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
 | UnifiedGroupWriteback |[Förhandsversion: Tillbakaskrivning av grupp](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Stöds inte för närvarande. |
 

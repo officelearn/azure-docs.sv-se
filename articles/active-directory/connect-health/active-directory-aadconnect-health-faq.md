@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: b4c977b54c87276bd4b168bc56e70f3b918e6634
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 983c2c8aeb4c9d37213061dd70d6d64bae3de9d7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Connect Health
 Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om Azure Active Directory (AD Azure) Connect Health. Dessa vanliga frågor och svar tar upp frågor om hur du använder tjänsten, som innehåller fakturering modellen, funktioner, begränsningar och support.
@@ -178,6 +178,10 @@ CheckForMS17-010
 **F: Varför PowerShell-cmdleten <i>Get-MsolDirSyncProvisioningError</i> visa mindre synkroniseringsfel i resultatet?**
 
 <i>Get-MsolDirSyncProvisioningError</i> returnerar enbart DirSync etablering fel. Förutom att visas Connect Health-portalen även andra sync feltyper, till exempel exportfel. Detta är förenligt med Azure AD Connect delta resultat. Läs mer om [Azure AD Connect Sync-fel](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
+
+**F: Varför är min ADFS granskningar inte genereras?**
+
+Använd PowerShell-cmdleten <i>Get-AdfsProperties - AuditLevel</i> att kontrollera granskningsloggarna inte är i inaktiverat tillstånd. Läs mer om [AD FS-granskningsloggar](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)
 
 
 ## <a name="related-links"></a>Relaterade länkar

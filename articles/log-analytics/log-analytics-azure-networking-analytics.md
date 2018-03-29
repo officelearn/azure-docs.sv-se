@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: richrund
-ms.openlocfilehash: 17dadd784d59a2cc0cab6ffbae144010f896b296
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Azure nätverk övervakning lösningar i logganalys
 
@@ -28,18 +28,19 @@ Logganalys erbjuder följande lösningar för att övervaka dina nätverk:
 * Azure Application Gateway analyser för att granska
  * Azure Application Gateway-loggar
  * Azure Application Gateway-mått
-* Azure Network Security Group analyser för att granska
- * Nätverkssäkerhetsgruppen för Azure-loggar
+* Lösningar för att övervaka och granska nätverksaktivitet i nätverket moln
+* [Trafik Analytics](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+* Azure Nätverkssäkerhetsgruppen Analytics
 
 ## <a name="network-performance-monitor-npm"></a>Network Performance Monitor (NPM)
 
-Den [Network Performance Monitor](log-analytics-network-performance-monitor.md) hanteringslösning är ett nätverk övervakningslösning som övervakar hälsa, tillgänglighet och tillgänglighet av nätverk.  Används för att övervaka anslutningen mellan:
+Den [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) hanteringslösning är ett nätverk övervakningslösning som övervakar hälsa, tillgänglighet och tillgänglighet av nätverk.  Används för att övervaka anslutningen mellan:
 
 * offentliga molnet och lokalt
 * datacenter och användarplatser (avdelningskontor)
 * undernät som är värd för olika nivåer av ett program med flera nivåer.
 
-Mer information finns i [Network Performance Monitor](log-analytics-network-performance-monitor.md).
+Mer information finns i [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway och Nätverkssäkerhetsgruppen analytics
 Använda lösningarna:

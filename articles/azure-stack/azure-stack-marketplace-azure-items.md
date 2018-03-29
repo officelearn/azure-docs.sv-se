@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 39a82486b485a761f03244cf8d49f9c79ed9b2f7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: cdce5ad971e345971aa5de9a9bb79379fb1ead48
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt för Azure-stacken
 
@@ -217,7 +217,7 @@ Microsoft Azure-stacken stöder följande Azure Marketplace virtuella datorer oc
 | ![Hortonworks Data Platform (HDP) Sandbox](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Drivs av HDP 2,5 100% öppen källkod plattform för Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![KEMP LoadMaster belastningen belastningsutjämnaren ADC innehåll växel](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster belastningen belastningsutjämnaren ADC innehåll växel](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Nivå 4 – 7 programmet leverans domänkontrollant (ADC) belastningsutjämnare, innehåll växeln och Traffic Manager. | KEMP Technologies Inc. |
 | ![NooBaa Hybrid AWS S3 kompatibel - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-kompatibel storage-tjänst som omfattar offentliga och lokala resurser med kapacitet. | NooBaa |
-| ![Brandvägg för PT-program](media/azure-stack-marketplace-azure-items/pt.png) | [Brandvägg för PT-program](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.pta) | Brandvägg för PT program identifierar kända & okänd säkerhetsrisker och förebygger attacker i webbprogram. <b>Ladda ned båda PT Marketplace-objekt.</b> | Positivt tekniker |
+| ![Brandvägg för PT-program](media/azure-stack-marketplace-azure-items/pt.png) | [Brandvägg för PT-program](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | Brandvägg för PT program identifierar kända & okänd säkerhetsrisker och förebygger attacker i webbprogram. <b>Ladda ned båda PT Marketplace-objekt.</b> | Positivt tekniker |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise kan du automatisera hela livscykeln för din Azure Stack-infrastruktur. <b>Ladda ned båda Puppet Marketplace-objekt.</b> | Puppet |
 | ![SUSE Manager 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Bäst i klassen infrastrukturhantering för öppen källkod. | SUSE |
 | ![Verktyget ZeroDown program](media/azure-stack-marketplace-azure-items/zerodown.png) | [Verktyget ZeroDown program ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown programvara verktyget v7.1 - migrera + hög tillgänglighet. | ZeroDown programvara |

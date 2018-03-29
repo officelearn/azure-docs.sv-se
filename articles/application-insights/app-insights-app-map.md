@@ -1,8 +1,8 @@
 ---
 title: Programavbildningen i Azure Application Insights | Microsoft Docs
-description: "Övervaka komplexa program topologier med program-karta"
+description: Övervaka komplexa program topologier med program-karta
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3bbed59bf93eab5e729fbdd3ccae04599ac47081
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 4b95cd947cd977208dee32d18fbc6a1fb099ff3b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-map-triage-distributed-applications"></a>Programavbildningen: Prioritering distribuerade program
 Programavbildningen hjälper dig att upptäcka flaskhalsar eller fel surfpunkter för alla komponenter i det distribuerade programmet. Varje nod på kartan representerar en programkomponent eller dess beroenden; har hälsa KPI och aviseringar status. Du kan klicka på via från valfri komponent till mer detaljerad diagnostik, till exempel Application Insights händelser. Om din app använder Azure-tjänster, kan du också klicka via Azure Diagnostics, till exempel SQL Database Advisor-rekommendationer.
@@ -37,7 +37,7 @@ Aktivera ”sammansatta programavbildningen” från den [förhandsgranskningar 
 ![Aktivera preview karta](media/app-insights-app-map/preview-from-classic.png)
 
 >[!Note]
-Den här förhandsgranskningen ersätter tidigare ”programavbildningen Mult-role” förhandsgranskningen. För tillfället används för att visa hela topologi i flera nivåer av komponenten programberoenden. Ge oss dina synpunkter, vi kommer att lägga till flera funktioner som liknar klassiska kartan stöder.
+Den här förhandsgranskningen ersätter tidigare ”flera rollen programavbildningen” förhandsgranskningen. För tillfället används för att visa hela topologi i flera nivåer av komponenten programberoenden. Ge oss dina synpunkter, vi kommer att lägga till flera funktioner som liknar klassiska kartan stöder.
 
 Du kan se fullständiga programmet topologi i flera nivåer av relaterade programkomponenter. Komponenter kan vara olika Application Insights-resurser eller olika roller i en enskild resurs. App-kartan hittar komponenter genom följande anrop för HTTP-beroendet mellan servrar med Application Insights SDK installerad. 
 
@@ -142,4 +142,4 @@ Lämna feedback via portalen feedback-alternativet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Azure-portalen](https://portal.azure.com)
+* [Azure Portal](https://portal.azure.com)

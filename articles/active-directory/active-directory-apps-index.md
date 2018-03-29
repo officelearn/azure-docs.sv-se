@@ -1,8 +1,8 @@
 ---
-title: "Artikel Index för programhantering i Azure Active Directory | Microsoft Azure"
-description: "Lär dig hur du anpassar ett sista giltighetsdatum för federationscertifikat och hur du förnyar certifikat som upphör snart att gälla."
+title: Artikel Index för programhantering i Azure Active Directory | Microsoft Azure
+description: Lär dig hur du anpassar ett sista giltighetsdatum för federationscertifikat och hur du förnyar certifikat som upphör snart att gälla.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ccbe48e4c7fdb25e003aedc048194e041865710e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ffb8e822644ba8f0bccc3e81edc4da6085ff3ec7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Artikelindex för programhantering i Azure Active Directory
 Den här sidan innehåller en omfattande lista över alla dokument som skrivits om de olika program-relaterade funktionerna i Azure Active Directory (AD Azure).
@@ -43,7 +43,7 @@ Det här avsnittet ger snabb åtkomst till relevanta riktlinjer för felsökning
 | Federerad enkel inloggning |[Felsökning av SAML-baserade enkel inloggning](active-directory-saml-debugging.md) |
 | Lösenordsbaserade enkel inloggning |[Felsökning av Access panelen-tillägg för Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Programproxy |[Felsökningsguide för App-Proxy](active-directory-application-proxy-troubleshoot.md) |
-| Enkel inloggning mellan lokala AD och Azure AD |[Felsöka Lösenordssynkronisering](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)<br /><br />[Felsöka tillbakaskrivning av lösenord](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Enkel inloggning mellan lokala AD och Azure AD |[Felsöka Lösenordssynkronisering för Hash](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Felsöka tillbakaskrivning av lösenord](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Dynamiska gruppmedlemskap |[Felsökning av dynamiska gruppmedlemskap](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>Enkel inloggning (SSO)
@@ -95,7 +95,7 @@ Om organisationen upprätthåller en Windows Server Active Directory lokalt till
 |:---:| --- |
 | En översikt över alternativ för enkel inloggning som erbjuds i Azure AD Connect, samt information om hur du hanterar hybridmiljöer |[Användaren loggar in alternativ i Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Allmänna riktlinjer för att hantera miljöer med både lokala Active Directory och Azure Active Directory |[Överväganden vid utformning av Azure AD-Hybrid](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md) |
-| Hjälp med att använda Lösenordssynkronisering för att aktivera enkel inloggning |[Implementera Lösenordssynkronisering med Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Felsöka Lösenordssynkronisering](https://support.microsoft.com/en-us/kb/2855271) |
+| Hjälp med att använda Lösenordssynkronisering för att aktivera enkel inloggning |[Implementera Lösenordssynkronisering med Azure AD Connect](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Felsöka Lösenordssynkronisering](https://support.microsoft.com/en-us/kb/2855271) |
 | Hjälp med att använda tillbakaskrivning av lösenord för att aktivera enkel inloggning |[Komma igång med lösenordshantering i Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Felsök tillbakaskrivning av lösenord](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Anvisningar om hur du använder identitetsleverantörer från tredje part för att aktivera enkel inloggning |[Lista över kompatibla utomstående leverantörer som kan användas för att aktivera enkel inloggning](https://aka.ms/ssoproviders) |
 | Hur Windows 10-användare kan dra nytta av fördelarna med enkel inloggning via Azure AD Join |[Utöka Molnkapaciteten till Windows Join 10 enheter via Azure Active Directory](active-directory-azureadjoin-overview.md) |

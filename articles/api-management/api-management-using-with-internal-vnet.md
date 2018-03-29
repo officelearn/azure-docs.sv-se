@@ -1,11 +1,11 @@
 ---
-title: "Hur du använder Azure API Management med interna virtuella nätverk | Microsoft Docs"
-description: "Lär dig hur du skapar och konfigurerar Azure API Management på ett internt virtuellt nätverk"
+title: Hur du använder Azure API Management med interna virtuella nätverk | Microsoft Docs
+description: Lär dig hur du skapar och konfigurerar Azure API Management på ett internt virtuellt nätverk
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: kjoshi
-editor: 
+editor: ''
 ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
 ms.service: api-management
 ms.workload: mobile
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: be4aa45c919f579355c6ac6c5682c1537e9cc0cb
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Med hjälp av Azure API Management-tjänsten med ett internt virtuellt nätverk
 Med Azure Virtual Networks hantera Azure API Management API: er som inte är tillgänglig på internet. Ett antal VPN-tekniker är tillgängliga för att ansluta. API-hantering kan distribueras i två huvudsakliga lägen i ett virtuellt nätverk:
 * Extern
-* Interna
+* Intern
 
 
 När API Management distribuerar i internt virtuellt nätverk läge, visas bara alla Tjänsteslutpunkter (gateway, Developer-portalen, Azure-portalen, direkthantering och Git) i ett virtuellt nätverk som du styr åtkomst till. Inget av Tjänsteslutpunkter registreras på den offentliga DNS-servern.
@@ -44,7 +44,7 @@ Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 
 + **En instans av Azure API Management**. Mer information finns i [skapa en instans av Azure API Management](get-started-create-service-instance.md).
 
-## <a name="enable-vpn"></a>Skapar en API-hantering i ett internt virtuellt nätverk
+## <a name="enable-vpn"> </a>Skapa en API-hantering i ett internt virtuellt nätverk
 API Management-tjänst i ett internt virtuellt nätverk ligger bakom en intern belastningsutjämnare (ILB).
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Aktivera en virtuell nätverksanslutning som använder Azure portal
@@ -72,7 +72,7 @@ Du kan också aktivera anslutningar för virtuella nätverk med PowerShell-cmdle
 När API-hantering är i läget för externa virtuella nätverk kan hanteras DNS i Azure. Du måste hantera egna routning för internt virtuellt läge.
 
 > [!NOTE]
-> API Management-tjänsten lyssnar inte på begäranden som kommer från IP-adresser. Den bara svarar på förfrågningar om att värdnamnet som konfigurerats på dess slutpunkter. Dessa slutpunkter är gateway, Developer-portalen, Azurethe portal, direkthantering slutpunkt och Git.
+> API Management-tjänsten lyssnar inte på begäranden som kommer från IP-adresser. Den bara svarar på förfrågningar om att värdnamnet som konfigurerats på dess slutpunkter. Dessa slutpunkter är gateway, Azure-portalen och Developer-portalen, direkthantering slutpunkt och Git.
 
 ### <a name="access-on-default-host-names"></a>Åtkomst på standard-värdnamn
 När du skapar en API Management-tjänsten med namnet ”contoso” till exempel konfigureras att följande Tjänsteslutpunkter som standard:
@@ -105,13 +105,13 @@ Du kan sedan komma åt alla Tjänsteslutpunkter från den virtuella datorn som d
 
    2. Du kan skapa poster i DNS-servern för att få åtkomst till de slutpunkter som endast är tillgänglig från det virtuella nätverket.
 
-## <a name="routing"></a> Routning
+## <a name="routing"> </a> Routning
 + En belastningsutjämnad privata virtuella IP-adress från intervallet undernät kommer reserverad och används för att komma åt Tjänsteslutpunkter API Management inom vnet.
 + Även reserveras belastningsutjämnade offentlig IP-adress (VIP) för att ge åtkomst till management-tjänsteslutpunkt bara via port 3443.
 + En IP-adress från ett intervall med IP-undernät (DIP) används för att komma åt resurser inom vnet och en offentlig IP-adress (VIP) används för att få åtkomst till resurser utanför vnet.
 + Belastningsutjämnade offentliga och privata IP-adresser finns på bladet översikt/Essentials i Azure-portalen.
 
-## <a name="related-content"></a>Relaterat innehåll
+## <a name="related-content"> </a>Relaterat innehåll
 Mer information finns i följande artiklar:
 * [Vanliga problem med nätverket konfiguration när du konfigurerar Azure API Management i ett virtuellt nätverk][Common network configuration problems]
 * [Virtuella nätverk och svar](../virtual-network/virtual-networks-faq.md)

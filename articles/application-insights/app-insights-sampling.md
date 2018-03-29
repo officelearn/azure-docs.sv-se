@@ -1,6 +1,6 @@
 ---
 title: Telemetri provtagning i Azure Application Insights | Microsoft Docs
-description: "Så här håller telemetrivolym under kontroll."
+description: Så här håller telemetrivolym under kontroll.
 services: application-insights
 documentationcenter: windows
 author: vgorbenko
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1f6c58b219a5fb040048d0075644102f5f0c5323
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 300b9b7786c17972c5c48df7e5b6d28491adc095
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -28,18 +28,18 @@ När mått Antal presenteras i portalen, är de renormalized hänsyn till sampli
 Samplingsfrekvensen minskar kostnaderna för trafik och data och hjälper dig att undvika begränsning.
 
 ## <a name="in-brief"></a>Kort sagt:
-* Sampling behåller 1 i  *n*  registrerar och ignorerar resten. Det kan till exempel lagra 1: 5 händelser, en samplingsfrekvensen 20%. 
+* Sampling behåller 1 i *n* registrerar och ignorerar resten. Det kan till exempel lagra 1: 5 händelser, en samplingsfrekvensen 20%. 
 * Sampling sker automatiskt om programmet skickar mycket telemetri i ASP.NET web server apps.
-* Du kan också ange provtagning manuellt, antingen i portalen på sidan prisnivå; eller i SDK för ASP.NET i .config-filen att också minska nätverkstrafiken.
+* Du kan också ange provtagning manuellt, antingen i portalen på sidan prisnivå; eller i SDK för ASP.NET i .config-fil. eller i Java SDK i filen ApplicationInsights.xml också minska nätverkstrafiken.
 * Om du loggar anpassade händelser och du vill kontrollera att en uppsättning händelser är antingen bevaras eller tas bort tillsammans, se till att de har samma åtgärds-ID-värde.
-* Sampling divisorn  *n*  rapporteras i varje post i egenskapen `itemCount`, som i sökningen visas under namnet ”begäran antal” eller ”händelseantal”. När provtagning inte är i drift, `itemCount==1`.
+* Sampling divisorn *n* rapporteras i varje post i egenskapen `itemCount`, som i sökningen visas under namnet ”begäran antal” eller ”händelseantal”. När provtagning inte är i drift, `itemCount==1`.
 * Om du skriver Analytics-frågor, bör du [ta hänsyn till provtagning](app-insights-analytics-tour.md#counting-sampled-data). I synnerhet i stället för bara räknar poster, du bör använda `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Typer av provtagning
 Det finns tre alternativ provtagningsmetoder:
 
 * **Anpassningsbar provtagning** justeras automatiskt telemetrivolym som skickas från SDK i din ASP.NET-app. Från och med SDK v 2.0.0-beta3 är detta standard urvalsmetoden. Anpassningsbar provtagning är för närvarande endast tillgängligt för ASP.NET serversidan telemetri. 
-* **Fast räntesats provtagning** minskar mängden telemetri som skickas från både din ASP.NET-server och från användarnas webbläsare. Anges. Klienten och servern ska synkronisera sina provtagning så att, i sökningen som du kan navigera mellan relaterade sidvisningar och förfrågningar.
+* **Fast räntesats provtagning** minskar mängden telemetri som skickas från båda ASP.NET eller Java-servern och från användarnas webbläsare. Anges. Klienten och servern ska synkronisera sina provtagning så att, i sökningen som du kan navigera mellan relaterade sidvisningar och förfrågningar.
 * **Införandet provtagning** fungerar i Azure-portalen. Den tar bort vissa av telemetri som tas emot från din app på en samplingsfrekvensen som du anger. Det minskar inte telemetri trafik som skickas från din app, men hjälper dig att hålla inom den månatliga kvoten. Den största fördelen med införandet provtagning är att du kan ange samplingsfrekvensen utan att omdistribuera din app och det fungerar enhetligt för alla servrar och klienter. 
 
 Om Adaptiv eller fast hastighet provtagning är i drift, har införandet provtagning inaktiverats.
@@ -194,14 +194,14 @@ Samplingsprocenten, välja i procent som ligger nära 100/N, där N är ett helt
 
 Om du även aktivera fast räntesats provtagning på servern synkroniserar klienter och server så att, i sökningen som du kan navigera mellan relaterade sidvisningar och förfrågningar.
 
-## <a name="fixed-rate-sampling-for-aspnet-web-sites"></a>Fast räntesats samplingsfrekvensen för ASP.NET-webbplatser
+## <a name="fixed-rate-sampling-for-aspnet-and-java-web-sites"></a>Fast räntesats samplingsfrekvensen för ASP.NET och Java-webbplatser
 Fasta samplingsfrekvensen minskar den trafik som skickas från webbservern och webbläsare. Till skillnad från anpassningsbar samplingsfrekvensen minskar den telemetri till en fast kostnad som du valt. Det synkroniserar även klienten och servern provtagning så att relaterade objekt bevaras – exempelvis när du tittar på vyn sida i sökningen du kan hitta relaterade begäran.
 
 Algoritmen provtagning behåller relaterade objekt. För varje HTTP-begäran är händelse, begäran och dess relaterade händelser antingen ignoreras eller överförs tillsammans. 
 
 I Metrics Explorer multipliceras priser som begäran och undantag räknas med en faktor att kompensera för samplingsfrekvensen, så att de är ungefär korrekt.
 
-### <a name="configuring-fixed-rate-sampling"></a>Konfigurera fast räntesats provtagning ###
+### <a name="configuring-fixed-rate-sampling-in-aspnet"></a>Konfigurera fast räntesats provtagning i ASP.NET ###
 
 1. **Uppdatera ditt projekt NuGet-paket** till senast *förhandsversionen* version av Application Insights. Högerklicka på projektet i Solution Explorer i Visual Studio, välja hantera NuGet-paket, kontrollera **inkludera förhandsversion** och Sök efter Microsoft.ApplicationInsights.Web. 
 2. **Inaktivera anpassningsbar provtagning**: I [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), ta bort eller kommentera ut den `AdaptiveSamplingTelemetryProcessor` nod.
@@ -218,7 +218,7 @@ I Metrics Explorer multipliceras priser som begäran och undantag räknas med en
 
     ```
 
-1. **Aktivera fast räntesats provtagning-modulen.** Lägg till den här fragment till [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+3. **Aktivera fast räntesats provtagning-modulen.** Lägg till den här fragment till [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
    
     ```XML
    
@@ -232,6 +232,36 @@ I Metrics Explorer multipliceras priser som begäran och undantag räknas med en
     </TelemetryProcessors>
    
     ```
+
+### <a name="configuring-fixed-rate-sampling-in-java"></a>Konfigurera fast räntesats provtagning i JAVA ###
+
+1. Hämta och konfigurera ditt webbprogram med senaste [application insights java SDK](app-insights-java-get-started.md)
+
+2. **Aktivera fast räntesats provtagning modulen** genom att lägga till följande kodavsnitt ApplicationInsights.xml fil.
+
+```XML
+    <TelemetryProcessors>
+        <BuiltInProcessors>
+            <Processor type = "FixedRateSamplingTelemetryProcessor">
+                <!-- Set a percentage close to 100/N where N is an integer. -->
+                <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+                <Add name = "SamplingPercentage" value = "50" />
+            </Processor>
+        </BuilrInProcessors>
+    <TelemetryProcessors/>
+```
+
+3. Du kan inkludera eller exkludera specifika typer av telemetri från med hjälp av följande taggar i Processor-taggen ”FixedRateSamplingTelemetryProcessor”
+```XML
+    <ExcludedTypes>
+        <ExcludedType>Request</ExcludedType>
+    </ExcludedTypes>
+
+    <IncludedTypes>
+        <IncludedType>Exception</IncludedType>
+    </IncludedTypes>
+```
+Telemetri-typer som kan inkluderas eller uteslutas från provtagning: beroende, händelse, undantag, PageView, begäran och spårning.
 
 > [!NOTE]
 > Samplingsprocenten, välja i procent som ligger nära 100/N, där N är ett heltal.  Samlar för närvarande stöd inte för andra värden.
@@ -264,6 +294,8 @@ I stället för att ange parametern provtagning i .config-filen kan ange du prog
 ## <a name="when-to-use-sampling"></a>När du ska använda provtagning?
 Anpassningsbar provtagning aktiveras automatiskt om du använder SDK för ASP.NET version 2.0.0-beta3 eller senare. Du kan aktivera införandet provtagning att Application Insights som exempel insamlade data oavsett vilken version av du använder SDK.
 
+Som standard aktiveras ingen provtagning i Java SDK. Den stöder för närvarande, endast fast hastighet provtagning. Anpassningsbar provtagning stöds inte i Java SDK.
+
 I allmänhet för de flesta små och medelstora storlek program behöver du inte provtagning. Den mest användbara diagnostisk information och mest korrekta statistik erhålls genom att samla in data på alla användaraktiviteter. 
 
 De huvudsakliga fördelarna med samplingsfrekvensen är:
@@ -276,12 +308,12 @@ De huvudsakliga fördelarna med samplingsfrekvensen är:
 **Använd införandet provtagning om:**
 
 * Ofta gå igenom den månatliga kvoten av telemetri.
-* Du använder en version av SDK: N som inte stöder provtagning – till exempel, Java SDK eller ASP.NET-versioner tidigare än 2.
+* Du använder en version av SDK: N som inte stöder provtagning – till exempel ASP.NET-versioner tidigare än 2.
 * Du får mycket telemetri från användarnas webbläsare.
 
 **Använd fast räntesats provtagning om:**
 
-* Du använder Application Insights SDK för ASP.NET web services version 2.0.0 eller senare, och
+* Du använder Application Insights SDK för ASP.NET web services version 2.0.0 eller senare eller Java SDK v2.0.1 eller senare, och
 * Du vill synkroniserade provtagning mellan klienten och servern, så att när du vill veta händelser i [Sök](app-insights-diagnostic-search.md), du kan navigera mellan relaterade händelser på klienten och servern, till exempel sidvisningar och HTTP-begäranden.
 * Du är säker på av lämplig samplingsprocenten för din app. Det bör vara tillräckligt högt för att få exakta mått, men under hastigheten som överskrider din prisnivå kvot och bandbreddsbegränsning gränser. 
 
@@ -299,7 +331,7 @@ För att identifiera den faktiska samplingsfrekvensen oavsett om den har tilläm
 Bevaras i varje post, `itemCount` anger antal ursprungliga poster som representerar, lika med 1 + antalet tidigare borttagna poster. 
 
 ## <a name="how-does-sampling-work"></a>Hur fungerar provtagning?
-Fast räntesats och anpassningsbar provtagning är en funktion i SDK i ASP.NET-versioner från 2.0.0 och senare. Införandet provtagning är en funktion i Application Insights-tjänsten och kan vara i drift om SDK inte utför provtagning. 
+Fast räntesats provtagning funktion i SDK i ASP.NET-versioner från 2.0.0 och Java SDK version 2.0.1 och och senare. Anpassningsbar provtagning är en funktion av SDK i ASP.NET-versioner från 2.0.0 och senare. Införandet provtagning är en funktion i Application Insights-tjänsten och kan vara i drift om SDK inte utför provtagning. 
 
 Algoritmen provtagning bestämmer vilka telemetri objekt att släppa och vilka som ska sparas (om den är i SDK eller Application Insights-tjänsten). Sampling beslutet baseras på flera regler som syftar till att bevara alla relaterade datapunkter intakta, underhålla Avbrottsfritt diagnostik i Application Insights som är tillämplig och tillförlitlig även med en minskad datauppsättning. Till exempel om din app skickar ytterligare telemetri objekt (till exempel undantag och spårningar som loggats från denna begäran) för en misslyckad begäran, provtagning inte delar upp denna begäran och andra telemetri. Den fortsätter eller utelämnar dem samtidigt. När du tittar på begäran-information i Application Insights kan du därför alltid se begäran tillsammans med dess associerade telemetri-objekt. 
 
@@ -350,8 +382,9 @@ Klientsidan (JavaScript) SDK deltar i fast räntesats provtagning tillsammans me
 
 *På vilka plattformar kan du använda provtagning?*
 
-* Införandet sampling kan ske automatiskt för alla telemetri över en viss volym om SDK inte utför provtagning. Detta fungerar, till exempel om din app använder en Java-server, eller om du använder en äldre version av ASP.NET-SDK.
+* Införandet sampling kan ske automatiskt för alla telemetri över en viss volym om SDK inte utför provtagning. Detta fungerar, till exempel om du använder en äldre version av ASP.NET SDK eller tidigare version av Java-SDK(1.0.10 or before).
 * Om du använder SDK för ASP.NET-versioner 2.0.0 och senare (finns i Azure eller på din server), får du anpassningsbar provtagning som standard, men du kan växla till en fast räntesats enligt beskrivningen ovan. Med fast räntesats provtagning synkroniseras automatiskt i webbläsaren SDK som exempel relaterade händelser. 
+* Om du använder Java SDK version 2.0.1 eller senare kan du konfigurera ApplicationInsights.xml aktivera fast hastighet provtagning. Sampling är inaktiverat som standard. Med fast räntesats provtagning synkroniseras automatiskt i webbläsaren SDK som exempel relaterade händelser.
 
 *Det finns vissa ovanliga händelser som du alltid vill se. Hur kan jag få dem tidigare provtagning modulen?*
 

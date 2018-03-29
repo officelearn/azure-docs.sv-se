@@ -1,11 +1,11 @@
 ---
-title: "Desired State Configuration Azure översikt | Microsoft Docs"
-description: "Lär dig hur du använder Microsoft Azure-tillägget hanteraren för PowerShell önskad tillstånd Configuration DSC (). Artikeln innehåller krav, arkitektur och cmdlet: ar."
+title: Desired State Configuration Azure översikt | Microsoft Docs
+description: 'Lär dig hur du använder Microsoft Azure-tillägget hanteraren för PowerShell önskad tillstånd Configuration DSC (). Artikeln innehåller krav, arkitektur och cmdlet: ar.'
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mgreenegit
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: 14d29223435e9a133b112a61f2ecdde0aad581a2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5b16261c9a9f046b7bc55a06dd71aa154a0cec27
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduktion till Azure Desired State Configuration-tillägg-hanterare
 
@@ -71,7 +71,7 @@ I de flesta fall är Resource Manager distributionsmallar det förväntade sätt
 
 PowerShell-cmdletar som används för att hantera DSC-tillägg är bra att använda interaktiva felsöka och samla in information scenarier. Du kan använda cmdlets för att paketera, publicera och övervaka distributioner av DSC-tillägg. Observera att cmdlets för DSC-tillägg ännu inte uppdateras för att fungera med den [standard konfigurationsskript](#default-configuration-script).
 
-Den **publicera AzureRMVMDscConfiguration** cmdlet tar i en konfigurationsfil, söker efter beroende DSC-resurser och skapar sedan en .zip-fil. ZIP-filen innehåller konfigurations- och DSC-resurser som behövs för att införa konfigurationen. Cmdlet kan också skapa paketet lokalt genom att använda den *- ConfigurationArchivePath* parameter. Annars cmdlet publicerar ZIP-filen för att blob storage och skyddar den med en SAS-token.
+Den **publicera AzureRMVMDscConfiguration** cmdlet tar i en konfigurationsfil, söker efter beroende DSC-resurser och skapar sedan en .zip-fil. ZIP-filen innehåller konfigurations- och DSC-resurser som behövs för att införa konfigurationen. Cmdlet kan också skapa paketet lokalt genom att använda den *- OutputArchivePath* parameter. Annars cmdlet publicerar ZIP-filen för att blob storage och skyddar den med en SAS-token.
 
 .Ps1-konfigurationsskript som cmdleten skapar finns i ZIP-filen i roten på arkivmapp. Mappen modulen placeras i arkivmapp i resurser.
 
@@ -133,7 +133,7 @@ Att ställa in DSC i portalen:
 
 Portalen kräver följande:
 
-* **Konfiguration av moduler eller skript**: det här fältet är obligatoriskt (formuläret har inte uppdaterats för den [standard konfigurationsskript](#default-configuration-script)). Moduler för konfiguration och skript kräver en .ps1-fil som har ett konfigurationsskript eller en .zip-fil med en .ps1-konfigurationsskript i roten. Om du använder en .zip-fil, måste alla beroende resurser tas med i modulen mappar i .zip. Du kan skapa ZIP-filen med hjälp av den **publicera AzureVMDscConfiguration - ConfigurationArchivePath** cmdlet som ingår i Azure PowerShell SDK. ZIP-filen har överförts till dina användare blob storage och skyddas av en SAS-token.
+* **Konfiguration av moduler eller skript**: det här fältet är obligatoriskt (formuläret har inte uppdaterats för den [standard konfigurationsskript](#default-configuration-script)). Moduler för konfiguration och skript kräver en .ps1-fil som har ett konfigurationsskript eller en .zip-fil med en .ps1-konfigurationsskript i roten. Om du använder en .zip-fil, måste alla beroende resurser tas med i modulen mappar i .zip. Du kan skapa ZIP-filen med hjälp av den **publicera AzureVMDscConfiguration - OutputArchivePath** cmdlet som ingår i Azure PowerShell SDK. ZIP-filen har överförts till dina användare blob storage och skyddas av en SAS-token.
 
 * **Konfigurationsfilen Data PSD1**: det här fältet är valfritt. Om din konfiguration kräver en konfigurationsfil för data i .psd1, kan du använda det här fältet för att välja datafältet och överför den till dina användare blob storage. Konfigurationsfilen för data skyddas av en SAS-token i blob storage.
 

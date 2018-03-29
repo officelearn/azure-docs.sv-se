@@ -1,16 +1,16 @@
 ---
-ms.assetid: 
+ms.assetid: ''
 title: Azure Key Vault mjuk borttagning | Microsoft Docs
 ms.service: key-vault
 author: lleonard-msft
 ms.author: alleonar
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: 01357e4fdb9b6f27e9baf5f5c8e4c7d6b582ad35
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 6a3573cf31418309a31126b2a0c6a43ea2e0c745
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Översikt för mjuk borttagning av Azure Key Vault
 
@@ -67,6 +67,13 @@ Om ett nyckelvalv eller nyckelvalv objekt återställs utför tjänsten en rensn
 Permanent ta bort, rensa, ett nyckelvalv går via en POST-åtgärden på resursen proxy och kräver särskilda behörigheter. I allmänhet kommer endast prenumerationsägaren att kunna rensa en key vault. POST-åtgärden utlöser omedelbart och oåterkalleligt borttagningen av det valvet. 
 
 Ett undantag till detta är fallet när Azure-prenumerationen har markerats som *permanent*. I det här fallet endast tjänsten kan sedan att utföra den faktiska borttagningen och sker detta som en schemalagd process. 
+
+### <a name="billing-implications"></a>Konsekvenser för fakturering
+
+I allmänhet när ett objekt (ett nyckelvalv eller en nyckel eller hemlighet) är i Borttaget tillstånd, finns två möjliga: ”rensa” och ”återställa”. Alla andra åtgärder att misslyckas. Därför även om objektet finns inga åtgärder kan utföras och därför ingen användning sker, så ingen faktura. Dock följande undantag:
+
+- ”Rensa” och ”återställa” åtgärder räknas som en normal nyckelvalv åtgärder och kommer att debiteras.
+- Om objektet är en HSM-nyckel, gäller HSM-skyddad nyckel kostnad per nyckel version per månad kostnad om en nyckel version har använts under de senaste 30 dagarna. Efter det, eftersom objektet är i Borttaget tillstånd inga åtgärder kan utföras mot det, så utan kostnad gäller.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -445,3 +445,5 @@
       href: faq.md
     - name: Förklaring av datakonsekvens med hjälp av baseboll
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+    - name: Felsöka Azure Cosmos DB
+      href: troubleshoot-azure-cosmosdb.md

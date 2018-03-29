@@ -1,11 +1,11 @@
 ---
 title: Masskopiera data med Azure Data Factory | Microsoft Docs
-description: "Lär dig hur du använder Azure Data Factory och kopieringsaktiviteten till att masskopiera data från ett källdatalager till ett måldatalager."
+description: Lär dig hur du använder Azure Data Factory och kopieringsaktiviteten till att masskopiera data från ett källdatalager till ett måldatalager.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 5f0703a3cb2ce912bfc042d0717ad8d921ec43e3
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 440b07b494b34db7ff3fcdf5d5ac830b165c339d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 I den här självstudien visas hur du **kopierar ett antal tabeller från Azure SQL Database till Azure SQL Data Warehouse**. Du kan även använda samma mönster i andra kopieringssituationer. Till exempel kan du kopiera tabeller från SQL Server/Oracle till Azure SQL Database/Data Warehouse/Azure Blob eller kopiera olika sökvägar från Blob till Azure SQL Database-tabeller.
@@ -74,7 +74,7 @@ Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Dat
 3. På sidan **Brandväggsinställningar** väljer du **På** för **Tillåt åtkomst till Azure-tjänster**.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Data Factory-användargränssnittet stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
    
    ![Nytt->DataFactory](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)
@@ -314,7 +314,7 @@ Den här pipelinen utför två steg:
     2. Expandera avsnittet **Avancerat**. 
     3. Klicka på **+ Ny** i avsnittet **Parametrar**. 
     4. Skriv **tableList** som parameterns **namn**.
-    5. Anger `@activity('LookupTableList').output.value`som parametervärde****. Du ställer in resultatlistan från sökningsaktiviteten som indata för den andra pipelinen. Resultatlistan innehåller listan över tabeller vars data ska kopieras till målet. 
+    5. Anger `@activity('LookupTableList').output.value`som **parametervärde**. Du ställer in resultatlistan från sökningsaktiviteten som indata för den andra pipelinen. Resultatlistan innehåller listan över tabeller vars data ska kopieras till målet. 
 
         ![Kör pipeline-aktivitet – sidan inställningar](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 7. **Anslut** **sökningsaktiviteten** till **Kör pipeline-aktiviteten** genom att dra den **gröna rutan** som är ansluten till sökningsaktiviteten till vänster om Kör pipeline-aktiviteten.

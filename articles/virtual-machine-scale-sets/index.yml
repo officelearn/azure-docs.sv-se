@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation för skalningsuppsättningar för virtuella datorer
+metadata:
+  title: Med skalningsuppsättningar för virtuella Azure-datorer kan du skapa och hantera grupper med identiska, belastningsutjämnade virtuella datorer med automatisk skalning. Lär dig hur du skapar, konfigurerar, hanterar och automatiskt skalar VM-skalningsuppsättningar med våra snabbstarter, självstudier och exempel.
+  services: virtual-machine-scale-sets
+  author: carolz
+  manager: czeumault
+  ms.service: virtual-machine-scale-sets
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/14/2018
+  ms.author: carolz
+  ms.openlocfilehash: ea8437adf7224c4605f31ccdea281669b89bb7c9
+  ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 03/28/2018
+abstract:
+  description: Med skalningsuppsättningar för virtuella Azure-datorer kan du skapa och hantera grupper med identiska, belastningsutjämnade virtuella datorer med automatisk skalning. Lär dig hur du skapar, konfigurerar, hanterar och automatiskt skalar VM-skalningsuppsättningar med våra snabbstarter, självstudier och exempel.
+sections:
+- title: Snabbstarter
+  items:
+  - type: paragraph
+    text: Lär dig hur du distribuerar en webbserver i en VM-skalningsuppsättning.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/virtual-machine-scale-sets/quick-create-portal
+    - image:
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure CLI 2.0
+      href: /azure/virtual-machine-scale-sets/quick-create-cli
+    - image:
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/virtual-machine-scale-sets/quick-create-powershell
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: Lär dig hur du distribuerar, hanterar och autoskalar datorer på Azure.
+  - type: list
+    style: ordered
+    items:
+    - html: Skapa och hantera skalningsuppsättningar med <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli">Azure CLI 2.0</a> eller <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-powershell">Azure Powershell</a>
+    - html: Använda datadiskar med <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-cli">Azure CLI 2.0</a> eller <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-powershell">Azure Powershell</a>
+    - html: Använda anpassade VM-avbildningar med <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-cli">Azure CLI 2.0</a> eller <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-powershell">Azure Powershell</a>
+    - html: Distribuera appar till skalningsuppsättningar med <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-cli">Azure CLI 2.0</a> eller <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-powershell">Azure Powershell</a>
+    - html: Autoskala skalningsuppsättningar med <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-cli">Azure CLI 2.0</a> eller <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell">Azure Powershell</a>
+- title: Exempel
+  items:
+  - type: paragraph
+    text: Exempeldistributioner för VM-skalningsuppsättningar.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/virtual-machine-scale-sets/cli-samples">Azure CLI 2.0</a>
+    - html: <a href="/azure/virtual-machine-scale-sets/powershell-samples">Azure PowerShell</a>

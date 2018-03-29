@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Sömlös Single Sign-On - Snabbstart | Microsoft Docs"
-description: "Den här artikeln beskriver hur du kommer igång med Azure Active Directory sömlös enkel inloggning"
+title: 'Azure AD Connect: Sömlös Single Sign-On - Snabbstart | Microsoft Docs'
+description: Den här artikeln beskriver hur du kommer igång med Azure Active Directory sömlös enkel inloggning
 services: active-directory
-keywords: "Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
-ms.openlocfilehash: 67f6ca36c334a60b634094f07e5d9696a6961eb8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d026009151f85a01f14ce4dd8a510f60ff407da1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -32,7 +32,7 @@ Följ dessa steg om du vill distribuera sömlös SSO.
 
 Se till att följande krav är uppfyllda:
 
-* **Konfigurera Azure AD Connect servern**: Om du använder [direkt autentisering](active-directory-aadconnect-pass-through-authentication.md) som din inloggningsmetod, krävs ingen ytterligare kravkontrollen. Om du använder [synkronisering av lösenords-hash](active-directory-aadconnectsync-implement-password-synchronization.md) som din inloggningsmetod, och om det finns en brandvägg mellan Azure AD Connect och Azure AD, kontrollera att:
+* **Konfigurera Azure AD Connect servern**: Om du använder [direkt autentisering](active-directory-aadconnect-pass-through-authentication.md) som din inloggningsmetod, krävs ingen ytterligare kravkontrollen. Om du använder [synkronisering av lösenords-hash](active-directory-aadconnectsync-implement-password-hash-synchronization.md) som din inloggningsmetod, och om det finns en brandvägg mellan Azure AD Connect och Azure AD, kontrollera att:
    - Du använder version 1.1.644.0 eller senare av Azure AD Connect. 
    - Om din brandvägg eller proxyserver tillåter DNS, vitlistning av tillåtna anslutningar till den  **\*. msappproxy.net** URL: er via port 443. Om inte, Tillåt åtkomst till den [IP-adressintervall för Azure-datacenter](https://www.microsoft.com/download/details.aspx?id=41653), som uppdateras varje vecka. Det här kravet gäller bara när du aktiverar funktionen. Det krävs inte för faktiska användarinloggningar.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: f62f6c4b2679457e8aaddb81e8a37622ca878ffc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8ee4af162ddaa64d4dbe83bebbb93e22409f041d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introduktion till Azure datavetenskap virtuell dator för Linux och Windows
 
@@ -29,7 +29,7 @@ Det här avsnittet beskrivs vad du kan göra med den virtuella datorn vetenskapl
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>Vad kan jag göra med datavetenskap virtuella datorn?
-Målet av datavetenskap Virtual Machine är att ge data personal på alla funktioner och roller med en kostnadsfri friktion datavetenskap miljö. Den här virtuella datorn sparar mycket tid som du tog henne om du har distribuerat en jämförbar miljö på egen hand. Starta projektet datavetenskap i stället, direkt i en nyligen skapade VM-instans. 
+Målet för Data vetenskap virtuell dator (DSVM) är att ge data personal på alla nivåer för kunskaper och i alla roller på en friktion utan förkonfigurerade och fullständigt integrerat datavetenskap miljö. I stället för att lansera en jämförbar arbetsyta på egen hand kan du etablera en DSVM - sparar du dagar eller även _veckor_ om installation, konfiguration och processer för hantering av paketet. När din DSVM har allokerats kan börjar du omedelbart arbeta med projektet vetenskapliga data.
 
 Den virtuella datorn datavetenskap designas och konfigurerad för att arbeta med ett brett spektrum av Användningsscenarier. Du kan skala din miljö uppåt eller nedåt när projektet behöver ändras. Du kan använda programmet datavetenskap aktiviteter önskade språk. Du kan installera andra verktyg och anpassa systemet för dina specifika behov.
 

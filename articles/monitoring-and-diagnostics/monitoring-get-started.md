@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/25/2018
 ms.author: johnkem
-ms.openlocfilehash: 69ec5392f034ffe94315c17366a9242d86c69d6d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e09fe4fd48d1806e2194ed3065e7c2edbe2d1aa5
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>Kom igång med Azure Monitor
 Azure Monitor är plattformstjänst som tillhandahåller en enda källa för övervakning av Azure-resurser. Med Azure-Monitor kan du visualisera, fråga, vidarebefordra, arkivera och annars utför en åtgärd på mått och loggar som kommer från resurser i Azure. Du kan arbeta med data med med hjälp av Azure portal [PowerShell-Cmdlets för övervakaren](insights-powershell-samples.md), [plattformsoberoende CLI](insights-cli-samples.md), eller [Azure övervakaren REST API: er](https://msdn.microsoft.com/library/dn931943.aspx). I den här artikeln går vi igenom några av de viktigaste komponenterna i Azure Monitor, med portalen för demonstration.
@@ -27,17 +27,17 @@ Azure Monitor är plattformstjänst som tillhandahåller en enda källa för öv
 1. I portalen, går du till **alla tjänster** och Sök efter den **övervakaren** alternativet. Klicka på stjärnikonen för att lägga till det här alternativet i favoritlistan så att det alltid är lättillgängligt från det vänstra navigeringsfältet.
 
     ![Monitor i listan över tjänster](./media/monitoring-get-started/monitor-more-services.png)
-2. Klicka på den **övervakaren** alternativet för att öppna den **övervakaren** sidan. Den här sidan innehåller alla dina övervakning inställningar och data till en samlad vy. Först öppnas den i avsnittet **Aktivitetslogg**.
+2. Klicka på den **övervakaren** alternativet för att öppna den **övervakaren** sidan. Den här sidan innehåller alla dina övervakning inställningar och data till en samlad vy. Först öppnar den **översikt** avsnitt. Översikten visar en sammanfattning av alla övervakningsaviseringar, fel och tjänsten hälsa rekommendationerna som relaterar till resurser i din prenumeration.  
 
     ![Navigering för Övervakare](./media/monitoring-get-started/monitor-blade-nav.png)
 
     Azure Monitor har tre grundläggande kategorier av övervakningsdata: **aktivitetsloggen**, **mätvärden** och **diagnostikloggar**.
 3. Klicka på **Aktivitetslogg** så att avsnittet för aktivitetslogg visas.
 
-    ![Aktivitetslogg](./media/monitoring-get-started/monitor-act-log-blade.png)
-
     I [**aktivitetsloggen**](monitoring-overview-activity-logs.md) beskrivs alla åtgärder som utförts på resurser i din prenumeration. Med aktivitetsloggen kan du bestämma ”vad, vem och när” för att skapa, uppdatera eller ta bort resurser i din prenumeration. Aktivitetsloggen anger exempelvis när en webbapp har stoppats och vem som stoppade den. Händelser i aktivitetsloggen finns lagrade i plattformen och kan frågas i 90 dagar.
 
+    ![Aktivitetslogg](./media/monitoring-get-started/monitor-act-log-blade.png)
+    
     Du kan skapa och spara frågor för vanliga filter och fästa de viktigaste frågorna till en instrumentpanel i portalen så att du alltid vet om det har inträffat några händelser som uppfyller dina kriterier.
 4. Filtrera vyn till en viss resursgrupp under den senaste veckan, och klicka sedan på knappen **Spara**. Namnge din fråga. 
 
@@ -60,7 +60,7 @@ Azure Monitor är plattformstjänst som tillhandahåller en enda källa för öv
     ![Bladet Mått](./media/monitoring-get-started/monitor-metric-blade.png)
 
    > [!NOTE]
-   > Vissa mått är bara tillgängliga om du aktiverar [Application Insights](../application-insights/app-insights-overview.md) och/eller Windows eller Linux Azure-diagnostik på din resurs.
+   > Vissa mått är bara tillgängliga genom att aktivera [Programinsikter](../application-insights/app-insights-overview.md) och/eller tillägg för Windows eller Linux Azure-diagnostik på resursen.
    >
    >
 9. När du är nöjd med diagrammet kan du använda knappen **Fäst** för att fästa den på instrumentpanelen.
@@ -80,18 +80,19 @@ Azure Monitor är plattformstjänst som tillhandahåller en enda källa för öv
     ![Aktivera diagnostikloggar](./media/monitoring-get-started/monitor-diaglogs-enable.png)
 
     Om du har registrerat diagnostikloggar till Log Analytics kan du sedan söka efter den i avsnittet **Loggsökning** i portalen.
-12. Navigera till den **aviseringar** på sidan för övervakaren.
+12. Navigera till den **aviseringar (klassisk)** på sidan för övervakaren.
 
     ![offentligt aviseringsblad](./media/monitoring-get-started/monitor-alerts-nopp.png)
 
-    Här kan du hantera alla [**aviseringar**](monitoring-overview-alerts.md) på dina Azure-resurser. Detta inkluderar aviseringar på mått, aktivitet logghändelser, webbtester med Application Insights (platser) och proaktiv diagnostik i Application Insights. Aviseringar kan utlösa e-postmeddelanden eller en HTTP POST till en webhook-webbadress.
+    Här kan du hantera alla [ **klassiska aviseringar** ](monitoring-overview-alerts.md) på Azure-resurser. Detta inkluderar aviseringar på mått, aktivitet logghändelser, webbtester med Application Insights (platser) och proaktiv diagnostik i Application Insights. Aviseringar ansluta till åtgärdsgrupper. [Åtgärdsgrupper](monitoring-action-groups.md) ger dig ett sätt att meddela personer eller utföra specifika åtgärder när en avisering utlöses. 
+    
 13. Klicka på **Add metric alert** (Lägg till måttavisering) för att skapa en avisering.
 
     ![lägg till måttavisering](./media/monitoring-get-started/monitor-alerts-add.png)
 
     Du kan sedan fästa en avisering i din instrumentpanel och enkelt se dess tillstånd när som helst.
 
-    Azure-Monitor också har nu [ **nära realtid mått aviseringar**](https://aka.ms/azuremonitor/near-real-time-alerts)(förhandsversion) som kan utvärderas med en frekvens som är så låg som varje minut!
+    Azure-Monitor också har nu [ **nyare aviseringar** ](https://aka.ms/azuremonitor/near-real-time-alerts) som kan utvärderas med en frekvens som är så låg som varje minut.
     
 14. I avsnittet Monitor finns också länkar till [Application Insights](../application-insights/app-insights-overview.md)-program och [Log Analytics](../log-analytics/log-analytics-overview.md)-hanteringslösningar. Dessa andra Microsoft-produkter har djupgående integrering med Azure Monitor.
 15. Om du inte använder Application Insights eller Log Analytics finns en risk för att Azure Monitor har ett samarbete med dina aktuella produkter för övervakning, loggning och aviseringar. På vår [partnersida](monitoring-partners.md) finns en fullständig lista och instruktioner för hur du integrerar.
@@ -101,4 +102,6 @@ Genom att följa de här stegen och fästa alla relevanta paneler vid en instrum
 ![Azure Monitor-instrumentpanel](./media/monitoring-get-started/monitor-final-dash.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs [Översikt över Azure Monitor](monitoring-overview.md)
+* Läs den [översikt över alla Azure övervakningsverktyg](monitoring-overview.md) att förstå hur Azure-Monitor fungerar med dem. 
+
+

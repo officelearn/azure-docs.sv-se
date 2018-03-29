@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera belastningsutjämning för SQLServer alltid på | Microsoft Docs"
-description: "Konfigurera belastningsutjämnare för att arbeta med SQL Server alltid aktiverad och lär dig hur du använder PowerShell för att skapa en belastningsutjämnare för SQL Server-implementering"
+title: Konfigurera belastningsutjämning för SQLServer alltid på | Microsoft Docs
+description: Konfigurera belastningsutjämnare för att arbeta med SQL Server alltid aktiverad och lär dig hur du använder PowerShell för att skapa en belastningsutjämnare för SQL Server-implementering
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5e890f8314c8f191dbfa6c6818d810b91d0e829d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a0c2345b47b9103ac6a7ae998f13a12332e3907e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-a-load-balancer-for-sql-server-always-on"></a>Konfigurera en belastningsutjämnare för SQL Server alltid aktiverad
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 SQL Server Always On-Tillgänglighetsgrupper kan nu köra med en intern belastningsutjämnare. En tillgänglighetsgrupp är SQL Server bästa lösning för hög tillgänglighet och katastrofåterställning. Tillgänglighetsgruppslyssnaren ger klientprogram sömlöst ansluta till den primära repliken, oavsett antal repliker i konfigurationen.
 
@@ -57,7 +57,7 @@ Med hjälp av en intern belastningsutjämnare på lyssnaren slutpunkten för SQL
 
 Mer information om SQL Server alltid aktiverad finns [konfigurera en intern belastningsutjämnare för en tillgänglighetsgrupp alltid på i Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Kom igång med att konfigurera en offentlig belastningsutjämnare](load-balancer-get-started-internet-arm-ps.md)
 * [Komma igång med att konfigurera en intern belastningsutjämnare](load-balancer-get-started-ilb-arm-ps.md)
 * [Konfigurera ett distributionsläge för belastningsutjämnare](load-balancer-distribution-mode.md)

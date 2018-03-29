@@ -9,7 +9,6 @@
 
 # Kom igång
 ## [Använda portalen](data-lake-store-get-started-portal.md)
-## [Använda Data Lake Store i Storage Explorer](data-lake-store-in-storage-explorer.md)
 ## [Använda PowerShell](data-lake-store-get-started-powershell.md)
 ## [Använda Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 
@@ -17,7 +16,7 @@
 # Gör så här för att
 ## Läs in och flytta data
 ### [Använda Azure Data Factory](../data-factory/load-azure-data-lake-store.md)
-### [Använda Data Lake Store i Storage Explorer](data-lake-store-in-storage-explorer.md)
+### [Använda Storage Explorer](data-lake-store-in-storage-explorer.md)
 ### [Använda AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Använda DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Använda Sqoop](data-lake-store-data-transfer-sql-sqoop.md)

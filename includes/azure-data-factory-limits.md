@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: data-factory
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 03/27/2018
+ms.author: jingwang
+ms.custom: include file
+ms.openlocfilehash: e68e87bb19b8c64cf06c03831b22cf43d773efde
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/29/2018
+---
 Datafabriken är en tjänst med flera klienter som har följande standardgränser för att kontrollera kundprenumerationer skyddas från varandras arbetsbelastningar. Många av gränserna som kan enkelt höjas för din prenumeration upp till den maximala gränsen genom att kontakta supporten.
 
 ### <a name="version-2"></a>Version 2
@@ -13,11 +29,11 @@ Datafabriken är en tjänst med flera klienter som har följande standardgränse
 | Samtidiga pipeline körs per pipeline | 20 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Högsta antal aktiviteter per pipeline | 20 | 30 |
 | Maximalt antal parametrar per pipeline | 20 | 30 |
-| byte per objekt för pipeline-objekt <sup>1</sup> | 200 KB | 200 KB |
-| byte per objekt för datauppsättningen och länkade tjänstobjekt <sup>1</sup> | 100 KB | 2000 KB |
-| Molnet data movement enheter <sup>3</sup> | 32 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Byte per objekt för pipeline-objekt <sup>1</sup> | 200 KB | 200 KB |
+| Byte per objekt för datauppsättningen och länkade tjänstobjekt <sup>1</sup> | 100 KB | 2000 KB |
+| Molnet data movement enheter <sup>3</sup> | 256 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Antal för pipeline aktivitetskörningar försök | 1 day(timeout) | 1 dag (timeout) |
-| Skriva API-anrop | 2500/timme<br/><br/> Den här gränsen har införts av Azure Resource Manager kan inte Azure Data Factory. | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Skriva API-anrop | 2500/hr<br/><br/> Den här gränsen har införts av Azure Resource Manager kan inte Azure Data Factory. | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Läs API-anrop | 12 500/timme<br/><br/> Den här gränsen har införts av Azure Resource Manager kan inte Azure Data Factory. | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 
 
@@ -29,8 +45,8 @@ Datafabriken är en tjänst med flera klienter som har följande standardgränse
 | pipelines inom en datafabrik |2500 |[Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | datauppsättningar inom en datafabrik |5000 |[Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | samtidiga segment per dataset |10 |10 |
-| byte per objekt för pipeline-objekt <sup>1</sup> |200 KB |200 KB |
-| byte per objekt för datauppsättningen och länkade tjänstobjekt <sup>1</sup> |100 KB |2000 KB |
+| Byte per objekt för pipeline-objekt <sup>1</sup> |200 KB |200 KB |
+| Byte per objekt för datauppsättningen och länkade tjänstobjekt <sup>1</sup> |100 KB |2000 KB |
 | HDInsight-kluster på begäran kärnor inom en prenumeration <sup>2</sup> |60 |[Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Molnet data movement enheter <sup>3</sup> |32 |[Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Antal för pipeline aktivitetskörningar försök |1000 |MaxInt (32-bitars) |
@@ -39,7 +55,7 @@ Datafabriken är en tjänst med flera klienter som har följande standardgränse
 
 <sup>2</sup> kärnor på begäran HDInsight tilldelas utanför den prenumeration som innehåller data factory. Ovanstående gränsen är därför Data Factory tvingande core gränsen för på begäran HDInsight kärnor och skiljer sig från gränsen core som är associerade med din Azure-prenumeration.
 
-<sup>3</sup> moln data movement enhet (dmu här) används i en moln-to-cloud kopieringsåtgärd. Det är ett mått som representerar en enhet i Data Factory styrka (en kombination av CPU, minne och nätverksresursallokering). Du kan uppnå högre kopiera genomströmning genom att använda flera DMUs för vissa scenarier. Referera till [molnet data movement enheter](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) avsnittet detaljer.
+<sup>3</sup> moln data movement enhet (dmu här) används i en moln-to-cloud kopieringsåtgärd. Det är ett mått som representerar en enhet i Data Factory styrka (en kombination av CPU, minne och nätverksresursallokering). Du kan uppnå högre kopiera genomströmning genom att använda flera DMUs för vissa scenarier. Referera till [molnet data movement enheter (V2)](../articles/data-factory/copy-activity-performance.md#cloud-data-movement-units) och [molnet data movement enheter (V1)](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) avsnittet detaljer.
 
 <sup>4</sup> i Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla följande funktioner för integration av data över olika nätverksmiljöer: dataflyttning sändning av aktiviteter för att beräkna tjänster körning av SSIS-paket. Mer information finns i [integrering Runtime översikt](../articles/data-factory/concepts-integration-runtime.md).
 

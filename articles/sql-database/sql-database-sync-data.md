@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL-datasynkronisering (förhandsversion) | Microsoft Docs"
-description: "Den här översikten beskriver datasynkronisering för Azure SQL (förhandsgranskning)"
+title: Azure SQL-datasynkronisering (förhandsversion) | Microsoft Docs
+description: Den här översikten beskriver datasynkronisering för Azure SQL (förhandsgranskning)
 services: sql-database
 author: douglaslms
 manager: craigg
@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 5abe3e5a56dfca263f109b86f473ac490da3eac7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e0b8a999cf38cbef37498d4ee0fb2bceae8f292
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synkronisera data över flera molntjänster och lokala databaser med SQL-datasynkronisering (förhandsgranskning)
 
@@ -92,6 +92,8 @@ Data Sync använder Infoga, uppdatera och ta bort utlösare för att spåra änd
 
 -   En tabell kan inte ha en identitetskolumn som inte är den primära nyckeln.
 
+-   En primär nyckel kan inte ha datetime-datatyp.
+
 -   Namnen på objekten (databaser, tabeller och kolumner) kan inte innehålla utskrivbara tecken punkt (.), vänster hakparentes ([) eller fyrkantiga höger hakparentes (]).
 
 -   Azure Active Directory-autentisering stöds inte.
@@ -160,20 +162,20 @@ Federationsrotdatabas kan användas i tjänsten SQL-datasynkronisering (förhand
 
 ## <a name="next-steps"></a>Nästa steg
 
-För mer information om SQL-datasynkronisering, se:
+Mer information om SQL Data Sync finns i:
 
--   [Konfigurera Azure SQL datasynkronisering](sql-database-get-started-sql-data-sync.md)
--   [Metodtips för Azure SQL-datasynkronisering](sql-database-best-practices-data-sync.md)
--   [Övervaka Azure SQL-datasynkronisering med OMS logganalys](sql-database-sync-monitor-oms.md)
--   [Felsökning av problem med Azure SQL-datasynkronisering](sql-database-troubleshoot-data-sync.md)
+-   [Konfigurera Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Metodtips för Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   [Övervaka Azure SQL Data Sync med OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
--   Slutför PowerShell-exempel som visar hur du konfigurerar SQL datasynkronisering:
+-   Slutför PowerShell-exempel som visar hur du konfigurerar SQL Data Sync:
     -   [Använd PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
 
--   [Hämta SQL Data Sync REST API-dokumentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [Ladda ned REST API-dokumentation för SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
-För mer information om SQL-databasen, se:
+Mer information om SQL Database finns i:
 
--   [Översikt över SQL-databas](sql-database-technical-overview.md)
--   [Livscykelhantering för databasen](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Översikt över SQL Database](sql-database-technical-overview.md)
+-   [Livscykelhantering för databas](https://msdn.microsoft.com/library/jj907294.aspx)

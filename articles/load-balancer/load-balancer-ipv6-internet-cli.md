@@ -1,12 +1,12 @@
 ---
-title: "Skapa en offentlig belastningsutjämnare med IPv6 - Azure CLI | Microsoft Docs"
-description: "Lär dig hur du skapar en offentlig belastningsutjämnare med IPv6 i Azure Resource Manager med hjälp av Azure CLI."
+title: Skapa en offentlig belastningsutjämnare med IPv6 - Azure CLI | Microsoft Docs
+description: Lär dig hur du skapar en offentlig belastningsutjämnare med IPv6 i Azure Resource Manager med hjälp av Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
 tags: azure-resource-manager
-keywords: "IPv6, azure belastningsutjämnare, dual stack, offentlig IP-adress, inbyggd ipv6, mobil, iot"
+keywords: IPv6, azure belastningsutjämnare, dual stack, offentlig IP-adress, inbyggd ipv6, mobil, iot
 ms.assetid: a1957c9c-9c1d-423e-9d5c-d71449bc1f37
 ms.service: load-balancer
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3abd47460999f7b059469a58a59a3e297e88effb
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 62f22ccadfabd2f3d6906beb3c241703d4e6383f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-in-azure-resource-manager-by-using-azure-cli"></a>Skapa en offentlig belastningsutjämnare med IPv6 i Azure Resource Manager med hjälp av Azure CLI
 
@@ -28,7 +28,6 @@ ms.lasthandoff: 12/18/2017
 > * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [Mall](load-balancer-ipv6-internet-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 En Azure belastningsutjämnare är en Layer 4-belastningsutjämnare (TCP, UDP). Belastningsutjämnare ger hög tillgänglighet genom att distribuera inkommande trafik mellan felfri tjänstinstanser i molntjänster eller virtuella datorer i en belastningen belastningsutjämnaren. Belastningsutjämnare kan också visa dessa tjänster på flera portar eller flera IP-adresser eller båda.
 
@@ -187,7 +186,7 @@ I det här exemplet skapas följande objekt:
 * En NAT-regel för att översätta all inkommande trafik på port 3391 till port 3389 för remote desktop protocol (RDP).\*
 * en regel för belastningsutjämnare ska hantera all inkommande trafik på port 80 till port 80 på adresser i backend-poolen.
 
-\*NAT-regler som är associerade med en specifik virtuell dator instans bakom belastningsutjämnaren. Den nätverkstrafik som anländer på port 3389 skickas till en specifik virtuell dator och port som är associerad med NAT-regeln. Du måste ange ett protokoll (UDP eller TCP) för en NAT-regel. Du kan inte tilldela båda protokollen till samma port.
+\* NAT-regler som är associerade med en specifik virtuell dator instans bakom belastningsutjämnaren. Den nätverkstrafik som anländer på port 3389 skickas till en specifik virtuell dator och port som är associerad med NAT-regeln. Du måste ange ett protokoll (UDP eller TCP) för en NAT-regel. Du kan inte tilldela båda protokollen till samma port.
 
 1. Ställ in variablerna PowerShell:
 

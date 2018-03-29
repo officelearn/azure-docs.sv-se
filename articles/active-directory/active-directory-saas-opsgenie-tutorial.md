@@ -1,23 +1,23 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med OpsGenie | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och OpsGenie."
+title: 'Självstudier: Azure Active Directory-integrering med OpsGenie | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och OpsGenie.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 03/28/2018
 ms.author: jeedes
-ms.openlocfilehash: b0d8fa13c13ad8d4a85cb482bcd7e440006f0437
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b0cd54c7750e85eb7b4e1ba6be309c585d5a7b4e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Självstudier: Azure Active Directory-integrering med OpsGenie
 
@@ -31,7 +31,7 @@ Integrera OpsGenie med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med OpsGenie, behöver du följande:
 
@@ -110,41 +110,57 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_url.png)
 
-    I den **inloggnings-URL** textruta anger du URL:`https://app.opsgenie.com/auth/login`
+    I den **inloggnings-URL** textruta anger du URL: `https://app.opsgenie.com/auth/login`
 
-4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
-
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_certificate.png) 
-
-5. Klicka på **spara** knappen.
+4. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-opsgenie-tutorial/tutorial_general_400.png)
 
-6. På den **OpsGenie Configuration** klickar du på **konfigurera OpsGenie** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+5. På den **OpsGenie Configuration** klickar du på **konfigurera OpsGenie** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML inloggning tjänst-URL för enkel** från avsnittet Snabbreferens.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png) 
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png)
+
+6. Att generera den **URL för tjänstmetadata**, utför följande steg:
+
+    a. Klicka på **App registreringar**.
+    
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appregistrations.png)
+   
+    b. Klicka på **slutpunkter** att öppna **slutpunkter** dialogrutan.  
+    
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpointicon.png)
+
+    c. Klicka på kopieringsknappen för att kopiera **FEDERATION METADATADOKUMENTET** url och klistra in den i anteckningar.
+    
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpoint.png)
+     
+    d. Gå till egenskapssidan för **OpsGenie** och kopiera den **program-Id** med **kopiera** knappen och klistra in den i anteckningar.
+ 
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appid.png)
+
+    e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
 7. Öppna en annan instans för webbläsaren och sedan logga in på OpsGenie som administratör.
 
 8. Klicka på **inställningar**, och klicka sedan på den **enkel inloggning** fliken.
    
-    ![OpsGenie enkel inloggning](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_06.png)
+    ![OpsGenie Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_06.png)
 
 9. Välj för att aktivera enkel inloggning **aktiverad**.
    
-    ![OpsGenie inställningar](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_07.png) 
+    ![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_07.png) 
 
 10. I den **Provider** klickar du på den **Azure Active Directory** fliken.
    
-    ![OpsGenie inställningar](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_08.png) 
+    ![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_08.png) 
 
 11. På sidan för Azure Active Directory-dialogrutan utför du följande steg:
    
-    ![OpsGenie inställningar](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_09.png)
+    ![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_09.png)
     
-    a. Klistra in **enkel inloggning på Tjänstwebbadress**, som du har kopierat från Azure-portalen i den **SAML 2.0 Endpoint** textruta.
+    a. I den **SAML 2.0 Endpoint** textruta klistra in **inloggning på tjänst-URL för enkel**värde som du har kopierat från Azure-portalen.
     
-    b. Öppna din hämtade Base64-kodade certifikatet i anteckningar, kopiera innehållet i den till Urklipp och klistrar in det i den **X.500 certifikat** textruta.
+    b. I den **Url för tjänstmetadata:** textruta klistra in **URL för tjänstmetadata**värde som du har kopierat från Azure-portalen.
     
     c. Klicka på **spara ändringar**.
 
@@ -191,13 +207,13 @@ Syftet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 2. Gå till listan genom att klicka på **användaren** i den vänstra panelen.
    
-   ![OpsGenie inställningar](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_10.png) 
+   ![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_10.png) 
 
 3. Klicka på **lägga till användare**.
 
 4. På den **Lägg till användare** dialogrutan, utför följande steg:
    
-   ![OpsGenie inställningar](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_11.png)
+   ![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_11.png)
    
    a. I den **e-post** textruta e-postadressen sorts BrittaSimon åtgärdas i Azure Active Directory.
    

@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 33e0d1d54a533d68ac08f223e1a41e65c7b301a4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b038052776cad63030ca8a48a43b4b579ce6c83a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Filformat som stöds och komprimering codec-rutiner i Azure Data Factory
 
@@ -444,6 +444,30 @@ Observera följande punkter:
 * Komplexa datatyper stöds inte (STRUCT, MAP, LIST, UNION)
 * ORC-filen har tre [komprimeringsrelaterade alternativ](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB och SNAPPY. Data Factory stöder läsning av data från ORC-filer i alla dessa komprimerade format. Data Factory använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en ORC-fil väljer Data Factory ZLIB, som är standard för ORC. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
 
+### <a name="data-type-mapping-for-orc-files"></a>Datatypen mappning för ORC-filer
+
+| Data factory tillfälliga datatyp | ORC-typer |
+|:--- |:--- |
+| Boolesk | Boolesk |
+| SByte | Mottagna byte |
+| Mottagna byte | Kort |
+| Int16 | Kort |
+| UInt16 | Int |
+| Int32 | Int |
+| UInt32 | Lång |
+| Int64 | Lång |
+| UInt64 | Sträng |
+| Ogift | flyttal |
+| Dubbel | Dubbel |
+| Decimal | Decimal |
+| Sträng | Sträng |
+| DateTime | Tidsstämpel |
+| DateTimeOffset | Tidsstämpel |
+| TimeSpan | Tidsstämpel |
+| ByteArray | Binär |
+| GUID | Sträng |
+| Char | Char(1) |
+
 ## <a name="parquet-format"></a>Parkettgolv format
 
 Om du vill parsa Parquet-filer eller skriva data i Parquet-format anger du egenskapen `format` `type` till **ParquetFormat**. Du behöver inte ange några egenskaper i avsnittet Format i avsnittet typeProperties. Exempel:
@@ -463,6 +487,31 @@ Observera följande punkter:
 
 * Komplexa datatyper stöds inte (MAP, LIST)
 * Parquet-filer har följande komprimeringsrelaterade alternativ: NONE, SNAPPY, GZIP och LZO. Data Factory stöder läsning av data från ORC-filer i alla dessa komprimerade format. Data Factory använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en Parquet-fil väljer Data Factory SNAPPY, som är standard för Parquet-formatet. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
+
+### <a name="data-type-mapping-for-parquet-files"></a>Datatypen mappning för parkettgolv filer
+
+| Data factory tillfälliga datatyp | Parkettgolv primitiv typ. | Parkettgolv ursprungliga typen (deserialisera) | Parkettgolv ursprungliga typen (serialisera) |
+|:--- |:--- |:--- |:--- |
+| Boolesk | Boolesk | Gäller inte | Gäller inte |
+| SByte | Int32 | int8 | int8 |
+| Mottagna byte | Int32 | UInt8 | Int16 |
+| Int16 | Int32 | Int16 | Int16 |
+| UInt16 | Int32 | UInt16 | Int32 |
+| Int32 | Int32 | Int32 | Int32 |
+| UInt32 | Int64 | UInt32 | Int64 |
+| Int64 | Int64 | Int64 | Int64 |
+| UInt64 | Int64/binär | UInt64 | Decimal |
+| Ogift | flyttal | Gäller inte | Gäller inte |
+| Dubbel | Dubbel | Gäller inte | Gäller inte |
+| Decimal | Binär | Decimal | Decimal |
+| Sträng | Binär | Utf8 | Utf8 |
+| DateTime | Int96 | Gäller inte | Gäller inte |
+| TimeSpan | Int96 | Gäller inte | Gäller inte |
+| DateTimeOffset | Int96 | Gäller inte | Gäller inte |
+| ByteArray | Binär | Gäller inte | Gäller inte |
+| GUID | Binär | Utf8 | Utf8 |
+| Char | Binär | Utf8 | Utf8 |
+| CharArray | Stöds inte | Gäller inte | Gäller inte |
 
 ## <a name="compression-support"></a>Komprimeringsstöd för
 

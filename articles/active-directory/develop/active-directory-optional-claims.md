@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 03/15/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0cfa79b9c44953c613eaec8d701f351c6f2ce212
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 76e7be62caae7e33caefc3f90a5e57c5f71a31d3
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Valfria anspråk i Azure AD (förhandsgranskning)
 
@@ -69,9 +69,7 @@ Nedan visas en uppsättning valfria anspråk som är tillgängliga som standard 
 | `is_device_managed`        | Anger om enheten har MDM installerad. Relaterade till principen för villkorlig åtkomst.                                                                                                                  | SAML       |           | Konvergerat till signin_state för JWTs,                                                                                                                                                                                                                                                   |
 | `is_device_compliant`      | Anger att MDM har fastställt enheten är kompatibel med säkerhetsprinciper för enheter i organisationen.                                                                                  | SAML       |           | Konvergerat till signin_state för JWTs,                                                                                                                                                                                                                                                   |
 | `kmsi`                     | Anger om användaren har valt alternativet hålla mig inloggad i.                                                                                                                                    | SAML       |           | Konvergerat till signin_state för JWTs,                                                                                                                                                                                                                                                   |
-| `upn`                      | UserPrincipalName claim.  Även om det här anspråket ingår automatiskt, kan du ange den som ett valfritt anspråk att koppla ytterligare egenskaper om du vill ändra sitt beteende gästen användaren om. | JWT SAML  |           | Ytterligare egenskaper: <br> include_externally_authenticated_upn <br> include_externally_authenticated_upn_without_hash                                                                                                                                                                 |
-| `groups`                   | De grupper som användaren är medlem i.                                                                                                                                                               | JWT SAML  |           | Ytterligare egenskaper: <br> Sam_account_name<br> Dns_domain_and_sam_account_name<br> Netbios_domain_and_sam_account<br> Max_size_limit<br> Emit_as_roles<br>                                                                                                                            |
-
+| `upn`                      | UserPrincipalName claim.  Även om det här anspråket ingår automatiskt, kan du ange den som ett valfritt anspråk att koppla ytterligare egenskaper om du vill ändra sitt beteende gästen användaren om. | JWT SAML  |           | Ytterligare egenskaper: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
 ### <a name="v20-optional-claims"></a>V2.0 valfria anspråk
 De här anspråken ska ingå alltid i v1.0 token, men tas bort från v2.0-token, såvida inte begär.  Dessa anspråk kan endast användas för JWTs (ID-token och åtkomst-token).  
 
@@ -90,26 +88,19 @@ De här anspråken ska ingå alltid i v1.0 token, men tas bort från v2.0-token,
 
 ### <a name="additional-properties-of-optional-claims"></a>Ytterligare egenskaper för valfri anspråk
 
-Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returneras.  Dessa ytterligare egenskaper intervall från formateringsändringar (till exempel `include_externally_authenticated_upn_without_hash`) att ändra en uppsättning data returneras (`Dns_domain_and_sam_account_name`).
+Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returneras.  Dessa ytterligare egenskaper som används huvudsakligen för att migrering av lokala program med olika förväntningar (till exempel `include_externally_authenticated_upn_without_hash` hjälper med klienter som inte kan hantera hashmarks (`#`) i UPN)
 
 **Tabell 4: Värden för att konfigurera standard valfria anspråk**
 
 | Egenskapsnamn                                     | Ytterligare egenskapsnamn                                                                                                             | Beskrivning |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `Upn`                                                 |                                                                                                                                      |             |
+| `upn`                                                 |                                                                                                                                      |             |
 | | `include_externally_authenticated_upn`              | Innehåller gästen UPN som lagras i resurs-klient.  Till exempel, `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
 | | `include_externally_authenticated_upn_without_hash` | Samma som ovan, med undantag för att hashmarks (`#`) ersätts med understreck (`_`), till exempel `foo_hometenant.com_EXT_@resourcetenant.com` |             
-| `groups`                                              |                                                                                                                                      |             |
-| | `sam_account_name`                                  |                                                                                                                                      |             
-| | `dns_domain_and_sam_account_name`                   |                                                                                                                                      |             
-| | `netbios_domain_and_sam_account_name`               |                                                                                                                                      |             
-| | `max_size_limit`                                    | Genererar antalet grupper som returneras till max grupp storleksgränsen (1 000).                                                            |             
-| | `emit_as_roles`                                     | Skickar ett ”roller” anspråk i stället för ”grupper”-anspråk med samma värden.  Avsedd för appar som migrerar från en lokal miljö där RBAC traditionellt styrs via gruppmedlemskap.   |             
 
 > [!Note]
 >Anger valfria anspråket upn utan ytterligare en egenskap inte ändras någon funktion – för att visa ett nytt anspråk som utfärdats i token, måste minst en av de ytterligare egenskaperna läggas till. 
->
->Den `account_name` ytterligare egenskaper för grupper är inte kompatibla, och sorteringen av ytterligare egenskaper som är viktigt – endast det första kontot namnegenskap ytterligare anges kommer att användas. 
+
 
 #### <a name="additional-properties-example"></a>Ytterligare egenskaper som exempel:
 
@@ -118,15 +109,15 @@ Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returnera
    {
        "idToken": [ 
              { 
-                "name": "groups", 
+                "name": "upn", 
             "essential": false,
-                "additionalProperties": [ "netbios_domain_and_sam_account_name", "sam_account_name" , "emit_as_roles"]  
+                "additionalProperties": [ "include_externally_authenticated_upn"]  
               }
         ]
 }
 ```
 
-Det här OptionalClaims-objektet som returneras av samma `groups` anspråk som om `sam_account_name` inte ingår – eftersom den är efter `netbios_domain_and_sam_account_name`, ignoreras. 
+Det här objektet OptionalClaims gör ID-token som returneras till klienten med en annan upn med ytterligare hem klient och klient resursinformation.  
 
 ## <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
 

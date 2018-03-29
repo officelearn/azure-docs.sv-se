@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: Konton och behörigheter | Microsoft Docs"
-description: "Det här avsnittet beskrivs de konton som används och skapas och behörigheter som krävs."
+title: 'Azure AD Connect: Konton och behörigheter | Microsoft Docs'
+description: Det här avsnittet beskrivs de konton som används och skapas och behörigheter som krävs.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: c10a069f5359dc148b103688355c859bd653b5d7
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ae8e9f46923928853c0c63e8c50f4e95b915e277
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 Installationsguiden för Azure AD Connect innehåller två olika sökvägar:
@@ -147,7 +147,7 @@ Förklaringen:
 | --- | --- | --- | --- |
 | **fristående eller arbetsgrupp datorn** | Stöds inte | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto |  Stöds inte |
 | **domänanslutna datorer** | **VSA**</br>Lokalt konto (2008) | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto</br>Domänkonto</br>sMSA,gMSA | **gMSA**</br>Domänkonto |
-| **Domänkontrollant** | Domänkonto | *gMSA*</br>Domänkonto</br>sMSA| *gMSA*</br>Domänkonto|
+| **Domänkontrollant** | **Domänkonto** | *gMSA*</br>**Domänkonto**</br>sMSA| *gMSA*</br>**Domänkonto**|
 
 #### <a name="virtual-service-account"></a>Virtuella tjänstkonto
 En virtuell tjänstkontot är en särskild typ av konto som inte har ett lösenord och hanteras av Windows.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: d7ee74a19f806faed0bcfcfa5f1c5de3937d9f31
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 15bbd32d982bdefc5665421b828ce0c8234b7257
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Översikt över Azure Load Balancer Standard
 
@@ -30,7 +30,7 @@ Den här artikeln fokuserar på belastningsutjämnare som Standard.  En mer allm
 
 Standard belastningsutjämning är en ny produkt i belastningsutjämnaren för alla TCP och UDP-program med en utökad och mer detaljerade funktioner över grundläggande belastningsutjämnaren.  Det finns många likheter, är det viktigt att bekanta dig med skillnader som beskrivs i den här artikeln.
 
-Du kan använda Standard Load Balancer Standard som en offentlig eller intern belastningsutjämnare. Och en virtuell dator kan vara ansluten till en offentlig och en intern belastningsutjämnare resurs.
+Du kan använda Standard belastningsutjämnare som en offentlig eller intern belastningsutjämnare. Och en virtuell dator kan vara ansluten till en offentlig och en intern belastningsutjämnare resurs.
 
 Resursen belastningsutjämnaren funktioner uttrycks alltid som en klientdel, en regel, en hälsoavsökningen och en definition för backend-adresspool.  En resurs kan innehålla flera regler. Du kan placera virtuella datorer i serverdelspoolen genom att ange serverdelspoolen från den virtuella datorns nätverkskort resurs.  När det gäller en skaluppsättning för virtuell dator den här parametern skickas via nätverksprofilen och expanderas.
 
@@ -175,6 +175,9 @@ Du kan ändra Standard belastningsutjämnaren resurser och flytta Standard offen
 ## <a name="migration-between-skus"></a>Migrering mellan SKU: er
 
 SKU: er är inte föränderliga. Följ stegen i det här avsnittet för att flytta från en resurs SKU till en annan.
+
+>[!IMPORTANT]
+>Granska det här dokumentet i sin helhet att förstå skillnaderna mellan SKU: er och noggrant har undersökt ditt scenario.  Du kan behöva göra fler ändringar kan anpassa ditt scenario.
 
 ### <a name="migrate-from-basic-to-standard-sku"></a>Migrera från enkel till Standard-SKU
 

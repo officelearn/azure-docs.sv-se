@@ -351,6 +351,8 @@
           href: extensions-diagnostics-template.md
         - name: Network Watcher-agent
           href: extensions-nwa.md
+        - name: Begränsa installation av tillägg
+          href: extensions-rmpolicy-howto-ps.md
     - name: Migrera virtuella datorer
       items:
         - name: Migrera AWS och lokala virtuella datorer
@@ -396,6 +398,8 @@
           href: reset-network-interface.md
         - name: Startdiagnostik
           href: boot-diagnostics.md
+        - name: Seriekonsol
+          href: serial-console.md
         - name: Skapa en virtuell dator
           href: troubleshoot-deployment-new-vm.md
         - name: Distributionsproblem

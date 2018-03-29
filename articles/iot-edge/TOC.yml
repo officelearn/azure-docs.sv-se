@@ -19,12 +19,16 @@
       href: tutorial-simulate-device-windows.md
     - name: 'Utveckla en C#-modell'
       href: tutorial-csharp-module.md
+    - name: Utveckla en Python-modul
+      href: tutorial-python-module.md
     - name: Distribuera Azure Stream Analytics
       href: tutorial-deploy-stream-analytics.md
     - name: Distribuera Azure Machine Learning
       href: tutorial-deploy-machine-learning.md
     - name: Distribuera Azure Functions
       href: tutorial-deploy-function.md
+    - name: Arbeta med flera moduler i VS Code
+      href: tutorial-multiple-modules-in-vscode.md
 - name: Instruktionsguider
   items:
     - name: Skapa gatewayer

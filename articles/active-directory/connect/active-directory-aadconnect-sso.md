@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: b1c82727e97b85fae5f315ceb1cd79cfdd111b45
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6a106ba59f09ffc20f8461c5267ae06695df4cd0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sömlös enkel inloggning
 
@@ -28,7 +28,7 @@ Azure Active Directory sömlös enkel inloggning (Azure AD sömlös SSO) automat
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Sömlös SSO kan kombineras med antingen den [synkronisering av lösenords-hash-](active-directory-aadconnectsync-implement-password-synchronization.md) eller [direkt autentisering](active-directory-aadconnect-pass-through-authentication.md) inloggning metoder.
+Sömlös SSO kan kombineras med antingen den [synkronisering av lösenords-hash-](active-directory-aadconnectsync-implement-password-hash-synchronization.md) eller [direkt autentisering](active-directory-aadconnect-pass-through-authentication.md) inloggning metoder.
 
 ![Sömlös enkel inloggning](./media/active-directory-aadconnect-sso/sso1.png)
 
@@ -42,7 +42,7 @@ Sömlös SSO kan kombineras med antingen den [synkronisering av lösenords-hash-
   - Användarna behöver inte ange sina lösenord flera gånger.
 - *Enkelt att distribuera och administrera*
   - Inga ytterligare komponenter behövs lokalt till att det ska fungera.
-  - Fungerar med valfri metod för autentisering i molnet - [synkronisering av lösenords-hash-](active-directory-aadconnectsync-implement-password-synchronization.md) eller [direkt autentisering](active-directory-aadconnect-pass-through-authentication.md).
+  - Fungerar med valfri metod för autentisering i molnet - [synkronisering av lösenords-hash-](active-directory-aadconnectsync-implement-password-hash-synchronization.md) eller [direkt autentisering](active-directory-aadconnect-pass-through-authentication.md).
   - Kan rullas till vissa eller alla användare med hjälp av en Grupprincip.
   - Registrera Windows 10-enheter med Azure AD utan behov av AD FS-infrastruktur. Den här funktionen måste du använda version 2.1 eller senare av den [till arbetsplatsen klienten](https://www.microsoft.com/download/details.aspx?id=53554).
 

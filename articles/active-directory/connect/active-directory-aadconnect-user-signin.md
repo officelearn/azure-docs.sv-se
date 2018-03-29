@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: Användaren logga in | Microsoft Docs"
-description: "Azure AD Connect användaren logga in för anpassade inställningar."
+title: 'Azure AD Connect: Användaren logga in | Microsoft Docs'
+description: Azure AD Connect användaren logga in för anpassade inställningar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect användaren inloggningsalternativ
 Azure Active Directory (AD Azure) Connect kan användarna att logga in på både till molnet och lokala resurser med hjälp av samma lösenord. Den här artikeln beskriver viktiga begrepp för varje identitetsmodellen som hjälper dig att välja den identitet som du vill använda för att logga in till Azure AD.
 
 Om du redan är bekant med Azure AD identitetsmodellen och vill veta mer om en viss metod, finns i länken:
 
-* [Synkronisering av lösenords-hash-](#password-synchronization) med [sömlös enkel inloggning (SSO)](active-directory-aadconnect-sso.md)
+* [Synkronisering av lösenords-hash-](#password-hash-synchronization) med [sömlös enkel inloggning (SSO)](active-directory-aadconnect-sso.md)
 * [Direkt-autentisering](active-directory-aadconnect-pass-through-authentication.md) med [sömlös enkel inloggning (SSO)](active-directory-aadconnect-sso.md)
 * [Federerad enkel inloggning (med Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
@@ -42,19 +42,19 @@ Synkronisera automatiskt nya användarkonton, kontakta och gruppkonton i lokala 
 Konfigurera min klient för hybridscenarion för Office 365.|x|x|x|
 Aktivera Mina användare att logga in och komma åt molntjänster med hjälp av sina lokala lösenord.|x|x|x|
 Implementera enkel inloggning med företagets autentiseringsuppgifter.|x|x|x|
-Se till att inga lösenord lagras i molnet.||x *|x|
+Se till att inga lösenord lagras i molnet.||x*|x|
 Aktivera lokal multifaktorautentisering lösningar.|||x|
 
 * Via en enkel agent.
 
-### <a name="password-hash-synchronization"></a>Synkronisering av lösenords-hash
+### <a name="password-hash-synchronization"></a>Synkronisering av lösenordshash
 Med synkronisering av lösenords-hash synkroniseras hash-värden för användarlösenord från lokala Active Directory till Azure AD. När lösenord har ändrats eller Återställ lokalt, nya lösenordshashvärden synkroniseras till Azure AD omedelbart så att användarna kan alltid använda samma lösenord för molnresurser och lokala resurser. Lösenorden aldrig skickas till Azure AD eller lagras i Azure AD i klartext. Du kan använda synkronisering av lösenords-hash tillsammans med tillbakaskrivning av lösenord för att aktivera Självbetjäning för återställning av lösenord i Azure AD.
 
 Dessutom kan du aktivera [sömlös SSO](active-directory-aadconnect-sso.md) för användare på domänanslutna datorer som finns i företagsnätverket. Med enkel inloggning behöver aktiverade användare bara ange ett användarnamn för att hjälpa dem att på ett säkert sätt komma åt resurser i molnet.
 
-![Synkronisering av lösenords-hash](./media/active-directory-aadconnect-user-signin/passwordhash.png)
+![Synkronisering av lösenordshash](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-Mer information finns i [synkronisering av lösenords-hash](active-directory-aadconnectsync-implement-password-synchronization.md) artikel.
+Mer information finns i [synkronisering av lösenords-hash](active-directory-aadconnectsync-implement-password-hash-synchronization.md) artikel.
 
 ### <a name="pass-through-authentication"></a>Direktautentisering
 Med direktautentisering verifieras användarens lösenord mot den lokala Active Directory-domänkontrollanten. Lösenordet behöver inte finnas i Azure AD i någon form. Detta ger lokala principer, till exempel inloggning timme begränsningar som ska utvärderas vid autentisering till molnet services.

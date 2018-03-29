@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect-synkronisering: Förstå och anpassa synkronisering | Microsoft Docs"
-description: "Förklarar hur Azure AD Connect synkronisera fungerar och hur du anpassar."
+title: 'Azure AD Connect-synkronisering: Förstå och anpassa synkronisering | Microsoft Docs'
+description: Förklarar hur Azure AD Connect synkronisera fungerar och hur du anpassar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: d58baa89c9d11b6b7a6bbb3b53974184ef1903b5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a808f929dcd27b53821f59ed8fd3ab67af81a273
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect-synkronisering: Förstå och anpassa synkronisering
 Azure Active Directory Connect-synkroniseringstjänster (Azure AD Connect sync) är en komponenten i Azure AD Connect. Det hand tar om alla åtgärder som är relaterade till synkronisera identitetsdata mellan din lokala miljö och Azure AD. Azure AD Connect-synkronisering är efterföljaren till DirSync och Azure AD Sync Forefront Identity Manager med Azure Active Directory-kopplingen konfigurerats.
@@ -46,7 +46,7 @@ Synkroniseringsservern består av två komponenter, lokal **Azure AD Connect-syn
 | **Scenarier och funktioner** | |
 | [Förhindra oavsiktliga borttagningar](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |Beskriver de *förhindra oavsiktliga borttagningar* funktion och hur du konfigurerar den. |
 | [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) |Beskriver den inbyggda Schemaläggaren som importerar, synkronisering och export av data. |
-| [Implementera Lösenordssynkronisering](active-directory-aadconnectsync-implement-password-synchronization.md) |Beskriver så här fungerar Lösenordssynkronisering, hur du implementerar och hur du använder och felsöker. |
+| [Implementera Lösenordssynkronisering för hash](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |Beskriver så här fungerar Lösenordssynkronisering, hur du implementerar och hur du använder och felsöker. |
 | [Tillbakaskrivning av enhet.](active-directory-aadconnect-feature-device-writeback.md) |Beskriver hur tillbakaskrivning av enheter fungerar i Azure AD Connect. |
 | [Katalogtillägg](active-directory-aadconnectsync-feature-directory-extensions.md) |Beskriver hur du utökar schemat för Azure AD med dina egna anpassade attribut. |
 | [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) |Beskriver hur du placerar användarens Office 365 resurser i samma region som användaren. |

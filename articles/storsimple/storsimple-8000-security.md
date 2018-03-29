@@ -1,24 +1,24 @@
 ---
-title: "Säkerhet för StorSimple 8000-serien | Microsoft Docs"
-description: "Beskriver de funktioner för säkerhet och sekretess som skyddar din StorSimple-tjänsten, enheter och data lokalt och i molnet."
+title: Säkerhet för StorSimple 8000-serien | Microsoft Docs
+description: Beskriver de funktioner för säkerhet och sekretess som skyddar din StorSimple-tjänsten, enheter och data lokalt och i molnet.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/23/2018
+ms.date: 03/27/2018
 ms.author: alkohli
-ms.openlocfilehash: c14927f82ca01320206ccec83216777b7d1b8708
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: ee0534ab8bc3400854ddf550df9ca2f395f8d80d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple-säkerhet och dataskydd
 
@@ -267,6 +267,20 @@ Följande är några frågor och svar om säkerhet och Microsoft Azure StorSimpl
 **F:** vad händer om en statliga entitet begär Microsoft Mina data?
 
 **S:** eftersom alla data krypteras på tjänsten och den privata nyckeln sparas med enheten, statliga entiteten fråga kunden för data.
+
+## <a name="gdpr-compliance"></a>BNPR kompatibilitet
+
+[Allmänna Data Protection förordning (BNPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) är en Europeiska unionen (EU) data protection och sekretess lag. BNPR innehåller många krav om hur du samlar in, lagra och använda dina personuppgifter. BNPR regler gäller för företag, myndigheter och andra organisationer som fungerar i Europa och samla in och analysera data som är knutna till Europa boende. 
+
+Enhetshanteraren StorSimple för både fysiska och virtuella serien är BNPR som är kompatibla. Det finns två viktiga instanser där personlig information samlas in och visas i tjänsten:
+
+- Varning användarinställningar där e-postadressen för användare konfigureras. Den här informationen kan visas och avmarkerad av administratören. Detta gäller både StorSimple 8000-serien enheter och virtuella StorSimple-matriser.
+ * Om du vill visa och ta bort inställningarna för StorSimple 8000-serien, följer du stegen i [visa och hantera aviseringar för StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
+ * Om du vill visa och ta bort inställningarna för virtuell StorSimple-matris, följer du stegen i [visa och hantera aviseringar för StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
+- Användare som kan komma åt data på resurserna. En lista över användare som har åtkomst till resursdata visas och kan visas. Den här listan tas också bort när resurserna tas bort. Detta gäller endast för virtuell StorSimple-matriser.
+ * Visa listan över användare som kan komma åt eller att ta bort en resurs, följer du stegen i [hantera resurser på den virtuella StorSimple-matris](storsimple-virtual-array-manage-shares.md)
+
+Mer information finns i Microsoft Privacy-policy på [Säkerhetscenter](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
-title: "Prestandaövervakning för Java-webbappar i Azure Application Insights | Microsoft Docs"
-description: "Utökad prestanda och användning övervakning av Java-webbplats med Application Insights."
+title: Prestandaövervakning för Java-webbappar i Azure Application Insights | Microsoft Docs
+description: Utökad prestanda och användning övervakning av Java-webbplats med Application Insights.
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: ecfcf7a3b3698435f98b74474d0ca7223ab2b46c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b327e7f062cdf3e6b1b34a9540461dcb18caf21c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Övervaka beroenden, undantag och körningstider i Java-webbappar
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Övervaka beroenden, undantag som fångats och metoden körningstider i Java-webbappar
 
 
 Om du har [instrumenterats Java-webbappen med Application Insights][java], du kan använda Java-agenten för att skaffa dig djupare insikter utan några ändringar i koden:
 
 * **Beroenden:** Data om anrop som programmet gör för andra komponenter, inklusive:
-  * **REST-anrop** görs via HttpClient, OkHttp och RestTemplate (källan).
-  * **Redis** anrop som görs via Jedis-klienten. Om anropet tar längre än 10-tal, hämtar agenten också anropet argument.
-  * **[JDBC-anrop](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server, PostgreSQL, SQLite, Oracle-databas eller Apache exempel DB. ”executeBatch” samtal stöds. För MySQL och PostgreSQL om anropet tar längre tid än 10-tal, rapporterar agenten frågeplanen.
-* **Undantag som fångats:** Data om undantag som hanteras av din kod.
-* **Metoden körningstid:** Data om den tid det tar för att köra specifika metoder.
+  * **REST-anrop** görs via HttpClient OkHttp och RestTemplate (källan) avbildas.
+  * **Redis** anrop som görs via Jedis klienten avbildas.
+  * **[JDBC-anrop](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -kommandona MySQL, SQL Server och Oracle DB avbildas automatiskt. För MySQL om anropet tar längre tid än 10-tal, rapporterar agenten frågeplanen.
+* **Undantag som fångats:** Information om undantag som hanteras av din kod.
+* **Metoden körningstid:** Information om tid det tar för att köra specifika metoder.
 
 Om du vill använda Java-agenten måste installera du den på servern. Dina webbprogram måste vara försett med den [Application Insights SDK för Java][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Installera Application Insights-agenten för Java
-1. Kör din Java-server på datorn [ladda ner agenten](https://aka.ms/aijavasdk).
+1. Kör din Java-server på datorn [ladda ner agenten](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Kontrollera att hämta samma verson av Java-agenten som Application Insights SDK för Java kärnor och webb-paket.
 2. Redigera startskriptet programmet server och Lägg till följande JVM:
    
     `javaagent:`*fullständig sökväg till agenten JAR-filen*
@@ -97,7 +97,7 @@ Om du vill söka efter enskilda instanser av beroende, undantag och metoden rapp
 
 [Diagnostisera problem med beroende - Läs mer](app-insights-asp-net-dependencies.md#diagnosis).
 
-## <a name="questions-problems"></a>Frågor? Har du problem?
+## <a name="questions-problems"></a>Har du några frågor? Har du problem?
 * Ser du inga data? [Ange undantag för brandväggen](app-insights-ip-addresses.md)
 * [Felsöka Java](app-insights-java-troubleshoot.md)
 

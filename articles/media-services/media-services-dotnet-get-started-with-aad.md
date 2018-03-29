@@ -1,29 +1,29 @@
 ---
-title: "Använda Azure AD-autentisering för att komma åt Azure Media Services-API med .NET | Microsoft Docs"
-description: "Det här avsnittet visar hur du använder Azure Active Directory (AD Azure) autentisering för att komma åt Azure Media Services (AMS) API med .NET."
+title: Använda Azure AD-autentisering för att komma åt Azure Media Services-API med .NET | Microsoft Docs
+description: Det här avsnittet visar hur du använder Azure Active Directory (AD Azure) autentisering för att komma åt Azure Media Services (AMS) API med .NET.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: a9355200a05a3aa1b494b76977d38ddc42bfe179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8817bb0da526769470e96b63b9c80620309757bf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Använda Azure AD-autentisering för att komma åt Azure Media Services-API med .NET
 
 Från och med windowsazure.mediaservices 4.0.0.4 stöder Azure Media Services autentisering baserat på Azure Active Directory (AD Azure). Det här avsnittet visar hur du använder Azure AD-autentisering för att komma åt Azure Media Services-API med Microsoft .NET.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto. Mer information finns i avsnittet om [den kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Ett Media Services-konto. Mer information finns i [skapa ett Azure Media Services-konto med hjälp av Azure portal](media-services-portal-create-account.md).
@@ -36,7 +36,7 @@ När du använder Azure AD-autentisering med Azure Media Services kan autentiser
 - **Autentiseringen av tjänsten huvudnamn** autentiserar en tjänst. Program som ofta använder den här autentiseringsmetoden är appar som körs daemon tjänster, mellannivå tjänster eller schemalagt jobb, t.ex webbprogram, funktionen appar, logikappar, API: er eller mikrotjänster.
 
 >[!IMPORTANT]
->Azure Media Service stöder för närvarande en modell för autentisering av Azure Access Control Service. Dock kommer åtkomstkontroll tillstånd att bli inaktuell på den 1 juni 2018. Vi rekommenderar att du migrerar till en modell för Azure Active Directory-autentisering så snart som möjligt.
+>Azure Media Service stöder för närvarande en modell för autentisering av Azure Access Control Service. Dock kommer åtkomstkontroll tillstånd att bli inaktuell på 22 juni 2018. Vi rekommenderar att du migrerar till en modell för Azure Active Directory-autentisering så snart som möjligt.
 
 ## <a name="get-an-azure-ad-access-token"></a>Hämta en Azure AD-åtkomst-token
 

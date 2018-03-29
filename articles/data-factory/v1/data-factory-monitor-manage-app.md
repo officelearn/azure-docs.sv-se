@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5aae5057cccdf8dfbe2a42a39da5b9e70b9166f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f5ca5544a217d66d334ff468d2308af1836c7de8
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av övervakning och hantering av appen
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/23/2018
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [övervaka och hantera Data Factory pipelines i version 2](../monitor-visually.md).
 
-Den här artikeln beskriver hur du använder appen för hantering och övervakning för att övervaka, hantera och felsöka din Data Factory pipelines. Den innehåller också information om hur du skapar aviseringar om du vill få information om fel. Du kan komma igång med hjälp av programmet genom att titta på nedanstående video:
+Den här artikeln beskriver hur du använder appen för hantering och övervakning för att övervaka, hantera och felsöka din Data Factory pipelines. Du kan komma igång med hjälp av programmet genom att titta på nedanstående video:
 
 > [!NOTE]
 > Användargränssnittet som visas i videon kanske inte stämmer exakt vad som visas i portalen. Det är något äldre men begrepp förblir detsamma. 
@@ -296,42 +296,3 @@ Du kan också markera flera aktivitetsfönster i listan och köra dem på samma 
 Du kan multiselect två eller flera pipelines med Ctrl-tangenten. Du kan använda knapparna i kommandofältet (som är markerade i den röda rektangeln i följande bild) för att pausa/Fortsätt dem.
 
 ![Pausa i kommandofältet](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
-
-## <a name="create-alerts"></a>Skapa aviseringar
-Den **aviseringar** sidan kan du skapa en avisering och visa/redigera/ta bort befintliga aviseringar. Du kan också inaktivera/aktivera en avisering. Klicka för att visa sidan aviseringar i **aviseringar** fliken.
-
-![Aviseringsfliken](./media/data-factory-monitor-manage-app/AlertsTab.png)
-
-### <a name="to-create-an-alert"></a>Så här skapar du en avisering
-1. Klicka på **Lägg till avisering** att lägga till en avisering. Du ser den **information** sidan.
-
-    ![Skapa aviseringar - sidan](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-2. Ange den **namn** och **beskrivning** avisering och klicka på **nästa**. Du bör se den **filter** sidan.
-
-    ![Skapa aviseringar - sida](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
-3. Välj den **händelse**, **status**, och **substatus** (valfritt) som du vill skapa en Data Factory-tjänsten för och klicka på **nästa**. Du bör se den **mottagare** sidan.
-
-    ![Skapa aviseringar - mottagare sida](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
-4. Välj den **e-prenumerationsadministratörer** alternativet och/eller ange en **ytterligare administratör e-post**, och klicka på **Slutför**. Du bör se aviseringen i listan.
-
-    ![Lista över aviseringar](./media/data-factory-monitor-manage-app/AlertsList.png)
-
-Använd knapparna som är associerade med aviseringen för att redigera/ta bort/Aktiverar/inaktiverar en avisering i listan över aviseringar.
-
-### <a name="eventstatussubstatus"></a>Substatus-händelse/status
-Följande tabell innehåller en lista över tillgängliga händelser och status (och underordnad status).
-
-| händelsenamnet | Status | Substatus |
-| --- | --- | --- |
-| Aktiviteten kör igång |Startad |Startar |
-| Aktiviteten kör klar |Lyckades |Lyckades |
-| Aktiviteten kör klar |Misslyckad |Misslyckade resursallokering<br/><br/>Misslyckade körning<br/><br/>Tidsgränsen uppnåddes<br/><br/>Inte kunde verifieras<br/><br/>Avbrutna |
-| På begäran HDI-klustret skapa igång |Startad |-|
-| På begäran HDI-klustret har skapats |Lyckades |-|
-| På begäran HDI-klustret tas bort |Lyckades |-|
-
-### <a name="to-edit-delete-or-disable-an-alert"></a>Om du vill redigera, ta bort eller inaktivera en avisering
-
-Använd följande knappar (markerat i rött) för att redigera, ta bort eller inaktivera en avisering.
-
-![Aviseringar knappar](./media/data-factory-monitor-manage-app/AlertButtons.png)

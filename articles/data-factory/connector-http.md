@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0092564dce9424b445240ebd2c3247e763a237e9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3aca66d6922273e78b5100948f1b868c6c9b56af
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Kopiera data från http-slutpunkten med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,6 +40,9 @@ Mer specifikt stöder den här HTTP-anslutningen:
 - Kopiera HTTP-svar som-är eller parsning av den med den [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md).
 
 Skillnaden mellan den här kopplingen och [Web tabell connector](connector-web-table.md) är att denna används för att extrahera innehållet från webbsidan HTML.
+
+>[!TIP]
+>Om du vill testa HTTP-begäran om data hämtas innan du konfigurerar HTTP-anslutningen i ADF du lär dig av API-specifikationen på rubrik och text krav och använda verktyg som Postman eller en webbläsare för att validera.
 
 ## <a name="getting-started"></a>Komma igång
 

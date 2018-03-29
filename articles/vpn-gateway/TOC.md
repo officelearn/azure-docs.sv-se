@@ -16,7 +16,7 @@
 
 # Gör så här för att
 ## Konfigurera plats-till-plats-anslutningar
-### [Azure-portalen](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+### [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure Portal (klassisk)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -25,7 +25,7 @@
 
 ## Konfigurera punkt-till-plats-anslutningar – ursprunglig Azure-certifikatautentisering
 ### Konfigurera ett virtuellt privat P2S-nätverk
-#### [Azure-portalen](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+#### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 #### [Azure PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 #### [Azure Portal (klassisk)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 ### Skapa självsignerade certifikat
@@ -41,17 +41,17 @@
 ### [Integrera P2S VPN RADIUS-autentisering med NPS-server](vpn-gateway-radiuis-mfa-nsp.md)
 
 ## Konfigurera anslutningar mellan virtuella nätverk
-### [Azure-portalen](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Konfigurera en VNet-till-VNet-anslutning mellan distributionsmodeller
-### [Azure-portalen](vpn-gateway-connect-different-deployment-models-portal.md)
+### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [Azure PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 ## Konfigurera anslutningar för samexistens mellan plats-till-plats och ExpressRoute
 ### [Azure PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Konfigurera flera plats-till-plats-anslutningar
-### [Azure-portalen](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+### [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell (klassisk)](vpn-gateway-multi-site.md)
 ## Ansluta flera principbaserade VPN-enheter
 ### [Azure PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
@@ -66,13 +66,13 @@
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [Azure PowerShell (klassisk)](vpn-gateway-about-forced-tunneling.md)
 ## Ändra inställningar för lokal nätverksgateway
-### [Azure-portalen](vpn-gateway-modify-local-network-gateway-portal.md)
+### [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Verifiera en anslutning till VPN-gateway](vpn-gateway-verify-connection-resource-manager.md)
 ## [Återställ en VPN-gateway](vpn-gateway-resetgw-classic.md)
 ## Ta bort en VPN-gateway
-### [Azure-portalen](vpn-gateway-delete-vnet-gateway-portal.md)
+### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [Azure PowerShell (klassisk)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Konfigurera en VPN-gateway (klassisk)](vpn-gateway-configure-vpn-gateway-mp.md)
@@ -85,8 +85,9 @@
 ### [Validera VPN-dataflöde till VNet](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Community-föreslaget VPN eller brandväggsinställningar för enhet](vpn-gateway-third-party-settings.md)
 ### [Problem med punkt-till-plats-anslutning](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-### [Plats-till-plats-anslutningen kopplas från periodvis](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
-### [Plats-till-plats-anslutningen kan inte ansluta](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
+#### [Problem med punkt-till-plats-anslutning – VPN-klient för Mac OS X-klient](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+### [Problem med plats-till-plats-anslutning](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
+#### [Plats-till-plats-anslutningen kopplas från periodvis](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Konfigurera och verifiera VNet- eller VPN-anslutningar](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Referens

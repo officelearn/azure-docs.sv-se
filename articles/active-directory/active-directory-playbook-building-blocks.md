@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory som bevis på koncept playbook byggblock | Microsoft Docs"
-description: "Utforska och snabbt implementera scenarier för identitets- och åtkomsthantering"
+title: Azure Active Directory som bevis på koncept playbook byggblock | Microsoft Docs
+description: Utforska och snabbt implementera scenarier för identitets- och åtkomsthantering
 services: active-directory
 keywords: Azure active directory, playbook, konceptbevis, PoC
-documentationcenter: 
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept playbook: byggblock
 
@@ -41,7 +41,7 @@ Följande är några förutsättningar för alla POC med Azure AD Premium.
 | Förhandskrav | Resurser |
 | --- | --- |
 | Azure AD-klient som definierats med en giltig Azure-prenumeration | [Skaffa en Azure Active Directory-klient](active-directory-howto-tenant.md)<br/>**Obs:** om du redan har en miljö med Azure AD Premium-licenser kan du skaffa en noll cap-prenumeration genom att gå till https://aka.ms/accessaad <br/>Mer information finns i: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ och https://technet.microsoft.com/library/dn832618.aspx |
-| Domäner som har definierats och verifierats | [Lägga till ett anpassat domännamn i Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Obs:** vissa arbetsbelastningar som till exempel Power BI kunde har etablerat en azure AD-klient under försättsbladen. Om du vill kontrollera om en viss domän är kopplad till en klient, navigera till https://login.microsoftonline.com/ {domain}/v2.0/.well-known/openid-configuration. Om du får ett lyckat svar och domänen är redan tilldelad till en klient och tar över kan behövas. I så fall, kan du kontakta Microsoft för ytterligare. Mer information om de gäller alternativ på: [självbetjäningsregistrering för Azure?](active-directory-self-service-signup.md) |
+| Domäner som har definierats och verifierats | [Lägga till ett anpassat domännamn i Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Obs:** vissa arbetsbelastningar som till exempel Power BI kunde har etablerat en azure AD-klient under försättsbladen. Om du vill kontrollera om en viss domän är kopplad till en klient, navigera till https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Om du får ett lyckat svar och domänen är redan tilldelad till en klient och tar över kan behövas. I så fall, kan du kontakta Microsoft för ytterligare. Mer information om de gäller alternativ på: [självbetjäningsregistrering för Azure?](active-directory-self-service-signup.md) |
 | Azure AD Premium eller EMS utvärderingsversion aktiverad | [Azure Active Directory Premium gratis för en månad](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Du har tilldelat Azure AD Premium eller licenser för EMS PoC användare | [Licens dig och dina användare i Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
 | Autentiseringsuppgifter för Azure AD Global administratör | [Tilldela administratörsroller i Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) |
@@ -71,7 +71,7 @@ Ungefärlig tid till slutförd: en timme för mindre än 1 000 PoC-användare
 
 ### <a name="considerations"></a>Överväganden
 
-1. Titta på säkerhetsaspekter för lösenordshashsynkronisering [här](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).  Om lösenordets hash-synkronisering för pilotprojekt produktionsanvändare definitivt inte är ett alternativ, bör du följande alternativ:
+1. Titta på säkerhetsaspekter för lösenordshashsynkronisering [här](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).  Om lösenordets hash-synkronisering för pilotprojekt produktionsanvändare definitivt inte är ett alternativ, bör du följande alternativ:
    * Skapa testanvändare i produktionsdomänen. Kontrollera att du inte synkroniserar något annat konto
    * Flytta till en UAT-miljö
 2.  Om du vill fortsätta federation kan det vara värt att förstå kostnader associerade en federerad lösning med lokala identitetsprovider utöver Konceptbeviset och mått som mot de fördelar som du söker efter:
@@ -101,7 +101,7 @@ Ungefärlig tid till slutförd: 15 minuter
 | Gå till Azure AD Management-portalen | [Hanteringsportalen för Azure AD - företagsanpassning](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
 | Överför tillgångar för inloggningssidan (hjälte logotyp, liten logotyp, etiketter, etc.). Du kan också om du har AD FS kan justera samma tillgångar med AD FS-inloggningssidor | [Lägga till företagsanpassning till inloggnings-- och åtkomstpanel sidor: anpassningsbara element](customize-branding.md) |
 | Vänta några minuter för att ändringarna ska börja gälla helt |  |
-| Logga in med POC användarens autentiseringsuppgifter till https://myapps.microsoft.com |  |
+| Logga in med autentiseringsuppgifterna för användaren POC att https://myapps.microsoft.com |  |
 | Bekräfta utseendet och känslan i webbläsare | [Lägga till företagsanpassning till inloggnings-- och åtkomstpanel sidor](customize-branding.md) |
 | Du kan också bekräfta utseendet och känslan i andra enheter |  |
 
@@ -209,7 +209,7 @@ Ungefärlig tid till slutförd: 30 minuter
 | Förhandskrav | Resurser |
 | --- | --- |
 | Listan över program och exakt inloggning URL: er i förväg. Du kan exempelvis använda Twitter. | [Twitter på Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Registrera dig för Twitter](https://twitter.com/signup?lang=en) |
-| Delade autentiseringsuppgifter för SaaS-programmet. | [Dela konton med hjälp av Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD automated lösenord förlängningen för Facebook, Twitter och LinkedIn nu i preview! -Bloggen Enterprise Mobility and Security] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
+| Delade autentiseringsuppgifter för SaaS-programmet. | [Dela konton med hjälp av Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD automated lösenord förlängningen för Facebook, Twitter och LinkedIn nu i preview! -Bloggen Enterprise Mobility and Security] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
 | Autentiseringsuppgifter för minst två teammedlemmar som kommer att använda samma konto. De måste vara en del av en säkerhetsgrupp. | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Lokal administratörsåtkomst till en dator för att distribuera Access panelen-tillägg för Internet Explorer, Chrome eller Firefox | [Tillägget för åtkomst-panelen för Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Tillägget för åtkomst-panelen för Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Tillägget för åtkomst-panelen för Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
@@ -420,7 +420,7 @@ Ungefärlig tid till slutförd: 10 minuter
 | --- | --- |
 | Gå till ”användare och grupper” bladet i hanteringsportalen för Azure AD | [Hanteringsportalen för Azure AD: Användare och grupper](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | Välj ”alla användare” bladet |  |
-| I överst raden Välj ”Multifaktorautentisering”-knapp | Direkt URL för Azure MFA-portalen: https://aka.ms/mfaportal |
+| I överst raden Välj ”Multifaktorautentisering”-knapp | Direkt-URL för Azure MFA-portalen: https://aka.ms/mfaportal |
 | I inställningarna för ”användare” Välj PoC-användare och aktivera dem för MFA | [Användartillstånd i Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
 | Logga in som PoC användar- och gå igenom processen bevis upp  |  |
 
@@ -443,7 +443,7 @@ Ungefärlig tid till slutförd: 10 minuter
 | PoC användare har redan tilldelats till programmet |  |
 | Autentiseringsuppgifterna för användaren POC är tillgängliga |  |
 | POC användare är registrerad för Multifaktorautentisering. Använda en telefon med mottagning | https://aka.ms/ssprsetup |
-| Enheter i det interna nätverket. IP-adress som konfigurerats i det interna adressintervallet | Hitta ip-adress: https://www.bing.com/search?q=what%27s+my+ip |
+| Enheter i det interna nätverket. IP-adress som konfigurerats i det interna adressintervallet | Hitta din ip-adress: https://www.bing.com/search?q=what%27s+my+ip |
 | Enhet i det externa nätverket (kan vara en telefon med hjälp av en operatör mobila nätverk) |  |
 
 ### <a name="steps"></a>Steg
@@ -478,8 +478,8 @@ Ungefärlig tid till slutförd: 15 minuter
 | --- | --- |
 | Logga in på https://portal.azure.com som en global administratör (GA) och bootstrap PIM-bladet. Den globala administratören som utför det här steget dirigeras som säkerhetsadministratör.  Vi ska anropa den här aktören GA1 | [Guiden Säkerhet i Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
 | Identifiera den globala administratören och flytta dem från permanent till berättigade. Detta bör vara en administratör som är separat från den som används i steg 1 för tydlighetens skull. Vi ska anropa den här aktören GA2 | [Azure AD Privileged Identity Management: Så att lägga till eller ta bort en användarroll](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[Vad är Azure AD Privileged Identity Management?: Konfigurera produktaktivering rollinställningar](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
-| Nu logga in som GA2 https://portal.azure.com och försök att ändra ”inställningar”. Observera att vissa alternativ är nedtonade. | |
-| I en ny flik i samma session som steg 3, Gå nu till https://portal.azure.com och Lägg till PIM-bladet på instrumentpanelen. | [Så här aktiverar eller inaktiverar roller i Azure AD Privileged Identity Management: lägga till programmet Privileged Identity Management](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| Nu kan logga in som GA2 till https://portal.azure.com och försök att ändra ”inställningar”. Observera att vissa alternativ är nedtonade. | |
+| I en ny flik och samma session som steg 3 kan nu gå till https://portal.azure.com och lägga till PIM-bladet på instrumentpanelen. | [Så här aktiverar eller inaktiverar roller i Azure AD Privileged Identity Management: lägga till programmet Privileged Identity Management](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
 | Begära aktivering till rollen Global administratör | [Så här aktiverar eller inaktiverar roller i Azure AD Privileged Identity Management: aktivera en roll](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
 | Observera att om GA2 aldrig registrerat för Multifaktorautentisering, registrering för Azure MFA blir det nödvändigt |  |
 | Gå tillbaka till den ursprungliga fliken i steg 3 och klicka på Uppdatera i webbläsaren. Observera att du nu har behörighet att ändra ”inställningar” | |
@@ -506,7 +506,7 @@ Ungefärlig tid till slutförd: 20 minuter
 | Steg | Resurser |
 | --- | --- |
 | Öppna tor webbläsare | [Hämta Tor webbläsare](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Logga in till https://myapps.microsoft.com med POC-användarkonto | [Azure Active Directory-identitetsskydd playbook: simulering av riskhändelser](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Logga in på https://myapps.microsoft.com med POC-användarkonto | [Azure Active Directory-identitetsskydd playbook: simulering av riskhändelser](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 | Vänta 5-7 minuter |  |
 | Logga in som global administratör för att https://portal.azure.com och öppna bladet Identity Protection | https://aka.ms/aadipgetstarted |
 | Öppna bladet risk händelser. Du bör se en post under ”inloggningar från anonyma IP-adresser”  | [Azure Active Directory-identitetsskydd playbook: simulering av riskhändelser](active-directory-identityprotection-playbook.md#simulating-risk-events) |
@@ -535,7 +535,7 @@ Ungefärlig tid till slutförd: 10 minuter
 | Logga in som global administratör för att https://portal.azure.com och öppna bladet Identity Protection | https://aka.ms/aadipgetstarted |
 | Aktivera inloggning riskprincipen på följande sätt:<br/>-Tilldelad till: POC användare<br/>-Villkor: Logga in risk medelhög eller högre (logga in från anonyma plats anses som en medelhög risknivå)<br/>-Kontroller: Kräva MFA | [Azure Active Directory-identitetsskydd playbook: Logga in risk](active-directory-identityprotection-playbook.md) |
 | Öppna tor webbläsare | [Hämta Tor webbläsare](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Logga in till https://myapps.microsoft.com med PoC-användarkonto |  |
+| Logga in på https://myapps.microsoft.com med PoC-användarkonto |  |
 | Lägg märke till MFA-kontrollen | [Logga in som inträffar med Azure AD Identity Protection: riskfyllda inloggning återställning](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
 
 ### <a name="considerations"></a>Överväganden

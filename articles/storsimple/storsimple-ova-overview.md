@@ -1,24 +1,24 @@
 ---
-title: "Översikt över Microsoft Azure StorSimple virtuell matris | Microsoft Docs"
-description: "Beskriver den virtuella StorSimple-matrisen, en integrerad lagringslösning som hanterar lagringsuppgifter mellan en lokal virtuell matris och molnlagring i Microsoft Azure."
+title: Översikt över Microsoft Azure StorSimple virtuell matris | Microsoft Docs
+description: Beskriver den virtuella StorSimple-matrisen, en integrerad lagringslösning som hanterar lagringsuppgifter mellan en lokal virtuell matris och molnlagring i Microsoft Azure.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/16/2017
+ms.date: 03/28/2018
 ms.author: alkohli
-ms.openlocfilehash: b9a5797751fa970c569c93e5efe300d4d74319ce
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: db06614ebd7dee4b0a320737ea8f575b3a3be70f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introduktion till den virtuella StorSimple-matrisen
 
@@ -90,7 +90,7 @@ StorSimple virtuell matrisen är inte lämpligt för arbetsbelastningar som krä
 
 Den virtuella StorSimple-matrisen är särskilt lämpad för följande arbetsflöden:
 
-* [Molnbaserad lagringshantering](#cloud-based-storage-management)
+* [molnbaserad lagringshantering](#cloud-based-storage-management)
 * [Platsoberoende säkerhetskopiering](#location-independent-backup)
 * [Återställning av data protection och katastrofåterställning](#data-protection-and-disaster-recovery)
 
@@ -136,7 +136,7 @@ Virtuella matrisen har följande funktioner:
 > [!NOTE]
 > En virtuell matris kan inte expanderas. Det är därför viktigt att tillhandahålla tillräcklig lagring när du skapar virtuella matrisen.
 
-### <a name="storsimple-device-manager-service"></a>StorSimple enheten Manager-tjänsten
+### <a name="storsimple-device-manager-service"></a>StorSimple Device Manager-tjänst
 
 Microsoft Azure StorSimple innehåller ett webbaserat användargränssnitt tjänsten StorSimple Device Manager, som gör det möjligt att centralt hantera StorSimple lagring. Du kan använda Enhetshanteraren för StorSimple-tjänsten för att utföra följande uppgifter:
 
@@ -166,7 +166,7 @@ Med Windows PowerShell-gränssnittet kan du initiera en supportsession med Micro
 
 Använder följande tekniker för programvara för att ger snabb åtkomst till viktiga data, minska lagringsanvändningen och skydda data som lagras på din virtuella matrisen förutom virtuella matrisen och andra komponenter, StorSimple-lösningen:
 
-* [Automatisk lagringsnivåer](#automatic-storage-tiering) 
+* [automatisk lagringsnivåer](#automatic-storage-tiering) 
 * [Lokalt Fäst filresurser och volymer](#locally-pinned-shares-and-volumes)
 * [Deduplicering och komprimering av data nivåer eller säkerhetskopieras till molnet](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud) 
 * [Schemalagda säkerhetskopieringar och på begäran säkerhetskopieringar](#scheduled-and-on-demand-backups)
@@ -205,6 +205,15 @@ StorSimple använder deduplicering och data komprimering för att ytterligare mi
 ### <a name="scheduled-and-on-demand-backups"></a>Schemalagda säkerhetskopieringar och på begäran säkerhetskopieringar
 
 StorSimple Dataskyddsfunktioner kan du skapa säkerhetskopieringar på begäran. Dessutom garanterar ett schema för säkerhetskopiering av standard att data säkerhetskopieras varje dag. Säkerhetskopieringar vidtas i form av inkrementell ögonblicksbilder som lagras i molnet. Ögonblicksbilder som registrerar bara ändringarna sedan den senaste säkerhetskopieringen kan skapas och återställs snabbt. Dessa ögonblicksbilder kan vara ytterst viktigt i katastrofåterställning eftersom de ersätta sekundära lagringssystem (till exempel bandsäkerhetskopiering) och att du kan återställa data till ditt datacenter eller till en annan om det behövs.
+
+## <a name="gdpr-compliance"></a>BNPR kompatibilitet
+[Allmänna Data Protection förordning (BNPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) är en Europeiska unionen (EU) data protection och sekretess lag. BNPR innehåller många krav om hur du samlar in, lagra och använda dina personuppgifter. BNPR regler gäller för företag, myndigheter och andra organisationer som fungerar i Europa och samla in och analysera data som är knutna till Europa boende.
+
+Enhetshanteraren StorSimple för virtuella serien är BNPR som är kompatibla. Det finns två viktiga instanser där personlig information samlas in och visas i tjänsten:
+ - Varning användarinställningar där e-postadresserna för användarna har konfigurerats. Den här informationen kan tas bort av administratören. 
+ - Användare som kan komma åt data på resurserna. En lista över användare som har åtkomst till resursdata visas och kan exporteras. Den här listan tas också bort när resurserna tas bort.
+
+Mer information finns i [Microsoft Privacy-policy på Trust Center](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Nästa steg
 

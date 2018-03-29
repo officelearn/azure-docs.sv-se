@@ -1,6 +1,6 @@
 ---
-title: "Omvänd DNS för Azure-tjänster | Microsoft Docs"
-description: "Lär dig hur du konfigurerar omvänd DNS-sökning för tjänster i Azure"
+title: Omvänd DNS för Azure-tjänster | Microsoft Docs
+description: Lär dig hur du konfigurerar omvänd DNS-sökning för tjänster i Azure
 services: dns
 documentationcenter: na
 author: KumudD
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: kumud
-ms.openlocfilehash: 0c5d12e9d6b5ddbee2a930e4e537b8180b7a9c7b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: bba2d75ed760a6e4eef2caacb0bb5924680b1f4b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Konfigurera omvänd DNS för tjänster i Azure
 
@@ -245,7 +245,7 @@ Nej. Azure för närvarande har stöd för omvänd DNS endast för IPv4 PublicIp
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Kan jag skicka e-post till externa domäner från min Azure Compute-tjänster?
 
-Nej. [Skicka e-post till externa domäner har inte stöd för Azure Compute-tjänster](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/)
+Tekniska möjlighet att skicka e-post direkt från Azure-distribution beror på vilken prenumeration. Microsoft rekommenderar oavsett prenumerationstypen, med betrodda e relay services för att skicka utgående e-post. Mer information finns i [Förbättrad säkerhetskonfiguration i Azure för att skicka e-post – November 2017 uppdatering](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/).
 
 ## <a name="next-steps"></a>Nästa steg
 

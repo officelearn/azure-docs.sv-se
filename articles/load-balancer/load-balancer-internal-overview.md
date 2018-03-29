@@ -1,6 +1,6 @@
 ---
-title: "Översikt över Azure interna belastningsutjämnare | Microsoft Docs"
-description: "Hur fungerar en intern belastningsutjämnare i Azure och scenarier för att konfigurera interna slutpunkter."
+title: Översikt över Azure interna belastningsutjämnare | Microsoft Docs
+description: Hur fungerar en intern belastningsutjämnare i Azure och scenarier för att konfigurera interna slutpunkter.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 54e390dbdb07cb4c45c801b638099aa0dcc6db1a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 0511165225f5a336291e86e0c504e60989933f3c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="overview-of-azure-internal-load-balancer"></a>Översikt över Azure interna belastningsutjämnare
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Azure interna belastningen belastningsutjämnare (ILB) dirigerar endast trafik till resurser som inte ingår i en molntjänst eller som använder en VPN-anslutning för att få åtkomst till Azure-infrastrukturen. I detta avseende ILB skiljer sig från en extern belastningsutjämnare. Azure-infrastrukturen begränsar åtkomsten till de belastningsutjämnade virtuella IP-adresserna (VIP) för en molnbaserad tjänst eller till ett virtuellt nätverk. VIP-adresser och virtuella nätverk exponeras aldrig direkt till en internet-slutpunkt. Interna line-of-business-program körs i Azure och kan nås från Azure eller från lokala resurser.
 

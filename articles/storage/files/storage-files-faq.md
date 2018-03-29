@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: cb44f1d456ec12b7fd21e397b749117942560f05
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e203787bffa80b324508f7df8f8e7a8c62355695
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Vanliga frågor och svar om Azure-filer
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via standardmässiga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (även kallat Common Internet File System eller CIFS). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure filsynkronisering (förhandsversion) för snabb åtkomst nära där data används.
@@ -232,7 +232,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funkti
 ## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **Hur gör jag säkerhetskopiera min Azure fil dela?**  
-    Du kan använda periodiska [dela ögonblicksbilder](storage-how-to-use-files-snapshots.md) för skydd mot oavsiktliga borttagningar. Du kan också använda AzCopy, Robocopy eller tredje parts säkerhetskopiering som kan säkerhetskopiera en monterad filresurs. 
+    Du kan använda periodiska [dela ögonblicksbilder](storage-snapshots-files.md) för skydd mot oavsiktliga borttagningar. Du kan också använda AzCopy, Robocopy eller tredje parts säkerhetskopiering som kan säkerhetskopiera en monterad filresurs. 
 
 ## <a name="share-snapshots"></a>Dela ögonblicksbilder
 ### <a name="share-snapshots-general"></a>Dela ögonblicksbilder: Allmänt

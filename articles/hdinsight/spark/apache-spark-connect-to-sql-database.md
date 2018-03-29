@@ -1,8 +1,8 @@
 ---
-title: "Använda Apache Spark att läsa och skriva data till Azure SQL database | Microsoft Docs"
-description: "Lär dig hur du konfigurerar en anslutning mellan HDInsight Spark-kluster och en Azure SQL database om du vill läsa data att skriva data och dataströmmen data till en SQL-databas"
+title: Använda Apache Spark att läsa och skriva data till Azure SQL database | Microsoft Docs
+description: Lär dig hur du konfigurerar en anslutning mellan HDInsight Spark-kluster och en Azure SQL database om du vill läsa data att skriva data och dataströmmen data till en SQL-databas
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/29/2018
+ms.date: 03/28/2018
 ms.author: nitinme
-ms.openlocfilehash: 28ed6b9774bb85c7ec806c7775c34f8bc3d66bde
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 011471224d79ae326ccc33fc23fd6fada347497b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Använda HDInsight Spark-klustret för att läsa och skriva data till Azure SQL-databas
 
@@ -234,7 +234,7 @@ I det här avsnittet vi strömma data till den **hvactable** att du redan har sk
         
          var streamingQuery = WriteToSQLQuery.start()
 
-6. Kontrollera att data som strömmas till den **hvactable** genom att köra följande fråga. Varje gång du kör frågan, den visar antalet rader i tabellen stigande.
+6. Kontrollera att data som strömmas till den **hvactable** genom att köra följande fråga i SQL Server Management Studio (SSMS). Varje gång du kör frågan, den visar antalet rader i tabellen stigande.
 
         SELECT COUNT(*) FROM hvactable
 

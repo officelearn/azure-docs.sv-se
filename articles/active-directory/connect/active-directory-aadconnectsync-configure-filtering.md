@@ -2,10 +2,10 @@
 title: 'Azure AD Connect-synkronisering: Konfigurera filtrering | Microsoft Docs'
 description: Beskriver hur du konfigurerar filtrering i Azure AD Connect-synkronisering.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5af82e889a80994dd47d4fc3b89f8eece2201355
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 0b4b306d1224b5521774b05a110c862b58450eb3
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synkronisering: Konfigurera filtrering
 Med filtrering kan kan du kontrollera vilka objekt som visas i Azure Active Directory (AD Azure) från din lokala katalog. Standardkonfigurationen tar alla objekt i alla domäner i de konfigurerade skogarna. I allmänhet är är det här den rekommenderade konfigurationen. Användare som använder Office 365-arbetsbelastningar, t.ex Exchange Online och Skype för företag, nytta av en fullständig globala adresslistan så att de kan skicka e-post och anropa alla. Med standardkonfigurationen, skulle de ha samma upplevelse som de kan ha med en lokal implementering av Exchange och Lync.
@@ -44,7 +44,7 @@ Eftersom filtrering kan det ta bort många objekt på samma gång, som du vill k
 
 Att skydda dig från att ta bort många objekt av misstag, funktionen ”[förhindra oavsiktliga borttagningar](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)” är aktiverad som standard. Om du tar bort många objekt på grund av filtrering (500 som standard), måste du följa stegen i den här artikeln för att tillåta borttagningar gå igenom till Azure AD.
 
-Om du använder en version före November 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), gör en ändring i en filterkonfiguration och använder Lösenordssynkronisering, måste du starta en fullständig synkronisering av alla lösenord när du har slutfört konfigurationen. Stegvisa instruktioner för hur du utlöser en fullständig synkronisering av lösenord finns [utlösa en fullständig synkronisering av alla lösenord](active-directory-aadconnectsync-troubleshoot-password-synchronization.md#trigger-a-full-sync-of-all-passwords). Om du är på version 1.0.9125 eller senare, sedan vanliga **fullständig synkronisering** åtgärd beräknar även om lösenord ska synkroniseras och om den här extra steg krävs inte längre.
+Om du använder en version före November 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), gör en ändring i en filterkonfiguration och använder hash-synkronisering av lösenord, måste du starta en fullständig synkronisering av alla lösenord när du har slutfört konfigurationen. Stegvisa instruktioner för hur du utlöser en fullständig synkronisering av lösenord finns [utlösa en fullständig synkronisering av alla lösenord](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Om du är på version 1.0.9125 eller senare, sedan vanliga **fullständig synkronisering** åtgärd beräknar även om lösenord ska synkroniseras och om den här extra steg krävs inte längre.
 
 Om **användaren** objekt togs bort av misstag i Azure AD på grund av ett filterfel, kan du återskapa användarobjekt i Azure AD genom att ta bort dina filtrering konfigurationer. Du kan sedan synkronisera dina kataloger igen. Den här åtgärden återställer användare från Papperskorgen i Azure AD. Du kan dock återställa andra objekttyper. Till exempel om du av misstag tar bort en säkerhetsgrupp och den användes för att ACL kan en resurs, gruppen och dess ACL: er inte återställas.
 
@@ -255,7 +255,7 @@ I det här exemplet du ändra filtreringen så att endast användare som har bå
 4. Beroende på vilken version av Connect som du använder antingen hitta regeln med namnet **på AAD-användare ansluta** eller **ut till AAD - användare ansluta till SOAInAD**, och klicka på **redigera**.
 5. I popup-fönstret besvara **Ja** att skapa en kopia av regeln.
 6. På den **beskrivning** ändrar **prioritet** till ett värde som inte används, till exempel 50.
-7. Klicka på **Scoping filter** på vänstra navigeringsfönstret och klicka sedan på **Lägg till sats**. I **attributet**väljer **e**. I **operatorn**väljer **ENDSWITH**. I **värdet**, typen  **@contoso.com** , och klicka sedan på **Lägg till sats**. I **attributet**väljer **userPrincipalName**. I **operatorn**väljer **ENDSWITH**. I **värdet**, typen  **@contoso.com** .
+7. Klicka på **Scoping filter** på vänstra navigeringsfönstret och klicka sedan på **Lägg till sats**. I **attributet**väljer **e**. I **operatorn**väljer **ENDSWITH**. I **värdet**, typen **@contoso.com**, och klicka sedan på **Lägg till sats**. I **attributet**väljer **userPrincipalName**. I **operatorn**väljer **ENDSWITH**. I **värdet**, typen **@contoso.com**.
 8. Klicka på **Spara**.
 9. Om du vill slutföra konfigurationen måste du köra en **fullständig synkronisering**. Fortsätta att läsa avsnittet [tillämpa och verifiera ändringar](#apply-and-verify-changes).
 

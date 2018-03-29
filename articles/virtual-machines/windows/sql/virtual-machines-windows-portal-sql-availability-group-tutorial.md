@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Konfigurera alltid på Tillgänglighetsgruppen i Azure VM manuellt
 
@@ -374,22 +374,14 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en serverdelspool,
 
    ![Hitta belastningsutjämnare i resursgruppen.](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Klicka på belastningsutjämnaren, **serverdelspooler**, och klicka på **+ Lägg till**. Ange serverdelspoolen på följande sätt:
+1. Klicka på belastningsutjämnaren, **serverdelspooler**, och klicka på **+ Lägg till**. 
 
-   | Inställning | Beskrivning | Exempel
-   | --- | --- |---
-   | **Namn** | Skriv ett namn | SQLLBBE
-   | **Tillhör** | Välj från listan | Tillgänglighetsuppsättning
-   | **Tillgänglighetsuppsättning** | Använd ett namn på tillgänglighetsuppsättning som din SQL Server-datorer finns i | sqlAvailabilitySet |
-   | **Virtuella datorer** |Två Azure SQL Server-VM-namn | sqlserver-0, sqlserver-1
+1. Associera serverdelspoolen tillgänglighetsuppsättning som innehåller de virtuella datorerna.
 
-1. Ange namn för backend-adresspool.
+1. Under **mål IP nätverkskonfigurationer**, kontrollera **VIRTUELLA** och välja båda av de virtuella datorerna som är värd för tillgänglighetsgrupprepliker. Inkludera inte vittne för servern.
 
-1. Klicka på **+ Lägg till en virtuell dator**.
-
-1. För tillgänglighetsuppsättningen, Välj tillgängligheten att SQL-servrar finns i.
-
-1. För virtuella datorer, ta med både SQL-servrar. Inkludera inte vittne för servern.
+   >[!NOTE]
+   >Om både virtuella datorer inte har angetts, lyckas bara anslutningar till den primära repliken.
 
 1. Klicka på **OK** att skapa serverdelspoolen.
 

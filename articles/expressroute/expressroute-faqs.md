@@ -1,24 +1,24 @@
 ---
-title: "Azure ExpressRoute vanliga frågor och svar | Microsoft Docs"
-description: "ExpressRoute vanliga frågor och svar innehåller information om stöd för Azure-tjänster, kostnad, Data och anslutningar, SERVICENIVÅAVTAL, leverantörer och platser, bandbredd och ytterligare teknisk information."
+title: Azure ExpressRoute vanliga frågor och svar | Microsoft Docs
+description: ExpressRoute vanliga frågor och svar innehåller information om stöd för Azure-tjänster, kostnad, Data och anslutningar, SERVICENIVÅAVTAL, leverantörer och platser, bandbredd och ytterligare teknisk information.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 62e532f3750adf8f4defe3e8f8aabe5b9f0446a0
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 3f33703ec86f131d18c89cf4b29514c5002349d1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -340,7 +340,10 @@ Se [ExpressRoute partners och platser](expressroute-locations.md) information.
 
 ### <a name="can-i-access-office-365-over-the-internet-even-if-expressroute-was-configured-for-my-organization"></a>Kan jag använda Office 365 via Internet, även om ExpressRoute har konfigurerats för min organisation?
 
-Ja. Office 365 slutpunkter kan nås via Internet, även om ExpressRoute har konfigurerats för ditt nätverk. Om du är på en plats som har konfigurerats för att ansluta till Office 365-tjänster via ExpressRoute ansluter via ExpressRoute.
+Ja. Office 365 slutpunkter kan nås via Internet, även om ExpressRoute har konfigurerats för ditt nätverk. Kontakta din organisations nätverk team om nätverket på din plats har konfigurerats för att ansluta till Office 365-tjänster via ExpressRoute.
+
+### <a name="how-can-i-plan-for-high-availability-for-office-365-network-traffic-on-azure-expressroute"></a>Hur kan jag planera för hög tillgänglighet för Office 365-nätverkstrafik på Azure ExpressRoute?
+Se rekommendation för [hög tillgänglighet och redundans med Azure ExpressRoute](https://aka.ms/erhighavailability)
 
 ### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>Kan jag använda Office 365 US Government Community (GCC) tjänster via en Azure US Government ExpressRoute-krets?
 

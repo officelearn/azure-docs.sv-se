@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f786d99718b82dba052909e566f1b0571701127e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Med den privilegierade slutpunkten i Azure-stacken
 
@@ -76,6 +76,8 @@ Vi rekommenderar att du ansluter till detta program bara från maskinvara livscy
 
       - **Användarnamnet**: Ange CloudAdmin-konto i formatet  **&lt; *Azure Stack domän*&gt;\accountname**. (För ASDK, användarnamnet är **azurestack\accountname**.) 
       - **Lösenordet**: Ange samma lösenord som du angav under installationen för AzureStackAdmin domänadministratörskontot.
+    > [!NOTE]
+    > Om det inte går att ansluta till slutpunkt för ERCS försök steg ett och två igen med IP-adressen för en ERCS VM som du redan inte har försökt att ansluta.
     
 3.  När du har anslutit uppmaningen ändras till **[*IP-adress eller ERCS VM*]: PS >** eller **[azs ercs01]: PS >**, beroende på miljön. Härifrån kan köra `Get-Command` att visa listan över tillgängliga cmdlets.
 

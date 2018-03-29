@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 401542bf61aa27138d26cce522e24078503b77e0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f3ed53e3c6606ca540cc2e760f2f6280ccf5cc2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planera för distribution av en Azure-filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -96,6 +96,19 @@ Framtida versioner av Windows Server läggs när de blir tillgängliga. Tidigare
 
 > [!Note]  
 > NTFS-volymer stöds. ReFS, FAT, FAT32 och andra filsystem stöds inte.
+
+### <a name="files-skipped"></a>Filer som hoppades över
+| Filen/mappen | Obs! |
+|-|-|
+| Desktop.ini | Filen som är specifika för system |
+| ethumbs.db$ | Temporär fil för miniatyrer |
+| ~$\*.\* | Temporär fil för Office |
+| \*tmp | Temporär fil |
+| \*.laccdb | Låsning Access DB-fil|
+| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| \\System Volume Information | Mappen som är specifika för volym |
+| $RECYCLE. BIN| Mapp |
+| \\SyncShareState | Mapp för synkronisering |
 
 ### <a name="failover-clustering"></a>Failover-kluster
 Windows Server Failover Clustering stöds av Azure filsynkronisering för alternativet ”filserver för allmänt bruk” distribution. Redundanskluster stöds inte på ”skalbar filserver för programdata” (SOFS) eller på klusterdelade volymer (CSV).

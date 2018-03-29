@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1b8a6079a68c50f80b593a1f56bc5256047ef31c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3d3a271bcdd5c507125b8b1a5482f833607a5a78
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Distribuera Azure Machine Learning som en gräns för IoT-modul - förhandsgranskning
 
@@ -35,6 +35,8 @@ Azure Machine Learning-modul som du skapar i den här kursen läser miljön data
 * IoT-hubb anslutningssträngen för IoT-hubb som din IoT insticksenhet ansluter till.
 * Ett Azure Machine Learning-konto. Om du vill skapa ett konto, följ instruktionerna i [skapa Azure Machine Learning-konton och installera Azure Machine Learning arbetsstationen](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts). Du behöver inte installera programmet arbetsstationen för den här självstudiekursen. 
 * Hantering av modulen för Azure ML på din dator. Om du vill konfigurera din miljö och skapa ett konto, följ instruktionerna i [installation av hantering av modellen](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
+
+Azure Machine Learning-modulen stöder inte ARM-processorer. 
 
 ## <a name="create-the-azure-ml-container"></a>Skapa Azure ML-behållare
 I det här avsnittet hämta trained modellfilerna och konvertera dem till en Azure ML-behållare.  

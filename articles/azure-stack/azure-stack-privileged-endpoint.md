@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
-ms.openlocfilehash: f786d99718b82dba052909e566f1b0571701127e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.reviewer: fiseraci
+ms.openlocfilehash: f176e0689c630a406ab6e2f82e9320a214ff8a1a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Med den privilegierade slutpunkten i Azure-stacken
 
@@ -43,18 +44,20 @@ Du kommer åt detta program via PowerShell-fjärrsession på den virtuella dator
 
 Innan du börjar den här proceduren för ett integrerat system, kontrollera att du kan komma åt detta program efter IP-adress eller via DNS. Efter den första distributionen av Azure-stacken, du kan komma åt detta program endast efter IP-adress eftersom DNS-integrering inte har ännu ställts in. Maskinvaruleverantören OEM ger dig en JSON-fil med namnet **AzureStackStampDeploymentInfo** som innehåller program IP-adresser.
 
-Vi rekommenderar att du ansluter till detta program bara från maskinvara livscykel värden eller en dedikerad, säker dator som en [arbetsstation för privilegierad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
-1. Åtkomst till din arbetsstation för privilegierad åtkomst.
+> [!NOTE]
+> Av säkerhetsskäl kräver att du ansluter till detta program bara från en förstärkt virtuell dator som kör ovanpå maskinvara livscykel värden, eller från en dedikerad, säker dator som en [arbetsstation för privilegierad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). Den ursprungliga konfigurationen av maskinvara livscykel värden får inte ändras från den ursprungliga konfigurationen, inklusive installation av ny programvara eller det ska användas för att ansluta till detta program.
 
-    - Kör följande kommando för att lägga till detta program som en betrodd värd på din maskinvara livscykel värd eller en arbetsstation för privilegierad åtkomst på ett integrerat system.
+1. Etablera förtroende.
+
+    - Kör följande kommando från en upphöjd Windows PowerShell-session ska läggas till detta program som en betrodd värd på strikt virtuell dator som körs på maskinvara livscykel värden eller privilegierad åtkomst arbetsstationen på ett integrerat system.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
     - Om du kör ADSK, kan du logga in på development kit värden.
 
-2. Öppna en upphöjd Windows PowerShell-sessionen på din maskinvara livscykel värden eller en arbetsstation för privilegierad åtkomst. Kör följande kommandon för att upprätta en fjärrsession på den virtuella datorn som är värd för detta program:
+2. Öppna Windows PowerShell-sessionen på den strikta virtuella som körs på maskinvara livscykel värden eller arbetsstationen privilegierad åtkomst. Kör följande kommandon för att upprätta en fjärrsession på den virtuella datorn som är värd för detta program:
  
     - På ett integrerat system:
       ````PowerShell
@@ -74,11 +77,12 @@ Vi rekommenderar att du ansluter till detta program bara från maskinvara livscy
       ```` 
    När du uppmanas, Använd följande autentiseringsuppgifter:
 
-      - **Användarnamnet**: Ange CloudAdmin-konto i formatet  **&lt; *Azure Stack domän*&gt;\accountname**. (För ASDK, användarnamnet är **azurestack\accountname**.) 
+      - **Användarnamnet**: Ange CloudAdmin-konto i formatet **&lt;*Azure Stack domän*&gt;\cloudadmin**. (För ASDK, användarnamnet är **azurestack\cloudadmin**.)
       - **Lösenordet**: Ange samma lösenord som du angav under installationen för AzureStackAdmin domänadministratörskontot.
+
     > [!NOTE]
     > Om det inte går att ansluta till slutpunkt för ERCS försök steg ett och två igen med IP-adressen för en ERCS VM som du redan inte har försökt att ansluta.
-    
+
 3.  När du har anslutit uppmaningen ändras till **[*IP-adress eller ERCS VM*]: PS >** eller **[azs ercs01]: PS >**, beroende på miljön. Härifrån kan köra `Get-Command` att visa listan över tillgängliga cmdlets.
 
     Många av dessa cmdlets är endast avsett för integrerat system-miljöer (till exempel cmdlets för datacenter-integrering). Följande cmdlets i ASDK, har verifierats:
@@ -116,16 +120,16 @@ Du kan också använda den [Import-PSSession](https://docs.microsoft.com/en-us/p
 
 Om du vill importera program sessionen på den lokala datorn, gör du följande steg:
 
-1. Åtkomst till din arbetsstation för privilegierad åtkomst.
+1. Etablera förtroende.
 
-    - Kör följande kommando för att lägga till detta program som en betrodd värd på din maskinvara livscykel värd eller en arbetsstation för privilegierad åtkomst på ett integrerat system.
+    -Kör följande kommando från en upphöjd Windows PowerShell-session ska läggas till detta program som en betrodd värd på strikt virtuell dator som körs på maskinvara livscykel värden eller privilegierad åtkomst arbetsstationen på ett integrerat system.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
     - Om du kör ADSK, kan du logga in på development kit värden.
 
-2. Öppna en upphöjd Windows PowerShell-sessionen på din maskinvara livscykel värden eller en arbetsstation för privilegierad åtkomst. Kör följande kommandon för att upprätta en fjärrsession på den virtuella datorn som är värd för detta program:
+2. Öppna Windows PowerShell-sessionen på den strikta virtuella som körs på maskinvara livscykel värden eller arbetsstationen privilegierad åtkomst. Kör följande kommandon för att upprätta en fjärrsession på den virtuella datorn som är värd för detta program:
  
     - På ett integrerat system:
       ````PowerShell
@@ -145,7 +149,7 @@ Om du vill importera program sessionen på den lokala datorn, gör du följande 
       ```` 
    När du uppmanas, Använd följande autentiseringsuppgifter:
 
-      - **Användarnamnet**: Ange CloudAdmin-konto i formatet  **&lt; *Azure Stack domän*&gt;\accountname**. (För ASDK, användarnamnet är **azurestack\accountname**.) 
+      - **Användarnamnet**: Ange CloudAdmin-konto i formatet **&lt;*Azure Stack domän*&gt;\cloudadmin**. (För ASDK, användarnamnet är **azurestack\cloudadmin**.)
       - **Lösenordet**: Ange samma lösenord som du angav under installationen för AzureStackAdmin domänadministratörskontot.
 
 3. Importera program-session till din lokala dator
@@ -157,7 +161,7 @@ Om du vill importera program sessionen på den lokala datorn, gör du följande 
 
 ## <a name="close-the-privileged-endpoint-session"></a>Stäng den privilegierade endpoint-sessionen
 
- Som tidigare nämnts kan loggar detta program varje åtgärd (och dess motsvarande utdata) som du utför i PowerShell-sessionen. Du bör stänga sessionen med hjälp av den `Close-PrivilegedEndpoint` cmdlet. Denna cmdlet korrekt stängs slutpunkten och överför filerna till en extern filresurs för kvarhållning.
+ Som tidigare nämnts kan loggar detta program varje åtgärd (och dess motsvarande utdata) som du utför i PowerShell-sessionen. Du måste stänga sessionen med hjälp av den `Close-PrivilegedEndpoint` cmdlet. Denna cmdlet korrekt stängs slutpunkten och överför filerna till en extern filresurs för kvarhållning.
 
 Att stänga sessionen slutpunkt:
 
@@ -167,7 +171,11 @@ Att stänga sessionen slutpunkt:
 
     ![Stäng PrivilegedEndpoint cmdlet utdata som visas anger du målsökväg betyg](media/azure-stack-privileged-endpoint/closeendpoint.png)
 
-När betyg loggfilerna har överförts till filresursen, bort de automatiskt från detta program. Om du stänger session för program med hjälp av cmdlets `Exit-PSSession` eller `Exit`, eller stänger du bara PowerShell-konsolen, betyg loggar inte överföra till en filresurs. De finns kvar i detta program. Nästa gång du kör `Close-PrivilegedEndpoint` och inkludera en filresurs, betyg loggar från den tidigare har också överför.
+När betyg loggfilerna har överförts till filresursen, bort de automatiskt från detta program. 
+
+> [!NOTE]
+> Om du stänger session för program med hjälp av cmdlets `Exit-PSSession` eller `Exit`, eller stänger du bara PowerShell-konsolen, betyg loggar inte överföra till en filresurs. De finns kvar i detta program. Nästa gång du kör `Close-PrivilegedEndpoint` och inkludera en filresurs, betyg loggar från den tidigare har också överför. Använd inte `Exit-PSSession` eller `Exit` att stänga sessionen program, Använd `Close-PrivilegedEndpoint` i stället.
+
 
 ## <a name="next-steps"></a>Nästa steg
 [Diagnostikverktyg för Azure Stack](azure-stack-diagnostics.md)

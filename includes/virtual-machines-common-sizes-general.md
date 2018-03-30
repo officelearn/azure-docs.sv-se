@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: b29429e1efe46aef8263bed5edb3daeffdf41122
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 32d1330b60de139a1ac16c4d8d70f76873dbd4c2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 Generella VM-storlekar ange förhållandet mellan belastningsutjämnade CPU-minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. Den här artikeln innehåller information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
@@ -95,14 +95,13 @@ ACU: 210–250
 
 ACU: 210–250
 
-| Storlek              | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) |
-|-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1_v2    | 1         | 3.5         | 50             | 3 000 / 46 / 23                                           | 4 / 4 x 500                         | 2/750                 |
-| Standard_D2_v2    | 2         | 7           | 100            | 6 000 / 93 / 46                                           | 8 / 8 x 500                         | 2/1 500                     |
-| Standard_D3_v2    | 4         | 14          | 200            | 12 000 / 187 / 93                                         | 16 / 16 x 500                         | 4/3 000                     |
-| Standard_D4_v2    | 8         | 28          | 400            | 24 000 / 375 / 187                                        | 32 / 32 x 500                       | 8/6 000                     |
-| Standard_D5_v2    | 16        | 56          | 800            | 48 000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 12000  |
-
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_D1_v2 |1 |3.5 |4 |50 |3 000 / 46 / 23 |4 / 4 x 500 |2/750 |
+| Standard_D2_v2 |2 |7 |8 |100 |6 000 / 93 / 46 |8 / 8 x 500 |2/1 500 |
+| Standard_D3_v2 |4 |14 |16 |200 |12 000 / 187 / 93 |16 / 16 x 500 |4/3 000 |
+| Standard_D4_v2 |8 |28 |32 |400 |24 000 / 375 / 187  |32 / 32 x 500 |8/6 000 |
+| Standard_D5_v2 |16 |56 |64 |800 |48 000 / 750 / 375 |64 / 64 x 500 |8 / 12000 |
 
 <br>
 
@@ -136,6 +135,8 @@ ACU: 160
 ## <a name="av2-series"></a>Av2-serien
 
 ACU: 100
+
+
 
 | Storlek            | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -185,3 +186,6 @@ I den klassiska distributionsmodellen skiljer sig vissa namn på VM-storlekarna 
 |A2\Basic_A2|2|3,5 GB|2| 60 GB|4|4 × 300|
 |A3\Basic_A3|4|7 GB|2| 120 GB |8|8 × 300|
 |A4\Basic_A4|8|14 GB|2| 240 GB |16|16 × 300|
+
+
+Observera att antalet hårddiskar för klassiska virtuella datorer kan vara lägre än antalet diskar för virtuella datorer i Azure Resource Manager.

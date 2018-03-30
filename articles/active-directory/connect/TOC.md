@@ -56,7 +56,7 @@
 ## Hantera Azure AD Connect Sync
 ### [GDPR-kompatibilitet och Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [Förhindra oavsiktliga borttagningar](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
-### [Lösenordssynkronisering](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [Synkronisering av lösenordshash](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Azure AD-tjänstkonto](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Installationsguide](active-directory-aadconnectsync-installation-wizard.md)
 ### [Så här fylls UserPrincipalName i](active-directory-aadconnect-userprincipalname.md)
@@ -86,7 +86,7 @@
 ### [Fel under synkronisering](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Objektet har inte synkroniserats](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Objektsynkronisering med hjälp av felsökningsaktiviteten](active-directory-aadconnect-troubleshoot-objectsync.md)
-### [Lösenordssynkronisering](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [Synkronisering av lösenordshash](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md)
 ### [LargeObject-fel som orsakats av userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Så här återställer du från LocalDB med en gräns på 10 GB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 

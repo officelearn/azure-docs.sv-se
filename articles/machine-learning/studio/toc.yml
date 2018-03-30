@@ -3,8 +3,6 @@
 - name: Översikt
   expanded: true
   items:
-    - name: Vad är Machine Learning?
-      href: what-is-machine-learning.md
     - name: Machine Learning Studio
       href: what-is-ml-studio.md
     - name: ML Studio-funktioner

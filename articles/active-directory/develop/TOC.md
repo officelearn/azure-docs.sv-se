@@ -45,7 +45,7 @@
 ### [Felsöka SAML-baserad enkel inloggning](active-directory-saml-debugging.md)
 ### [SAML-protokoll för enkel inloggning](active-directory-single-sign-on-protocol-reference.md)
 ### [SAML-protokoll för enkel utloggning](active-directory-single-sign-out-protocol-reference.md)
-### [Skapa en klient](active-directory-howto-tenant.md)
+## [Skapa en klient](active-directory-howto-tenant.md)
 ## [Riktlinjer för anpassning](active-directory-branding-guidelines.md)
 ## Enkel inloggning för mobilappar och skrivbordsappar
 ### [Aktivera enkel inloggning för Android](active-directory-sso-android.md)

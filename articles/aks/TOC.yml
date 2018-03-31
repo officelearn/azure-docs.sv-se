@@ -59,6 +59,8 @@
       items:
         - name: Statisk IP-adress
           href: static-ip.md
+        - name: Intern belastningsutjämnare
+          href: internal-lb.md
         - name: Ingångshändelser och TLS
           href: ingress.md
     - name: Säkerhet och autentisering

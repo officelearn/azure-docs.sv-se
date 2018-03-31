@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 436fa31b9fd1231b38b39d911d9b6c2d4829461d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5a9f1bfee1df41d25309e84fe9958ff19a368943
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - felsökning av aviseringar
 Den här artikeln innehåller felsökning guider för alla aviseringar som kan uppstå på din hanterade domän.
@@ -34,7 +34,7 @@ Välj felsökningsstegen som är kopplade till ID eller meddelande i aviseringen
 | AADDS102 | *Ett huvudnamn för tjänsten som krävs för Azure AD Domain Services ska fungera korrekt har tagits bort från Azure AD-katalogen. Den här konfigurationen påverkar Microsofts möjlighet att övervaka, hantera, korrigering, och synkronisera din hanterade domän.* | [Tjänstens huvudnamn saknas](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *IP-adressintervall för det virtuella nätverket som du har aktiverat Azure AD Domain Services är i en offentlig IP-adressintervallet. Azure AD Domain Services måste aktiveras i ett virtuellt nätverk med en privat IP-adressintervall. Den här konfigurationen påverkar Microsofts möjlighet att övervaka, hantera, korrigeringsfil och synkronisera din hanterade domän.* | [Adressen är i en offentlig IP-adressintervall](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft kan inte nå domänkontrollanterna för den här hanterade domänen. Detta kan inträffa om en nätverkssäkerhetsgrupp (NSG) som har konfigurerats på din virtuella nätverk blockerar åtkomst till den hanterade domänen. En annan möjlig orsak är att om det finns en användardefinierad väg som blockerar inkommande trafik från internet.* | [Nätverksfel](active-directory-ds-troubleshoot-nsg.md) |
-| AADDS105 | *Tjänstens huvudnamn med program-ID ”d87dcbc6-a371-462e-88e3-28ad15ec4e64” har tagits bort och sedan återskapas. Den här tjänstens huvudnamn hanterar en annan tjänstens huvudnamn och ett program som används för synkronisering av lösenord. Hanterade tjänstens huvudnamn och/eller programmet kunde inte auktoriseras under nyskapade tjänstens huvudnamn så att de inte kan hanteras av vår tjänst. Detta innebär att nyligen skapade tjänstens huvudnamn inte kommer att uppdatera gamla hanterade program och synkronisering av lösenord kommer att påverkas.* | [Programmet för synkronisering av lösenord är inaktuell](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
+| AADDS105 | *Tjänstens huvudnamn med program-ID ”d87dcbc6-a371-462e-88e3-28ad15ec4e64” har tagits bort och sedan återskapas. Återskapning lämnar bakom inkonsekvent behörigheter på Azure AD Domain Services-resurser som krävs för att underhålla din hanterade domän. Synkronisering av lösenord för din hanterade domän kan påverkas.* | [Programmet för synkronisering av lösenord är inaktuell](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *Den hanterade domänen senast synkroniserades med Azure AD [dag]. Användare kan inte logga in på den hanterade domänen eller gruppmedlemskap kanske inte är synkroniserad med Azure AD.* | [Synkronisering har inte utförts på ett tag](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *Den hanterade domänen senast säkerhetskopierades [dag].* | [En säkerhetskopiering har inte utförts på ett tag](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | *Säkert LDAP-certifikatet för den hanterade domänen upphör XX.* | [Att säkra LDAP-certifikat](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |

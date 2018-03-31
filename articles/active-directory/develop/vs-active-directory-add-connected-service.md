@@ -1,11 +1,11 @@
 ---
-title: "Lägga till ett Azure Active Directory med anslutna tjänster i Visual Studio | Microsoft Docs"
-description: "Lägg till ett Azure Active Directory med hjälp av dialogrutan Visual Studio Lägg till anslutna tjänster"
+title: Lägga till ett Azure Active Directory med anslutna tjänster i Visual Studio | Microsoft Docs
+description: Lägg till ett Azure Active Directory med hjälp av dialogrutan Visual Studio Lägg till anslutna tjänster
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
 ms.service: active-directory
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/12/2018
-ms.author: kraigb
-ms.openlocfilehash: b21761b6fc166ecbb2fec9c13e5e207481fa9a39
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: ghogen
+ms.openlocfilehash: 882ba1c7ea8ef6889bc9ad20031070cd54100026
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Lägga till ett Azure Active Directory med anslutna tjänster i Visual Studio
 
@@ -60,8 +60,8 @@ För närvarande stöder inte tjänsten Active Directory anslutna ASP.NET Core p
 
 1. När processen är klar, öppnar webbläsaren till en av följande artiklar som är lämpliga för ditt projekt i Visual Studio:
 
-    - [Kom igång med .NET MVC-projekt](vs-active-directory-dotnet-getting-started.md)
-    - [Kom igång med WebAPI-projekt](vs-active-directory-webapi-getting-started.md)
+    - [Komma igång med .NET MVC-projekt](vs-active-directory-dotnet-getting-started.md)
+    - [Komma igång med WebAPI-projekt](vs-active-directory-webapi-getting-started.md)
 
 1. Du kan också se Active Directory-domänen på den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -69,7 +69,7 @@ För närvarande stöder inte tjänsten Active Directory anslutna ASP.NET Core p
 
 När du lägger till tjänsten anslutna guiden lägger Visual Studio till Azure Active Directory och associerade referenser till projektet. Konfigurationsfiler och kodfiler i projektet ändras även om du vill lägga till stöd för Azure AD. Vissa ändringar som Visual Studio gör beror på projekttypen. Se följande artiklar för ytterligare information:
 
-- [Vad hände med min .NET MVC-projektet?](vs-active-directory-dotnet-what-happened.md)
+- [Vad hände med mitt .NET MVC-projekt?](vs-active-directory-dotnet-what-happened.md)
 - [Vad hände med Web API-projekt?](vs-active-directory-webapi-what-happened.md)
 
 ## <a name="next-steps"></a>Nästa steg

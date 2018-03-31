@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: a92d2ed1686765a54812ff82066bc30c1d48848d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c0ba9934afef6cb4d546e315c271cc19b6d3fa02
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Justera prestanda för frågor med Azure Cosmos DB
 
@@ -138,7 +138,7 @@ Nyckel-svarshuvuden som returnerades från frågan inkluderar följande:
 | `x-ms-documentdb-query-metrics` | Frågan statistik för körning. Det här är en avgränsad sträng som innehåller statistik över tid i olika faser i frågan. Returneras om `x-ms-documentdb-populatequerymetrics` är inställd på `True`. | 
 | `x-ms-request-charge` | Antalet [programbegäran](request-units.md) förbrukas av frågan. | 
 
-Mer information om REST API-huvuden för begäran och alternativ finns [förfrågan efter resurser med hjälp av REST-API](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
+Mer information om REST API-huvuden för begäran och alternativ finns [förfrågan efter resurser med hjälp av REST-API](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
 
 ## <a name="best-practices-for-query-performance"></a>Bästa praxis för prestanda för frågor
 Följande är de vanligaste faktorer som påverkar Azure Cosmos DB frågeprestanda. Vi gräva djupare i var och en av dessa avsnitt i den här artikeln.

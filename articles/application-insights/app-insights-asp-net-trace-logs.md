@@ -1,6 +1,6 @@
 ---
-title: "Utforska .NET spårningsloggar i Application Insights"
-description: "Söka i loggar som genereras med spårning, NLog och Log4Net."
+title: Utforska .NET spårningsloggar i Application Insights
+description: Söka i loggar som genereras med spårning, NLog och Log4Net.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6da0bf009fa71885d7d8e3bd5376c5a7c9d4a344
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 574b11f9ba38bda775610f2f9e90fbb2d2b05868
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Utforska .NET spårningsloggar i Application Insights
 Om du använder NLog, log4Net eller System.Diagnostics.Trace för diagnostikspårning i ASP.NET-program du har dina loggar som skickas till [Azure Application Insights][start], där du kan utforska och söka efter dem. Loggarna sammanfogas med andra telemetri som kommer från ditt program så att du kan identifiera spåren som är associerade med varje användarbegäran servicing och korrelera dem med andra händelser och undantag rapporter.
@@ -91,15 +91,15 @@ Du kan konfigurera [System.Diagnostics.Tracing.EventSource](https://msdn.microso
 ```
 
 För varje datakälla kan du ange följande parametrar:
- * `Name`Anger namnet på EventSource att samla in.
- * `Level`Anger loggningsnivån att samla in. Kan vara något av `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
- * `Keywords`(Valfritt) anger nyckelord kombinationer för att använda heltalsvärde.
+ * `Name` Anger namnet på EventSource att samla in.
+ * `Level` Anger loggningsnivån att samla in. Kan vara något av `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords` (Valfritt) anger nyckelord kombinationer för att använda heltalsvärde.
 
 ## <a name="using-diagnosticsource-events"></a>Med hjälp av DiagnosticSource händelser
 Du kan konfigurera [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) händelser skickas till Application Insights som spårningar. Installera först den [ `Microsoft.ApplicationInsights.DiagnosticSourceListener` ](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet-paketet. Redigera den `TelemetryModules` avsnitt i den [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) fil.
 
 ```xml
-    <Add Type="Microsoft.ApplicationInsights.DiagnsoticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
+    <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
       <Sources>
         <Add Name="MyDiagnosticSourceName" />
       </Sources>
@@ -123,10 +123,10 @@ Du kan konfigurera ETW-händelser som ska skickas till Application Insights som 
 ```
 
 För varje datakälla kan du ange följande parametrar:
- * `ProviderName`är namnet på ETW-provider för att samla in.
- * `ProviderGuid`Anger GUID för ETW-provider för att samla in, kan användas i stället för `ProviderName`.
- * `Level`Anger loggningsnivån att samla in. Kan vara något av `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
- * `Keywords`(Valfritt) anger nyckelordet kombinationer för att använda heltalsvärde.
+ * `ProviderName` är namnet på ETW-provider för att samla in.
+ * `ProviderGuid` Anger GUID för ETW-provider för att samla in, kan användas i stället för `ProviderName`.
+ * `Level` Anger loggningsnivån att samla in. Kan vara något av `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords` (Valfritt) anger nyckelordet kombinationer för att använda heltalsvärde.
 
 ## <a name="using-the-trace-api-directly"></a>Med hjälp av spårningen API direkt
 Du kan anropa Application Insights trace API direkt. Loggning korten använder detta API.
@@ -154,7 +154,7 @@ I bladet för din app översikt i [Application Insights-portalen][portal], Välj
 
 ![Välj sökning i Application Insights](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
 
-![Söka](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
+![Search](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
 
 Du kan till exempel:
 

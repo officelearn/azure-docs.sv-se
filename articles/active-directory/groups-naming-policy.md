@@ -1,32 +1,32 @@
 ---
-title: "Grupprincipinställningar för namnet för Office 365-grupper i Azure Active Directory (förhandsversion) | Microsoft Docs"
-description: "Hur du ställer in förfallodatum för Office 365-grupper i Azure Active Directory (förhandsgranskning)"
+title: Grupprincipinställningar för namnet för Office 365-grupper i Azure Active Directory (förhandsversion) | Microsoft Docs
+description: Hur du ställer in förfallodatum för Office 365-grupper i Azure Active Directory (förhandsgranskning)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: michael.tillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c21706a591d0e1aa00279edf7a5534ada95fd8c1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Tillämpa en princip för namngivning för Office 365-grupper i Azure Active Directory (förhandsgranskning)
 
 Om du vill framtvinga konsekvent namnkonventionerna för Office 365-grupper som skapats eller redigerats av dina användare att skapa gruppen naming princip för dina klienter i Azure Active Directory (AD Azure). T.ex, du kan använda namngivning princip för att kommunicera funktionen för en grupp, medlemskap, geografiskt område eller vem som skapade gruppen. Du kan också använda namngivning princip för att kategorisera grupper i adressboken. Du kan använda principen för att blockera specifika ord används i gruppnamn och alias.
 
 > [!IMPORTANT]
-> Med hjälp av förhandsversionen av Office 365-grupper Naming princip kräver Azure Active Directory Premium P1 licenser för enskilda användare som är medlem i en eller flera grupper för Office 365.
+> Med förhandsversionen av Office 365-grupper Naming princip kräver Azure Active Directory Premium P1 licenser eller Azure AD Basic EDU licenser för enskilda användare som är medlem i en eller flera grupper för Office 365.
 
 Namngivning principen gäller för att skapa eller redigera grupper som skapats över arbetsbelastningar (till exempel Outlook, Microsoft Teams, SharePoint, Exchange eller Planner). Den tillämpas på både namn och gruppalias. Om du ställer in namngivning principen i Azure AD och du har en befintlig grupp för Exchange naming princip, har Azure AD naming principen tillämpats.
 

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2018
+ms.date: 03/29/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 1d4151d6c00da618cc008257bcdad4607f8fec49
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1fc4b64a879f090955a5611672acb6b58eb19d73
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Gruppbaserade licensiering grunderna i Azure Active Directory
 
@@ -30,6 +30,9 @@ Med hjälp av Microsoft betald molntjänster, till exempel Office 365 Enterprise
 Fram till nu kan licenser endast tilldelas på enskilda nivån, vilket kan göra storskaliga management svårt. Till exempel om du vill lägga till eller ta bort användarlicenser baserat på organisationens ändringar, till exempel användare ansluta till eller lämnar organisationen eller en avdelning måste administratör ofta skriva ett komplext PowerShell-skript. Det här skriptet anrop enskilda till Molntjänsten.
 
 För att lösa dessa problem har innehåller nu Azure AD gruppbaserade licensiering. Du kan tilldela en eller flera licenser till en grupp. Azure AD säkerställer att licenserna som tilldelas alla medlemmar i gruppen. Alla nya medlemmar som kan ansluta till gruppen har tilldelats rätt licenser för. När de lämnar gruppen bort dessa licenser. Detta eliminerar behovet för att automatisera licenshantering via PowerShell så att ändringar i organisationen och avdelningsnivå struktur per användare.
+
+>[!NOTE]
+>Den här funktionen är för närvarande i förhandsversion. Var beredd på att återställa eller ta bort alla ändringar. Funktionen är tillgänglig i alla Azure Active Directory (Azure AD)-prenumeration under förhandsversion. När funktionen blir allmänt tillgänglig, kan vissa aspekter av funktionen kräver en eller flera Azure Active Directory Premium-licenser.
 
 ## <a name="features"></a>Funktioner
 

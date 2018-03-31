@@ -1,11 +1,11 @@
 ---
-title: "Lär dig hur du skyddar åtkomsten till data i Azure Cosmos DB | Microsoft Docs"
-description: "Lär dig mer om access control begrepp i Azure Cosmos-databasen, inklusive huvudnycklar, skrivskyddade nycklar, användare och behörigheter."
+title: Lär dig hur du skyddar åtkomsten till data i Azure Cosmos DB | Microsoft Docs
+description: Lär dig mer om access control begrepp i Azure Cosmos-databasen, inklusive huvudnycklar, skrivskyddade nycklar, användare och behörigheter.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 8641225d-e839-4ba6-a6fd-d6314ae3a51c
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
-ms.openlocfilehash: 383e04f91eec2f465b381ce30f2d6d24c488b731
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771c4a539d240a6bfdc9770adc7cfada01571939
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Skydda åtkomst till Azure Cosmos DB data
 Den här artikeln innehåller en översikt över skydda åtkomsten till data som lagras i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -104,7 +104,7 @@ Här är en typisk designmönstret där resursen token kan begärde, skapas och 
 
     ![Azure DB Cosmos-resurs tokens arbetsflöde](./media/secure-access-to-data/resourcekeyworkflow.png)
 
-Resurs-token generering och hantering hanteras av inbyggda Cosmos-DB-klientbibliotek; Om du använder REST måste du skapa huvuden för begäran-autentisering. Mer information om hur du skapar autentiseringshuvuden för REST finns [åtkomstkontroll på Cosmos DB resurser](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources) eller [källkoden för våra SDK](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
+Resurs-token generering och hantering hanteras av inbyggda Cosmos-DB-klientbibliotek; Om du använder REST måste du skapa huvuden för begäran-autentisering. Mer information om hur du skapar autentiseringshuvuden för REST finns [åtkomstkontroll på Cosmos DB resurser](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) eller [källkoden för våra SDK](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
 
 Ett exempel på en mellannivå-tjänst som används för att generera eller token för resursen för koordinatortjänst finns i [ResourceTokenBroker app](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
@@ -182,4 +182,4 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om Cosmos DB databassäkerhet i [Cosmos DB: databasen säkerhet](database-security.md).
 * Läs om hur du hanterar master och skrivskyddade nycklar i [så här hanterar du ett konto i Azure Cosmos DB](manage-account.md#keys).
-* Information om hur du skapar Azure Cosmos DB auktorisering token finns [åtkomstkontroll på Azure Cosmos DB resurser](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources).
+* Information om hur du skapar Azure Cosmos DB auktorisering token finns [åtkomstkontroll på Azure Cosmos DB resurser](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).

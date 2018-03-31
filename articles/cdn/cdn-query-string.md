@@ -1,42 +1,43 @@
 ---
-title: "Kontrollera Azure Content Delivery Network cachelagring av frågesträngar med frågesträngar | Microsoft Docs"
-description: "Azure CDN cachelagring av frågesträng styr hur filer cachelagras när de innehåller frågesträngar."
+title: Kontrollera Azure CDN cachelagring av frågesträngar med frågesträngar - standardnivån | Microsoft Docs
+description: Azure CDN cachelagring av frågesträng styr hur filer cachelagras när en webbegäran innehåller en frågesträng. Den här artikeln beskriver cachelagring i Azure CDN standard produkter.
 services: cdn
-documentationcenter: 
-author: zhangmanling
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dksimpson
+manager: akucer
+editor: ''
 ms.assetid: 17410e4f-130e-489c-834e-7ca6d6f9778d
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 03/30/2018
 ms.author: mazha
-ms.openlocfilehash: 9ffd05a0eb4d976dc40a1c5d45fd22ebf9bd4db1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 87f00575e0c2c4cd7a8525df96b2f5b13d470643
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings"></a>Kontrollen Azure Content Delivery Network cachelagring av frågesträngar med frågesträngar
+# <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Kontrollen Azure CDN cachelagring av frågesträngar med frågesträngar - standardnivån
 > [!div class="op_single_selector"]
-> * [Standard](cdn-query-string.md)
-> * [Azure CDN Premium från Verizon](cdn-query-string-premium.md)
+> * [Standardnivå](cdn-query-string.md)
+> * [Premiumnivå](cdn-query-string-premium.md)
 > 
 
 ## <a name="overview"></a>Översikt
-Med Azure Content Delivery Network (CDN), kan du styra hur cachelagras filer för en webb-begäran som innehåller en frågesträng. Frågesträngen är den del av den begäran som inträffar efter ett frågetecken (?) i en webbegäran med en frågesträng. En frågesträng kan innehålla en eller flera nyckel / värde-par, där namnet och dess värde är åtskilda av ett likhetstecken (=). Varje nyckel / värde-par avgränsas med ett et-tecken (&). Till exempel `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Om det finns fler än en nyckel / värde-par i en frågesträng för en begäran, roll deras inbördes ordning ingen. 
+Med frågan cachelagring av frågesträngar, styr Azure Content Delivery Network (CDN) hur filer cachelagras för en webb-begäran som innehåller en frågesträng. Frågesträngen är den del av den begäran som inträffar efter ett frågetecken (?) i en webbegäran med en frågesträng. En frågesträng kan innehålla en eller flera nyckel / värde-par, där namnet och dess värde är åtskilda av ett likhetstecken (=). Varje nyckel / värde-par avgränsas med ett et-tecken (&). Till exempel http:\//www.contoso.com/content.mov?field1=value1 & fält2 = värde2. Om det finns fler än en nyckel / värde-par i en frågesträng för en begäran, roll deras inbördes ordning ingen. 
 
-> [!IMPORTANT]
-> CDN-produkter standard och premium ger samma frågesträngen cachelagring funktioner, men användargränssnittet är olika.  Den här artikeln beskriver gränssnittet för **Azure CDN Standard från Akamai** och **Azure CDN Standard från Verizon**. För att fråga sträng cachelagring med **Azure CDN Premium från Verizon**, se [styr cachelagring beteendet för CDN-begäranden med frågesträngar - Premium](cdn-query-string-premium.md).
+> [!NOTE]
+> Azure CDN standard och premium-produkter ger samma frågesträngen cachelagring funktioner, men användargränssnittet är olika.  Den här artikeln beskriver gränssnittet för **Azure CDN Standard från Akamai** och **Azure CDN Standard från Verizon**. För frågan sträng cachelagring med **Azure CDN Premium från Verizon**, se [kontroll Azure CDN cachelagring av frågesträngar med frågesträngar - premiumnivån](cdn-query-string-premium.md).
+>
 
 Tre frågan sträng lägen är tillgängliga:
 
-- **Ignorera frågesträngar**: standardläget. I det här läget kantnod CDN överför frågesträngar från begäranden till ursprunget den första begäran och cachelagrar tillgången. Alla efterföljande begäranden om tillgången som hämtas från kantnoden Ignorera frågesträngar tills cachelagrade tillgången upphör att gälla.
-- **Kringgå cachelagring för frågesträngar**: I det här läget begäranden med frågesträngar inte cachelagras på kantnod CDN. Kantnoden hämtar tillgången direkt från ursprunget och skickar den till begäranden med varje begäran.
-- **Cachelagra varje unik URL**: I det här läget varje förfrågan med en unik URL, inklusive frågesträngen behandlas som en unik tillgång med sin egen cache. Till exempel svaret från ursprung för en begäran om `example.ashx?q=test1` är cachelagras på kantnoden och returneras för efterföljande med samma frågesträngen. En begäran om `example.ashx?q=test2` cachelagras som en separat tillgång med sin egen time to live-inställningen.
+- **Ignorera frågesträngar**: standardläget. I det här läget noden CDN punkt av förekomst (POP) överför frågesträngar från begäranden till den ursprungliga servern den första begäran och cachelagrar tillgången. Alla efterföljande begäranden om tillgången som hämtas från POP Ignorera frågesträngar tills cachelagrade tillgången upphör att gälla.
+- **Kringgå cachelagring för frågesträngar**: I det här läget begäranden med frågesträngar inte cachelagras på noden CDN POP. Noden POP hämtar tillgången direkt från den ursprungliga servern och skickar den till begäranden med varje begäran.
+- **Cachelagra varje unik URL**: I det här läget varje förfrågan med en unik URL, inklusive frågesträngen behandlas som en unik tillgång med sin egen cache. Till exempel svaret från den ursprungliga servern för en begäran om `example.ashx?q=test1` är cachelagras på noden POP och returneras för efterföljande med samma frågesträngen. En begäran om `example.ashx?q=test2` cachelagras som en separat tillgång med sin egen time to live-inställningen.
 
 ## <a name="changing-query-string-caching-settings-for-standard-cdn-profiles"></a>Ändra inställningar för standard CDN-profiler för cachelagring av frågesträng
 1. Öppna en CDN-profil, och välj sedan CDN-slutpunkt som du vill hantera.
@@ -52,6 +53,9 @@ Tre frågan sträng lägen är tillgängliga:
    ![CDN-frågesträng cachelagringsalternativ](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
-> Eftersom det tar tid för registreringen ska spridas via CDN kanske cache sträng ändringarna inte visas omedelbart. För **Azure CDN från Akamai**-profiler, slutförs spridningen vanligtvis inom en minut. För **Azure CDN från Verizon**-profiler, slutförs spridningen vanligtvis inom 90 minuter, men i vissa fall kan det ta längre tid.
+> Eftersom det tar tid för registreringen ska spridas via CDN kanske cache sträng ändringarna inte visas omedelbart: 
+> - För **Azure CDN Standard från Akamai** profiler, spridningen vanligtvis slutförs inom en minut. 
+> - För **Azure CDN Standard från Verizon** profiler, spridningen vanligtvis har slutförts inom 90 minuter.
+>
 
 

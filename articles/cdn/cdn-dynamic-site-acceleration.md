@@ -1,12 +1,12 @@
 ---
 title: Dynamiska acceleration via Azure CDN
-description: "Dynamiska acceleration ingående"
+description: Azure CDN stöder dynamiska acceleration (DSA) optimering för filer med dynamiskt innehåll.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
 manager: akucer
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli
-ms.openlocfilehash: 713f00f432095b7a8a19996fb7bdb7e5f8d79b63
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Dynamiska acceleration via Azure CDN
 
@@ -29,9 +29,9 @@ Standard content delivery network (CDN) kapaciteten inkluderar möjligheten att 
 **Azure CDN från Akamai** och **Azure CDN från Verizon** båda har DSA optimering via den **optimerade för** menyn under skapande av slutpunkten.
 
 > [!Important]
-> För **Azure CDN från Akamai** profiler, du kan du ändra optimering av CDN-slutpunkten när den har skapats.
+> För **Azure CDN från Akamai** profiler, du kan ändra optimering av CDN-slutpunkten efter att den har skapats.
 >   
-> **Azure CDN från Verizon** profiler, det går inte att ändra optimering av CDN-slutpunkten efter att den har skapats.
+> För **Azure CDN från Verizon** profiler kan du inte ändra optimering av CDN-slutpunkten när den har skapats.
 
 ## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>Konfigurera CDN-slutpunkten för att påskynda överföringen av dynamiska filer
 
@@ -104,7 +104,7 @@ Transmission Control Protocol (TCP) är standard för Internet-protokollsviten s
 
 TCP *långsamma start* är en algoritm för TCP-protokollet som förhindrar överbelastning på nätverket genom att begränsa mängden data som skickas över nätverket. Den startar med små överbelastning fönsterstorlek mellan avsändare och mottagare tills högsta nås eller paketförlust har identifierats.
 
- Båda **Azure CDN från Akamai** och **Azure CDN från Verizon** eliminera TCP långsam starta med följande tre steg:
+ Båda **Azure CDN från Akamai** och **Azure CDN från Verizon** profiler eliminera TCP långsam starta med följande tre steg:
 
 1. Hälsa och övervakning av bandbredden används för att mäta bandbredd för anslutningar mellan edge PoP-servrar.
     
@@ -152,19 +152,32 @@ Med DSA, cachelagring är inaktiverat som standard på CDN, även om ursprung in
 
 Om du har en webbplats med en blandning av statiska och dynamiska tillgångar, är det bäst att en hybrid-metod för att få bästa möjliga prestanda. 
 
-För **Azure CDN från Verizon Premium** profiler, kan du aktivera cachelagring för särskilda fall med hjälp av den [regelmotor](cdn-rules-engine.md) för DSA-slutpunkter. Alla regler som har skapats påverkas endast slutpunkter som är optimerade för DSA för din profil. 
+För **Azure CDN från Verizon Standard** och **Azure CDN från Akamai Standard** profiler, kan du aktivera cachelagring för specifika DSA-slutpunkter med hjälp av [cachelagring regler](cdn-caching-rules.md).
 
-Öppna regelmotor för DSA-slutpunkter:
+Öppna cachelagring regler:
+
+1. Från den **CDN-profilen** sidan under inställningar, väljer **cachelagring regler**.  
+    
+    ![Knappen CDN cachelagring regler](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
+
+    Den **cachelagring regler** öppnas.
+
+2. Skapa en global eller anpassade cachelagring regel för att aktivera cachelagring för DSA-slutpunkten. 
+
+För **Azure CDN från Verizon Premium** profiler kan du aktivera cachelagring för specifika DSA-slutpunkter med hjälp av den [regelmotor](cdn-rules-engine.md). Alla regler som har skapats påverkas endast slutpunkter som är optimerade för DSA för din profil. 
+
+Öppna regelmotor:
     
 1. Från den **CDN-profilen** väljer **hantera**.  
     
-    ![CDN-profilen hantera knappen](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![CDN-profilen hantera knappen](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     CDN-hanteringsportalen öppnas.
 
 2. CDN-hanteringsportalen, Välj **ADN**och välj **regelmotor**. 
 
-    ![Regelmotor för DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
+    ![Regelmotor för DSA](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
+
 
 
 Du kan också använda två CDN-slutpunkter: en slutpunkt som har optimerats med DSA att leverera dynamiskt tillgångar och en annan slutpunkt optimerats med en statisk optimering typ, till exempel allmänna web leverans till leverans Cacheable ställs tillgångar. Ändra din webbsida URL: er att länka direkt till tillgången på CDN-slutpunkt som du tänker använda. 

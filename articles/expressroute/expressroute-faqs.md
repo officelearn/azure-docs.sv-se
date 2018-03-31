@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3f33703ec86f131d18c89cf4b29514c5002349d1
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 1893601f9fe9018cb51e6e31b6f9c397a0da38da
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -214,7 +214,7 @@ Ja. Du måste skapa en ExpressRoute-gateway i det virtuella nätverket. Det finn
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Varför är det en offentlig IP-adress som är associerade med ExpressRoute-gateway på ett virtuellt nätverk?
 
-Den offentliga IP-adressen används för intern hantering. Den här offentliga IP-adressen inte är exponerad mot Internet och utgör inte en sårbart för det virtuella nätverket.
+Den offentliga IP-adressen används för interna hantering och utgör inte en sårbart för det virtuella nätverket.
 
 ### <a name="what-do-i-need-to-connect-to-azure-storage-over-expressroute"></a>Vad behöver jag att ansluta till Azure storage via ExpressRoute?
 

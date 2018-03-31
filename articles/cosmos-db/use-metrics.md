@@ -1,13 +1,13 @@
 ---
-title: "Övervakning och felsökning med mått i Azure Cosmos DB | Microsoft Docs"
-description: "Använd mått i Azure Cosmos DB att felsöka vanliga problem och övervaka databasen."
+title: Övervakning och felsökning med mått i Azure Cosmos DB | Microsoft Docs
+description: Använd mått i Azure Cosmos DB att felsöka vanliga problem och övervaka databasen.
 keywords: metrics
 services: cosmos-db
 author: gnot
 manager: jhubbard
-editor: 
-documentationcenter: 
-ms.assetid: 
+editor: ''
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 3b3de91c3850071d7c3fbff1faccde6c17a606e3
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 37ef1bc01bd3679e664e71e6a6e3bede84615305
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Övervakning och felsökning med mått i Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur vanliga användningsområden och hur Azure Cosmo
 
 ## <a name="understanding-how-many-requests-are-succeeding-or-causing-errors"></a>Förstå hur många förfrågningar lyckas eller orsakar fel
 
-Kom igång genom att gå till den [Azure-portalen](https://portal.azure.com) och navigera till den **mått** bladet. I bladet hittar den **antalet begäranden överskred kapacitet per minut** diagram. Det här diagrammet visar en minut av minut förfrågningarna åtskilda med statuskoden. Mer information om HTTP-statuskoder finns [http-statuskoder för Azure Cosmos DB](https://docs.microsoft.com/rest/api/documentdb/http-status-codes-for-documentdb).
+Kom igång genom att gå till den [Azure-portalen](https://portal.azure.com) och navigera till den **mått** bladet. I bladet hittar den **antalet begäranden överskred kapacitet per minut** diagram. Det här diagrammet visar en minut av minut förfrågningarna åtskilda med statuskoden. Mer information om HTTP-statuskoder finns [http-statuskoder för Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 Den vanligaste felkoden är 429 (begränsning), vilket innebär att begäranden till Azure Cosmos DB överskrider det tillhandahållna dataflödet. Den vanligaste lösningen till detta är att [skala upp RUs](./set-throughput.md) för den angivna samlingen.
 

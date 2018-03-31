@@ -1,24 +1,19 @@
 ---
-title: Vanliga frågor om Azure Programgateway | Microsoft Docs
+title: Vanliga frågor om Azure Programgateway
 description: Den här sidan innehåller svar på vanliga frågor och svar om Azure Programgateway
-documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
-ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 3/29/2018
+ms.author: victorh
+ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor för Programgateway
 
@@ -38,7 +33,19 @@ Programgateway är en lager 7 belastningsutjämnare, vilket innebär att den fun
 
 **FRÅGOR. Vilka protokoll stöder Programgateway?**
 
-Application Gateway har stöd för HTTP, HTTPS och WebSocket.
+Application Gateway har stöd för HTTP, HTTPS, HTTP-2 och WebSocket.
+
+**FRÅGOR. Hur stöder Programgateway HTTP/2?**
+
+Stöd för HTTP-2-protokollet är tillgängligt för klienter som ansluter till Application Gateway-lyssnare. Kommunikation med servern serverdelspooler är över HTTP/1.1. 
+
+Stöd för HTTP-2 är inaktiverat som standard. Följande Azure PowerShell fragment kodexempel visar hur du kan aktivera:
+
+```
+$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw.EnableHttp2 = $true
+Set-AzureRmApplicationGateway -ApplicationGateway $gw
+```
 
 **FRÅGOR. Vilka resurser som stöds i dag som en del av serverdelspool?**
 
@@ -104,7 +111,7 @@ Nätverkssäkerhetsgrupper stöds i Application Gateway-undernät med följande 
 
 * Undantag ställas på inkommande trafik på portarna 65503 65534 för backend-hälsotillstånd ska fungera korrekt.
 
-* Utgående internet-anslutningen blockeras inte.
+* Det går inte att blockera utgående Internetanslutning.
 
 * Trafik från taggen AzureLoadBalancer måste tillåtas.
 
@@ -314,7 +321,7 @@ Granskningsloggar är tillgängliga för Application Gateway. I portalen klickar
 
 **FRÅGOR. Kan jag ställa in aviseringar med Application Gateway?**
 
-Ja, Application Gateway har stöd för varningar, aviseringar konfigureras av mått.  Application Gateway har för närvarande ”dataflöde”, vilket kan konfigureras för mått till aviseringen. Läs mer om aviseringar om [få aviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Ja, Application Gateway har stöd för varningar, aviseringar konfigureras av mått. Application Gateway har för närvarande ”dataflöde”, vilket kan konfigureras för mått till aviseringen. Läs mer om aviseringar om [få aviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 **FRÅGOR. Backend-hälsa returnerar okänd status, vilka kan vara orsaken till denna status?**
 

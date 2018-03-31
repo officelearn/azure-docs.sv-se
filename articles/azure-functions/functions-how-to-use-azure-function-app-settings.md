@@ -1,24 +1,25 @@
 ---
-title: "Konfigurera Azure funktionen App-inställningar | Microsoft Docs"
-description: "Lär dig hur du konfigurerar Azure funktionen app-inställningar."
-services: 
+title: Konfigurera Azure funktionen App-inställningar | Microsoft Docs
+description: Lär dig hur du konfigurerar Azure funktionen app-inställningar.
+services: ''
 documentationcenter: .net
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: cc996988-fb4f-47
+ms.openlocfilehash: 8974b2ca243da5dd2f7202c66602f7254496d040
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Så här hanterar du en funktionsapp i Azure-portalen 
 
@@ -27,6 +28,24 @@ I Azure Functions ger en funktionsapp körningskontexten för dina enskilda funk
 Börja, gå till den [Azure-portalen](http://portal.azure.com) och logga in på ditt Azure-konto. I sökfältet längst upp i portalen skriver du namnet på din funktionsapp. Välj den sedan i listan. När du har valt appen funktion, visas följande sida:
 
 ![Översikt över funktionen app i Azure-portalen](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+
+## <a name="favorite"></a>Favorit funktioner i portalen 
+
+Det kan ibland vara svårt att söka efter resurser i den [Azure-portalen]. Om du vill göra det lättare att hitta funktionen-appar som du har skapat, att lägga till funktionen appar i dina Favoriter i portalen. 
+
+1. Logga in på [Azure-portalen].
+
+2. Klicka på pilen längst ned till vänster för att expandera alla tjänster, skriv `Functions` i fältet **Filter** och klicka sedan på stjärnan bredvid **Funktionsappar**.  
+ 
+    ![Skapa en funktionsapp i Azure Portal](./media/functions-how-to-use-azure-function-app-settings/functions-favorite-function-apps.png)
+
+    Detta gör att funktionsikonen läggs till på menyn till vänster på portalen.
+
+3. Stäng menyn och bläddra ned till slutet så att du ser funktionsikonen. Klicka på ikonen för att visa alla dina funktionsappar. Klicka på funktionsappen för att arbeta med funktionerna i den här appen. 
+ 
+    ![Funktionen appar i Favoriter](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
+ 
+[Azure-portalen]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>Fliken för funktionen app-inställningar
 
@@ -66,7 +85,7 @@ Mer information om hur du arbetar med App Service-inställningar finns [konfigur
 
 ![Redigeraren för Apptjänst](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-### <a name="settings">Programinställningar</a>
+### <a name="settings"></a>Programinställningar
 
 | | |
 |-|-|
@@ -82,7 +101,7 @@ Mer information om hur du arbetar med App Service-inställningar finns [konfigur
 
 ![Funktionen app-konsolen](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
-### <a name="kudu">Avancerade verktyg (Kudu)</a>
+### <a name="kudu"></a>Avancerade verktyg (Kudu)
 
 | | |
 |-|-|
@@ -115,7 +134,7 @@ Mer information om hur du arbetar med App Service-inställningar finns [konfigur
 ![Konfigurera autentisering för en funktionsapp](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
 
-### <a name="swagger">API-definition</a>
+### <a name="swagger"></a>API-definition
 
 | | |
 |-|-|

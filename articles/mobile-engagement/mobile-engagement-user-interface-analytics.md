@@ -1,11 +1,11 @@
 ---
-title: "Användargränssnittet för Azure Mobile Engagement - Analytics"
-description: "Lär dig att analysera historiska data för ditt program med Azure Mobile Engagement"
+title: Användargränssnittet för Azure Mobile Engagement - Analytics
+description: Lär dig att analysera historiska data för ditt program med Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6b2533ac-b8ec-4e35-872c-d563895bdc0c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ad05676919d6c254d60fd010c3f589f663c4745d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fceae1ffff40fc525170121181e21726fe2bd3f7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-analyze-historical-data-about-your-application"></a>Analysera historiska data om ditt program
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Den här artikeln beskriver den **ANALYTICS** för den **Mobile Engagement** portal. Du använder den **Mobile Engagement** portalen för att övervaka och hantera dina mobila appar. Observera att börja använda portalen måste du först skapa en **Azure Mobile Engagement** konto.
 
 Analytics-avsnittet i Användargränssnittet innehåller aktuell information om ditt program som bygger på historiska data som uppdateras var 24: e timme. Informationen visas på olika instrumentpaneler som består av rad/fält/cirkeldiagram, rutnät och kartor. Data kan också hämtas som CSV-filer. De flesta av samma information som finns i realtid i avsnittet övervaka i Användargränssnittet och kan även nås från Analytics-API.
@@ -70,7 +74,7 @@ Azure Mobile Engagement tillhandahåller en uppsättning basic, standard analyti
 4. Detta anger de värden som används för beräkning.
 5. Det här är ett miniatyrdiagram av tidigare kvarhållning värden. Det kan du se värdena som tidigare har en omfattande vy av hur det utvecklades.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Begrepp][Link 6]
 * [Felsöka Guide Service][Link 24]
 

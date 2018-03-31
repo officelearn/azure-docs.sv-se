@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Domain Services: Nätverk riktlinjer | Microsoft Docs"
-description: "Överväganden för nätverk för Azure Active Directory Domain Services"
+title: 'Azure AD Domain Services: Nätverk riktlinjer | Microsoft Docs'
+description: Överväganden för nätverk för Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a56413490decc928ff2643213084155ae469871c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Överväganden för nätverk för Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Hur du väljer ett virtuellt Azure-nätverk
@@ -73,7 +73,7 @@ Följande portar krävs för Azure AD Domain Services till tjänsten och underh�
 **Port 443 (synkronisering med Azure AD)**
 * Den används för att synkronisera din Azure AD-katalog med din hanterade domän.
 * Det är nödvändigt att ge åtkomst till den här porten i din NSG. Din hanterade domän är inte synkroniserade med Azure AD-katalogen utan åtkomst till den här porten. Användare kan inte logga in eftersom ändringar i sina lösenord inte synkroniseras med din hanterade domän.
-* Du kan begränsa inkommande åtkomst till den här porten till IP-adresser som tillhör Azure IP-adressintervall.
+* Du kan begränsa inkommande åtkomst till den här porten till IP-adresser som tillhör Azure IP-adressintervall. Observera att Azure IP-adressintervallet är ett annat område än PowerShell visas i regel nedan.
 
 **Port 5986 (PowerShell-fjärrkommunikation)**
 * Den används för att utföra hanteringsuppgifter med hjälp av PowerShell-fjärrkommunikation på din hanterade domän.

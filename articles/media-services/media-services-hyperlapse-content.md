@@ -1,36 +1,34 @@
 ---
 title: Videostabilisera mediefiler med Azure Media Hyperlapse | Microsoft Docs
-description: "Azure Media Hyperlapse skapar smooth tid upphörde att gälla videor från första person eller åtgärd kamera innehåll. Det här avsnittet visar hur du använder Media indexeraren."
+description: Azure Media Hyperlapse skapar smooth tid upphörde att gälla videor från första person eller åtgärd kamera innehåll. Det här avsnittet visar hur du använder Media indexeraren.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: asolanki
 manager: johndeu
-editor: 
+editor: ''
 ms.assetid: 37d54db6-9cf3-4ae9-b3c6-0d29c744e965
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/28/2018
 ms.author: adsolank
-ms.openlocfilehash: b3163454213db0afb94e668e4c56924d7833d769
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 86a9d44a93d7717d2ed949db2b1d1e94963781d0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Videostabilisera mediefiler med Azure Media Hyperlapse
 Azure Media Hyperlapse är ett Media Processor (HP) som skapar smooth tid upphörde att gälla videor från första person eller åtgärd kamera innehåll.  Den molnbaserade på samma nivå till [Microsoft Research skrivbord Videostabilisera Pro och telefon Videostabilisera Mobile](http://aka.ms/hyperlapse), Microsoft Hyperlapse för Azure Media Services använder massiv skala i plattformen Media-bearbetning i Azure Media Services att skala horisontellt och parallelize masskopiera Videostabilisera bearbetning.
 
 > [!IMPORTANT]
-> Microsoft Hyperlapse fungerar bäst på första person innehåll med en glidande kamera.  Även om fortfarande övervakningskameror kan fortfarande fungerar, kan inte prestanda och kvalitet Azure Media Hyperlapse Media processorn garanteras för andra typer av innehåll.  Om du vill veta mer om Microsoft Hyperlapse för Azure Media Services och se några exempel videoklipp, ta en titt på [inledande blogginlägget](http://aka.ms/azurehyperlapseblog) från förhandsversion.
+> Microsoft Hyperlapse fungerar bäst på första person innehåll med en glidande kamera. Även om fortfarande övervakningskameror kan fortfarande fungerar, kan inte prestanda och kvalitet Azure Media Hyperlapse Media processorn garanteras för andra typer av innehåll.
 > 
 > 
 
 Ett Azure Media Hyperlapse jobbet tar som indata en MP4, MOV eller WMV resursfil tillsammans med en konfigurationsfil som anger vilka ramar av video ska vara tid upphörde att gälla och vilken hastighet (t.ex. första 10 000 ramar på 2 x).  Utdata är ett stabilt och tid slut återgivning av video indata.
-
-Läs de senaste uppdateringarna i Azure Media Hyperlapse [Media Services bloggar](https://azure.microsoft.com/blog/topics/media-services/).
 
 ## <a name="hyperlapse-an-asset"></a>Videostabilisera en tillgång
 Du måste först överföra önskade indatafilen till Azure Media Services.  Mer information om begrepp som ingår i överföringen och hantera innehåll på [innehållshantering artikel](media-services-portal-vod-get-started.md).

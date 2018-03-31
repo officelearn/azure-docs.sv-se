@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 983c2c8aeb4c9d37213061dd70d6d64bae3de9d7
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 05720e6c290b0b54e5b6d5170a6eb22306e9cb04
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Connect Health
 Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om Azure Active Directory (AD Azure) Connect Health. Dessa vanliga frågor och svar tar upp frågor om hur du använder tjänsten, som innehåller fakturering modellen, funktioner, begränsningar och support.
@@ -181,7 +181,7 @@ CheckForMS17-010
 
 **F: Varför är min ADFS granskningar inte genereras?**
 
-Använd PowerShell-cmdleten <i>Get-AdfsProperties - AuditLevel</i> att kontrollera granskningsloggarna inte är i inaktiverat tillstånd. Läs mer om [AD FS-granskningsloggar](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)
+Använd PowerShell-cmdleten <i>Get-AdfsProperties - AuditLevel</i> att kontrollera granskningsloggarna inte är i inaktiverat tillstånd. Läs mer om [AD FS-granskningsloggar](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Meddelande om det är avancerade granskningsinställningar pushas till ADFS-server, alla ändringar med auditpol.exe kommer att skrivas över (händelse om programmet skapas inte har konfigurerats). Ställ in i det här fallet den lokala säkerhetsprincipen logga programmet genererade fel och lyckades. 
 
 
 ## <a name="related-links"></a>Relaterade länkar

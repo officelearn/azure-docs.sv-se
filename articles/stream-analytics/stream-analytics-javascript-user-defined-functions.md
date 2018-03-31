@@ -1,24 +1,23 @@
 ---
-title: "Azure Stream Analytics JavaScript användardefinierade funktioner | Microsoft Docs"
-description: "Utföra en avancerad fråga säkerhetsnivån med JavaScript användardefinierade funktioner"
-keywords: "JavaScript, användardefinierade funktioner, udf"
+title: Azure Stream Analytics JavaScript användardefinierade funktioner | Microsoft Docs
+description: Utföra en avancerad fråga säkerhetsnivån med JavaScript användardefinierade funktioner
+keywords: JavaScript, användardefinierade funktioner, udf
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: e8c1c784a598416b478d1430258201053185fdee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: f2b14029ebea7f9cf1fa74a384ecbb72b08b7ad6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Azure Stream Analytics JavaScript användardefinierade funktioner
 Azure Stream Analytics stöder användardefinierade funktioner som skrivits i JavaScript. Med omfattande uppsättning **sträng**, **RegExp**, **matematiska**, **matris**, och **datum** metoder som JavaScript innehåller, komplexa Datatransformationer med Stream Analytics-jobb blir det lättare att skapa.
@@ -87,10 +86,10 @@ Det finns skillnader i typer att Stream Analytics fråga språk och stöd för J
 Stream Analytics | JavaScript
 --- | ---
 bigint | Antal (JavaScript kan endast representera heltal upp till exakt 2 ^ 53)
-Datum och tid | Datum (JavaScript endast stöder millisekunder)
+DateTime | Datum (JavaScript endast stöder millisekunder)
 dubbla | Tal
-nvarchar(max) | Sträng
-Post | Objekt
+nvarchar(MAX) | Sträng
+Spela in | Objekt
 Matris | Matris
 NULL | Null
 
@@ -101,9 +100,9 @@ Här är JavaScript-Stream Analytics-konvertering:
 JavaScript | Stream Analytics
 --- | ---
 Tal | Bigint (om talet är runda och mellan lång. MinValue och lång. MaxValue; Annars är det dubbla)
-Date | Datum och tid
-Sträng | nvarchar(max)
-Objekt | Post
+Date | DateTime
+Sträng | nvarchar(MAX)
+Objekt | Spela in
 Matris | Matris
 Null, Odefinierad | NULL
 En annan typ (till exempel en funktion eller fel) | Stöds inte (resulterar i körningsfel)

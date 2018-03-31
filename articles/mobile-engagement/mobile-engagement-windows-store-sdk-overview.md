@@ -1,11 +1,11 @@
 ---
 title: Azure Mobile Engagement Windows Universal SDK Integration | Microsoft Docs
-description: "Windows Universal-integrering för SDK för Azure Mobile Engagement"
+description: Windows Universal-integrering för SDK för Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9ded187d-5c07-4377-a41c-ce205dd38b50
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,16 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-ms.openlocfilehash: d616ad58156a19e89b3e106639a38df67cbd0abb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8c513d5b05afaee4c49d0d2e96a0dcda78761421
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-sdk-integration-for-azure-mobile-engagement"></a>Windows Universal SDK-Integration för Azure Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Det här dokumentet beskriver alla integrering och konfiguration tillgängliga alternativ för Azure Mobile Engagement Windows Universal SDK.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar de här självstudierna måste du först slutföra vår [15 minuter kursen](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## <a name="advanced-features"></a>Avancerade funktioner

@@ -1,24 +1,24 @@
 ---
 title: Samla in och analysera Azure aktivitetsloggar i Log Analytics | Microsoft Docs
-description: "Du kan använda Azure aktivitetsloggar lösningen för att analysera och söka Azure aktivitetsloggen i alla dina Azure-prenumerationer."
+description: Du kan använda Azure aktivitetsloggar lösningen för att analysera och söka Azure aktivitetsloggen i alla dina Azure-prenumerationer.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: c13890862c058701268c07d032d6d990c659287a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b6e823d9338d76a350569091d6794e3ac4a2eae9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Samla in och analysera Azure aktivitetsloggar i logganalys
 
@@ -40,7 +40,7 @@ När du ansluter din Azure aktivitetsloggar till logganalys kan du:
 - Identifiera eller problem påverkar dina resurser
 - Använda Log-sökning för att korrelera användaraktiviteter, Autoskala operations, auktorisering ändringar och tjänstens hälsa för andra loggar eller ett mått från din miljö
 
-<sup>1</sup>som standard logganalys sparas din Azure aktivitetsloggar i 90 dagar, även om du är på den kostnadsfria nivån. Eller, om du har en inställning för kvarhållning av arbetsytan mindre än 90 dagar. Om ditt arbetsområde har kvarhållning är längre än 90 dagar, behålls aktivitetsloggarna för kvarhållningsperioden för din arbetsyta.
+<sup>1</sup>som standard logganalys sparas din Azure aktivitetsloggar i 90 dagar, även om du är på den kostnadsfria nivån. Eller, om du har en inställning för kvarhållning av arbetsytan mindre än 90 dagar. Om ditt arbetsområde har kvarhållning är längre än 90 dagar, behålls aktivitetsloggarna baserat på kvarhållningsperioden för din arbetsyta.
 
 Logganalys samlar in kostnadsfritt aktivitetsloggar och lagrar loggarna för 90 dagar utan kostnad. Om du sparar loggar under längre tid än 90 dagar, kommer du betalar avgifter för kvarhållning av data för de data som har lagrats längre än 90 dagar.
 

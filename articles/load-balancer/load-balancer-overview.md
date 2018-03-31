@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 3a5d1e897d8ffe063ecf9277bef346c8b7c5092b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f4410932f00f8505ae5a894caa002e1223196d95
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-load-balancer-overview"></a>Översikt över belastningsutjämnaren i Azure
 
@@ -142,7 +142,7 @@ Följande bild visar en belastningsutjämnad slutpunkt för webbtrafik som delas
 
 ![exempel på offentliga belastningsutjämnare](./media/load-balancer-overview/IC727496.png)
 
-**Bild 1: Internet-trafik med hjälp av en offentlig belastningsutjämnare för belastningsutjämning**
+*Bild: Webbtrafik med hjälp av en offentlig belastningsutjämnare för belastningsutjämning*
 
 När Internet-klienter skickar förfrågningar för webbsidan till offentliga IP-adressen för ett webbprogram på TCP-port 80, distribuerar Azure belastningsutjämnare begäranden mellan tre virtuella datorer i den belastningsutjämnade uppsättningen. Mer information om belastningen belastningsutjämnaren algoritmer finns i [belastningen belastningsutjämnaren översiktssidan](load-balancer-overview.md#load-balancer-features).
 
@@ -161,7 +161,7 @@ Interna belastningsutjämnare kan följande typer av nätverksbelastning:
 
 ![exempel på interna belastningsutjämnare](./media/load-balancer-overview/IC744147.png)
 
-**Bild 2 - program på flera nivåer med hjälp av både offentliga och interna belastningsutjämnare för belastningsutjämning**
+*Bild - program på flera nivåer med hjälp av både offentliga och interna belastningsutjämnare för belastningsutjämning*
 
 ## <a name="pricing"></a>Prissättning
 Standard belastningsutjämnare är en produkt som debiteras baserat på antalet belastningsutjämningsregler konfigurerad och alla inkommande och utgående data bearbetas. Standard belastningsutjämnaren information om priser finns i [belastningen belastningsutjämnaren priser](https://azure.microsoft.com/pricing/details/load-balancer/) sidan.

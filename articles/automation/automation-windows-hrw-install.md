@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: fa74f2e2d8fb9fc9f11810a4af4978fb4b443bcc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e0d9d164a85a73dd05456e005cf35ce3f33c408f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Så här distribuerar du en Windows-Hybrid Runbook Worker
 
@@ -36,7 +36,7 @@ Om du vill installera och konfigurera en Windows-Hybrid Runbook Worker, finns de
 
 > [!NOTE]
 > Om du vill hantera konfigurationen av dina servrar som stöder Hybrid Runbook Worker-rollen med önskad tillstånd Configuration DSC () som du behöver lägga till dem som DSC-noder.  Mer information om onboarding dem för hantering med DSC, se [Onboarding datorer för hantering av Azure Automation DSC](automation-dsc-onboarding.md).        
-Om du aktiverar den [uppdatering hanteringslösning](../operations-management-suite/oms-solution-update-management.md), en Windows-dator som är ansluten till din OMS-arbetsyta konfigureras automatiskt som en Hybrid Runbook Worker som stöd för runbooks som ingår i den här lösningen.  Det har inte registrerats med några Hybrid Worker-grupper som redan har definierats i ditt Automation-konto.  Datorn kan läggas till en Hybrid Runbook Worker-grupp i ditt Automation-konto till stöd för Automation-runbooks så länge som du använder samma konto för både lösning och Hybrid Runbook Worker-gruppmedlemskap.  Den här funktionen har lagts till i version 7.2.12024.0 av Hybrid Runbook Worker.  
+Om du aktiverar den [uppdatering hanteringslösning](../operations-management-suite/oms-solution-update-management.md), en Windows-dator som är ansluten till logganalys-arbetsytan konfigureras automatiskt som en Hybrid Runbook Worker som stöd för runbooks som ingår i den här lösningen.  Det har inte registrerats med några Hybrid Worker-grupper som redan har definierats i ditt Automation-konto.  Datorn kan läggas till en Hybrid Runbook Worker-grupp i ditt Automation-konto till stöd för Automation-runbooks så länge som du använder samma konto för både lösning och Hybrid Runbook Worker-gruppmedlemskap.  Den här funktionen har lagts till i version 7.2.12024.0 av Hybrid Runbook Worker.  
 
 Granska följande information om den [maskin- och programvarukrav](automation-offering-get-started.md#hybrid-runbook-worker) och [information för att förbereda nätverket](automation-offering-get-started.md#network-planning) innan du börjar distribuera en Hybrid Runbook Worker.  När en runbook worker har distribuerats, granska [köra runbooks på en Hybrid Runbook Worker](automation-hrw-run-runbooks.md) att lära dig hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala datacenter eller andra molnmiljö.  
  
@@ -52,10 +52,10 @@ Utför följande steg för att automatisera installationen och konfigurationen a
   * *ResourceGroupName* (obligatoriskt) - namnet på resursgruppen som är associerade med ditt Automation-konto.  
   * *HybridGroupName* (obligatoriskt) - namnet på en Hybrid Runbook Worker-grupp som du anger som mål för runbooks som stöder det här scenariot. 
   *  *SubscriptionID* (obligatoriskt) - Azure prenumerations-ID som ditt Automation-konto.
-  *  *WorkspaceName* (valfritt) – namnet på OMS-arbetsytan.  Om du inte har en OMS-arbetsyta skriptet skapar och konfigurerar en.  
+  *  *WorkspaceName* (valfritt) – namnet på logganalys-arbetsytan.  Om du inte har en logganalys-arbetsytan skriptet skapar och konfigurerar en.  
 
      > [!NOTE]
-     > Det finns för närvarande endast Automation regioner som stöds för integrering med OMS - **Australien sydost**, **östra USA 2**, **Sydostasien**, och **Västeuropa**.  Om ditt Automation-konto inte är i någon av de regionerna, skriptet skapar en OMS-arbetsyta men den varnar dig om att det går inte att länka dem tillsammans.
+     > Det finns för närvarande endast Automation regioner som stöds för integrering med logganalys - **Australien sydost**, **östra USA 2**, **Sydostasien**, och  **Västra Europa**.  Om ditt Automation-konto inte är i någon av de regionerna, skriptet skapar en logganalys-arbetsyta men den varnar dig om att det går inte att länka dem tillsammans.
      >
 2. På datorn, startar **Windows PowerShell** från den **starta** skärm i administratörsläge.  
 3. Från PowerShell-kommandoradsgränssnitt, navigera till mappen som innehåller skriptet som du hämtade och köra den ändra värdena för parametrarna *- AutomationAccountName*, *- ResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, och *- WorkspaceName*.
@@ -66,7 +66,7 @@ Utför följande steg för att automatisera installationen och konfigurationen a
     
         .\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> `
         -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
-        -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfOMSWorkspace>
+        -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
 
 4. Du uppmanas att komma överens om att installera **NuGet** och du uppmanas att autentisera med dina autentiseringsuppgifter för Azure.<br><br>![Ny OnPremiseHybridWorker skript körs](/media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
@@ -76,27 +76,27 @@ Utför följande steg för att automatisera installationen och konfigurationen a
 
 Utför de två första stegen en gång för Automation-miljö och upprepa återstående steg för varje worker-dator.
 
-#### <a name="1-create-operations-management-suite-workspace"></a>1. Skapa Operations Management Suite-arbetsyta
+#### <a name="1-create-log-analytics-workspace"></a>1. Skapa Log Analytics-arbetsyta
 
-Om du inte redan har en Operations Management Suite-arbetsyta, skapar du en med hjälp av anvisningarna i [hantera din arbetsyta](../log-analytics/log-analytics-manage-access.md). Du kan använda en befintlig arbetsyta om du redan har en.
+Om du inte redan har en logganalys-arbetsyta, skapar du en med hjälp av anvisningarna i [hantera din arbetsyta](../log-analytics/log-analytics-manage-access.md). Du kan använda en befintlig arbetsyta om du redan har en.
 
-#### <a name="2-add-automation-solution-to-operations-management-suite-workspace"></a>2. Lägg till Automation-lösningen till Operations Management Suite-arbetsyta
+#### <a name="2-add-automation-solution-to-log-analytics-workspace"></a>2. Lägg till Automation-lösningen i logganalys-arbetsytan
 
-Lösningar för att lägga till funktioner till Operations Management Suite.  Automation-lösningen lägger till funktionalitet för Azure Automation, inklusive stöd för Runbook Worker-Hybrid.  När du lägger till lösningen till din arbetsyta skickar den automatiskt ned worker komponenter till agentdatorn som du installerar i nästa steg.
+Lösningar lägger till funktioner i Log Analytics.  Automation-lösningen lägger till funktionalitet för Azure Automation, inklusive stöd för Runbook Worker-Hybrid.  När du lägger till lösningen till din arbetsyta skickar den automatiskt ned worker komponenter till agentdatorn som du installerar i nästa steg.
 
-Följ anvisningarna på [att lägga till en lösning med lösningar galleriet](../log-analytics/log-analytics-add-solutions.md) att lägga till den **Automation** lösningen till Operations Management Suite-arbetsyta.
+Följ anvisningarna på [att lägga till en lösning med lösningar galleriet](../log-analytics/log-analytics-add-solutions.md) att lägga till den **Automation** lösning till logganalys-arbetsytan.
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Installera Microsoft Monitoring Agent
 
-Microsoft Monitoring Agent ansluter datorer till Operations Management Suite.  När du installerar agenten på den lokala datorn och ansluta till arbetsytan, hämtas automatiskt de komponenter som krävs för Runbook Worker-Hybrid.
+Microsoft Monitoring Agent ansluter datorer till logganalys.  När du installerar agenten på den lokala datorn och ansluta till arbetsytan, hämtas automatiskt de komponenter som krävs för Runbook Worker-Hybrid.
 
 Följ anvisningarna på [ansluta Windows-datorer till logganalys](../log-analytics/log-analytics-windows-agent.md) att installera agenten på den lokala datorn.  Du kan upprepa processen för flera datorer att lägga till flera personer i din miljö.
 
-När agenten har lyckats ansluta till Operations Management Suite, visas det på den **anslutna källor** fliken Operations Management Suite **inställningar** fönstret.  Du kan kontrollera att agenten har hämtat Automation-lösningen på rätt sätt när den har en mapp med namnet **AzureAutomationFiles** i C:\Program Files\Microsoft övervakning Agent\Agent.  För att bekräfta versionen av Hybrid Runbook Worker, kan du gå till C:\Program Files\Microsoft övervakning Agent\Agent\AzureAutomation\ och anteckna den \\ *version* undermappen.   
+När agenten har anslutits till logganalys, visas det på den **anslutna källor** för Log Analytics **inställningar** fönstret.  Du kan kontrollera att agenten har hämtat Automation-lösningen på rätt sätt när den har en mapp med namnet **AzureAutomationFiles** i C:\Program Files\Microsoft övervakning Agent\Agent.  För att bekräfta versionen av Hybrid Runbook Worker, kan du gå till C:\Program Files\Microsoft övervakning Agent\Agent\AzureAutomation\ och anteckna den \\ *version* undermappen.   
 
 #### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. Installera runbook-miljön och ansluta till Azure Automation
 
-När du lägger till en agent till Operations Management Suite Automation-lösningen push-meddelanden den **HybridRegistration** PowerShell-modulen som innehåller den **Add-HybridRunbookWorker** cmdlet.  Du kan använda denna cmdlet för att installera runbook-miljön på datorn och registrera den med Azure Automation.
+När du lägger till en agent till logganalys Automation-lösningen push-meddelanden den **HybridRegistration** PowerShell-modulen som innehåller den **Add-HybridRunbookWorker** cmdlet.  Du kan använda denna cmdlet för att installera runbook-miljön på datorn och registrera den med Azure Automation.
 
 Öppna ett PowerShell-session i administratörsläge och kör följande kommandon för att importera modulen.
 

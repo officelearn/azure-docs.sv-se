@@ -1,6 +1,6 @@
 ---
-title: "Hantera uppdateringar för flera virtuella Azure-datorer"
-description: "Det här ämnet beskriver hur du hanterar uppdateringar för virtuella Azure-datorer."
+title: Hantera uppdateringar för flera virtuella Azure-datorer
+description: Det här ämnet beskriver hur du hanterar uppdateringar för virtuella Azure-datorer.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 29ab87b6afe31b7bbb40ef7d743e209f86811c9d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c227af1afa95243390152918a6b81015dbaceaeb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
@@ -61,7 +61,7 @@ Windows-agenter måste antingen konfigureras för att kommunicera med en WSUS-se
 
 Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.
 
-Den här lösningen stöder inte en OMS Agent för Linux som har konfigurerats för att rapportera flera arbetsytor i Operations Management Suite.
+Den här lösningen stöder inte en OMS-Agent för Linux konfigurerad för att rapportera till flera logganalys arbetsytor.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Aktivera uppdateringshantering för virtuella Azure-datorer
 
@@ -176,5 +176,5 @@ Välj **Fel** om du vill se detaljerad information om fel som uppstått vid dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hantering av uppdateringar, inklusive loggar, utdata och fel, finns i [Uppdateringshanteringslösning i OMS](../operations-management-suite/oms-solution-update-management.md).
+* Mer information om uppdateringshantering – inklusive loggar, utdata och fel--finns [uppdatera hanteringslösning i Azure](../operations-management-suite/oms-solution-update-management.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "Kända problem och felsökningsguiden | Microsoft Docs"
-description: "Lista över kända problem och en guide för att felsöka"
+title: Kända problem och felsökningsguiden | Microsoft Docs
+description: Lista över kända problem och en guide för att felsöka
 services: machine-learning
 author: svankam
 ms.author: svankam
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: 62207fa20c4660d1e828053ee73953cb68af1b9d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3699e2a59061d8a2870a263588917268ca504866
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning arbetsstationen - kända problem och felsökningsguide 
 Den här artikeln hjälper dig att hitta och korrigera fel eller fel uppstod som en del av använder i Azure Machine Learning Workbench. 
@@ -238,6 +238,14 @@ Du behöver vanligtvis inte göra detta. Men om du måste rensa ren en installat
     - [Windows PowerShell-skript](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (Du kan behöva köra `Set-ExecutionPolicy Unrestricted` i privilegiet-upphöjd PowerShell-fönstret innan du kan köra skriptet.)
 - I macOS:
   - Bara ladda ned och kör den [macOS bash kommandoskript](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
+
+## <a name="azure-ml-using-a-different-python-location-than-the-azure-ml-installed-python-environment"></a>Azure ML med hjälp av en annan python plats än Azure ML installerade python-miljö
+På grund av en ändring i Azure Machine Learning arbetsstationen märka användare lokala körs inte kanske pekar på python-miljön längre installeras av Azure ML-arbetsstationen. Detta kan inträffa om användaren har en annan python-miljö som är installerat på datorn och sökvägen ”Python” är inställd att peka denna miljö. För att kunna använda Azure ML-arbetsstationen Python-miljön har installerats, gör du följande:
+- Gå till local.compute filen under mappen aml_config under projektroten.
+- Ändra variabeln ”pythonLocation” så att den pekar till den fysiska sökvägen Azure ML-arbetsstationen installerat python-miljö. Du kan hämta den här sökvägen på två sätt:
+    - Azure ML python-plats finns på %localappdata%\AmlWorkbench\python\python.exe
+    - Du kan öppna cmd från Azure ML-arbetsstationen, Skriv python på kommandotolk, importera sys.exe, kör sys.executable och hämta sökvägen därifrån. 
+
 
 
 ## <a name="some-useful-docker-commands"></a>Vissa användbara Docker-kommandon

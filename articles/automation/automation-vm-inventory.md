@@ -8,11 +8,11 @@ ms.author: jehunte
 ms.date: 09/13/2017
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 7b0e39e98a81231b68414f36ac5c1fc0897304a1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b23132f6e5693f5d731bf044ac5c2544a9308ee1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Hantera en virtuell Azure-dator med inventeringssamling
 
@@ -66,4 +66,4 @@ Ta bort den virtuella datorn från inventeringshantering:
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om hur du hanterar ändringar i inställningarna för filer och registret finns i [Track software changes in your environment with the Change Tracking solution](../log-analytics/log-analytics-change-tracking.md) (Spåra programändringar i miljön med lösningen Ändringsspårning).
-* Information om hur du hanterar Windows- och paketuppdateringar på virtuella datorer finns i [uppdateringshanteringslösningen i OMS](../operations-management-suite/oms-solution-update-management.md).
+* Läs om hur du hanterar Windows och paketet uppdateringar på dina virtuella datorer i [The Update hanteringslösning i Azure](../operations-management-suite/oms-solution-update-management.md).

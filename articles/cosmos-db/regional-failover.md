@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8da3e2c970ab1e60e3396cb0aaeaba64dba1713c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5a4bdc49c5ab36a5026095b5d7b6f9856b020e1b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Automatisk regional växling vid fel för kontinuitet i Azure Cosmos DB
 Azure Cosmos-DB förenklar globala fördelning av data genom att erbjuda fullständigt hanterade [flera regioner databasen konton](distribute-data-globally.md) som ger tydliga kompromisser mellan konsekvens, tillgänglighet och prestanda, alla med motsvarande garanterar. Cosmos DB konton ger hög tillgänglighet, siffra ms latens [väldefinierade konsekvensnivåer](consistency-levels.md), transparent regional växling vid fel med flera API: er och möjligheten att skala Elastiskt genomflöde och lagring på globalt. 
@@ -86,7 +86,7 @@ När den berörda regionen återställer från avbrottet, återställs alla ber�
 
 **Vad händer om en skrivning region har ett avbrott?**
 
-Om den berörda regionen är det aktuella området för skrivning och automatisk redundans är aktiverat för Azure DB som Cosmos-konto, är regionen automatiskt markeras som offline. Sedan höjs en annan region som write-region för kontot berörda Azure Cosmos DB. Du kan aktivera automatisk redundans och helt styra den region Markeringsordningen för dina Azure Cosmos DB konton via Azure portal eller [programmässigt](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
+Om den berörda regionen är det aktuella området för skrivning och automatisk redundans är aktiverat för Azure DB som Cosmos-konto, är regionen automatiskt markeras som offline. Sedan höjs en annan region som write-region för kontot berörda Azure Cosmos DB. Du kan aktivera automatisk redundans och helt styra den region Markeringsordningen för dina Azure Cosmos DB konton via Azure portal eller [programmässigt](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
 
 ![Redundans prioriteringar för Azure Cosmos DB](./media/regional-failover/failover-priorities.png)
 
@@ -98,7 +98,7 @@ När den berörda regionen återställer från avbrottet, återställs alla ber�
 
 * Data som finns i den föregående write-region som inte har replikerats om du vill läsa regioner under avbrottet publiceras som en konflikt feed. Program kan läsa konflikt feeden lös konflikterna baserat på specifika programlogiken och skriva den uppdaterade informationen tillbaka till Azure Cosmos DB kontot efter behov. 
 * Den tidigare skrivåtgärder regionen skapas som en skrivskyddad region och online igen automatiskt. 
-* Du kan konfigurera om skrivskyddade region som var online igen automatiskt som skrivning region genom att utföra en manuell växling via Azure portal eller [programmässigt](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+* Du kan konfigurera om skrivskyddade region som var online igen automatiskt som skrivning region genom att utföra en manuell växling via Azure portal eller [programmässigt](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
 
 Följande kodavsnitt visar hur du kan bearbeta konflikter när den berörda regionen återställer från avbrottet.
 
@@ -123,7 +123,7 @@ do
 
 ## <a id="ManualFailovers"></a>Manuell växling vid fel
 
-Förutom automatisk redundans kan det aktuella området skrivning av en viss Cosmos-DB-konto manuellt ändras dynamiskt till någon av de befintliga skrivskyddade regionerna. Manuell redundans kan inledas via Azure portal eller [programmässigt](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
+Förutom automatisk redundans kan det aktuella området skrivning av en viss Cosmos-DB-konto manuellt ändras dynamiskt till någon av de befintliga skrivskyddade regionerna. Manuell redundans kan inledas via Azure portal eller [programmässigt](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
 
 Kontrollera manuell redundans **noll dataförlust** och **noll tillgänglighet** förlust och att skrivåtgärder Överföringsstatus från gammalt skriva region till en ny för det angivna Cosmos-DB-kontot. Som i automatisk redundans Cosmos DB SDK automatiskt hanterar skrivning region ändringar under manuell redundans och säkerställer att omdirigeras automatiskt anrop till den nya write-regionen. Ingen kod eller ändringar av konfigurationen som krävs i ditt program för att hantera redundans. 
 

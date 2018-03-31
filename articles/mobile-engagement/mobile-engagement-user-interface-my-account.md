@@ -1,11 +1,11 @@
 ---
-title: "Användargränssnittet för Azure Mobile Engagement - mitt konto"
-description: "Lär dig att hantera dina konto-profil och test-enheter med Azure Mobile Engagement"
+title: Användargränssnittet för Azure Mobile Engagement - mitt konto
+description: Lär dig att hantera dina konto-profil och test-enheter med Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 22832678-3959-4b8c-9fb2-f2ff5974e5d1
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 4e463e973dcfa1faa7b08e4738192161980b3aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89ef4f97a03ab0334f5474fb5b0ad2fd44f23518
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-your-account-profile-and-test-devices"></a>Så här hanterar du ditt konto profil och test-enheter
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Den här artikeln beskriver den **Start** sida av den **Mobile Engagement** portal. Du använder den **Mobile Engagement** portalen för att övervaka och hantera dina mobila appar. 
 
 För att nå den **mitt konto** klickar du på ditt konto överst på sidan.
@@ -57,7 +61,7 @@ Om du vill använda Push-API eller Device API behöver du dina användare unikt 
 ## <a name="troubleshooting-guide"></a>Felsökningsguide för
 * [Felsökningsguide för - tjänsten][Link 24]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [UI-dokumentation – startsida][Link 13]
 
 <!--Image references-->

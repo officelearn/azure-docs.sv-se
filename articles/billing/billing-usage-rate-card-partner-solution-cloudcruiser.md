@@ -1,11 +1,11 @@
 ---
 title: Molnet Cruiser och Microsoft Azure Billing API-Integration | Microsoft Docs
-description: "Ger ett unikt perspektiv från Microsoft Azure Billing partner molnet Cruiser på deras upplevelser integrera Azure Billing API: erna i sin produkt.  Detta är särskilt användbart för Azure och molnet Cruiser kunder som vill använda/försök molnet Cruiser för Microsoft Azure-paket."
-services: 
-documentationcenter: 
-author: BryanLa
+description: 'Ger ett unikt perspektiv från Microsoft Azure Billing partner molnet Cruiser på deras upplevelser integrera Azure Billing API: erna i sin produkt.  Detta är särskilt användbart för Azure och molnet Cruiser kunder som vill använda/försök molnet Cruiser för Microsoft Azure-paket.'
+services: ''
+documentationcenter: ''
+author: tonguyen
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: mobandyo;sirishap;bryanla
-ms.openlocfilehash: 7d66cac98afa72c807f597403b1e2bd278e45cec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ddb81078e8019284c0481d4ea8d72253d3f0a5a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Molnet Cruiser och Microsoft Azure Billing API-integrering
 Den här artikeln beskrivs hur informationen som samlas in från den nya Microsoft Azure Billing API: er kan användas i molnet Cruiser för arbetsflödet kostnaden simulering och analys.
@@ -123,7 +123,7 @@ Sista målet är att kunna skapa rapporter som det nedanstående och kunna analy
 
 ![Bild 10 - rapport med uppdelning med hjälp av taggar][10]
 
-### <a name="microsoft-azure-tags"></a>Microsoft Azure-taggar
+### <a name="microsoft-azure-tags"></a>Microsoft Azure Tags
 Tillgängliga via API: et för Azure Usage data innehåller information om förbrukningen utan även resursmetadata, inklusive alla taggar som är kopplade till den. Taggar ger ett enkelt sätt att organisera dina resurser, men för att gälla, måste du se till att:
 
 * Taggar tillämpas korrekt till resurserna på etablera tid

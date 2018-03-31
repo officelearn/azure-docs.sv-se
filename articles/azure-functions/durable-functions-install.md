@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3451f268e78df6efa5e3fc489b88415349efe169
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3a83ed5f7dba3e4d68204a2c9dffb4459cadfef9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installera tillägget beständiga funktioner och exempel (Azure-funktioner)
 
 Den [varaktiga funktioner](durable-functions-overview.md) tillägget för Azure Functions finns i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Den här artikeln visar hur du installerar paketet och en uppsättning exempel för följande utvecklingsmiljöer:
 
 * Visual Studio 2017 (rekommenderas) 
-
+* Visual Studio-koden
 * Azure Portal
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
@@ -48,11 +48,7 @@ Visual Studio har för närvarande den bästa upplevelsen för att utveckla appa
 Följ samma anvisningar som börjar med exemplet, men gör du följande i stället för att hämta den *.zip* fil:
 
 1. Skapa en Funktionsapp-projekt.
-2. Lägg till följande NuGet-paketet referens till din *.csproj* fil:
-
-   ```xml
-   <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="1.0.0-beta" />
-   ```
+2. Sök efter de följande NuGet referens med *hantera Nuget-paket* och lägga till den i projektet: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.1.0-beta2 (kontrollera *inkludera förhandsversion* Sök efter det här paketet)
    
 ## <a name="visual-studio-code"></a>Visual Studio-koden
 
@@ -129,6 +125,8 @@ Om du vill kan använda du Azure portal för utveckling av beständiga funktione
 1. Skapa en ny funktionsapp på [functions.azure.com](https://functions.azure.com/signin).
 
 2. Konfigurera funktionsapp till [använder version 2.0 runtime](set-runtime-version.md).
+
+   Beständiga funktioner tillägg fungerar med både 1.X-runtime och 2.0 körningsmiljön, men mallar för Azure-portalen är bara tillgängliga när måldatorn 2.0 körningsmiljön.
 
 3. Skapa en ny funktion genom att välja **”skapa egna anpassade funktionen”.** .
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: d1a605ae5c0ea598ba507de0b21a841333df79ef
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7cd16d64d18b4cdcb710f68c55a8251904acda86
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Felsökning av ogiltig konfiguration för tjänstens huvudnamn för din hanterade domän
 
@@ -93,7 +93,7 @@ Följ dessa steg om ett huvudnamn för tjänsten med ID ```d87dcbc6-a371-462e-88
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Varning AADDS105: Programmet för synkronisering av lösenord är inaktuell
 
-**Varningsmeddelande:** tjänstens huvudnamn med program-ID ”d87dcbc6-a371-462e-88e3-28ad15ec4e64” har tagits bort och sedan återskapas. Den här tjänstens huvudnamn hanterar en annan tjänstens huvudnamn och ett program som används för synkronisering av lösenord. Hanterade tjänstens huvudnamn och/eller programmet kunde inte auktoriseras under nyskapade tjänstens huvudnamn så att de inte kan hanteras av vår tjänst. Detta innebär att nyligen skapade tjänstens huvudnamn inte kommer att uppdatera gamla hanterade program och synkronisering av lösenord kommer att påverkas.
+**Varningsmeddelande:** tjänstens huvudnamn med program-ID ”d87dcbc6-a371-462e-88e3-28ad15ec4e64” har tagits bort och sedan återskapas. Återskapning lämnar bakom inkonsekvent behörigheter på Azure AD Domain Services-resurser som krävs för att underhålla din hanterade domän. Synkronisering av lösenord för din hanterade domän kan påverkas.
 
 
 **Lösning:** du behöver Azure AD PowerShell för att slutföra dessa steg. Information om hur du installerar Azure AD PowerShell finns i [i den här artikeln](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).

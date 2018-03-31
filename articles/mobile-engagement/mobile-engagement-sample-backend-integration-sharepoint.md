@@ -1,11 +1,11 @@
 ---
 title: Azure Mobile Engagement - serverdelen integrering
-description: "Anslut Azure Mobile Engagement med en SharePoint-serverdel för att skapa kampanjer från SharePoint"
+description: Anslut Azure Mobile Engagement med en SharePoint-serverdel för att skapa kampanjer från SharePoint
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 06297b43-579f-46e6-8a58-961a68f9aa09
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d49f1094f4c3f170f3618f3e19e42266f9ae8858
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf530ca6dce32050487f367aa80b10bf7f20b7e7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---api-integration"></a>Azure Mobile Engagement - API-integrering
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 I ett automatiserat marknadsföring system sker skapa och aktivera marknadsföringskampanjer också automatiskt. För detta ändamål - Azure Mobile Engagement kan skapa dessa automatiserade marknadsföringskampanjer via API: er samt. 
 
 Kunder använder vanligtvis Mobile Engagement frontend-gränssnitt för att skapa meddelanden/avsökningar etc som en del av deras marknadsföringskampanjer. Men när marknadsföringskampanjer blir mogen finns behov av att använda informationen låst i serverdelssystem (till exempel alla CRM-system eller CMS-system som SharePoint) så att du kan skapa en helt automatiserad pipeline som skapar kampanjer i Mobile Engagement dynamiskt baserat på de data som flödar i från backend-system. 
@@ -155,7 +159,7 @@ Den här kursen går igenom ett scenario där SharePoint företagsanvändare fyl
 4. När du har ett meddelande som har skapats visas något som liknar följande i Mobile Engagement-portal (Observera att tillståndet = utkast och aktiverad = ej tillämpligt)
    
     ![][3]
-5. `CreateAzMECampaign`skapar ett meddelande kampanj och returnerar dess Id till anroparen. `ActivateAzMECampaign`kräver detta Id som parameter för att aktivera kampanjen. 
+5. `CreateAzMECampaign` skapar ett meddelande kampanj och returnerar dess Id till anroparen. `ActivateAzMECampaign` kräver detta Id som parameter för att aktivera kampanjen. 
    
         static async Task<bool> ActivateAzMECampaign(int campaignId)
         {

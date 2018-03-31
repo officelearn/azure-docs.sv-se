@@ -1,5 +1,5 @@
 ---
-title: Ta bort länk till Azure Automation-konto från Log Analytics
+title: Avlänka Azure Automation-konto från logganalys | Microsoft Docs
 description: Den här artikeln innehåller en översikt över hur du avlänkar Azure Automation-konto från logganalys-arbetsytan.
 services: automation
 ms.service: automation
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2e6f887a7684ae995e9b7da84dace523843ff555
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b8b00f8a82dd63df13ccd0bc7e10429323c15ab3
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Hur du avlänkar ditt Automation-konto från logganalys-arbetsytan
 
@@ -46,4 +46,4 @@ Om du använde Starta/stoppa virtuella datorer under låg belastning på nätver
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill konfigurera om ditt Automation-konto för att integrera med OMS Log Analytics finns [vidarebefordra jobbstatus och jobbet strömmar från Automation till logganalys (OMS)](automation-manage-send-joblogs-log-analytics.md). 
+Om du vill konfigurera om ditt Automation-konto för att integrera med Log Analytics finns [vidarebefordra jobbstatus och jobbet strömmar från Automation till logganalys](automation-manage-send-joblogs-log-analytics.md). 

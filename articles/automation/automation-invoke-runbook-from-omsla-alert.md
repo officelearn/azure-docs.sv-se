@@ -1,6 +1,6 @@
 ---
 title: Anropa en Azure Automation-runbook från en Log Analytics-avisering
-description: Den här artikeln innehåller en översikt över hur du anropar en Automation-runbook från en avisering i Log Analytics i Operations Management Suite.
+description: Den här artikeln innehåller en översikt över hur att anropa en Automation-runbook från en avisering om logganalys i Azure.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3f95d6b9385b252bce05f19b38ae38f11e88a88c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2a0e497535f783cbffc21004331ccd2a50ab8eef
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Anropa en Azure Automation-runbook från en Log Analytics-avisering
 
@@ -23,11 +23,11 @@ En varning kan till exempel visa en långvarig topp i processorbelastning. Eller
 Det finns två alternativ för att anropa en runbook i aviseringskonfigurationen:
 
 * Använd en webhook.
-   * Detta är det enda tillgängliga alternativet om Operations Management Suite-arbetsytan inte är länkad till ett Automation-konto.
-   * Om du redan har ett Automation-konto som är kopplat till en Operations Management Suite-arbetsyta är det här alternativet fortfarande tillgängligt.  
+   * Detta är det enda tillgängliga alternativet om logganalys-arbetsytan inte är länkat till ett Automation-konto.
+   * Det här alternativet är fortfarande tillgänglig om du redan har ett Automation-konto som är kopplad till logganalys-arbetsytan.  
 
 * Välj en runbook direkt.
-   * Det här alternativet är endast tillgängligt om Operation Management Suite-arbetsytan är länkad till ett Automation-konto.
+   * Det här alternativet är bara tillgängligt om logganalys-arbetsytan är kopplad till ett Automation-konto.
 
 ## <a name="calling-a-runbook-by-using-a-webhook"></a>Anropa en runbook med en webhook
 
@@ -35,7 +35,7 @@ Du kan använda en webhook för att starta en viss runbook i Azure Automation vi
 
 ## <a name="calling-a-runbook-directly"></a>Anropa en runbook direkt
 
-Du kan installera och konfigurera Automatisering och kontroll som erbjuds i Operations Management Suite-arbetsytan. När du konfigurerar alternativ för runbook-åtgärder för aviseringen, kan du visa alla runbooks från listrutan **Välj en runbook** och välj den specifika runbook som du vill köra som svar på aviseringen. Den valda runbooken kan köras i en Azure-arbetsyta eller på en Hybrid Runbook Worker. 
+Du kan installera och konfigurera automatisering och kontroll erbjuder i logganalys-arbetsytan. När du konfigurerar alternativ för runbook-åtgärder för aviseringen, kan du visa alla runbooks från listrutan **Välj en runbook** och välj den specifika runbook som du vill köra som svar på aviseringen. Den valda runbooken kan köras i en Azure-arbetsyta eller på en Hybrid Runbook Worker. 
 
 När du har skapat aviseringen med hjälp av runbook-alternativet skapas en webhook för runbooken. Du kan se webhooken om du går till Automation-kontot och öppnar webhookfönstret för den markerade runbooken. 
 
@@ -90,7 +90,7 @@ $SearchResult.SvcDisplayName_CF
 
 När tjänsten stoppas identifierar aviseringsregeln i Log Analytics en matchning, utlöser runbooken och skickar aviseringssammanhanget till runbook. Runbook försöker verifiera att tjänsten har stoppats. I så fall, försöker runbook att starta om tjänsten, kontrollera att den startade korrekt och visa resultaten.     
 
-Om du inte har ditt Automation-konto som är kopplat till Operations Management Suite-arbetsytan kan du också konfigurera varningsregeln med en webhook-åtgärd. Webhook-åtgärden utlöser runbooken. Den konfigurerar också runbooken för att konvertera den JSON-formaterade strängen och filtrera på **SearchResult** genom att följa anvisningarna ovan.    
+Om du inte har ditt Automation-konto som är kopplad till logganalys-arbetsytan kan konfigurera du också varningsregeln med en webhook-åtgärd. Webhook-åtgärden utlöser runbooken. Den konfigurerar också runbooken för att konvertera den JSON-formaterade strängen och filtrera på **SearchResult** genom att följa anvisningarna ovan.    
 
 >[!NOTE]
 > Om din arbetsyta har uppgraderats till [det nya Log Analytics-frågespråket](../log-analytics/log-analytics-log-search-upgrade.md) har webhook-nyttolasten ändrats. Mer information om formatet finns i [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).

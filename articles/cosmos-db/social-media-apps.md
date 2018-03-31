@@ -1,12 +1,12 @@
 ---
-title: "Azure DB Cosmos-designmönstret: sociala medier appar | Microsoft Docs"
-description: "Läs mer om ett designmönster för sociala nätverk genom att utnyttja flexibiliteten för lagring av Azure Cosmos DB och andra Azure-tjänster."
+title: 'Azure DB Cosmos-designmönstret: sociala medier appar | Microsoft Docs'
+description: Läs mer om ett designmönster för sociala nätverk genom att utnyttja flexibiliteten för lagring av Azure Cosmos DB och andra Azure-tjänster.
 keywords: Sociala medier appar
 services: cosmos-db
 author: ealsur
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.openlocfilehash: c89b2db6d5a80f184ca98ef757605272d385a81c
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: d223187ab1f8338c57e6aa32903ea9b762393ab5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Gå sociala med Azure Cosmos DB
 Bor i ett massivt sammankopplade society innebär att på någon punkt i livslängd du blir en del av en **sociala nätverk**. Vi använder sociala nätverk för att hålla kontakten med vänner, kolleger, familj, och ibland att dela vår passion med personer med gemensamma intressen.
@@ -229,7 +229,7 @@ Har stöd för cosmos DB [dynamisk partitionering](https://azure.microsoft.com/b
 
 En intressant punkt värt att nämna att Cosmos DB kör dina frågor (inklusive [mängder](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) för alla partitioner transparent, behöver du inte lägga till några logik som datamängden växer.
 
-Med tiden kan du slutligen växer i trafik och förbrukning av nätverksresurser (mätt i [RUs](request-units.md), eller begära enheter) kommer att öka. Du kan läsa och skriva oftare när din userbase växer och de kommer att börja skapa och läsa mer innehåll. möjligheten för **skala din genomströmning** är viktigt. Öka våra RUs är mycket enkelt, vi kan göra det med några få klick på Azure-portalen eller genom [utfärda kommandon via API: et](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer).
+Med tiden kan du slutligen växer i trafik och förbrukning av nätverksresurser (mätt i [RUs](request-units.md), eller begära enheter) kommer att öka. Du kan läsa och skriva oftare när din userbase växer och de kommer att börja skapa och läsa mer innehåll. möjligheten för **skala din genomströmning** är viktigt. Öka våra RUs är mycket enkelt, vi kan göra det med några få klick på Azure-portalen eller genom [utfärda kommandon via API: et](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
 
 ![Skala upp och definiera en partitionsnyckel](./media/social-media-apps/social-media-apps-scaling.png)
 
@@ -243,7 +243,7 @@ När du replikerar data globalt, måste du se till att klienterna kan dra nytta 
 
 ![Lägger till global täckning i din sociala plattform](./media/social-media-apps/social-media-apps-global-replicate.png)
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Den här artikeln försöker sprida vissa enstaka i alternativen för att skapa sociala nätverk helt på Azure med prisvärda tjänster och tillhandahålla goda resultat genom att använda en flera lager lagring lösningen och data fördelning som kallas ”stege”.
 
 ![Diagram över interaktion mellan Azure-tjänster för sociala nätverk](./media/social-media-apps/social-media-apps-azure-solution.png)

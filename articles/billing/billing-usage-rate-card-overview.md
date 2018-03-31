@@ -1,11 +1,11 @@
 ---
-title: "Azure API: er för fakturering | Microsoft Docs"
-description: "Läs mer om Azure Billing-användning och RateCard APIs som används för att ge insikter om Azure resursförbrukning och trender."
-services: 
-documentationcenter: 
-author: BryanLa
+title: 'Azure API: er för fakturering | Microsoft Docs'
+description: Läs mer om Azure Billing-användning och RateCard APIs som används för att ge insikter om Azure resursförbrukning och trender.
+services: ''
+documentationcenter: ''
+author: tonguyen
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/9/2017
 ms.author: mobandyo;bryanla
-ms.openlocfilehash: 26217d6f4e14166a89fbb561cb12d0af78ae6f4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0e546095ca1079ccc59c51b9b5230be04415eb5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Använd Azure Billing API: er för att genom programmering få bättre överblick på din användning av Azure
 Använd Azure fakturering API: er som hämtar användnings- och data till din önskade verktyg för dataanalys. Användning av Azure och RateCard APIs kan hjälpa dig korrekt förutsäga och hantera dina kostnader. API: erna implementeras som en Resource Provider och en del av API: er som exponeras av Azure Resource Manager.  
@@ -45,7 +45,7 @@ Använd Azure [resurs användning API](https://msdn.microsoft.com/library/azure/
 ## <a name="azure-resource-ratecard-api-preview"></a>Azure-resurs RateCard API (förhandsgranskning)
 Använd den [Azure Resource RateCard API](https://msdn.microsoft.com/library/azure/mt219005) att hämta listan över tillgängliga Azure-resurser och uppskattade prisinformation för varje. Detta API innehåller:
 
-* **Azure rollbaserad åtkomstkontroll** -konfigurera principer för åtkomst på den [Azure-portalen](https://portal.azure.com) eller via [Azure PowerShell-cmdlets](/powershell/azure/overview) att ange vilka användare eller program kan få åtkomst till RateCard data. Anropare måste använda standard Azure Active Directory-token för autentisering. Lägg till anroparen Reader, ägare eller deltagare rollen för att få åtkomst till användningsdata för en viss Azure-prenumeration.
+* **Azure rollbaserad åtkomstkontroll** -konfigurera principer för åtkomst på den [Azure-portalen](https://portal.azure.com) eller via [Azure PowerShell-cmdlets](/powershell/azure/overview) att ange vilka användare eller program kan få åtkomst till den RateCard data. Anropare måste använda standard Azure Active Directory-token för autentisering. Lägg till anroparen Reader, ägare eller deltagare rollen för att få åtkomst till användningsdata för en viss Azure-prenumeration.
 * **Stöd för betala per användning, MSDN, Summa och kredit erbjudanden (EA och [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) stöds inte)** -detta API ger Azure erbjudande nivå hastighet information.  Anroparen av denna API måste klara i erbjudandet information för att hämta resursinformation och priser. Vi kan för närvarande inte att ange EA priser eftersom EA erbjudanden har anpassat kostnader per registrering. 
 
 ## <a name="scenarios"></a>Scenarier

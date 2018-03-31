@@ -1,23 +1,23 @@
 ---
-title: "Aktivera Virtuella Azure-säkerhetskopiering vid skapandet | Microsoft Docs"
-description: "Se stegen för att aktivera säkerhetskopiering av Azure virtuella datorer under skapandeprocessen."
+title: Aktivera Virtuella Azure-säkerhetskopiering vid skapandet | Microsoft Docs
+description: Se stegen för att aktivera säkerhetskopiering av Azure virtuella datorer under skapandeprocessen.
 services: backup, virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2018
 ms.author: trinadhk
-ms.openlocfilehash: 4041fc555fe4b61d10f84236dcae5156c6282fd3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e16714eee697d9dc8102b5f29d9639d650517562
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enable-backup-during-azure-virtual-machine-creation"></a>Aktivera säkerhetskopiering under skapande av virtuell Azure-dator 
 
@@ -57,6 +57,10 @@ Om du inte är redan i loggat in på ditt konto kan logga in på den [Azure-port
 ## <a name="initiate-a-backup-after-creating-the-vm"></a>Starta en säkerhetskopiering när du har skapat den virtuella datorn 
 
 Om principen för säkerhetskopiering har skapats, är det bra att skapa en första säkerhetskopiering. Visa säkerhetskopiering information för den virtuella datorn när VM skapa mallen slutförs, från den **Operations** ange på den vänstra menyn klickar du på **säkerhetskopiering**. Du kan använda detta för att utlösa en säkerhetskopiering på begäran, Återställ en fullständig virtuell eller alla diskar, återställa filer från säkerhetskopiering eller ändra principen för säkerhetskopiering som är kopplade till den virtuella datorn.  
+
+## <a name="using-a-resource-manager-template-to-deploy-a-protected-vm"></a>Med en Resource Manager-mall för att distribuera en skyddad virtuell dator
+
+I föregående steg förklarar hur du använder Azure-portalen för att skapa en virtuell dator och skydda det till Recovery Services-valvet. Om du vill att snabbt distribuera en eller flera virtuella datorer och skydda dem till ett Recovery Services-valv, finns i mallen, [distribuera en virtuell Windows-dator och aktivera säkerhetskopiering](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar 
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure DB Cosmos Prestandatips för Java | Microsoft Docs"
-description: "Läs klienten konfigurationsalternativ för att förbättra Azure Cosmos DB databasprestanda"
-keywords: "hur du förbättrar databasens prestanda"
+title: Azure DB Cosmos Prestandatips för Java | Microsoft Docs
+description: Läs klienten konfigurationsalternativ för att förbättra Azure Cosmos DB databasprestanda
+keywords: hur du förbättrar databasens prestanda
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: dfe8f426-3c98-4edc-8094-092d41f2795e
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: fef5ed126575727c23cdff496c6684b9bf3192cf
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3a6c7c51810375574895643cea2e0e24508fa382
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/30/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -110,7 +110,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
     När utför en grupp läsa dokument med hjälp av Läs feed funktioner (till exempel [readDocuments]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.readdocuments#com_microsoft_azure_documentdb__document_client_readDocuments_String_FeedOptions_c) eller vid utfärdande av en SQL-fråga, returneras resultatet i ett segmenterade sätt om resultatet är för stor. Resultaten returneras i mängder 100 objekt eller 1 MB som standard, oavsett vilken gränsen är träffar första.
 
-    För att minska antalet nätverket förfrågningar krävs för att hämta alla tillämpliga resultat, kan du öka sidan storlek med den [x-ms-max--antal objekt](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-request-headers) huvudet i begäran till upp till 1000. I fall där du vill visa endast några resultat, till exempel om ditt användar-gränssnittet eller programmet API returnerar bara 10 resulterar en tid, du kan också minska sidstorleken till 10 för att minska den används för läsning och frågor.
+    För att minska antalet nätverket förfrågningar krävs för att hämta alla tillämpliga resultat, kan du öka sidan storlek med den [x-ms-max--antal objekt](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) huvudet i begäran till upp till 1000. I fall där du vill visa endast några resultat, till exempel om ditt användar-gränssnittet eller programmet API returnerar bara 10 resulterar en tid, du kan också minska sidstorleken till 10 för att minska den används för läsning och frågor.
 
     Du kan också ange sidan storlek med den [setPageSize metoden](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
 
@@ -143,7 +143,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
     Komplexiteten i en fråga påverkar hur många enheter som begäran används för en åtgärd. Antalet predikat, predikat, antalet UDF: er och storleken på alla källa datauppsättningen påverkar kostnaden för frågor.
 
-    För mätning av alla åtgärder (skapa, uppdatera eller ta bort) inspektera den [x-ms-begäran-kostnad](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) huvud (eller motsvarande RequestCharge-egenskapen i [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource_response) eller [FeedResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_response) att mäta antalet begäran enheter som används av dessa åtgärder.
+    För mätning av alla åtgärder (skapa, uppdatera eller ta bort) inspektera den [x-ms-begäran-kostnad](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) huvud (eller motsvarande RequestCharge-egenskapen i [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource_response) eller [FeedResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_response) att mäta antalet begäran enheter som används av dessa åtgärder.
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);
@@ -155,7 +155,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 <a id="429"></a>
 2. **Hantera hastighet begränsa/förfrågningar för stor**
 
-    När en klient försöker överskrida reserverat dataflöde för ett konto, finns det inga prestandaförsämring på servern och ingen användning av genomflödeskapaciteten utanför den reserverade. Servern förebyggande syfte kan avsluta begäran och RequestRateTooLarge (HTTP-statuskod 429) och returnera den [x-ms-retry-efter-ms](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) huvud som anger hur lång tid i millisekunder som användaren måste vänta innan ett nytt försök begäran.
+    När en klient försöker överskrida reserverat dataflöde för ett konto, finns det inga prestandaförsämring på servern och ingen användning av genomflödeskapaciteten utanför den reserverade. Servern förebyggande syfte kan avsluta begäran och RequestRateTooLarge (HTTP-statuskod 429) och returnera den [x-ms-retry-efter-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) huvud som anger hur lång tid i millisekunder som användaren måste vänta innan ett nytt försök begäran.
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge

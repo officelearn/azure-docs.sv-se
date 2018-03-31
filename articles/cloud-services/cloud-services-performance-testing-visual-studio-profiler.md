@@ -1,12 +1,12 @@
 ---
-title: "Profilering av en tjänst i molnet lokalt i Beräkningsemulatorn | Microsoft Docs"
+title: Profilering av en tjänst i molnet lokalt i Beräkningsemulatorn | Microsoft Docs
 services: cloud-services
-description: "Undersöka prestandaproblem i molntjänster med Visual Studio-profiler"
-documentationcenter: 
+description: Undersöka prestandaproblem i molntjänster med Visual Studio-profiler
+documentationcenter: ''
 author: mikejo
-manager: ghogen
-editor: 
-tags: 
+manager: douge
+editor: ''
+tags: ''
 ms.assetid: 25e40bf3-eea0-4b0b-9f4a-91ffe797f6c3
 ms.service: cloud-services
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8ff7b88a3086488ab669288687c274237ca30b47
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testa prestanda för en tjänst i molnet lokalt i Azure-Beräkningsemulatorn med hjälp av Visual Studio-Profiler
 En mängd olika verktyg och tekniker som är tillgängliga för att testa prestanda för molntjänster.
@@ -30,7 +30,7 @@ Du kanske också vill profilen programmet lokalt i beräkningsemulatorn innan du
 Artikeln handlar om CPU-samplingsmetoden för profilering som kan göras lokalt i emulatorn. CPU-provtagning är en metod för profilering som inte är mycket påträngande. Vid ett avsedda exempelintervall tar profileraren en ögonblicksbild av anropsstacken. Data som samlas in under en viss tidsperiod och visas i en rapport. Den här metoden för profilering tenderar att ange där i ett beräkningsmässigt intensiva program mesta av arbetet CPU görs.  Detta ger dig möjlighet att fokusera på ”varm sökvägen” där programmet tillbringar mest tid.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1: Konfigurera Visual Studio för profilering
-Det finns först ett fåtal konfigurationsalternativ för Visual Studio som kan vara användbara när profilering. Om du vill vara meningsfullt profilering rapporter behöver symboler (.pdb-filer) för programmet och även symboler för bibliotek. Du vill kontrollera att du refererar till de tillgängliga symbol-servrarna. Gör på den **verktyg** -menyn i Visual Studio väljer **alternativ**, Välj **Debugging**, sedan **symboler**. Kontrollera att Microsoft Symbol-servrar visas **Symbol filplatser (.pdb)**.  Du kan också referera http://referencesource.microsoft.com/symbols som kan ha ytterligare symbol-filer.
+Det finns först ett fåtal konfigurationsalternativ för Visual Studio som kan vara användbara när profilering. Om du vill vara meningsfullt profilering rapporter behöver symboler (.pdb-filer) för programmet och även symboler för bibliotek. Du vill kontrollera att du refererar till de tillgängliga symbol-servrarna. Gör på den **verktyg** -menyn i Visual Studio väljer **alternativ**, Välj **Debugging**, sedan **symboler**. Kontrollera att Microsoft Symbol-servrar visas **Symbol filplatser (.pdb)**.  Du kan också referera http://referencesource.microsoft.com/symbols, som kan ha ytterligare symbol-filer.
 
 ![Symbolalternativ][4]
 

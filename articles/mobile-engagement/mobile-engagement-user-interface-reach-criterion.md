@@ -1,11 +1,11 @@
 ---
-title: "Användargränssnittet för Azure Mobile Engagement - Reach kriterium"
-description: "Lär dig hur du använder målobjekt kriterier för att skicka push-kampanjer till en del av dina användare med Azure Mobile Engagement"
+title: Användargränssnittet för Azure Mobile Engagement - Reach kriterium
+description: Lär dig hur du använder målobjekt kriterier för att skicka push-kampanjer till en del av dina användare med Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a4ed03a0-55b1-4dd8-b0bd-c475005afb66
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 803b44721d0ab1ac7b5a8074e18857fc57adb724
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2adf473c6acea0f128eb14e2616748ff29d5d762
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-targeting-criteria-to-send-push-campaigns-to-a-select-subset-of-your-users"></a>Hur du använder målobjekt kriterier för att skicka push-kampanjer till en del av dina användare
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Målobjekt för användarna efter specifika villkor med knappen ”villkor” är en av de mest kraftfulla begrepp som hjälper till att du skickar relevanta push-meddelanden i Azure Mobile Engagement att kunderna svarar på i stället för att skicka alla. Du kan begränsa målgruppen utifrån kriterier som standard och simulera push-meddelanden att avgöra hur många som tar emot meddelandet.
 
 **Se även:**

@@ -1,11 +1,11 @@
 ---
-title: "Med Windows PowerShell-skript för att publicera till utvecklings- och testmiljöer | Microsoft Docs"
-description: "Lär dig hur du använder Windows PowerShell-skript från Visual Studio för att publicera till utveckling och testa miljöer."
+title: Med Windows PowerShell-skript för att publicera till utvecklings- och testmiljöer | Microsoft Docs
+description: Lär dig hur du använder Windows PowerShell-skript från Visual Studio för att publicera till utveckling och testa miljöer.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 5fff1301-5469-4d97-be88-c85c30f837c1
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: 4e9409aac836a60e7ea01261840c084ff09e954e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.author: ghogen
+ms.openlocfilehash: 58d1c8398e626544a7b02198ec0431203aedcc81
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Använda Windows PowerShell-skript för att publicera i utvecklings- och testmiljöer
 
@@ -26,7 +26,7 @@ När du skapar ett webbprogram i Visual Studio kan skapa du ett Windows PowerShe
 
 Med dessa skript kan etablera du anpassade versioner (även kallat utvecklings- och testmiljöer) för din plats för temporär användning. Du kan till exempel konfigurera en viss version av din webbplats på en virtuell Azure-dator eller på mellanlagringsplatsen på en webbplats som kör ett test-paket, återskapa ett programfel, och testa en felkorrigering, utvärderingsversion föreslagna ändringen eller konfigurera en anpassad miljö för demonstration eller presentation. När du har skapat ett skript som publicerar ditt projekt kan du återskapa identiska miljöer genom att köra skriptet efter behov eller köra skriptet med din egen version av ditt webbprogram för att skapa en anpassad miljö för testning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure SDK 2.3 eller senare. Se [Visual Studio-hämtningar](http://go.microsoft.com/fwlink/?LinkID=624384). (Du behöver inte Azure SDK för att generera skript för webbprojekt. Den här funktionen används för webbprojekt, inte webbroller i molntjänster.)
 * Azure PowerShell 0.7.4 eller senare. Se [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
@@ -313,39 +313,39 @@ Om du vill få hjälp med funktioner som du kan använda Kommandotolken för Win
 
 | Funktionsnamn | Beskrivning |
 | --- | --- |
-| Lägg till AzureSQLDatabase |Skapar en ny Azure SQL-databas. |
-| Lägg till AzureSQLDatabases |Skapar Azure SQL-databaser från värden i JSON-konfigurationsfil som genereras av Visual Studio. |
-| Lägg till AzureVM |Skapar en virtuell Azure-dator och returnerar URL för den distribuerade virtuella datorn. Funktionen ställer in kraven och anropar sedan den **ny AzureVM** funktionen (Azure-modulen) för att skapa en ny virtuell dator. |
-| Lägg till AzureVMEndpoints |Lägger till nya inkommande slutpunkter till en virtuell dator och återställer den virtuella datorn med ny slutpunkt. |
-| Lägg till AzureVMStorage |Skapar ett nytt Azure storage-konto i den aktuella prenumerationen. Namnet på kontot som börjar med ”devtest” följt av en unik alfanumerisk sträng. Funktionen returnerar namnet på det nya lagringskontot. Ange en plats eller en tillhörighetsgrupp för det nya lagringskontot. |
-| Lägg till AzureWebsite |Skapar en webbplats med angivet namn och plats. Anropar den här funktionen i **ny AzureWebsite** funktion i Azure-modulen. Om prenumerationen inte redan innehåller en webbplats med det angivna namnet kan den här funktionen skapar webbplatsen och returnerar ett objekt för webbplatsen. Annars returneras `$null`. |
+| Add-AzureSQLDatabase |Skapar en ny Azure SQL-databas. |
+| Add-AzureSQLDatabases |Skapar Azure SQL-databaser från värden i JSON-konfigurationsfil som genereras av Visual Studio. |
+| Add-AzureVM |Skapar en virtuell Azure-dator och returnerar URL för den distribuerade virtuella datorn. Funktionen ställer in kraven och anropar sedan den **ny AzureVM** funktionen (Azure-modulen) för att skapa en ny virtuell dator. |
+| Add-AzureVMEndpoints |Lägger till nya inkommande slutpunkter till en virtuell dator och återställer den virtuella datorn med ny slutpunkt. |
+| Add-AzureVMStorage |Skapar ett nytt Azure storage-konto i den aktuella prenumerationen. Namnet på kontot som börjar med ”devtest” följt av en unik alfanumerisk sträng. Funktionen returnerar namnet på det nya lagringskontot. Ange en plats eller en tillhörighetsgrupp för det nya lagringskontot. |
+| Add-AzureWebsite |Skapar en webbplats med angivet namn och plats. Anropar den här funktionen i **ny AzureWebsite** funktion i Azure-modulen. Om prenumerationen inte redan innehåller en webbplats med det angivna namnet kan den här funktionen skapar webbplatsen och returnerar ett objekt för webbplatsen. Annars returneras `$null`. |
 | Backup-prenumeration |Sparar den aktuella Azure-prenumerationen i den `$Script:originalSubscription` variabeln i skriptet omfång. Den här funktionen sparar den aktuella Azure-prenumerationen (som erhålls av `Get-AzureSubscription -Current`) och dess storage-konto och prenumeration som har ändrats med det här skriptet (lagras i variabeln `$UserSpecifiedSubscription`) och dess storage-kontot i skriptet omfång. Genom att spara värdena kan du använda en funktion som `Restore-Subscription`, för att återställa det ursprungliga aktuella prenumeration och storage-kontot till aktuell status om aktuell status har ändrats. |
-| Hitta AzureVM |Hämtar den angivna virtuella Azure-datorn. |
-| Formatet DevTestMessageWithTime |Annat datum och tid till ett meddelande. Den här funktionen är avsedd för meddelanden som skrivs till fel och utförlig dataströmmar. |
+| Find-AzureVM |Hämtar den angivna virtuella Azure-datorn. |
+| Format-DevTestMessageWithTime |Annat datum och tid till ett meddelande. Den här funktionen är avsedd för meddelanden som skrivs till fel och utförlig dataströmmar. |
 | Get-AzureSQLDatabaseConnectionString |Monterar en anslutningssträng för att ansluta till en Azure SQL database. |
 | Get-AzureVMStorage |Returnerar namnet på det första storage-kontot med namnmönster ”devtest*” (skiftlägesokänsligt) i den angivna platsen eller tillhörighetsgruppen. Om den ”devtest*” lagringskontot matchar inte platsen eller tillhörighetsgruppen, funktionen ignoreras. Ange en plats eller en tillhörighetsgrupp. |
 | Get-MSDeployCmd |Returnerar ett kommando för att köra verktyget MsDeploy.exe. |
-| Ny AzureVMEnvironment |Söker efter eller skapar en virtuell dator i den prenumeration som matchar värden i JSON-konfigurationsfil. |
-| Publicera WebPackage |Publicera paketet använder MsDeploy.exe och en webbplats. ZIP-filen för att distribuera resurser till en webbplats. Den här funktionen genererar inte inga utdata. Om anropet till MSDeploy.exe misslyckas, genereras ett undantag. Om du vill ha mer detaljerad information, Använd den **-Verbose** alternativet. |
-| Publicera WebPackageToVM |Verifierar parametervärden och anropar sedan den **publicera WebPackage** funktion. |
-| Läs ConfigFile |Validerar JSON-konfigurationsfil och returnerar en hash-tabell för valda värden. |
+| New-AzureVMEnvironment |Söker efter eller skapar en virtuell dator i den prenumeration som matchar värden i JSON-konfigurationsfil. |
+| Publish-WebPackage |Publicera paketet använder MsDeploy.exe och en webbplats. ZIP-filen för att distribuera resurser till en webbplats. Den här funktionen genererar inte inga utdata. Om anropet till MSDeploy.exe misslyckas, genereras ett undantag. Om du vill ha mer detaljerad information, Använd den **-Verbose** alternativet. |
+| Publish-WebPackageToVM |Verifierar parametervärden och anropar sedan den **publicera WebPackage** funktion. |
+| Read-ConfigFile |Validerar JSON-konfigurationsfil och returnerar en hash-tabell för valda värden. |
 | Restore-prenumeration |Återställer den aktuella prenumerationen till den ursprungliga prenumerationen. |
-| Testa AzureModule |Returnerar `$true` versionen om den installera Azure-modulen är 0.7.4 eller senare. Returnerar `$false` om modulen är inte installerat eller är en tidigare version. Den här funktionen har inga parametrar. |
-| Testa AzureModuleVersion |Returnerar `$true` om versionen av Azure-modulen är 0.7.4 eller senare. Returnerar `$false` om modulen är inte installerat eller är en tidigare version. Den här funktionen har inga parametrar. |
-| Testa HttpsUrl |Konverterar den angivna URL-Adressen till ett System.Uri-objekt. Returnerar `$True` om URL: en är absolut och dess schemat är https. Returnerar `$false` om URL: en är relativ, dess schema inte är HTTPS eller den inmatade strängen kan inte konverteras till en URL. |
-| Test-medlem |Returnerar `$true` om en egenskap eller metod är medlem i objektet. Annars returnerar `$false`. |
+| Test-AzureModule |Returnerar `$true` versionen om den installera Azure-modulen är 0.7.4 eller senare. Returnerar `$false` om modulen är inte installerat eller är en tidigare version. Den här funktionen har inga parametrar. |
+| Test-AzureModuleVersion |Returnerar `$true` om versionen av Azure-modulen är 0.7.4 eller senare. Returnerar `$false` om modulen är inte installerat eller är en tidigare version. Den här funktionen har inga parametrar. |
+| Test-HttpsUrl |Konverterar den angivna URL-Adressen till ett System.Uri-objekt. Returnerar `$True` om URL: en är absolut och dess schemat är https. Returnerar `$false` om URL: en är relativ, dess schema inte är HTTPS eller den inmatade strängen kan inte konverteras till en URL. |
+| Test-Member |Returnerar `$true` om en egenskap eller metod är medlem i objektet. Annars returnerar `$false`. |
 | Skriv ErrorWithTime |Skriver ett felmeddelande som föregås av den aktuella tiden. Anropar den här funktionen i **Format DevTestMessageWithTime** funktionen lägga tiden innan skrivning meddelandet till fel dataströmmen till. |
 | Skriv HostWithTime |Skriver ett meddelande till värdprogrammet (**Write-Host**) med den aktuella tiden prefixet. Effekten av att skriva till värdprogrammet varierar. De flesta program som är värdar för Windows PowerShell skriva meddelanden till standardutdata. |
 | Skriv VerboseWithTime |Skriver ett utförligt meddelande föregås av den aktuella tiden. Eftersom det anropar **Write-Verbose**, ett meddelande visas endast när skriptet körs med den **utförlig** parametern eller när den **VerbosePreference** inställningsgrupp  **Fortsätta**. |
 
-**Publicera WebApplication**
+**Publish-WebApplication**
 
 | Funktionsnamn | Beskrivning |
 | --- | --- |
-| Ny AzureWebApplicationEnvironment |Skapar Azure-resurser, till exempel en webbplats eller virtuell dator. |
-| Ny WebDeployPackage |Den här funktionen är inte implementerad. Du kan lägga till kommandon i den här funktionen för att skapa projektet. |
-| Publicera AzureWebApplication |Publicerar ett program till Azure. |
-| Publicera WebApplication |Skapar och distribuerar Web Apps, virtuella datorer, SQL-databaser och storage-konton för ett webbprojekt i Visual Studio. |
+| New-AzureWebApplicationEnvironment |Skapar Azure-resurser, till exempel en webbplats eller virtuell dator. |
+| New-WebDeployPackage |Den här funktionen är inte implementerad. Du kan lägga till kommandon i den här funktionen för att skapa projektet. |
+| Publish-AzureWebApplication |Publicerar ett program till Azure. |
+| Publish-WebApplication |Skapar och distribuerar Web Apps, virtuella datorer, SQL-databaser och storage-konton för ett webbprojekt i Visual Studio. |
 | Test-WebApplication |Den här funktionen är inte implementerad. Du kan lägga till kommandon i den här funktionen för att testa ditt program. |
 
 ## <a name="next-steps"></a>Nästa steg

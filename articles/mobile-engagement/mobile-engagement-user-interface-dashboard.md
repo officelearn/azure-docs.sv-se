@@ -1,11 +1,11 @@
 ---
-title: "Användargränssnittet för Azure Mobile Engagement - instrumentpanelen"
-description: "Lär dig att visa och hantera diagram av data om ditt program med Azure Mobile Engagement"
+title: Användargränssnittet för Azure Mobile Engagement - instrumentpanelen
+description: Lär dig att visa och hantera diagram av data om ditt program med Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 72d5965e-8e79-48a3-9e63-0b66b7457d3c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d941b9858b964e11308061bae9e6dbc5e2fda767
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Visa och hantera diagram av data om ditt program
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Avsnittet instrumentpanel för gränssnitt kan kunderna skapa anpassade diagram om du vill maximera sin tid genom att tillhandahålla exakt den information som de vill i stället för att söka efter den i avsnittet analytics. En instrumentpanel visar trender för ditt program och den aktiva användaren antalet för olika versioner av ditt program under en given tidpunkt (timme/dag/vecka/månad/anpassat). Trender som visas baseras på de senaste 7 dagarna.
 
-### <a name="see-also"></a>Se även
+### <a name="see-also"></a>Se också
 * [Felsökningsguide för - Analytics][Link 21]
 
 ## <a name="dashboard"></a>Instrumentpanel

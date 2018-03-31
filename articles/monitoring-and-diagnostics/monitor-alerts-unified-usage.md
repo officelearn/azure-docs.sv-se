@@ -1,9 +1,9 @@
 ---
-title: "Skapa, visa och hantera aviseringar med hjälp av Azure Monitor - aviseringar (förhandsversion) | Microsoft Docs"
-description: "Använd den nya miljön enhetlig Azure aviseringar skapa, visa och hantera mått och logga in Varningsregler från en plats."
+title: Skapa, visa och hantera aviseringar med hjälp av Azure Monitor - aviseringar (förhandsversion) | Microsoft Docs
+description: Använd den nya miljön enhetlig Azure aviseringar skapa, visa och hantera mått och logga in Varningsregler från en plats.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: b6b6bfee5b9e9036a6d7ff17ff1a8d4de542bbd3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 6bd2c452059950f714de304cc30c7b4bd023fd86
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Skapa, visa och hantera aviseringar med hjälp av Azure-Monitor - aviseringar (förhandsgranskning)
 
@@ -136,7 +136,7 @@ För **loggen aviseringar** aviseringar kan baseras på:
 
 1. I den [portal](https://portal.azure.com/)väljer **övervakaren** och välj under avsnittet MONITOR - **aviseringar (förhandsgranskning)**.  
 
-2. Den **aviseringar (förhandsgranskning) instrumentpanelen** visas - där alla Azure-aviseringar finns unified och visas i ett enda kort ![avisering instrumentpanelen](./media/monitoring-overview-unified/alerts-preview-overview.png)
+2. Den **aviseringar (förhandsgranskning) instrumentpanelen** visas - där alla Azure-aviseringar finns unified och visas i ett enda kort ![avisering instrumentpanelen](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
 3. Från övre vänstra till höger visar på instrumentpanelen en överblick över den följande: Klicka på att se en detaljerad lista:
     - *Utlöses aviseringar*: antalet aviseringar för närvarande har uppfyllts logik och utlöses i tillstånd
     - *Totalt antal Varningsregler*: antal Varningsregler skapas och i underordnad text, hur många som för närvarande har aktiverats
@@ -147,7 +147,7 @@ För **loggen aviseringar** aviseringar kan baseras på:
 1. I den [portal](https://portal.azure.com/)väljer **övervakaren** och välj under avsnittet MONITOR - **aviseringar (förhandsgranskning)**.  
 2. Välj den **hantera regler** knappen i det översta fältet att navigera till regeln hantering - där alla Varningsregler skapade räknas; inklusive aviseringar som har inaktiverats.
 3. För att hitta för specifika Varningsregler kan antingen använda listrutan filter överst, vilket ger möjlighet att shortlist Varningsregler för specifika *prenumeration, resursgrupper och/eller resursen*. Alternativt med hjälp av sökfunktionen rutan ovanför listan varningsregeln markerat *filtrera aviseringar*, en kan ge nyckelord som matchas mot *avisering namn, villkor och målresurs*; om du vill visa endast regler för matchning.
-   ![Hantera regler för avisering](./media/monitoring-overview-unified/alerts-preview-rules.png)
+   ![Hantera regler för avisering](./media/monitoring-alerts-unified-usage/alerts-preview-rules.png)
 4. Om du vill visa eller ändra specifika varningsregeln, klicka på dess namn som ska visas som en klickbar länk.
 5. Avisering som definierats framgår - strukturen i tre steg: 1) avisering 2) avisering detaljer 3) åtgärden villkorsgruppen. **Rikta kriterier** Klicka på om du vill ändra avisering logiken eller ett nytt villkor kan läggas till efter med hjälp av ikonen bin att ta bort den tidigare logiken. På samma sätt i aviseringsinformation avsnittet - **beskrivning** och **allvarlighetsgrad** kan ändras. Åtgärden gruppen kan ändras och en ny kan vara utformad för att länka till en avisering med hjälp av den **ny grupp** knappen.
 

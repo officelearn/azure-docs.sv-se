@@ -1,11 +1,11 @@
 ---
-title: "Användargränssnittet för Azure Mobile Engagement - segment"
-description: "Lär dig att skapa och hantera användarsegment för att identifiera användningsmönster med Azure Mobile Engagement"
+title: Användargränssnittet för Azure Mobile Engagement - segment
+description: Lär dig att skapa och hantera användarsegment för att identifiera användningsmönster med Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6a4f2205-4a3c-406e-a04f-5e6f2a36653f
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 087f4a1fef420abe9669f8dfe2b84c7a847ce263
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53c5b1b672a0d7212a3d298c3e411a9cc6ac0807
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-segments-of-users-to-identify-usage-patterns"></a>Skapa och hantera användarsegment för att identifiera användningsmönster
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Den här artikeln beskriver den **segment** för den **Mobile Engagement** portal. Du använder den **Mobile Engagement** portalen för att övervaka och hantera dina mobila appar.
 
 Avsnittet segment i Användargränssnittet kan du arbeta på segmentera dina användare baserat på olika beteenden och analyser som du kan hämta från programmet och kan också komma åt via API segment. Segment beräknas först 24 timmar efter att de skapas och de recomputed per dygn baserat på den senaste informationen om analytics. När ett segment beräknas, visas ett ”Day dag tidigare” diagram varje dag.
@@ -107,7 +111,7 @@ När du har konfigurerat dina villkor, visas den i segmentet tratten.
 Eftersom ett segment är baserat på analysdata, beräknas segment en gång per dag.
 I det här exemplet 47,7% av totalt slutanvändarna matchade kriteriet. De ska vara de användare som har haft en bra upplevelse och kommer sannolikt att tillhandahålla en högre klassificering om du överför ett meddelande som ber dem att betygsätta appen i butiken.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Begrepp][Link 6]
 * [Felsöka Guide Service][Link 24]
 

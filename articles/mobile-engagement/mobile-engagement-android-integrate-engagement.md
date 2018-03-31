@@ -1,11 +1,11 @@
 ---
-title: Azure Mobile Engagement Android SDK-Integration
-description: "Senaste uppdateringarna och procedurer för Android SDK för Azure Mobile Engagement"
+title: Azure Mobile Engagement Android SDK Integration
+description: Senaste uppdateringarna och procedurer för Android SDK för Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a5487793-1a12-4f6c-a1cf-587c5a671e6b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 35bd92e52b7a02f58620a03156902f9f91be57ae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fffff6de996b8295639b3d595c5f778de8a0f74f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-on-android"></a>Hur du integrerar Engagement på Android
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -267,7 +271,7 @@ I samband med Mobile Engagement är de behörigheter som kräver godkännande vi
 
 * `ACCESS_COARSE_LOCATION`
 * `ACCESS_FINE_LOCATION`
-* `WRITE_EXTERNAL_STORAGE`(endast när måldatorn Android API-nivå 23 för den här)
+* `WRITE_EXTERNAL_STORAGE` (endast när måldatorn Android API-nivå 23 för den här)
 
 Extern lagring används endast för Reach helheten funktionen. Om du hittar genom att be användarna behörigheten ska vara störande, du kan ta bort den om används endast för Mobile Engagement men på bekostnad av inaktivera funktionen för stor bild.
 
@@ -352,7 +356,7 @@ Om Engagement är aktiv när du anropar den här funktionen kan det ta 1 minut a
 
 Du kan aktivera loggen reporting igen genom att anropa funktionen samma med `true`.
 
-### <a name="integration-in-your-own-preferenceactivity"></a>Integrering i din egen`PreferenceActivity`
+### <a name="integration-in-your-own-preferenceactivity"></a>Integrering i din egen `PreferenceActivity`
 I stället för att anropa den här funktionen kan du också integrera inställningen direkt i din befintliga `PreferenceActivity`.
 
 Du kan konfigurera Engagement att använda inställningar-fil (med läge) i den `AndroidManifest.xml` filen med `application meta-data`:

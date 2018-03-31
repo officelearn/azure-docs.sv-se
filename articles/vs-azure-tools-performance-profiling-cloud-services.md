@@ -1,11 +1,11 @@
 ---
-title: "Testa prestanda för en molnbaserad tjänst | Microsoft Docs"
-description: "Testa prestanda för en tjänst i molnet med hjälp av Visual Studio-profiler"
+title: Testa prestanda för en molnbaserad tjänst | Microsoft Docs
+description: Testa prestanda för en tjänst i molnet med hjälp av Visual Studio-profiler
 services: visual-studio-online
 documentationcenter: n/a
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: 7a5501aa-f92c-457c-af9b-92ea50914e24
 ms.service: visual-studio-online
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: mikejo
-ms.openlocfilehash: 483b8b1c7c75c407cb55a1b3b027ae043c506ebb
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 74ffd70bdb204cee75b86a1e922ac67873a88758
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service"></a>Testa prestanda för en tjänst i molnet
 ## <a name="overview"></a>Översikt
@@ -106,7 +106,7 @@ En profilering session skapas för varje instans av en roll i Molntjänsten. Om 
 2. Välj Azure Compute-nod och väljer sedan noden Azure-distribution för den molntjänst som du har valt att profilen när du publicerade från Visual Studio.
 3. Om du vill visa vilka rapporter för en instans, väljer du vilken roll i tjänsten, öppna snabbmenyn för en specifik instans och välj sedan **visa profilering rapport**.
    
-    Rapporten kan en .vsp fil nu laddas ned från Azure och status för hämtningen visas i Azure-aktivitetsloggen. När nedladdningen är klar profilering rapporten visas på en flik i Redigeraren för Visual Studio med namnet <Role name>  *<Instance Number>*  <identifier>.vsp. Sammanfattningsdata för rapporten visas.
+    Rapporten kan en .vsp fil nu laddas ned från Azure och status för hämtningen visas i Azure-aktivitetsloggen. När nedladdningen är klar profilering rapporten visas på en flik i Redigeraren för Visual Studio med namnet <Role name> *<Instance Number>* <identifier>.vsp. Sammanfattningsdata för rapporten visas.
 4. För att visa olika vyer av rapporten i aktuell vy listan, Välj typ av vy som du vill. Mer information finns i [profilering verktyg rapportvyer](https://msdn.microsoft.com/library/azure/bb385755.aspx).
 
 ## <a name="next-steps"></a>Nästa steg

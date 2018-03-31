@@ -1,12 +1,11 @@
 ---
-title: "Analytics-plattformar: Apache Storm jämförelse till Stream Analytics | Microsoft Docs"
-description: "Få råd om att välja en molnplattform analytics med hjälp av en Apache Storm jämförelse till Stream Analytics. Förstå funktioner och skillnader."
-keywords: "Analytics-plattformen, analytics plattformar, analytics molnplattform, storm jämförelse"
+title: 'Analytics-plattformar: Apache Storm jämförelse till Stream Analytics | Microsoft Docs'
+description: Få råd om att välja en molnplattform analytics med hjälp av en Apache Storm jämförelse till Stream Analytics. Förstå funktioner och skillnader.
+keywords: Analytics-plattformen, analytics plattformar, analytics molnplattform, storm jämförelse
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/27/2017
-ms.author: samacha
-ms.openlocfilehash: 97044cb5d7b0b3fcb3b85328df618a265bc59b61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 48599c362c5db50ebec3acd0aaa4359439edb00b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>Om du väljer en streaming analytics-plattform: jämföra Apache Storm och Azure Stream Analytics
 Azure tillhandahåller flera lösningar för att analysera strömmande data: [Azure Streaming Analytics](https://docs.microsoft.com/azure/stream-analytics/) och [Apache Storm på Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-storm/). Båda analytics-plattformar tillhandahåller fördelarna med en PaaS-lösning. Men plattformarna som har vissa viktiga skillnader i deras funktioner samt i hur du konfigurerar och hanteras. 
@@ -292,7 +291,7 @@ Kopplingar är tillgängliga för Händelsehubbar i Azure, Azure Service Bus, Ka
             </td>
             <td width="204" valign="top">
                 <p>
-Avro JSON, CSV </p>
+Avro, JSON, CSV </p>
             </td>
             <td width="246" valign="top">
                 <p>
@@ -303,7 +302,7 @@ Användare kan implementera valfritt format med anpassad kod.
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Utdata</strong>
+                    <strong>utdata</strong>
                 </p>
             </td>
             <td width="204" valign="top">

@@ -1,11 +1,11 @@
 ---
 title: Azure Mobile Engagement Web SDK integration | Microsoft Docs
-description: "De senaste uppdateringarna och procedurer för Azure Mobile Engagement Web SDK"
+description: De senaste uppdateringarna och procedurer för Azure Mobile Engagement Web SDK
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b5daa2a2-942b-489d-aa1d-568c3b25e56f
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 02/29/2016
 ms.author: piyushjo
-ms.openlocfilehash: 7d8eaa180e277741a583522ee62d68f5247b92bb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bccfbdfe9d99900f58d5dbfa44183146c79b9c88
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="integrate-azure-mobile-engagement-in-a-web-application"></a>Integrera Azure Mobile Engagement i ett webbprogram
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -45,11 +49,11 @@ Mobile Engagement Web SDK levereras som en JavaScript-fil, azure-engagement.js s
 ## <a name="browser-compatibility"></a>Webbläsarkompatibilitet
 Mobile Engagement Web SDK använder inbyggd JSON kodning och avkodning förutom domänerna AJAX-begäranden (förlita dig på specifikationen W3C CORS). Den är kompatibel med följande webbläsare:
 
-* Microsoft Edge 12 +
-* Internet Explorer 10 +
+* Microsoft Edge 12+
+* Internet Explorer 10+
 * Firefox 3.5 +
 * Chrome 4 +
-* Safari 6 +
+* Safari 6+
 * Opera 12 +
 
 ## <a name="configure-mobile-engagement"></a>Konfigurera Mobile Engagement
@@ -64,7 +68,7 @@ Skriva ett skript som skapar en global `azureEngagement` JavaScript-objekt, som 
 Den `connectionString` värdet för ditt program visas i Azure-portalen.
 
 > [!NOTE]
-> `appVersionName`och `appVersionCode` är valfria. Vi rekommenderar dock att du konfigurerar dem så att analytics kan bearbeta versionsinformation.
+> `appVersionName` och `appVersionCode` är valfria. Vi rekommenderar dock att du konfigurerar dem så att analytics kan bearbeta versionsinformation.
 > 
 > 
 

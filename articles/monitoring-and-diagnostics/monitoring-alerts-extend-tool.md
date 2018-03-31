@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vinagara
-ms.openlocfilehash: 76b7481223566f16a5da8c08d9d76f2bdb6b542a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5e8a66214efc27e8e59da354e54d68bb48d274cc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="initiate-extending-alerts-from-oms-into-azure"></a>Initiera utöka aviseringar från OMS i Azure
 Från **23 April 2018**, alla kunder som använder aviseringar som har konfigurerats i [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), utökas till Azure. Aviseringar som har utökats till Azure fungerar på samma sätt som i OMS. Övervakningsfunktioner förblir intakta. Utöka aviseringar som skapats i OMS till Azure ger många fördelar. Mer information om fördelar och utöka aviseringar från OMS till Azure finns [utöka aviseringar från OMS till Azure](monitoring-alerts-extend.md).
@@ -155,7 +155,7 @@ Om det lyckas efter skall den besvaras 200 OK tillsammans med:
     "version": 2
 }
 ```
-Anger att aviseringar har utökats till Azure, som anges av version 2. Den här versionen är bara för att kontrollera om aviseringar har utökats till Azure och har ingen betydelse i med [Log Analytics Sök API](../log-analytics/log-analytics-api-alerts.md). När aviseringar har utökats till Azure har, får alla användare som är kopplade till administratör och deltagare roller på arbetsytan ett e-postmeddelande med information om ändringar som gjorts.
+Anger att aviseringar har utökats till Azure, som anges av version 2. Den här versionen är bara för att kontrollera om aviseringar har utökats till Azure och har ingen betydelse i med [Log Analytics Sök API](../log-analytics/log-analytics-api-alerts.md). När aviseringar har utökats till Azure har, alla e-postadresser som angavs under GET skickas en rapport med information om ändringar som gjorts.
 
 
 Och slutligen, om alla aviseringar i den angivna arbetsytan har redan schemalagts utökas till Azure - svaret på POST blir 403 förbjuden.

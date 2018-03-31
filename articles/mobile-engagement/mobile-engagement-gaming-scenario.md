@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement-implementering för Spelappen"
+title: Azure Mobile Engagement-implementering för Spelappen
 description: Spel app scenario om du vill implementera Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2cafc044-4902-4058-8037-49399bf6bf7f
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0ca35a3d634db8eb5c63afacba046a35b8a3e7ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96e827b57e804cc91798859bc906e49046decede
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="implement-mobile-engagement-with-gaming-app"></a>Implementerar Mobile Engagement med Spelappen
 ## <a name="overview"></a>Översikt
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 En spel Startup har startas en ny fiske baserat role play/strategi spel app. Spelet har varit igång i sex månader. Spelet är mycket stora lyckas, och den har miljontals hämtningar och kvarhållning är mycket högt jämfört med andra uppstart spel appar. Möte kvartalsvis granska accepterar intressenter de behöver för att öka genomsnittliga intäkter per användare (ARPU). Premium i spelet paket är tillgängliga som specialerbjudanden. Dessa spel Pack kan du uppgradera utseende och prestanda på deras fiske rader och bete eller tackles i spelet. Paketet försäljning är dock mycket låg. Därför vill först analysera kundupplevelsen med ett webbanalysverktyg för och sedan för att utveckla ett uppdrag att öka försäljning med avancerade segmentering.
 
 Baserat på de [Azure Mobile Engagement – komma igång med bästa praxis](mobile-engagement-getting-started-best-practices.md) de skapar en strategi.
@@ -61,7 +65,7 @@ Mobila projekt Director har samlat in tillräckligt med data för att förbättr
 * Användare som har klarat nivån 20, starta ägna mer än 10 $/ vecka.
 * Tenderar användare att köpa premium-paket på nivå 16, 24 och 32.
 
-Tack vare den här analysen Mobile projektet Director bestämmer sig för att skapa vissa push notification-sekvenser ökar i appen försäljning. Han skapar tre push-sekvenser som han kallar: Välkommen program, försäljning Program och inaktiva Program. Mer information finns i den [Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)![][1]
+Tack vare den här analysen Mobile projektet Director bestämmer sig för att skapa vissa push notification-sekvenser ökar i appen försäljning. Han skapar tre push-sekvenser som han kallar: Välkommen program, försäljning Program och inaktiva Program. Mer information finns i [Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks) ![][1]
 
 <!--Image references-->
 

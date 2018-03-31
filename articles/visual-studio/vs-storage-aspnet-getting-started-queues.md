@@ -1,11 +1,11 @@
 ---
-title: "Kom igång med Azure queue storage- och Visual Studio anslutna tjänster (ASP.NET) | Microsoft Docs"
-description: "Hur du kommer igång med Azure queue storage i ASP.NET-projekt i Visual Studio efter anslutning till ett lagringskonto med hjälp av Visual Studio anslutna Services"
+title: Kom igång med Azure queue storage- och Visual Studio anslutna tjänster (ASP.NET) | Microsoft Docs
+description: Hur du kommer igång med Azure queue storage i ASP.NET-projekt i Visual Studio efter anslutning till ett lagringskonto med hjälp av Visual Studio anslutna Services
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/23/2016
-ms.author: kraigb
-ms.openlocfilehash: 4687e5dfce72583728068c176d86d100313badf6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 89baa741dcd916b70514f9703255b9e6d01c689b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure queue storage- och Visual Studio anslutna tjänster (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -29,7 +29,7 @@ Azure queue storage erbjuder molntjänster meddelandehantering mellan programkom
 
 Den här kursen visar hur du skriver ASP.NET-kod för några vanliga scenarier med hjälp av Azure queue storage entiteter. Dessa scenarier som inkluderar vanliga aktiviteter som att skapa en Azure-kö och lägga till, ändra, läsa och tar bort Kömeddelanden.
 
-##<a name="prerequisites"></a>Krav
+##<a name="prerequisites"></a>Förutsättningar
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage-konto](../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -572,7 +572,7 @@ Det här avsnittet visas hur du tar bort en kö.
 
 1. Kör programmet och välj **hämta kölängden** att se resultatet liknar följande Skärmdump:
   
-    ![Ta bort kön](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
+    ![Ta bort kö](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.

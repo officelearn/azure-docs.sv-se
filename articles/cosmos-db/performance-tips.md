@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: mimig
-ms.openlocfilehash: 6b8ff8d2efd2039e7b71f4e8f25b2756d324940f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 374d333517301db6cf44f6c00da52202ef5150e1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -136,7 +136,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
     När utför en grupp av dokument med Läs feed funktioner (till exempel ReadDocumentFeedAsync) eller läsas vid utfärdande av en SQL-fråga, returneras resultatet i ett segmenterade sätt om resultatet är för stor. Resultaten returneras i mängder 100 objekt eller 1 MB som standard, oavsett vilken gränsen är träffar första.
 
-    För att minska antalet nätverket förfrågningar krävs för att hämta alla tillämpliga resultat, kan du öka storleken sidan med [x-ms-max--antal objekt](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-request-headers) huvudet i begäran till upp till 1000. I fall där du vill visa endast några resultat, till exempel om ditt användar-gränssnittet eller programmet API returnerar bara 10 resulterar en tid, du kan också minska sidstorleken till 10 för att minska den används för läsning och frågor.
+    För att minska antalet nätverket förfrågningar krävs för att hämta alla tillämpliga resultat, kan du öka storleken sidan med [x-ms-max--antal objekt](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) huvudet i begäran till upp till 1000. I fall där du vill visa endast några resultat, till exempel om ditt användar-gränssnittet eller programmet API returnerar bara 10 resulterar en tid, du kan också minska sidstorleken till 10 för att minska den används för läsning och frågor.
 
     Du kan också ange sidstorlek med tillgängliga Azure Cosmos DB SDK: erna.  Exempel:
 
@@ -183,7 +183,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
     Komplexiteten i en fråga påverkar hur många enheter som begär förbrukas för en åtgärd. Antalet predikat, predikat, antalet UDF: er och storleken på alla källa datauppsättningen påverkar kostnaden för frågor.
 
-    För mätning av alla åtgärder (skapa, uppdatera eller ta bort) inspektera den [x-ms-begäran-kostnad](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) huvud (eller motsvarande RequestCharge-egenskapen i ResourceResponse<T> eller FeedResponse<T> i den. NET SDK) om du vill mäta antalet frågeenheter som används av dessa åtgärder.
+    För mätning av alla åtgärder (skapa, uppdatera eller ta bort) inspektera den [x-ms-begäran-kostnad](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) huvud (eller motsvarande RequestCharge-egenskapen i ResourceResponse<T> eller FeedResponse<T> i den. NET SDK) om du vill mäta antalet frågeenheter som används av dessa åtgärder.
 
     ```csharp
     // Measure the performance (request units) of writes
@@ -202,7 +202,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 <a id="429"></a>
 2. **Hantera hastighet begränsa/förfrågningar för stor**
 
-    När en klient försöker överskrida reserverat dataflöde för ett konto, finns det inga prestandaförsämring på servern och ingen användning av genomflödeskapaciteten utanför den reserverade. Servern förebyggande syfte kan avsluta begäran och RequestRateTooLarge (HTTP-statuskod 429) och returnera den [x-ms-retry-efter-ms](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) huvud som anger hur lång tid i millisekunder som användaren måste vänta innan ett nytt försök begäran.
+    När en klient försöker överskrida reserverat dataflöde för ett konto, finns det inga prestandaförsämring på servern och ingen användning av genomflödeskapaciteten utanför den reserverade. Servern förebyggande syfte kan avsluta begäran och RequestRateTooLarge (HTTP-statuskod 429) och returnera den [x-ms-retry-efter-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) huvud som anger hur lång tid i millisekunder som användaren måste vänta innan ett nytt försök begäran.
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge

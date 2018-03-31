@@ -1,8 +1,8 @@
 ---
-title: "Sparade sökningar och aviseringar i OMS-lösningar | Microsoft Docs"
-description: "Lösningar i OMS inkluderar vanligtvis sparade sökningar i logganalys att analysera data som samlas in av lösningen.  De kan också definiera varningar som meddelar användaren eller automatiskt utföra åtgärder som svar på ett allvarligt problem.  Den här artikeln beskriver hur du definierar logganalys sparade sökningar och aviseringar i en Resource Manager-mall så att de kan tas med i hanteringslösningar."
+title: Sparade sökningar och aviseringar i hanteringslösningar | Microsoft Docs
+description: Hanteringslösningar inkluderar vanligtvis sparade sökningar i logganalys att analysera data som samlas in av lösningen.  De kan också definiera varningar som meddelar användaren eller automatiskt utföra åtgärder som svar på ett allvarligt problem.  Den här artikeln beskriver hur du definierar logganalys sparade sökningar och aviseringar i en Resource Manager-mall så att de kan tas med i hanteringslösningar.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,29 +14,29 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb787de23022cd7a48ec476968e05dec6560b419
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Lägga till logganalys sparade sökningar och aviseringar till OMS-hanteringslösning (förhandsgranskning)
+# <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till logganalys sparade sökningar och aviseringar för lösning (förhandsgranskning)
 
 > [!NOTE]
-> Den här är dokumentationen preliminär för att skapa lösningar för hantering i OMS som för närvarande finns i förhandsgranskningen. Ett schema som beskrivs nedan kan ändras.   
+> Den här är dokumentationen preliminär för att skapa lösningar som för närvarande finns i förhandsgranskningen. Ett schema som beskrivs nedan kan ändras.   
 
 
-[Lösningar för hantering i OMS](operations-management-suite-solutions.md) inkluderar vanligtvis [sparade sökningar](../log-analytics/log-analytics-log-searches.md) i logganalys att analysera data som samlas in av lösningen.  De kan också definiera [aviseringar](../log-analytics/log-analytics-alerts.md) att meddela användaren eller automatiskt utföra åtgärder som svar på ett allvarligt problem.  Den här artikeln beskriver hur du definierar logganalys sparade sökningar och aviseringar i en [resurshantering mallen](../resource-manager-template-walkthrough.md) så att de kan tas med i [hanteringslösningar](operations-management-suite-solutions-creating.md).
+[Hanteringslösningar](operations-management-suite-solutions.md) inkluderar vanligtvis [sparade sökningar](../log-analytics/log-analytics-log-searches.md) i logganalys att analysera data som samlas in av lösningen.  De kan också definiera [aviseringar](../log-analytics/log-analytics-alerts.md) att meddela användaren eller automatiskt utföra åtgärder som svar på ett allvarligt problem.  Den här artikeln beskriver hur du definierar logganalys sparade sökningar och aviseringar i en [resurshantering mallen](../resource-manager-template-walkthrough.md) så att de kan tas med i [hanteringslösningar](operations-management-suite-solutions-creating.md).
 
 > [!NOTE]
-> Exemplen i den här artikeln använder parametrar och variabler som är obligatoriska eller vanligt att hanteringslösningar och beskrivs i [och skapa lösningar för hantering i Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)  
+> Exemplen i den här artikeln använder parametrar och variabler som är obligatoriska eller vanligt att hanteringslösningar och beskrivs i [utforma och skapa en lösning i Azure](operations-management-suite-solutions-creating.md)  
 
 ## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du redan är bekant med [skapar en lösning för](operations-management-suite-solutions-creating.md) och strukturen för en [Resource Manager-mall](../resource-group-authoring-templates.md) och lösningsfilen.
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics Workspace
-Alla resurser i logganalys finns i en [arbetsytan](../log-analytics/log-analytics-manage-access.md).  Enligt beskrivningen i [OMS arbetsytan och Automation-konto](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), arbetsytan ingår inte i hanteringslösningen men det måste finnas innan lösningen är installerad.  Om den inte är tillgänglig misslyckas lösning installationen.
+Alla resurser i logganalys finns i en [arbetsytan](../log-analytics/log-analytics-manage-access.md).  Enligt beskrivningen i [logganalys-arbetsytan och Automation-konto](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), arbetsytan ingår inte i hanteringslösningen men det måste finnas innan lösningen är installerad.  Om den inte är tillgänglig misslyckas lösning installationen.
 
 Namnet på arbetsytan är namnet på varje logganalys-resurs.  Detta görs i lösningen med den **arbetsytan** parameter som i följande exempel på en savedsearch resurs.
 
@@ -189,7 +189,7 @@ Egenskaper för Aviseringsåtgärd resurser beskrivs i följande tabeller.
 | Typ | Ja | Typ av åtgärd.  Detta är **avisering** för aviseringsåtgärder. |
 | Namn | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för regeln. |
 | Beskrivning | Nej | Valfri beskrivning av aviseringen. |
-| Allvarsgrad | Ja | Allvarlighetsgrad för aviseringen posten från följande värden:<br><br> **Kritiska**<br>**Varning**<br>**Informational** |
+| Allvarsgrad | Ja | Allvarlighetsgrad för aviseringen posten från följande värden:<br><br> **kritiska**<br>**Varning**<br>**Informational** |
 
 
 ##### <a name="threshold"></a>Tröskelvärde

@@ -1,11 +1,11 @@
 ---
-title: "Kom igång med Azure Blob storage och Visual Studio anslutna tjänster (ASP.NET) | Microsoft Docs"
-description: "Hur du kommer igång anslutna med Azure Blob-lagring i en ASP.NET-projekt i Visual Studio när du har anslutit till ett lagringskonto med hjälp av Visual Studio tjänster"
+title: Kom igång med Azure Blob storage och Visual Studio anslutna tjänster (ASP.NET) | Microsoft Docs
+description: Hur du kommer igång anslutna med Azure Blob-lagring i en ASP.NET-projekt i Visual Studio när du har anslutit till ett lagringskonto med hjälp av Visual Studio tjänster
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: b3497055-bef8-4c95-8567-181556b50d95
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: kraig
-ms.openlocfilehash: cb406e528568dafd1e142943f5273ad58e550609
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: ghogen
+ms.openlocfilehash: 657eff077f9a72bad97e8bea3ad3efc0da1420d5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure Blob storage och Visual Studio anslutna tjänster (ASP.NET)
 
@@ -89,7 +89,7 @@ Följande steg skapar du en metod för att ansluta till storage-konto med hjälp
 > [!NOTE]
 > Även om *test blobbehållaren* inte finns ännu, den här koden skapar en referens till den. Detta är så att du kan skapa behållaren med den `CreateIfNotExists` metod som visas i nästa steg.
 
-## <a name="create-a-blob-container"></a>Skapa en blobbbehållare
+## <a name="create-a-blob-container"></a>Skapa en blobbehållare
 
 Följande steg visar hur du skapar en blob-behållare:
 

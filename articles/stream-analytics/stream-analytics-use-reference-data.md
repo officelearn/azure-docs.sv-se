@@ -1,12 +1,11 @@
 ---
-title: "Använd data och slå upp referenstabellerna i Stream Analytics | Microsoft Docs"
-description: "Använda referensdata i en Stream Analytics-fråga"
+title: Använd data och slå upp referenstabellerna i Stream Analytics | Microsoft Docs
+description: Använda referensdata i en Stream Analytics-fråga
 keywords: uppslagstabellen referensdata
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: jseb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 06103be5-553a-4da1-8a8d-3be9ca2aff54
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: f7366b4b7d78add47ebab4a6fc72717107814f1f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 77a4a9a28060206a30c658216156d7339bddc398
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Med hjälp av data- eller lookup register i en Stream Analytics Indataströmmen
 Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statisk eller saktas ändra karaktär används för att utföra en sökning eller att korrelera med din dataström. För att använda referensdata i Azure Stream Analytics-jobbet, använder du normalt en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. Stream Analytics använder Azure Blob storage som lagringsskikt för referensdata med Azure Data Factory-referensen kan data omvandlas eller kopieras till Azure Blob storage för användning som referensdata från [valfritt antal molnbaserade och lokalt datalager](../data-factory/copy-activity-overview.md). Referensdata modelleras som en serie blobbar (definieras i den inkommande configuration) i stigande ordning efter datum/tid som anges i blob-namn. Den **endast** har stöd för att lägga till i slutet av sekvensen med hjälp av ett datum/tid **större** än den som angetts av den senaste blobben i sekvensen.

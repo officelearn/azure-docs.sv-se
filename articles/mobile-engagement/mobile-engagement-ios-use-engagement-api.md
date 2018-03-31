@@ -1,11 +1,11 @@
 ---
-title: "Hur du använder Engagement API på iOS"
-description: "Senaste iOS SDK - använda Engagement API på iOS"
+title: Hur du använder Engagement API på iOS
+description: Senaste iOS SDK - använda Engagement API på iOS
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1fb4509e-3804-46c1-949f-1cf727f91f9f
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: a31424da98205e97bdf57010cccfd044360f03dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 189a3029449a3161da2a20f940b77a5bb63bd1ef
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-ios"></a>Hur du använder Engagement API på iOS
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Det här dokumentet är ett tillägg till dokumentet hur du integrerar Engagement för iOS: ger i djup information om hur du använder Engagement API för att rapportera programmet-statistik.
 
 Kom ihåg att om du bara vill Engagement att rapportera programmets sessioner, aktiviteter, krascher och teknisk information sedan det enklaste sättet är att se alla dina anpassade `UIViewController` objekt ärver från motsvarande `EngagementViewController` klass.
@@ -29,7 +33,7 @@ Om du vill göra mer, till exempel om du behöver rapportera programmet specifik
 
 Engagement-API som tillhandahålls av den `EngagementAgent` klass. En instans av den här klassen kan hämtas genom att anropa den `[EngagementAgent shared]` statisk metod (Observera att den `EngagementAgent` objektet som returnerades är en singleton).
 
-Innan API-anrop i `EngagementAgent` objektet måste initieras genom att anropa metoden`[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];`
+Innan API-anrop i `EngagementAgent` objektet måste initieras genom att anropa metoden `[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];`
 
 ## <a name="engagement-concepts"></a>Koncept i engagement
 Följande delar förfina vanliga [koncept i Mobile Engagement](mobile-engagement-concepts.md) för iOS-plattformen.
@@ -212,7 +216,7 @@ Observera att tillägg kan innehålla `arrays(NSArray, NSMutableArray)`, `number
 > [!NOTE]
 > Extraparametern serialiseras i JSON. Om du vill skicka olika objekt än de som beskrivs ovan, måste du implementera följande metod i klassen:
 > 
-> -(NSString*) JSONRepresentation;
+> -(NSString*)JSONRepresentation;
 > 
 > Metoden måste returnera en JSON-representation av objektet.
 > 

@@ -1,11 +1,11 @@
 ---
-title: "Användargränssnittet för Azure Mobile Engagement - Reach-innehåll"
-description: "Lär dig att hantera unika innehållet i de olika typerna av kampanjer för push-meddelanden i Azure Mobile Engagement"
+title: Användargränssnittet för Azure Mobile Engagement - Reach-innehåll
+description: Lär dig att hantera unika innehållet i de olika typerna av kampanjer för push-meddelanden i Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: add64f06-43c9-475c-8722-51cd00bb844b
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 3741a43b74af5846e95e42d8a7b533621e780f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 982cc66ffe98aa6dff8fe290cc1c2d4bad03c9ac
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>Så här hanterar du unikt innehållet i de olika typerna av kampanjer för push-meddelande
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Du kan använda avsnittet innehåll för en ny kampanj räckvidden för att ändra innehållet i dina meddelanden, avsökningar, Data-push både och paneler (endast Windows Phone). Push-kampanjer innehåll inställningen är specifik för typ av kampanj. 
 
 ### <a name="content-types"></a>Typer av innehåll:
@@ -37,7 +41,7 @@ Du kan använda avsnittet innehåll för en ny kampanj räckvidden för att änd
 * SMS-meddelande: det är ett meddelande som snabbt tillkallar användaren måste ha en titt på textvyn.
 * Web meddelande: det är ett meddelande som snabbt tillkallar användaren att titta på en webbvy.
 
-### <a name="see-also"></a>Se även
+### <a name="see-also"></a>Se också
 * [Nå - hur Tos - meddelanden][Link 3] 
 
 ### <a name="about-web-view-announcements"></a>Om Webbvyaviseringar:
@@ -50,16 +54,16 @@ Om du vill skapa en webbvy i helskärm (utan de standardknappar för Åtgärd oc
 ### <a name="choose-your-action"></a>Välj åtgärden:
 ### <a name="about-action-urls"></a>Om åtgärden webbadresser:
 Varje URL som kan tolkas av en målenhets operativsystem kan användas som en åtgärds-URL.
-Varje dedikerad URL som ditt program eventuellt stöder (t.ex. för att få användarna att går direkt till en viss skärm) kan också användas som en åtgärds-URL.
+Varje dedikerad URL som ditt program eventuellt stöder (t.ex. att göra användarna också gå direkt till en viss skärm) kan också användas som en åtgärds-URL.
 Varje förekomst av {deviceid}-mönstret ersätts automatiskt av ID: t för den enhet som genomför åtgärden. Detta kan användas för att lätt kunna hämta Azure Mobile Engagement enhetsidentifierare via en extern webbtjänst som ditt BackOffice är värd.
 
 * **Android och iOS åtgärder**
   * Öppna en webbsida
-  * http://\[web site domäner\] 
-  * Exempel: http://www.azure.com
-  * Skicka ett e-postmeddelande
+  * http://\[web-site-domain\] 
+  * Exempel:http://www.azure.com
+  * Skicka ett e-post
   * mailto:\[e-post-mottagaren\]? ämne =\[ämne\]& body =\[meddelande\] 
-  * Example:mailto:foo@example.com? ämne = helg % 20from % 20Azure % 20Mobile % 20Engagement! & body = bra % 20stuff!
+  * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
   * Skicka ett SMS
   * SMS:\[-telefonnummer\] 
   * Exempel: sms:2125551212
@@ -69,38 +73,38 @@ Varje förekomst av {deviceid}-mönstret ersätts automatiskt av ID: t för den 
 * **Android endast åtgärder**
   * Hämta ett program på Play Store
   * market://details?ID=\[app-paket\] 
-  * Exempel: market://details?id=com.microsoft.office.word
-  * Starta en geolokaliserad sökning
+  * Example:market://details?id=com.microsoft.office.word
+  * Starta en geolokaliserade sökning
   * GEO:0 0? q =\[sökfråga\] 
   * Exempel: geo:0, 0? q = starbucks paris
 * **endast åtgärder för iOS**
   * Hämta ett program på App Store
-  * http://iTunes.Apple.com/ [Land] /app/ [programnamn] /id [app-id]? huvudmålservern = 8 
-  * Exempel: http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
+  * http://itunes.apple.com/[Land] /app/ [programnamn] /id [app-id]? huvudmålservern = 8 
+  * Exempel:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
   * Windows-åtgärder
   * Öppna en webbsida
-  * http://\[web site domäner\] 
-  * Exempel: http://www.azure.com
-  * Skicka ett e-postmeddelande
+  * http://\[web-site-domain\] 
+  * Exempel:http://www.azure.com
+  * Skicka ett e-post
   * mailto:\[e-post-mottagaren\]? ämne =\[ämne\]& body =\[meddelande\] 
-  * Example:mailto:foo@example.com? ämne = helg % 20from % 20Azure % 20Mobile % 20Engagement! & body = bra % 20stuff!
+  * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
   * Skicka ett SMS (Skype Store App krävs)
   * SMS:\[-telefonnummer\] 
   * Exempel: sms:2125551212
-  * Ring upp ett telefonnummer (Skype Store App krävs)
+  * Ring telefonnummer (Skype Store App krävs)
   * Tel:\[-telefonnummer\] 
   * Exempel: tel:2125551212
   * Hämta ett program på Play Store
   * MS-windows-store: PDP? PFN =\[app paket-ID\] 
-  * Exempel: ms-windows-store: PDP? PFN = 4d91298a-07cb-40fb-aecc-4cb5615d53c1
-  * Starta en bingkartssökning
+  * Example:ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
+  * Starta en bingmaps-sökning
   * bingmaps:? q =\[sökfråga\] 
   * Exempel: bingmaps:? q = starbucks paris
-  * Använd ett anpassat schema
+  * Använda ett anpassat schema
   * \[anpassat schema\]://\[anpassade schemat parametrar\] 
   * Exempel: myCustomProtocol://myCustomParams
   * Använd paketdata (Store App för tillägg läsa krävs)
-  * \[mappen\]\[data\].\[ tillägg\] 
+  * \[folder\]\[data\].\[extension\] 
   * Example:myfolderdata.txt
 
 ### <a name="build-a-tracking-url"></a>Skapa en spårning-URL:
@@ -109,7 +113,7 @@ Varje förekomst av {deviceid}-mönstret ersätts automatiskt av ID: t för den 
 ### <a name="define-the-texts-of-your-announcement"></a>Definiera texterna för ditt meddelande
 Fyll i rubrik, innehåll och knappen texterna för ditt meddelande. Du kan rikta en målgrupp framtida kampanjens på reach-feedback på hur användare svarat på kampanjen. Målgrupper kan baseras på feedback på om den här kampanjen har precis pushas, besvarade, hanterats eller stängts.
 
-### <a name="see-also"></a>Se även
+### <a name="see-also"></a>Se också
 * [UI-dokumentationen – Reach - nytt Push kriterium][Link 28]
 
 ## <a name="content-of-polls"></a>Innehållet i avsökningar
@@ -118,7 +122,7 @@ Fyll i rubrik, innehåll och knappen texterna för ditt meddelande. Du kan rikta
 Fyll i rubrik, beskrivning och knappen texterna för ditt meddelande. Lägg sedan till frågor och alternativ för svar på dina frågor.
 Du kan rikta en målgrupp framtida kampanjens på reach-feedback på hur användare svarat på kampanjen. Målgrupper kan baseras på om den här kampanjen har precis pushas, besvarade, hanterats eller stängts. Målgrupper kan även baseras på avsökning besvara feedback, där fråga och svar val användas som kriterier.
 
-### <a name="see-also"></a>Se även
+### <a name="see-also"></a>Se också
 * [UI-dokumentationen – Reach - nytt Push kriterium][Link 28]
 
 ## <a name="content-of-data-pushes"></a>Innehållet i Data push-meddelanden
@@ -134,7 +138,7 @@ Du kan rikta en målgrupp framtida kampanjens på reach-feedback på hur använd
 * Om du har valt för att skicka eller binary base64-data kan du använda knappen ”ladda upp filen” för att överföra din fil.
 * Du kan rikta en målgrupp framtida kampanjens på reach-feedback på hur användare svarat på kampanjen. Målgrupper kan baseras på om den här kampanjen har precis pushas, besvarade, hanterats eller stängts.
 
-### <a name="see-also"></a>Se även
+### <a name="see-also"></a>Se också
 * [UI-dokumentationen – Reach - nytt Push kriterium][Link 28]
 
 ## <a name="content-of-tiles-windows-phone-only"></a>Innehållet i paneler (endast Windows Phone)
@@ -144,7 +148,7 @@ Du kan rikta en målgrupp framtida kampanjens på reach-feedback på hur använd
 Nyttolasten i panelen är text som ska visas i panelen för din app på Windows Phone-enheter.
 En sida vid sida-push är Microsoft Push Notification Service (MPNS) version av en intern push för Windows Phone. Panelen push-typen är den enda push-typ som inte har ett svar och så målgruppen för framtida kampanjer inte kan byggas på resultatet av en panel push-kampanj. 
 
-### <a name="see-also"></a>Se även
+### <a name="see-also"></a>Se också
 * [API-dokumentationen - Reach-API - interna Push][Link 4]
 
 <!--Image references-->

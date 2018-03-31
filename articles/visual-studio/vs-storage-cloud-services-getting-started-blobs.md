@@ -1,11 +1,11 @@
 ---
-title: "Kom igång med blob storage och Visual Studio anslutna tjänster (molntjänster) | Microsoft Docs"
-description: "Hur du kommer igång med Azure Blob storage i cloud service-projekt i Visual Studio efter anslutning till ett lagringskonto med hjälp av Visual Studio anslutna tjänster"
+title: Kom igång med blob storage och Visual Studio anslutna tjänster (molntjänster) | Microsoft Docs
+description: Hur du kommer igång med Azure Blob storage i cloud service-projekt i Visual Studio efter anslutning till ett lagringskonto med hjälp av Visual Studio anslutna tjänster
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 1144a958-f75a-4466-bb21-320b7ae8f304
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: cf14880c70f90b01c5dffbfe434150581c2ec33b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 7c13e7d1f48365e9c1a345b1770d16724c5ed6a1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Kom igång med Azure Blob Storage och Visual Studio anslutna tjänster (cloud services-projekt)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]

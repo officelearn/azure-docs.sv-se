@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement felsökningsguide för - tjänstinformation för begäran"
-description: "Tjänsten begära Information som krävs av supportteamet för felsökning av problem med Azure Mobile Engagement"
+title: Azure Mobile Engagement felsökningsguide för - tjänstinformation för begäran
+description: Tjänsten begära Information som krävs av supportteamet för felsökning av problem med Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 28d49915-d0c2-4fac-b07a-b3e9b6b8528a
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: a4497046df74003a733d80f190e82b5e798d398e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d08ccbe6639809f16c41b3399cbe374d34c9a5bb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="service-request-sr-information"></a>Information om tjänstbegäran (SR)
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Ange följande information när du öppnar en tjänstbegäran för Mobile Engagement tjänster:
 
 ## <a name="ids-applicable-identifiers-related-to-your-issue"></a>ID: N: Tillämpliga identifierare relaterat till problemet:

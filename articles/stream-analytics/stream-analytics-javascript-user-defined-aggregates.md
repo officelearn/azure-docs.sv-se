@@ -1,12 +1,11 @@
 ---
-title: "Azure Stream Analytics JavaScript användardefinierade aggregeringar | Microsoft Docs"
-description: "Utföra en avancerad fråga säkerhetsnivån med JavaScript användardefinierade aggregeringar"
-keywords: "JavaScript, användardefinierade aggregeringar, uda"
+title: Azure Stream Analytics JavaScript användardefinierade aggregeringar | Microsoft Docs
+description: Utföra en avancerad fråga säkerhetsnivån med JavaScript användardefinierade aggregeringar
+keywords: JavaScript, användardefinierade aggregeringar, uda
 services: stream-analytics
 author: minhe-msft
 manager: santoshb
-editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 10/28/2017
 ms.author: minhe
-ms.openlocfilehash: b3863a34ed146e54c6d60e035957b942a1976ff9
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9f9a2e33f97fc90265933ee9941f2d02a92cbc4c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure Stream Analytics JavaScript användardefinierade aggregeringar (förhandsgranskning)
 
@@ -82,7 +81,7 @@ function main() {
 
 Varje JavaScript UDA definieras av en funktionsdeklarationen för objektet. Följande är viktiga element i en UDA-definition.
 
-### <a name="function-alias"></a>Funktionen alias
+### <a name="function-alias"></a>Funktionsalias
 
 Funktionen alias är UDA-identifierare. När den anropas i Stream Analytics-fråga alltid använda UDA alias tillsammans med ”uda”. prefix.
 
@@ -90,7 +89,7 @@ Funktionen alias är UDA-identifierare. När den anropas i Stream Analytics-frå
 
 För UDA, funktionen typen ska vara **Javascript UDA**.
 
-### <a name="output-type"></a>Utdatatypen
+### <a name="output-type"></a>Utdatatyp
 
 En specifik Skriv det Stream Analytics-jobbet som stöds eller ”alla” om du vill hantera den i frågan.
 
@@ -179,7 +178,7 @@ Nu skapar vi en JavaScript UDA under ett befintligt ASA jobb genom att följa st
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>Anropar JavaScript UDA i ASA frågan
 
-I Azure-portalen och öppna ditt jobb, redigera frågan och anropa TWA() funktion med förordnandet prefixet ”uda.”. Exempel:
+I Azure-portalen och öppna ditt jobb, redigera frågan och anropa TWA() funktion med förordnandet prefixet ”uda”. Exempel:
 
 ````SQL
 WITH value AS

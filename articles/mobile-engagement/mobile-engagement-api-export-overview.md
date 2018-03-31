@@ -1,11 +1,11 @@
 ---
-title: "Översikt över Mobile Engagement Export-API"
-description: "Lär dig grunderna om hur du exporterar dina rådata som genererats av dina användares enheter som ska använda i dina egna verktyg"
+title: Översikt över Mobile Engagement Export-API
+description: Lär dig grunderna om hur du exporterar dina rådata som genererats av dina användares enheter som ska använda i dina egna verktyg
 services: mobile-engagement
 documentationcenter: mobile
 author: kpiteira
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9380d47b-d7fa-4d4c-888f-97e6482196bb
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 04/26/2016
 ms.author: kapiteir
-ms.openlocfilehash: 346e0e480ff84ee849f135a7605d27df9e32f966
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1dc8a34abf84be3d7f59d41c36d90c2a67e5d32
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="mobile-engagement-export-api-overview"></a>Översikt över Mobile Engagement Export-API
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 ## <a name="introduction"></a>Introduktion
 I det här dokumentet får du lära dig grunderna om hur du exporterar dina rådata som genererats av dina användares enheter som ska använda i dina egna verktyg.
 
@@ -65,7 +69,7 @@ För att exportera data från Mobile Engagement, måste du skapa en **exportera 
 * Den **Azure Storage-behållare** (inklusive en giltig SAS med skrivbehörighet) där resultatet exporten ska skrivas.
 * t.ex. exempel behållaren URL-parametern skulle bli https://[StorageAccountName].blob.core.windows.net/[ContainerName]? [SASWritePermissionsToken]  
 
-Här är ett exempel på verkliga världen. https://testazmeexport.BLOB.Core.Windows.NET/test1234azme?SV=2015-12-11&ss=b&SRT=SCO&SP=rwdlac&Se=2016-12-17T04:59:26Z & st = 2016-12-16T20:59:26Z & spr = https & sig = KRF3aVWjp2NEJDzjlmoplmu0M9HHlLdkBWRPAFmw90Q % 3D
+Här är ett exempel på verkliga världen. https://testazmeexport.blob.core.windows.net/test1234azme?sv=2015-12-11&ss=b&srt=sco&sp=rwdlac&se=2016-12-17T04:59:26Z&st=2016-12-16T20:59:26Z&spr=https&sig=KRF3aVWjp2NEJDzjlmoplmu0M9HHlLdkBWRPAFmw90Q%3D
 
 Observera att det kan ta några minuter för jobbet startas och sedan den kan köras några sekunder för små appar till flera timmar för appar med många användare eller aktiviteten.
 

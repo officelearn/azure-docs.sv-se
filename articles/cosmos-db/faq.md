@@ -1,12 +1,12 @@
 ---
-title: "Vanliga frågor och svar om Azure Cosmos-DB | Microsoft Docs"
-description: "Få svar på vanliga frågor och svar om Azure Cosmos DB, ett globalt distribuerade och flera olika modeller database-tjänsten. Läs mer om kapacitet, prestandanivåer och skalning."
-keywords: "Databasfrågor, vanliga frågor, documentdb, azure, Microsoft azure"
+title: Vanliga frågor och svar om Azure Cosmos-DB | Microsoft Docs
+description: Få svar på vanliga frågor och svar om Azure Cosmos DB, ett globalt distribuerade och flera olika modeller database-tjänsten. Läs mer om kapacitet, prestandanivåer och skalning.
+keywords: Databasfrågor, vanliga frågor, documentdb, azure, Microsoft azure
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: 466abbffd250685baf886b7fc7cc772ee9e327f2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 946d0f6456ce27931c91066d63c028388ecec84c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Vanliga frågor om Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos-grunderna
@@ -76,7 +76,7 @@ Du kan också använda den [Azure Cosmos DB emulatorn](local-emulator.md) att ut
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Hur kan jag få ytterligare hjälp med Azure Cosmos DB?
 
 Om du vill ställa en teknisk fråga kan du i en av dessa två fråga och besvara forum:
-* [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stacken spill](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stackspill är bäst för programmering frågor. Se till att din fråga [på avsnittet](https://stackoverflow.com/help/on-topic) och [ange så många detaljer som möjligt, göra frågan tydliga och besvaras](https://stackoverflow.com/help/how-to-ask). 
 
 Skapa en ny begäran om du vill begära nya funktioner på [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
@@ -189,7 +189,7 @@ Förutom MongoDB vanliga felkoder har MongoDB-API: et sin egen specifika felkode
 | Fel               | Kod  | Beskrivning  | Lösning  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | Det totala antalet frågeenheter förbrukas har överskridit den etablerade begärt-enhet hastigheten för insamling och har begränsats. | Överväg att skalning genomflödet i samlingen från Azure-portalen eller du försöker igen. |
-| ExceededMemoryLimit | 16501 | Som en tjänst med flera innehavare överskred åtgärden klientens minne tilldelning. | Minska omfånget för åtgärden via mer restriktiva frågevillkor eller kontakta support från den [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exempel: * &nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {namn: ”Anders”}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {ålder: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+| ExceededMemoryLimit | 16501 | Som en tjänst med flera innehavare överskred åtgärden klientens minne tilldelning. | Minska omfånget för åtgärden via mer restriktiva frågevillkor eller kontakta support från den [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exempel:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {namn: ”Anders”}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {ålder: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## <a name="develop-with-the-table-api"></a>Utveckla med tabell-API
 
@@ -244,7 +244,7 @@ Om någon av dessa skillnader är ett problem för ditt projekt Kontakta [ askco
 Du kan dela din feedback i något av följande sätt:
 
 * [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
-* [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stacken spill](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stackspill är bäst för programmering frågor. Se till att din fråga [på avsnittet](https://stackoverflow.com/help/on-topic) och [ange så många detaljer som möjligt, göra frågan tydliga och besvaras](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Vad är den anslutningssträng som jag behöver använda för att ansluta till tabellen API?

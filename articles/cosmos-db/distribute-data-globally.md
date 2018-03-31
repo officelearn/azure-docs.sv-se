@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2018
 ms.author: arramac
-ms.openlocfilehash: e31b66f20c51e95dbc2d8285bb5602590abd4f4f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 567f035bdb293353090ee107f8d24da845e15154
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Hur du distribuerar data globalt med Azure Cosmos DB
 Azure är allt vanligare - den har en global storleken över 30 + geografiska regioner och kontinuerligt växer. Med dess världen är en av de olika funktionerna som Azure erbjuder sina utvecklare möjlighet att skapa, distribuera och hantera enkelt globalt distribuerade program. 
@@ -36,7 +36,7 @@ Med Azure Cosmos DB NYCKELFÄRDIGT distributionslistor utvecklare behöver inte 
 Vi ger en översikt över Azure Cosmos DB global distributionsplatsen funktioner i den här artikeln. Dessutom beskrivs Azure Cosmos DB unik metod för att tillhandahålla heltäckande SLA: er. 
 
 ## <a id="EnableGlobalDistribution"></a>Aktivera NYCKELFÄRDIGT global distributionsplatsen
-Azure Cosmos-DB tillhandahåller följande funktioner som gör det möjligt att enkelt skriva planeten skala program. Dessa funktioner är tillgängliga via Azure Cosmos DB resource provider-baserad [REST API: er](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) samt Azure-portalen.
+Azure Cosmos-DB tillhandahåller följande funktioner som gör det möjligt att enkelt skriva planeten skala program. Dessa funktioner är tillgängliga via Azure Cosmos DB resource provider-baserad [REST API: er](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) samt Azure-portalen.
 
 I följande videoklipp visar Azure Cosmos DB Programhanteraren Andrew Liu NYCKELFÄRDIGT global distributionsplatsen-funktioner.
 

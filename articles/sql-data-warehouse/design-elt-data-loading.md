@@ -1,29 +1,24 @@
 ---
-title: "Utforma ELT för Azure SQL Data Warehouse | Microsoft Docs"
-description: "Kombinera tekniker för att flytta data till Azure och läsa in data i SQL Data Warehouse att utforma en extrahera, Load and Transform ELT ()-process för Azure SQL Data Warehouse."
+title: I stället för ETL, utforma ELT för Azure SQL Data Warehouse | Microsoft Docs
+description: I stället för ETL, utforma en extrahera, Load and Transform ELT ()-processen för inläsning av data eller Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
-ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 12/12/2017
-ms.author: cakarst;barbkess
-ms.openlocfilehash: e94dca69c77c46034e318205279be5188e1371f5
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.topic: conceptual
+ms.component: design
+ms.date: 03/28/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: c27ad843c9ee9beed871dcc03254cb1266f6ebe2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Designa extrahera, Load and Transform (ELT) för Azure SQL Data Warehouse
 
-Kombinera teknikerna för landning data i Azure storage och läsa in data i SQL Data Warehouse att utforma en extrahera, Load and Transform ELT ()-process för Azure SQL Data Warehouse. Den här artikeln introduceras de tekniker som stöder inläsning med Polybase och sedan fokuserar på att designa en ELT process som använder PolyBase med T-SQL för att läsa in data till SQL Data Warehouse från Azure Storage.
+I stället för extrahering, transformering och inläsning (ETL) att utforma en extrahera, Load and Transform ELT ()-process för att läsa in data i Azure SQL Data Warehouse. Den här artikeln introducerar sätt att utforma en ELT process som flyttar data till ett Azure data warehouse.
 
 ## <a name="what-is-elt"></a>Vad är ELT?
 
@@ -104,7 +99,7 @@ Formatera textfiler:
 - Formatera data i filen att justera kolumner och datatyper i SQL Data Warehouse tabellen. Feljusteringarna mellan datatyperna i externa textfiler och tabellen data warehouse gör rader som ska avvisas under inläsningen.
 - Olika fält i en textfil med avslutas.  Se till att använda ett tecken eller en teckensekvens som inte finns i datakällan. Använd Begränsare som du har angett med [skapa externt FILFORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql).
 
-## <a name="load-to-a-staging-table"></a>Läsa in till en mellanlagringstabellen
+## <a name="load-to-a-staging-table"></a>Inläsning i en mellanlagringstabell
 Om du vill hämta data till datalagret fungerar det bra att först ladda data till en mellanlagringstabellen. Du kan hantera fel utan att störa produktions-tabeller med hjälp av en mellanlagringstabellen och du undvika att köra återställningen åtgärder på produktionstabellen. En mellanlagringstabellen ger också en möjlighet för att köra transformationer innan du infogar data i produktion tabeller med SQL Data Warehouse.
 
 Om du vill läsa in med T-SQL, kör den [Skapa tabell AS Välj (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL-instruktionen. Det här kommandot infogar resultatet av en select-instruktion i en ny tabell. När instruktionen väljer från en extern tabell, importerar externa data. 
@@ -124,7 +119,7 @@ AS SELECT * FROM [ext].[Date]
 ## <a name="transform-the-data"></a>Transformera data
 När data är i mellanlagringstabellen kan genomföra transformationer som kräver din arbetsbelastning. Flytta sedan informationen till en tabell i produktion.
 
-## <a name="insert-data-into-production-table"></a>Infoga data i produktion tabell
+## <a name="insert-data-into-production-table"></a>Infoga data i produktionstabeller
 
 INSERT INTO... SELECT-instruktion flyttar data från mellanlagringstabellen till tabellen permanent. 
 

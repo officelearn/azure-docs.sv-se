@@ -1,11 +1,11 @@
 ---
 title: Publicera-WebApplicationWebSite (Windows PowerShell-skript) | Microsoft Docs
-description: "Lär dig hur du publicerar ett webbprojekt till en Azure-webbplats. Det här skriptet skapar resurserna som krävs i din Azure-prenumeration om de inte redan finns."
+description: Lär dig hur du publicerar ett webbprojekt till en Azure-webbplats. Det här skriptet skapar resurserna som krävs i din Azure-prenumeration om de inte redan finns.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 63cfaa2d-f04d-40dc-8677-345385c278d5
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: 07d21b7ce6cd8aee1cff704d316e7a2ca8c00437
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: aaa1f679b0368b0ca93305fe867a63f3971a788c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="publish-webapplicationwebsite-windows-powershell-script"></a>Publicera-WebApplicationWebSite (Windows PowerShell-skript)
 ## <a name="syntax"></a>Syntax
@@ -38,60 +38,60 @@ Sökvägen till JSON-konfigurationsfil som innehåller information om distributi
 
 | Parameter | Standardvärde |
 | --- | --- |
-| Alias |Ingen |
-| Krävs? |SANT |
+| Alias |ingen |
+| Krävs? |true |
 | Position |Med namnet |
-| Standardvärde |Ingen |
-| Acceptera indata från pipeline? |FALSKT |
-| Acceptera jokertecken? |FALSKT |
+| Standardvärde |ingen |
+| Acceptera indata från pipeline? |false |
+| Acceptera jokertecken? |false |
 
-## <a name="subscriptionname"></a>SubscriptionName
+## <a name="subscriptionname"></a>Prenumerationsnamn
 Namnet på Azure-prenumeration som du vill skapa webbplatsen i.
 
 | Parameter | Standardvärde |
 | --- | --- |
-| Alias |Ingen |
-| Krävs? |FALSKT |
+| Alias |ingen |
+| Krävs? |false |
 | Position |Med namnet |
-| Standardvärde |Ingen |
-| Acceptera indata från pipeline? |FALSKT |
-| Acceptera jokertecken? |FALSKT |
+| Standardvärde |ingen |
+| Acceptera indata från pipeline? |false |
+| Acceptera jokertecken? |false |
 
 ## <a name="webdeploypackage"></a>WebDeployPackage
 Sökvägen till distributionspaketets att publicera på webbplatsen. Du kan skapa det här paketet med hjälp av guiden Publicera webbplats i Visual Studio. Mer information finns i [Kom igång med Azure Cloud Services och ASP.NET](http://go.microsoft.com/fwlink/p/?LinkID=623089).
 
 | Parameter | Standardvärde |
 | --- | --- |
-| Alias |Ingen |
-| Krävs? |FALSKT |
+| Alias |ingen |
+| Krävs? |false |
 | Position |Med namnet |
-| Standardvärde |Ingen |
-| Acceptera indata från pipeline? |FALSKT |
-| Acceptera jokertecken? |FALSKT |
+| Standardvärde |ingen |
+| Acceptera indata från pipeline? |false |
+| Acceptera jokertecken? |false |
 
 ## <a name="databaseserverpassword"></a>DatabaseServerPassword
 Användarnamn och lösenord för SQL-databas i Azure.
 
 | Parameter | Standardvärde |
 | --- | --- |
-| Alias |Ingen |
-| Krävs? |FALSKT |
+| Alias |ingen |
+| Krävs? |false |
 | Position |Med namnet |
-| Standardvärde |Ingen |
-| Acceptera indata från pipeline? |FALSKT |
-| Acceptera jokertecken? |FALSKT |
+| Standardvärde |ingen |
+| Acceptera indata från pipeline? |false |
+| Acceptera jokertecken? |false |
 
 ## <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
 Om värdet är true, Skriv ut meddelanden från skriptet till utdataströmmen.
 
 | Parameter | Standardvärde |
 | --- | --- |
-| Alias |Ingen |
-| Krävs? |FALSKT |
+| Alias |ingen |
+| Krävs? |false |
 | Position |Med namnet |
-| Standardvärde |FALSKT |
-| Acceptera indata från pipeline? |FALSKT |
-| Acceptera jokertecken? |FALSKT |
+| Standardvärde |false |
+| Acceptera indata från pipeline? |false |
+| Acceptera jokertecken? |false |
 
 ## <a name="remarks"></a>Kommentarer
 En fullständig förklaring av hur du använder skriptet för att skapa utvecklings- och testmiljöer finns [med hjälp av Windows PowerShell-skript för publicera utvecklings-och testmiljöer](vs-azure-tools-publishing-using-powershell-scripts.md).

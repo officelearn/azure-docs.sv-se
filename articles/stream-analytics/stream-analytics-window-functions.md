@@ -1,12 +1,11 @@
 ---
-title: "Introduktion till Stream Analytics-fönstrets funktioner | Microsoft Docs"
-description: "Läs mer om de tre funktionerna i fönstret i Stream Analytics (rullande hopping, glidande)."
-keywords: "rullande fönster glidande fönstret hopping fönster"
-documentationcenter: 
+title: Introduktion till Stream Analytics-fönstrets funktioner | Microsoft Docs
+description: Läs mer om de tre funktionerna i fönstret i Stream Analytics (rullande hopping, glidande).
+keywords: rullande fönster glidande fönstret hopping fönster
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 2a6559551f608cf435e89997392a6a0ba995c583
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 3757834ff816fffc4571aeef8c164c2230c0f7c2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Introduktion till Stream Analytics-fönstrets funktioner
 I många realtid strömning scenarier, är det nödvändigt att utföra åtgärder endast på de data som finns i den temporala windows. Inbyggt stöd för fönsterhantering funktioner är en nyckelfunktion i Azure Stream Analytics som flyttar nålen på utvecklarproduktivitet i authoring komplexa dataströmmen bearbetar jobb. Stream Analytics gör att utvecklare kan använda [ **rullande**](https://msdn.microsoft.com/library/dn835055.aspx), [ **Hopping** ](https://msdn.microsoft.com/library/dn835041.aspx) och [ **glidande** ](https://msdn.microsoft.com/library/dn835051.aspx) windows utföra temporala åtgärder på strömmande data. Det är värt att nämna som alla [fönstret](https://msdn.microsoft.com/library/dn835019.aspx) operations utdata resultat på den **end** i fönstret. Utdata från fönstret blir enskild händelse baserat på mängdfunktionen används. Händelsen har tidsstämpeln för slutet av fönstret och alla Windows-funktioner har definierats med en fast längd. Slutligen är det viktigt att notera att alla Windows-funktioner kan användas i en [ **GROUP BY** ](https://msdn.microsoft.com/library/dn835023.aspx) satsen.

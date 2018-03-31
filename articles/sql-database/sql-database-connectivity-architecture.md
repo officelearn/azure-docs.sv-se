@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database connectivity-arkitektur | Microsoft Docs
-description: "Det här dokumentet förklarar Azure SQLDB anslutning arkitekturen från Azure eller från utanför Azure."
+description: Det här dokumentet förklarar Azure SQLDB anslutning arkitekturen från Azure eller från utanför Azure.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 98784b2d1ede5354c965e483b34b5fcb323394aa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7dc584c8fa9f4452b2bd9288df86492399c036c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-arkitektur 
 
@@ -91,7 +91,7 @@ I följande tabell visas de primära och sekundära IPs för Azure SQL Database-
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Ändra principen för Azure SQL Database-anslutning
 
-Om du vill ändra principen för Azure SQL Database för en Azure SQL Database-server, använder den [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+Om du vill ändra principen för Azure SQL Database för en Azure SQL Database-server, använder den [ansluten princip](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) kommando.
 
 - Om din anslutningsprincip har angetts till **Proxy**, alla nätverksenheter paket flöde via Azure SQL Database-gateway. Du måste tillåta utgående till bara Azure SQL Database gateway IP-Adressen för den här inställningen. Med hjälp av inställningen **Proxy** har flera svarstider än inställningen **omdirigera**.
 - Om din anslutning principinställningen **omdirigera**, alla nätverksenheter paket flödet direkt till mellanprogram proxy. Du måste tillåta utgående till flera IP-adresser för den här inställningen.
@@ -181,6 +181,6 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du ändrar principen för Azure SQL Database för en Azure SQL Database-server finns i [skapa eller uppdatera Server anslutning principer med hjälp av REST-API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+- Information om hur du ändrar principen för Azure SQL Database för en Azure SQL Database-server finns i [ansluten princip](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 - Mer information om Azure SQL Database-anslutningen för klienter som använder ADO.NET 4.5 eller senare finns [portar utöver 1433 ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Allmänt program development översikt översiktsinformation finns i [SQL Database Development Programöversikt](sql-database-develop-overview.md).

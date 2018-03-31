@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: douglasl
-ms.openlocfilehash: e2ebb3db4d51bf4ec1dea4f2f5cc4cc9dcb2ad70
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: db757c5a8a1b51278ada24a5ff50a2da1b357397
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Hur du skapar och konfigurerar Azure Integration Runtime
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla data integrationsmöjligheter mellan olika nätverksmiljöer. Läs mer om IR [integrering runtime](concepts-integration-runtime.md).
@@ -29,7 +29,7 @@ Azure IR tillhandahåller en helt hanterad beräkning för att utföra internt d
 Det här dokumentet beskriver hur du kan skapa och konfigurera Azure Integration Runtime. 
 
 ## <a name="default-azure-ir"></a>Standard Azure IR
-Som standard har varje datafabriken en Azure-IR i serverdelen som har stöd för åtgärder på molnet data lagras och beräkna tjänster i offentligt nätverk. Platsen för den Azure-IR är Lös automatiskt. Om **connectVia** egenskapen inte har angetts i den länkade tjänstdefinitionen angivna Azure-IR används. Behöver du bara skapa en Azure-IR explicit när du vill ange platsen för IR, eller om du vill gruppera praktiskt taget aktivitet körningar på olika IRs för hantering av ändamål. 
+Som standard har varje datafabriken en Azure-IR i serverdelen som har stöd för åtgärder på molnet data lagras och beräkna tjänster i offentligt nätverk. Platsen för den Azure-IR är Lös automatiskt. Om **connectVia** egenskapen inte har angetts i den länkade tjänstdefinitionen Azure IR används standardvärdet. Behöver du bara skapa en Azure-IR explicit när du vill ange platsen för IR, eller om du vill gruppera praktiskt taget aktivitet körningar på olika IRs för hantering av ändamål. 
 
 ## <a name="create-azure-ir"></a>Skapa Azure IR
 Integration körning kan skapas med hjälp av **Set AzureRmDataFactoryV2IntegrationRuntime** PowerShell-cmdlet. Om du vill skapa en Azure-IR ange namn, plats och typ för kommandot. Här är en Exempelkommando för att skapa en Azure-IR med platsen angetts till ”västra Europa”:

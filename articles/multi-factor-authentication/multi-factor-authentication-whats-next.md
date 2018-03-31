@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4259715fbb062bfb170509c928b5a1ad898ea394
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera Azure Multi-Factor Authentication-inställningar
 
@@ -228,11 +228,7 @@ Oavsett om funktionen tillförlitliga IP-adresser aktiveras krävs tvåstegsveri
 
 Vissa program, t.ex. Office 2010 eller tidigare och Apple Mail stöder inte tvåstegsverifiering. Apparna som inte är konfigurerade för att godkänna en andra verifiering. Om du vill använda dessa program utnyttja den _applösenord_ funktion. Du kan använda ett applösenord i stället för lösenordet traditionella så att en app kan kringgå tvåstegsverifiering och fortsätta arbeta.
 
->[!NOTE]
->Modern autentisering för Microsoft Office 2013-klienter och senare
-> 
->Office 2013-klienter och senare stöder modern autentiseringsprotokoll (inklusive Outlook) och kan aktiveras för att fungera med tvåstegsverifiering. När klienten har aktiverats måste inte applösenord behövs för klienten. Mer information finns i [Office 2013 modern autentisering förhandsversion meddelande](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
->
+Modern autentisering stöds för Microsoft Office 2013-klienter och senare. Office 2013-klienter inklusive Outlook, stöd för modern autentiseringsprotokoll och kan aktiveras för att fungera med tvåstegsverifiering. När klienten har aktiverats måste inte applösenord behövs för klienten.
 
 ### <a name="considerations-about-app-passwords"></a>Överväganden om applösenord
 

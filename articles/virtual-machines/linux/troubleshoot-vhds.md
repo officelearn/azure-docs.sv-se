@@ -1,21 +1,21 @@
 ---
-title: "Felsöka anslutna virtuella hårddiskar på virtuella Azure Linux-datorer | Microsoft Docs"
-description: "Felsökning av problem som till exempel oväntat omstarter av virtuella Linux-datorer eller problem med att radera en storage-konto med anslutna virtuella hårddiskar."
+title: Felsöka anslutna virtuella hårddiskar på virtuella Azure Linux-datorer | Microsoft Docs
+description: Felsökning av problem som till exempel oväntat omstarter av virtuella Linux-datorer eller problem med att radera en storage-konto med anslutna virtuella hårddiskar.
 keywords: SSH anslutningen nekades, ssh fel, azure ssh, SSH-anslutning misslyckades
 services: virtual-machines-linux
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/28/2018
-ms.author: iainfou
-ms.openlocfilehash: 10f5e2f4a48d335c6b7d05b5eb5b577765675c0e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: rogarana
+ms.openlocfilehash: 3e1bac226a75ace3efdbc9886d152da055075920
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-attached-vhds-on-azure-linux-virtual-machines"></a>Felsöka anslutna virtuella hårddiskar på virtuella Azure Linux-datorer
 
@@ -24,7 +24,7 @@ Virtuella datorer i Azure förlitar sig på virtuella hårddiskar (VHD) för OS-
   * [Oväntat omstarter av virtuella datorer med anslutna virtuella hårddiskar]
   * [Lagring borttagningsfel i Resource Manager-distribution]
 
-## <a name="you-are-experiencing-unexpected-reboots">Oväntat omstarter av virtuella datorer med anslutna virtuella hårddiskar</a>
+## <a name="you-are-experiencing-unexpected-reboots"></a>Oväntat omstarter av virtuella datorer med anslutna virtuella hårddiskar
 
 Om Azure virtuell dator (VM) har ett stort antal anslutna virtuella hårddiskar som är i samma lagringskonto, kan du överskrida skalbarhetsmål för en enskild storage-konto som orsakar den virtuella datorn misslyckas. Kontrollera minut mätvärden för storage-konto (**TotalRequests**/**TotalIngress**/**TotalEgress**) för toppar som överskrider den skalbarhetsmål för ett lagringskonto. Se avsnittet ”[mått visa en ökning i PercentThrottlingError]” för att få hjälp att avgöra om begränsning har inträffat i ditt lagringskonto.
 
@@ -32,7 +32,7 @@ I allmänhet varje enskild indata eller utdata-åtgärden på en VHD från en vi
 
 Placera de virtuella hårddiskarna på flera lagringskonton för att minska aktiviteten i varje enskilt konto om du överskrider skalbarhetsmål för ditt lagringskonto.
 
-## <a name="storage-delete-errors-in-rm">Lagring borttagningsfel i Resource Manager-distribution</a>
+## <a name="storage-delete-errors-in-rm"></a>Lagring borttagningsfel i Resource Manager-distribution
 
 Det här avsnittet innehåller felsökningsinformation när något av följande fel uppstår när du försöker ta bort ett Azure storage-konto, behållare eller blobb i en Azure Resource Manager distribution.
 

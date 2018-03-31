@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Slack | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Slack."
+title: 'Självstudier: Azure Active Directory-integrering med Slack | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Slack.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: jeedes
-ms.openlocfilehash: cd0cecde7f98e73911e7dec734cffeeee6f09a72
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6a4c64fb8400eaf2e09be049b032535e09969fb8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Självstudier: Azure Active Directory-integrering med Slack
 
@@ -44,7 +44,7 @@ För att konfigurera Azure AD-integrering med Slack, behöver du följande:
 Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
 
 - Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
@@ -115,14 +115,14 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I den **identifierare** textruta anger du URL: `https://slack.com`
 
     > [!NOTE] 
-    > Värdet är inte verkliga. Du måste uppdatera värdet med faktiska logga på URL: en. Kontakta [Slack supportteamet](https://slack.com/help/contact) värdet hämtas
+    > Värdet är inte verkliga. Du måste uppdatera värdet med faktiska logga på URL: en. Kontakta [Slack supportteamet](https://slack.com/help/contact) värdet hämtas.
      
 4. Slack program förväntar SAML-intyg i ett specifikt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värden för attributen från den ”**användarattribut**” avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för det här.
     
     ![Konfigurera enkel inloggning](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
     > [!NOTE] 
-    > Om användaren har **e-postadress** tilldelats med hjälp av Office365 sedan bara det fylls i annat fall den **e-postadress** anspråk visas inte i SAML-Token.
+    > Om du har användare som är tilldelade **e-postadress** finns inte på en Office 365-licens i **User.Email** anspråk visas inte i SAML-Token. I dessa fall har vi föreslår att du använder **user.userprincipalname** som den **User.Email** attributvärdet att mappa som **Unik identifierare** i stället.
 
 5. I den **användarattribut** avsnitt på den **enkel inloggning** markerar **user.mail** som **användar-ID** och för varje rad som visas i i tabellen nedan, utför följande steg:
     
@@ -180,12 +180,6 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     d. Konfigurera tre inställningarna ovan som passar din Slack-teamet. Mer information om inställningarna hittar den **Slacks guiden för konfiguration av SSO** här. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
     e.  Klicka på **spara konfigurationen**.
-     
-    <!-- Deselect **Allow users to change their email address**.
-
-    e.  Select **Allow users to choose their own username**.
-
-    f.  As **Authentication for your team must be used by**, select **It’s optional**. -->
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -271,8 +265,6 @@ När du klickar på panelen Slack åtkomst på panelen du ska hämta automatiskt
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

@@ -1,11 +1,11 @@
 ---
-title: "Förbereda för att publicera eller distribuera en molnbaserad tjänst från Visual Studio | Microsoft Docs"
-description: "Läs om procedurerna för att konfigurera moln och storage-Kontotjänster och konfigurera Azure-program."
+title: Förbereda för att publicera eller distribuera en molnbaserad tjänst från Visual Studio | Microsoft Docs
+description: Läs om procedurerna för att konfigurera moln och storage-Kontotjänster och konfigurera Azure-program.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 92ee2f9e-ec49-4c7a-900d-620abe5e9d8a
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/10/2017
-ms.author: kraigb
-ms.openlocfilehash: 5b2043ada193e5a08957656e153b58a61e7eba9e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.author: ghogen
+ms.openlocfilehash: 8a7d6f114bfa10170cdfe7126e01a35b02affd20
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="prepare-to-publish-or-deploy-a-cloud-service-from-visual-studio"></a>Förbereda för att publicera eller distribuera en molnbaserad tjänst från Visual Studio
 
@@ -40,7 +40,7 @@ En molnbaserad tjänst körs dina roller i Azure-miljön. Du kan skapa en tjäns
 
 ### <a name="create-a-cloud-service-through-the-azure-portal"></a>Skapa en molntjänst via Azure portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Välj **molntjänster (klassisk)** till vänster på sidan.
 1. Välj **+ Lägg till**, ange informationen som krävs (DNS-namn, prenumeration, resursgrupp och plats). Det är inte nödvändigt att överföra ett paket nu eftersom du göra det senare i Visual Studio.
 1. Välj **skapa** att slutföra processen.
@@ -59,7 +59,7 @@ Ett lagringskonto ger åtkomst till tjänsterna Blob, köer och tabellen. Du kan
 
 ### <a name="create-a-storage-account-through-the-azure-portal"></a>Skapa ett lagringskonto via Azure portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Välj **+ ny** på upp till vänster.
 1. Välj **lagring** under ”Azure Marketplace”, sedan **lagringskonto - blob, fil, tabell, kö** från höger sida.
 1. Ange informationen som krävs (namn, distributionsmodellen och så vidare.

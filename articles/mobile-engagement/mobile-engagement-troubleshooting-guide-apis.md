@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement felsökningsguide för - API: er"
-description: "Felsökning för Azure Mobile Engagement - API: er"
+title: 'Azure Mobile Engagement felsökningsguide för - API: er'
+description: 'Felsökning för Azure Mobile Engagement - API: er'
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3efc8a52-2b74-4917-b887-815ae8277474
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: piyushjo
-ms.openlocfilehash: a7ae0a83046f2d67b790f672dcd3ae261987357a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cda11c8d2f1d147a807083c5479d2b2cda65462c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-api-issues"></a>Felsökningsguide för API-problem
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Följande är möjliga problem som kan uppstå med hur administratörer interagerar med Azure Mobile Engagement via API: erna.
 
 ## <a name="syntax-issues"></a>Syntaxen problem
@@ -34,9 +38,9 @@ Följande är möjliga problem som kan uppstå med hur administratörer interage
   * Ett annat vanliga problem med SDK-integration och API-användning är försvåra SDK-nyckeln och API-nyckeln.
   * Skript som ansluter till API: erna måste skicka data minst var 10: e minut eller anslutningen kommer (särskilt vanligt i övervakaren API-skript som lyssnar efter data). För att förhindra timeout har skriptet skicka en XMPP ping var 10: e minut och hålla sessionen aktiv med servern.
 
-### <a name="see-also"></a>Se även
+### <a name="see-also"></a>Se också
 * [API-dokumentationen][Link 4]
-* [XMPP protokollet Info](http://xmpp.org/extensions/xep-0199.html)
+* [XMPP Protocol Info](http://xmpp.org/extensions/xep-0199.html)
 
 ## <a name="unable-to-use-the-api-to-perform-the-same-action-available-in-the-azure-mobile-engagement-ui"></a>Det går inte att använda API: et för att utföra samma åtgärd som är tillgängliga i Användargränssnittet för Azure Mobile Engagement
 ### <a name="issue"></a>Problem
@@ -45,7 +49,7 @@ Följande är möjliga problem som kan uppstå med hur administratörer interage
 ### <a name="causes"></a>Orsaker
 * Bekräfta att du kan utföra samma åtgärd från Gränssnittet för Azure Mobile Engagement visar att den här funktionen i Azure Mobile Engagement korrekt har integrerats med SDK.
 
-### <a name="see-also"></a>Se även
+### <a name="see-also"></a>Se också
 * [UI-dokumentation][Link 1]
 
 ## <a name="error-messages"></a>Felmeddelanden
@@ -75,7 +79,7 @@ Följande är möjliga problem som kan uppstå med hur administratörer interage
         503        Analytics not available yet (the requested information is not computed yet for an application).
         504        The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
 
-### <a name="see-also"></a>Se även
+### <a name="see-also"></a>Se också
 * [API-dokumentationen – för detaljerade fel på varje specifika API: et][Link 4]
 
 ## <a name="silent-failures"></a>Tyst fel
@@ -86,7 +90,7 @@ Följande är möjliga problem som kan uppstå med hur administratörer interage
 * Många objekt som kommer kommer att inaktiveras i Användargränssnittet för Azure Mobile Engagement om de inte är integrerade på rätt sätt, men misslyckas automatiskt från API: et, så Kom ihåg att testa samma funktion från Gränssnittet för att se om det fungerar.
 * Azure Mobile Engagement och många avancerade funktioner i Azure Mobile Engagement som du försöker använda, måste integreras individuellt i din app med SDK som separata steg innan du kan använda dem.
 
-### <a name="see-also"></a>Se även
+### <a name="see-also"></a>Se också
 * [Felsökningsguide för - SDK][Link 25]
 
 <!--Link references-->

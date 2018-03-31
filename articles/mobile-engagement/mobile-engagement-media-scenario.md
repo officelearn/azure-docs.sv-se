@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement-implementering för Media App"
-description: "Media app scenariot för att implementera Azure Mobile Engagement"
+title: Azure Mobile Engagement-implementering för Media App
+description: Media app scenariot för att implementera Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 48201cc8-4e04-485c-a8dc-d6406d23f3ed
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: c1591c3e436981e621830916cf0cdc4b7f395d7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e5d4585b47a4ca26b81b7168aa499f25722415a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="implement-mobile-engagement-with-media-app"></a>Implementerar Mobile Engagement med Media App
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 ## <a name="overview"></a>Översikt
 John är mobila projektledare för ett stort media företag. Han startas nyligen en ny app som har en mycket hög hämtning. Han har nått sin mål för nedladdning men fortfarande hans returnera på Investment(ROI) per användare uppfyller inte sitt behov. 
 
@@ -56,7 +60,7 @@ Baserat på rekommendationer från IT-teamet har följande tekniska KPI: er lagt
 Han klassificerar de data som krävs för varje KPI och han registrerar den i sin playbook rätt plats.
 
 ## <a name="engagement-program-and-integration"></a>Program för användarinteraktion och integrering
-Nu definiera sin KPI: er som Johan har slutförts startar han fasen sin Engagement-strategi genom att definiera 4 program och sina mål:![][1]
+Nu definiera sin KPI: er som Johan har slutförts startar han fasen sin Engagement-strategi genom att definiera 4 program och sina mål: ![][1]
 
 Sedan går John djupare med information om push-meddelanden för varje program. Push-meddelanden definieras av fem element:
 

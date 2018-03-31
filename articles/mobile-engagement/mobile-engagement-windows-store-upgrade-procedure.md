@@ -1,11 +1,11 @@
 ---
-title: "Uppgradera procedurer för universella Windows-appar SDK"
-description: "Universella Windows-appar SDK uppgradera procedurer för Azure Mobile Engagement"
+title: Uppgradera procedurer för universella Windows-appar SDK
+description: Universella Windows-appar SDK uppgradera procedurer för Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4c898175-2cd6-43db-b350-bb408332f24d
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 2bd2329026057a4a23295880d0d304e4e8effd1c
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a9d6cbcdf353f7eea991c344c3efe65378abe336
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Uppgradera procedurer för universella Windows-appar SDK
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Om du redan har integrerat en äldre version av Engagement till programmet, måste du Tänk på följande när du uppgraderar SDK.
 
 Du kan behöva utföra flera procedurer om du har missat flera versioner av SDK. Till exempel om du migrerar från 0.10.1 till 0.11.0 måste du först Följ proceduren ”från 0.9.0 till 0.10.1” sedan proceduren ”från 0.10.1 till 0.11.0”.
@@ -305,7 +309,7 @@ Exempel på vanliga Capptain objekt:
 * CapptainAgent nu namnet EngagementAgent
 * CapptainReach nu namnet EngagementReach
 * CapptainHttpConfig nu namnet EngagementHttpConfig
-* GetCapptainPageName nu namnet GetEngagementPageName
+* GetCapptainPageName now named GetEngagementPageName
 
 Observera att byta namn på också påverkar åsidosätts metoder.
 

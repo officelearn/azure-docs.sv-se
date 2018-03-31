@@ -45,11 +45,11 @@ Här följer några av funktionerna i Premium-lagring:
 
 * **Premium-lagringskonto**
 
-    Du börjar använda Premium-lagring genom att skapa ett premiumlagringskonto för ohanterade diskar. I den [Azure-portalen](https://portal.azure.com), för att skapa ett premiumlagringskonto, Välj den **Premium** prestandanivå. Välj den **lokalt redundant lagring (LRS)** replikeringsalternativet. Du kan också skapa ett premiumlagringskonto genom att ange typen **Premium_LRS** i något av följande platser:
-    * [Storage REST API](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (version 2014-02-14 eller en senare version)
-    * [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) (version 2014-10-01 eller en senare version, för Azure klassiska distributioner)
-    * [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (för Azure Resource Manager distributioner)
-    * [Azure PowerShell](/powershell/azureps-cmdlets-docs.md) (version 0.8.10 eller en senare version)
+    Du börjar använda Premium-lagring genom att skapa ett premiumlagringskonto för ohanterade diskar. I den [Azure-portalen](https://portal.azure.com), för att skapa ett premiumlagringskonto, Välj den **Premium** prestandanivå. Välj den **lokalt redundant lagring (LRS)** replikeringsalternativet. Du kan också skapa ett premiumlagringskonto genom att ange vilken prestandanivå **Premium_LRS**. Om du vill ändra nivån av prestanda, använder du någon av följande metoder:
+     
+    - [PowerShell för Azure Storage](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+    - [Azure CLI för Azure Storage](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+    - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (för Azure Resource Manager distributioner) eller ett Azure Storage resource provider-klientbibliotek
 
     Läs om premium lagringskontogränser i [Premium-lagring skalbarhets- och prestandamål](#premium-storage-scalability-and-performance-targets).
 

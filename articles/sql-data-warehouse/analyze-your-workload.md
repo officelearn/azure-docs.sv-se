@@ -1,25 +1,19 @@
 ---
 title: Analysera din arbetsbelastning - Azure SQL Data Warehouse | Microsoft Docs
-description: "Metoder för att analysera fråga prioritering för din arbetsbelastning i Azure SQL Data Warehouse."
+description: Metoder för att analysera fråga prioritering för din arbetsbelastning i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
-ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 10/23/2017
-ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: 98617f6b8366662e52d00420adc4c81abffc598d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.topic: conceptual
+ms.component: manage
+ms.date: 03/28/2018
+ms.author: joeyong
+ms.reviewer: jrj
+ms.openlocfilehash: 7fa5bbd8d9a50bb1dcd1ab5be73f4e248cbbf8fc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="analyze-your-workload"></a>Analysera din arbetsbelastning
 Metoder för att analysera fråga prioritering för din arbetsbelastning i Azure SQL Data Warehouse.
@@ -47,7 +41,7 @@ Följande tabell visar vikten mappningar för varje arbetsbelastning.
 Från den **fördelningen och förbrukningen av samtidighet fack** diagram, ser du att en DW500 1, 4, 8 och 16 samtidighet fack för smallrc, mediumrc, largerc och xlargerc, respektive. Du kan slå dessa värden upp i det föregående att hitta vikten för varje resurs.
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>DW500 mappning av resursklasser betydelse
-| Resursklass | Arbetsbelastningsgruppen | Concurrency-platser som används | MB / Distribution | Betydelse |
+| Resursklass | Arbetsbelastningsgruppen | Concurrency-platser som används | MB / Distribution | Prioritet |
 |:-------------- |:-------------- |:----------------------:|:-----------------:|:---------- |
 | smallrc        | SloDWGroupC00  | 1                      | 100               | Medel     |
 | mediumrc       | SloDWGroupC02  | 4                      | 400               | Medel     |

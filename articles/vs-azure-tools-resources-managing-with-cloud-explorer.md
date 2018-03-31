@@ -1,11 +1,11 @@
 ---
 title: Hantera Azure-resurser med Cloud Explorer | Microsoft Docs
-description: "Lär dig hur du använder Cloud Explorer för att bläddra och hantera Azure-resurser i Visual Studio."
+description: Lär dig hur du använder Cloud Explorer för att bläddra och hantera Azure-resurser i Visual Studio.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 6347dc53-f497-49d5-b29b-e8b9f0e939d7
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/25/2017
-ms.author: kraigb
-ms.openlocfilehash: 6e6d8d559f0251b71bfa6d529ead82a246cb3235
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 676feb0b01ec5622feff4351ade54e9856e54b13
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>Hantera resurser som är associerade med din Azure-konton i Visual Studio Cloud Explorer
 Cloud Explorer kan du visa dina Azure-resurser och resursgrupper, granska deras egenskaper och utföra åtgärder för viktiga developer diagnostik från Visual Studio. 
 
 Exempel på [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040), Cloud Explorer bygger på Azure Resource Manager-stacken. Därför Cloud Explorer förstår resurser, t.ex Azure-resursgrupper och Azure-tjänster, till exempel Logic apps och API apps och stöder [rollbaserad åtkomstkontroll](active-directory/role-based-access-control-configure.md) (RBAC). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - [Visual Studio-2017](https://www.visualstudio.com/downloads/) med den **arbetsbelastning i Azure** valt, eller en tidigare version av Visual Studio med den [Microsoft Azure SDK för .NET 2.9](https://www.microsoft.com/en-us/download/details.aspx?id=51657).
 - Microsoft Azure-konto - om du inte har ett konto kan du [registrera dig för en kostnadsfri utvärderingsversion](http://go.microsoft.com/fwlink/?LinkId=623901) eller [aktivera Visual Studio-prenumerantförmåner](http://go.microsoft.com/fwlink/?LinkId=623901).
 

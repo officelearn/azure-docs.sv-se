@@ -1,25 +1,24 @@
 ---
-title: "Felsöka Azure Stream Analytics med diagnostik loggar | Microsoft Docs"
-description: "Lär dig att analysera diagnostik loggar från Stream Analytics-jobb i Microsoft Azure."
-keywords: 
-documentationcenter: 
+title: Felsöka Azure Stream Analytics med diagnostik loggar | Microsoft Docs
+description: Lär dig att analysera diagnostik loggar från Stream Analytics-jobb i Microsoft Azure.
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: c9772df2c216d465ca6e90e69bce011969dd4f02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 164d522d7beaea222dbc408765877fa67a34c203
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Felsöka Azure Stream Analytics med hjälp av diagnostik-loggar
 
@@ -117,7 +116,7 @@ Namn | Beskrivning
 Fel | (valfritt) Information om fel. Detta är vanligtvis undantagsinformation, om den är tillgänglig.
 Meddelande| Loggmeddelande.
 Typ | Typ av meddelande. Mappas till interna kategorisering av fel. Till exempel **JobValidationError** eller **BlobOutputAdapterInitializationFailure**.
-Korrelations-ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) som unikt identifierar jobbkörningen. Alla loggposter för körning vid tiden för när jobbet startar tills jobbet slutar har samma **Korrelations-ID** värde.
+Korrelations-id | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) som unikt identifierar jobbkörningen. Alla loggposter för körning vid tiden för när jobbet startar tills jobbet slutar har samma **Korrelations-ID** värde.
 
 ## <a name="next-steps"></a>Nästa steg
 

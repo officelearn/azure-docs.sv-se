@@ -1,12 +1,12 @@
 ---
-title: "Övervaka Azure Functions"
-description: "Lär dig hur du använder Azure Application Insights med Azure Functions för att övervaka körning av funktionen."
+title: Övervaka Azure Functions
+description: Lär dig hur du använder Azure Application Insights med Azure Functions för att övervaka körning av funktionen.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure-funktioner, funktioner, händelsebearbetning, webhooks, dynamisk beräkning, serverlös arkitektur"
+editor: ''
+tags: ''
+keywords: azure-funktioner, funktioner, händelsebearbetning, webhooks, dynamisk beräkning, serverlös arkitektur
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: d2a61f5f51e3c4a1de6baa79493cb2c7380c76b6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -493,7 +493,7 @@ Vi rekommenderar Application Insights för övervakningsfunktionerna eftersom de
 
 ### <a name="logging-to-storage"></a>Loggning till lagring
 
-Inbyggd loggning använder storage-konto som anges av anslutningssträngen i den `AzureWebJobsDashboard` appinställningen. Om inställningen appen är konfigurerad, visas loggningsdata i Azure-portalen. Välj en funktion i en funktion app-sida, och välj sedan den **övervakaren** fliken och hämta en lista över funktionen körningar. Välj en funktion körning ska granska varaktighet, indata, fel och associerade loggfilerna.
+Inbyggd loggning använder storage-konto som anges av anslutningssträngen i den `AzureWebJobsDashboard` appinställningen. Om inställningen appen är konfigurerad, visas loggningsdata i Azure-portalen. Gå till filer, Välj tjänsten för funktionen och gå sedan till i resursen lagring `LogFiles > Application > Functions > Function > your_function` till finns i loggfilen. Välj en funktion i en funktion app-sida, och välj sedan den **övervakaren** fliken och hämta en lista över funktionen körningar. Välj en funktion körning ska granska varaktighet, indata, fel och associerade loggfilerna.
 
 Om du använder Application Insights och har [inbyggd loggning har inaktiverats](#disable-built-in-logging), **övervakaren** fliken tar dig till Application Insights.
 

@@ -1,12 +1,11 @@
 ---
-title: "JSON-utdata för Stream Analytics | Microsoft Docs"
-description: "Lär dig hur Stream Analytics kan inrikta dig på Azure Cosmos DB för JSON-utdata för dataarkivering och låg latens frågor för Ostrukturerade JSON-data."
+title: JSON-utdata för Stream Analytics | Microsoft Docs
+description: Lär dig hur Stream Analytics kan inrikta dig på Azure Cosmos DB för JSON-utdata för dataarkivering och låg latens frågor för Ostrukturerade JSON-data.
 keywords: JSON-utdata
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics,documentdb
 author: jseb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 29be0f5100aabe8374a26e6548effe20ccb9ac86
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8bda2abda6f2b7207a5a7195c24b07da9089fb06
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Mål Azure Cosmos DB för JSON-utdata från Stream Analytics
 Stream Analytics kan rikta [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) att aktivera arkivering och låg latens datafrågor på Ostrukturerade JSON-data för JSON-utdata. Det här dokumentet beskrivs några metoder för att implementera den här konfigurationen.
@@ -69,5 +68,5 @@ Partitionerad samling | Flera ”enskild Partition” samlingar
 * **Samlingsnamnsmönstret** – namnet på samlingen eller deras mönster för samlingar som ska användas. Samlingsnamnsformatet kan konstrueras med valfritt {partition}-token, där partitionerna börjar från 0. Följande är exempel giltiga indata:  
   1\) MyCollection – en samling med namnet ”MyCollection” måste finnas.  
   2\) MyCollection {partition} – dessa samlingar måste finnas – ”MyCollection0”, ”MyCollection1”, ”MyCollection2” och så vidare.  
-* **Partitionera nyckeln** – det är valfritt. Det här krävs bara om du använder en {partition}-token i din samlingsnamnsmönstret. Namnet på fältet i utdatahändelserna används för att ange nyckel för att partionera utdata över samlingarna. Enda samling utdata för en godtycklig utdatakolumnen kan vara används t.ex. PartitionId.  
+* **Partitionera nyckeln** – det är valfritt. Det här krävs bara om du använder en {partition}-token i din samlingsnamnsmönstret. Namnet på fältet i utdatahändelserna används för att specificera nyckeln för att partionera utdata över samlingarna. Enda samling utdata för en godtycklig utdatakolumnen kan vara används t.ex. PartitionId.  
 * **Dokumentera ID** – det är valfritt. Namnet på fältet i utdatahändelserna används för att ange den primära nyckeln operations baseras på vilka insert eller update.  

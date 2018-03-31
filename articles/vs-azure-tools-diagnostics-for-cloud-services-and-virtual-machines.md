@@ -1,11 +1,11 @@
 ---
-title: "Konfigurera diagnostik för virtuella datorer och Azure Cloud Services | Microsoft Docs"
-description: "Lär dig hur du ställer in diagnostik för felsökning Azure cloude tjänster och virtuella maskiner (VMs) i Visual Studio."
+title: Konfigurera diagnostik för virtuella datorer och Azure Cloud Services | Microsoft Docs
+description: Lär dig hur du ställer in diagnostik för felsökning Azure cloude tjänster och virtuella maskiner (VMs) i Visual Studio.
 services: visual-studio-online
 documentationcenter: na
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: e70cd7b4-6298-43aa-adea-6fd618414c26
 ms.service: multiple
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: mikejo
-ms.openlocfilehash: f00771d89749e7507d7f303f366fe63f537900ff
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 34c667b0a594682e4d099e7bff64bfdb336b850b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Konfigurera diagnostik för Azure-molntjänster och virtuella datorer
 När du behöver felsöka ett Azure-molntjänst eller den virtuella datorn använder du Visual Studio enklare ställa in Azure-diagnostik. Diagnostik avbildar systemdata och loggningsdata på virtuella datorer och instanser för virtuella datorer som kör Molntjänsten. Diagnostikdata överförs till ett lagringskonto som du väljer. Mer information om diagnostik loggning i Azure, se [aktivera diagnostikloggning för Web Apps i Azure App Service](app-service/web-sites-enable-diagnostic-log.md).
@@ -145,7 +145,7 @@ För att avbilda Windows-händelseloggar, Välj den **Aktivera överföring av W
 
 ![Händelseloggar](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796664.png)
 
-Om du använder Azure SDK 2.6 eller senare och du vill ange en anpassad datakälla, anger du det i den  **\<datakällnamn\>**  textruta och välj sedan **Lägg till**. Datakällan har lagts till filen diagnostics.cfcfg.
+Om du använder Azure SDK 2.6 eller senare och du vill ange en anpassad datakälla, anger du det i den **\<datakällnamn\>** textruta och välj sedan **Lägg till**. Datakällan har lagts till filen diagnostics.cfcfg.
 
 Om du använder Azure SDK 2.5 och vill ange en anpassad datakälla, du kan lägga till den till den `WindowsEventLog` avsnitt i diagnostics.wadcfgx-fil, som i följande exempel:
 
@@ -187,12 +187,12 @@ Händelserna som har hämtats från händelsekällor och händelsemanifest som d
 
 ETW-ramverket stöds i ASP.NET via klasser i den [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110)) namnområde. Namnområdet Microsoft.WindowsAzure.Diagnostics som ärver från och utökar standard [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110)) klasser, kan du använda [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110)) som en loggning ramverk i Azure-miljön. Mer information finns i [ta kontroll över loggning och spårning i Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) och [aktivera diagnostik i Azure-molntjänster och virtuella datorer](cloud-services/cloud-services-dotnet-diagnostics.md).
 
-### <a name="crash-dumps"></a>Krasch minnesdumpar
+### <a name="crash-dumps"></a>Kraschdumpar
 Om du vill samla in information om när en rollinstans kraschar, Välj den **Aktivera överföring av krascher Dumpar** kryssrutan. (Eftersom ASP.NET hanterar de flesta undantag, detta är vanligtvis bara användbar för arbetsroller.) Om du vill öka eller minska procentandelen av lagringsutrymme för krascher Dumpar, ändra den **Directory kvoten (%)** värde. Du kan ändra lagringsbehållaren där krascher minnesdumpar lagras, och välj om du vill avbilda en **fullständig** eller **Mini** dumpen.
 
 Processer som för närvarande spåras visas i nästa skärmbilden. Markera kryssrutorna för de processer som du vill samla in. Om du vill lägga till en annan process i listan, ange processens namn och välj sedan **lägga till processen**.
 
-![Krasch minnesdumpar](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766026.png)
+![Kraschdumpar](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766026.png)
 
 Mer information finns i [ta kontroll över loggning och spårning i Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) och [Microsoft Azure Diagnostics del 4: Anpassad loggning komponenter och Azure Diagnostics 1.3 ändringar](http://justazure.com/microsoft-azure-diagnostics-part-4-custom-logging-components-azure-diagnostics-1-3-changes/).
 
@@ -223,7 +223,7 @@ När du har samlat in diagnostikdata för en molnbaserad tjänst eller en virtue
    | Prestandaräknare |Du kan samla in data på alla prestandaräknare som är tillgängliga på den virtuella datorn. Operativsystemet tillhandahåller prestandaräknare som innehåller många statistik, t.ex. minne användnings- och tid. |WADPerformanceCountersTable |
    | Infrastruktur-loggar |Loggar som genereras från den diagnostik-infrastrukturen. |WADDiagnosticInfrastructureLogsTable |
    | IIS-loggar |Loggar som registrerar webbegäranden. Om din molntjänst hämtar en stor mängd trafik, kan dessa loggar vara tidskrävande. Det är en bra idé att samla in och lagra dessa data endast när du behöver den. |Du kan hitta misslyckades begäran loggas i blob-behållare under bomullstuss-iis-failedreqlogs under en sökväg för den distribution, roll och instans. Du kan hitta klar loggar under bomullstuss-iis-loggfiler. För varje fil skapas transaktioner i tabellen WADDirectories. |
-   | Krasch minnesdumpar |Visar binära avbildningar av din molntjänst processen (vanligtvis en arbetsroll). |bomullstuss-crush-Dumpar blob-behållare |
+   | Kraschdumpar |Visar binära avbildningar av din molntjänst processen (vanligtvis en arbetsroll). |bomullstuss-crush-Dumpar blob-behållare |
    | Anpassade loggfiler |Loggar av data som du fördefinierade. |I koden kan du ange platsen för anpassade loggfiler i ditt lagringskonto. Du kan till exempel ange en anpassad blob-behållare. |
 4. Om data av valfri typ trunkeras kan du öka bufferten för dessa data typ eller förkorta intervallet mellan överföringar av data från den virtuella datorn till ditt lagringskonto.
 5. (Valfritt) Ta bort data från storage-konto ibland att minska övergripande kostnader för lagring.

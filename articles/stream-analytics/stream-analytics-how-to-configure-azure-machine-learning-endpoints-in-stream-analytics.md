@@ -1,12 +1,11 @@
 ---
-title: "Använda Azure Machine Learning-slutpunkter i Stream Analytics | Microsoft Docs"
-description: "Datorn språk användardefinierade funktioner i Stream Analytics"
-keywords: 
-documentationcenter: 
+title: Använda Azure Machine Learning-slutpunkter i Stream Analytics | Microsoft Docs
+description: Datorn språk användardefinierade funktioner i Stream Analytics
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: 406b258f-b8c2-4e55-953c-b7f84e8e5354
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: ca656ce11f267340872f4b8566d0ee21791f29d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 5638071e667c5777138f7c25add8b5f60bee21fe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Datorn Learning integrering i Stream Analytics
 Stream Analytics stöder användardefinierade funktioner som anropar till Azure Machine Learning-slutpunkter. REST API-stöd för den här funktionen beskrivs i den [Stream Analytics REST API-bibliotek](https://msdn.microsoft.com/library/azure/dn835031.aspx). Den här artikeln innehåller ytterligare information som behövs för lyckad implementering av den här funktionen i Stream Analytics. En självstudiekurs har även publicerats och är tillgänglig [här](stream-analytics-machine-learning-integration-tutorial.md).

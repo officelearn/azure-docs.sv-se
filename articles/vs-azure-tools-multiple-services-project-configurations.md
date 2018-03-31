@@ -1,11 +1,11 @@
 ---
-title: "Konfigurera din Azure-projekt med flera tjänstkonfiguration | Microsoft Docs"
-description: "Lär dig hur du konfigurerar en Azure cloud service-projekt genom att ändra ServiceDefinition.csdef, ServiceConfiguration.Local.cscfg och ServiceConfiguration.Cloud.cscfg-filer."
+title: Konfigurera din Azure-projekt med flera tjänstkonfiguration | Microsoft Docs
+description: Lär dig hur du konfigurerar en Azure cloud service-projekt genom att ändra ServiceDefinition.csdef, ServiceConfiguration.Local.cscfg och ServiceConfiguration.Cloud.cscfg-filer.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: a4fb79ed-384f-4183-9f74-5cac257206b9
 ms.service: multiple
 ms.devlang: multiple
@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2017
-ms.author: kraigb
-ms.openlocfilehash: 8125ef36f730b745d63c39493f48d14a5a33d76c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.author: ghogen
+ms.openlocfilehash: 919568922ada2d842233ade029a54d474b4a1a0e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Konfigurera Azure-projekt i Visual Studio för att använda flera tjänstkonfiguration
 
 Ett Azure cloud service-projekt i Visual Studio innehåller tre konfigurationsfiler: `ServiceDefinition.csdef`, `ServiceConfiguration.Local.cscfg`, och `ServiceConfiguration.Cloud.cscfg`:
 
-- `ServiceDefinition.csdef`distribueras till Azure beskrivs kraven för Molntjänsten och dess roller och ange inställningar som gäller för alla instanser. Inställningarna kan läsas under körning med Azure-tjänsten värd för Runtime-API. Den här filen kan uppdateras på Azure endast när Molntjänsten har stoppats.
-- `ServiceConfiguration.Local.cscfg`och `ServiceConfiguration.Cloud.cscfg` ange värden för inställningar i definitionen filen och ange antalet instanser körs för varje roll. ”Lokalt” filen innehåller värden som används i lokala felsökning. filen ”moln” distribueras till Azure som `ServiceConfiguration.cscfg` och innehåller inställningar för servermiljö. Den här filen kan uppdateras när Molntjänsten körs i Azure.
+- `ServiceDefinition.csdef` distribueras till Azure beskrivs kraven för Molntjänsten och dess roller och ange inställningar som gäller för alla instanser. Inställningarna kan läsas under körning med Azure-tjänsten värd för Runtime-API. Den här filen kan uppdateras på Azure endast när Molntjänsten har stoppats.
+- `ServiceConfiguration.Local.cscfg` och `ServiceConfiguration.Cloud.cscfg` ange värden för inställningar i definitionen filen och ange antalet instanser körs för varje roll. ”Lokalt” filen innehåller värden som används i lokala felsökning. filen ”moln” distribueras till Azure som `ServiceConfiguration.cscfg` och innehåller inställningar för servermiljö. Den här filen kan uppdateras när Molntjänsten körs i Azure.
 
 Konfigurationsinställningar för hanteras och ändras i Visual Studio med egenskapssidor för rollen tillämpliga (Högerklicka på rollen och välj **egenskaper**, eller dubbelklicka på rollen). Ändringar kan vara begränsad till konfigurationen som har valts i den **tjänstkonfiguration** listrutan. Egenskaperna för webb-och arbetsroller liknar varandra, utom där beskrivs i följande avsnitt.
 
@@ -58,7 +58,7 @@ Om du redan har lagt till en HTTPS-slutpunkt alternativet HTTPS-slutpunkten är 
 
 Som standard aktiveras diagnostik för webbrollen. Azure-molnet projekt- och tjänstkontot är inställd på att använda den lokala lagringsemulatorn. När du är redo att distribuera till Azure kan du välja knappen builder (**...** ) att använda Azure storage i stället. Du kan överföra diagnostikdata till lagringskontot på begäran eller vid automatiskt schemalagda intervall. Läs mer om Azure diagnostics [aktiverar diagnostik i Azure-molntjänster och virtuella datorer](cloud-services/cloud-services-dotnet-diagnostics.md).
 
-## <a name="settings-page"></a>Inställningssidan
+## <a name="settings-page"></a>Sidan Inställningar
 
 På den **inställningar** kan du lägga till inställningarna för en konfiguration som namn / värde-par. Kod som körs i rollen kan läsa värdena i inställningarna under körning med klasser som tillhandahålls av den [Azure hanteras Library](http://go.microsoft.com/fwlink?LinkID=171026), särskilt de [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) metod.
 

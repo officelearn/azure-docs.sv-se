@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e426f2b90e3ac3ac6bcb9825c7848c76e52a1021
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a7891e5bedb6e2ad3cba4780d38fc479d7b0bf4e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering i Azure
 
@@ -119,7 +119,7 @@ Heartbeat
 
 Du kan granska följande för att verifiera agent logganalys på en Windows-dator:
 
-1.  Öppna Microsoft Monitoring Agent i kontrollpanelen. På fliken **Azure Log Analytics (OMS)** visar agenten ett meddelande där det står: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service** (Microsoft Monitoring Agent har anslutits till tjänsten Microsoft Operations Management Suite).   
+1.  Öppna Microsoft Monitoring Agent på Kontrollpanelen och på den **Azure logganalys** fliken agenten visas ett meddelande om: **i Microsoft Monitoring Agent har anslutits till logganalys** .   
 2.  Öppna Windows Event Log, gå till **Program- och tjänstloggar\Operations Manager** och sök efter händelse-ID 3000 och 5002 från källans tjänstanslutning. Dessa händelser anger datorn har registrerats med logganalys-arbetsytan och tar emot konfigurationen.  
 
 Om agenten är inte kan kommunicera med logganalys och den är konfigurerad för att kommunicera med internet genom en brandvägg eller proxyserver, bekräftar du att servern brandvägg eller proxyserver har konfigurerats korrekt genom att granska [nätverkskonfigurationen för Windows-agenten](../log-analytics/log-analytics-agent-windows.md) eller [nätverkskonfigurationen för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
@@ -131,7 +131,7 @@ Om agenten är inte kan kommunicera med logganalys och den är konfigurerad för
 
 Nya Linux-agenter visar statusen **Uppdaterad** när en utvärdering har utförts. Den här processen kan ta upp till 6 timmar.
 
-För att bekräfta en hanteringsgrupp för Operations Manager kommunicerar med Log Analytics, se [Validera Operations Manager Integration with OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
+För att bekräfta en hanteringsgrupp för Operations Manager kommunicerar med Log Analytics, se [Validera Operations Manager Integration with Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## <a name="data-collection"></a>Datainsamling
 
@@ -173,7 +173,7 @@ Klicka på **saknar uppdateringar** att visa listan över uppdateringar som sakn
 
 ## <a name="viewing-update-deployments"></a>Visa uppdateringsdistributioner
 
-Klicka på **uppdateringsdistributioner** att visa listan över befintliga distributioner. När du klickar på någon av uppdateringsdistributioner i listan öppnas den **uppdatera distributionen kör** sidan för att distributionen av uppdateringen.
+Klicka på den **uppdateringsdistributioner** att visa listan över befintliga distributioner. Klicka på någon av uppdateringsdistributioner i tabellen öppnas den **uppdatera distributionen kör** sidan för att distributionen av uppdateringen.
 
 ![Översikt över uppdateringsdistributionens resultat](./media/automation-update-management/update-deployment-run.png)
 
@@ -186,7 +186,7 @@ Skapa en ny uppdatera distribution genom att klicka på den **schema uppdatering
 | Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Linux- eller Windows|
 | Datorer för att uppdatera |Välj en sparad sökning eller Välj dator från listrutan och Välj enskilda datorer |
-|Uppdatera klassificering|Välj de uppdateringsklassificeringar som du behöver|
+|Klassificering av uppdatering|Välj de uppdateringsklassificeringar som du behöver|
 |Uppdateringar som ska undantas|Ange alla KBs för att utesluta utan prefixet 'KB'|
 |Inställningar för schemaläggning|Välj tid för start och välj antingen en gång eller återkommande för återkommande|
 | Underhållsperiod |Antal minuter som anges för uppdateringar. Värdet kan inte vara mindre än 30 minuter och mer än 6 timmar |
@@ -213,7 +213,7 @@ Följande tabell innehåller exempel loggen söker efter uppdateringen innehåll
 
 Kunder som har investerat i System Center Configuration Manager för att hantera datorer, servrar och mobila enheter är också beroende av dess styrka och mognad vid hantering av programuppdateringar som en del av sin cykel för hantering av programuppdatering (SUM).
 
-Information om hur du integrerar uppdateringshantering OMS-lösning med System Center Configuration Manager finns [integrera System Center Configuration Manager med OMS uppdateringshantering](oms-solution-updatemgmt-sccmintegration.md).
+Information om hur du integrerar hanteringslösningen med System Center Configuration Manager finns [integrera System Center Configuration Manager med uppdateringshantering](oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="patching-linux-machines"></a>Korrigering av Linux-datorer
 

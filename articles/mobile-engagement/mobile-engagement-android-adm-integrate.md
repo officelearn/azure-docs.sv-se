@@ -1,11 +1,11 @@
 ---
-title: Azure Mobile Engagement Android SDK-Integration
-description: "Senaste uppdateringarna och procedurer för Android SDK för Azure Mobile Engagement"
+title: Azure Mobile Engagement Android SDK Integration
+description: Senaste uppdateringarna och procedurer för Android SDK för Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a7d719ec-67b3-4be3-9d7f-0b61a57fe978
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 43987962ea2b7b825b88643d18b4db65f1f1670e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c3b8f60333e6096411aad8499bb4bfc36e53f3c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-adm-with-engagement"></a>Hur du integrerar ADM med Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 > [!IMPORTANT]
 > Du måste följa integration proceduren i hur du integrerar Engagement på Android dokumentet innan du följer den här guiden.
 > 
@@ -41,7 +45,7 @@ ADM-nyttolaster pushas till SDK alltid innehålla den `azme` nyckel i dataobjekt
 ## <a name="sign-up-to-adm"></a>Registrera dig för ADM
 Om du inte redan har gjort, måste du aktivera ADM på Amazon-konto.
 
-Förfarandet som beskrivs i: [ <https://developer.amazon.com/sdk/adm/credentials.html>].
+Förfarandet som beskrivs i: [ <https://developer.amazon.com/sdk/adm/credentials.html> ].
 
 När du slutför proceduren får du:
 
@@ -104,7 +108,7 @@ Se till att du har följande behörigheter i din `AndroidManifest.xml` (innan de
 ## <a name="grant-engagement-oauth-credentials"></a>Bevilja Engagement OAuth-autentiseringsuppgifter
 Skicka dina inloggningsuppgifter för OAuth (klient-ID och Klienthemlighet) i Engagement-portalen.
 
-[< https://developer.amazon.com/sdk/adm/credentials.html>]:https://developer.amazon.com/sdk/adm/credentials.html
+[<https://developer.amazon.com/sdk/adm/credentials.html>]:https://developer.amazon.com/sdk/adm/credentials.html
 [ADM-klientbiblioteket]:https://developer.amazon.com/sdk/adm/setup.html
 [integrerad ADM]:https://developer.amazon.com/sdk/adm/integrating-app.html
 [proceduren]:https://developer.amazon.com/sdk/adm/integrating-app.html#Asset

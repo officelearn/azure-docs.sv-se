@@ -1,12 +1,11 @@
 ---
-title: "Power BI-instrumentpanelen på Azure Stream Analytics | Microsoft Docs"
-description: "Använda en realtid strömmande Power BI-instrumentpanel för att samla in business intelligence och analysera stora volymer data från en Stream Analytics-jobbet."
+title: Power BI-instrumentpanelen på Azure Stream Analytics | Microsoft Docs
+description: Använda en realtid strömmande Power BI-instrumentpanel för att samla in business intelligence och analysera stora volymer data från en Stream Analytics-jobbet.
 keywords: instrumentpanelen, realtid instrumentpanelen
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
-ms.author: samacha
-ms.openlocfilehash: b446e2296f2747012849936b994c4a4a2044869e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: e1f1d960c312362e0e0cd6d2f83599c28c8c3f05
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Strömma analyser och Power BI: en analys i realtid instrumentpanel för strömmande data
 Azure Stream Analytics gör att du kan dra nytta av en av de inledande verktyg för business intelligence [Microsoft Power BI](https://powerbi.com/). I den här artikeln får du lära dig hur skapa business intelligence-verktyg med hjälp av Power BI som utdata för Azure Stream Analytics-jobb. Du också lära dig hur du skapar och använder en realtid instrumentpanel.
@@ -29,7 +28,7 @@ Den här artikeln fortsätter från Stream Analytics [att upptäcka bedrägerier
 Du kan titta på [en video](https://www.youtube.com/watch?v=SGUpT-a99MA) som visar det här scenariot.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du kontrollera att du har följande:
 
@@ -242,7 +241,7 @@ Du kan med den här konfigurationen för att ändra den ursprungliga frågan til
         dspl
 
 
-### <a name="renew-authorization"></a>Förnya auktorisering
+### <a name="renew-authorization"></a>Förnya auktorisationen
 Om lösenordet har ändrats sedan jobbet skapades eller senast autentiserad, måste du autentiseras Power BI-konto. Om Azure Multi-Factor Authentication har konfigurerats på din Azure Active Directory (Azure AD)-klient, måste du också förnya Power BI-auktorisering varannan vecka. Om du inte förnyar kan du se problem, till exempel brist på jobbutdata eller en `Authenticate user error` i loggarna för åtgärden.
 
 Om ett jobb startar efter att token har upphört att gälla, uppstår ett fel och jobbet misslyckas. Stoppa jobb som körs för att lösa problemet och gå till Power BI-utdata. Om du vill undvika dataförlust, Välj den **förnya auktorisering** länka och starta sedan om jobbet från den **stoppats senast**.

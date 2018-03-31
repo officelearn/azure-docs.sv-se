@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement användargränssnittet - Start"
-description: "Lär dig att hantera dina befintliga program och projekt med hjälp av Azure Mobile Engagement"
+title: Azure Mobile Engagement användargränssnittet - Start
+description: Lär dig att hantera dina befintliga program och projekt med hjälp av Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: aff578d2-40f6-43e4-b0ea-7d2674cb28a1
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0f15cb975f57f6f5cab12d5118ff50a6fab14388
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0379e51a30927af88367fc687d8f8ce66eb827f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-your-existing-application-and-projects"></a>Så här hanterar du ditt befintliga program och projekt
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Den här artikeln beskriver den **Start** sida av den **Mobile Engagement** portal. Du använder den **Mobile Engagement** portalen för att övervaka och hantera dina mobila appar. Observera att börja använda portalen måste du först skapa en **Azure Mobile Engagement** konto. 
 
 Gå till startsidan, klicka på **hem** på upp till vänster på sidan. Den innehåller en lista över alla program som ingår i den valda samlingen. På den här sidan se du bara en snabb överblick över dina program.
@@ -62,9 +66,9 @@ Roller är:
 
 Klicka på ett projekt för att visa alla program som ingår i det här projektet. Följande bild visar adressutrymmet för de valda programmen.
 
-![(Bostad2)][3]
+![Home2][3]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Begrepp][Link 6]
 * [Felsöka Guide Service][Link 24]
 

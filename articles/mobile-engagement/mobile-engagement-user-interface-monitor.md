@@ -1,11 +1,11 @@
 ---
-title: "Användargränssnittet för Azure Mobile Engagement - Övervakare"
-description: "Lär dig hur du övervakar data i realtid om ditt program med Azure Mobile Engagement"
+title: Användargränssnittet för Azure Mobile Engagement - Övervakare
+description: Lär dig hur du övervakar data i realtid om ditt program med Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b91ad89a-b89d-4377-abb0-cc2d16a2836d
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 5f8a02e35db93585e0fe46d77b3ad18b94c99597
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b370a5db1acee37ce234f5ec3f004be20719cfea
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-monitor-real-time-data-about-your-application"></a>Övervaka realtidsdata för appen
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Den här artikeln beskriver den **ÖVERVAKAREN** för den **Mobile Engagement** portal. Du använder den **Mobile Engagement** portalen för att övervaka och hantera dina mobila appar. Observera att börja använda portalen måste du först skapa en **Azure Mobile Engagement** konto. 
 
 Avsnittet Övervakare i Användargränssnittet innehåller realtidsanalys information och du kan ställa in varningar när tröskelvärden nås för de flesta av samma information som är tillgänglig tidigare i den [ANALYTICS](mobile-engagement-user-interface-analytics.md) avsnitt i Användargränssnittet. Finns den **ordlista** i avsnittet den [begrepp](http://go.microsoft.com/fwlink/?LinkId=525555) avsnittet definitioner av uttryck och förkortningar i analyser och övervakning (till exempel följande: aktiva användare, nya användare, behålls användare, Session, användaren sökväg Diagram, mappa användare, spårning URL: er, trender, aktivitet, händelse, jobb, fel, Extra information, krascher och App-info).
@@ -56,7 +60,7 @@ Du kan även ange en minsta Identifieringstakt, vilket är den minsta mängden m
 
 ![Monitor4][17]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Begrepp][Link 6]
 * [Felsöka Guide Service][Link 24]
 

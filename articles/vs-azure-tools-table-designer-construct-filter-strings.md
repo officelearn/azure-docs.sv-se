@@ -1,11 +1,11 @@
 ---
-title: "Hur du skapar filtersträngar för tabelldesign | Microsoft Docs"
-description: "Hur du skapar filtersträngar för tabelldesign"
+title: Hur du skapar filtersträngar för tabelldesign | Microsoft Docs
+description: Hur du skapar filtersträngar för tabelldesign
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
 ms.service: storage
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: kraigb
-ms.openlocfilehash: 069224d84462b4955912ce1462a65298a5acc04a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 722052e351062efba85eb143b2ea7bd0136002a0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>Hur du skapar Filtersträngar för tabelldesign
 ## <a name="overview"></a>Översikt
@@ -31,7 +31,7 @@ Följande logiska operatorer stöds för alla egenskapstyper av:
 
 | Logisk operator | Beskrivning | Exempel Filtersträngen |
 | --- | --- | --- |
-| EQ |Lika med |Stad eq 'Redmond' |
+| eq |Lika med |Stad eq 'Redmond' |
 | gt |Större än |Priset gt 20 |
 | ge |Större än eller lika med |Pris-ge 10 |
 | lt |Mindre än |Priset lt 20 |
@@ -45,7 +45,7 @@ När man skapar en Filtersträng är följande regler viktiga:
 
 * Använd logiska operatorer för att jämföra en egenskap till ett värde. Observera att det inte går att jämföra en egenskap för ett dynamiskt värde. en sida av uttrycket måste vara en konstant.
 * Alla delar av filtersträngen är skiftlägeskänsliga.
-* Det konstanta värdet måste vara av samma datatyp som egenskapen för filtret giltiga sökresultat. Läs mer om stöds egenskapstyperna [förstå den tabelltjänst-datamodellen](http://go.microsoft.com/fwlink/p/?LinkId=400448).
+* Det konstanta värdet måste vara av samma datatyp som egenskapen för filtret för att returnera giltiga resultat. Mer information om egenskapstyper som stöds finns i [Förstå Tabelltjänst-datamodellen](http://go.microsoft.com/fwlink/p/?LinkId=400448).
 
 ## <a name="filtering-on-string-properties"></a>Filtrering på egenskaperna för anslutningssträngen
 När du filtrerar på egenskaperna för anslutningssträngen omges av strängkonstant enkla citattecken.

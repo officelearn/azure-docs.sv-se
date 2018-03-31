@@ -1,20 +1,20 @@
 ---
-title: "Om ohanterad (sidblobbar) och hanterade diskar lagring för virtuella datorer i Microsoft Azure Linux | Microsoft Docs"
-description: "Lär dig grunderna om ohanterad (sidblobbar) och hanterade diskar lagring för virtuella Linux-datorer i Azure."
+title: Om ohanterad (sidblobbar) och hanterade diskar lagring för virtuella datorer i Microsoft Azure Linux | Microsoft Docs
+description: Lär dig grunderna om ohanterad (sidblobbar) och hanterade diskar lagring för virtuella Linux-datorer i Azure.
 services: virtual-machines
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 ms.service: virtual-machines
 ms.workload: storage
 ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: iainfou
-ms.openlocfilehash: 107e332a0f8c9d5a84a74de685ca458fb29caa8b
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.author: rogarana
+ms.openlocfilehash: 3742b05bceea7aed556d06ab4460abaa08aca7d1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>Om diskar lagring för virtuella Azure Linux-datorer
 Precis som andra dator använder virtuella datorer i Azure diskar som en plats för att lagra ett operativsystem, program och data. Alla Azure virtuella datorer har minst två diskar – en disk för Linux-operativsystem och en tillfällig disk. Operativsystemdisken har skapats från en avbildning och både operativsystemdisken och image är faktiskt virtuella hårddiskar (VHD) lagras i ett Azure storage-konto. Virtuella datorer kan också ha en eller flera datadiskar som lagras också som virtuella hårddiskar. 

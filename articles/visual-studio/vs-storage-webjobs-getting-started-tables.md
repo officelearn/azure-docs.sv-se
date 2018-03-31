@@ -1,11 +1,11 @@
 ---
-title: "Komma igång med Azure storage och Visual Studio anslutna tjänster (Webbjobb projekt)"
-description: "Hur du kommer igång med Azure Table storage i Azure WebJobs-projekt i Visual Studio efter anslutning till ett lagringskonto med hjälp av Visual Studio anslutna tjänster"
+title: Komma igång med Azure storage och Visual Studio anslutna tjänster (Webbjobb projekt)
+description: Hur du kommer igång med Azure Table storage i Azure WebJobs-projekt i Visual Studio efter anslutning till ett lagringskonto med hjälp av Visual Studio anslutna tjänster
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 061a6c46-0592-4e5d-aced-ab7498481cde
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: 4e0c77e08bff971277a09d6066f259db84617616
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 75ca4914fe60ec6f5c50e4942ad6d5cc7a6fe98b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Komma igång med Azure Storage (Azure Webjobs-projekt)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]

@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement felsökningsguide för - SDK"
-description: "Felsökning av problem med SDK integration i Azure Mobile Engagement"
+title: Azure Mobile Engagement felsökningsguide för - SDK
+description: Felsökning av problem med SDK integration i Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: de265cf1-2f88-43ef-8616-156ada5be7b6
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 4d9d6165deb4bd0c65f1841aa7c457363a1f2865
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f617b3c3b221a38b63be6f61f7553b390cf2f7c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-sdk-integration-issues"></a>Felsökningsguide för SDK-integrationsproblem
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Följande är möjliga problem som kan uppstå med hur Azure Mobile Engagement ska integreras i ditt program.
 
 ## <a name="sdk-issues-discovered-by-a-failure-in-another-area-of-your-application"></a>SDK-problem som identifieras av ett fel i en annan del av ditt program
@@ -78,7 +82,7 @@ Följande är möjliga problem som kan uppstå med hur Azure Mobile Engagement s
 * Det finns vissa begränsningar som ingår i en plattform som Azure Mobile Engagement inte kan styra (t.ex. hur systemcenter fungerar för utanför appen push-meddelanden i Android och iOS).
 * Azure Mobile Engagement publicerar en fullständig lista över de interna paket som används av Azure Mobile Engagement för iOS och Android för referens. Tänk på att vissa funktioner i Azure Mobile Engagement är specifika för plattformen (Android, iOS, webbprogram, Windows och Windows Phone).
 
-### <a name="see-also"></a>Se även
+### <a name="see-also"></a>Se också
 * [Felsökningsguide för - Push][Link 23] 
 * [SDK-dokumentation – viktig information][Link 5]
 * [SDK-dokumentation – uppgradera guider][Link 5]
@@ -92,7 +96,7 @@ Följande är möjliga problem som kan uppstå med hur Azure Mobile Engagement s
 * Du kan hitta enhets-ID för enheten test och dra samma åtgärd som gjorde att programmet kraschar för en användare för att identifiera orsaken till din krascher.
 * Kända problem med Azure Mobile Engagement SDK som medför att kraschar matchas ibland genom att uppgradera till den senaste versionen av SDK. Se till att kontrollera viktig information om din plattform när du undersöker kraschar.
 
-### <a name="see-also"></a>Se även
+### <a name="see-also"></a>Se också
 * [SDK-dokumentation – viktig information][Link 5]
 * [SDK-dokumentation – uppgradera guider][Link 5]
 

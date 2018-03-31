@@ -1,11 +1,11 @@
 ---
 title: Azure Mobile Engagement demo-appen | Microsoft Docs
-description: "Beskriver var du hämtar, hur du använder och fördelarna med att använda Azure Mobile Engagement demo-appen"
+description: Beskriver var du hämtar, hur du använder och fördelarna med att använda Azure Mobile Engagement demo-appen
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: f624d5aa-254b-4ad0-96a3-f00e6c3a2c97
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2016
 ms.author: piyushjo
-ms.openlocfilehash: 8381edb569e19a85c1259f7791b477cfa6e51ea3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b74afcadc52973a4d824afddc0abff6ac9f71d17
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-demo-app"></a>Azure Mobile Engagement demo-appen
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Vi har publicerat en Azure Mobile Engagement demo-appen för **iOS**, **Android**, och **Windows** plattformar för att hjälpa dig att hitta användbara resurser och lär dig mer om Mobile Engagement.
 
 Appen kan du:

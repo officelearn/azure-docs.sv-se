@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: da2d95bc100a6160282c93682ad76f7ee881e105
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2838d8fd53d4e2e564bb7784cb5489e9a167d5bb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning (förhandsgranskning) i Azure Automation
 
@@ -55,7 +55,7 @@ Utför följande steg för att lägga till de virtuella datorerna Starta/Stoppa 
 
 1. Den **Lägg till lösning** visas. Du uppmanas att konfigurera lösningen innan du kan importera till Automation-prenumeration.
    ![Lösning för VM lägger du till sidan](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
-1. På den **Lägg till lösning** väljer **arbetsytan**. Välj en OMS-arbetsyta som är kopplad till samma Azure-prenumerationen som Automation-kontot. Om du inte har en arbetsyta, Välj **Skapa ny arbetsyta**. På den **OMS-arbetsytan** utför följande:
+1. På den **Lägg till lösning** väljer **arbetsytan**. Välj en logganalys-arbetsyta som är kopplad till samma Azure-prenumerationen som Automation-kontot finns i. Om du inte har en arbetsyta, Välj **Skapa ny arbetsyta**. På den **OMS-arbetsytan** utför följande:
    * Ange ett namn för den nya **OMS-arbetsytan**.
    * Välj en **prenumeration** att länka till genom att välja den nedrullningsbara listan om standard valt inte är lämplig.
    * För **resursgruppen**, du kan skapa en ny resursgrupp eller välj en befintlig.
@@ -63,13 +63,13 @@ Utför följande steg för att lägga till de virtuella datorerna Starta/Stoppa 
    * Välj en **Prisnivå**. Lösningen erbjuder två nivåer: **lediga** och **Per nod (OMS)**. Den kostnadsfria nivån har en gräns på mängden data som samlas in varje dag, kvarhållningsperioden och runbook-jobbet runtime minuter. Per nod nivån har inte en gräns på mängden data som samlas in varje dag.
 
         > [!NOTE]
-        > Även om nivån Per GB (fristående) betald visas som ett alternativ kan är den inte tillämplig. Om du väljer det och fortsätta med att skapa den här lösningen i din prenumeration, misslyckas. Detta åtgärdas när den här lösningen släpps officiellt. Den här lösningen endast använder automation jobbet minuter och logga införandet. Lägger inte till ytterligare OMS-noder i din miljö.
+        > Även om nivån Per GB (fristående) betald visas som ett alternativ kan är den inte tillämplig. Om du väljer det och fortsätta med att skapa den här lösningen i din prenumeration, misslyckas. Detta åtgärdas när den här lösningen släpps officiellt. Den här lösningen endast använder automation jobbet minuter och logga införandet. Lägger inte till fler noder i din miljö.
 
 1. När du har angett informationen som krävs på den **OMS-arbetsytan** klickar du på **skapa**. Du kan följa förloppet under **meddelanden** på menyn, som returnerar du det **Lägg till lösning** sidan när du är klar.
-1. På den **Lägg till lösning** väljer **Automation-konto**. Om du skapar en ny OMS-arbetsyta, måste du också skapa ett nytt Automation-konto som ska associeras med den. Välj **skapa ett Automation-konto**, och på den **lägga till Automation-konto** anger du följande:
+1. På den **Lägg till lösning** väljer **Automation-konto**. Om du skapar en ny logganalys-arbetsyta, måste du också skapa ett nytt Automation-konto som ska associeras med den. Välj **skapa ett Automation-konto**, och på den **lägga till Automation-konto** anger du följande:
    * I fältet **namn** anger du namnet på Automation-kontot.
 
-    Alla andra alternativ fylls i automatiskt baserat på OMS-arbetsyta som valts. Dessa alternativ kan inte ändras. Ett Azure kör som-konto är standardmetoden för autentisering för runbooks som ingår i den här lösningen. När du klickar på **OK**konfigurationsalternativen verifieras och Automation-kontot har skapats. Du kan spåra förloppet under **Meddelanden** på menyn.
+    Alla andra alternativ fylls i automatiskt baserat på logganalys-arbetsytan som valts. Dessa alternativ kan inte ändras. Ett Azure kör som-konto är standardmetoden för autentisering för runbooks som ingår i den här lösningen. När du klickar på **OK**konfigurationsalternativen verifieras och Automation-kontot har skapats. Du kan spåra förloppet under **Meddelanden** på menyn.
 
 1. Slutligen på den **Lägg till lösning** väljer **Configuration**. Den **parametrar** visas.
 
@@ -230,7 +230,7 @@ Du bör inte aktivera alla scheman eftersom kan det skapa överlappande Schemal�
 
 ## <a name="log-analytics-records"></a>Log Analytics-poster
 
-Automation skapar två typer av poster i OMS-databasen: jobbet loggar och jobbet dataströmmar.
+Automation skapar två typer av poster i logganalys-arbetsytan: jobbet loggar och jobbet dataströmmar.
 
 ### <a name="job-logs"></a>Jobbloggar
 

@@ -1,11 +1,11 @@
 ---
-title: "Hur du använder Engagement API på Android"
-description: "Senaste Android SDK - hur du använder Engagement API på Android"
+title: Hur du använder Engagement API på Android
+description: Senaste Android SDK - hur du använder Engagement API på Android
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 09b62659-82ae-4a55-8784-fca0b6b22eaf
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: d353cd2fe47c54a0282cc5bb1b22b4a56e0cd82c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79d0652be227dd6703a35d31409cf8e0d9c59519
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-android"></a>Hur du använder Engagement API på Android
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Det här dokumentet är ett tillägg till dokumentet [Reporting avancerade alternativ för Android Mobile Engagement SDK](mobile-engagement-android-advanced-reporting.md). Det ger i djup information om hur du använder Engagement API för att rapportera programmet-statistik.
 
 Kom ihåg att om du bara vill Engagement att rapportera programmets sessioner, aktiviteter, krascher och teknisk information sedan det enklaste sättet är att se alla dina `Activity` underordnade klasser ärver från motsvarande `EngagementActivity` klass.
@@ -88,7 +92,7 @@ Sessionshändelser används vanligtvis för att rapportera åtgärder som utför
               [...]
             }
 
-### <a name="standalone-events"></a>Fristående händelser
+### <a name="standalone-events"></a>Standalone Events
 Strider mot Sessionshändelser, kan det ske fristående händelser utanför ramen för en session.
 
 **Exempel:**
@@ -224,7 +228,7 @@ Diverse uppgifter kan kopplas till händelser, fel, aktiviteter och jobb.
 Dessa data kan vara strukturerad, används Androids paket klass (faktiskt, den fungerar som extra parametrar i Android avsikter). Observera att ett paket kan innehålla matriser eller ett annat paket instanser.
 
 > [!IMPORTANT]
-> Om du lägger till i parcelable eller serializable parametrar, kontrollerar du att deras `toString()` metoden implementeras för att returnera en läsbar sträng. Serialiserbara klasser som innehåller icke tillfälligt fält som inte kan serialiseras gör Android kraschar när du anropar`bundle.putSerializable("key",value);`
+> Om du lägger till i parcelable eller serializable parametrar, kontrollerar du att deras `toString()` metoden implementeras för att returnera en läsbar sträng. Serialiserbara klasser som innehåller icke tillfälligt fält som inte kan serialiseras gör Android kraschar när du anropar `bundle.putSerializable("key",value);`
 > 
 > [!WARNING]
 > Glesa matriser i extra parametrar stöds inte, det vill säga den kommer inte att serialisera som en matris. Du måste konvertera dem till standard matriser innan den används i extra parametrar.

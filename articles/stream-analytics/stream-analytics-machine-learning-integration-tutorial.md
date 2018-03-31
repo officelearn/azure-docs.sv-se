@@ -1,12 +1,11 @@
 ---
 title: Azure Stream Analytics och Machine Learning-integrering | Microsoft Docs
-description: "Hur du använder en användardefinierad funktion och Machine Learning i ett Stream Analytics-jobb"
-keywords: 
-documentationcenter: 
+description: Hur du använder en användardefinierad funktion och Machine Learning i ett Stream Analytics-jobb
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
-manager: jhubbard
-editor: cgronlun
+manager: kfile
 ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/01/2018
 ms.author: sngun
-ms.openlocfilehash: 10d514aeb50dcd24f28ed879875b23b25578cebb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e5661f9f3871619201ff9106e87785de802e8933
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Utföra sentiment analys med hjälp av Azure Stream Analytics och Azure Machine Learning
 Den här artikeln beskriver hur du snabbt ställa in ett enkelt Azure Stream Analytics-jobb som integrerar Azure Machine Learning. Du använder en Machine Learning sentiment analytics modell från Cortana Intelligence Gallery analysera strömmande textdata och fastställa sentiment poäng i realtid. Med hjälp av Cortana Intelligence Suite kan du utföra den här uppgiften utan att oroa av bygger en sentiment analytics modell.
@@ -65,7 +64,7 @@ Du kan använda CSV-fil, till exempel en tillgänglig från GitHub för det här
 
     ![Ange information om lagringskonto](./media/stream-analytics-machine-learning-integration-tutorial/create-sa1.png)
 
-4. Välj lagringskonto i Azure-portalen. I bladet storage-konto klickar du på **behållare** och klicka sedan på ** + &nbsp;behållare** att skapa blob-lagring.
+4. Välj lagringskonto i Azure-portalen. I bladet storage-konto klickar du på **behållare** och klicka sedan på  **+ &nbsp;behållare** att skapa blob-lagring.
 
     ![Skapa blob-behållare](./media/stream-analytics-machine-learning-integration-tutorial/create-sa2.png)
 

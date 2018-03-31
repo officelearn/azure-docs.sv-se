@@ -1,11 +1,11 @@
 ---
-title: "Hur du använder Engagement API på Windows Phone Silverlight"
-description: "Hur du använder Engagement API på Windows Phone Silverlight"
+title: Hur du använder Engagement API på Windows Phone Silverlight
+description: Hur du använder Engagement API på Windows Phone Silverlight
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ae2ba2e8-f75b-4dee-a164-a7dd65d35a23
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ec8b6c13ea052c8063dfde4321cdd286ab6cb817
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03673924ee7734fcf6f1f4f7c744616844fdc87a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-windows-phone-silverlight"></a>Hur du använder Engagement API på Windows Phone Silverlight
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Det här dokumentet är ett tillägg till dokumentet [hur du integrerar Mobile Engagement i din app för Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md). Det ger i djup information om hur du använder Engagement API för att rapportera programmet-statistik.
 
 Om du bara vill Engagement att rapportera programmets sessioner, aktiviteter, krascher och teknisk information, så det enklaste sättet att se alla dina `PhoneApplicationPage` underordnade klasser ärver från den `EngagementPage` klass.
@@ -99,7 +103,7 @@ Det finns tre typer av händelser:
 * Sessionshändelser
 * Jobbhändelser
 
-### <a name="standalone-events"></a>Fristående händelser
+### <a name="standalone-events"></a>Standalone Events
 #### <a name="reference"></a>Referens
             void SendEvent(string name, Dictionary<object, object> extras = null)
 
@@ -229,7 +233,7 @@ Du måste infoga `EngagementAgent.Instance.OnActivated(e)` i den `Application_Ac
               EngagementAgent.Instance.OnActivated(e);
             }
 
-## <a name="device-id"></a>Enhets-Id
+## <a name="device-id"></a>Enhets-ID
             String GetDeviceId()
 
 Du kan hämta engagement enhets-id genom att anropa den här metoden.

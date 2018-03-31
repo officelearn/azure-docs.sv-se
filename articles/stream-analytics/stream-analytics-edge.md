@@ -1,12 +1,12 @@
 ---
-title: "Azure Stream Analytics IoT kant (förhandsgranskning)"
-description: "Skapa edge jobb i Azure Stream Analytics och distribuera dem till enheter igång Azure IoT kant."
-keywords: "dataströmmen, iot, kant"
+title: Azure Stream Analytics IoT kant (förhandsgranskning)
+description: Skapa edge jobb i Azure Stream Analytics och distribuera dem till enheter igång Azure IoT kant.
+keywords: dataströmmen, iot, kant
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: jseb225
-manager: jhubbard
-ms.assetid: 
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/16/2017
 ms.author: jeanb
-ms.openlocfilehash: f1ff8d6f64a04ab03c8170fd2b6a7c881227da2e
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 475ca357c8445e8a7c672406f919af1d99a0933b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics IoT kant (förhandsgranskning)
 
@@ -108,7 +108,7 @@ Dessa steg beskrivs i dokumentationen för IoT kant [Windows](https://docs.micro
 ##### <a name="add-asa-to-your-deployment"></a>Lägg till ASA för din distribution
 - Öppna IoT-hubb i Azure-portalen, navigera till IoT kant Explorer och öppna bladet för din enhet.
 - Välj **ange moduler**och välj **Import Azure Service IoT kant Module**.
-- Välj prenumerationen och jobbet ASA kant som du skapade. Välj ditt lagringskonto. Klicka på Spara.
+- Välj prenumerationen och jobbet ASA kant som du skapade. Välj sedan ditt lagringskonto. Klicka på Spara.
 ![Lägg till ASA modul i distributionen](media/stream-analytics-edge/set_module.png)
 
 

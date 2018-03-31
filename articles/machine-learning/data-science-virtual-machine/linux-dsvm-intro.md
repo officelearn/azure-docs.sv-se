@@ -1,8 +1,8 @@
 ---
 title: Etablera en Linux CentOS datavetenskap virtuell dator i Azure | Microsoft Docs
-description: "Konfigurera och skapa en Linux datavetenskap virtuell dator på Azure för att utföra analyser och maskininlärning."
+description: Konfigurera och skapa en Linux datavetenskap virtuell dator på Azure för att utföra analyser och maskininlärning.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 550d49e3d6007c6b494deec95b785ea9bc214f3a
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7f683fff142a3654249560ed5299ed3cd7cb9cce
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Etablera en Linux CentOS datavetenskap virtuell dator på Azure
 
@@ -153,14 +153,16 @@ Om du vill anropa en interaktiv session Python, skriver du **python** i gränssn
 
 Om du vill installera ytterligare Python-bibliotek, måste du köra ```conda``` eller ````pip```` kommandot under sudo och ange sökvägen till Python package manager (conda eller pip) för att installera rätt Python-miljön. Exempel:
 
-    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install <package> #pip for Python 2.7
+    sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
+    sudo /anaconda/bin/conda install [-n py27] <package> #conda for Python 2.7, default behavior
+    sudo /anaconda/bin/conda install -n py35 <package> #conda for Python 3.5
 
 
 ### <a name="jupyter-notebook"></a>Jupyter-anteckningsbok
 Anaconda distribution innehåller också en Jupyter-anteckningsbok en miljö att dela kod och analys. Jupyter-anteckningsbok sker via JupyterHub. Du loggar in med ditt lokala Linux-användarnamn och lösenord.
 
-Jupyter-anteckningsbok servern har konfigurerats med Python 2, 3 Python och R kärnor före. Det finns en skrivbordsikon med namnet ”Jupyter Notebook” för att starta webbläsaren för att komma åt servern för bärbar dator. Om du är på den virtuella datorn via SSH eller X2Go klient kan du kan också besöka [https://localhost:8000 /](https://localhost:8000/) Jupyter notebook-servern.
+Jupyter-anteckningsbok servern har konfigurerats med Python 2, 3 Python och R kärnor före. Det finns en skrivbordsikon med namnet ”Jupyter Notebook” för att starta webbläsaren för att komma åt servern för bärbar dator. Om du är på den virtuella datorn via SSH eller X2Go klient kan du kan också besöka [ https://localhost:8000/ ](https://localhost:8000/) Jupyter notebook-servern.
 
 > [!NOTE]
 > Fortsätt om du får några certifikatvarningar.
@@ -361,7 +363,7 @@ Nu ett grafiskt gränssnitt som öppnas med en uppsättning flikar. Här följer
 7. Klicka på den **utvärdera** fliken.
 8. Klicka på den **Risk** alternativknappen och klickar på **Execute** ska visas två Risk (kumulativ) prestanda områden.
 9. Klicka på den **loggen** att visa generera R-koden för föregående operationer.
-   (På grund av ett fel i den aktuella versionen av spännen, måste du infoga ett  *#*  tecknet framför *exportera den här loggen...*  texten i loggen.)
+   (På grund av ett fel i den aktuella versionen av spännen, måste du infoga ett *#* tecknet framför *exportera den här loggen...*  texten i loggen.)
 10. Klicka på den **exportera** för att spara filen R-skript med namnet *weather_script. R* till arbetsmappen.
 
 Du kan avsluta spännen och R. Nu kan du ändra genererade R-skriptet, eller använda den som den är att köra den när som helst om du vill upprepa allt som gjordes i Gränssnittet Rattle. Detta är ett enkelt sätt att snabbt göra analyser och maskininlärning i ett enkelt grafiskt gränssnitt vid automatisk generering av kod i R för att ändra och/eller Läs särskilt för nybörjare i R.

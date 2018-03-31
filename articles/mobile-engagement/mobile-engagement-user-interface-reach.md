@@ -1,11 +1,11 @@
 ---
-title: "Användargränssnittet för Azure Mobile Engagement - Reach"
-description: "Lär dig att nå ut till användare av ditt program med push-meddelanden med Azure Mobile Engagement"
+title: Användargränssnittet för Azure Mobile Engagement - Reach
+description: Lär dig att nå ut till användare av ditt program med push-meddelanden med Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d96e2590-08dd-4481-a352-2c18f26a1643
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ce30456e41ff1a2f4824bcb64246ee115fdd1ef7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d999b83df7d9d467f08ce8ec72468c738e8acfa5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-reach-out-to-the-users-of-your-application-with-push-notifications"></a>Hur du nå ut till användare av ditt program med push-meddelanden
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Den här artikeln beskriver den **NÅ** för den **Mobile Engagement** portal. Du använder den **Mobile Engagement** portalen för att övervaka och hantera dina mobila appar. Observera att börja använda portalen måste du först skapa en **Azure Mobile Engagement** konto. Mer information finns i [skapa ett Azure Mobile Engagement-konto](mobile-engagement-create.md).
 
 Avsnittet Reach i Användargränssnittet är Push-kampanj hanteringsverktyg som du kan skapa/redigera/aktivera/Slutför/Övervakare och få statistik på Push notification-kampanjer och funktioner som kan även nås via API: et nå (och vissa delar av låga Push-API) . Kom ihåg att om du använder API: erna eller Användargränssnittet, behöver du integrera räckvidd i programmet för varje plattform med SDK innan du kan använda och Azure Mobile Engagement nå kampanjer.
@@ -80,7 +84,7 @@ Klicka på **statistik** visas detaljerad information om en Reach-kampanj. Den *
 
 ![Reach2][19]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Begrepp][Link 6]
 * [Felsöka Guide Service][Link 24]
 

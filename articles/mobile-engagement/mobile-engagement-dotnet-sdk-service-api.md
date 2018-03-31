@@ -1,11 +1,11 @@
 ---
-title: "Med .NET SDK för att komma åt Azure Mobile Engagement Service API: er"
-description: "Beskriver hur du använder Mobile Engagement .NET SDK för att komma åt Azure Mobile Engagement Service API: er"
+title: 'Med .NET SDK för att komma åt Azure Mobile Engagement Service API: er'
+description: 'Beskriver hur du använder Mobile Engagement .NET SDK för att komma åt Azure Mobile Engagement Service API: er'
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c07728aa-43f2-4238-8b4a-c9eddf9d838b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 6a497189268c5a1b7e269cc57904ebc77c1906fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 99595eb1f9a1eab1db51796632d58df35bf45be6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-net-sdk-to-access-azure-mobile-engagement-service-apis"></a>Med .NET SDK för att komma åt Azure Mobile Engagement Service API: er
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Azure Mobile Engagement uppvisar en uppsättning API: er att hantera enheter, Reach/Push-kampanjer osv. Om du vill arbeta med dessa API: er vi också ge dig en [Swagger-filen](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) att du kan använda med verktyg för att generera SDK: er för ditt språk. Vi rekommenderar att du använder den [AutoRest](https://github.com/Azure/AutoRest) verktyget att generera din SDK från våra Swagger-fil.
 
 > [!NOTE]

@@ -1,11 +1,11 @@
 ---
 title: Windows Phone Silverlight SDK Uppgraderingsprocesser
-description: "Windows Phone Silverlight SDK Uppgraderingsprocesser för Azure Mobile Engagement"
+description: Windows Phone Silverlight SDK Uppgraderingsprocesser för Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 87130026-9759-4659-9184-788a3627a165
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 633bf79a3bcaa9c97a5c70e3b362fd928178dcce
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 489b005c37ddb842a2501e89c07fb34b091346e5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-phone-silverlight-sdk-upgrade-procedures"></a>Windows Phone Silverlight SDK Uppgraderingsprocesser
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Om du redan har integrerat en äldre version av våra SDK i programmet, måste du Tänk på följande när du uppgraderar SDK.
 
 Du kan behöva utföra flera procedurer om du har missat flera versioner av SDK. Till exempel om du migrerar från 0.10.1 till 0.11.0 måste du först Följ proceduren ”från 0.9.0 till 0.10.1” sedan proceduren ”från 0.10.1 till 0.11.0”.
@@ -139,7 +143,7 @@ Exempel på vanliga Capptain objekt:
 * CapptainAgent nu namnet EngagementAgent
 * CapptainReach nu namnet EngagementReach
 * CapptainHttpConfig nu namnet EngagementHttpConfig
-* GetCapptainPageName nu namnet GetEngagementPageName
+* GetCapptainPageName now named GetEngagementPageName
 
 Observera att byta namn på också påverkar åsidosätts metoder.
 

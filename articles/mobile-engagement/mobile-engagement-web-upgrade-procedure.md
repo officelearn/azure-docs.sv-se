@@ -1,11 +1,11 @@
 ---
 title: Azure Mobile Engagement Web SDK uppgraderingsprocesser | Microsoft Docs
-description: "De senaste uppdateringarna och procedurer för webbtjänst-SDK för Azure Mobile Engagement"
+description: De senaste uppdateringarna och procedurer för webbtjänst-SDK för Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a20529b4-ec8d-4503-8ae9-09b5f0846d5b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42f78b5e6bfa028f3a798f6cb6c0dee3f17b3ebe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Azure Mobile Engagement Web SDK uppgraderingsprocesser
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Om du redan har integrerat en tidigare version av Azure Mobile Engagement Web SDK i ditt webbprogram som du behöver Tänk på följande när du uppgraderar SDK.
 
 Om du hoppade över flera versioner av Mobile Engagement Web SDK, kanske du måste utföra flera procedurer under uppgraderingen. Till exempel om du migrerar från 1.4.0 till 1.6.0 först följer du procedurerna för att uppgradera från 1.4.0 till 1.5.0. Följ procedurerna för att uppgradera från 1.5.0 till 1.6.0.

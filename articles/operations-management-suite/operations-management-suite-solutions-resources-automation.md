@@ -1,8 +1,8 @@
 ---
-title: "Azure Automation-resurser i OMS-lösningar | Microsoft Docs"
-description: "Lösningar i OMS inkluderar vanligtvis runbooks i Azure Automation för att automatisera processer, till exempel att samla in och bearbetning av övervakningsdata.  Den här artikeln beskriver hur du lägger till runbooks och deras relaterade resurser i en lösning."
+title: Azure Automation-resurser i hanteringslösningar | Microsoft Docs
+description: Hanteringslösningar inkluderar vanligtvis runbooks i Azure Automation för att automatisera processer, till exempel att samla in och bearbetning av övervakningsdata.  Den här artikeln beskriver hur du lägger till runbooks och deras relaterade resurser i en lösning.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -15,21 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1097b1ddd2e8f2fae0ffc809aee63be5c2ed4cb1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5750cd1147ec861ea38ff2ebc9ce481d256c1959
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>Lägga till Azure Automation-resurser för en OMS-hanteringslösning (förhandsgranskning)
+# <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Lägga till Azure Automation-resurser för en lösning (förhandsgranskning)
 > [!NOTE]
-> Den här är dokumentationen preliminär för att skapa lösningar för hantering i OMS som för närvarande finns i förhandsgranskningen. Ett schema som beskrivs nedan kan ändras.   
+> Den här är dokumentationen preliminär för att skapa lösningar som för närvarande finns i förhandsgranskningen. Ett schema som beskrivs nedan kan ändras.   
 
 
-[Lösningar för hantering i OMS](operations-management-suite-solutions.md) inkluderar vanligtvis runbooks i Azure Automation för att automatisera processer, till exempel att samla in och bearbetning av övervakningsdata.  Förutom runbooks, Automation-konton innehåller resurser, t.ex variabler och scheman som stöd för runbooks som används i lösningen.  Den här artikeln beskriver hur du lägger till runbooks och deras relaterade resurser i en lösning.
+[Hanteringslösningar](operations-management-suite-solutions.md) inkluderar vanligtvis runbooks i Azure Automation för att automatisera processer, till exempel att samla in och bearbetning av övervakningsdata.  Förutom runbooks, Automation-konton innehåller resurser, t.ex variabler och scheman som stöd för runbooks som används i lösningen.  Den här artikeln beskriver hur du lägger till runbooks och deras relaterade resurser i en lösning.
 
 > [!NOTE]
-> Exemplen i den här artikeln använder parametrar och variabler som är obligatoriska eller vanligt att hanteringslösningar och beskrivs i [och skapa lösningar för hantering i Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) 
+> Exemplen i den här artikeln använder parametrar och variabler som är obligatoriska eller vanligt att hanteringslösningar och beskrivs i [utforma och skapa en lösning i Azure ](operations-management-suite-solutions-creating.md) 
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -40,7 +40,7 @@ Den här artikeln förutsätter att du redan är bekant med följande informatio
 - Så här [skapar Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Automation-konto
-Alla resurser i Azure Automation finns i en [Automation-konto](../automation/automation-security-overview.md#automation-account-overview).  Enligt beskrivningen i [OMS arbetsytan och Automation-konto](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) Automation-kontot inte finns med i hanteringslösningen men måste finnas innan lösningen är installerad.  Lösning installationen misslyckas om det inte är tillgänglig.
+Alla resurser i Azure Automation finns i en [Automation-konto](../automation/automation-security-overview.md#automation-account-overview).  Enligt beskrivningen i [og Analytics-arbetsyta och Automation-konto](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) Automation-kontot inte finns med i hanteringslösningen men måste finnas innan lösningen är installerad.  Lösning installationen misslyckas om det inte är tillgänglig.
 
 Namnet på varje Automation resursen innehåller namnet på dess Automation-konto.  Detta görs i lösningen med den **accountName** parameter som i följande exempel på en runbook-resurs.
 
@@ -118,7 +118,7 @@ I följande tabell beskrivs egenskaperna för automation-jobb.
 
 Jobbet innehåller runbook-namn och ett parametervärde som skickas till runbook.  Jobbet ska [beror på](operations-management-suite-solutions-solution-file.md#resources) runbook startar sedan runbook måste skapas innan jobbet.  Om du har flera runbooks som ska startas kan du definiera deras inbördes ordning genom att ett jobb är beroende av andra jobb som ska köras första.
 
-Namnet på en resurs för jobbet måste innehålla en GUID som tilldelas vanligtvis av en parameter.  Du kan läsa mer om GUID-parametrar i [och skapa lösningar i Operations Management Suite (OMS)](operations-management-suite-solutions-solution-file.md#parameters).  
+Namnet på en resurs för jobbet måste innehålla en GUID som tilldelas vanligtvis av en parameter.  Du kan läsa mer om GUID-parametrar i [att skapa en management lösningsfilen i Azure](operations-management-suite-solutions-solution-file.md#parameters).  
 
 
 ## <a name="certificates"></a>Certifikat
@@ -283,7 +283,7 @@ Om du anger det initiala värdet för variabeln, måste den konfigureras som rä
 |:--|:--|:--|:--|
 | sträng   | Värdet omges av dubbla citattecken.  | ”\"Hello world\"” | ”Hello world” |
 | numeriskt  | Numeriskt värde med enkla citattecken.| "64" | 64 |
-| boolesk  | **SANT** eller **FALSKT** inom citattecken.  Observera att det här värdet måste vara gemener. | "true" | sant |
+| boolesk  | **SANT** eller **FALSKT** inom citattecken.  Observera att det här värdet måste vara gemener. | "true" | true |
 | datetime | Serialiserad date-värde.<br>Du kan använda cmdleten ConvertTo Json i PowerShell för att generera det här värdet för ett visst datum.<br>Exempel: get-date ”2017-5/24 13:14:57” \| ConvertTo Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Moduler

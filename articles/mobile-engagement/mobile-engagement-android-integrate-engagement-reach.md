@@ -1,11 +1,11 @@
 ---
-title: Azure Mobile Engagement Android SDK-Integration
-description: "Senaste uppdateringarna och procedurer för Android SDK för Azure Mobile Engagement"
+title: Azure Mobile Engagement Android SDK Integration
+description: Senaste uppdateringarna och procedurer för Android SDK för Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9ec3fab3-35ec-458e-bf41-6cdd69e3fa44
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: piyushjo
-ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15e71d8aeb8c8060161ade4262e0be0a093b5650
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-reach-on-android"></a>Hur du integrerar Engagement Reach på Android
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 > [!IMPORTANT]
 > Du måste följa integration proceduren i hur du integrerar Engagement på Android dokumentet innan du följer den här guiden.
 > 
@@ -102,7 +106,7 @@ Redigera din `AndroidManifest.xml` fil:
   
   Utan den här behörigheten Android förhindrar systemmeddelanden från att visas om du har markerat ringen eller alternativet vibrate i Reach-kampanjhanterare.
 
-## <a name="native-push"></a>Intern Push
+## <a name="native-push"></a>Intern push
 Nu när du har konfigurerat Reach-modulen måste du konfigurera intern push för att kunna ta emot kampanjer på enheten.
 
 Vi stöder två tjänster på Android:
@@ -160,8 +164,8 @@ Här följer några riktlinjer för att kunna hantera returparametern för `onDa
 
 Returtypen används endast för Reach-statistik:
 
-* `Replied`ökas om något av broadcast mottagarna returneras antingen `true` eller `false`.
-* `Actioned`ökas endast om en broadcast mottagarna returnerade `true`.
+* `Replied` ökas om något av broadcast mottagarna returneras antingen `true` eller `false`.
+* `Actioned` ökas endast om en broadcast mottagarna returnerade `true`.
 
 ## <a name="how-to-customize-campaigns"></a>Hur du anpassar kampanjer
 Du kan ändra layouter i nå SDK för att anpassa kampanjer.
@@ -233,7 +237,7 @@ Om du inte vill överlägget som ska läggas till dina aktiviteter och om du int
               <meta-data android:name="engagement:notification:overlay" android:value="false"/>
             </activity>
 
-#### <a name="categories"></a>Kategorier
+#### <a name="categories"></a> Kategorier
 När du ändrar de angivna layouterna kan ändra du utseendet på alla meddelanden. Kategorier kan du definiera olika riktade verkar (möjligen beteenden) för meddelanden. En kategori kan anges när du skapar en Reach-kampanj. Tänk på att kategorier kan du anpassa meddelanden och avsökningar, som beskrivs senare i det här dokumentet.
 
 Om du vill registrera en hanterare för kategori för meddelanden som du behöver lägga till ett anrop när programmet har initierats.

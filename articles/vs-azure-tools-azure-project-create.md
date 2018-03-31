@@ -1,11 +1,11 @@
 ---
 title: Skapa ett Azure cloud service-projekt i Visual Studio | Microsoft Docs
-description: "Lär dig att skapa ett Azure cloud service-projekt i Visual Studio"
+description: Lär dig att skapa ett Azure cloud service-projekt i Visual Studio
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: ec580df7-3dcc-45a9-a1d9-8c110678dfb5
 ms.service: multiple
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2017
-ms.author: kraigb
-ms.openlocfilehash: 1f6ded87b551f660853ea4eb0548f3d942e28fa8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 41c2bd0dc1f609b6b7b9cfda43c2378feb1c3b6c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="creating-an-azure-cloud-service-project-with-visual-studio"></a>Skapa ett Azure cloud service-projekt i Visual Studio
 Azure-verktyg för Visual Studio tillhandahåller en projektmall som låter dig skapa ett Azure-molntjänst. När projektet har skapats kan du konfigurera, felsöka och distribuera Molntjänsten till Azure i Visual Studio.

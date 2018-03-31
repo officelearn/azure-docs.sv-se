@@ -1,11 +1,11 @@
 ---
 title: Azure Mobile Engagement iOS SDK uppgradera proceduren | Microsoft Docs
-description: "Senaste uppdateringarna och procedurer för iOS SDK för Azure Mobile Engagement"
+description: Senaste uppdateringarna och procedurer för iOS SDK för Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 72a9e493-3f14-4e52-b6e2-0490fd04b184
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac03593cf0c983297e583985a3e68ea6c17e39de
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="upgrade-procedures"></a>Uppgraderingsprocesser
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Om du redan har integrerat en äldre version av Engagement till programmet, måste du Tänk på följande när du uppgraderar SDK.
 
 För varje ny version av SDK måste du först ersätta (ta bort och importera på nytt i xcode) mapparna EngagementSDK och EngagementReach.
@@ -48,7 +52,7 @@ XCode 8 är obligatoriskt från version 4.0.0 av SDK.
 ### <a name="usernotifications-framework"></a>UserNotifications framework
 Du måste lägga till den `UserNotifications` ramverk i din Build Phases.
 
-Öppna ditt projekt i Projektutforskaren, och välj rätt mål. Öppna den **”Build-faser”** fliken och i den **”länka binär med bibliotek”** menyn Lägg till framework `UserNotifications.framework` -ange länken som`Optional`
+Öppna ditt projekt i Projektutforskaren, och välj rätt mål. Öppna den **”Build-faser”** fliken och i den **”länka binär med bibliotek”** menyn Lägg till framework `UserNotifications.framework` -ange länken som `Optional`
 
 ### <a name="application-push-capability"></a>Programmet push-funktion
 XCode 8 kan återställa din app push-funktion, kontrollera den den `capability` fliken i ditt valda målet.
@@ -204,7 +208,7 @@ Alla klasser prefixet ”CP” ändras med ”AE” prefix.
 
 Exempel:
 
-* `CPModule.h`har bytt namn till `AEModule.h`.
+* `CPModule.h` har bytt namn till `AEModule.h`.
 
 Alla klasser prefixet ”Capptain” ändras med prefixet ”Engagement”.
 

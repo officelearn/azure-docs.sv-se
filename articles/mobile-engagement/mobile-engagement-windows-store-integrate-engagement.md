@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 71236b68-5ebd-44aa-8c82-c7ca8098ea05
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 56a382a348609df1d1d308aeac39f47ca82ac4c8
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: dc075ffe6565b4ef60e77f74ba4f065629c99952
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-engagement-sdk-integration"></a>Windows Universal-appar Engagement SDK-Integration
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 > [!div class="op_single_selector"]
 > * [Universell Windows](mobile-engagement-windows-store-integrate-engagement.md) 
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
@@ -57,7 +61,7 @@ NuGet automatiskt distribuerar SDK-resurser i den `Resources` mapp i roten av pr
 NuGet distribuerar inte automatiskt SDK-resurser i UWP-appen ännu. Du behöver göra det manuellt tills resursdistribution sätts in i NuGet:
 
 1. Öppna i Utforskaren.
-2. Navigera till följande plats (**x.x.x** är version av Engagement som du installerar): *% USERPROFILE %\\.nuget\packages\MicrosoftAzure.MobileEngagement\\*  *x.x.x**\\content\win81*
+2. Navigera till följande plats (**x.x.x** är version av Engagement som du installerar): *% USERPROFILE %\\.nuget\packages\MicrosoftAzure.MobileEngagement\\  **x.x.x**\\content\win81*
 3. Dra och släpp den **resurser** mappen från Utforskaren till roten för ditt projekt i Visual Studio.
 4. Välj ditt projekt i Visual Studio och aktivera den **visa alla filer** ikonen ovanpå det **Solution Explorer**.
 5. Vissa filer inte längre ingår i projektet. Importera dem på samma gång högerklickar du på den **resurser** mappen **undantas från projektet** och sedan en annan högerklickar du på den **resurser** mappen **inkludera i projektet** till nytt omfattar hela mappen. Alla filer från den **resurser** mappen ingår nu i ditt projekt.

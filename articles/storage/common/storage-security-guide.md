@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: e0a398075b01b3c3750a33a9dd74b5ad1c0f71fd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-säkerhetsguiden
 
@@ -357,7 +357,7 @@ Den här funktionen garanterar att krypteras alla data på virtuella diskar i vi
 
 #### <a name="iaas-vms-and-their-vhd-files"></a>Virtuella IaaS-datorer och deras VHD-filer
 
-För datadiskar som används av virtuella IaaS-datorer, rekommenderas Azure Disk Encryption. Om du skapar en virtuell dator med en avbildning från Azure Marketplace Azure utför en [ytlig kopiera](https://en.wikipedia.org/wiki/Object_copying) avbildningen och lagringen konto i Azure Storage, och det är inte krypterat även om du har aktiverat SSE. När den skapar den virtuella datorn och startar uppdatera bilden startar SSE kryptering av data. Därför är det bäst att använda Azure Disk Encryption på virtuella datorer skapas från avbildningar i Azure Marketplace om du vill att de fullständigt krypterade.
+För datadiskar som används av virtuella IaaS-datorer, rekommenderas Azure Disk Encryption. Om du skapar en virtuell dator med ohanterad diskar med hjälp av en avbildning från Azure Marketplace Azure utför en [ytlig kopiera](https://en.wikipedia.org/wiki/Object_copying) avbildningen och lagringen konto i Azure Storage, och det är inte krypterat även om du har aktiverat SSE. När den skapar den virtuella datorn och startar uppdatera bilden startar SSE kryptering av data. Därför är det bäst att använda Azure Disk Encryption på virtuella datorer med ohanterad diskar som skapats av avbildningar i Azure Marketplace om du vill att de fullständigt krypterade. Om du skapar en virtuell dator med hanterade diskar krypteras SSE alla data som standard med hjälp av plattform som hanterade nycklar. 
 
 Om du tar en förkrypterade virtuell dator till Azure från lokala kommer du att kunna överföra krypteringsnycklarna till Azure Key Vault och fortsätta att använda kryptering för den virtuella datorn som du använde lokalt. Azure Disk Encryption är aktiverat för att hantera det här scenariot.
 

@@ -1,11 +1,11 @@
 ---
-title: "Universella Windows-appar nå SDK-Integration"
+title: Universella Windows-appar nå SDK-Integration
 description: Integrera Azure Mobile Engagement Reach med universella Windows-appar
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a31ca1d6-856f-4aec-898a-07969ae5f7ec
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,17 +14,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 9311e998e67d8d0d56da68fc9460df32ce7ce5a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8472af2ac72a1976871970963851be775b19859b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-reach-sdk-integration"></a>Universella Windows-appar nå SDK-Integration
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Du måste följa proceduren integrering i den [Windows Universal SDK-Integration av Engagement](mobile-engagement-windows-store-integrate-engagement.md) innan du följer den här guiden.
 
 ## <a name="embed-the-engagement-reach-sdk-into-your-windows-universal-project"></a>Bädda in Engagement nå SDK i ditt universella Windows-projekt
-Du har inte något att lägga till. `EngagementReach`referenser och resurser finns redan i projektet.
+Du har inte något att lägga till. `EngagementReach` referenser och resurser finns redan i projektet.
 
 > [!TIP]
 > Du kan anpassa avbildningar som finns i den `Resources` mappen i ditt projekt, speciellt märke ikonen (som standard till ikonen Engagement). På universella appar du kan också flytta den `Resources` mapp på din delade projektet att dela innehåll mellan appar, men du måste behålla den `Resources\EngagementConfiguration.xml` fil på dess ursprungliga plats eftersom den är beroende plattform.
@@ -67,7 +71,7 @@ Välja mellan två integrationen kan sammanfattas det här sättet:
 ### <a name="overlay-integration"></a>Överläggsintegration
 Engagement överlägget dynamiskt lägger till de UI-element som används för att visa Reach-kampanjer på sidan. Om överlägget inte passar din layout bör du Webbvyer manuell integrering i stället.
 
-I XAML-filen ändringen `EngagementPage` hänvisar till`EngagementPageOverlay`
+I XAML-filen ändringen `EngagementPage` hänvisar till `EngagementPageOverlay`
 
 * Lägg till följande i namnområdesdeklarationerna:
   
@@ -279,7 +283,7 @@ Du kan ange återanropet i ”gemensamma App() {}”-metoden i din `App.xaml.cs`
 > 
 > 
 
-## <a id="push-channel-sharing"></a>Push-kanal delning
+## <a id="push-channel-sharing"></a> Push-kanal delning
 Om du använder push-meddelanden för ett annat ändamål i ditt program har att använda push-kanal funktionen av Engagement SDK för delning. Detta är att undvika missade push.
 
 * Du kan ange egna push-kanal till Engagement nå initieringen. SDK: N används den i stället för att begära en ny.

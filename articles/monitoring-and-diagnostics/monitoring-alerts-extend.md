@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vinagara
-ms.openlocfilehash: 045a7f97d9c4d380e83325c04c209a6afcc761a7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: abab73a047fb923fa2cd57a1c7194e440697bf64
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="extend-alerts-from-oms-into-azure"></a>Utöka aviseringar från OMS till Azure
 Den nya upplevelsen av aviseringar har nu integrerats aviseringar upplevelsen över olika tjänster och delar i Microsoft Azure. Den nya upplevelsen som är tillgängliga som **aviseringar** under Övervakare för Azure-portalen har hämtat tillsammans i en gemensam plats - aktivitet loggen aviseringar, mått aviseringar och logga varningar på logganalys samt Application Insights. 
@@ -27,9 +27,9 @@ Men för vissa användare, logganalys och allied funktioner som aviseringar, har
 ## <a name="benefits-of-extending-your-alerts"></a>Fördelar med att utöka dina aviseringar
 Förutom fördelar som uppstått i inte behöva gå utanför Azure-portalen, finns det andra fördelar med viktigaste i Utöka aviseringar från OMS i Azure
 
-- Till skillnad från i OMS där endast 250 aviseringar kan skapas och visas; i Azure-aviseringar finns den här begränsningen inte
-- Från Azure-aviseringar du aviseringar typer kan hanteras, räkna upp och visat; inte bara logganalys aviseringar som i fallet med OMS
-- Använda Azure aviseringar [åtgärdsgrupper](monitoring-action-groups.md), vilket gör att du har för varje varning mer än en åtgärd, inklusive SMS, röst anropa, Automation-Runbook, Webhook, ITSM koppling och mer. I OMS begränsas där aviseringar i både nummer samt typ av åtgärder som möjligt
+- Till skillnad från i OMS där endast 250 aviseringar kan skapas och visas; i Azure aviseringar finns den här begränsningen inte
+- Från Azure aviseringar kan alla aviseringstyper hanteras, räknas upp och visat; inte bara logganalys aviseringar som är fallet med OMS
+- Använda Azure aviseringar [åtgärdsgrupper](monitoring-action-groups.md), vilket kan du ha mer än en åtgärd för varje avisering inklusive SMS, röst anropa, Automation-Runbook, Webhook, ITSM koppling och mer. Medan OMS aviseringar är begränsade i båda numret samt som typ av åtgärder som möjligt
 
 ## <a name="process-of-extending-your-alerts"></a>Utöka aviseringar
 Processen för att utöka aviseringar från OMS i Azure, har **inte** innebär bland annat ändring varningsdefinitionen, frågan eller konfiguration på något sätt. Den enda förändringen som krävs är att webhook-anrop med automation-runbook eller ansluta till ITSM verktyget görs via grupp i Azure, alla åtgärder, till exempel e-postmeddelande. Därför om lämpliga åtgärdsgrupp är associerade med aviseringen - ska de bli utökats till Azure.

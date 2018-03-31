@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning experiment Service configuration-filer
-description: "Det här dokumentet beskriver konfigurationsinställningarna för Azure ML experiment Service."
+description: Det här dokumentet beskriver konfigurationsinställningarna för Azure ML experiment Service.
 services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 75b55b45c355f585fd73bdc1d97bc6adbbc4e9a0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6cec039034f0650d017eb14de584939bb3191223
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning experiment Service configuration-filer
 
@@ -149,6 +149,8 @@ _\<Beräkna målnamn > .compute_ filen anger information om anslutning och konfi
 **nativeSharedDirectory**: den här egenskapen anger baskatalogen (till exempel: _~/.azureml/share/_) där filer kan sparas för att delas mellan körs på samma mål för beräkning. Om den här inställningen används när körs på en dockerbehållare med _sharedVolumes_ måste anges till true. Annars misslyckas körning.
 
 **userManagedEnvironment**: den här egenskapen anger om det här målet för beräkning är hanteras av användaren direkt eller via experiment-tjänsten.  
+
+**pythonLocation**: den här egenskapen anger platsen för python-körning som ska användas på beräknings-målet för att köra programmet för användaren. 
 
 ### <a name="run-configuration-namerunconfig"></a>\<Kör Konfigurationsnamnet > .runconfig
 _\<Kör Konfigurationsnamnet > .runconfig_ anger Azure ML experimentera körningsbeteende. Du kan konfigurera körningsbeteende, till exempel spårning som kör tidigare eller vad compute mål för att använda tillsammans med många andra. Namnen på de kör konfigurationsfilerna används för att fylla i körningen kontexten listrutan i Azure ML-arbetsstationen skrivbordsprogram.

@@ -1,11 +1,11 @@
 ---
-title: "Unity sammanslagning kulan självstudiekursen"
-description: "Steg för att skapa klassiska kursen Unity Roll en spel som är ett krav för alla kurser i Mobile Engagement Unity"
+title: Unity sammanslagning kulan självstudiekursen
+description: Steg för att skapa klassiska kursen Unity Roll en spel som är ett krav för alla kurser i Mobile Engagement Unity
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0afd0eca-f74a-43aa-bba8-436a0265c312
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52d5962645b1408fdba61ec1bf4e4f682b80905b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a id="unity-roll-a-ball"></a>Skapa kursen Unity Roll en spel
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Den här kursen går igenom de viktigaste stegen för en lite annorlunda [kursen Unity Roll kulan självstudiekursen](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial). Det här exemplet spelet består av ett sfäriskt player-objekt som kontrolleras av app-användare och syftet med spelet är ”samla in ' domänbeständiga objekt av kollision player-objektet med objekten domänbeständiga. Detta förutsätter grundläggande kunskaper med Unity Redigeraren för miljön. Om du stöter på problem ska du gå till fullständig genomgång. 
 
 ### <a name="setting-up-the-game"></a>Ställa in spelet

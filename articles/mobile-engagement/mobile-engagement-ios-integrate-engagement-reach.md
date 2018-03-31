@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement iOS SDK nå Integration | Microsoft Docs"
-description: "Senaste uppdateringarna och procedurer för iOS SDK för Azure Mobile Engagement"
+title: Azure Mobile Engagement iOS SDK nå Integration | Microsoft Docs
+description: Senaste uppdateringarna och procedurer för iOS SDK för Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1f5f5857-867c-40c5-9d76-675a343a0296
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.openlocfilehash: ba74e0c442ac10f096d465f989e03d2ceae8cd88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d531f5850e8f7f352774f5894285402bd4cc53e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-reach-on-ios"></a>Hur man integrerar Engagement når på iOS
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Du måste följa proceduren integrering i den [hur du integrerar Engagement för iOS-dokument](mobile-engagement-ios-integrate-engagement.md) innan du följer den här guiden.
 
 Den här dokumentationen kräver XCode 8. Om du verkligen är beroende av XCode 7 så att du kan använda den [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). Det finns ett känt fel på den här tidigare version när du kör på iOS 10-enheter: systemmeddelanden är inte åtgärdade. Åtgärda detta måste du implementera föråldrad API `application:didReceiveRemoteNotification:` i din app delegera på följande sätt:
@@ -267,7 +271,7 @@ Om du vill registrera en hanterare för kategori för meddelanden som du behöve
     [reach registerNotifier:myNotifier forCategory:@"my_category"];
     ...
 
-`myNotifier`måste vara en instans av ett objekt som överensstämmer med protokollet `AENotifier`.
+`myNotifier` måste vara en instans av ett objekt som överensstämmer med protokollet `AENotifier`.
 
 Du kan implementera metoder för protokollet själv eller du kan välja att reimplement befintlig klass `AEDefaultNotifier` som redan utför det mesta av arbetet.
 
@@ -292,8 +296,8 @@ Det här enkla exemplet på kategorin förutsätter att du har en fil med namnet
 Den angivna nib filen bör beakta följande regler:
 
 * Det får endast innehålla en vy.
-* Undervyer ska vara av samma typ som som i den angivna nib-fil med namnet`AENotificationView.xib`
-* Undervyer ska ha samma taggar som som inom den angivna nib fil med namnet`AENotificationView.xib`
+* Undervyer ska vara av samma typ som som i den angivna nib-fil med namnet `AENotificationView.xib`
+* Undervyer ska ha samma taggar som som inom den angivna nib fil med namnet `AENotificationView.xib`
 
 > [!TIP]
 > Bara kopiera angivna nib-filen som heter `AENotificationView.xib`, och börjar arbeta därifrån. Men tänk på att, vyn i den här nib-fil som är kopplad till klassen `AENotificationView`. Den här klassen omdefinieras metoden `layoutSubViews` flytta och ändra dess undervyer enligt kontext. Du kanske vill ersätta den med en `UIView` eller en anpassad vy klass.
@@ -344,7 +348,7 @@ Du kan välja att inkludera layout för våra meddelanden i din befintliga vyer.
        notificationView.tag = NOTIFICATION_AREA_VIEW_TAG;
        [self.view addSubview:notificationView];
 
-`NOTIFICATION_AREA_VIEW_TAG`makrot finns i `AEDefaultNotifier.h`.
+`NOTIFICATION_AREA_VIEW_TAG` makrot finns i `AEDefaultNotifier.h`.
 
 > [!NOTE]
 > Standard-meddelaren identifierar automatiskt att meddelande layout ingår i den här vyn och kommer inte att lägga till ett överlägg för den.

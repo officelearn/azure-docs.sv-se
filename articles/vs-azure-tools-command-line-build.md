@@ -1,11 +1,11 @@
 ---
-title: "Kommandoradsverktyget build för Azure | Microsoft Docs"
-description: "Kommandoradsverktyget build för Azure"
+title: Kommandoradsverktyget build för Azure | Microsoft Docs
+description: Kommandoradsverktyget build för Azure
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 94b35d0d-0d35-48b6-b48b-3641377867fd
 ms.service: multiple
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2017
-ms.author: kraigb
-ms.openlocfilehash: 1004f7d6938b4038df7681dc7f7551db2e988e61
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: ghogen
+ms.openlocfilehash: 4d247be7cebdcf26c9b3d5b729bb74fb114c8034
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="building-azure-projects-from-the-command-line"></a>Skapa Azure-projekt från kommandoraden
 Med Microsoft skapa Engine (MSBuild) kan skapa du produkter i build-labbmiljöer där Visual Studio inte har installerats. MSBuild använder ett XML-format för projektfiler som extensible och stöds fullt ut av Microsoft. Använder formatet MSBuild, kan du beskriva vad objekt måste vara inbyggda för en eller flera plattformar och konfigurationer.

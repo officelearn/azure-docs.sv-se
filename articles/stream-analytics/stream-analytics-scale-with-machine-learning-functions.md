@@ -1,12 +1,11 @@
 ---
 title: Jobbet skalning med Azure Stream Analytics & AzureML functions | Microsoft Docs
-description: "Lär dig hur du korrekt skala Stream Analytics-jobb (partitionering, SU antal och mer) när du använder Azure Machine Learning-funktioner."
-keywords: 
-documentationcenter: 
+description: Lär dig hur du korrekt skala Stream Analytics-jobb (partitionering, SU antal och mer) när du använder Azure Machine Learning-funktioner.
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: 47ce7c5e-1de1-41ca-9a26-b5ecce814743
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 1e1c3724462a4d2a67eab3ef42867d2aeb5d3fa1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: dd6effab3ba0b411131414bd757ffe8cc54e49d2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Skala Stream Analytics-jobbet med Azure Machine Learning-funktioner
 Ofta är det enkelt att ställa in ett Stream Analytics-jobb och köra exempeldata genom den. Vad gör vi när vi behöver köra samma jobb med högre datavolym? Det krävs oss att förstå hur du konfigurerar Stream Analytics-jobbet så att det skalas. I det här dokumentet fokuserar på särskilda aspekter skalning Stream Analytics-jobb med Machine Learning-funktioner. Information om hur du skalar Stream Analytics-jobb i allmänhet finns i artikeln [skalning jobb](stream-analytics-scale-jobs.md).
@@ -82,8 +81,8 @@ Nedan finns en tabell för genomflödet i Stream Analytics-jobbet för olika SUs
 | **1 SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **3 SUs** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **6 SUs** |2,500 |5,000 |20,000 |30,000 |50,000 |
-| **12 SUs** |5,000 |10 000 |40,000 |60,000 |100,000 |
-| **18 SUs** |7,500 |15,000 |60,000 |90,000 |150,000 |
+| **12 SUs** |5 000 |10 000 |40,000 |60,000 |100,000 |
+| **18 SUs** |7 500 |15,000 |60,000 |90,000 |150,000 |
 | **24 SUs** |10 000 |20,000 |80,000 |120,000 |200 000 |
 | **…** |… |… |… |… |… |
 | **60 SUs** |25,000 |50,000 |200 000 |300,000 |500,000 |

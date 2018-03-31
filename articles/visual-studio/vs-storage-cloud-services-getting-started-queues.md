@@ -1,11 +1,11 @@
 ---
-title: "Kom igång med queue storage- och Visual Studio anslutna tjänster (molntjänster) | Microsoft Docs"
-description: "Hur du kommer igång med Azure Queue storage i ett molntjänstprojekt i Visual Studio efter anslutning till ett lagringskonto med hjälp av Visual Studio anslutna tjänster"
+title: Kom igång med queue storage- och Visual Studio anslutna tjänster (molntjänster) | Microsoft Docs
+description: Hur du kommer igång med Azure Queue storage i ett molntjänstprojekt i Visual Studio efter anslutning till ett lagringskonto med hjälp av Visual Studio anslutna tjänster
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: da587aac-5e64-4e9a-8405-44cc1924881d
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: 7a6e58a62b4cfbf99641559363dd0c860cdf8af2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: ee4228db093b840940152fcad6dfba793dbc4772
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Komma igång med Azure Queue storage och Visual Studio anslutna tjänster (cloud services-projekt)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]

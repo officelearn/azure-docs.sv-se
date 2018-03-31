@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 398a62cbba952f35f29c1b1f411a6d5b901d2973
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 22da58df653b31c46145ebbbd1f6f6a26b0e9f29
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
 Den här Microsoft-FAQ är en lista över vanliga frågor om logganalys i Microsoft Azure. Om du har några ytterligare frågor om logganalys går du till den [diskussionsforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och dina frågor. När en fråga är vanliga vi lägga till den i den här artikeln så att den finns snabbt och enkelt.
@@ -51,7 +51,7 @@ S: Nej. Log Analytics är en skalbar molnbaserad tjänst som bearbetar och lagra
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>FRÅGOR. Hur felsöker jag om logganalys inte längre att samla in data?
 
-S: Om du på den kostnadsfria prisnivån och har skickat mer än 500 MB data under en dag, stoppar datainsamling för resten av dagen. Når den dagliga gränsen är en vanlig orsak till att logganalys slutar att samla in data eller data verkar saknas.  
+S: för en prenumeration och arbetsytan skapades innan den 2 April 2018 som finns på den *lediga* prisnivån, om mer än 500 MB data skickas i en dag, stoppar datainsamling för resten av dagen. Når den dagliga gränsen är en vanlig orsak till att logganalys slutar att samla in data eller data verkar saknas.  
 
 Log Analytics skapar en händelse av typen *pulsslag* och kan användas för att avgöra om datainsamling avbryts. 
 
@@ -68,7 +68,7 @@ I följande tabell beskrivs skäl som datainsamling stoppar och en rekommenderad
 | Gränsen för ledigt data nåtts<sup>1</sup>       | Vänta tills nästa månad för samling som du vill starta om automatiskt eller<br> Ändra till en betald prisnivå |
 | Azure-prenumeration är i ett pausat tillstånd på grund av: <br> Kostnadsfri utvärderingsversion avslutades <br> Azure-pass upphört att gälla <br> Varje månad utgiftsgräns uppnåtts (till exempel på en MSDN- eller Visual Studio-prenumeration)                          | Konvertera till en betald prenumeration <br> Konvertera till en betald prenumeration <br> Ta bort gränsen eller vänta tills gränsen återställs |
 
-<sup>1</sup> om arbetsytan finns på den kostnadsfria prisnivån, du är begränsad till att skicka 500 MB data per dag till tjänsten. När du når den dagliga gränsen slutar datainsamlingen förrän följande dag. Data som skickas när datainsamling har stoppats är inte indexerat och är inte tillgängligt för sökning. När datainsamlingen återställs sker bearbetning endast för nya data som skickas. 
+<sup>1</sup> om din arbetsyta på den *lediga* prisnivån, du är begränsad till att skicka 500 MB data per dag till tjänsten. När du når den dagliga gränsen slutar datainsamlingen förrän följande dag. Data som skickas när datainsamling har stoppats är inte indexerat och är inte tillgängligt för sökning. När datainsamlingen återställs sker bearbetning endast för nya data som skickas. 
 
 Log Analytics använder UTC-tid varje dag startar vid midnatt UTC. Om arbetsytan når den dagliga gränsen, återupptar bearbetningen under den första timmen UTC nästa dag.
 
@@ -96,7 +96,7 @@ A. Nej, det går inte för närvarande att läsa från valfri tabeller eller beh
 
 A. Log Analytics-tjänsten är byggt på Azure. Log Analytics IP-adresser som tillhör den [IP-intervall i Microsoft Azure Datacenter](http://www.microsoft.com/download/details.aspx?id=41653).
 
-Eftersom tjänstdistributioner görs ändra faktiska IP-adresserna för logganalys-tjänsten. DNS-namn för att tillåta genom brandväggen finns dokumenterade i [konfigurera proxy-och brandväggsinställningarna i logganalys](log-analytics-proxy-firewall.md).
+Eftersom tjänstdistributioner görs ändra faktiska IP-adresserna för logganalys-tjänsten. DNS-namn för att tillåta genom brandväggen finns dokumenterade i [systemkrav](log-analytics-concept-hybrid.md#prerequisites).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>FRÅGOR. Jag använder ExpressRoute för att ansluta till Azure. Använder Mina logganalys trafik min ExpressRoute-anslutningen?
 
@@ -144,7 +144,7 @@ A. Fria abonnemang anger en daglig fjärrskrivbordsanslutning 500 MB per arbetsy
 
 Logganalys-agent har utformats för att se till att den har en kompakta. Datavolym varierar beroende på de lösningar som du aktiverar. Du kan hitta detaljerad information om datavolym och se en analys på detaljnivå av lösning i den [användning](log-analytics-usage.md) sidan.
 
-Mer information kan du läsa en [kunden blogg](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) om kompakta OMS-Agent.
+Mer information kan du läsa en [kunden blogg](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) visar resultaten efter resursutnyttjande (storleken) av OMS-agent.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>FRÅGOR. Hur mycket nätverksbandbredd används av Microsofts hanteringsagent (MMA) när data skickades till Log Analytics?
 

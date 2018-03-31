@@ -1,12 +1,11 @@
 ---
-title: "Övervaka och hantera Stream Analytics-jobb med PowerShell | Microsoft Docs"
-description: "Lär dig hur du använder Azure PowerShell och cmdlets för att övervaka och hantera Stream Analytics-jobb."
+title: Övervaka och hantera Stream Analytics-jobb med PowerShell | Microsoft Docs
+description: Lär dig hur du använder Azure PowerShell och cmdlets för att övervaka och hantera Stream Analytics-jobb.
 keywords: Azure powershell, azure powershell-cmdlets, powershell-kommando, powershell-skript
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 514f454e-d18c-4081-8304-ab48577e15e8
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: b8d362a2789c4e1f5594baa2b86a16e523757037
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 1dcb6f8fe9f2f26ea0bd6970134b0bec67a50aa5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Övervaka och hantera Stream Analytics-jobb med Azure PowerShell-cmdlets
 Lär dig mer om att övervaka och hantera Stream Analytics-resurser med Azure PowerShell-cmdlets och powershell-skript som kör grundläggande Stream Analytics-aktiviteter.
@@ -189,7 +188,7 @@ Azure PowerShell 1.0:
 
 Detta PowerShell-kommando returnerar information om omvandlingen kallas StreamingJob i StreamingJob-jobbet.
 
-### <a name="new-azurestreamanalyticsinput--new-azurermstreamanalyticsinput"></a>Nya AzureStreamAnalyticsInput | Ny AzureRMStreamAnalyticsInput
+### <a name="new-azurestreamanalyticsinput--new-azurermstreamanalyticsinput"></a>New-AzureStreamAnalyticsInput | New-AzureRMStreamAnalyticsInput
 Skapar en ny inmatning inom ett Stream Analytics-jobb eller uppdaterar befintliga angivna indata.
 
 Namnet på indata kan anges i JSON-fil eller på kommandoraden. Om båda anges måste namnet på kommandoraden vara samma som den i filen.
@@ -236,7 +235,7 @@ Azure PowerShell 1.0:
 
 Detta PowerShell-kommando ersätter definitionen av befintliga Indatakällan med namnet EntryStream och definitionen från filen.
 
-### <a name="new-azurestreamanalyticsjob--new-azurermstreamanalyticsjob"></a>Nya AzureStreamAnalyticsJob | Ny AzureRMStreamAnalyticsJob
+### <a name="new-azurestreamanalyticsjob--new-azurermstreamanalyticsjob"></a>New-AzureStreamAnalyticsJob | New-AzureRMStreamAnalyticsJob
 Skapar ett nytt Stream Analytics-jobb i Microsoft Azure eller uppdaterar definitionen av ett befintligt angivna jobb.
 
 Namnet på jobbet kan anges i JSON-fil eller på kommandoraden. Om båda anges måste namnet på kommandoraden vara samma som den i filen.
@@ -271,7 +270,7 @@ Azure PowerShell 1.0:
 
 Detta PowerShell-kommando ersätter jobbdefinitionen för StreamingJob.
 
-### <a name="new-azurestreamanalyticsoutput--new-azurermstreamanalyticsoutput"></a>Nya AzureStreamAnalyticsOutput | Ny AzureRMStreamAnalyticsOutput
+### <a name="new-azurestreamanalyticsoutput--new-azurermstreamanalyticsoutput"></a>New-AzureStreamAnalyticsOutput | New-AzureRMStreamAnalyticsOutput
 Skapar en ny utdata inom ett Stream Analytics-jobb eller uppdaterar befintliga utdata.  
 
 Namnet på utdata kan anges i JSON-fil eller på kommandoraden. Om båda anges måste namnet på kommandoraden vara samma som den i filen.
@@ -306,7 +305,7 @@ Azure PowerShell 1.0:
 
 Detta PowerShell-kommando ersätter du definitionen för ”utdata” i StreamingJob-jobbet.
 
-### <a name="new-azurestreamanalyticstransformation--new-azurermstreamanalyticstransformation"></a>Nya AzureStreamAnalyticsTransformation | Ny AzureRMStreamAnalyticsTransformation
+### <a name="new-azurestreamanalyticstransformation--new-azurermstreamanalyticstransformation"></a>New-AzureStreamAnalyticsTransformation | New-AzureRMStreamAnalyticsTransformation
 Skapar en ny omvandling inom ett Stream Analytics-jobb eller uppdaterar befintliga omvandling.
 
 Namnet på omvandlingen kan anges i JSON-fil eller på kommandoraden. Om båda anges måste namnet på kommandoraden vara samma som den i filen.
@@ -341,7 +340,7 @@ Azure PowerShell 1.0:
 
  Detta PowerShell-kommando ersätter definitionen av StreamingJobTransform i StreamingJob-jobbet.
 
-### <a name="remove-azurestreamanalyticsinput--remove-azurermstreamanalyticsinput"></a>Ta bort AzureStreamAnalyticsInput | Ta bort AzureRMStreamAnalyticsInput
+### <a name="remove-azurestreamanalyticsinput--remove-azurermstreamanalyticsinput"></a>Remove-AzureStreamAnalyticsInput | Remove-AzureRMStreamAnalyticsInput
 Tar bort specifika indata asynkront från en Stream Analytics-jobbet i Microsoft Azure.  
 Om du anger Force-parametern, kommer att tas bort indata utan bekräftelse.
 
@@ -357,7 +356,7 @@ Azure PowerShell 1.0:
 
 Detta PowerShell-kommando bort inkommande EventStream i jobbet StreamingJob.  
 
-### <a name="remove-azurestreamanalyticsjob--remove-azurermstreamanalyticsjob"></a>Ta bort AzureStreamAnalyticsJob | Ta bort AzureRMStreamAnalyticsJob
+### <a name="remove-azurestreamanalyticsjob--remove-azurermstreamanalyticsjob"></a>Remove-AzureStreamAnalyticsJob | Remove-AzureRMStreamAnalyticsJob
 Tar bort ett specifikt Stream Analytics-jobb i Microsoft Azure asynkront.  
 Om du anger Force-parametern, kommer att ta bort jobbet utan bekräftelse.
 
@@ -373,7 +372,7 @@ Azure PowerShell 1.0:
 
 Det här PowerShell-kommandot tar bort jobbet StreamingJob.  
 
-### <a name="remove-azurestreamanalyticsoutput--remove-azurermstreamanalyticsoutput"></a>Ta bort AzureStreamAnalyticsOutput | Ta bort AzureRMStreamAnalyticsOutput
+### <a name="remove-azurestreamanalyticsoutput--remove-azurermstreamanalyticsoutput"></a>Remove-AzureStreamAnalyticsOutput | Remove-AzureRMStreamAnalyticsOutput
 Tar bort en specifik utdata från ett Stream Analytics-jobb i Microsoft Azure asynkront.  
 Om du anger Force-parametern, utdata kommer att tas bort utan bekräftelse.
 
@@ -404,7 +403,7 @@ Azure PowerShell 1.0:
 
 Detta PowerShell-kommando startar jobbet StreamingJob med anpassade utdata starttid inställd på 12 December 2012 12:12:12 UTC.
 
-### <a name="stop-azurestreamanalyticsjob--stop-azurermstreamanalyticsjob"></a>Stoppa AzureStreamAnalyticsJob | Stoppa AzureRMStreamAnalyticsJob
+### <a name="stop-azurestreamanalyticsjob--stop-azurermstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
 Asynkront stoppar ett Stream Analytics-jobb körs i Microsoft Azure och frigör resurser som var som användes. Jobbdefinitionen och metadata förblir tillgängliga i din prenumeration via både Azure-portalen och management API: er, så att jobbet kan redigeras och startas om. Du debiteras inte för ett jobb i ett stoppat tillstånd.
 
 **Exempel 1**
@@ -419,7 +418,7 @@ Azure PowerShell 1.0:
 
 Det här PowerShell-kommandot stoppar jobbet StreamingJob.  
 
-### <a name="test-azurestreamanalyticsinput--test-azurermstreamanalyticsinput"></a>Testa AzureStreamAnalyticsInput | Testa AzureRMStreamAnalyticsInput
+### <a name="test-azurestreamanalyticsinput--test-azurermstreamanalyticsinput"></a>Test-AzureStreamAnalyticsInput | Test-AzureRMStreamAnalyticsInput
 Testar Stream Analytics förmåga att ansluta till en angivna indata.
 
 **Exempel 1**
@@ -434,7 +433,7 @@ Azure PowerShell 1.0:
 
 Det här PowerShell-kommandot testar anslutningsstatusen för inkommande EntryStream i StreamingJob.  
 
-### <a name="test-azurestreamanalyticsoutput--test-azurermstreamanalyticsoutput"></a>Testa AzureStreamAnalyticsOutput | Testa AzureRMStreamAnalyticsOutput
+### <a name="test-azurestreamanalyticsoutput--test-azurermstreamanalyticsoutput"></a>Test-AzureStreamAnalyticsOutput | Test-AzureRMStreamAnalyticsOutput
 Testar Stream Analytics förmåga att ansluta till en angiven utdata.
 
 **Exempel 1**

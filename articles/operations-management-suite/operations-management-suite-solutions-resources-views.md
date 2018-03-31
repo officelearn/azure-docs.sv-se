@@ -1,8 +1,8 @@
 ---
-title: "Vyer i Operations Management Suite (OMS) hanteringslösningar | Microsoft Docs"
-description: "En eller flera vyer om du vill visualisera data inkluderar vanligtvis hanteringslösningar i Operations Management Suite (OMS).  Den här artikeln beskriver hur du exporterar en vy som skapats av Vydesigner och inkludera den i en lösning. "
+title: Vyer i hanteringslösningar | Microsoft Docs
+description: 'Hanteringslösningar inkluderar vanligtvis en eller flera vyer om du vill visualisera data.  Den här artikeln beskriver hur du exporterar en vy som skapats av Vydesigner och inkludera den i en lösning. '
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,22 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: b44763fe67b1c70c0b6ecdff73c32d8bb4fab3a4
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Vyer i Operations Management Suite (OMS) hanteringslösningar (förhandsgranskning)
+# <a name="views-in-management-solutions-preview"></a>Vyer i hanteringslösningar (förhandsgranskning)
 > [!NOTE]
-> Den här är dokumentationen preliminär för att skapa lösningar för hantering i OMS som för närvarande finns i förhandsgranskningen. Ett schema som beskrivs nedan kan ändras.    
->
->
+> Den här är dokumentationen preliminär för att skapa lösningar som för närvarande finns i förhandsgranskningen. Ett schema som beskrivs nedan kan ändras.    
 
-[Lösningar för hantering i Operations Management Suite (OMS)](operations-management-suite-solutions.md) inkluderar vanligtvis en eller flera vyer om du vill visualisera data.  Den här artikeln beskriver hur du exporterar en vy som skapades av den [Vydesigner](../log-analytics/log-analytics-view-designer.md) och inkludera den i en lösning.  
+
+[Hanteringslösningar](operations-management-suite-solutions.md) inkluderar vanligtvis en eller flera vyer om du vill visualisera data.  Den här artikeln beskriver hur du exporterar en vy som skapades av den [Vydesigner](../log-analytics/log-analytics-view-designer.md) och inkludera den i en lösning.  
 
 > [!NOTE]
-> Exemplen i den här artikeln använder parametrar och variabler som är obligatoriska eller vanligt att hanteringslösningar och beskrivs i [och skapa lösningar för hantering i Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)
+> Exemplen i den här artikeln använder parametrar och variabler som är obligatoriska eller vanligt att hanteringslösningar och beskrivs i [utforma och skapa en lösning i Azure](operations-management-suite-solutions-creating.md)
 >
 >
 
@@ -48,7 +47,7 @@ De grundläggande stegen för att lägga till en vy i en lösning är som följe
 ## <a name="export-the-view-to-a-file"></a>Exportera vyn till en fil
 Följ anvisningarna på [Log Analytics Vydesigner](../log-analytics/log-analytics-view-designer.md) att exportera en vy till en fil.  Den exporterade filen kommer att i JSON-format med samma [element som lösningsfilen](operations-management-suite-solutions-solution-file.md).  
 
-Den **resurser** element i filen vyn har en resurs med en typ av **Microsoft.OperationalInsights/workspaces** som representerar OMS-arbetsyta.  Det här elementet har ett underelement av typen **vyer** som representerar vyn och innehåller detaljerade konfigurationen.  Du kan kopiera information om det här elementet och kopierar den till din lösning.
+Den **resurser** element i filen vyn har en resurs med en typ av **Microsoft.OperationalInsights/workspaces** som representerar logganalys-arbetsytan.  Det här elementet har ett underelement av typen **vyer** som representerar vyn och innehåller detaljerade konfigurationen.  Du kan kopiera information om det här elementet och kopierar den till din lösning.
 
 ## <a name="create-the-view-resource-in-the-solution"></a>Skapa vy resursen i lösningen
 Lägg till följande vy resursen till den **resurser** element i din lösningsfil.  Den använder variabler som beskrivs nedan som du måste också lägga till.  Observera att den **instrumentpanelen** och **OverviewTile** egenskaper är platshållare som kommer att skrivas över med motsvarande egenskaper från den exportera visa filen.

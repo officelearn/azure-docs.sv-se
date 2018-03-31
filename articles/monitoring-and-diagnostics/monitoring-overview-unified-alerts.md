@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/23/2018
 ms.author: mamit
 ms.custom: ''
-ms.openlocfilehash: 356988e8ae743d73c8e2cc7cc106cbc5b0d1a423
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c6252ab063ee074951f098e7814ea1cfec68a8b9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="the-new-alerts-experience-in-azure-monitor"></a>Nya aviseringar uppstår i Azure-Monitor
 
@@ -62,12 +62,12 @@ Målet aviseringar erfarenhet är att vara den enda platsen att visa och hantera
 > [!NOTE]
 > Eldad aviseringar som visas i aviseringar som är begränsade till stöds mått och aktivitet Logga varningar; Översikt över Azure övervakaren visar antalet Eldad aviseringar, inklusive de på äldre Azure aviseringar
 
- ![Översikt över aviseringar](./media/monitoring-overview-unified/alerts-preview-overview.png) 
+ ![Översikt över aviseringar](./media/monitoring-overview-unified-alerts/alerts-preview-overview2.png) 
 
 ### <a name="alert-rules-management"></a>Varningsregler management
 **Övervakaren - aviseringar > regler** är en enstaka sida för att hantera alla Varningsregler över dina Azure-prenumerationer. Visar alla Varningsregler (aktiverat eller inaktiverat) och kan sorteras utifrån target-resurser, resursgrupper, regelnamn eller status. Varningsregler kan även aktiveras eller inaktiveras eller redigeras från den här sidan.  
 
- ![regler för aviseringar](./media/monitoring-overview-unified/alerts-preview-rules.png)
+ ![regler för aviseringar](./media/monitoring-overview-unified-alerts/alerts-preview-rules.png)
 
 
 ## <a name="one-alert-authoring-experience-across-all-monitoring-sources"></a>En avisering redigering erfarenheter från alla källor för övervakning

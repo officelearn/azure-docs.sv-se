@@ -1,11 +1,11 @@
 ---
-title: "Hur du migrerar och publicera ett program till en Azure-molntjänst från Visual Studio | Microsoft Docs"
-description: "Lär dig hur du migrerar och publicera ditt webbprogram till en Azure-molntjänst med hjälp av Visual Studio"
+title: Hur du migrerar och publicera ett program till en Azure-molntjänst från Visual Studio | Microsoft Docs
+description: Lär dig hur du migrerar och publicera ditt webbprogram till en Azure-molntjänst med hjälp av Visual Studio
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 9394adfd-a645-4664-9354-dd5df08e8c91
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/10/2017
-ms.author: kraigb
-ms.openlocfilehash: 1ced364bed821a9391f8ffd049f61ac236d98309
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.author: ghogen
+ms.openlocfilehash: 682be267bbb1cf495d85af5786309a98f885fc23
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>Så här: migrera och publicera ett program till en Azure-molntjänst från Visual Studio
 
@@ -82,9 +82,9 @@ Följande tabell innehåller information om hur du startar programmet i Azure:
    | Web programtyp | körs i Azure |
    | --- | --- | --- |
    | ASP.NET-webbprogram<br/>(inklusive MVC 2, 3 MVC, MVC-4) | Välj URL-Adressen i den **distribution** för den **Azure-aktivitetsloggen**. |
-   | Tom ASP.NET-webbprogram | Om du har en standard `.aspx` i ditt program, markera en URL i den **distribution** för den **Azure-aktivitetsloggen**. Ange en URL i formatet i en webbläsare för att navigera till en annan sida:`<deployment_url>/<page_name>.aspx` |
-   | Silverlight-program<br/>Silverlight affärsprogram<br/>Navigering Silverlight-program | Gå till sidan specifik för ditt program med hjälp av följande URL-format:`<deployment_url>/<page_name>.aspx` |
-    WCF-tjänstprogram<br/>Tjänstprogrammet för WCF-arbetsflöde | Ange den `.svc` filen som startsida för projektet WCF-tjänst. Gå till`<deployment_url>/<service_file>.svc` |
+   | Tom ASP.NET-webbprogram | Om du har en standard `.aspx` i ditt program, markera en URL i den **distribution** för den **Azure-aktivitetsloggen**. Ange en URL i formatet i en webbläsare för att navigera till en annan sida: `<deployment_url>/<page_name>.aspx` |
+   | Silverlight-program<br/>Silverlight affärsprogram<br/>Navigering Silverlight-program | Gå till sidan specifik för ditt program med hjälp av följande URL-format: `<deployment_url>/<page_name>.aspx` |
+    WCF-tjänstprogram<br/>Tjänstprogrammet för WCF-arbetsflöde | Ange den `.svc` filen som startsida för projektet WCF-tjänst. Gå till `<deployment_url>/<service_file>.svc` |
    | ASP.NET dynamiska entiteter<br/>ASP.NET dynamiska Data Linq to SQL | Uppdatera anslutningssträngen som beskrivs i nästa avsnitt. Gå sedan till `<deployment_url>/<page_name>.aspx`. Du måste använda en Azure SQL database för Linq till SQL. |
 
 ## <a name="update-a-connection-string-for-aspnet-dynamic-entities"></a>Uppdatera en anslutningssträng för ASP.NET dynamiska entiteter

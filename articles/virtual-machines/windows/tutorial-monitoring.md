@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fdb8009e3dbca1037cae61ec8627f73190a8263d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b908e8877162a6a1d9292616a1704c1c528e1725
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Övervaka och uppdatera en virtuell Windows-dator med Azure PowerShell
 
@@ -36,6 +36,7 @@ I den här guiden får du lära dig hur man:
 > * Visa VM-mått
 > * Skapa en avisering
 > * Hantera Windows-uppdateringar
+> * Övervaka ändringar och lager
 > * Konfigurera avancerad övervakning
 
 Den här självstudien kräver Azure PowerShell-modul version 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
@@ -274,6 +275,7 @@ I kursen får du konfigurerade och granskas virtuella datorer med Azure Security
 > * Visa VM-mått
 > * Skapa en avisering
 > * Hantera Windows-uppdateringar
+> * Övervaka ändringar och lager
 > * Konfigurera avancerad övervakning
 
 Gå vidare till nästa kurs vill veta mer om Azure security center.

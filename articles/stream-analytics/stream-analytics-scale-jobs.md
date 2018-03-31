@@ -1,12 +1,11 @@
 ---
-title: "Skala Stream Analytics-jobb att öka genomflödet | Microsoft Docs"
-description: "Lär dig mer om att skala Stream Analytics-jobb genom att konfigurera inkommande partitioner, justera frågedefinitionen och ange jobbet enheter för strömning."
-keywords: "data som strömmas, finjustera strömning databehandling analytics"
+title: Skala Stream Analytics-jobb att öka genomflödet | Microsoft Docs
+description: Lär dig mer om att skala Stream Analytics-jobb genom att konfigurera inkommande partitioner, justera frågedefinitionen och ange jobbet enheter för strömning.
+keywords: data som strömmas, finjustera strömning databehandling analytics
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JSeb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 781a3b71c35cb48e40202e3b1acc8edbbaf865c4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2e0487a9e4cd6346312c6817ef2768556cba72ba
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Skala Azure Stream Analytics-jobb för att öka genomströmning
 Den här artikeln visar hur du ställer in en Stream Analytics-fråga för att öka genomflödet för Streaming Analytics-jobb. Du kan använda följande guide för att skala ditt jobb för att hantera högre belastning och dra nytta av mer systemresurser (till exempel mer bandbredd, mer CPU-resurser, mer minne).
@@ -148,7 +147,7 @@ I följande tabell visas de resultat som vi såg när vi har ökat antal enheter
 
 Och följande diagram visar en visualisering av relationen mellan SUs och genomflöde.
 
-![img.stream.Analytics.perfgraph][img.stream.analytics.perfgraph]
+![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Få hjälp
 För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).

@@ -1,10 +1,10 @@
 ---
-title: "Avvikelseidentifiering i Azure användning Guide (förhandsversion) | Microsoft Docs"
-description: "Använd stream analytics och maskininlärning att identifiera avvikelser."
+title: Avvikelseidentifiering i Azure användning Guide (förhandsversion) | Microsoft Docs
+description: Använd stream analytics och maskininlärning att identifiera avvikelser.
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: dubansal
-manager: jhubbard
+manager: katicad
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/12/2018
 ms.author: dubansal
-ms.openlocfilehash: d8762ea608afed707d41a3c0a1a8725457a0e4dc
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9d301f8586038f635ee97a3acdc9c4dc8a2bbcc6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Avvikelseidentifiering i Azure Stream Analytics
 
@@ -45,7 +45,7 @@ När du använder operatorn AnomalyDetection, måste du ange den **Limit Duratio
 
 ### <a name="arguments"></a>Argument
 
-* **scalar_expression** -skalärt uttryck som utförs av avvikelseidentifiering. Tillåtna värden för den här parametern innehåller flyttal eller Bigint-datatyper som en enda (skalära) returvärde. Jokerteckenuttryck  **\***  tillåts inte. Skalärt uttryck får inte innehålla andra analysfunktioner eller externa funktioner. 
+* **scalar_expression** -skalärt uttryck som utförs av avvikelseidentifiering. Tillåtna värden för den här parametern innehåller flyttal eller Bigint-datatyper som en enda (skalära) returvärde. Jokerteckenuttryck **\*** tillåts inte. Skalärt uttryck får inte innehålla andra analysfunktioner eller externa funktioner. 
 
 * **partition_by_clause** – `PARTITION BY <partition key>` satsen dividerar learning och utbildning över olika partitioner. Med andra ord en separat modell används per värde för `<partition key>` och endast händelser som har värdet används för inlärning och utbildning i den här modellen. Till exempel följande fråga tåg och resultat en läsning mot andra värden för samma sensorn:
 
@@ -97,7 +97,7 @@ Diagrammatically, stegen se ut så här:
 
 ![Utbildning modeller](media/stream-analytics-machine-learning-anomaly-detection/training_model.png)
 
-|Modellen | **Starttid för utbildning** | **Tid för att börja använda dess resultat** |
+|**Modellen** | **Starttid för utbildning** | **Tid för att börja använda dess resultat** |
 |---------|---------|---------|
 |M1     | 11:20   | 11:33   |
 |M2     | 11:30   | 11:40   |

@@ -1,12 +1,11 @@
 ---
-title: "Dataanslutningen: dataströmmen indata från en händelseström | Microsoft Docs"
-description: "Lär dig mer om hur du konfigurerar en dataanslutning till Stream Analytics kallas ”indata'. Indata innehåller en dataström från händelser och även referensdata."
-keywords: "dataströmmen, dataanslutning, händelseströmmen"
+title: 'Dataanslutningen: dataströmmen indata från en händelseström | Microsoft Docs'
+description: Lär dig mer om hur du konfigurerar en dataanslutning till Stream Analytics kallas ”indata'. Indata innehåller en dataström från händelser och även referensdata.
+keywords: dataströmmen, dataanslutning, händelseströmmen
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/11/2017
 ms.author: sngun
-ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 0ddc3187e9fc0664838dd07f781f4d7e2e4a7fe0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Dataanslutningen: Lär dig mer om data dataströmmen indata från händelser till Stream Analytics
 Dataanslutningen till ett Stream Analytics-jobb är en dataström med händelser från datakällan, vilket kallas jobbets *inkommande*. Stream Analytics har förstklassigt integrering med Azure strömmen datakällor, inklusive [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), och [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). Dessa indatakällor kan vara från samma Azure-prenumerationen som analytics-jobb, eller från en annan prenumeration.
@@ -70,7 +69,7 @@ När data kommer från en händelsehubb, har du tillgång till följande metadat
 | --- | --- |
 | **EventProcessedUtcTime** |Datum och tid då händelsen bearbetades av Stream Analytics. |
 | **EventEnqueuedUtcTime** |Datum och tid då händelsen togs emot av Händelsehubbar. |
-| **Partitions-ID** |Nollbaserade partitions-ID för inkommande adaptern. |
+| **PartitionId** |Nollbaserade partitions-ID för inkommande adaptern. |
 
 Till exempel kan med hjälp av dessa fält, du skriva en fråga som i följande exempel:
 
@@ -106,7 +105,7 @@ I följande tabell beskrivs varje egenskap i den **nya indata** bladet i Azure-p
 | --- | --- |
 | **Ett inmatat alias** |Ett eget namn som du använder i jobbets fråga refererar detta indata.|
 | **IoT-hubb** |Namnet på IoT-hubben ska användas som indata. |
-| **Slutpunkt** |Slutpunkten för IoT-hubb.|
+| **slutpunkt** |Slutpunkten för IoT-hubb.|
 | **Principnamn för delad åtkomst** |Princip för delad åtkomst som ger åtkomst till IoT-hubben. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar. |
 | **Princip för delade åtkomstnyckeln** |Den delade åtkomstnyckeln som används för att auktorisera åtkomst till IoT-hubben. |
 | **Konsumentgrupp** (valfritt) |Konsumentgrupp att använda för att mata in data från IoT-hubben. Om ingen konsumentgrupp har angetts använder Stream Analytics-jobbet förinställd konsumentgrupp. Vi rekommenderar att du använder en annan konsumentgrupp för varje Stream Analytics-jobbet. |
@@ -120,7 +119,7 @@ När data kommer från en IoT-hubb, har du tillgång till följande metadatafäl
 | --- | --- |
 | **EventProcessedUtcTime** |Datum och tid då händelsen bearbetades. |
 | **EventEnqueuedUtcTime** |Datum och tid då händelsen togs emot av IoT-hubben. |
-| **Partitions-ID** |Nollbaserade partitions-ID för inkommande adaptern. |
+| **PartitionId** |Nollbaserade partitions-ID för inkommande adaptern. |
 | **IoTHub.MessageId** | Ett ID som används för att korrelera dubbelriktad kommunikation i IoT-hubb. |
 | **IoTHub.CorrelationId** |Ett ID som används i meddelandesvar och feedback i IoT-hubb. |
 | **IoTHub.ConnectionDeviceId** |ID för autentisering används för att skicka meddelandet. Det här värdet är stämplad på servicebound meddelanden av IoT-hubben. |
@@ -150,8 +149,8 @@ I följande tabell beskrivs varje egenskap i den **nya indata** bladet i Azure-p
 | **Lagringskonto** | Namnet på det lagringskonto där blob-filerna lagras. |
 | **Lagringskontonyckel** | Den hemliga nyckeln som associeras med lagringskontot. |
 | **Behållaren** | Behållare för blob som indata. Behållare innehåller en logisk gruppering för blobbar som lagras i Microsoft Azure Blob-tjänsten. När du överför en blob till Azure Blob storage-tjänst måste du ange en behållare för blobben. |
-| **Sökvägar** (valfritt) | Den filsökväg som används för att hitta blobbar i den angivna behållaren. Du kan ange en eller flera instanser av följande tre variabler i sökvägen: `{date}`, `{time}`, eller`{partition}`<br/><br/>Exempel 1:`cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exempel 2:`cluster1/logs/{date}`<br/><br/>Den `*` tecken är inte ett tillåtet värde för prefixet sökväg. Endast giltiga <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob-tecken</a> tillåts. |
-| **Datumformatet** (valfritt) | Om du använder variabeln datum i sökvägen, där filerna ordnas datumformat. Exempel:`YYYY/MM/DD` |
+| **Sökvägar** (valfritt) | Den filsökväg som används för att hitta blobbar i den angivna behållaren. Du kan ange en eller flera instanser av följande tre variabler i sökvägen: `{date}`, `{time}`, eller `{partition}`<br/><br/>Exempel 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exempel 2: `cluster1/logs/{date}`<br/><br/>Den `*` tecken är inte ett tillåtet värde för prefixet sökväg. Endast giltiga <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob-tecken</a> tillåts. |
+| **Datumformatet** (valfritt) | Om du använder variabeln datum i sökvägen, där filerna ordnas datumformat. Exempel: `YYYY/MM/DD` |
 | **Tidsformat** (valfritt) |  Om du använder variabeln tid i sökvägen, där filerna ordnas tidsformatet. Det enda värdet som stöds är för närvarande `HH`. |
 | **Händelsen serialiseringsformat** | Serialiseringsformat (JSON, CSV eller Avro) för inkommande dataströmmar. |
 | **Kodning** | UTF-8 är för närvarande endast stöds Kodningsformatet för CSV och JSON. |
@@ -164,7 +163,7 @@ När data kommer från en källa för Blob storage, har du tillgång till följa
 | **BlobName** |Namnet för blob som händelsen kommer ifrån. |
 | **EventProcessedUtcTime** |Datum och tid då händelsen bearbetades av Stream Analytics. |
 | **BlobLastModifiedUtcTime** |Datum och tid då blobben senast ändrades. |
-| **Partitions-ID** |Nollbaserade partitions-ID för inkommande adaptern. |
+| **PartitionId** |Nollbaserade partitions-ID för inkommande adaptern. |
 
 Till exempel kan med hjälp av dessa fält, du skriva en fråga som i följande exempel:
 

@@ -1,11 +1,11 @@
 ---
 title: 'Azure Mobile Engagement Web API: er SDK | Microsoft Docs'
-description: "De senaste uppdateringarna och procedurer för webbtjänst-SDK för Azure Mobile Engagement"
+description: De senaste uppdateringarna och procedurer för webbtjänst-SDK för Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8a87d5ac-d8b7-4a0d-bdee-414dbcc561b2
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-ms.openlocfilehash: 54c22ce6a03e382b1bbde102bccc97deec249b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d2ae75b384b60d0383c1682a00a4fc0d19d0f43
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-the-azure-mobile-engagement-api-in-a-web-application"></a>Använd Azure Mobile Engagement-API: et i ett webbprogram
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Det här dokumentet är ett tillägg till det dokument som får du veta hur till [Mobile Engagement ska integreras i ett webbprogram](mobile-engagement-web-integrate-engagement.md). Det ger detaljerad information om hur du använder Azure Mobile Engagement-API: et för att rapportera programmet-statistik.
 
 Mobile Engagement-API som tillhandahålls av den `engagement.agent` objekt. Standard Azure Mobile Engagement Web SDK alias är `engagement`. Du kan ändra detta alias från SDK-konfigurationen.

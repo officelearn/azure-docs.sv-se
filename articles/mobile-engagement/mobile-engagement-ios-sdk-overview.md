@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement iOS SDK översikt | Microsoft Docs"
-description: "Senaste uppdateringarna och procedurer för iOS SDK för Azure Mobile Engagement"
+title: Azure Mobile Engagement iOS SDK översikt | Microsoft Docs
+description: Senaste uppdateringarna och procedurer för iOS SDK för Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3a03bbd6-bcf8-436c-9775-5a8188629252
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: 6acd343782a3ee07750e27ec3022ff81cedfadee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c9d2ddeacd1d05142019f22eedf4eb3bb4f06cd
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="ios-sdk-for-azure-mobile-engagement"></a>iOS SDK för Azure Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Börja här om du vill få detaljerad information om hur du integrerar Azure Mobile Engagement i en iOS-App. Om du vill prova först gör du våra [15 minuter att slutföra kursen](mobile-engagement-ios-get-started.md).
 
 Klicka för att visa den [SDK innehåll](mobile-engagement-ios-sdk-content.md)
@@ -69,7 +73,7 @@ XCode 8 är obligatoriskt från version 4.0.0 av SDK.
 #### <a name="usernotifications-framework"></a>UserNotifications framework
 Du måste lägga till den `UserNotifications` ramverk i din Build Phases.
 
-Öppna ditt projekt i Projektutforskaren, och välj rätt mål. Öppna den **”Build-faser”** fliken och i den **”länka binär med bibliotek”** menyn Lägg till framework `UserNotifications.framework` -ange länken som`Optional`
+Öppna ditt projekt i Projektutforskaren, och välj rätt mål. Öppna den **”Build-faser”** fliken och i den **”länka binär med bibliotek”** menyn Lägg till framework `UserNotifications.framework` -ange länken som `Optional`
 
 #### <a name="application-push-capability"></a>Programmet push-funktion
 XCode 8 kan återställa din app push-funktion, kontrollera den den `capability` fliken i ditt valda målet.

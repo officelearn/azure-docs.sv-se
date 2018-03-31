@@ -1,11 +1,11 @@
 ---
-title: "Avancerad konfiguration för Azure Mobile Engagement Android SDK"
+title: Avancerad konfiguration för Azure Mobile Engagement Android SDK
 description: Beskriver de avancerade konfigurationsalternativ inklusive Android Manifest med Azure Mobile Engagement Android SDK
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 37d2c09a-86fa-473d-8987-c7e35a0eb3e8
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 0301f71c76872714aa1bf727a6c21dd7a63db036
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 29a7bb7daae59e2034504ce27c9ba66755b11e4b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="advanced-configuration-for-azure-mobile-engagement-android-sdk"></a>Avancerad konfiguration för Azure Mobile Engagement Android SDK
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 > [!div class="op_single_selector"]
 > * [Universell Windows](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -88,7 +92,7 @@ Det kan ta en minut att stoppa tjänsten om Engagement är aktiv när du anropar
 
 Du kan aktivera loggen reporting igen genom att anropa funktionen samma med `true`.
 
-### <a name="integration-in-your-own-preferenceactivity"></a>Integrering i din egen`PreferenceActivity`
+### <a name="integration-in-your-own-preferenceactivity"></a>Integrering i din egen `PreferenceActivity`
 I stället för att anropa den här funktionen kan du också integrera inställningen direkt i din befintliga `PreferenceActivity`.
 
 Du kan konfigurera Engagement att använda inställningar-fil (med läge) i den `AndroidManifest.xml` filen med `application meta-data`:

@@ -1,11 +1,11 @@
 ---
-title: "Användargränssnittet för Azure Mobile Engagement - inställningar"
-description: "Lär dig att hantera de globala inställningarna för ditt program med Azure Mobile Engagement"
+title: Användargränssnittet för Azure Mobile Engagement - inställningar
+description: Lär dig att hantera de globala inställningarna för ditt program med Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 858f4cb4-14de-4bb5-826f-28cadbfc928b
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: af5c81df2b9f288161b38625d3ac2adde8fb195d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31df9f151febcb7e5f0f2cd4a83053b3aac416a3
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-the-global-settings-of-your-application"></a>Så här hanterar du de globala inställningarna för programmet
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Den **inställningar** menyalternativ som är tillgängliga för ett program varierar beroende på plattform och de behörigheter som du har beviljats för programmet. Inställningarna innefattar följande: information, projekt, Native Push, Push-hastigheten, Tag (appinfo) och kommersiellt tryck. Menyalternativet taggen (appinfo) i avsnittet inställningar kan hanteras av ditt program (med SDK) eller din serverdel (med hjälp av Device API). 
 
 > [!NOTE]
@@ -44,7 +48,7 @@ Mer information finns: [UI-dokumentationen – Start][Link 13]
 
   ![settings3][48]
 
-## <a name="native-push"></a>Intern Push
+## <a name="native-push"></a>Intern push
 Kan du registrera ett nytt certifikat eller ta bort och befintliga certifikat för användning med intern push. Intern Push aktiverar Azure Mobile Engagement att skicka till ditt program när som helst, även när den inte körs. 
 
 När att tillhandahålla autentiseringsuppgifter eller certifikat för minst en Native Push-tjänst, kan du välja ”helst” när du skapar Reach-kampanjer och Använd parametern ”meddelaren” i PUSH-API.
@@ -79,7 +83,7 @@ Mer information finns i:
 
 ![settings6][51]
 
-## <a name="push-speed"></a>Push-hastigheten
+## <a name="push-speed"></a>Push-hastighet
 Visar aktuella push-hastigheten för ditt program och kan du definiera push-hastigheten för ditt program.
 
   ![settings7][52]
@@ -90,7 +94,7 @@ Visar aktuella push-hastigheten för ditt program och kan du definiera push-hast
 ## <a name="commercial-pressure"></a>Kommersiellt tryck
 ![settings12][57]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Begrepp][Link 6]
 * [Felsöka Guide Service][Link 24]
 

@@ -1,12 +1,11 @@
 ---
-title: "Utdata för Stream Analytics Data Lake Store | Microsoft Docs"
+title: Utdata för Stream Analytics Data Lake Store | Microsoft Docs
 description: Konfigurationen av autentisering och auktorisering av ett Azure Data Lake Store i ett Stream Analytics-jobb
-keywords: 
+keywords: ''
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: ea5baafa-0054-4c70-973a-6a3a8c6eaffc
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: e2010e86e56c1ce7a98fae97a8f6f00c30b61035
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: jeanb
+ms.openlocfilehash: 802193b9f15cbc35bec32191ccc63df3329b96f9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Stream Analytics Data Lake Store-utdata
 Stream Analytics-jobb stöder flera metoder för utdata, en som en [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store är en företagsomfattande storskalig lagringsplats för analytiska arbetsbelastningar för stordata. Data Lake Store kan du lagra data med en storlek, typ och införandet hastighet för drifts- och undersökande analyser.
@@ -68,7 +67,7 @@ När du har Data Lake Store-kontot autentiseras kan du konfigurera egenskaper f�
 </tr>
 <tr>
 <td>Encoding</td>
-<td>Om CSV- eller JSON-format, måste kodning anges. UTF-8 är kodformat som endast stöds för tillfället.</td>
+<td>Om CSV- eller JSON-format, måste kodning anges. UTF-8 är det enda kodformat som stöds för närvarande.</td>
 </tr>
 <tr>
 <td>Avgränsare</td>

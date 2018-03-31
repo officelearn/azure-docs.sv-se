@@ -1,11 +1,11 @@
 ---
-title: "Användargränssnittet för Azure Mobile Engagement - Reach så"
-description: "Användargränssnitt, översikt för Azure Mobile Engagement"
+title: Användargränssnittet för Azure Mobile Engagement - Reach så
+description: Användargränssnitt, översikt för Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 30af87e6-c816-4cce-8609-6cbd3e83de14
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 33a0a9d0c399cb7f0a791c4c16dde2e2d62364ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c536d378023ee4a9675bb2d67262fb485c8052b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-get-started-using-and-managing-pushes-to-reach-out-to-your-end-users"></a>Hur du kommer igång med och hantera push-meddelanden nå ut till användarna
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 När SDK är helt integrerat i din app, du kan börja använda den Reach-avsnittet i Användargränssnittet för Push-meddelanden för användarna i din app.  
 
 ## <a name="do-your-first-push-notification-campaign"></a>Gör din första Push-Meddelandekampanj
@@ -58,7 +62,7 @@ När SDK är helt integrerat i din app, du kan börja använda den Reach-avsnitt
 ![First7][7]
 
 ## <a name="test-your-push-notification-campaign"></a>Testa din kampanj med Push-meddelanden
-![test1][8]
+![Test1][8]
 
 * Registrera din enhet.
 * Klicka på kryssrutan på den enhet som du vill skicka.
@@ -68,7 +72,7 @@ När SDK är helt integrerat i din app, du kan börja använda den Reach-avsnitt
 
 * Aktivera kampanjen
 
-![test3][10]
+![Test3][10]
 
 * Nu när du har skapat din kampanj måste du aktivera den för meddelandet ska skickas till användarna.
 
@@ -114,7 +118,7 @@ Som du ser ovan innehåller push notification innehållet markör ${rebate_code}
 ”Endast utanför appen” leveransläge ger push-meddelanden när programmet avslutas. Detta är standard push-meddelande.
 När du väljer ”endast utanför appen” måste du har redan angett certifikat från den plattform som programmet skapar på (APN eller GCM).
 
-### <a name="see-also"></a>Se även
+### <a name="see-also"></a>Se också
 * [Certifikat för Apple Push Notification Service –](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), [Google Cloud Messaging-certifikat](http://developer.android.com/google/gcm/index.html) 
 
 ### <a name="in-app-only-delivery-mode"></a>”i appen bara” leveransläge

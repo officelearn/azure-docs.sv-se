@@ -1,24 +1,24 @@
 ---
-title: "Felsöka en Azure VPN-anslutning för plats-till-plats som inte kan ansluta | Microsoft Docs"
-description: "Lär dig hur du felsöker en plats-till-plats VPN-anslutning som plötsligt slutar fungera och kan inte återanslutas."
+title: Felsöka en Azure VPN-anslutning för plats-till-plats som inte kan ansluta | Microsoft Docs
+description: Lär dig hur du felsöker en plats-till-plats VPN-anslutning som plötsligt slutar fungera och kan inte återanslutas.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2017
+ms.date: 03/29/2018
 ms.author: genli
-ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 3e590df66f84cd88ba7ba251373c14a44a94ca77
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Felsökning: Azure plats-till-plats VPN-anslutningen kan inte ansluta och slutar fungera
 
@@ -52,7 +52,7 @@ Jämför den delade nyckeln för lokala VPN-enhet till Azure virtuella nätverk 
 
 Använd någon av följande metoder om du vill visa den delade nyckeln för Azure VPN-anslutningen:
 
-**Azure-portalen**
+**Azure Portal**
 
 1. Gå till VPN-gateway för plats-till-plats-anslutningen som du skapade.
 
@@ -92,7 +92,9 @@ Sök efter och ta bort användardefinierade routning (UDR) eller Nätverkssäker
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Steg 7. Kontrollera hälsoavsökningen Azure gateway
 
-1. Gå till hälsoavsökningen.
+1. Öppna hälsoavsökningen genom att bläddra till följande URL:
+
+    `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
 2. Klicka dig igenom certifikatvarningen.
 3. Om du får ett svar, anses VPN-gatewayen felfritt. Om du inte får ett svar, gatewayen kanske inte är felfri eller en NSG på gateway-undernätet som orsakar problemet. Följande är ett exempelsvar:

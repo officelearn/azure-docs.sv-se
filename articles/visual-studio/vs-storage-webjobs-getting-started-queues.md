@@ -1,11 +1,11 @@
 ---
-title: "Komma igång med queue storage- och Visual Studio anslutna tjänster (Webbjobb projekt) | Microsoft Docs"
-description: "Hur du kommer igång med Azure Queue storage i ett Webbjobb projekt efter anslutning till ett lagringskonto med hjälp av Visual Studio anslutna tjänster."
+title: Komma igång med queue storage- och Visual Studio anslutna tjänster (Webbjobb projekt) | Microsoft Docs
+description: Hur du kommer igång med Azure Queue storage i ett Webbjobb projekt efter anslutning till ett lagringskonto med hjälp av Visual Studio anslutna tjänster.
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 5c3ef267-2a67-44e9-ab4a-1edd7015034f
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: efd2f1e471f67396d35f11f2eb1044a8afa469af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 52c089d2657d61ee42730a00def060dec74439fc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Komma igång med Azure Queue storage och Visual Studio anslutna tjänster (Webbjobb projekt)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -79,9 +79,9 @@ Asynkrona funktioner kan ta en [annullering token](http://www.asp.net/mvc/overvi
 ## <a name="types-the-queuetrigger-attribute-works-with"></a>Attributet QueueTrigger fungerar med typer
 Du kan använda **QueueTrigger** med följande typer:
 
-* **sträng**
+* **Sträng**
 * En POCO-typen som serialiseras som JSON
-* **byte]**
+* **byte[]**
 * **CloudQueueMessage**
 
 ## <a name="polling-algorithm"></a>Avsökningen algoritm

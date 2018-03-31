@@ -1,11 +1,11 @@
 ---
-title: "Bläddra bland och hantera lagringsresurser med hjälp av Server Explorer | Microsoft Docs"
-description: "Bläddra och använder Server Explorer för att hantera lagringsresurser"
+title: Bläddra bland och hantera lagringsresurser med hjälp av Server Explorer | Microsoft Docs
+description: Bläddra och använder Server Explorer för att hantera lagringsresurser
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 658dc064-4a4e-414b-ae5a-a977a34c930d
 ms.service: storage
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
-ms.author: kraigb
-ms.openlocfilehash: ee91ca168acf2fa0d248e18cce64ac546740a2bd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: ghogen
+ms.openlocfilehash: 59e26082845b5934a5918ccfb3dc8b971bba7d54
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Bläddra bland och hantera lagringsresurser med hjälp av Server Explorer
 

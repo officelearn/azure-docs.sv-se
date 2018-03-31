@@ -1,11 +1,11 @@
 ---
-title: "Användargränssnittet för Azure Mobile Engagement - Reach-kampanj"
-description: "Laern hur du skapar och hanterar push-meddelande kampanjer som använder Azure Mobile Engagement"
+title: Användargränssnittet för Azure Mobile Engagement - Reach-kampanj
+description: Laern hur du skapar och hanterar push-meddelande kampanjer som använder Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2fe124a2-a86f-4136-81ba-a9d298ec798a
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: fc88db8db11d1ed12fa95c2087c9a32b21bf4de5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d457a8d5f68f70f6bf7a5f086b5e1d65bd1ea95
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-push-notification-campaigns"></a>Hur du skapar och hanterar kampanjer för push-meddelande
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 Du kan använda Reach-avsnittet i Användargränssnittet för att skapa en ny Push-kampanj med en formel genom att ange den information som du måste skicka ett push-meddelande. Alternativen för en Push-kampanj varierar något beroende på vilka kampanjtyper av fyra: meddelanden, avsökningar, Data-push både och paneler (endast Windows Phone).
 
 ### <a name="option-applies-to"></a>Alternativet gäller för:
@@ -63,7 +67,7 @@ Du kan använda listrutan språk för att skicka en annan version av din Push ti
 * Tyska (de) 
 * Grekiska (el) 
 * Hebreiska (han) 
-* Hindi (hög) 
+* Hindi (hi) 
 * Ungerska (hu) 
 * Indonesiska (id) 
 * Italienska (it) 
@@ -72,12 +76,12 @@ Du kan använda listrutan språk för att skicka en annan version av din Push ti
 * Lettiska (lv) 
 * Litauiska (lt) 
 * Malajiska (macrolanguage) (ms) 
-* Norska Bokmål (nb) 
+* Norwegian Bokmål (nb) 
 * Polska (pl) 
 * Portugisiska (pt) 
 * Rumänska (ro) 
 * Ryska (ru) 
-* Serbiska (sr) 
+* Serbian (sr) 
 * Slovakiska (sk) 
 * Slovenska (sl) 
 * Spanska (es) 
@@ -119,7 +123,7 @@ Du kan använda avsnittet meddelande så här anger du grundläggande inställni
 ## <a name="content"></a>Innehåll
 Du kan använda avsnittet innehåll för att ändra innehållet i dina meddelanden, avsökningar, Data-push både och paneler (endast Windows Phone). Push-kampanjer innehåll inställningen är specifik för typ av kampanj. 
 
-### <a name="see-also"></a>Se även
+### <a name="see-also"></a>Se också
 * [UI-dokumentation – nå - Push-innehåll][Link 29]
 
 ![Reach-Campaign5][24]
@@ -135,7 +139,7 @@ Du kan använda målgrupp för att definiera en standard lista över objekt att 
 * Skicka bara till aktiva användare (kryssrutan ”engagera bara användare som kan nås med hjälp av interna Push” och ”engagera bara aktiva användare”) så att dina användare som fortfarande ha installerat appen och använda den behöver genomsökas.
   Du kan använda knappen simulera för att ta reda på hur många användare får den här Push när användarna har definierats. Detta kommer beräkna antalet kända användare som kan vara mål för den här målgruppen (detta är en uppskattning baserad på ett slumpvist urval av användare). Tänk på att användare som har avinstallerat programmet också ingår i denna målgrupp, men kan inte nås.
 
-### <a name="see-also"></a>Se även
+### <a name="see-also"></a>Se också
 * [UI-dokumentationen – Reach - nytt Push kriterium][Link 28]
 
 ![Reach-Campaign6][25]
@@ -157,7 +161,7 @@ Du kan använda avsnittet tidsram för att ange när push-meddelandet ska skicka
 > [!NOTE]
 > Kampanjer utan ett slutdatum kan cachelagra push-meddelanden lokalt och fortfarande visa dem efter att du manuellt fullständig kampanjer. Att undvika det här beteendet specifik sluttid för kampanjer.
 
-### <a name="see-also"></a>Se även
+### <a name="see-also"></a>Se också
 * [Nå - hur Tos-planering][Link 3] 
 
 ![Reach-Campaign8][27]
@@ -171,7 +175,7 @@ Du kan använda avsnittet Test för att skicka den här push till test enheten i
 > [!NOTE]
 > Inga serversidan data loggas när du använder knappen till ”test” push-meddelanden, data loggas endast för verkliga push-kampanjer.
 
-### <a name="see-also"></a>Se även
+### <a name="see-also"></a>Se också
 * [UI-dokumentation – mitt konto][Link 14]
 
 ![Reach-Campaign9][28]

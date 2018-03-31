@@ -1,24 +1,18 @@
 ---
-title: "Avgöra när du behöver använda Azure BLOB, Azure-filer eller Azure-diskar"
-description: "Läs mer om olika sätt att lagra och komma åt data i Azure för att du bestämmer dig för vilken teknik som ska användas."
+title: Avgöra när du behöver använda Azure BLOB, Azure-filer eller Azure-diskar
+description: Läs mer om olika sätt att lagra och komma åt data i Azure för att du bestämmer dig för vilken teknik som ska användas.
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 03/28/2018
 ms.author: tamram
-ms.openlocfilehash: b9c7913d1e95693a5ec72b24cf020928d67f0133
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ded0884ff83cc214d78f65fed8cefa646f11d952
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Avgöra när du behöver använda Azure BLOB, Azure-filer eller Azure-diskar
 
@@ -46,10 +40,10 @@ I följande tabell jämförs Azure-filer med Azure BLOB.
 |Anslutning|REST-API: er – globalt|REST API: er – globalt<br /><br /> SMB 2.1 – inom region<br /><br /> SMB 3.0 – globalt|  
 |Slutpunkter|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Kataloger|Flat namnområde|True katalogobjekt|  
-|Skiftlägeskänslighet namn|Skiftlägeskänslig|Skilftlägeskänsliga, men case bevarar|  
-|Kapacitet|Upp till 500 TB-behållare|5 TB filresurser|  
-|Dataflöde|Upp till 60 MB/s per blockblob|Upp till 60 MB/s per resurs|  
-|Objektstorlek|Upp till 200 GB /-block-blob|Upp till 1 TB-fil|  
+|Skiftlägeskänslighet namn|Skiftlägeskänsligt|Skilftlägeskänsliga, men case bevarar|  
+|Kapacitet|Upp till 500 TiB-behållare|5 TiB-filresurser|  
+|Dataflöde|Upp till 60 MiB/s per blockblob|Upp till 60 MiB/s per resurs|  
+|Objektstorlek|Upp till ungefär 4,75 TiB per blockblob|Upp till 1 TiB per fil|  
 |Fakturerade kapacitet|Baserat på skrivna byte|Baserat på filstorlek|  
 |Klientbibliotek|Flera språk|Flera språk|  
   
@@ -68,9 +62,9 @@ I följande tabell jämförs Azure-filer med Azure-diskar.
 |Autentisering|Inbyggd|Ställ in med net use|  
 |Rensa|Automatisk|Manuell|  
 |Åtkomst med hjälp av REST|Filerna i den virtuella Hårddisken kan inte nås|Filer som lagras på en resurs kan nås|  
-|Max storlek|4 TB-disk|5 TB-filresurs och 1 TB fil i resursen|  
+|Max storlek|4 TiB-disk|5 TiB-filresurs och 1 TiB-fil i resursen|  
 |Maximalt antal 8KB IOps|500 IOps|1000 IOps|  
-|Dataflöde|Upp till 60 MB/s per Disk|Upp till 60 MB/s per resurs|  
+|Dataflöde|Upp till 60 MiB/s per Disk|Upp till 60 MiB/s per resurs|  
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,11 +1,11 @@
 ---
 title: Azure Mobile Engagement iOS SDK-Integration | Microsoft Docs
-description: "Senaste uppdateringarna och procedurer för iOS SDK för Azure Mobile Engagement"
+description: Senaste uppdateringarna och procedurer för iOS SDK för Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 947ea44b-00c1-450f-9a3b-74437954dc56
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: 01fdbb43c21ac6932e8462f4a6507fc63e50542d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f0d650205ca86205ad857003f892c1a60b3831bf
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-on-ios"></a>Hur du integrerar Engagement för iOS
+> [!IMPORTANT]
+> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -45,8 +49,8 @@ Följande steg är tillräckligt för att aktivera rapporten i loggar som behöv
 * Lägg till Engagement-SDK för iOS-projekt: i Xcode, högerklicka på projektet och välj **”Lägg till filer i...”** och välj den `EngagementSDK` mapp.
 * Engagement kräver ytterligare ramverk ska fungera: öppna ditt projekt i Projektutforskaren, och välj rätt mål. Öppna den **”Build-faser”** fliken och i den **”länka binär med bibliotek”** menyn Lägg till dessa ramverk:
 
-  * `UserNotifications.framework`-Ange länken som`Optional`
-  * `AdSupport.framework`-Ange länken som`Optional`
+  * `UserNotifications.framework` -Ange länken som `Optional`
+  * `AdSupport.framework` -Ange länken som `Optional`
   * `SystemConfiguration.framework`
   * `CoreTelephony.framework`
   * `CFNetwork.framework`

@@ -1,11 +1,11 @@
 ---
 title: Publicera WebApplicationVM | Microsoft Docs
-description: "Lär dig hur du distribuerar ett webbprogram till en virtuell dator. Det här skriptet skapar resurserna som krävs i din Azure-prenumeration om de inte redan finns."
+description: Lär dig hur du distribuerar ett webbprogram till en virtuell dator. Det här skriptet skapar resurserna som krävs i din Azure-prenumeration om de inte redan finns.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: de4cec95-f73f-44d9-babd-9f47f2633cdb
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: 2738fc1dff50a177a227ae2c7719bd9a192d82ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 49778b00dc9b1f6a8a11de5e3575599957b753fe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Publicera-WebApplicationVM (Windows PowerShell-skript)
 Distribuerar ett webbprogram till en virtuell dator. Skriptet skapar resurserna som krävs i din Azure-prenumeration om de inte redan finns.
@@ -37,79 +37,79 @@ Publish-WebApplicationVM
 ### <a name="configuration"></a>Konfiguration
 Sökvägen till JSON-konfigurationsfil som innehåller information om distributionen.
 
-| Alias | Ingen |
+| Alias | ingen |
 | --- | --- |
-| Krävs? |SANT |
+| Krävs? |true |
 | Position |Med namnet |
-| Standardvärde |Ingen |
-| Acceptera indata från pipeline? |FALSKT |
-| Acceptera jokertecken? |FALSKT |
+| Standardvärde |ingen |
+| Acceptera indata från pipeline? |false |
+| Acceptera jokertecken? |false |
 
-### <a name="subscriptionname"></a>SubscriptionName
+### <a name="subscriptionname"></a>Prenumerationsnamn
 Namnet på den Azure-prenumeration som du vill skapa den virtuella datorn.
 
-| Alias | Ingen |
+| Alias | ingen |
 | --- | --- |
-| Krävs? |FALSKT |
+| Krävs? |false |
 | Position |Med namnet |
 | Standardvärde |Använder den första prenumerationen i prenumerationsfilen |
-| Acceptera indata från pipeline? |FALSKT |
-| Acceptera jokertecken? |FALSKT |
+| Acceptera indata från pipeline? |false |
+| Acceptera jokertecken? |false |
 
 ### <a name="webdeploypackage"></a>WebDeployPackage
 Sökvägen till distributionspaketets att publicera till den virtuella datorn. Du kan skapa det här paketet med hjälp av guiden Publicera webbplats i Visual Studio. Se [så här: skapa ett Webbdistributionspaket i Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
 
-| Alias | Ingen |
+| Alias | ingen |
 | --- | --- |
-| Krävs? |FALSKT |
+| Krävs? |false |
 | Position |Med namnet |
-| Standardvärde |Ingen |
-| Acceptera indata från pipeline? |FALSKT |
-| Acceptera jokertecken? |FALSKT |
+| Standardvärde |ingen |
+| Acceptera indata från pipeline? |false |
+| Acceptera jokertecken? |false |
 
 ### <a name="allowuntrusted"></a>AllowUntrusted
 Tillåt användning av certifikat som inte är signerat av en betrodd rotcertifikatutfärdare om värdet är true.
 
-| Alias | Ingen |
+| Alias | ingen |
 | --- | --- |
-| Krävs? |FALSKT |
+| Krävs? |false |
 | Position |Med namnet |
-| Standardvärde |FALSKT |
-| Acceptera indata från pipeline? |FALSKT |
-| Acceptera jokertecken? |FALSKT |
+| Standardvärde |false |
+| Acceptera indata från pipeline? |false |
+| Acceptera jokertecken? |false |
 
 ### <a name="vmpassword"></a>VMPassword
 Autentiseringsuppgifterna för kontot för virtuell dator. Exempel: - VMPassword @{Name = ”admin”; Lösenord = ”password”}
 
-| Alias | Ingen |
+| Alias | ingen |
 | --- | --- |
-| Krävs? |FALSKT |
+| Krävs? |false |
 | Position |Med namnet |
-| Standardvärde |Ingen |
-| Acceptera indata från pipeline? |FALSKT |
-| Acceptera jokertecken? |FALSKT |
+| Standardvärde |ingen |
+| Acceptera indata från pipeline? |false |
+| Acceptera jokertecken? |false |
 
 ### <a name="databaseserverpassword"></a>DatabaseServerPassword
 Autentiseringsuppgifterna för SQL-databas i Azure. Exempel: - DatabaseServerPassword @{Name = ”admin”; Lösenord = ”password”}
 
-| Alias | Ingen |
+| Alias | ingen |
 | --- | --- |
-| Krävs? |FALSKT |
+| Krävs? |false |
 | Position |Med namnet |
-| Standardvärde |Ingen |
-| Acceptera indata från pipeline? |FALSKT |
-| Acceptera jokertecken? |FALSKT |
+| Standardvärde |ingen |
+| Acceptera indata från pipeline? |false |
+| Acceptera jokertecken? |false |
 
 ### <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
 Om värdet är true, Skriv ut meddelanden från skriptet till utdataströmmen.
 
-| Alias | Ingen |
+| Alias | ingen |
 | --- | --- |
-| Krävs? |FALSKT |
+| Krävs? |false |
 | Position |Med namnet |
-| Standardvärde |FALSKT |
-| Acceptera indata från pipeline? |FALSKT |
-| Acceptera jokertecken? |FALSKT |
+| Standardvärde |false |
+| Acceptera indata från pipeline? |false |
+| Acceptera jokertecken? |false |
 
 ## <a name="remarks"></a>Kommentarer
 En fullständig förklaring av hur du använder skriptet för att skapa utvecklings- och testmiljöer finns [med hjälp av Windows PowerShell-skript för publicera utvecklings-och testmiljöer](vs-azure-tools-publishing-using-powershell-scripts.md).

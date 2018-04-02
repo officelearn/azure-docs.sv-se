@@ -39,6 +39,8 @@
       href: connect-google-account.md
     - name: Ansluta ett AWS-konto
       href: connect-aws-account.md
+    - name: Konfigurera lagringskonton
+      href: storage-accounts.md
     - name: Använda Cost Management-rapporter
       href: use-reports.md
 - name: Resurser

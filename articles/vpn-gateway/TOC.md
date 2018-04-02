@@ -6,6 +6,10 @@
 ## [Prenumerations- och tjänstbegränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Kom igång
+## [Skapa en ruttbaserad VPN-gateway – Azure Portal](create-routebased-vpn-gateway-portal.md)
+## [Skapa en ruttbaserad VPN-gateway – PowerShell](create-routebased-vpn-gateway-powershell.md)
+
+# Begrepp
 ## [Planering och design för VPN Gateway](vpn-gateway-plan-design.md)
 ## [Om VPN Gateway-inställningar](vpn-gateway-about-vpn-gateway-settings.md)
 ## [Om VPN-enheter](vpn-gateway-about-vpn-devices.md)

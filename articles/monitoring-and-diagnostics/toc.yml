@@ -39,7 +39,7 @@
       href: monitor-alerts-unified-log.md
     - name: Aktivitetsloggaviseringar (förhandsversion)
       href: monitoring-activity-log-alerts-new-experience.md
-    - name: Utöka aviseringar från OMS till Azure
+    - name: Utöka aviseringar från Log Analytics till Azure
       href: monitoring-alerts-extend.md
     - name: Åtgärdsgrupper
       href: monitoring-action-groups.md
@@ -53,45 +53,45 @@
   items:
     - name: Genomgång av Azure Monitor
       href: monitoring-get-started.md
+    - name: Skapa måttdiagram i Metrics Explorer
+      href: monitoring-metric-charts.md
     - name: Använda aviseringar
       items:
-        - name: Konfigurera nya aviseringar i Azure Portal
-          href: monitoring-near-real-time-metric-alerts.md
+        - name: Konfigurera nya mått eller loggaviseringar i Azure Portal
+          href: monitor-alerts-unified-usage.md
         - name: Konfigurera klassiska aviseringar i Azure Portal
           href: insights-alerts-portal.md
-        - name: Konfigurera mått eller loggaviseringar i Azure Portal
-          href: monitor-alerts-unified-usage.md
-        - name: Konfigurera aviseringar med CLI
+        - name: Konfigurera klassiska aviseringar med CLI
           href: insights-alerts-command-line-interface.md
-        - name: Konfigurera aviseringar med Azure PowerShell
+        - name: Konfigurera klassiska aviseringar med Azure PowerShell
           href: insights-alerts-powershell.md
         - name: Webhook-åtgärder för loggaviseringar
           href: monitor-alerts-unified-log-webhook.md
-        - name: Skapa en metrisk varning med en Resource Manager-mall
+        - name: Skapa en klassisk måttavisering med en Resource Manager-mall
           href: monitoring-enable-alerts-using-template.md
-        - name: Initiera utökade aviseringar från OMS till Azure
+        - name: Kopiera aviseringar från OMS-portalen till Azure Portal
           href: monitoring-alerts-extend-tool.md
-    - name: Använda automatisk skalning
+    - name: Använda åtgärdsgrupper med aviseringar
       items:
-        - name: Genomgång av automatisk skalning
-          href: monitoring-autoscale-get-started.md
-        - name: Förstå inställningarna för automatisk skalning
-          href: monitoring-understanding-autoscale-settings.md
-        - name: Bästa praxis
-          href: insights-autoscale-best-practices.md
-        - name: Vanliga mått
-          href: insights-autoscale-common-metrics.md
-        - name: Vanliga mönster
-          href: monitoring-autoscale-common-scale-patterns.md
-        - name: Skala automatiskt med anpassat mått
-          href: monitoring-autoscale-scale-by-custom-metric.md
-        - name: VM Scale Sets för automatisk skalning med Resource Manager-mallar
-          href: insights-advanced-autoscale-virtual-machine-scale-sets.md
-        - name: Skala datorer i en skalningsuppsättning för virtuella datorer automatiskt
-          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
-        - name: Konfigurera webhooks och e-postaviseringar med automatisk skalning
-          href: insights-autoscale-to-webhook-email.md
-    - name: Använd aktivitetsloggen
+        - name: Lär dig mer om webhook-schemat
+          href: monitoring-activity-log-alerts-webhook.md
+        - name: Beteende för SMS-aviseringar
+          href: monitoring-sms-alert-behavior.md
+        - name: Begränsningar för aviseringsfrekvensen
+          href: monitoring-alerts-rate-limiting.md
+        - name: Skapa åtgärdsgrupper med Resource Manager
+          href: monitoring-create-action-group-with-resource-manager-template.md
+    - name: Använda diagnostikloggar
+      items:
+        - name: Arkiv
+          href: monitoring-archive-diagnostic-logs.md
+        - name: Skicka till Log Analytics
+          href: monitor-stream-diagnostic-logs-log-analytics.md
+        - name: Strömma till Event Hubs
+          href: monitoring-stream-diagnostic-logs-to-event-hubs.md
+        - name: Aktivera diagnostikinställningar med Resource Manager-mallar
+          href: monitoring-enable-diagnostic-logs-using-template.md
+    - name: Använda aktivitetslogg
       items:
         - name: Visa händelser i aktivitetsloggen
           href: ../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
@@ -113,27 +113,13 @@
           href: monitoring-service-notifications.md
         - name: Konfigurera aviseringar för tjänstmeddelanden
           href: monitoring-activity-log-alerts-on-service-notifications.md
-    - name: Använda åtgärdsgrupper
+    - name: Programmässig åtkomst
       items:
-        - name: Lär dig mer om webhook-schemat
-          href: monitoring-activity-log-alerts-webhook.md
-        - name: Beteende för SMS-aviseringar
-          href: monitoring-sms-alert-behavior.md
-        - name: Begränsningar för aviseringsfrekvensen
-          href: monitoring-alerts-rate-limiting.md
-        - name: Skapa åtgärdsgrupper med Resource Manager
-          href: monitoring-create-action-group-with-resource-manager-template.md
-    - name: Använda diagnostikloggar
-      items:
-        - name: Arkiv
-          href: monitoring-archive-diagnostic-logs.md
-        - name: Skicka till Log Analytics
-          href: monitor-stream-diagnostic-logs-log-analytics.md
-        - name: Strömma till Event Hubs
-          href: monitoring-stream-diagnostic-logs-to-event-hubs.md
-        - name: Aktivera diagnostikinställningar med Resource Manager-mallar
-          href: monitoring-enable-diagnostic-logs-using-template.md
-    - name: Använd REST API
+        - name: Genomgång med REST API
+          href: monitoring-rest-api-walkthrough.md
+        - name: Azure PowerShell-exempel
+          href: insights-powershell-samples.md
+    - name: Använd Azure Diagnostics-tillägg
       items:
         - name: Skicka till Application Insights
           href: azure-diagnostics-configure-application-insights.md
@@ -141,12 +127,32 @@
           href: azure-diagnostics-streaming-event-hubs.md
         - name: Felsökning
           href: azure-diagnostics-troubleshooting.md
-    - name: Skapa måttdiagram i Metrics Explorer
-      href: monitoring-metric-charts.md
-    - name: Skicka mått till Grafana
-      href: monitor-send-to-grafana.md
-    - name: Skicka övervakningsdata till en händelsehubb
-      href: monitor-stream-monitoring-data-event-hubs.md
+    - name: Använda automatisk skalning
+      items:
+        - name: Genomgång av automatisk skalning
+          href: monitoring-autoscale-get-started.md
+        - name: Förstå inställningarna för automatisk skalning
+          href: monitoring-understanding-autoscale-settings.md
+        - name: Bästa praxis
+          href: insights-autoscale-best-practices.md
+        - name: Vanliga mått
+          href: insights-autoscale-common-metrics.md
+        - name: Vanliga mönster
+          href: monitoring-autoscale-common-scale-patterns.md
+        - name: Skala automatiskt med anpassat mått
+          href: monitoring-autoscale-scale-by-custom-metric.md
+        - name: VM Scale Sets för automatisk skalning med Resource Manager-mallar
+          href: insights-advanced-autoscale-virtual-machine-scale-sets.md
+        - name: Skala datorer i en skalningsuppsättning för virtuella datorer automatiskt
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
+        - name: Konfigurera webhooks och e-postaviseringar med automatisk skalning
+          href: insights-autoscale-to-webhook-email.md
+    - name: Dirigera till andra platser
+      items:
+        - name: Skicka mått till Grafana
+          href: monitor-send-to-grafana.md
+        - name: Skicka övervakningsdata till en händelsehubb
+          href: monitor-stream-monitoring-data-event-hubs.md
 - name: Referens
   items:
     - name: Azure CLI
@@ -157,6 +163,8 @@
       href: /rest/api/monitor/
     - name: Mått som stöds
       href: monitoring-supported-metrics.md
+    - name: Mått som stöds för nyare aviseringar
+      href: monitoring-near-real-time-metric-alerts.md
     - name: 'Tjänster, kategorier och scheman för diagnostikloggar'
       href: monitoring-diagnostic-logs-schema.md
     - name: Händelseschema för aktivitetslogg

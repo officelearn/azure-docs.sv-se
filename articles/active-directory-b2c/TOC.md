@@ -33,7 +33,7 @@
 ### [Skydda ett ASP.NET-API](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+### [Node.js](active-directory-b2c-devquickstarts-api-node.md)
 ### [Anropa ett .NET-webb-API](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # Guider
@@ -67,6 +67,7 @@
 ## [Anpassade principer](active-directory-b2c-overview-custom.md)
 ## Guider
 ### [Komma igång](active-directory-b2c-get-started-custom.md)
+### [Startpaket](active-directory-b2c-reference-custom-policies-understanding-contents.md)
 ### Konfigurera OIDC/OAUTH2-providrar
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Microsoft-konto](active-directory-b2c-custom-setup-msa-idp.md)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: fd57699a329fbccdbefc73dae7d473070cd831ea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f067656f510c14c4a2ac02d3629ae71432c342d2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure-stacken 1711 uppdatering
 
@@ -111,6 +111,7 @@ Det här avsnittet innehåller efter installationen kända problem med build **2
 
 - Ta bort användaren prenumerationer resulterar i frånkopplade resurser. Först ta bort resurser för användare eller hela resursgruppen som en lösning och sedan ta bort prenumerationer för användaren.
 - Det går inte att visa behörighet till din prenumeration med hjälp av Azure Stack-portaler. Som en tillfällig lösning kan kontrollera du behörigheterna med hjälp av PowerShell.
+- Den **tjänstens hälsa** bladet inte laddas. När du öppnar bladet tjänstens hälsa i administratören eller användaren portal, Azure stacken visas ett fel och läses inte in information. Detta är förväntat. Även om du kan markera och öppna tjänstens hälsa, funktionen är inte tillgänglig ännu, men de kommer att genomföras i en framtida version av Azure-stacken.
 
 #### <a name="health-and-monitoring"></a>Hälsa och övervakning
 

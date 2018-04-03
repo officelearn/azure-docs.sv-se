@@ -99,12 +99,19 @@
               href: azure-stack-powershell-download.md
             - name: Konfigurera PowerShell – användare
               href: azure-stack-powershell-configure-user.md
-            - name: Installera och konfigurera Azure Stack CLI
-              href: azure-stack-connect-cli.md
             - name: Installera Visual Studio
               href: azure-stack-install-visual-studio.md
-            - name: Hantera profiler för API-version
+            - name: Med hjälp av profiler för API-version
               href: azure-stack-version-profiles.md
+              items:
+                - name: PowerShell
+                  href: azure-stack-version-profiles-powershell.md
+                - name: Azure CLI 2.0
+                  href: azure-stack-version-profiles-azurecli2.md
+                - name: GO
+                  href: azure-stack-version-profiles-go.md
+                - name: 'Resursprovidern API: er som stöds av profiler'
+                  href: azure-stack-profiles-azure-resource-manager-versions.md
         - name: Använda principmodul
           href: azure-stack-policy-module.md
         - name: Använd mallar

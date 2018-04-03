@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 71862463a62f11a4f2cea7dfcc60961331ded377
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b3a3c07446ad04a58d5180793404fc04677749b2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure-stacken 1802 uppdatering
 
@@ -129,6 +129,8 @@ Följande är efter installationen kända problem för version **20180302.1**
 - I både administrationsportal och användarportalen, bladet översikt misslyckas att läsa in när du väljer bladet översikt för lagringskonton som skapats med en äldre API-version (exempel: 2015-06-15). Detta inkluderar system storage-konton som **updateadminaccount** som används under korrigeringar och uppdateringar. 
 
   Som en tillfällig lösning kan använda PowerShell för att köra den **Start ResourceSynchronization.ps1** skript för att återställa åtkomsten till information om lagringskonto. [Skriptet är tillgänglig från GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts), måste köras med administratörsbehörighet för tjänsten på Privilegierade slutpunkten. 
+
+- Den **tjänstens hälsa** bladet inte laddas. När du öppnar bladet tjänstens hälsa i administratören eller användaren portal, Azure stacken visas ett fel och läses inte in information. Detta är förväntat. Även om du kan markera och öppna tjänstens hälsa, funktionen är inte tillgänglig ännu, men de kommer att genomföras i en framtida version av Azure-stacken.
 
 
 #### <a name="health-and-monitoring"></a>Hälsa och övervakning

@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 799651caf937ca2bafc79dc76f99ae43e700673a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: df4a5a17ad034ae5d6ab82791c020634a8758b71
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-administration-basics"></a>Grunderna i Azure Stack administration
 Det finns flera saker du behöver veta om du har använt Azure Stack-administration. Vägledningen innehåller en översikt över din roll som operatör Azure Stack och vad du behöver för att tala om för användarna för att snabbt blir mer produktiv.
@@ -31,9 +31,9 @@ Om du använder ett Azure-stacken integrerat system distribueras uppdaterade ver
  
 ### <a name="development-kit"></a>Development kit
 
-Om du använder Azure Stack Development Kit granska den [vad är Azure Stack?](azure-stack-poc.md) artikel för att kontrollera att du förstå syftet med development kit och vissa begränsningar. Du bör använda development kit som en ”sandbox”, där du kan utvärdera Azure Stack och utveckla och testa dina appar i en produktionsmiljö. (Information om distribution finns i [Azure Stack Development Kit distribution](azure-stack-deploy-overview.md) quickstart.)
+Om du använder Azure Stack Development Kit granska den [vad är Azure Stack?](.\asdk\asdk-what-is.md) artikel för att kontrollera att du förstå syftet med development kit och vissa begränsningar. Du bör använda development kit som en ”sandbox”, där du kan utvärdera Azure Stack och utveckla och testa dina appar i en produktionsmiljö. (Information om distribution finns i [Azure Stack Development Kit distribution](.\asdk\asdk-deploy.md) kursen.)
 
-Som Azure förnya det snabbt. Regelbundet släpper vi nya versioner. Om du kör i development kit och du vill flytta till den senaste versionen, måste du [omdistribuera Azure Stack](azure-stack-redeploy.md). Du kan inte använda uppdateringspaket. Den här processen tar tid, men fördelen är att du kan prova att använda de senaste funktionerna. Development kit-dokumentationen på vår webbplats visar den senaste version-versionen.
+Som Azure förnya det snabbt. Regelbundet släpper vi nya versioner. Om du kör i development kit och du vill flytta till den senaste versionen, måste du [omdistribuera Azure Stack](.\asdk\asdk-redeploy.md). Du kan inte använda uppdateringspaket. Den här processen tar tid, men fördelen är att du kan prova att använda de senaste funktionerna. Development kit-dokumentationen på vår webbplats visar den senaste version-versionen.
 
 ## <a name="learn-about-available-services"></a>Lär dig mer om tillgängliga tjänster
 
@@ -63,6 +63,18 @@ Dessa tjänster kräver ytterligare konfiguration innan du kan göra dem tillgä
 **Översikt över Service**
 
 Azure-stacken fortsätter att lägga till stöd för Azure-tjänster. Planerade översikt finns i [Azure stacken: ett tillägg för Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) vitbok. Du kan också övervaka den [Azure Stack blogginlägg](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) efter nya meddelanden.
+
+## <a name="what-account-should-i-use"></a>Vilket konto ska jag använda?
+Det finns några överväganden för användarkonton som du bör vara medveten om när du hanterar Azure-stacken. Särskilt i distributioner med Windows Server Active Directory Federation Services (AD FS) som identitetsleverantör i stället för Azure Active Directory (AD Azure). Följande konto gäller både Azure-stacken integrerat system och ASDK distributioner:
+
+
+|Konto|Azure AD|AD FS|
+|-----|-----|-----|
+|Lokal administratör (. \administratör)|ASDK värden administratör|ASDK värden administratör|
+|AzureStack\AzureStackAdmin|ASDK värden administratör<br><br>Kan användas för att logga in på administrationsportalen Azure Stack<br><br>Åtkomst till Visa och administrera Service Fabric-ringar|ASDK värden administratör<br><br>Ingen åtkomst till Azure Stack-administrationsportalen<br><br>Åtkomst till Visa och administrera Service Fabric-ringar<br><br>Längre ägare av Default leverantör prenumeration (DP)|
+|AzureStack\CloudAdmin|Kan komma åt och köra tillåtna-kommandon inom den privilegierade slutpunkten|Kan komma åt och köra tillåtna-kommandon inom den privilegierade slutpunkten<br><br>Kan inte logga in till ASDK värden<br><br>Standard-providern prenumerationens (DP) ägare|
+|Azure AD Global Administrator|Används under installationen<br><br>Standard-providern prenumerationens (DP) ägare|Inte tillämpligt|
+|
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Vilka verktyg använda för att hantera?
  

@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2b306cc9dc9bbf435eb70315cc46e7faf4268b47
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 55fd212a895ed861cb5a9be0e4dae283e3cb5cfd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Komma igång med PowerShell i Azure-stacken
 
@@ -32,9 +32,6 @@ Den här artikeln är en komprimerad version av stegen som beskrivs i den [insta
 ## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Konfigurera PowerShell för Azure Active Directory-baserade distributioner
 
 Logga in på ditt Azure-stacken Development Kit eller en extern Windows-baserad klient om du är ansluten via VPN. Öppna en upphöjd PowerShell ISE-session och kör följande skript. Se till att uppdatera den **TenantName**, **ArmEndpoint**, och **GraphAudience** variabler som krävs i din miljö konfiguration:
-
-> [!IMPORTANT]
-> Version av PowerShell-modulen AzureRM 1.2.11 levereras med en lista över bryta ändringar. Uppgradera från 1.2.10 version, finns det [Migreringsguide](https://aka.ms/azspowershellmigration).
 
 ```powershell
 # Specify Azure Active Directory tenant name.

@@ -1,11 +1,11 @@
 ---
 title: Azure-stacken 1712 Update | Microsoft Docs
-description: "Lär dig mer om vad som finns i 1712 uppdateringen för Azure-stacken integrerat system, kända problem och var du kan hämta uppdateringen."
+description: Lär dig mer om vad som finns i 1712 uppdateringen för Azure-stacken integrerat system, kända problem och var du kan hämta uppdateringen.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: b14f79ad-025f-45d8-9e1d-e53d2b420bb1
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: brenduns
-ms.openlocfilehash: 0456a202990d383370051d99112f829533b1b101
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: c3cb8ab8a838a3f831ece617fcf3e218a9510ea5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure-stacken 1712 uppdatering
 
@@ -109,6 +109,7 @@ Det här avsnittet innehåller efter installationen kända problem med build **1
 
 - Ta bort användaren prenumerationer resulterar i frånkopplade resurser. Först ta bort resurser för användare eller hela resursgruppen som en lösning och sedan ta bort prenumerationer för användaren.
 - Det går inte att visa behörighet till din prenumeration med hjälp av Azure Stack-portaler. Som en tillfällig lösning kan kontrollera du behörigheterna med hjälp av PowerShell.
+- Den **tjänstens hälsa** bladet inte laddas. När du öppnar bladet tjänstens hälsa i administratören eller användaren portal, Azure stacken visas ett fel och läses inte in information. Detta är förväntat. Även om du kan markera och öppna tjänstens hälsa, funktionen är inte tillgänglig ännu, men de kommer att genomföras i en framtida version av Azure-stacken.
 
 #### <a name="health-and-monitoring"></a>Hälsa och övervakning
 

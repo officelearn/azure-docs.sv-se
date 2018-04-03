@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 1754d4b121fdaf4f7b8e4c1954dfd4202ba344b1
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d0b287eb61087e90c898aad5273ab5be8c1f98b2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Använda SQL-databaser på Microsoft Azure-stacken
 
@@ -71,7 +71,7 @@ Du måste skapa en (eller flera) instanser av SQL Server och/eller ge åtkomst t
     | 1710: 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
   
 
-4. Ange nödvändiga certifikat. Ett självsignerat certifikat skapas som en del av den här processen för Azure-stacken SDK, krävs inget ytterligare certifikat. Du måste ange ett lämpligt certifikat för integrerade system.
+4. För Azure-stacken SDK skapas ett självsignerat certifikat som en del av den här processen. Du måste ange ett lämpligt certifikat för integrerade system.
 
    För att ge ditt eget certifikat, placera en .pfx-fil i den **DependencyFilesLocalPath** på följande sätt:
 

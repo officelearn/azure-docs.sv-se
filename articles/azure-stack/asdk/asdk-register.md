@@ -1,25 +1,25 @@
 ---
 title: Registrera ASDK med Azure | Microsoft Docs
-description: "Beskriver hur du registrerar Azure stacken med Azure för att aktivera marketplace syndikering och användningsrapportering."
+description: Beskriver hur du registrerar Azure stacken med Azure för att aktivera marketplace syndikering och användningsrapportering.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/27/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 9e2dbc71f6424b87945e346a42c86d4cde7f740e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: a157879fb70a874ed99b39ffcdbfa49a65f6ab7c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure stacken med Azure
 Du kan registrera installationen av Azure Stack Development Kit (ASDK) med Azure att hämta marketplace-objekt från Azure och Ställ in commerce rapporterar tillbaka till Microsoft. Registrering rekommenderas eftersom du kan testa viktiga Azure Stack-funktioner som marketplace syndikering och användningsrapportering. När du har registrerat Azure Stack rapporterat användning till Azure handel. Du kan se den under den prenumeration som du använde för registrering. Dock debiteras inte ASDK användare för användning rapporterar.
@@ -49,9 +49,9 @@ Innan du använder de här stegen för att registrera ASDK med Azure, se till at
 
     #Register Azure Stack
     $AzureContext = Get-AzureRmContext
-    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
+    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     Set-AzsRegistration `
-        -CloudAdminCredential $CloudAdminCred `
+        -PrivilegedEndpointCredential $CloudAdminCred `
         -PrivilegedEndpoint AzS-ERCS01 `
         -BillingModel Development
 

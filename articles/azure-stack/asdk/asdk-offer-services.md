@@ -1,26 +1,26 @@
 ---
-title: "I den här självstudiekursen skapar du en Azure-stacken erbjudande | Microsoft Docs"
-description: "Lär dig hur du skapar ett Azure-stacken erbjudande inklusive planer och kvoter."
+title: I den här självstudiekursen skapar du en Azure-stacken erbjudande | Microsoft Docs
+description: Lär dig hur du skapar ett Azure-stacken erbjudande inklusive planer och kvoter.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 03/27/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 083b5e20b89f22cb8e523926858fe9ffb1441319
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 8bcc2f3077e79ff83ac2e90db0bb0fa53ae83adc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-offer-azure-stack-iaas-services"></a>Självstudier: erbjuder Azure Stack IaaS-tjänster
 Du kan skapa erbjudanden som användarna (kallas ibland klienter) kan prenumerera på som administratör Stack för Azure-molnet. Använda sin prenumeration kan kan användare använda Azure Stack-tjänster.
@@ -112,14 +112,24 @@ Erbjudanden kan vara:
 > Ändringar av erbjudandet är inte direkt synliga för användare. Om du vill se ändringarna som användare kan behöva logga ut och logga in igen på den [användarportalen](https://portal.local.azurestack.external) vill se nya erbjudandet.
 
 Ange nya erbjudandet till offentligt: 
+   - Version 1803 och senare: 
+     1. Klicka på menyn instrumentpanelen **erbjuder** och klicka sedan på det erbjudande som du skapade.
 
-1. Klicka på menyn instrumentpanelen **erbjuder** och klicka sedan på det erbjudande som du skapade.
+     2. Klicka på **hjälpmedel tillstånd**, och klicka sedan på **offentliga**.
 
-2. Klicka på **Ändra status** och klicka därefter på **Offentlig**.
+        ![Ändra tillstånd](media/asdk-offer-services/change-state.png)
 
-   ![Offentliga tillstånd](media/asdk-offer-services/set-public.png)
+     3. Erbjudandet att vara tillgängliga i Azure-stacken användarportalen.
 
-3. Erbjudandet att vara tillgängliga i Azure-stacken användarportalen.
+
+   - Före version 1803:  
+     1. Klicka på menyn instrumentpanelen **erbjuder** och klicka sedan på det erbjudande som du skapade.
+
+     2. Klicka på **Ändra status** och klicka därefter på **Offentlig**.
+
+        ![Offentliga tillstånd](media/asdk-offer-services/set-public.png)
+
+     3. Erbjudandet att vara tillgängliga i Azure-stacken användarportalen.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,24 +1,24 @@
 ---
-title: "Ersätta en fysisk disk i Azure-stacken | Microsoft Docs"
-description: "Beskriver processen för hur du ersätter en fysisk disk i Azure-stacken."
+title: Ersätta en fysisk disk i Azure-stacken | Microsoft Docs
+description: Beskriver processen för hur du ersätter en fysisk disk i Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: a95617a8dd2a8f296164c672e2b4b2628574ce5a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f168c005c729ae75a5369b80b3dc5eab03ee0243
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Ersätta en fysisk disk i Azure-stacken
 
@@ -40,6 +40,9 @@ Om du öppnar du aviseringen innehåller varningsbeskrivningen noden skala enhet
  ## <a name="replace-the-disk"></a>Ersätt disken
 
 Följ anvisningarna för din OEM maskinvaruleverantören FRU för faktiska diskbyte.
+
+> [!note]
+> Ersätt diskar för en scale unit nod i taget. Vänta tills de virtuella disken reparera slutförts innan du går vidare till nästa nod i skala enhet
 
 För att förhindra användningen av en disk som inte stöds i ett integrerat system, blockerar systemet diskar som inte stöds av leverantören. Om du försöker använda en disk som inte stöds, om en ny avisering att en disk har har placerats i karantän på grund av en modell som inte stöds eller inbyggd programvara.
 

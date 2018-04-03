@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/02/2018
 ms.author: mabrigg
-ms.openlocfilehash: f495ca12e7cdb1bf61f09bd2d4a8a21654745d8a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2c10dcf185c62f3672be80ad2e3d049eae82fe6b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure-stacken behandling av princip
 Den här artikeln beskriver Underhåll princip för Azure-stacken integrerat system och vad du måste göra för att hålla datorn i ett läge som stöds. 
@@ -41,10 +41,11 @@ Ett Microsoft update-paket har följande namngivningskonvention för att enkelt 
 Till exempel skulle en Microsoft-programuppdatering som gavs ut den 15 juni 2017 ha version ”1.0.170615.1”.
 
 ## <a name="keep-your-system-under-support"></a>Hålla systemet under stöd
+Om du vill fortsätta få support, måste du behålla distributionen av Azure-stacken aktuella. Principen för avstängning av uppdateringar är att för Azure-stacken hålls kvar i stöd, måste kör den uppdaterade versionen som nyligen utgivna eller köra något av två föregående större Uppdateringsversioner.  Snabbkorrigeringar inte anses vara viktiga Uppdateringsversioner.  Om ditt Azure Stack-moln som skyddas av *fler än två uppdateringar*, den anses vara inkompatibel och måste uppdatera till minst den lägsta versionen som stöds för att få support. 
 
-För att få support för ditt system, måste du behålla din Azure-stacken uppdateras inom ett visst tidsintervall. Vår policy för avstängning av Microsoft-programuppdateringar är tre månader. Om datorn är mer än tre månader inaktuell, är du betraktas som inkompatibel. Du måste uppdatera systemet till åtminstone den minimal stödd version få support. 
+Till exempel om den senaste tillgängliga uppdateringsversionen är 1805 och de föregående två uppdateringspaket har version 1804 och 1803, både 1803 1804 finnas kvar i stöd. 1802 är dock inte längre stöds. Principen gäller när det finns inga versionen för en månad eller två. Till exempel om den aktuella versionen är 1805 och det fanns inga 1804 versionen, skulle de föregående två uppdateringspaket 1803 och 1802 kvar i stöd.
 
-Microsoft programuppdateringspaket är kumulativ och kräver tidigare uppdateringspaketet som ett krav. Om du vill skjuta upp en eller flera uppdateringar du övergripande runtime om du vill hämta till den senaste versionen.
+Microsoft programuppdateringspaket är kumulativ och kräver tidigare uppdateringspaketet som ett krav. Om du vill skjuta upp en eller flera uppdateringar du övergripande runtime om du vill hämta till den senaste versionen. 
 
 I följande tabell visas exempel uppdatera paketet versioner och deras nödvändiga den lägsta version som stöds som datorn måste vara på för att stöda. Tabellen är baserad på den första versionen av Azure-stacken integrerat system (build 1708), med den första uppdatering paketet versionen (1709) i September 2017. 
 
@@ -53,11 +54,12 @@ I följande tabell visas exempel uppdatera paketet versioner och deras nödvänd
 | 1710 | 1709 | Gäller inte |
 | 1711 | 1710 | 1709 |
 | 1712 | 1711 | 1710 |
-| 1802 | 1801 | 1712 |
-| 1803 | 1802 | 1801 |
+| 1802 | 1712 | 1711 |
+| 1803 | 1802 | 1712 |
 | 1804 | 1803 | 1802 |
 | 1805 | 1804 | 1803 |
 | | | 
+Det finns inga versionen 1801 i tabellen ovan.
 
 ## <a name="next-steps"></a>Nästa steg
 

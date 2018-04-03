@@ -1,24 +1,24 @@
 ---
-title: "Verktyg för Azure-stacken lagring"
-description: "Lär dig mer om Stack för Azure storage-data transfer-verktyg"
+title: Verktyg för Azure-stacken lagring
+description: Lär dig mer om Stack för Azure storage-data transfer-verktyg
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2018
+ms.date: 03/30/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 9318b7af3c3dd545207f1896c9008207f562b735
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e26a38b8fd7d008a46eba2c41075c5af09a6616a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Verktyg för Azure-stacken lagring
 
@@ -181,7 +181,7 @@ Azure CLI är Azures kommandoradsverktyget upplevelse för att hantera Azure-res
 
 Azure CLI är optimerad för att hantera och administrera Azure-resurser från kommandoraden och för att skapa automatiseringsskript arbeta mot Azure Resource Manager. Det ger många av de funktioner i Azure Stack-portal, inklusive omfattande dataåtkomst.
 
-Azure-stacken kräver Azure CLI version 2.0. Läs mer om att installera och konfigurera Azure CLI med Azure-stacken [installera och konfigurera Azure CLI för stacken](azure-stack-connect-cli.md). Mer information om hur du använder Azure CLI 2.0 för att utföra flera uppgifter arbeta med resurserna i Azure-stacken Storage-konto finns [med hjälp av Azure-CLI2.0 med Azure Storage](../../storage/storage-azure-cli.md)
+Azure-stacken kräver Azure CLI version 2.0. Läs mer om att installera och konfigurera Azure CLI med Azure-stacken [installera och konfigurera Azure CLI för stacken](azure-stack-version-profiles-azurecli2.md). Mer information om hur du använder Azure CLI 2.0 för att utföra flera uppgifter arbeta med resurserna i Azure-stacken Storage-konto finns [med hjälp av Azure-CLI2.0 med Azure Storage](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Azure CLI-exempelskript för Azure-Stack 
 När du har slutfört CLI installation och konfiguration kan du följande steg för att arbeta med en liten shell-exempelskript för att interagera med Azure-stacken lagringsresurser. Skriptet först skapar en ny behållare på ditt lagringskonto och sedan överför en befintlig fil (som en blob) till behållaren, visas alla blobbar i behållaren och slutligen hämtas filen till en plats på den lokala datorn som du anger. Innan du kör det här skriptet, kontrollera att du kan ansluta och logga in på målet Azure stacken. 

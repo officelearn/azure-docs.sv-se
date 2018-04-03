@@ -1,11 +1,11 @@
 ---
-title: "Skapa en virtuell Linux-dator med hjälp av Azure CLI i Azure-stacken | Microsoft Docs"
+title: Skapa en virtuell Linux-dator med hjälp av Azure CLI i Azure-stacken | Microsoft Docs
 description: Skapa en virtuell Linux-dator med CLI i Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 21F7D599-1FEC-4827-A5C3-06495C5F53A4
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 160893f5b2e9c78bd62355782c279fb08f7f6b48
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 69036b522b375eced604256340b532ad14a8708e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-linux-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Skapa en virtuell Linux-dator med hjälp av Azure CLI i Azure-stacken
 
@@ -31,7 +31,7 @@ Azure CLI används för att skapa och hantera Azure-stacken resurser från komma
 
 * Kontrollera att Azure Stack-operator har lagt till ”Ubuntu Server 16.04 LTS” bilden Stack för Azure marketplace. 
 
-* Azure-stacken kräver en viss version av Azure CLI för att skapa och hantera resurser. Om du inte har Azure CLI har konfigurerats för Azure-stacken, logga in på den [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), eller en Windows-baserad extern klient om du är [anslutna via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) och följ stegen för att [installera och konfigurera Azure CLI](azure-stack-connect-cli.md).
+* Azure-stacken kräver en viss version av Azure CLI för att skapa och hantera resurser. Om du inte har Azure CLI har konfigurerats för Azure-stacken, logga in på den [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), eller en Windows-baserad extern klient om du är [anslutna via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) och följ stegen för att [installera och konfigurera Azure CLI](azure-stack-version-profiles-azurecli2.md).
 
 * En offentlig SSH-nyckel med namnet id_rsa.pub ska skapas i katalogen .ssh på din Windows-användarprofil. Detaljerad information om hur du skapar SSH-nycklar finns [skapa SSH-nycklar i Windows](../../virtual-machines/linux/ssh-from-windows.md). 
 

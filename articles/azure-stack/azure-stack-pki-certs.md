@@ -3,7 +3,7 @@ title: Azure-stacken Public Key Infrastructure certifikatkrav för Azure-stacken
 description: Beskriver distributionskraven för Azure-stacken PKI-certifikat för Azure-stacken integrerat system.
 services: azure-stack
 documentationcenter: ''
-author: mabriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,16 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
-ms.author: mabrigg
+ms.date: 03/29/2018
+ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: a5712e556d7b3bdcce38b8b8d39a08414ce0fd2f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 583f827fe77ef7721b3098dee01c418c9e5cccd8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Krav för Azure Stack Public Key Infrastructure-certifikat
+
 Azure-stacken har en infrastruktur för offentliga nätverk med hjälp av externa offentliga IP-adresser tilldelas en liten uppsättning Azure Stack-tjänster och eventuellt klient virtuella datorer. PKI-certifikat med lämpliga DNS-namn för dessa Azure Stack infrastruktur för offentliga slutpunkter krävs under distributionen av Azure-stacken. Den här artikeln innehåller information om:
 
 - Vilka certifikat som krävs för att distribuera Azure-stacken
@@ -37,7 +38,7 @@ I följande lista beskrivs kraven på certifikaten som behövs för att distribu
 - Infrastrukturen för Azure-stacken måste ha åtkomst till den certifikatutfärdare som används för att signera certifikat
 - När du roterar certifikat, måste certifikat vara antingen utfärdats från samma interna certifikatutfärdare används för att signera certifikat som anges i distribution eller en offentlig certifikatutfärdare från ovan
 - Användning av självsignerade certifikat stöds inte
-- Certifikatet kan vara ett enda jokertecken certifikat som omfattar alla namnutrymmen i fältet alternativt namn på CERTIFIKATMOTTAGARE. Du kan också använda certifikat med jokertecken för slutpunkter som acs och Nyckelvalv där de är obligatoriska. 
+- Certifikatet kan vara ett enda jokertecken certifikat som omfattar alla namnutrymmen i fältet alternativt namn på CERTIFIKATMOTTAGARE. Du kan också använda certifikat med jokertecken för slutpunkter, till exempel **acs** och Nyckelvalv där de är obligatoriska. 
 - Signaturalgoritm certifikatet får inte vara SHA1, måste det vara bättre. 
 - Certifikatets format måste vara PFX, som både offentliga och privata nycklar som krävs för installationen av Azure-stacken. 
 - Certifikat pfx-filer måste ha ett värde ”Digital signatur” och ”KeyEncipherment” i dess ”nyckelanvändning”.
@@ -58,6 +59,23 @@ Tabellen i det här avsnittet beskrivs de Azure Stack offentlig slutpunkt PKI-ce
 Certifikat med lämpliga DNS-namn för varje slutpunkt för infrastruktur för offentliga Azure-stacken krävs. DNS-namnet för varje slutpunkt uttrycks i formatet:  *&lt;prefix >.&lt; region >. &lt;fqdn >*. 
 
 För din distribution [region] och [externalfqdn] värdena måste matcha region och externa domännamn som du har valt för ditt system med Azure-stacken. Ett exempel är om var regionsnamnet på *Redmond* och namnet på externa domänen var *contoso.com*, DNS-namn som skulle ha formatet *&lt;prefix >. redmond.contoso.com*. Den  *&lt;prefix >* värden förutbestämd av Microsoft för att beskriva den slutpunkt som skyddas av certifikat. Dessutom kan den  *&lt;prefix >* värden externa infrastruktur slutpunkter beror på Azure Stack-tjänst som använder specifika slutpunkten. 
+
+> [!note]  
+> Certifikat kan finnas som ett enda jokertecken certifikat som omfattar alla namnområden i fälten ämne och alternativt namn på CERTIFIKATMOTTAGARE kopieras till alla kataloger eller certifikat för varje slutpunkt som kopieras till motsvarande katalog. Kom ihåg att båda alternativen måste du använda jokerteckencertifikat för slutpunkter som **acs** och Nyckelvalv där de är obligatoriska. 
+
+| Distributionsmappen | Nödvändiga certifikatämnet och Alternativt ämnesnamn (SAN) | Omfång (per region) | SubDomain namespace |
+|-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
+| Offentlig Portal | portal.&lt;region>.&lt;fqdn> | Portaler | &lt;region>.&lt;fqdn> |
+| Admin Portal | adminportal.&lt;region>.&lt;fqdn> | Portaler | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager offentliga | management.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager-administratör | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Wildcard SSL Certificate) | Blob Storage | blob.&lt;region>.&lt;fqdn> |
+| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Wildcard SSL Certificate) | Table Storage | table.&lt;region>.&lt;fqdn> |
+| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Wildcard SSL Certificate) | Queue Storage | queue.&lt;region>.&lt;fqdn> |
+| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Wildcard SSL Certificate) | Key Vault | vault.&lt;region>.&lt;fqdn> |
+| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Wildcard SSL Certificate) |  Internt Keyvault |  adminvault.&lt;region>.&lt;fqdn> |
+
+### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>För Azure Stack-miljö i Pre-1803 versioner
 
 |Distributionsmappen|Nödvändiga certifikatämnet och Alternativt ämnesnamn (SAN)|Omfång (per region)|SubDomain namespace|
 |-----|-----|-----|-----|
@@ -93,7 +111,7 @@ I följande tabell beskrivs slutpunkter och certifikat som krävs för SQL och M
 |Omfång (per region)|Certifikat|Nödvändiga certifikatämnet och Alternativt ämnesnamn (SAN)|SubDomain namespace|
 |-----|-----|-----|-----|
 |SQL, MySQL|SQL- och MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>(Wildcard SSL Certificate)|dbadapter.*&lt;region>.&lt;fqdn>*|
-|App Service|Web trafik standard SSL-certifikat|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>(Multi-domän med jokertecken SSL-certifikat<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|App Service|Web trafik standard SSL-certifikat|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Multi-domän med jokertecken SSL-certifikat<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL-certifikat<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL-certifikat<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|SSO|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL-certifikat<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|

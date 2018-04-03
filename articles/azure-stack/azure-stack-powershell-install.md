@@ -1,24 +1,24 @@
 ---
-title: "Installera PowerShell för Azure-stacken | Microsoft Docs"
-description: "Lär dig mer om att installera PowerShell för Azure-stacken."
+title: Installera PowerShell för Azure-stacken | Microsoft Docs
+description: Lär dig mer om att installera PowerShell för Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 0CDD8B9B-EC32-4453-918A-D0A606C7BC10
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/23/2018
+ms.date: 3/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 18a697813fbeb11be7a599359285f824ed804216
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 2b620a13cb752d573305154f57cac7f6a106968c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installera PowerShell för Azure-stacken  
 
@@ -55,10 +55,10 @@ I följande avsnitt beskrivs de steg som krävs för att installera PowerShell f
 
 ## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>Installera PowerShell i ett scenario med anslutna (med Internetanslutning)
 
-Azure Stack kompatibel AzureRM moduler installeras via API-version profiler. Azure-stacken kräver den **2017-03-09-profil** API-version profil som är tillgänglig genom att installera modulen AzureRM.Bootstrapper. Mer information om API-version profiler och de cmdlets som tillhandahålls av dem, referera till den [hantera profiler för API-version](azure-stack-version-profiles.md). Förutom AzureRM-moduler, bör du också installera Azure Stack-specifika PowerShell-moduler. Kör följande PowerShell-skript för att installera dessa moduler på utvecklingsdatorn:
+Azure Stack kompatibel AzureRM moduler installeras via API-version profiler. Azure-stacken kräver den **2017-03-09-profil** API-version profil som är tillgänglig genom att installera modulen AzureRM.Bootstrapper. Mer information om API-version profiler och de cmdlets som tillhandahålls av dem, referera till den [hantera profiler för API-version](user/azure-stack-version-profiles.md). Förutom AzureRM-moduler, bör du också installera Azure Stack-specifika PowerShell-moduler. Kör följande PowerShell-skript för att installera dessa moduler på utvecklingsdatorn:
 
 > [!IMPORTANT]
-> Version av PowerShell-modulen AzureRM 1.2.11 levereras med en lista över bryta ändringar. Uppgradera från 1.2.10 versionen finns i Migreringsguide på [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
+> Version av PowerShell-modulen AzureRM 1.2.11 levereras med en lista över bryta ändringar. Uppgradera från 1.2.10 versionen finns i Migreringsguide på [ https://aka.ms/azspowershellmigration ](https://aka.ms/azspowershellmigration).
 
   ```powershell
   # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
@@ -87,7 +87,7 @@ Om du vill bekräfta installationen genom att köra följande kommando:
 I ett frånkopplat scenario måste du först ladda ned PowerShell-moduler för en dator som är ansluten till internet och överför dem till Azure-stacken Development Kit för installation.
 
 > [!IMPORTANT]
-> Version av PowerShell-modulen AzureRM 1.2.11 levereras med en lista över bryta ändringar. Uppgradera från 1.2.10 versionen finns i Migreringsguide på [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
+> Version av PowerShell-modulen AzureRM 1.2.11 levereras med en lista över bryta ändringar. Uppgradera från 1.2.10 versionen finns i Migreringsguide på [ https://aka.ms/azspowershellmigration ](https://aka.ms/azspowershellmigration).
 
 1. Logga in på en dator där du har Internetanslutning och använda följande skript för att hämta AzureRM och AzureStack paket på den lokala datorn:
 
@@ -138,4 +138,4 @@ I ett frånkopplat scenario måste du först ladda ned PowerShell-moduler för e
 * [Hämta Azure Stack-verktyg från GitHub](azure-stack-powershell-download.md)
 * [Konfigurera Azure Stack användarens PowerShell-miljö](user/azure-stack-powershell-configure-user.md)  
 * [Konfigurera Azure Stack-operatorn PowerShell-miljö](azure-stack-powershell-configure-admin.md) 
-* [Hantera profiler för API-version i Azure-stacken](azure-stack-version-profiles.md)  
+* [Hantera profiler för API-version i Azure-stacken](user/azure-stack-version-profiles.md)  

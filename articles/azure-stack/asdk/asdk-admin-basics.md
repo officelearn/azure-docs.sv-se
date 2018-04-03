@@ -1,25 +1,25 @@
 ---
 title: Azure-stacken Development Kit grunderna | Microsoft Docs
-description: "Beskriver hur du utför grundläggande administration av Azure-stacken Development Kit."
+description: Beskriver hur du utför grundläggande administrationsuppgifter för Azure Stack Development Kit (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/30/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: cb169c2d2a5aa918fb6d330ebc4677d6c16d308d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 05dd42b049c75b9ea592ffe341f44e3b02b9757f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="asdk-administration-basics"></a>ASDK administration grunderna 
 Det finns flera saker du behöver veta om du har använt Azure Stack Development Kit (ASDK) administration. Den här vägledningen ger en översikt över din roll som operatör Azure Stack i miljön utvärdering och hur du kontrollerar din testanvändare kan snabbt blir mer produktiv.
@@ -27,6 +27,17 @@ Det finns flera saker du behöver veta om du har använt Azure Stack Development
 Först bör du granska den [vad är Azure Stack Development Kit?](asdk-what-is.md) artikel för att kontrollera att du förstå syftet med ASDK och dess begränsningar. Du bör använda development kit som en ”sandbox”, där du kan utvärdera Azure stackutrymme för att utveckla och testa dina appar i en produktionsmiljö. 
 
 Som Azure, Azure Stack bryter ny mark snabbt så släpper vi regelbundet nya versioner av ASDK. Du kan uppgradera ASDK som du kan Azure Stack integrerat system-distributioner. Så om du vill flytta till den senaste versionen, måste du helt [omdistribuera ASDK](asdk-redeploy.md). Du kan inte använda uppdateringspaket. Den här processen tar tid, men fördelen är att du kan prova att använda de senaste funktionerna så snart de blir tillgängliga. 
+
+## <a name="what-account-should-i-use"></a>Vilket konto ska jag använda?
+Det finns några överväganden för användarkonton som du bör vara medveten om när du hanterar Azure-stacken. Särskilt i distributioner med Windows Server Active Directory Federation Services (AD FS) som identitetsleverantör i stället för Azure Active Directory (AD Azure). Följande konto gäller både Azure-stacken integrerat system och ASDK distributioner:
+
+|Konto|Azure AD|AD FS|
+|-----|-----|-----|
+|Lokal administratör (. \administratör)|ASDK värden administratör|ASDK värden administratör|
+|AzureStack\AzureStackAdmin|ASDK värden administratör<br><br>Kan användas för att logga in på administrationsportalen Azure Stack<br><br>Åtkomst till Visa och administrera Service Fabric-ringar|ASDK värden administratör<br><br>Ingen åtkomst till Azure Stack-administrationsportalen<br><br>Åtkomst till Visa och administrera Service Fabric-ringar<br><br>Längre ägare av Default leverantör prenumeration (DP)|
+|AzureStack\CloudAdmin|Kan komma åt och köra tillåtna-kommandon inom den privilegierade slutpunkten|Kan komma åt och köra tillåtna-kommandon inom den privilegierade slutpunkten<br><br>Kan inte logga in till ASDK värden<br><br>Standard-providern prenumerationens (DP) ägare|
+|Azure AD Global Administrator|Används under installationen<br><br>Standard-providern prenumerationens (DP) ägare|Inte tillämpligt|
+|
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Vilka verktyg använda för att hantera?
 Du kan använda den [Azure Stack-Administratörsportalen](https://adminportal.local.azurestack.external) eller PowerShell för att hantera Azure-stacken. Det enklaste sättet att lära dig grunderna är via portalen. Om du vill använda PowerShell måste du installera [PowerShell för Azure-stacken](asdk-post-deploy.md#install-azure-stack-powershell) och [hämtar Azure Stack-verktyg från GitHub](asdk-post-deploy.md#download-the-azure-stack-tools).

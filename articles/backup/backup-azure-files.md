@@ -1,23 +1,23 @@
 ---
-title: "Säkerhetskopiera Azure Files till Azure"
-description: "Den här artikeln beskriver hur du säkerhetskopierar och återställer Azure-filresurser och förklarar hanteringsuppgifterna."
+title: Säkerhetskopiera Azure Files till Azure
+description: Den här artikeln beskriver hur du säkerhetskopierar och återställer Azure-filresurser och förklarar hanteringsuppgifterna.
 services: backup
-keywords: "Lägg inte till eller redigera nyckelord utan att först kontakta den SEO-ansvarige."
+keywords: Lägg inte till eller redigera nyckelord utan att först kontakta den SEO-ansvarige.
 author: markgalioto
 ms.author: markgal
-ms.date: 2/21/2018
+ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: b9bf1582aa1c1b8878b8426f60a18282598eb2b9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ba457daca030d3219fe32177b0b5f8b5565ff544
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="back-up-azure-file-shares"></a>Säkerhetskopiera Azure-filresurser
+# <a name="back-up-azure-file-shares-preview"></a>Säkerhetskopiera Azure-filresurser (förhandsversion)
 
-I den här artikeln beskrivs hur du säkerhetskopierar [Azure-filresurser](../storage/files/storage-files-introduction.md).
+Den här artikeln förklarar hur du använder Azure Portal för att säkerhetskopiera och återställa [Azure-filresurser](../storage/files/storage-files-introduction.md) i Azure.
 
 I den här guiden får du lära du dig att:
 > [!div class="checklist"]
@@ -30,6 +30,16 @@ I den här guiden får du lära du dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du kan säkerhetskopiera en Azure-filresurs bör du kontrollera att den finns i någon av de [lagringskontotyper som stöds](troubleshoot-azure-files.md#preview-boundaries). När du har kontrollerat detta kan du skydda din filresurser.
+
+## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Begränsningar för säkerhetskopiering av Azure-filresurser i förhandsversionen
+Azure Files Backup är en förhandsversion. Tänk på följande begränsningar i förhandsversionen:
+- Du kan inte skydda filresurser i lagringskonton med replikering av [zonredundant lagring (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) eller [Read-Access Geo Redundant Storage (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage).
+- Du kan inte skydda filresurser i lagringskonton som har virtuella nätverk aktiverade.
+- Det finns ingen tillgänglig PowerShell eller CLI som skyddar Azure Files.
+- Det maximala antalet schemalagda säkerhetskopieringar per dag är en.
+- Det maximala antalet säkerhetskopieringar på begäran per dag är fyra.
+- Förhindra att säkerhetskopior i Recovery Services-valvet oavsiktligt tas bort genom att använda [resurslås](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) på lagringskontot.
+- Ta inte bort ögonblicksbilder som skapats av Azure Backup. Om du tar bort ögonblicksbilder kan du förlora återställningspunkter och/eller drabbas av återställningsfel. 
 
 ## <a name="configuring-azure-file-shares-backup"></a>Konfigurera säkerhetskopiering av Azure-filresurser
 

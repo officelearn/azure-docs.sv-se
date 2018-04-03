@@ -1,24 +1,28 @@
 ---
-title: "Dokumentation om Azure Mobile Engagement – Självstudier, API-referens | Microsoft Docs"
-description: "Lär dig hur du får insikter om mobilappanvändning och användarsegmentering i realtid, och hur du aktiverar kontextmedvetna push-meddelanden och meddelanden i appen."
+title: Dokumentation om Azure Mobile Engagement – Självstudier, API-referens | Microsoft Docs
+description: Lär dig hur du får insikter om mobilappanvändning och användarsegmentering i realtid, och hur du aktiverar kontextmedvetna push-meddelanden och meddelanden i appen.
 services: mobile-engagement
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: mobile-engagement
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 5f682ba16b52b9a084505b8212c4b6f043bb94c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 874b40e0e1407be9f546c5a5f57cee2d1034a840
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="mobile-engagement-documentation"></a>Dokumentation om Mobile Engagement
+
+> [!IMPORTANT]
+> Azure Mobile Engagement dras tillbaka den 31 mars 2018. Den här sidan tas bort strax efter det.
+> 
 
 Lär dig hur du ökar användningen, kvarhållningen och intäktsskapandet i mobila appar med Mobile Engagement. Självstudier, SDK:er och annan dokumentation visar hur du får insikter om appanvändning och användarsegmentering i realtid, och hur du aktiverar kontextmedvetna push-meddelanden och meddelanden i appen.
 
@@ -197,7 +201,7 @@ Lär dig hur du ökar användningen, kvarhållningen och intäktsskapandet i mob
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement">NET</a></p>
+                        <p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement">.NET</a></p>
                    </div>
                 </div>
             </div>

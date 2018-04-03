@@ -37,8 +37,6 @@
           href: log-analytics-log-search-faq.md
     - name: Vanliga frågor och svar om Log Analytics
       href: log-analytics-faq.md
-    - name: Dataförbrukning
-      href: log-analytics-usage.md
     - name: Datasäkerhet
       href: log-analytics-data-security.md
     - name: Hantera åtkomst
@@ -156,7 +154,11 @@
         - name: Agenthantering
           href: log-analytics-agent-manage.md
         - name: Hantera arbetsytekostnader
-          href: log-analytics-manage-cost-storage.md
+          items:
+            - name: Datavolym och kvarhållning
+              href: log-analytics-manage-cost-storage.md
+            - name: Övervaka användning
+              href: log-analytics-usage.md
         - name: Ta bort en arbetsyta
           href: log-analytics-manage-del-workspace.md
     - name: Felsöka

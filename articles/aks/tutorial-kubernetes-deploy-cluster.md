@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ea26a2d4214c41faa5d63b7c72667955a43d6a2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1f31af4fcc7ef70889ad8bc021bea0796721e5f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>Distribuera ett Azure Container Service-kluster (AKS)
+# <a name="tutorial-deploy-an-azure-container-service-aks-cluster"></a>Självstudier: Distribuera ett Azure Container Service-kluster (AKS)
 
 Kubernetes tillhandahåller en distribuerad plattform för behållarbaserade program. Med AKS kan du snabbt och enkelt etablera ett produktionsklart Kubernetes-kluster. I del åtta av åtta i den här självstudien distribuerar vi ett Kubernetes-kluster i AKS. Det här är några av stegen:
 
@@ -24,7 +24,7 @@ Kubernetes tillhandahåller en distribuerad plattform för behållarbaserade pro
 > * Installera Kubernetes CLI (kubectl)
 > * Konfigurera kubectl
 
-I efterföljande självstudier distribuerar du programmet Azure Vote till klustret, skalar ut det, uppdaterar det och konfigurerar Operations Management Suite för att övervaka Kubernetes-klustret.
+I efterföljande självstudier distribuerar du programmet Azure Vote till klustret, skalar ut det, uppdaterar det och konfigurerar Log Analytics för att övervaka Kubernetes-klustret.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

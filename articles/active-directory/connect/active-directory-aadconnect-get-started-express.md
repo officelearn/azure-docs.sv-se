@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: Komma igång med standardinställningarna | Microsoft Docs"
-description: "Lär dig hur du laddar ned, installerar och kör installationsguiden för Azure AD Connect."
+title: 'Azure AD Connect: Komma igång med standardinställningarna | Microsoft Docs'
+description: Lär dig hur du laddar ned, installerar och kör installationsguiden för Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2018
+ms.date: 03/21/2018
 ms.author: billmath
-ms.openlocfilehash: 15101e1edb483f49c7570a5d4eab66865bbceb87
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 46fc01bfd7fada529ff1416e8ad46d2ea34792bd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Komma igång med Azure AD Connect med standardinställningar
 **Standardinställningar** för Azure AD Connect används om du har en topologi med en enda skog och om du använder [lösenordssynkronisering](active-directory-aadconnectsync-implement-password-synchronization.md) för autentisering. **Standardinställningar** är standardalternativet och används i de vanligaste distributionsscenarierna. Du är bara några få klick bort från att utöka din lokala katalog till molnet.
@@ -45,6 +45,7 @@ Du kan se dessa steg i praktiken i avsnittet med [videoklipp](#videos).
    Om den här sidan visas granskar du alla domäner som har markerats med **Inte tillagd** och **Inte verifierad**. Kontrollera att de domäner som du använder har verifierats i Azure AD. Klicka på symbolen Uppdatera när du har verifierat dina domäner.
 8. Klicka på **Installera** på skärmen Klart att konfigurera.
    * Du kan också välja att avmarkera kryssrutan **Starta synkroniseringen så fort konfigurationen är klar** på sidan Klart att konfigurera. Du måste avmarkera kryssrutan om du vill göra ytterligare konfigurationsinställningar, t.ex. [filtrering](active-directory-aadconnectsync-configure-filtering.md). Om du avmarkerar det här alternativet konfigurerar guiden synkronisering men lämnar schemaläggaren inaktiverad. Den körs inte förrän du aktiverar den manuellt genom att [köra installationsguiden igen](active-directory-aadconnectsync-installation-wizard.md).
+   * Om du låter kryssrutan **Starta synkroniseringsprocessen så snart som konfigurationen är klar** vara markerad utlöses omedelbart en fullständig synkronisering mot Microsoft Azure Active Directory för alla användare, grupper och kontakter. 
    * Om du har Exchange i din lokala Active Directory kan du också välja att aktivera [**Exchange-hybridinstallation**](https://technet.microsoft.com/library/jj200581.aspx). Aktivera det här alternativet om du planerar att ha Exchange-postlådor både i molnet och lokalt samtidigt.
      ![Redo att konfigurera Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
 9. När installationen är klar klickar du på **Avsluta**.

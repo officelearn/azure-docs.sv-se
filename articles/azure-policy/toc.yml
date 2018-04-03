@@ -25,6 +25,10 @@
   items:
     - name: Azure Policy-definitionsstruktur
       href: policy-definition.md
+- name: Instruktionsguider
+  items:
+    - name: Skapa principer programmässigt
+      href: policy-insights.md
 - name: Referens
   items:
     - name: Azure CLI

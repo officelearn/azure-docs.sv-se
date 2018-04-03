@@ -1,7 +1,7 @@
 ---
-title: "Felkoder för SQL - Databasanslutningsfel | Microsoft Docs"
-description: "Mer information om SQL-felkoder för SQL-databas klientprogram, till exempel vanliga anslutningsfel i databasen och kopiera databasproblem Allmänt fel. "
-keywords: "SQL-felkod, åtkomst till sql, Databasanslutningsfel, sql-felkoder"
+title: Felkoder för SQL - Databasanslutningsfel | Microsoft Docs
+description: 'Mer information om SQL-felkoder för SQL-databas klientprogram, till exempel vanliga anslutningsfel i databasen och kopiera databasproblem Allmänt fel. '
+keywords: SQL-felkod, åtkomst till sql, Databasanslutningsfel, sql-felkoder
 services: sql-database
 author: stevestein
 manager: craigg
@@ -48,10 +48,10 @@ Följande fel är tillfälligt och bör göras i programlogiken:
 
 | Felkod | Allvarsgrad | Beskrivning |
 | ---:| ---:|:--- |
-| 4060 |16 |Det går inte att öppna databasen ”%. & #x2a; ls” begärdes vid inloggningen. Inloggningen misslyckades. |
+| 4060 |16 |Det går inte att öppna databasen ”%.&#x2a;ls” begärdes vid inloggningen. Inloggningen misslyckades. |
 | 40197 |17 |Tjänsten har påträffat ett fel när din begäran bearbetades. Försök igen. Felkod: %d.<br/><br/>Du får detta felmeddelande när tjänsten är igång på grund av andra failover-problem, maskinvarufel eller uppgraderingar av maskinvara eller programvara. Felkoden (%d) som är inbäddad i meddelandet för fel 40197 tillhandahåller ytterligare information om vilken typ av fel eller växling vid fel som inträffat. Några exempel på koder är inbäddade i meddelandet för fel 40197 felet är 40020, 40143, 40166 och 40540.<br/><br/>Ansluta till SQL Database-server automatiskt ansluter till en felfri kopia av databasen. Programmet måste fånga 40197, felloggen inbäddade felkoden (%d) i meddelandet för att felsöka och försök ansluta till SQL-databas tills resurserna som är tillgängliga, och anslutningen har upprättats igen. |
 | 40501 |20 |Tjänsten är upptagen. Gör en begäran om efter 10 sekunder. Incident-ID: %ls. Felkod: %d.<br/><br/>Mer information finns i:<br/>• [Gränserna för azure SQL Database](sql-database-service-tiers.md). |
-| 40613 |17 |Databasen '%. & #x2a; ls' på servern '%. & #x2a; ls' är inte tillgänglig. Försök ansluta igen senare. Om problemet kvarstår kontaktar du kundsupport och ger dem session spårnings-ID (%. & #x2a; ls). |
+| 40613 |17 |Databasen '%.&#x2a;ls' på servern '%.&#x2a;ls' är inte tillgänglig. Försök ansluta igen senare. Om problemet kvarstår kontaktar du kundsupport och ger dem session spårnings-ID (%.&#x2a;ls). |
 | 49918 |16 |Det går inte att bearbeta begäran. Det finns inte tillräckligt med resurser för att behandla begäran.<br/><br/>Tjänsten är upptagen. Försök begäran senare. |
 | 49919 |16 |Bearbeta det går inte att skapa eller uppdatera begäran. För många skapande- eller uppdateringsåtgärder pågår för prenumerationen ”% ld”.<br/><br/>Tjänsten är upptagen bearbeta flera skapa eller uppdatera begäranden för din prenumeration eller server. Begäranden blockeras för resursoptimering. Frågan [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) för väntande åtgärder. Vänta tills väntande skapa eller uppdatera begäranden har slutförts eller ta bort en av dina väntande begäranden och försök igen med din begäran senare. |
 | 49920 |16 |Det går inte att bearbeta begäran. För många åtgärder pågår för prenumerationen ”% ld”.<br/><br/>Tjänsten är upptagen med flera förfrågningar för den här prenumerationen. Begäranden blockeras för resursoptimering. Frågan [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) för Åtgärdsstatus. Vänta tills väntande begäranden har slutförts eller ta bort en av dina väntande begäranden och försök igen med din begäran senare. |
@@ -62,7 +62,7 @@ Följande fel inträffade kan kopiera en databas i Azure SQL Database. Mer infor
 
 | Felkod | Allvarsgrad | Beskrivning |
 | ---:| ---:|:--- |
-| 40635 |16 |Klienten med IP-adressen (%. & #x2a; ls) är tillfälligt inaktiverad. |
+| 40635 |16 |Klienten med IP-adressen (%.&#x2a;ls) är tillfälligt inaktiverad. |
 | 40637 |16 |Skapa databaskopian är för närvarande inaktiverad. |
 | 40561 |16 |Databaskopieringen misslyckades. Käll-eller måldatabasen finns inte. |
 | 40562 |16 |Databaskopieringen misslyckades. Källdatabasen har släppts. |
@@ -111,7 +111,7 @@ Följande fel relaterade till skapa och använda elastiska pooler:
 | 40858 |EX_USER |Elastisk pool %ls finns redan på servern: %ls |namn på elastisk pool, servernamn |Angivna elastisk pool finns redan i den angivna logiska servern. |Ange namn på ny elastisk pool. |
 | 40859 |EX_USER |Elastiska poolen stöder inte tjänstnivån %ls. |elastiska pooltjänstnivå |Angivna tjänstnivån stöds inte för etablering av elastisk pool. |Ange rätt version eller lämna det tomt om du vill använda standard-tjänstnivå tjänstnivån. |
 | 40860 |EX_USER |Kombinationen av elastiska poolen %ls och tjänsten målet %ls är ogiltig. |namn på elastisk pool; namn på servicenivåmål |Elastisk pool och tjänsten målet kan anges samtidigt endast om tjänstmålet anges som 'ElasticPool'. |Ange rätt kombination av elastiska poolen och tjänstmålet. |
-| 40861 |EX_USER |Databasversionen ' %. *ls' får inte vara annorlunda än den elastiska pooltjänstnivå som är ' %. *ls'. |Databasversionen elastiska pooltjänstnivå |Databasversionen är annorlunda än den elastiska pooltjänstnivå. |Ange inte en databasversionen som skiljer sig från den elastiska pooltjänstnivå.  Observera att databasversionen inte måste anges. |
+| 40861 |EX_USER |Databasversionen ' %. *ls' får inte vara annorlunda än den elastiska pooltjänstnivå som är ' %.* ls'. |Databasversionen elastiska pooltjänstnivå |Databasversionen är annorlunda än den elastiska pooltjänstnivå. |Ange inte en databasversionen som skiljer sig från den elastiska pooltjänstnivå.  Observera att databasversionen inte måste anges. |
 | 40862 |EX_USER |Namn på elastisk pool måste vara anges om tjänstmålet elastisk pool har angetts. |Ingen |Elastisk pool tjänstmålet identifiera inte unikt en elastisk pool. |Ange namn på elastisk pool om du använder tjänstmålet elastisk pool. |
 | 40864 |EX_USER |Dtu: erna för den elastiska poolen måste vara minst (%d) dtu: er för tjänstnivån ' %. * ls'. |Dtu: er för elastiska poolen; elastiska pooltjänstnivå. |Försöker ange dtu: erna för den elastiska poolen under minimigränsen. |Gör om inställningen dtu: erna för elastiska pool till minst den lägsta tillåtna värdet. |
 | 40865 |EX_USER |Dtu: erna för den elastiska poolen får inte överskrida (%d) dtu: er för tjänstnivån ' %. * ls'. |Dtu: er för elastiska poolen; elastiska pooltjänstnivå. |Försöker ange dtu: erna för den elastiska poolen ovan maxgränsen. |Försök ange dtu: erna för den elastiska poolen till inte är större än den maximala gränsen. |
@@ -138,35 +138,35 @@ Följande fel omfattas inte i alla tidigare kategorier.
 | Felkod | Allvarsgrad | Beskrivning |
 | ---:| ---:|:--- |
 | 15006 |16 |(AdministratorLogin) är inte ett giltigt namn eftersom det innehåller ogiltiga tecken. |
-| 18452 |14 |Inloggningen misslyckades. Inloggningen kommer från en icke betrodd domän och kan inte användas med Windows authentication.%. & #x2a; ls (Windows-inloggningar inte stöds i den här versionen av SQL Server.) |
-| 18456 |14 |Inloggningen misslyckades för användaren ' %. #x2a;ls'.%. & #x2a % ls. & #x2a; ls (inloggningen misslyckades för användaren ”%. & #x2a; ls”. Det gick inte att ändra lösenordet. Lösenordsändring under inloggning stöds inte i den här versionen av SQL Server.) |
-| 18470 |14 |Inloggningen misslyckades för användaren (%. & #x2a; ls). Orsak: Kontot är disabled.%. & #x2a; ls |
+| 18452 |14 |Inloggningen misslyckades. Inloggningen kommer från en icke betrodd domän och kan inte användas med Windows authentication.%.&#x2a;ls (Windows-inloggningar inte stöds i den här versionen av SQL Server.) |
+| 18456 |14 |Inloggningen misslyckades för användaren '%.&#x2a;ls'.%.&#x2a;ls%.&#x2a;ls(inloggningen misslyckades för användaren ”%.&#x2a;ls”. Det gick inte att ändra lösenordet. Lösenordsändring under inloggning stöds inte i den här versionen av SQL Server.) |
+| 18470 |14 |Inloggningen misslyckades för användaren (%.&#x2a;ls). Orsak: Kontot är disabled.%.&#x2a;ls |
 | 40014 |16 |Flera databaser kan inte användas i samma transaktion. |
 | 40054 |16 |Tabeller utan grupperat index stöds inte i den här versionen av SQL Server. Skapa ett grupperat index och försök igen. |
 | 40133 |15 |Den här åtgärden stöds inte i den här versionen av SQL Server. |
 | 40506 |16 |Angiven SID är ogiltigt för den här versionen av SQL Server. |
-| 40507 |16 |' %. & #x2a; ls' kan inte anropas med parametrar i den här versionen av SQL Server. |
+| 40507 |16 |'%.&#x2a;ls' kan inte anropas med parametrar i den här versionen av SQL Server. |
 | 40508 |16 |USE-instruktionen stöds inte för växling mellan databaser. Använd en ny anslutning för att ansluta till en annan databas. |
-| 40510 |16 |Instruktionen '%. & #x2a; ls' stöds inte i den här versionen av SQL Server |
-| 40511 |16 |Den inbyggda funktionen '%. & #x2a; ls' stöds inte i den här versionen av SQL Server. |
+| 40510 |16 |Instruktionen '%.&#x2a;ls' stöds inte i den här versionen av SQL Server |
+| 40511 |16 |Den inbyggda funktionen '%.&#x2a;ls' stöds inte i den här versionen av SQL Server. |
 | 40512 |16 |Föråldrad funktion %ls stöds inte i den här versionen av SQL Server. |
-| 40513 |16 |Servern variabeln '%. & #x2a; ls' stöds inte i den här versionen av SQL Server. |
+| 40513 |16 |Servern variabeln '%.&#x2a;ls' stöds inte i den här versionen av SQL Server. |
 | 40514 |16 |%ls stöds inte i den här versionen av SQL Server. |
-| 40515 |16 |Referens till databasen och/eller server namn i '%. & #x2a; ls' stöds inte i den här versionen av SQL Server. |
+| 40515 |16 |Referens till databasen och/eller server namn i '%.&#x2a;ls' stöds inte i den här versionen av SQL Server. |
 | 40516 |16 |Globala temporära objekt stöds inte i den här versionen av SQL Server. |
-| 40517 |16 |Nyckelordet eller instruktionsalternativet '%. & #x2a; ls' stöds inte i den här versionen av SQL Server. |
-| 40518 |16 |DBCC-kommandot '%. & #x2a; ls' stöds inte i den här versionen av SQL Server. |
+| 40517 |16 |Nyckelordet eller instruktionsalternativet '%.&#x2a;ls' stöds inte i den här versionen av SQL Server. |
+| 40518 |16 |DBCC-kommandot '%.&#x2a;ls' stöds inte i den här versionen av SQL Server. |
 | 40520 |16 |Den skyddbara klassen '% S_MSG' stöds inte i den här versionen av SQL Server. |
 | 40521 |16 |Den skyddbara klassen '% S_MSG' stöds inte i serverdefinitionsområdet i den här versionen av SQL Server. |
-| 40522 |16 |Databastyp UPN '%. & #x2a; ls' stöds inte i den här versionen av SQL Server. |
-| 40523 |16 |Skapa en implicit användarroll '%. & #x2a; ls' stöds inte i den här versionen av SQL Server. Skapa användaren explicit innan du använder den. |
-| 40524 |16 |Datatypen '%. & #x2a; ls' stöds inte i den här versionen av SQL Server. |
+| 40522 |16 |Databastyp UPN '%.&#x2a;ls' stöds inte i den här versionen av SQL Server. |
+| 40523 |16 |Skapa en implicit användarroll '%.&#x2a;ls' stöds inte i den här versionen av SQL Server. Skapa användaren explicit innan du använder den. |
+| 40524 |16 |Datatypen '%.&#x2a;ls' stöds inte i den här versionen av SQL Server. |
 | 40525 |16 |MED '%.ls' stöds inte i den här versionen av SQL Server. |
-| 40526 |16 |' %. & #x2a; ls' raduppsättningsprovidern stöds inte i den här versionen av SQL Server. |
+| 40526 |16 |'%.&#x2a;ls' raduppsättningsprovidern stöds inte i den här versionen av SQL Server. |
 | 40527 |16 |Länkade servrar stöds inte i den här versionen av SQL Server. |
 | 40528 |16 |Att det går inte mappa användare till certifikat, asymmetriska nycklar eller Windows-inloggningsnamn i den här versionen av SQL Server. |
-| 40529 |16 |Den inbyggda funktionen '%. & #x2a; ls' personifiering kontexten inte stöds i den här versionen av SQL Server. |
-| 40532 |11 |Det går inte att öppna servern ”%. & #x2a; ls” begärdes vid inloggningen. Inloggningen misslyckades. |
+| 40529 |16 |Den inbyggda funktionen '%.&#x2a;ls' personifiering kontexten inte stöds i den här versionen av SQL Server. |
+| 40532 |11 |Det går inte att öppna servern ”%.&#x2a;ls” begärdes vid inloggningen. Inloggningen misslyckades. |
 | 40553 |16 |Sessionen har avslutats på grund av omfattande minnesanvändning. Försök att ändra frågan så att färre rader bearbetas.<br/><br/> Minska antalet `ORDER BY` och `GROUP BY` åtgärder i Transact-SQL-kod bidrar till att minska minneskrav av din fråga. |
 | 40604 |16 |Det gick inte CREATE/ALTER DATABASE eftersom den skulle överskrida kvoten för servern. |
 | 40606 |16 |Koppla databaser stöds inte i den här versionen av SQL Server. |
@@ -176,12 +176,12 @@ Följande fel omfattas inte i alla tidigare kategorier.
 | 40615 |16 |Det går inte att öppna servern '{0}' som begärdes vid inloggningen. Klienten med IP-adressen '{1}' är inte tillåtet att ansluta till servern.<br /><br />Använda portalen för SQL-databasen för att möjliggöra åtkomst eller köra sp\_ange\_brandväggen\_regeln på huvuddatabasen för att skapa en brandväggsregel för IP-adressen eller adressintervallet. Det kan ta upp till fem minuter för att ändringen ska börja gälla. |
 | 40617 |16 |Namnet på brandväggsregeln som inleds med (Regelnamnet) är för långt. Maxlängden är 128. |
 | 40618 |16 |Namnet på brandväggsregeln får inte vara tomt. |
-| 40620 |16 |Inloggningen misslyckades för användaren ”%. & #x2a; ls”. Det gick inte att ändra lösenordet. Lösenordsändring under inloggning stöds inte i den här versionen av SQL Server. |
+| 40620 |16 |Inloggningen misslyckades för användaren ”%.&#x2a;ls”. Det gick inte att ändra lösenordet. Lösenordsändring under inloggning stöds inte i den här versionen av SQL Server. |
 | 40627 |20 |Åtgärden på servern och databasen: {0} '{1}' pågår. Vänta några minuter innan du försöker igen. |
 | 40630 |16 |Lösenordsverifieringen misslyckades. Lösenordet uppfyller inte principkraven eftersom det är för kort. |
 | 40631 |16 |Lösenordet som du angav är för långt. Lösenordet ska ha mer än 128 tecken. |
 | 40632 |16 |Lösenordsverifieringen misslyckades. Lösenordet uppfyller inte principkraven eftersom det inte är tillräckligt komplicerat. |
-| 40636 |16 |Det går inte att använda ett reserverat namn (%. & #x2a; ls) i den här åtgärden. |
+| 40636 |16 |Det går inte att använda ett reserverat namn (%.&#x2a;ls) i den här åtgärden. |
 | 40638 |16 |Ogiltigt prenumerations-id (prenumerations-id). Prenumerationen finns inte. |
 | 40639 |16 |Begäran stämmer inte överens med schemat: (schemafel). |
 | 40640 |20 |Servern påträffade ett oväntat undantag. |

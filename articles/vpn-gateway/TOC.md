@@ -8,6 +8,7 @@
 # Kom igång
 ## [Skapa en ruttbaserad VPN-gateway – Azure Portal](create-routebased-vpn-gateway-portal.md)
 ## [Skapa en ruttbaserad VPN-gateway – PowerShell](create-routebased-vpn-gateway-powershell.md)
+## [Skapa en ruttbaserad VPN-gateway – CLI](create-routebased-vpn-gateway-cli.md)
 
 # Begrepp
 ## [Planering och design för VPN Gateway](vpn-gateway-plan-design.md)

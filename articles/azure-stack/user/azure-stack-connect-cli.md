@@ -1,11 +1,11 @@
 ---
 title: Ansluta till Azure-stacken med CLI | Microsoft Docs
-description: "Lär dig hur du använder plattformsoberoende kommandoradsgränssnittet (CLI) för att hantera och distribuera resurser i Azure-stacken"
+description: Lär dig hur du använder plattformsoberoende kommandoradsgränssnittet (CLI) för att hantera och distribuera resurser i Azure-stacken
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/26/2018
 ms.author: mabrigg
 ms.openlocfilehash: ad258cf6c73b2c1ea5f208ebef9906a0e3d35ea4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/02/2018
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Installera och konfigurera CLI för användning med Azure-stacken
 

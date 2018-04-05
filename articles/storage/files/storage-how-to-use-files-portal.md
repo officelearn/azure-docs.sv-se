@@ -1,79 +1,114 @@
 ---
-title: "Hantera Azure Files från Azure-portalen | Microsoft Docs"
-description: "Lär dig hur du använder Azure-portalen för att hantera Azure Files."
+title: Hantera Azure-filresurser med Azure Portal
+description: Lär dig hur du använder Azure-portalen för att hantera Azure Files.
 services: storage
-documentationcenter: 
-author: RenaShahMSFT
-manager: aungoo
-editor: tysonn
-ms.assetid: 
+documentationcenter: ''
+author: wmgries
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
-ms.author: renash
-ms.openlocfilehash: e56f8bf1057a8bc2cfcde841f69022104bafff27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/26/2018
+ms.author: wgries
+ms.openlocfilehash: 588d260bb939c8f6439ca66828296ea455f1524a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="how-to-use-azure-files-from-the-azure-portal"></a>Använda Azure Files från Azure Portal
-[Azure-portalen](https://portal.azure.com) innehåller ett användargränssnitt för att hantera Azure Files. Du kan utföra följande åtgärder från din webbläsare:
+# <a name="managing-azure-file-shares-with-the-azure-portal"></a>Hantera Azure-filresurser med Azure Portal 
+[Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Windows, Linux och macOS. Den här guiden vägleder dig igenom grunderna i att arbeta med Azure-filresurser med [Azure Portal](https://portal.azure.com/). Lär dig att:
 
-* Skapa en filresurs
-* Ladda upp och ladda ned filer till och från filresursen.
-* Övervaka den faktiska användningen av varje filresurs.
-* Justera storlekskvoten för filresurser.
-* Kopiera monteringskommandon som du använder för att montera filresursen från en Windows- eller Linux-klient.
+> [!div class="checklist"]
+> * Skapa en resursgrupp och ett lagringskonto
+> * Skapa en Azure-filresurs 
+> * Skapa en katalog
+> * Överför en fil 
+> * Hämta en fil
+> * Skapa och använda en ögonblicksbild av en resurs
 
-## <a name="create-file-share"></a>Skapa en filresurs
-1. Logga in på Azure Portal.
-2. Klicka på **Storage-konton** eller **Storage-konton (klassiska)** på navigeringsmenyn.
-    
-    ![Skärmbild som visar hur du skapar en filresurs på portalen](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share1.png)
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-3. Välj ditt lagringskonto.
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+[!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
 
-    ![Skärmbild som visar hur du skapar en filresurs på portalen](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share2.png)
+## <a name="create-a-file-share"></a>Skapa en filresurs
+Så här skapar du en filresurs:
 
-4. Välj tjänsten ”Filer”.
+1. Välj lagringskonto från instrumentpanelen.
+2. På sidan för lagringskontot i avsnittet **Tjänster** väljer du **Filer**.
+    ![En skärmbild av avsnittet Tjänster i lagringskontot; välj Filtjänst](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-    ![Skärmbild som visar hur du skapar en filresurs på portalen](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share3.png)
+3. På menyn överst på sidan **Filtjänst** klickar du på **+ filresurs**. Sidan **Ny filresurs** rullas ned.
+4. I **namn** skriver du *myshare*.
+5. Klicka på **OK** för att skapa Azure-filresursen.
 
-5. Klicka på ”Filresurser” och följ länken för att skapa din första filresurs.
+## <a name="manipulating-the-contents-of-the-azure-file-share"></a>Ändra innehållet i Azure-filresursen
+Nu när du har skapat en Azure-filresurs kan du montera filresursen med SMB på [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) eller [macOS](storage-how-to-use-files-mac.md). Du kan också ändra din Azure-filresurs med Azure Portal. Alla begäranden som görs via Azure Portal görs med REST API-filen så att du kan skapa, ändra och ta bort filer och kataloger på klienter utan SMB-åtkomst.
 
-    ![Skärmbild som visar hur du skapar en filresurs på portalen](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share4.png)
+### <a name="create-directory"></a>Skapa katalog
+Skapa en ny katalog med namnet *myDirectory* vid roten på Azure-filresursen:
 
-6. Fyll i filresursens namn och storleken på filresursen (upp till 5 120 GB) för att skapa din första filresurs. När filresursen har skapats kan du montera den från alla filsystem som har stöd för SMB 2.1 eller SMB 3.0. Du kan klicka på **Kvot** på filresursen för att ändra storleken på filen till upp till 5120 GB. Se [Priskalkylatorn för Azure](https://azure.microsoft.com/pricing/calculator/) för att beräkna lagringskostnaden för att använda Azure Files.
+1. På sidan **Filtjänst** väljer du filresursen **myshare**. Då öppnas sidan för filresursen.
+2. På menyn överst på sidan väljer du **+ Lägg till katalog**. Sidan **Ny katalog** rullas ned.
+3. Skriv *myDirectory* och klicka sedan på **OK**.
 
-    ![Skärmbild som visar hur du skapar en filresurs på portalen](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share5.png)
+### <a name="upload-a-file"></a>Överför en fil 
+För att ladda upp en fil, måste du först skapa eller välja en fil som ska laddas upp. Du kan göra detta på det sätt du känner är lämpligt. När du har valt den fil som du vill ladda upp:
 
-## <a name="upload-and-download-files"></a>Ladda upp och ladda ned filer
-1. Välj en filresurs som du redan har skapat.
+1. Klicka på katalogen **myDirectory**. Panelen **myDirectory** öppnas.
+2. På den översta menyn, klicka på **Ladda upp**. Panelen **Ladda upp filer** öppnas.  
+    ![En skärmbild av panelen ladda upp filer](media/storage-how-to-use-files-portal/upload-file-1.png)
 
-    ![Skärmbild som visar hur du laddar upp och laddar ned filer från portalen](./media/storage-how-to-use-files-portal/use-files-portal-upload-file1.png)
+3. Klicka på mappikonen för att öppna ett fönster för att bläddra bland dina lokala filer. 
+4. Välj en fil och klicka sedan på **Öppna**. 
+5. På sidan **Ladda upp filer**, kontrollera filnamnet och klicka sedan på **Ladda upp**.
+6. När du är klar ska filen visas i listan på sidan **myDirectory**.
 
-2. Öppna användargränssnittet för filöverföring genom att klicka på **Överför**.
+### <a name="download-a-file"></a>Hämta en fil
+Du kan hämta en kopia av filen du överförde genom att högerklicka på filen. När du klickar på knappen ladda ner, beror den exakta upplevelsen på det operativsystem och den webbläsare du använder.
 
-    ![Skärmbild som visar hur du laddar upp filer från portalen](./media/storage-how-to-use-files-portal/use-files-portal-upload-file2.png)
+## <a name="create-and-modify-share-snapshots"></a>Skapa och ändra resursögonblicksbilder
+Ytterligare en användbar uppgift som du kan göra med en Azure-filresurs är att skapa resursögonblicksbilder. En ögonblicksbild bevarar en tidpunkt för en Azure-filresurs. Ögonblicksbilder av resurser liknar de operativsystemtekniker som du kanske redan är bekant med såsom:
+- [Tjänsten Volume Shadow Copy(VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) för Windows-filsystem, till exempel NTFS och ReFS
+- [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) ögonblicksbilder för Linux-system
+- [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) ögonblicksbilder för macOS. 
 
-## <a name="connect-to-file-share"></a>Anslut till filresurs
--  Klicka på **Anslut** om du vill hämta kommandoraden för att montera filresursen från Windows eller Linux. Linux-användare kan även läsa [Använda Azure Files med Linux](../storage-how-to-use-files-linux.md) för mer information om montering för andra Linux-distributioner.
+Så här skapar du en ögonblicksbild av en resurs:
 
-    ![Skärmbild som visar hur du monterar filresursen](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
--  Du kan kopiera kommandon för att montera filresurser på Windows eller Linux och köra dem från en virtuell Azure-dator eller en lokal dator.
+1. Öppna sidan för filresursen genom att öppna lagringskontot från instrumentpanelen > **Filer** > **myshare**. 
+2. På sidan för filresursen klickar du på knappen **Ögonblicksbild** på menyn längst upp på sidan och väljer sedan **Skapa en ögonblicksbild**.  
+    ![En skärmbild illustrerar hur du hittar knappen Skapa ögonblicksbild](media/storage-how-to-use-files-portal/create-snapshot-1.png)
 
-    ![Skärmbild som visar kommandon för montering på Windows och Linux](./media/storage-how-to-use-files-portal/use-files-portal-show-mount-commands.png)
+### <a name="list-and-browse-share-snapshots"></a>Visa lista över och bläddra bland ögonblicksbilder av resurser
+När ögonblicksbilden har skapats kan du klicka på **Ögonblicksbild** igen och sedan välja **Visa ögonblicksbilder** för att visa en lista över ögonblicksbilder för resursen. Fönstret som öppnas kommer att visa ögonblicksbilder för den här resursen. Klicka på en ögonblicksbild av en resurs för att bläddra i den.
 
-**Tips:**  
-Klicka på **Visa åtkomstnycklar för lagringskontot** längst ned på sidan Anslut för att hitta åtkomstnyckeln till lagringskontot för montering.
+### <a name="restore-from-a-share-snapshot"></a>Återställ från en resursögonblicksbild
+För att demonstrera återställning av en fil från en ögonblicksbild av en resurs, behöver vi först ta bort en fil från live-Azure-filresursen. Navigera till mappen *myDirectory*, högerklicka på den uppladdade filen, och klicka sedan på **Ta bort**. Sedan för att återställa filen från ögonblicksbilden för resursen:
 
-## <a name="see-also"></a>Se även
-Mer information om Azure Files finns på följande länkar.
+1. Klicka på **Ögonblicksbilder** i den översta menyn och välj **Visa ögonblicksbilder**. 
+2. Klicka på den ögonblicksbild som du skapade tidigare så öppnas innehållet på en ny sida. 
+3. Klicka på **myDirectory** i ögonblicksbilden och du bör se den fil som du har tagit bort. 
+4. Högerklicka på den borttagna filen och välj **Återställ**.
+5. Ett popup-fönster visas med olika val för att återställa filen som en kopia eller skriva över den ursprungliga filen. Eftersom vi har tagit bort den ursprungliga filen, väljer vi **Skriv över originalfilen** för att återställa filen som den var innan vi tog bort den. Klicka på **OK** för att återställa filen till Azure-filresursen.  
+    ![En skärmbild av dialogrutan för att återställa filen](media/storage-how-to-use-files-portal/restore-snapshot-1.png)
 
-* [Vanliga frågor och svar](../storage-files-faq.md)
-* [Felsökning i Windows](storage-troubleshoot-windows-file-connection-problems.md)      
-* [Felsökning i Linux](storage-troubleshoot-linux-file-connection-problems.md)    
+6. När filen återställts, stäng sidan för ögonblicksbilden och gå tillbaka till **myshare** > **myDirectory** och filen bör vara tillbaka på sin ursprungliga plats.
+
+### <a name="delete-a-share-snapshot"></a>Ta bort en resursögonblicksbild
+För att ta bort en ögonblicksbild av en resurs, [navigerar du till listan över ögonblicksbilder av resurser](#list-and-browse-a-share-snapshot). Klicka på kryssrutan bredvid namnet på ögonblicksbilden av resursen och välj knappen **Ta bort**.
+
+![En skärmbild över att ta bort ögonblicksbild av resurs](media/storage-how-to-use-files-portal/delete-snapshot-1.png)
+
+## <a name="clean-up-resources"></a>Rensa resurser
+[!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
+
+## <a name="next-steps"></a>Nästa steg
+- [Hantera filresurser med Azure PowerShell](storage-how-to-use-files-powershell.md)
+- [Hantera filresurser med Azure-CLI](storage-how-to-use-files-cli.md)
+- [Hantera filresurser med Azure Storage Explorer](storage-how-to-use-files-storage-explorer.md)
+- [Planera för en Azure Files-distribution](storage-files-planning.md)

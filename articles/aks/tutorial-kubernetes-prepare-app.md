@@ -1,6 +1,6 @@
 ---
-title: "Självstudie om Kubernetes i Azure – förbereda app"
-description: "AKS-självstudie – förbereda app"
+title: Självstudie om Kubernetes i Azure – förbereda app
+description: AKS-självstudie – förbereda app
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0c4a1459a49fb60578f9f38ea65cd1400b538382
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8a2c2e53ed04cf00cc02135c5e5f82ded18fc2bc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="prepare-application-for-azure-container-service-aks"></a>Förbereda ett program för Azure Container Service (AKS)
+# <a name="tutorial-prepare-application-for-azure-container-service-aks"></a>Självstudier: Förbereda ett program för Azure Container Service (AKS)
 
 I den här självstudien, som är del ett av åtta, förbereds ett program med flera behållare för användning i Kubernetes. Det här är några av stegen:  
 
@@ -32,7 +32,7 @@ I efterföljande självstudier har behållaravbildningen laddats upp till ett Az
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här självstudien förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som behållare, behållaravbildningar och grundläggande docker-kommandon. Om det behövs kan du läsa [Get started with Docker][docker-get-started] (Komma igång med Docker) för att få en genomgång av grunden för behållare. 
+Den här självstudien förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som behållare, behållaravbildningar och grundläggande docker-kommandon. Om det behövs kan du läsa om hur du [kommer igång med Docker][docker-get-started] och få en genomgång om behållare. 
 
 För att slutföra den här självstudien behöver du en Docker-utvecklingsmiljö. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac][docker-for-mac]-, [Windows][docker-for-windows]- eller [Linux][docker-for-linux]-dator.
 

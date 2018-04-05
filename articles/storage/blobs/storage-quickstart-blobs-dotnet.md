@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: 716e61840f4bfb5a68a995683e67dae0b43d3854
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b84a56996a335f8a137c4219c55b9878e39b5a3b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med .NET
 
@@ -25,21 +25,23 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 För att slutföra den här snabbstarten måste du först skapa ett Azure-lagringskonto i [Azure-portalen](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Hjälp med att skapa kontot finns i [Skapa ett lagringskonto](../common/storage-quickstart-create-account.md).
 
-Härnäst laddar du ned och installerar .NET Core 2.0 för ditt operativsystem. Du kan också välja att installera en redigerare som ska användas med operativsystemet.
+Härnäst laddar du ned och installerar .NET Core 2.0 för ditt operativsystem. Om du kör Windows kan du installera Visual Studio och använda .NET Framework om du så föredrar. Du kan också välja att installera en redigerare som ska användas med operativsystemet.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-- Installera [.NET Core för Windows](https://www.microsoft.com/net/download/windows/build) 
-- Du kan också installera [Visual Studio för Windows](https://www.visualstudio.com/) 
+- Installera [.NET Core för Windows](https://www.microsoft.com/net/download/windows) eller [.NET Framework](https://www.microsoft.com/net/download/windows) (ingår i Visual Studio för Windows)
+- Installera [Visual Studio för Windows](https://www.visualstudio.com/). Om du använder .NET Core så är det valfritt för dig att installera Visual Studio.  
+
+Information om hur du väljer mellan .NET Core och .NET Framework finns i [Välj mellan .NET Core och .NET Framework för serverappar](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-- Installera [.NET Core för Linux](https://www.microsoft.com/net/download/linux/build)
+- Installera [.NET Core för Linux](https://www.microsoft.com/net/download/linux)
 - Om du vill kan du installera [Visual Studio Code](https://www.visualstudio.com/) och [C#-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-- Installera [.NET Core för macOS](https://www.microsoft.com/net/download/macos/build).
+- Installera [.NET Core för macOS](https://www.microsoft.com/net/download/macos).
 - Du kan också installera [Visual Studio för Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ---
@@ -58,7 +60,22 @@ Det här kommandot klonar lagret till den lokala git-mappen. Öppna Visual Studi
 
 ## <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
 
-För att kunna köra programmet måste du ange anslutningssträngen för ditt lagringskonto. Du kan lagra den här anslutningssträngen inom en miljövariabel på den lokala dator där programmet körs. Skapa miljövariabeln med ett av följande kommandon, beroende på vilket operativsystem du använder. Ersätt `<yourconnectionstring>` med den faktiska anslutningssträngen.
+För att kunna köra programmet måste du ange anslutningssträngen för ditt lagringskonto. Kopiera anslutningssträngen från Azure Portal och skriv den till en ny miljövariabel. I exemplet läses anslutningssträngen från miljövariabeln som använder den för att autentisera dina förfrågningar till Azure Storage.
+
+### <a name="copy-your-connection-string-from-the-azure-portal"></a>Kopiera anslutningssträngen från Azure Portal
+
+Kopiera anslutningssträngen:
+
+1. Navigera till [Azure-portalen](https://portal.azure.com).
+2. Leta rätt på ditt lagringskonto.
+3. Välj **Åtkomstnycklar** i avsnittet **Inställningar** i lagringskontoöversikten.
+4. Sök efter värdet för **Anslutningssträng** under **key1** och kopiera anslutningssträngen genom att klicka på **Kopiera**.  
+
+    ![Skärmbild som visar hur man kopierar en anslutningssträng från Azure Portal](media/storage-quickstart-blobs-dotnet/portal-connection-string.png)
+
+## <a name="write-your-connection-string-to-an-environment-variable"></a>Skriv anslutningssträngen till en miljövariabel
+
+Skriv sedan den nya miljövariabeln på den lokala dator som kör programmet. Konfigurera miljövariabeln genom att öppna ett konsolfönster och följa anvisningarna för ditt operativsystem. Ersätt `<yourconnectionstring>` med den faktiska anslutningssträngen:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -66,21 +83,25 @@ För att kunna köra programmet måste du ange anslutningssträngen för ditt la
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
+När du har lagt till miljövariabeln kan du behöva starta om alla program som körs och som behöver läsa in miljövariabeln, däribland konsolfönstret. Om du t.ex. använder Visual Studio som redigeringsprogram, så starta om Visual Studio innan du kör exemplet. 
+
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```bash
 export storageconnectionstring=<yourconnectionstring>
 ```
 
+När du har lagt till miljövariabeln så kör `source ~/.bashrc` från konsolfönstret så att ändringarna träder i kraft.
+
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
 Redigera din .bash_profile och lägg till miljövariabeln:
 
-```
-export STORAGE_CONNECTION_STRING=
+```bash
+export STORAGE_CONNECTION_STRING=<yourconnectionstring>
 ```
 
-När du har lagt till miljövariabeln loggar du ut och loggar sedan igen för att ändringarna ska träda i kraft. Du kan också skriva ”source .bash_profile” från terminalen.
+När du har lagt till miljövariabeln så kör `source .bash_profile` från konsolfönstret så att ändringarna träder i kraft.
 
 ---
 
@@ -88,23 +109,50 @@ När du har lagt till miljövariabeln loggar du ut och loggar sedan igen för at
 
 Det här exemplet skapar en testfil i din lokala **Mina dokument**-mapp och laddar upp den till BLOB-lagring. Exemplet listar sedan de blobar som finns i behållaren och laddar ned filen med ett nytt namn så att du kan jämföra de gamla och nya filerna. 
 
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+Om du använder Visual Studio som redigeringsprogram kan du köra genom att trycka på **F5**. 
+
+I annat fall går du till programkatalogen och kör programmet med kommandot `dotnet run`.
+
+```
+dotnet run
+```
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
 Gå till programkatalogen och kör programmet med kommandot `dotnet run`.
 
 ```
 dotnet run
 ```
 
-De utdata som visas påminner om följande exempel:
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+Gå till programkatalogen och kör programmet med kommandot `dotnet run`.
 
 ```
-Azure Blob storage quick start sample
-Temp file = /home/admin/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt
-Uploading to Blob storage as blob 'QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt'
-List blobs in container.
-https://mystorageaccount.blob.core.windows.net/quickstartblobs/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt
-Downloading blob to /home/admin/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374_DOWNLOADED.txt
-The program has completed successfully.
-Press the 'Enter' key while in the console to delete the sample files, example container, and exit the application.
+dotnet run
+```
+
+---
+
+Exempelprogrammets utdata ser ut ungefär som i följande exempel:
+
+```
+Azure Blob storage - .NET Quickstart sample
+
+Created container 'quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f'
+
+Temp file = C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+Uploading to Blob storage as blob 'QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt'
+
+Listing blobs in container.
+https://storagesamples.blob.core.windows.net/quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f/QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+
+Downloading blob to C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db_DOWNLOADED.txt
+
+Press any key to delete the sample files and example container.
 ```
 
 När du trycker på **Retur**-tangenten tas lagringsbehållaren och filerna bort. Innan du tar bort dem bör du kontrollera att de två filerna finns i mappen **Mina dokument**. Du kan öppna dem och se att de är identiska. Kopiera blobens URL från konsolfönstret och klistra in den i en webbläsare om du vill se innehållet i bloben.
@@ -123,8 +171,8 @@ Det första som exemplet gör är att kontrollera att miljövariabeln innehålle
 // Retrieve the connection string for use with the application. The storage connection string is stored
 // in an environment variable on the machine running the application called storageconnectionstring.
 // If the environment variable is created after the application is launched in a console or with Visual
-// Studio, the shell needs to be closed and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring", EnvironmentVariableTarget.User);
+// Studio, the shell or application needs to be closed and reloaded to take the environment variable into account.
+string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
 
 // Check whether the connection string can be parsed.
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))

@@ -1,10 +1,14 @@
-Om du inte ska fortsätta att använda den här appen, tar du bort alla resurser som skapats av denna Snabbstart med följande steg så att du inte inga avgifter:
+Om du inte planerar att fortsätta använda den här appen tar du bort alla resurser som skapades i snabbstarten med följande steg, så att inga kostnader uppstår:
 
-1. Välj i Azure-portalen **resursgrupper** längst till vänster.  
+1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
 
-   ![Mått i Azure-portalen](./media/cosmos-db-delete-resource-group/delete-resources.png)
+    Om den vänstra menyn döljs klickar du på ![Knappen Expandera](./media/cosmos-db-delete-resource-group/expand.png) för att expandera den.
 
-2. Välj i listan över resursgrupper resursgruppen du skapade och klicka sedan på **ta bort resursgruppen**.
+   ![Mått i Azure Portal](./media/cosmos-db-delete-resource-group/delete-resources-select.png)
 
-3. Skriv namnet på resursgruppen att ta bort och klicka sedan på **ta bort**.
+2. Markera resursgruppen i det nya fönstret och klicka sedan på **Ta bort resursgrupp**.
+
+   ![Mått i Azure Portal](./media/cosmos-db-delete-resource-group/delete-resources.png)   
+
+3. I det nya fönstret, skriv namnet på resursgruppen som ska tas bort och klicka sedan på **Ta bort**.
 

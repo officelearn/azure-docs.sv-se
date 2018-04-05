@@ -1,6 +1,6 @@
 ---
-title: "Självstudie för Azure Container Service – Distribuera ett kluster"
-description: "Självstudie för Azure Container Service – Distribuera ett kluster"
+title: Självstudie för Azure Container Service – Distribuera ett kluster
+description: Självstudie för Azure Container Service – Distribuera ett kluster
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ef789bc017e670566d25dd9d167698515e88349
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb7bdbaf095cefa72d1de302d90afeebbdb9d027
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>Distribuera ett Kubernetes-kluster i Azure Container Service
 
@@ -26,7 +26,7 @@ Kubernetes tillhandahåller en distribuerad plattform för behållarbaserade pro
 > * Installera Kubernetes CLI (kubectl)
 > * Konfigurera kubectl
 
-I efterföljande självstudier distribuerar du programmet Azure Vote till klustret, skalar ut det, uppdaterar det och konfigurerar Operations Management Suite för att övervaka Kubernetes-klustret.
+I efterföljande självstudier distribuerar du programmet Azure Vote till klustret, skalar ut det, uppdaterar det och konfigurerar Log Analytics för att övervaka Kubernetes-klustret.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

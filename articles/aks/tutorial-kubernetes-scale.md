@@ -1,6 +1,6 @@
 ---
-title: "Självstudie om Kubernetes i Azure – Skala program"
-description: "Självstudie om AKS – Skala program"
+title: Självstudie om Kubernetes i Azure – Skala program
+description: Självstudie om AKS – Skala program
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 556f4bfb204504de55c41da9615e61d5a88c75b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5e35be84df53386398deaca19d60d4a93f53e541
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="scale-application-in-azure-container-service-aks"></a>Skala ett program i Azure Container Service (AKS)
+# <a name="tutorial-scale-application-in-azure-container-service-aks"></a>Självstudier: Skala ett program i Azure Container Service (AKS)
 
 Om du har följt självstudierna så har du ett fungerande Kubernetes-kluster i AKS och du har distribuerat programmet Azure Voting.
 
@@ -26,7 +26,7 @@ I den här självstudien, som är del fem av åtta, skalar du ut poddarna i prog
 > * Skala Kubernetes-poddar manuellt
 > * Konfigurera autoskalning av poddarna som kör appens klientdel
 
-I efterföljande självstudier uppdaterar du programmet Azure Vote och konfigurerar Operations Management Suite för att övervaka Kubernetes-klustret.
+I efterföljande självstudier uppdaterar du Azure Vote-programmet, och konfigurerar Log Analytics för att övervaka Kubernetes-klustret.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

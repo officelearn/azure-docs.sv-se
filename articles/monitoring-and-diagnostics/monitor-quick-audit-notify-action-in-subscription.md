@@ -1,6 +1,6 @@
 ---
-title: "Granska och ta emot meddelanden om viktiga åtgärder i din Azure-prenumeration | Microsoft Docs"
-description: "Förstå historiken för resurshantering, tjänstehälsa och annan prenumerationsaktivitet i aktivitetsloggen och använd sedan en aktivitetsloggavisering för att få ett e-postmeddelande när en åtgärd med höga privilegier utförs i din prenumeration."
+title: Granska och ta emot meddelanden om viktiga åtgärder i din Azure-prenumeration | Microsoft Docs
+description: Förstå historiken för resurshantering, tjänstehälsa och annan prenumerationsaktivitet i aktivitetsloggen och använd sedan en aktivitetsloggavisering för att få ett e-postmeddelande när en åtgärd med höga privilegier utförs i din prenumeration.
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: b0a79f46788dc7efb588110dc50805c45c373a49
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dd04cd9c8074d49df168b32840d12901da83c834
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Granska och ta emot meddelanden om viktiga åtgärder i din Azure-prenumeration
 
@@ -74,7 +74,7 @@ Klicka på **JSON**-fliken om du vill visa all information om händelsen. Detta 
 
 5. Välj **Ny åtgärdsgrupp** under **Meddela via** och ange ett **namn** och ett **kortnamn** för åtgärdsgruppen. Åtgärdsgruppen definierar de åtgärder som vidtas när aviseringen aktiveras (när villkoren matchar en ny händelse).
 
-6. Under **Åtgärder** lägger du till en eller flera åtgärder genom att ange ett **namn** för åtgärden, **åtgärdstyp** (till exempel e-post eller SMS) och **information** för den specifika åtgärdstypen (till exempel en webhook-URL, en e-postadress eller ett SMS-nummer).
+6. Under **Åtgärder** lägger du till en eller flera åtgärder genom att ange ett **namn** för åtgärden, **åtgärdstyp** (t.ex. e-post, SMS eller webhook) och **information** för den specifika åtgärdstypen (t.ex. en webhook-URL, en e-postadress eller ett SMS-nummer).
 
     ![Skapa en nätverkssäkerhetsgrupp i portalen](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
 
@@ -83,7 +83,7 @@ Klicka på **JSON**-fliken om du vill visa all information om händelsen. Detta 
 ## <a name="test-the-activity-log-alert"></a>Testa aktivitetsloggaviseringen
 
 > [!NOTE]
-> Det tar cirka 10 minuter innan en aktivitetsloggavisering är helt aktiverad. Nya händelser som inträffar innan aktivitetsloggaviseringen är helt aktiverat genererar inte meddelanden.
+> Det tar cirka 5 minuter innan en aktivitetsloggavisering är helt aktiverad. Nya händelser som inträffar innan aktivitetsloggaviseringen är helt aktiverat genererar inte meddelanden.
 >
 >
 

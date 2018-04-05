@@ -1,6 +1,6 @@
 ---
 title: Självstudie om Kubernetes i Azure – Övervaka Kubernetes
-description: AKS-självstudie – Övervaka Kubernetes med Microsoft Operations Management Suite (OMS)
+description: Självstudiekurs för AKS – Övervaka Kubernetes med Log Analytics
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 227601858dbe07e6cb774a2d24878ddca05aaf56
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 86ae0c5ab302c49fa58df887d9dffef6cec31708
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="monitor-azure-container-service-aks"></a>Övervaka Azure Container Service (AKS)
+# <a name="tutorial-monitor-azure-container-service-aks"></a>Självstudiekurs: Övervaka Azure Container Service (AKS)
 
 Det är viktigt att du övervakar Kubernetes-behållarna och behållarna, särskilt när du kör ett produktionskluster i skala med flera program.
 
@@ -40,11 +40,11 @@ I Azure-portalen väljer du **Skapa en resurs** och söker efter `Container Moni
 
 ![Lägga till lösning](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
-Skapa en ny OMS-arbetsyta eller välj en befintlig. Formuläret OMS-arbetsyta vägleder dig genom processen.
+Skapa en ny Log Analytics-arbetsyta eller välj en befintlig. Log Analytics Workspace-formuläret vägleder dig genom processen.
 
 När du skapar arbetsytan väljer du **Fäst på instrumentpanelen** för enkel hämtning.
 
-![OMS-arbetsyta](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
+![Log Analytics Workspace](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
 
 När du är klar väljer du **OK**. När verifieringen är klar väljer du **Skapa** för att skapa lösningen för övervakning av behållaren.
 
@@ -58,7 +58,7 @@ Om du vill hämta värdena väljer du **OMS-arbetsyta** på behållarlösningens
 
 ## <a name="create-kubernetes-secret"></a>Skapa Kubernetes-hemlighet
 
-Lagra inställningarna för OMS-arbetsytan i en Kubernetes-hemlighet som du namnger `omsagent-secret` med hjälp av kommandot [kubectl create secret][kubectl-create-secret]. Uppdatera `WORKSPACE_ID` med ditt ID för OMS-arbetsytan och `WORKSPACE_KEY` med arbetsytenyckeln.
+Lagra inställningarna för Log Analytics-arbetsytan i en Kubernetes-hemlighet som du ger namnet `omsagent-secret` med kommandot [kubectl create secret][kubectl-create-secret]. Uppdatera `WORKSPACE_ID` med ditt ID för Log Analytics-arbetsytan och `WORKSPACE_KEY` med arbetsytenyckeln.
 
 ```console
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
@@ -154,7 +154,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         3            3           beta.kubernetes.io/os=linux   8m
 ```
 
-När agenterna har körts tar det flera minuter för OMS att mata in och bearbeta data.
+När agenterna har körts tar det flera minuter för Log Analytics att mata in och bearbeta data.
 
 ## <a name="access-monitoring-data"></a>Åtkomst till övervakningsdata
 
@@ -166,7 +166,7 @@ I [Azure Log Analytics-dokumentationen][log-analytics-docs] finns det detaljerad
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du övervakat ditt Kubernetes-kluster med OMS. Här är några av uppgifterna:
+I den här självstudien har du övervakat ditt Kubernetes-kluster med Log Analytics. Här är några av uppgifterna:
 
 > [!div class="checklist"]
 > * Konfigurera behållarens övervakningslösning

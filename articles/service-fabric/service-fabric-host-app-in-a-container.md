@@ -1,24 +1,24 @@
 ---
-title: "Distribuera ett .NET-program i en behållare till Azure Service Fabric | Microsoft Docs"
-description: "Du lär dig att paketera ett .NET-program i Visual Studio i en Docker-behållare. Det nya ”behållarprogrammet” distribueras sedan till ett Service Fabric-kluster."
+title: Distribuera ett .NET-program i en behållare till Azure Service Fabric | Microsoft Docs
+description: Du lär dig att paketera ett .NET-program i Visual Studio i en Docker-behållare. Det nya ”behållarprogrammet” distribueras sedan till ett Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 11bb34939e5fa3699973051664e85f9ef2147ff7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Distribuera ett .NET-program i en Windows-behållare till Azure Service Fabric
 
@@ -49,13 +49,6 @@ Service Fabric-program körs i ett kluster, en nätverksansluten uppsättning vi
 Nu när du har ett Service Fabric-kluster som körs i Azure är du redo att skapa och distribuera ett program i behållare. När vi ska börja köra programmet i en behållare måste vi lägga till **Docker-stöd** till projektet i Visual Studio. När du lägger till **Docker-stöd** till programmet händer två saker. Först läggs en _Docker-fil_ till i projektet. Filen beskriver hur behållaravbildningen ska skapas. Sedan läggs ett nytt _docker compose_-projekt till i lösningen. Det nya projektet innehåller några docker compose-filer. Docker compose-filer kan användas för att beskriva hur behållaren ska köras.
 
 Mer information om hur du arbetar med [Visual Studio Container Tools][link-visualstudio-container-tools].
-
->[!NOTE]
->Om det är första gången du kör Windows-behållaravbildningar på datorn måste Docker CE hämta grundavbildningarna för dina behållare. Avbildningarna som används i den här kursen är 14 GB. Gå vidare och kör följande terminalkommando för att hämta grundavbildningarna:
->```cmd
->docker pull microsoft/mssql-server-windows-developer
->docker pull microsoft/aspnet:4.6.2
->```
 
 ### <a name="add-docker-support"></a>Lägga till Docker-stöd
 
@@ -205,7 +198,7 @@ Tryck på **OK**.
    >Det tar ca 15 minuter att skapa behållaravbildningarna.
    >Den första distributionen till Service Fabric-klustret gör att de grundläggande behållaravbildningarna för Windows Server Core laddas ned. Nedladdningen tar ytterligare 5–10 minuter att slutföra.
 
-Gå till programmet Fabrikam Call Center med hjälp av klustrets URL-adress – till exempel *http://mycluster.westeurope.cloudapp.azure.com*
+Gå till programmet Fabrikam Call Center med hjälp av klustrets URL-adress, t.ex. *http://mycluster.westeurope.cloudapp.azure.com*
 
 Nu när du har Fabrikam Call Center-lösningen i en behållare och har distribuerat den kan du öppna [Azure-portalen][link-azure-portal] och se programmet som körs i Service Fabric. Om du vill testa programmet öppnar du en webbläsare och går till URL-adressen för Service Fabric-klustret.
 

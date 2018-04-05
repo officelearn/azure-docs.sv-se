@@ -1,22 +1,21 @@
 ---
-title: "Provköra en Azure AD B2C-aktiverad skrivbordsapp"
-description: "Snabbstart för att testa ett exempel på en ASP.NET-skrivbordsapp som använder Azure Active Directory B2C för användarinloggningen."
+title: Provköra en Azure AD B2C-aktiverad skrivbordsapp
+description: Snabbstart för att testa ett exempel på en ASP.NET-skrivbordsapp som använder Azure Active Directory B2C för användarinloggningen.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
-ms.author: patricka
-ms.openlocfilehash: 18c378f82255df3a999703bc319d551af4b2705c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.author: davidmu
+ms.openlocfilehash: 8726a5816623d42deb495aa062ef82f1f95b76b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-desktop-app"></a>Snabbstart: Provköra en Azure AD B2C-aktiverad skrivbordsapp
 
@@ -51,7 +50,7 @@ Klicka på **Logga in** för att starta arbetsflödet **Registrera dig eller log
 
 ![Exempelprogram](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
-Exemplet stöder flera registreringsalternativ, inklusive att använda en social identitetsprovider eller skapa ett lokalt konto med en e-postadress. För den här snabbstarten använder du ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter. 
+Exemplet stöder flera registreringsalternativ, till exempel att använda en social identitetsprovider eller att skapa ett lokalt konto med en e-postadress. För den här snabbstarten använder du ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter. 
 
 ### <a name="sign-up-using-a-social-identity-provider"></a>Registrera dig med en social identitetsprovider
 
@@ -77,7 +76,7 @@ Azure AD B2C visar en anpassad inloggningssida för ett fiktivt varumärke som k
 
 ## <a name="edit-your-profile"></a>Redigera din profil
 
-Azure Active Directory B2C tillhandahåller funktioner för att göra det möjligt för användare att uppdatera sina profiler.  Exempelwebbappen använder en Azure AD B2C-princip för att redigera profiler för arbetsflödet. 
+Azure Active Directory B2C tillhandahåller funktioner som gör det möjligt för användare att uppdatera sina profiler.  Exempelwebbappen använder en Azure AD B2C-princip för att redigera profiler för arbetsflödet. 
 
 1. Klicka på **Redigera profil** för att redigera den profil som du skapade.
 
@@ -97,7 +96,7 @@ Klicka på **Anropa API** för att göra en begäran om den Azure AD B2C-skyddad
 
 Programmet innehåller Azure AD-åtkomsttoken i begäran till den skyddade web-API-resursen. Webb-API:n skickar tillbaka det visningsnamn som ingår i åtkomsttoken.
 
-Du har använt ditt Azure AD B2C-användarkonto för att utföra ett auktoriserat anrop till en Azure AD B2C-skyddad webb-API.
+Du har använt ditt Azure AD B2C-användarkonto för att utföra ett auktoriserat anrop till ett Azure AD B2C-skyddat webb-API.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

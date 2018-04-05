@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/22/2018
+ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7e3fd12b2157d28c5d61bfa8d5fb69a00557a1f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5b7af290a5e5c45d3f64ccb50586db0811dd592
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Skapa en datafabrik och pipeline med .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -102,12 +102,12 @@ I den här artikeln används Visual Studio 2017. Du kan också använda Visual S
 Ladda ned och installera [Azure .NET SDK](http://azure.microsoft.com/downloads/) på datorn.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Skapa ett program i Azure Active Directory
-Följ instruktionerna i [den här artikeln](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) för att utföra följande uppgifter: 
+Utför följande uppgifter genom att följa anvisningarna i avsnitten i [den här artikeln](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application): 
 
 1. **Skapa ett program i Azure Active Directory**. Skapa ett program i Azure Active Directory som representerar .NET-programmet du skapar i den här självstudien. För inloggnings-URL kan du ange en låtsas-URL enligt artikeln (`https://contoso.org/exampleapp`).
-2. Hämta **program-ID:t** och **autentiseringsnyckeln**** med hjälp av instruktionerna i avsnittet om att **hämta program-ID och autentiseringsnyckel** i artikeln. Anteckna värdena som du kommer att använda senare i den här självstudien. 
-3. Hämta **klient-ID:t** med hjälp av instruktionerna i avsnittet om att **hämta klient-ID** i artikeln. Anteckna det här värdet. 
-4. Tilldela programmet till rollen **Deltagare** på prenumerationsnivå så programmet kan skapa datafabriker i prenumerationen. Följ instruktionerna i avsnittet om att **tilldela program till roll** i artikeln. 
+2. Hämta **program-ID:t** och **autentiseringsnyckeln**, och skriv ned dessa värden, vilka du kommer att använda senare i den här kursen. 
+3. Hämta **klientorganisations-ID:t** och skriv ned det här värdet, vilket du kommer att använda senare i den här kursen.
+4. Tilldela programmet till rollen **Deltagare** på prenumerationsnivå så programmet kan skapa datafabriker i prenumerationen.
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 

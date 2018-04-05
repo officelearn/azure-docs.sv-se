@@ -1,6 +1,6 @@
 ---
-title: "Azure-snabbstart – Ladda upp, ladda ned och lista blobar i Azure Storage med Go | Microsoft Docs"
-description: "I den här snabbstarten skapar du ett lagringskonto och en behållare. Sedan använder du lagringsklientbiblioteket för Go och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare."
+title: Azure-snabbstart – Ladda upp, ladda ned och lista blobar i Azure Storage med Go | Microsoft Docs
+description: I den här snabbstarten skapar du ett lagringskonto och en behållare. Sedan använder du lagringsklientbiblioteket för Go och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
 services: storage
 author: seguler
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: a30d012ea663b04028a4b0ebb2880532a596500b
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5572eaafa49200be0b2a8156dbc96bffd48be925
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Go
 
@@ -211,6 +211,13 @@ containerURL.Delete(ctx, azblob.ContainerAccessConditions{})
 file.Close()
 os.Remove(fileName)
 ```
+
+## <a name="resources-for-developing-go-applications-with-blobs"></a>Resurser för att utveckla Go-program med blobar
+
+Följande extra resurser för Go-utveckling med Blob Storage finns:
+
+- Visa och installera [Go-klientbibliotekets källkod](https://github.com/Azure/azure-storage-blob-go) för Azure Storage på GitHub.
+- Utforska [Bloblagringsexempel](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob#pkg-examples) som skrivits med Go-klientbiblioteket.
 
 ## <a name="next-steps"></a>Nästa steg
  

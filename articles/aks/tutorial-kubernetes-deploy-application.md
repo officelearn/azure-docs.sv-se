@@ -1,6 +1,6 @@
 ---
-title: "Självstudie om Kubernetes i Azure – Distribuera program"
-description: "Självstudie om AKS – Distribuera program"
+title: Självstudie om Kubernetes i Azure – Distribuera program
+description: Självstudie om AKS – Distribuera program
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 095bfe328f3e3ed220de71b3410e34b9be86cff1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9fad9627be453fb00508d1f6ec9594bd2bde6fad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="run-applications-in-azure-container-service-aks"></a>Köra program i Azure Container Service (AKS)
+# <a name="tutorial-run-applications-in-azure-container-service-aks"></a>Självstudier: Köra program i Azure Container Service (AKS)
 
 I den här självstudien, som är del fyra av åtta, distribuerar du ett exempelprogram till ett Kubernetes-kluster. Det här är några av stegen:
 
@@ -24,7 +24,7 @@ I den här självstudien, som är del fyra av åtta, distribuerar du ett exempel
 > * Köra programmet i Kubernetes
 > * Testa programmet
 
-I efterföljande självstudier skalar du ut programmet, uppdaterar det och konfigurerar Operations Management Suite för att övervaka Kubernetes-klustret.
+I efterföljande självstudier skalar du ut programmet, uppdaterar det och konfigurerar Log Analytics för att övervaka Kubernetes-klustret.
 
 I den här självstudien förutsätter vi att du har grundläggande kunskaper om vanliga Kubernetes-begrepp. Detaljerad information om Kubernetes finns i [Kubernetes-dokumentationen][kubernetes-documentation].
 

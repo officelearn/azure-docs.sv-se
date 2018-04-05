@@ -1,8 +1,8 @@
 ---
-title: "Använda Azure AD Connect Health med synkronisering | Microsoft Docs"
-description: "Den här sidan om Azure AD Connect Health innehåller information om hur du övervakar Azure AD Connect-synkronisering."
+title: Använda Azure AD Connect Health med synkronisering | Microsoft Docs
+description: Den här sidan om Azure AD Connect Health innehåller information om hur du övervakar Azure AD Connect-synkronisering.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 821d4bd7e6b526ad826caf005456edf8235291b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cff8be88e23d57545a9926df366289c6ba264886
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Övervaka Azure AD Connect-synkronisering med Azure AD Connect Health
 Följande dokumentation är specifik för övervakning av Azure AD Connect (Sync) med Azure AD Connect Health.  Information om övervakning av AD FS med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD FS](active-directory-aadconnect-health-adfs.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md).
@@ -83,11 +83,12 @@ Rapporten kategoriserar befintliga synkroniseringsfel i följande kategorier:
 | Duplicerat attribut |Fel när Azure AD Connect försöker skapa eller uppdatera objekt med dubblerade värden av ett eller flera attribut i Azure AD som måste vara unika i en klient, till exempel proxyAddresses, UserPrincipalName. |
 | Felmatchning av data |Fel när en ungefärlig matchning inte matchar objekt som kan leda till problem med synkronisering. |
 | Verifieringsfel för data |Fel på grund av ogiltiga data, till exempel tecken som inte stöds i viktiga attribut såsom UserPrincipalName, formatfel som inte kan valideras innan de skrivs i Azure AD. |
+| Ändring av federerad domän | Fel när konton använder en annan federerad domän. |
 | Stora attribut |Fel när ett eller flera attribut är större än den tillåtna storleken, längden eller antalet. |
 | Annat |Alla andra fel som inte passar in i ovanstående kategorier. Baserat på feedback, kommer den här kategorin att delas upp i underkategorier. |
 
 ![ Rapportsammanfattning för synkroniseringsfel](./media/active-directory-aadconnect-health-sync/errorreport01.png)
-![Rapportkategorier för synkroniseringsfel](./media/active-directory-aadconnect-health-sync/errorreport02.png)
+![Rapportkategorier för synkroniseringsfel](./media/active-directory-aadconnect-health-sync/SyncErrorByTypes.PNG)
 
 ### <a name="list-of-objects-with-error-per-category"></a>Lista över objekt med fel per kategori
 Att gå djupare in i varje kategori kommer att ge listan över objekt som har fel i kategorin.

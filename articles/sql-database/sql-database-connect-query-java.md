@@ -10,15 +10,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/11/2017
 ms.author: andrela
-ms.openlocfilehash: 85a42230bb8b13810909f81c1f34a484ca532fac
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 56c551a0394e9f50a921cdd1404ef111656dfd47
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Fråga Azure SQL Database med Java
 
-Den här snabbstarten visar hur du använder [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) för att ansluta till en Azure SQL-databas och sedan använder Transact-SQL-uttryck för att köra frågor mot data.
+Den här snabbsjälvstudiekursen visar hur du ansluter till en Azure SQL-databas med [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) och sedan kör frågor mot data med Transact-SQL-uttryck.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

@@ -1,11 +1,10 @@
 ---
-title: "Jämför version 1 och 2 av Azure Data Factory | Microsoft Docs"
-description: "Den här artikeln jämför Azure Data Factory V1 och Azure Data Factory V2."
+title: Jämför version 1 och 2 av Azure Data Factory | Microsoft Docs
+description: Den här artikeln jämför Azure Data Factory V1 och Azure Data Factory V2.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: kromerm
-manager: jhubbard
-editor: spelluru
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9aed1e903b5af3e5bcf53987ba80c1dcdb06f202
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Jämför V1 och V2 av Azure Data Factory
 Den här artikeln jämför V2 med V1 för Azure Data Factory. En introduktion till V1 finns i [Introduktion till Azure Data Factory](v1/data-factory-introduction.md). En introduktion till V2 finns i [Introduktion till Data Factory (V2 – förhandsgranskning)](introduction.md).
@@ -112,7 +111,7 @@ I V1 implementerar du en (anpassad) DotNet-aktivitetskod genom att skapa ett pro
 
 I en anpassad V2-aktivitet behöver du implementera ett .NET-gränssnitt. Du kan köra kommandon, skript och din egen anpassade kod direkt, kompilerad som en körbar fil. 
 
-Mer information finns i [Difference between custom activity in V1 and V2](transform-data-using-dotnet-custom-activity.md#difference-between-custom-activity-in-azure-data-factory-v2-and-custom-dotnet-activity-in-azure-data-factory-v1) (Skillnaden mellan anpassade aktiviteter i V1 och V2).
+Mer information finns i [Difference between custom activity in V1 and V2](transform-data-using-dotnet-custom-activity.md#compare-v2-v1) (Skillnaden mellan anpassade aktiviteter i V1 och V2).
 
 ## <a name="sdks"></a>SDK:er
  Data Factory V2 tillhandahåller en mer omfattande uppsättning SDK:er som kan användas för att skapa, hantera och övervaka pipeliner.
@@ -138,6 +137,13 @@ SDK:erna som har uppdaterats för V2 är inte bakåtkompatibla med V1-klienter.
 | Python SDK | [Ja](quickstart-create-data-factory-python.md) | Nej |
 | Resource Manager-mall | [Ja](quickstart-create-data-factory-resource-manager-template.md) | [Ja](data-factory-build-your-first-pipeline-using-arm.md) | 
 
+## <a name="roles-and-permissions"></a>Roller och behörigheter
+
+Skapa och hantera underordnade resurser för en v2 Data Factory:
+
+-   Version 1 av Data Factory-deltagarrollen kan inte användas för att skapa och hantera v2-resurser.
+-   ARM-standarddeltagarrollen, som skapats med Data Factory-resursen, är tillräcklig för att skapa och hantera underordnade resurser för en v2 Data Factory som distribueras med PowerShell eller SDK:erna. Det räcker inte med att skapa och hantera underordnade resurser för en v2 Data Factory som distribuerats från Azure Portal eller med ARM-mallsdistribution.
+-   Du måste vara medlem i rollen Automation-jobboperator på resursgruppsnivå eller prenumerationsnivå för att kunna skapa och hantera underordnade resurser för en v2 Data Factory som distribuerats från Azure Portal eller med ARM-mallsdistribution. Din organisation kan också skapa en anpassad roll som innehåller Microsoft.Resources/deployments/* i listan Åtgärder, så som beskrivs i [Skapa anpassade roller för rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-control-custom-roles.md).
 
 ## <a name="monitoring-experience"></a>Övervakningsupplevelse
 I V2 kan du även övervaka datafabriker genom att använda [Azure Monitor](monitor-using-azure-monitor.md). De nya PowerShell-cmdletarna har stöd för övervakning av [Integration Runtimes](monitor-integration-runtime.md). Både V1 och V2 har stöd för visuell övervakning via ett övervakningsprogram som kan startas från Azure Portal.

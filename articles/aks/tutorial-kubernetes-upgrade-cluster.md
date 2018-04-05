@@ -1,6 +1,6 @@
 ---
-title: "Självstudie om Kubernetes i Azure – Uppdatera kluster"
-description: "Självstudie om Kubernetes i Azure – Uppdatera kluster"
+title: Självstudie om Kubernetes i Azure – Uppdatera kluster
+description: Självstudie om Kubernetes i Azure – Uppdatera kluster
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 16c8892743ac25c21b7004e10796c77c3ac9f900
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 9c63bf2204f1e18cda6bfc80d54b01240193833f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>Uppgradera Kubernetes i Azure Container Service (AKS)
+# <a name="tutorial-upgrade-kubernetes-in-azure-container-service-aks"></a>Självstudier: Uppgradera Kubernetes i Azure Container Service (AKS)
 
 Ett kluster med Azure Container Service (AKS) kan uppgraderas med hjälp av Azure CLI. Under uppgraderingen blir Kubernetes-noderna noggrant [avspärrade och tömda][kubernetes-drain] för att minimera störningar i program som körs.
 

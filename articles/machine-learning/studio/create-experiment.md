@@ -1,11 +1,12 @@
 ---
 title: Ett enkelt experiment i Machine Learning Studio | Microsoft Docs
-description: "Den här självstudien om Machine Learning vägleder dig genom ett enkelt dataexperiment. Vi kommer förutsäga priset för en bil med hjälp av en regressionsalgoritm."
-keywords: "experiment, linjär regression,machine learning algoritmer, machine learning självstudier, teknik för förutsägbar modellering, dataexperiment"
+description: Den här självstudien om Machine Learning vägleder dig genom ett enkelt dataexperiment. Vi kommer förutsäga priset för en bil med hjälp av en regressionsalgoritm.
+keywords: experiment, linjär regression,machine learning algoritmer, machine learning självstudier, teknik för förutsägbar modellering, dataexperiment
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
-ms.author: garye
-ms.openlocfilehash: 3cc4278ca7d4603f4bfb916885d44e6a85864b25
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 57461cf94898012619b865c455955f511e978995
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Självstudie om Machine Learning: Skapa ditt första dataexperiment i Azure Machine Learning Studio
 
@@ -55,7 +55,7 @@ Du kan iterera din modelldesign, redigera experimentet och köra det tills du f�
 
 ## <a name="open-machine-learning-studio"></a>Öppna Machine Learning Studio
 
-För att komma igång med Studio går du till [https://studio.azureml.net](https://studio.azureml.net). Om du har loggat in på Machine Learning Studio förut klickar du på **Logga in**. Annars klickar du på **Registrera dig här** och väljer mellan den kostnadsfria versionen och betalversionen.
+Om du vill komma igång med Studio, så gå till [https://studio.azureml.net](https://studio.azureml.net). Om du har loggat in på Machine Learning Studio förut klickar du på **Logga in**. Annars klickar du på **Registrera dig här** och väljer mellan den kostnadsfria versionen och betalversionen.
 
 ![Logga in på Machine Learning Studio][sign-in-to-studio]
 <br/>

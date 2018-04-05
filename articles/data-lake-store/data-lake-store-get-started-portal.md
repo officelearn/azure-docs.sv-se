@@ -1,8 +1,8 @@
 ---
-title: "Använda Azure-portalen för att komma igång med Data Lake Store | Microsoft Docs"
-description: "Använd Azure-portalen för att skapa ett Data Lake Store-konto och utför grundläggande åtgärder i Data Lake Store"
+title: Använda Azure-portalen för att komma igång med Data Lake Store | Microsoft Docs
+description: Använd Azure-portalen för att skapa ett Data Lake Store-konto och utför grundläggande åtgärder i Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: c5b0f5250a08915e987a1eb5229f2c4648e660fd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 91ed55e5f12c10e67653bdadfca80bd072779711
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Kom igång med Azure Data Lake Store med Azure Portal
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Innan du börjar den här självstudiekursen behöver du följande:
 ## <a name="create-an-azure-data-lake-store-account"></a>Skapa ett Azure Data Lake Store-konto
 
 1. Logga in på nya [Azure Portal](https://portal.azure.com).
-2. Klicka på **Skapa en resurs**, klicka på **Data + lagring** och klicka sedan på **Azure Data Lake Store**. Läs informationen på bladet **Azure Data Lake Store** och klicka sedan på **Skapa** i nedre vänstra hörnet på bladet.
+2. Klicka på **Skapa en resurs > Storage > Data Lake Store**.
 3. På bladet **Ny Data Lake Store**, anger du de värden som visas på följande skärmbild:
    
     ![Skapa ett nytt Azure Data Lake Store-konto](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Skapa ett nytt Azure Data Lake-konto")
@@ -50,7 +50,7 @@ Innan du börjar den här självstudiekursen behöver du följande:
    * **Krypteringsinställningar**. Det finns tre alternativ:
      
      * **Aktivera inte kryptering**.
-     * **Använd nycklar som hanteras av Azure Data Lake**.  om du vill att dina krypteringsnycklar ska hanteras av Azure Data Lake Store.
+     * **Använd nycklar som hanteras av Data Lake Store**.  om du vill att dina krypteringsnycklar ska hanteras av Azure Data Lake Store.
      * **Välj nycklar från ditt eget nyckelvalv**. Du kan välja ett befintligt Azure Key Vault eller skapa ett nytt nyckelvalv. Om du vill använda nycklarna från ett nyckelvalv måste du tilldela behörigheter för Azure Data Lake Store-konto för åtkomst till Azure Key Vault. Anvisningar finns i [Tilldela behörigheter till Azure Key Vault](#assign-permissions-to-azure-key-vault).
        
         ![Data Lake Store-kryptering](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Store-kryptering")
@@ -61,7 +61,7 @@ Innan du börjar den här självstudiekursen behöver du följande:
 
 4. Klicka på **Skapa**. Om du väljer att fästa kontot på startsidan, tas du tillbaka till startsidan där du kan se förloppet för Data Lake Store-kontoetableringen. När Data Lake Store-kontot har etablerats visas kontobladet.
 
-### <a name="assign-permissions-to-azure-key-vault"></a>Tilldela behörigheter till Azure Key Vault
+## <a name="assign-permissions-to-azure-key-vault"></a>Tilldela behörigheter till Azure Key Vault
 Om du använder nycklar från ett Azure Key Vault för att konfigurera kryptering för ett Data Lake Store-konto, måste du konfigurera åtkomst mellan Data Lake Store-kontot och Azure Key Vault-kontot. Utför följande steg för att göra det.
 
 1. Om du använder nycklar från Azure Key Vault visar bladet för Data Lake Store-kontot en varning överst på sidan. Klicka på varningen för att öppna **kryptering**.
@@ -87,7 +87,7 @@ Om du använder nycklar från ett Azure Key Vault för att konfigurera krypterin
 ## <a name="createfolder"></a>Skapa mappar i Azure Data Lake Store-konto
 Du kan skapa mappar under Data Lake Store-kontot för att hantera och lagra data.
 
-1. Öppna det Data Lake Store-konto som du har skapat. I den vänstra rutan klickar du på **Bläddra**, klicka på **Data Lake Store** och från Data Lake Store-bladet klicka på kontonamnet där du vill skapa mappar. Om du fäst kontot på startsidan klickar du på kontoikonen.
+1. Öppna det Data Lake Store-konto som du har skapat. Klicka på **Alla resurser** i den vänstra rutan, och klicka sedan på det kontonamn under vilket du vill skapa mappar. Om du fäst kontot på startsidan klickar du på kontoikonen.
 2. I ditt Data Lake Store-kontoblad klickar du på **Data Explorer**.
    
     ![Skapa mappar i Data Lake Store-konto](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Skapa mappar i Data Lake Store-konto")

@@ -10,15 +10,15 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: e5c1a5a991284fcbeac53d2ce35be4e2634514fa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 97b14de64c4aa6bf134f2c293e4bb8b5725810d3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure Portal: Använd SQL-frågeredigeraren för att ansluta och fråga efter data
 
-SQL-frågeredigeraren är ett frågeverktyg för webbläsare och ett effektivt och enkelt sätt att köra SQL-frågor i Azure SQL Database och Azure SQL Data Warehouse utan att lämna Azure Portal. Den här snabbstarten visar hur du ansluter till en SQL-databas med frågeredigeraren och sedan använder Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.
+SQL-frågeredigeraren är ett frågeverktyg för webbläsare och ett effektivt och enkelt sätt att köra SQL-frågor i Azure SQL Database och Azure SQL Data Warehouse utan att lämna Azure Portal. Den här snabbstartsguiden visar hur du använder frågeredigeraren för att ansluta till en SQL-databas och sedan använder Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -142,19 +142,25 @@ Med följande kod tar du bort den nya produkt du tidigare lade till med Transact
 
 ## <a name="query-editor-considerations"></a>Överväganden för frågeredigeraren
 
-Det finns några saker du behöver veta när du arbetar med frågeredigeraren medan den fortfarande endast är en förhandsversion:
+Det finns några saker du behöver veta när du arbetar med frågeredigeraren:
 
 1. Kontrollera att du har ställt in alternativet ”Tillåt åtkomst till Azure-tjänster” på ”PÅ” i inställningarna för Azure SQL Server-brandväggen. Det här alternativet ger SQL-frågeredigeraren åtkomst till dina SQL-databaser och datalager.
 
-2. Administratörsinloggning i Azure Active Directory fungerar inte med konton som har tvåfaktorautentisering aktiverat.
+2. Om SQL-servern finns i ett virtuellt nätverk, kan frågeredigeraren inte användas för att fråga databaser på den servern.
 
-3. E-postkonton (till exempel outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) stöds inte ännu som Active Directory-administratörer. Se till att välja en användare som antingen skapades internt i Azure Active Directory eller externt till Azure Active Directory
+3. Genom att trycka på F5 uppdateras sidan för frågeredigeraren och frågan som arbetades på går förlorad. Använd knappen Kör i verktygsfältet för att köra frågor.
 
-4. Frågor för rumsliga datatyper stöds inte ännu i frågeredigeraren. Om du frågar rumsliga kolumner resulterar detta i ett 'System.IO.FileNotFoundException'-fel.
+4. Frågeredigeraren stöder inte anslutning till huvud-DB
 
-5. Det finns inte stöd för IntelliSense för databastabeller och vyer. Men redigeraren har stöd för automatisk komplettering av namn som redan har skrivits.
+5. Det finns en 5 minuters timeout för frågekörning.
 
-6. Genom att trycka på F5 uppdateras sidan för frågeredigeraren och frågan som arbetades på går förlorad. Använd knappen Kör i verktygsfältet för att köra frågor.
+6. Administratörsinloggning i Azure Active Directory fungerar inte med konton som har tvåfaktorautentisering aktiverat.
+
+7. E-postkonton (till exempel outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) stöds inte ännu som Active Directory-administratörer. Se till att välja en användare som antingen skapades internt i Azure Active Directory eller externt till Azure Active Directory
+
+8. Frågeredigeraren stöder endast cylindriska projektioner för geografidatatyper.
+
+9. Det finns inte stöd för IntelliSense för databastabeller och vyer. Men redigeraren har stöd för automatisk komplettering av namn som redan har skrivits.
 
 
 ## <a name="next-steps"></a>Nästa steg

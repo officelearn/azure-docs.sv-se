@@ -1,26 +1,26 @@
 ---
 title: Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen | Microsoft Docs
-description: "Självstudie – Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen"
+description: Självstudie – Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/09/2018
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4cf406dfbab40631c99da70085e99ba90f563411
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9bc5154486bf09072bdf3da6bbeb05407a140354
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen
 
@@ -48,7 +48,7 @@ En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras o
 New-AzureRmResourceGroup -ResourceGroupName "myResourceGroupVM" -Location "EastUS"
 ```
 
-Resursgruppen som anges när du skapar eller ändrar en VM visas i hela den här självstudien.
+Resursgruppen som anges när du skapar eller ändrar en virtuell dator visas i hela den här självstudien.
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
@@ -74,7 +74,7 @@ New-AzureRmVm `
     -Credential $cred
 ```
 
-## <a name="connect-to-vm"></a>Ansluta till VM
+## <a name="connect-to-vm"></a>Ansluta till virtuell dator
 
 När distributionen har slutförts kan du skapa en fjärrskrivbordsanslutning med den virtuella datorn.
 
@@ -90,9 +90,11 @@ Använd följande kommando på den lokala datorn för att skapa en fjärrskrivbo
 mstsc /v:<publicIpAddress>
 ```
 
+I fönstret **Windows-säkerhet** väljer du **fler alternativ** och sedan **använd ett annat konto**. Ange det användarnamn och lösenord som du skapade för den virtuella datorn och klicka sedan på **OK**.
+
 ## <a name="understand-vm-images"></a>Förstå VM-avbildningar
 
-På Azures marknadsplats finns många avbildningar av virtuella datorer som kan användas för att skapa en ny virtuell dator. I de föregående stegen skapades en virtuell dator med avbildningen Windows Server 2016-Datacenter. I det här steget används PowerShell-modulen för att söka på marknadsplatsen efter andra Windows-avbildningar som också kan användas som bas för nya virtuella datorer. Processen innebär att man söker efter utgivare, erbjudande och avbildningsnamn (Sku). 
+På Azures marknadsplats finns många avbildningar av virtuella datorer som kan användas för att skapa en ny virtuell dator. I de föregående stegen skapades en virtuell dator med avbildningen Windows Server 2016-Datacenter. I det här steget används PowerShell-modulen för att söka på marknadsplatsen efter andra Windows-avbildningar som också kan användas som bas för nya virtuella datorer. Den här processen består av att hitta utgivare, erbjudande, SKU och eventuellt ett versionsnummer för att [identifiera](cli-ps-findimage.md#terminology) avbildningen. 
 
 Använd kommandot [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) till att returnera en lista med avbildningsutgivare:
 
@@ -139,7 +141,7 @@ Skus                                      Offer         PublisherName          L
 2016-Nano-Server                          WindowsServer MicrosoftWindowsServer EastUS
 ```
 
-Den här informationen kan användas till att distribuera en virtuell dator med en viss avbildning. Det här exemplet distribuerar en virtuell dator med hjälp av en Windows Server 2016 med behållaravbildningen.
+Den här informationen kan användas till att distribuera en virtuell dator med en viss avbildning. Det här exemplet distribuerar en virtuell dator med hjälp av den senaste versionen av en avbildning av Windows Server 2016 med behållare.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -155,7 +157,7 @@ New-AzureRmVm `
     -AsJob
 ```
 
-Parametern `-AsJob` skapar den virtuella datorn som en bakgrundsaktivitet så att du återfår fokus i PowerShell-kommandotolkarna. Du kan visa information om bakgrundsjobb med cmdleten `Job`.
+Parametern `-AsJob` skapar den virtuella datorn som en bakgrundsaktivitet så att PowerShell-kommandotolkarna återgår till dig. Du kan visa information om bakgrundsjobb med cmdleten `Job`.
 
 
 ## <a name="understand-vm-sizes"></a>Förstå VM-storlekar
@@ -167,12 +169,12 @@ Storleken på den virtuella datorn avgör hur mycket av beräkningsresurser som 
 I följande tabell kategoriseras storlekarna i användningsfall.  
 | Typ                     | Normala storlekar           |    Beskrivning       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Generellt syfte](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Balanserat förhållande mellan processor och minne. Idealiskt för Dev/Test samt små till medelstora lösningar för program och data.  |
-| [Beräkningsoptimerad](sizes-compute.md)   | FS, F             | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
+| [Generellt syfte](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Balanserat förhållande mellan processor och minne. Perfekt för utveckling eller test samt små till medelstora lösningar för program och data.  |
+| [Beräkningsoptimerad](sizes-compute.md)   | Fs, F             | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
 | [Minnesoptimerad](sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Högt förhållande mellan minne och kärna. Utmärkt för relationsdatabaser, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
 | [Lagringsoptimerad](sizes-storage.md)      | Ls                | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
 | [GPU](sizes-gpu.md)          | NV, NC            | Virtuella specialdatorer som är avsedda för tung grafisk rendering och videoredigering.       |
-| [Hög kapacitet](sizes-hpc.md) | H, A8-11          | Våra virtuella datorer med de mest kraftfulla processorerna med nätverksgränssnitt för stora dataflöden (RDMA). 
+| [Höga prestanda](sizes-hpc.md) | H, A8-11          | Virtuella datorer med de kraftfullaste processorerna och nätverksgränssnitt för stora dataflöden (RDMA). 
 
 
 ### <a name="find-available-vm-sizes"></a>Hitta tillgängliga VM-storlekar
@@ -213,19 +215,19 @@ Start-AzureRmVM -ResourceGroupName "myResourceGroupVM"  -Name $vm.name
 
 ## <a name="vm-power-states"></a>Energisparlägen för VM
 
-En virtuell Azure-dator kan ha en av många energisparlägen. Det här tillståndet motsvarar aktuellt tillstånd för den virtuella datorn i hypervisor-programmet. 
+En virtuell Azure-dator kan ha en av många energinivåer. Det här tillståndet motsvarar aktuellt tillstånd för den virtuella datorn i hypervisor-programmet. 
 
-### <a name="power-states"></a>Energisparlägen
+### <a name="power-states"></a>Energinivåer
 
-| Energisparläge | Beskrivning
+| Energinivå | Beskrivning
 |----|----|
-| Startar | Anger den virtuella datorn startas. |
+| Startar | Anger att den virtuella datorn startas. |
 | Körs | Anger att den virtuella datorn körs. |
 | Stoppas | Anger att den virtuella datorn stoppas. | 
 | Stoppad | Anger att den virtuella datorn har stoppats. Observera att virtuella datorer i ett stoppat tillstånd fortfarande kan medföra beräkningsavgifter.  |
 | Frigör | Anger att den virtuella datorn frigörs. |
 | Frigjord | Anger att den virtuella datorn är helt frånkopplad från hypervisor-programmet, men att den fortfarande är tillgänglig i kontrollplanen. Virtuella datorer med tillståndet Frigjord medför inte några beräkningsavgifter. |
-| - | Anger att energisparläget för den virtuella datorn är okänt. |
+| - | Anger att energinivån för den virtuella datorn är okänd. |
 
 ### <a name="find-power-state"></a>Hitta energisparläge
 
@@ -285,7 +287,7 @@ I den här självstudien har du lärt dig om grundläggande VM-skapande och hant
 > * Ändra storlek på en virtuell dator
 > * Visa och förstå tillstånd för virtuella datorer
 
-Gå vidare till nästa självstudie om du vill lära dig mer om virtuella datordiskar.  
+Gå vidare till nästa självstudie om du vill lära dig mer om diskar i virtuella dator.  
 
 > [!div class="nextstepaction"]
-> [Skapa och hantera virtuella datordiskar](./tutorial-manage-data-disk.md)
+> [Skapa och hantera diskar i virtuella datorer](./tutorial-manage-data-disk.md)

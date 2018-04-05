@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: db112f7f8f486093509a86f9781c30133925c25f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7ea0ae9c0c071a08c9ff99587cd8c5dc8034fe69
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-a-container-registry-using-the-azure-portal"></a>Skapa ett behållarregister med hjälp av Azure Portal
+# <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>Snabbstart: Skapa ett behållarregister med hjälp av Azure Portal
 
 Ett Azure-behållarregister är ett privat Docker-register i Azure där du kan lagra och hantera dina privata Docker-behållaravbildningar. I den här snabbstarten skapar du ett behållarregister med Azure-portalen, push-överföra en behållaravbildning till registret och slutligen distribuera behållaren från ditt register till Azure Container Instances (ACI).
 
@@ -140,7 +140,7 @@ Om du vill rensa dina resurser går du till resursgruppen **myResourceGroup** i 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I snabbstarten skapade du ett Azure Container Registry med Azure CLI och startade en instans av den via Azure Container Instances. Fortsätt till självstudien om Azure Container Instances och få en djupare inblick i ACI.
+I snabbstarten skapade du ett Azure Container Registry med Azure CLI och startade en instans av den via Azure Container Instances. Fortsätt till självstudien om Azure Container Instances om du vill titta närmare på ACI.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances-självstudier][container-instances-tutorial-prepare-app]

@@ -1,9 +1,9 @@
 ---
-title: "Storm-startexempel som finns på Apache Storm på HDInsight - Azure | Microsoft Docs"
-description: "Lär dig hur du analyserar stordata och bearbeta data i realtid med storm starter-exempel och Apache Storm på HDInsight."
+title: Storm-startexempel som finns på Apache Storm på HDInsight - Azure | Microsoft Docs
+description: Lär dig hur du analyserar stordata och bearbeta data i realtid med storm starter-exempel och Apache Storm på HDInsight.
 keywords: storm-starter apache storm-exempel
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -16,13 +16,13 @@ ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 6abdb15917508152529990c434eb48a9983b9432
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 0490ba63e651b0ef16175dca46b85a3e48bfd26f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Kom igång med Apache Storm på HDInsight med storm starter-exempel
+# <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Kom igång med Apache Storm på HDInsight med storm starter-exempel
 
 Lär dig att använda Apache Storm på HDInsight med storm starter-exempel.
 
@@ -108,7 +108,7 @@ Använd följande steg om du vill skapa en Storm i HDInsight-klustret:
     >
     > WordCount-exemplet, och andra storm-starterexempel ingår redan i ditt kluster på `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
-Om du är intresserad av att se källan för storm-starterexempel kan du hämta koden på [https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter). Länken är till Storm 1.1.x, som medföljer HDInsight 3.6. Om du vill välja någon annan version av Storm väljer du version med knappen __Gren__ överst på sidan.
+Om du vill visa källan för storm-starter-exemplen hittar du koden i [https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter). Länken är till Storm 1.1.x, som medföljer HDInsight 3.6. Om du vill välja någon annan version av Storm väljer du version med knappen __Gren__ överst på sidan.
 
 ## <a name="monitor-the-topology"></a>Övervaka topologin
 

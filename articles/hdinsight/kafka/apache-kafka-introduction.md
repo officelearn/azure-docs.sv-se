@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4a4f2c6734de211cd20ee4b9f6815bdefefb25bc
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Introduktion till Apache Kafka på HDInsight
 
@@ -31,7 +31,7 @@ Kafka på HDInsight har följande två funktioner:
 
 * __99.9 % serviceavtal (SLA) för Kafka-drifttid__: mer information finns i dokumentet [SLA information for HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) (SLA-information för HDInsight).
 
-* __Feltolerans och rackmedvetenhet__: Kafka utformades med en endimensionell vy av ett rack, vilket fungerar bra i vissa miljöer. I miljöer som Azure är rack däremot uppdelade i två dimensioner – uppdateringsdomäner (UD) och feldomäner (FD). Microsoft tillhandahåller verktyg som balanserar om Kafka-partitioner och -repliker mellan uppdateringsdomäner och feldomäner. 
+* __Feltolerans__: Kafka utformades med en endimensionell vy av ett rack, vilket fungerar bra i vissa miljöer. I miljöer som Azure är rack däremot uppdelade i två dimensioner – uppdateringsdomäner (UD) och feldomäner (FD). Microsoft tillhandahåller verktyg som balanserar om Kafka-partitioner och -repliker mellan uppdateringsdomäner och feldomäner. 
 
     Mer information finns i [Hög tillgänglighet med Kafka i HDInsight](apache-kafka-high-availability.md).
 

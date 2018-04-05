@@ -1,6 +1,6 @@
 ---
 title: Analysera Java-webbappar med Azure Application Insights | Microsoft Docs
-description: "Övervakning av programprestanda för Java-webbappar med Application Insights. "
+description: 'Övervakning av programprestanda för Java-webbappar med Application Insights. '
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 227ca3533c7a06b726c758be931df8ec0314e90f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Komma igång med Application Insights i ett Java-webbprojekt
 
@@ -30,7 +30,7 @@ Application Insights har stöd för Java-appar som körs på Linux, Unix eller W
 
 Du behöver:
 
-* Oracle JRE 1.6 eller senare eller Zulu JRE 1.6 eller senare
+* Oracle eller Zulu JRE version 1.7 eller 1.8
 * En prenumeration på [Microsoft Azure](https://azure.microsoft.com/).
 
 *Om du har en webbapp som redan är aktiv kan du följa den alternativa proceduren [för att lägga till SDK vid körningen på webbservern](app-insights-java-live.md). Med det alternativet undviker du att behöva återskapa koden, men du kan inte skriva kod för att spåra användaraktivitet.*
@@ -169,8 +169,7 @@ Application Insights SDK:n söker efter nyckeln i följande ordning:
 Du kan också [ange den i koden](app-insights-api-custom-events-metrics.md#ikey):
 
 ```Java
-
-    telemetryClient.InstrumentationKey = "...";
+    TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
 ```
 
 ## <a name="4-add-an-http-filter"></a>4. Lägga till ett HTTP-filter

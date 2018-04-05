@@ -1,18 +1,18 @@
 ---
 title: Migrera virtuella Azure-datorer mellan Azure-regioner med Azure Site Recovery | Microsoft Docs
-description: "Använd Azure Site Recovery för att migrera virtuella IaaS-datorer i Azure från en Azure-region till en annan."
+description: Använd Azure Site Recovery för att migrera virtuella IaaS-datorer i Azure från en Azure-region till en annan.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/24/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8de067ece55e13d32af6822e114cb9dab000bdff
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
@@ -35,7 +35,15 @@ I den här självstudien förutsätts att du redan har en Azure-prenumeration. O
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här självstudien måste du ha virtuella Azure-datorer i en Azure-region som du vill migrera från. Det finns dessutom ett antal inställningar du ska kontrollera innan du börjar.
+- Kontrollera att du har virtuella Azure-datorer i den Azure-region dit du vill migrera.
+- Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](azure-to-azure-architecture.md).
+- Granska [begräsningar i stöd samt krav](azure-to-azure-support-matrix.md).
+
+
+
+## <a name="before-you-start"></a>Innan du börjar
+
+Slutför de här stegen innan du konfigurerar replikering.
 
 
 ### <a name="verify-target-resources"></a>Verifiera målresurser
@@ -114,9 +122,7 @@ Site Recovery hämtar en lista med de virtuella datorer som är kopplade till pr
 
     ![aktivera replikering](media/tutorial-migrate-azure-to-azure/settings.png)
 
->[!NOTE]
-  >
-  > För närvarande finns inga funktioner för replikering av virtuella Azure-datorer med hanterade diskar. 
+ 
 
 ## <a name="run-a-failover"></a>Köra en redundansväxling
 

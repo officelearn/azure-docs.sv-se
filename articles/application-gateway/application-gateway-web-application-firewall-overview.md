@@ -1,6 +1,6 @@
 ---
-title: "Introduktion till brandväggen för webbaserade program (WAF) för Azure Application Gateway | Microsoft Docs"
-description: "Den här sidan innehåller en översikt över brandväggen för webbaserade program (WAF) för Application Gateway"
+title: Introduktion till brandväggen för webbaserade program (WAF) för Azure Application Gateway | Microsoft Docs
+description: Den här sidan innehåller en översikt över brandväggen för webbaserade program (WAF) för Application Gateway
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: amsriva
-ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3945436a369f624ccb1d862b9623b8cfb1ed376
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="web-application-firewall-waf"></a>Brandvägg för webbaserade program (WAF)
 
@@ -44,7 +44,7 @@ Viktiga fördelar med Application Gateway och brandväggen för webbaserade prog
 
 * Övervaka om ditt webbprogram utsätts för angrepp med hjälp av en realtidslogg för brandväggen för webbaserade program. Den här loggen är integrerad med [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) så att du kan spåra varningar och loggar för brandväggen för webbaserade program och enkelt övervaka trender.
 
-* Brandväggen för webbaserade program kommer snart att integreras med Azure Security Center. I Azure Security Center finns en central vy som visar säkerhetsläget för alla dina Azure-resurser.
+* WAF integreras med Azure Security Center. I Azure Security Center finns en central vy som visar säkerhetsläget för alla dina Azure-resurser.
 
 ### <a name="customization"></a>Anpassning
 
@@ -114,7 +114,7 @@ Application Gateway WAF kan konfigureras för att köras i följande två lägen
 
 ### <a name="application-gateway-waf-reports"></a>WAF-övervakning
 
-Det är viktigt att övervaka hälsotillståndet för Application Gateway. Övervakningen av hälsotillståndet för brandväggen för webbaserade program och de program som den skyddar sker via loggning och integrering med Azure Monitor, Azure Security Center (kommer snart) och Log Analytics.
+Det är viktigt att övervaka hälsotillståndet för Application Gateway. Övervakningen av hälsotillståndet för brandväggen för webbaserade program och de program som den skyddar sker via loggning och integrering med Azure Monitor, Azure Security Center och Log Analytics.
 
 ![diagnostik](./media/application-gateway-web-application-firewall-overview/diagnostics.png)
 
@@ -124,7 +124,7 @@ Alla Application Gateway-loggar är integrerade med [Azure Monitor](../monitorin
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
-Med hjälp av [Azure Security Center](../security-center/security-center-intro.md) kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Funktionen Programgateway [ingår nu i Azure Security Center](application-gateway-integration-security-center.md). Azure Security Center söker igenom din miljö för att identifiera oskyddade webbappar. Vi rekommenderar programgatewayen WAF för att skydda de här känsliga resurserna. Du kan skapa programgatewayen WAF direkt från Azure Security Center.  De här WAF-instanserna är integrerade med Azure Security Center och skickar aviseringar och hälsoinformation tillbaka till Azure Security Center.
+Med hjälp av [Azure Security Center](../security-center/security-center-intro.md) kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Funktionen Programgateway [ingår i Azure Security Center](application-gateway-integration-security-center.md). Azure Security Center söker igenom din miljö för att identifiera oskyddade webbappar. Vi rekommenderar programgatewayen WAF för att skydda de här känsliga resurserna. Du kan skapa programgatewayen WAF direkt från Azure Security Center.  De här WAF-instanserna är integrerade med Azure Security Center och skickar aviseringar och hälsoinformation tillbaka till Azure Security Center.
 
 ![bild 1](./media/application-gateway-web-application-firewall-overview/figure1.png)
 

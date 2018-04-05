@@ -1,29 +1,27 @@
 ---
 title: Skapa en Azure Cosmos DB-dokumentdatabas med Java | Microsoft Docs | Microsoft Docs
-description: "Presenterar ett Java-kodexempel som du kan använda för att ansluta till och ställa frågor via Azure Cosmos DB SQL API:t"
+description: Presenterar ett Java-kodexempel som du kan använda för att ansluta till och ställa frågor via Azure Cosmos DB SQL API:t
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: 85f8310235e0f5b038f2b55c94fe044d1a9d9719
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 669a11368ed6ccec041701e691323a2bb2cac56a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en dokumentdatabas med Java och Azure Portal
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan använda Azure Cosmos DB för att snabbt skapa och fråga hanterade dokument-, tabell- och grafdatabaser.
 
@@ -46,7 +44,7 @@ Följande gäller också:
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
-Innan du kan börja skapa en dokumentdatabas måste du skapa ett SQL-databaskonto med Azure Cosmos DB.
+Innan du kan börja skapa en dokumentdatabas måste du skapa ett SQL-API-konto med Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -63,7 +61,7 @@ Du kan nu lägga till data till din nya samling med datautforskaren.
 
    ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-sql-api-java/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Lägg nu till ett dokument i samlingen med följande struktur och klicka på **Spara**.
+2. Lägg nu till ett dokument i samlingen med följande struktur och klicka på **Spara**. Kopiera JSON till Urklipp med knappen **Kopiera** i kodrutan.
 
      ```json
      {
@@ -87,7 +85,7 @@ Du kan nu använda frågor i Datautforskaren för att hämta och filtrera dina d
 
     ![Standardfrågan i Datautforskaren är ”SELECT * FROM c”](./media/create-sql-api-java/azure-cosmosdb-data-explorer-query.png)
 
-2. Ändra frågan genom att klicka på knappen **Redigera filter**, lägga till `ORDER BY c._ts DESC` i frågepredikatrutan och sedan klicka på **Tillämpa filter**.
+2. Stanna kvar på fliken **Dokument** och ändra frågan genom att klicka på knappen **Redigera filter**, lägga till `ORDER BY c._ts DESC` i frågepredikatrutan och sedan klicka på **Tillämpa filter**.
 
     ![Ändra standardfrågan genom att lägga till ORDER BY c._ts DESC och klicka på Tillämpa filter](./media/create-sql-api-java/azure-cosmosdb-data-explorer-edit-query.png)
 
@@ -119,9 +117,11 @@ Nu ska vi övergå till att arbeta med kod. Vi ska klona en SQL API-app från Gi
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kodfragmenten hämtas från filen `Program.java` som är installerad i mappen C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). 
+Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). 
 
-* `DocumentClient`-initiering. [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) ger logisk representation på klientsidan för Azure Cosmos DB-databastjänsten. Den här klienten används för att konfigurera och köra förfrågningar till tjänsten.
+Följande kodfragment har hämtats från filen C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted\Program.java.
+
+* `DocumentClient`-initiering. [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) ger logisk representation på klientsidan för Azure Cosmos DB-databastjänsten. Den här klienten används för att konfigurera och köra förfrågningar till tjänsten. `FILLME`-delarna delar i den här koden uppdateras senare i snabbstarten.
 
     ```java
     this.client = new DocumentClient("https://FILLME.documents.azure.com",
@@ -231,13 +231,15 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
     Terminalfönstret visar ett meddelande om att FamilyDB-databasen har skapats. 
     
-4. Tryck på valfri tangent för att skapa samlingen. 
+4. Skapa databasen genom att trycka på en nyckel och skapa sedan samlingen genom att trycka på en annan nyckel. 
 
-5. Växla tillbaka till Datautforskaren så ser du att den nu innehåller en FamilyDB-databas.
-    
-6. Fortsätt att trycka på tangenter i konsolfönstret för att få koden att skapa dokument och köra en fråga.
-    
-    I slutet av programmet raderas alla resurser från den här appen från ditt konto så att du inte blir debiterad några kostnader. 
+    I slutet av programmet tas alla resurser bort, så du måste gå tillbaka till Datautforskaren i webbläsaren om du vill kunna se att den nu innehåller en FamilyDB-databas och en FamilyCollection-samling.
+
+5. Skapa det första dokumentet genom att växla till konsolfönstret och trycka på en tangent och skapa sedan det andra dokumentet genom att tryck på en annan tangent. Visa dem sedan genom att gå tillbaka till Datautforskaren. 
+
+6. Kör en fråga och visa utdata i konsolfönstret genom att trycka på en tangent. 
+
+7. Nästa tangent som du trycker på tar bort resurserna. Om du vill behålla resurserna kan du avsluta programmet genom att trycka på CTRL + C i konsolfönstret. I annat fall tar du bort resurserna från ditt konto genom att trycka på valfri tangent, och slipper därmed onödiga avgifter. 
 
     ![Konsolutdata](./media/create-sql-api-java/console-output.png)
 

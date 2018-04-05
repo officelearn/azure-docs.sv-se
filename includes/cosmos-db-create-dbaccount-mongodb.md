@@ -1,25 +1,32 @@
+---
+title: Skapa ett Azure Cosmos DB MongoDB API-konto
+description: Beskriver hur du skapar ett Azure Cosmos DB MongoDB API-konto med hjälp av Azure Portal
+services: cosmos-db
+author: mimig1
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 03/20/2018
+ms.author: mimig
+ms.custom: include file
+ms.openlocfilehash: 02ea0e011642313b885bc48ec48104fa2789da81
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/28/2018
+---
 1. Logga in på [Azure Portal](https://portal.azure.com/) i ett nytt fönster.
 2. Klicka på **Skapa en resurs** i menyn till vänster. Klicka på **Databaser** och sedan på **Skapa** under **Azure Cosmos DB**.
    
    ![Skärmbild av Azure Portal med fokus på Fler tjänster och Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png)
 
-3. I fönstret **Nytt konto** anger du önskad konfiguration för Azure Cosmos DB-kontot. 
-
-    Med Azure Cosmos DB kan du välja någon av de fyra programmeringsmodellerna: Gremlin (graf), MongoDB, SQL och Tabell (nyckelvärde). 
-       
-    I den här snabbstarten kommer vi att programmera mot ett MongoDB API så du väljer **MongoDB** när du fyller i formuläret. Men om du har grafdata för en app för sociala medier, dokumentdata från en katalogapp eller nyckelvärdedata (tabell) ska du tänka på att Azure Cosmos DB kan tillhandahålla en mycket tillgänglig, globalt distribuerad databastjänstplattform för alla dina verksamhetskritiska program.
-
-    Fyll i fönstret **Nytt konto** med informationen i tabellen som vägledning.
+3. Ange **MongoDB** som API och fyll i önskad konfiguration för Azure Cosmos DB-kontot på bladet **Nytt konto**.
  
-    ![Skärmbild av fönstret Ny Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-2.png)
-   
-    Inställning|Föreslaget värde|Beskrivning
-    ---|---|---
-    ID|*Unikt värde*|Ett unikt namn du väljer för att identifiera Azure Cosmos DB-kontot. *documents.azure.com* läggs till det ID du anger för att skapa din URI, så använd ett unikt men identifierbart ID. Id:n får bara innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken.
-    API|MongoDB|API:n avgör vilken typ av konto som skapas. Azure Cosmos DB innehåller fem API:er för ditt program: SQL (dokumentdatabas), Gremlin (grafdatabas), MongoDB (dokumentdatabas), Azure-tabell och Cassandra, där var och en för närvarande kräver ett separat konto. <br><br>Du väljer **MongoDB** eftersom i den här snabbstarten ska du skapa en dokumentdatabas som är frågningsbar med MongoDB.<br><br>[Läs mer om MongoDB API](../articles/cosmos-db/mongodb-introduction.md)|
-    Prenumeration|*Din prenumeration*|Den Azure-prenumeration du vill använda för Azure Cosmos DB-kontot. 
-    Resursgrupp|*Samma värde som ID*|Namnet på den nya resursgruppen för kontot. För enkelhetens skull kan du använda samma namn som för ditt ID. 
-    Plats|*Regionen som ligger närmast dina användare*|Den geografiska plats som ska vara värd för ditt Azure Cosmos DB-konto. Välj den plats som är närmast dina användare så att de får så snabb åtkomst till data som möjligt.
+    ![Skärmbild av bladet Ny Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-2.png)
+
+    * **ID** måste vara ett unikt namn du väljer för att identifiera ditt Azure Cosmos DB-konto. Det får bara innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken.
+    * **Prenumeration** är din Azure-prenumeration. Det fylls i automatiskt.
+    * **Resursgrupp** är resursgruppsnamnet för ditt Azure Cosmos DB-konto.
+    * **Plats** är den geografiska plats där din instans av Azure Cosmos DB finns. Välj den plats som är närmast dina användare.
 
 4. Skapa kontot genom att klicka på **Skapa**.
 5. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.

@@ -1,11 +1,11 @@
 ---
-title: "Komma igång med Azure Notification Hubs för Universal Windows Platform-appar | Microsoft Docs"
-description: "I de här självstudierna kommer du att få lära dig hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Windows Universal-plattformsapp."
+title: Komma igång med Azure Notification Hubs för Universal Windows Platform-appar | Microsoft Docs
+description: I de här självstudierna kommer du att få lära dig hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Windows Universal-plattformsapp.
 services: notification-hubs
 documentationcenter: windows
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,18 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: c09621d1152aafbe15039130f6ca24082dc5bd21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8464a7e48a02be39fb624322fac6c26f4c6c6806
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>Kom igång med Notification Hubs för Universal Windows Platform-appar
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Översikt
-
 I den här artikeln beskrivs hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Windows Universal Platform-app.
 
 I den här artikeln skapar du en tom Windows Store-app som tar emot push-meddelanden med hjälp av Windows Push Notification Service (WNS). När du är klar kan du använda meddelandehubben för att sända push-meddelanden till alla enheter som kör appen.
@@ -95,11 +94,11 @@ Din meddelandehubb har nu konfigurerats för att fungera med WNS. Du har anslutn
 1. Högerklicka på lösningen i Vision Studio och välj sedan **Hantera NuGet-paket**.  
     Fönstret **Hantera NuGet-paket** öppnas.
 
-2. I sökrutan anger du **WindowsAzure.Messaging.Managed**, väljer **Installera** och godkänner användningsvillkoren.
+2. I sökrutan anger du **Microsoft.Azure.NotificationHubs**, väljer **Installera** och godkänner användningsvillkoren.
    
     ![Fönstret Hantera NuGet-paket][20]
    
-    Den här åtgärden hämtar, installerar och lägger till en referens i Azure-meddelandebiblioteket för Windows med hjälp av [NuGet-paketet WindowsAzure.Messaging.Managed](http://nuget.org/packages/WindowsAzure.Messaging).
+    Den här åtgärden hämtar, installerar och lägger till en referens i Azure Notification Hubs-biblioteket för Windows med hjälp av [Microsoft.Azure.Notification Hubs-NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs).
 
 3. Öppna projektfilen App.xaml.cs och lägg till följande `using`-uttryck: 
    

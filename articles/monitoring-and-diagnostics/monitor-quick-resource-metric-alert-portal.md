@@ -1,6 +1,6 @@
 ---
-title: "Få ett meddelande när ett måttvärde uppfyller ett villkor | Microsoft Docs"
-description: "En snabbstartsguide som hjälper användare att skapa ett mått för en logikapp"
+title: Få ett meddelande när ett måttvärde uppfyller ett villkor | Microsoft Docs
+description: En snabbstartsguide som hjälper användare att skapa ett mått för en logikapp
 author: anirudhcavale
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0bbb7d7036c18675a64171a8bbf5c7fa46d53336
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Få ett meddelande när ett måttvärde uppfyller ett villkor
 
@@ -34,20 +34,20 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Sök efter och välj **Logikapp**. Klicka på knappen **Skapa**.
 
-3. Ange den logikappinformation som visas i följande bild.  Använd standardplatsen. Markera alternativet **Fäst på instrumentpanelen**.  Klicka på **Skapa** när du är klar. 
+3. Ange namnet myLogicApp och resursgruppen myResourceGroup. Använd din prenumeration.  Använd standardplatsen. Markera alternativet **Fäst på instrumentpanelen**.  Klicka på **Skapa** när du är klar. 
 
-    ![Ange grundläggande information om logikappen i Portal](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
+    ![Ange grundläggande information om logikappen i Portal](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
 
 4. Logikappen bör fästas på instrumentpanelen. Navigera till logikappen genom att klicka på den.
 
 5. Välj **Logikapp designer** på panelen Logikapp
 
-     ![Skapa en upprepningsutlösare i designern på portalpanelen](./media/monitoring-quick-resource-metric-alert-portal/logic-app-designer.png)  
+     ![Skapa en upprepningsutlösare i designern på portalpanelen](./media/monitor-quick-resource-metric-alert-portal/logic-app-designer.png)  
 
 6. Ställ in dina värden enligt följande diagram.
 
-    ![Konfigurera logikappsutlösaren på portalpanelen](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![Konfigurera logikappsutlösaren på portalpanelen](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
 
 7. Välj **upprepningsutlösaren** i designern.
 
@@ -75,7 +75,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 5. Nu visas ett diagram med det totala antalet körningar som logikappen har startat den senaste timmen. Om du inte ser något kontrollerar du att du har väntat i minst 5 minuter från ovanstående steg. Uppdatera sedan webbläsaren. 
 
-    ![Rita ett måttdiagram för logikappresursen](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
+    ![Rita ett måttdiagram för logikappresursen](./media/monitor-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 
 ## <a name="create-a-metric-alert-for-your-logic-app"></a>Skapa en måttavisering för logikappen
 
@@ -87,7 +87,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 4. Ange slutligen din e-postadress under **Ytterligare e-postadresser för administratörer**. Den här aviseringen ser till att du får ett e-postmeddelande om din logikapp har mer än 10 misslyckade körningar inom en period på fem minuter.
 
-    ![Konfigurera logikappsaviseringen på portalpanelen](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
+    ![Konfigurera logikappsaviseringen på portalpanelen](./media/monitor-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
 
 ## <a name="receive-metric-alert-notifications-for-your-logic-app"></a>Få måttaviseringar för logikappen
 1. Inom kort får du ett e-postmeddelande från Microsoft Azure Alerts om att aviseringen har aktiverats.

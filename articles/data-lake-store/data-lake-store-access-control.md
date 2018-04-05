@@ -1,8 +1,8 @@
 ---
-title: "Översikt över åtkomstkontroll i Data Lake Store | Microsoft Docs"
-description: "Förstå åtkomstkontroll i Azure Data Lake Store"
+title: Översikt över åtkomstkontroll i Data Lake Store | Microsoft Docs
+description: Förstå åtkomstkontroll i Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: ec0d1fa9c422dbe4958c5d5f0b7a6e093aeb32da
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Åtkomstkontroll i Azure Data Lake Store
 
@@ -124,15 +124,15 @@ Här följer några vanliga scenarier för att förstå vilka behörigheter som 
 
 ## <a name="viewing-permissions-in-the-azure-portal"></a>Visa behörigheter i Azure-portalen
 
-Från bladet **Datautforskaren** i Data Lake Store-kontot, klickar du på **Åtkomst** för att se ACL:er för en fil eller mapp. Klicka på **Åtkomst** för att se ACL:er för mappen **katalog** under kontot **mydatastore**.
+Från bladet **Datautforskaren** i Data Lake Store-kontot, klickar du på **Åtkomst** för att se ACL:er för filen eller mappen som visas i Datautforskaren. Klicka på **Åtkomst** för att se ACL:er för mappen **katalog** under kontot **mydatastore**.
 
 ![ACL:er för Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-På det här bladet visar det översta avsnittet en översikt av de behörigheter du har. (På skärmbilden är användaren Bob.) Därefter visas åtkomstbehörigheterna. Efter det klickar du från bladet **Åtkomst** på **Enkel vy** för att visa den enklare vyn.
+Överst på det här bladet visas ägarens behörigheter. (På skärmbilden är den ägande användaren Bob.) Efter det så visas de tilldelade åtkomst-ACL:erna. 
 
 ![ACL:er för Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Klicka på **Avancerad vy** om du vill se en mer avancerad vy där begreppen standard-ACL:er, mask och superanvändare visas.
+Klicka på **Avancerad vy** om du vill se en mer avancerad vy där standard-ACL:er, mask och en beskrivning av superanvändare visas.  Det här bladet ger också ett sätt att rekursivt ange åtkomst- och standard-ACL:er för underordnade filer och mappar baserat på behörigheterna i den aktuella mappen.
 
 ![ACL:er för Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
@@ -164,7 +164,7 @@ Användaren som skapade objektet är automatiskt ägande användare för objekte
 * Ändra ägande grupp för en fil som ägs, så länge den ägande användaren också är medlem i målgruppen.
 
 > [!NOTE]
-> Den ägande användaren *kan inte* ändra ägande användare för en annan ägd fil. Endast superanvändare kan ändra ägande användare av en fil eller mapp.
+> Den ägande användaren *kan inte* ändra ägande användare för en fil eller mapp. Endast superanvändare kan ändra ägande användare av en fil eller mapp.
 >
 >
 
@@ -177,9 +177,14 @@ När ett nytt filsystemsobjekt skapats, tilldelar Data Lake Store ett värde til
 * **Fall 1**: Rotmappen "/". Den här mappen skapas när ett Data Lake Store-konto skapas. I det här fallet har den ägande gruppen angetts till den användaren som skapade kontot.
 * **Fall 2** (alla andra fall): När ett nytt objekt skapas, kopieras den ägande gruppen från den överordnade mappen.
 
+Den ägande gruppen fungerar annars ungefär som tilldelade behörigheter för andra användare/grupper.
+
 Den ägande gruppen kan ändras av:
 * Alla superanvändare.
 * Den ägande användaren, om den ägande användaren också är medlem i målgruppen.
+
+> [!NOTE]
+> Den ägande gruppen *kan inte* ändra ACL:er för en fil eller mapp.
 
 ## <a name="access-check-algorithm"></a>Algoritm för åtkomstkontroll
 
@@ -209,7 +214,7 @@ Som referens är det här masken för en fil eller mapp visas i Azure-portalen.
 ![ACL:er för Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
 
 > [!NOTE]
-> För ett nytt Data Lake Store-konto får masken för åtkomst-ACL och standard-ACL i rotmappen ("/") som standard RWX.
+> För ett nytt Data Lake Store-konto är masken för åtkomst-ACL för rotmappen ("/") RWX som standard.
 >
 >
 
@@ -308,7 +313,7 @@ En GUID visas när användaren inte finns i Azure AD längre. Detta inträffar v
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Stöds arv av ACL:er i Data Lake Store?
 
-Nej.
+Nej, men standard-ACL:er kan användas för att ange ACL:er för underordnade filer och mappar som nyligen skapats under den överordnade mappen.  
 
 ### <a name="what-is-the-difference-between-mask-and-umask"></a>Vad är skillnaden mellan mask och umask?
 
@@ -317,7 +322,7 @@ Nej.
 | Egenskapen **mask** är tillgänglig på varje fil och mapp. | **Umask** är en egenskap för Data Lake Store-kontot. Så det finns bara en enda umask i Data Lake Store.    |
 | Maskegenskapen på en fil eller mapp kan ändras av ägande användare eller ägande grupp för en fil eller en superanvändare. | Umask-egenskapen kan inte ändras av någon användare, inte ens en superanvändare. Det är ett konstant värde som inte ändras.|
 | Maskegenskapen används under algoritmen för åtkomstkontroll vid körning för att avgöra om en användare har behörighet att utföra åtgärden på en fil eller mapp. Maskrollen är att skapa "gällande behörigheter" vid tidpunkten för åtkomstkontroll. | Umask används inte vid åtkomstkontroll alls. Umask används för att bestämma åtkomst-ACL för de nya underordnade objekten i en mapp. |
-| Masken är ett 3-bitars RWX-värde som gäller för namngiven användare, namngiven grupp och ägande användare vid tidpunkten för åtkomstkontroll.| Umask är ett 9-bitarsvärde som gäller för ägande användare, ägande grupper och **övriga** för ett nytt underordnat objekt.|
+| Masken är ett 3-bitars RWX-värde som gäller för en namngiven användare, ägande grupp och namngiven grupp vid tidpunkten för åtkomstkontroll.| Umask är ett 9-bitarsvärde som gäller för ägande användare, ägande grupper och **övriga** för ett nytt underordnat objekt.|
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Var hittar jag mer information om POSIX-modellen för åtkomstkontroll?
 

@@ -1,21 +1,21 @@
 ---
 title: Om Azure Migrate | Microsoft Docs
-description: "Ger en översikt över tjänsten Azure Migrate."
+description: Ger en översikt över tjänsten Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 02/26/2018
+ms.date: 03/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 45eac1d1ecb173ba0a62ab13f47b7ee6e12f7af3
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 857dab5474cba24445daf7d139ae49d923038196
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
-Azure Migrate-tjänsten utvärderar lokala arbetsbelastningar för migrering till Azure. Tjänsten utvärderar migreringslämplighet av lokala datorer till Azure, prestandabaserad storleksanpassning och tillhandahåller kostnadsuppskattningar för att köra dina lokala datorer i Azure. Om du överväger Lift and Shift-migreringar eller om du är i ett tidigt skede av migreringen är den här tjänsten något för dig. Efter utvärderingen kan du använda tjänster som [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) och [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) för att migrera datorerna till Azure.
+Azure Migrate-tjänsten utvärderar lokala arbetsbelastningar för migrering till Azure. Tjänsten utvärderar lokala datorers migreringslämplighet, prestandabaserad storleksanpassning och tillhandahåller uppskattningar av vad det kostar att köra dina lokala datorer i Azure. Om du överväger Lift and Shift-migreringar eller om du är i ett tidigt skede av migreringen är den här tjänsten något för dig. Efter utvärderingen kan du använda tjänster som [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) och [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) för att migrera datorerna till Azure.
 
 ## <a name="why-use-azure-migrate"></a>Varför ska jag använda Azure Migrate?
 
@@ -28,14 +28,12 @@ Med Azure Migrate får du hjälp med att:
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
-- För närvarande kan du endast utvärdera lokala virtuella VMware-datorer (VM) för migrering till virtuella Azure-datorer. De virtuella VMware-datorerna måste hanteras av en vCenter Server (version 5.5, 6.0 eller 6.5)
-
-> [!NOTE]
-> Stöd för Hyper-V planeras och kommer att aktiveras inom kort. Under tiden kan rekommenderar vi att du använder [Distributionshanteraren för Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) för att planera migrering av Hyper-V-arbetsbelastningar. 
-
+- För närvarande kan du endast utvärdera lokala virtuella VMware-datorer (VM) för migrering till virtuella Azure-datorer. De virtuella VMware-datorerna måste hanteras av en vCenter Server (version 5.5, 6.0 eller 6.5).
+- Stöd för Hyper-V finns i vår översikt. Under tiden kan rekommendera att du planerar att migrera Hyper-V-arbetsbelastningar med [Distributionshanteraren för Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc). 
 - Du kan identifiera upp till 1 000 virtuella datorer i en identifiering och upp till 1500 virtuella datorer i ett enda projekt. Dessutom kan du utvärdera upp till 400 virtuella datorer i en enda utvärdering. Om du behöver identifiera eller utvärdera mer kan du öka antalet identifieringar eller utvärderingar. [Läs mer](how-to-scale-assessment.md).
 - Du kan endast skapa ett Azure Migrate-projekt i regionen USA, västra eller USA, östra. Men detta påverkar inte din möjlighet att planera migrering för en annan Azure-plats. Platsen för ett migreringsprojekt används endast för att lagra metadata som identifieras från den lokala miljön.
 - Azure Migrate stöder endast hanterade diskar för migreringsutvärdering.
+
 
 ## <a name="what-do-i-need-to-pay-for"></a>Vad måste jag betala för?
 

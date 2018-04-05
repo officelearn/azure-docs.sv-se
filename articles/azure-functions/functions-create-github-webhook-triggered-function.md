@@ -1,12 +1,12 @@
 ---
-title: "Skapa en funktion i Azure som utlöses av en GitHub-webhook | Microsoft Docs"
-description: "Använd Azure Functions för att skapa en funktion utan server som startas av en GitHub-webhook."
+title: Skapa en funktion i Azure som utlöses av en GitHub-webhook | Microsoft Docs
+description: Använd Azure Functions för att skapa en funktion utan server som startas av en GitHub-webhook.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: cd446c64b8e7627db1c76d652ea1ab6f496eee65
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Skapa en funktion som utlöses av en GitHub-webhook
 
@@ -69,11 +69,15 @@ Skapa sedan en webhook i GitHub-lagringsplatsen.
 
 1. Navigera till en lagringsplats du äger i GitHub. Du kan också använda en lagringsplats du har förgrenat. Om du behöver förgrena en databas kan du använda <https://github.com/Azure-Samples/functions-quickstart>.
 
-1. Klicka på **Inställningar**, klicka på **Webhooks** och klicka sedan på **Lägg till webhook**.
+2. Välj **Inställningar** > **Alternativ** och kontrollera att **Problem** har aktiverats under **Funktioner**.
+
+   ![Aktivera problem](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook.png)
+
+1. Välj **Webhooks** > **Lägg till webhook** i **Inställningar**.
 
     ![Lägga till en GitHub-webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-1. Använd inställningarna i tabellen och klicka på **Lägg till webhook**.
+1. Använd de inställningar som anges i följande tabell och klicka sedan på **Lägg till webhook**:
 
     ![Ställa in webhooksadressen och hemligheten](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 

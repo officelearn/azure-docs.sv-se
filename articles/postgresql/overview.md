@@ -1,6 +1,6 @@
 ---
-title: "Översikt över relationsdatabastjänsten i Azure Database for PostgreSQL"
-description: "Innehåller en översikt för relationsdatabastjänsten i Azure Database for PostgreSQL."
+title: Översikt över relationsdatabastjänsten i Azure Database for PostgreSQL
+description: Innehåller en översikt för relationsdatabastjänsten i Azure Database for PostgreSQL.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -10,15 +10,15 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 02/28/2018
-ms.openlocfilehash: ef7f710fb39c3745ff5a20a73cd4dc5c1fa1fece
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 766373f4b9390e576285db73d9e9e9942eb6624f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Vad är Azure Database for PostgreSQL?
 
-Azure Database for PostgreSQL är en relationsdatabastjänst i Microsoft-molnet som har utformats för utvecklare och baseras på [PostgreSQL](https://www.postgresql.org/)-databasmotorn med communityversionen av öppen källkod. Den här tjänsten finns i allmän förhandsversion. Azure Database for PostgreSQL ger:
+Azure Database for PostgreSQL är en relationsdatabastjänst i Microsoft-molnet som har utformats för utvecklare och baseras på [PostgreSQL](https://www.postgresql.org/)-databasmotorn med communityversionen av öppen källkod. Azure Database for PostgreSQL ger:
 
 - Inbyggd hög tillgänglighet utan extra kostnad
 - Förutsägbara prestanda med hjälp av priser enligt principen Betala per användning
@@ -45,10 +45,10 @@ Tjänsten Azure Database for PostgreSQL erbjuder tre tjänstnivåer: Basic, Gene
 Hur avgör du när du ska reglera upp eller ner? Använd de inbyggda övervaknings- och aviseringsfunktionerna i Azure. Med de här verktygen kan du snabbt utvärdera effekten av att skala upp eller ner baserat på dina aktuella eller beräknade prestanda- eller lagringsbehov. Mer information finns i [Aviseringar](howto-alert-on-metric.md).
 
 ## <a name="keep-your-app-and-business-running"></a>Håll igång din app och din verksamhet
-Azures branschledande serviceavtal (SLA) med 99,99 % tillgänglighet (finns ej i förhandsversion), drivs av ett globalt nätverk med Microsoft-hanterade datacenter som gör att din app är igång dygnet runt. Med varje Azure Database for PostgreSQL-server drar du nytta av inbyggd säkerhet, feltolerans och dataskydd som du annars skulle behöva köpa, utforma, utveckla och hantera. Med Azure Database for PostgreSQL erbjuder varje prisnivå en omfattande uppsättning funktioner för affärskontinuitet och alternativ som du kan använda för att komma igång. Du kan använda [point-in-time-återställning](howto-restore-server-portal.md) för att återställa en databas till ett tidigare skede, så långt tillbaka som 35 dagar. Om det uppstår ett avbrott i datacentret som är värd för dina databasmiljöer kan du återställa databaser från geo-redundanta kopior av säkerhetskopior som nyligen skapats.
+Azures branschledande serviceavtal (SLA) med 99,99 % tillgänglighet, drivs av ett globalt nätverk med Microsoft-hanterade datacenter som gör att din app är igång 24/7. Med varje Azure Database for PostgreSQL-server drar du nytta av inbyggd säkerhet, feltolerans och dataskydd som du annars skulle behöva köpa, utforma, utveckla och hantera. Med Azure Database for PostgreSQL erbjuder varje prisnivå en omfattande uppsättning funktioner för affärskontinuitet och alternativ som du kan använda för att komma igång. Du kan använda [point-in-time-återställning](howto-restore-server-portal.md) för att återställa en databas till ett tidigare skede, så långt tillbaka som 35 dagar. Om det uppstår ett avbrott i datacentret som är värd för dina databasmiljöer kan du återställa databaser från geo-redundanta kopior av säkerhetskopior som nyligen skapats.
 
 ## <a name="secure-your-data"></a>Skydda dina data
-Azure-databastjänster har en tradition av datasäkerhet som Azure Database for PostgreSQL upprätthåller med funktioner som begränsar åtkomst, skyddar data i vila och under rörelse och hjälper dig att övervaka aktivitet. Besök [Azure Säkerhetscenter](https://www.microsoft.com/TrustCenter/Security/default.aspx) för information om Azures plattformssäkerhet.
+Azure-databastjänster har en tradition av datasäkerhet som Azure Database for PostgreSQL upprätthåller med funktioner som begränsar åtkomst, skyddar data i vila och under rörelse och hjälper dig att övervaka aktivitet. Besök [Azure Säkerhetscenter](https://www.microsoft.com/en-us/trustcenter/security) för information om Azures plattformssäkerhet.
 
 Tjänsten Azure Database for PostgreSQL använder lagringskryptering för data i vila. Data, inklusive säkerhetskopior, krypteras på disk (med undantag för tillfälliga filer som skapas av motorn vid körning av frågor). Tjänsten använder chiffer med AES 256 bitar som ingår i Azures lagringskryptering, och nycklarna hanteras av systemet. Lagringskrypteringen är alltid igång och kan inte inaktiveras.
 

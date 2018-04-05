@@ -1,6 +1,6 @@
 ---
-title: "Skapa din första funktion i Azure med Java och Maven | Microsoft Docs"
-description: "Skapa och publicera en enkel HTTP-utlöst funktion i Azure med Java och Maven."
+title: Skapa din första funktion i Azure med Java och Maven | Microsoft Docs
+description: Skapa och publicera en enkel HTTP-utlöst funktion i Azure med Java och Maven.
 services: functions
 documentationcenter: na
 author: rloutlaw
@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c0984075cd8e372cce09ea100378dcd4e8cddabe
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 81d9d8790a750f34133f3f00dafc15c56185d7b1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Skapa din första funktion med Java och Maven (förhandsversion)
 
@@ -34,18 +34,25 @@ I den här snabbstarten vägleds du genom processen att skapa ett [serverfritt](
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 För att kunna utveckla funktionsappar med Java måste du ha följande installerat:
 
--  [.NET Core](https://www.microsoft.com/net/core), senaste versionen.
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org), version 3.0 eller senare.
--  [Node.js](https://nodejs.org/download/), version 8.6 eller högre.
+-  [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT] 
 > Miljövariabeln JAVA_HOME måste vara inställd på JDK-installationsplatsen för att snabbstarten ska gå att genomföra.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Installera Azure Functions Core Tools
 
-[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) tillhandahåller en lokal utvecklingsmiljö för att skriva, köra och felsöka Azure Functions. Installera verktygen med [npm](https://www.npmjs.com/) som ingår i [Node.js](https://nodejs.org/).
+[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) tillhandahåller en lokal utvecklingsmiljö för att skriva, köra och felsöka Azure Functions. 
+
+Om du vill installera så gå till avsnittet [Installera](https://github.com/azure/azure-functions-core-tools#installing) och sök efter specifika anvisningar för ditt operativsystem (Windows, Linux, Mac).
+
+Du kan också installera manuellt med [npm](https://www.npmjs.com/), som ingår i [Node.js](https://nodejs.org/), efter det att du har installerat följande nödvändiga komponenter:
+
+-  [.NET Core](https://www.microsoft.com/net/core), senaste versionen.
+-  [Node.js](https://nodejs.org/download/), version 8.6 eller högre.
+
+Om du vill fortsätta med en npm-baserad installation kör du:
 
 ```
 npm install -g azure-functions-core-tools@core
@@ -185,6 +192,4 @@ Du har skapat en Java-funktionsapp med en enkel HTTP-utlösare och distribuerat 
 - Läs igenom [utvecklarguiden för Java-funktioner](functions-reference-java.md) för att få mer information om hur du utvecklar Java-funktioner.
 - Lägg till fler funktioner med olika utlösare i projektet med Maven-målet `azure-functions:add`.
 - Felsök funktioner lokalt med Visual Studio Code. När du har installerat [Java-tilläggspaketet](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) och öppnat funktionsprojektet i Visual Studio Code ska du [koppla felsökaren](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) till port 5005. Ange sedan en brytpunkt i redigeringsprogrammet och utlös funktionen medan den körs lokalt: ![Felsökningsfunktioner i Visual Studio Code](media/functions-create-java-maven/vscode-debug.png)
-
-
-
+- Fjärrfelsök funktioner med Visual Studio Code. Mer information finns i [Skriva serverlösa Java-program](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud).

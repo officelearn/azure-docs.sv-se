@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: Skapa en MongoDB API-konsolapp med Golang och Azure Portal | Microsoft Docs'
-description: "Anger ett Golang-kodexempel som du kan använda för att ansluta till och fråga en Azure Cosmos DB"
+description: Anger ett Golang-kodexempel som du kan använda för att ansluta till och fråga en Azure Cosmos DB
 services: cosmos-db
 author: Durgaprasad-Budhwani
 manager: jhubbard
@@ -10,21 +10,21 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 29a47646074819492e2c5179276a0c4de7f0d2d9
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 49bf6aed5a8daa482be9d22ecd97b6ab43cae5fe
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en MongoDB API-konsolapp med Golang och Azure Portal
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB.
 
-Den här snabbstarten visar hur du använder en befintlig [MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)-app som skrivits i [Golang](https://golang.org/) och ansluter den till din Azure Cosmos DB-databas, som stöder MongoDB-klientanslutningar.
+Den här snabbstarten visar hur du använder en befintlig MongoDB-app som skrivits i [Golang](https://golang.org/) och ansluter den till din Microsoft Azure Cosmos DB-databas, som stöder MongoDB-klientanslutningar genom att använda [MongoDB API](mongodb-introduction.md).
 
 Med andra ord vet ditt Golang-program bara att det ansluter till en databas som använder MongoDB-API:er. Det är transparent för programmet att data lagras i Azure Cosmos DB.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar. 
 

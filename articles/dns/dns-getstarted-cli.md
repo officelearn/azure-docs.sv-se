@@ -1,11 +1,11 @@
 ---
-title: "Komma igång med Azure DNS med hjälp av Azure CLI 2.0 | Microsoft Docs"
-description: "Läs om hur du skapar en DNS-zon och en DNS-post i Azure DNS. Detta är en steg-för-steg-guide om hur du skapar och hanterar din första DNS-zon och DNS-post med Azure CLI 2.0."
+title: Komma igång med Azure DNS med hjälp av Azure CLI 2.0 | Microsoft Docs
+description: Läs om hur du skapar en DNS-zon och en DNS-post i Azure DNS. Detta är en steg-för-steg-guide om hur du skapar och hanterar din första DNS-zon och DNS-post med Azure CLI 2.0.
 services: dns
 documentationcenter: na
 author: KumuD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
 ms.service: dns
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: kumud
-ms.openlocfilehash: 76782ac1e78cd0f7da4bc1aad8eff00d79865ed7
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d24eaa4974f8bff09b337384e4fd139edb6ebd70
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Komma igång med Azure DNS med hjälp av Azure CLI 2.0
 
@@ -33,6 +33,8 @@ Den här artikeln visar hur du skapar din första DNS-zon och DNS-post med hjäl
 En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera din DNS-zon på Internet måste du konfigurera namnservrarna för domänen. Dessa steg beskrivs nedan.
 
 Anvisningarna förutsätter att du redan har installerat och loggat in på Azure CLI 2.0. Mer information finns i [Hantera DNS-zoner med hjälp av Azure CLI 2.0](dns-operations-dnszones-cli.md).
+
+Azure DNS stöder nu också privata DNS-zoner (för närvarande i förhandsversion). Mer information om privata DNS-zoner finns i [Using Azure DNS for private domains](private-dns-overview.md) (Använda Azure DNS för privata domäner). Ett exempel på hur man kan skapa en privat DNS-zon finns i [Kom igång med privata Azure DNS-zoner med CLI](./private-dns-getstarted-cli.md).
 
 ## <a name="create-the-resource-group"></a>Skapa en resursgrupp
 
@@ -52,7 +54,6 @@ Exemplet nedan skapar en DNS-zon som heter *contoso.com* i resursgruppen med nam
 az network dns zone create -g MyResourceGroup -n contoso.com
 ```
 
-
 ## <a name="create-a-dns-record"></a>Skapa en DNS-post
 
 Skapa en DNS-post genom att använda kommandot `az network dns record-set [record type] add-record`. Mer information, om exempelvis A-poster, finns i `azure network dns record-set A add-record -h`.
@@ -65,7 +66,6 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 
 Information om andra posttyper, postuppsättningar med fler än en post, alternativa TTL-värden och ändring av befintliga poster finns i [Hantera DNS-poster och postuppsättningar med Azure CLI 2.0](dns-operations-recordsets-cli.md).
 
-
 ## <a name="view-records"></a>Visa poster
 
 Om du vill visa en lista med DNS-poster i din zon använder du:
@@ -73,7 +73,6 @@ Om du vill visa en lista med DNS-poster i din zon använder du:
 ```azurecli
 az network dns record-set list -g MyResourceGroup -z contoso.com
 ```
-
 
 ## <a name="update-name-servers"></a>Uppdatera namnservrar
 

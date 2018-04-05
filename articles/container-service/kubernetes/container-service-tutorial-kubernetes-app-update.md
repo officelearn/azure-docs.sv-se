@@ -1,6 +1,6 @@
 ---
-title: "Självstudie för Azure Container Service – Uppdatera ett program"
-description: "Självstudie för Azure Container Service – Uppdatera ett program"
+title: Självstudie för Azure Container Service – Uppdatera ett program
+description: Självstudie för Azure Container Service – Uppdatera ett program
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5f22bb3ac378bc9b1ff94db486d6ea6053c64514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 87de0f23a00b035b12bac6cf655781961b1fb9e5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-an-application-in-kubernetes"></a>Uppdatera ett program i Kubernetes
 
@@ -29,7 +29,7 @@ I den här självstudien, som är del sex av sju, uppdateras Azure Vote-exempela
 > * Push-överföra behållaravbildningen till Azure Container Registry
 > * Distribuera den uppdaterade behållaravbildningen
 
-I senare självstudier konfigureras Operations Management Suite för att övervaka Kubernetes-klustret.
+I senare självstudier konfigureras Log Analytics för att övervaka Kubernetes-klustret.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -166,7 +166,7 @@ I den här självstudien har du uppdaterat ett program och distribuerat uppdater
 > * Push-överförde behållaravbildningen till Azure Container Registry
 > * Distribuerade det uppdaterade programmet
 
-Gå vidare till nästa självstudie om du vill lära dig hur du övervakar Kubernetes med Operations Management Suite.
+Gå vidare till nästa självstudiekurs om du vill lära dig hur du övervakar Kubernetes med Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Övervaka Kubernetes med OMS (Monitor Kubernetes with OMS)](./container-service-tutorial-kubernetes-monitor.md)
+> [Övervaka Kubernetes med Log Analytics](./container-service-tutorial-kubernetes-monitor.md)

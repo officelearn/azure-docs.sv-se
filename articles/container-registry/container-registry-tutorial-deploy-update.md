@@ -1,6 +1,6 @@
 ---
-title: "Azure Container registret kursen - Push en uppdaterad bild för regional distributioner"
-description: "Pusha en ändrade Docker-avbildning till din georeplikerad Azure registret och sedan se ändringarna distribueras automatiskt till webbprogram som körs i flera områden. Del tre av en serie i tre delar."
+title: Självstudiekurs om Azure Container Registry – Push-överför en uppdaterad avbildning för regionala distributioner
+description: Push-överför en ändrad Docker-avbildning till ditt geo-replikerade Azure-behållarregister och se sedan ändringarna automatiskt distribueras till webbprogram som körs i flera regioner. Del tre av en serie i tre delar.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,37 +9,37 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 359fdcabd579d277e40f02eba2d4603ebd9f5f1f
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: MT
+ms.openlocfilehash: f8eab93d1e6633ae4f17c5bb4836d96629d55cd4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="push-an-updated-image-to-regional-deployments"></a>Push-installera en uppdaterad bild regionala distributioner
+# <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Självstudier: Push-överför en uppdaterad avbildning för regionala distributioner
 
-Detta är en del tre i en serie i tre delar självstudiekursen. I den [tidigare kursen](container-registry-tutorial-deploy-app.md), geo-replikering har konfigurerats för två olika regionala webbprogrammet distributioner. I den här självstudiekursen du först ändra programmet, sedan skapa en ny avbildning för behållaren och push-installera den georeplikerad registret. Slutligen kan du visa ändringen, distribueras automatiskt med Azure Container registret webhooks i båda fallen Web App.
+Det här är del tre i en serie självstudier i tre delar. I den [föregående kursen](container-registry-tutorial-deploy-app.md) konfigurerades geo-replikering för två olika regionala Web App-distributioner. I den här självstudiekursen modifierar du först programmet, skapar sedan en ny behållaravbildning och push-överför den till ditt geo-replikerade register. Slutligen visar du ändringen, som distribuerats automatiskt med Azure Container Registry-webhookar i båda Web App-instanserna.
 
-I den här självstudiekursen den sista delen i serien:
+Den här självstudiekursen är den avslutande delen i serien:
 
 > [!div class="checklist"]
-> * Ändra webbprogrammet HTML
-> * Skapa och tagga Docker-bild
-> * Push-ändringen till registret för Azure-behållare
+> * Göra ändringar i webbprogrammets HTML
+> * Skapa och tagga Docker-avbildningen
+> * Push-överför ändringen till Azure Container Registry
 > * Visa den uppdaterade appen i två olika regioner
 
-Om du ännu inte har konfigurerat två *Web App för behållare* regionala distributioner, gå tillbaka till föregående kurs i serien, [distribuera webbappen från Azure-behållare registret](container-registry-tutorial-deploy-app.md).
+Om du ännu inte har konfigurerat de två regionala distributionerna av *Web App for Containers*, så gå tillbaka till den föregående självstudiekursen i serien, [Distribuera webbapp från Azure Container Registry](container-registry-tutorial-deploy-app.md).
 
 ## <a name="modify-the-web-application"></a>Göra ändringar i webbprogrammet
 
-I det här steget ändra till webbprogram som ska vara mycket synliga när du push uppdaterade behållaren avbildningen till registret för Azure-behållare.
+I det här steget gör du ändringar i webbprogrammet så att det blir mycket synligare när du har push-överfört den uppdaterade behållaravbildningen till Azure Container Registry.
 
-Hitta den `AcrHelloworld/Views/Home/Index.cshtml` fil i källan för programmet du [klonad från GitHub](container-registry-tutorial-prepare-registry.md#get-application-code) i en tidigare vägledning och öppna den i valfri textredigerare. Lägg till följande rad under den befintliga `<h1>` rad:
+Sök efter `AcrHelloworld/Views/Home/Index.cshtml`-filen i den programkälla som du har [klonat från GitHub](container-registry-tutorial-prepare-registry.md#get-application-code) i en tidigare självstudiekurs och öppna den i valfritt redigeringsprogram. Lägg till följande rad under den befintliga `<h1>`-raden:
 
 ```html
 <h1>MODIFIED</h1>
 ```
 
-Din ändrade `Index.cshtml` bör likna:
+Den ändrade `Index.cshtml` bör se ut ungefär så här:
 
 ```html
 @{
@@ -70,21 +70,21 @@ Din ändrade `Index.cshtml` bör likna:
 
 ## <a name="rebuild-the-image"></a>Återskapa avbildningen
 
-Nu när du har uppdaterat webbprogrammet återskapa dess behållare avbildning. Som tidigare använda fullständiga Avbildningsnamnet, inklusive Inloggningswebbadressen för server, för taggen:
+Nu när du har uppdaterat webbprogrammet återskapa dess behållaravbildning. Använd som tidigare taggens fullständiga avbildningsnamn, inklusive inloggningsserverns URL:
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-## <a name="push-image-to-azure-container-registry"></a>Push-avbildningen till registret för Azure-behållare
+## <a name="push-image-to-azure-container-registry"></a>Push-överför avbildningen till Azure Container Registry
 
-Nu push den uppdaterade *acr helloworld* behållare avbildningen till georeplikerad registret. Du här, utför en enda `docker push` kommando för att distribuera den uppdaterade avbildningen till registret repliker i både den *västra USA* och *östra USA* regioner.
+Push-överför nu den uppdaterade behållaravbildningen *acr-helloworld* till ditt geo-replikerade register. Här utför du ett enda `docker push`-kommando för att distribuera den uppdaterade avbildningen till registerreplikerna i båda regionerna *USA, västra* och *USA, östra*.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-Resultatet bör likna följande:
+Utdata bör se ut ungefär så här:
 
 ```bash
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
@@ -98,47 +98,47 @@ a75caa09eb1f: Layer already exists
 v1: digest: sha256:4c3f2211569346fbe2d1006c18cbea2a4a9dcc1eb3a078608cef70d3a186ec7a size: 1792
 ```
 
-## <a name="view-the-webhook-logs"></a>Visa webhook-loggar
+## <a name="view-the-webhook-logs"></a>Visa webhook-loggarna
 
-Du kan se Azure Container registret-webhooks som utlöses när avbildningen replikeras.
+Du kan se hur Azure Container Registry-webhookarna utlöses när avbildningen replikeras.
 
-Se regionala webhooks som skapades när du har distribuerat behållaren *Web Apps för behållare* i en tidigare självstudier, navigerar du till behållaren registret i Azure-portalen och väljer sedan **Webhooks**under **SERVICES**.
+Om du vill se de regionala webhookar som skapades när du distribuerade behållaren till *Web App for Containers* i en tidigare självstudiekurs, så gå till ditt behållarregister i Azure Portal och välj sedan **Webhooks** under **TJÄNSTER**.
 
-![Behållaren registret Webhooks i Azure-portalen][tutorial-portal-01]
+![Container Registry-webhookar i Azure Portal][tutorial-portal-01]
 
-Markera varje Webhook att se historiken för dess anrop och svar. Du bör se en rad för den **push** åtgärd i loggarna för båda Webhooks. Här, logg för Webhooken finns i den *västra USA* region visar den **push** åtgärden utlöses av den `docker push` i föregående steg:
+Markera varje webhook om du vill se historiken för dess anrop och svar. Du bör se en rad för **push**-åtgärden i loggarna för båda webhookarna. Här visar loggen för webhooken i regionen *USA, västra* den **push**-åtgärd som utlöstes av `docker push` i det föregående steget:
 
-![Behållaren registernyckeln Webhook logga in på Azure-portalen (västra USA)][tutorial-portal-02]
+![Container Registry-webhooksloggen i Azure Portal (USA, västra)][tutorial-portal-02]
 
-## <a name="view-the-updated-web-app"></a>Visa det uppdaterade webbprogrammet
+## <a name="view-the-updated-web-app"></a>Visa den uppdaterade webbappen
 
-Webhooks meddela Web Apps att en ny avbildning har tagits pushas till registret, som automatiskt distribuerar den uppdaterade behållaren till två regionala webbprogram.
+Webhookarna meddelar Web Apps att en ny avbildning har push-överförts till registret, vilket automatiskt distribuerar den uppdaterade behållaren till de två regionala webbapparna.
 
-Kontrollera att programmet har uppdaterats i båda distributionerna genom att gå till båda regionala webbprogrammet distributioner i webbläsaren. Som en påminnelse hittar du URL: en för den distribuerade webbappen i upp till höger på varje flik för översikt över Apptjänst.
+Verifiera att programmet har uppdaterats i båda distributionerna genom att gå till båda de regionala Web App-distributionerna i webbläsaren. Som en påminnelse finns URL:en för den distribuerade webbappen högst upp till höger på varje App Service-översiktsflik.
 
-![Översikt över App Service i Azure-portalen][tutorial-portal-03]
+![App Service-översikt i Azure Portal][tutorial-portal-03]
 
-Om du vill se det uppdaterade programmet, Välj länken i App Service-Översikt. Här är ett exempel vy av appen körs i *västra USA*:
+Om du vill se det uppdaterade programmet, så välj länken i App Service-översikten. Här är en exempelvy av appen som körs i *USA, västra*:
 
-![Webbläsarvy över ändrade webbapp körs i regionen USA, västra][deployed-app-westus-modified]
+![Webbläsarvy över en ändrad webbapp som körs i regionen USA, västra][deployed-app-westus-modified]
 
-Kontrollera att bilden uppdaterade behållare också distribueras till den *östra USA* distributionen genom att visa den i webbläsaren.
+Verifiera att den uppdaterade behållaravbildningen också distribueras till distributionen *USA, östra* genom att visa den i webbläsaren.
 
-![Webbläsarvy över ändrade webbapp körs i östra USA][deployed-app-eastus-modified]
+![Webbläsarvy över en ändrad webbapp som körs i regionen USA, östra][deployed-app-eastus-modified]
 
-Med en enda `docker push`, du har uppdaterat båda regionala Web App-distributioner och Azure Container registret hanteras behållaren bilder från nätverket Stäng databaser.
+Med en enda `docker push` har du uppdaterat båda de regionala Web App-distributionerna och Azure Container Registry hanterade behållaravbildningarna från nätverksnära databaser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen, uppdateras och pushas en ny version av web application-behållaren i georeplikerad-registret. Webhooks i Azure Container registret meddelas Web Apps för behållare för uppdateringen som utlöses av en lokal pull från registret replikerna.
+I den här självstudiekursen har du uppdaterat och push-överfört en ny version av webbprogramsbehållaren till ditt geo-replikerade register. Webhookar i Azure Container Registry meddelade Web Apps för behållare om uppdateringen, vilken utlöste en lokal hämtning från registerreplikerna.
 
-I det slutliga kurs i serien du:
+I den här avslutande självstudiekursen i serien har du:
 
 > [!div class="checklist"]
-> * Uppdatera webbprogrammet HTML
-> * Inbyggda och taggas Docker-bild
-> * Pushas ändringen till registret för Azure-behållare
-> * Visa den uppdaterade appen i två olika regioner
+> * Uppdaterat webbprogrammets HTML
+> * Skapat och taggat Docker-avbildningen
+> * Push-överfört ändringen till Azure Container Registry
+> * Visat den uppdaterade appen i två olika regioner
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

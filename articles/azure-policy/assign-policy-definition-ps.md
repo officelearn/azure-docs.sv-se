@@ -9,11 +9,11 @@ ms.date: 3/14/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 9f7d32d3d1208b6fe6075f7dacdd6d350aee03e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 45c5ccd0f891a5592eee7400de108c5097f75286
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>Snabbstart: Skapa en principtilldelning som identifierar icke-kompatibla resurser med i Azure RM PowerShell-modulen
 
@@ -48,7 +48,7 @@ Föregående kommandon använder följande information:
 - **Namn** – Visningsnamn för principtilldelningen. I det här fallet använder du *tilldelningen Granska virtuella datorer utan Managed Disks*.
 - **Definition** – Principdefinitionen som du använder som bas för att skapa tilldelningen. I det här fallet är principdefinitionen *Granska virtuella datorer utan Managed Disks*.
 - **Omfång** – Ett omfång avgör vilka resurser eller grupper med resurser som principtilldelningen används på. Det kan vara allt från en prenumeration till resursgrupper. Kom ihåg att ersätta &lt;omfång&gt; med namnet på din resursgrupp.
-- **Sku** – Det här kommandot skapar en principtilldelning med standardnivån. Med standardnivån kan du få skalenlig hantering, utvärdering av efterlevnad och reparation. Standardnivån är kostnadsfri för närvarande. I framtiden kommer standardnivån att vara avgiftsbelagd. När prissättningsändringen sker meddelas det, och mer information finns i [ priserna för Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
+- **Sku** – Det här kommandot skapar en principtilldelning med standardnivån. Med standardnivån kan du få skalenlig hantering, utvärdering av efterlevnad och reparation. Mer information om prisnivåer finns i [Prissättning för Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
 
 
 Du är nu redo att identifiera icke-kompatibla resurser för att förstå miljöns kompatibilitetsstatus.

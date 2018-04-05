@@ -1,11 +1,11 @@
 ---
-title: "Konfigurera en utvecklingsmiljö i Linux | Microsoft Docs"
-description: "Installera runtime och SDK, och skapa ett lokalt utvecklingskluster i Linux. När du har slutfört den här installationen är du redo att börja bygga program."
+title: Konfigurera en utvecklingsmiljö i Linux | Microsoft Docs
+description: Installera runtime och SDK, och skapa ett lokalt utvecklingskluster i Linux. När du har slutfört den här installationen är du redo att börja bygga program.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 20239acba46996ed7ec84a2fbaf300190deebc7f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c98a5e742356e24cee9e9d1414121faabac03084
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -29,6 +29,10 @@ ms.lasthandoff: 02/24/2018
 >  
 
 För att kunna skapa och köra [Azure Service Fabric-program](service-fabric-application-model.md) på en Linux-utvecklingsdator måste du installera runtime och SDK. Du kan även installera SDK:er för Java- och .NET Core-utveckling.
+
+> [!NOTE]
+> Det stöds inte att installera Service Fabric runtime och SDK på Windows-undersystem för Linux. Dock stöds Azure Service Fabric-kommandoradsgränssnittet (CLI), vilket låter dig hantera Service Fabric-entiteter som ligger någon annanstans i molnet eller lokalt. Information om hur du installerar CLI:t finns i [Konfigurera Service Fabric CLI](./service-fabric-cli.md).
+>
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -108,6 +112,12 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+Service Fabric-runtimen som medföljer ovanstående installation inkluderar paketen i tabellen nedan. 
+
+ | | DotNetCore | Java | Python | NodeJS | 
+--- | --- | --- | --- |---
+Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicit från npm | senaste |
+
 ## <a name="set-up-a-local-cluster"></a>Konfigurera ett lokalt kluster
   När installationen har slutförts ska du kunna starta ett lokalt kluster.
 
@@ -184,7 +194,7 @@ Du kan installera Eclipse-plugin-programmet för Service Fabric i Eclipse IDE f�
 
 2. Om du vill installera Service Fabric-plugin-programmet väljer du **Hjälp** > **Installera ny programvara**.
 
-3. Ange **http://dl.microsoft.com/eclipse** i textrutan **Arbeta med**.
+3. I rutan **Arbeta med** skriver du **http://dl.microsoft.com/eclipse**.
 
 4. Klicka på **Lägg till**.
 

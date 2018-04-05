@@ -1,21 +1,21 @@
 ---
-title: Utforma din första Azure SQL-databas | Microsoft Docs
-description: Lär dig att utforma din första Azure SQL-databas på Azure-portalen och med SQL Server Management Studio.
+title: Skapa din första Azure SQL-databas med SSMS | Microsoft Docs
+description: Läs hur du skapar din första Azure SQL-databas med SQL Server Management Studio.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: carlrab
-ms.openlocfilehash: 12301d46b497b49032b1b8bdefe2056a7df143d1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 40da83c0214e3c493fdb72504753b5b59ea20b3e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="design-your-first-azure-sql-database"></a>Utforma din första Azure SQL-databas
+# <a name="design-your-first-azure-sql-database-using-ssms"></a>Skapa din första Azure SQL-databas med SSMS
 
 Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Microsoft Cloud (Azure). I de här självstudierna får du lära dig att använda Azure-portalen och [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) för att: 
 

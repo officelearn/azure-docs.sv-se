@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e7dab67b46a2853e9585c88c8e4d4263f844c3b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 487ffffca445fb3f98dcaa6550b0b1b74290b803
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Skapa och hantera virtuella Linux-datorer med Azure CLI
 
@@ -91,7 +91,7 @@ exit
 
 ## <a name="understand-vm-images"></a>Förstå VM-avbildningar
 
-På Azures marknadsplats finns många avbildningar som kan användas för att skapa virtuella datorer. I de föregående stegen skapades en virtuell dator med en Ubuntu-avbildning. I det här steget används Azure CLI för att söka i marknadsplatsen efter en CentOS-avbildning som sedan används för att distribuera en andra virtuella dator.  
+På Azures marknadsplats finns många avbildningar som kan användas för att skapa virtuella datorer. I de föregående stegen skapades en virtuell dator med en Ubuntu-avbildning. I det här steget används Azure CLI för att söka i marknadsplatsen efter en CentOS-avbildning som sedan används för att distribuera en andra virtuella dator. 
 
 Du kan lista de vanligaste avbildningarna med kommandot [az vm image list](/cli/azure/vm/image#az_vm_image_list).
 
@@ -136,7 +136,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-Om du vill distribuera en virtuell dator med en viss avbildning noterar du värdet i kolumnen *Urn*. När en avbildning anges kan avbildningens versionsnummer ersättas med ”latest” (senaste), vilket väljer den senaste versionen av distributionen. I det här exemplet används argumentet `--image` för att ange den senaste versionen av en CentOS 6.5-avbildning.  
+Om du vill distribuera en virtuell dator med en specifik avbildning, antecknar du värdet i *Urn*-kolumnen vilken består av utgivare, erbjudande, SKU och eventuellt ett versionsnummer för att [identifiera](cli-ps-findimage.md#terminology) avbildningen. När en avbildning anges kan avbildningens versionsnummer ersättas med ”latest” (senaste), vilket väljer den senaste versionen av distributionen. I det här exemplet används argumentet `--image` för att ange den senaste versionen av en CentOS 6.5-avbildning.  
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -259,7 +259,7 @@ En virtuell Azure-dator kan ha en av många energinivåer. Det här tillståndet
 
 ### <a name="find-power-state"></a>Hitta energinivå
 
-Om du vill hämta tillståndet för en viss virtuell dator kan du använda kommandot [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view). Du måste ange ett giltigt namn för en virtuell dator och resursgrupp. 
+Om du vill hämta tillståndet för en viss virtuell dator, använder du kommandot [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view). Du måste ange ett giltigt namn för en virtuell dator och resursgrupp. 
 
 ```azurecli-interactive 
 az vm get-instance-view \

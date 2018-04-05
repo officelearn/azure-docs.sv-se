@@ -1,6 +1,6 @@
 ---
-title: "Snabbstart – Snabbstart för Azure Kubernetes-klusterportal"
-description: "Lär dig att snabbt skapa ett Kubernetes-kluster för Linux-behållare i AKS med Azure-portalen."
+title: Snabbstart – Snabbstart för Azure Kubernetes-klusterportal
+description: Lär dig att snabbt skapa ett Kubernetes-kluster för Linux-behållare i AKS med Azure-portalen.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 35886217328d35229a59b9713f5bb4bf0244569a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 4aad45559d167e6c046822200c9bbb98113d463b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>Distribuera ett Azure Container Service-kluster (AKS)
+# <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>Snabbstart: Distribuera ett Azure Container Service-kluster (AKS)
 
 I den här snabbstarten ska du distribuera ett AKS-kluster med hjälp av Azure-portalen. Därefter kör vi ett flerbehållarprogram som består av en webbklientdel och en Redis-instans i klustret. När vi har gjort det kan programmet nås via Internet.
 

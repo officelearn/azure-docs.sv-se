@@ -1,10 +1,10 @@
 ---
-title: "Azure Active Directory för utvecklare | Microsoft Docs"
-description: "Den här artikeln innehåller en översikt över inloggning med Microsofts arbets- och skolkonton med hjälp av Azure Active Directory."
+title: Azure Active Directory för utvecklare | Microsoft Docs
+description: Den här artikeln innehåller en översikt över inloggning med Microsofts arbets- och skolkonton med hjälp av Azure Active Directory.
 services: active-directory
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
@@ -14,14 +14,17 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: e1f9fbf6cb80065ea796e2d53d09f48fe57b207b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8d70f36c5e434a26fce4d6b4bd1ddefc22234ab5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory för utvecklare
-Azure Active Directory (Azure AD) är en molnbaserad identitetstjänst som utvecklare kan använda för att på ett säkert sätt logga in användare som har ett arbets- eller skolkonto hos Microsoft. Den här dokumentationen innehåller information om hur du lägger till stöd för Azure AD i ditt program med hjälp av protokoll av branschstandardtyp: OAuth2.0 och OpenID Connect.
+Azure Active Directory (Azure AD) är en molnbaserad identitetstjänst som utvecklare kan använda för att skapa appar som på ett säkert sätt kan logga in användare som har ett arbets- eller skolkonto hos Microsoft. Azure AD stöder utvecklare som skapar såväl verksamhetsspecifika appar för en klient som appar för flera klienter. Förutom grundläggande inloggning, kan Azure AD även låta appar anropa både Microsoft API:er som [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview) och anpassade API:er som bygger på Azure AD-plattformen.  Den här dokumentationen innehåller information om hur du lägger till stöd för Azure AD i ditt program med hjälp av protokoll av branschstandardtyp som OAuth2.0 och OpenID Connect. 
+
+> [!NOTE]
+> Merparten av innehållet på den här sidan fokuserar på Azure AD v1-slutpunkten, vilken enbart stöder Microsoft arbets- och skolkonton. Om du vill logga in konsumentkonton eller personliga Microsoft-konton, så läs informationen om [Azure AD v2.0-slutpunkten](active-directory-appmodel-v2-overview.md). Azure AD v2.0-slutpunkten erbjuder en enhetlig utvecklarupplevelse för appar som vill logga in både användare med Azure AD-konton (arbete och skola) och personliga Microsoft-konton. 
 
 | | |
 | --- | --- |
@@ -29,7 +32,7 @@ Azure Active Directory (Azure AD) är en molnbaserad identitetstjänst som utvec
 |[Typer av program](active-directory-authentication-scenarios.md#application-types-and-scenarios) | En översikt över de autentiseringsscenarier som stöds av Azure AD. |                                
                                                                               
 ## <a name="get-started"></a>Kom igång
-Följande guider vägleder dig genom användningen av Microsoft-autentiseringsbibliotek för inloggning av Azure AD-användare.
+Med de guidade konfigurationerna får du hjälp med att skapa en app på den plattform du önskar med hjälp av SDK:n för Azure Active Directory Library (ADAL). Om du söker efter information om hur man använder Microsoft Authentication Library (MSAL), så läs vår dokumentation om [Azure AD v2.0-slutpunkten](active-directory-appmodel-v2-overview.md).
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -40,7 +43,7 @@ Följande guider vägleder dig genom användningen av Microsoft-autentiseringsbi
 | <center>![Tjänst-till-tjänst](./media/active-directory-developers-guide/Service_App.png)<br />Tjänst-till-tjänst</center> | [Översikt](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)|  |
 
 ## <a name="how-to-guides"></a>Instruktionsguider
-Följande vägledningar innehåller information om hur du utför vanliga uppgifter med hjälp av Azure AD.
+Guiderna nedan vägleder dig igenom några av de vanligaste uppgifterna i Azure AD.
 
 |                                                                           |  |
 |---------------------------------------------------------------------------| --- |
@@ -58,10 +61,6 @@ Följande artiklar innehåller detaljerad information om API:er, protokollmeddel
 | [Kodexempel](active-directory-code-samples.md)                                  | En lista över alla Azure AD-kodexempel. |
 | [Ordlista](active-directory-dev-glossary.md)                                      | Termer och definitioner av ord som används i den här dokumentationen. |
 | [Ytterligare referensämnen](active-directory-developers-guide-index.md#reference)| En lista över referensämnen som är tillgängliga för Azure AD.   |
-
-
-> [!NOTE]
-> För inloggning med personliga Microsoft-konton bör du överväga användning av en [Azure AD v2.0-slutpunkt](active-directory-appmodel-v2-overview.md). Azure AD v2.0-slutpunkten för samman personliga Microsoft-konton med Microsoft-arbetskonton (från Azure AD) och möjliggör ett enda autentiseringssystem.
 
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

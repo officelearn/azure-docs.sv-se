@@ -1,12 +1,12 @@
 ---
-title: "Azure Site Recovery-kapacitetsplaneraren för VMware till Azure| Microsoft Docs"
-description: "Det här är användarhandboken för Azure Site Recovery-kapacitetsplaneraren."
+title: Azure Site Recovery-kapacitetsplaneraren för VMware till Azure| Microsoft Docs
+description: Det här är användarhandboken för Azure Site Recovery-kapacitetsplaneraren.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 63963804b81aa57e914e18fa474963a3830d04d5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 337217e66fe4d3780af197911a0e72c6f936e411
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Rapporten Kostnadsuppskattning i Distributionshanteraren för Azure Site Recovery  
 
@@ -110,7 +110,7 @@ Så här lägger du till virtuella datorer manuellt:
 * Varaktighet för varje DR-test (dagar) 
 * OS-typ
 * Dataredundans 
-* Azure Hybrid-förmånen
+* Azure Hybrid-förmån
 
 3.  Du kan använda samma värde för alla virtuella datorer i tabellen genom att klicka på knappen Använd för alla, för kolumnerna Antal DR-tester under ett år, Varaktighet för varje DR-test (dagar), Dataredundans och Azure Hybrid-förmånen.
 
@@ -136,7 +136,7 @@ Så här lägger du till virtuella datorer manuellt:
 
 **Dataredundans**: det här kan vara något av följande – lokalt redundant lagring (LRS), geo-redundant lagring (GRS) eller geo-redundant lagring med läsbehörighet (RA-GRS). Standardvärdet är LRS. Du kan ändra typen baserat på lagringskontot för de olika virtuella datorerna, eller så kan du använda en ny typ för alla virtuella datorer genom att ändra typen på den översta raden och klicka på Använd för alla.  Lagringskostnaden för replikering beräknas baserat på priset för den dataredundans du har valt. 
 
-**Azure Hybrid-förmånen**: du kan använda Azure Hybrid-förmånen för virtuella Windows-datorer i förekommande fall.  Standardvärdet är Ja. Du kan ändra inställningen för specifika virtuella datorer eller uppdatera alla virtuella datorer genom att klicka på knappen Använd för alla.
+**Azure Hybrid-förmån**: du kan använda Azure Hybrid-förmånen för virtuella Windows-datorer i förekommande fall.  Standardvärdet är Ja. Du kan ändra inställningen för specifika virtuella datorer eller uppdatera alla virtuella datorer genom att klicka på knappen Använd för alla.
 
 **Total Azure-förbrukning**: det här omfattar bearbetning, lagring och kostnaden för Azure Site Recovery-licenser för din haveriberedskap. Baserat på ditt val visas kostnaden antingen per månad eller år.
 

@@ -1,30 +1,31 @@
 ---
-title: Introduktion till Azure Blob storage | Microsoft Docs
-description: Introduktion till Azure Blob storage
+title: Introduktion till Blob storage – Objektlagring i Azure | Microsoft Docs
+description: Azure Blob storage är utformat för att lagra stora mängder ostrukturerade objektdata, exempelvis text eller binära data. Dina program kan komma åt objekt i Blob storage från PowerShell eller Azure CLI, från kod via Azure Storage-klientbibliotek eller via REST.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: overview
-ms.date: 09/28/2017
+ms.date: 03/27/2018
 ms.author: tamram
-ms.openlocfilehash: aabc10b1c1c501e4fa0eb31835c2818cfb8942c6
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0fff0032ec2452413bcd1df3175634b14a64208f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-blob-storage"></a>Introduktion till bloblagring
 
-Azure Blob Storage är en tjänst för att lagra stora mängder ostrukturerad objektdata, exempelvis text eller binär data som kan nås från var som helst i världen via HTTP eller HTTPS. Du kan använda Blob Storage för att exponera data offentligt eller lagra programdata privat.
+Azure Blob storage är Microsofts molntjänstlagringslösning för dataobjekt. Blob storage kan lagra stora mängder ostrukturerade objektdata, exempelvis text eller binära data. Data i Blob storage kan nås från vilken plats som helst i världen via HTTP eller HTTPS. Du kan använda Blob Storage för att exponera data offentligt eller lagra programdata privat.
 
 Vanliga användningsområden för Blob Storage är:
 
 * Leverera bilder eller dokument direkt till en webbläsare
 * Lagra filer för distribuerad åtkomst
 * Direktuppspelning av video och ljud
-* Lagra data för säkerhetskopiering och återställning, haveriberedskap och arkivering
+* Lagra för säkerhetskopiering och återställning, haveriberedskap och arkivering
 * Lagra data för analys av en tjänst som kan vara lokal eller Azure-baserad
+* Lagra virtuella hårddiskar för användning med virtuella Azure-datorer
 
 ## <a name="blob-service-concepts"></a>Blob Service-koncept
 

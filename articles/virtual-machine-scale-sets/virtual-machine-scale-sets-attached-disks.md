@@ -1,11 +1,11 @@
 ---
-title: "Anslutna datadiskar med skaluppsättningar för virtuella Azure-datorer | Microsoft Docs"
-description: "Lär dig hur du använder anslutna datadiskar med skaluppsättningar för virtuella datorer"
+title: Anslutna datadiskar med skaluppsättningar för virtuella Azure-datorer | Microsoft Docs
+description: Lär dig hur du använder anslutna datadiskar med skaluppsättningar för virtuella datorer
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -15,55 +15,30 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 52ea7e35b941d5b1e45f39203757e4a3644cc9a5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ec11a2d66530129fb61d97681e6882b887c8654c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Anslutna datadiskar med skaluppsättningar för virtuella Azure-datorer
-[Skaluppsättningar för virtuella Azure-datorer](/azure/virtual-machine-scale-sets/) stöder nu virtuella datorer med anslutna datadiskar. Datadiskar kan definieras i lagringsprofilen för skalningsuppsättningar som har skapats med Azure Managed Disks. Tidigare var operativsystemsenheter och temp-enheter de enda direktanslutna lagringsalternativen tillgängliga för virtuella datorer i skalningsuppsättningar.
+För att utöka din tillgängliga lagring, stöder Azure [VM-skalningsuppsättningar](/azure/virtual-machine-scale-sets/) virtuella datorinstanser med anslutna datadiskar. Du kan koppla in datadiskar när skalningsuppsättningen skapas eller till en befintlig skalningsuppsättning.
 
 > [!NOTE]
->  När du skapar en skalningsuppsättning med anslutna datadiskar behöver du fortfarande montera och formatera diskarna från en virtuell dator för att använda dem (precis som för fristående virtuella Azure-datorer). Ett enkelt sätt att slutföra denna process är att använda ett tillägg för anpassat skript som anropar ett standardskript för att partitionera och formatera alla datadiskar på en virtuell dator.
+>  När du skapar en skalningsuppsättning med anslutna datadiskar så behöver du montera och formatera diskarna från en virtuell dator för att använda dem (precis som för fristående virtuella Azure-datorer). Ett enkelt sätt att slutföra denna process är att använda ett anpassat skripttillägg som anropar ett skript för att partitionera och formatera alla datadiskar på en virtuell dator. Exempel på detta finns i [Azure CLI 2.0](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
 
-## <a name="create-a-scale-set-with-attached-data-disks"></a>Skapa en skalningsuppsättning med anslutna datadiskar
-Ett enkelt sätt att skapa en skalningsuppsättning med anslutna diskar är att använda kommandot [az vmss create](/cli/azure/vmss#az_vmss_create). I följande exempel skapas en Azure-resursgrupp och en skalningsuppsättning för en virtuell dator med 10 virtuella Ubuntu-datorer, där var och en har två anslutna datadiskar på 50 GB respektive 100 GB.
 
-```bash
-az group create -l southcentralus -n dsktest
-az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
-```
+## <a name="create-and-manage-disks-in-a-scale-set"></a>Skapa och hantera diskar i en skalningsuppsättning
+Detaljerad information om hur du skapar en skalningsuppsättning med anslutna datadiskar, förbereder och formaterar, eller lägger till och tar bort datadiskar, finns i någon av följande självstudier:
 
-Kommandot [az vmss create](/cli/azure/vmss#az_vmss_create) ställer in vissa konfigurationsvärden som standard om du inte själv anger dem. Om du vill se de tillgängliga alternativ som du kan åsidosätta kan du försöka följande:
+- [Azure CLI 2.0](tutorial-use-disks-cli.md)
+- [Azure PowerShell](tutorial-use-disks-powershell.md)
 
-```bash
-az vmss create --help
-```
+Resten av den här artikeln beskriver specifika användningsfall som Service Fabric-kluster som kräver datadiskar eller att koppla in befintliga datadiskar med innehåll till en skalningsuppsättning.
 
-Ett annat sätt att skapa en skalningsuppsättning med anslutna datadiskar är att ange en skalningsuppsättning i en Azure Resource Manager-mall som innehåller ett _dataDisks_-avsnitt i _storageProfile_ och att sedan distribuera mallen. Disken på 50 GB och 100 GB i föregående exempel skulle definieras enligt följande exempelmall:
-
-```json
-"dataDisks": [
-    {
-    "lun": 1,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 50
-    },
-    {
-    "lun": 2,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 100
-    }
-]
-```
-
-Du kan se ett fullständigt exempel på en skalningsuppsättning med en ansluten disk som är klar att distribueras här: [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data).
 
 ## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>Skapa ett Service Fabric-kluster med anslutna datadiskar
-Varje [nodtyp](../service-fabric/service-fabric-cluster-nodetypes.md) i ett [Service Fabric](/azure/service-fabric)-kluster som körs i Azure backas upp av en VM-skalningsuppsättning.  Genom att använda en Azure Resource Manager-mall kan du ansluta datadiskar till de skaluppsättningar som utgör Service Fabric-klustret. Du kan använda en [befintlig mall](https://github.com/Azure-Samples/service-fabric-cluster-templates) som utgångspunkt. I mallen tar du med ett _dataDisks_-avsnitt i _storageProfile_ för _Microsoft.Compute/virtualMachineScaleSets_-resurserna. Distribuera sedan mallen. I följande exempel ansluts en datadisk på 128 GB:
+Varje [nodtyp](../service-fabric/service-fabric-cluster-nodetypes.md) i ett [Service Fabric](/azure/service-fabric)-kluster som körs i Azure backas upp av en VM-skalningsuppsättning.  Genom att använda en Azure Resource Manager-mall, kan du ansluta datadiskar till skalningsuppsättningen som utgör Service Fabric-klustret. Du kan använda en [befintlig mall](https://github.com/Azure-Samples/service-fabric-cluster-templates) som utgångspunkt. I mallen tar du med ett _dataDisks_-avsnitt i _storageProfile_ för _Microsoft.Compute/virtualMachineScaleSets_-resurserna. Distribuera sedan mallen. I följande exempel ansluts en datadisk på 128 GB:
 
 ```json
 "dataDisks": [
@@ -115,56 +90,6 @@ Förbered datadiskarna i ett Linux-kluster automatiskt genom att lägga till fö
 }
 ```
 
-## <a name="adding-a-data-disk-to-an-existing-scale-set"></a>Lägg till en datadisk till en befintlig skalningsuppsättning
-> [!NOTE]
->  Du kan endast koppla datadiskar till en skalningsuppsättning som har skapats med [Azure Managed Disks](./virtual-machine-scale-sets-managed-disks.md).
-
-Du kan lägga till en datadisk till en skalningsuppsättning för en virtuell dator med Azure CLI-kommandot _az vmss disk attach_. Se till att du anger en LUN som inte redan används. Följande CLI-exempel lägger till en 50 GB-enhet till LUN 3:
-
-```bash
-az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
-```
-
-Följande PowerShell-exempel lägger till en 50 GB-enhet till LUN 3:
-
-```powershell
-$vmss = Get-AzureRmVmss -ResourceGroupName myvmssrg -VMScaleSetName myvmss
-$vmss = Add-AzureRmVmssDataDisk -VirtualMachineScaleSet $vmss -Lun 3 -Caching 'ReadWrite' -CreateOption Empty -DiskSizeGB 50 -StorageAccountType StandardLRS
-Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScaleSet $vmss
-```
-
-> [!NOTE]
-> Olika VM-storlekar har olika begränsningar för antalet anslutna enheter de har stöd för. Kontrollera [storleksegenskaper för virtuella datorer](../virtual-machines/windows/sizes.md) innan du lägger till en ny disk.
-
-Du kan även lägga till en disk genom att lägga till en ny post för egenskapen _dataDisks_ i _storageProfile_ för en skalningsuppsättning och tillämpa ändringen. För att testa detta kan du ta en befintlig skalningsuppsättning i [resursutforskaren i Azure](https://resources.azure.com/). Välj _Redigera_ och lägg till en ny disk i listan över datadiskar såsom visas i följande exempel:
-
-```json
-"dataDisks": [
-    {
-    "lun": 1,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 50
-    },
-    {
-    "lun": 2,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 100
-    },
-    {
-    "lun": 3,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 20
-    }          
-]
-```
-
-Välj sedan _PUT_ för att tillämpa ändringarna på skalningsuppsättningen. Det här exemplet skulle fungera så länge du använder en VM-storlek som har stöd för fler än två anslutna datadiskar.
-
-> [!NOTE]
-> När du gör en ändring på en skalningsuppsättning, som att till exempel lägga till eller ta bort en datadisk, tillämpas det på alla nyskapade virtuella datorer. Men ändringen tillämpas endast på befintliga virtuella datorer om egenskapen _upgradePolicy_ är inställd på "Automatiskt". Om den är inställd på "Manuellt" måste du manuellt tillämpa den nya modellen på befintliga virtuella datorer. Du kan göra detta i portalen med PowerShell-kommandot _Update-AzureRmVmssInstance_ eller med CLI-kommandot _az vmss update-instances_.
 
 ## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Lägga till fyllda datadiskar i en befintlig skalningsuppsättning 
 > När du lägger till diskar i en befintlig skalningsuppsättningsmodell skapas disken avsiktligt alltid tom. Det här scenariot omfattar också nya instanser som skapats av skalningsuppsättningen. Det beror på att skalningsuppsättningsdefinitionen har en tom datadisk. Om du vill skapa fyllda dataenheter för en befintlig skalningsuppsättningsmodell kan du välja något av följande två alternativ:
@@ -176,12 +101,6 @@ Välj sedan _PUT_ för att tillämpa ändringarna på skalningsuppsättningen. D
 
 > Användaren måste avbilda instansen 0 VM som innehåller nödvändiga data och sedan använda den virtuella hårddisken för avbildningsdefinitionen.
 
-## <a name="removing-a-data-disk-from-a-scale-set"></a>Ta bort en datadisk från en skalningsuppsättning
-Du kan ta bort en datadisk från en skalningsuppsättning för en virtuell dator med Azure CLI-kommandot _az vmss disk detach_. Följande kommando tar till exempel bort disken som definierats på LUN 2:
-```bash
-az vmss disk detach -g dsktest -n dskvmss --lun 2
-```  
-På ett liknande sätt kan du även ta bort en disk från en skalningsuppsättning genom att ta bort en post från egenskapen _dataDisks_ i _storageProfile_ och tillämpa ändringen. 
 
 ## <a name="additional-notes"></a>Ytterligare information
 Stöd för Azure Managed Disks och anslutna datadiskar för skalningsuppsättningar finns i [_förhandversionen 2016-04-30-_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) av Microsoft.Compute-API:t eller senare versioner.

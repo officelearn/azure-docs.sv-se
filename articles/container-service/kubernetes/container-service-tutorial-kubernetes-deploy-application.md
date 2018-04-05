@@ -1,6 +1,6 @@
 ---
-title: "Självstudie för Azure Container Service – Distribuera ett program"
-description: "Självstudie för Azure Container Service – Distribuera ett program"
+title: Självstudie för Azure Container Service – Distribuera ett program
+description: Självstudie för Azure Container Service – Distribuera ett program
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 02ec97fecd4759e9f35ab313ffe2d18fa076170a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7119976ada00e10ebeadf6fcff2daf125f439c17
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="run-applications-in-kubernetes"></a>Köra program i Kubernetes
 
@@ -26,7 +26,7 @@ I den här självstudien, som är del fyra av sju, distribuerar du ett exempelpr
 > * Köra programmet i Kubernetes
 > * Testa programmet
 
-I efterföljande självstudier skalar du ut programmet, uppdaterar det och konfigurerar Operations Management Suite för att övervaka Kubernetes-klustret.
+I efterföljande självstudier skalar du ut programmet, uppdaterar det och konfigurerar Log Analytics för att övervaka Kubernetes-klustret.
 
 I den här självstudien förutsätter vi att du har grundläggande kunskaper om vanliga Kubernetes-begrepp. Detaljerad information om Kubernetes finns i [Kubernetes-dokumentationen](https://kubernetes.io/docs/home/).
 

@@ -1,12 +1,12 @@
 ---
-title: "Montera en filresurs på Azure och få åtkomst till resursen i Windows | Microsoft Docs"
-description: "Montera en filresurs på Azure och få åtkomst till resursen i Windows."
+title: Montera en filresurs på Azure och få åtkomst till resursen i Windows | Microsoft Docs
+description: Montera en filresurs på Azure och få åtkomst till resursen i Windows.
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5d6d81678d1b3c63b52b34e79979d06fdc981ad0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montera en filresurs på Azure och få åtkomst till resursen i Windows
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Windows och Windows Server. Den här artikeln visar tre olika sätt att montera en Azure-filresurs på Windows: med användargränssnittet Utforskaren, via PowerShell eller via Kommandotolken. 
@@ -50,6 +50,31 @@ Du kan montera Azure-filresurser i en Windows-installation som körs antingen i 
 * **Lagringskontonyckel**: Om du vill montera en Azure-filresurs behöver du den primära (eller sekundära) lagringsnyckeln. SAS-nycklar stöds inte för montering.
 
 * **Kontrollera att port 445 är öppen**: Azure Files använder SMB-protokollet. SMB kommunicerar via TCP-port 445. Kontrollera om din brandvägg blockerar TCP-port 445 från klientdatorn.
+
+## <a name="persisting-connections-across-reboots"></a>Spara anslutningar mellan omstarter
+### <a name="cmdkey"></a>CmdKey
+Det enklaste sättet att upprätta en beständig anslutning är att spara dina autentiseringsuppgifterna för lagringskontot i Windows med hjälp av kommandoradsverktyget CmdKey. Följande är ett exempel på en kommandorad för att spara autentiseringsuppgifterna för ditt lagringskonto i din virtuella dator:
+```
+C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
+```
+> [!Note]
+> Domännamn här blir AZURE
+
+CmdKey låter dig också lista de autentiseringsuppgifter som den lagrat:
+
+```
+C:\>cmdkey /list
+```
+Utdata blir följande:
+
+```
+Currently stored credentials:
+
+Target: Domain:target=<yourstorageaccountname>.file.core.windows.net
+Type: Domain Password
+User: AZURE\<yourstorageaccountname>
+```
+När autentiseringsuppgifterna har sparats, behöver du inte längre ange dem vid anslutning till din resurs. Istället kan du ansluta utan att ange några autentiseringsuppgifter.
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>Montera Azure-filresursen med Utforskaren
 > [!Note]  

@@ -1,9 +1,9 @@
 ---
-title: "Azure DB Cosmos global distributionsplatsen självstudier för SQL-API | Microsoft Docs"
-description: "Lär dig hur du ställer in Azure Cosmos DB global distributionsplatsen med hjälp av SQL-API."
+title: Självstudier för global distribution i Azure DB Cosmos för SQL-API | Microsoft Docs
+description: Så här konfigurerar du global distribution i Azure Cosmos DB med SQL-API:et.
 services: cosmos-db
-keywords: Global distributionsplatsen
-documentationcenter: 
+keywords: global distribution
+documentationcenter: ''
 author: rafats
 manager: jhubbard
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
@@ -15,53 +15,51 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: 0cee55673c8abca29b7e389fa4fd62a48566904b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 58cfa4f8898febf6d0bbe4c5a7a1dad4fcc6c854
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Hur du konfigurerar Azure Cosmos DB global distributionsplatsen med hjälp av SQL-API
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Konfigurera global distribution i Azure Cosmos DB med SQL-API:et
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+I den här artikeln visar vi hur du kan konfigurera global distribution i Azure Cosmos DB med Azure Portal och sedan ansluta med hjälp av SQL-API:et.
 
-I den här artikeln visar vi hur du använder Azure-portalen för att konfigurera Azure Cosmos DB global distributionsplatsen och ansluter sedan med hjälp av SQL-API.
-
-Den här artikeln omfattar följande aktiviteter: 
+Den här artikeln beskriver följande uppgifter: 
 
 > [!div class="checklist"]
-> * Konfigurera distributionslistor med Azure-portalen
-> * Konfigurera distributionslistor med hjälp av den [SQL-API: er](sql-api-introduction.md)
+> * Konfigurera global distribution med Azure Portal
+> * Konfigurera global distribution med [SQL-API:erna](sql-api-introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>Ansluter till en önskad region med hjälp av SQL-API
+## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>Ansluta till en önskad region med hjälp av SQL-API:et
 
-För att kunna dra nytta av [global distributionsplatsen](distribute-data-globally.md), klientprogram kan ange beställda inställningar listan över regioner som används för att utföra åtgärder för dokumentet. Detta kan göras genom att ställa in principen. Baserat på konfigurationen av Azure DB som Cosmos-kontot, aktuella regional tillgänglighet och inställningar listan som anges, väljs den mest optimala slutpunkten av SQL-SDK för att utföra skrivåtgärder och läsåtgärder.
+I syfte att dra nytta av den [globala distributionen](distribute-data-globally.md) kan klientprogrammen ange den beställda listan med inställningar för regioner som ska användas för att utföra dokumentåtgärder. Detta gör du genom att konfigurera anslutningspolicyn. Utifrån Azure Cosmos DB-kontokonfigurationen, den aktuella regionala tillgängligheten och den angivna listan över inställningar, så väljs den mest optimala slutpunkten för genomförande av skriv- och läsåtgärder av SQL-SDK:n.
 
-Den här inställningen listan anges när initierar en anslutning med SQL-SDK: er. SDK: erna acceptera en valfri parameter ”PreferredLocations” som en sorterad lista över Azure-regioner.
+Denna lista över inställningar anges när en anslutning initieras med SQL-SDK:erna. SDK:erna accepterar den valfria parametern PreferredLocations, som är en sorterad lista över Azure-regioner.
 
-SDK skickar automatiskt alla skrivningar till aktuellt skriva region.
+SDK:n skickar automatiskt alla skrivningar till den aktuella skrivregionen.
 
-Alla Läs kommer att skickas till den första tillgängliga regionen i listan över PreferredLocations. Om begäran inte klienten misslyckas nedåt i listan till nästa region, och så vidare.
+Alla läsningar skickas till den första tillgängliga regionen i PreferredLocations-listan. Om begäran misslyckas går klienten nedåt i listan till nästa region osv.
 
-SDK: erna görs endast försök att läsa från de regioner som anges i PreferredLocations. Så, till exempel om det konto som är tillgänglig i fyra regioner, men klienten endast anger två read(non-write) regioner för PreferredLocations, sedan utan läsning hanteras utanför den skrivskyddade region som inte har angetts i PreferredLocations. Om de skrivskyddade regioner som anges i PreferredLocations inte är tillgängliga hanteras läsningar utanför skrivåtgärder region.
+SDK:erna försöker bara läsa från de regioner som anges i PreferredLocations. Så om databaskontot t.ex. är tillgängligt i fyra regioner, men klienten enbart specificerar två läsregioner (skrivskyddade) för PreferredLocations, så hanteras inga läsningar från den läsregion som inte anges i PreferredLocations. Om de läsregioner som anges i PreferredLocations inte är tillgängliga så hanteras läsningarna från skrivregionen.
 
-Programmet kan verifiera den aktuella write-slutpunkten och läsa slutpunkt som valts av SDK genom att kontrollera två egenskaper, WriteEndpoint och ReadEndpoint, finns i SDK-version 1.8 och senare.
+Programmet kan verifiera den aktuella skrivslutpunkt och lässlutpunkt som valts av SDK:n genom att kontrollera de två egenskaperna WriteEndpoint och ReadEndpoint, som är tillgängliga i SDK-version 1.8 och senare.
 
-Om egenskapen PreferredLocations inte har angetts hanteras alla förfrågningar från det aktuella området för skrivning.
+Om egenskapen PreferredLocations inte har angetts hanteras alla förfrågningar från den aktuella skrivregionen.
 
 ## <a name="net-sdk"></a>.NET SDK
-SDK kan användas utan någon kodändringar. I det här fallet SDK automatiskt styr både läs och skriver till det aktuella området för skrivning.
+SDK:n kan användas utan några kodändringar. I det här fallet styr SDK:n automatiskt både läsningar och skrivningar till den aktuella skrivregionen.
 
-Parametern ConnectionPolicy för konstruktorn DocumentClient har en egenskap som kallas Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations i version 1,8 och senare av .NET SDK. Den här egenskapen är av typen samling `<string>` och bör innehålla en lista över regionnamn. Strängvärden formateras per Region namnkolumnen på den [Azure-regioner] [ regions] sida, utan blanksteg före eller efter först och sista tecknet respektive.
+Parametern ConnectionPolicy för DocumentClient-konstruktorn har en egenskap som kallas Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations i .NET SDK version 1.8 och senare. Den här egenskapen är av typen samling `<string>` och bör innehålla en lista med regionnamn. Strängvärdena formateras efter regionnamnskolumnen på sidan [Azure-regioner][regions], utan något blanksteg före det första tecknet eller efter det sista.
 
-Aktuella Skriv- och Läs slutpunkter är tillgängliga i DocumentClient.WriteEndpoint och DocumentClient.ReadEndpoint respektive.
+De aktuella skriv- och lässlutpunkterna är tillgängliga i DocumentClient.WriteEndpoint respektive DocumentClient.ReadEndpoint.
 
 > [!NOTE]
-> URL: er för slutpunkterna ska inte betraktas som långlivade konstanter. Tjänsten kan uppdatera dem när som helst. SDK hanterar automatiskt den här ändringen.
+> Slutpunkternas URL:er ska inte betraktas som långlivade konstanter. Tjänsten kan uppdatera dem när som helst. SDK:n hanterar sådana ändringar automatiskt.
 >
 >
 
@@ -87,19 +85,19 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-## <a name="nodejs-javascript-and-python-sdks"></a>NodeJS, JavaScript och Python SDK
-SDK kan användas utan någon kodändringar. I det här fallet SDK kommer automatiskt att dirigera både läsningar och skrivningar till aktuellt skriva region.
+## <a name="nodejs-javascript-and-python-sdks"></a>NodeJS-, JavaScript- och Python-SDK:er
+SDK:n kan användas utan några kodändringar. I det här fallet styr SDK:n automatiskt både läsningar och skrivningar till den aktuella skrivregionen.
 
-I version 1,8 och senare av varje SDK parametern ConnectionPolicy för konstruktorn DocumentClient en ny egenskap kallas DocumentClient.ConnectionPolicy.PreferredLocations. Detta är parametern är en matris med strängar som tar en lista över regionnamn. Namnen är formaterade per Region namnkolumnen i den [Azure-regioner] [ regions] sidan. Du kan också använda fördefinierade konstanter i informationssyfte objektet AzureDocuments.Regions
+Parametern ConnectionPolicy för DocumentClient-konstruktorn har en ny egenskap som kallas Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations i varje SDK av version 1.8 eller senare. Den här parametern är en matris med strängar som tar en lista med regionnamn. Namnen är formaterade efter regionnamnskolumnen på sidan [Azure-regioner][regions]. Du kan också använda de fördefinierade konstanterna i bekvämlighetsobjektet AzureDocuments.Regions
 
-Aktuella Skriv- och Läs slutpunkter är tillgängliga i DocumentClient.getWriteEndpoint och DocumentClient.getReadEndpoint respektive.
+De aktuella skriv- och lässlutpunkterna är tillgängliga i DocumentClient.getWriteEndpoint respektive DocumentClient.getReadEndpoint.
 
 > [!NOTE]
-> URL: er för slutpunkterna ska inte betraktas som långlivade konstanter. Tjänsten kan uppdatera dem när som helst. Den här ändringen ska hanteras automatiskt av SDK.
+> Slutpunkternas URL:er ska inte betraktas som långlivade konstanter. Tjänsten kan uppdatera dem när som helst. SDK:n hanterar sådana ändringar automatiskt.
 >
 >
 
-Nedan visas ett kodexempel för NodeJS eller Javascript. Python och Java följer samma mönster.
+Här nedan visas ett kodexempel för NodeJS/Javascript. Python och Java följer samma mönster.
 
 ```java
 // Creating a ConnectionPolicy object
@@ -116,11 +114,11 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 ```
 
 ## <a name="rest"></a>REST
-När ett databaskonto har gjorts i flera områden, kan klienterna fråga dess tillgänglighet genom att utföra en GET-begäran för följande URI.
+När ett databaskonto har gjorts tillgängligt i flera regioner, kan klienterna fråga efter dess tillgänglighet genom att utföra en GET-begäran för följande URI.
 
     https://{databaseaccount}.documents.azure.com/
 
-Tjänsten returneras en lista över regioner och deras motsvarande Azure DB som Cosmos-slutpunkt URI: er för replikerna. Det aktuella området skrivåtgärder kommer att visas i svaret. Klienten kan sedan välja lämpliga slutpunkten för alla ytterligare REST API-begäranden på följande sätt.
+Tjänsten returnerar en lista med regioner och URI:erna för deras motsvarande Azure Cosmos DB-slutpunkter för replikerna. Den aktuella skrivregionen indikeras i svaret. Klienten kan sedan välja lämplig slutpunkt för alla ytterligare REST API-förfrågningar enligt följande.
 
 Exempelsvar
 
@@ -155,24 +153,24 @@ Exempelsvar
     }
 
 
-* PUT, POST och DELETE-begäranden måste gå till den angivna skrivningen URI
-* Alla hämtar och andra skrivskyddade förfrågningar (till exempel frågor) kan gå till en slutpunkt av klientens val
+* Alla PUT-, POST- och DELETE-förfrågningar måste gå till den angivna skriv-URI:n
+* Alla GET och andra skrivskyddade förfrågningar (t.ex. frågor) kan gå till vilken slutpunkt som helst som klienten väljer
 
-Skriva begäranden till skrivskyddad regioner misslyckas med felkoden för HTTP 403 (”förbjuden”).
+Skrivförfrågningar till skrivskyddade regioner misslyckas med HTTP-felkoden 403 (”Förbjudet”).
 
-Om skrivning region ändras efter klientens inledande identifieringen fas, misslyckas efterföljande skrivningar till den föregående skrivåtgärder regionen med HTTP-felkod 403 (”förbjuden”). Klienten bör sedan få listan över regioner igen för att hämta den uppdaterade write-regionen.
+Om skrivregionen ändras efter klientens inledande identifieringsfas, så kommer efterföljande skrivningar till föregående skrivregion att misslyckas med HTTP-felkoden 403 (”Förbjudet”). Klienten bör sedan få listan med regioner igen och därigenom få den uppdaterade skrivregionen.
 
-Det är den som Slutför den här kursen. Du kan lära dig hur du hanterar konsekvensen för globalt replikerade kontot genom att läsa [konsekvensnivåer i Azure Cosmos DB](consistency-levels.md). Och för mer information om hur globala databasreplikering fungerar i Azure Cosmos DB, se [distribuera data globalt med Azure Cosmos DB](distribute-data-globally.md).
+Och med detta är den här självstudiekursen klar. Mer information om hur du kan hantera ditt globalt replikerade kontos konsekvens finns i [Konsekvensnivåer i Azure Cosmos DB](consistency-levels.md). Mer information om hur global databasreplikering fungerar i Azure Cosmos DB finns i [Distribuera data globalt med Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen kommer du har gjort följande:
+I den här självstudien har du gjort följande:
 
 > [!div class="checklist"]
-> * Konfigurera distributionslistor med Azure-portalen
-> * Konfigurera distributionslistor med SQL-API: er
+> * Konfigurera global distribution med Azure Portal
+> * Konfigurera global distribution med SQL-API:erna
 
-Du kan nu fortsätta till nästa kurs att lära dig hur du utvecklar lokalt med hjälp av lokala Azure DB som Cosmos-emulatorn.
+Du kan nu fortsätta till nästa självstudiekurs och lära dig hur du utvecklar lokalt med hjälp av den lokala Azure Cosmos DB-emulatorn.
 
 > [!div class="nextstepaction"]
 > [Utveckla lokalt med emulatorn](local-emulator.md)

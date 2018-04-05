@@ -1,6 +1,6 @@
 ---
-title: "Snabbstart för Azure – Ladda upp, ladda ned och lista blobar i Azure Storage med Azure Storage Explorer | Microsoft Docs"
-description: "I den här snabbstarten använder du Azure Storage Explorer för att skapa ett lagringskonto och en behållare. Du använder sedan Storage Explorer för att ladda upp en blob till Azure Storage och lista blobarna i en behållare."
+title: Snabbstart för Azure – Ladda upp, ladda ned och lista blobar i Azure Storage med Azure Storage Explorer | Microsoft Docs
+description: I den här snabbstarten använder du Azure Storage Explorer för att skapa ett lagringskonto och en behållare. Du använder sedan Storage Explorer för att ladda upp en blob till Azure Storage och lista blobarna i en behållare.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 72503dd0216d9d987d1222491c6e11d46a4d38a3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f44d42b949eae0d017e3bba218234fd1e2ead78e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Azure Storage Explorer
 
@@ -47,7 +47,7 @@ När anslutningen är klar läses Azure Storage Explorer in med fliken **Utforsk
 
 Blobar laddas alltid upp till en behållare. På så vis kan du ordna grupper av blobar på samma sätt som du ordnar filer i mappar på datorn.
 
-Om du vill skapa en behållare ska du expandera det lagringskonto som du skapade i föregående steg. Välj **Blob Containers** (Blob-behållare), högerklicka och välj **Create Blob Container** (Skapa blob-behållare). Ange namnet på blob-behållaren. Se avsnittet om [regler för namngivning av behållare](storage-dotnet-how-to-use-blobs.md#create-a-container) där det finns en lista över regler och begränsningar för namngivning av blob-behållare. Skapa blob-behållaren när du är klar genom att trycka på **Retur**. När en blob-behållare har skapats visas den i mappen **Blob Containers** (Blob-behållare) för det valda lagringskontot.
+Om du vill skapa en behållare ska du expandera det lagringskonto som du skapade i föregående steg. Välj **Blob Containers** (Blob-behållare), högerklicka och välj **Create Blob Container** (Skapa blob-behållare). Ange namnet på blob-behållaren. Se avsnittet [Skapa behörigheter för behållare och uppsättning](storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) för en lista över regler och begränsningar vid namngivning av blob-behållare. Skapa blob-behållaren när du är klar genom att trycka på **Retur**. När en blob-behållare har skapats visas den i mappen **Blob Containers** (Blob-behållare) för det valda lagringskontot.
 
 ## <a name="upload-blobs-to-the-container"></a>Ladda upp blobar i behållaren
 

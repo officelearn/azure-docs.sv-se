@@ -1,6 +1,6 @@
 ---
-title: "Azure Container registret tutorial – distribuera webbapp från Azure-behållare registret"
-description: "Distribuera en Linux-baserade webbapp med hjälp av en behållare avbildning registret georeplikerad Azure-behållaren. En del två av en serie i tre delar."
+title: Självstudie om Azure Container Registry – Distribuera webbapp från Azure Container Registry
+description: Distribuera en Linux-baserad webbapp med hjälp av en behållaravbildning från ett geo-replikerat Azure-behållarregister. Del två av en serie i tre delar.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,110 +9,110 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: d775a17cb8069a7521788d850d7d52b92cc67526
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: MT
+ms.openlocfilehash: 51aa3c6fc56e974fc1729a1d2fe35c889adf35e2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="deploy-web-app-from-azure-container-registry"></a>Distribuera webbapp från Azure-behållare registret
+# <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Självstudier: Distribuera webbapp från Azure Container Registry
 
-Detta är en del två i självstudiekursen serie i tre delar. I [del ett](container-registry-tutorial-prepare-registry.md), ett privat, georeplikerad behållare register har skapats och en behållare avbildning har skapats från källan och pushas till registret. I den här artikeln distribuera behållaren i två Web App-instanser i två olika Azure-regioner kan dra nytta av nätverket Stäng georeplikerad-registret.
+Det här är del två i en serie självstudier i tre delar. I [del ett](container-registry-tutorial-prepare-registry.md) skapade vi ett privat geo-replikerat behållarregister, och en behållaravbildning skapades från källan och pushades till registret. I den här artikeln distribuerar du behållaren till två Web App-instanser i två olika Azure-regioner så att du kan dra nytta av den nätverksnära aspekten av det geo-replikerade registret.
 
-Del två i serien i den här självstudiekursen:
+Den här självstudien är del två i serien:
 
 > [!div class="checklist"]
-> * Distribuera en avbildning av behållare till två *Web Apps för behållare* instanser
-> * Kontrollera det distribuerade programmet
+> * Distribuera en behållaravbildning av till två instanser av *Web Apps för behållare*
+> * Verifiera det distribuerade programmet
 
-Om du inte har skapat ett geo-replikerade register och pushas bild av container exempelprogrammet i registret återgår till föregående kurs i serien, [förbereda ett geo-replikerade Azure-behållaren register](container-registry-tutorial-prepare-registry.md).
+Om du inte har skapat något geo-replikerat register och pushat avbildningen av behållarexempelprogrammet till registret, så gå tillbaka till föregående självstudiekurs i serien: [Förbered ett geo-replikerat Azure-behållarregister](container-registry-tutorial-prepare-registry.md).
 
-I nästa del av serien du uppdatera programmet och sedan push-en ny behållare avbildning till registret. Slutligen Bläddra du till varje Web App-instans som körs ska kunna se ändringen återspeglas automatiskt i både visar Azure Container registret geo-replikering och webhooks i åtgärden.
+I nästa del av serien får du uppdatera programmet och sedan pusha en ny behållaravbildning till registret. Sedan kan du bläddra till varje Web App-instans som körs och se hur ändringen automatiskt återspeglas i dem genom att visa geo-replikering av Azure Container Registry och aktiva webhookar.
 
-## <a name="automatic-deployment-to-web-apps-for-containers"></a>Automatisk distribution för Web Apps för behållare
+## <a name="automatic-deployment-to-web-apps-for-containers"></a>Automatisk distribution till Web Apps för behållare
 
-Azure Container registret ger stöd för distribution av program direkt till [Web Apps för behållare](../app-service/containers/index.yml). I den här kursen använder du Azure-portalen ska distribuera avbildningen behållaren skapade i föregående kursen till två web app planer finns i olika Azure-regioner.
+Azure Container Registry ger stöd för distribution av program i behållare direkt till [Web Apps för behållare](../app-service/containers/index.yml). I den här självstudiekursen använder du Azure Portal för att distribuera den behållaravbildning som du skapade i föregående kursen till två webbappsplaner i olika Azure-regioner.
 
-När du distribuerar en webbapp från en avbildning av behållare i registret, och du har ett geo-replikerade register i samma region, Azure Container registret skapar en distribution av avbildningar [webhook](container-registry-webhook.md) för dig. När du skicka en ny avbildning till lagringsplatsen för behållaren webhooken hämtar ändringen och distribuerar den nya behållare avbildningen automatiskt till ditt webbprogram.
+När du distribuerar en webbapp från en behållaravbildning i registret, och har ett geo-replikerat register i samma region, så skapar Azure Container Registry en [webhook](container-registry-webhook.md) för avbildningsdistribution för dig. När du push-överför en ny avbildning till behållarlagringsplatsen så hämtar webhooken ändringen och distribuerar automatiskt den nya behållaravbildningen till din webbapp.
 
-## <a name="deploy-a-web-app-for-containers-instance"></a>Distribuera en Webbapp för behållare instans
+## <a name="deploy-a-web-app-for-containers-instance"></a>Distribuera en instans av Web App for Containers
 
-I det här steget skapar du en Webbapp för behållare instans i den *västra USA* region.
+Nu är det dags att skapa en instans av Web App for Containers i regionen *USA, västra*.
 
-Logga in på den [Azure-portalen](https://portal.azure.com) och navigera till registernyckeln som du skapade i föregående kursen.
+Logga in på [Azure Portal](https://portal.azure.com) och navigera till den registernyckel som du skapade i den föregående självstudiekursen.
 
-Välj **databaser** > **acr helloworld**, högerklicka på den **v1** tagg **taggar** och välj **Till webbprogrammet**.
+Välj **Databaser** > **acr helloworld**, högerklicka på taggen **v1** under **Taggar** och välj **Distribuera till webbapp**.
 
-![Distribuera till app service i Azure-portalen][deploy-app-portal-01]
+![Distribuera till App Service i Azure Portal][deploy-app-portal-01]
 
-Under **Web App för behållare** som visas, ange följande värden för varje inställning:
-
-| Inställning | Värde |
-|---|---|
-| **Platsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-westus` lätt kan identifiera registret och region webbprogrammet distribueras från. |
-| **Resursgrupp** | **Använd befintlig** > `myResourceGroup` |
-| **App service-plan/plats** | Skapa ett nytt schema med namnet `plan-westus` i den **västra USA** region. |
-| **Bild** | `acr-helloworld:v1`
-
-Välj **skapa** att etablera webbprogram till den *västra USA* region.
-
-![Webbprogrammet på Linux-konfiguration i Azure-portalen][deploy-app-portal-02]
-
-## <a name="view-the-deployed-web-app"></a>Visa den distribuerade webbappen
-
-När installationen är klar använder kan du visa körs programmet genom att gå till URL: en i webbläsaren.
-
-I portalen, Välj **Apptjänster**, och sedan webbprogrammet etableras i föregående steg. I det här exemplet webbprogrammet med namnet *uniqueregistryname westus*.
-
-Välj länkade URL: en för webbappen i upp till höger på den **Apptjänst** översikt för att visa programmet som körs i webbläsaren.
-
-![Webbprogrammet på Linux-konfiguration i Azure-portalen][deploy-app-portal-04]
-
-När Docker-avbildningen har distribuerats från registret georeplikerad behållare visas webbplatsen en bild som representerar den Azure-regionen där behållaren registret.
-
-![Distribuerade webbprogram som visas i en webbläsare][deployed-app-westus]
-
-## <a name="deploy-second-web-app-for-containers-instance"></a>Distribuera andra webbprogram för behållare instans
-
-Använd proceduren som beskrivs i föregående avsnitt för att distribuera en andra webbprogram för att den *östra USA* region. Under **Web App för behållare**, ange följande värden:
+Ange följande värden för respektive inställning under **Web App for Containers**:
 
 | Inställning | Värde |
 |---|---|
-| **Platsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-eastus` lätt kan identifiera registret och region webbprogrammet distribueras från. |
+| **Webbplatsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-westus` för att lätt kunna identifiera det register och den region som webbappen distribueras från. |
 | **Resursgrupp** | **Använd befintlig** > `myResourceGroup` |
-| **App service-plan/plats** | Skapa ett nytt schema med namnet `plan-eastus` i den **östra USA** region. |
-| **Bild** | `acr-helloworld:v1`
+| **App Service-plan/plats** | Skapa ett nytt schema med namnet `plan-westus` i regionen **USA, västra**. |
+| **Avbildning** | `acr-helloworld:v1`
 
-Välj **skapa** att etablera webbprogram till den *östra USA* region.
+Etablera webbappen i regionen *USA, västra* genom att välja **Skapa**.
 
-![Webbprogrammet på Linux-konfiguration i Azure-portalen][deploy-app-portal-06]
+![Webbappen i Linux-konfiguration i Azure Portal][deploy-app-portal-02]
 
 ## <a name="view-the-deployed-web-app"></a>Visa den distribuerade webbappen
 
-Som kan tidigare, du visa körs programmet genom att gå till URL: en i webbläsaren.
+När distributionen är klar kan du visa programmet som körs genom att gå till URL:en i webbläsaren.
 
-I portalen, Välj **Apptjänster**, och sedan webbprogrammet etableras i föregående steg. I det här exemplet webbprogrammet med namnet *uniqueregistryname eastus*.
+Välj **App Services** i portalen, och sedan den webbapp som du etablerade i föregående steg. I det här exemplet får webbappen namnet *uniqueregistryname-westus*.
 
-Välj länkade URL: en för webbappen i upp till höger på den **översikt över App Service** att visa program som körs i webbläsaren.
+Markera webbappens hyperlänks-URL högst upp till höger i **App Service**-översikten, så att du kan se programmet som körs i din webbläsare.
 
-![Webbprogrammet på Linux-konfiguration i Azure-portalen][deploy-app-portal-07]
+![Webbappen i Linux-konfiguration i Azure Portal][deploy-app-portal-04]
 
-När Docker-avbildningen har distribuerats från registret georeplikerad behållare visas webbplatsen en bild som representerar den Azure-regionen där behållaren registret.
+När Docker-avbildningen har distribuerats från din geo-replikerade behållare, så visar webbplatsen en avbildning som representerar den Azure-regionen som är värd för behållarregistret.
 
-![Distribuerade webbprogram som visas i en webbläsare][deployed-app-eastus]
+![Distribuerad webbapp som visas i en webbläsare][deployed-app-westus]
+
+## <a name="deploy-second-web-app-for-containers-instance"></a>Distribuera en andra instans av Web App for Containers
+
+Distribuera en andra webbapp till regionen *USA, östra* med den procedur som beskrivs i föregående avsnitt. Ange följande värden under **Web App for Containers**:
+
+| Inställning | Värde |
+|---|---|
+| **Webbplatsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-eastus` för att lätt kunna identifiera det register och den region som webbappen distribueras från. |
+| **Resursgrupp** | **Använd befintlig** > `myResourceGroup` |
+| **App Service-plan/plats** | Skapa ett nytt schema med namnet `plan-eastus` i regionen **USA, östra**. |
+| **Avbildning** | `acr-helloworld:v1`
+
+Etablera webbappen i regionen *USA, östra* genom att välja **Skapa**.
+
+![Webbappen i Linux-konfiguration i Azure Portal][deploy-app-portal-06]
+
+## <a name="view-the-deployed-web-app"></a>Visa den distribuerade webbappen
+
+Liksom tidigare kan du visa programmet som körs genom att gå till URL:en i webbläsaren.
+
+Välj **App Services** i portalen, och sedan den webbapp som du etablerade i föregående steg. I det här exemplet får webbappen namnet *uniqueregistryname-eastus*.
+
+Markera webbappens hyperlänks-URL högst upp till höger i **App Service**-översikten, så att du kan se programmet som körs i din webbläsare.
+
+![Webbappen i Linux-konfiguration i Azure Portal][deploy-app-portal-07]
+
+När Docker-avbildningen har distribuerats från din geo-replikerade behållare, så visar webbplatsen en avbildning som representerar den Azure-regionen som är värd för behållarregistret.
+
+![Distribuerad webbapp som visas i en webbläsare][deployed-app-eastus]
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får distribuerat du två Web App för behållare instanser registret georeplikerad Azure-behållaren. Genom att följa stegen i kursen får du:
+I den här självstudiekursen har du distribuerat två instanser av Web App for Containers från ett geo-replikerat Azure-behållarregister. Genom att följa stegen i självstudien har du:
 
 > [!div class="checklist"]
-> * Distribuera en avbildning av behållare till två *Web Apps för behållare* instanser
-> * Verifiera det distribuerade programmet
+> * Distribuerat en behållaravbildning av till två instanser av *Web Apps för behållare*
+> * Verifierat det distribuerade programmet
 
-Gå vidare till nästa guiden för att uppdatera och distribuera en ny behållare avbildning till behållaren registret och sedan kontrollera att webbprogram som körs i båda regioner uppdaterades automatiskt.
+Gå vidare till nästa självstudie där du lär dig att uppdatera och sedan distribuera en ny behållaravbildning till behållarregistret, och sedan kontrollera att de webbappar som körs i båda regionerna uppdaterades automatiskt.
 
 > [!div class="nextstepaction"]
-> [Distribuera en uppdatering till georeplikerad behållare bild](./container-registry-tutorial-deploy-update.md)
+> [Distribuera en uppdatering till en georeplikerad behållaravbildning](./container-registry-tutorial-deploy-update.md)
 
 <!-- IMAGES -->
 [deploy-app-portal-01]: ./media/container-registry-tutorial-deploy-app/deploy-app-portal-01.png

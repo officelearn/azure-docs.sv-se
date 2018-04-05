@@ -1,26 +1,26 @@
 ---
-title: "Visual Studio Connected Service för Azure Cosmos DB"
-description: "Gör det möjligt för utvecklare att ansluta sitt Azure Cosmos DB-konto enkelt och hantera resurser via Visual Studio Connected Services"
+title: Visual Studio Connected Service för Azure Cosmos DB
+description: Gör det möjligt för utvecklare att ansluta sitt Azure Cosmos DB-konto enkelt och hantera resurser via Visual Studio Connected Services
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
 manager: DJ
 +tags: cosmos-db
 editor: Jenny Jiang
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: f63c20831a2700f1024507bef614a5a7cc87d00e
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 93be368d34f02e64d11abe9a04b11272ce18124d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: Visual Studio Connected Service (förhandsversion)
 
@@ -28,7 +28,7 @@ Med Visual Studio Connected Services kan utvecklare enkelt ansluta sitt Azure Co
 
 Du kan även använda Datautforskaren i Connected Service för att skapa lagrade procedurer, UDF:er och utlösare för att utföra affärslogik på serversidan. Datautforskaren visar all den inbyggda programmässiga dataåtkomsten som finns tillgänglig i API:erna, men ger enkel åtkomst till dina data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Se till att du har följande objekt:
 
@@ -36,11 +36,13 @@ Se till att du har följande objekt:
 * Ett Azure Cosmos DB-konto. Om du inte redan har ett följer du anvisningarna för hur du [skapar ett Azure Cosmos DB-konto](create-sql-api-dotnet.md) för att skapa ett i Azure-portalen eller läs [Create an Azure Cosmos DB account in the Connected Service tool](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool) (Skapa ett Azure Cosmos DB i Connected Service-verktyget). 
 * Om du vill använda en lokal miljö i utvecklingssyfte kan du använda [Azure Cosmos DB-emulatorn](local-emulator.md). Miljön emulerar Azure Cosmos DB-tjänsten.
 * [Visual Studio](http://www.visualstudio.com/).
-* De senaste Azure Cosmos DB Connected Service-bitarna. Du kan ladda ned Azure Cosmos DB Connected Service från Visual Studio Marketplace enligt följande skärmbild. Öppna **Visual Studio** på datorn. På menyn **Tools** (Verktyg) väljer du **Extensions and update...** (Tillägg och uppdatering...) och väljer sedan **Online** / **Visual Studio Marketplace**. Ange **cosmosdb** för att söka efter bitarna.
+* De senaste Azure Cosmos DB Connected Service-bitarna. Du kan ladda ned Azure Cosmos DB Connected Service från Visual Studio Marketplace enligt följande skärmbild. Öppna **Visual Studio** på datorn. På menyn **Tools** (Verktyg) väljer du **Extensions and Updates...** (Tillägg och uppdateringar...) och väljer sedan **Online** / **Visual Studio Marketplace**. Ange **cosmosdb** för att söka efter bitarna.
 
     Du kan även installera Azure Cosmos DB Connected Service från [Visual Studio Marketplace](https://go.microsoft.com/fwlink/?linkid=858709).
 
     ![Skärmbild av Connected Service – ladda ned bitar.png](./media/connected-service/connected-service-downloadbits.png) 
+
+När du har hämtat tillägget Azure Cosmos DB Connected Service stänger du Visual Studio och installerar tillägget.
 
 ## <a id="SetupVS"></a>Konfigurera din Visual Studio-lösning
 1. Öppna **Visual Studio** på datorn.

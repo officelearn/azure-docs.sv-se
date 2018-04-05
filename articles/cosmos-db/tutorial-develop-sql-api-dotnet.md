@@ -1,36 +1,34 @@
 ---
-title: 'Azure Cosmos DB: Utveckla med SQL-API: et i .NET | Microsoft Docs'
-description: "Lär dig att utveckla med Azure Cosmos DB SQL-API med hjälp av .NET"
+title: 'Azure Cosmos DB: Utveckla med SQL API i .NET | Microsoft Docs'
+description: Lär dig utveckla med Azure Cosmos DB:s SQL API med .NET
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: e37a0993567b6cec7ed6a91e6dad1f2e2c097198
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 7fca9f184097ed50ace665cde0c5ef8fb180feda
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure CosmosDB: Utveckla med SQL-API: et i .NET
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure Cosmos DB: Utveckla med SQL API i .NET
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-Den här kursen visar hur du skapar ett Azure DB som Cosmos-konto med Azure-portalen och sedan skapa ett dokument databas och samling med en [partitionsnyckel](sql-api-partition-data.md#partition-keys) med hjälp av den [SQL .NET API](sql-api-introduction.md). Genom att definiera en partitionsnyckel när du skapar en samling kan är ditt program beredd att skala utan problem när dina data växer. 
+Den här självstudien visar hur du skapar ett Azure Cosmos DB-konto med Azure Portal och sedan skapar en dokumentdatabas och samling med en [partitionsnyckel](sql-api-partition-data.md#partition-keys) med hjälp av [SQL .NET API:t](sql-api-introduction.md). Genom att definiera en partitionsnyckel när du skapar en samling, är ditt program förberett att skala utan problem allteftersom dina data växer. 
 
-Den här kursen ingår följande uppgifter med hjälp av den [SQL .NET API](sql-api-sdk-dotnet.md):
+Den här självstudien går igenom följande uppgifter med [SQL .NET API:t](sql-api-sdk-dotnet.md):
 
 > [!div class="checklist"]
 > * Skapa ett Azure Cosmos DB-konto
@@ -38,11 +36,11 @@ Den här kursen ingår följande uppgifter med hjälp av den [SQL .NET API](sql-
 > * Skapa JSON-dokument
 > * Uppdatera ett dokument
 > * Fråga partitionerade samlingar
-> * Köra lagrade procedurer
+> * Kör lagrade procedurer
 > * Ta bort ett dokument
 > * Ta bort en databas
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Se till att du har följande:
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/). 
@@ -53,11 +51,11 @@ Se till att du har följande:
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Skapa ett Azure Cosmos DB-konto
 
-Börja med att skapa ett Azure DB som Cosmos-konto i Azure-portalen.
+Vi ska börja med att skapa ett Azure Cosmos DB-konto i Azure-portalen.
 
 > [!TIP]
-> * Redan har ett Azure DB som Cosmos-konto? I så fall, gå vidare till [konfigurera Visual Studio-lösning](#SetupVS)
-> * Om du använder Azure Cosmos DB-emulatorn, följer du stegen i [Azure Cosmos DB emulatorn](local-emulator.md) konfigurera emulatorn och gå vidare till [ställa in din Visual Studio-lösning](#SetupVS). 
+> * Har du redan ett Azure Cosmos DB-konto? I sådana fall kan du hoppa vidare till [Konfigurera din Visual Studio-lösning](#SetupVS)
+> * Om du använder Azure Cosmos DB-emulatorn följer du stegen i [Azure Cosmos DB-emulatorn](local-emulator.md) för att konfigurera emulatorn och hoppa vidare till [Konfigurera din Visual Studio-lösning](#SetupVS). 
 >
 >
 
@@ -66,24 +64,24 @@ Börja med att skapa ett Azure DB som Cosmos-konto i Azure-portalen.
 ## <a id="SetupVS"></a>Konfigurera din Visual Studio-lösning
 1. Öppna **Visual Studio** på datorn.
 2. I menyn **Arkiv** väljer du **Nytt** och sedan **Projekt**.
-3. I den **nytt projekt** markerar **mallar** / **Visual C#** / **Konsolapp (.NET Framework)**namnge projektet och klicka sedan på **OK**.
+3. I dialogen **Nytt projekt**, väljer du **Mallar** / **Visual C#** / **Konsolapp (.NET Framework)**. Namnge ditt projekt och klicka sedan på **OK**.
    ![Skärmdump som visar fönstret Nytt projekt](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-new-project-2.png)
 
 4. I **Solution Explorer** högerklickar du på den nya konsolappen, som finns under din Visual Studio-lösning, och klickar sedan på **Hantera NuGet-paket ...**
     
     ![Skärmdump som visar den högerklickade menyn för projektet](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-manage-nuget-pacakges.png)
-5. I den **NuGet** klickar du på **Bläddra**, och skriv **documentdb** i sökrutan.
+5. På fliken **NuGet**, klickar du på **Bläddra** och skriver in **documentdb** i sökrutan.
 <!---stopped here--->
 6. Leta reda på **Microsoft.Azure.DocumentDB** i resultatet och klicka på **Installera**.
-   Paket-ID för klientbiblioteket för Azure Cosmos DB är [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
-   ![Skärmbild som visar NuGet-menyn för att hitta Azure Cosmos DB klient-SDK](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-manage-nuget-pacakges-2.png)
+   Paket-ID:t för Azure Cosmos DB-klientbiblioteket är [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
+   ![Skärmbild av NuGet-menyn där du hittar Azure Cosmos DB-klient-SDK:n](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     Om du får ett meddelande om att granska ändringar i lösningen klickar du på **OK**. Om du får ett meddelande om godkännande av licens klickar du på **Jag godkänner**.
 
 ## <a id="Connect"></a>Lägg till referenser till ditt projekt
-Stegen i den här självstudiekursen innehåller SQL API kodstycken som krävs för att skapa och uppdatera Azure Cosmos DB resurser i projektet.
+De kvarvarande stegen i den här självstudiekursen ger dig de SQL API-kodstycken som krävs för att skapa och uppdatera Azure Cosmos DB-resurser i ditt projekt.
 
-Lägg först till dessa referenser till programmet.
+Först lägger du till de här referenserna till ditt program.
 <!---These aren't added by default when you install the pkg?--->
 
 ```csharp
@@ -93,9 +91,9 @@ using Microsoft.Azure.Documents.Client;
 using Newtonsoft.Json;
 ```
 
-## <a id="add-references"></a>Anslut appen
+## <a id="add-references"></a>Anslut din app
 
-Lägg till nedanstående två konstanter och dina *klienten* variabeln i ditt program.
+Därefter lägger du till de här två konstanterna och din *klient*-variabel i ditt program.
 
 ```csharp
 private const string EndpointUrl = "<your endpoint URL>";
@@ -103,17 +101,17 @@ private const string PrimaryKey = "<your primary key>";
 private DocumentClient client;
 ```
 
-Sedan head tillbaka till den [Azure-portalen](https://portal.azure.com) att hämta dina slutpunkts-URL och primärnyckel. Slutpunkts-URL:en och den primära nyckeln behövs för att programmet ska veta vart ditt program ska ansluta, och för att Azure Cosmos DB ska lita på programmets anslutning.
+Gå sedan tillbaka till [Azure Portal](https://portal.azure.com) för att hämta din slutpunkts-URL och primärnyckel. Slutpunkts-URL:en och den primära nyckeln behövs för att programmet ska veta vart ditt program ska ansluta, och för att Azure Cosmos DB ska lita på programmets anslutning.
 
-Navigera till ditt Azure DB som Cosmos-konto i Azure-portalen klickar du på **nycklar**, och klicka sedan på **skrivskyddad nycklar**.
+I Azure Portal, går du till ditt Azure Cosmos DB-konto, klickar på **Nycklar** och klickar sedan på **Läs-skriv nycklar**.
 
-Kopiera URI: N från portalen och via `<your endpoint URL>` i filen program.cs. Kopiera den PRIMÄRNYCKELN från portalen och klistra in den över `<your primary key>`. Ta bort den `<` och `>` från värden.
+Kopiera URI:n från portalen och klistra in den över `<your endpoint URL>` i filen program.cs. Kopiera sedan PRIMÄRNYCKELN från portalen och klistra in den över `<your primary key>`. Var noga med att ta bort `<` och `>` från dina värden.
 
-![Skärmbild av Azure portal som används i NoSQL-självstudiekursen för att skapa ett C#-konsolprogram. Visar ett Azure DB som Cosmos-konto med nycklar markerad i bladet Azure DB som Cosmos-konto och värdena URI och PRIMÄRNYCKEL markerade i bladet nycklar](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-keys.png)
+![Skärmbild av Azure Portal som används i NoSQL-självstudiekursen för att skapa en C#-konsolapp. Visar ett Azure Cosmos DB-konto där med NYCKLAR markerat på Azure Cosmos DB-kontobladet och där värdena URI och PRIMÄRNYCKEL är markerade på Nycklar-bladet](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-keys.png)
 
 ## <a id="instantiate"></a>Skapa en instans av DocumentClient
 
-Nu skapa en ny instans av den **DocumentClient**.
+Nu skapar du en ny instans av **DocumentClient**.
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
@@ -121,27 +119,27 @@ DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
 ## <a id="create-database"></a>Skapa en databas
 
-Skapa sedan en Azure-Cosmos-DB [databasen](sql-api-resources.md#databases) med hjälp av den [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metod eller [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metod för den  **DocumentClient** klass från den [SQL .NET SDK](sql-api-sdk-dotnet.md). En databas är en logisk behållare för JSON-dokumentlagring, partitionerad över samlingarna.
+Därefter skapar du en Azure Cosmos DB-[databas](sql-api-resources.md#databases) med metoderna [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) eller [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) i klassen **DocumentClient** från [SQL .NET-SDK:n](sql-api-sdk-dotnet.md). En databas är en logisk behållare för JSON-dokumentlagring, partitionerad över samlingarna.
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
 ```
 ## <a name="decide-on-a-partition-key"></a>Besluta om en partitionsnyckel 
 
-Samlingar är behållare för att lagra dokument. De logiska resurser och kan [omfattar en eller flera fysiska partitioner](partition-data.md). En [partitionsnyckel](sql-api-partition-data.md) är en egenskap (eller sökväg) i dokument som används för att distribuera din data mellan servrar eller partitioner. Alla dokument med samma partitionsnyckel lagras i samma partition. 
+Samlingar är behållare för att lagra dokument. De är logiska resurser och kan [sträcka sig över en eller flera fysiska partitioner](partition-data.md). En [partitionsnyckel](sql-api-partition-data.md) är en egenskap (eller sökväg) i dina dokument som används för att distribuera dina data mellan servrarna eller partitionerna. Alla dokument med samma partitionsnyckel lagras på samma partition. 
 
-Fastställa en partitionsnyckel är ett viktigt beslut att fatta innan du skapar en samling. Partitionsnycklar är en egenskap (sökväg) i dokument som kan användas med Azure Cosmos DB för att distribuera din data mellan flera servrar eller partitioner. Cosmos DB hashar nyckelvärdet partition och använder hashformaterats resultatet för att avgöra den partition där du vill spara dokumentet. Alla dokument med samma partitionsnyckel lagras i samma partition och partitionsnycklar kan inte ändras när en samling har skapats. 
+Det är viktigt att fastställa en partitionsnyckel innan du skapar en samling. Partitionsnycklar är en egenskap (eller sökväg) i dina dokument som kan användas av Azure Cosmos DB för att distribuera dina data mellan flera servrar eller partitioner. Cosmos DB hashar partitionsnyckelvärdet och använder det hashade resultatet för att fastställa på vilken partition som dokumentet ska lagras. Alla dokument med samma partitionsnyckel lagras på samma partition och partitionsnycklar kan inte ändras när en samling väl har skapats. 
 
-Den här självstudiekursen kommer vi till Partitionsnyckeln `/deviceId` så att de alla data för en enskild enhet lagras i en enda partition. Du vill välja en partitionsnyckel som har ett stort antal värden, som används på om samma frekvens så Cosmos DB kan läsa belastningsutjämna när dina data växer och uppnå fullt genomflöde i mängden. 
+I den här självstudiekursen ställer vi in partitionsnyckeln till `/deviceId` så att alla data för en enskild enhet lagras på en enda partition. Du bör välja en partitionsnyckel som har ett stort antal värden, där varje värde används i ungefär samma frekvens för att försäkra dig om att Cosmos DB kan belastningsutjämna allteftersom dina data växer och uppnår fullt genomflöde av samlingen. 
 
-Mer information om partitionering finns [partitionera och skala i Azure Cosmos DB?](partition-data.md) 
+Mer information om partitionering finn i [Så här partitionerar och skalar du i Azure Cosmos DB.](partition-data.md) 
 
 ## <a id="CreateColl"></a>Skapa en samling 
 
-Nu när vi vet våra partitionsnyckel `/deviceId`, kan du skapa en [samling](sql-api-resources.md#collections) med hjälp av den [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) metoden eller [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) metod för den **DocumentClient** klass. En samling är en behållare för JSON-dokument och alla associerade JavaScript-programlogik. 
+Nu när vi vet vår partitionsnyckel `/deviceId`, ska vi skapa en [samling](sql-api-resources.md#collections) med hjälp av metoderna [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) eller [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) för klassen **DocumentClient**. En samling är en behållare med JSON-dokument och associerad JavaScript-applogik. 
 
 > [!WARNING]
-> Skapa en samling har priser effekter, som du reserverar genomströmning för programmet för att kommunicera med Azure Cosmos DB. Mer information finns våra [sida med priser](https://azure.microsoft.com/pricing/details/cosmos-db/)
+> Det finns priseffekter med att skapa en samling eftersom du reserverar genomströmning för programmet för att kommunicera med Azure Cosmos DB. Mer information finns på vår [prissättningssida](https://azure.microsoft.com/pricing/details/cosmos-db/)
 > 
 > 
 
@@ -160,10 +158,10 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 2500 });
 ```
 
-Den här metoden gör en REST-API-anrop för att Azure Cosmos DB och den tjänst som tillhandahåller ett antal partitioner baserat på det begärda genomflödet. Du kan ändra genomströmningen i en samling som prestandan utvecklas med hjälp av SDK eller [Azure-portalen](set-throughput.md).
+Den här metoden gör ett REST API-anrop till Azure Cosmos DB och tjänsten etablerar ett antal partitioner baserat på det begärda genomströmningen. Du kan ändra genomströmningen i en samling allteftersom dina prestandabehov utvecklas med hjälp av SDK:n eller [Azure Portal](set-throughput.md).
 
 ## <a id="CreateDoc"></a>Skapa JSON-dokument
-Vi infoga vissa JSON-dokument i Azure Cosmos DB. Du kan skapa [dokument](sql-api-resources.md#documents) med metoden [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) för klassen **dokumentklient**. Dokument är användardefinierat (godtyckligt) JSON-innehåll. Det här exemplet-klassen innehåller en enhet som läser och ett anrop till CreateDocumentAsync att infoga en ny enhet som läses in en samling.
+Vi infogar några JSON-dokument i Azure Cosmos DB. Du kan skapa [dokument](sql-api-resources.md#documents) med metoden [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) för klassen **dokumentklient**. Dokument är användardefinierat (godtyckligt) JSON-innehåll. Den här exempelklassen innehåller en enhet som läser och ett anrop till CreateDocumentAsync att infoga en ny enhet som läser i en samling.
 
 ```csharp
 public class DeviceReading
@@ -204,7 +202,7 @@ await client.CreateDocumentAsync(
 ```
 ## <a name="read-data"></a>Läsa data
 
-Nu ska vi läsa dokumentet av sin partitionsnyckel och Id med metoden ReadDocumentAsync. Observera att läsningar inkluderar ett PartitionKey-värde (som motsvarar den `x-ms-documentdb-partitionkey` huvudet i begäran i REST-API).
+Nu ska vi läsa dokumentet efter dess partitionsnyckel och ID med metoden ReadDocumentAsync. Observera att läsningar inkluderar ett PartitionKey-värde (som motsvarar `x-ms-documentdb-partitionkey`-begäranderubriken i REST API).
 
 ```csharp
 // Read document. Needs the partition key and the Id to be specified
@@ -217,7 +215,7 @@ DeviceReading reading = (DeviceReading)(dynamic)result;
 
 ## <a name="update-data"></a>Uppdatera data
 
-Nu ska vi uppdatera vissa data med hjälp av metoden ReplaceDocumentAsync.
+Nu ska vi uppdatera några data med hjälp av metoden ReplaceDocumentAsync.
 
 ```csharp
 // Update the document. Partition key is not required, again extracted from the document
@@ -231,7 +229,7 @@ await client.ReplaceDocumentAsync(
 
 ## <a name="delete-data"></a>Ta bort data
 
-Nu kan du ta bort ett dokument med partitionsnyckel och id med hjälp av metoden DeleteDocumentAsync.
+Nu ska vi ta bort ett dokument efter partitionsnyckel och ID med hjälp av metoden DeleteDocumentAsync.
 
 ```csharp
 // Delete a document. The partition key is required.
@@ -241,7 +239,7 @@ await client.DeleteDocumentAsync(
 ```
 ## <a name="query-partitioned-collections"></a>Fråga partitionerade samlingar
 
-När du begär data i partitionerade samlingar dirigerar Azure Cosmos DB automatiskt frågan till partitioner som motsvarar de värdena för partitionen som angetts i filtret (om det finns några). Den här frågan är till exempel dirigeras till bara den partition som innehåller Partitionsnyckeln ”XMS 0001”.
+När du begär data i partitionerade samlingar dirigerar Azure Cosmos DB automatiskt frågan till de partitioner som motsvarar partitionsnyckelvärdena som angetts i filtret (om det finns några). Den här frågan dirigeras till exempel enbart till den partition som innehåller partitionsnyckeln XMS-0001.
 
 ```csharp
 // Query using partition key
@@ -250,7 +248,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
     .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
 ```
     
-Följande fråga har inte ett filter på partitionsnyckel (DeviceId) och är fanned till alla partitioner där den körs mot den partitionen index. Observera att du måste ange EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` i REST-API) har SDK, för att köra en fråga i partitioner.
+Följande fråga har inget filter på partitionsnyckeln (DeviceId) och är utspridd till alla partitioner där den körs mot partitionens index. Observera att du måste ange EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` i REST API:t) för att SDK:t ska köra en fråga över partitioner.
 
 ```csharp
 // Query across partition keys
@@ -261,7 +259,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 ```
 
 ## <a name="parallel-query-execution"></a>Parallell frågekörning
-Azure Cosmos DB SQL SDK 1.9.0 och högre support parallell körning frågealternativ, så att du kan utföra låg latens frågor mot partitionerade samlingar, även när de behöver touch ett stort antal partitioner. Till exempel är följande fråga konfigurerad för att köras parallellt över partitioner.
+Azure Cosmos DB SQL SDK:er 1.9.0 och högre stöder alternativ för parallell frågekörning, vilket låter dig utföra frågor med låg svarstid mot partitionerade samlingar, även när de behöver vidröra ett stort antal partitioner. Följande fråga är till exempel konfigurerad för att köras parallellt över partitioner.
 
 ```csharp
 // Cross-partition Order By queries
@@ -274,13 +272,13 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     
 Du kan hantera parallell frågekörning genom att justera följande parametrar:
 
-* Genom att ange `MaxDegreeOfParallelism`, du kan styra i vilken grad av parallellitet i d.v.s., det maximala antalet samtidiga anslutningar till den samling partitioner. Om du anger detta 1, grad av parallellitet hanteras av SDK. Om den `MaxDegreeOfParallelism` är inte angiven eller ange värdet 0, vilket är standardvärdet, finns en nätverksanslutning till den samling partitioner.
-* Genom att ange `MaxBufferedItemCount`, du kan handlar av frågan latens och klientsidan minnesanvändning. Om du utelämnar den här parametern eller Ställ in till -1, antal objekt som buffras under parallell frågekörning hanteras av SDK.
+* Genom att ange `MaxDegreeOfParallelism`, kan du kontrollera graden av parallellitet d.v.s. det maximala antalet samtidiga nätverksanslutningar till samlingens partitioner. Om du anger detta till -1 så hanteras graden av parallellitet av SDK:n. Om `MaxDegreeOfParallelism` inte har angivits eller har angetts till 0, vilket är standardvärdet så finns det en enda nätverksanslutning till samlingens partitioner.
+* Genom att ange `MaxBufferedItemCount`, kan du avväga frågesvarstider och minnesanvändning på klientsidan. Om du utelämnar den här parametern eller anger den till -1, hanteras antalet objekt som buffras under parallell frågekörning av SDK:n.
 
-Få samma tillstånd i mängden returnerar parallella frågan resultat i samma ordning som seriella körning. När du utför fråga cross-partition som innehåller sortering (ORDER BY och/eller TOP), SQL-SDK skickar fråga parallellt över partitioner och sammanfogar delvis sorterade resulterar i klientsidan inga globalt beställda resultat.
+Med samma status för samlingen, returnerar en parallell fråga resultat i samma ordning som vid seriell körning. När du utför en fråga över partitioner som inkluderar sortering (ORDER BY och/eller TOP), utfärdar SQL SDK:n frågan parallellt över partitionerna och sammanfogar delvis sorterade resulterar i klientsidan för att skapa globalt sorterade resultat.
 
-## <a name="execute-stored-procedures"></a>Köra lagrade procedurer
-Slutligen kan du köra atomiska transaktioner mot dokument med samma enhets-ID, t.ex. Om du underhålla mängdfunktioner eller det aktuella tillståndet för en enhet i ett enskilt dokument genom att lägga till följande kod i projektet.
+## <a name="execute-stored-procedures"></a>Kör lagrade procedurer
+Slutligen kan du köra atomiska transaktioner mot dokument med samma enhets-ID, t.ex. om du har aggregat eller det senaste tillståndet för en enhet i ett enskilt dokument genom att lägga till följande kod till ditt projekt.
 
 ```csharp
 await client.ExecuteStoredProcedureAsync<DeviceReading>(
@@ -289,30 +287,30 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
     "XMS-001-FE24C");
 ```
 
-Och det! de är huvudkomponenterna i ett Azure DB som Cosmos-program som använder en partitionsnyckel att effektivt skala Datadistribution över partitioner.  
+Det var det! där har vi huvudkomponenterna i ett Azure Cosmos DB-program som använder en partitionsnyckel för att effektivt skala datadistribution över partitioner.  
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte ska fortsätta att använda den här appen, tar du bort alla resurser som skapats av den här kursen i Azure-portalen med följande steg:
+Om du inte planerar att fortsätta använda den här appen, tar du bort alla resurser som skapades av självstudien i Azure Portal med följande steg:
 
-1. I den vänstra menyn i Azure-portalen klickar du på **resursgrupper** och klicka sedan på det unika namnet för den resurs du skapat. 
+1. I den vänstra menyn i Azure Portal, klickar du på **Resursgrupper** och därefter på det unika namnet på den resurs du skapade. 
 2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen kommer du har gjort följande: 
+I den här självstudien har du gjort följande: 
 
 > [!div class="checklist"]
-> * Skapa ett Azure DB som Cosmos-konto
-> * Skapa en databas och samling med en partitionsnyckel
-> * Skapade JSON-dokument
-> * Uppdatera ett dokument
-> * Efterfrågade partitionerade samlingar
-> * Körde en lagrad procedur
-> * Ta bort ett dokument
-> * Ta bort en databas
+> * Skapat ett Azure Cosmos DB-konto
+> * Skapat en databas och en samling med en partitionsnyckel
+> * Skapat JSON-dokument
+> * Uppdaterat ett dokument
+> * Frågat partitionerade samlingar
+> * Kört en lagrad procedur
+> * Tagit bort ett dokument
+> * Tagit bort en databas
 
-Du kan nu gå vidare till nästa kurs och importera ytterligare data till Cosmos-DB-konto. 
+Du kan nu fortsätta till nästa självstudie och importera ytterligare data till ditt Cosmos DB-konto. 
 
 > [!div class="nextstepaction"]
 > [Importera data till Azure Cosmos DB](import-data.md)

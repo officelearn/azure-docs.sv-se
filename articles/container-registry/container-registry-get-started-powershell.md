@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2bae45955cf3c2b157acce2544b1f35fbddd0170
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9603ac779c7dbc640a7c24856c32f04edbac849d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-an-azure-container-registry-using-powershell"></a>Skapa ett Azure Container Registry med PowerShell
+# <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>Snabbstart: Skapa ett Azure Container Registry med PowerShell
 
 Azure Container Registry är en hanterad Docker-behållarregistertjänst som används för att lagra privata Docker-behållaravbildningar. I den här guiden får du information om hur du kan skapa en Azure Container Registry-instans med hjälp av PowerShell, överföra en behållaravbildning till registret och distribuera behållaren från ditt register till Azure Container Instances (ACI).
 
@@ -73,7 +73,7 @@ Innan du kan push-överföra en avbildning till Azure Container Registry måste 
 docker pull microsoft/aci-helloworld
 ```
 
-Avbildningen måste vara taggad med namnet på ACR-inloggningsservern. Använd kommandot [docker tag][docker-tag] för att göra det. 
+Avbildningen måste vara taggad med namnet på ACR-inloggningsservern. Använd kommandot [docker tag][docker-tag] för att göra det.
 
 ```powershell
 $image = $registry.LoginServer + "/aci-helloworld:v1"
@@ -131,7 +131,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I snabbstarten skapade du ett Azure Container Registry med Azure CLI och startade en instans av den via Azure Container Instances. Fortsätt till självstudien om Azure Container Instances och få en djupare inblick i ACI.
+I snabbstarten skapade du ett Azure Container Registry med Azure CLI och startade en instans av den via Azure Container Instances. Fortsätt till självstudien om Azure Container Instances om du vill titta närmare på ACI.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances-självstudie](../container-instances/container-instances-tutorial-prepare-app.md)

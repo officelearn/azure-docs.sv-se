@@ -1,11 +1,11 @@
 ---
-title: "Använda Azure Portal för att skapa en datafabrikspipeline | Microsoft Docs"
-description: "Den här självstudien innehåller stegvisa instruktioner för att skapa en datafabrik med en pipeline i Azure-portalen. Pipelinen använder kopieringsaktiviteten för att kopiera data från Azure Blob Storage till en SQL-databas."
+title: Använda Azure Portal för att skapa en datafabrikspipeline | Microsoft Docs
+description: Den här självstudien innehåller stegvisa instruktioner för att skapa en datafabrik med en pipeline i Azure-portalen. Pipelinen använder kopieringsaktiviteten för att kopiera data från Azure Blob Storage till en SQL-databas.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 116832175a4b7e4497c9005be7841cb56c1d235b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 34c78a114c1d106c400a94941aa113153383e206
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Kopiera data från en Azure Blob Storage till en SQL-databas med Azure Data Factory
 I den här självstudiekursen skapar du en datafabrik med Azure Data Factory-användargränssnittet. Pipelinen i den här datafabriken kopierar data från Azure Blob Storage till en SQL-databas. Konfigurationsmönstret i den här självstudien gäller kopiering av ett filbaserat datalager till ett relationsdatalager. En lista över datakällor som stöds som källor och mottagare finns i tabellen över [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -25,7 +25,7 @@ I den här självstudiekursen skapar du en datafabrik med Azure Data Factory-anv
 > [!NOTE]
 > - Om du inte har använt datafabriken tidigare kan du läsa [Introduktion till Azure Data Factory](introduction.md).
 >
-> - Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av datafabriken, som är allmänt tillgänglig, se [Kom igång med datafabriken version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> - Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory, som är allmänt tillgänglig, se [Kom igång med Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 I den här självstudien får du göra följande:
 
@@ -73,7 +73,7 @@ Förbered nu Blob Storage och SQL-databasen för den här självstudien genom at
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Ge Azure-tjänster åtkomst till SQL Server. Kontrollera att inställningen **Tillåt åtkomst till Azure-tjänster** är **PÅ** för din SQL Server så att datafabriken kan skriva data till din SQL Server. Gör så här för att kontrollera och aktivera den här inställningen:
+2. Ge Azure-tjänster åtkomst till SQL Server. Kontrollera att inställningen **Tillåt åtkomst till Azure-tjänster** är **PÅ** för din SQL Server så att datafabriken kan skriva data till din SQL Server. Gör så här för att kontrollera och aktivera inställningen:
 
     a. Till vänster väljer du **Fler tjänster** > **SQL-servrar**.
 
@@ -82,10 +82,10 @@ Förbered nu Blob Storage och SQL-databasen för den här självstudien genom at
     c. På sidan **Brandväggsinställningar** väljer du **PÅ** för **Tillåt åtkomst till Azure-tjänster**.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
-I det här steget skapar du en datafabrik och startar sedan användargränssnittet för datafabriken för att skapa en pipeline i datafabriken. 
+I det här steget skapar du en datafabrik och startar sedan användargränssnittet för Data Factory för att skapa en pipeline i datafabriken. 
 
-1. Öppna webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för datafabriken stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-2. I den vänstra menyn väljer du **Nytt** > **Data och analys** > **Datafabrik**. 
+1. Öppna webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+2. I den vänstra menyn väljer du **Nytt** > **Data och analys** > **Data Factory**. 
   
    ![Skapa ny datafabrik](./media/tutorial-copy-data-portal/new-azure-data-factory-menu.png)
 3. I fönstret **Ny datafabrik**, under **Namn**, anger du **ADFTutorialDataFactory**. 
@@ -103,7 +103,7 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
     b. Välj **Skapa ny** och ange namnet på en resursgrupp. 
          
     Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md). 
-6. För **Version** väljer du **V2 (förhandsversion)**.
+6. Under **Version** väljer du **V2 (förhandsversion)**.
 7. Under **Plats** väljer du en plats för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (t.ex. Azure Storage och SQL-databas) och beräkningarna (t.ex. Azure HDInsight) som används i datafabriken kan finnas i andra regioner.
 8. Välj **fäst till instrumentpanelen**. 
 9. Välj **Skapa**. 
@@ -150,14 +150,14 @@ I denna självstudie börjar du med att skapa pipelinen. Sedan skapar du länkad
     ![Namn på datauppsättning](./media/tutorial-copy-data-portal/dataset-name.png)
 9. Gå till fliken **Anslutning** i fönstret **Egenskaper**. Vid textrutan **Länkad tjänst** väljer du **+ Nytt**. 
 
-    En länkad tjänst länkar ett datalager eller en beräkning till datafabriken. I det här fallet skapar du en länkad Storage-tjänst för att länka ditt lagringskonto till datalagret. Den länkade tjänsten har anslutningsinformationen som datafabriken använder för att ansluta till Blob Storage vid körning. Datauppsättningen anger behållaren, mappen och filen (valfritt) som innehåller källdata. 
+    En länkad tjänst länkar ett datalager eller en beräkning till datafabriken. I det här fallet skapar du en länkad Storage-tjänst för att länka ditt lagringskonto till datalagret. Den länkade tjänsten har anslutningsinformationen som Data Factory använder för att ansluta till Blob Storage vid körning. Datauppsättningen anger behållaren, mappen och filen (valfritt) som innehåller källdata. 
 
     ![Knapp för ny länkad tjänst](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
-10. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst): 
+10. Utför följande steg i fönstret **Ny länkad tjänst**: 
 
-    a. För **Namn** anger du **AzureStorageLinkedService**. 
+    a. Under **Namn** anger du **AzureStorageLinkedService**. 
 
-    b. För **Lagringskontonamn** väljer du ditt lagringskonto.
+    b. Under **Lagringskontonamn** väljer du ditt lagringskonto.
 
     c. Välj **Testa anslutningen** för att testa anslutningen till lagringskontot.
 
@@ -191,7 +191,7 @@ I denna självstudie börjar du med att skapa pipelinen. Sedan skapar du länkad
 19. På fliken **Allmänt** i fönstret **Egenskaper** anger du för **Namn** värdet **OutputSqlDataset**. 
     
     ![Namn på datauppsättning för utdata](./media/tutorial-copy-data-portal/output-dataset-name.png)
-20. Gå till fliken **Anslutning** och välj **Länkad tjänst** och sedan **+ Nytt**. En datauppsättning måste associeras med en länkad tjänst. De länkade tjänsterna har anslutningssträngen som datafabriken använder för att ansluta till SQL-databasen vid körning. Datauppsättningen anger den behållare, mapp och fil (valfritt) som data kopieras till. 
+20. Gå till fliken **Anslutning** och välj **Länkad tjänst** och sedan **+ Nytt**. En datauppsättning måste associeras med en länkad tjänst. Den länkade tjänsten har anslutningssträngen som Data Factory använder för att ansluta till SQL-databasen vid körning. Datauppsättningen anger den behållare, mapp och fil (valfritt) som data kopieras till. 
     
     ![Länkad tjänst](./media/tutorial-copy-data-portal/new-azure-sql-database-linked-service-button.png)       
 21. Utför följande steg i fönstret **Ny länkad tjänst**: 
@@ -204,7 +204,7 @@ I denna självstudie börjar du med att skapa pipelinen. Sedan skapar du länkad
 
     d. Under **Användarnamn** anger du namnet på användaren.
 
-    e. För **Lösenord** anger du användarens lösenord.
+    e. Under **Lösenord** anger du användarens lösenord.
 
     f. Välj **Testanslutning** för att testa anslutningen.
 
@@ -303,7 +303,7 @@ Du kan testköra en pipeline innan du publicerar artefakter (länkade tjänster,
     ![Visa meddelanden](./media/tutorial-copy-data-portal/show-notifications.png)
 
 ## <a name="configure-code-repository"></a>Konfigurera kodlagringsplats
-Du kan publicera koden som är kopplad till artefakterna för datafabriken till en kodlagringsplats för Visual Studio Team Services. I det här steget skapar du koddatabasen. 
+Du kan publicera koden som är kopplad till artefakterna för datafabriken till en kodlagringsplats för Visual Studio Team Services. I det här steget skapar du koddatabasen.  Mer information om visuell redigering med VSTS-integrering finns i [Skapa med VSTS Git-integrering](author-visually.md#author-with-vsts-git-integration).
 
 Om du inte vill arbeta med koddatabasen i Visual Studio Team Services kan du hoppa över det här steget. Du kan fortsätta publicera till datafabriken som du gjorde i föregående steg. 
 
@@ -369,7 +369,7 @@ I det här steget utlöser du manuellt pipelinen du publicerade i föregående s
 2. Gå till fliken **Övervaka** till vänster. Du ser en pipelinekörning som är utlöst av en manuell utlösare. Du kan använda länkar i kolumnen **Åtgärder** för att visa aktivitetsinformation och köra pipelinen på nytt.
 
     ![Övervaka pipelinekörningar](./media/tutorial-copy-data-portal/monitor-pipeline.png)
-3. Om du vill se aktivitetskörningar som är associerade med pipelinekörningen, väljer du länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Actions** (Åtgärder). Det finns bara en aktivitet i det här exemplet. Därför visas bara en post i listan. Om du vill se mer information om kopieringsåtgärden väljer du länken för **detaljer** (glasögonikonen) i kolumnen **Actions** (Åtgärder). Välj **Pipelines** högst upp för att gå tillbaka till vyn **Pipeline Runs** (Pipelinekörning). Välj **Uppdatera** för att uppdatera vyn.
+3. Om du vill se aktivitetskörningar som är associerade med pipelinekörningen, väljer du länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Actions** (Åtgärder). Det finns bara en aktivitet i det här exemplet. Därför visas bara en post i listan. Om du vill se mer information om kopieringsåtgärden väljer du länken **Information** (glasögonikonen) i kolumnen **Åtgärder**. Välj **Pipelines** högst upp för att gå tillbaka till vyn **Pipeline Runs** (Pipelinekörning). Välj **Uppdatera** för att uppdatera vyn.
 
     ![Övervaka aktivitetskörningar](./media/tutorial-copy-data-portal/view-activity-runs.png)
 4. Kontrollera att två rader har lagts till i tabellen **emp** i SQL-databasen. 

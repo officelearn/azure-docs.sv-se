@@ -1,47 +1,47 @@
 ---
-title: "Azure PowerShell skriptexempel - ändra portintervall RDP | Microsoft Docs"
-description: "Azure PowerShell skriptexempel - ändras RDP portintervall distribuerade klustret."
+title: Skriptexempel för Azure PowerShell – Ändra RDP-portintervall | Microsoft Docs
+description: Skriptexempel för Azure PowerShell – Ändra RDP-portintervall för ett distribuerat kluster.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 11/28/2017
+ms.date: 03/19/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9089d071c69830323a94140a5ebb4e9e865499c6
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.openlocfilehash: 83fb6cc03f605a60b06f31fa6ddd82cd4e3e899e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="update-the-rdp-port-range-values"></a>Uppdatera intervallvärden för RDP-port
+# <a name="update-the-rdp-port-range-values"></a>Uppdatera RDP-portintervallvärden
 
-Det här exempelskriptet ändrar intervallvärden för RDP-port på klusternoden virtuella datorer när klustret har distribuerats.  Azure PowerShell används så att de underliggande virtuella datorerna inte växla.  Skriptet hämtar den `Microsoft.Network/loadBalancers` resurs i klustrets resursgrupp och uppdaterar den `inboundNatPools.frontendPortRangeStart` och `inboundNatPools.frontendPortRangeEnd` värden. Anpassa parametrarna efter behov.
+Det här exempelskriptet ändrar RDP-portintervallvärdena på klusternodens virtuella datorer när klustret har distribuerats.  Azure PowerShell används så att de underliggande virtuella datorerna inte växlar.  Skriptet hämtar `Microsoft.Network/loadBalancers`-resursen i klustrets resursgrupp och uppdaterar `inboundNatPools.frontendPortRangeStart`- och `inboundNatPools.frontendPortRangeEnd`-värdena. Anpassa parametrarna efter behov.
 
-Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i den [Azure PowerShell guiden](/powershell/azure/overview). 
+Installera Azure PowerShell, om så behövs, med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview). 
 
 ## <a name="sample-script"></a>Exempelskript
 
 [!code-powershell[main](../../../powershell_scripts/service-fabric/change-rdp-port-range/change-rdp-port-range.ps1 "Update the RDP port range values")]
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Hämtar den `Microsoft.Network/loadBalancers` resurs. |
-|[Ange AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource)|Uppdateringar av `Microsoft.Network/loadBalancers` resurs.|
+| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Hämtar `Microsoft.Network/loadBalancers`-resursen. |
+|[Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource)|Uppdaterar `Microsoft.Network/loadBalancers`-resursen.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell-modulen finns [Azure PowerShell dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
 
-Ytterligare Azure Powershell-exempel för Azure Service Fabric kan hittas i den [Azure PowerShell-exempel](../service-fabric-powershell-samples.md).
+Ytterligare Azure Powershell-exempel för Azure Service Fabric finns i [Azure PowerShell-exemplen](../service-fabric-powershell-samples.md).

@@ -1,13 +1,13 @@
 ---
-title: "Översikt över Azure Compute-enhet | Microsoft Docs"
-description: "Översikt över begreppet Azure compute enheter för Windows. ACU ger ett sätt för att jämföra CPU-prestanda över Azure SKU: er."
+title: Översikt över Azure Compute-enhet | Microsoft Docs
+description: 'Översikt över begreppet Azure compute enheter för Windows. ACU ger ett sätt för att jämföra CPU-prestanda över Azure SKU: er.'
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2017
 ms.author: jonbeck
 ms.openlocfilehash: aa7fd198a2b9eba6b47afdbb124e6a632a0a24c0
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-compute-unit-acu"></a>Azure compute-enhet (ACU)
 

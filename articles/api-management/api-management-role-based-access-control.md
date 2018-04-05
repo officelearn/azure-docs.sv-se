@@ -1,11 +1,11 @@
 ---
-title: "Hur du använder rollbaserad åtkomstkontroll i Azure API Management | Microsoft Docs"
-description: "Lär dig hur du använder inbyggda roller och skapa anpassade roller i Azure API Management"
+title: Hur du använder rollbaserad åtkomstkontroll i Azure API Management | Microsoft Docs
+description: Lär dig hur du använder inbyggda roller och skapa anpassade roller i Azure API Management
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: c775780a39c4d423c62bf88f55d35675c70442c7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Hur du använder rollbaserad åtkomstkontroll i Azure API Management
 Azure API Management förlitar sig på rollbaserad åtkomstkontroll (RBAC) att aktivera detaljerad åtkomsthantering för API Management-tjänster och enheter (till exempel API: er och principer). Den här artikeln ger en översikt över inbyggda och anpassade roller i API-hantering. Mer information om åtkomsthantering i Azure portal finns [Kom igång med åtkomsthantering i Azure portal](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
@@ -40,7 +40,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Du kan
 
 <sup>[2] skrivåtkomst till API Management-tjänster och entiteter förutom följande åtgärder: instans skapas, tas bort eller skalning; VPN-konfigurationen. och domänen.</sup>
 
-<sup>\*Rollen Service Editor blir tillgänglig efter vi att migrera alla admin UI från befintliga publisher portal till Azure-portalen. Rollen Innehållshanterare blir tillgänglig efter utgivare portal omstrukturerade så att den bara innehåller funktioner som är relaterade till att hantera developer-portalen.</sup>  
+<sup>\* Rollen Service Editor blir tillgänglig efter vi att migrera alla admin UI från befintliga publisher portal till Azure-portalen. Rollen Innehållshanterare blir tillgänglig efter utgivare portal omstrukturerade så att den bara innehåller funktioner som är relaterade till att hantera developer-portalen.</sup>  
 
 ## <a name="custom-roles"></a>Anpassade roller
 Om ingen av de inbyggda rollerna uppfyller dina specifika behov kan du skapa anpassade roller för att ge mer detaljerad åtkomsthantering för API Management-enheter. Du kan till exempel skapa en anpassad roll som har skrivskyddad åtkomst till en API Management-tjänsten, men endast har skrivbehörighet till en specifik API. Läs mer om anpassade roller i [anpassade roller i Azure RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles). 

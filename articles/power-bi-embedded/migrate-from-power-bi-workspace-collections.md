@@ -1,12 +1,12 @@
 ---
-title: "Så här migrerar du Power BI-Arbetsytesamling innehåll till Power BI Embedded | Microsoft Docs"
-description: "Lär dig hur du migrerar från Power BI arbetsytan samlingar till Power BI Embedded och utnyttja utvecklingen för inbäddning i appar."
+title: Så här migrerar du Power BI-Arbetsytesamling innehåll till Power BI Embedded | Microsoft Docs
+description: Lär dig hur du migrerar från Power BI arbetsytan samlingar till Power BI Embedded och utnyttja utvecklingen för inbäddning i appar.
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: guyinacube
 manager: erikre
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
 ms.openlocfilehash: 069f31c8213bd0d8586f7ca50e543acfdad8a2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-migrate-power-bi-workspace-collection-content-to-power-bi-embedded"></a>Så här migrerar du Power BI-Arbetsytesamling innehåll till Power BI Embedded
 
@@ -117,13 +117,13 @@ Cachelagrade datauppsättningar avser PBIX-filer som har importerat data i stäl
 
 **Flöde**
 
-1. Anropa GET https://api.powerbi.com/v1.0/collections/ {collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources och spara anslutningssträngen som tagits emot.
+1. Anropa GET https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources och spara anslutningssträngen som tagits emot.
 2. Anropa hämta PBIX-API från Power BI-Arbetsytesamling arbetsytan.
 3. Spara PBIX.
 4. Anropa importera PBIX för din Power BI Embedded arbetsyta.
-5. Uppdatera anslutningssträngen genom att anropa - efter https://api.powerbi.com/v1.0/myorg/datasets/ {dataset_id}/Default.SetAllConnections
-6. Hämta GW-ID och datasource-ID genom att anropa - hämta https://api.powerbi.com/v1.0/myorg/datasets/ {dataset_id}/Default.GetBoundGatewayDataSources
-7. Uppdatera användarens autentiseringsuppgifter genom att anropa - korrigering https://api.powerbi.com/v1.0/myorg/gateways/ {gateway_id} /datasources/ {datasource_id}
+5. Uppdatera anslutningssträngen genom att anropa - POST  https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections
+6. Hämta GW-ID och datasource-ID genom att anropa - hämta https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources
+7. Uppdatera användarens autentiseringsuppgifter genom att anropa - korrigering https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}
 
 #### <a name="old-dataset-and-reports"></a>Gamla datamängden och rapporter
 

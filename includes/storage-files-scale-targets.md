@@ -1,4 +1,4 @@
-| Resurs | mål |
+| Resurs | Mål |
 |----------|---------------|
 | Maxstorlek på en filresurs | 5 TiB |
 | Maxstorlek på en fil i en filresurs | 1 TiB |

@@ -1,11 +1,11 @@
 ---
-title: "Q & en matchande med hjälp av Azure Machine Learning arbetsstationen | Microsoft Docs"
-description: "Hur du använder olika effektiva maskininlärning metoder för att matcha öppna avslutade frågor till ett befintligt vanliga frågor och svar fråga/svar par."
+title: Q & en matchande med hjälp av Azure Machine Learning arbetsstationen | Microsoft Docs
+description: Hur du använder olika effektiva maskininlärning metoder för att matcha öppna avslutade frågor till ett befintligt vanliga frågor och svar fråga/svar par.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: mezmicrosoft
 editor: mezmicrosoft
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -16,10 +16,10 @@ ms.date: 09/15/2017
 ms.author: mez
 manager: tihazen
 ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/05/2018
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Q & en matchande med hjälp av Azure Machine Learning-arbetsstationen
 Svara på Öppna avslutades frågor är svår och kräver ofta manuellt arbete från ämnesexperter (SME). Om du vill minska kraven på interna små och medelstora företag skapa företag ofta en lista över vanliga frågor och svar (FAQ) för att hjälpa användare. Det här exemplet visar olika effektiva machine learning metoder för att matcha öppna avslutades frågor till ett befintligt vanliga frågor och svar fråga/svar-par. Det här exemplet visar ett enkelt utvecklingsprocessen för att skapa en sådan lösning med hjälp av Azure Machine Learning-arbetsstationen. 
@@ -51,7 +51,7 @@ Förutsättningar för att kunna köra det här exemplet är följande:
 
 Skapa ett nytt projekt med det här exemplet som mall:
 1.  Öppna Azure Machine Learning-arbetsstationen
-2.  På den **projekt** klickar du på den  **+**  och markera **nytt projekt**
+2.  På den **projekt** klickar du på den **+** och markera **nytt projekt**
 3.  I den **Skapa nytt projekt** rutan, fyller du i informationen för det nya projektet
 4.  I den **Sök projektmallar** sökrutan, Skriv ”Q & A matchar” och välj mallen
 5.  Klicka på **Skapa**
@@ -82,13 +82,13 @@ Dataschemat och länkar för direkta hämtning av de tre datauppsättningarna fi
 
 | Datauppsättning | Fält | Typ | Beskrivning
 | ----------|------------|------------|--------
-| [frågor](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Id | Sträng | Unik fråge-ID (primärnyckel)
+| [Frågor](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Id | Sträng | Unik fråge-ID (primärnyckel)
 |  | AnswerId | Sträng | Unik svar-ID per fråga
-|  | text0 | Sträng | Rådata textdata inklusive frågans rubrik och text
+|  | Text0 | Sträng | Rådata textdata inklusive frågans rubrik och text
 |  | CreationDate | Tidsstämpel | Tidsstämpel när frågan har ombetts
 | [dubbla](https://bostondata.blob.core.windows.net/stackoverflow/dup-q.tsv.gz) | Id | Sträng | Duplicering unikt ID (primärnyckel)
 |  | AnswerId | Sträng | Svaret-ID som är associerade med dupliceringen
-|  | text0 | Sträng | Rådata textdata, inklusive dupliceringen rubrik och text
+|  | Text0 | Sträng | Rådata textdata, inklusive dupliceringen rubrik och text
 |  | CreationDate | Tidsstämpel | Tidsstämpel när dupliceringen har ombetts
 | [svar](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | Id | Sträng | Unik svar-ID (primärnyckel)
 |  | text0 | Sträng | Rådata textdata i svaret

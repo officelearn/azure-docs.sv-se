@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 9d4e42df3137108248a043bb0d9def181d766c7a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c9a74aa00ee263b8fb4e19b77ad5be418e31c7d6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure-databas för MySQL prisnivåer
 
@@ -24,7 +24,7 @@ Du kan skapa en Azure-databas för MySQL-server i en av tre olika prisnivåer: B
 | Compute-generering | Gen 4 Gen 5 | Gen 4 Gen 5 | Generation 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Minne per vCore | Baslinje | 2x Basic | 2 x generella |
-| Lagringsstorlek | 5 GB till 1 TB | 5 GB till 1 TB | 5 GB till 1 TB |
+| Lagringsstorlek | 5 GB till 1 TB | 5 GB till 2 TB | 5 GB till 2 TB |
 | Lagringstyp | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Databasen period för lagring av säkerhetskopior. | 7-35 dagar | 7-35 dagar | 7-35 dagar |
 
@@ -32,9 +32,9 @@ Använd följande tabell som utgångspunkt för att välja en prisnivå.
 
 | Prisnivå | Målbelastningar |
 |:-------------|:-----------------|
-| Grundläggande | Arbetsbelastningar som kräver lätta beräknings- och i/o-prestanda. Exempel är servrar som används för utveckling och testning eller småskaliga program som inte används. |
-| Allmän | De flesta arbetsbelastningar som kräver belastningsutjämnade beräknings- och minneskapaciteten med skalbara i/o-genomströmning. Exempel är servrar som värd för webb- och mobilappar och andra företagsprogram.|
-| Optimerat minne  | För högpresterande databasarbetsbelastningar som kräver InMemory-prestanda för snabbare transaktionsbearbetning och högre samtidighet. Exempel: servrar för att bearbeta data i realtid och högpresterande Transaktionsreplikering eller analytiska appar.|
+| Basic | Arbetsbelastningar som kräver lätta beräknings- och i/o-prestanda. Exempel är servrar som används för utveckling och testning eller småskaliga program som inte används. |
+| Generellt syfte | De flesta arbetsbelastningar som kräver belastningsutjämnade beräknings- och minneskapaciteten med skalbara i/o-genomströmning. Exempel är servrar som värd för webb- och mobilappar och andra företagsprogram.|
+| Minnesoptimerad | För högpresterande databasarbetsbelastningar som kräver InMemory-prestanda för snabbare transaktionsbearbetning och högre samtidighet. Exempel: servrar för att bearbeta data i realtid och högpresterande Transaktionsreplikering eller analytiska appar.|
 
 När du har skapat en server, kan antalet vCores ändras uppåt eller nedåt inom några sekunder. Du kan även oberoende Justera mängden lagringsutrymme upp och säkerhetskopiering kvarhållningsperioden uppåt eller nedåt utan avbrott för programmet. Mer information finns i avsnittet ”skala resurser”.
 
@@ -44,47 +44,47 @@ Beräkna resurser tillhandahålls som vCores som representerar den underliggande
 
 | **Azure-region** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| USA, centrala |  | X |
-| USA, östra | X | X |
-| USA, östra 2 | X |  |
-| USA, norra centrala | X |  |
-| USA, södra centrala | X |  |
-| USA, västra | X | X |
+| Centrala USA |  | X |
+| Östra USA | X | X |
+| Östra USA 2 | X | X |
+| Norra centrala USA | X |  |
+| Södra centrala USA | X | X |
+| Västra USA | X | X |
 | Västra USA 2 |  | X |
-| Kanada, centrala | X | X |
-| Kanada, östra | X | X |
-| Brasilien, södra | X |  |
-| Europa, norra | X | X |
-| Europa, västra | X | X |
-| Västra Storbritannien |  | X |
-| Södra Storbritannien |  | X |
-| Asien, östra | X |  |
+| Centrala Kanada | X | X |
+| Östra Kanada | X | X |
+| Södra Brasilien | X |  |
+| Norra Europa | X | X |
+| Västra Europa | X | X |
+| Storbritannien, västra |  | X |
+| Storbritannien, södra |  | X |
+| Östasien | X |  |
 | Sydostasien | X |  |
-| Australien, östra |  | X |
+| Östra Australien |  | X |
 | Indien, centrala | X |  |
 | Indien, västra | X |  |
-| Japan, östra | X |  |
-| Japan, västra | X |  |
+| Östra Japan | X | X |
+| Västra Japan | X | X |
 | Sydkorea |  | X |
 
 Beroende på prisnivå, är varje vCore utrustad med en viss mängd minne. Om du ökar eller minskar antalet vCores serverns minne ökar eller minskar proportionerligt. Generella nivån innehåller dubbla mängden minne per vCore jämfört med den grundläggande nivån. Den Minnesoptimerade nivån innehåller dubbla mängden minne jämfört med generella nivån.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Lagring
 
 Lagring som du etablerar är mängden lagringskapacitet som är tillgängliga för din Azure-databas för MySQL-servern. Lagringsutrymmet som används för databasfilerna, temporära filer, transaktionsloggar och MySQL-servern loggar. Den totala mängden lagringsutrymme som du etablerar definierar även i/o-kapaciteten tillgänglig till servern.
 
 |    | **Basic** | **Generella** | **Minnesoptimerade** |
 |:---|:----------|:--------------------|:---------------------|
 | Lagringstyp | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
-| Lagringsstorlek | 5 GB till 1 TB | 5 GB till 1 TB | 5 GB till 1 TB |
+| Lagringsstorlek | 5 GB till 1 TB | 5 GB till 2 TB | 5 GB till 2 TB |
 | Öka lagringsstorlek | 1 GB | 1 GB | 1 GB |
-| IOPS | Varierande |3 IOPS/GB<br/>Min 100 IOPS | 3 IOPS/GB<br/>Min 100 IOPS |
+| IOPS | Variabel |3 IOPS/GB<br/>Min 100 IOPS | 3 IOPS/GB<br/>Min 100 IOPS |
 
 Du kan lägga till ytterligare lagringskapacitet under och efter skapandet av servern. Den grundläggande nivån innehåller inte en IOPS-garanti. I den generella och Minnesoptimerade prisnivåer, skala IOPS med den etablerade lagringsstorleken i förhållandet 3:1.
 
 Du kan övervaka dina i/o-användning i Azure-portalen eller genom att använda Azure CLI-kommandona. Mätvärdena som är relevanta för att övervaka är [lagringsgräns, lagringsprocent, lagringsutrymme som används och IO-procent](concepts-monitoring.md).
 
-## <a name="backup"></a>Säkerhetskopiera
+## <a name="backup"></a>Backup
 
 Tjänsten tar automatiskt säkerhetskopior av servern. Minsta kvarhållningsperioden för säkerhetskopiering är sju dagar. Du kan ange en kvarhållningsperiod på upp till 35 dagar. Kvarhållning kan justeras när som helst under livslängden för servern. Du kan välja mellan lokalt redundant och geo-redundant säkerhetskopieringar. GEO-redundant säkerhetskopior lagras också i den [geo länkas region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) för den region där din server har skapats. Detta ger en nivå av skydd vid en katastrof. Du kan också få möjlighet att återställa servern till några andra Azure-region där tjänsten är tillgänglig med geo-redundant säkerhetskopior. Det går inte att ändra mellan de två säkerhetskopieringslagring alternativen när servern har skapats.
 

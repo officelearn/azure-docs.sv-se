@@ -15,14 +15,14 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 2adf473c6acea0f128eb14e2616748ff29d5d762
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-targeting-criteria-to-send-push-campaigns-to-a-select-subset-of-your-users"></a>Hur du använder målobjekt kriterier för att skicka push-kampanjer till en del av dina användare
 > [!IMPORTANT]
-> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> Azure Mobile Engagement dras tillbaka den 31 mars 2018. Den här sidan tas bort strax efter det.
 > 
 
 Målobjekt för användarna efter specifika villkor med knappen ”villkor” är en av de mest kraftfulla begrepp som hjälper till att du skickar relevanta push-meddelanden i Azure Mobile Engagement att kunderna svarar på i stället för att skicka alla. Du kan begränsa målgruppen utifrån kriterier som standard och simulera push-meddelanden att avgöra hur många som tar emot meddelandet.

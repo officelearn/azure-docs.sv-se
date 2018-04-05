@@ -124,7 +124,7 @@
             - name: Hantera lagringskapacitet
               href: azure-stack-manage-storage-shares.md
             - name: Hantera fysiska lagringskapacitet för Azure-stacken
-              href: azure-stack-manage-storage-physical-capacity.md
+              href: azure-stack-manage-storage-physical-memory-capacity.md
         - name: Ersätta maskinvara
           items:
             - name: Noden åtgärder

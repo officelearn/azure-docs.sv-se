@@ -1,9 +1,9 @@
 ---
 title: Avancerade Autoskala med Azure Virtual Machines | Microsoft Docs
-description: "Använder Resource Manager och Skalningsuppsättningar med flera regler och profiler som kan skicka e-post och anropa webhook URL: er med skalningsåtgärder."
+description: 'Använder Resource Manager och Skalningsuppsättningar med flera regler och profiler som kan skicka e-post och anropa webhook URL: er med skalningsåtgärder.'
 author: anirudhcavale
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 7e3576e2-4a2b-4736-b5ae-98c4689cdd2b
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/22/2016
 ms.author: ancav
 ms.openlocfilehash: 80955535c8d863cd3d8d1b77e2ab8bc016b6d9f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Avancerade Autoskala konfigurationen med hjälp av Resource Manager-mallar för Skalningsuppsättningar
 Du kan skala i och skalbar i Skalningsuppsättningar i virtuella datorer baserat på mått prestandatrösklarna genom ett återkommande schema eller genom att ett visst datum. Du kan också konfigurera e-post och webhook-meddelanden för skala åtgärder. Den här genomgången visar ett exempel på hur du konfigurerar dessa objekt med en Resource Manager-mall i en Skaluppsättning.

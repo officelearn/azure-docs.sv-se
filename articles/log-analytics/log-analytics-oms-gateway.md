@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/14/2018
 ms.author: magoedte
 ms.openlocfilehash: 66e5444f5346a44cfc8a43cf2b43dbaeacffedc9
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-oms-gateway"></a>Ansluta datorer utan Internetåtkomst med hjälp av OMS-Gateway
 Det här dokumentet beskriver hur du konfigurerar kommunikation med Azure Automation och Log Analytics med hjälp av OMS-Gateway när direkt anslutna datorer eller datorer som övervakas av Operations Manager har inte Internetåtkomst. OMS-Gateway är en vanlig HTTP-proxy som stöder HTTP tunnlar med hjälp av kommandot HTTP-anslutning. Den kan samla in data och skicka den till Azure Automation och logganalys uppdrag datorer utan Internetanslutning.  
@@ -54,7 +54,7 @@ Följande diagram visar dataflöde från en Operations Manager-hanteringsgrupp t
 
 ![Operations Manager-kommunikation med logganalys diagram](./media/log-analytics-oms-gateway/log-analytics-agent-opsmgrconnect.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 När du anger en dator för att köra OMS-Gateway, se till att följande komponenter:
 
@@ -71,17 +71,17 @@ OMS-gatewayen är tillgänglig på följande språk:
 - Kinesiska (traditionell)
 - tjeckiska
 - Nederländska
-- Engelska
+- Svenska
 - Franska
 - Tyska
 - ungerska
 - Italienska
 - Japanska
-- koreanska
-- polska
+- Koreanska
+- Polska
 - Portugisiska (Brasilien)
 - Portugisiska (Portugal)
-- ryska
+- Ryska
 - Spanska (internationell)
 
 ### <a name="supported-encryption-protocols"></a>Krypteringsprotokoll som stöds
@@ -262,13 +262,13 @@ Använd följande tabeller för att identifiera URL: en för varje plats:
 
 | **Plats** | **URL** |
 | --- | --- |
-| USA, norra centrala |ncus-jobruntimedata-prod-su1.azure-automation.net |
-| Europa, västra |we-jobruntimedata-prod-su1.azure-automation.net |
-| USA, södra centrala |scus-jobruntimedata-prod-su1.azure-automation.net |
-| USA, östra 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
+| Norra centrala USA |ncus-jobruntimedata-prod-su1.azure-automation.net |
+| Västra Europa |we-jobruntimedata-prod-su1.azure-automation.net |
+| Södra centrala USA |scus-jobruntimedata-prod-su1.azure-automation.net |
+| Östra USA 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
 | Kanada central |cc-jobruntimedata-prod-su1.azure-automation.net |
-| Europa, norra |ne-jobruntimedata-prod-su1.azure-automation.net |
-| Asien, sydöstra |sea-jobruntimedata-prod-su1.azure-automation.net |
+| Norra Europa |ne-jobruntimedata-prod-su1.azure-automation.net |
+| Sydostasien |sea-jobruntimedata-prod-su1.azure-automation.net |
 | Indien, centrala |cid-jobruntimedata-prod-su1.azure-automation.net |
 | Japan |jpe-jobruntimedata-prod-su1.azure-automation.net |
 | Australien |ase-jobruntimedata-prod-su1.azure-automation.net |
@@ -277,13 +277,13 @@ Använd följande tabeller för att identifiera URL: en för varje plats:
 
 | **Plats** | **URL** |
 | --- | --- |
-| USA, norra centrala |ncus-agentservice-prod-1.azure-automation.net |
-| Europa, västra |we-agentservice-prod-1.azure-automation.net |
-| USA, södra centrala |scus-agentservice-prod-1.azure-automation.net |
-| USA, östra 2 |eus2-agentservice-prod-1.azure-automation.net |
+| Norra centrala USA |ncus-agentservice-prod-1.azure-automation.net |
+| Västra Europa |we-agentservice-prod-1.azure-automation.net |
+| Södra centrala USA |scus-agentservice-prod-1.azure-automation.net |
+| Östra USA 2 |eus2-agentservice-prod-1.azure-automation.net |
 | Kanada central |cc-agentservice-prod-1.azure-automation.net |
-| Europa, norra |ne-agentservice-prod-1.azure-automation.net |
-| Asien, sydöstra |sea-agentservice-prod-1.azure-automation.net |
+| Norra Europa |ne-agentservice-prod-1.azure-automation.net |
+| Sydostasien |sea-agentservice-prod-1.azure-automation.net |
 | Indien, centrala |cid-agentservice-prod-1.azure-automation.net |
 | Japan |jpe-agentservice-prod-1.azure-automation.net |
 | Australien |ase-agentservice-prod-1.azure-automation.net |
@@ -318,7 +318,7 @@ Om du får ett fel i steg 3 kan importera inte modulen. Felet kan uppstå när P
 | `Get-OMSGatewayConfig` |Nyckel |Hämtar konfigurationen för tjänsten |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Nyckel (krävs) <br> Värde |Ändringar av konfigurationen för tjänsten |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Hämtar adressen till proxy som relay (överordnad) |`Get-OMSGatewayRelayProxy` |  
-| `Set-OMSGatewayRelayProxy` |Adress<br> Användarnamn<br> Lösenord |Anger relay (överordnad) proxy-adress (och autentiseringsuppgifter) |1 Ange en relay-proxy och autentiseringsuppgifter:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2 Ange en relay-proxy som inte kräver autentisering: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3 Avmarkera relay proxyinställning:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Set-OMSGatewayRelayProxy` |Adress<br> Användarnamn<br> Lösenord |Anger relay (överordnad) proxy-adress (och autentiseringsuppgifter) |1. Ange en relay-proxy och autentiseringsuppgifter:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Ange en relay-proxy som inte kräver autentisering: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Avmarkera relay proxyinställning:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |Hämtar för närvarande tillåtna värden (endast lokalt konfigurerade tillåts värd; inkluderas inte automatiskt hämtade tillåtna värdar) |`Get-OMSGatewayAllowedHost` | 
 | `Add-OMSGatewayAllowedHost` |Värd (krävs) |Lägger till värden i listan över tillåtna |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Värd (krävs) |Tar bort värden från listan över tillåtna |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
@@ -369,7 +369,7 @@ När du är inloggad på Azure-portalen, skapar du en begäran om du behöver hj
 
 Välj symbolen frågetecken i det övre högra hörnet av portalen för att begära hjälp. Välj sedan **ny supportbegäran**. Slutför formuläret nya support.
 
-![Ny supportförfrågan](./media/log-analytics-oms-gateway/support.png)
+![Ny supportbegäran](./media/log-analytics-oms-gateway/support.png)
 
 ## <a name="next-steps"></a>Nästa steg
 [Lägg till datakällor](log-analytics-data-sources.md) samla in data från dina anslutna källor och lagra den i logganalys-arbetsytan.

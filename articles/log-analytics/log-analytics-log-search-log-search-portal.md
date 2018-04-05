@@ -1,11 +1,11 @@
 ---
-title: "Med hjälp av loggen Sök-portal i Azure Log Analytics | Microsoft Docs"
-description: "Den här artikeln innehåller en genomgång som beskriver hur du skapar loggen sökningar och analysera data som lagras i logganalys-arbetsytan med hjälp av loggen Sök-portalen.  Självstudien innehåller körning av några enkla frågor för att returnera olika typer av data och för att analysera resultatet."
+title: Med hjälp av loggen Sök-portal i Azure Log Analytics | Microsoft Docs
+description: Den här artikeln innehåller en genomgång som beskriver hur du skapar loggen sökningar och analysera data som lagras i logganalys-arbetsytan med hjälp av loggen Sök-portalen.  Självstudien innehåller körning av några enkla frågor för att returnera olika typer av data och för att analysera resultatet.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/19/2018
 ms.author: bwren
 ms.openlocfilehash: 37213012e817f0fae21a47a4334a519bbbca206b
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Skapa loggen sökningar i Azure Log Analytics med hjälp av loggen Sök-portalen
 
@@ -63,7 +63,7 @@ Data returneras i standardlistvyn och du kan se hur många poster som returnerad
 
 Endast de första egenskaperna för varje post visas.  Klicka på alternativet för att **visa fler** om du vill visa alla egenskaper för en viss post.
 
-![Registrera information](media/log-analytics-log-search-log-search-portal/log-search-portal-02.png)
+![Information om granskningspost](media/log-analytics-log-search-log-search-portal/log-search-portal-02.png)
 
 ## <a name="set-the-time-scope"></a>Ange omfånget tid
 Alla poster som samlas in av logganalys har en **TimeGenerated** egenskap som innehåller datum och tid då posten skapades.  En fråga i loggen Sök portal returnerar bara poster med en **TimeGenerated** omfattas tid som visas på vänster sida av skärmen.  
@@ -88,7 +88,7 @@ Syslog | where (SeverityLevel == "err")
 
 ![Filter](media/log-analytics-log-search-log-search-portal/log-search-portal-04.png)
 
-Lägg till egenskaper till filtreringsfönstret genom att välja  **	Lägg till i filter** på egenskapsmenyn för någon av posterna.
+Lägg till egenskaper till filtreringsfönstret genom att välja **Lägg till i filter** på egenskapsmenyn för någon av posterna.
 
 ![Menyn Lägg till i filter](media/log-analytics-log-search-log-search-portal/log-search-portal-02a.png)
 

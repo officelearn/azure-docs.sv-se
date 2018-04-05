@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0887c50ea7da00859e370f60626eabb03fcc1f4b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a2cb3d504abcd3f9c50df2427884d478ad2240c4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 Visa prestanda och användning för webbsidor eller appar. Om du lägger till [Application Insights](app-insights-overview.md) i webbsidans skript så visas information om tider för sidinläsningar och AJAX-anrop, information om och antalet webbläsarundantag och AJAX-fel, samt information om antalet användare och sessioner. Allt detta kan visas efter sida, klientoperativsystem- och webbläsarversion, geografisk plats och andra dimensioner. Du kan ställa in varningar för antal fel eller långsam sidinläsning. Och genom att infoga spårning av anrop i JavaScript-kod kan du spåra hur olika funktioner i ditt webbsideprogram används.
@@ -26,7 +26,7 @@ Application Insights kan användas med alla webbsidor – du lägger bara till e
 
 ![Öppna appens resurs på portal.azure.com och klicka på Webbläsare](./media/app-insights-javascript/03.png)
 
-Du behöver en prenumeration på [Microsoft Azure](https://azure.com). Om ditt team har en organisationsprenumeration ber du ägaren att lägga till ditt Microsoft-Account till den. Utveckling och småskalig användning kostar inget.
+Du behöver en prenumeration på [Microsoft Azure](https://azure.com). Om ditt team har en organisationsprenumeration ber du ägaren att lägga till ditt Microsoft-Account till den.
 
 ## <a name="set-up-application-insights-for-your-web-page"></a>Konfigurera Application Insights för din webbsida
 Lägg till inläsningen av kodfragmentet i dina webbsidor enligt följande.

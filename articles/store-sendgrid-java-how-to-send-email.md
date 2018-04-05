@@ -1,7 +1,7 @@
 ---
-title: "Hur du använder SendGrid e-posttjänst (Java) | Microsoft Docs"
-description: "Lär dig hur skicka e-post med SendGrid-e-posttjänsten på Azure. Kodexempel som skrivits i Java."
-services: 
+title: Hur du använder SendGrid e-posttjänst (Java) | Microsoft Docs
+description: Lär dig hur skicka e-post med SendGrid-e-posttjänsten på Azure. Kodexempel som skrivits i Java.
+services: ''
 documentationcenter: java
 author: thinkingserious
 manager: sendgrid
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Hur du skickar e-post med SendGrid från Java
 Den här guiden visar hur du utför vanliga programmeringsuppgifter med SendGrid-e-posttjänsten på Azure. Exemplen är skrivna i Java. Scenarier som tas upp inkluderar **konstruera e-post**, **skicka e-post**, **lägga till bilagor**, **med hjälp av filter**, och **uppdatera egenskaperna för**. Mer information om SendGrid och skicka e-post finns i [nästa steg](#next-steps) avsnitt.
@@ -158,7 +158,7 @@ SendGrid ger ytterligare e-postfunktioner med *filter*. Dessa finns inställning
           {\"enable\":1}}}}");
 
 ## <a name="how-to-update-email-properties"></a>Så här: uppdatera e-egenskaper
-Vissa egenskaper för e-post kan skrivas över med  **ange*egenskapen*** eller läggas till med hjälp av  **lägga till*egenskapen***.
+Vissa egenskaper för e-post kan skrivas över med **ange * egenskapen*** eller läggas till med hjälp av **lägga till*egenskapen ***.
 
 Till exempel för att ange **ReplyTo** adresser, använder du följande:
 

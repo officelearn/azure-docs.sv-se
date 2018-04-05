@@ -1,11 +1,11 @@
 ---
-title: "Förstå Azure AD Application Proxy kopplingar | Microsoft Docs"
+title: Förstå Azure AD Application Proxy kopplingar | Microsoft Docs
 description: Beskriver grunderna om Azure AD Application Proxy-kopplingar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: fe8d5c40249431be60dc8844adf7efa1b8e87c5f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Förstå Azure AD Application Proxy-kopplingar
 
@@ -72,13 +72,13 @@ Mer information om koppling grupper finns [publicera program på separata nätve
 
 Kopplingar kommer automatiskt att belastningsutjämna i en grupp för anslutningen, men det är också viktigt att se till att du har planerat tillräckligt med kapacitet mellan kopplingar ska hantera den förväntade trafikvolymen är. I allmänhet fler användare som du har större en dator som du behöver. Nedan finns en tabell med en beskrivning av volymen olika datorer kan hantera. Observera den är baserad på förväntad transaktioner Per andra (Transaktionsprogram) i stället av användaren sedan användning mönster varierar och kan inte användas för att förutsäga belastningen.  Observera också att det blir vissa skillnader baserat på storleken på svar och svarstiden för backend-programmet - större svar storlekar och längre svarstider leder till en lägre Max TPS.
 
-|Kärnor|RAM|Förväntat svarstid (MS)-P99|Max Transaktionsprogram|
+|Kärnor|RAM|Förväntat svarstid (MS)-P99|Max TPS|
 | ----- | ----- | ----- | ----- |
 |2|8|325|586|
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\*Den här datorn har en anslutningsgränsen 800. Vi använde 200 anslutning Standardgränsen för alla andra datorer.
+\* Den här datorn har en anslutningsgränsen 800. Vi använde 200 anslutning Standardgränsen för alla andra datorer.
  
 >[!NOTE]
 >Det finns inte mycket skillnaden i maximala Transaktionsprogram mellan 4, 8 och 16 kärnor datorer. Den största skillnaden mellan dem är i den förväntade svarstiden.  
@@ -113,7 +113,7 @@ En annan faktor som påverkar prestanda är kvaliteten på nätverk mellan koppl
 
 Mer information om hur du optimerar nätverket finns [nätverk topologiöverväganden när du använder Azure Active Directory Application Proxy](application-proxy-network-topology-considerations.md).
 
-## <a name="domain-joining"></a>Ansluta till domänen
+## <a name="domain-joining"></a>Domänanslutning
 
 Kopplingar kan köras på en dator som inte är ansluten till domänen. Om du vill använda enkel inloggning (SSO) för program som använder integrerad autentisering IWA (Windows) måste dock en domänansluten dator. I det här fallet connector-datorer måste vara ansluten till en domän som kan utföra [Kerberos](https://web.mit.edu/kerberos) begränsad delegering för användare av publicerade program.
 
@@ -157,7 +157,7 @@ Loggarna, gå till Loggboken, öppna den **visa** -menyn och aktivera **visa ana
 
 Du kan undersöka statusen för tjänsten i fönstret tjänster. Kopplingen består av två Windows-tjänster: den faktiska anslutningen och uppdateringsfilen. Båda måste köras hela tiden.
 
- ![AzureAD tjänster lokalt](./media/application-proxy-understand-connectors/aad-connector-services.png)
+ ![AzureAD Services Local](./media/application-proxy-understand-connectors/aad-connector-services.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

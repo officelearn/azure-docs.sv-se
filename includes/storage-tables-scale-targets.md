@@ -1,4 +1,4 @@
-| Resurs | mål |
+| Resurs | Mål |
 |----------|---------------|
 | Maxstorlek på tabell | 500 TiB |
 | Maxstorlek på en tabell entitet | 1 MiB |

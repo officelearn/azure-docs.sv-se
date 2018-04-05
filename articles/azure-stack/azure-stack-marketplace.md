@@ -1,25 +1,25 @@
 ---
 title: Publicera en anpassad marketplace-objektet i Azure-stacken (moln operator) | Microsoft Docs
-description: "Som operatör Azure Stack lär du dig hur du publicerar en anpassad marketplace-objektet i Azure-stacken."
+description: Som operatör Azure Stack lär du dig hur du publicerar en anpassad marketplace-objektet i Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 04/03/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: c791708e11b7e9e8bbe046f06233d948d4632c90
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 37587cf5f99ce105413382cbd5a0de9cacc76b7d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Azure-stacken Marketplace-översikt
 
@@ -43,6 +43,8 @@ Varje Marketplace-objekt har:
 * Formatering information för att visa objektet i portalen
 
 Alla objekt som har publicerats till Marketplace använder ett format som kallas Azure Gallery-paket (azpkg). Lägg till distribution eller runtime resurser (till exempel kod zip-filer med programvaran eller avbildningar av virtuella datorer) till Azure-stacken separat, inte som en del av Marketplace-objektet. 
+
+Från och med 1803 konverteras bilder till sparse-filer vid nedladdning från Azure eller under överföringen för anpassade avbildningar. Den här processen lägger på tid när du lägger till en bild, men sparar utrymme och snabbare att distribuera dessa avbildningar. Konverteringen gäller bara för nya bilder. Befintliga avbildningar ändras inte. 
 
 ## <a name="next-steps"></a>Nästa steg
 [Skapa och publicera en marketplace-objektet](azure-stack-create-and-publish-marketplace-item.md)

@@ -1,11 +1,11 @@
 ---
 title: StorSimple Snapshot Manager volym grupper | Microsoft Docs
-description: "Beskriver hur du använder StorSimple Snapshot Manager MMC-snapin-modulen för att skapa och hantera grupper för volymen."
+description: Beskriver hur du använder StorSimple Snapshot Manager MMC-snapin-modulen för att skapa och hantera grupper för volymen.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: 6067a88cd42d29c3d2f4b74580095424de77561e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Använda StorSimple Snapshot Manager för att skapa och hantera grupper av volym
 ## <a name="overview"></a>Översikt
@@ -52,7 +52,7 @@ Om du klickar på den **volym grupper** nod, den **resultat** visar följande in
 | Namn |Den **namn** kolumnen innehåller namnet på gruppen volym. |
 | Program |Den **program** kolumn visar antalet VSS-skrivare som är installerade och körs på Windows-värd. |
 | Vald |Den **valda** kolumn visar antalet volymer som ingår i gruppen volym. Noll (0) anger att inget program är associerat med volymer i gruppen volym. |
-| Importera |Den **importerade** kolumn visar antalet importerade volymer. Om värdet är **SANT**, denna kolumn indikerar att en volym-grupp har importerats från Azure portal och inte har skapats i StorSimple Snapshot Manager. |
+| Har importerats |Den **importerade** kolumn visar antalet importerade volymer. Om värdet är **SANT**, denna kolumn indikerar att en volym-grupp har importerats från Azure portal och inte har skapats i StorSimple Snapshot Manager. |
 
 > [!NOTE]
 > StorSimple Snapshot Manager volym grupper visas också på den **Säkerhetskopieringsprinciper** fliken i Azure-portalen.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN regelmotor matchar villkoren 
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga matchar villkoren för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
@@ -726,7 +726,7 @@ Viktig information:
 - En kant CNAME URL: en skrivs till en CDN-URL innan du URL: en jämförelse.
 
     Till exempel båda av följande webbadresser peka på samma tillgång och därför har samma URL-sökväg:
-     - CDN-URL: http://wpc.0001. &lt;domän&gt;/800001/CustomerOrigin/path/asset.htm
+     - CDN-URL: http://wpc.0001.&lt; domän&gt;/800001/CustomerOrigin/path/asset.htm
      - Edge CNAME-URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Ytterligare information:
@@ -783,7 +783,7 @@ Viktig information:
 
    Tecken | URL Encoding
    ----------|---------
-   Blanksteg     | %20
+   Rymd     | %20
    &         | %25
 
 - På grund av det sätt som i vilken cache inställningar spåras är det här matchar villkoret inte kompatibel med följande funktioner:
@@ -819,7 +819,7 @@ Viktig information:
 
        Tecken | URL Encoding
        ----------|---------
-       Blanksteg     | %20
+       Rymd     | %20
        &         | %25
 
 - Ange parametervärden för flera frågan sträng genom att avgränsa dem med ett blanksteg. Den här matchar villkoret är uppfyllt när en begäran innehåller ett av de angivna namnvärde kombinationerna.
@@ -896,7 +896,7 @@ Viktig information:
 
    Tecken | URL Encoding | Värde
    ----------|--------------|------
-   Blanksteg     | %20          | \%20
+   Rymd     | %20          | \%20
    &         | %25          | \%25
 
    Observera att procentandel symboler måste hoppas.
@@ -938,7 +938,7 @@ Viktig information:
 
      Tecken | URL Encoding
      ----------|---------
-     Blanksteg     | %20
+     Rymd     | %20
      &         | %25
 
 - Ange flera värden genom att avgränsa dem med ett blanksteg.

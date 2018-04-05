@@ -1,11 +1,11 @@
 ---
 title: Om kryptografiska krav och Azure VPN-gatewayer | Microsoft Docs
-description: "Den här artikeln beskrivs kraven för kryptografiska och Azure VPN-gatewayer"
+description: Den här artikeln beskrivs kraven för kryptografiska och Azure VPN-gatewayer
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: yushwang
 ms.openlocfilehash: d2f3da47f1d4eebe1b81964790ff6612dd78155d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Om kryptografiska krav och Azure VPN-gatewayer
 
@@ -38,7 +38,7 @@ Till exempel använda IKEv2 huvudlägesprinciper för Azure VPN-gatewayer endast
 ## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Anpassad IPsec/IKE-princip med Azure VPN-gatewayer
 Azure VPN-gatewayer har nu stöd för varje anslutning, anpassad IPsec/IKE-princip. För en plats-till-plats eller VNet-till-VNet-anslutningen, kan du välja en specifik kombination av kryptografiska algoritmer för IPSec- och IKE med den önskade nyckellängd som visas i följande exempel:
 
-![IPSec-princip](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
+![ipsec-ike-policy](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
 
 Du kan skapa en princip för IPsec/IKE och gäller för en ny eller befintlig anslutning. 
 

@@ -1,6 +1,6 @@
 ---
-title: "Stöd för Cross-Origin Resource delning (CORS) | Microsoft Docs"
-description: "Lär dig hur du aktiverar CORS-stöd för Microsoft Azure Storage-tjänster."
+title: Stöd för Cross-Origin Resource delning (CORS) | Microsoft Docs
+description: Lär dig hur du aktiverar CORS-stöd för Microsoft Azure Storage-tjänster.
 services: storage
 documentationcenter: .net
 author: cbrooksmsft
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Cross-Origin Resource Sharing (CORS) stöd för Azure Storage-tjänster
 Från och med version 2013-08-15, stöd Azure-lagringstjänster för Cross-Origin Resource Sharing (CORS) för tjänster Blob, tabell, kö och fil. CORS är en HTTP-funktion som gör att ett webbprogram som körs i en domän kan komma åt resurser i en annan domän. Webbläsare som implementerar en säkerhetsbegränsningar som kallas [samma ursprung princip](http://www.w3.org/Security/wiki/Same_Origin_Policy) som förhindrar att en webbsida från anropa API: er i en annan domän. CORS ger ett säkert sätt att tillåta en domän (ursprungsdomän) att anropa API: er i en annan domän. Finns det [CORS-specifikationen](http://www.w3.org/TR/cors/) information om CORS.
@@ -71,7 +71,7 @@ Här är ett exempel på en enda CORS-regel som angetts via en åtgärden Ange e
 
 Varje element som ingår i regeln CORS beskrivs nedan:
 
-* **AllowedOrigins**: ursprungsdomäner som tillåts att begära mot lagringstjänsten via CORS. Den ursprung är den domän som begäran kommer från. Observera att ursprung måste vara en exakt skiftlägeskänslig matchning med ursprung som användaren ålder skickar till tjänsten. Du kan också använda jokertecknet ' *' så att alla ursprungsdomäner att göra förfrågningar via CORS. I exemplet ovan är domänerna [http://www.contoso.com](http://www.contoso.com) och [http://www.fabrikam.com](http://www.fabrikam.com) kan göra förfrågningar till tjänsten med hjälp av CORS.
+* **AllowedOrigins**: ursprungsdomäner som tillåts att begära mot lagringstjänsten via CORS. Den ursprung är den domän som begäran kommer från. Observera att ursprung måste vara en exakt skiftlägeskänslig matchning med ursprung som användaren ålder skickar till tjänsten. Du kan också använda jokertecknet ' *' så att alla ursprungsdomäner att göra förfrågningar via CORS. I exemplet ovan är domänerna [ http://www.contoso.com ](http://www.contoso.com) och [ http://www.fabrikam.com ](http://www.fabrikam.com) kan göra förfrågningar till tjänsten med hjälp av CORS.
 * **AllowedMethods**: metoder (http-begäran verb) som den ursprungliga domänen kan använda för en CORS-begäran. I exemplet ovan tillåts bara PUT- och GET-begäranden.
 * **AllowedHeaders**: huvuden för begäran som den ursprungliga domänen får ange på CORS-begäran. I exemplet ovan tillåts alla metadata huvuden som börjar med x-ms-metadata, x-ms-meta-mål- och x-ms-meta-abc. Observera att jokertecknet ' *' anger att alla huvud som börjar med det angivna prefixet tillåts.
 * **ExposedHeaders**: svarshuvuden som kan skickas som svar på begäran CORS och visas av webbläsaren att utfärdaren begäran. I exemplet ovan instrueras webbläsaren att exponera en rubrik som börjar med x-ms-metadata.
@@ -86,7 +86,7 @@ Följande begränsningar gäller CORS-regler:
 * Längden på ett tillåtna sidhuvud, exponerade sidhuvud eller tillåtna ursprung får innehålla högst 256 tecken.
 * Tillåtna sidhuvuden och exponerade huvuden kan vara antingen:
   * Literalen sidhuvud, där exakt huvudets namn tillhandahålls som **x-ms-meta-bearbetas**. Högst 64 literal huvuden kan anges i begäran.
-  * Prefixet sidhuvud, där prefixet huvudet tillhandahålls som **x-ms-metadata***. Ange ett prefix i det här sättet kan eller visar de huvuden som börjar med det angivna prefixet. Högst två prefix huvuden kan anges i begäran.
+  * Prefixet sidhuvud, där prefixet huvudet tillhandahålls som ** x-ms-meta-data ***. Ange ett prefix i det här sättet kan eller visar de huvuden som börjar med det angivna prefixet. Högst två prefix huvuden kan anges i begäran.
 * Metoder (eller HTTP-verb) anges i den **AllowedMethods** element måste följa de metoder som stöds av Azure storage-tjänst API: er. Metoder som stöds är DELETE, GET, HEAD, MERGE, POST, alternativ och PUT.
 
 ## <a name="understanding-cors-rule-evaluation-logic"></a>Förstå CORS regellogik utvärdering
@@ -133,10 +133,10 @@ I följande exempel visas en partiell begärantext för en åtgärd för att ang
 
 | Förfrågan |  |  | Svar |  |
 | --- | --- | --- | --- | --- |
-| **Metoden** |**Ursprung** |**Huvuden för begäran** |**Regeln matchar** |**Resultat** |
-| **PLACERA** |http://www.contoso.com |x-ms-blob-content-type |Första regeln |Lyckades |
-| **HÄMTA** |http://www.contoso.com |x-ms-blob-content-type |Andra regeln |Lyckades |
-| **HÄMTA** |http://www.contoso.com |x-ms-client-request-id |Andra regeln |Fel |
+| **Metoden** |**Origin** |**Huvuden för begäran** |**Regeln matchar** |**Resultat** |
+| **PUT** |http://www.contoso.com |x-ms-blob-content-type |Första regeln |Lyckades |
+| **GET** |http://www.contoso.com |x-ms-blob-content-type |Andra regeln |Lyckades |
+| **GET** |http://www.contoso.com |x-ms-client-request-id |Andra regeln |Fel |
 
 Den första begäranden matchar den första regeln – den ursprungliga domänen matchar tillåtna ursprung, metoden matchar tillåtna metoder och huvudet matchar tillåtna huvuden – och så lyckas.
 
@@ -167,7 +167,7 @@ Följande tabell visar hur Azure storage svarar på GET/HEAD-begäranden baserat
 
 | Förfrågan | Kontoinställningen och resultat av utvärderingen av distributionsregeln |  |  | Svar |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **Ursprung huvudet finns på begäran** |**CORS-regler som angetts för denna tjänst** |**Det finns matchande regel som tillåter alla ursprung (*)** |**Matchande regel som finns för ursprung exakt matchning** |**Svaret innehåller Vary-huvudet inställt till ursprung** |**Svaret innehåller Access Control-tillåtna-ursprung ”:*”** |**Svaret innehåller Access-Control-exponeras-rubriker** |
+| **Ursprung huvudet finns på begäran** |**CORS-regler som angetts för denna tjänst** |**Det finns matchande regel som tillåter alla origins(*)** |**Matchande regel som finns för ursprung exakt matchning** |**Svaret innehåller Vary-huvudet inställt till ursprung** |**Svaret innehåller Access Control-tillåtna-ursprung ”: *”** |**Svaret innehåller Access-Control-exponeras-rubriker** |
 | Nej |Nej |Nej |Nej |Nej |Nej |Nej |
 | Nej |Ja |Nej |Nej |Ja |Nej |Nej |
 | Nej |Ja |Ja |Nej |Nej |Ja |Ja |

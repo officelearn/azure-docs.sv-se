@@ -1,11 +1,11 @@
 ---
 title: Intel modern till molnet (C) - ansluta Intel modern till Azure IoT Hub | Microsoft Docs
-description: "Lär dig mer om att konfigurera och ansluta Intel modern till Azure IoT-hubb för Intel modern att skicka data till Azure-molnplattform i den här självstudiekursen."
+description: Lär dig mer om att konfigurera och ansluta Intel modern till Azure IoT-hubb för Intel modern att skicka data till Azure-molnplattform i den här självstudiekursen.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
+tags: ''
 keywords: Azure iot intel modern, intel modern iot-hubb, intel modern skicka data till molnet, intel modern till molnet
 ms.assetid: 4885fa2c-c2ee-4253-b37f-ccd55f92b006
 ms.service: iot-hub
@@ -17,10 +17,10 @@ ms.date: 4/17/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: edbdbe0230f742cd7228f04a4a83c9bd567527e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>Ansluta Intel modern till Azure IoT Hub (C)
 
@@ -154,7 +154,7 @@ Hämta den senaste konfiguration för från [länken](https://software.intel.com
    - För att flash dina ändringar med en avbildning som redan har sparats på datorn, Välj `Select the local image`. Bläddra till och välj den avbildning du vill flash din planen.
 3. Verktyget installationsprogrammet försöker flash kortets. Hela blinkande processen kan ta upp till 10 minuter.
 
-### <a name="set-password"></a>Ange ett lösenord
+### <a name="set-password"></a>Ange lösenord
 1. På den `Set up options` klickar du på `Enable Security`.
 2. Du kan ange ett eget namn för Intel® modern-kort. Det här är valfritt.
 3. Ange ett lösenord för dina ändringar och klicka sedan på `Set password`.
@@ -205,7 +205,7 @@ Grattis! Du har konfigurerat modern.
    nano config.h
    ```
 
-   ![Config-fil](media/iot-hub-intel-edison-kit-c-get-started/13_configure_file.png)
+   ![Konfigurationsfil](media/iot-hub-intel-edison-kit-c-get-started/13_configure_file.png)
 
    Det finns två makron i den här filen kan du configurate. Den första är `INTERVAL`, som definierar tidsintervallet mellan två meddelanden som skickas till molnet. Det andra `SIMULATED_DATA`, vilket är ett booleskt värde för om du vill använda simulerade sensordata eller inte.
 

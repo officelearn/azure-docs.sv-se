@@ -1,12 +1,12 @@
 ---
 title: Azure Diagnostics 1.2 Konfigurationsschemat | Microsoft Docs
-description: "Detta gäller endast om du använder Azure SDK 2.5 med Azure virtuella datorer, virtuella datorer, Service Fabric eller molntjänster."
+description: Detta gäller endast om du använder Azure SDK 2.5 med Azure virtuella datorer, virtuella datorer, Service Fabric eller molntjänster.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
 ms.openlocfilehash: 1e9cc6d0950945df8c4fba74d8e1f6196be224f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure Diagnostics 1.2 Konfigurationsschemat
 > [!NOTE]
@@ -104,7 +104,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |------------------|-----------------|  
 |**WadCfg**|Krävs. Konfigurationsinställningar för telemetridata ska samlas in.|  
 |**StorageAccount**|Namnet på Azure Storage-konto för att lagra data i. Detta kan också anges som en parameter när du kör cmdlet Set-AzureServiceDiagnosticsExtension.|  
-|**LocalResourceDirectory**|Katalogen på den virtuella datorn som ska användas av Monitoring Agent för lagring av händelsedata. Om inte, standardkatalogen används:<br /><br /> För en arbetare/webbroll:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> För en virtuell dator:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Obligatoriska attribut är:<br /><br /> -                      **sökvägen** -katalogen på system som ska användas av Azure-diagnostik.<br /><br /> -                      **expandEnvironment** -styr om expanderas miljövariabler i sökvägen.|  
+|**LocalResourceDirectory**|Katalogen på den virtuella datorn som ska användas av Monitoring Agent för lagring av händelsedata. Om inte, standardkatalogen används:<br /><br /> För en arbetare/webbroll: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> För en virtuell dator: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Obligatoriska attribut är:<br /><br /> -                      **sökvägen** -katalogen på system som ska användas av Azure-diagnostik.<br /><br /> -                      **expandEnvironment** -styr om expanderas miljövariabler i sökvägen.|  
 
 ## <a name="wadcfg-element"></a>WadCFG Element  
 Definierar konfigurationsinställningar för telemetridata ska hämtas. I följande tabell beskrivs underordnade element:  
@@ -117,7 +117,7 @@ Definierar konfigurationsinställningar för telemetridata ska hämtas. I följa
 |**Kataloger**|Aktiverar insamlingen av innehållet i en katalog, IIS kunde inte åtkomstloggar för begäran och/eller IIS-loggar. Valfria attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
 |**EtwProviders**|Konfigurerar samling ETW-händelser från EventSource och/eller ETW Manifest baserade providers.|  
 |**Mått**|Det här elementet kan du generera en prestandaräknaren tabell som är optimerad för snabb frågor. Varje prestandaräknare som definieras i den **PerformanceCounters** element lagras i tabellen mått förutom tabellen prestandaräknaren. Obligatoriskt attribut:<br /><br /> **resourceId** -detta är resurs-ID för den virtuella datorn som du distribuerar till Azure-diagnostik. Hämta den **resourceID** från den [Azure-portalen](https://portal.azure.com). Välj **Bläddra** -> **resursgrupper** -> **< namn\>**. Klicka på den **egenskaper** panelen och kopiera värdet från den **ID** fältet.|  
-|**PerformanceCounters**|Aktiverar insamlingen av prestandaräknare. Valfria attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**performanceCounters**|Aktiverar insamlingen av prestandaräknare. Valfria attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
 |**WindowsEventLog**|Aktiverar insamlingen av Windows-händelseloggar. Valfria attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
 
 ## <a name="crashdumps-element"></a>CrashDumps Element  
@@ -184,7 +184,7 @@ Definierar konfigurationsinställningar för telemetridata ska hämtas. I följa
 |------------------|-----------------|  
 |**MetricAggregation**|Obligatoriskt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [XML-datatypen för varaktighet](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
 
-## <a name="performancecounters-element"></a>PerformanceCounters elementet  
+## <a name="performancecounters-element"></a>PerformanceCounters Element  
  Aktiverar insamlingen av prestandaräknare. I följande tabell beskrivs underordnade element:  
 
 |Elementnamn|Beskrivning|  
@@ -196,7 +196,7 @@ Definierar konfigurationsinställningar för telemetridata ska hämtas. I följa
 
 |Elementnamn|Beskrivning|  
 |------------------|-----------------|  
-|**anteckningen**|Obligatoriskt attribut:<br /><br /> **displayName** -visningsnamnet för räknaren<br /><br /> Valfria attribut:<br /><br /> **språk** -språket som ska användas för att visa räknarnamnet|  
+|**Anteckningen**|Obligatoriskt attribut:<br /><br /> **displayName** -visningsnamnet för räknaren<br /><br /> Valfria attribut:<br /><br /> **språk** -språket som ska användas för att visa räknarnamnet|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog Element  
  I följande tabell beskrivs underordnade element:  

@@ -1,11 +1,11 @@
 ---
-title: "Hur du använder SendGrid e-posttjänst (Node.js) | Microsoft Docs"
-description: "Lär dig hur skicka e-post med SendGrid-e-posttjänsten på Azure. Kodexempel som skrivits med Node.js-API."
-services: 
+title: Hur du använder SendGrid e-posttjänst (Node.js) | Microsoft Docs
+description: Lär dig hur skicka e-post med SendGrid-e-posttjänsten på Azure. Kodexempel som skrivits med Node.js-API.
+services: ''
 documentationcenter: nodejs
 author: erikre
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: cac444b4-26b0-45ea-9c3d-eca28d57dacb
 ms.service: multiple
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: 327cea3a24cc47a9cc463b37cc2346ebc475ef7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Hur du skickar e-post med SendGrid från Node.js
 Den här guiden visar hur du utför vanliga programmeringsuppgifter med SendGrid-e-posttjänsten på Azure. Exemplen är skrivna med Node.js-API. Scenarier som tas upp inkluderar **konstruera e-post**, **skicka e-post**, **lägga till bilagor**, **med hjälp av filter**, och **uppdatera egenskaperna för**. Mer information om SendGrid och skicka e-post finns i [nästa steg](#next-steps) avsnitt.
@@ -33,7 +33,7 @@ SendGrid är en [molnbaserade e-posttjänst] som ger tillförlitliga [transaktio
 * Vidarebefordran av kundfrågor
 * E-postaviseringar från ditt program
 
-Mer information finns i [https://sendgrid.com](https://sendgrid.com).
+Mer information finns på [https://sendgrid.com](https://sendgrid.com).
 
 ## <a name="create-a-sendgrid-account"></a>Skapa ett SendGrid-konto
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -161,7 +161,7 @@ Följande exempel visar sidfoten och på Spåra filter:
     sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>Så här: uppdatera egenskaper för e-post
-Vissa egenskaper för e-post kan skrivas över med  **ange*egenskapen*** eller läggas till med hjälp av  **lägga till*egenskapen***. Du kan till exempel lägga till ytterligare mottagare med hjälp av
+Vissa egenskaper för e-post kan skrivas över med **ange * egenskapen*** eller läggas till med hjälp av **lägga till*egenskapen ***. Du kan till exempel lägga till ytterligare mottagare med hjälp av
 
     email.addTo('jeff@contoso.com');
 

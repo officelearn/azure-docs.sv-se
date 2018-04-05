@@ -26,7 +26,7 @@ Om du vill anropa metoder på dina enheter, använder den **enheter** sida i fj�
 
 1. Om du vill visa en lista över de metoder som du kan anropa på enheten, Välj **schema**. Du kan välja flera enheter i listan om du vill schemalägga en metod för att köras på flera enheter. Den **schema** panelen visas typerna av metoden som är gemensamma för alla enheter som du har valt.
 
-1. Välj **FirmwareUpdate**, ange Jobbnamnet på **UpdatePhysicalChiller**. Ange **Version på inbyggd programvara** till **2.0.0**, ange **Firmware URI** till **http://contoso.com/updates/firmware.bin**, och välj sedan  **Tillämpa**:
+1. Välj **FirmwareUpdate**, ange Jobbnamnet på **UpdatePhysicalChiller**. Ange **Version på inbyggd programvara** till **2.0.0**, ange **Firmware URI** till **http://contoso.com/updates/firmware.bin**, och välj sedan **tillämpa**:
 
     ![Schemalägga firmware-uppdatering](media/iot-suite-visualize-connecting/deviceschedule.png)
 

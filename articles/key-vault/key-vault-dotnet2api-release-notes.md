@@ -1,6 +1,6 @@
 ---
 title: Nyckeln valvet .NET-API 2.x viktig information | Microsoft Docs
-description: ".NET-utvecklare använder detta API till kod för Azure Key Vault"
+description: .NET-utvecklare använder detta API till kod för Azure Key Vault
 services: key-vault
 author: lleonard-msft
 manager: mbaldwin
@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 05/02/2017
 ms.author: alleonar
 ms.openlocfilehash: a7735f8c1c4332bf2472bc83c0c37baf49019004
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - viktig information och Migreringsguide
 Följande information hjälper till att migrera till version 2.0 av Azure Key Vault-bibliotek för C# och .NET.  Appar som utvecklats för tidigare versioner måste du uppdatera för att stödja den senaste versionen.  De här ändringarna krävs för att fullständigt stöd för nya och förbättrade funktioner som **Key Vault certifikat**.

@@ -1,8 +1,8 @@
 ---
-title: "Kräver prognos i energi tekniska Guide | Microsoft Docs"
-description: "En teknisk guide till Lösningsmall med Microsoft Cortana Intelligence för begäran vid en prognos i energiförbrukning."
+title: Kräver prognos i energi tekniska Guide | Microsoft Docs
+description: En teknisk guide till Lösningsmall med Microsoft Cortana Intelligence för begäran vid en prognos i energiförbrukning.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yijichen
 manager: ilanr9
 editor: yijichen
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
 ms.openlocfilehash: bb3520d36e4c34c752fe388f3126da285e2161cd
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Teknisk guide till Cortana Intelligence lösning mallen för begäran vid en prognos i energi
 ## <a name="overview"></a>**Översikt**
@@ -56,7 +56,7 @@ Azure HDInsight-tjänst som används för att köra [Hive](http://blogs.msdn.com
 Den [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) tjänsten används (styrd av Azure Data Factory) så att prognosens på framtida energiförbrukningen för en viss region angivna indata som tagits emot.
 
 ## <a name="data-publishing"></a>**Publicering av data**
-### <a name="azure-sql-database-service"></a>Azure SQL Database-tjänsten
+### <a name="azure-sql-database-service"></a>Azure SQL Database Service
 Den [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) används för att lagra (hanteras av Azure Data Factory) förutsägelser som tagits emot av tjänsten Azure Machine Learning som används i den [Power BI](https://powerbi.microsoft.com) instrumentpanelen.
 
 ## <a name="data-consumption"></a>**Användning av data**
@@ -117,7 +117,7 @@ Den [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started
 #### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
 Detta [pipeline](data-factory/concepts-pipelines-activities.md) innehåller två aktiviteter:
 
-* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör en Hive-skript för att sammanställa timvis historik begäran data i omformaren nivå till varje timme regionnivå och placera i Azure Storage under Azure Stream Analytics-jobbet
+* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör en Hive-skript för att sammanställa timvis historik begäran data i omformaren nivå till varje timme regionnivå och placera i Azure Storage under Azure strömmen Analytics-jobbet
 * [Kopiera](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar sammanställda data från Azure Storage blob till Azure SQL-databas som har etablerats som en del av installationen mallen.
 
 Den [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för den här uppgiften är ***AggregateDemandHistoryRegion.hql***.
@@ -136,7 +136,7 @@ Detta [pipeline](data-factory/concepts-pipelines-activities.md) innehåller en e
 #### <a name="copyaggdemandpipeline"></a>*CopyAggDemandPipeline*
 Detta [pipeline](data-factory/concepts-pipelines-activities.md) innehåller en enskild aktivitet – en [kopiera](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar data aggregerade pågående begäran från ***LoadHistoryDemandDataPipeline*** till SQL Azure Databas som har etablerats som en del av installationen mallen.
 
-#### <a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>*CopyRegionDataPipeline CopySubstationDataPipeline, CopyTopologyDataPipeline*
+#### <a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>*CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
 Detta [pipeline](data-factory/concepts-pipelines-activities.md) innehåller en enskild aktivitet – en [kopiera](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar referensdata för Topologygeo-Region/understation som överförs till Azure Storage blob som en del av lösningen mallen installationen av Azure SQL-databas som har etablerats som en del av installationen mallen.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
@@ -182,7 +182,7 @@ Följande steg hjälper dig hur du visualisera data i realtid utdata från Strea
    * Klicka på **spara** högst upp och namn för rapporten som ”EnergyStreamDataReport”. Rapporten med namnet ”EnergyStreamDataReport” visas i rapporter i fönstret Navigator vänster.
    * Klicka på **”PIN-kod Visual”** ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) ikon i övre högra hörnet av den här linjediagram, ett ”PIN-kod till instrumentpanel” fönster kan visas som du kan välja en instrumentpanel. Markera ”EnergyStreamDataReport” och klicka på ”Pin”.
    * Placera markören över den här panelen på instrumentpanelen, klicka på ”Redigera”-ikonen i övre högra hörnet för att ändra dess namn som ”begäran av tidsstämpel”
-4. Skapa andra instrumentpaneler baserat på lämplig datauppsättningar. Den slutliga instrumentpanelsvyn:![](media/cortana-analytics-technical-guide-demand-forecast/PBIFullScreen.png)
+4. Skapa andra instrumentpaneler baserat på lämplig datauppsättningar. Den slutliga instrumentpanelsvyn: ![](media/cortana-analytics-technical-guide-demand-forecast/PBIFullScreen.png)
 
 ### <a name="setup-cold-path-dashboard"></a>Installationsprogrammet Cold sökväg instrumentpanelen
 I cold sökväg data pipeline är väsentliga målet att hämta begäran prognosen för varje region. Powerbi ansluter till en Azure SQL database som datakälla, där förutsägelse resultatet lagras.
@@ -213,7 +213,7 @@ I cold sökväg data pipeline är väsentliga målet att hämta begäran prognos
 3. (Valfritt) Publicera instrumentpanelen cold sökväg till [Power BI online](http://www.powerbi.com/). Observera att det här steget behöver ett Power BI-konto (eller Office 365-konto).
 
    * Klicka på **”publicera”** senare några sekunder visas ett fönster visas ”publicering till Power BI lyckades”! med en grön bock. Klicka på länken nedan ”öppna demoprediction.pbix i Powerbi”. Detaljerade anvisningar finns i [publicera från Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
-   * Att skapa en ny instrumentpanel: Klicka på den  **+**  logga bredvid den **instrumentpaneler** avsnitt i det vänstra fönstret. Ange namnet ”begäran prognoser Demo” för den här nya instrumentpanelen.
+   * Att skapa en ny instrumentpanel: Klicka på den **+** logga bredvid den **instrumentpaneler** avsnitt i det vänstra fönstret. Ange namnet ”begäran prognoser Demo” för den här nya instrumentpanelen.
    * När du öppnar rapporten klickar du på ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) fästa alla visualiseringar på instrumentpanelen. Detaljerade anvisningar finns i [fästa panelen till en Power BI-instrumentpanel från en rapport](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
      Gå till instrumentpanelssidan och justera storleken och platsen för din visualiseringar och redigera sin rubriker. Du hittar detaljerade anvisningar om hur du redigerar dina paneler [redigera en sida vid sida - storlek, flytta, Byt namn, PIN-kod, ta bort, lägga till hyperlänk](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Här är ett exempel instrumentpanel med vissa cold sökväg visualiseringar fäst på den.
 
@@ -236,5 +236,5 @@ Följande två verktyg är tillgängliga för att hjälpa dig att bättre först
 * [Microsoft Azure kostnaden exteriörbedömning-verktyget (online)](https://azure.microsoft.com/pricing/calculator/)
 * [Microsoft Azure kostnaden exteriörbedömning Tool (stationär dator)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-## <a name="acknowledgements"></a>**Bekräftelser**
+## <a name="acknowledgements"></a>**Acknowledgements**
 Den här artikeln har skrivits av data forskare Yijing Chen och programvara tekniker Qiu Min hos Microsoft.

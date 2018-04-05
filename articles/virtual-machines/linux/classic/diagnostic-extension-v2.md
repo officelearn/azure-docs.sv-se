@@ -1,10 +1,10 @@
 ---
-title: "Övervaka en Linux VM med en VM-tillägg | Microsoft Docs"
-description: "Lär dig hur du använder tillägget Linux diagnostiska för att övervaka prestanda och diagnostikdata av Linux VM i Azure."
+title: Övervaka en Linux VM med en VM-tillägg | Microsoft Docs
+description: Lär dig hur du använder tillägget Linux diagnostiska för att övervaka prestanda och diagnostikdata av Linux VM i Azure.
 services: virtual-machines-linux
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: f54a11c5-5a0e-40ff-af6c-e60bd464058b
 ms.service: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: b8c6e2e22d8478b6e92e7b7942f15d37a840fed3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd22188042c60da7c761e1fa00a12921146caf25
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Använd diagnostiktillägget för Linux för att övervaka prestanda och diagnostikdata för en virtuell Linux-dator
 
@@ -59,7 +59,7 @@ Den här artikeln fokuserar på hur du aktiverar och konfigurerar tillägget med
 
 Observera att konfigurationen metoderna som beskrivs här inte fungerar för Azure-portalen. Om du vill visa och konfigurera systemet och prestanda data direkt från Azure-portalen, måste tillägget aktiveras via portalen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure Linux-agentens version 2.0.6 eller senare**.
 
@@ -88,7 +88,7 @@ Steg 1. Skapa en fil med namnet PrivateConfig.json med följande innehåll:
         "storageAccountKey" : "the key of the account"
     }
 
-Steg 2. Kör  **azure vm-tillägget anger vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --privat-config-sökvägen PrivateConfig.json**.
+Steg 2. Kör **azure vm-tillägget anger vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>Scenario 2. Anpassa övervakaren prestandamått
 
@@ -111,7 +111,7 @@ Rsyslog data samlas alltid som standard.
     }
 
 
-Steg 2. Kör  **azure vm-tillägget anger vm_name LinuxDiagnostic Microsoft.OSTCExtensions ' 2.*'--privat-config-sökvägen PrivateConfig.json--offentliga-config-sökvägen PublicConfig.json**.
+Steg 2. Kör **azure vm-tillägget anger vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*'--privat-config-sökvägen PrivateConfig.json--offentliga-config-sökvägen PublicConfig.json**.
 
 ### <a name="scenario-3-upload-your-own-log-files"></a>Scenario 3. Ladda upp en egen loggfiler
 
@@ -147,7 +147,7 @@ Steg 1. Skapa en fil som heter PrivateConfig.json med det innehåll som beskrevs
     }
 
 
-Steg 2. Kör  **azure vm-tillägget anger vm_name LinuxDiagnostic Microsoft.OSTCExtensions ' 2.*'--privat-config-sökvägen PrivateConfig.json--offentliga-config-sökvägen PublicConfig.json**.
+Steg 2. Kör **azure vm-tillägget anger vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*'--privat-config-sökvägen PrivateConfig.json--offentliga-config-sökvägen PublicConfig.json**.
 
 ## <a name="review-your-data"></a>Granska dina data
 

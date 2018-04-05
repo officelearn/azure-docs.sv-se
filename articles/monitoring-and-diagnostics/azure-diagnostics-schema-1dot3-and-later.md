@@ -1,12 +1,12 @@
 ---
-title: "Azure Diagnostics tillägget 1.3 och senare Konfigurationsschemat | Microsoft Docs"
+title: Azure Diagnostics tillägget 1.3 och senare Konfigurationsschemat | Microsoft Docs
 description: Schemaversionen 1.3 och senare Azure diagnostics levereras som en del av Microsoft Azure SDK 2.4 och senare.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
 ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 och senare Konfigurationsschemat
 > [!NOTE]
@@ -396,7 +396,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**WadCfg**|Krävs. Se beskrivning på annan plats på den här sidan.|  
 |**StorageAccount**|Namnet på Azure Storage-konto för att lagra data i. Kan också anges som en parameter när du kör cmdlet Set-AzureServiceDiagnosticsExtension.|  
 |**StorageType**|Kan vara *tabell*, *Blob*, eller *TableAndBlob*. Tabellen är standard. När du har valt TableAndBlob skrivs diagnostikdata två gånger – en gång till varje typ av.|  
-|**LocalResourceDirectory**|Katalogen på den virtuella datorn där Monitoring Agent lagrar händelsedata. Om du inte har angetts standardkatalogen:<br /><br /> För en arbetare/webbroll:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> För en virtuell dator:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Obligatoriska attribut är:<br /><br /> - **sökvägen** -katalogen på system som ska användas av Azure-diagnostik.<br /><br /> - **expandEnvironment** -styr om expanderas miljövariabler i sökvägen.|  
+|**LocalResourceDirectory**|Katalogen på den virtuella datorn där Monitoring Agent lagrar händelsedata. Om du inte har angetts standardkatalogen:<br /><br /> För en arbetare/webbroll: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> För en virtuell dator: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Obligatoriska attribut är:<br /><br /> - **sökvägen** -katalogen på system som ska användas av Azure-diagnostik.<br /><br /> - **expandEnvironment** -styr om expanderas miljövariabler i sökvägen.|  
 
 ## <a name="wadcfg-element"></a>WadCFG Element  
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG*
@@ -423,7 +423,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Kataloger**|Se beskrivning på annan plats på den här sidan.|  
 |**EtwProviders**|Se beskrivning på annan plats på den här sidan.|  
 |**Mått**|Se beskrivning på annan plats på den här sidan.|  
-|**PerformanceCounters**|Se beskrivning på annan plats på den här sidan.|  
+|**performanceCounters**|Se beskrivning på annan plats på den här sidan.|  
 |**WindowsEventLog**|Se beskrivning på annan plats på den här sidan.| 
 |**DockerSources**|Se beskrivning på annan plats på den här sidan. | 
 
@@ -572,9 +572,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Valfri. Anger maximal mängd fillagring för system som är tillgängliga för angivna data.<br /><br /> Standardvärdet är 0.|  
-|**scheduledTransferLogLevelFilterr**|**sträng**|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**, som överför alla loggar. Andra möjliga värden (i ordningen för de flesta till minst information) är **utförlig**, **Information**, **varning**, **fel**, och **Kritiska**.|  
-|**scheduledTransferPeriod**|**varaktighet**|Valfri. Anger intervallet mellan schemalagda dataöverföringar, avrundat till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
-|**egenskaperna** lades till i 1.5|**sträng**|Valfri. Pekar på en plats för mottagaren att också skicka diagnostikdata. Till exempel Application Insights.|  
+|**scheduledTransferLogLevelFilterr**|**Sträng**|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**, som överför alla loggar. Andra möjliga värden (i ordningen för de flesta till minst information) är **utförlig**, **Information**, **varning**, **fel**, och **Kritiska**.|  
+|**scheduledTransferPeriod**|**Varaktighet**|Valfri. Anger intervallet mellan schemalagda dataöverföringar, avrundat till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
+|**egenskaperna** lades till i 1.5|**Sträng**|Valfri. Pekar på en plats för mottagaren att också skicka diagnostikdata. Till exempel Application Insights.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -608,7 +608,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Element|Typ|Beskrivning|  
 |-------------|----------|-----------------|  
 |**Application Insights**|sträng|Används endast när data skickades till Application Insights. Innehåller den Instrumentation nyckeln för ett aktivt Application Insights-konto som du har åtkomst till.|  
-|**Kanaler**|sträng|En för varje ytterligare filtrering strömma som du|  
+|**kanaler**|sträng|En för varje ytterligare filtrering strömma som du|  
 
 ## <a name="channels-element"></a>Kanaler Element  
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - kanaler*
@@ -630,8 +630,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attribut|Typ|Beskrivning|  
 |----------------|----------|-----------------|  
-|**logLevel**|**sträng**|Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**, som överför alla loggar. Andra möjliga värden (i ordningen för de flesta till minst information) är **utförlig**, **Information**, **varning**, **fel**, och **Kritiska**.|  
-|**Namn**|**sträng**|Ett unikt namn för att referera till kanalen|  
+|**logLevel**|**Sträng**|Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**, som överför alla loggar. Andra möjliga värden (i ordningen för de flesta till minst information) är **utförlig**, **Information**, **varning**, **fel**, och **Kritiska**.|  
+|**Namn**|**Sträng**|Ett unikt namn för att referera till kanalen|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig Element 

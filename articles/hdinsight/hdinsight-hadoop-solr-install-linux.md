@@ -1,8 +1,8 @@
 ---
-title: "Använd skriptåtgärder om du vill installera Solr på Linux-baserat HDInsight - Azure | Microsoft Docs"
-description: "Lär dig hur du installerar Solr på Linux-baserade HDInsight Hadoop-kluster med hjälp av skriptåtgärder."
+title: Använd skriptåtgärder om du vill installera Solr på Linux-baserat HDInsight - Azure | Microsoft Docs
+description: Lär dig hur du installerar Solr på Linux-baserade HDInsight Hadoop-kluster med hjälp av skriptåtgärder.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.openlocfilehash: f642a1f8060f566ec95b23995d0f82191b0c5315
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Installera och använda Solr på HDInsight Hadoop-kluster
 
@@ -39,7 +39,7 @@ Lär dig hur du installerar Solr på Azure HDInsight med hjälp av skriptåtgär
 > [!WARNING]
 > Komponenter som ingår i HDInsight-kluster stöds fullt ut av Microsoft.
 >
-> Anpassade komponenter, till exempel Solr, få kommersiellt rimliga stöd för att hjälpa dig att felsöka problemet ytterligare. Microsoft-supporten kanske inte kan lösa problem med anpassade komponenter. Du kan behöva engagera communities för öppen källkod för att få hjälp. Det finns till exempel många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Apache-projekt har också project-webbplatser [http://apache.org](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/).
+> Anpassade komponenter, till exempel Solr, få kommersiellt rimliga stöd för att hjälpa dig att felsöka problemet ytterligare. Microsoft-supporten kanske inte kan lösa problem med anpassade komponenter. Du kan behöva engagera communities för öppen källkod för att få hjälp. Det finns till exempel många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache-projekt har också project-webbplatser [ http://apache.org ](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/).
 
 ## <a name="what-the-script-does"></a>Skriptet innehåller
 
@@ -61,7 +61,7 @@ Om du vill skapa ett kluster med installerat Solr, Följ stegen i den [skapa HDI
 1. Från den __klustret sammanfattning__ avsnitt, select__Advanced settings__, sedan __skript åtgärder__. Använd följande information för att fylla i formuläret:
 
    * **NAMNET**: Ange ett eget namn för skriptåtgärden.
-   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+   * **SKRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **HEAD**: Markera det här alternativet
    * **WORKER**: Markera det här alternativet
    * **ZOOKEEPER**: Markera det här alternativet att installera på noden Zookeeper
@@ -116,7 +116,7 @@ Använd följande steg för att lägga till exempeldata i Solr och fråga den:
     curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
     ```
 
-    Det här kommandot söker **collection1** för alla dokument som matchar  **\*:\***  (kodad som \*% 3A\* i frågesträngen). Följande JSON-dokumentet är ett exempel på svaret:
+    Det här kommandot söker **collection1** för alla dokument som matchar **\*:\*** (kodad som \*% 3A\* i frågesträngen). Följande JSON-dokumentet är ett exempel på svaret:
 
             "response": {
                 "numFound": 2,
@@ -194,7 +194,7 @@ När du har skapat en SSH-tunnel, Solr instrumentpanel med hjälp av följande s
 
         Spara det värde som returneras, eftersom den används senare.
 
-2. Anslut till i din webbläsare **#-http://HOSTNAME:8983/solr/**, där **VÄRDNAMN** är namnet du bestämde i föregående steg.
+2. Anslut till i din webbläsare **http://HOSTNAME:8983/solr/#/**, där **VÄRDNAMN** är namnet du bestämde i föregående steg.
 
     Begäran dirigeras via SSH-tunnel till Solr webbgränssnittet på ditt kluster. Sidan ser ut som följande bild:
 
@@ -319,7 +319,7 @@ Använd följande steg för att säkerhetskopiera Solr data till standardlagring
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-Mer information om hur du arbetar med Solr säkerhetskopiering och återställning finns [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
+Mer information om hur du arbetar med Solr säkerhetskopiering och återställning finns [ https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups ](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
 ## <a name="next-steps"></a>Nästa steg
 

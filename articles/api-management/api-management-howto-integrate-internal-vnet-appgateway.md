@@ -1,8 +1,8 @@
 ---
-title: "Hur du använder Azure API Management i det virtuella nätverket med Programgateway | Microsoft Docs"
-description: "Lär dig att installera och konfigurera Azure API Management i internt virtuellt nätverk med programmet Gateway (Brandvägg) som klientdel"
+title: Hur du använder Azure API Management i det virtuella nätverket med Programgateway | Microsoft Docs
+description: Lär dig att installera och konfigurera Azure API Management i internt virtuellt nätverk med programmet Gateway (Brandvägg) som klientdel
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: solankisamir
 manager: kjoshi
 editor: antonba
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
 ms.openlocfilehash: f9bc3ffda9f943a37fd5aadf440abf7d33a6d1de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrera API Management i ett internt virtuellt nätverk med Programgateway 
 
-##<a name="overview"></a> Översikt
+##<a name="overview"> </a> Översikt över
  
 API Management-tjänsten kan konfigureras i ett virtuellt nätverk i internt läge vilket gör att det är enbart tillgänglig från det virtuella nätverket. Azure Application Gateway är en PAAS-tjänst som tillhandahåller en lager 7 belastningsutjämnare. Den fungerar som en omvänd proxy-tjänst och innehåller bland erbjudande Web Application Firewall (Brandvägg).
 
@@ -32,7 +32,7 @@ Kombinera API Management etablerad på ett internt virtuellt nätverk med Progra
 * Använda en enskild resurs för API Management och har en delmängd av API: er som definierats i API-hantering som är tillgänglig för externa användare.
 * Ger en nyckelfärdig sätt att aktivera åtkomst till API-hantering från Internet och inaktivera. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 
@@ -42,14 +42,14 @@ Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 
 + En APIM-instans. Mer information finns i [skapa en instans av Azure API Management](get-started-create-service-instance.md).
 
-##<a name="scenario"></a> Scenario
+##<a name="scenario"> </a> scenario
 Den här artikeln beskriver hur du använder en enda API Management-tjänst för både interna och externa användare och att den fungerar som en enda klientdel för både lokala och molntjänster API: er. Du kan även se hur du exponera en delmängd av dina API: er (i exemplet som de är markerade i grönt) för extern användning med PathBasedRouting tillgängliga funktioner i Application Gateway.
 
 I det första exemplet installationsprogrammet hanteras alla API: er endast från i ditt virtuella nätverk. Interna användare (markerade i orange) kan komma åt alla dina interna och externa API: er. Trafik överförs aldrig till Internet, en hög prestanda levereras via Expressroute-kretsar.
 
 ![URL-väg](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
-## <a name="before-you-begin"></a> Innan du börjar
+## <a name="before-you-begin"> </a> Innan du börjar
 
 1. Installera den senaste versionen av Azure PowerShell-cmdlets med hjälp av installationsprogrammet för webbplattform. Du kan hämta och installera den senaste versionen från avsnittet om **Windows PowerShell** på [hämtningssidan](https://azure.microsoft.com/downloads/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 2. Skapa ett virtuellt nätverk och skapa separata undernät för API Management och Application Gateway. 
@@ -65,7 +65,7 @@ I det första exemplet installationsprogrammet hanteras alla API: er endast frå
 * **Anpassade Hälsoavsökningen:** Application Gateway som standard använder IP-adress baserat avsökningar för att ta reda på vilka servrar i BackendAddressPool är aktiva. API-hantering är tjänsten bara svarar på begäranden som har rätt värdadressen därför standard avsökningar misslyckas. En anpassad hälsoavsökningen måste definieras för att bestämma att tjänsten är igång och att den ska vidarebefordra begäranden Programgateway.
 * **Certifikatet för domänen:** åtkomst till API-hantering från internet måste du skapa en CNAME-mappning av dess värdnamn Programgateway frontend DNS-namn. Detta garanterar att hostname sidhuvud och certifikat som skickats till Programgateway som vidarebefordras till API-hantering är en APIM kan identifiera som giltig.
 
-## <a name="overview-steps"></a> Steg som krävs för att integrera API Management och Programgateway 
+## <a name="overview-steps"> </a> Steg som krävs för att integrera API Management och Programgateway 
 
 1. Skapa en resursgrupp för Resource Manager.
 2. Skapa ett virtuellt nätverk och undernät offentliga IP-Adressen för Programgatewayen. Skapa ett annat undernät för API-hantering.
@@ -298,7 +298,7 @@ I följande exempel skapas en enkel regel för ”echo-” sökväg routning tra
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 ```
 
-Om sökvägen inte matchar sökvägsregler som vi vill aktivera API-hantering, konfigurerar regelkonfigurationen sökväg kartan också en standard backend-adresspool med namnet **dummyBackendPool**. Till exempel http://api.contoso.net/calc/ * går till **dummyBackendPool** som har definierats som standard för icke matchade trafik.
+Om sökvägen inte matchar sökvägsregler som vi vill aktivera API-hantering, konfigurerar regelkonfigurationen sökväg kartan också en standard backend-adresspool med namnet **dummyBackendPool**. Till exempel http://api.contoso.net/calc/* går till **dummyBackendPool** som har definierats som standard för icke matchade trafik.
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
@@ -347,10 +347,10 @@ Den Programgateway DNS-namn som ska användas för att skapa en CNAME-post som p
 Get-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -Name "publicIP01"
 ```
 
-##<a name="summary"></a> Sammanfattning
+##<a name="summary"> </a> Sammanfattning
 Azure API-hantering som konfigurerats i ett virtuellt nätverk innehåller en enda gateway-gränssnitt för alla konfigurerade API: er, oavsett om de är värdbaserade lokalt eller i molnet. Integrera Programgateway med API Management ger flexibilitet för att selektivt aktivera specifika API: er ska vara tillgänglig på Internet, samt att tillhandahålla en brandvägg för webbaserade program som en klientdel till API Management-instans.
 
-##<a name="next-steps"></a> Nästa steg
+##<a name="next-steps"> </a> Nästa steg
 * Lär dig mer om Azure Programgateway
   * [Översikt över Gateway](../application-gateway/application-gateway-introduction.md)
   * [Programmet Gateway Brandvägg för webbaserade program](../application-gateway/application-gateway-webapplicationfirewall-overview.md)

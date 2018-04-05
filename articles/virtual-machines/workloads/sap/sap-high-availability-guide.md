@@ -1,13 +1,13 @@
 ---
-title: "Azure virtuella datorer hög tillgänglighet för SAP NetWeaver | Microsoft Docs"
-description: "Hög tillgänglighet guide för SAP NetWeaver på Azure Virtual Machines"
+title: Azure virtuella datorer hög tillgänglighet för SAP NetWeaver | Microsoft Docs
+description: Hög tillgänglighet guide för SAP NetWeaver på Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d00db895ffcf9ba9a51e3df2dae5d33c0277dd6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure virtuella datorer hög tillgänglighet för SAP NetWeaver
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Konfiguration med hög tillgänglighet SAP multi-SID)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -168,12 +168,12 @@ I den här artikeln beskriver vi de steg som du kan vidta för att distribuera h
 
 Vi använder SAP tre skikt hög tillgänglighet Resource Manager-mallar för att förenkla distribution och konfiguration i den här artikeln. Mallarna automatisera distributionen av hela infrastrukturen som du behöver för ett SAP-system med hög tillgänglighet. Infrastrukturen stöder också SAP programmets prestanda Standard (SAP) storleksändring av SAP-system.
 
-## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a>Nödvändiga komponenter
+## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> Nödvändiga komponenter
 Innan du börjar bör du kontrollera att du uppfyller kraven som beskrivs i följande avsnitt. Dessutom måste du kontrollera att alla resurser som finns i den [resurser] [ sap-ha-guide-2] avsnitt.
 
 I den här artikeln använder vi Azure Resource Manager-mallar för [trelagers-SAP NetWeaver med hjälp av hanterade diskar](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). En bra översikt över mallar finns [SAP Azure Resource Manager-mallar](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
 
-## <a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a>Resurser
+## <a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a> Resurser
 Dessa artiklar beskriver SAP-distributioner i Azure:
 
 * [Azure virtuella datorer planering och implementering för SAP NetWeaver][planning-guide]
@@ -188,7 +188,7 @@ Dessa artiklar beskriver SAP-distributioner i Azure:
 
 Anteckningarna SAP är relaterade till SAP i Azure-avsnitt:
 
-| Nummer | Rubrik |
+| Nummer | Namn |
 | --- | --- |
 | [1928533] |SAP-program i Azure: produkter och storlek som stöds |
 | [2015553] |SAP på Microsoft Azure: stöd för krav |
@@ -206,10 +206,10 @@ Azure Resource Manager och Azure klassiska distributionsmodeller skiljer sig ino
 - Azure interna belastningen belastningsutjämnare beroende på Azure-resursgrupp
 - Stöd för scenarier för SAP multi-SID
 
-### <a name="f76af273-1993-4d83-b12d-65deeae23686"></a>Resursgrupper
+### <a name="f76af273-1993-4d83-b12d-65deeae23686"></a> Resursgrupper
 Azure Resource Manager du använda resursgrupper för att hantera alla programresurser i din Azure-prenumeration. En integrerad lösning i en resursgrupp, alla resurser som har samma livscykel. Till exempel alla resurser skapas på samma gång och de tas bort samtidigt. Läs mer om [resursgrupper](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
 
-### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a>Azure interna belastningen belastningsutjämnare beroende på Azure-resursgrupp
+### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Azure interna belastningen belastningsutjämnare beroende på Azure-resursgrupp
 
 I Azure klassiska distributionsmodellen finns det ett beroende mellan Azure intern belastningsutjämnare (Azure belastningsutjämnare service) och Molntjänsten. Varje intern belastningsutjämnare måste en tjänst i molnet.
 
@@ -226,12 +226,12 @@ Om du vill använda Azure klassiska distributionsmodellen, följer du procedurer
 >
 >
 
-## <a name="8ecf3ba0-67c0-4495-9c14-feec1a2255b7"></a>Windows Server Failover-kluster
+## <a name="8ecf3ba0-67c0-4495-9c14-feec1a2255b7"></a> Windows Server Failover-kluster
 Windows Server Failover Clustering är grunden för en hög tillgänglighet SAP ASCS/SCS installation och DBMS i Windows.
 
 Ett redundanskluster är en grupp 1 + n oberoende servrar (noder) som arbetar tillsammans för att öka tillgängligheten för program och tjänster. Om det inträffar ett nodfel, beräknar Windows Server Failover Clustering antalet fel som kan uppstå samtidigt som ett felfritt kluster för att tillhandahålla program och tjänster. Du kan välja från olika kvorumlägen att uppnå failover-kluster.
 
-### <a name="1a3c5408-b168-46d6-99f5-4219ad1b1ff2"></a>Kvorumlägen
+### <a name="1a3c5408-b168-46d6-99f5-4219ad1b1ff2"></a> Kvorumlägen
 Du kan välja mellan fyra kvorumlägen när du använder Windows Server Failover Clustering:
 
 * **Nodmajoritet**. Varje nod i klustret kan rösta. Klustret fungerar bara med en majoritet av röster, det vill säga med mer än hälften röster. Vi rekommenderar att det här alternativet för kluster som har ett ojämnt antal noder. Till exempel tre noder i ett kluster med sju noder kan misslyckas och klustret stillbilder uppnår en majoritet och fortsätter att köras.  
@@ -240,7 +240,7 @@ Du kan välja mellan fyra kvorumlägen när du använder Windows Server Failover
 * **Ingen majoritet: Endast Disk**. Klustret har ett kvorum om en nod är tillgänglig och kommunikation med en viss disk i klusterlagringen. Endast de noder som är också vid kommunikation med disken kan ansluta till klustret. Vi rekommenderar att du inte använder det här läget.
  
 
-## <a name="fdfee875-6e66-483a-a343-14bbaee33275"></a>Windows Server Failover-kluster lokalt
+## <a name="fdfee875-6e66-483a-a343-14bbaee33275"></a> Windows Server Failover-kluster lokalt
 Bild 1 visar ett kluster med två noder. Om nätverksanslutningen mellan noder misslyckas och både noder stanna upp och köras, en kvorumdisk eller fil delar avgör vilken nod som kommer att fortsätta att tillhandahålla klustrets program och tjänster. Noden som har åtkomst till kvorum disk eller filresurs är den nod som säkerställer att tjänster fortsätter.
 
 Eftersom det här exemplet använder ett kluster med två noder kan använda vi kvorumläge för nod och filresursmajoritet. Nod- och diskmajoritet är också ett giltigt alternativ. I en produktionsmiljö rekommenderar vi att du använder en kvorumdisk. Nätverks- och system-tekniken kan användas för att ge den hög tillgänglighet.
@@ -249,7 +249,7 @@ Eftersom det här exemplet använder ett kluster med två noder kan använda vi 
 
 _**Bild 1:** exempel på en Windows Server Failover Clustering konfiguration för SAP ASCS/SCS i Azure_
 
-### <a name="be21cf3e-fb01-402b-9955-54fbecf66592"></a>Delad lagring
+### <a name="be21cf3e-fb01-402b-9955-54fbecf66592"></a> Delad lagring
 Bild 1 visar också ett kluster med två noder delad lagring. I ett kluster för lokala delad lagring identifiera alla noder i klustret delad lagring. En mekanism för låsning förhindrar skadade data. Alla noder kan känna av om en annan nod misslyckas. Om en nod misslyckas den återstående noden ägarskapet till storage-resurser och garanterar tillgängligheten av tjänster.
 
 > [!NOTE]
@@ -257,7 +257,7 @@ Bild 1 visar också ett kluster med två noder delad lagring. I ett kluster för
 >
 >
 
-### <a name="ff7a9a06-2bc5-4b20-860a-46cdb44669cd"></a>Nätverk och namnmatchning
+### <a name="ff7a9a06-2bc5-4b20-860a-46cdb44669cd"></a> Nätverk och namnmatchning
 Klientdatorer når klustret via en virtuell IP-adress och ett virtuellt värdnamn som ger DNS-servern. Lokala noder och DNS-server kan hantera flera IP-adresser.
 
 I en typisk konfiguration kan du använda två eller flera nätverksanslutningar:
@@ -266,7 +266,7 @@ I en typisk konfiguration kan du använda två eller flera nätverksanslutningar
 * En kluster-interna nätverksanslutning för pulsslag
 * Ett offentligt nätverk som klienter använder för att ansluta till klustret
 
-## <a name="2ddba413-a7f5-4e4e-9a51-87908879c10a"></a>Windows Server Failover-kluster i Azure
+## <a name="2ddba413-a7f5-4e4e-9a51-87908879c10a"></a> Windows Server Failover-kluster i Azure
 Azure Virtual Machines krävs jämfört med bare metal eller privat molndistributioner, ytterligare steg för att konfigurera Windows Server Failover Clustering. När du skapar en delad klusterdisk som du behöver konfigurera flera IP-adresser och virtuella värdnamn för SAP ASCS/SCS-instansen.
 
 I den här artikeln tar vi upp viktiga begrepp och ytterligare steg som krävs för att skapa ett kluster med SAP centrala tjänster med hög tillgänglighet i Azure. Vi visar dig hur du ställer in tredjepartsverktyg SIOS DataKeeper och hur du konfigurerar Azure intern belastningsutjämnare. Du kan använda dessa verktyg för att skapa ett redundanskluster i Windows med ett filresursvittne i Azure.
@@ -275,7 +275,7 @@ I den här artikeln tar vi upp viktiga begrepp och ytterligare steg som krävs f
 
 _**Bild 2:** Windows Server Failover Clustering konfiguration i Azure utan en delad disk_
 
-### <a name="1a464091-922b-48d7-9d08-7cecf757f341"></a>Delad disk i Azure med SIOS DataKeeper
+### <a name="1a464091-922b-48d7-9d08-7cecf757f341"></a> Delad disk i Azure med SIOS DataKeeper
 Du måste ingå i klustret delad lagring för en SAP ASCS/SCS-instans med hög tillgänglighet. Från och med September 2016 erbjuder inte Azure delad lagring som du kan använda för att skapa ett kluster med delad lagring. Du kan använda tredjepartsprogram SIOS DataKeeper Cluster Edition för att skapa en speglad lagring som simulerar delad klusterlagring. SIOS lösningen ger realtidsdata synkron replikering. Detta beror på hur du kan skapa en delad diskresurs för ett kluster:
 
 1. Anslut en ytterligare disk till var och en av de virtuella datorerna (VM) i en Windows-klusterkonfiguration.
@@ -293,13 +293,13 @@ _**Bild 3:** Windows Server Failover Clustering konfigurationen i Azure med SIOS
 >
 >
 
-### <a name="44641e18-a94e-431f-95ff-303ab65e0bcb"></a>Namnmatchning i Azure
+### <a name="44641e18-a94e-431f-95ff-303ab65e0bcb"></a> Namnmatchning i Azure
 Plattformen Azure-molnet kan inte välja att konfigurera den virtuella IP-adresser som flytande IP-adresser. Du måste en alternativ lösning för att konfigurera en virtuell IP-adress till klusterresursen i molnet.
 Azure har en intern belastningsutjämnare i tjänsten Azure belastningsutjämnare. Med den interna belastningsutjämnaren nå klienter klustret via klustrets virtuella IP-adress.
 Du måste distribuera den interna belastningsutjämnaren i resursgruppen som innehåller klusternoderna. Konfigurera sedan alla nödvändiga port vidarebefordran regler med avsökningen portar för den interna belastningsutjämnaren.
 Klienterna kan ansluta via virtuella värdnamn. DNS-servern löser klustrets IP-adress och interna belastningsutjämnare handtag porten vidarebefordran till den aktiva noden i klustret.
 
-## <a name="2e3fec50-241e-441b-8708-0b1864f66dfa"></a>SAP NetWeaver hög tillgänglighet i Azure Infrastructure-as-a-Service (IaaS)
+## <a name="2e3fec50-241e-441b-8708-0b1864f66dfa"></a> SAP NetWeaver hög tillgänglighet i Azure Infrastructure-as-a-Service (IaaS)
 För att uppnå SAP-program med hög tillgänglighet som för SAP programvarukomponenter, måste du skydda följande komponenter:
 
 * SAP Application Server-instans
@@ -308,7 +308,7 @@ För att uppnå SAP-program med hög tillgänglighet som för SAP programvarukom
 
 Mer information om hur du skyddar SAP komponenter i scenarier med hög tillgänglighet finns [Azure Virtual Machines planering och implementering för SAP NetWeaver][planning-guide-11].
 
-### <a name="93faa747-907e-440a-b00a-1ae0a89b1c0e"></a>Hög tillgänglighet SAP-programserver
+### <a name="93faa747-907e-440a-b00a-1ae0a89b1c0e"></a> Hög tillgänglighet SAP-programserver
 Vanligtvis behöver du inte en specifik lösning för hög tillgänglighet för SAP-programserver och dialogrutan instanser. Du kan uppnå hög tillgänglighet med redundans och konfigurerar du dialogrutan alla instanser i olika instanser av virtuella datorer i Azure. Du bör ha minst två instanser för SAP-program installeras i två instanser av virtuella datorer i Azure.
 
 ![Bild 4: Hög tillgänglighet SAP-programserver][sap-ha-guide-figure-2000]
@@ -324,14 +324,14 @@ Mer information om hur du [hantera tillgängligheten för virtuella datorer][vir
 
 Ohanterad disk: eftersom Azure storage-konto är en potentiell felpunkt, är det viktigt att ha minst två Azure storage-konton som minst två virtuella datorer distribueras. I en perfekt installationsprogrammet skulle diskar för varje virtuell dator som kör en instans för SAP-dialogrutan distribueras i ett annat lagringskonto.
 
-### <a name="f559c285-ee68-4eec-add1-f60fe7b978db"></a>Hög tillgänglighet SAP ASCS/SCS instans
+### <a name="f559c285-ee68-4eec-add1-f60fe7b978db"></a> Hög tillgänglighet SAP ASCS/SCS instans
 Bild 5 är ett exempel på en hög tillgänglighet SAP ASCS/SCS-instans.
 
 ![Bild 5: Hög tillgänglighet SAP ASCS/SCS instans][sap-ha-guide-figure-2001]
 
 _**Bild 5:** hög tillgänglighet SAP ASCS/SCS-instans_
 
-#### <a name="b5b1fd0b-1db4-4d49-9162-de07a0132a51"></a>SAP ASCS/SCS instans hög tillgänglighet med Windows Server Failover Clustering i Azure
+#### <a name="b5b1fd0b-1db4-4d49-9162-de07a0132a51"></a> SAP ASCS/SCS instans hög tillgänglighet med Windows Server Failover Clustering i Azure
 Azure Virtual Machines krävs jämfört med bare metal eller privat molndistributioner, ytterligare steg för att konfigurera Windows Server Failover Clustering. För att skapa ett redundanskluster i Windows, behöver du en delad klusterdisk, flera IP-adresser, flera virtuella värdnamn och en Azure intern belastningsutjämnare för kluster för en SAP ASCS/SCS-instans. Detta diskuterar vi i detalj senare i artikeln.
 
 ![Bild 6: Windows Server Failover Clustering för en SAP ASCS/SCS-konfiguration i Azure med hjälp av SIOS DataKeeper][sap-ha-guide-figure-1002]
@@ -350,7 +350,7 @@ Mer information om kluster och SQL Server i Azure med hjälp av Azure Resource M
 * [Konfigurera Always On-tillgänglighetsgrupp i Azure Virtual Machines manuellt med hjälp av hanteraren för filserverresurser] [virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
 * [Konfigurera en Azure intern belastningsutjämnare för en tillgänglighetsgrupp alltid på i Azure] [virtual-machines-windows-portal-sql-alwayson-int-listener]
 
-## <a name="045252ed-0277-4fc8-8f46-c5a29694a816"></a>Distributionsscenarier för slutpunkt till slutpunkt hög tillgänglighet
+## <a name="045252ed-0277-4fc8-8f46-c5a29694a816"></a> Distributionsscenarier för slutpunkt till slutpunkt hög tillgänglighet
 
 ### <a name="deployment-scenario-using-architectural-template-1"></a>Scenario för distribution med arkitekturen mall 1
 
@@ -388,7 +388,7 @@ Bild 10 illustrerar ett exempel på en arkitektur för SAP NetWeaver hög tillg�
 
 _**Figur 10:** SAP hög tillgänglighet arkitektur mall 3, med ett kluster för olika ASCS/SCS-instanser_
 
-## <a name="78092dbe-165b-454c-92f5-4972bdbef9bf"></a>Förbered infrastrukturen
+## <a name="78092dbe-165b-454c-92f5-4972bdbef9bf"></a> Förbered infrastrukturen
 
 ### <a name="prepare-the-infrastructure-for-architectural-template-1"></a>Förbereda infrastrukturen för arkitektur mall 1
 Azure Resource Manager-mallar för SAP underlätta distributionen av de nödvändiga resurserna.
@@ -419,9 +419,9 @@ _**Figur 11:** ange parametrar för SAP hög tillgänglighet Azure Resource Mana
     * DBMS-kluster: <*SAPSystemSID*> - db - <*tal*>
 
   * **Nätverkskort för alla virtuella datorer med tillhörande IP-adresser**:
-    * <*SAPSystemSID*> - nic - di - <*tal*>
-    * <*SAPSystemSID*> - nic - ascs - <*tal*>
-    * <*SAPSystemSID*> - nic - db - <*tal*>
+    * <*SAPSystemSID*>-nic-di-<*Number*>
+    * <*SAPSystemSID*>-nic-ascs-<*Number*>
+    * <*SAPSystemSID*>-nic-db-<*Number*>
 
   * **Azure storage-konton (endast ohanterade diskar)**
 
@@ -442,7 +442,7 @@ _**Figur 11:** ange parametrar för SAP hög tillgänglighet Azure Resource Mana
 >
 >
 
-### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a>Distribuera virtuella datorer med företagets nätverksanslutning (mellan platser) ska användas i produktion
+### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Distribuera virtuella datorer med företagets nätverksanslutning (mellan platser) ska användas i produktion
 Distribuera virtuella Azure-datorer med för produktion SAP-system, [företagets nätverksanslutning (mellan platser)] [ planning-guide-2.2] med hjälp av Azure plats-till-plats-VPN eller Azure ExpressRoute.
 
 > [!NOTE]
@@ -471,7 +471,7 @@ Distribuera virtuella Azure-datorer med för produktion SAP-system, [företagets
   /subscriptions/<SubscriptionId>/resourceGroups/<VPNName>/providers/Microsoft.Network/virtualNetworks/azureVnet/subnets/<SubnetName>
   ```
 
-### <a name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a>Distribuera endast molnbaserad SAP-instanser för testning och demo
+### <a name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a> Distribuera endast molnbaserad SAP-instanser för testning och demo
 Du kan distribuera din SAP-systemet för hög tillgänglighet i en endast molnbaserad distributionsmodell. Den här typen av distribution är främst användbart för demonstration och testa användningsområden. Det är inte lämpligt för produktion användningsfall.
 
 - I Azure-portalen på den **parametrar** blad i den **NEWOREXISTINGSUBNET** väljer **nya**. Lämna den **SUBNETID** fältet tomt.
@@ -509,7 +509,7 @@ Om du vill skapa ett nytt multi-SID-kluster måste du distribuera följande tre 
 
 I följande avsnitt har mer information om mallar och parametrar måste du ange i mallar.
 
-#### <a name="ASCS-SCS-template"></a>ASCS/SCS mall
+#### <a name="ASCS-SCS-template"></a> ASCS/SCS mall
 
 ASCS/SCS mallen distribuerar två virtuella datorer som du kan använda för att skapa ett redundanskluster i Windows Server som är värd för flera ASCS/SCS-instanser.
 
@@ -546,7 +546,7 @@ Belastningsutjämnaren har konfigurerats för att använda följande avsökninge
 - ASCS/SCS interna läsa in belastningsutjämning avsökningsport: 620 x 0
 - ÄNDARE interna läsa in belastningsutjämning avsökningsport (endast Linux): 621 x 2
 
-#### <a name="database-template"></a>Databasmall för
+#### <a name="database-template"></a> Databasmall för
 
 Mallen databasen distribuerar en eller två virtuella datorer som du kan använda för att installera systemet för relationsdatabashantering (RDBMS) för en SAP-system. Om du distribuerar en ASCS/SCS-mall för fem SAP-system, måste du distribuera den här mallen fem gånger.
 
@@ -563,7 +563,7 @@ Att konfigurera mallen databasen multi-SID i den [multi-SID-mall för databas] [
   -  **Användarnamn och lösenord för Admin administratör**. Skapa en ny användare som kan användas för att logga in på datorn.
   -  **Undernät-Id**. Ange ID för det undernät som du använde under distributionen av mallen ASCS/SCS eller ID för det undernät som har skapats som en del av malldistribution ASCS/SCS.
 
-#### <a name="application-servers-template"></a>Mall för servrar
+#### <a name="application-servers-template"></a> Mall för servrar
 
 Servrar programmall distribuerar två eller flera virtuella datorer som kan användas som SAP Application Server-instanser för en SAP-system. Om du distribuerar en ASCS/SCS-mall för fem SAP-system, måste du distribuera den här mallen fem gånger.
 
@@ -577,7 +577,7 @@ Att ställa in programmet servrar multi-SID-mall i den [programmall servrar mult
   -  **Undernät-Id**. Ange ID för det undernät som du använde under distributionen av mallen ASCS/SCS eller ID för det undernät som har skapats som en del av malldistribution ASCS/SCS.
 
 
-### <a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a>Virtuella Azure-nätverket
+### <a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a> Virtuella Azure-nätverket
 I vårt exempel är i virtuella Azure-nätverket adressutrymme 10.0.0.0/16. Det finns ett undernät som kallas **undernät**, med en-adressintervallet 10.0.0.0/24. Alla virtuella datorer och interna belastningsutjämnare har distribuerats i det här virtuella nätverket.
 
 > [!IMPORTANT]
@@ -585,7 +585,7 @@ I vårt exempel är i virtuella Azure-nätverket adressutrymme 10.0.0.0/16. Det 
 >
 >
 
-### <a name="b22d7b3b-4343-40ff-a319-097e13f62f9e"></a>DNS IP-adresser
+### <a name="b22d7b3b-4343-40ff-a319-097e13f62f9e"></a> DNS IP-adresser
 
 Om du vill ange krävs DNS IP-adresser, gör du följande steg.
 
@@ -608,24 +608,24 @@ I vårt exempel har DNS-tjänsten installerats och konfigurerats på dessa virtu
 
 | Rollen virtuell dator | Värdnamn för virtuell dator | Namn på nätverkskort | Statisk IP-adress |
 | --- | --- | --- | --- |
-| Första DNS-servern |domcontr 0 |PR1-nic-domcontr-0 |10.0.0.10 |
-| Andra DNS-server |domcontr 1 |PR1-nic-domcontr-1 |10.0.0.11 |
+| Första DNS-servern |domcontr-0 |pr1-nic-domcontr-0 |10.0.0.10 |
+| Andra DNS-server |domcontr-1 |pr1-nic-domcontr-1 |10.0.0.11 |
 
-### <a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a>Värdnamn och statiska IP-adresser för SAP ASCS/SCS klustrade instansen och DBMS klustrad instans
+### <a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a> Värdnamn och statiska IP-adresser för SAP ASCS/SCS klustrade instansen och DBMS klustrad instans
 
 För lokal distribution måste dessa reserverade värdnamn och IP-adresser:
 
 | Virtuell värd namn roll | Virtuella värdnamn | Virtuell statisk IP-adress |
 | --- | --- | --- |
 | SAP ASCS/SCS första klustret virtuellt värdnamn (för hantering av kluster) |PR1-ascs-vir |10.0.0.42 |
-| SAP ASCS/SCS virtuell värd instansnamn |PR1-ascs-sap |10.0.0.43 |
-| SAP DBMS andra kluster virtuellt värdnamn (hantering) |PR1-dbms-vir |10.0.0.32 |
+| SAP ASCS/SCS virtuell värd instansnamn |pr1-ascs-sap |10.0.0.43 |
+| SAP DBMS andra kluster virtuellt värdnamn (hantering) |pr1-dbms-vir |10.0.0.32 |
 
 När du skapar klustret kan du skapa virtuella värdnamn **pr1-ascs-vir** och **pr1-dbms-vir** och associerade IP-adresser som hantera själva klustret. Information om hur du gör detta finns [samla in klusternoder i en klusterkonfiguration][sap-ha-guide-8.12.1].
 
 Du kan manuellt skapa de andra två virtuella värdnamn, **pr1-ascs-sap** och **pr1-dbms-sap**, och de associerade IP-adresserna på DNS-servern. Använd dessa resurser den klustrade instansen SAP ASCS/SCS och den klustrade DBMS-instansen. Information om hur du gör detta finns [skapa ett virtuellt värdnamn för en klustrad instans av SAP ASCS/SCS][sap-ha-guide-9.1.1].
 
-### <a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a>Ange statiska IP-adresser för de virtuella datorerna för SAP
+### <a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Ange statiska IP-adresser för de virtuella datorerna för SAP
 När du distribuerar virtuella datorer i klustret måste du ange statiska IP-adresser för alla virtuella datorer. Gör detta i Azure Virtual Network-konfigurationen och inte i gästoperativsystemet.
 
 1.  Välj i Azure-portalen **resursgruppen** > **nätverkskort** > **inställningar** > **IP-adress**.
@@ -646,16 +646,16 @@ I vårt exempel har vi dessa virtuella datorer och statiska IP-adresser:
 
 | Rollen virtuell dator | Värdnamn för virtuell dator | Namn på nätverkskort | Statisk IP-adress |
 | --- | --- | --- | --- |
-| Första SAP Application Server-instansen |PR1-di-0 |PR1-nic-di-0 |10.0.0.50 |
-| Andra SAP Application Server-instans |PR1-di-1 |PR1-nic-di-1 |10.0.0.51 |
+| Första SAP Application Server-instansen |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
+| Andra SAP Application Server-instans |pr1-di-1 |pr1-nic-di-1 |10.0.0.51 |
 | ... |... |... |... |
-| Senaste SAP Application Server-instans |PR1-di-5 |PR1-nic-di-5 |10.0.0.55 |
-| Första klusternoden för ASCS/SCS-instans |PR1-ascs-0 |PR1-nic-ascs-0 |10.0.0.40 |
-| Andra klusternod för ASCS/SCS-instans |PR1-ascs-1 |PR1-nic-ascs-1 |10.0.0.41 |
-| Första klusternoden för DBMS-instans |PR1-db-0 |PR1-nic-db-0 |10.0.0.30 |
-| Andra klusternod för DBMS-instans |PR1-db-1 |PR1-nic-db-1 |10.0.0.31 |
+| Senaste SAP Application Server-instans |pr1-di-5 |pr1-nic-di-5 |10.0.0.55 |
+| Första klusternoden för ASCS/SCS-instans |pr1-ascs-0 |pr1-nic-ascs-0 |10.0.0.40 |
+| Andra klusternod för ASCS/SCS-instans |PR1-ascs-1 |pr1-nic-ascs-1 |10.0.0.41 |
+| Första klusternoden för DBMS-instans |pr1-db-0 |pr1-nic-db-0 |10.0.0.30 |
+| Andra klusternod för DBMS-instans |pr1-db-1 |pr1-nic-db-1 |10.0.0.31 |
 
-### <a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a>Ange en statisk IP-adress för den interna belastningsutjämnaren som Azure
+### <a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a> Ange en statisk IP-adress för den interna belastningsutjämnaren som Azure
 
 SAP Azure Resource Manager-mallen skapar en Azure intern belastningsutjämnare som används för det SAP ASCS/SCS instans och DBMS-klustret.
 
@@ -680,10 +680,10 @@ I vårt exempel har vi två Azure interna belastningsutjämnare som har dessa st
 | Azure interna belastningsutjämnarrollen | Azure interna belastningsutjämnarens namn | Statisk IP-adress |
 | --- | --- | --- |
 | Interna belastningsutjämnare för SAP ASCS/SCS-instans |ascs-lb-PR1 |10.0.0.43 |
-| SAP DBMS intern belastningsutjämnare |PR1-lb-dbms |10.0.0.33 |
+| SAP DBMS intern belastningsutjämnare |pr1-lb-dbms |10.0.0.33 |
 
 
-### <a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a>Standard ASCS/SCS belastningsutjämningsregler för Azure interna belastningsutjämnare
+### <a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a> Standard ASCS/SCS belastningsutjämningsregler för Azure interna belastningsutjämnare
 
 SAP Azure Resource Manager-mallen skapar de portar som du behöver:
 * En ABAP ASCS-instans med standard-instansnummer **00**
@@ -702,10 +702,10 @@ Om du vill skapa nödvändiga intern belastningsutjämning slutpunkter först sk
 | Internt ABAP meddelande / *lbrule3900* |39 <*InstanceNumber*> |3900 |
 | Serverns HTTP-meddelandet / *Lbrule8100* |81 <*InstanceNumber*> |8100 |
 | SAP Start Service ASCS HTTP / *Lbrule50013* |5 <*InstanceNumber*> 13 |50013 |
-| SAP Start Service ASCS HTTPS / *Lbrule50014* |5 <*InstanceNumber*> 14 |50014 |
-| Sätta replikering / *Lbrule50016* |5 <*InstanceNumber*> 16 |50016 |
+| SAP Start Service ASCS HTTPS / *Lbrule50014* |5<*InstanceNumber*>14 |50014 |
+| Sätta replikering / *Lbrule50016* |5<*InstanceNumber*>16 |50016 |
 | SAP Start Service ÄNDARE HTTP *Lbrule51013* |5 <*InstanceNumber*> 13 |51013 |
-| SAP Start Service ÄNDARE HTTP *Lbrule51014* |5 <*InstanceNumber*> 14 |51014 |
+| SAP Start Service ÄNDARE HTTP *Lbrule51014* |5<*InstanceNumber*>14 |51014 |
 | Win RM *Lbrule5985* | |5985 |
 | Filresurs *Lbrule445* | |445 |
 
@@ -720,10 +720,10 @@ Skapa sedan dessa slutpunkter för SAP NetWeaver Java SCS-portar för belastning
 | Java Message Server / *lbrule3900* |39 <*InstanceNumber*> |3901 |
 | Serverns HTTP-meddelandet / *Lbrule8101* |81 <*InstanceNumber*> |8101 |
 | SAP Start Service SCS HTTP / *Lbrule50113* |5 <*InstanceNumber*> 13 |50113 |
-| SAP Start Service SCS HTTPS / *Lbrule50114* |5 <*InstanceNumber*> 14 |50114 |
-| Sätta replikering / *Lbrule50116* |5 <*InstanceNumber*> 16 |50116 |
+| SAP Start Service SCS HTTPS / *Lbrule50114* |5<*InstanceNumber*>14 |50114 |
+| Sätta replikering / *Lbrule50116* |5<*InstanceNumber*>16 |50116 |
 | SAP Start Service ÄNDARE HTTP *Lbrule51113* |5 <*InstanceNumber*> 13 |51113 |
-| SAP Start Service ÄNDARE HTTP *Lbrule51114* |5 <*InstanceNumber*> 14 |51114 |
+| SAP Start Service ÄNDARE HTTP *Lbrule51114* |5<*InstanceNumber*>14 |51114 |
 | Win RM *Lbrule5985* | |5985 |
 | Filresurs *Lbrule445* | |445 |
 
@@ -735,11 +735,11 @@ _**Figur 15:** standard ASCS/SCS regler för Azure intern belastningsutjämnare 
 
 Ange IP-adressen för belastningsutjämnaren **pr1-lb-dbms** IP-adressen för den virtuella värdnamnet för DBMS-instansen.
 
-### <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a>Ändra ASCS/SCS standard belastningsutjämning regler för Azure interna belastningsutjämnare
+### <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Ändra ASCS/SCS standard belastningsutjämning regler för Azure interna belastningsutjämnare
 
 Om du vill använda andra värden för SAP ASCS eller SCS instanser måste du ändra namn och värden på deras hamnar från standardvärdena.
 
-1.  Välj i Azure-portalen  **<* SID*> - lb - ascs läsa in belastningsutjämning ** > **regler för att läsa in belastningsutjämning**.
+1.  Välj i Azure-portalen  **< *SID*> - lb - ascs belastningsutjämnare** > **regler för att läsa in belastningsutjämning**.
 2.  För alla belastningsutjämningsregler som tillhör instansen SAP ASCS eller SCS, ändra dessa värden:
 
   * Namn
@@ -754,7 +754,7 @@ Om du vill använda andra värden för SAP ASCS eller SCS instanser måste du ä
 
   _**Bild 16:** ändra ASCS/SCS standard belastningsutjämning regler för Azure interna belastningsutjämnare_
 
-### <a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a>Lägga till Windows-datorer i domänen
+### <a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a> Lägga till Windows-datorer i domänen
 
 När du tilldelar en statisk IP-adress till de virtuella datorerna kan du lägga till de virtuella datorerna till domänen.
 
@@ -762,7 +762,7 @@ När du tilldelar en statisk IP-adress till de virtuella datorerna kan du lägga
 
 _**Figur 17:** lägga till en virtuell dator i en domän_
 
-### <a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a>Lägg till registerposter på båda klusternoderna för SAP ASCS/SCS-instansen
+### <a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a> Lägg till registerposter på båda klusternoderna för SAP ASCS/SCS-instansen
 
 Azure belastningsutjämnare har en intern belastningsutjämnare att stängs anslutningar när anslutningar är inaktiva för en viss tid (en timeout för inaktivitet). SAP arbetsprocesser i dialogrutan instanser öppna anslutningar till SAP sätta bearbeta så snart som de första sätta/status Created begäran måste skickas. Dessa anslutningar förblir oftast etablerade förrän arbetsprocessen eller sätta processen startas om. Om anslutningen är inaktiv under en angiven tidsperiod, stängs den interna belastningsutjämnaren som Azure anslutningar. Detta är inte ett problem Eftersom arbetsprocessen för SAP återupprättar anslutningen till sätta processen om det inte längre finns. Dessa aktiviteter finns dokumenterade i developer spår av SAP processer, men de skapar en stor mängd extra innehåll i dessa spår. Det är en bra idé att ändra TCP/IP `KeepAliveTime` och `KeepAliveInterval` på båda klusternoderna. Kombinera ändringarna i TCP/IP-parametrar med SAP profil-parametrar som beskrivs senare i artikeln.
 
@@ -771,7 +771,7 @@ För att lägga till poster i registret på båda klusternoderna för SAP ASCS/S
 | Sökväg | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Variabelnamn |`KeepAliveTime` |
-| Variabeltyp |REG_DWORD (decimalt) |
+| Variabeltyp |REG_DWORD (Decimal) |
 | Värde |120000 |
 | Länka till dokumentationen |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
 
@@ -782,7 +782,7 @@ Lägg sedan till den här Windows-registerposter på båda klusternoderna i Wind
 | Sökväg | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Variabelnamn |`KeepAliveInterval` |
-| Variabeltyp |REG_DWORD (decimalt) |
+| Variabeltyp |REG_DWORD (Decimal) |
 | Värde |120000 |
 | Länka till dokumentationen |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
 
@@ -790,14 +790,14 @@ _**Tabell 4:** ändra andra TCP/IP-parameter_
 
 **Om du vill tillämpa ändringarna genom att starta om båda klusternoderna**.
 
-### <a name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a>Konfigurera ett redundanskluster i Windows Server-kluster för en SAP ASCS/SCS-instans
+### <a name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a> Konfigurera ett redundanskluster i Windows Server-kluster för en SAP ASCS/SCS-instans
 
 Konfigurera ett redundanskluster i Windows Server-kluster för en SAP ASCS/SCS-instans innebär att dessa uppgifter:
 
 - Insamling av klusternoderna i en klusterkonfiguration
 - Konfigurera ett filresursvittne för kluster
 
-#### <a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a>Samla in klusternoderna i en klusterkonfiguration
+#### <a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a> Samla in klusternoderna i en klusterkonfiguration
 
 1.  Guiden Lägg till roller och funktioner, lägga till redundansklustring till båda klusternoderna.
 2.  Ställ in failover-kluster med hjälp av hanteraren för redundanskluster. I hanteraren för redundanskluster, Välj **Skapa kluster**, och Lägg sedan till bara namnet på det första klustret nod A. Lägg inte till den andra noden ännu; Du måste lägga till den andra noden i ett senare steg.
@@ -876,14 +876,14 @@ Konfigurera ett redundanskluster i Windows Server-kluster för en SAP ASCS/SCS-i
   _**Bild 29:** Ignorera varningar om disken kvorum_
 
 
-#### <a name="e49a4529-50c9-4dcf-bde7-15a0c21d21ca"></a>Konfigurera ett filresursvittne för kluster
+#### <a name="e49a4529-50c9-4dcf-bde7-15a0c21d21ca"></a> Konfigurera ett filresursvittne för kluster
 
 När du konfigurerar ett kluster filresursvittne inkluderar dessa uppgifter:
 
 - Skapa en filresurs
 - Ange filen filresurs vittne kvorum i hanteraren för redundanskluster
 
-##### <a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a>Skapa en filresurs
+##### <a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a> Skapa en filresurs
 
 1.  Välj ett filresursvittne i stället för en kvorumdisk. SIOS DataKeeper stöder det här alternativet.
 
@@ -922,7 +922,7 @@ När du konfigurerar ett kluster filresursvittne inkluderar dessa uppgifter:
 
   _**Bild 33:** ange säkerhetsattribut för klusterobjektet namn på filen resursen kvorum_
 
-##### <a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a>Ange filen filresurs vittne kvorum i hanteraren för redundanskluster
+##### <a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a> Ange filen filresurs vittne kvorum i hanteraren för redundanskluster
 
 1.  Öppna den kvorum inställningen guiden Konfigurera.
 
@@ -954,13 +954,13 @@ När du konfigurerar ett kluster filresursvittne inkluderar dessa uppgifter:
 
   _**Bild 38:** bekräfta att klustret har konfigurerats om_
 
-När du har installerat Windows-redundanskluster har förändringar som måste göras för vissa tröskelvärden för att anpassa redundans identifiering till villkoren i Azure. Parametrarna för att ändra dokumenteras i den här bloggen: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/. Förutsatt att din två virtuella datorer som bygger Windows klusterkonfigurationen för ASCS/SCS är i samma undernät, måste följande parametrar ändras till dessa värden:
+När du har installerat Windows-redundanskluster har förändringar som måste göras för vissa tröskelvärden för att anpassa redundans identifiering till villkoren i Azure. Parametrarna för att ändra dokumenteras i den här bloggen: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Förutsatt att din två virtuella datorer som bygger Windows klusterkonfigurationen för ASCS/SCS är i samma undernät, måste följande parametrar ändras till dessa värden:
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 
 Dessa inställningar har testats med kunder och tillhandahålls en bra kompromiss om du vill bli motståndskraftiga på ena sidan. Å andra sidan dessa inställningar ger snabb tillräckligt med redundans i verkliga fel vid SAP programvara eller nod och VM-fel. 
 
-### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a>Installera SIOS DataKeeper Cluster Edition för SAP ASCS/SCS resursen klusterdisken
+### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> Installera SIOS DataKeeper Cluster Edition för SAP ASCS/SCS resursen klusterdisken
 
 Nu har du en fungerande konfiguration för Windows Server Failover Clustering i Azure. Men om du vill installera en SAP ASCS/SCS-instans, måste en delad disk-resurs. Du kan inte skapa de delade diskresurserna som du behöver i Azure. SIOS DataKeeper Cluster Edition är en lösning för från tredje part som du kan använda för att skapa delade diskresurserna.
 
@@ -970,7 +970,7 @@ Installera SIOS DataKeeper Cluster Edition för SAP ASCS/SCS resursen klusterdis
 - Installera SIOS DataKeeper
 - Ställa in SIOS DataKeeper
 
-#### <a name="1c2788c3-3648-4e82-9e0d-e058e475e2a3"></a>Lägg till .NET Framework 3.5
+#### <a name="1c2788c3-3648-4e82-9e0d-e058e475e2a3"></a> Lägg till .NET Framework 3.5
 Microsoft .NET Framework 3.5 är inte automatiskt aktiverats eller installerats på Windows Server 2012 R2. Eftersom SIOS DataKeeper kräver .NET Framework på alla noder som du installerar DataKeeper på, måste du installera .NET Framework 3.5 på gästoperativsystemet för alla virtuella datorer i klustret.
 
 Det finns två sätt att lägga till .NET Framework 3.5:
@@ -991,7 +991,7 @@ Det finns två sätt att lägga till .NET Framework 3.5:
   Dism /online /enable-feature /featurename:NetFx3 /All /Source:installation_media_drive:\sources\sxs /LimitAccess
   ```
 
-#### <a name="dd41d5a2-8083-415b-9878-839652812102"></a>Installera SIOS DataKeeper
+#### <a name="dd41d5a2-8083-415b-9878-839652812102"></a> Installera SIOS DataKeeper
 
 Installera SIOS DataKeeper Cluster Edition på varje nod i klustret. För att skapa virtuella delad lagring med SIOS DataKeeper, skapa en synkroniserad spegling och simulera delad klusterlagring.
 
@@ -1038,7 +1038,7 @@ Installera SIOS DataKeeper:
 
 6.  När du uppmanas starta om den virtuella datorn.
 
-#### <a name="d9c1fc8e-8710-4dff-bec2-1f535db7b006"></a>Ställ in SIOS DataKeeper
+#### <a name="d9c1fc8e-8710-4dff-bec2-1f535db7b006"></a> Ställ in SIOS DataKeeper
 
 När du installerar SIOS DataKeeper på båda noderna, måste du starta konfigurationen. Målet med konfigurationen är att ha synkron replikering mellan ytterligare diskar som är kopplade till var och en av de virtuella datorerna.
 
@@ -1103,7 +1103,7 @@ När du installerar SIOS DataKeeper på båda noderna, måste du starta konfigur
 
   _**Bild 55:** Klusterhanteraren visar disken som DataKeeper replikeras_
 
-## <a name="a06f0b49-8a7a-42bf-8b0d-c12026c5746b"></a>Installera SAP NetWeaver
+## <a name="a06f0b49-8a7a-42bf-8b0d-c12026c5746b"></a> Installera SAP NetWeaver
 
 Vi kommer inte beskriver DBMS-inställningarna eftersom inställningar varierar beroende på DBMS-system som du använder. Men förutsätter vi att få hög tillgänglighet med DBMS behandlas med funktioner som har stöd för olika DBMS-leverantörer för Azure. Till exempel alltid på eller databasspegling för SQL Server och Oracle Data Guard för Oracle-databaser. I scenariot som vi använder i den här artikeln inte vi lägga till mer skydd DBMS.
 
@@ -1114,7 +1114,7 @@ Det finns inga särskilda överväganden när olika DBMS tjänster interagera me
 >
 >
 
-### <a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a>Installera SAP med en hög tillgänglighet ASCS/SCS-instans
+### <a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a> Installera SAP med en hög tillgänglighet ASCS/SCS-instans
 
 > [!IMPORTANT]
 > Glöm inte att placera växlingsfilen på DataKeeper speglade volymer. DataKeeper stöder inte speglade volymer. Du kan lämna växlingsfilen på den tillfälliga enheten D av en virtuell Azure-dator, vilket är standard. Om den inte redan finns där, flytta växlingsfilen till enheten D: på ditt Azure-datorn.
@@ -1129,12 +1129,12 @@ Dessa uppgifter omfattar att installera SAP med en hög tillgänglighet ASCS/SCS
 - Lägger till en avsökningsport
 - Öppna avsökningsport för Windows-brandväggen
 
-#### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a>Skapa ett virtuellt värdnamn för den klustrade instansen SAP ASCS/SCS
+#### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a> Skapa ett virtuellt värdnamn för den klustrade instansen SAP ASCS/SCS
 
 1.  Skapa en DNS-post för virtuella värdnamn för ASCS/SCS-instansen i Windows DNS-hanteraren.
 
   > [!IMPORTANT]
-  > IP-adressen som du tilldelar virtuella värdnamn för ASCS/SCS-instansen måste vara samma som IP-adressen som du tilldelade till Azure belastningsutjämnare (**<*SID*> - lb - ascs **).  
+  > IP-adressen som du tilldelar virtuella värdnamn för ASCS/SCS-instansen måste vara samma som IP-adressen som du tilldelade till Azure belastningsutjämnare (**<*SID*> - lb - ascs**).  
   >
   >
 
@@ -1150,7 +1150,7 @@ Dessa uppgifter omfattar att installera SAP med en hög tillgänglighet ASCS/SCS
 
   _**Bild 57:** nya virtuella namn och TCP/IP-adress för SAP ASCS/SCS klusterkonfiguration_
 
-#### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a>Installera den första klusternoden SAP
+#### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> Installera den första klusternoden SAP
 
 1.  Kör det första klustra nod alternativet på klusternoden A. Till exempel på den **pr1-ascs-0** värden.
 2.  Om du vill behålla standard portar för den interna belastningsutjämnaren som Azure, väljer du:
@@ -1168,7 +1168,7 @@ Nästa några åtgärder beskrivs inte i dokumentationen för standard SAP-insta
 >
 >
 
-#### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a>Ändra SAP-profil för ASCS/SCS-instansen
+#### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Ändra SAP-profil för ASCS/SCS-instansen
 
 Du måste lägga till en ny profil-parameter. Parametern profil förhindrar anslutningar mellan SAP arbetsprocesser och placera servern stängs när de är inaktiv för länge. Vi har nämnt problemet i [lägga till registerposter på båda klusternoderna för SAP ASCS/SCS-instansen][sap-ha-guide-8.11]. I det här avsnittet introduceras vi några grundläggande TCP/IP-anslutningsparametrar också två ändringar. I nästa steg behöver du sätta servern ska skicka en `keep_alive` signalerar så att anslutningarna inte nått Azure interna belastningsutjämnarens inaktiv tröskelvärdet.
 
@@ -1189,7 +1189,7 @@ Du måste lägga till en ny profil-parameter. Parametern profil förhindrar ansl
 
 2.  Om du vill tillämpa ändringarna SAP ASCS /SCS-instansen startas om.
 
-#### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a>Lägga till en avsökningsport
+#### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> Lägga till en avsökningsport
 
 Använd den interna belastningsutjämnaren avsökningen funktioner för att göra hela klusterkonfigurationen arbeta med Azure belastningsutjämnare. Azure intern belastningsutjämnare distribuerar vanligtvis inkommande belastningen jämnt mellan deltagande virtuella datorer. Men fungerar det inte i vissa klusterkonfigurationer eftersom endast en instans är aktiv. Den andra instansen är passiva och kan inte ta emot någon av arbetsbelastningen. Det hjälper dig att en avsökning funktionalitet när Azure intern belastningsutjämnare tilldelar fungerar endast för en aktiv instans. Med funktionen avsökningen identifiera den interna belastningsutjämnaren vilka instanser som är aktiva och rikta endast instansen med arbetsbelastningen.
 
@@ -1212,7 +1212,7 @@ Lägg till en avsökningsport:
 
   Portnumret är definierad i SAP Azure Resource Manager-mallar. Du kan tilldela portnummer i PowerShell.
 
-  Ange ett nytt ProbePort värde för den  **SAP <*SID*> IP ** klusterresurs, kör följande PowerShell-skript. Uppdatera variablerna PowerShell för din miljö. När skriptet körs, uppmanas du att starta om SAP klustergrupp för att aktivera ändringarna.
+  Ange ett nytt ProbePort värde för den **SAP <*SID*> IP** klusterresursen genom att köra följande PowerShell-skript. Uppdatera variablerna PowerShell för din miljö. När skriptet körs, uppmanas du att starta om SAP klustergrupp för att aktivera ändringarna.
 
   ```PowerShell
   $SAPSID = "PR1"      # SAP <SID>
@@ -1270,7 +1270,7 @@ Lägg till en avsökningsport:
   }
   ```
 
-  När du tar den  **SAP <*SID*> ** rollen online bör du kontrollera att **ProbePort** är inställd på det nya värdet.
+  När du tar den **SAP <*SID* >**  rollen online bör du kontrollera att **ProbePort** är inställd på det nya värdet.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
@@ -1284,7 +1284,7 @@ Lägg till en avsökningsport:
 
   _**Bild 59:** avsökning porten klustret när du ställer in det nya värdet_
 
-#### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a>Öppna avsökningsport för Windows-brandväggen
+#### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Öppna avsökningsport för Windows-brandväggen
 
 Du måste öppna en Windows-brandväggen avsökningsport på båda klusternoderna. Använd följande skript för att öppna en Windows-brandväggen avsökningsport. Uppdatera variablerna PowerShell för din miljö.
 
@@ -1296,15 +1296,15 @@ Du måste öppna en Windows-brandväggen avsökningsport på båda klusternodern
 
 Den **ProbePort** är inställd på **62000**. Nu kan du komma åt filresursen  **\\\ascsha-clsap\sapmnt** från andra värdar, exempel från **ascsha dbas**.
 
-### <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a>Installera databasinstansen
+### <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> Installera databasinstansen
 
 För att installera databasinstansen, följer du processen som beskrivs i dokumentationen för SAP-installationen.
 
-### <a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a>Installera den andra noden i klustret
+### <a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a> Installera den andra noden i klustret
 
 Följ stegen i installationsguiden för SAP för att installera det andra klustret.
 
-### <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a>Ändra starttypen för SAP ÄNDARE Windows service-instans
+### <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> Ändra starttypen för SAP ÄNDARE Windows service-instans
 
 Ändra starttypen för tjänsten SAP ÄNDARE Windows att **automatiskt (förskjuten Start)** på båda klusternoderna.
 
@@ -1312,11 +1312,11 @@ Följ stegen i installationsguiden för SAP för att installera det andra klustr
 
 _**Bild 60:** ändra tjänsttypen för SAP ÄNDARE-instans till fördröjd automatisk_
 
-### <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a>Installera den primära SAP-programservern
+### <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> Installera den primära SAP-programservern
 
 Installera den primära programmet Server (PROVIDERADRESSER)-instansen <*SID*> - di - 0 på den virtuella datorn som du har angett som värd för PROVIDERADRESSERNA. Det finns inga beroenden på Azure eller DataKeeper-specifika inställningar.
 
-### <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a>Installera ytterligare programservern för SAP
+### <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> Installera ytterligare programservern för SAP
 
 Installera en SAP ytterligare program Server (AAS) på alla virtuella datorer som du har angett som värd för en SAP Application Server-instans. Till exempel på <*SID*> - di - 1 till <*SID*> - di -&lt;n&gt;.
 
@@ -1325,10 +1325,10 @@ Installera en SAP ytterligare program Server (AAS) på alla virtuella datorer so
 >
 
 
-## <a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a>Testa redundans för SAP ASCS/SCS-instans och SIOS replikering
+## <a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a> Testa redundans för SAP ASCS/SCS-instans och SIOS replikering
 Det är enkelt att testa och övervaka en växling vid fel för SAP ASCS/SCS-instans och SIOS diskreplikering med hjälp av verktyg för hanteraren för redundanskluster och SIOS DataKeeper hantering och konfiguration.
 
-### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a>SAP ASCS/SCS-instans som körs på en nod i klustret
+### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> SAP ASCS/SCS-instans som körs på en nod i klustret
 
 Den **SAP PR1** klustergrupp körs på klusternoden A. Till exempel på **pr1-ascs-0**. Tilldela den delade diskenheten S, som är en del av den **SAP PR1** klustergrupp och som använder ASCS/SCS-instans för klustret nod A.
 
@@ -1342,7 +1342,7 @@ I verktyget SIOS DataKeeper hantering och konfiguration kan du se att delad disk
 
 _**Bild 62:** i SIOS DataKeeper replikera lokala volymen från en nod i klustret till klusternoden B_
 
-### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a>Växling vid fel från nod A till B-nod
+### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Växling vid fel från nod A till B-nod
 
 1.  Välj något av dessa alternativ för att påbörja en växling av SAP <*SID*> klustergrupp från klusternoden A klusternoden B:
   - Använd hanteraren för redundanskluster  

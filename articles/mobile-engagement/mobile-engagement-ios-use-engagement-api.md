@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 189a3029449a3161da2a20f940b77a5bb63bd1ef
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-ios"></a>Hur du använder Engagement API på iOS
 > [!IMPORTANT]
-> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> Azure Mobile Engagement dras tillbaka den 31 mars 2018. Den här sidan tas bort strax efter det.
 > 
 
 Det här dokumentet är ett tillägg till dokumentet hur du integrerar Engagement för iOS: ger i djup information om hur du använder Engagement API för att rapportera programmet-statistik.

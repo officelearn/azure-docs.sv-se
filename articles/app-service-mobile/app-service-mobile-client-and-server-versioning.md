@@ -1,11 +1,11 @@
 ---
 title: Klient- och SDK-versionshantering i Mobile Apps och Mobile Services | Microsoft Docs
-description: "Lista över klient-SDK: er och kompatibilitet med server SDK-versioner för Mobile Services och Azure Mobile Apps"
+description: 'Lista över klient-SDK: er och kompatibilitet med server SDK-versioner för Mobile Services och Azure Mobile Apps'
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 37bf36af535eb9b5c8b0ba38434b71f1a6686811
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Klienten och servern versionshantering i Mobile Apps och Mobile Services
 Den senaste versionen av Azure Mobile Services är den **Mobile Apps** funktion i Azure App Service.
@@ -35,11 +35,11 @@ Nyckeln `ZUMO-API-VERSION` kan anges i HTTP-huvudet eller frågesträngen. Värd
 
 Exempel:
 
-Hämta https://service.azurewebsites.net/tables/TodoItem
+HÄMTA https://service.azurewebsites.net/tables/TodoItem
 
 HUVUDEN: ZUMO-API-VERSION: 2.0.0
 
-Bokför https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
+POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 ## <a name="opting-out-of-version-checking"></a>Väljer bort versionskontroll
 Du kan välja bort versionskontroll genom att ange ett värde för **SANT** för appinställningen **MS_SkipVersionCheck**. Ange det i filen web.config eller i avsnittet programinställningar i Azure-portalen.
@@ -68,7 +68,7 @@ Klient-SDK: er i tabellen nedan är kompatibla med **Mobile Services**.
 
 Obs: Mobile Services klienten SDK *inte* skicka ett värde för `ZUMO-API-VERSION`. Om tjänsten tar emot det här sidhuvudet eller frågesträngsvärdet ett fel returneras om du uttryckligen har valt ut enligt beskrivningen ovan.
 
-### <a name="MobileServicesClients"></a>Mobila *Services* client SDK
+### <a name="MobileServicesClients"></a> Mobila *Services* client SDK
 | Klientplattform | Version | Värdet för versionshuvudet |
 | --- | --- | --- |
 | Hanterad klient (Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |Saknas |
@@ -79,7 +79,7 @@ Obs: Mobile Services klienten SDK *inte* skicka ett värde för `ZUMO-API-VERSIO
 ### <a name="mobile-services-server-sdks"></a>Mobila *Services* server SDK
 | Server-plattformen | Version | Godkänd version-huvud |
 | --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |** Inga versionshuvud ** |
+| .NET |[WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**No version header ** |
 | Node.js |(kommer snart) |**Ingen version-huvud** |
 
 <!-- TODO: add Node npm version -->
@@ -92,7 +92,7 @@ Obs: Mobile Services klienten SDK *inte* skicka ett värde för `ZUMO-API-VERSIO
 | Inget värde |FALSKT/inte angetts |400 – Felaktig begäran |
 
 ## <a name="2.0.0"></a>Azure Mobile Apps klient och server
-### <a name="MobileAppsClients"></a>Mobila *appar* client SDK
+### <a name="MobileAppsClients"></a> Mobila *appar* client SDK
 Versionskontroll introducerades börjar med följande versioner av klient-SDK för **Azure Mobile Apps**:
 
 | Klientplattform | Version | Värdet för versionshuvudet |
@@ -109,7 +109,7 @@ Versionskontroll ingår i följande versioner av server-SDK:
 | Server-plattformen | SDK | Godkänd version-huvud |
 | --- | --- | --- |
 | .NET |[Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) |2.0.0 |
-| Node.js |[Azure mobile apps)](https://www.npmjs.com/package/azure-mobile-apps) |2.0.0 |
+| Node.js |[azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) |2.0.0 |
 
 ### <a name="behavior-of-mobile-apps-backends"></a>Beteendet för serverdelar för Mobilappar
 | ZUMO-API-VERSION | Värdet för MS_SkipVersionCheck | Svar |

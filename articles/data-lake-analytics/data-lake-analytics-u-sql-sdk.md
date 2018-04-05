@@ -1,12 +1,12 @@
 ---
-title: "Skala lokal U-SQL-köra och testa med Azure Data Lake U-SQL-SDK | Microsoft Docs"
-description: "Lär dig hur du använder Azure Data Lake U-SQL-SDK för att skala U-SQL lokalt körs jobben och testning med kommandoraden och programmeringsgränssnitt på din lokala arbetsstationen."
+title: Skala lokal U-SQL-köra och testa med Azure Data Lake U-SQL-SDK | Microsoft Docs
+description: Lär dig hur du använder Azure Data Lake U-SQL-SDK för att skala U-SQL lokalt körs jobben och testning med kommandoraden och programmeringsgränssnitt på din lokala arbetsstationen.
 services: data-lake-analytics
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
 ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Skala lokal U-SQL-köra och testa med Azure Data Lake U-SQL-SDK
 
@@ -60,9 +60,9 @@ Du kan använda både en relativ sökväg och en lokal absolut sökväg i U-SQL-
 
 |Relativ sökväg|Absolut sökväg|
 |-------------|-------------|
-|/ABC/def/Input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
-|ABC/def/Input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
-|D:/ABC/def/Input.csv |D:\abc\def\input.csv|
+|/abc/def/input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
+|abc/def/input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
+|D:/abc/def/input.csv |D:\abc\def\input.csv|
 
 ### <a name="working-directory"></a>Arbetskatalog
 
@@ -72,12 +72,12 @@ När du kör U-SQL-skript lokalt, skapas en arbetskatalog under kompilering unde
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |Hash-sträng av körningsversion|Skuggkopia av runtime-filer som behövs för lokal körning|
 | |Script_66AE4909AA0ED06C| |Script namn + hash-sträng med sökvägen för skriptet|Utdata för kompilering och körning steg loggning|
-| | |\_skriptet\_.abr|Utdata för kompilator|Algebra fil|
-| | |\_ScopeCodeGen\_. *|Utdata för kompilator|Genererade hanterad kod|
-| | |\_ScopeCodeGenEngine\_. *|Utdata för kompilator|Genererade maskinkod|
+| | |\_script\_.abr|Utdata för kompilator|Algebra fil|
+| | |\_ScopeCodeGen\_.*|Utdata för kompilator|Genererade hanterad kod|
+| | |\_ScopeCodeGenEngine\_.*|Utdata för kompilator|Genererade maskinkod|
 | | |Refererade sammansättningar|Sammansättningsreferensen|Sammansättningsfiler|
 | | |deployed_resources|Resurs-distribution|Resursfiler för distribution|
-| | |xxxxxxxx.xxx[1..n]\_\*. *|Körningsloggen|Logg över utförande|
+| | |xxxxxxxx.xxx[1..n]\_\*.*|Körningsloggen|Logg över utförande|
 
 
 ## <a name="use-the-sdk-from-the-command-line"></a>Använd SDK: N från kommandoraden
@@ -345,26 +345,26 @@ offentliga LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 
 |Egenskap|Typ|Beskrivning|
 |--------|----|-----------|
-|AlgebraPath|Sträng|Sökvägen till filen algebra (algebra filen är ett resultat för kompilering)|
-|CodeBehindReferences|Sträng|Om skriptet har ytterligare kod bakom referenser, ange sökvägar avgränsade med ';'|
-|CppSdkDir|Sträng|CppSDK directory|
-|CurrentDir|Sträng|Aktuell katalog|
-|DataRoot|Sträng|Rotsökvägen för data|
-|DebuggerMailPath|Sträng|Sökvägen till felsökare mailslot|
+|AlgebraPath|sträng|Sökvägen till filen algebra (algebra filen är ett resultat för kompilering)|
+|CodeBehindReferences|sträng|Om skriptet har ytterligare kod bakom referenser, ange sökvägar avgränsade med ';'|
+|CppSdkDir|sträng|CppSDK directory|
+|CurrentDir|sträng|Aktuell katalog|
+|DataRoot|sträng|Rotsökvägen för data|
+|DebuggerMailPath|sträng|Sökvägen till felsökare mailslot|
 |GenerateUdoRedirect|bool|Om vi vill generera sammansättningen som lästes in omdirigering åsidosätta config|
 |HasCodeBehind|bool|Om skriptet har bakomliggande kod|
-|InputDir|Sträng|Katalogen för indata|
-|MessagePath|Sträng|Meddelandet dump sökväg|
-|OutputDir|Sträng|Katalogen för utdata|
+|InputDir|sträng|Katalogen för indata|
+|MessagePath|sträng|Meddelandet dump sökväg|
+|OutputDir|sträng|Katalogen för utdata|
 |Parallellitet|int|Parallellitet att köra algebra|
 |ParentPid|int|Process-ID för den överordnade där tjänsten övervakar om du vill avsluta, värdet 0 eller ett negativt om du vill ignorera|
-|ResultPath|Sträng|Resultatet dump sökväg|
-|RuntimeDir|Sträng|Runtime directory|
-|ScriptPath|Sträng|Var du hittar skriptet|
+|ResultPath|sträng|Resultatet dump sökväg|
+|RuntimeDir|sträng|Runtime directory|
+|ScriptPath|sträng|Var du hittar skriptet|
 |Lite|bool|Ytlig kompilera eller inte|
-|TempDir|Sträng|Temp-katalogen|
-|UseDataBase|Sträng|Ange databasen som ska användas för koden bakom tillfällig sammansättning registrering, master som standard|
-|WorkDir|Sträng|Prioriterade arbetskatalogen|
+|TempDir|sträng|Temp-katalogen|
+|UseDataBase|sträng|Ange databasen som ska användas för koden bakom tillfällig sammansättning registrering, master som standard|
+|WorkDir|sträng|Prioriterade arbetskatalogen|
 
 
 **Metoden**
@@ -380,7 +380,7 @@ offentliga LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 ## <a name="faq-about-common-issue"></a>Vanliga frågor och svar om vanliga problem
 
 ### <a name="error-1"></a>Fel 1:
-E_CSC_SYSTEM_INTERNAL: Internt fel! Det gick inte att läsa in filen eller sammansättningen 'ScopeEngineManaged.dll' eller en av dess beroenden. Det gick inte att hitta den angivna modulen.
+E_CSC_SYSTEM_INTERNAL: Internal error! Det gick inte att läsa in filen eller sammansättningen 'ScopeEngineManaged.dll' eller en av dess beroenden. Det gick inte att hitta den angivna modulen.
 
 Kontrollera följande:
 

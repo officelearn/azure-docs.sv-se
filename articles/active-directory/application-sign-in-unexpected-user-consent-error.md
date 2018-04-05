@@ -1,11 +1,11 @@
 ---
-title: "Oväntat fel när du utför medgivande till ett program | Microsoft Docs"
-description: "Beskriver fel som kan uppstå under processen att samtycka till ett program och vad du kan göra om dem."
+title: Oväntat fel när du utför medgivande till ett program | Microsoft Docs
+description: Beskriver fel som kan uppstå under processen att samtycka till ett program och vad du kan göra om dem.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: bbc0cee8a44773c025c6174eaf7eccaba81b8d1b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Oväntat fel när du utför medgivande till ett program
 
@@ -50,7 +50,7 @@ Det här felet indikerar att en återkommande på klientsidan problemet har upps
 Kontakta programutvecklaren.
 
 ##  <a name="resource-not-available-in-tenant-error"></a>Resursen är inte tillgängligt i klient-fel
-* **AADSTS65005:** &lt;clientAppDisplayName&gt; begär åtkomst till en resurs &lt;resourceAppDisplayName&gt; som inte är tillgängligt i din organisation &lt;tenantDisplayName&gt;. 
+* **AADSTS65005:** &lt;clientAppDisplayName&gt; begär åtkomst till en resurs &lt;resourceAppDisplayName&gt; som inte är tillgängligt i din organisation &lt;tenantDisplayName &gt;. 
 
 Kontrollera att resursen är tillgänglig eller kontakta en administratör av &lt;tenantDisplayName&gt;.
 

@@ -1,12 +1,12 @@
 ---
-title: "Hur du arbetar med serverdelen .NET SDK för Mobile Apps | Microsoft Docs"
-description: "Lär dig hur du arbetar med serverdelen .NET SDK för Azure Apptjänst Mobilappar."
-keywords: "App service, azure app service, mobilapp, mobiltjänsten, skala, skalbara och app-distribution, azure app-distribution"
+title: Hur du arbetar med serverdelen .NET SDK för Mobile Apps | Microsoft Docs
+description: Lär dig hur du arbetar med serverdelen .NET SDK för Azure Apptjänst Mobilappar.
+keywords: App service, azure app service, mobilapp, mobiltjänsten, skala, skalbara och app-distribution, azure app-distribution
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Arbeta med SDK för .NET-serverdelar för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -62,7 +62,7 @@ SDK är tillgänglig på [NuGet.org]. Det här paketet innehåller grundläggand
 ### <a name="install-the-sdk"></a>Installera SDK:n
 För att installera SDK: N, högerklicka på serverprojekt i Visual Studio, markera **hantera NuGet-paket**, söka efter den [Microsoft.Azure.Mobile.Server] paketet och klicka sedan på **installera**.
 
-### <a name="server-project-setup"></a>Initiera serverprojektet
+### <a name="server-project-setup"></a> Initiera serverprojektet
 Ett .NET-serverdel serverprojekt initieras liknar andra ASP.NET-projekt genom att lägga till en OWIN-startklass. Se till att du har refererade NuGet-paketet `Microsoft.Owin.Host.SystemWeb`. Högerklicka på serverprojektet för att lägga till den här klassen i Visual Studio och välj **Lägg till** >
 **nytt objekt**, sedan **Web** > **allmänna** > **OWIN-startklass**.  En klass skapas med följande attribut:
 
@@ -105,12 +105,12 @@ Server-Snabbstart från Azure portal anrop **UseDefaultConfiguration()**. Det h�
 
 Tillägget metoderna är:
 
-* `AddMobileAppHomeController()`ger standardstartsida för Azure Mobile Apps.
-* `MapApiControllers()`innehåller anpassade API-funktioner för WebAPI domänkontrollanter dekorerad med den `[MobileAppController]` attribut.
-* `AddTables()`innehåller en mappning av den `/tables` slutpunkter till domänkontrollanter för tabellen.
-* `AddTablesWithEntityFramework()`är en kort hand för mappning av `/tables` slutpunkter som använder Entity Framework-baserade domänkontrollanter.
-* `AddPushNotifications()`ger en enkel metod för att registrera enheter för Notification Hubs.
-* `MapLegacyCrossDomainController()`innehåller standard CORS-huvuden för lokal utveckling.
+* `AddMobileAppHomeController()` ger standardstartsida för Azure Mobile Apps.
+* `MapApiControllers()` innehåller anpassade API-funktioner för WebAPI domänkontrollanter dekorerad med den `[MobileAppController]` attribut.
+* `AddTables()` innehåller en mappning av den `/tables` slutpunkter till domänkontrollanter för tabellen.
+* `AddTablesWithEntityFramework()` är en kort hand för mappning av `/tables` slutpunkter som använder Entity Framework-baserade domänkontrollanter.
+* `AddPushNotifications()` ger en enkel metod för att registrera enheter för Notification Hubs.
+* `MapLegacyCrossDomainController()` innehåller standard CORS-huvuden för lokal utveckling.
 
 ### <a name="sdk-extensions"></a>SDK-tillägg
 Följande NuGet-baserade tilläggspaket har olika mobila funktioner som kan användas av ditt program. Du aktiverar tillägg under initiering med hjälp av den **MobileAppConfiguration** objekt.
@@ -144,7 +144,7 @@ Det här avsnittet visar hur du publicerar serverdelsprojektet .NET från Visual
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-## <a name="define-table-controller"></a>Så här: definiera en tabell-styrenhet
+## <a name="define-table-controller"></a> Så här: definiera en tabell-styrenhet
 Definiera en tabell domänkontrollant om du vill exponera en SQLtabell för mobila klienter.  Konfigurera en tabell Controller kräver tre steg:
 
 1. Skapa en klass för Data Transfer objekt (DTO).

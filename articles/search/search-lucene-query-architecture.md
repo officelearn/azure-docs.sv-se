@@ -1,10 +1,10 @@
 ---
-title: "Fullständig text search engine (Lucene)-arkitekturen i Azure Search | Microsoft Docs"
-description: "Förklaring av Lucene frågan bearbetning och dokumentet hämtning begrepp för textsökning som rör Azure Search."
+title: Fullständig text search engine (Lucene)-arkitekturen i Azure Search | Microsoft Docs
+description: Förklaring av Lucene frågan bearbetning och dokumentet hämtning begrepp för textsökning som rör Azure Search.
 services: search
 manager: jhubbard
 author: yahnoosh
-documentationcenter: 
+documentationcenter: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
 ms.openlocfilehash: 0b2e66cd40c1b49832b865e5bf59edcf78996eb8
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Hur full textsökning fungerar i Azure Search
 
@@ -261,7 +261,7 @@ Gå tillbaka till våra exempel, för den **rubrik** fältet inverterad indexet 
 | hotell | 1, 3 |
 | oceanen | 4  |
 | playa | 3 |
-| utväg | 3 |
+| resort | 3 |
 | Återställ format | 4 |
 
 I rubrikfältet, endast *hotell* visas i två dokument: 1, 3.
@@ -276,13 +276,13 @@ För den **beskrivning** fältet indexet är följande:
 | villkor | 3
 | fria | 3
 | Avstånd | 1
-| dataö | 2
+| island | 2
 | kauaʻi | 2
 | finns | 2
 | Nord | 2
 | oceanen | 1, 2, 3
 | av | 2
-| på |2
+| aktiverade |2
 | Tyst | 4
 | lokaler  | 1, 3
 | secluded | 4
@@ -363,7 +363,7 @@ Ett exempel visar varför det är viktigt. Jokertecken, inklusive prefix söknin
 Det finns två sätt att justera relevans resultat i Azure Search:
 
 1. **Bedömningen profiler** befordra dokument i rankningslista över resultat baserat på en uppsättning regler. I vårt exempel kan vi anser att dokument som matchade mer relevant än de dokument som matchas i beskrivningsfältet fält. Om indexet har ett fält för varje hotell, kan vi dessutom befordra dokument med lägre pris. Lär dig mer [lägga till bedömningen profiler i en sökindex.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-2. **Term den** (endast tillgängligt i frågesyntaxen fullständig Lucene) innehåller en operatorn som `^` som kan tillämpas på någon del av trädet frågan. I vårt exempel, i stället för att söka i prefixet *air-condition*\*, en kan söka efter antingen exakta termen *air-condition* eller prefix, men dokument som matchar exakt termen är rangordnas högre genom att använda förstärkningen frågan termen: *luften villkoret ^ 2. AIR-condition**. Lär dig mer om [term den](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
+2. **Term den** (endast tillgängligt i frågesyntaxen fullständig Lucene) innehåller en operatorn som `^` som kan tillämpas på någon del av trädet frågan. I vårt exempel, i stället för att söka i prefixet *air-condition*\*, en kan söka efter antingen exakta termen *air-condition* eller prefix, men dokument som matchar exakt termen är rangordnas högre genom att använda förstärkningen frågan termen: * luften villkoret ^ 2. AIR-condition **. Lär dig mer om [term den](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
 
 
 ### <a name="scoring-in-a-distributed-index"></a>Poängberäkningen i en distribuerad index
@@ -374,7 +374,7 @@ Detta innebär en relevans poäng *kan* vara olika för identiska dokument om de
 
 I allmänhet är dokumentet poäng inte det bästa attributet för ordning dokument om stabiliteten för ordning är viktig. Till exempel är anges två dokument med en identisk poäng, det inte säkert vilken visas först i efterföljande körningar av samma fråga. Dokumentet poäng bör bara ge en allmän uppfattning om dokumentet betydelse i förhållande till andra dokument i resultatuppsättningen av.
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Genomförandet av sökmotorer på internet har signalerat förväntningar för textsökning över privata data. För nästan alla typer av sökinställningar planerar vi nu motorn att förstå våra avsikt, även när villkoren är felstavat eller är ofullständig. Vi tror även matchar baserat på nära motsvarande uttryck eller synonymer som vi aldrig faktiskt har angetts.
 
@@ -396,7 +396,7 @@ Den här artikeln utforskade fulltextsökning i samband med Azure Search. Vi hop
 
 + [Jämför standard och engelska analyzers](http://alice.unearth.ai/)) sida vid sida på den här demo-webbplatsen. 
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 [Sök dokument REST-API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

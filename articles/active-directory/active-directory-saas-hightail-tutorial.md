@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Hightail | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Hightail."
+title: 'Självstudier: Azure Active Directory-integrering med Hightail | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Hightail.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
 ms.openlocfilehash: 2333a56cd9369cb66c4944304472462d2f2f7511
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Självstudier: Azure Active Directory-integrering med Hightail
 
@@ -31,7 +31,7 @@ Integrera Hightail med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Hightail, behöver du följande:
 
@@ -110,7 +110,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_url.png)
 
-     I den **Reply URL** textruta ange Webbadressen som:`https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
+     I den **Reply URL** textruta ange Webbadressen som: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
 
     > [!NOTE] 
     > Föregående värde är inte verkliga värde. Du uppdaterar värdet med faktiska Reply-URL, vilket beskrivs senare i självstudierna.
@@ -121,7 +121,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. Klicka på den **visa avancerade inställningar för URL: en**.
 
-    b. I den **logga URL** textruta ange Webbadressen som:`https://www.hightail.com/loginSSO`
+    b. I den **logga URL** textruta ange Webbadressen som: `https://www.hightail.com/loginSSO`
 
 4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
@@ -135,7 +135,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |
-    | Förnamn | User.givenName |
+    | Förnamn | user.givenname |
     | Efternamn | User.surname |
     | E-post | User.Mail |    
     | Användaridentiteten | User.Mail |
@@ -231,7 +231,7 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i Hightail. 
 
-Det finns ingen åtgärd objekt i det här avsnittet. Hightail stöder just-in-time-användaretablering baserat på de anpassa anspråk. Om du har konfigurerat anpassade anspråk som visas i avsnittet  **[konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  ovan, skapas automatiskt en användare i program som det inte finns. 
+Det finns ingen åtgärd objekt i det här avsnittet. Hightail stöder just-in-time-användaretablering baserat på de anpassa anspråk. Om du har konfigurerat anpassade anspråk som visas i avsnittet **[konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)** ovan, skapas automatiskt en användare i program som det inte finns. 
 
 >[!NOTE]
 >Om du behöver skapa en användare manuellt, måste du kontakta den [Hightail supportteamet](mailto:support@hightail.com). 

@@ -1,6 +1,6 @@
 ---
-title: "Integrera en Azure-molntjänst med Azure CDN | Microsoft Docs"
-description: "Lär dig hur du distribuerar en molnbaserad tjänst som hanterar innehåll från en integrerad Azure CDN-slutpunkt"
+title: Integrera en Azure-molntjänst med Azure CDN | Microsoft Docs
+description: Lär dig hur du distribuerar en molnbaserad tjänst som hanterar innehåll från en integrerad Azure CDN-slutpunkt
 services: cdn, cloud-services
 documentationcenter: .net
 author: zhangmanling
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="intro"></a>Integrera en tjänst i molnet med Azure CDN
+# <a name="intro"></a> Integrera en tjänst i molnet med Azure CDN
 En tjänst i molnet kan integreras med Azure CDN betjänar allt innehåll från Molntjänsten plats. Den här metoden ger följande fördelar:
 
 * Enkelt distribuera och uppdatera avbildningar, skript och matmallar i din molntjänst projekt kataloger
@@ -30,7 +30,7 @@ En tjänst i molnet kan integreras med Azure CDN betjänar allt innehåll från 
 * Integrera ASP.NET paketering och minification med Azure CDN
 
 ## <a name="what-you-will-learn"></a>Vad får du lära dig
-I den här kursen får du lära dig hur du:
+I den här självstudien får du lära dig hur man:
 
 * [Integrera Azure CDN-slutpunkten med Molntjänsten och hantera statiskt innehåll i webbsidor från Azure CDN](#deploy)
 * [Konfigurera inställningar för cachelagring för statiskt innehåll i Molntjänsten](#caching)
@@ -63,7 +63,7 @@ I det här avsnittet ska du distribuera standard mall för ASP.NET MVC-program i
 1. I Visual Studio 2015, skapar du en ny Azure-molntjänst på menyraden genom att gå till **Arkiv > Nytt > Projekt > molntjänster > Azure Cloud Service**. Ge det ett namn och klicka på **OK**.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG)
-2. Välj **ASP.NET Web Role** och klicka på den  **>**  knappen. Klicka på OK.
+2. Välj **ASP.NET Web Role** och klicka på den **>** knappen. Klicka på OK.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-2-select-role.PNG)
 3. Välj **MVC** och på **OK**.
@@ -138,7 +138,7 @@ En CDN-profil är en samling CDN-slutpunkter.  Varje profil innehåller en eller
    > 
 
 ## <a name="test-the-cdn-endpoint"></a>Testa CDN-slutpunkten
-När Publiceringsstatus är **slutförd**, öppna ett webbläsarfönster och navigera till  **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. URL: en är i min installationsprogrammet:
+När Publiceringsstatus är **slutförd**, öppna ett webbläsarfönster och navigera till **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. URL: en är i min installationsprogrammet:
 
     http://camservice.azureedge.net/Content/bootstrap.css
 
@@ -146,18 +146,18 @@ Som motsvarar ursprung följande URL i CDN-slutpunkten:
 
     http://camcdnservice.cloudapp.net/Content/bootstrap.css
 
-När du navigerar till  **http://*&lt;cdnName >*.azureedge.net/Content/bootstrap.css**, beroende på din webbläsare, uppmanas du att hämta eller öppna bootstrap.css som följde från ditt publicerade webbprogram.
+När du navigerar till **http://*&lt;cdnName >*.azureedge.net/Content/bootstrap.css**, beroende på din webbläsare, uppmanas du att hämta eller öppna bootstrap.css som följde från ditt publicerade webbprogram.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-På samma sätt kan du komma åt valfri offentligt tillgänglig URL på  **http://*&lt;serviceName >*.cloudapp.net/** direkt från din CDN-slutpunkten. Exempel:
+På samma sätt kan du komma åt valfri offentligt tillgänglig URL på **http://*&lt;serviceName >*.cloudapp.net/**rak från CDN-slutpunkten. Exempel:
 
 * En .js-fil i sökvägen/Script
 * Varje innehållsfil från /Content sökväg
 * En domänkontrollant/åtgärd
 * Om frågesträngen är aktiverad på en URL med frågesträngar din CDN-slutpunkten
 
-Med konfigurationen ovan kan du i själva verket värd hela Molntjänsten från  **http://*&lt;cdnName >*.azureedge.net/**. Om jag navigerar till **http://camservice.azureedge.net/**, jag åtgärd resultatet från Home-Index.
+Med konfigurationen ovan kan du i själva verket värd hela Molntjänsten från **http://*&lt;cdnName >*.azureedge.net/**. Om jag navigerar till **http://camservice.azureedge.net/**, jag åtgärd resultatet från Home-Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -325,7 +325,7 @@ Följ stegen ovan för att konfigurera den här åtgärden för domänkontrollan
             <br />
             <input class="btn" type="submit" value="Generate meme" />
         </form>
-5. Publicera Molntjänsten igen och gå till  **http://*&lt;serviceName >*.cloudapp.net/MemeGenerator/Index** i webbläsaren.
+5. Publicera Molntjänsten igen och gå till **http://*&lt;serviceName >*.cloudapp.net/MemeGenerator/Index** i webbläsaren.
 
 När du skickar formulärvärden till `/MemeGenerator/Index`, `Index_Post` åtgärdsmetod returnerar en länk till den `Show` åtgärdsmetod med respektive inkommande identifierare. När du klickar på länken kommer du till följande kod:  
 
@@ -446,7 +446,7 @@ Följ stegen nedan för att integration ASP.NET paketering och minification med 
    * Eftersom du använder en CDN-konstruktorn innehåller skripttypen CDN för paket inte längre skapas automatiskt Versionsträngen i den återgivna URL: en. Manuellt måste du generera en unik versionssträng varje gång skriptet paketet ändras för att tvinga en cache-miss på Azure CDN. Unik versionssträngen måste vara konstant via livslängd för distributionen för att maximera cacheträffar vid Azure CDN när paketet har distribuerats på samma gång.
    * Frågesträngen v = < W.X.Y.Z > hämtar från *Properties\AssemblyInfo.cs* i din webbrollsprojektet. Du kan ha ett arbetsflöde för distribution som innehåller ökar Sammansättningsversionen varje gång du publicerar till Azure. Eller, du kan bara ändra *Properties\AssemblyInfo.cs* i projektet att räkna upp Versionsträngen automatiskt varje gång du skapar kan använda jokertecknet ' *'. Exempel:
      
-        [sammansättningen: AssemblyVersion("1.0.0.*")]
+        [assembly: AssemblyVersion("1.0.0.*")]
      
      Andra strategi att förenkla Generera en unik sträng för livslängd för en distribution som fungerar här.
 2. Publicera Molntjänsten och gå till hemsidan.
@@ -527,10 +527,10 @@ Den [paket](http://msdn.microsoft.com/library/system.web.optimization.bundle.asp
    
     När `CdnFallbackExpression` är null, skript är injekteras i HTML för att testa om paketet har lästs in och, om inte, komma åt paketet direkt från webbservern ursprung. Den här egenskapen måste anges till ett JavaScript-uttryck testar om respektive CDN-paketet har lästs in korrekt. Det uttryck som behövs för att testa varje paket skiljer sig enligt innehållet. För standard paket ovan:
    
-   * `window.jquery`har definierats i jquery-{version} .js
-   * `$.validator`har definierats i jquery.validate.js
-   * `window.Modernizr`har definierats i modernizer-{version} .js
-   * `$.fn.modal`har definierats i bootstrap.js
+   * `window.jquery` har definierats i jquery-{version} .js
+   * `$.validator` har definierats i jquery.validate.js
+   * `window.Modernizr` har definierats i modernizer-{version} .js
+   * `$.fn.modal` har definierats i bootstrap.js
      
      Du kanske har lagt märke till att jag inte har angett CdnFallbackExpression för den `~/Cointent/css` paket. Detta beror på att det finns för närvarande en [programfel i System.Web.Optimization](https://aspnetoptimization.codeplex.com/workitem/104) som lägger in en `<script>` taggen för återställningsplats CSS i stället för den förväntade `<link>` tagg.
      

@@ -1,12 +1,12 @@
 ---
-title: "Intäkter klassificering - teamet datavetenskap Process - Azure Machine Learning | Microsoft Docs"
-description: "Hur du använder mallen Team datavetenskap processen för att skapa ett projekt i Azure Machine Learning som klassificerar USA inkomster."
+title: Intäkter klassificering - teamet datavetenskap Process - Azure Machine Learning | Microsoft Docs
+description: Hur du använder mallen Team datavetenskap processen för att skapa ett projekt i Azure Machine Learning som klassificerar USA inkomster.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
 ms.openlocfilehash: dc6279a1bac230146f4f0cebf2fbdbb6333cb7a1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Intäkter klassificering med Team Data vetenskap processen (TDSP)-projekt
 
@@ -74,7 +74,7 @@ Om du vill spara och version projektet och dess innehåll, du måste ha en versi
 
 Skapa ett nytt projekt med det här exemplet som mall:
 1.  Öppna Azure Machine Learning-arbetsstationen
-2.  På den **projekt** klickar du på den  **+**  och markera **nytt projekt**
+2.  På den **projekt** klickar du på den **+** och markera **nytt projekt**
 3.  I den **Skapa nytt projekt** rutan, fyller du i informationen för det nya projektet
 4.  I den **Sök projektmallar** sökrutan, Skriv ”klassificera USA inkomster - TDSP projekt” och välj mallen
 5.  Klicka på **Skapa**
@@ -108,7 +108,7 @@ Projektet har skapats utifrån anvisningarna [här](https://aka.ms/how-to-use-td
 
 <img src="./media/scenario-tdsp-classifying-us-incomes/instantiation-4.png" width="900" height="700">
 
-### <a name="execution"></a>Körning
+### <a name="execution"></a>Körnings-
 I det här exemplet vi köra kod i **lokala beräkning miljö**. Hänvisa till Azure Machine Learning-dokument för mer information om [körning alternativ](experimentation-service-configuration.md).
 
 Det är lätt att köra en Python-skriptet i en lokal Python-körning:

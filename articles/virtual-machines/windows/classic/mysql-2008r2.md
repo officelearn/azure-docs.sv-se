@@ -1,8 +1,8 @@
 ---
-title: "Skapa en klassiska virtuella Azure-datorn kör MySQL | Microsoft Docs"
-description: "Skapa en Azure-dator som kör Windows Server 2012 R2 och MySQL-databas med hjälp av den klassiska distributionsmodellen."
+title: Skapa en klassiska virtuella Azure-datorn kör MySQL | Microsoft Docs
+description: Skapa en Azure-dator som kör Windows Server 2012 R2 och MySQL-databas med hjälp av den klassiska distributionsmodellen.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
 editor: tysonn
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
 ms.openlocfilehash: e4135f96027cc25e1e0a149857ace1672570fc4b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>Installera MySQL på en virtuell dator som skapats med den klassiska distributionsmodellen som kör Windows Server 2016
 [MySQL](https://www.mysql.com) är en populär öppen källkod, SQL-databas. Den här kursen visar hur du installerar och kör den **av MySQL 5.7.18** som en MySQL-Server på en virtuell dator som kör **Windows Server 2016**. Din upplevelse kan skilja sig något för andra versioner av MySQL eller Windows Server.
@@ -51,7 +51,7 @@ Följ dessa steg för att installera, konfigurera och köra av MySQL-Server:
 
 1. När du har anslutit till den virtuella datorn via fjärrskrivbord, klickar du på **Internet Explorer** från startskärmen.
 2. Välj den **verktyg** i det övre högra hörnet (ikonen cogged hjul) och klicka sedan på **Internetalternativ**. Klicka på den **säkerhet** klickar du på den **tillförlitliga platser** ikonen och klickar sedan på den **platser** knappen. Lägg till http://*.mysql.com i listan över betrodda platser. Klicka på **Stäng**, och klicka sedan på **OK**.
-3. I adressfältet i Internet Explorer, ange https://dev.mysql.com/downloads/mysql/.
+3. I adressfältet i Internet Explorer, Skriv https://dev.mysql.com/downloads/mysql/.
 4. Använda MySQL-plats för att leta upp och hämta den senaste versionen av MySQL installationsprogrammet för Windows. När du väljer MySQL-installationsprogrammet ska hämta den version som har det fullständiga filen uppsättningen (till exempel den mysql-installer-community-5.7.18.0.msi med en storlek på 352.8 MB) och spara installationsprogrammet.
 5. När installationsprogrammet har hämtats, klickar du på **kör** att starta installationen.
 6. På den **licensavtalet** , Godkänn licensavtalet och klicka på **nästa**.
@@ -114,11 +114,11 @@ Du måste ange DNS-namnet på den molntjänst som innehåller VN för att testa 
    ![](media/mysql-2008r2/MySQL_DNSName.png)
 3. Kör följande kommando för att logga in som en MySQL-användare från en lokal dator som kör MySQL eller MySQL-klienten.
 
-     MySQL -u <yourMysqlUsername> - p -h<yourDNSname>
+     MySQL -u <yourMysqlUsername> - p -h <yourDNSname>
 
    Till exempel med användarnamn MySQL _dbadmin3_ och _testmysql.cloudapp.net_ DNS-namn för den virtuella datorn, kan du starta MySQL med följande kommando:
 
-     MySQL -u dbadmin3 -p -h testmysql.cloudapp.net
+     mysql -u dbadmin3 -p -h testmysql.cloudapp.net
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om hur du kör MySQL finns i [MySQL dokumentationen](http://dev.mysql.com/doc/).

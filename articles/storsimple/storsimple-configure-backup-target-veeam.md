@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000-serien som mål för säkerhetskopian med Veeam | Microsoft Docs"
-description: "Beskriver hur StorSimple mål för säkerhetskopian med Veeam."
+title: StorSimple 8000-serien som mål för säkerhetskopian med Veeam | Microsoft Docs
+description: Beskriver hur StorSimple mål för säkerhetskopian med Veeam.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: harshakirank
 manager: matd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
 ms.openlocfilehash: cc1c7a3f77af76c451bb6e97a081a01c119333b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple som ett mål med Veeam
 
@@ -93,17 +93,17 @@ I följande tabeller visas enheten modell-arkitektur inledande vägledning.
 
 | Lagringskapacitet | 8100 | 8600 |
 |---|---|---|
-| Lokal lagringskapacitet | &lt;10 TiB\*  | &lt;20 TiB\*  |
-| Kapacitet för molnlagring | &gt;200 TiB\* | &gt;500 TiB\* |
+| Lokal lagringskapacitet | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
+| Kapacitet för molnlagring | &gt; 200 TiB\* | &gt; 500 TiB\* |
 
-\*Lagringsstorleken förutsätter inga deduplicering eller komprimering.
+\* Lagringsstorleken förutsätter inga deduplicering eller komprimering.
 
 **StorSimple kapacitet för primära och sekundära säkerhetskopieringar**
 
 | Säkerhetskopiering scenario  | Lokal lagringskapacitet  | Kapacitet för molnlagring  |
 |---|---|---|
 | Primär säkerhetskopiering  | Nya säkerhetskopior lokalt lagrade snabb återställning för att uppfylla återställningspunktmål (RPO) | Historik för säkerhetskopiering (RPO) passar i kapacitet |
-| Sekundär säkerhetskopiering | Sekundär kopia av säkerhetskopierade data kan lagras i kapacitet  | Saknas  |
+| Sekundär säkerhetskopiering | Sekundär kopia av säkerhetskopierade data kan lagras i kapacitet  | Gäller inte  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>StorSimple som en primär mål för säkerhetskopian
 
@@ -264,7 +264,7 @@ Baserat på föregående antaganden kan du skapa en 26 TiB StorSimple nivåer vo
 | Årlig fullständig | 1  | 10 | 10 |
 | GFS krav |   | 38 |   |
 | Ytterligare kvot  | 4  |   | 42 totala GFS krav  |
-\*Multiplikatorn GFS är antalet kopior måste du skydda och behålla så att de uppfyller dina krav för princip för säkerhetskopiering.
+\* Multiplikatorn GFS är antalet kopior måste du skydda och behålla så att de uppfyller dina krav för princip för säkerhetskopiering.
 
 ## <a name="set-up-veeam-storage"></a>Konfigurera Veeam lagring
 
@@ -274,11 +274,11 @@ Baserat på föregående antaganden kan du skapa en 26 TiB StorSimple nivåer vo
 
     ![Säkerhetskopiera databasen sida i hanteringskonsolen Veeam](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
-2.  I den **nya säkerhetskopiering databasen** dialogrutan Ange ett namn och beskrivning för databasen. Välj **nästa**.
+2.  I den **nya säkerhetskopiering databasen** dialogrutan Ange ett namn och beskrivning för databasen. Välj **Nästa**.
 
     ![Veeam konsolen, namn och beskrivning av sidan för hantering](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
-3.  Typ, Välj **Microsoft Windows server**. Välj den Veeam-servern. Välj **nästa**.
+3.  Typ, Välj **Microsoft Windows server**. Välj den Veeam-servern. Välj **Nästa**.
 
     ![Välj typ av säkerhetskopiering databasen i hanteringskonsolen Veeam](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
@@ -291,7 +291,7 @@ Baserat på föregående antaganden kan du skapa en 26 TiB StorSimple nivåer vo
 
     ![Veeam konsolen för hantering av kompatibilitetsinställningar för lagring](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
-6.  I den **nya säkerhetskopiering databasen** dialogrutan markerar du den **aktivera vPower NFS-tjänsten på servern montera (rekommenderas)** kryssrutan. Välj **nästa**.
+6.  I den **nya säkerhetskopiering databasen** dialogrutan markerar du den **aktivera vPower NFS-tjänsten på servern montera (rekommenderas)** kryssrutan. Välj **Nästa**.
 
     ![Säkerhetskopiera databasen sida i hanteringskonsolen Veeam](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
@@ -316,7 +316,7 @@ Här är ett exempel på ett GFS rotationsschema för fyra veckor, månatliga oc
 
 | Typ av frekvens/säkerhetskopiering | Fullständig | Stegvis (1-5 dagar)  |   
 |---|---|---|
-| Varje vecka (1 – 4 veckor) | Lördag | Måndag-fredag |
+| Varje vecka (1 – 4 veckor) | Lördag | Monday-Friday |
 | Månadsvis  | Lördag  |   |
 | Varje år | Lördag  |   |   |
 
@@ -383,7 +383,7 @@ Följande tabell visar hur du konfigurerar säkerhetskopieringar att köras på 
 | Månatliga fullständig |StorSimple disk (långsiktiga) | 1 | 12 | 12 |
 | Årlig fullständig |StorSimple disk (långsiktiga) | 1 | 1 | 1 |
 |Kravet GFS volymer |  |  |  | 18*|
-\*Total kapacitet innehåller 17 TiB StorSimple-diskar och 1 TiB lokal RAID-volym.
+\* Total kapacitet innehåller 17 TiB StorSimple-diskar och 1 TiB lokal RAID-volym.
 
 
 ### <a name="gfs-example-schedule"></a>GFS exempel schema

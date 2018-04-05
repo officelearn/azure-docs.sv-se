@@ -210,7 +210,7 @@ Följande begränsningar gäller för premium storage blob ögonblicksbilder:
 | --- | --- |
 | Maximalt antal ögonblicksbilder per blob | 100 |
 | Kapacitet för lagringskonton för ögonblicksbilder<br>(Innehåller data endast ögonblicksbilder. Inkluderar inte data i grundläggande blob.) | 10 TB |
-| Minimitid mellan på varandra följande ögonblicksbilder | 10 minuter |
+| Minimitid mellan på varandra följande ögonblicksbilder | 10 minuter |
 
 Om du vill behålla geo-redundant kopior av dina ögonblicksbilder, kan du kopiera ögonblicksbilder från ett premiumlagringskonto till ett geo-redundant standardlagringskonto med hjälp av AzCopy eller kopiera Blob. Mer information finns i [överföra data med kommandoradsverktyget azcopy](../articles/storage/common/storage-use-azcopy.md) och [kopiera Blob](/rest/api/storageservices/Copy-Blob).
 

@@ -1,12 +1,12 @@
 ---
 title: OpenAPI metadata i Azure Functions | Microsoft Docs
-description: "Översikt över OpenAPI stöd i Azure Functions"
+description: Översikt över OpenAPI stöd i Azure Functions
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.openlocfilehash: b6aacc536e589a2036aba5a0784a4ba71641a59e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Stöd för OpenAPI 2.0-metadata i Azure Functions (förhandsgranskning)
 OpenAPI 2.0 (tidigare Swagger) stöd för metadata i Azure Functions är en förhandsfunktion som du kan använda för att skriva en OpenAPI 2.0-definition i en funktionsapp. Du kan sedan värd filen med hjälp av funktionen appen.
@@ -50,13 +50,13 @@ Stegvisa instruktioner finns i [komma igång-självstudiekurs](./functions-api-d
 
 I följande tabell representerar Azure portalinställningar och motsvarande data i function.json som är mappad till den genererade Swagger-stommen.
 
-|Swagger.JSON|Portalens användargränssnitt|Function.JSON|
+|Swagger.json|Portalens användargränssnitt|Function.json|
 |:----|:-----|:-----|
-|[Värden](http://swagger.io/specification/#fixed-fields-15)|**Funktionen appinställningar** > **Apptjänst inställningar** > **översikt** > **URL**|*Finns inte*
+|[Värd](http://swagger.io/specification/#fixed-fields-15)|**Funktionen appinställningar** > **Apptjänst inställningar** > **översikt** > **URL**|*Finns inte*
 |[Sökvägar](http://swagger.io/specification/#paths-object-29)|**Integrera** > **valda http-metoder**|Bindningar: väg
 |[Objektet i sökvägen](http://swagger.io/specification/#path-item-object-32)|**Integrera** > **flödesmallen**|Bindningar: metoder
 |[Säkerhet](http://swagger.io/specification/#security-scheme-object-112)|**Nycklar**|*Finns inte*|
-|Åtgärds-ID *|**Väg + tillåtna verb**|Väg + tillåtna verb|
+|operationID*|**Väg + tillåtna verb**|Väg + tillåtna verb|
 
 \*Åtgärds-ID krävs endast för integrering med PowerApps och flöde.
 > [!NOTE]

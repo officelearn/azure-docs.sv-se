@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: mbullwin
 ms.openlocfilehash: f0338642ab99af2fd5ec4f6432bbb8d626daea29
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Direktsänd dataström med mått: Övervaka och diagnostisera med 1 sekund svarstid 
 
@@ -37,7 +37,7 @@ Med direktsänd dataström med mått kan du:
 
 Direktsänd dataström med mått är tillgänglig på ASP.NET-appar som körs lokalt eller i molnet. 
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 1. Om du inte gjort ännu [installerat Application Insights](app-insights-asp-net.md) i ditt webbprogram för ASP.NET eller [Windows server-app](app-insights-windows-services.md), göra det nu. 
 2. **Uppdatera till den senaste versionen** av Application Insights-paketet. Högerklicka på projektet i Visual Studio och välj **hantera Nuget-paket**. Öppna den **uppdateringar** markerar **inkludera förhandsversion**, och välj de Microsoft.ApplicationInsights.* paket.
@@ -63,7 +63,7 @@ Kontrollera den [utgående portar för Liveströmning mått](app-insights-ip-add
 |Svarstid|Data som visas i en sekund|Visar det sammanlagda resultatet minuter|
 |Inget bevarande|Data kvarstår medan den är på diagrammet och sedan tas bort|[Data som lagras i 90 dagar](app-insights-data-retention-privacy.md#how-long-is-the-data-kept)|
 |På begäran|Data strömmas När du öppnar Live mått|Informationen skickas när SDK är installerat och aktiverat|
-|Gratis|Det kostar inget direktsänd dataström med data|Föremål för [priser](app-insights-pricing.md)
+|Kostnadsfri|Det kostar inget direktsänd dataström med data|Föremål för [priser](app-insights-pricing.md)
 |Samling|Alla valda mått och räknare överförs. Fel och stackspår samplas. TelemetryProcessors tillämpas inte.|Händelser kan vara [provtagning](app-insights-api-filtering-sampling.md)|
 |Kontrollkanal|Filterkontroll signaler skickas till SDK. Vi rekommenderar att du [skydda den här kanalen](#secure-channel).|Kommunikation är enkelriktad till portalen|
 

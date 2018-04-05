@@ -15,13 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 3a6c7c51810375574895643cea2e0e24508fa382
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 7aeb76f59b9489f7c930ef754ccbe6d3712e52a7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 > [!div class="op_single_selector"]
+> * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
@@ -80,7 +81,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
    <a id="max-connection"></a>
 3. **Öka MaxPoolSize per värd när du använder läget för Gateway**
 
-    Azure Cosmos-DB-begäranden görs över HTTPS/RESTEN när du använder Gateway-läge och är föremål för standard anslutningsgränsen per värdnamn eller IP-adress. Du kan behöva ange MaxPoolSize till ett högre värde (200-1000) så att klientbiblioteket kan använda flera samtidiga anslutningar till Azure Cosmos DB. I Java SDK, standardvärdet för [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) är 100. Använd [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) att ändra värdet.
+    Azure Cosmos-DB-begäranden görs över HTTPS/RESTEN när du använder Gateway-läge och är föremål för standard anslutningsgränsen per värdnamn eller IP-adress. Du kan behöva ange MaxPoolSize till ett högre värde (200-1000) så att klientbiblioteket kan använda flera samtidiga anslutningar till Azure Cosmos DB. I Java SDK, standardvärdet för [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.getmaxpoolsize) är 100. Använd [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) att ändra värdet.
 
 4. **Justera parallella frågor för partitionerade samlingar**
 
@@ -103,7 +104,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
 7. **Använd namn baserat adressering**
 
-    Använd namnbaserat adressering, där länkar har formatet `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, i stället för SelfLinks (_self) som har formatet `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` att undvika att hämta ResourceIds för alla resurser som används för att skapa länken. Dessutom som resurserna hämta återskapas (eventuellt med samma namn) kan cachelagring av dessa inte hjälpa.
+    Använd namnbaserat adressering, där länkar har formatet `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, i stället för SelfLinks (\_self), som har formatet `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` att undvika att hämta ResourceIds för alla resurser som används för att skapa länken. Dessutom som resurserna hämta återskapas (eventuellt med samma namn) kan cachelagring av dessa inte hjälpa.
 
    <a id="tune-page-size"></a>
 8. **Finjustera sidstorleken för frågor/läsa feeds för bättre prestanda**

@@ -28,7 +28,7 @@ I båda lägena samling, kan ytterligare data collection mappar anges med hjälp
 * Har ett lagringskonto för tillägg att spara genererade zip-filer.
 * Använda Azure PowerShell-Cmdlets v0.8.0 eller senare. Mer information finns i [Azure hämtar](https://azure.microsoft.com/downloads/).
 
-## <a name="add-the-extension"></a>Lägg till tillägget
+## <a name="add-the-extension"></a>Lägga till tillägget
 Du kan använda [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdlets eller [Service Management REST API: er](https://msdn.microsoft.com/library/ee460799.aspx) lägga till filnamnstillägget AzureLogCollector.
 
 För molntjänster, befintliga Azure Powershell-cmdleten **Set AzureServiceExtension**, kan användas för att aktivera tillägget för rollinstanser för Molntjänsten. Varje gång det här tillägget aktiveras via denna cmdlet, utlöses Logginsamling på de valda rollinstanserna av valda roller.
@@ -124,7 +124,7 @@ Du kan följa en av två följande steg för att lägga till AzureLogCollector t
   $StorageAccountKey  = 'YourStorageAccountKey'
   ```
 
-5. Anropa SetAzureServiceLogCollector.ps1 (ingår i slutet av artikeln) på följande sätt om du vill aktivera tillägget AzureLogCollector för en tjänst i molnet. När körningen har slutförts, kan du hitta den överförda filen under`https://YourStorageAccountName.blob.core.windows.net/vmlogs`
+5. Anropa SetAzureServiceLogCollector.ps1 (ingår i slutet av artikeln) på följande sätt om du vill aktivera tillägget AzureLogCollector för en tjänst i molnet. När körningen har slutförts, kan du hitta den överförda filen under `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
   ```powershell
   .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
@@ -216,7 +216,7 @@ Följ instruktionerna för att ansluta Azure PowerShell till din prenumeration.
   $StorageAccountKey  = 'YourStorageAccountKey'
   ```
 
-3. Anropa SetAzureVMLogCollector.ps1 (ingår i slutet av artikeln) på följande sätt om du vill aktivera tillägget AzureLogCollector för en tjänst i molnet. När körningen har slutförts, kan du hitta den överförda filen under`https://YourStorageAccountName.blob.core.windows.net/vmlogs`
+3. Anropa SetAzureVMLogCollector.ps1 (ingår i slutet av artikeln) på följande sätt om du vill aktivera tillägget AzureLogCollector för en tjänst i molnet. När körningen har slutförts, kan du hitta den överförda filen under `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
 Följande är definitionen av parametrar för skriptet. (Detta kopieras nedan samt.)
 

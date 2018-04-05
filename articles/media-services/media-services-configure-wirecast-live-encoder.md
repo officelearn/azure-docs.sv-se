@@ -1,11 +1,11 @@
 ---
-title: "Konfigurera Telestream Wirecast-kodaren om du vill skicka en direktsänd dataström med enkel bithastighet | Microsoft Docs"
-description: "Det här avsnittet visar hur du konfigurerar Wirecast livekodaren för att skicka en dataström med enkel bithastighet till AMS-kanaler som är aktiverade för live encoding. "
+title: Konfigurera Telestream Wirecast-kodaren om du vill skicka en direktsänd dataström med enkel bithastighet | Microsoft Docs
+description: 'Det här avsnittet visar hur du konfigurerar Wirecast livekodaren för att skicka en dataström med enkel bithastighet till AMS-kanaler som är aktiverade för live encoding. '
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
 ms.workload: media
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: 0e4fb0b7c915969da1760eaccc77aa399030752e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Använda Wirecast-kodaren för att skicka en direktsänd dataström med enkel bithastighet
 > [!div class="op_single_selector"]
-> * [Wirecast](media-services-configure-wirecast-live-encoder.md)
+> * [wirecast](media-services-configure-wirecast-live-encoder.md)
 > * [Elemental Live](media-services-configure-elemental-live-encoder.md)
-> * [Tricaster](media-services-configure-tricaster-live-encoder.md)
+> * [tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 >
 >
@@ -109,7 +109,7 @@ I den här kursen används följande inställningar för utdata. Resten av det h
    * Profil: Main
    * Nyckelbilden var: 60 ramar
 
-    **Ljud**
+    **ljud**
 
    * Mål bithastighet: 192 kbits per sekund
    * Samplingsfrekvens: 44 100 kHz

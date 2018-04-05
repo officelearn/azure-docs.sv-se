@@ -1,12 +1,12 @@
 ---
-title: "Vad är Azure-tjänstens hälsotillstånd meddelanden? | Microsoft Docs"
-description: "Meddelanden om hälsostatus kan du visa meddelanden om hälsotillstånd har publicerats av Microsoft Azure."
+title: Vad är Azure-tjänstens hälsotillstånd meddelanden? | Microsoft Docs
+description: Meddelanden om hälsostatus kan du visa meddelanden om hälsotillstånd har publicerats av Microsoft Azure.
 author: anirudhcavale
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
 ms.openlocfilehash: 4a95e9882515e6a2861292829a44847e11f39063
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visa meddelanden om hälsostatus med hjälp av Azure portal
 
@@ -40,7 +40,7 @@ Egenskapsnamn | Beskrivning
 kanaler | Ett av följande värden: **Admin** eller **åtgärden**.
 correlationId | Vanligtvis ett GUID i strängformatet. Händelser som hör till samma åtgärd vanligtvis delar samma correlationId.
 eventDataId | Den unika identifieraren för en händelse.
-EventName | Rubrik på en händelse.
+eventName | Rubrik på en händelse.
 nivå | Nivån i en händelse. Ett av följande värden: **kritisk**, **fel**, **varning** eller **informations**.
 resourceProviderName | Namnet på resursprovidern för resursen påverkas.
 resourceType| Typ av resurs för resursen påverkas.
@@ -53,7 +53,7 @@ operationName | Namnet på åtgärden.
 category | Den här egenskapen är alltid **ServiceHealth**.
 resourceId | Resurs-ID för resursen påverkas.
 Properties.title | Lokaliserade rubriken för den här kommunikationen. Engelska är standard.
-Properties.Communication | Lokaliserad information om kommunikationen med HTML-kod. Engelska är standard.
+Properties.communication | Lokaliserad information om kommunikationen med HTML-kod. Engelska är standard.
 Properties.incidentType | Ett av följande värden: **AssistedRecovery**, **ActionRequired**, **Information**, **Incident**,  **Underhåll**, eller **säkerhet**.
 Properties.trackingId | Som den här händelsen är associerad med incidenten. Används för att korrelera händelser relaterade till en incident.
 Properties.impactedServices | En ESC JSON-blob som beskriver de tjänster och regioner som påverkas av incidenten. Egenskapen innehåller en lista över tjänster, som har en **ServiceName**, och en lista över berörda regioner som har en **RegionName**.

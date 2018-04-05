@@ -1,11 +1,11 @@
 ---
-title: "Lär dig hur du använder FTP-anslutningen i logikappar | Microsoft Docs"
-description: "Skapa logikappar med Azure App service. Anslut till FTP-server för att hantera dina filer. Du kan utföra olika åtgärder, till exempel ladda upp, uppdatera, hämta och ta bort filer i FTP-servern."
+title: Lär dig hur du använder FTP-anslutningen i logikappar | Microsoft Docs
+description: Skapa logikappar med Azure App service. Anslut till FTP-server för att hantera dina filer. Du kan utföra olika åtgärder, till exempel ladda upp, uppdatera, hämta och ta bort filer i FTP-servern.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d83c55fe-eb59-4b7b-a5ec-afac5c772616
 ms.service: logic-apps
@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
 ms.openlocfilehash: 7719e0e90df3a384e870e2e839cb77a27d95ada8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Kom igång med FTP-anslutningen
 Använd FTP-anslutningen för att övervaka, hantera och skapa filer på en FTP-server. 
@@ -50,7 +50,7 @@ I det här exemplet jag visar hur du använder den **FTP - när en fil har lagts
    ![Bild 2 till FTP-utlösare](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
 2. Välj den **...**  finns på höger sida av kontrollen. Då öppnas väljarkontrollen mapp  
    ![Bild 3 till FTP-utlösare](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
-3. Välj den  **>**  (HÖGERPIL) och bläddra till mappen som du vill övervaka för nya eller ändrade filer. Välj mapp och mappen visas nu i meddelande i **mappen** kontroll.  
+3. Välj den **>** (HÖGERPIL) och bläddra till mappen som du vill övervaka för nya eller ändrade filer. Välj mapp och mappen visas nu i meddelande i **mappen** kontroll.  
    ![Bild 4 till FTP-utlösare](./media/connectors-create-api-ftp/ftp-trigger-4.png)   
 
 Din logikapp har nu konfigurerats med en utlösare som börjar den andra utlösare och åtgärder i arbetsflödet körs när en fil ändras eller skapas i mappen specifika FTP. 

@@ -1,11 +1,11 @@
 ---
-title: "Öppen källkod tekniker vanliga frågor och svar för Azure-webbappar | Microsoft Docs"
-description: "Få svar på vanliga frågor och svar om öppen källkod tekniker i funktionen Web Apps i Azure App Service."
+title: Öppen källkod tekniker vanliga frågor och svar för Azure-webbappar | Microsoft Docs
+description: Få svar på vanliga frågor och svar om öppen källkod tekniker i funktionen Web Apps i Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
 ms.openlocfilehash: 4fb443691e216169dd1322b96d77139ffde752d4
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Öppen källkod tekniker vanliga frågor och svar för Web Apps i Azure
 
@@ -49,10 +49,10 @@ Aktivera PHP loggning:
 2. Välj i den översta menyn **Felsökningskonsolen** > **CMD**.
 3. Välj den **plats** mapp.
 4. Välj den **wwwroot** mapp.
-5. Välj den  **+**  ikon och väljer sedan **ny fil**.
+5. Välj den **+** ikon och väljer sedan **ny fil**.
 6. Ange filnamnet till **. user.ini**.
 7. Välj på pennikonen bredvid **. user.ini**.
-8. Lägg till den här koden i filen:`log_errors=on`
+8. Lägg till den här koden i filen: `log_errors=on`
 9. Välj **Spara**.
 10. Välj på pennikonen bredvid **wp config.php**.
 11. Ändra texten till följande kod:
@@ -100,7 +100,7 @@ Du kan använda något av följande alternativ om du vill ändra versionen av No
     Distributionsprocessen för Azure källa kontroll omfattar följande steg:
     1. Flyttar innehåll till Azure webbapp.
     2. Skapar en standard-distributionsskriptet, om det inte finns något (deploy.cmd, .deployment-filer) i rotmappen för web app.
-    3. Kör ett skript för distribution där den skapar en fil i iisnode.yml om du nämna Node.js-version i package.json-fil > motorn`"engines": {"node": "5.9.1","npm": "3.7.3"}`
+    3. Kör ett skript för distribution där den skapar en fil i iisnode.yml om du nämna Node.js-version i package.json-fil > motorn `"engines": {"node": "5.9.1","npm": "3.7.3"}`
     4. Filen iisnode.yml har följande kodrad:
         ```
         nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
@@ -137,22 +137,22 @@ För Azure Marketplace och anpassade distributioner:
 
 * Mapp: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
 * Filer av intresse:
-    * catalina. *åååå-mm-dd*.log
-    * värd-hanteraren. *åååå-mm-dd*.log
-    * localhost. *åååå-mm-dd*.log
-    * Manager. *åååå-mm-dd*.log
-    * site_access_log. *åååå-mm-dd*.log
+    * catalina.*yyyy-mm-dd*.log
+    * host-manager.*yyyy-mm-dd*.log
+    * localhost.*yyyy-mm-dd*.log
+    * manager.*yyyy-mm-dd*.log
+    * site_access_log.*yyyy-mm-dd*.log
 
 
 För portalen **appinställningar** distributioner:
 
 * Mapp: D:\home\LogFiles
 * Filer av intresse:
-    * catalina. *åååå-mm-dd*.log
-    * värd-hanteraren. *åååå-mm-dd*.log
-    * localhost. *åååå-mm-dd*.log
-    * Manager. *åååå-mm-dd*.log
-    * site_access_log. *åååå-mm-dd*.log
+    * catalina.*yyyy-mm-dd*.log
+    * host-manager.*yyyy-mm-dd*.log
+    * localhost.*yyyy-mm-dd*.log
+    * manager.*yyyy-mm-dd*.log
+    * site_access_log.*yyyy-mm-dd*.log
 
 ## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>Hur felsöker jag JDBC driver-anslutningsfel
 

@@ -1,27 +1,47 @@
-**Skapa en ny CDN-profil**
+---
+title: ta med fil
+description: ta med fil
+services: cdn
+author: dksimpson
+ms.service: cdn
+ms.topic: include
+ms.date: 04/04/2018
+ms.author: rli; v-deasim
+ms.custom: include file
+ms.openlocfilehash: 692364e9b2e78b3bd1f63137148dfbc680364737
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 04/05/2018
+---
+## <a name="create-a-new-cdn-profile"></a>Skapa en ny CDN-profil
 
-1. I den [Azure-portalen](https://portal.azure.com), i det övre vänstra, Välj **skapar du en resurs**.
-    
-2. På det **nya** bladet väljer du **Webb och mobilt** och sedan **CDN**.
-   
-    Den **CDN-profilen** bladet visas.
-   
-    ![Ny CDN-profil](./media/cdn-create-profile/new-cdn-profile-include.png)
-3. För **namn**, ange ett unikt namn för CDN-profilen.
-    
-4. För **prenumeration**, Välj prenumerationen som ska användas för den här CDN-profilen.
-   
-5. För **resursgruppen**väljer eller skapar en resursgrupp. Information om resursgrupper finns i [översikt över Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
-    
-6. För **resursgruppsplats**, Välj den Azure-platsen att lagra din CDN-profilinformation. Den här platsen påverkar inte CDN-slutpunkter.
-    
-7. För **prisnivå**, Välj en nivå. En jämförelse av funktioner som är tillgängliga med varje prisnivå finns [Azure CDN funktioner](../articles/cdn/cdn-overview.md#azure-cdn-features).
-   
-    ![Val av CDN-prisnivå](./media/cdn-create-profile/cdn-choose-sku-include.png)
+En CDN-profil är en behållare för CDN-slutpunkter och anger en prisnivå.
 
-8. Alternativt, Välj **nu skapa en ny CDN-slutpunkt** att visa alternativ för att skapa en slutpunkt på samma gång som du skapar profilen. Mer information finns i [skapa en ny CDN-slutpunkt](../articles/cdn/cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
-   
-9. Om du vill spara profilen på instrumentpanelen när den har skapats för att göra det lättare att hitta, Välj **fäst på instrumentpanelen**.
+1. Välj i Azure-portalen i det övre vänstra **skapar du en resurs**.
     
-10. Välj **skapa** att skapa profilen. 
+    Den **ny** visas.
+   
+2. Välj **webb + mobilt**, sedan **CDN**.
+   
+    ![Välj CDN-resurs](./media/cdn-create-profile/cdn-new-resource.png)
+
+    Den **CDN-profilen** visas.
+
+    Använd de inställningar som anges i tabellen enligt bilden.
+   
+    ![Ny CDN-profil](./media/cdn-create-profile/cdn-new-profile.png)
+
+    | Inställning  | Värde |
+    | -------- | ----- |
+    | **Namn** | Ange *min-cdn-profil-123* för ditt profilnamn. Det här namnet måste vara globalt unika. Om den redan används, kan du ange en annan. |
+    | **Prenumeration** | Välj en Azure-prenumeration från den nedrullningsbara listan.|
+    | **Resursgrupp** | Välj **Skapa nytt** och ange *min-resurs-grupp-123* för din resursgruppens namn. Det här namnet måste vara globalt unika. Om den redan används, kan du ange en annan. | 
+    | **Resursgruppens plats** | Välj **centrala USA** från den nedrullningsbara listan. |
+    | **prisnivå** | Välj **Standard Verizon** från den nedrullningsbara listan. |
+    | **Skapa en ny CDN-slutpunkt nu** | Lämna inte är markerad. |  
+   
+3. Välj **fäst på instrumentpanelen** att spara profilen på instrumentpanelen när den har skapats.
+    
+4. Välj **skapa** att skapa profilen. 
 

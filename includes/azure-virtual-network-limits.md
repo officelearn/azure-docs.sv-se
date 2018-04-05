@@ -54,9 +54,9 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Regler per IP-konfiguration | 299 |299 |
 | Frontend-IP-konfigurationer, Basic | 10 | 200 |
 | Frontend-IP-konfigurationer, Standard | 10 | 600 |
-| Serverdelspool Basic | 100, enkel Tillgänglighetsuppsättning | - |
-| Serverdelspool, Standard | 1000, enkel VNet | - |
-| Hög tillgänglighet portar, Standard | 1 per interna klientdel | - |
+| Serverdelspool Basic | 100, enkel Tillgänglighetsuppsättning | 100, enkel Tillgänglighetsuppsättning |
+| Serverdelspool, Standard | 1000, enkel VNet | 1000, enkel VNet |
+| Hög tillgänglighet portar, Standard | 1 per interna klientdel | 1 per interna klientdel |
 
 [Kontakta supporten](../articles/azure-supportability/resource-manager-core-quotas-request.md ) om du måste öka gränserna från standardvärdet.
 

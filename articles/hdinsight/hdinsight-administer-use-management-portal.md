@@ -1,8 +1,8 @@
 ---
-title: "Hantera Windows-baserade Hadoop-kluster i HDInsight med hjälp av Azure portal | Microsoft Docs"
-description: "Lär dig hur du administrerar HDInsight Service. Skapa ett HDInsight-kluster, öppna interaktiva JavaScript-konsolen och öppna konsolen Hadoop-kommando."
+title: Hantera Windows-baserade Hadoop-kluster i HDInsight med hjälp av Azure portal | Microsoft Docs
+description: Lär dig hur du administrerar HDInsight Service. Skapa ett HDInsight-kluster, öppna interaktiva JavaScript-konsolen och öppna konsolen Hadoop-kommando.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,10 +17,10 @@ ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0b34f861b306dc62cbdbf97378a1c370494bbb20
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Windows-baserade Hadoop-kluster i HDInsight med hjälp av Azure portal
 
@@ -40,7 +40,7 @@ Innan du påbörjar den här artikeln måste du ha:
 * **Azure Storage-konto** -ett HDInsight-kluster använder en Azure Blob storage-behållare som filsystemet. Mer information om hur Azure Blob storage ger en sömlös upplevelse med HDInsight-kluster finns [använda Azure Blob Storage med HDInsight](hdinsight-hadoop-use-blob-storage.md). Mer information om hur du skapar ett Azure Storage-konto finns [hur du skapar ett Lagringskonto](../storage/common/storage-create-storage-account.md).
 
 ## <a name="open-the-portal"></a>Öppna portalen
-1. Logga in på [https://portal.azure.com](https://portal.azure.com).
+1. Logga in på [ https://portal.azure.com ](https://portal.azure.com).
 2. När du öppnar portalen kan du:
 
    * Klicka på **skapar du en resurs** i den vänstra menyn för att skapa ett nytt kluster:
@@ -73,7 +73,7 @@ HDInsight fungerar med en bred Hadoop-komponenter. Lista över de komponenter so
 Installation av anpassade program i klustret med hjälp av anslutning till fjärrskrivbord stöds inte. Du bör inte lagra filer för enheter på huvudnoden, eftersom de kommer att förloras om du behöver skapa nytt kluster. Vi rekommenderar att du lagrar filer på Azure Blob storage. BLOB storage är permanent.
 
 ## <a name="list-and-show-clusters"></a>Listan och visa kluster
-1. Logga in på [https://portal.azure.com](https://portal.azure.com).
+1. Logga in på [ https://portal.azure.com ](https://portal.azure.com).
 2. Klicka på **HDInsight-kluster** i den vänstra menyn.
 3. Klicka på klusternamnet. Om klustret är långt, kan du använda filter överst på sidan.
 4. Dubbelklicka på ett kluster från listan om du vill visa detaljerad information.
@@ -283,7 +283,7 @@ Konsolen HDInsight frågan innehåller följande funktioner:
 
     ![HDInsight portal webbläsare filsökning](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)
 
-    På skärmbilden, den  **<Account>**  anger objektet är ett Azure storage-konto.  Klicka på namnet på kontot för att bläddra till filerna.
+    På skärmbilden, den **<Account>** anger objektet är ett Azure storage-konto.  Klicka på namnet på kontot för att bläddra till filerna.
 * **Hadoop-Användargränssnittet**.
 
     ![HDInsight Hadoop UI-portalen](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)

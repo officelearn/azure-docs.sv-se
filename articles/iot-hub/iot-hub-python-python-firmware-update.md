@@ -1,11 +1,11 @@
 ---
 title: Enheten firmware-uppdatering med Azure IoT Hub (Python) | Microsoft Docs
-description: "Hur du använder hantering av enheter på Azure IoT Hub för att initiera en firmware-uppdatering för enheten. Azure IoT-SDK för Python används för att implementera en simulerad enhetsapp och en service-appen som utlöser firmware-uppdatering."
+description: Hur du använder hantering av enheter på Azure IoT Hub för att initiera en firmware-uppdatering för enheten. Azure IoT-SDK för Python används för att implementera en simulerad enhetsapp och en service-appen som utlöser firmware-uppdatering.
 services: iot-hub
 documentationcenter: .net
 author: msebolt
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2018
 ms.author: v-masebo
-ms.openlocfilehash: e7ca0d95da3fd36e6dad081bad0aa5a178436159
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 31a7ba88997f54c5000b1018fc96abf8120dd232
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-pythonpython"></a>Använd enhetshantering att initiera en enhetens inbyggda programvara uppdatera (Python/Python)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 I den [Kom igång med enhetshantering] [ lnk-dm-getstarted] självstudiekursen du sett hur du använder den [enheten dubbla] [ lnk-devtwin] och [direkt metoder] [ lnk-c2dmethod] primitiver att starta om en enhet via fjärranslutning. Den här kursen använder samma IoT-hubb primitiver och vägledning och visar hur du gör en slutpunkt till slutpunkt simulerade firmware-uppdatering.  Det här mönstret används i uppdatering av inbyggd hanteringsprogramvara för Intel modern enhet.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 I den här självstudiekursen lär du dig att:
 

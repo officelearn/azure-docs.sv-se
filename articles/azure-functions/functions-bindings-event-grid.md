@@ -1,13 +1,13 @@
 ---
-title: "Händelseutlösare rutnät för Azure Functions"
-description: "Förstå hur du hanterar händelsen rutnätet händelser i Azure Functions."
+title: Händelseutlösare rutnät för Azure Functions
+description: Förstå hur du hanterar händelsen rutnätet händelser i Azure Functions.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: 5039798d76017d93b77d724b2e6bca6712af0370
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a2d8f66b0364535cbb7e8cadd8067dd8f7facb2c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Händelseutlösare rutnät för Azure Functions
 
 Den här artikeln beskrivs hur du hanterar [händelse rutnätet](../event-grid/overview.md) händelser i Azure Functions.
 
-Händelsen rutnätet är en Azure-tjänst som skickar HTTP-begäranden att meddela dig om händelser som sker i *utgivare*. En utgivare är tjänsten eller resursen kommer händelsen. Till exempel ett Azure blob storage-konto är en utgivare och en blob överför eller tas bort är en händelse. Vissa [Azure-tjänster har inbyggt stöd för att publicera händelser på händelsen rutnätet](../event-grid/overview.md#event-publishers). 
+Händelsen rutnätet är en Azure-tjänst som skickar HTTP-begäranden att meddela dig om händelser som sker i *utgivare*. En utgivare är tjänsten eller resursen kommer händelsen. Till exempel ett Azure blob storage-konto är en utgivare och en blob överför eller tas bort är en händelse. Vissa [Azure-tjänster har inbyggt stöd för att publicera händelser på händelsen rutnätet](../event-grid/overview.md#event-sources). 
 
 Händelsen *hanterare* ta emot och bearbeta händelser. Azure Functions är ett av flera [Azure-tjänster som har inbyggt stöd för att hantera händelsen rutnätet händelser](../event-grid/overview.md#event-handlers). Lär dig hur du använder en händelse rutnätet utlösare för att anropa en funktion när en händelse tas emot från Event rutnät i den här artikeln.
 
@@ -217,7 +217,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 | **Riktning** | Krävs – måste vara inställd på `in`. |
 | **Namn** | Obligatoriskt - variabelnamnet som används i Funktionskoden för den parameter som tar emot informationen om händelsen. |
 
-## <a name="usage"></a>Användning
+## <a name="usage"></a>Syntax
 
 Du kan använda följande parametertyper för händelsen rutnätet utlösaren för C# och F # funktioner är:
 

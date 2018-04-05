@@ -1,12 +1,12 @@
 ---
-title: "Hur du distribuerar Windows 10 på Azure med Multitenant värd rättigheter"
-description: "Lär dig att maximera dina Windows Software Assurance-förmåner för att försätta lokalt licenser i Azure"
+title: Hur du distribuerar Windows 10 på Azure med Multitenant värd rättigheter
+description: Lär dig att maximera dina Windows Software Assurance-förmåner för att försätta lokalt licenser i Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: xujing
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 6ad3b294e1d53d03f6ceb61048c8f657d8b471c0
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: c157fd8fded40f08c997c29ef6761f3c09dbd282
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Hur du distribuerar Windows 10 på Azure med Multitenant värd rättigheter 
 För kunder med Windows 10 Enterprise E3/E5 per användare eller Windows virtuella skrivbordet åtkomst per användare (användare prenumerationslicenser eller tillägg användarlicenser prenumeration) kan Multitenant värd rättigheter för Windows 10 du hämta din Windows 10-licenser till molnet och kör Windows 10-datorer i Azure utan att betala för en annan licens. Mer information finns [Multitenant värd för Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -32,7 +32,7 @@ För kunder med Windows 10 Enterprise E3/E5 per användare eller Windows virtuel
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Distribuera Windows 10-avbildning från Azure Marketplace 
 Windows 10-avbildning hittar du med följande publishername, erbjudande, sku för Powershell, CLI och Azure Resource Manager distributioner för mallen.
 
-| Operativsystem  |      PublisherName      |  Erbjudande | Sku |
+| OS  |      PublisherName      |  Erbjudande | SKU |
 |:----------|:-------------:|:------|:------|
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
@@ -107,7 +107,7 @@ LicenseType              :
 
 ## <a name="additional-information-about-joining-azure-ad"></a>Mer Information om att ansluta till Azure AD
 >[!NOTE]
->Azure tillhandahåller alla virtuella Windows-datorer med det inbyggda administratörskontot som inte kan användas för att ansluta till AAD. Till exempel *Inställningar > konto > åtkomst till arbetsplats eller skola > + Anslut* fungerar inte. Du måste skapa och logga in som ett andra administratörskonto att ansluta till Azure AD mannually. Du kan också konfigurera Azure AD med hjälp av ett etableringspaket, Använd länken är den *nästa steg* avsnittet om du vill veta mer.
+>Azure tillhandahåller alla virtuella Windows-datorer med det inbyggda administratörskontot som inte kan användas för att ansluta till AAD. Till exempel *Inställningar > konto > åtkomst till arbetsplats eller skola > + Anslut* fungerar inte. Du måste skapa och logga in som ett andra administratörskonto att ansluta till Azure AD manuellt. Du kan också konfigurera Azure AD med hjälp av ett etableringspaket, Använd länken är den *nästa steg* avsnittet om du vill veta mer.
 >
 >
 

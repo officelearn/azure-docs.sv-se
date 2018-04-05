@@ -1,11 +1,11 @@
 ---
-title: "Självstudiekurs – Använda Azure Batch-klientbiblioteket för .NET | Microsoft Docs"
-description: "Lär dig de grundläggande principerna för Azure Batch och skapa en enkel lösning med .NET."
+title: Självstudiekurs – Använda Azure Batch-klientbiblioteket för .NET | Microsoft Docs
+description: Lär dig de grundläggande principerna för Azure Batch och skapa en enkel lösning med .NET.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 76cb9807-cbc1-405a-8136-d1e53e66e82b
 ms.service: batch
 ms.devlang: dotnet
@@ -13,18 +13,18 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 06/28/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83f751c6b5e44705509804e6872bb16d7c2e1d18
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 9968d18f9e27d7a138831394658b40a483b66709
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Börja utveckla lösningar med Batch-klientbibliotek för .NET
 
 > [!div class="op_single_selector"]
-> * [NET](batch-dotnet-get-started.md)
+> * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
 > * [Node.js](batch-nodejs-get-started.md)
 >
@@ -34,7 +34,7 @@ Lär dig grunderna om [Azure Batch][azure_batch] och [Batch .NET][net_api]-bibli
 
 ![Arbetsflöde för Batch-lösning (grundläggande)][11]<br/>
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 I den här artikeln förutsätter vi att du har erfarenhet av att arbeta med C# och Visual Studio. Vi förutsätter också att du uppfyller kontokraven som anges nedan för Azure och Batch- och Storage-tjänsterna.
 
 ### <a name="accounts"></a>Konton

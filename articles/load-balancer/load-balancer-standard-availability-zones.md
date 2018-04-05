@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 03/29/2018
 ms.author: kumud
-ms.openlocfilehash: 9f5a68972015f54e2333199652075cda2535a3c8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f5d46fda6bdb32c1a5000883c6aedb2da15e796a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard belastningsutjämnare och tillgänglighet zoner
 
 Har stöd för Azure belastningsutjämnare Standard SKU [tillgänglighet zoner](../availability-zones/az-overview.md) scenarier. Flera nya begrepp är tillgängliga med Standard belastningsutjämnare, vilket gör att du kan optimera tillgänglighet i slutpunkt till slutpunkt-scenario genom att justera resurser med zoner samt distribuera dem i zoner.  Granska [tillgänglighet zoner](../availability-zones/az-overview.md) för anvisningar om tillgänglighet zoner är, vilka regioner som för närvarande stöder tillgänglighet zoner och andra relaterade begrepp och produkter. Tillgänglighet zoner i kombination med Standard belastningsutjämnare är en omfattande och flexibel funktionsuppsättning som kan skapa många olika scenarier.  Granska det här dokumentet för att förstå dessa [begrepp](#concepts) och grundläggande scenario [utforma vägledning](#design).
 
 >[!NOTE]
->Granska [tillgänglighet zoner Preview](https://aka.ms/availabilityzones) för andra relaterade ämnen. 
+>Granska [tillgänglighet zoner](https://aka.ms/availabilityzones) för andra relaterade ämnen. 
 
 ## <a name="concepts"></a> Tillgänglighet zoner begrepp som används för belastningsutjämnare
 
@@ -43,7 +43,7 @@ En belastningsutjämnare-resurs är regionala och aldrig zonal.  Och ett VNet oc
 
 En belastningsutjämnare klientdel är en Frontend-IP-konfiguration refererar till en offentlig IP-adressresurs eller en privat IP-adress i undernät för virtuellt nätverk.  Utgör den belastningsutjämnade slutpunkten där tjänsten exponeras.
 
-En belastningsutjämnare resurs kan innehålla både zonal och zonredundant frontends samtidigt.
+En belastningsutjämnare resurs kan innehålla både zonal och zonredundant frontends samtidigt. 
 
 När en zon har garanterat en offentlig IP-resurs, är det inte föränderliga med zonality (eller avsaknad av).  Om du vill ändra eller utelämna zonality av en offentlig IP-klientdel, måste du återskapa offentliga IP-Adressen i den aktuella zonen.  
 
@@ -219,3 +219,5 @@ Det finns inga allmänna riktlinjer som en är ett bättre alternativ än andra 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [tillgänglighet zoner](../availability-zones/az-overview.md)
 - Lär dig mer om [Standard belastningsutjämnare](load-balancer-standard-overview.md)
+- Lär dig hur du [belastningsutjämna virtuella datorer i en zon med en zonal klientdel Standard belastningsutjämnare](load-balancer-standard-public-zonal-cli.md)
+- Lär dig hur du [belastningsutjämna virtuella datorer i zoner som Standard belastningsutjämnare med zonredundant klientdel](load-balancer-standard-public-zone-redundant-cli.md)

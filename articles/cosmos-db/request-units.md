@@ -1,36 +1,34 @@
 ---
-title: "Enheter för programbegäran & uppskatta genomströmning - Azure Cosmos DB | Microsoft Docs"
-description: "Läs mer om hur du förstår, ange och beräkna begäran enhet krav i Azure Cosmos DB."
+title: Enheter för programbegäran & uppskatta genomströmning - Azure Cosmos DB | Microsoft Docs
+description: Läs mer om hur du förstår, ange och beräkna begäran enhet krav i Azure Cosmos DB.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/30/2018
 ms.author: mimig
-ms.openlocfilehash: 3679aa76d4a6b9fd6335371e1639f1f246867fa5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5f733e9cbd90829eded80b1401093e2331a1eb16
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Enheter för programbegäran i Azure Cosmos DB
-Nu tillgängligt: Azure Cosmos-DB [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner). Läs mer i [uppskatta dina genomströmning måste](request-units.md#estimating-throughput-needs).
 
-![Genomströmning Kalkylatorn][5]
-
-## <a name="introduction"></a>Introduktion
 [Azure Cosmos-DB](https://azure.microsoft.com/services/cosmos-db/) är Microsofts globalt distribuerad flera modellen databas. Du behöver inte hyra ut virtuella datorer, distribuera programvara eller övervaka databaser med Azure Cosmos DB. Azure Cosmos-DB drivs och övervakas kontinuerligt av Microsoft översta tekniker för att leverera world klassen tillgänglighet, prestanda och data protection. Du kan komma åt dina data med hjälp av API: er som du själv väljer, till exempel den [SQL API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), [tabell API](table-introduction.md), och Gremlin via den [Graph API](graph-introduction.md) - alla stöds. Azure Cosmos DB valuta är begära enhet (RU). Med RUs behöver du inte reserverad kapacitet för läsning och skrivning eller etablera CPU, minne och IOPS.
 
 Azure Cosmos-DB stöder ett antal API: er med olika åtgärder, från enkla läser och skriver till diagrammet komplexa frågor. Eftersom inte alla begäranden som är lika med de tilldelas en normaliserade mängd **programbegäran** baserat på mängden beräkning som är nödvändiga för att utföra begäran. Antalet enheter för begäran för en åtgärd är deterministisk och kan du spåra antalet begäran enheter som används av alla åtgärder i Azure Cosmos DB via en Svarsrubrik. 
 
-För att ge förutsägbar prestanda, måste du reservera dataflöde i enheter av 100 RU per sekund. 
+För att ge förutsägbar prestanda, måste du reservera dataflöde i enheter av 100 RU per sekund. Du kan [beräkna din genomströmning måste](request-units.md#estimating-throughput-needs) med hjälp av Azure Cosmos DB [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner).
+
+![Genomströmning Kalkylatorn][5]
 
 När du har läst den här artikeln kommer du att kunna svara på följande frågor:  
 
@@ -46,9 +44,9 @@ Azure Cosmos-DB ger snabb och förutsägbar prestanda av *reservera* resurser f�
 
 Med Azure Cosmos DB anges reserverat dataflöde som frågeenheter som bearbetades per sekund. Du kan se frågeenheter som dataflöde valuta, där du *reservera* en mängd garanterad frågeenheter som är tillgängliga för ditt program med utgångspunkt från per sekund.  Varje åtgärd i Azure DB som Cosmos - skriva ett dokument, utför en fråga, uppdatera ett dokument - förbrukar CPU, minne och IOPS.  Det vill säga varje åtgärd har en *begära kostnad*, som uttrycks i *programbegäran*.  Förstå de faktorer som påverkar begäran enhet kostnader, tillsammans med ditt program genomströmning krav, kan du köra programmet som kostnad effektiv som möjligt. Data Explorer i Azure-portalen är också en fantastiska verktyg för att testa kärnan i en fråga.
 
-Vi rekommenderar att komma igång med att titta på nedanstående video, där Aravind Ramachandran förklarar frågeenheter och förutsägbar prestanda med Azure Cosmos DB.
+Vi rekommenderar att komma igång med att titta på nedanstående video, där Azure Cosmos DB Programhanteraren Andrew Liu beskrivs frågeenheter.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
+> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
 > 
 

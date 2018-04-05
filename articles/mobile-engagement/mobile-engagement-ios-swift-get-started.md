@@ -1,11 +1,11 @@
 ---
-title: "Komma igång med Azure Mobile Engagement för iOS i Swift | Microsoft Docs"
-description: "Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för iOS-appar."
+title: Komma igång med Azure Mobile Engagement för iOS i Swift | Microsoft Docs
+description: Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för iOS-appar.
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 196c282d-6f2f-4cbc-aeee-6517c5ad866d
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,19 +14,23 @@ ms.devlang: swift
 ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: piyushjo
-ms.openlocfilehash: 1011b9823333e79a52cd2d187df4f8d063b1f799
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1168e05afa457825c2b982d6d33ea73c62b565dc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-ios-apps-in-swift"></a>Komma igång med Azure Mobile Engagement för iOS-appar i Swift
+> [!IMPORTANT]
+> Azure Mobile Engagement dras tillbaka den 31 mars 2018. Den här sidan tas bort strax efter det.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 I det här avsnittet beskrivs hur du använder Azure Mobile Engagement för att förstå appanvändningen, och hur du skickar push-meddelanden till segmenterade användare i ett iOS-program.
 I den här självstudiekursen skapar du en tom iOS-app som samlar in grundläggande data och tar emot push-meddelanden via Apple Push Notification System (APNS).
 
-Följande krävs för den här självstudiekursen:
+För den här kursen behöver du följande:
 
 * XCode 8, som du kan installera från Mac App Store
 * [Mobile Engagement iOS SDK]
@@ -55,7 +59,7 @@ Vi skapar en grundläggande app i XCode för att demonstrera integrationen:
 ### <a name="create-a-new-ios-project"></a>Skapa ett nytt iOS-projekt
 [!INCLUDE [Create a new iOS Project](../../includes/mobile-engagement-create-new-ios-app.md)]
 
-### <a name="connect-your-app-to-mobile-engagement-backend"></a>Ansluta appen till Mobile Engagement-serverdelen
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Anslut appen till Mobile Engagement-serverdelen
 1. Ladda ned [Mobile Engagement iOS SDK]
 2. Extrahera .tar.gz-filen till en mapp på datorn
 3. Högerklicka på projektet och välj sedan Lägg till filer i ...

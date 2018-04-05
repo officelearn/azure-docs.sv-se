@@ -1,11 +1,11 @@
 ---
-title: "Komma igång med Azure Mobile Engagement för universella Windows-appar"
-description: "Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för universella Windows-appar."
+title: Komma igång med Azure Mobile Engagement för universella Windows-appar
+description: Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för universella Windows-appar.
 services: mobile-engagement
 documentationcenter: windows
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 48103867-7f64-4646-b019-42bd797d38e2
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 40db7e4dd151ec391c754dc6d4145aeeb8058eca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f1de1092458bfc12236802d829a2043dcc74540
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-universal-apps"></a>Kom igång med Azure Mobile Engagement för universella Windows-appar
+> [!IMPORTANT]
+> Azure Mobile Engagement dras tillbaka den 31 mars 2018. Den här sidan tas bort strax efter det.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 I den här artikeln beskrivs hur du använder Azure Mobile Engagement för att förstå appanvändningen, och hur du skickar push-meddelanden till segmenterade användare i ett universellt Windows-program.
@@ -29,7 +33,7 @@ I den här kursen går vi igenom ett enkelt scenario för sändning med Mobile E
 > [!NOTE]
 > Tjänsten Azure Mobile Engagement kommer att dras tillbaka i mars 2018 och är för närvarande endast tillgänglig för befintliga kunder. Mer information finns i [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 ## <a name="set-up-mobile-engagement-for-your-windows-universal-app"></a>Konfigurera Mobile Engagement för din universella Windows-app
@@ -50,7 +54,7 @@ I följande steg används Visual Studio 2015, men stegen är ganska lika i tidig
 
 Du har nu skapat ett universellt Windows-app-projekt där du sedan integrerar Azure Mobile Engagement SDK.
 
-### <a name="connect-your-app-to-mobile-engagement-backend"></a>Ansluta appen till Mobile Engagement-serverdelen
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Anslut appen till Mobile Engagement-serverdelen
 1. Installera Nuget-paketet [MicrosoftAzure.MobileEngagement] i projektet. Om du utvecklar för både Windows- och Windows Phone-plattformen måste du göra det här för båda projekten. Samma Nuget-paket placerar rätt plattformsspecifika binärfiler i varje projekt för Windows 8.x och Windows Phone 8.1.
 2. Öppna **Package.appxmanifest** och kontrollera att följande funktion har lagts till:
 

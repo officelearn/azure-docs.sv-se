@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med arbetsplats av Facebook | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och arbetsplats med Facebook."
+title: 'Självstudier: Azure Active Directory-integrering med arbetsplats av Facebook | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och arbetsplats med Facebook.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 524319deea957809440436b3cac2b0256516923a
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: a1f4243eafc6a2d5c632220ec80b28b29f8ae985
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Självstudier: Azure Active Directory-integrering med arbetsplats av Facebook
 
@@ -31,7 +31,7 @@ Integrera arbetsplats av Facebook med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med arbetsplats av Facebook, behöver du följande:
 
@@ -45,6 +45,9 @@ Om du vill testa stegen i den här självstudiekursen, bör du följa dessa reko
 
 - Använd inte i produktionsmiljön, om det är nödvändigt.
 - Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+
+> [!NOTE]
+> Facebook har två produkter, arbetsplats Standard (gratis) och arbetsplats bidraget (). Alla arbetsplats Premium-klientorganisation kan konfigurera SCIM och SSO-integrering med inga andra konsekvenser kostnaden eller licenser som krävs. Enkel inloggning och SCIM är inte tillgänglig i Standard arbetsplats instanser.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
@@ -111,9 +114,9 @@ I det här avsnittet kan du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<instancename>.facebook.com`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<instancename>.facebook.com`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://www.facebook.com/company/<instanceID>`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://www.facebook.com/company/<instanceID>`
 
     > [!NOTE] 
     > Dessa värden är inte verkligt. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Visas på sidan autentisering på arbetsplatsen företagets instrumentpanelen för korrekta värden för din arbetsplats. 
@@ -159,10 +162,6 @@ I det här avsnittet kan du aktivera Azure AD enkel inloggning i Azure-portalen 
 15. **SAML logga ut omdirigera (valfritt)** - 
 
     Kan du också konfigurera en SAML logga ut Url som kan användas för att peka på sidan för Azure AD logga ut. När den här inställningen är aktiverad och konfigurerad, kommer användaren inte längre dirigeras till sidan Arbetsyta logga ut. I stället omdirigeras användaren till den url som har lagts till i inställningen för att dirigera om SAML logga ut.
-
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="configuring-reauthentication-frequency"></a>Konfigurera omautentisering frekvens
 
@@ -271,4 +270,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 [201]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_203.png
-

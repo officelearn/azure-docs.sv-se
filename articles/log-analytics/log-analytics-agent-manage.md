@@ -1,24 +1,24 @@
 ---
 title: Hantera Azure Log Analytics agenten | Microsoft Docs
-description: "Den här artikeln beskriver de olika administrativa uppgifter som du vanligtvis utför under livscykeln för Microsofts övervakning Agent (MMA) har distribuerats på en dator."
+description: Den här artikeln beskriver de olika administrativa uppgifter som du vanligtvis utför under livscykeln för Microsofts övervakning Agent (MMA) har distribuerats på en dator.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
+ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 2e4daebf18d5edeba92bc14d5a4f699fbd2d94ce
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5ff4f79a607143683b37726f1c02a6057dc6b9b0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Hantera och underhålla logganalys-agenten för Windows och Linux
 
@@ -69,6 +69,34 @@ $mma.ReloadConfiguration()
 >[!NOTE]
 >Om du tidigare har använt kommandorad eller skript att installera eller konfigurera agenten `EnableAzureOperationalInsights` ersattes med `AddCloudWorkspace` och `RemoveCloudWorkspace`.
 >
+
+### <a name="linux-agent"></a>Linux-agent
+Följande steg visar hur du konfigurerar om Linux-agent om du vill registrera den med en annan arbetsyta eller vill du ta bort en arbetsyta från dess konfiguration.  
+
+1.  Kör följande kommando för att verifiera den är registrerad på en arbetsyta.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    Det ska returnera statusen liknar följande exempel- 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+    Det är viktigt att statusen visar även agenten körs, annars följande steg för att konfigurera om agenten kommer inte att slutföra.  
+
+2. Om den redan är registrerad med en arbetsyta kan du ta bort registrerade arbetsytan genom att köra följande kommando.  Annars om den inte är registrerad, fortsätter du till nästa steg.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -X`  
+    
+3. Om du vill registrera med en annan arbetsyta, kör du kommandot `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]` 
+4. Kör kommandot för att verifiera ändringarna tog påverkar.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    Det ska returnera statusen liknar följande exempel- 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+Agent-tjänsten behöver inte startas om för att ändringarna ska börja gälla.
 
 ## <a name="update-proxy-settings"></a>Uppdatera proxyinställningarna 
 Konfigurera agenten för kommunikation till tjänsten via en proxyserver eller [OMS Gateway](log-analytics-oms-gateway.md) efter distributionen, använda något av följande metoder för att slutföra åtgärden.
@@ -148,7 +176,7 @@ Den hämta filen för agenten är ett fristående installationsprogram som skapa
 3. I Kommandotolken skriver du `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
 
 ### <a name="linux-agent"></a>Linux-agent
-Kör följande kommando för att ta bort agenten på Linux-datorn.  Den *--Rensa* argumentet helt tar bort agenten och dess konfiguration.
+Kör följande kommando för att ta bort agenten på Linux-datorn.  Argumentet *--purge* tar bort agenten och dess konfiguration fullständigt.
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 

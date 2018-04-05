@@ -1,11 +1,11 @@
 ---
-title: "Hantera nätverket grupp flödet säkerhetsloggar med Azure Nätverksbevakaren | Microsoft Docs"
-description: "Den här sidan förklarar hur du hanterar Nätverkssäkerhetsgruppen flöde loggar i Azure Nätverksbevakaren"
+title: Hantera nätverket grupp flödet säkerhetsloggar med Azure Nätverksbevakaren | Microsoft Docs
+description: Den här sidan förklarar hur du hanterar Nätverkssäkerhetsgruppen flöde loggar i Azure Nätverksbevakaren
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
 ms.devlang: na
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 633543aba99f5c09b14a9e4b11adf59ca04d0fe5
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cb41781c5ac8fb759cecea01402c08dd716bf7d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Hantera nätverket grupp flödet säkerhetsloggar i Azure-portalen
 
 > [!div class="op_single_selector"]
-> - [Azure-portalen](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
@@ -38,7 +38,10 @@ Nätverket säkerhetsloggar grupp flöde är en funktion i Nätverksbevakaren d�
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Det här scenariot förutsätter att du redan har följt stegen i [skapa en instans av Nätverksbevakaren](network-watcher-create.md). Det här scenariot förutsätter att du har en resursgrupp med en giltig virtuell dator.
+Du måste redan ha följande resurser för att slutföra stegen i den här artikeln:
+
+- En befintlig Nätverksbevakaren. Om du vill skapa en Nätverksbevakaren finns [skapa en instans av Nätverksbevakaren](network-watcher-create.md).
+- En befintlig resursgrupp med en giltig virtuell dator. Om du inte har en virtuell dator, se Skapa en [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) eller [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) virtuella datorn.
 
 ## <a name="register-insights-provider"></a>Registrera providern insikter
 
@@ -68,7 +71,7 @@ Välj en säkerhetsgrupp för nätverk i listan.
 
 ### <a name="step-3"></a>Steg 3 
 
-På den **flöde loggar inställningar** bladet Ange status till **på**, och konfigurera ett lagringskonto.  När du är klar väljer du **OK**. Välj sedan **spara**.
+På den **flöde loggar inställningar** bladet Ange status till **på**, och konfigurera ett lagringskonto. Välj ett befintligt lagringskonto som har **alla nätverk** (standard) som är markerad under **brandväggar och virtuella nätverk**under den **inställningar** för lagringskontot. När du har markerat ett lagringskonto, Välj **OK**, och välj sedan **spara**.
 
 ![Översikt över flödet-loggar][3]
 

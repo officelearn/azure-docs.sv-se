@@ -1,11 +1,11 @@
 ---
-title: "Aktivera diagnostikloggning för Batch - händelser i Azure | Microsoft Docs"
-description: "Registrera och analysera diagnostiska logghändelser för Azure Batch-kontot resurser som pooler och uppgifter."
+title: Aktivera diagnostikloggning för Batch - händelser i Azure | Microsoft Docs
+description: Registrera och analysera diagnostiska logghändelser för Azure Batch-kontot resurser som pooler och uppgifter.
 services: batch
-documentationcenter: 
-author: tamram
-manager: timlt
-editor: 
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: e14e611d-12cd-4671-91dc-bc506dc853e5
 ms.service: batch
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7bc6fd9921ab0f2374ace33ea5c1ab93a78f860
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c41c8c9f8fd9302c610ce356b0485e33ea3c967d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Logghändelser diagnostiska utvärdering och övervakning av Batch-lösningar
 
@@ -41,14 +41,14 @@ Precis som med många Azure-tjänster, skickar Batch-tjänsten händelser för v
   > 
   > 
 
-## <a name="enable-diagnostic-logging"></a>Aktivera diagnostikloggning
+## <a name="enable-diagnostic-logging"></a>Aktivera diagnostisk loggning
 Diagnostikloggning är inte aktiverad som standard för Batch-kontot. Du måste uttryckligen aktivera diagnostikloggning för varje Batch-kontot som du vill övervaka:
 
 [Så här aktiverar du samling diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)
 
 Vi rekommenderar att du läser hela [översikt av Azure diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artikel för att få en bättre förståelse av inte bara hur du aktiverar loggning, men log-kategorier som stöds av olika Azure-tjänster. Till exempel Azure Batch för närvarande stöder en logg kategori: **tjänstloggar**.
 
-## <a name="service-logs"></a>Tjänsten loggar
+## <a name="service-logs"></a>Service Logs
 Azure Batch-tjänstloggar innehålla händelser som sänds av Azure Batch-tjänsten under livslängden för en Batch resurs, till exempel en pool eller aktiviteten. Varje händelse som orsakat av Batch lagras i det angivna Storage-kontot i JSON-format. Detta är till exempel brödtexten i ett exempel på en **pool Skapa händelse**:
 
 ```json

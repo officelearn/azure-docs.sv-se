@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 476dc5fb8a5d9fb7fbcee898517455c52a3a9d73
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 309a64c47eb95ca2ca05bb82bc1c41256305823d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Anropa ett SSIS-paket med hjälp av aktiviteten lagrad procedur i Azure Data Factory
 Den här artikeln beskriver hur du anropa ett SSIS-paket från ett Azure Data Factory-pipelinen genom att använda en lagrad procedur-aktivitet. 
@@ -25,10 +25,10 @@ Den här artikeln beskriver hur du anropa ett SSIS-paket från ett Azure Data Fa
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory som är allmänt tillgänglig. Om du använder version 2 av Data Factory-tjänsten, som är tillgänglig som förhandsversion, se [anropa SSIS-paket med hjälp av aktiviteten lagrad procedur i version 2](../how-to-invoke-ssis-package-stored-procedure-activity.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
-Den här genomgången i den här artikeln använder en Azure SQL-databas som är värd för SSIS-katalogen. Du kan också använda en Azure SQL hanteras-instans (privat förhandsvisning).
+Den här genomgången i den här artikeln använder en Azure SQL-databas som är värd för SSIS-katalogen. Du kan också använda en Azure SQL hanteras-instans (förhandsversion).
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Skapa en Azure-SSIS Integration Runtime
 Skapa en Azure-SSIS-integrering körning om du inte har någon av följande steg för steg-anvisningarna i den [genomgång: distribuera SSIS-paket](../tutorial-create-azure-ssis-runtime-portal.md). Du måste skapa en datafabrik version 2 för att skapa en Azure-SSIS-integrering körning. 

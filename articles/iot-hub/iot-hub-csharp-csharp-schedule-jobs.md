@@ -1,11 +1,11 @@
 ---
-title: "Schemalägga med Azure IoT Hub (.NET/.NET) | Microsoft Docs"
-description: "Så här schemalägger du ett Azure IoT Hub-jobb att anropa en direkt metod på flera enheter. Du kan använda Azure IoT-enhet SDK för .NET för att implementera de simulerade enheten apparna och service-appen för att köra jobbet."
+title: Schemalägga med Azure IoT Hub (.NET/.NET) | Microsoft Docs
+description: Så här schemalägger du ett Azure IoT Hub-jobb att anropa en direkt metod på flera enheter. Du kan använda Azure IoT-enhet SDK för .NET för att implementera de simulerade enheten apparna och service-appen för att köra jobbet.
 services: iot-hub
 documentationcenter: .net
 author: msebolt
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 012/16/2018
 ms.author: v-masebo
-ms.openlocfilehash: 0cdc23683489e103b061044856d68a8b014d3535
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 59d78c390e479acd16d47b70e8af5e164d746905
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Schemat och sändning jobb (.NET/.NET)
 
@@ -36,6 +36,8 @@ Mer information om var och en av dessa funktioner finns:
 
 * Enheten dubbla och egenskaper: [Kom igång med enheten twins] [ lnk-get-started-twin] och [Självstudier: hur du använder identiska enhetsegenskaper][lnk-twin-props]
 * Dirigera metoder: [IoT-hubb Utvecklarhandbok - direkt metoder] [ lnk-dev-methods] och [kursen: direkta metoder][lnk-c2d-methods]
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 I den här självstudiekursen lär du dig att:
 

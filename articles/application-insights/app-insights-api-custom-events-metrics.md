@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: ff4b587790872511c7b545233685f5b3ae068291
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 072ce2952e3cdea47b02ef7656ca67d4bc0ae8f1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API för anpassade händelser och mått
 
@@ -352,7 +352,7 @@ Telemetrin är tillgängliga i den `customMetrics` tabell i [Application Insight
 * `valueSum` -Detta är summan av mått. Om du vill ha medelvärdet dividera med `valueCount`.
 * `valueCount` -Antalet mått som har aggregerats till detta `trackMetric(..)` anropa.
 
-## <a name="page-views"></a>Sidvisning
+## <a name="page-views"></a>Sidvisningar
 I en enhet eller en webbsida app skickas sidan Visa telemetri som standard när varje skärmen eller sidan har lästs in. Men du kan ändra det om du vill spåra sidvisningar vid ytterligare eller olika tidpunkter. I en app som visar flikarna eller blad, kanske du vill spåra en sida när användaren öppnar ett nytt blad.
 
 ![Användning linsen på bladet översikt](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
@@ -1113,7 +1113,7 @@ På webbsidor, kanske du vill ange från webbserverns tillstånd i stället kodn
     }({instrumentationKey:  
       // Generate from server property:
       @Microsoft.ApplicationInsights.Extensibility.
-         TelemetryConfiguration.Active.InstrumentationKey"
+         TelemetryConfiguration.Active.InstrumentationKey;
     }) // ...
 
 
@@ -1136,7 +1136,7 @@ Om du anger dessa värden själv kan du ta bort den aktuella raden från [Applic
 * **Sessionen**: användarens session. ID som anges till ett genererat värde ändras när användaren inte har varit aktiv under en stund.
 * **Användaren**: användarinformation.
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Gränser
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 Använd för att undvika träffa hastighetsbegränsning data [provtagning](app-insights-sampling.md).

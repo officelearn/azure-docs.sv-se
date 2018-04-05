@@ -1,26 +1,26 @@
 ---
-title: "Skapa ett Azure-nätverk – PowerShell | Microsoft Docs"
-description: "Snabbt lära dig skapa ett virtuellt nätverk med PowerShell. Ett virtuellt nätverk gör det möjligt för Azure-resurser, till exempel virtuella datorer, privat kommunicera med varandra och med internet."
+title: Skapa ett Azure-nätverk – PowerShell | Microsoft Docs
+description: Snabbt lära dig skapa ett virtuellt nätverk med PowerShell. Ett virtuellt nätverk gör det möjligt för Azure-resurser, till exempel virtuella datorer, privat kommunicera med varandra och med internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
-ms.devlang: 
-ms.topic: 
+ms.devlang: ''
+ms.topic: ''
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 13d36e6861a30473e6cb5d54d94a3c23a1e4cc59
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: ''
+ms.openlocfilehash: fe171000f83c27f23972569b93e351340f4426ad
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-virtual-network-using-powershell"></a>Skapa ett virtuellt nätverk med PowerShell
 
@@ -159,4 +159,4 @@ I den här artikeln får skapat du ett virtuellt standardnätverk och två virtu
 Standard Azure tillåter obegränsad privat kommunikation mellan virtuella datorer, men tillåter bara inkommande anslutningar till fjärrskrivbord till virtuella Windows-datorer från Internet. Om du vill lära dig mer om att tillåta eller begränsa olika typer av kommunikation till och från virtuella datorer, går du vidare till nästa kurs.
 
 > [!div class="nextstepaction"]
-> [Filtrera nätverkstrafik](virtual-networks-create-nsg-arm-ps.md)
+> [Filtrera nätverkstrafik](tutorial-filter-network-traffic.md)

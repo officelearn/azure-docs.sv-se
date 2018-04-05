@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/21/2018
+ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 1cf23a8f564553e65ac2c0fd34d44d81fe2327ea
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7dc467d9977d536011e1c3fcf663fc335f90a492
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Kör en tjänst som en Active Directory-användare eller grupp
-Du kan skydda program som körs i kluster under olika användarkonton med hjälp av Azure Service Fabric. Det gör att program som körs, även i en delad värdmiljö säkrare från varandra. Service Fabric-program körs under kontot som Fabric.exe-processen körs under som standard. För ett fristående Windows Server-kluster kan du köra en tjänst som en [grupphanterat tjänstkonto (gMSA)](service-fabric-run-service-as-gmsa.md) eller en Active Directory-användare eller en grupp med en RunAs-princip. Observera att detta använder Active Directory lokalt i din domän och inte Azure Active Directory (AD Azure).
+Du kan köra en tjänst som en Active Directory-användare eller grupp med en RunAs-princip på en fristående Windows Server-kluster.  Service Fabric-program körs under kontot som Fabric.exe-processen körs under som standard. Kör program under olika konton, även i en delad värdmiljö gör dem säkrare från varandra. Observera att detta använder Active Directory lokalt i din domän och inte Azure Active Directory (AD Azure).  Du kan också köra en tjänst som en [grupphanterat tjänstkonto (gMSA)](service-fabric-run-service-as-gmsa.md).
 
 Genom att använda en domänanvändare eller grupp kan du sedan komma åt andra resurser i domänen (till exempel filresurser) som har behörighet.
 

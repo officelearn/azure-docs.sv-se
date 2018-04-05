@@ -1,19 +1,20 @@
 ---
 title: Azure IoT kant SQL-modulen | Microsoft Docs
-description: "Lagra data på kanten med Microsoft SQL-moduler med Azure Functions för att formatera data."
+description: Lagra data på kanten med Microsoft SQL-moduler med Azure Functions för att formatera data.
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
-ms.author: kgremban, ebertrams
+ms.author: kgremban
+ms.reviewer: ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 792e754b84f1dc03a32780ed94d274c833be68f5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c755d171b34d59d2746a965ab3511a0df00c98db
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Lagra data på kanten med SQL Server-databaser
 
@@ -21,7 +22,7 @@ Använda Azure IoT-gränsenheterna för att lagra de data som genereras vid grä
 
 Den här artikeln innehåller instruktioner för att distribuera en SQL Server-databas till en IoT-enhet. Azure Functions, körs på IoT gränsenheten strukturer inkommande data och skickar dem sedan till databasen. Stegen i den här artikeln kan också tillämpas på andra databaser som fungerar i behållare som MySQL eller PostgreSQL. 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 Innan du börjar instruktionerna i den här artikeln bör du genomföra följande kurser:
 * Distribuera Azure IoT kanten på en simulerad enhet i [Windows](tutorial-simulate-device-windows.md) eller [Linux](tutorial-simulate-device-linux.md)

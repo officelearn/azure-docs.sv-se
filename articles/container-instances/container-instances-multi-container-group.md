@@ -1,19 +1,19 @@
 ---
-title: "Distribuera flera behållare grupper i Azure Container instanser"
-description: "Lär dig hur du distribuerar en behållare grupp med flera behållare i Azure Container instanser."
+title: Distribuera flera behållare grupper i Azure Container instanser
+description: Lär dig hur du distribuerar en behållare grupp med flera behållare i Azure Container instanser.
 services: container-instances
 author: neilpeterson
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/30/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 41a47adb1f1da417038757934f0a6cf7e11555da
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 58fd4c18df5ec0a5d02be0e6e89cb2b4af26b20e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-a-container-group"></a>Distribuera en behållare grupp
 
@@ -22,7 +22,7 @@ Azure Behållarinstanser stöder distribution av flera behållare till en enda v
 Det här dokumentet vägleder dig genom att köra en enkel flera behållare sidovagn konfiguration genom att distribuera en Azure Resource Manager-mall.
 
 > [!NOTE]
-> Flera behållare grupper är för närvarande begränsad till Linux-behållare. När vi arbetar för att göra alla funktioner till Windows-behållare, hittar du den aktuella plattformen skillnader i [kvoter och regional tillgänglighet för Azure-Behållarinstanser](container-instances-quotas.md).
+> Flera behållare grupper är för närvarande begränsad till Linux-behållare. Under tiden som vi arbetar för att göra alla funktioner tillgängliga för Windows-behållare kan du se de nuvarande skillnaderna mellan plattformarna i informationen om [kvoter och regional tillgänglighet för Azure Container Instances](container-instances-quotas.md).
 
 ## <a name="configure-the-template"></a>Konfigurera mallen
 
@@ -45,7 +45,7 @@ En offentlig IP-adress, och två exponerade har definierats i det här exemplet 
     {
       "name": "myContainerGroup",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2017-10-01-preview",
+      "apiVersion": "2018-04-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [
@@ -144,7 +144,7 @@ Du kan visa statusen för distributionen av [az behållaren visa] [ az-container
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location
@@ -152,7 +152,7 @@ Name              ResourceGroup    ProvisioningState    Image                   
 myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-helloworld:latest,microsoft/aci-tutorial-sidecar  52.168.26.124:80,8080  1.0 core/1.5 gb  Linux     westus
 ```
 
-## <a name="view-logs"></a>Visa loggfiler
+## <a name="view-logs"></a>Visa loggar
 
 Visa loggutdata från en behållare med hjälp av den [az behållaren loggar] [ az-container-logs] kommando. Den `--container-name` argumentet anger behållaren som hämtar loggarna. Den första behållaren har angetts i det här exemplet.
 
@@ -160,7 +160,7 @@ Visa loggutdata från en behållare med hjälp av den [az behållaren loggar] [ 
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 listening on port 80
@@ -175,7 +175,7 @@ Om du vill se loggar för behållaren sida bilen köra samma kommando anger andr
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 Every 3s: curl -I http://localhost                          2018-01-09 23:25:11
@@ -202,7 +202,7 @@ Som du kan se göra sidovagn regelbundet en HTTP-begäran till huvudsakliga webb
 Den här artikeln beskrivs de steg som krävs för att distribuera en instans av flera behållare Azure-behållaren. En slutpunkt till slutpunkt Azure Behållarinstanser upplevelse finns i Azure Container instanser kursen.
 
 > [!div class="nextstepaction"]
-> [Azure Behållarinstanser självstudiekursen][aci-tutorial]
+> [Självstudie för Azure Container Instances][aci-tutorial]
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md

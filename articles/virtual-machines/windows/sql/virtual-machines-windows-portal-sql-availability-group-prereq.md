@@ -1,6 +1,6 @@
 ---
-title: "Grupper tillgänglighet för SQL Server - virtuella datorer i Azure - förutsättningar för | Microsoft Docs"
-description: "Den här kursen visar hur du konfigurerar kraven för att skapa en SQL Server Always On availability group på virtuella Azure-datorer."
+title: Grupper tillgänglighet för SQL Server - virtuella datorer i Azure - förutsättningar för | Microsoft Docs
+description: Den här kursen visar hur du konfigurerar kraven för att skapa en SQL Server Always On availability group på virtuella Azure-datorer.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/09/2017
+ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 85ad53f0b7b4b14784bb0755ee22763d124e63ba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f2a0af65af068f3a78a08e46e0e42caefd87d7b1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Uppfylla förutsättningar för att skapa Always On-Tillgänglighetsgrupper på virtuella Azure-datorer
 
@@ -42,7 +42,7 @@ Du behöver ett Azure-konto. Du kan [öppna ett kostnadsfritt Azure-konto](/pric
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 1. Logga in på [Azure-portalen](http://portal.azure.com).
-2. Klicka på  **+**  att skapa ett nytt objekt i portalen.
+2. Klicka på **+** att skapa ett nytt objekt i portalen.
 
    ![Nytt objekt](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
 
@@ -51,9 +51,9 @@ Du behöver ett Azure-konto. Du kan [öppna ett kostnadsfritt Azure-konto](/pric
    ![Resursgrupp](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
 4. Klicka på **resursgruppen**.
 5. Klicka på **Skapa**.
-6. På den **resursgruppen** bladet under **resursgruppens namn**, Skriv ett namn för resursgruppen. Skriv till exempel **sql-hög tillgänglighet-rg**.
+6. Under **resursgruppens namn**, Skriv ett namn för resursgruppen. Skriv till exempel **sql-hög tillgänglighet-rg**.
 7. Kontrollera att prenumerationen är Azure-prenumeration som du vill skapa tillgänglighetsgruppen i om du har flera Azure-prenumerationer.
-8. Välj en plats. Platsen är Azure-regionen där du vill skapa tillgänglighetsgruppen. Den här självstudiekursen kommer vi att skapa alla resurser i en Azure-plats.
+8. Välj en plats. Platsen är Azure-regionen där du vill skapa tillgänglighetsgruppen. Den här artikeln skapar alla resurser i en Azure-plats.
 9. Kontrollera att **fäst på instrumentpanelen** är markerad. Den här valfria inställningen placeras en genväg för resursgruppen på instrumentpanelen för Azure-portalen.
 
    ![Resursgrupp](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
@@ -69,14 +69,14 @@ Lösningen använder ett virtuellt nätverk med två undernät. Den [översikt �
 
 För att skapa det virtuella nätverket:
 
-1. I Azure-portalen i resursgruppen, klickar du på **+ Lägg till**. Azure öppnas den **allt** bladet.
+1. I Azure-portalen i resursgruppen, klickar du på **+ Lägg till**. 
 
    ![Nytt objekt](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/02-newiteminrg.png)
 2. Sök efter **virtuellt nätverk**.
 
      ![Sökningen virtuellt nätverk](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/04-findvirtualnetwork.png)
 3. Klicka på **för virtuella nätverk**.
-4. På den **för virtuella nätverk** bladet, klickar du på den **Resource Manager** distributionsmodell och klicka sedan på **skapa**.
+4. På den **för virtuella nätverk**, klicka på den **Resource Manager** distributionsmodell och klicka sedan på **skapa**.
 
     I följande tabell visas inställningarna för det virtuella nätverket:
 
@@ -106,14 +106,14 @@ Nytt virtuellt nätverk har ett undernät, med namnet **Admin**. Domänkontrolla
 1. På instrumentpanelen, klickar du på den resursgrupp som du skapade **SQL-hög tillgänglighet-RG**. Leta upp nätverket i resursgruppen under **resurser**.
 
     Om **SQL-hög tillgänglighet-RG** inte visas, hitta genom att klicka på **resursgrupper** och filtrering av resursgruppens namn.
-2. Klicka på **autoHAVNET** i listan över resurser. Azure öppnas bladet nätverket konfiguration.
-3. På den **autoHAVNET** virtuellt nätverksblad under **inställningar** , klickar du på **undernät**.
+2. Klicka på **autoHAVNET** i listan över resurser. 
+3. På den **autoHAVNET** virtuella nätverk, under **inställningar** , klickar du på **undernät**.
 
     Observera att det undernät som du redan skapat.
 
    ![Konfigurera det virtuella nätverket](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/07-addsubnet.png)
 5. Skapa en andra undernät. Klicka på **+ undernät**.
-6. På den **Lägg till undernät** bladet konfigurera undernätet genom att skriva **sqlsubnet** under **namn**. Azure automatiskt anger en giltig **adressintervall**. Kontrollera att detta adressintervall har minst 10 adresser i den. Du kan behöva flera adresser i en produktionsmiljö.
+6. På **Lägg till undernät**, konfigurera undernätet genom att skriva **sqlsubnet** under **namn**. Azure automatiskt anger en giltig **adressintervall**. Kontrollera att detta adressintervall har minst 10 adresser i den. Du kan behöva flera adresser i en produktionsmiljö.
 7. Klicka på **OK**.
 
     ![Konfigurera det virtuella nätverket](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/08-configuresubnet.png)
@@ -134,7 +134,7 @@ I följande tabell sammanfattas inställningarna för nätverk:
 
 ## <a name="create-availability-sets"></a>Skapa tillgänglighetsuppsättningar
 
-Innan du skapar virtuella datorer måste du skapa tillgänglighetsuppsättningar. Tillgänglighetsuppsättningar minska avbrottstiden för planerat eller oplanerat underhållshändelser. En Azure tillgänglighetsuppsättning är en logisk grupp med resurser som Azure placerar fysiska feldomäner och update-domäner. En feldomän säkerställer att medlemmarna i tillgänglighetsuppsättningen separat power och nätverksresurser. En uppdateringsdomän säkerställer att medlemmar i tillgänglighetsuppsättningen inte återspeglas för underhåll på samma gång. Mer information finns i [hantera tillgängligheten för virtuella datorer](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Innan du skapar virtuella datorer måste du skapa tillgänglighetsuppsättningar. Tillgänglighetsuppsättningar minska avbrottstiden för planerat eller oplanerat underhållshändelser. En Azure tillgänglighetsuppsättning är en logisk grupp med resurser som Azure placerar fysiska feldomäner och update-domäner. En feldomän säkerställer att medlemmarna i tillgänglighetsuppsättningen separat power och nätverksresurser. En uppdateringsdomän säkerställer att medlemmar i tillgänglighetsuppsättningen inte återspeglas för underhåll på samma gång. För ytterligare information, se [hantera tillgängligheten för virtuella datorer](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Du behöver två tillgänglighetsuppsättningar. En är för domänkontrollanter. Andra är för SQL Server-datorer.
 
@@ -157,9 +157,9 @@ När du har skapat nätverket, undernät, tillgänglighetsuppsättningar och en 
 ### <a name="create-virtual-machines-for-the-domain-controllers"></a>Skapa virtuella datorer för domänkontrollanter
 Om du vill skapa och konfigurera domänkontrollanterna kan återgå till den **SQL-hög tillgänglighet-RG** resursgruppen.
 
-1. Klicka på **Lägg till**. Den **allt** blad öppnas.
+1. Klicka på **Lägg till**. 
 2. Typen **Windows Server 2016 Datacenter**.
-3. Klicka på **Windows Server 2016 Datacenter**. I den **Windows Server 2016 Datacenter** bladet, kontrollera att distributionsmodellen är **Resource Manager**, och klicka sedan på **skapa**. Azure öppnas den **Skapa virtuell dator** bladet.
+3. Klicka på **Windows Server 2016 Datacenter**. I **Windows Server 2016 Datacenter**, kontrollera att distributionsmodellen är **Resource Manager**, och klicka sedan på **skapa**. 
 
 Upprepa föregående steg för att skapa två virtuella datorer. Namn på två virtuella datorer:
 
@@ -189,7 +189,7 @@ I följande tabell visas inställningarna för dessa två datorer:
 | **Offentlig IP-adress** |*Samma namn som den virtuella datorn* |
 | **Nätverkssäkerhetsgrupp** |*Samma namn som den virtuella datorn* |
 | **Tillgänglighetsuppsättning** |adavailabilityset </br>**Fault domäner**: 2</br>**Uppdatera domäner**: 2|
-| **Diagnostik** |Enabled |
+| **Diagnostik** |Aktiverad |
 | **Diagnostiklagringskonto** |*Skapas automatiskt* |
 
    >[!IMPORTANT]
@@ -202,7 +202,7 @@ När de virtuella datorerna har skapats kan konfigurera en domänkontrollant.
 ### <a name="configure-the-domain-controller"></a>Konfigurera en domänkontrollant
 I följande steg ska du konfigurera den **ad primär domänkontrollant** maskin som en domänkontrollant för corp.contoso.com.
 
-1. I portalen, öppna den **SQL-hög tillgänglighet-RG** resurs gruppen och välj den **ad primär domänkontrollant** datorn. På den **ad primär domänkontrollant** bladet, klickar du på **Anslut** att öppna en RDP-fil för fjärråtkomst till skrivbordet.
+1. I portalen, öppna den **SQL-hög tillgänglighet-RG** resurs gruppen och välj den **ad primär domänkontrollant** datorn. På **ad primär domänkontrollant**, klickar du på **Anslut** att öppna en RDP-fil för fjärråtkomst till skrivbordet.
 
     ![Ansluta till en virtuell dator](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
 2. Logga in med ditt konfigurerade administratörskonto (**\DomainAdmin**) och lösenord (**Contoso! 0000**).
@@ -246,7 +246,7 @@ Ett sätt att hämta domänkontrollant IP-adressen för primär domän är via A
 
 2. Klicka på den primära domänkontrollanten.
 
-3. Klicka på bladet primär domän controller **nätverksgränssnitt**.
+3. Klicka på den primära domänkontrollanten **nätverksgränssnitt**.
 
 ![Nätverksgränssnitt](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/25-primarydcip.png)
 
@@ -266,7 +266,7 @@ När du skapar den första domänkontrollanten och aktivera DNS på den första 
 ### <a name="configure-the-second-domain-controller"></a>Konfigurera andra domänkontrollanter
 Du kan konfigurera andra domänkontrollanten när den primära domänkontrollanten startar om. Det här valfria steget är för hög tillgänglighet. Följ dessa steg för att konfigurera andra domänkontrollanten:
 
-1. I portalen, öppna den **SQL-hög tillgänglighet-RG** resurs gruppen och välj den **ad-sekundär-dc** datorn. På den **ad-sekundär-dc** bladet, klickar du på **Anslut** att öppna en RDP-fil för fjärråtkomst till skrivbordet.
+1. I portalen, öppna den **SQL-hög tillgänglighet-RG** resurs gruppen och välj den **ad-sekundär-dc** datorn. På **ad-sekundär-dc**, klickar du på **Anslut** att öppna en RDP-fil för fjärråtkomst till skrivbordet.
 2. Logga in på den virtuella datorn med hjälp av ditt konfigurerade administratörskonto (**BUILTIN\DomainAdmin**) och lösenord (**Contoso! 0000**).
 3. Ändra önskad DNS-serveradress till adressen för domänkontrollanten.
 4. I **nätverks- och delningscenter**, klickar du på nätverksgränssnittet.
@@ -305,7 +305,7 @@ Starta om servern när servern har slutförts ändringar i konfigurationen.
 
 ### <a name="add-the-private-ip-address-to-the-second-domain-controller-to-the-vpn-dns-server"></a>Lägga till privata IP-adressen till den andra domänkontrollanten till VPN-DNS-Server
 
-Ändra DNS-servern med IP-adressen för den sekundära domänkontrollanten i Azure-portalen under virtuellt nätverk. Detta gör att DNS-tjänsten redundans.
+Ändra DNS-servern med IP-adressen för den sekundära domänkontrollanten i Azure-portalen under virtuellt nätverk. Den här inställningen redundans för DNS-tjänsten.
 
 ### <a name=DomainAccounts></a> Konfigurera domänkontona
 
@@ -313,7 +313,7 @@ I nästa steg ska konfigurera du Active Directory-konton. I följande tabell vis
 
 | |Kontot för installation<br/> |sqlserver-0 <br/>Konto för SQL Server och SQL Agent-tjänsten |sqlserver-1<br/>Konto för SQL Server och SQL Agent-tjänsten
 | --- | --- | --- | ---
-|Förnamn |Installera |SQLSvc1 | SQLSvc2
+|**Förnamn** |Installera |SQLSvc1 | SQLSvc2
 |**Användare SamAccountName** |Installera |SQLSvc1 | SQLSvc2
 
 Använd följande steg för att skapa varje konto.
@@ -350,7 +350,7 @@ Nu när du har konfigurerat Active Directory och användarobjekt, skapa två vir
 
 Skapa tre ytterligare virtuella datorer. Lösningen kräver två virtuella datorer med SQL Server-instanser. En tredje virtuell dator fungerar som ett vittne. Windows Server 2016 kan använda en [molnet vittne](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), men adressöverensstämmelse tidigare operativsystem för det här dokumentet använder en virtuell dator för ett vittne.  
 
-Överväg följande beslut deisign innan du fortsätter.
+Överväg följande designbeslut innan du fortsätter.
 
 * **Lagring – Azure hanterade diskar**
 
@@ -358,7 +358,7 @@ Skapa tre ytterligare virtuella datorer. Lösningen kräver två virtuella dator
 
 * **Nätverk - privata IP-adresser i produktion**
 
-   Den här kursen använder offentliga IP-adresser för de virtuella datorerna. Detta gör att fjärranslutning direkt till den virtuella datorn via internet - det underlättar konfigurationssteg. Microsoft rekommenderar endast privata IP-adresser i produktionsmiljöer, för att minska sårbarhet av SQL Server-instansen Virtuella datorresursen.
+   Den här kursen använder offentliga IP-adresser för de virtuella datorerna. Offentliga IP-adresser tillåter anslutning direkt till den virtuella datorn via internet - det underlättar konfigurationssteg. Microsoft rekommenderar endast privata IP-adresser i produktionsmiljöer, för att minska sårbarhet av SQL Server-instansen Virtuella datorresursen.
 
 ### <a name="create-and-configure-the-sql-server-vms"></a>Skapa och konfigurera SQL Server-datorer
 Skapa därefter tre virtuella datorer – två virtuella SQL Server-datorer och en virtuell dator för en ny klusternod. Om du vill skapa var och en av de virtuella datorerna, gå tillbaka till den **SQL-hög tillgänglighet-RG** resursgrupp, klickar du på **Lägg till**, Sök efter lämplig galleriobjektet, klicka på **virtuella**, och klicka sedan på **från galleriet**. Använd informationen i följande tabell för att skapa de virtuella datorerna:
@@ -370,7 +370,7 @@ Skapa därefter tre virtuella datorer – två virtuella SQL Server-datorer och 
 | Konfiguration av virtuell dator **grunderna** |**Namnet** = klustret fsw<br/>**Användarnamnet** = DomainAdmin<br/>**Lösenordet** = Contoso! 0000<br/>**Prenumerationen** = din prenumeration<br/>**Resursgruppen** = SQL-hög tillgänglighet-RG<br/>**Plats** = azure-plats |**Namnet** = sqlserver-0<br/>**Användarnamnet** = DomainAdmin<br/>**Lösenordet** = Contoso! 0000<br/>**Prenumerationen** = din prenumeration<br/>**Resursgruppen** = SQL-hög tillgänglighet-RG<br/>**Plats** = azure-plats |**Namnet** = sqlserver-1<br/>**Användarnamnet** = DomainAdmin<br/>**Lösenordet** = Contoso! 0000<br/>**Prenumerationen** = din prenumeration<br/>**Resursgruppen** = SQL-hög tillgänglighet-RG<br/>**Plats** = azure-plats |
 | Konfiguration av virtuell dator **storlek** |**STORLEK** = DS1\_V2 (1 vCPU, 3.5 GB) |**STORLEK** = DS2\_V2 (2 vCPUs, 7 GB)</br>Storleken måste ha stöd för SSD-lagring (stöd för Premium-diskar. )) |**STORLEK** = DS2\_V2 (2 vCPUs, 7 GB) |
 | Konfiguration av virtuell dator **inställningar** |**Lagring**: Använd hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet(10.1.1.0/24)<br/>**Offentliga IP-adressen** skapas automatiskt.<br/>**Nätverkssäkerhetsgruppen** = None<br/>**Övervaka diagnostik** = aktiverat<br/>**Diagnostiklagringskonto** = Använd en automatiskt genererad storage-konto<br/>**Tillgänglighetsuppsättningen** = sqlAvailabilitySet<br/> |**Lagring**: Använd hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet(10.1.1.0/24)<br/>**Offentliga IP-adressen** skapas automatiskt.<br/>**Nätverkssäkerhetsgruppen** = None<br/>**Övervaka diagnostik** = aktiverat<br/>**Diagnostiklagringskonto** = Använd en automatiskt genererad storage-konto<br/>**Tillgänglighetsuppsättningen** = sqlAvailabilitySet<br/> |**Lagring**: Använd hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet(10.1.1.0/24)<br/>**Offentliga IP-adressen** skapas automatiskt.<br/>**Nätverkssäkerhetsgruppen** = None<br/>**Övervaka diagnostik** = aktiverat<br/>**Diagnostiklagringskonto** = Använd en automatiskt genererad storage-konto<br/>**Tillgänglighetsuppsättningen** = sqlAvailabilitySet<br/> |
-| Konfiguration av virtuell dator **SQL Server-inställningar** |Inte tillämpligt |**SQL-anslutningen** = privat (inom Virtual Network)<br/>**Port** = 1433<br/>**SQL-autentisering** = inaktivera<br/>**Lagringskonfigurationen** = Allmänt<br/>**Automatisk uppdatering** = söndag 2:00<br/>**Automatisk säkerhetskopiering** = inaktiverad</br>**Azure Key Vault-integrering** = inaktiverad |**SQL-anslutningen** = privat (inom Virtual Network)<br/>**Port** = 1433<br/>**SQL-autentisering** = inaktivera<br/>**Lagringskonfigurationen** = Allmänt<br/>**Automatisk uppdatering** = söndag 2:00<br/>**Automatisk säkerhetskopiering** = inaktiverad</br>**Azure Key Vault-integrering** = inaktiverad |
+| Konfiguration av virtuell dator **SQL Server-inställningar** |Saknas |**SQL-anslutningen** = privat (inom Virtual Network)<br/>**Port** = 1433<br/>**SQL-autentisering** = inaktivera<br/>**Lagringskonfigurationen** = Allmänt<br/>**Automatisk uppdatering** = söndag 2:00<br/>**Automatisk säkerhetskopiering** = inaktiverad</br>**Azure Key Vault-integrering** = inaktiverad |**SQL-anslutningen** = privat (inom Virtual Network)<br/>**Port** = 1433<br/>**SQL-autentisering** = inaktivera<br/>**Lagringskonfigurationen** = Allmänt<br/>**Automatisk uppdatering** = söndag 2:00<br/>**Automatisk säkerhetskopiering** = inaktiverad</br>**Azure Key Vault-integrering** = inaktiverad |
 
 <br/>
 
@@ -383,7 +383,7 @@ När de tre virtuella datorerna är helt etablerad, måste du koppla dem till de
 
 ### <a name="joinDomain"></a>Anslut servrarna till domänen
 
-Du är nu kunna ansluta till de virtuella datorerna till **corp.contoso.com**. Gör följande för både SQL Server-datorer och vittne för servern:
+Du är nu kunna ansluta till de virtuella datorerna till **corp.contoso.com**. Utför följande steg för både SQL Server-datorer och vittne för servern:
 
 1. Fjärransluta till den virtuella datorn med **BUILTIN\DomainAdmin**.
 2. I **Serverhanteraren**, klickar du på **lokal Server**.
@@ -449,7 +449,7 @@ Upprepa föregående steg på den andra SQL Server-VM.
 
 ## <a name="add-failover-clustering-features-to-both-sql-server-vms"></a>Lägg till funktioner för redundanskluster i både SQL Server-datorer
 
-Om du vill lägga till funktioner för redundanskluster, gör du följande på både SQL Server-datorer:
+Om du vill lägga till funktioner för redundanskluster, gör du följande steg på både SQL Server-datorer:
 
 1. Ansluta till SQL Server-dator via Remote Desktop Protocol (RDP) med hjälp av *CORP\install* konto. Öppna **instrumentpanelen Serverhanteraren**.
 2. Klicka på den **Lägg till roller och funktioner** länk på instrumentpanelen.
@@ -492,6 +492,36 @@ Metoden för att öppna portarna beror på brandvägg som du använder. I nästa
 8. På den **namn** anger du ett namn för regeln (exempelvis **Azure LB avsökning**) i den **namn** textrutan och klicka sedan på **Slutför**.
 
 Upprepa dessa steg på den andra SQL Server-VM.
+
+## <a name="configure-system-account-permissions"></a>Konfigurera behörighet för system
+
+Om du vill skapa ett konto för system-kontot och bevilja behörighet, utför följande steg på varje SQL Server-instans:
+
+1. Skapa ett konto för `[NT AUTHORITY\SYSTEM]` på varje SQL Server-instans. Följande skript skapar detta konto:
+
+   ```sql
+   USE [master]
+   GO
+   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
+   GO 
+   ```
+
+1. Bevilja följande behörigheter till `[NT AUTHORITY\SYSTEM]` på varje SQL Server-instans:
+
+   - `ALTER ANY AVAILABILITY GROUP`
+   - `CONNECT SQL`
+   - `VIEW SERVER STATE`
+
+   Följande skript ger följande behörigheter:
+
+   ```sql
+   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
+   GO 
+   ```
 
 ## <a name="next-steps"></a>Nästa steg
 

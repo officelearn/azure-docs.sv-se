@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 241f872b3069a58a35df7104f3335964298c7a20
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2ad995c4b48c2c298edd7c6b4da92ea8f3c4a060
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Auktorisera åtkomst till webbprogram med OAuth 2.0 och Azure Active Directory
 Azure Active Directory (AD Azure) använder OAuth 2.0 för att du ska bevilja åtkomst till webbprogram och webb-API: er i Azure AD-klienten. Den här guiden är språkoberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda någon av våra bibliotek med öppen källkod.
@@ -59,7 +59,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | kommandotolk |valfri |Ange vilken typ av användarinteraktion som krävs.<p> Giltiga värden är: <p> *inloggningen*: användaren ska uppmanas att autentiseras. <p> *medgivande*: tillstånd har beviljats, men behöver uppdateras. Användaren ska uppmanas att godkänna. <p> *admin_consent*: en administratör ska ange tillstånd för alla användare i organisationen |
 | login_hint |valfri |Kan användas för att fylla före adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sitt lösenord i förväg.  Ofta appar använder den här parametern under omautentisering som redan har extraherats användarnamnet från en tidigare inloggning med hjälp av den `preferred_username` anspråk. |
 | domain_hint |valfri |Ger en ledtråd om klient eller domän som användaren ska använda för att logga in. Värdet för domain_hint är en registrerad domän för klienten. Om klienten är federerat till en lokal katalog, omdirigerar AAD till den angivna innehavare federationsservern. |
-| code_challenge_method | valfri    | Den metod som används för att koda den `code_verifier` för den `code_challenge` parameter. Kan vara något av `plain` eller `S256`.  Om inte, `code_challenge` antas vara klartext om `code_challenge` ingår.  Azure AAD version 2.0 stöder både `plain` och `S256`. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge_method | valfri    | Den metod som används för att koda den `code_verifier` för den `code_challenge` parameter. Kan vara något av `plain` eller `S256`.  Om inte, `code_challenge` antas vara klartext om `code_challenge` ingår.  Azure AAD v1.0 stöder både `plain` och `S256`. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 | code_challenge        | valfri    | Används för att säkra auktorisering kod ger via bevis nyckel för koden Exchange (PKCE) från en ursprunglig-klient. Krävs om `code_challenge_method` ingår.  Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]

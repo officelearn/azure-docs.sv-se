@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 03/14/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 2167754d832eb9be3add9875a8189780e1785988
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2748b078586c27a7625c8e48172048d7a574a4d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>Snabbstart: Distribuera ett Azure Container Service-kluster (AKS)
 
@@ -29,7 +29,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="enabling-aks-preview"></a>Aktivera AKS förhandsgranskning
 
-Kontrollera att de leverantörer av Azure-tjänster som krävs har aktiverats med kommandot `az provider register`. 
+Kontrollera att de leverantörer av Azure-tjänster som krävs har aktiverats med kommandot `az provider register`.
 
 ```azurecli-interactive
 az provider register -n Microsoft.Network
@@ -236,7 +236,7 @@ I den här snabbstartsguiden distribuerade du ett Kubernetes-kluster och distrib
 Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig distributionskod, fortsätter du till självstudiekursen om Kubernetes-kluster.
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs om ASK][aks-tutorial]:
+> [Självstudiekurs om AKS][aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
@@ -250,7 +250,7 @@ Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig dis
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
-[az aks install-cli]: /cli/azure/aks?view=azure-cli-latest#az_aks_install_cli
+[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az_aks_install_cli
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli

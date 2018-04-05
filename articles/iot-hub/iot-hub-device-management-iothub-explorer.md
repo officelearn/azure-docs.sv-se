@@ -1,12 +1,12 @@
 ---
 title: Azure IoT-enhetshantering med iothub explorer | Microsoft Docs
-description: "Verktyget iothub explorer CLI för Azure IoT Hub-enhetshantering med direkta metoder och de två alternativ för egenskaper."
+description: Verktyget iothub explorer CLI för Azure IoT Hub-enhetshantering med direkta metoder och de två alternativ för egenskaper.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
-keywords: "Azure iot enhetshantering, azure iot-hubb enhetshantering, device management iot, enhetshantering för iot-hubb"
+tags: ''
+keywords: Azure iot enhetshantering, azure iot-hubb enhetshantering, device management iot, enhetshantering för iot-hubb
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
 ms.service: iot-hub
 ms.devlang: arduino
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: 02d3241ae4ae515a8c2deaa14f50b5b7dbd4766f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e22c321e896abe8d5eb659866256942099cac2d9
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Använda iothub explorer för hantering av Azure IoT Hub-enheter
 
@@ -29,7 +29,9 @@ ms.lasthandoff: 01/18/2018
 
 [iothub explorer](https://github.com/azure/iothub-explorer) är ett CLI-verktyg som du kör på en värd datorn för att hantera enheten identiteter i din IoT-hubb registret. Den innehåller alternativ som du kan använda för att utföra olika uppgifter.
 
-| Hanteringsalternativ          | Aktivitet                                                                                                                            |
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
+| Hanteringsalternativ          | Uppgift                                                                                                                            |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Direkta metoder             | Gör en enhet som agerar som startar eller stoppar skickar meddelanden eller starta om enheten.                                        |
 | Dubbla önskade egenskaper    | Lägga till en enhet i vissa tillstånd, till exempel ange en Indikator till grönt eller inställningen telemetri skicka intervall till 30 minuter.         |
@@ -40,8 +42,7 @@ ms.lasthandoff: 01/18/2018
 
 Mer detaljerad förklaring om skillnaderna och vägledning om hur du använder dessa alternativ finns [enhet till moln kommunikation vägledning](iot-hub-devguide-d2c-guidance.md) och [moln till enhet kommunikation vägledning](iot-hub-devguide-c2d-guidance.md).
 
-> [!NOTE]
-> Enhetstvillingar är JSON-dokument som lagrar information om enhetstillstånd (metadata, konfigurationer och villkor). IoT-hubb kvarstår en enhet dubbla för varje enhet som ansluter till den. Läs mer om enheten twins [Kom igång med enheten twins](iot-hub-node-node-twin-getstarted.md).
+Enhetstvillingar är JSON-dokument som lagrar information om enhetstillstånd (metadata, konfigurationer och villkor). IoT-hubb kvarstår en enhet dubbla för varje enhet som ansluter till den. Läs mer om enheten twins [Kom igång med enheten twins](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 

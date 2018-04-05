@@ -7,6 +7,8 @@
 
 Backend-appar kan använda Azure IoT Hub primitiver t.ex [enheten dubbla] [ lnk-devtwin] och [direkt metoder][lnk-c2dmethod], för att starta och övervaka enheten via fjärranslutning Management-åtgärder på enheterna. Den här kursen visar hur en backend-app och en enhetsapp kan fungera tillsammans för att initiera och övervaka fjärranslutna enheten startas om med IoT-hubb.
 
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
+
 Använd en direkt metod för att initiera hanteringsåtgärder för enheten (till exempel omstart fabriksåterställning och firmware-uppdatering) från en backend-app i molnet. Enheten är ansvarig för:
 
 * Hanterar metoden-begäran som skickats från IoT-hubb.

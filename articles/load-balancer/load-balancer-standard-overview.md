@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 15bbd32d982bdefc5665421b828ce0c8234b7257
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b5443cb1d883bd829a13b6d941d2c87c6205c64f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Översikt över Azure Load Balancer Standard
 
@@ -76,9 +76,6 @@ Serverdelspoolen kan innehålla tillgänglighetsuppsättningar, fristående virt
 När du överväger hur du utformar din serverdelspool, du kan utforma minst antal enskilda backend resurser för att ytterligare optimera varaktigheten för hanteringsåtgärder.  Det finns ingen skillnad i prestanda för data-plan eller skala.
 
 ## <a name="az"></a>Tillgänglighet zoner
-
->[!NOTE]
-> Att använda [tillgänglighet zoner Preview](https://aka.ms/availabilityzones) med Standard belastningsutjämnaren kräver [registrering för tillgänglighet zoner](https://aka.ms/availabilityzones).
 
 Standard belastningsutjämnaren stöder ytterligare funktioner i regioner där tillgänglighet zoner är tillgängliga.  Dessa funktioner är inkrementell till alla belastningsutjämnare som Standard innehåller.  Tillgänglighet zoner konfigurationer är tillgängliga för offentliga och interna Standard belastningsutjämnaren.
 

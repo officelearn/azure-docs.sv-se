@@ -1,26 +1,26 @@
 ---
-title: "Skapa ett Azure-nätverk – Azure CLI | Microsoft Docs"
-description: "Snabbt lära dig skapa ett virtuellt nätverk med Azure CLI. Ett virtuellt nätverk gör det möjligt för Azure-resurser, till exempel virtuella datorer, privat kommunicera med varandra och med internet."
+title: Skapa ett Azure-nätverk – Azure CLI | Microsoft Docs
+description: Snabbt lära dig skapa ett virtuellt nätverk med Azure CLI. Ett virtuellt nätverk gör det möjligt för Azure-resurser, till exempel virtuella datorer, privat kommunicera med varandra och med internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 46fec48720c817072ce838dd2e4c07725be5a7fe
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: ''
+ms.openlocfilehash: d07f06a1a70c859544c3b1ceb6146dc11e4d10aa
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Skapa ett virtuellt nätverk med Azure CLI
 
@@ -129,4 +129,4 @@ I den här artikeln får skapat du ett virtuellt standardnätverk och två virtu
 Standard Azure tillåter obegränsad privat kommunikation mellan virtuella datorer, men tillåter endast inkommande SSH-sessioner till Linux virtuella datorer från Internet. Om du vill lära dig mer om att tillåta eller begränsa olika typer av kommunikation till och från virtuella datorer, går du vidare till nästa kurs.
 
 > [!div class="nextstepaction"]
-> [Filtrera nätverkstrafik](virtual-networks-create-nsg-arm-cli.md)
+> [Filtrera nätverkstrafik](tutorial-filter-network-traffic-cli.md)

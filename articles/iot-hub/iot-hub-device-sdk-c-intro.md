@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT-enhet SDK för C | Microsoft Docs"
-description: "Komma igång med Azure IoT-enhet SDK för C och lär dig hur du skapar appar för enheter som kommunicerar med en IoT-hubb."
+title: Azure IoT-enhet SDK för C | Microsoft Docs
+description: Komma igång med Azure IoT-enhet SDK för C och lär dig hur du skapar appar för enheter som kommunicerar med en IoT-hubb.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e448b061-6bdd-470a-a527-15ec03cca7b9
 ms.service: iot-hub
 ms.devlang: cpp
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: cc559a19f6d7c31b3bc00a74851f4d42719832de
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6a85ae65a0f20892b3a20656abac05e90538a1bd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-enhet SDK för C
 
 Den **Azure IoT-enhet SDK** är en uppsättning bibliotek som har utformats för att förenkla processen att skicka meddelanden till och ta emot meddelanden från den **Azure IoT Hub** service. Det finns olika varianter av SDK, målobjekt för en viss plattform, men den här artikeln beskriver den **Azure IoT-enhet SDK för C**.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Azure IoT-enhet SDK för C sparas i ANSI C (C99) för att maximera portability. Den här funktionen gör biblioteken väl lämpade för fungerar på flera plattformar och enheter, särskilt om minimera disk och minneskrav är en prioritet.
 

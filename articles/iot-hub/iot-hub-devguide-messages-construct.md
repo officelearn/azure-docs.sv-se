@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2018
 ms.author: dobett
-ms.openlocfilehash: 832010181059e2ec42834e54622f374c367c8d4f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5979c0d79a0abd9897fd3970ccea1d9ba07f9dfd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Skapa och läsa IoT-hubb
 
-För att stödja smidig samverkan över protokoll, definierar IoT-hubb ett gemensamt meddelandeformat för alla enheter riktade protokoll. Formatet som används för både [enhet till moln] [ lnk-d2c] och [moln till enhet] [ lnk-c2d] meddelanden. En [IoT-hubb meddelandet] [ lnk-messaging] består av:
+För att stödja smidig samverkan över protokoll, definierar IoT-hubb ett gemensamt meddelandeformat för alla enheter riktade protokoll. Formatet som används för både [enhet till moln] [ lnk-d2c] och [moln till enhet] [ lnk-c2d] meddelanden. 
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+En [IoT-hubb meddelandet] [ lnk-messaging] består av:
 
 * En uppsättning *Systemegenskaper*. Egenskaper som IoT-hubb tolkar eller anger. Den här uppsättningen är förinställda.
 * En uppsättning *programegenskaper*. En ordlista med egenskaper för anslutningssträngar som programmet kan definiera och åtkomst utan att avbryta serialiseringen för brödtext. IoT-hubb ändrar aldrig dessa egenskaper.

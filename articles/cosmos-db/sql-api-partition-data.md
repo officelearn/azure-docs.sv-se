@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a48c1bb246e3e8659aada614d39fdc608e5bc8d8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fe78289938e752731ff2e830fb62ad210e12111e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Partitionering i Azure Cosmos-databasen med SQL-API
 
@@ -78,7 +78,7 @@ Ange partition viktiga definition i form av en JSON-sökvägen i SQL-API. I föl
 Nu ska vi titta på hur valet av partitionsnyckel påverkar prestanda för ditt program.
 
 ## <a name="working-with-the-azure-cosmos-db-sdks"></a>Arbeta med Azure Cosmos DB-SDK
-Azure Cosmos-DB tillagt stöd för automatisk partitionering med [REST API-version 2015-12-16](/rest/api/documentdb/). För att kunna skapa partitionerade behållare, måste du hämta SDK-versioner 1.6.0 eller senare på en av SDK plattformar som stöds (.NET, Node.js, Java, Python, MongoDB). 
+Azure Cosmos-DB tillagt stöd för automatisk partitionering med [REST API-version 2015-12-16](/rest/api/cosmos-db/). För att kunna skapa partitionerade behållare, måste du hämta SDK-versioner 1.6.0 eller senare på en av SDK plattformar som stöds (.NET, Node.js, Java, Python, MongoDB). 
 
 ### <a name="creating-containers"></a>Skapa behållare
 I följande exempel visas en .NET-fragment för att skapa en behållare för att lagra telemetri enhetsdata för 20 000 frågeenheter per sekund genomströmning. SDK anger OfferThroughput-värde (som i sin tur anger den `x-ms-offer-throughput` huvudet i begäran i REST-API). Här ska du ange den `/deviceId` som partitionsnyckel. Valet av partitionsnyckel sparas tillsammans med resten av metadata för behållaren som namn och indexprincip.
@@ -225,6 +225,6 @@ I nästa avsnitt titta vi på hur du kan flytta till partitionerade behållare f
 I den här artikeln har sammanställt vi en översikt över hur du arbetar med partitionering av Azure Cosmos DB behållare med SQL-API. Se även [partitionering och teckenbredden](../cosmos-db/partition-data.md) en översikt över begrepp och bästa praxis för partitionering med Azure Cosmos DB API: er. 
 
 * Utföra skalnings- och prestandatester med Azure Cosmos DB. Se [prestanda och Skalningstester med Azure Cosmos DB](performance-testing.md) ett exempel.
-* Komma igång med programmeringen med den [SDK](sql-api-sdk-dotnet.md) eller [REST API](/rest/api/documentdb/)
+* Komma igång med programmeringen med den [SDK](sql-api-sdk-dotnet.md) eller [REST API](/rest/api/cosmos-db/)
 * Lär dig mer om [etablerat dataflöde i Azure Cosmos DB](request-units.md)
 

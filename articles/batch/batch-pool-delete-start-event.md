@@ -1,24 +1,24 @@
 ---
-title: "Azure Batch-pool borttagning start-händelsen | Microsoft Docs"
-description: "Referens för Batch-pool delete Starta händelsen."
+title: Azure Batch-pool borttagning start-händelsen | Microsoft Docs
+description: Referens för Batch-pool delete Starta händelsen.
 services: batch
-author: tamram
-manager: timlt
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: tamram
-ms.openlocfilehash: f8a5241dce422e5c826ab428da6d7bc93284a1cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: 8737b9ff6452730ff5a55fa7324e37f0fe715433
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="pool-delete-start-event"></a>Starta händelsen för poolen borttagning
+# <a name="pool-delete-start-event"></a>Starthändelse för borttagning av pool
 
  Denna händelse genereras när en programpool borttagningsåtgärd har startats. Eftersom poolen är en asynkron händelse, du kan förvänta dig en pool ta bort händelsen klar som ska skickas när borttagningen är klar.
 

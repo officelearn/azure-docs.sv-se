@@ -14,23 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: e7e45a6af0857520eec27263281a0f0a43b30013
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c410db9a7255a039ab9b41ae39f2fe1018719f8f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
 Den här artikeln beskrivs alternativ för att skydda din IoT-hubb. IoT-hubb använder *behörigheter* att bevilja åtkomst till varje IoT hub-slutpunkt. Behörigheter som begränsar åtkomsten till en IoT-hubb som baseras på funktionen.
 
-Den här artikeln beskrivs:
+Den här artikeln innehåller:
 
 * De olika behörigheterna som du kan bevilja en enhet eller backend-app åtkomst till din IoT-hubb.
 * Autentiseringen och token som används för att verifiera behörigheter.
 * Så här scope autentiseringsuppgifter för att begränsa åtkomsten till specifika resurser.
 * IoT-hubb stöd för X.509-certifikat.
 * Anpassade autentiseringsmekanismer som använder befintliga enhetens identitet register eller autentiseringsscheman.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Du måste ha behörighet att komma åt IoT-hubb-slutpunkter. Till exempel måste en enhet innehålla en token som innehåller säkerhetsreferenser tillsammans med alla meddelanden som skickas till IoT-hubb.
 
@@ -425,7 +427,7 @@ Följande referensavsnitt ge mer information om hur du styr åtkomst till din Io
 
 I följande tabell visas de behörigheter som du kan använda för att styra åtkomsten till din IoT-hubb.
 
-| Behörighet | Anteckningar |
+| Behörigheter | Anteckningar |
 | --- | --- |
 | **RegistryRead** |Ger läsbehörighet till identitetsregistret. Mer information finns i [identitetsregistret][lnk-identity-registry]. <br/>Den här behörigheten används av backend-molntjänster. |
 | **RegistryReadWrite** |Ger Läs- och skrivåtkomst till identitetsregistret. Mer information finns i [identitetsregistret][lnk-identity-registry]. <br/>Den här behörigheten används av backend-molntjänster. |

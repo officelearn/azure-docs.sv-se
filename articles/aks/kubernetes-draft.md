@@ -1,27 +1,27 @@
 ---
-title: "Använd utkast med AKS och Azure-behållaren registret"
-description: "Använd utkast med AKS och Azure-behållaren registret"
+title: Använd utkast med AKS och Azure-behållaren registret
+description: Använd utkast med AKS och Azure-behållaren registret
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 803d9e9ea7411c6de4dd15670f495fa8e169a989
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 2ab79e3a6308d01d836a82f356f43eccb6af9791
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Använd utkast med Azure Container Service (AKS)
 
-Utkastet är ett verktyg med öppen källkod som hjälper till att paketet och köra kod i ett Kubernetes kluster. Utkast är inriktad på iteration utvecklingscykeln; När koden utvecklas, men innan du genomför för versionskontroll. Med utkastet kan du snabbt distribuera ett program till Kubernetes när koden ändringar görs. Mer information om utkast finns i [utkast dokumentation på Github][draft-documentation].
+Utkastet är ett verktyg med öppen källkod som hjälper till att innehålla och distribuera dessa behållare i ett Kubernetes kluster, så att du kan koncentrera dig på dev cykel--i topp utvecklingen av ”inre loop”. Utkast fungerar som koden utvecklas, men innan du genomför för versionskontroll. Med utkastet kan du snabbt distribuera ett program till Kubernetes när koden ändringar görs. Mer information om utkast finns i [utkast dokumentation på Github][draft-documentation].
 
 Det här dokumentet beskriver med ett Kubernetes kluster på AKS utkast.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Stegen som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster och har upprättat en kubectl-anslutning med klustret. Om du behöver dessa objekt finns i [AKS quickstart][aks-quickstart].
 
@@ -29,64 +29,51 @@ Du måste också ett privat Docker-register i Azure Container registret (ACR). A
 
 Helm måste också installeras i klustret AKS. Läs mer om hur du installerar helm [Använd Helm med Azure Container Service (AKS)][aks-helm].
 
+Slutligen måste du installera [Docker](https://www.docker.com).
+
 ## <a name="install-draft"></a>Installera utkast
 
-Utkast CLI är en klient som kör i utvecklingssystemet och tillåter att du snabbt distribuera kod i ett Kubernetes kluster.
+Utkast CLI är en klient som kör i utvecklingssystemet och tillåter att du snabbt distribuera kod i ett Kubernetes kluster. 
+
+> [!NOTE] 
+> Om du har installerat ett utkast till före version 0,12 måste du först bort utkast från klustret med hjälp av `helm delete --purge draft` och ta sedan bort den lokala konfigurationen genom att köra `rm -rf ~/.draft`. Om du är på MacOS, kan du köra `brew upgrade draft`.
 
 Så här installerar du utkast CLI på en Mac-Använd `brew`. Ytterligare installationsalternativ finns, [utkast installera guiden][install-draft].
 
 ```console
+brew tap azure/draft
 brew install draft
 ```
 
-Resultat:
-
-```
-==> Installing draft from azure/draft
-==> Downloading https://azuredraft.blob.core.windows.net/draft/draft-v0.7.0-darwin-amd64.tar.gz
-Already downloaded: /Users/neilpeterson/Library/Caches/Homebrew/draft-0.7.0.tar.gz
-==> /usr/local/Cellar/draft/0.7.0/bin/draft init --client-only
-🍺  /usr/local/Cellar/draft/0.7.0: 6 files, 61.2MB, built in 1 second
-```
-
-## <a name="configure-draft"></a>Konfigurera utkast
-
-När du konfigurerar ett utkast till måste en behållare registret anges. I det här exemplet används Azure Container registret.
-
-Kör följande kommando för att hämta namn och logga in servernamnet för din ACR-instans. Uppdatera kommandot med namnet på resursgruppen som innehåller din ACR-instans.
-
-```console
-az acr list --resource-group <resource group> --query "[].{Name:name,LoginServer:loginServer}" --output table
-```
-
-ACR instans lösenordet krävs också.
-
-Kör följande kommando för att returnera ACR-lösenord. Uppdatera kommandot med namnet på ACR-instans.
-
-```console
-az acr credential show --name <acr name> --query "passwords[0].value" --output table
-```
-
-Initiera utkast med den `draft init` kommando.
+Nu initiera utkast med den `draft init` kommando.
 
 ```console
 draft init
 ```
 
-Under den här processen tillfrågas om autentiseringsuppgifter för behållaren registret. När du använder ett Azure Container registret, registret-URL: en är ACR server inloggningsnamnet, användarnamnet är namnet på ACR-instansen och lösenordet är ACR lösenordet.
+## <a name="configure-draft"></a>Konfigurera utkast
+
+Utkast skapar behållaren-avbildningar lokalt och sedan antingen distribuerar dem från det lokala registret (för Minikube) eller måste du ange avbildningen registret för att använda. Det här exemplet används i Azure Container registret (ACR), så du måste upprätta en förtroenderelation mellan AKS klustret och ACR registret och konfigurera utkast för att vidarebefordra behållaren till ACR.
+
+### <a name="create-trust-between-aks-cluster-and-acr"></a>Skapa förtroende mellan AKS klustret och ACR
+
+För att upprätta förtroende mellan ett AKS kluster och en ACR-registret, kan du ändra de Azure Active Directory Service Prinicipal används med AKS genom att lägga till deltagarrollen till den med omfattning ACR-databasen. Gör du genom att köra följande kommandon, ersätter _&lt;aks-rg-name&gt;_ och _&lt;aks klusternamnet&gt;_ med resursgrupp och namnet på din AKS klustret och _&lt;acr-rg-numren&gt;_ och _&lt;acr-repo-name&gt;_ med resursnamnet för gruppen och databasen för din ACR databasen som du vill skapa förtroende.
 
 ```console
-1. Enter your Docker registry URL (e.g. docker.io/myuser, quay.io/myuser, myregistry.azurecr.io): <ACR Login Server>
-2. Enter your username: <ACR Name>
-3. Enter your password: <ACR Password>
+export AKS_SP_ID=$(az aks show -g <aks-rg-name> -n <aks-cluster-name> --query "servicePrincipalProfile.clientId" -o tsv)
+export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-repo-name> --query "id" -o tsv)
+az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role contributor
 ```
 
-När du är klar, är konfigurerad i kluster Kubernetes utkast och är redo att användas.
+(Dessa steg och andra autentiseringsmekanismer att komma åt ACR [autentiseras med ACR](../container-registry/container-registry-auth-aks.md).)
 
-```
-Draft has been installed into your Kubernetes Cluster.
-Happy Sailing!
-```
+### <a name="configure-draft-to-push-to-and-deploy-from-acr"></a>Konfigurera utkast för att push-installera och distribuera från ACR
+
+Det finns en förtroenderelation mellan AKS och ACR, aktivera användning av ACR från AKS-kluster i följande steg.
+1. Konfigurera utkast `registry` värde genom att köra `draft config set registry <registry name>.azurecr.io`, där _&lt;registrets&lt;_ är namnet på din ACR-registret.
+2. Logga in på ACR registret genom att köra `az acr login -n <registry name>`. 
+
+Eftersom du är nu inloggad lokalt ACR och du har skapat en förtroenderelation med AKS och ACR, krävs inga lösenord eller hemligheter för att skicka till eller hämta från ACR till AKS. Autentisering sker på nivån Azure Resource Manager med Azure Active Directory. 
 
 ## <a name="run-an-application"></a>Kör ett program
 
@@ -99,7 +86,7 @@ git clone https://github.com/Azure/draft
 Ändra till katalogen för Java-exempel.
 
 ```console
-cd draft/examples/java/
+cd draft/examples/example-java/
 ```
 
 Använd den `draft create` kommando för att starta processen. Detta kommando skapar artefakter som används för att köra programmet i ett Kubernetes kluster. Dessa objekt omfattar en Dockerfile ett Helm diagram och en `draft.toml` fil som är ett utkast till konfigurationsfilen.
@@ -108,27 +95,30 @@ Använd den `draft create` kommando för att starta processen. Detta kommando sk
 draft create
 ```
 
-Resultat:
+Utdata:
 
-```
+```console
 --> Draft detected the primary language as Java with 92.205567% certainty.
 --> Ready to sail
 ```
 
-Om du vill köra programmet på ett Kubernetes kluster, använda den `draft up` kommando. Det här kommandot filöverföringar programfiler koden och konfigurationen i Kubernetes-klustret. Den sedan körs Dockerfile för att skapa en avbildning av behållare, skickar bilden till behållaren registret och kör slutligen Helm diagrammet om du vill starta programmet.
+Om du vill köra programmet på ett Kubernetes kluster, använda den `draft up` kommando. Det här kommandot skapar Dockerfile om du vill skapa en avbildning av behållare, skickar bilden till ACR och slutligen installerar Helm diagrammet om du vill starta programmet i AKS.
+
+Första gången detta körs kan push-installation och dra behållaren avbildningen ta lite tid; När de grundläggande lager cachelagras minska den tid det tar kraftigt.
 
 ```console
 draft up
 ```
 
-Resultat:
+Utdata:
 
-```
-Draft Up Started: 'open-jaguar'
-open-jaguar: Building Docker Image: SUCCESS ⚓  (28.0342s)
-open-jaguar: Pushing Docker Image: SUCCESS ⚓  (7.0647s)
-open-jaguar: Releasing Application: SUCCESS ⚓  (4.5056s)
-open-jaguar: Build ID: 01BW3VVNZYQ5NQ8V1QSDGNVD0S
+```console
+Draft Up Started: 'example-java'
+example-java: Building Docker Image: SUCCESS ⚓  (1.0003s)
+example-java: Pushing Docker Image: SUCCESS ⚓  (3.0007s)
+example-java: Releasing Application: SUCCESS ⚓  (0.9322s)
+example-java: Build ID: 01C9NPDYQQH2CZENDMZW7ESJAM
+Inspect the logs with `draft logs 01C9NPDYQQH2CZENDMZW7ESJAM`
 ```
 
 ## <a name="test-the-application"></a>Testa programmet
@@ -141,9 +131,9 @@ I vissa fall kan ta det några minuter för behållaren bilden som ska laddas ne
 draft connect
 ```
 
-Resultat:
+Utdata:
 
-```
+```console
 Connecting to your app...SUCCESS...Connect to your app on localhost:46143
 Starting log streaming...
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
@@ -153,7 +143,10 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-När du är klar att testa hur programmet `Control+C` att stoppa proxyanslutningen.
+Nu kan du testa ditt program genom att bläddra till http://localhost:46143 (för i föregående exempel; porten kan vara olika). När du är klar att testa hur programmet `Control+C` att stoppa proxyanslutningen.
+
+> [!NOTE]
+> Du kan också använda den `draft up --auto-connect` kommando för att skapa och distribuera programmet och ansluta direkt till den första körs behållaren att göra upprepning växla även snabbare.
 
 ## <a name="expose-application"></a>Visa program
 
@@ -163,7 +156,7 @@ När du testar ett program i Kubernetes, kanske du vill gör programmet tillgän
 Först pack utkastet måste uppdateras för att ange att en tjänst med en typ `LoadBalancer` ska skapas. Om du vill göra det, uppdatera service-typen i den `values.yaml` filen.
 
 ```console
-vi chart/java/values.yaml
+vi charts/java/values.yaml
 ```
 
 Leta upp den `service.type` egenskapen och uppdatera värdet från `ClusterIP` till `LoadBalancer`.
@@ -203,13 +196,13 @@ kubectl get service -w
 Först den *externa IP-* för tjänsten visas som `pending`.
 
 ```
-deadly-squid-java   10.0.141.72   <pending>     80:32150/TCP   14m
+example-java-java   10.0.141.72   <pending>     80:32150/TCP   14m
 ```
 
 När EXTERNAL-IP-adressen har ändrats från `pending` till en `IP address` använder du `Control+C` för att stoppa kubectl-övervakningsprocessen.
 
 ```
-deadly-squid-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
+example-java-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
 ```
 
 Bläddra till den externa IP-adressen för att visa programmet.
@@ -218,7 +211,7 @@ Bläddra till den externa IP-adressen för att visa programmet.
 curl 52.175.224.118
 ```
 
-Resultat:
+Utdata:
 
 ```
 Hello World, I'm Java
@@ -243,25 +236,35 @@ import static spark.Spark.*;
 
 public class Hello {
     public static void main(String[] args) {
-        get("/", (req, res) -> "Hello World, I'm Java - Draft Rocks!");
+        get("/", (req, res) -> "Hello World, I'm Java in AKS!");
     }
 }
 ```
 
-Kör den `draft up` kommando för att distribuera programmet.
+Kör den `draft up --auto-connect` kommando för att distribuera programmet säkerhets så snart en baljor är redo att svara.
 
 ```console
-draft up
+draft up --auto-connect
 ```
 
-Resultat
+Utdata
 
 ```
-Draft Up Started: 'deadly-squid'
-deadly-squid: Building Docker Image: SUCCESS ⚓  (18.0813s)
-deadly-squid: Pushing Docker Image: SUCCESS ⚓  (7.9394s)
-deadly-squid: Releasing Application: SUCCESS ⚓  (6.5005s)
-deadly-squid: Build ID: 01BWK8C8X922F5C0HCQ8FT12RR
+Draft Up Started: 'example-java'
+example-java: Building Docker Image: SUCCESS ⚓  (1.0003s)
+example-java: Pushing Docker Image: SUCCESS ⚓  (4.0010s)
+example-java: Releasing Application: SUCCESS ⚓  (1.1336s)
+example-java: Build ID: 01C9NPMJP6YM985GHKDR2J64KC
+Inspect the logs with `draft logs 01C9NPMJP6YM985GHKDR2J64KC`
+Connect to java:4567 on localhost:39249
+Your connection is still active.
+Connect to java:4567 on localhost:39249
+[java]: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+[java]: SLF4J: Defaulting to no-operation (NOP) logger implementation
+[java]: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[java]: == Spark has ignited ...
+[java]: >> Listening on 0.0.0.0:4567
+
 ```
 
 Slutligen visa programmet för att se uppdateringarna.
@@ -270,10 +273,10 @@ Slutligen visa programmet för att se uppdateringarna.
 curl 52.175.224.118
 ```
 
-Resultat:
+Utdata:
 
 ```
-Hello World, I'm Java - Draft Rocks!
+Hello World, I'm Java in AKS!
 ```
 
 ## <a name="next-steps"></a>Nästa steg

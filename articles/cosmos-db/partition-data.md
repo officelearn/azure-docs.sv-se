@@ -1,33 +1,33 @@
 ---
 title: Partitionering och teckenbredden i Azure Cosmos DB | Microsoft Docs
-description: "Lär dig mer om hur partitionering fungerar i Azure Cosmos DB, hur du konfigurerar partitionering och partitions-nycklar och hur du väljer rätt Partitionsnyckeln för ditt program."
+description: Lär dig mer om hur partitionering fungerar i Azure Cosmos DB, hur du konfigurerar partitionering och partitions-nycklar och hur du väljer rätt Partitionsnyckeln för ditt program.
 services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/30/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 149d2ba5108fb49741203fbe5c50add6c0d523ae
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionera och skala i Azure Cosmos DB
 
 [Azure Cosmos-DB](https://azure.microsoft.com/services/cosmos-db/) är en global, multimodel databas-tjänst som hjälper dig uppnå snabb och förutsägbar prestanda. Skalningen sömlöst tillsammans med ditt program när den växer. Den här artikeln innehåller en översikt över hur partitionering fungerar för alla data modeller i Azure Cosmos-databasen. Här beskrivs också hur du kan konfigurera Azure Cosmos DB behållare för att effektivt skala ditt program.
 
-Partitionering och partitionsnycklar beskrivs i den här Azure fredag video med Scott Hanselman och Azure Cosmos DB Principal tekniker Manager Shireesh Thota:
+Partitionering och partitionsnycklar beskrivs i den här videon med Azure Cosmos DB Programhanteraren Andrew Liu:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]
+> [!VIDEO https://www.youtube.com/embed/SS6WrQ-HJ30]
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Partitionering i Azure Cosmos DB
@@ -53,15 +53,15 @@ I korthet är här hur partitionering fungerar i Azure Cosmos DB:
 * I bakgrunden, etablerar Azure Cosmos DB partitioner som behövs för att hantera **T** begäranden per sekund. Om **T** är högre än det största genomflödet per partition **t**, sedan Azure Cosmos DB tillhandahåller **N = T/t** partitioner.
 * Azure Cosmos-DB allokerar viktiga utrymme på partitionen viktiga hashvärden jämnt i bredd i **N** partitioner. Varje partition (fysiska partition) värdar så **1/N** partitions nyckelvärdena (logiska partitioner).
 * När en fysisk partition **p** når sin lagringsgräns, Azure Cosmos DB sömlöst delar upp **p** till två nya partitioner **p1** och **p2** . Den distribuerar värden som motsvarar ungefär hälften nycklar till var och en av partitionerna. Den här delade åtgärden är osynliga för ditt program. Om en fysiska partition når sin lagringsgräns och alla data på den fysiska partitionen tillhör samma logiska partitionsnyckel, uppstår inte split-åtgärden. Detta beror på att alla data för en enskild logisk partitionsnyckel måste finnas i samma fysiska partition och den fysiska partitionen kan därför delas in p1 och p2. I det här fallet bör en annan partition viktiga strategi användas.
-* När du etablerar genomströmning som är högre än  **t*N**, Azure Cosmos DB delar upp en eller flera partitioner att stödja högre genomströmning.
+* När du etablerar genomströmning som är högre än **t * N**, Azure Cosmos DB delar upp en eller flera partitioner att stödja högre genomströmning.
 
 Semantik för partitionsnycklar är något annorlunda att matcha semantiken för varje API, som visas i följande tabell:
 
-| API | Partitionsnyckeln | Radnyckel |
+| API | Partitionsnyckel | Radnyckel |
 | --- | --- | --- |
 | Azure Cosmos DB | Anpassad partitionering nyckelsökvägen | Åtgärdade `id` | 
 | MongoDB | Anpassade delad nyckel  | Åtgärdade `_id` | 
-| Graph | Anpassad partitionering nyckelegenskapen | Åtgärdade `id` | 
+| Diagram | Anpassad partitionering nyckelegenskapen | Åtgärdade `id` | 
 | Tabell | Åtgärdade `PartitionKey` | Åtgärdade `RowKey` | 
 
 Azure Cosmos-DB använder hash-baserad partitionering. När du skriver ett objekt Azure Cosmos DB hashar nyckelvärdet partition och använder hashformaterats resultatet för att avgöra vilken partition för att lagra objekt i. Azure Cosmos-DB lagrar alla objekt med samma partitionsnyckel i samma fysiska partition. Valet av Partitionsnyckeln är ett viktigt beslut som du behöver göra i designläge. Du måste välja ett egenskapsnamn som har ett stort antal värden och har även åtkomstmönster. Om en fysiska partition når sin lagringsgräns och samma partitionsnyckel finns på alla data i partitionen Azure Cosmos DB Returnerar ”partitionsnyckel nått maximal storlek på 10 GB”-fel och partitionen inte dela därför att välja en partitionsnyckel är en mycket import Ant beslut.
@@ -70,7 +70,7 @@ Azure Cosmos-DB använder hash-baserad partitionering. När du skriver ett objek
 > Det är bäst att ha en partitionsnyckel med många distinkta värden (500 till 1 000 minst).
 >
 
-Azure DB Cosmos-behållare kan skapas som *fast* eller *obegränsade* i Azure-portalen. Fast storlek behållare har en maxgräns på 10 GB och 10 000 RU/s genomströmning. Om du vill skapa en behållare som obegränsade, måste du ange en lägsta dataflöde på 1 000 RU/s och du måste ange en partitionsnyckel.
+Azure DB Cosmos-behållare kan skapas som *fast* eller *obegränsade* i Azure-portalen. Behållare med fast storlek har en maxgräns på 10 GB och en genomströmning på 10 000 RU/s. Om du vill skapa en behållare som obegränsade, måste du ange en lägsta dataflöde på 1 000 RU/s och du måste ange en partitionsnyckel.
 
 Det är en bra idé att kontrollera hur dina data är distribuerad i partitioner. Du kan kontrollera detta i portalen, gå till Azure DB som Cosmos-konto och klicka på **mått** i **övervakning** avsnittet och klicka sedan i den högra rutan på **lagring** fliken för att se hur dina data är partitionerade i olika fysiska partition.
 
@@ -99,7 +99,7 @@ Azure Cosmos-DB är utformad för förutsägbar prestanda. När du skapar en beh
 ## <a name="work-with-the-azure-cosmos-db-apis"></a>Arbeta med Azure Cosmos DB-API: er
 Du kan använda Azure-portalen eller Azure CLI för att skapa behållare och skala dem när som helst. Det här avsnittet visar hur du skapar behållare och ange definitionen av genomflöde och partition i var och en API som stöds.
 
-### <a name="azure-cosmos-db-api"></a>Azure Cosmos DB-API
+### <a name="azure-cosmos-db-api"></a>Azure Cosmos DB API
 I följande exempel visas hur du skapar en behållare (insamling) med hjälp av Azure Cosmos DB API. 
 
 ```csharp

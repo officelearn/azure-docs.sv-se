@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 1276fb119199b9dbb9b50bed8ac12cff0a55d2dd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 317e5f2696635d28b5dbab302e45960af9c8aee2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Verktyg för migrering av
 
@@ -53,13 +53,13 @@ Verktyget datamigrering är en öppen källkod som importerar data till Azure Co
 * CSV-filer
 * Azure Table Storage
 * Amazon DynamoDB
-* HBase
+* Hbase
 * Azure DB Cosmos-samlingar
 
 Medan Importverktyget innehåller ett grafiskt användargränssnitt (dtui.exe), kan den också drivas från kommandoraden (dt.exe). Faktum är är ett alternativ till utdata associerat kommando när du har installerat en import via Användargränssnittet. Tabell källdata (t.ex. SQL Server- eller CSV-filer) kan omvandlas så att hierarkiska relationer (underdokument) kan skapas under importen. Vill du fortsätta läsa vill lära dig mer om alternativ för exempel på kommandorader för att importera från varje källa och mål alternativ visning importera resultat.
 
 ## <a id="Install"></a>Installation
-Källkoden för migrering verktyget finns på GitHub i [den här lagringsplatsen](https://github.com/azure/azure-documentdb-datamigrationtool). Du kan ladda ned och kompilera lösningen lokalt och sedan köra antingen:
+Källkoden för migrering verktyget finns på GitHub i [den här lagringsplatsen](https://github.com/azure/azure-documentdb-datamigrationtool). Du kan hämta och kompilera lösningen lokalt eller [ladda ned en före kompilerade binär](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip), köra antingen:
 
 * **Dtui.exe**: grafiskt gränssnittsversionen av verktyget
 * **DT.exe**: kommandoraden versionen av verktyget

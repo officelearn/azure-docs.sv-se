@@ -1,11 +1,11 @@
 ---
-title: "Hantera Network Security Group flöda loggar med Azure Nätverksbevakaren - PowerShell | Microsoft Docs"
-description: "Den här sidan förklarar hur du hanterar Network Security Group flöda loggar i Azure Nätverksbevakaren med PowerShell"
+title: Hantera Network Security Group flöda loggar med Azure Nätverksbevakaren - PowerShell | Microsoft Docs
+description: Den här sidan förklarar hur du hanterar Network Security Group flöda loggar i Azure Nätverksbevakaren med PowerShell
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
 ms.devlang: na
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 5c514cc3d281d9e2baeae415aed240579af75650
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8283955b58978e3a76456ec3eff63f4fba4e51f0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Konfigurera Network Security Group flöda loggar med PowerShell
 
 > [!div class="op_single_selector"]
-> - [Azure-portalen](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
@@ -51,6 +51,8 @@ Get-AzureRmNetworkWatcherFlowLogStatus -NetworkWatcher $NW -TargetResourceId $ns
 Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true
 ```
 
+Storage-konto som du anger inte får ha konfigurerat för den Nätverksregler som begränsar åtkomst till nätverket till endast Microsoft-tjänster eller specifika virtuella nätverk.
+
 ## <a name="disable-network-security-group-flow-logs"></a>Inaktivera Nätverkssäkerhetsgruppen flöde loggar
 
 Använd följande exempel för att inaktivera flödet loggar:
@@ -61,7 +63,7 @@ Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $ns
 
 ## <a name="download-a-flow-log"></a>Hämta en logg flöde
 
-Lagringsplatsen för en flödet logg definieras på Skapa. Ett enkelt verktyg för att komma åt dessa flödet loggar som sparats i ett lagringskonto är Microsoft Azure Lagringsutforskaren, som kan hämtas här: http://storageexplorer.com/
+Lagringsplatsen för en flödet logg definieras på Skapa. Ett enkelt verktyg för att komma åt dessa flödet loggar som sparats i ett lagringskonto är Microsoft Azure Lagringsutforskaren, som kan hämtas här:  http://storageexplorer.com/
 
 Om ett storage-konto anges sparas paket avbilda filer till ett lagringskonto på följande plats:
 

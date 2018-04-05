@@ -84,22 +84,22 @@ IaaS problem med programmet är en annan möjlighet. Överväg att ett program s
 
 [Azure-säkerhetskopiering](https://azure.microsoft.com/services/backup/) används för säkerhetskopiering och Katastrofåterställning och den fungerar med [hanterade diskar](../articles/virtual-machines/windows/managed-disks-overview.md) samt [ohanterad diskar](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks). Du kan skapa en säkerhetskopiering med tidsbaserade säkerhetskopieringar och återställande lätt VM säkerhetskopiering bevarandeprinciper. 
 
-Om du använder [Premium lagringsdiskar](../articles/virtual-machines/windows/premium-storage.md), [hanterade diskar](../articles/virtual-machines/windows/managed-disks-overview.md), eller andra disktyper med den [lokalt redundant lagring](../articles/storage/common/storage-redundancy.md#locally-redundant-storage) är särskilt viktigt att göra regelbundna Katastrofåterställning säkerhetskopiering. Azure-säkerhetskopiering lagrar data i recovery services-ventilen för långsiktig kvarhållning. Välj den [geo-redundant lagring](../articles/storage/common/storage-redundancy.md#geo-redundant-storage) alternativ för säkerhetskopiering recovery services-valvet. Alternativet säkerställer att säkerhetskopieringar replikeras till en annan Azure-region för att skydda från regionala katastrofer.
+Om du använder [Premium lagringsdiskar](../articles/virtual-machines/windows/premium-storage.md), [hanterade diskar](../articles/virtual-machines/windows/managed-disks-overview.md), eller andra disktyper med den [lokalt redundant lagring](../articles/storage/common/storage-redundancy-lrs.md) är särskilt viktigt att göra regelbundna Katastrofåterställning säkerhetskopiering. Azure-säkerhetskopiering lagrar data i recovery services-ventilen för långsiktig kvarhållning. Välj den [geo-redundant lagring](../articles/storage/common/storage-redundancy-grs.md) alternativ för säkerhetskopiering recovery services-valvet. Alternativet säkerställer att säkerhetskopieringar replikeras till en annan Azure-region för att skydda från regionala katastrofer.
 
 För [ohanterad diskar](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks), du kan använda lokalt redundant lagring-typ för IaaS-diskar, men kontrollera att Azure Backup har aktiverats med alternativet geo-redundant lagring för recovery services-valvet.
 
 > [!NOTE]
-> Om du använder den [geo-redundant lagring](../articles/storage/common/storage-redundancy.md#geo-redundant-storage) eller [geo-redundant lagring med läsbehörighet](../articles/storage/common/storage-redundancy.md#read-access-geo-redundant-storage) alternativet för ohanterade diskar kan du fortfarande behöver programkonsekventa ögonblicksbilder för säkerhetskopiering och Katastrofåterställning. Använd antingen [Azure Backup](https://azure.microsoft.com/services/backup/) eller [programkonsekventa ögonblicksbilder](#alternative-solution-consistent-snapshots).
+> Om du använder den [geo-redundant lagring](../articles/storage/common/storage-redundancy-grs.md) eller [geo-redundant lagring med läsbehörighet](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) alternativet för ohanterade diskar kan du fortfarande behöver programkonsekventa ögonblicksbilder för säkerhetskopiering och Katastrofåterställning. Använd antingen [Azure Backup](https://azure.microsoft.com/services/backup/) eller [programkonsekventa ögonblicksbilder](#alternative-solution-consistent-snapshots).
 
  I följande tabell är en sammanfattning av lösningarna som är tillgängliga för Katastrofåterställning.
 
 | Scenario | Automatisk replikering | Lösning för Katastrofåterställning |
 | --- | --- | --- |
-| Premium-lagringsdiskar | Lokala ([lokalt redundant lagring](../articles/storage/common/storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Hanterade diskar | Lokala ([lokalt redundant lagring](../articles/storage/common/storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Ohanterad lokalt redundant lagringsdiskar | Lokala ([lokalt redundant lagring](../articles/storage/common/storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Ohanterad geo-redundant lagringsdiskar | Mellan region ([geo-redundant lagring](../articles/storage/common/storage-redundancy.md#geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Programkonsekventa ögonblicksbilder](#alternative-solution-consistent-snapshots) |
-| Ohanterad geo-redundant lagring med läsbehörighet diskar | Mellan region ([geo-redundant lagring med läsbehörighet](../articles/storage/common/storage-redundancy.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Programkonsekventa ögonblicksbilder](#alternative-solution-consistent-snapshots) |
+| Premium-lagringsdiskar | Lokala ([lokalt redundant lagring](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Hanterade diskar | Lokala ([lokalt redundant lagring](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Ohanterad lokalt redundant lagringsdiskar | Lokala ([lokalt redundant lagring](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Ohanterad geo-redundant lagringsdiskar | Mellan region ([geo-redundant lagring](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Programkonsekventa ögonblicksbilder](#alternative-solution-consistent-snapshots) |
+| Ohanterad geo-redundant lagring med läsbehörighet diskar | Mellan region ([geo-redundant lagring med läsbehörighet](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Programkonsekventa ögonblicksbilder](#alternative-solution-consistent-snapshots) |
 
 Hög tillgänglighet uppfylls bäst med hjälp av hanterade diskar i en tillgänglighetsuppsättning tillsammans med Azure Backup. Om du använder ohanterade diskar kan du fortfarande använda Azure Backup för Katastrofåterställning. Om det inte går att använda Azure Backup kan sedan ta [programkonsekventa ögonblicksbilder](#alternative-solution-consistent-snapshots), enligt beskrivningen i ett senare avsnitt är en alternativ lösning för säkerhetskopiering och Katastrofåterställning.
 
@@ -107,7 +107,7 @@ Dina val för hög tillgänglighet, säkerhetskopiering och Katastrofåterställ
 
 | Nivå |   Hög tillgänglighet   | Säkerhetskopiering och Katastrofåterställning |
 | --- | --- | --- |
-| Program | SQL Server AlwaysOn | Azure Backup |
+| Tillämpningsprogram | SQL Server AlwaysOn | Azure Backup |
 | Infrastruktur    | Tillgänglighetsuppsättning  | GEO-redundant lagring med programkonsekventa ögonblicksbilder |
 
 ### <a name="using-azure-backup"></a>Med hjälp av Azure-säkerhetskopiering 

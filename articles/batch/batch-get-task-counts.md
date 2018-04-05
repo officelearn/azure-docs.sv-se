@@ -1,18 +1,18 @@
 ---
-title: "Övervaka förloppet för ett jobb av räknar uppgifter efter status - Azure Batch | Microsoft Docs"
-description: "Övervaka förloppet för ett jobb genom att anropa åtgärden hämta uppgift räknar antalet aktiviteter för ett projekt. Du kan hämta ett antal aktiva, körs och slutförda uppgifter och aktiviteter som har lyckades eller misslyckades."
+title: Övervaka förloppet för ett jobb av räknar uppgifter efter status - Azure Batch | Microsoft Docs
+description: Övervaka förloppet för ett jobb genom att anropa åtgärden hämta uppgift räknar antalet aktiviteter för ett projekt. Du kan hämta ett antal aktiva, körs och slutförda uppgifter och aktiviteter som har lyckades eller misslyckades.
 services: batch
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: tamram
-ms.openlocfilehash: ceff59d7063b60a1344a47489d3d73e0e8ee07df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: bc112ed5b481560362962d6b550d336de6b3d9b4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="count-tasks-by-state-to-monitor-a-jobs-progress-preview"></a>Antal aktiviteter efter status för att övervaka jobbförloppet (förhandsgranskning)
 
@@ -31,7 +31,7 @@ Azure Batch tillhandahåller ett effektivt sätt att övervaka förloppet för e
 - En uppgift räknas som **kör** när den har tilldelats en beräkningsnod, men har inte slutförts ännu. En uppgift räknas som **kör** när dess tillstånd är antingen `preparing` eller `running`, som anges av den [hämta information om en aktivitet] [ rest_get_task] igen.
 - En uppgift räknas som **slutförts** när den inte längre kan köras. En uppgift räknas som **slutförts** har vanligtvis antingen har slutförts, har slutförts utan fel eller också har uttömt gränsen för återförsök. 
 
-Åtgärden hämta uppgift räknar rapporterar också hur många aktiviteter har har lyckats eller misslyckats. Batch avgör om en aktivitet har lyckats eller misslyckats genom att kontrollera den **resultatet** -egenskapen för egenskapen [executionInfo] [https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo]:
+Åtgärden hämta uppgift räknar rapporterar också hur många aktiviteter har har lyckats eller misslyckats. Batch avgör om en aktivitet har lyckats eller misslyckats genom att kontrollera den **resultatet** -egenskapen för [executionInfo] [https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo] egenskapen:
 
     - En uppgift räknas som **lyckades** om resultatet av körning av aktiviteten är `success`.
     - En uppgift räknas som **misslyckades** om resultatet av körning av aktiviteten är `failure`.

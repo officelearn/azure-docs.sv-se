@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: kgremban
-ms.openlocfilehash: 6f1a40f254473ae7d02168f0cfd6ad5c0d461d82
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7f64783f5e1c79436b671ef98f30f5e3594b94e6
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från enheten till molnet med IoT-hubb
 
@@ -29,7 +29,7 @@ Den här kursen följer hur du använder den [filen överför funktionerna i IoT
 - Ange en lagringsbehållare på ett säkert sätt för att överföra en fil.
 - Använda Python-klienten för att överföra en fil via din IoT-hubb.
 
-Den [Kom igång med IoT-hubb](iot-hub-node-node-getstarted.md) och [meddelanden moln till enhet med IoT-hubben](iot-hub-node-node-c2d.md) självstudiekurser visar grundläggande enhet till moln och moln till enhet meddelandetjänsten funktioner i IoT-hubb. Men i vissa fall kan du enkelt mappa data enheterna skickar till relativt liten enhet till moln meddelanden som accepterar IoT-hubb. När du behöver upland filer från en enhet kan du fortfarande använda säkerheten och pålitligheten för IoT-hubb.
+Den [Kom igång med IoT-hubb](iot-hub-node-node-getstarted.md) självstudiekursen visas de grundläggande enhet till moln meddelanden funktionerna i IoT-hubb. Men i vissa fall kan du enkelt mappa data enheterna skickar till relativt liten enhet till moln meddelanden som accepterar IoT-hubb. När du behöver upland filer från en enhet kan du fortfarande använda säkerheten och pålitligheten för IoT-hubb.
 
 > [!NOTE]
 > IoT-hubb Python SDK stöder för närvarande endast överföra teckenbaserade filer som **.txt** filer.

@@ -5,32 +5,32 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 03/28/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e81e083b012c4cc29f2d6c09f8254025d712a97c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8803aada61ae58f1e221767aeb382f7d74c63eb4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 ### <a name="noconnection"></a>Ändra IP-adressprefix för nätverksgateway – ingen gatewayanslutning
 
 Så här lägger du till ytterligare adressprefix:
 
-```powershell
-$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+```azurepowershell-interactive
+$local = Get-AzureRmLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
 Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+-AddressPrefix @('10.101.0.0/24','10.101.1.0/24','10.101.2.0/24')
 ```
 
 Så här tar du bort adressprefix:<br>
-Utelämna de prefix som du inte längre behöver. I det här exemplet behöver vi inte längre prefixet 20.0.0.0/24 (från föregående exempel), så vi uppdaterar den lokala nätverksgatewayen och tar bort det prefixet.
+Utelämna de prefix som du inte längre behöver. I det här exemplet vi inte längre prefixet 10.101.2.0/24 (från föregående exempel), så vi uppdatera den lokala nätverksgatewayen utan att prefix.
 
-```powershell
-$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+```azurepowershell-interactive
+$local = Get-AzureRmLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
 Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+-AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
 ```
 
 ### <a name="withconnection"></a>Ändra IP-adressprefix för nätverksgateway – existerande gatewayanslutning
@@ -40,36 +40,36 @@ Om du har en gatewayanslutning och vill lägga till eller ta bort IP-adressprefi
 
 1. Ta bort anslutningen.
 
-  ```powershell
-  Remove-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName -ResourceGroupName MyRGName
+  ```azurepowershell-interactive
+  Remove-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1
   ```
 2. Ändra IP-adressprefixen för din lokala nätverksgateway.
    
   Ställ in variabeln för LocalNetworkGateway.
 
-  ```powershell
-  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName
+  ```azurepowershell-interactive
+  $local = Get-AzureRmLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
   ```
    
   Ändra prefixen.
    
-  ```powershell
+  ```azurepowershell-interactive
   Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
-  -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+  -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
   ```
 3. Skapa anslutningen. I det här exemplet konfigurerar vi en IPsec-anslutningstyp. När du återskapar anslutningen kan du använda den anslutningstyp som har angetts för din konfiguration. Ytterligare anslutningar finns på sidan [PowerShell-cmdlet](https://msdn.microsoft.com/library/mt603611.aspx).
    
   Ställ in variabeln för VirtualNetworkGateway.
 
-  ```powershell
-  $gateway1 = Get-AzureRmVirtualNetworkGateway -Name RMGateway  -ResourceGroupName MyRGName
+  ```azurepowershell-interactive
+  $gateway1 = Get-AzureRmVirtualNetworkGateway -Name VNet1GW  -ResourceGroupName TestRG1
   ```
    
   Skapa anslutningen. I det här exemplet används variabeln $local som du angav i steg 2.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `
-  -ResourceGroupName MyRGName -Location 'West US' `
+  ```azurepowershell-interactive
+  New-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 `
+  -ResourceGroupName TestRG1 -Location 'East US' `
   -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
   -ConnectionType IPsec `
   -RoutingWeight 10 -SharedKey 'abc123'

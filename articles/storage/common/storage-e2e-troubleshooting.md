@@ -1,6 +1,6 @@
 ---
-title: "Felsöka Azure Storage med diagnostik & Message Analyzer | Microsoft Docs"
-description: "En självstudiekurs visar slutpunkt till slutpunkt felsökning med Azure Storage Analytics, AzCopy och Microsoft Message Analyzer"
+title: Felsöka Azure Storage med diagnostik & Message Analyzer | Microsoft Docs
+description: En självstudiekurs visar slutpunkt till slutpunkt felsökning med Azure Storage Analytics, AzCopy och Microsoft Message Analyzer
 services: storage
 documentationcenter: dotnet
 author: tamram
@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.openlocfilehash: ee0e4671c31e97816576735b7bd2ee2f1629323e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 324370ae18627a1985e6a40aec11ee2fa871e93b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Slutpunkt till slutpunkt felsökning med hjälp av Azure Storage-mätvärden och loggning, AzCopy och Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -35,9 +35,6 @@ Du kan använda en kombination av verktyg för att felsöka klientprogram som an
   
   * **Storage-mätvärden** spårar transaktion mått och kapacitetsmått för ditt lagringskonto. Med hjälp av mätvärden, kan du bestämma hur programmet fungerar enligt en mängd olika åtgärder. Se [Storage Analytics mätvärden tabellschemat](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) för mer information om vilka typer av mått som spåras av Storage Analytics.
   * **Lagring loggning** loggar varje begäran i Azure Storage-tjänster till en logg för serversidan. Loggen spårar detaljerad information för varje begäran, inklusive åtgärd utförs, status för drift och latensinformation. Se [Storage Analytics loggformatet](/rest/api/storageservices/Storage-Analytics-Log-Format) mer information om begärande- och data som skrivs till loggarna av Storage Analytics.
-
-> [!NOTE]
-> Storage-konton med en replikeringstyp av zonredundant lagring (ZRS) stöder mått och loggning. ZRS klassiska konton stöder inte mått eller loggning. Mer information om ZRS finns [zonen-redundant lagring](storage-redundancy.md#zone-redundant-storage). 
 
 * **Azure-portalen**. Du kan konfigurera mått och loggning för ditt lagringskonto i den [Azure-portalen](https://portal.azure.com). Du kan också visa tabeller och diagram som visar hur programmet fungerar över tid och konfigurera varningar som meddelar dig om ditt program fungerar annorlunda än förväntat för ett visst mått.
   
@@ -347,21 +344,21 @@ Nu när du är bekant med Message Analyzer för att analysera dina loggdata kan 
 
 | Att undersöka... | Använd filteruttrycket... | Uttryck som gäller för Log (klient, Server, nätverk, alla) |
 | --- | --- | --- |
-| Oväntade fördröjningar i leverans av meddelanden i en kö |AzureStorageClientDotNetV4.Description innehåller ”försöker på nytt misslyckades igen”. |Client |
+| Oväntade fördröjningar i leverans av meddelanden i en kö |AzureStorageClientDotNetV4.Description innehåller ”försöker på nytt misslyckades igen”. |Klient |
 | HTTP-ökning av PercentThrottlingError |HTTP. Response.StatusCode == 500 &#124; &#124; HTTP. Response.StatusCode == 503 |Nätverk |
 | Öka i PercentTimeoutError |HTTP. Response.StatusCode == 500 |Nätverk |
 | Öka i PercentTimeoutError (alla) |* StatusCode == 500 |Alla |
-| Öka i PercentNetworkError |AzureStorageClientDotNetV4.EventLogEntry.Level   < 2 |Client |
+| Öka i PercentNetworkError |AzureStorageClientDotNetV4.EventLogEntry.Level   < 2 |Klient |
 | HTTP 403 (nekas) meddelanden |HTTP. Response.StatusCode == 403 |Nätverk |
 | HTTP 404 (inget hittas) meddelanden |HTTP. Response.StatusCode == 404 |Nätverk |
 | 404 (alla) |* StatusCode == 404 |Alla |
 | Delade signatur åtkomst (SAS) auktorisering problemet |AzureStorageLog.RequestStatus == ”SASAuthorizationError” |Nätverk |
 | HTTP 409 (konflikt) meddelanden |HTTP. Response.StatusCode == 409 |Nätverk |
 | 409 (alla) |* StatusCode == 409 |Alla |
-| Låg PercentSuccess eller analytics loggposter innehålla åtgärder med transaktionsstatus för ClientOtherErrors |AzureStorageLog.RequestStatus == ”ClientOtherError” |Server |
-| Nagle varning |((AzureStorageLog.EndToEndLatencyMS-AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) och (AzureStorageLog.RequestPacketSize < 1 460) och (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS > = 200) |Server |
+| Låg PercentSuccess eller analytics loggposter innehålla åtgärder med transaktionsstatus för ClientOtherErrors |AzureStorageLog.RequestStatus == ”ClientOtherError” |Server  |
+| Nagle varning |((AzureStorageLog.EndToEndLatencyMS-AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) och (AzureStorageLog.RequestPacketSize < 1 460) och (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS > = 200) |Server  |
 | Tidsintervall i Server- och loggar |#Timestamp > = 2014-10-20T16:36:38 och #Timestamp < = 2014-10-20T16:36:39 |Server, Network |
-| Tidsintervall i Server-loggar |AzureStorageLog.Timestamp > = 2014-10-20T16:36:38 och AzureStorageLog.Timestamp < = 2014-10-20T16:36:39 |Server |
+| Tidsintervall i Server-loggar |AzureStorageLog.Timestamp > = 2014-10-20T16:36:38 och AzureStorageLog.Timestamp < = 2014-10-20T16:36:39 |Server  |
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om felsökning slutpunkt till slutpunkt-scenarier i Azure Storage finns i följande resurser:

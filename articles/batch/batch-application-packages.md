@@ -1,25 +1,25 @@
 ---
-title: "Installera programpaket på datornoderna - Azure Batch | Microsoft Docs"
-description: "Använd funktionen programmet paket i Azure Batch enkelt kan hantera flera program och versioner för installation på Batch-beräkningsnoder."
+title: Installera programpaket på datornoderna - Azure Batch | Microsoft Docs
+description: Använd funktionen programmet paket i Azure Batch enkelt kan hantera flera program och versioner för installation på Batch-beräkningsnoder.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 07/20/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86b5f10cbd79227ccc6acb2004e449f426a6cbd8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 440f7eba99e5fa02a597ae62d5d14329f5e50af7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuera program till compute-noder med Batch-programpaket
 
@@ -121,7 +121,7 @@ Den **program** bladet visar ID för varje program i ditt konto och följande eg
 
 * **Paket**: antal versioner som är associerade med det här programmet.
 * **Standardversionen**: programversionen installeras om du inte anger en version när du anger programmet för en pool. Den här inställningen är valfri.
-* **Tillåt uppdateringar**: det värde som anger om paketet uppdateringar, borttagningar och tillägg är tillåtna. Om detta anges till **nr**, paketet uppdateringar och borttagningar är inaktiverat för programmet. Endast nya programpaketversioner kan läggas till. Standardvärdet är **Ja**.
+* **Tillåt uppdateringar**: det värde som anger om paketet uppdateringar, borttagningar och tillägg är tillåtna. Om detta anges till **nr**, paketet uppdateringar och borttagningar är inaktiverat för programmet. Endast nya programpaketversioner kan läggas till. Standardinställningen är **Ja**.
 
 ### <a name="view-application-details"></a>Visa programinformation
 För att öppna bladet som innehåller informationen för ett program, Välj program i den **program** bladet.
@@ -194,7 +194,7 @@ När du klickar på **uppdatering**, *uppdateringspaketet* bladet visas. Det hä
 
 När du klickar på **ta bort**, du uppmanas att bekräfta borttagningen av paketversionen och Batch tar bort paketet från Azure Storage. Om du tar bort standardversionen av ett program i **standardversionen** inställningen tas bort för programmet.
 
-![Ta bort programmet][12]
+![Ta bort programmet ][12]
 
 ## <a name="install-applications-on-compute-nodes"></a>Installera program på datornoderna
 Nu när du har lärt dig hur du hanterar programpaket med Azure-portalen, diskuterar vi hur du distribuerar dem datornoder och köra dem med Batch-uppgifter.
@@ -269,7 +269,7 @@ Linux:
 AZ_BATCH_APP_PACKAGE_applicationid_version
 ```
 
-`APPLICATIONID`och `version` är värden som motsvarar den program- och versionen som du har angett för distribution. Om du har angett att version 2.7 av programmet till exempel *blandaren* ska installeras på Windows-noder din aktivitet kommandorader använder den här miljövariabeln komma åt sina filer:
+`APPLICATIONID` och `version` är värden som motsvarar den program- och versionen som du har angett för distribution. Om du har angett att version 2.7 av programmet till exempel *blandaren* ska installeras på Windows-noder din aktivitet kommandorader använder den här miljövariabeln komma åt sina filer:
 
 ```
 Windows:

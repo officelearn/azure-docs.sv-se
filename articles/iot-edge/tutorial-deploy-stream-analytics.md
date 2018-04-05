@@ -2,18 +2,18 @@
 title: Distribuera Azure Stream Analytics med Azure IoT-Edge | Microsoft Docs
 description: Distribuera Azure Stream Analytics som en modul till en insticksenhet
 services: iot-edge
-keywords: 
-author: msebolt
+keywords: ''
+author: kgremban
 manager: timlt
-ms.author: v-masebo
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Distribuera Azure Stream Analytics som en gräns för IoT-modul - förhandsgranskning
 
@@ -36,7 +36,7 @@ I den här guiden får du lära dig hur man:
 > * Anslut det nya Azure Stream Analytics-jobbet med andra IoT kant-moduler.
 > * Distribuera Azure Stream Analytics-jobbet till en IoT-enhet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En IoT-hubb. 
 * Den enhet som du skapat och konfigurerat i Snabbstart eller i artiklar om hur du distribuerar Azure IoT kanten på en simulerad enhet i [Windows] [ lnk-tutorial1-win] eller i [Linux] [ lnk-tutorial1-lin]. Du behöver veta anslutningsnyckel enhet och enheten-ID. 
@@ -132,7 +132,7 @@ Du är nu redo att distribuera Azure Stream Analytics-jobbet på enheten IoT kan
 
 1. I Azure-portalen i din IoT-hubb går du till **IoT kant (förhandsgranskning)**, och sedan öppna informationssidan för enheten IoT kant.
 
-2. Välj **ange moduler**.  
+2. Välj **Ange moduler**.  
     Om du tidigare har distribuerat modulen tempSensor på den här enheten kan autopopulate. Om det inte att lägga till modulen genom att göra följande:
 
    a. Välj **lägga till IoT kant modul**.
@@ -172,9 +172,9 @@ Du är nu redo att distribuera Azure Stream Analytics-jobbet på enheten IoT kan
     }
     ```
 
-9. Välj **nästa**.
+9. Välj **Nästa**.
 
-10. I den **granska mallen** steg, Välj **skicka**.
+10. I steget för att **granska mallen** väljer du **Skicka**.
 
 11. Gå tillbaka till informationssidan om enheten och välj sedan **uppdatera**.  
     Du bör se den nya Stream Analytics-modulen körs tillsammans med modulen IoT kant agent och kant för IoT-hubben.

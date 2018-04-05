@@ -1,24 +1,24 @@
 ---
-title: "Använda Azure portal för att skapa en IoT-hubb | Microsoft Docs"
-description: "Så här skapa, hantera och ta bort Azure IoT-hubbar via Azure-portalen. Innehåller information om prisnivåer, skalning, säkerhet, och messaging konfiguration."
+title: Använda Azure portal för att skapa en IoT-hubb | Microsoft Docs
+description: Så här skapa, hantera och ta bort Azure IoT-hubbar via Azure-portalen. Innehåller information om prisnivåer, skalning, säkerhet, och messaging konfiguration.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0909cd2b-4c1e-49e0-b68a-75532caf0a6a
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: ac1a52355ffa5354bebe3b98fdb75783bcd57697
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 6ffde076caff6217bf6255c9294eca63d3e39b85
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Skapa en IoT-hubb med Azure-portalen
 
@@ -53,18 +53,9 @@ Om du vill skapa en IoT-hubb, måste du namnge IoT-hubben. Det här namnet måst
 
 ### <a name="choose-the-pricing-tier"></a>Välj prisnivå
 
-Du kan välja mellan fyra nivåer: **lediga**, **Standard 1** och **Standard 2**, och **Standard S3**. Den kostnadsfria nivån kan endast 500 enheter kan anslutas till IoT-hubb och upp till 8 000 meddelanden per dag.
+Du kan välja mellan flera nivåer beroende på hur många funktioner som du vill ha och hur många meddelanden du skickar via din lösning per dag. Den kostnadsfria nivån är avsedd för testning och utvärdering. Det gör 500 enheter kan anslutas till IoT-hubb och upp till 8 000 meddelanden per dag. Varje Azure-prenumeration kan skapa en IoT-hubb i den kostnadsfria nivån. 
 
-**Standard S1**: använda S1 edition för IoT-lösningar med ett stort antal enheter som varje generera små mängder data. Varje enhet av S1-versionen tillåter upp till 400 000 meddelanden per dag på alla anslutna enheter.
-
-**Standard S2**: Använd S2 edition för IoT-lösningar som enheter generera stora mängder data. Varje enhet S2 edition kan upp till 6 miljoner meddelanden per dag mellan alla anslutna enheter.
-
-**Standard S3**: Använd S3 edition för IoT-lösningar som genererar stora mängder data. Varje enhet S3 edition kan upp till 300 miljoner meddelanden per dag mellan alla anslutna enheter.
-
-![][4]
-
-> [!NOTE]
-> IoT-hubb kan endast en kostnadsfri hubb per Azure-prenumeration.
+Mer information om andra alternativ för nivån finns [att välja rätt IoT-hubb nivån](iot-hub-scaling.md).
 
 ### <a name="iot-hub-units"></a>IoT-hubbenheter
 
@@ -154,17 +145,6 @@ Du kan lägga till vägar för din IoT-hubb genom att klicka på **Lägg till** 
 
 ![][15]
 
-## <a name="pricing-and-scale"></a>Pris- och skalnivå
-
-Priser för en befintlig IoT-hubb kan ändras via den **priser** inställningar, med följande undantag:
-
-* I den aktuella implementeringen en IoT-hubb med en kostnadsfri SKU kan inte ändra nivåerna till en betald SKU: er och vice versa.
-* Det kan bara finnas en kostnadsfria nivån IoT-hubb i Azure-prenumeration.
-
-![][12]
-
-Du kan flytta från en högre lägre nivå endast när antalet meddelanden som skickas den dagen du överskrida kvoten för lägre nivå. Till exempel om antalet meddelanden per dag överskrider 400 000, kan sedan nivån för IoT-hubb ändras. Men om du ändrar till nivån S1 begränsas sedan IoT-hubben för dagen.
-
 ## <a name="delete-the-iot-hub"></a>Ta bort IoT-hubb
 
 Du kan bläddra till IoT-hubb som du vill ta bort genom att klicka på **Bläddra**, och sedan välja lämpliga hubben att ta bort. Om du vill ta bort IoT-hubben, klickar du på den **ta bort** nedan IoT-hubbnamnet.
@@ -180,7 +160,7 @@ Du kan följa dessa länkar om du vill veta mer om hur du hanterar Azure IoT-hub
 Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
 * [Utvecklarhandbok för IoT-hubb][lnk-devguide]
-* [Distribuera AI till enheter med Azure IoT kant][lnk-iotedge]
+* [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
 * [Skydda din IoT-lösning från grunden upp][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png

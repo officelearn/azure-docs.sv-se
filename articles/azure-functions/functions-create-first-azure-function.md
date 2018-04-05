@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/21/2018
+ms.date: 03/28/2018
 ms.author: glenga
-ms.custom: mvc, devcenter
-ms.openlocfilehash: c1f7c1a12aea8336b71d6e3eb47037d193841ddb
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: mvc, devcenter, cc996988-fb4f-47
+ms.openlocfilehash: 86cc435a7d632f1cc1b9a0e4a2e6508059d4d675
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Skapa din första funktion i Azure Portal
 
@@ -32,15 +32,13 @@ Med Azure Functions kan du köra kod i en [serverfri](https://azure.microsoft.co
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på <http://portal.azure.com> med ditt Azure-konto.
+Logga in på Azure-portalen på <http://portal.azure.com> med ditt Azure-konto.
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 
 Du måste ha en funktionsapp som värd för körning av dina funktioner. I en funktionsapp kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 Därefter skapar du en funktion i den nya funktionsappen.
 

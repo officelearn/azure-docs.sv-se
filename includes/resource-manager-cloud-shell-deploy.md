@@ -1,44 +1,48 @@
 ## <a name="deploy-template-from-cloud-shell"></a>Distribuera mallen från Cloud Shell
 
-Du kan använda [Cloud Shell](../articles/cloud-shell/overview.md) till att distribuera mallen. Först måste du dock läsa in mallen till filresursen för Cloud Shell. Om du inte har använt Cloud Shell tidigare läser du [Overview of Azure Cloud Shell](../articles/cloud-shell/overview.md) (Översikt över Azure Cloud Shell), som innehåller information om hur du konfigurerar Cloud Shell.
+Du kan använda [Cloud Shell](../articles/cloud-shell/overview.md) till att distribuera mallen. Dock måste du först läsa mallen till storage-konto för moln-gränssnittet. Om du inte har använt Cloud Shell tidigare läser du [Overview of Azure Cloud Shell](../articles/cloud-shell/overview.md) (Översikt över Azure Cloud Shell), som innehåller information om hur du konfigurerar Cloud Shell.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Välj din Cloud Shell-resursgrupp. Namnet har formatet `cloud-shell-storage-<region>`.
 
-   ![Välj resursgrupp](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
+   ![Välj en resursgrupp](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
 
 1. Välj lagringskontot för Cloud Shell.
 
    ![Välj lagringskonto](./media/resource-manager-cloud-shell-deploy/select-storage.png)
 
-1. Välj **Filer**.
+1. Välj **Blobbar**.
 
-   ![Välj filer](./media/resource-manager-cloud-shell-deploy/select-files.png)
+   ![Välj blobbar](./media/resource-manager-cloud-shell-deploy/select-blobs.png)
 
-1. Välj filresursen för Cloud Shell. Namnet har formatet `cs-<user>-<domain>-com-<uniqueGuid>`.
+1. Välj **+ behållare**.
 
-   ![Välj filresurs](./media/resource-manager-cloud-shell-deploy/select-file-share.png)
+   ![Lägg till behållare](./media/resource-manager-cloud-shell-deploy/add-container.png)
 
-1. Välj **Lägg till katalog**.
+1. Ge din behållaren ett namn och en åtkomstnivå. Exempelmall i den här artikeln innehåller ingen känslig information, så tillåter anonym läsbehörighet. Välj **OK**.
 
-   ![Lägg till katalog](./media/resource-manager-cloud-shell-deploy/select-add-directory.png)
+   ![Ange värden för behållaren](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
 
-1. Ge den namnet **templates** och välj **OK**.
+1. Markera den behållare som du skapade.
 
-   ![Namnge katalogen](./media/resource-manager-cloud-shell-deploy/name-templates.png)
-
-1. Välj den nya katalogen.
-
-   ![Välj katalog](./media/resource-manager-cloud-shell-deploy/select-templates.png)
+   ![Välj ny behållare](./media/resource-manager-cloud-shell-deploy/select-container.png)
 
 1. Välj **Överför**.
 
-   ![Välj Överför](./media/resource-manager-cloud-shell-deploy/select-upload.png)
+   ![Överför blob](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
 
 1. Leta upp och överför mallen.
 
-   ![Ladda upp filen](./media/resource-manager-cloud-shell-deploy/upload-files.png)
+   ![Överför fil](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
+
+1. Välj mallen när paketet har överförts.
+
+   ![Välj mall](./media/resource-manager-cloud-shell-deploy/select-new-template.png)
+
+1. Kopiera URL-Adressen.
+
+   ![Kopiera URL](./media/resource-manager-cloud-shell-deploy/copy-url.png)
 
 1. Öppna kommandotolken.
 

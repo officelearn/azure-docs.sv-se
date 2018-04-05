@@ -1,25 +1,25 @@
 ---
-title: "Utforma frågor för effektiva lista - Azure Batch | Microsoft Docs"
-description: "Öka prestandan genom att filtrera dina frågor när du begär information om Batch-resurser som pooler, jobb, uppgifter och beräkningsnoder."
+title: Utforma frågor för effektiva lista - Azure Batch | Microsoft Docs
+description: Öka prestandan genom att filtrera dina frågor när du begär information om Batch-resurser som pooler, jobb, uppgifter och beräkningsnoder.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 08/02/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a80b207f591bd888d4749287527013c5e554fb6e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 330350d6ac6838ea5b09763fe1f73fab1934710c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Skapa frågor till listan Batch resurser effektivt
 
@@ -100,8 +100,8 @@ Expandera strängen minskar antalet API-anrop som krävs för att hämta viss in
 * Alla egenskapsnamn är skiftlägeskänsliga, men egenskapsvärden är skiftlägeskänsligt.
 * Tidsvärdet strängar kan vara något av två format och måste föregås av `DateTime`.
   
-  * W3C-DTF format exempel:`creationTime gt DateTime'2011-05-08T08:49:37Z'`
-  * RFC 1123 format exempel:`creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
+  * W3C-DTF format exempel: `creationTime gt DateTime'2011-05-08T08:49:37Z'`
+  * RFC 1123 format exempel: `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
 * Booleskt strängar är antingen `true` eller `false`.
 * Om en ogiltig egenskap eller en operator har angetts en `400 (Bad Request)` fel returneras.
 
@@ -171,7 +171,7 @@ Egenskapsnamn i filtret, markera och expandera strängar *måste* återspeglar m
 
 | Batch .NET-typer | REST API-enheter |
 | --- | --- |
-| [Certifikat][net_cert] |[Hämta information om ett certifikat][rest_get_cert] |
+| [certifikat][net_cert] |[Hämta information om ett certifikat][rest_get_cert] |
 | [CloudJob][net_job] |[Hämta information om ett jobb][rest_get_job] |
 | [CloudJobSchedule][net_schedule] |[Hämta information om ett Jobbschema][rest_get_schedule] |
 | [ComputeNode][net_node] |[Hämta information om en nod][rest_get_node] |

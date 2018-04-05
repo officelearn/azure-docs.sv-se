@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 911043c8fda985f25023dc1224d8e67b283f4d6c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Ordna dina resurser med Azure-Hanteringsgrupper 
 
@@ -42,11 +42,15 @@ Genom att skapa en hierarki som är grupperade efter avdelningar, du kan tilldel
 - Varje hanteringsgrupp kan ha flera underordnade objekt. 
 
 ### <a name="preview-subscription-visibility-limitation"></a>Förhandsgranska prenumeration synlighet begränsning 
-Det finns en begränsning i förhandsgranskningen där du inte kan visa prenumerationer som du har ärvd åtkomst till. Ärvs åtkomst till prenumerationen, men Azure Resource Manager kan inte ta hänsyn till arv åtkomst ännu.  
+Det finns en begränsning i förhandsgranskningen om du inte kunna visa prenumerationer som du har ärvd åtkomst till. Ärvs åtkomst till prenumerationen, men Azure Resource Manager inte kan ta hänsyn till arv åtkomst ännu.  
 
 Med hjälp av REST API för att hämta information om prenumerationen returnerar information som du har åtkomst, men i Azure-portalen och Azure Powershell prenumerationerna visas inte. 
 
-Det här objektet utförs på och kommer att lösas innan Hanteringsgrupper meddelade som ”allmän tillgänglighet”.  
+Det här objektet utförs på och kommer att lösas innan Hanteringsgrupper annonseras som ”allmän tillgänglighet”.  
+
+### <a name="cloud-solution-providercsp-limitation-during-preview"></a>Cloud Solution Provider(CSP) begränsning under förhandsgranskning 
+Det finns en aktuell begränsning för molnet Provider(CSP) Lösningspartners där de inte kan du skapa och hantera sina kunder hanteringsgrupper i sina kunder katalog.  
+Det här objektet utförs på och kommer att lösas innan Hanteringsgrupper annonseras som ”allmän tillgänglighet”.
 
 
 ## <a name="root-management-group-for-each-directory"></a>Rot-hanteringsgruppen för varje katalog

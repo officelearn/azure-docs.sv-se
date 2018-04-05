@@ -118,6 +118,8 @@
   items:
     - name: Skapa datafabriker visuellt
       href: author-visually.md
+    - name: Kontinuerlig integrering och distribution
+      href: continuous-integration-deployment.md
     - name: Kopiera data
       items:
         - name: Kopiera data med Kopiera aktivitet

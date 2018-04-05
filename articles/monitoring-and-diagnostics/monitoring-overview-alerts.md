@@ -1,5 +1,5 @@
 ---
-title: Översikt över aviseringar i Microsoft Azure och Azure-Monitor | Microsoft Docs
+title: Översikt över klassiska aviseringar i Microsoft Azure och Azure-Monitor | Microsoft Docs
 description: Aviseringar kan du övervaka Azure-resurs mått, händelser eller loggar och aviseras när du anger villkor.
 author: rboucher
 manager: carmonm
@@ -12,55 +12,46 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 03/28/2018
 ms.author: robb
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c64ca224705b7da57846e53bdc28d6d03eb28b06
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 06ba05f71cf1f696033099c04448526a0421ad42
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="what-are-alerts-in-microsoft-azure"></a>Vad är aviseringar i Microsoft Azure?
-Den här artikeln beskriver de olika källorna av aviseringar i Microsoft Azure, vilka syften för dessa aviseringar, sina fördelar och hur du kommer igång med att använda dem. Den specifikt gäller för Azure-Monitor, men ger aviseringar samt länkar till andra tjänster. Aviseringar erbjuder en metod för att övervaka i Azure som gör att du kan konfigurera villkor över data och bli meddelad när villkoren matchas senaste övervakningsdata.
+# <a name="what-are-classic-alerts-in-microsoft-azure"></a>Vad är klassiska aviseringar i Microsoft Azure?
+
+> [!NOTE]
+> Den här artikeln beskriver hur du skapar äldre klassiska mått aviseringar. Stöd för Azure övervakaren [nyare nära realtid mått aviseringar](monitoring-overview-unified-alerts.md)
+>
+
+Den här artikeln beskriver de olika källorna av aviseringar i Microsoft Azure, vilka syften för dessa aviseringar, sina fördelar och hur du kommer igång med att använda dem. Det gäller specifikt för klassiska Azure-Monitor-aviseringar. Aviseringar erbjuder en metod för att övervaka i Azure som gör att du kan konfigurera villkor över data och bli meddelad när villkoren matchas senaste övervakningsdata.
 
 
-## <a name="taxonomy-of-azure-alerts"></a>Taxonomi för Azure-aviseringar
-Azure använder följande termer för att beskriva aviseringar och deras funktioner:
+## <a name="taxonomy-of-azure-monitor-classic-alerts"></a>Taxonomi för klassiska Azure-Monitor-aviseringar
+Azure använder följande termer för att beskriva klassiska aviseringar och deras funktioner:
 * **Varning** -en definition av kriterier (en eller flera regler eller villkor) som blir aktiveras när uppfylls.
-* **Aktiva** -läget när följande villkor som definieras av en avisering är uppfyllda.
-* **Matcha** -läge när de kriterier som definieras av en avisering är inte längre uppfyllt efter tidigare är uppfyllda.
-* **Meddelande** - åtgärd baserat på en avisering som blir aktiv.
+* **Aktiva** -läget när en klassiska avisering villkoren är uppfyllda.
+* **Matcha** -läget när en klassiska avisering villkoren uppfylls inte längre efter tidigare är uppfyllda.
+* **Meddelande** - åtgärd baserat ut från en klassiska avisering aktiveras.
 * **Åtgärden** -ett specifikt anrop som skickas till en mottagare av ett meddelande (till exempel e-posta en adress eller bokföring till en Webhooksadressen). Meddelanden kan vanligtvis utlösa flera åtgärder.
 
-
-## <a name="alerts-in-different-azure-services"></a>Aviseringar i olika Azure-tjänster
-Aviseringar är tillgänglig över flera Azure övervaka tjänster. Information om hur och när du använder dessa tjänster [finns i den här artikeln](./monitoring-overview.md). Här är en uppdelning av aviseringstyperna i Azure:
-
-
-| Tjänst | Aviseringstyp | Tjänster som stöds | Beskrivning |
-|---|---|---|---|
-| Azure Monitor | [Mått aviseringar](./insights-alerts-portal.md) | [Stöds mått från Azure-Monitor](./monitoring-supported-metrics.md) | Ett meddelande när någon plattform nivå mått uppfyller ett visst villkor (till exempel processor i procent på en virtuell dator är större än 90 för senaste 5 minuter). |
-|Azure Monitor | [Nära realtid mått aviseringar](./monitoring-near-real-time-metric-alerts.md)| [Stöds resurser från Azure-Monitor](./monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported) | Ett meddelande snabbare än mått aviseringar när ett eller flera mått för plattformen nivå uppfyller angivna villkor (till exempel processor i procent på en virtuell dator är större än 90 och nätverket i är större än 500 MB för senaste 5 minuter). |
-| Azure Monitor | [Aktiviteten loggen aviseringar](./monitoring-activity-log-alerts.md) | Alla resurstyper som är tillgängliga i Azure Resource Manager | Få en avisering när någon ny händelse i den [Azure-aktivitetsloggen](./monitoring-overview-activity-logs.md) matchar vissa villkor (till exempel när en åtgärd för ”ta bort virtuell dator” inträffar i myProductionResourceGroup eller när en ny händelse tjänstens hälsa med ”aktiv” status som visas). |
-| Application Insights | [Mått aviseringar](../application-insights/app-insights-alerts.md) | Alla program som instrumenterats ska skicka data till Application Insights | Ett meddelande när någon på programnivå mått uppfyller ett visst villkor (till exempel serversvarstid är större än 2 sekunder). |
-| Application Insights | [Web test varningar](../application-insights/app-insights-monitor-web-app-availability.md) | Alla webbplatser som instrumenterats ska skicka data till Application Insights | Få ett meddelande när tillgänglighet och svarstider på en webbplats som är lägre än förväntningar. |
-| Log Analytics | [Log Analytics aviseringar](../log-analytics/log-analytics-alerts.md) | Alla tjänster som konfigurerats för att skicka data till logganalys | Få ett meddelande när en logganalys sökfråga över mått och/eller händelse data uppfyller vissa villkor. |
 
 ## <a name="alerts-on-azure-monitor-data"></a>Aviseringar på Azure-Monitor data
 Det finns tre typer av aviseringar från data från Azure-Monitor--mått aviseringar, nära realtid mått aviseringar och aktivitetsloggen aviseringar.
 
-* **Mått aviseringar** -den här aviseringen utlöses när värdet för ett visst mått överskrider ett tröskelvärde som du tilldelar. Aviseringen genererar ett meddelande när aviseringen är ”aktiverad” (när tröskelvärdet skärs och avisering villkoret är uppfyllt) som när den är ”löst” (när tröskelvärdet skärs igen och den är inte längre uppfyllt). Dessa är äldre mått aviseringar. Nyare mått aviseringar finns nedan.
+* **Klassiska mått aviseringar** -den här aviseringen utlöses när värdet för ett visst mått överskrider ett tröskelvärde som du tilldelar. Aviseringen genererar ett meddelande när aviseringen är ”aktiverad” (när tröskelvärdet skärs och avisering villkoret är uppfyllt) som när den är ”löst” (när tröskelvärdet skärs igen och den är inte längre uppfyllt). Dessa är äldre mått aviseringar. Nyare mått aviseringar finns nedan.
 
-* **Nära realtid mått aviseringar** -dessa är nyare mått aviseringar med förbättrade funktioner jämfört med föregående mått aviseringar. Dessa aviseringar kan köras med en frekvens som 1 minut. De också stöd för övervakning av flera (för närvarande två) mått.  Aviseringen genererar ett meddelande när aviseringen är ”aktiverad” (när tröskelvärden för varje mått passeras samtidigt och avisering villkoret är uppfyllt) samt när ”löses” (när minst en måttet överskrider tröskelvärdet igen och villkoret är ingen längre uppfyllt).
+* **Nära realtid mått aviseringar** (nyare avisering experience) - det här är nyare mått aviseringar med förbättrade funktioner jämfört med föregående mått aviseringar. Dessa aviseringar kan köras med en frekvens som 1 minut. De också stöd för övervakning av flera (för närvarande två) mått.  Aviseringen genererar ett meddelande när aviseringen är ”aktiverad” (när tröskelvärden för varje mått passeras samtidigt och avisering villkoret är uppfyllt) samt när ”löses” (när minst en måttet överskrider tröskelvärdet igen och villkoret är ingen längre uppfyllt).
 
-* **Loggen Aktivitetsaviseringar** -en strömmande log-avisering som utlöses när en aktivitetsloggen-händelse genereras som matchar filtervillkor som du har tilldelat. Dessa aviseringar har endast en tillstånd ”aktiverad” eftersom aviseringen motorn gäller bara filtervillkoren för alla nya händelser. Dessa aviseringar kan användas för att bli meddelad när en ny incident tjänstens hälsa inträffar eller när en användare eller program utför en åtgärd i din prenumeration, till exempel ”ta bort virtuell dator”.
+* **Klassiska aktivitet loggen aviseringar** -en strömmande log-avisering som utlöses när en aktivitetsloggen-händelse genereras som matchar filtervillkor som du har tilldelat. Dessa aviseringar har endast en tillstånd ”aktiverad” eftersom aviseringen motorn gäller bara filtervillkoren för alla nya händelser. Dessa aviseringar kan användas för att bli meddelad när en ny incident tjänstens hälsa inträffar eller när en användare eller program utför en åtgärd i din prenumeration, till exempel ”ta bort virtuell dator”.
 
 Diagnostiska loggdata som är tillgängliga via Azure-Monitor föreslår vi dirigera datan till logganalys och använder en Log Analytics-avisering. Följande diagram sammanfattar datakällor för data i Azure-Monitor och, begreppsmässigt, hur du kan ge ut från dessa data.
 
 ![Aviseringar som förklaras](./media/monitoring-overview-alerts/Alerts_Overview_Resource_v4.png)
 
-## <a name="how-do-i-receive-a-notification-on-an-azure-monitor-alert"></a>Hur får ett meddelande på en Azure-Monitor alert?
+## <a name="how-do-i-receive-a-notification-on-an-azure-monitor-classic-alert"></a>Hur får ett meddelande på en klassisk Azure-övervakningsavisering?
 Tidigare använda Azure aviseringar från olika tjänster sina egna inbyggda metoder. Azure-Monitor erbjuder framöver, en återanvändbara notification gruppering som kallas åtgärdsgrupper. Åtgärdsgrupper ange mottagare för ett meddelande--alla antal e-postadresser, telefonnummer (för SMS) eller webhook webbadresser-- och när en avisering aktiveras som refererar till gruppen åtgärden alla mottagare få detta meddelande. På så sätt kan du återanvända en gruppering av mottagarna (till exempel på anrop tekniker listan) över många objekt som aviseringen. För närvarande bara aktivitetsloggen aviseringar genom att utnyttja åtgärdsgrupper, men flera andra Azure aviseringstyper arbetar med hjälp av åtgärdsgrupper samt.
 
 Åtgärdsgrupper har stöd för meddelanden genom att publicera till en Webhooksadressen förutom e-postadresser och SMS-nummer. Detta kan till exempel automation och reparationer med:

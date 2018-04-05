@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 3caa3d2b8640c83f1001aeac3b0a5e9ada143183
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2c05407d761a8848f9e032aa219960cd7ea6fa93
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-protect-an-api-using-oauth-20-with-azure-active-directory-and-api-management"></a>Hur du skyddar ett API med OAuth 2.0 med Azure Active Directory och API-hantering
 
 Den här guiden visar hur du konfigurerar din API Management (APIM)-instans för att skydda en API med OAuth 2.0-protokollet med Azure Active Directory (AAD). 
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisite"></a>Förutsättning
 Om du vill följa stegen i den här artikeln, måste du ha:
 * En APIM-instans
 * En API som publiceras med APIM-instansen
@@ -181,9 +181,9 @@ Klicka på **skicka** och du ska kunna anropa API: N har.
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Konfigurera en princip för verifiering av JWT för att godkänna begäranden före
 
-Nu när en användare försöker att ringa ett samtal från Developer-konsolen, användaren uppmanas att logga in och Developer-konsolen ska få en åtkomst-Token för användarens räkning. Allt fungerar som förväntat. Men vad händer om någon ringer vårt API utan en token eller med en ogiltig token? Exempelvis kan du ta bort den `Authorization` sidhuvud och hittar du kan fortfarande att anropa API: et. Det beror på eftersom APIM inte validerar åtkomst-Token i det här läget. Passerar den `Auhtorization` sidhuvud till API-serverdelen.
+Nu när en användare försöker att ringa ett samtal från Developer-konsolen, användaren uppmanas att logga in och Developer-konsolen ska få en åtkomst-Token för användarens räkning. Allt fungerar som förväntat. Men vad händer om någon ringer vårt API utan en token eller med en ogiltig token? Exempelvis kan du ta bort den `Authorization` sidhuvud och hittar du kan fortfarande att anropa API: et. Det beror på eftersom APIM inte validerar åtkomst-Token i det här läget. Helt enkelt passerar den `Auhtorization` sidhuvud till API-serverdelen.
 
-Vi kan använda den [Validera JWT](api-management-access-restriction-policies.md#ValidateJWT) princip för att godkänna begäranden i APIM före genom att verifiera åtkomsttoken för varje inkommande begäran. Om en begäran inte har en giltig token, blockeras av API-hantering och skickas inte vidare till serverdelen. Vi kan lägga till den nedan för att `Echo API`. 
+Vi kan använda den [Validera JWT](api-management-access-restriction-policies.md#ValidateJWT) princip för att godkänna begäranden i APIM före genom att verifiera åtkomsttoken för varje inkommande begäran. Om en begäran inte har en giltig token, blockeras av API-hantering och skickas inte vidare till serverdelen. Vi kan till exempel lägga till den nedan för att den `<inbound>` principavdelningen i det `Echo API`. Den kontrollerar målgruppen anspråk i en åtkomst-token och returnerar ett felmeddelande om token inte är giltig. Mer information om hur du konfigurerar principer finns [ange eller redigera principer](set-edit-policies.md).
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -196,7 +196,12 @@ Vi kan använda den [Validera JWT](api-management-access-restriction-policies.md
 </validate-jwt>
 ```
 
+## <a name="build-an-application-to-call-the-api"></a>Skapa ett program för att anropa API: et
+
+I den här handboken vi använde Developer-konsolen i APIM som klienten exempelprogrammet för att anropa den `Echo API` skyddas av OAuth 2.0. Läs mer om hur du skapar ett program och implementera flödet för OAuth 2.0 i [kodexempel för Azure Active Directory](../active-directory/develop/active-directory-code-samples.md).
+
 ## <a name="next-steps"></a>Nästa steg
+* Lär dig mer om [Azure Active Directory och OAuth2.0](../active-directory/develop/active-directory-authentication-scenarios.md)
 * Checka ut mer [videor](https://azure.microsoft.com/documentation/videos/index/?services=api-management) om API-hantering.
 * Andra sätt att skydda din backend-tjänst finns [ömsesidig autentisering](api-management-howto-mutual-certificates.md).
 

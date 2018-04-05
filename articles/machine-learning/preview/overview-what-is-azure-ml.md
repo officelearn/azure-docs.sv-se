@@ -1,6 +1,6 @@
 ---
 title: Vad är Azure Machine Learning? | Microsoft Docs
-description: Översikt över Azure Machine Learning-experimentering och -modellhantering, en integrerad lösning från slutpunkt till slutpunkt som gör att dataforskare kan utveckla, experimentera och distribuera avancerade analysprogram i molnskala.
+description: Förklarar grundläggande begrepp relaterade till maskininlärning i molnet och vad du kan använda det till, samt definierar viktiga termer inom maskininlärning. Översikt över Azure Machine Learning – en integrerad lösning från slutpunkt till slutpunkt som gör att dataforskare kan utveckla, experimentera och distribuera avancerade analysprogram i molnskala.
 services: machine-learning
 author: mwinkle
 ms.author: mwinkle
@@ -9,14 +9,19 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
-ms.openlocfilehash: e5716e3fc519c48aaea3ec17939d11008a1b1fd4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8a92f42ecee926042e9e0662f6b0bd9438024248
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
+# <a name="what-is-machine-learning"></a>Vad är Machine Learning?
 
+Maskininlärning är en datavetenskapsteknik som gör att datorer kan använda befintliga data för att göra prognoser om framtida beteenden, resultat och trender. Med maskininlärning kan datorer lära sig utan att vara explicit programmerade.
+
+Prognoser eller förutsägelser från maskininlärning kan göra appar och enheter smartare. När du handlar på nätet kan maskininlärning till exempel användas för att rekommendera andra produkter som du kanske gillar baserat på vad du har köpt. När ditt kreditkort dras används maskininlärning för att jämföra transaktionen med en transaktionsdatabas, vilket gör det lättare att upptäcka bedrägerier. När din robotdammsugare dammsuger ett rum tar den hjälp av maskininlärning för att avgöra om jobbet är klart.
+
+## <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 Azure Machine Learning är en integrerad lösning från slutpunkt till slutpunkt för avancerade analyser inom dataforskning. Med lösningen kan dataforskare förbereda data, utveckla experiment och distribuera modeller i molnskala.
 
 Huvudkomponenter i Azure Machine Learning:
@@ -29,6 +34,7 @@ Huvudkomponenter i Azure Machine Learning:
 Med dessa program och tjänster går det mycket snabbare att utveckla och distribuera dataforskningsprojekt. 
 
 ![Begrepp för Azure Machine Learning](media/overview-what-is-azure-ml/aml-concepts.png)
+
 
 ## <a name="open-source-compatible"></a>Kompatibilitet med öppen källkod
 

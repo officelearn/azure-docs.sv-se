@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric - Konfigurera övervakning med OMS Log Analytics | Microsoft Docs"
-description: "Lär dig hur du konfigurerar Operations Management Suite för att visualisera och analysera händelser att övervaka dina Azure Service Fabric-kluster."
+title: Azure Service Fabric - Konfigurera övervakning med OMS Log Analytics | Microsoft Docs
+description: Lär dig hur du konfigurerar Operations Management Suite för att visualisera och analysera händelser att övervaka dina Azure Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2017
-ms.author: dekapur
-ms.openlocfilehash: 98ac32b011744ce388762322edd538b467f93494
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 3/30/2018
+ms.author: dekapur; srrengar
+ms.openlocfilehash: 2589efa1808a394f2e32b842efa2ee70809da232
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Konfigurera Operations Management Suite Log Analytics för ett kluster
 
@@ -75,7 +75,7 @@ Du har lagt till Service Fabric Analytics-lösning i en OMS logganalys-arbetsyta
 
 När du distribuerar ett kluster med hjälp av en Resource Manager-mall mallen skapar en ny OMS-arbetsyta, lägger till Service Fabric-lösningen till arbetsytan och konfigurerar den för att läsa data från lämplig storage-tabeller.
 
-Du kan använda och ändra [exempel mallen](https://azure.microsoft.com/resources/templates/service-fabric-oms/) som uppfyller dina krav. Mallar som ger olika alternativ för hur du konfigurerar en OMS-arbetsyta finns på [Service Fabric och OMS mallar](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
+Du kan använda och ändra [exempel mallen](https://github.com/krnese/azure-quickstart-templates/tree/master/service-fabric-oms) som uppfyller dina krav.
 
 Gör följande ändringar:
 1. Lägg till `omsWorkspaceName` och `omsRegion` till parametrarna genom att lägga till följande kodavsnitt de parametrar som definierats i din *template.json* fil. Du kan ändra standardinställningarna som du vill. Lägg även till två nya parametrar i din *parameters.json* filen för att definiera deras värden för resurs-distribution:

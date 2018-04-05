@@ -1,6 +1,6 @@
 ---
-title: "Felsöka Azure-Behållarinstanser"
-description: "Lär dig hur du felsöker problem med Azure Container instanser"
+title: Felsöka Azure-Behållarinstanser
+description: Lär dig hur du felsöker problem med Azure Container instanser
 services: container-instances
 author: seanmck
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 03/14/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a527939d6bc73e3dee5701bc53ef8312e68d2953
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ac7ddbccdef736bce941716883cf821a0f5c1f34
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Felsöka distributionsproblem med Azure Container instanser
+# <a name="troubleshoot-container-and-deployment-issues-in-azure-container-instances"></a>Felsökning av problem med behållare och distribution i Azure Container instanser
 
 Den här artikeln visar hur du felsöker problem när du distribuerar behållare till Azure-Behållarinstanser. Här beskrivs också några vanliga problem som kan uppstå.
 
@@ -51,7 +51,7 @@ Traceback (most recent call last):
 urllib.error.HTTPError: HTTP Error 404: Not Found
 ```
 
-### <a name="attach-output-streams"></a>Koppla utdataströmmar
+### <a name="attach-output-streams"></a>Ansluta utdataströmmar
 
 Den [az behållaren bifoga] [ az-container-attach] kommandot ger diagnostisk information under behållaren start. När behållaren har börjat strömmas STDOUT och STDERR till din lokala konsolen.
 

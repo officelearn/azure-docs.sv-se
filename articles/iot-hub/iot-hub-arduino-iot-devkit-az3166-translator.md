@@ -1,12 +1,12 @@
 ---
-title: "IoT DevKit översättare med Azure-funktion och kognitiva Services | Microsoft Docs"
-description: "Använd mikrofon på IoT DevKit för att ta emot röstmeddelande och kognitiva Azure-tjänster för bearbetning till översatt text på engelska."
+title: IoT DevKit översättare med Azure-funktion och kognitiva Services | Microsoft Docs
+description: Använd mikrofon på IoT DevKit för att ta emot röstmeddelande och kognitiva Azure-tjänster för bearbetning till översatt text på engelska.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: liydu
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.service: iot-hube
 ms.devlang: arduino
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: 5f74e43d20b5954ae4808f82a34372d1e2190481
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d17f117d71eb0616201df18aea6dc48749ae24a8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>Använda IoT DevKit AZ3166 med Azure-funktion och kognitiva tjänster för att göra en språk översättare
 
@@ -35,7 +35,7 @@ Slutför den [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/io
 
 En aktiv Azure-prenumeration. Om du inte har någon, kan du registrera via någon av följande två metoder:
 
-* Aktivera en [kostnadsfria 30-dagars utvärderingsversion av Microsoft Azure-konto](https://azureinfo.microsoft.com/us-freetrial.html)
+* Aktivera en [kostnadsfria 30-dagars utvärderingsversion av Microsoft Azure-konto](https://azure.microsoft.com/en-us/free/)
 * Anspråk din [Azure-kredit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) om du prenumererar på MSDN eller Visual Studio
 
 ## <a name="step-1-open-the-project-folder"></a>Steg 1. Öppna projektmappen
@@ -113,7 +113,7 @@ På skärmen översättning resultatet kan du:
 - Tryck på knappen A och B för att bläddra och Välj språk för källa.
 - Tryck på knappen B för att kommunicera, så att skicka rösten och hämta översättning texten
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 ![mini-solution-voice-to-tweet-diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
 

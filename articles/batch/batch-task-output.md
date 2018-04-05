@@ -1,24 +1,24 @@
 ---
-title: "Spara resultaten eller loggar från slutförda jobb och aktiviteter i ett datalager - Azure Batch | Microsoft Docs"
-description: "Lär dig mer om olika alternativ för bestående av utdata från batchuppgifter och jobb. Du kan spara data till Azure Storage, eller ett annat datalager."
+title: Spara resultaten eller loggar från slutförda jobb och aktiviteter i ett datalager - Azure Batch | Microsoft Docs
+description: Lär dig mer om olika alternativ för bestående av utdata från batchuppgifter och jobb. Du kan spara data till Azure Storage, eller ett annat datalager.
 services: batch
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/16/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3ca93e823f02b1483ed290cf89de191937d1e2c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb8b1ca3514e27221e95cb2def823c8f89d151e5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="persist-job-and-task-output"></a>Bevara jobb- och uppgiftsutdata
 
@@ -79,7 +79,7 @@ Använd API för Batch-tjänsten för att bevara utdata när uppgiften:
 - Vill du spara data till en Azure Storage-behållare med namnet enligt den [Batch filen konventioner standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 > [!NOTE]
-> API för Batch-tjänsten stöder inte bestående data från aktiviteter som körs i pooler som har skapats med tjänsten molnkonfigurationen. Information om bestående uppgiften utdata från pooler med cloud services-konfigurering finns [spara projekt- och data till Azure Storage med Batch filen konventioner biblioteket för .NET att bevara](batch-task-output-file-conventions.md)
+> API för Batch-tjänsten stöder inte bestående data från aktiviteter som körs i pooler som har skapats med tjänsten molnkonfigurationen. Information om bestående uppgiften utdata från pooler med cloud services-konfigurering finns [spara projekt- och data till Azure Storage med Batch filen konventioner biblioteket för .NET att bevara ](batch-task-output-file-conventions.md)
 > 
 > 
 
@@ -113,7 +113,7 @@ Du kanske vill implementera filen konventioner namngivningsstandarden själv nä
 
 Du kan också implementera din egen lösning för flytt av hela filen. Använd detta närmar sig när:
 
-- Vill du spara aktivitetsdata till ett annat dataarkiv än Azure Storage. Du kan skapa ett anpassat skript eller en körbar fil att ladda upp till platsen för att ladda upp filer till ett dataarkiv som Azure SQL- eller Azure DataLake. Du kan sedan anropa den på kommandoraden när du har kört din primära körbar fil. Till exempel på en Windows-nod, kan du anropa dessa två kommandon:`doMyWork.exe && uploadMyFilesToSql.exe`
+- Vill du spara aktivitetsdata till ett annat dataarkiv än Azure Storage. Du kan skapa ett anpassat skript eller en körbar fil att ladda upp till platsen för att ladda upp filer till ett dataarkiv som Azure SQL- eller Azure DataLake. Du kan sedan anropa den på kommandoraden när du har kört din primära körbar fil. Till exempel på en Windows-nod, kan du anropa dessa två kommandon: `doMyWork.exe && uploadMyFilesToSql.exe`
 - Du vill utföra kontroll pekar eller tidig överföring av första resultaten.
 - Du vill behålla granulär kontroll över felhantering. Du kanske vill implementera din egen lösning om du vill använda-beroende åtgärder för att vidta vissa överför åtgärder baserat på en viss uppgift slutkoder. Mer information om aktiviteten beroende åtgärder finns i [Skapa uppgift beroenden för att köra uppgifter som är beroende av andra aktiviteter](batch-task-dependencies.md). 
 

@@ -1,18 +1,18 @@
 ---
-title: "Översikt över Azure händelse rutnätet"
-description: "Beskriver Azure händelse rutnätet och dess begrepp."
+title: Översikt över Azure händelse rutnätet
+description: Beskriver Azure händelse rutnätet och dess begrepp.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>En introduktion till Azure händelse rutnätet
 
@@ -24,43 +24,44 @@ Händelsen rutnätet stöder för närvarande följande områden:
 
 * Sydostasien
 * Asien Öst
-* Centrala USA
-*   Östra USA
-*   Östra USA 2
+* USA, centrala
+*   USA, östra
+*   USA, östra 2
 * Västeuropa
 * Nordeuropa
 *   Västra centrala USA
-*   Västra USA
+*   USA, västra
 *   Västra USA 2
 
-Den här artikeln innehåller en översikt över Azure händelse rutnätet. Om du vill komma igång med händelsen rutnätet finns [skapa och flöde anpassade händelser med Azure händelse rutnätet](custom-event-quickstart.md). Följande bild visar hur händelsen rutnätet ansluter utgivare och hanterare, men ger inte en omfattande lista över vilka alternativ som stöds.
+Den här artikeln innehåller en översikt över Azure händelse rutnätet. Om du vill komma igång med händelsen rutnätet finns [skapa och flöde anpassade händelser med Azure händelse rutnätet](custom-event-quickstart.md). Följande bild visar hur händelsen rutnätet ansluter källor och hanterare, men ger inte en omfattande lista över vilka alternativ som stöds.
 
 ![Händelsen rutnätet funktionella modellen](./media/overview/functional-model.png)
 
-## <a name="event-publishers"></a>Händelseutfärdare
+## <a name="event-sources"></a>Händelsekällan
 
-För närvarande har följande Azure-tjänster inbyggda utgivarens support för händelsen rutnät:
+För närvarande stöder följande Azure-tjänster skickar händelser till händelse rutnätet:
 
 * Azure-prenumerationer (hanteringsåtgärder)
 * Anpassade avsnitt
-* Händelsehubbar
-* IoT Hub
+* Event Hubs
+* IoT-hubb
 * Resursgrupper (hanteringsåtgärder)
+* Service Bus
 * Storage Blob
 * Storage General-purpose v2 (GPv2)
 
 ## <a name="event-handlers"></a>Händelsehanterare
 
-Följande Azure-tjänster har för närvarande stöd för inbyggda hanterare för händelsen rutnätet: 
+För närvarande stöder följande Azure-tjänster hantera händelser från Event rutnät: 
 
 * Azure Automation
 * Azure Functions
-* Händelsehubbar
+* Event Hubs
 * Logic Apps
 * Microsoft Flow
 * WebHooks
 
-När du använder Azure Functions som hanterare kan använda händelse rutnätet utlösaren i stället för allmänna HTTP-utlösare. Händelsen rutnätet verifieras automatiskt händelse rutnätet funktionen utlösare. Med den allmänna http-utlösare, måste du implementera den [validering svar](security-authentication.md#webhook-event-delivery).
+När du använder Azure Functions som hanterare kan använda händelse rutnätet utlösaren i stället för allmänna HTTP-utlösare. Event Grid verifierar automatiskt Event Grid Function-utlösare. Med allmänna HTTP-utlösare måste du implementera [verifieringssvaret](security-authentication.md#webhook-event-delivery).
 
 ## <a name="concepts"></a>Begrepp
 

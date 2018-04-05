@@ -1,6 +1,6 @@
 ---
-title: "Azure hanterade program VirtualNetworkCombo gränssnittselement | Microsoft Docs"
-description: "Beskriver Microsoft.Network.VirtualNetworkCombo UI-element för hanterade program i Azure"
+title: Azure VirtualNetworkCombo UI-element | Microsoft Docs
+description: Beskriver Microsoft.Network.VirtualNetworkCombo UI-element för Azure-portalen.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: c17ef740dcc709b5b344c4e60ef997a948b2e5de
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 38202b3b669a162f1cdbe88663d050d8d791c964
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Microsoft.Network.VirtualNetworkCombo UI-element
-En grupp av kontroller för att välja ett nytt eller befintligt virtuellt nätverk. Du använder det här elementet när [att skapa ett Azure hanterade program](publish-service-catalog-app.md).
+# <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Microsoft.Network.VirtualNetworkCombo UI element
+En grupp av kontroller för att välja ett nytt eller befintligt virtuellt nätverk.
 
 ## <a name="ui-sample"></a>UI-exempel
 ![Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo.png)
@@ -28,7 +28,7 @@ En grupp av kontroller för att välja ett nytt eller befintligt virtuellt nätv
 - I det övre Trådblock har användaren valts ett nytt virtuellt nätverk, så att användaren kan anpassa namn och adress prefix för varje undernät. I detta fall är konfigurera undernät valfritt.
 - I den nedre Trådblock har användaren valts ett befintligt virtuellt nätverk, så att användaren måste mappa varje undernät som krävs för mallen för distribution till ett befintligt undernät. Konfiguration av undernät krävs i det här fallet.
 
-## <a name="schema"></a>Schemat
+## <a name="schema"></a>Schema
 ```json
 {
   "name": "element1",
@@ -84,8 +84,8 @@ En grupp av kontroller för att välja ett nytt eller befintligt virtuellt nätv
 ## <a name="remarks"></a>Kommentarer
 - Om anges den första icke-överlappande-prefixet för storlek `defaultValue.addressPrefixSize` bestäms automatiskt baserat på de befintliga virtuella nätverk i användarens prenumeration.
 - Standardvärdet för `defaultValue.name` och `defaultValue.addressPrefixSize` är **null**.
-- `constraints.minAddressPrefixSize`måste anges. Alla befintliga virtuella nätverk med ett adressutrymme som är mindre än det angivna värdet är inte tillgängliga för val.
-- `subnets`måste anges, och `constraints.minAddressPrefixSize` måste anges för varje undernät.
+- `constraints.minAddressPrefixSize` måste anges. Alla befintliga virtuella nätverk med ett adressutrymme som är mindre än det angivna värdet är inte tillgängliga för val.
+- `subnets` måste anges, och `constraints.minAddressPrefixSize` måste anges för varje undernät.
 - När du skapar ett nytt virtuellt nätverk, varje undernät adressprefixet beräknas automatiskt utifrån på det virtuella nätverket adressprefixet och motsvarande `addressPrefixSize`.
 - När du använder ett befintligt virtuellt nätverk, alla undernät som är mindre än respektive `constraints.minAddressPrefixSize` är inte tillgängliga för val. Dessutom, om angivna undernät som inte innehåller minst `minAddressCount` tillgängliga adresser är inte tillgängliga för val.
 Standardvärdet är **0**. För att säkerställa att tillgängliga adresser är sammanhängande, ange **SANT** för `requireContiguousAddresses`. Standardvärdet är **SANT**.
@@ -115,6 +115,5 @@ Standardvärdet är **0**. För att säkerställa att tillgängliga adresser är
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En introduktion till hanterade program, se [översikt över Azure Managed Application](overview.md).
 * En introduktion till att skapa UI-definitioner, se [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
 * En beskrivning av gemensamma egenskaper i UI-element, se [CreateUiDefinition element](create-uidefinition-elements.md).

@@ -43,11 +43,12 @@
 ## Använda MXChip IoT DevKit
 ### [Översätta röstmeddelanden med Azure Cognitive Services](iot-hub-arduino-iot-devkit-az3166-translator.md)
 ### [Hämta ett Twitter-meddelande med Azure Functions](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
+### [Övervaka den magnetiska sensorn och skicka e-postaviseringar med Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
 # Instruktionsguider
 ## Planera
 ### [Jämföra IoT Hub och Event Hubs](iot-hub-compare-event-hubs.md)
-### [Skala din lösning](iot-hub-scaling.md)
+### [Välj den rätta nivån](iot-hub-scaling.md)
 ### [Hög tillgänglighet och haveriberedskap](iot-hub-ha-dr.md)
 ### [Stöd för ytterligare protokoll](iot-hub-protocol-gateway.md)
 ### [Jämföra meddelande- och händelsedirigering](iot-hub-event-grid-routing-comparison.md)
@@ -147,6 +148,7 @@
 ### [Övervaka med diagnostik](iot-hub-monitor-resource-health.md)
 #### [Migrera till diagnostikinställningar](iot-hub-migrate-to-diagnostics-settings.md)
 #### [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
+### [Uppgradera en IoT-hubb](iot-hub-upgrade.md)
 ### [Användningsstatistik](iot-hub-metrics.md)
 ### [Masshantera IoT-enheter](iot-hub-bulk-identity-mgmt.md)
 ### [Konfigurera IP-filtrering](iot-hub-ip-filtering.md)

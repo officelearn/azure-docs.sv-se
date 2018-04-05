@@ -1,25 +1,25 @@
 ---
-title: "Köra uppgifter parallellt att använda beräkningsresurser effektivt - Azure Batch | Microsoft Docs"
-description: "Öka effektiviteten och sänka kostnaderna genom att använda färre datornoder och kör samtidiga uppgifter på varje nod i ett Azure Batch-pool"
+title: Köra uppgifter parallellt att använda beräkningsresurser effektivt - Azure Batch | Microsoft Docs
+description: Öka effektiviteten och sänka kostnaderna genom att använda färre datornoder och kör samtidiga uppgifter på varje nod i ett Azure Batch-pool
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 538a067c-1f6e-44eb-a92b-8d51c33d3e1a
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eae6359b5fb36bd0317391ce2330afb7dd7bfe3b
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 5106bbbb073908af7e7e8f045fa6fb60e8a306f4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Köra aktiviteter samtidigt för att maximera användningen av Batch-beräkningsnoder 
 
@@ -32,7 +32,7 @@ När vissa scenarier utnyttja för en enskild uppgift trafikklass alla resurser 
 * **Minimera antalet gränser för noden** när kommunikationen mellan noder krävs inom en pool. Programpooler som konfigurerats för kommunikationen mellan noder för närvarande begränsad till 50 compute-noder. Om varje nod i denna pool kan köra uppgifter parallellt, kan ett större antal uppgifter köras samtidigt.
 * **Replikering av en lokal beräkningskluster**, till exempel när du först flytta en beräknings-miljö till Azure. Om din aktuella lösningen lokalt körs flera uppgifter per compute-nod, kan du öka det maximala antalet nod uppgifter för närmare spegling konfigurationen.
 
-## <a name="example-scenario"></a>Exempelscenario
+## <a name="example-scenario"></a>Exempel på ett scenario
 Som exempel för att illustrera fördelarna med parallella uppgiftskörningen, anta att att tillämpningsprogrammet aktivitet har krav på processor och minne så att [Standard\_D1](../cloud-services/cloud-services-sizes-specs.md) noder är tillräckliga. Men 1 000 av dessa noder krävs för att slutföra jobbet inom den nödvändiga tidsperioden.
 
 Istället för att använda Standard\_D1 noder som har 1 processorkärna och du kan använda [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) noder som har 16 kärnor och aktivera parallell aktivitetskörningen. Därför *16 gånger färre noder* kunde användas--i stället för 1 000 noder endast 63 skulle krävas. Dessutom om stora filer eller referensdata krävs för varje nod, bättre varaktighet för jobbet och effektivitet igen eftersom data kopieras till endast 63 noder.

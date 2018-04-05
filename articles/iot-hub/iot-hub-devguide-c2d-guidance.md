@@ -1,11 +1,11 @@
 ---
 title: Azure IoT-hubb moln till enhet alternativ | Microsoft Docs
-description: "Utvecklare guide - hjälp när du ska använda direkt metoder, enheten dubbla önskade egenskaper eller moln till enhet meddelanden för moln till enhet kommunikation."
+description: Utvecklare guide - hjälp när du ska använda direkt metoder, enheten dubbla önskade egenskaper eller moln till enhet meddelanden för moln till enhet kommunikation.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: dc8256022aca37823245ecb9a9326240f1c449c2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 144bd8e0a954e54cf17fb88105759d0e000454fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Vägledning för kommunikation moln till enhet
 IoT-hubb innehåller tre alternativ för enhetsappar exponera funktionen till en backend-app:
@@ -26,6 +26,8 @@ IoT-hubb innehåller tre alternativ för enhetsappar exponera funktionen till en
 * [Dirigera metoder] [ lnk-methods] för kommunikation som kräver omedelbar bekräftelse av resultatet. Direkt-metoder används ofta för interaktiv kontroll av enheter, till exempel aktivera fläktar.
 * [Dubbla har önskade egenskaper] [ lnk-twins] för tidskrävande kommandon som är avsedda att placera enheten i en viss önskad tillstånd. Till exempel telemetri skicka intervallet till 30 minuter.
 * [Moln till enhet meddelanden] [ lnk-c2d] för envägs-meddelanden till appen med enheten.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Här följer en detaljerad jämförelse av de olika alternativen för kommunikation molnet till enheten.
 

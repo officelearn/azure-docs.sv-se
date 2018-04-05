@@ -1,11 +1,11 @@
 ---
-title: "Schemalägga med Azure IoT Hub (Java) | Microsoft Docs"
-description: "Så här schemalägger du ett Azure IoT Hub-jobb att anropa en direkt metod och ange en önskad egenskap på flera enheter. Azure IoT-enhet SDK för Java används för att implementera apparna som simulerade enheten och tjänsten Azure IoT SDK för Java att implementera ett service-appen för att köra jobbet."
+title: Schemalägga med Azure IoT Hub (Java) | Microsoft Docs
+description: Så här schemalägger du ett Azure IoT Hub-jobb att anropa en direkt metod och ange en önskad egenskap på flera enheter. Azure IoT-enhet SDK för Java används för att implementera apparna som simulerade enheten och tjänsten Azure IoT SDK för Java att implementera ett service-appen för att köra jobbet.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 54f446f8735bc46b87fe19aaf7845c5fbfce2744
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: af853a378a36c97edd74ea99fc5dcce92a073fea
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Schemat och sändning jobb (Java)
 
@@ -36,6 +36,8 @@ Mer information om var och en av dessa funktioner finns:
 * Enheten dubbla och egenskaper: [Kom igång med enheten twins](iot-hub-java-java-twin-getstarted.md)
 * Dirigera metoder: [IoT-hubb Utvecklarhandbok - direkt metoder](iot-hub-devguide-direct-methods.md) och [kursen: direkta metoder](iot-hub-java-java-direct-methods.md)
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 I den här självstudiekursen lär du dig att:
 
 * Skapa en enhetsapp som implementerar en direkt metod som kallas **lockDoor**. Enheten appen tar också emot önskade egenskapsändringar från backend-app.
@@ -50,7 +52,7 @@ I slutet av den här kursen har du en enhet för java konsolapp och en java-back
 > [!NOTE]
 > Artikeln [Azure IoT SDK](iot-hub-devguide-sdks.md) innehåller information om Azure IoT-SDK: er som du kan använda för att skapa både enheten och backend-appar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 

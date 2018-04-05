@@ -1,11 +1,11 @@
 ---
-title: "Vad du gör vid en Azure-tjänst avbrott som påverkar Azure Cloud Services | Microsoft Docs"
-description: "Lär dig vad du ska göra om ett avbrott i Azure-tjänsten som påverkar Azure Cloud Services."
+title: Vad du gör vid en Azure-tjänst avbrott som påverkar Azure Cloud Services | Microsoft Docs
+description: Lär dig vad du ska göra om ett avbrott i Azure-tjänsten som påverkar Azure Cloud Services.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e52634ab-003d-4f1e-85fa-794f6cd12ce4
 ms.service: cloud-services
 ms.workload: cloud-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: mmccrory
-ms.openlocfilehash: db6a980b85ea5ef8cbbba4ba5a36f9d033739df1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7028417c95aa6969793c00d0bb270c96e56164fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Vad du gör vid en Azure-tjänst avbrott som påverkar Azure Cloud Services
 På Microsoft är arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga för dig när du behöver dem. Framtvingar utanför vårt kontroll påverka oss på ett sätt som orsakar avbrott i tjänsten oplanerad ibland.
@@ -30,7 +30,7 @@ Azure har redan många inbyggda funktioner som stöder hög tillgänglighet prog
 Den här artikeln beskriver en true för katastrofåterställning när en hela region påträffar ett avbrott på grund av större naturkatastrof eller omfattande driftstopp. Det är sällsynt förekomster men måste du förbereda för möjligheten att det finns ett avbrott för en hel region. Om en hel region får ett avbrott i tjänsten, är lokalt redundanta kopior av dina data tillfälligt inte tillgänglig. Om du har aktiverat geo-replikering, lagras tre fler kopior av dina Azure Storage-blobbar och tabeller i en annan region. Vid en fullständig regionalt strömavbrott eller en katastrof där den primära regionen inte kan återställas Azure omvandlar när alla DNS-poster för georeplikerad regionen.
 
 > [!NOTE]
-> Tänk på att du inte har någon kontroll över den här processen och sker endast för avbrott i datacenter hela tjänsten. Därför måste du också lita på andra programspecifika säkerhetskopiering strategier för att uppnå den högsta nivån av tillgänglighet. Mer information finns i [katastrofåterställning och hög tillgänglighet för program som bygger på Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Om du vill kunna påverka egna redundans kanske du vill överväga användning av [geo-redundant lagring med läsbehörighet (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage), vilket skapar en skrivskyddad kopia av dina data i en annan region.
+> Tänk på att du inte har någon kontroll över den här processen och sker endast för avbrott i datacenter hela tjänsten. Därför måste du också lita på andra programspecifika säkerhetskopiering strategier för att uppnå den högsta nivån av tillgänglighet. Mer information finns i [katastrofåterställning och hög tillgänglighet för program som bygger på Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Om du vill kunna påverka egna redundans kanske du vill överväga användning av [geo-redundant lagring med läsbehörighet (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage), vilket skapar en skrivskyddad kopia av dina data i en annan region.
 >
 >
 
@@ -49,7 +49,7 @@ Mer information om hur du skapar och distribuerar en moln-tjänstprogrammet finn
 
 Du kan behöva kontrollera återställningsproceduren för datakällan programmet beroende på dina program datakällor.
 
-* Azure Storage-datakällor finns i [Azure Storage-replikering](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) för att kontrollera de alternativ som är tillgängliga baserat på valt replikering modellen för ditt program.
+* Azure Storage-datakällor finns i [Azure Storage-replikering](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) för att kontrollera de alternativ som är tillgängliga baserat på valt replikering modellen för ditt program.
 * SQL-databas källor, läsa [översikt: molnet business continuity och databasen katastrofåterställning med SQL Database](../sql-database/sql-database-business-continuity.md) för att kontrollera de alternativ som är tillgängliga baserat på den valda replikering modellen för ditt program.
 
 

@@ -1,25 +1,22 @@
 ---
-title: Övervaka åtkomstloggar, Prestandaloggar, backend-hälsa och mått för Programgateway | Microsoft Docs
+title: Övervaka åtkomstloggar, Prestandaloggar, backend-hälsa och mått för Programgateway
 description: Lär dig att aktivera och hantera åtkomstloggar och Prestandaloggar för Programgateway
 services: application-gateway
-documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 300628b8-8e3d-40ab-b294-3ecc5e48ef98
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 4/2/2018
 ms.author: amitsriva
-ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 982ae712320cb390b1822de6a7a3980ebfb6251e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Backend-hälsotillstånd, diagnostikloggar och mått för Programgateway
 
@@ -29,7 +26,7 @@ Med hjälp av Azure Application Gateway kan övervaka du resurser på följande 
 
 * [Loggar](#diagnostic-logging): loggar Tillåt för prestanda, åtkomst och andra data sparas eller förbrukad från en resurs för övervakning.
 
-* [Mått](#metrics): Application Gateway har för närvarande ett enskilt mått. Mätvärdet mäter genomflödet av Programgateway i byte per sekund.
+* [Mått](#metrics): Application Gateway har sju mått att visa prestandaräknare.
 
 ## <a name="back-end-health"></a>Backend-hälsa
 
@@ -318,13 +315,22 @@ Du kan också ansluta till ditt lagringskonto och hämta JSON-loggposter för å
 
 Mått är en funktion för vissa Azure-resurser där du kan visa prestandaräknare i portalen. För Programgateway finns följande mått:
 
-- Aktuella anslutningar
-- Misslyckade förfrågningar
-- Felfri värden antal
-- Response-Status
-- Dataflöde
-- Totalt antal begäranden
-- Felaktiga värden antal
+- **Aktuella anslutningar**
+- **Misslyckade begäranden**
+- **Felfri värden antal**
+
+   Du kan filtrera på en per backend-pool för att visa felfri/ohälsosamt värdar i en specifik serverdelspool.
+
+
+- **Response-Status**
+
+   Svaret status kod distribution kan kategoriseras ytterligare för att visa svar i 2xx, 3xx, 4xx och 5xx kategorier.
+
+- **Dataflöde**
+- **Totalt antal begäranden**
+- **Felaktiga värden antal**
+
+   Du kan filtrera på en per backend-pool för att visa felfri/ohälsosamt värdar i en specifik serverdelspool.
 
 Bläddra till en Programgateway under **övervakning** klickar du på **mått**. Om du vill visa tillgängliga värden, Välj den **mått** listrutan.
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 03/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1893601f9fe9018cb51e6e31b6f9c397a0da38da
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 557c6a75140f399f74d77543de834af086871032
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -70,11 +70,12 @@ Har stöd för ExpressRoute [tre routningsdomäner](expressroute-circuit-peering
 
 * Power BI
 * Dynamics 365 för ekonomi och åtgärder (kallades Dynamics AX Online)
-* De flesta av Azure-tjänster med följande få undantag:
-  * CDN
-  * Visual Studio Team Services Load Testing
-  * Multifaktorautentisering
-  * Traffic Manager
+* De flesta av Azure-tjänster stöds. Kontrollera direkt med den tjänst som du vill använda för att verifiera stöd.<br>
+  Följande tjänster stöds inte:
+    * CDN
+    * Visual Studio Team Services Load Testing
+    * Multifaktorautentisering
+    * Traffic Manager
 
 ### <a name="microsoft-peering"></a>Microsoft-peering
 
@@ -87,7 +88,8 @@ Har stöd för ExpressRoute [tre routningsdomäner](expressroute-circuit-peering
 * Med hjälp av [vidarebefordra filter](#route-filters-for-microsoft-peering), du får tillgång till samma offentliga tjänster med Microsoft-peering:
   * Power BI
   * Dynamics 365 för ekonomi och åtgärder
-  * De flesta av Azure-tjänster med följande få undantag:
+  * De flesta av Azure-tjänster stöds. Kontrollera direkt med den tjänst som du vill använda för att verifiera stöd.<br>
+  Följande tjänster stöds inte:
     * CDN
     * Visual Studio Team Services Load Testing
     * Multifaktorautentisering

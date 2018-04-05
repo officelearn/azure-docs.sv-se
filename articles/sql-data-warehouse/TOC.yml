@@ -141,13 +141,15 @@
       href: sql-data-warehouse-troubleshoot.md
 - name: Instruktionsguider
   items:
-    - name: Tjänstfunktioner
+    - name: Uppgradera
+      href: upgrade-to-latest-generation.md
+    - name: Återställ
       items:
-        - name: Återställ ett informationslager – portalen
+        - name: Portalen
           href: sql-data-warehouse-restore-database-portal.md
-        - name: Återställ ett informationslager – PowerShell
+        - name: PowerShell
           href: sql-data-warehouse-restore-database-powershell.md
-        - name: Återställ ett informationslager – REST API
+        - name: REST API
           href: sql-data-warehouse-restore-database-rest-api.md
     - name: Säkerhet
       items:

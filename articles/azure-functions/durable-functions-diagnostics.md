@@ -1,12 +1,12 @@
 ---
-title: "Diagnostik i varaktiga funktioner – Azure"
-description: "Lär dig att felsöka problem med filnamnstillägget varaktiga funktioner för Azure Functions."
+title: Diagnostik i varaktiga funktioner – Azure
+description: Lär dig att felsöka problem med filnamnstillägget varaktiga funktioner för Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5ebab8660dfe21984e1a7f9a1cb925aea60de213
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2fc1c87a0eee9e822ffc997f67320ed23dd5916
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnostik i varaktiga funktioner (Azure-funktioner)
 
@@ -50,6 +50,7 @@ Varje händelse livscykel orchestration instansen orsakar en spårning händelse
 * **Orsak**: ytterligare data som är associerade med spårning av händelsen. Om en instans väntar för en extern händelseavisering visar fältet namnet på den händelse som väntar. Om en funktion har misslyckats detta kommer att innehålla felinformation.
 * **isReplay**: booleskt värde som anger om spårning av händelsen är för spelas körning.
 * **extensionVersion**: version av beständiga Task-tillägget. Detta är särskilt viktiga data när reporting möjliga buggar i tillägget. Långvariga instanser kan rapportera flera versioner om en uppdatering sker när den körs. 
+* **sequenceNumber**: körning sekvensnumret för en händelse. Kombineras med tidsstämpel som kan sortera händelserna efter körningstid. *Observera att det här numret kommer att återställa till noll om värden startas om när instansen körs, så det är viktigt att alltid sortera efter tidsstämpel först och sedan sequenceNumber.*
 
 Detaljnivå för att spåra data som sänds till Application Insights kan konfigureras i den `logger` avsnitt i den `host.json` filen.
 
@@ -72,11 +73,11 @@ Som standard är alla spårning händelser orsakat. Du kan minska mängden data 
 
 ### <a name="single-instance-query"></a>Instans-fråga
 
-Följande fråga visar av historiska spårningsdata för en enda instans av den [Hello sekvens](durable-functions-sequence.md) fungerar orchestration. De skrivs med hjälp av den [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). Filtreras bort replay körning så att endast den *logiska* körning av sökväg visas.
+Följande fråga visar av historiska spårningsdata för en enda instans av den [Hello sekvens](durable-functions-sequence.md) fungerar orchestration. De skrivs med hjälp av den [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). Filtreras bort replay körning så att endast den *logiska* körning av sökväg visas. Händelser kan beställas genom att sortera efter `timestamp` och `sequenceNumber` som visas i frågan nedan: 
 
 ```AIQL
-let targetInstanceId = "bf71335b26564016a93860491aa50c7f";
-let start = datetime(2017-09-29T00:00:00);
+let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
+let start = datetime(2018-03-25T09:20:00);
 traces
 | where timestamp > start and timestamp < start + 30m
 | where customDimensions.Category == "Host.Triggers.DurableTask"
@@ -84,16 +85,17 @@ traces
 | extend instanceId = customDimensions["prop__instanceId"]
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
+| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
 | where isReplay == false
 | where instanceId == targetInstanceId
-| project timestamp, functionName, state, instanceId, appName = cloud_RoleName
+| sort by timestamp asc, sequenceNumber asc
+| project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
 ```
-Resultatet är en lista över spåra händelser som visar sökvägen för körningen av orchestration, inklusive eventuella aktivitet funktioner.
 
-![Application Insights-fråga](media/durable-functions-diagnostics/app-insights-single-instance-query.png)
+Resultatet är en lista över spåra händelser som visar sökvägen för körningen av orchestration, inklusive eventuella aktivitet funktioner sorterade efter körningstiden i stigande ordning.
 
-> [!NOTE]
-> Vissa av dessa spårningshändelser kan vara i fel ordning på grund av bristande precision i den `timestamp` kolumn. Detta spåras i GitHub som [utfärda #71](https://github.com/Azure/azure-functions-durable-extension/issues/71).
+![Application Insights-fråga](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+
 
 ### <a name="instance-summary-query"></a>Översikt över instans-fråga
 
@@ -191,7 +193,7 @@ Azure Functions stöder felsökning Funktionskoden direkt och som har stöd för
 > [!TIP]
 > När inställningen brytpunkter, om du vill bryta bara på icke-repetitionsattacker körning, kan du ange en villkorlig brytpunkt att endast om radbrytningar `IsReplaying` är `false`.
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 Som standard lagras varaktigt funktioner tillstånd i Azure Storage. Det innebär att du kan kontrollera statusen för din orkestreringarna med hjälp av verktyg som [Microsoft Azure Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

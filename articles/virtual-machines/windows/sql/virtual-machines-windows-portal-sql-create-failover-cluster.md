@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 425310f50cebc920a71090d2017dca2a6c135991
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurera SQL Server-instans för redundanskluster på virtuella Azure-datorer
 
@@ -375,27 +375,13 @@ Skapa belastningsutjämnaren:
 
 1. Gå tillbaka till Azure-resursgrupp med de virtuella datorerna och leta upp den nya belastningsutjämnaren. Du kan behöva uppdatera vyn i resursgruppen. Klicka på belastningsutjämnaren.
 
-1. Klicka på bladet belastningen belastningsutjämnaren **serverdelspooler**.
+1. Klicka på **serverdelspooler** och på **+ Lägg till** att lägga till en serverdelspool.
 
-1. Klicka på **+ Lägg till** att lägga till en serverdelspool.
+1. Associera serverdelspoolen tillgänglighetsuppsättning som innehåller de virtuella datorerna.
 
-1. Ange ett namn för serverdelspoolen.
+1. Under **mål IP nätverkskonfigurationer**, kontrollera **VIRTUELLA** och välj de virtuella datorerna som deltar som klusternoder. Se till att inkludera alla virtuella datorer som är värd för Redundansklusterinstanser. 
 
-1. Klicka på **lägga till en virtuell dator**.
-
-1. På den **Välj virtuella datorer** bladet, klickar du på **Välj en tillgänglighetsuppsättning**.
-
-1. Välj tillgänglighetsuppsättning du placera de virtuella datorerna för SQL Server i.
-
-1. På den **Välj virtuella datorer** bladet, klickar du på **Välj de virtuella datorerna**.
-
-   Azure-portalen bör se ut som på bilden nedan:
-
-   ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-load-balancer-back-end.png)
-
-1. Klicka på **Välj** på den **Välj virtuella datorer** bladet.
-
-1. Klicka på **OK** två gånger.
+1. Klicka på **OK** att skapa serverdelspoolen.
 
 ### <a name="configure-a-load-balancer-health-probe"></a>Konfigurera en belastningsutjämnaren, hälsoavsökningen
 

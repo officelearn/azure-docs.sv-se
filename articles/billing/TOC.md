@@ -1,3 +1,4 @@
+
 # [Dokumentation om Azure-fakturering](index.md)
 
 # Kom igång
@@ -41,6 +42,7 @@
 ### [Redigera profil](billing-how-to-change-azure-account-profile.md)
 ### [Uppdatera betalningsinformation](billing-how-to-change-credit-card.md)
 ### [Betala för prenumerationer med faktura](billing-how-to-pay-by-invoice.md)
+### [Länka partner-ID](billing-partner-admin-link-started.md)
 ## [Hantera reserverade VM-instanser](billing-manage-reserved-vm-instance.md)
 ## Felsöka
 ### [Registreringsproblem](https://support.microsoft.com/en-us/help/4042959)

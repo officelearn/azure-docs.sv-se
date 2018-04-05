@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: da43e122c3e7d5e852107d4e4cca237ce4824267
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 26a0478f8713cb3584045f59c181c0a38331ea97
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-caching-works"></a>Så här fungerar cachelagring
 
@@ -45,7 +45,7 @@ Varje cacheminne hanterar en egen resurs dokumentens normalt och utför verifier
 
 Eftersom en cachelagrad resurs kan vara inaktuella eller inaktuella (jämfört med motsvarande resurs på den ursprungliga servern), det är viktigt för alla cachelagringsmekanism för att styra när innehåll uppdateras. Om du vill spara tid och bandbredd förbrukning cachelagrade resursen är inte jämfört med versionen på den ursprungliga servern varje gång den används. I stället så länge en cachelagrad resurs anses vara ny, det antas vara den senaste versionen och skickas direkt till klienten. En cachelagrad resurs anses vara ny när dess ålder är mindre än det ålder eller den period som definieras av en cache-inställningen. Till exempel när en webbläsare laddar en webbsida, verifierar att alla cachelagrade resurser på din hårddisk är ny och läser in den. Om resursen inte är giltigt (inaktuell), en aktuell kopia läses från servern.
 
-### <a name="validation"></a>Validering
+### <a name="validation"></a>Verifiering
 
 Om en resurs betraktas som inaktuella, blir den ursprungliga servern ombedd att verifiera den, det vill säga, avgör om data i cacheminnet fortfarande matchar vad som finns på den ursprungliga servern. Om filen har ändrats på den ursprungliga servern, uppdateras cacheminnet sin version av resursen. Annars, om resursen är ny data levereras direkt från cachen utan att verifiera den först.
 
@@ -64,7 +64,7 @@ Två huvuden kan användas för att definiera cache dokumentens: `Cache-Control`
 ## <a name="cache-directive-headers"></a>Cache-direktiv rubriker
 
 > [!IMPORTANT]
-> Som standard en Azure CDN-slutpunkt som är optimerad för DSA ignorerar cache-direktiv sidhuvuden och kringgår cachelagring. För **Azure CDN från Verizon Standard** och **Azure CDN från Akamai Standard** profiler, du kan ändra hur en Azure CDN-slutpunkt behandlar dessa huvuden med hjälp av [cachelagringsregler för CDN](cdn-caching-rules.md)att aktivera cachelagring. För **Azure CDN från Verizon** profiler kan du använda den [regelmotor](cdn-rules-engine.md) att aktivera cachelagring.
+> Som standard en Azure CDN-slutpunkt som är optimerad för DSA ignorerar cache-direktiv sidhuvuden och kringgår cachelagring. För **Azure CDN från Verizon Standard** och **Azure CDN från Akamai Standard** profiler, du kan ändra hur en Azure CDN-slutpunkt behandlar dessa huvuden med hjälp av [cachelagringsregler för CDN](cdn-caching-rules.md)att aktivera cachelagring. För **Azure CDN från Verizon Premium** profiler kan du använda den [regelmotor](cdn-rules-engine.md) att aktivera cachelagring.
 
 Azure CDN stöder följande HTTP-cache-direktiv huvuden, som definierar cachelagringens varaktighet och delning av cachen.
 
@@ -123,7 +123,7 @@ I följande tabell beskrivs standard cachelagring av frågesträngar för Azure 
 |                    | Verizon: Allmänt web leverans | Verizon: DSA | Akamai: Allmänt web leverans | Akamai: DSA | Akamai: stora Filhämtning | Akamai: Allmänt eller VOD-direktuppspelning |
 |--------------------|--------|------|-----|----|-----|-----|
 | **Respektera ursprung**   | Ja    | Nej   | Ja | Nej | Ja | Ja |
-| **CDN cachelagringens varaktighet** | 7 dagar | Ingen | 7 dagar | Ingen | 1 dag | 1 år |
+| **CDN cachelagringens varaktighet** | 7 dagar | Inget | 7 dagar | Inget | 1 dag | 1 år |
 
 **Respektera ursprung**: Anger om ta hänsyn till den [stöds cache-direktiv huvuden](#http-cache-directive-headers) om de finns i HTTP-svaret från den ursprungliga servern.
 

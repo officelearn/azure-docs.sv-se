@@ -1,13 +1,13 @@
 ---
-title: "Konfigurera routning för en Azure ExpressRoute-krets: CLI | Microsoft Docs"
-description: "Den här artikeln hjälper dig att skapa och etablera private, offentlig och Microsoft-peering i ExpressRoute-kretsen. I artikeln får du även se hur man kontrollerar status, uppdaterar eller tar bort peerings för din krets."
+title: 'Konfigurera routning för en Azure ExpressRoute-krets: CLI | Microsoft Docs'
+description: Den här artikeln hjälper dig att skapa och etablera private, offentlig och Microsoft-peering i ExpressRoute-kretsen. I artikeln får du även se hur man kontrollerar status, uppdaterar eller tar bort peerings för din krets.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: b54f7768e64e1689e5b25b94905beea6bd5471df
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f4ad959de1425e828ce11fb658f8b5304e9d8775
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>Skapa och ändra routning för en ExpressRoute-krets med hjälp av CLI
 
 Den här artikeln hjälper dig att skapa och hantera routningskonfiguration för en ExpressRoute-krets i Resource Manager-distributionsmodellen med hjälp av CLI. Du kan också kontrollera status, uppdatera eller ta bort och ta bort etableringen av peerkopplingar för en ExpressRoute-krets. Om du vill använda en annan metod för att arbeta med kretsen väljer du en artikel från följande lista:
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
 > * [Video - privat peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
@@ -55,8 +55,6 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Microso
 > 
 
 ### <a name="to-create-microsoft-peering"></a>Så här skapar du Microsoft-peering
-
-[!INCLUDE [Premium](../../includes/expressroute-mspeering-premium-include.md)]
 
 1. Installera den senaste versionen av Azure CLI. Använd den senaste versionen av Azure kommandoradsgränssnittet (CLI). * granska den [krav](expressroute-prerequisites.md) och [arbetsflöden](expressroute-workflows.md) innan du börjar konfigurera.
 

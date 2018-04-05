@@ -6,14 +6,14 @@ author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 842c65987dc97872751071dbcf138794a14940e2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d8adf097d6bee404cff8e7b15782c6c59531a897
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Funktionsjämförelse: Azure SQL Database och SQL Server 
 
@@ -114,13 +114,13 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [Set-instruktioner](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | De flesta - finns enskilda uttryck | Ja - finns [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md)|
 | [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | Ja | Ja |
 | [Rumslig](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | Ja | Ja |
-| [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Ja | Ja |
+| [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Ja | Nej |
 | [SQL Operations Studio](https://docs.microsoft.com/sql/sql-operations-studio/what-is) | Ja | Ja |
 | [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Finns inte - [elastiska jobb](sql-database-elastic-jobs-getting-started.md) | Ja - finns [skillnader i SQL Server Agent](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Finns inte - [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | Finns inte - [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [SQL Server-granskning](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Finns inte - [SQL Database auditing](sql-database-auditing.md) | Ja - finns [granskning skillnader](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [SQL Server Data Tools (SSDT)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Ja | Ja |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Partiell – paket-utveckling i SQL Server Data Tools stöds inte. | Nej, inte i Public Preview |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ja, med en hanterad SSIS i Azure Data Factory (ADM)-miljö där paket lagras i SSISDB hos Azure SQL Database och köras på [Azure SSIS-integrering Runtime](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). | Ja, med en hanterad SSIS i Azure Data Factory (ADM)-miljö där paket lagras i SSISDB hanteras instans som värd och köras på [Azure SSIS-integrering Runtime](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Ja | Ja |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ja | Ja |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Finns inte - [utökade händelser](sql-database-xevent-db-diff-from-svr.md) | Ja |

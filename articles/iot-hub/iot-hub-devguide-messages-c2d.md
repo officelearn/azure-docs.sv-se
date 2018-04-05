@@ -1,11 +1,11 @@
 ---
-title: "Förstå Azure IoT Hub moln till enhet messaging | Microsoft Docs"
-description: "Utvecklare guide - hur du använder moln till enhet meddelanden med IoT-hubben. Innehåller information om meddelandet livscykel och konfigurationsalternativ."
+title: Förstå Azure IoT Hub moln till enhet messaging | Microsoft Docs
+description: Utvecklare guide - hur du använder moln till enhet meddelanden med IoT-hubben. Innehåller information om meddelandet livscykel och konfigurationsalternativ.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -13,15 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: d265d35c7d5a394afa0e59f40ff1a5741e0ec35c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 670cf45a48ca4b72576cedddd4678c0d569401cd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Skicka meddelanden moln till enhet från IoT-hubb
 
 Om du vill skicka enkelriktade meddelanden i appen enheten från din lösningens serverdel, meddelanden moln-enheter från din IoT-hubb till din enhet. En beskrivning av andra alternativ för molnet till enheter som stöds av IoT-hubb finns [moln till enhet kommunikation vägledning][lnk-c2d-guidance].
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Du skickar meddelanden moln till enhet via en slutpunkt för service-riktade (**/meddelanden/devicebound**). En enhet sedan tar emot meddelanden via en enhetsspecifik slutpunkt (**/devices/ {deviceId} / meddelanden/devicebound**).
 

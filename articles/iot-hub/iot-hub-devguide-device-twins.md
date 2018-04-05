@@ -1,11 +1,11 @@
 ---
-title: "Förstå Azure IoT Hub-enhet twins | Microsoft Docs"
-description: "Utvecklarhandbok - Använd enhet twins att synkronisera och konfigurationsändringar data mellan IoT-hubb och dina enheter"
+title: Förstå Azure IoT Hub-enhet twins | Microsoft Docs
+description: Utvecklarhandbok - Använd enhet twins att synkronisera och konfigurationsändringar data mellan IoT-hubb och dina enheter
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8a3da072-a5bf-46e5-8de4-24cdbb2a03fa
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,16 +15,19 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5bf2d24d0d5eadfea5ec8fd239a115c05a54fe99
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01e94298aa3691d5bce33a12745b54fd398c7ad3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Förstå och använda enheten twins i IoT-hubb
 
-*Enheten twins* är JSON-dokument som lagrar tillstånd enhetsinformation inklusive metadata, konfigurationer och villkor. Azure IoT-hubb upprätthåller en enhet dubbla för varje enhet som du ansluter till IoT-hubb. Den här artikeln beskrivs:
+*Enheten twins* är JSON-dokument som lagrar tillstånd enhetsinformation inklusive metadata, konfigurationer och villkor. Azure IoT-hubb upprätthåller en enhet dubbla för varje enhet som du ansluter till IoT-hubb. 
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
+Den här artikeln beskrivs:
 
 * Strukturen för enheten dubbla: *taggar*, *önskade* och *rapporterade egenskaper*.
 * De åtgärder som appar för enheter och -servrar kan utföra på enheten twins.
@@ -175,7 +178,7 @@ Lösningens serverdel körs på den enheten dubbla med hjälp av följande atomi
 
     - Egenskaper
 
-    | Namn | Värde |
+    | namn | Värde |
     | --- | --- |
     $content-typ | application/json |
     $iothub-enqueuedtime |  Tidpunkt som meddelandet skickades |
@@ -189,7 +192,7 @@ Lösningens serverdel körs på den enheten dubbla med hjälp av följande atomi
 
     Meddelandet Systemegenskaper föregås av `'$'` symbolen.
 
-    - Innehåll
+    - Text
         
     Det här avsnittet innehåller dubbla ändringarna i en JSON-format. Samma format används som en korrigering, med skillnaden att den kan innehålla alla två avsnitt: taggar, properties.reported, properties.desired och att den innehåller ”$metadata”-element. Exempel:
 

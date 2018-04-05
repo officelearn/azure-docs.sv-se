@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-ms.openlocfilehash: 4acf1f549a6c901fb0b772c4591f1f35d61365ad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b0d938112aaea4d86dd539b53a1749cc800607a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Skapa klassiska mått aviseringar i Azure-Monitor för Azure-tjänster - Azure-portalen
 > [!div class="op_single_selector"]
@@ -31,25 +31,25 @@ ms.lasthandoff: 03/23/2018
 ## <a name="overview"></a>Översikt
 
 > [!NOTE]
-> Den här artikeln beskriver hur du skapar äldre mått aviseringar. Azure övervakaren nu har stöd för nyare, bättre mått aviseringar. Dessa aviseringar kan du övervaka flera och tillåter aviseringar om dimensionell mått. Lär dig mer om [nära realtid mått aviseringar](monitoring-near-real-time-metric-alerts.md).
+> Den här artikeln beskriver hur du skapar äldre klassiska mått aviseringar. Stöd för Azure övervakaren [nyare mått aviseringar](monitoring-near-real-time-metric-alerts.md). 
 >
 >
 
-Den här artikeln visar hur du ställer in Azure mått aviseringar med Azure-portalen. 
+Den här artikeln visar hur du ställer in klassiska Azure mått aviseringar med Azure-portalen. 
 
 Du kan ta emot en avisering baserat på övervakning mätvärden för eller händelser på Azure-tjänster.
 
 * **Måttvärden** -aviseringen utlöses när värdet för ett visst mått överskrider ett tröskelvärde som du tilldelar i båda riktningarna. Det vill säga den utlöser både när villkoret uppfylls först och sedan efteråt när villkor som inte längre är uppfyllt.    
 * **Aktiviteten logghändelser** -utlösa en avisering på *varje* händelse eller bara när viss händelse inträffar. Lär dig mer om [aktivitet loggen aviseringar](monitoring-activity-log-alerts.md).
 
-Du kan konfigurera en mått avisering när den utlöser gör du följande:
+Du kan konfigurera en klassiska mått avisering när den utlöser gör du följande:
 
 * Skicka e-postmeddelanden till tjänstadministratören och medadministratörer
 * Skicka e-post till ytterligare e-postmeddelanden som du anger.
 * anropa en webhook
 * Starta körning av en Azure-runbook (endast från Azure portal)
 
-Du kan konfigurera och få information om mått Varningsregler med
+Du kan konfigurera och få information om klassiska mått Varningsregler med
 
 * [Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
@@ -63,7 +63,7 @@ Du kan konfigurera och få information om mått Varningsregler med
 
     ![Övervakning](./media/insights-alerts-portal/AlertRulesButton.png)
 
-3. Välj den **Lägg till mått avisering** kommando och Fyll i fälten.
+3. Välj den **Lägg till mått avisering (klassisk)** kommando och Fyll i fälten.
 
     ![Lägg till avisering](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 

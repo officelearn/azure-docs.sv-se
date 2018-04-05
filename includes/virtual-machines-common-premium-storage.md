@@ -35,7 +35,7 @@ Här följer några av funktionerna i Premium-lagring:
 
 * **Premium-lagringsdiskar**
 
-    Premium-lagring stöder Virtuella diskar som kan kopplas till specifika storlek-serien virtuella datorer. Premium-lagring stöder DS-serien, DSv2-serien GS-serien, Ls-serien, Fs-serien och Esv3-serien virtuella datorer. Du kan välja mellan sju diskstorlekar: P4 (32GB) P6 (64GB) P10 (128GB) P20 (512GB), P30 (1024GB), P40 (2 048 GB), p 50 (4095GB). P4 och P6 diskstorlekar stöds ännu bara för hanterade diskar. Varje diskstorleken har sin egen prestandakrav. Beroende på kraven för application kan du koppla en eller flera diskar till den virtuella datorn. Beskrivs i detalj i specifikationerna [Premium-lagring skalbarhets- och prestandamål](#scalability-and-performance-targets).
+    Premium-lagring stöder Virtuella diskar som kan kopplas till specifika storlek-serien virtuella datorer. Premium-lagring stöder DS-serien, DSv2-serien GS-serien, Ls-serien, Fs-serien och Esv3-serien virtuella datorer. Du kan välja mellan sju diskstorlekar: P4 (32 GB) P6 (64 GB) P10 (128 GB) P20 (512 GB), P30 (1024 GB), P40 (2 048 GB), p 50 (4095 GB). P4 och P6 diskstorlekar stöds ännu bara för hanterade diskar. Varje diskstorleken har sin egen prestandakrav. Beroende på kraven för application kan du koppla en eller flera diskar till den virtuella datorn. Beskrivs i detalj i specifikationerna [Premium-lagring skalbarhets- och prestandamål](#scalability-and-performance-targets).
 
 * **Premium-sidblobbar**
 
@@ -103,7 +103,7 @@ Det här är några av funktionerna i DS-serien, DSv2-serien GS-serien, Ls-serie
 
     Största VM i DS-serien är för närvarande i Standard_DS15_v2. Standard_DS15_v2 kan ange upp till 960 MB/s över alla diskar. Största VM i GS-serien är Standard_GS5. Standard_GS5 kan ange upp till 2 000 MB/s över alla diskar.
 
-    Observera att dessa gränser för disk-trafik. Dessa begränsningar med inte cacheträffar och nätverkstrafik. En separat bandbredd är tillgänglig för VM-nätverkstrafik. Bandbredd för nätverkstrafik som skiljer sig från dedikerade bandbredden som används av premiumdiskar för lagring.
+    Dessa begränsningar gäller för disk-trafik. Dessa begränsningar med inte cacheträffar och nätverkstrafik. En separat bandbredd är tillgänglig för VM-nätverkstrafik. Bandbredd för nätverkstrafik som skiljer sig från dedikerade bandbredden som används av premiumdiskar för lagring.
 
     Den senaste informationen om högsta IOPS och genomströmning (bandbredd) för Premium-lagring stöds virtuella datorer, se [Windows VM-storlekar](../articles/virtual-machines/windows/sizes.md) eller [Linux VM-storlekar](../articles/virtual-machines/linux/sizes.md).
 
@@ -129,11 +129,11 @@ Om du använder premium storage-konton för ohanterade diskar och programmet öv
 ### <a name="premium-storage-disk-limits"></a>Premium Lagringsgränser disk
 När du etablerar en disk för premium-lagring anger storleken på disken högsta IOPS och genomströmning (bandbredd). Azure erbjuder sju typer av lagring premiumdiskar: P4 (hanterade diskar endast), P6 (hanterade diskar endast), P10, P20, P30, P40 och p 50. Varje premium storage disk har specifika gränser för IOPS och dataflöde. Begränsningar för disktyper beskrivs i följande tabell:
 
-| Premium diskar typ  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Diskstorlek           | 32 GB| 64 GB| 128 GB| 512 GB            | 1 024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS per disk       | 120   | 240   | 500   | 2 300              | 5000              | 7500              | 7500              | 
-| Dataflöde per disk | 25 MB per sekund  | 50 MB per sekund  | 100 MB per sekund | 150 MB per sekund | 200 MB per sekund | 250 MB per sekund | 250 MB per sekund | 
+| Premium diskar typ  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Diskstorlek           | 32 GB| 64 GB| 128 GB| 256 GB| 512 GB            | 1 024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS per disk       | 120   | 240   | 500   | 1100   | 2 300              | 5000              | 7500              | 7500              | 
+| Dataflöde per disk | 25 MB per sekund  | 50 MB per sekund  | 100 MB per sekund | 125 MB per sekund | 150 MB per sekund | 200 MB per sekund | 250 MB per sekund | 250 MB per sekund | 
 
 > [!NOTE]
 > Kontrollera att tillräckligt med bandbredd som är tillgänglig på den virtuella datorn på enheten disk trafik, enligt beskrivningen i [Premium-lagring stöds VMs](#premium-storage-supported-vms). Annars är dina diskgenomflödet och IOPS begränsad till lägre värden. Maximalt dataflöde och IOPS baseras på VM-gränser, inte på de disk begränsningar som beskrivs i tabellen ovan.  
@@ -144,11 +144,11 @@ Här följer några viktiga saker du behöver veta om skalbarhets- och prestanda
 
 * **Etablerad kapacitet och prestanda**
 
-    När du etablerar en premium storage-disk, till skillnad från vanlig lagring är du garanterat kapacitet, IOPS och dataflöde på disken. Om du skapar en p 50 disk, etablerar Azure exempelvis 4,095 GB lagringskapacitet, 7 500 IOPS och 250 MB/s genomströmning för disken. Programmet kan använda hela eller delar av kapacitet och prestanda.
+    När du etablerar en premium storage-disk, till skillnad från vanlig lagring är du garanterat kapacitet, IOPS och dataflöde på disken. Om du skapar en p 50 disk, etablerar Azure exempelvis 4,095 GB lagringskapacitet, 7 500 IOPS och 250 MBIT/s genomströmning för disken. Programmet kan använda hela eller delar av kapacitet och prestanda.
 
 * **Diskens storlek**
 
-    Azure mappar diskens storlek (avrunda uppåt) till det närmaste premium disk lagringsalternativet, som anges i tabellen i föregående avsnitt. Till exempel klassificeras storleken för en disk på 100 GB som ett alternativ för P10. Den kan utföra upp till 500 IOPS, med upp till 100 MB/s genomströmning. På samma sätt kan en disk som klassificeras som en P20 400 GB. Den kan utföra upp till 2 300 IOPS, med 150 MB/s genomströmning.
+    Azure mappar diskens storlek (avrunda uppåt) till det närmaste premium disk lagringsalternativet, som anges i tabellen i föregående avsnitt. Till exempel klassificeras storleken för en disk på 100 GB som ett alternativ för P10. Den kan utföra upp till 500 IOPS, med upp till 100 MBIT/s genomströmning. På samma sätt kan en disk som klassificeras som en P20 400 GB. Den kan utföra upp till 2 300 IOPS, med 150 MBIT/s genomströmning.
     
     > [!NOTE]
     > Du kan enkelt öka storleken på befintliga diskar. Du kanske vill öka storleken på en disk på 30 GB 128 GB och till och 1 TB. Eller så kanske du vill konvertera din P20 disk till en P30 eftersom du behöver mer kapacitet eller fler IOPS och genomflöde. 
@@ -160,7 +160,7 @@ Här följer några viktiga saker du behöver veta om skalbarhets- och prestanda
 
 * **Dataflöde**
 
-    Gräns för genomflöde innehåller skrivningar till disken och innehåller disk läsåtgärder som inte hämtas från cachen. Till exempel har en disk P10 100 MB/s genomströmning per disk. I följande tabell visas några exempel på giltiga genomströmning för en P10 disk:
+    Gräns för genomflöde innehåller skrivningar till disken och innehåller disk läsåtgärder som inte hämtas från cachen. Till exempel har en disk P10 100 MBIT/s genomströmning per disk. I följande tabell visas några exempel på giltiga genomströmning för en P10 disk:
 
     | Max genomströmning per P10 disk | Icke-cache läser från disk | Icke-cache skrivning till disk |
     | --- | --- | --- |
@@ -170,7 +170,7 @@ Här följer några viktiga saker du behöver veta om skalbarhets- och prestanda
 
 * **Träffar i cache**
 
-    Cacheträffar begränsas inte av allokerade IOPS eller dataflöde på disken. Till exempel när du använder en datadisk med en **ReadOnly** cache-inställningen på en virtuell dator som stöds av Premium-lagring, läsningar som hämtas från cachen omfattas inte IOPS och genomströmning caps på disken. Om arbetsbelastningen på en disk är huvudsakligen läser du kan hämta mycket hög genomströmning. Cachen lyder separat IOPS och genomströmning gränser på den virtuella datorn nivåer, baserat på VM-storlek. DS-serien virtuella datorer har ungefär 4 000 IOPS och 33 MB/s genomströmning per kärna för cache och lokala SSD I/o. GS-serien virtuella datorer har en gräns på 5 000 IOPS och 50 MB/s genomströmning per kärna för cache och lokala SSD I/o. 
+    Cacheträffar begränsas inte av allokerade IOPS eller dataflöde på disken. Till exempel när du använder en datadisk med en **ReadOnly** cache-inställningen på en virtuell dator som stöds av Premium-lagring, läsningar som hämtas från cachen omfattas inte IOPS och genomströmning caps på disken. Om arbetsbelastningen på en disk är huvudsakligen läser du kan hämta mycket hög genomströmning. Cachen lyder separat IOPS och genomströmning gränser på den virtuella datorn nivåer, baserat på VM-storlek. DS-serien virtuella datorer har ungefär 4 000 IOPS och 33 MBIT/s genomströmning per kärna för cache och lokala SSD I/o. GS-serien virtuella datorer har en gräns på 5 000 IOPS och 50 MBIT/s genomströmning per kärna för cache och lokala SSD I/o. 
 
 ## <a name="throttling"></a>Begränsning
 Begränsning kan inträffa om programmet IOPS eller genomströmning överskrider de allokerade gränserna för en disk för premium-lagring. Begränsning också uppstå om din totala disk-trafik över alla diskar på den virtuella datorn är längre än disk bandbredd tillgänglig för den virtuella datorn. För att undvika begränsning, rekommenderar vi att du begränsar antalet väntande i/o-begäranden för disken. Använd en begränsning baserat på mål för skalbarhet och prestanda för disken du har etablerat och på den diskbandbredden som är tillgänglig för den virtuella datorn.  
@@ -186,7 +186,7 @@ Programmet har bearbetat 495 i/o-enheter med 16 KB storlek i en sekund på en P1
 Programmet har bearbetat 400 i/o-enheter med 256 KB storleken på en P10 disk. Den totala bandbredden som används är (400 &#215; 256) / 1 024 KB = 100 MB/s. En P10 disk är begränsad till 100 MB/s genomströmning. Om programmet försöker utföra flera i/o-åtgärder i den andra begränsas eftersom den överskrider gränsen som är allokerade.
 
 ### <a name="example-3"></a>Exempel 3
-Du har en virtuell dator DS4 med två P30 diskar som är anslutna. Varje P30 disk kan 200 MB/s genomströmning. En virtuell dator DS4 har dock en totala diskkapaciteten bandbredd på 256 MB/s. Du kan inte enheten båda anslutna diskar till maximalt dataflöde på den här virtuella datorn DS4 på samma gång. Du kan klara trafik över 200 MB/s på en disk och 56 MB/s på den andra disken för att lösa problemet. Om summan av disk-trafik färdas över 256 MB/s, begränsas disk trafik.
+Du har en virtuell dator DS4 med två P30 diskar som är anslutna. Varje P30 disk kan 200 MBIT/s genomströmning. En virtuell dator DS4 har dock en totala diskkapaciteten bandbredd på 256 MB/s. Du kan inte enheten båda anslutna diskar till maximalt dataflöde på den här virtuella datorn DS4 på samma gång. Du kan klara trafik över 200 MB/s på en disk och 56 MB/s på den andra disken för att lösa problemet. Om summan av disk-trafik färdas över 256 MB/s, begränsas disk trafik.
 
 > [!NOTE]
 > Om disken trafiken består främst av små i/o-storlekar, kommer ditt program som sannolikt nått gränsen för IOPS innan gränsen genomflöde. Men om disk-trafiken oftast består av stora i/o-storlek, kommer ditt program som sannolikt nådde genomströmning gränsen först i stället för IOPS-gräns. Du kan utnyttja programmets IOPS och genomströmningskapaciteten med optimala i/o-storlek. Du kan också begränsa antalet väntande i/o-begäranden för en disk.
@@ -210,7 +210,7 @@ Följande begränsningar gäller för premium storage blob ögonblicksbilder:
 | --- | --- |
 | Maximalt antal ögonblicksbilder per blob | 100 |
 | Kapacitet för lagringskonton för ögonblicksbilder<br>(Innehåller data endast ögonblicksbilder. Inkluderar inte data i grundläggande blob.) | 10 TB |
-| Minimitid mellan på varandra följande ögonblicksbilder | 10 minuter |
+| Minimitid mellan på varandra följande ögonblicksbilder | 10 minuter |
 
 Om du vill behålla geo-redundant kopior av dina ögonblicksbilder, kan du kopiera ögonblicksbilder från ett premiumlagringskonto till ett geo-redundant standardlagringskonto med hjälp av AzCopy eller kopiera Blob. Mer information finns i [överföra data med kommandoradsverktyget azcopy](../articles/storage/common/storage-use-azcopy.md) och [kopiera Blob](/rest/api/storageservices/Copy-Blob).
 
@@ -297,14 +297,3 @@ Om du vill skapa ett säkerhetskopieringsjobb med tidsbaserade säkerhetskopieri
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Premium-lagring finns i följande artiklar.
-
-### <a name="design-and-implement-with-premium-storage"></a>Utforma och implementera med Premium-lagring
-* [Design för prestanda med Premium-lagring](../articles/virtual-machines/windows/premium-storage-performance.md)
-* [BLOB storage-åtgärder med Premium-lagring](http://go.microsoft.com/fwlink/?LinkId=521969)
-
-### <a name="operational-guidance"></a>Driftvägledning
-* [Migrera till Azure Premium-lagring](../articles/storage/common/storage-migration-to-premium-storage.md)
-
-### <a name="blog-posts"></a>Blogginlägg
-* [Azure Premium Storage allmänt tillgängligt](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
-* [Om GS-serien: stöd för att lägga till Premium-lagring till största VM: ar i det offentliga molnet](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)

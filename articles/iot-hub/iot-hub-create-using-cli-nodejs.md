@@ -1,24 +1,24 @@
 ---
 title: Skapa en IoT-hubb med Azure CLI (azure.js) | Microsoft Docs
-description: "Så här skapar du en Azure IoT-hubb med plattformsoberoende Azure CLI (azure.js)."
+description: Så här skapar du en Azure IoT-hubb med plattformsoberoende Azure CLI (azure.js).
 services: iot-hub
 documentationcenter: .net
-author: BeatriceOltean
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
-ms.author: boltean
-ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/01/2018
+ms.author: kgremban
+ms.openlocfilehash: 7e761ba66f4b28dd7cc59dc8998c23810dd2b7d1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Skapa en IoT-hubb med hjälp av Azure CLI
 
@@ -90,8 +90,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **resursgruppens namn**. Resursgruppens namn. Formatet är skiftlägeskänsligt alfanumerisk, understreck och bindestreck, 1-64-längd.
 * **name**. Namnet på IoT-hubben ska skapas. Formatet är skiftlägeskänsligt alfanumeriska och bindestreck, 3-50 längd.
 * **Plats**. Platsen (azure region/datacenter) att etablera IoT-hubben.
-* **sku-name**. Namnet på sku, en av: [F1, S1, S2, S3]. Den senaste fullständiga listan finns prissättningssidan för IoT-hubb.
-* **enheter**. Antal allokerade enheter. -Intervall: F1 [1-1]: S1, S2 [1 200]: S3 [1-10]. IoT-hubbenheter baseras på din totala meddelandemängd och antalet enheter som du vill ansluta till.
+* **sku-name**. Namnet på sku, en av: [F1, S1, S2, S3]. Mer information om varje sku finns [Azure IoT Hub-priser](https://azure.microsoft.com/pricing/details/iot-hub/). Grundläggande nivåer är för närvarande bara tillgängliga via portalen. 
+* **enheter**. Antal allokerade enheter. Mer information om enhet gränser finns [Azure IoT Hub-priser](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 

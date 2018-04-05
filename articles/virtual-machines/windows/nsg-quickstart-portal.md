@@ -1,11 +1,11 @@
 ---
-title: "Öppna portar till en virtuell dator med hjälp av Azure portal | Microsoft Docs"
-description: "Lär dig hur du öppnar en port / skapa en slutpunkt för din Windows-VM med hjälp av resource manager-distributionsmodellen i Azure Portal"
+title: Öppna portar till en virtuell dator med hjälp av Azure portal | Microsoft Docs
+description: Lär dig hur du öppnar en port / skapa en slutpunkt för din Windows-VM med hjälp av resource manager-distributionsmodellen i Azure Portal
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 08f0af6ecdb45b263d39c3d2d6442f4ed555e3c3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8d564d59a2e20d1ccc35ba7801154a6dbcb9070d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Hur du öppnar portar till en virtuell dator med Azure-portalen
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -58,7 +58,7 @@ Välj det virtuella nätverket och väljer sedan rätt undernät:
 Nu har du skapat en Nätverkssäkerhetsgrupp skapas en regel för inkommande trafik som tillåter trafik på port 80 och som är associerade med ett undernät. Alla virtuella datorer som du ansluter till det undernätet kan nås på port 80.
 
 ## <a name="more-information-on-network-security-groups"></a>Mer information om Nätverkssäkerhetsgrupper
-Snabb kommandon här kan du komma igång med trafik som flödar till den virtuella datorn. Nätverkssäkerhetsgrupper ger många bra funktioner och granularitet för att styra åtkomst till resurser. Du kan läsa mer om [skapar en säkerhetsgrupp för nätverk och ACL-regler här](../../virtual-network/virtual-networks-create-nsg-arm-ps.md).
+Snabb kommandon här kan du komma igång med trafik som flödar till den virtuella datorn. Nätverkssäkerhetsgrupper ger många bra funktioner och granularitet för att styra åtkomst till resurser. Du kan läsa mer om [skapar en säkerhetsgrupp för nätverk och ACL-regler här](../../virtual-network/tutorial-filter-network-traffic.md).
 
 Du bör placera dina virtuella datorer bakom en belastningsutjämnare i Azure för hög tillgänglighet webbprogram. Belastningsutjämnaren distribuerar trafik till virtuella datorer med en Nätverkssäkerhetsgrupp som tillhandahåller trafikfiltrering. Mer information finns i [hur du läser in balansera Linux-datorer i Azure för att skapa ett program med hög tillgänglighet](tutorial-load-balancer.md).
 

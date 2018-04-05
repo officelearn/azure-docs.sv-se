@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: ancav
-ms.openlocfilehash: 88020b27403f06ab8f1c0a1c45b798db02f517f5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4598267e92716529774f42d22ab7c47d944d4495
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Översikt över mått i Microsoft Azure
 Den här artikeln beskriver vilka mått som finns i Microsoft Azure sina fördelar och hur du börjar använda dem.  
@@ -116,7 +116,7 @@ Mått aviseringar: de kan sedan meddela dig via e-post eller eller en webhook so
 
  ![Mått och Varningsregler i Azure-Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Nära realtid aviseringar (förhandsversion): dessa har möjlighet att övervaka flera mått och tröskelvärden för en resurs och meddela dig via en [grupp](/monitoring-action-groups.md). Lär dig mer om [nära realtid mått aviseringar här](https://aka.ms/azuremonitor/near-real-time-alerts).
+Nyare mått aviseringar har möjlighet att övervaka flera mått och tröskelvärden för en resurs och meddela dig via en [grupp](/monitoring-action-groups.md). Lär dig mer om [nyare aviseringar här](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### <a name="autoscale-your-azure-resources"></a>Autoskala din Azure resurser

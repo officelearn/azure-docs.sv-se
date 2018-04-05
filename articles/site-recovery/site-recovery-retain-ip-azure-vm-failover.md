@@ -1,12 +1,12 @@
 ---
-title: "Behålla IP-adresser när redundansväxla virtuella Azure-datorer till en annan Azure-region | Microsoft Docs"
-description: "Beskriver hur du behålla IP-adresser för redundanssituationer från Azure till Azure med Azure Site Recovery"
+title: Behålla IP-adresser när redundansväxla virtuella Azure-datorer till en annan Azure-region | Microsoft Docs
+description: Beskriver hur du behålla IP-adresser för redundanssituationer från Azure till Azure med Azure Site Recovery
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 15f87ba87d90cee765f52d3188796bc1ff7b8a35
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8e128e057e45f6966067ebaaf039d9b14349d926
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Kvarhållning av IP-adress för redundans för virtuell Azure-dator
 
@@ -84,11 +84,7 @@ Den ovan isolerade redundans exempel kan utökas för att inkludera fler program
 
 ### <a name="further-considerations"></a>Ytterligare överväganden
 
-VPN-gatewayer använda offentliga IP-adresser och gateway-hopp upprätta anslutningar. Om du inte vill använda offentliga IP-Adressen och/eller om du vill undvika extra hopp kan du nu använda globala VNet-Peering för peer-virtuella nätverk i Azure-regioner.
-
-Den här funktionen är för närvarande i förhandsversion och utökas för att stödja fler regioner – aktivera direktanslutning VM-till-VM utan inblandning av alla offentliga internet eller några extra hopp.
-
-Mer information finns i den [peering dokumentationen](../virtual-network/tutorial-connect-virtual-networks-portal.md#register) och [priser](https://azure.microsoft.com/pricing/details/virtual-network/).
+VPN-gatewayer använda offentliga IP-adresser och gateway-hopp upprätta anslutningar. Om du inte vill använda offentliga IP-Adressen och/eller om du vill undvika extra hopp kan du använda Azure [virtuellt nätverk peering](../virtual-network/virtual-network-peering-overview.md) till peer-virtuella nätverk över [Azure-regioner som stöds](../virtual-network/virtual-network-manage-peering.md#cross-region).
 
 ## <a name="on-premises-to-azure-connectivity"></a>På lokal-till-Azure-anslutning
 

@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2018
+ms.date: 03/27/2018
 ms.author: danoble
-ms.openlocfilehash: 4a393887d8e82e833b0c956666bf36e5adb19e70
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e0d23a163f16763dd4764eb7857dec8076f4754c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos DB-emulatorn för lokal utveckling och testning
 
@@ -136,7 +136,7 @@ Du kan köra emulatorn i ett lokalt nätverk. Om du vill aktivera nätverksåtko
 För att aktivera nätverksåtkomst för första gången användaren stänga emulatorn och ta bort den emulator datakatalog (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
 ## <a name="developing-with-the-emulator"></a>Utveckla med emulatorn
-När du har Azure Cosmos DB emulatorn körs på datorn kan du använda någon stöds [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) eller [Azure Cosmos DB REST API](/rest/api/documentdb/) att interagera med emulatorn. Azure-emulatorn Cosmos DB innehåller också en inbyggd Data Explorer där du kan skapa samlingar för SQL och MongoDB APIs och visa och redigera dokument utan att skriva någon kod.   
+När du har Azure Cosmos DB emulatorn körs på datorn kan du använda någon stöds [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) eller [Azure Cosmos DB REST API](/rest/api/cosmos-db/) att interagera med emulatorn. Azure-emulatorn Cosmos DB innehåller också en inbyggd Data Explorer där du kan skapa samlingar för SQL och MongoDB APIs och visa och redigera dokument utan att skriva någon kod.   
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
@@ -342,17 +342,41 @@ Här följer en sammanfattning av kommandon för att styra emulator från PowerS
 
 ### `Get-CosmosDbEmulatorStatus`
 
+#### <a name="syntax"></a>Syntax
+
+`Get-CosmosDbEmulatorStatus`
+
+#### <a name="remarks"></a>Kommentarer
+
 Returnerar ett av värdena ServiceControllerStatus: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running eller ServiceControllerStatus.Stopped.
 
-### `Start-CosmosDbEmulator [-NoWait]`
+### `Start-CosmosDbEmulator`
+
+#### <a name="syntax"></a>Syntax
+
+`Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>]  [<CommonParameters>]`
+
+#### <a name="remarks"></a>Kommentarer
 
 Startar emulatorn. Som standard väntar tills emulatorn är redo att acceptera begäranden i kommandot. Använd alternativet - NoWait om du inte vill för att returnera när den startar emulatorn.
 
-### `Stop-CosmosDbEmulator [-NoWait]`
+### `Stop-CosmosDbEmulator`
+
+#### <a name="syntax"></a>Syntax
+
+ `Stop-CosmosDbEmulator [-NoWait]`
+
+#### <a name="remarks"></a>Kommentarer
 
 Stoppar emulatorn. Som standard väntar det här kommandot tills emulatorn är fullständigt avstängning. Använd alternativet - NoWait om du inte vill för att returnera så fort emulatorn börjar att stänga av.
 
-### `Uninstall-CosmosDbEmulator [-RemoveData]`
+### `Uninstall-CosmosDbEmulator`
+
+#### <a name="syntax"></a>Syntax
+
+`Uninstall-CosmosDbEmulator [-RemoveData]`
+
+#### <a name="remarks"></a>Kommentarer
 
 Avinstallerar emulatorn och du tar bort allt innehåll i $env: LOCALAPPDATA\CosmosDbEmulator.
 Cmdlet garanterar emulatorn stoppas innan du avinstallerar den.
@@ -454,6 +478,20 @@ Om du vill samla in felsökning spårningar, kör du följande kommandon från e
 ## <a name="change-list"></a>Ändringslista
 
 Du kan kontrollera versionsnumret genom att högerklicka på emulatorikonen lokala i Aktivitetsfältet och klicka på den om menyalternativet.
+
+### <a name="12106-released-on-march-27-2018"></a>1.21.0.6 släpptes 27 mars 2018
+
+Förutom att uppdatera emulatorn tjänster för paritet med Cosmos DB molntjänster innehåller en ny funktion och två korrigeringarna i den här versionen.
+
+#### <a name="features"></a>Funktioner
+
+1. Kommandot Start-CosmosDbEmulator innehåller nu startalternativ.
+
+#### <a name="bug-fixes"></a>Felkorrigeringar
+
+1. Microsoft.Azure.CosmosDB.Emulator PowerShell-modulen nu ser till att den `ServiceControllerStatus` uppräkningen har lästs in.
+
+2. Microsoft.Azure.CosmosDB.Emulator PowerShell-modulen innehåller nu ett manifest; ofullständig från den första versionen.
 
 ### <a name="1201084-released-on-february-14-2018"></a>1.20.108.4 släpptes 14 februari 2018
 

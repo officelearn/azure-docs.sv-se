@@ -1,11 +1,11 @@
 ---
-title: "Azure Backup - Använd PowerShell för att säkerhetskopiera DPM-arbetsbelastningar | Microsoft Docs"
-description: "Lär dig hur du distribuerar och hanterar Azure Backup för Data Protection Manager (DPM) med hjälp av PowerShell"
+title: Azure Backup - Använd PowerShell för att säkerhetskopiera DPM-arbetsbelastningar | Microsoft Docs
+description: Lär dig hur du distribuerar och hanterar Azure Backup för Data Protection Manager (DPM) med hjälp av PowerShell
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: NKolli1
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: e9bd223c-2398-4eb1-9bf3-50e08970fea7
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
 ms.author: adigan;anuragm;trinadhk;markgal
-ms.openlocfilehash: 9322037427c84f0b8a91cc76f5c0fed52167bc3c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 89dd965208cd473e47de9e0c9bdbfa3ab986c3d5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för DPM-servrar (Data Protection Manager) med PowerShell
 Den här artikeln visar hur du använder PowerShell för att konfigurera Azure Backup på en DPM-server och för att hantera säkerhetskopiering och återställning.
@@ -77,7 +77,7 @@ Följande steg leder dig genom att skapa ett Recovery Services-valvet. Recovery 
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-4. Ange vilken typ av lagring redundans ska användas. Du kan använda [lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) eller [Geo-Redundant lagring (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). I följande exempel visas alternativet - BackupStorageRedundancy för testVault anges till GeoRedundant.
+4. Ange vilken typ av lagring redundans ska användas. Du kan använda [lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy-lrs.md) eller [Geo-Redundant lagring (GRS)](../storage/common/storage-redundancy-grs.md). I följande exempel visas alternativet - BackupStorageRedundancy för testVault anges till GeoRedundant.
 
    > [!TIP]
    > Många Azure Backup-cmdletar kräver Recovery Services-valvet objekt som indata. Därför är det praktiskt att lagra säkerhetskopian Recovery Services-valvet objekt i en variabel.
@@ -130,7 +130,7 @@ PS C:\> MARSAgentInstaller.exe /?
 
 Tillgängliga alternativ inkluderar:
 
-| Alternativ | Information | Standard |
+| Alternativ | Information | Standardvärde |
 | --- | --- | --- |
 | /q |Tyst installation |- |
 | / p: ”plats” |Sökvägen till installationsmappen för Azure Backup-agenten. |C:\Program Files\Microsoft Azure Recovery Services-agenten |
@@ -138,9 +138,9 @@ Tillgängliga alternativ inkluderar:
 | /m |Delta i Microsoft Update |- |
 | /nu |Sök inte efter uppdateringar när installationen är klar |- |
 | /d |Avinstallerar Microsoft Azure Recovery Services-agenten |- |
-| /pH |Värden proxyadress |- |
+| /ph |Värden proxyadress |- |
 | /po |Portnummer för proxyservern värden |- |
-| /Pu |Värddatorn Proxyanvändarnamnet |- |
+| /pu |Värddatorn Proxyanvändarnamnet |- |
 | /PW |Lösenord för proxy |- |
 
 ## <a name="registering-dpm-to-a-recovery-services-vault"></a>Registrera DPM till en Recovery Services-valvet
@@ -309,10 +309,10 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 
 I exemplet ovan ```$onlineSch``` är en matris med fyra element som innehåller befintliga schema för onlineskydd för Skyddsgruppen i GFS schemat:
 
-1. ```$onlineSch[0]```innehåller dagsschema
-2. ```$onlineSch[1]```innehåller veckoschemat
-3. ```$onlineSch[2]```innehåller månadsschema
-4. ```$onlineSch[3]```innehåller årlig schemat
+1. ```$onlineSch[0]``` innehåller dagsschema
+2. ```$onlineSch[1]``` innehåller veckoschemat
+3. ```$onlineSch[2]``` innehåller månadsschema
+4. ```$onlineSch[3]``` innehåller årlig schemat
 
 Om du behöver ändra veckoschemat måste referera till den ```$onlineSch[1]```.
 
@@ -334,8 +334,8 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ## <a name="view-the-backup-points"></a>Visa säkerhetskopiering punkter
 Du kan använda den [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) att hämta en lista över alla återställningspunkter för en datakälla. I det här exemplet ska du:
 
-* Hämta alla PGs på DPM-servern och lagras i en matris```$PG```
-* Hämta datakällorna som motsvarar den```$PG[0]```
+* Hämta alla PGs på DPM-servern och lagras i en matris ```$PG```
+* Hämta datakällorna som motsvarar den ```$PG[0]```
 * Hämta alla återställningspunkter för en datakälla.
 
 ```

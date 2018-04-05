@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 4dd908908877a222c708c9b2ab6255ab9a4b414a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e7fc12c9b4cc79109975e34f64f236394c33af25
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Skala virtuell Azure-dator Anger vanliga frågor och svar
 
@@ -63,10 +63,14 @@ Få svar på vanliga frågor och svar om virtuella datorer i Azure.
 
 **F.** Fungerar skalningsuppsättningar med Azures tillgänglighetsuppsättningar?
 
-**S.** Ja. En skalningsuppsättning är en implicit tillgänglighetsuppsättning med fem feldomäner och fem uppdateringsdomäner. Skalningsuppsättningar med mer än 100 virtuella datorer sträcker sig över flera *placeringsgrupper* som är likvärdiga med flera tillgänglighetsuppsättningar. Mer information om placeringsgrupper finns i [Arbeta med stora skalningsuppsättningar för virtuella datorer](virtual-machine-scale-sets-placement-groups.md). En tillgänglighetsuppsättning för virtuella datorer kan finnas i samma virtuella nätverk som en skalningsuppsättning för virtuella datorer. En vanlig konfiguration är att placera virtuella kontrollnodsdatorer (som ofta kräver unika konfigurationer) i en tillgänglighetsuppsättning och placera datanoder i skalningsuppsättningen.
+**S.** Ett regionalt (icke-zonal) skaluppsättning använder *placering grupper*, som kan konfigureras för att fungera som en implicit tillgänglighetsuppsättning med fem feldomäner och fem uppdatera domäner. Skaluppsättningar för fler än 100 virtuella datorer sträcka sig över flera grupper för placering. Mer information om placeringsgrupper finns i [Arbeta med stora skalningsuppsättningar för virtuella datorer](virtual-machine-scale-sets-placement-groups.md). En tillgänglighetsuppsättning för virtuella datorer kan finnas i samma virtuella nätverk som en skalningsuppsättning för virtuella datorer. En vanlig konfiguration är att placera virtuella kontrollnodsdatorer (som ofta kräver unika konfigurationer) i en tillgänglighetsuppsättning och placera datanoder i skalningsuppsättningen.
+
+**F.** Skala anger fungerar med Azure tillgänglighet zoner?
+
+**S.** Ja! Mer information finns i [skaluppsättning för zonen doc](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
-## <a name="autoscale"></a>Automatisk skalning
+## <a name="autoscale"></a>Autoskalning
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Vad är bästa praxis för Azure Autoskala?
 
@@ -331,7 +335,7 @@ Det uppstår inte här problemet när skala ut eftersom det inte finns en cachel
  
 Azure Key Vault-dokumentationen om att hämta hemligheten REST API ska returnera den senaste versionen av hemligheten som om versionen inte har angetts.
  
-Metod | URL
+Metod | Webbadress
 --- | ---
 HÄMTA | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
 

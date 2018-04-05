@@ -7,6 +7,8 @@
 
 Enhetstvillingar är JSON-dokument som lagrar information om enhetstillstånd (metadata, konfigurationer och villkor). IoT-hubb kvarstår en enhet dubbla för varje enhet som ansluter till den.
 
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
+
 Använd enhet twins till:
 
 * Lagra metadata om enheter från din lösningens serverdel.
@@ -14,8 +16,7 @@ Använd enhet twins till:
 * Synkronisera tillståndet för tidskrävande arbetsflöden (till exempel uppdateringarna av inbyggd och konfiguration) mellan en enhetsapp och en backend-app.
 * Fråga din enhetsmetadata, konfiguration eller tillstånd.
 
-> [!NOTE]
-> Enheten twins är utformade för synkronisering och för att fråga efter enhetskonfigurationer och villkor. Mer information om när du använder enheten twins kan hittas i [förstå enheten twins][lnk-twins].
+Enheten twins är utformade för synkronisering och för att fråga efter enhetskonfigurationer och villkor. Mer information om när du använder enheten twins kan hittas i [förstå enheten twins][lnk-twins].
 
 Enheten twins lagras i en IoT-hubb och innehålla:
 

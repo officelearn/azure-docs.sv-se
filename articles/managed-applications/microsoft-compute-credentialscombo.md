@@ -1,6 +1,6 @@
 ---
-title: "Azure hanterade program CredentialsCombo gränssnittselement | Microsoft Docs"
-description: "Beskriver Microsoft.Compute.CredentialsCombo UI-element för hanterade program i Azure"
+title: Azure CredentialsCombo UI-element | Microsoft Docs
+description: Beskriver Microsoft.Compute.CredentialsCombo UI-element för Azure-portalen.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d8faa36aca762bc8d787d5750fcf7efdbaf986ea
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: c17677a9e34de4c1afca8f04c8bd22c2155c3439
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo UI-element
-En grupp av kontroller med inbyggda verifiering för Windows och Linux-lösenord och offentliga SSH-nycklar. Du använder det här elementet när [att skapa ett Azure hanterade program](publish-service-catalog-app.md).
+# <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo UI element
+En grupp av kontroller med inbyggda verifiering för Windows och Linux-lösenord och offentliga SSH-nycklar.
 
 ## <a name="ui-sample"></a>UI-exempel
 ![Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo.png)
 
-## <a name="schema"></a>Schemat
+## <a name="schema"></a>Schema
 Om `osPlatform` är **Windows**, används följande schema:
 ```json
 {
@@ -82,7 +82,7 @@ Om `osPlatform` är **Linux**, används följande schema:
 ```
 
 ## <a name="remarks"></a>Kommentarer
-- `osPlatform`måste anges, och kan vara antingen **Windows** eller **Linux**.
+- `osPlatform` måste anges, och kan vara antingen **Windows** eller **Linux**.
 - Om `constraints.required` är inställd på **SANT**, lösenord eller SSH textrutor för offentlig nyckel måste innehålla värden som ska valideras. Standardvärdet är **SANT**.
 - Om `options.hideConfirmation` är inställd på **SANT**, sedan den andra textrutan för att bekräfta användarens lösenord är dolt. Standardvärdet är **FALSKT**.
 - Om `options.hidePassword` är inställd på **SANT**, och sedan på alternativet för att använda en lösenordsautentisering är dolt. Det kan användas endast när `osPlatform` är **Linux**. Standardvärdet är **FALSKT**.
@@ -107,6 +107,5 @@ Om användaren har angett en offentlig SSH-nyckel, förväntat i följande utdat
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En introduktion till hanterade program, se [översikt över Azure Managed Application](overview.md).
 * En introduktion till att skapa UI-definitioner, se [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
 * En beskrivning av gemensamma egenskaper i UI-element, se [CreateUiDefinition element](create-uidefinition-elements.md).

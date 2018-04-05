@@ -1,8 +1,8 @@
 ---
-title: "Python: Kontohanteringsåtgärder på Azure Data Lake Store | Microsoft Docs"
-description: "Lär dig hur du använder Python SDK för att arbeta med kontohanteringsåtgärder för Data Lake Store."
+title: 'Python: Kontohanteringsåtgärder på Azure Data Lake Store | Microsoft Docs'
+description: Lär dig hur du använder Python SDK för att arbeta med kontohanteringsåtgärder för Data Lake Store.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 834dbc93348e00b0a0821bcbca989b0c2d539056
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 5f060dfd061af07f220576f17110afccd01fdae5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Kontohanteringsåtgärder på Azure Data Lake Store med hjälp av Python
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 Lär dig hur du använder Python SDK för Azure Data Lake Store för att utföra grundläggande kontohanteringsåtgärder som att skapa Data Lake Store-konto, lista Data Lake Store-konto osv. Anvisningar för att utföra filsystemsåtgärder på Data Lake Store med Python finns i [Filsystemsåtgärder på Data Lake Store med Python](data-lake-store-data-operations-python.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **Python**. Du kan hämta Python [här](https://www.python.org/downloads/). I den här artikeln används Python 3.6.2.
 
@@ -43,7 +43,7 @@ Lär dig hur du använder Python SDK för Azure Data Lake Store för att utföra
 Du måste installera tre moduler för att kunna arbeta med Data Lake Store med hjälp av Python.
 
 * `azure-mgmt-resource`-modulen, som innehåller Azure-moduler för Active Directory osv.
-* `azure-mgmt-datalake-store`-modulen, som innehåller Azure Data Lake Store-kontohanteringsåtgärder. Mer information om den här modulen finns i [referensen för Azure Data Lake Store Management-modulen](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
+* `azure-mgmt-datalake-store`-modulen, som innehåller Azure Data Lake Store-kontohanteringsåtgärder. Mer information om den här modulen finns i [referensen för Azure Data Lake Store Management-modulen](http://azure-sdk-for-python.readthedocs.io/sample_azure-mgmt-datalake-store.html).
 * `azure-datalake-store`-modulen, som innehåller Azure Data Lake Store-filsystemsåtgärder. Mer information om den här modulen finns i [referensen för Azure Data Lake Store Filesystem-modulen](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Installera modulerna med hjälp av följande kommandon.

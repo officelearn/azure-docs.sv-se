@@ -1,13 +1,13 @@
 ---
-title: "Skapa en OpenAPI-definition för en funktion | Microsoft Docs"
-description: "Skapa en OpenAPI-definition som gör det möjligt för andra appar och tjänster att anropa din funktion i Azure."
+title: Skapa en OpenAPI-definition för en funktion | Microsoft Docs
+description: Skapa en OpenAPI-definition som gör det möjligt för andra appar och tjänster att anropa din funktion i Azure.
 services: functions
 keywords: OpenAPI, Swagger, cloud apps, cloud services,
-documentationcenter: 
+documentationcenter: ''
 author: mgblythe
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: mblythe; glenga
-ms.custom: mvc
-ms.openlocfilehash: 29e78bbb8e3d4d4feb3f7d32cf0a5ef1b02a6268
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.custom: mvc, cc996988-fb4f-47
+ms.openlocfilehash: 8caea30196a7ecdd4226b18963cd8b2040dc7e35
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Skapa en OpenAPI-definition för en funktion
 REST-API:er beskrivs ofta med hjälp av en OpenAPI-definition (kallades tidigare för en [Swagger](http://swagger.io/)-fil). Den här definitionen innehåller information om vilka åtgärder som är tillgängliga i API:t och hur data om förfrågningar och svar för API:t ska vara strukturerade.
@@ -40,8 +40,6 @@ I den här guiden får du lära dig hur man:
 Du måste ha en funktionsapp som värd för körning av dina funktioner. I en funktionsapp kan du gruppera funktioner som en logisk enhet så att de blir enklare att hantera, distribuera, skala och dela resurser. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 
 ## <a name="create-the-function"></a>Skapa funktionen
@@ -292,7 +290,7 @@ Innan du använder API-definitionen är det bra att först testa den i Azure Fun
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig hur du:
+I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * skapar en funktion i Azure

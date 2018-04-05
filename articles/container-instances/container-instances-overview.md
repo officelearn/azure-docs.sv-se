@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 03/23/2018
+ms.date: 03/29/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: d6e0637974d8076fc610d7154ad507f4e7af0cfa
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e10d4046f543fbcc479421f4ca8f10221abc806f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -25,6 +25,10 @@ Azure Container Instances är en bra lösning för alla scenarier som kan funger
 
 Med behållare får du betydande startfördelar jämfört med virtuella datorer. Azure Container Instances kan starta en behållare i Azure på några sekunder utan att några virtuella datorer behöver etableras eller hanteras.
 
+## <a name="public-ip-connectivity-and-dns-name"></a>Offentlig IP-anslutning och DNS-namn
+
+Med Azure Container Instances kan du exponera dina behållare direkt för Internet med en IP-adress och ett fullständigt domännamn (FQDN). När du skapar en behållarinstans kan du ange en anpassad DNS-namnsetikett, så att programmet kan nås på *customlabel*. *azureregion*. azurecontainer.io.
+
 ## <a name="hypervisor-level-security"></a>Säkerhet på hypervisornivå
 
 Tidigare har behållare erbjudit isolering av programberoenden och resursstyrning men har inte ansetts vara tillräckligt strikta för fientlig användning med flera innehavare. Azure Container Instances garanterar att ditt program är lika isolerat i en behållare som i en virtuell dator.
@@ -32,10 +36,6 @@ Tidigare har behållare erbjudit isolering av programberoenden och resursstyrnin
 ## <a name="custom-sizes"></a>Anpassade storlekar
 
 Behållare är vanligtvis optimerade för att endast köra ett program, men de specifika behoven för dessa program kan skilja sig åt avsevärt. Azure Container Instances erbjuder optimal användning eftersom det tillåter exakta specifikationer av CPU-kärnor och minne. Du betalar för vad du behöver och faktureras per sekund, så att du kan finjustera dina utgifter utifrån dina faktiska behov.
-
-## <a name="public-ip-connectivity"></a>Offentlig IP-anslutning
-
-Med Azure Container Instances kan du exponera dina behållare direkt för Internet med en offentlig IP-adress och DNS-namnsetikett. I framtiden kommer vi att utöka våra nätverksfunktioner för att inkludera integration med virtuella nätverk, belastningsutjämnare och andra viktiga delar av nätverksinfrastrukturen i Azure.
 
 ## <a name="persistent-storage"></a>Beständig lagring
 
@@ -53,4 +53,7 @@ Azure Container Instances stöder schemaläggning av [grupper med flera behålla
 
 ## <a name="next-steps"></a>Nästa steg
 
-Försök att distribuera en behållare till Azure med ett enda kommando med hjälp av vår [snabbstartsguide](container-instances-quickstart.md).
+Försök att distribuera en behållare till Azure med ett enda kommando med hjälp av vår snabbstartsguide:
+
+> [!div class="nextstepaction"]
+> [Azure Container Instances Snabbstart](container-instances-quickstart.md)

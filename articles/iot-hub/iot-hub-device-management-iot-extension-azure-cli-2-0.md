@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT-enhetshantering med IoT-tillägg för Azure CLI 2.0 | Microsoft Docs"
-description: "Använd IoT-tillägg för Azure CLI 2.0-verktyget för Azure IoT Hub-enhetshantering med direkta metoder och de två alternativ för egenskaper."
+title: Azure IoT-enhetshantering med IoT-tillägg för Azure CLI 2.0 | Microsoft Docs
+description: Använd IoT-tillägg för Azure CLI 2.0-verktyget för Azure IoT Hub-enhetshantering med direkta metoder och de två alternativ för egenskaper.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: chrissie926
 manager: timlt
-tags: 
-keywords: "Azure iot enhetshantering, azure iot-hubb enhetshantering, device management iot, enhetshantering för iot-hubb"
+tags: ''
+keywords: Azure iot enhetshantering, azure iot-hubb enhetshantering, device management iot, enhetshantering för iot-hubb
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
 ms.service: iot-hub
 ms.devlang: arduino
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 07b9f14048b6618863efd5bd8eb8bcc8f52ec735
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ceace7331c7548c5b4e27f8529152fd69d5469cd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Använd IoT-tillägg för Azure CLI 2.0 för hantering av Azure IoT Hub-enheter
 
@@ -27,9 +27,11 @@ ms.lasthandoff: 03/09/2018
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[IoT-tillägget för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) är en ny öppen källkod IoT-tillägg som lägger till funktioner i [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) innehåller kommandon för att interagera med Azure resource manager och hantering av slutpunkter. Azure CLI 2.0 innehåller kommandon för att interagera med Azure resource manager och hantering av slutpunkter. Du kan exempelvis använda Azure CLI 2.0 för att skapa en virtuell Azure-dator eller en IoT-hubb. En CLI-tillägget kan en Azure-tjänst att utöka Azure CLI ger dig åtkomst till ytterligare tjänstspecifika funktioner. IoT-tillägg ger utvecklare IoT kommandoraden åtkomst till alla IoT-hubb IoT kant och IoT-hubb enheten Etableringstjänsten funktioner.
+[IoT-tillägget för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) är en ny öppen källkod IoT-tillägg som lägger till funktioner i [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest). Azure CLI 2.0 innehåller kommandon för att interagera med Azure resource manager och hantering av slutpunkter. Du kan exempelvis använda Azure CLI 2.0 för att skapa en virtuell Azure-dator eller en IoT-hubb. En CLI-tillägget kan en Azure-tjänst att utöka Azure CLI ger dig åtkomst till ytterligare tjänstspecifika funktioner. IoT-tillägg ger utvecklare IoT kommandoraden åtkomst till alla IoT-hubb IoT kant och IoT-hubb enheten Etableringstjänsten funktioner.
 
-| Hanteringsalternativ          | Aktivitet                                                                                                                            |
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
+| Hanteringsalternativ          | Uppgift                                                                                                                            |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | Direkta metoder             | Gör en enhet som agerar som startar eller stoppar skickar meddelanden eller starta om enheten.                                        |
 | Dubbla önskade egenskaper    | Lägga till en enhet i vissa tillstånd, till exempel ange en Indikator till grönt eller inställningen telemetri skicka intervall till 30 minuter.         |
@@ -39,8 +41,7 @@ ms.lasthandoff: 03/09/2018
 
 Mer detaljerad förklaring om skillnaderna och vägledning om hur du använder dessa alternativ finns [enhet till moln kommunikation vägledning](iot-hub-devguide-d2c-guidance.md) och [moln till enhet kommunikation vägledning](iot-hub-devguide-c2d-guidance.md).
 
-> [!NOTE]
-> Enhetstvillingar är JSON-dokument som lagrar information om enhetstillstånd (metadata, konfigurationer och villkor). IoT-hubb kvarstår en enhet dubbla för varje enhet som ansluter till den. Läs mer om enheten twins [Kom igång med enheten twins](iot-hub-node-node-twin-getstarted.md).
+Enhetstvillingar är JSON-dokument som lagrar information om enhetstillstånd (metadata, konfigurationer och villkor). IoT-hubb kvarstår en enhet dubbla för varje enhet som ansluter till den. Läs mer om enheten twins [Kom igång med enheten twins](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 
@@ -61,9 +62,9 @@ Kör Azure CLI 2.0 och IoT-tillägget för Azure CLI 2.0 med olika hanteringsalt
 
 - [Python 2.7x eller Python 3.x](https://www.python.org/downloads/)
 
-- Installera Azure CLI 2.0. Ett enkelt sätt att installera på Windows är att hämta och installera den [MSI](https://aka.ms/InstallAzureCliWindows). Du kan också följa installationsanvisningarna [Microsoft Docs](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) att konfigurera Azure CLI 2.0 i din miljö. Minst Azure CLI 2.0 måste du ha 2.0.24 eller senare. Använd `az –version` att validera. 
+- Installera Azure CLI 2.0. Ett enkelt sätt att installera i Windows är att hämta och installera [MSI](https://aka.ms/InstallAzureCliWindows). Du kan också följa installationsanvisningarna [Microsoft Docs](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) att konfigurera Azure CLI 2.0 i din miljö. Din Azure CLI 2.0-version måste vara 2.0.24 eller senare. Validera med `az –version`. 
 
-- Installera tillägget IoT. Det enklaste sättet är att köra `az extension add --name azure-cli-iot-ext`. [IoT-tillägget viktigt](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) beskrivs flera olika sätt att installera tillägget.
+- Installera tillägget IoT. Det enklaste sättet är att köra `az extension add --name azure-cli-iot-ext`. I [IoT-tilläggets Viktigt-fil](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) beskrivs olika sätt att installera tillägget.
 
 
 ## <a name="log-in-to-your-azure-account"></a>Logga in på ditt Azure-konto

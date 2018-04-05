@@ -1,11 +1,11 @@
 ---
-title: "Komma igång med Azure Mobile Engagement för Web Apps | Microsoft Docs"
-description: "Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Web Apps."
+title: Komma igång med Azure Mobile Engagement för Web Apps | Microsoft Docs
+description: Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Web Apps.
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 04afe53a-4caf-4c80-bd75-20cc630cd75c
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb7a0e61b6d29c292642fd950aed7617de9b340d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Komma igång med Azure Mobile Engagement för Web Apps
+> [!IMPORTANT]
+> Azure Mobile Engagement dras tillbaka den 31 mars 2018. Den här sidan tas bort strax efter det.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Det här ämnet visar hur du använder Azure Mobile Engagement för att förstå din webbappanvändning.
@@ -57,7 +61,7 @@ I följande steg används Visual Studio 2015, men stegen är ganska lika i tidig
 
 Du har nu skapat ett nytt tomt Windows App-projekt i vilket vi kommer att integrera Azure Mobile Engagement Web SDK.
 
-### <a name="connect-your-app-to-mobile-engagement-backend"></a>Ansluta appen till Mobile Engagement-serverdelen
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Anslut appen till Mobile Engagement-serverdelen
 1. Skapa en ny mapp som kallas **javascript** i din lösning och lägg till Web SDK JS-filen **azure engagement.js** i den. 
 2. Lägg till en ny fil med namnet **main.js** i denna javascript-mapp med följande kod. Se till att uppdatera anslutningssträngen. Detta `azureEngagement`-objekt används för att få åtkomst till Web SDK-metoder. 
    

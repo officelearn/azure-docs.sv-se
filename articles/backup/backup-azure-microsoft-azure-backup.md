@@ -1,12 +1,12 @@
 ---
-title: "Säkerhetskopiera arbetsbelastningar till Azure med Azure Backup Server | Microsoft Docs"
-description: "Använda Azure Backup Server för att skydda eller säkerhetskopiera arbetsbelastningar till Azure-portalen."
+title: Säkerhetskopiera arbetsbelastningar till Azure med Azure Backup Server | Microsoft Docs
+description: Använda Azure Backup Server för att skydda eller säkerhetskopiera arbetsbelastningar till Azure-portalen.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: PVRK
 manager: shivamg
-editor: 
-keywords: "Azure backup-servern. skydda arbetsbelastningar; Säkerhetskopiera arbetsbelastningar"
+editor: ''
+keywords: Azure backup-servern. skydda arbetsbelastningar; Säkerhetskopiera arbetsbelastningar
 ms.assetid: e7fb1907-9dc1-4ca1-8c61-50423d86540c
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: c33cea62dac1c06dd1cb4031897af8c822e61661
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 95c11de3a1aed680d37dd86c1783ac8bee7ffec3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Förbereder för att säkerhetskopiera arbetsbelastningar med Azure Backup Server
 > [!div class="op_single_selector"]
@@ -101,7 +101,7 @@ Så här skapar du ett Recovery Services-valv:
    När du har skapat ditt valv öppnas i portalen.
 
 ### <a name="set-storage-replication"></a>Konfigurera lagringsreplikering
-Med alternativet för lagringsreplikering kan du välja mellan geo-redundant lagring och lokalt redundant lagring. Valvet använder geo-redundant lagring som standard. Om det här valvet är ditt primära valv lämna lagringsalternativet inställt på geo-redundant lagring. Välj lokalt redundant lagring om du vill använda ett billigare alternativ som inte är lika beständigt. Läs mer om alternativen för [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage) och [lokalt redundant](../storage/common/storage-redundancy.md#locally-redundant-storage) lagring i [Översikt över Azure Storage-replikering](../storage/common/storage-redundancy.md).
+Med alternativet för lagringsreplikering kan du välja mellan geo-redundant lagring och lokalt redundant lagring. Valvet använder geo-redundant lagring som standard. Om det här valvet är ditt primära valv lämna lagringsalternativet inställt på geo-redundant lagring. Välj lokalt redundant lagring om du vill använda ett billigare alternativ som inte är lika beständigt. Läs mer om alternativen för [geo-redundant](../storage/common/storage-redundancy-grs.md) och [lokalt redundant](../storage/common/storage-redundancy-lrs.md) lagring i [Översikt över Azure Storage-replikering](../storage/common/storage-redundancy.md).
 
 Så här redigerar du inställningen för lagringsreplikering:
 
@@ -240,10 +240,10 @@ När du vet att anslutningen Azure och Azure-prenumerationen kan använda du tab
 
 | Tillstånd för anslutning | Azure-prenumeration | Säkerhetskopiera till Azure | Säkerhetskopiera till disk | Återställa från Azure | Återställa från disken |
 | --- | --- | --- | --- | --- | --- |
-| Ansluten |Active |Tillåtet |Tillåtet |Tillåtet |Tillåtet |
+| Ansluten |Aktiv |Tillåtet |Tillåtet |Tillåtet |Tillåtet |
 | Ansluten |Har upphört att gälla |Stoppad |Stoppad |Tillåtet |Tillåtet |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppad och Azure återställningspunkter tas bort |Stoppad |
-| Förlorade anslutningen > 15 dagar |Active |Stoppad |Stoppad |Tillåtet |Tillåtet |
+| Förlorade anslutningen > 15 dagar |Aktiv |Stoppad |Stoppad |Tillåtet |Tillåtet |
 | Förlorade anslutningen > 15 dagar |Har upphört att gälla |Stoppad |Stoppad |Tillåtet |Tillåtet |
 | Förlorade anslutningen > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppad och Azure återställningspunkter tas bort |Stoppad |
 

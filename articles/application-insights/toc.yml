@@ -238,6 +238,9 @@
       items:
         - name: Hantera priser och datavolym
           href: app-insights-pricing.md
+          items:
+            - name: Information om Enterprise-prenumerationsavtal
+              href: app-insights-pricing-enterprise-details.md
         - name: Prestandaövervakning av program med Application Insights för SCOM
           href: app-insights-scom.md
     - name: Exportera

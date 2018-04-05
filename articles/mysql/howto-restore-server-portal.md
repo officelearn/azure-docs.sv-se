@@ -1,6 +1,6 @@
 ---
-title: "Återställa en Server i Azure-databas för MySQL"
-description: "Den här artikeln beskriver hur du återställer en server i Azure-databas för MySQL med Azure-portalen."
+title: Återställa en Server i Azure-databas för MySQL
+description: Den här artikeln beskriver hur du återställer en server i Azure-databas för MySQL med Azure-portalen.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,19 +8,19 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 5bef3f11d0b546fbd6b1161b20d7dfb81e975f99
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 04/01/2018
+ms.openlocfilehash: 5d6118a47e10763373c9376ca08d328cf22ab3c8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure-databas för MySQL med Azure-portalen
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure-databas för MySQL med Azure-portalen
 
 ## <a name="backup-happens-automatically"></a>Säkerhetskopieringen sker automatiskt
 Azure-databas för MySQL-servrar säkerhetskopieras regelbundet för att aktivera funktioner för återställning. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare i tidpunkt, på en ny server.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du behöver följande för att slutföra den här instruktioner:
 - En [Azure-databas för MySQL-server och databas](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -49,7 +49,7 @@ I skärmbilden här nedan har den ökat till 34 dagar.
 
 Säkerhetskopiering loggperioden styr hur långt tillbaka i tiden en point-in-time-återställning kan hämtas, eftersom den är baserad på säkerhetskopior som är tillgängliga. Point-in-time-återställning är ytterligare beskrivs i följande avsnitt. 
 
-## <a name="point-in-time-restore-in-the-azure-portal"></a>Point-in-time-återställning i Azure-portalen
+## <a name="point-in-time-restore"></a>Återställning från tidpunkt
 Azure MySQL-databas kan du återställa servern till en i tidpunkt och till att en ny kopia av servern. Du kan använda den här nya servern för att återställa dina data eller har ditt klientprogram som pekar på den här nya servern.
 
 Till exempel om en tabell av misstag kan släppas kl. tolv idag, du återställa tiden innan på dagen och hämta saknas tabellen och data från den nya kopian av servern. Point-in-time-återställning är på servern nivån, inte på databasnivå.
@@ -75,6 +75,22 @@ Följande steg återställa exempel servern till en i tidpunkt:
 
 >[!Note]
 >Observera den nya servern som skapats av point-in-time-återställning har samma server admin-inloggningsnamn och lösenord som är giltig för den befintliga servern på point-in-time valde. Du kan ändra lösenordet i den nya servern **översikt** sidan.
+
+## <a name="geo-restore"></a>GEO-återställning
+Om du har konfigurerat din server för geografiskt redundant säkerhetskopiering till kan en ny server skapas från en säkerhetskopia av den befintliga servern. Den här nya servern kan skapas i en region som Azure-databasen för MySQL är tillgänglig.  
+
+1. Välj knappen **Skapa en resurs** (+) i det övre vänstra hörnet i portalen. Välj **Databaser** > **Azure-databas för MySQL**.
+
+   ![Alternativet ”Azure-databas för MySQL”](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
+
+2. I formulärets **Välj källa** listrutan, Välj **säkerhetskopiering**. Den här åtgärden läser in en lista över servrar som har geo-redundant säkerhetskopieringar aktiverad. Välj en av dessa säkerhetskopior som källa för den nya servern.
+   ![Välj källa: Säkerhetskopiering och listan över geo-redundant säkerhetskopieringar](./media/howto-restore-server-portal/2-georestore.png)
+
+3. Fyll i resten av formuläret med dina inställningar. Du kan välja en annan **plats**. Markera platsen och du kan välja **prisnivån**. Parametrarna för den befintliga servern som du återställer från visas som standard. Du kan klicka på **OK** utan ändringar ärver inställningarna. Eller så kan du ändra **Compute Generation** (om tillgänglig i regionen du har valt), antal **vCores**, **säkerhetskopiering kvarhållningsperiod**, och **säkerhetskopiering Redundans alternativet**. Ändra **prisnivån** (Basic, generella eller Minnesoptimerade) eller **lagring** storlek under återställning stöds inte.
+
+>[!Note]
+>Den nya servern som skapats av geo återställning har samma server admin inloggningsnamn och lösenord som är giltig för den befintliga servern när återställningen har startats. Lösenordet kan ändras från den nya servern **översikt** sidan.
+
 
 ## <a name="next-steps"></a>Nästa steg
 - Mer information om tjänstens [säkerhetskopieringar](concepts-backup.md).

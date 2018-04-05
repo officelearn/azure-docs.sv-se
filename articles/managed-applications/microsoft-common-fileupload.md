@@ -1,6 +1,6 @@
 ---
-title: "Azure hanterade program FileUpload gränssnittselement | Microsoft Docs"
-description: "Beskriver Microsoft.Common.FileUpload UI-element för hanterade program i Azure"
+title: Gränssnittselement för Azure FileUpload | Microsoft Docs
+description: Beskriver Microsoft.Common.FileUpload UI-element för Azure-portalen.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 095880322ba801895a22efcf3476fa37d9e2ac3c
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bfde11a189348472942248a6b90fd5ef1b5a1c89
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI-element
-En kontroll som användaren kan ange en eller flera filer som ska överföras. Du använder det här elementet när [att skapa ett Azure hanterade program](publish-service-catalog-app.md).
+En kontroll som användaren kan ange en eller flera filer som ska överföras.
 
 ## <a name="ui-sample"></a>UI-exempel
 ![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
 
-## <a name="schema"></a>Schemat
+## <a name="schema"></a>Schema
 ```json
 {
   "name": "element1",
@@ -47,12 +47,12 @@ En kontroll som användaren kan ange en eller flera filer som ska överföras. D
 ```
 
 ## <a name="remarks"></a>Kommentarer
-- `constraints.accept`Anger vilka typer av filer som visas i webbläsarens fildialogruta. Finns det [HTML5-specifikationen](http://www.w3.org/TR/html5/forms.html#attr-input-accept) för tillåtna värden. Standardvärdet är **null**.
+- `constraints.accept` Anger vilka typer av filer som visas i webbläsarens fildialogruta. Finns det [HTML5-specifikationen](http://www.w3.org/TR/html5/forms.html#attr-input-accept) för tillåtna värden. Standardvärdet är **null**.
 - Om `options.multiple` är inställd på **SANT**, användaren tillåts markera fler än en fil i webbläsarens fildialogruta. Standardvärdet är **FALSKT**.
 - Det här elementet stöder Överför filer i två lägen, baserat på värdet för `options.uploadMode`. Om **filen** anges utdata innehåller innehållet i filen som en blob. Om **url** anges, och sedan överföra filen till en tillfällig plats och utdata innehåller URL-Adressen till blob. Tillfällig blobbar ska rensas efter 24 timmar. Standardvärdet är **filen**.
 - Värdet för `options.openMode` avgör hur filen läses. Om filen förväntas vara oformaterad text, ange **text**; annan, ange **binär**. Standardvärdet är **text**.
 - Om `options.uploadMode` är inställd på **filen** och `options.openMode` är inställd på **binära**, utdata är base64-kodad.
-- `options.encoding`Anger kodning som ska användas vid läsning av filen. Standardvärdet är **UTF-8**, och används bara när `options.openMode` är inställd på **text**.
+- `options.encoding` Anger kodning som ska användas vid läsning av filen. Standardvärdet är **UTF-8**, och används bara när `options.openMode` är inställd på **text**.
 
 ## <a name="sample-output"></a>Exempel på utdata
 Om options.multiple är false och options.uploadMode är filen innehåller utdata innehållet i filen som en JSON-sträng:
@@ -91,6 +91,5 @@ När du testar en CreateUiDefinition trunkera vissa webbläsare (till exempel Go
 
 
 ## <a name="next-steps"></a>Nästa steg
-* En introduktion till hanterade program, se [översikt över Azure Managed Application](overview.md).
 * En introduktion till att skapa UI-definitioner, se [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
 * En beskrivning av gemensamma egenskaper i UI-element, se [CreateUiDefinition element](create-uidefinition-elements.md).

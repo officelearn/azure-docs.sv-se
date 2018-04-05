@@ -1,12 +1,12 @@
 ---
-title: "Använd Azure Backup-agenten att säkerhetskopiera filer och mappar | Microsoft Docs"
-description: "Använda Microsoft Azure Backup-agenten för säkerhetskopiering av Windows-filer och mappar till Azure. Skapa ett Recovery Services-valv, installera säkerhetskopieringsagenten, definiera princip för säkerhetskopiering och kör den första säkerhetskopian på filer och mappar."
+title: Använd Azure Backup-agenten att säkerhetskopiera filer och mappar | Microsoft Docs
+description: Använda Microsoft Azure Backup-agenten för säkerhetskopiering av Windows-filer och mappar till Azure. Skapa ett Recovery Services-valv, installera säkerhetskopieringsagenten, definiera princip för säkerhetskopiering och kör den första säkerhetskopian på filer och mappar.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "säkerhetskopieringsvalvet; Säkerhetskopiera en Windows-server. Säkerhetskopiera windows;"
+editor: ''
+keywords: säkerhetskopieringsvalvet; Säkerhetskopiera en Windows-server. Säkerhetskopiera windows;
 ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/5/2018
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 88a588322d88f817937cf06e25b5b25a147f03d0
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 38f98a29edc2a0bfb0141a0a6fabad2727175f29
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Säkerhetskopiera en Windows-server eller -klient till Azure med hjälp av Resource Manager-distributionsmodellen
 Den här artikeln förklarar hur du säkerhetskopierar Windows Server (eller Windows-klient) filer och mappar till Azure med Azure Backup med hjälp av Resource Manager-distributionsmodellen.
@@ -94,7 +94,7 @@ Första gången du skapar ett Recovery Services-valv bestämmer du hur lagringen
 
   ![alternativ för lagringskonfiguration](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-  Valvet använder geo-redundant lagring som standard. Om du använder Azure som primär slutpunkt för lagring av säkerhetskopior fortsätter du att använda **geo-redundant** lagring. Om du inte använder Azure som en slutpunkt för primär lagring av säkerhetskopior väljer du **Lokalt redundant**, vilket minskar kostnaderna för Azure-lagring. Läs mer om alternativen för [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage) och [lokalt redundant](../storage/common/storage-redundancy.md#locally-redundant-storage) i denna [översikt av lagringsredundans](../storage/common/storage-redundancy.md).
+  Valvet använder geo-redundant lagring som standard. Om du använder Azure som primär slutpunkt för lagring av säkerhetskopior fortsätter du att använda **geo-redundant** lagring. Om du inte använder Azure som en slutpunkt för primär lagring av säkerhetskopior väljer du **Lokalt redundant**, vilket minskar kostnaderna för Azure-lagring. Läs mer om alternativen för [geo-redundant](../storage/common/storage-redundancy-grs.md) och [lokalt redundant](../storage/common/storage-redundancy-lrs.md) i denna [översikt av lagringsredundans](../storage/common/storage-redundancy.md).
 
 Nu när du har skapat ett valv, förbereda infrastrukturen för att säkerhetskopiera filer och mappar genom att hämta och installera Microsoft Azure Recovery Services-agent, ladda ned valvautentiseringsuppgifter och sedan använda dessa autentiseringsuppgifter för att registrera agenten med valvet.
 

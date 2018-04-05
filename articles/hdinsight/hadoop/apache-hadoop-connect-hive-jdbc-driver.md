@@ -1,8 +1,8 @@
 ---
-title: "Fråga Hive genom JDBC driver - Azure HDInsight | Microsoft Docs"
-description: "Använda JDBC-drivrutinen från ett Java-program för att skicka Hive-frågor till Hadoop på HDInsight. Ansluta programmässigt och SQuirrel SQL-klient."
+title: Fråga Hive genom JDBC driver - Azure HDInsight | Microsoft Docs
+description: Använda JDBC-drivrutinen från ett Java-program för att skicka Hive-frågor till Hadoop på HDInsight. Ansluta programmässigt och SQuirrel SQL-klient.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/20/2018
+ms.date: 04/02/2018
 ms.author: larryfr
-ms.openlocfilehash: c56a4ec4d1abea5a862172966697747cbb3d234c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 876d6169f1ecb2f9cdecc59f3f7c8d0a82a8fe7e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Frågan Hive genom JDBC driver i HDInsight
 
@@ -30,9 +30,9 @@ Lär dig hur du använder JDBC driver från ett Java-program för att skicka Hiv
 
 Läs mer på gränssnittet Hive JDBC [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Hadoop på HDInsight-kluster. Linux-baserade eller Windows-baserade kluster fungerar.
+* En Hadoop på HDInsight-kluster.
 
   > [!IMPORTANT]
   > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight 3.3 pensionering](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -65,76 +65,49 @@ DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
 SQuirreL SQL är en JDBC-klient som kan användas för att köra Hive-frågor via fjärranslutning med ditt HDInsight-kluster. Följande steg förutsätter att du redan har installerat SQuirreL SQL.
 
-1. Kopiera Hive JDBC-drivrutiner från ditt HDInsight-kluster.
+1. Skapa en katalog som innehåller filerna. Till exempel `mkdir hivedriver`.
 
-    * För **Linux-baserat HDInsight** kluster version 3.5 eller 3,6, Använd följande steg för att ladda ned nödvändiga jar-filer.
+2. Använd följande kommandon för att kopiera filer från HDInsight-kluster från en kommandorad:
 
-        1. Skapa en katalog som innehåller filerna. Till exempel `mkdir hivedriver`.
+    ```bash
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libfb*.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
+    ```
 
-        2. Använd följande kommandon för att kopiera filer från HDInsight-kluster från en kommandorad:
+    Ersätt `USERNAME` med SSH användarkontonamnet för klustret. Ersätt `CLUSTERNAME` med HDInsight-klustrets namn.
 
-            ```bash
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libfb*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
-            ```
-
-            Ersätt `USERNAME` med SSH användarkontonamnet för klustret. Ersätt `CLUSTERNAME` med HDInsight-klustrets namn.
-
-    * För **Windows-baserade HDInsight**, Använd följande steg för att hämta jar-filer.
-
-        1. Välj ditt HDInsight-kluster från Azure-portalen och välj sedan den **fjärrskrivbord** ikon.
-
-            ![Ikon för Remote Desktop](./media/apache-hadoop-connect-hive-jdbc-driver/remotedesktopicon.png)
-
-        2. På fliken fjärrskrivbord använder den **Anslut** för att ansluta till klustret. Om fjärrdatorn inte är aktiverad, Använd formuläret för att ange ett användarnamn och lösenord och väljer sedan **aktivera** att aktivera Remote Desktop för klustret.
-
-            ![Remote desktop avsnitt](./media/apache-hadoop-connect-hive-jdbc-driver/remotedesktopblade.png)
-
-            När du har valt **Anslut**en. RDP-filen laddas ned. Använd den här filen för att starta fjärrskrivbordsklienten. När du uppmanas, använder du användarnamnet och lösenordet du angav för åtkomst via fjärrskrivbord.
-
-        3. När du är ansluten, kopiera följande filer från sessionen för fjärrskrivbord på din lokala dator. Placera dem i en lokal katalog med namnet `hivedriver`.
-
-            * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-jdbc-0.14.0.2.2.9.1-7-standalone.jar
-            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-common-2.6.0.2.2.9.1-7.jar
-            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\lib\hadoop-auth-2.6.0.2.2.9.1-7.jar
-
-            > [!NOTE]
-            > Versionsnummer som ingår i sökvägar och filnamn kan vara olika för klustret.
-
-        4. Koppla från fjärrskrivbordssession när du har slutfört kopieringen av filer.
-
-2. Starta SQuirreL SQL-programmet. Till vänster i fönstret Välj **drivrutiner**.
+3. Starta SQuirreL SQL-programmet. Till vänster i fönstret Välj **drivrutiner**.
 
     ![Fliken drivrutiner till vänster i fönstret](./media/apache-hadoop-connect-hive-jdbc-driver/squirreldrivers.png)
 
-3. Från ikonerna längst upp i den **drivrutiner** markerar den  **+**  ikon för att skapa en drivrutin.
+4. Från ikonerna längst upp i den **drivrutiner** markerar den **+** ikon för att skapa en drivrutin.
 
     ![Drivrutiner ikoner](./media/apache-hadoop-connect-hive-jdbc-driver/driversicons.png)
 
-4. Lägg till följande information i dialogrutan Lägg till drivrutin:
+5. Lägg till följande information i dialogrutan Lägg till drivrutin:
 
     * **Namnet**: Hive
     * **Exempel-URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
-    * **Extra klassökvägen**: Använd knappen Lägg till för att lägga till jar-filer tidigare
+    * **Extra klassökvägen**: använda knappen för att lägga till alla jar-filer som hämtats tidigare
     * **Klassnamn**: org.apache.hive.jdbc.HiveDriver
 
    ![Lägg till dialogrutan för drivrutin](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
 
    Klicka på **OK** dessa inställningar ska sparas.
 
-5. Till vänster i fönstret SQuirreL SQL markerar **alias**. Klicka på den  **+**  ikon för att skapa ett alias för anslutningen.
+6. Till vänster i fönstret SQuirreL SQL markerar **alias**. Klicka på den **+** ikon för att skapa ett alias för anslutningen.
 
     ![Lägg till nytt alias](./media/apache-hadoop-connect-hive-jdbc-driver/aliases.png)
 
-6. Använd följande värden för den **lägga till Alias** dialogrutan.
+7. Använd följande värden för den **lägga till Alias** dialogrutan.
 
     * **Namnet**: Hive i HDInsight
 
@@ -150,15 +123,16 @@ SQuirreL SQL är en JDBC-klient som kan användas för att köra Hive-frågor vi
 
  ![alias dialogrutan Lägg till](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
 
-    Använd den **Test** för att kontrollera att anslutningen fungerar. När **ansluta till: Hive i HDInsight** dialogrutan visas, väljer du **Anslut** att utföra testet. Om testet lyckas, ser du en **lyckad anslutning** dialogrutan. Om ett fel inträffar, se [felsökning](#troubleshooting).
+    > [!IMPORTANT] 
+    > Använd den **Test** för att kontrollera att anslutningen fungerar. När **ansluta till: Hive i HDInsight** dialogrutan visas, väljer du **Anslut** att utföra testet. Om testet lyckas, ser du en **lyckad anslutning** dialogrutan. Om ett fel inträffar, se [felsökning](#troubleshooting).
 
     För att spara anslutningen alias, Använd den **Ok** knappen längst ned i den **lägga till Alias** dialogrutan.
 
-7. Från den **ansluta till** listrutan överst i SQuirreL SQL, Välj **Hive i HDInsight**. När du uppmanas, Välj **Anslut**.
+8. Från den **ansluta till** listrutan överst i SQuirreL SQL, Välj **Hive i HDInsight**. När du uppmanas, Välj **Anslut**.
 
     ![anslutningsdialogrutan](./media/apache-hadoop-connect-hive-jdbc-driver/connect.png)
 
-8. När du är ansluten, ange följande fråga i dialogrutan för SQL-fråga och välj sedan den **kör** ikon. Resultatområdet ska visa resultatet av frågan.
+9. När du är ansluten, ange följande fråga i dialogrutan för SQL-fråga och välj sedan den **kör** ikon. Resultatområdet ska visa resultatet av frågan.
 
         select * from hivesampletable limit 10;
 
@@ -166,7 +140,7 @@ SQuirreL SQL är en JDBC-klient som kan användas för att köra Hive-frågor vi
 
 ## <a name="connect-from-an-example-java-application"></a>Ansluta från ett exempel Java-program
 
-Ett exempel på hur en Java-klient för att fråga Hive i HDInsight finns på [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Följ instruktionerna i databasen för att skapa och köra exemplet.
+Ett exempel på hur en Java-klient för att fråga Hive i HDInsight finns på [ https://github.com/Azure-Samples/hdinsight-java-hive-jdbc ](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Följ instruktionerna i databasen för att skapa och köra exemplet.
 
 ## <a name="troubleshooting"></a>Felsökning
 

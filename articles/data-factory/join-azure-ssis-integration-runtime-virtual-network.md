@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: cdda3fbe2aff40e26c6086e87ef3e05670c3419f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2372b6bd91dfb1c33456b42e91aa2496532796ef
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta till en Azure-SSIS-integrering körning till ett virtuellt nätverk
 Anslut din Azure-SSIS-integrering runtime (IR) till Azure-nätverk i följande scenarier: 
 
-- Du är värd för SQL Server Integration Services (SSIS) katalog databas på Azure SQL-hanterade databasinstans (privat förhandsvisning) i ett virtuellt nätverk.
+- Du är värd för SQL Server Integration Services (SSIS) katalog databas på Azure SQL-hanterade databasinstans (förhandsgranskning) i ett virtuellt nätverk.
 - Du vill ansluta till lokala datalager från SSIS-paket som körs på Azure-SSIS Integration Runtime.
 
  Azure Data Factory version 2 (förhandsversion) kan du ansluta din Azure-SSIS-integrering runtime till ett virtuellt nätverk som skapats via den klassiska distributionsmodellen och Azure Resource Manager-distributionsmodellen. 
@@ -34,12 +34,12 @@ Om SSIS-paket åtkomst till endast de offentliga moln datalager, behöver du int
 
 Om SSIS-katalogen finns i en Azure SQL Database-instans som inte är i det virtuella nätverket, måste du öppna lämpliga portar. 
 
-SSIS-katalogen finns i SQL-hanterade databasinstansen i ett virtuellt nätverk, du kan ansluta till en Azure-SSIS-IR till:
+SSIS-katalogen finns i SQL-hanterade databasinstans (förhandsgranskning) i ett virtuellt nätverk, du kan ansluta till en Azure-SSIS-IR till:
 
 - Samma virtuella nätverk.
-- Ett annat virtuellt nätverk som har en anslutning för nätverk till nätverk med det som har SQL hanteras databasinstansen. 
+- Ett annat virtuellt nätverk som har en anslutning för nätverk till nätverk med det som har SQL-hanterade databasinstans (förhandsversion). 
 
-Det virtuella nätverket kan distribueras via den klassiska distributionsmodellen eller Azure Resource Manager-distributionsmodellen. Om du planerar att ansluta till Azure-SSIS-IR den *samma virtuella nätverk* som har SQL-hanterade databasinstans, kontrollera att Azure-SSIS-IR är i ett *annat undernät* än det som har SQL-databas Hanterade instans.   
+Det virtuella nätverket kan distribueras via den klassiska distributionsmodellen eller Azure Resource Manager-distributionsmodellen. Om du planerar att ansluta till Azure-SSIS-IR den *samma virtuella nätverk* som innehåller SQL-hanterade databasinstans (förhandsgranskning), kontrollera att Azure-SSIS-IR är i ett *annat undernät* än det som har SQL Hanterade databasinstans (förhandsversion).   
 
 Följande avsnitt innehåller mer information.
 
@@ -60,7 +60,7 @@ Om du behöver implementera en nätverkssäkerhetsgrupp (NSG) i ett virtuellt n�
 | ---- | --------- | ------------------ | ------- | ----------------------------------- |
 | 10100, 20100, 30100 (om du ansluter IR till ett klassiskt virtuellt nätverk)<br/><br/>29876, 29877 (om du ansluter IR till ett virtuellt nätverk med Azure Resource Manager) | Inkommande | TCP | Azure-tjänster använder dessa portar för att kommunicera med noderna i Azure-SSIS-integrering-körningsmiljön i det virtuella nätverket. | Internet | 
 | 443 | Utgående | TCP | Noderna i Azure-SSIS-integrering-körningsmiljön i det virtuella nätverket använda den här porten för att komma åt Azure-tjänster, t.ex. Azure Storage och Händelsehubbar i Azure. | Internet | 
-| 1433<br/>11000-11999<br/>14000-14999  | Utgående | TCP | Noderna i Azure-SSIS-integrering-körningsmiljön i det virtuella nätverket använda dessa portar för att komma åt SSISDB hos din Azure SQL Database-server (detta inte gäller för SSISDB hanteras SQL-databasinstans som värd.) | Internet | 
+| 1433<br/>11000-11999<br/>14000-14999  | Utgående | TCP | Noderna i Azure-SSIS-integrering-körningsmiljön i det virtuella nätverket använder de här portarna för att komma åt SSISDB hos din Azure SQL Database-server (detta inte gäller för SSISDB hos SQL-hanterade databasinstans (förhandsversion).) | Internet | 
 
 ## <a name="azure-portal-data-factory-ui"></a>Azure-portalen (Data Factory UI)
 Det här avsnittet visar hur du ansluter till en befintlig Azure-SSIS-körning till ett virtuellt nätverk (klassiska eller Azure Resource Manager) med hjälp av Azure-portalen och Data Factory-Användargränssnittet. Du måste först konfigurera det virtuella nätverket på lämpligt sätt innan du ansluter din Azure-SSIS-IR till den. Gå igenom följande två avsnitt baserat på vilken typ av ditt virtuella nätverk (klassiska eller Azure Resource Manager). Fortsätt sedan med det tredje avsnittet för att ansluta till Azure-SSIS-IR till det virtuella nätverket. 
@@ -207,7 +207,7 @@ Skriptet i den [skapa en Azure-SSIS-integrering körning](create-azure-ssis-inte
 $ResourceGroupName = "<Azure resource group name>"
 $DataFactoryName = "<Data factory name>" 
 $AzureSSISName = "<Specify Azure-SSIS IR name>"
-## These two parameters apply if you are using a virtual network and Azure SQL Database Managed Instance (private preview) 
+## These two parameters apply if you are using a virtual network and Azure SQL Database Managed Instance (Preview) 
 # Specify information about your classic or Azure Resource Manager virtual network.
 $VnetId = "<Name of your Azure virtual network>"
 $SubnetName = "<Name of the subnet in the virtual network>"
@@ -292,6 +292,6 @@ Mer information om Azure-SSIS-körningsmiljön finns i följande avsnitt:
 
 - [Azure-SSIS-integrering runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln innehåller information om integration körningar generellt, inklusive Azure SSIS-IR. 
 - [Självstudie: distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här artikeln innehåller stegvisa instruktioner för att skapa en Azure-SSIS-IR. En Azure SQL database används som värd för SSIS-katalogen. 
-- [Skapa en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln kan utökas med kursen och innehåller instruktioner för använder Azure SQL-hanterade databasinstans (privat förhandsvisning) och koppla IR till ett virtuellt nätverk. 
+- [Skapa en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln kan utökas med kursen och innehåller instruktioner för använder Azure SQL-hanterade databasinstans (förhandsversion) och koppla IR till ett virtuellt nätverk. 
 - [Övervaka en Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln visar hur du hämtar information om en Azure-SSIS IR och innehåller beskrivningar av statusar i den returnerade informationen. 
 - [Hantera en Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). Den här artikeln visar hur du stoppar, startar eller tar bort en Azure-SSIS IR. Den visar också hur du skalar upp Azure SSIS-IR genom att lägga till noder. 

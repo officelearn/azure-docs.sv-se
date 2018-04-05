@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights för ASP.NET Core | Microsoft Docs"
-description: "Övervaka webbprogram för tillgänglighet, prestanda och användning."
+title: Azure Application Insights för ASP.NET Core | Microsoft Docs
+description: Övervaka webbprogram för tillgänglighet, prestanda och användning.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 77c48a22f974e027b4e8858d5e38018bbf5bb54f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights för ASP.NET Core
 
@@ -25,7 +25,7 @@ Azure Application Insights ger detaljerad övervakning av webbprogrammet nivån 
 
 Den här artikeln guidar dig igenom hur du skapar en ASP.NET Core [Razor sidor](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/?tabs=visual-studio) program i Visual Studio och hur du börja övervaka med Azure Application Insights.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - NET Core 2.0.0 SDK eller senare.
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) 15.3 eller senare med ASP.NET och web development arbetsbelastningen.
@@ -95,7 +95,7 @@ Starta din app och klicka på runt på länkar manuellt kan användas för att s
 
 1. Kör appen genom att klicka på IIS Express ![Skärmbild av Visual Studio Express i IIS-ikon](./media/app-insights-asp-net-core/0012-iis-express.png)
 
-2. Kopiera URL-adressen från adressfältet i webbläsaren. Det är i formatet http://localhost: {slumpmässigt vald port number}
+2. Kopiera URL-adressen från adressfältet i webbläsaren. Det är i formatet http://localhost:{random portnummer}
 
    ![Skärmbild av adressfältet i webbläsaren url](./media/app-insights-asp-net-core/0013-copy-url.png)
 
@@ -159,7 +159,7 @@ Konfigurera flera meddelanden ska ske, Läs och Godkänn om du samtycker till ä
    ```
      ![Skärmbild av koden ändras till _ViewImports.cshtml](./media/app-insights-asp-net-core/00018-view-imports.png)
 
-3. I **Layout.cshtml** Lägg till rad under innan den ``</head>`` tagg, men före eventuella andra skript.
+3. I **_Layout.cshtml** Lägg till rad under innan den ``</head>`` tagg, men före eventuella andra skript.
 
     ```C#
     @Html.Raw(snippet.FullScript)

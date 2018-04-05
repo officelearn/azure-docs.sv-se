@@ -1,25 +1,25 @@
 ---
-title: "Använd aktiviteten beroenden för att köra uppgifter baserat på slutförande av andra åtgärder - Azure Batch | Microsoft Docs"
-description: "Skapa uppgifter som är beroende av andra uppgifter för bearbetning av MapReduce format och liknande stordata slutförs arbetsbelastningar i Azure Batch."
+title: Använd aktiviteten beroenden för att köra uppgifter baserat på slutförande av andra åtgärder - Azure Batch | Microsoft Docs
+description: Skapa uppgifter som är beroende av andra uppgifter för bearbetning av MapReduce format och liknande stordata slutförs arbetsbelastningar i Azure Batch.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 465306d2de8d1dbe6ba1f0cd74be720b78a50de3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba85e075c39251b0b3d7c4b8bc3f8d53a1afadf7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Skapa uppgift beroenden för att köra uppgifter som är beroende av andra aktiviteter
 
@@ -74,9 +74,9 @@ Det här kodstycket skapas en beroende aktivitet med aktivitets-ID ”blommor”
 ## <a name="dependency-scenarios"></a>Beroende scenarier
 Det finns tre grundläggande uppgiften beroende scenarier som du kan använda i Azure Batch: 1, en-till-många och aktivitets-ID vara beroende. Dessa kan kombineras för att ge en fjärde scenario, många-till-många.
 
-| Scenario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Exempel |  |
+| scenario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Exempel |  |
 |:---:| --- | --- |
-|  [1](#one-to-one) |*taskB* beror på *taskA* <p/> *taskB* kommer inte schemaläggas för körning tills *taskA* har slutförts |![Diagram: en uppgift beroende][1] |
+|  [One-to-one](#one-to-one) |*taskB* beror på *taskA* <p/> *taskB* kommer inte schemaläggas för körning tills *taskA* har slutförts |![Diagram: en uppgift beroende][1] |
 |  [En-till-många](#one-to-many) |*aktivitetC* är beroende av både *aktivitetA* och *aktivitetB*. <p/> *taskC* kommer inte schemaläggas för körning förrän både *taskA* och *taskB* har slutförts |![Diagram: en-till-många-uppgiften beroende][2] |
 |  [ID-intervall för aktiviteten](#task-id-range) |*taskD* beror på ett antal uppgifter <p/> *taskD* kommer inte schemaläggas för körning tills uppgifter med ID: N *1* via *10* har slutförts |![Diagram: ID-intervallet sambandet][3] |
 

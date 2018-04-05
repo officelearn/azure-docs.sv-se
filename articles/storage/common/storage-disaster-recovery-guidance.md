@@ -1,6 +1,6 @@
 ---
-title: "Vad du ska göra om ett avbrott i Azure Storage | Microsoft Docs"
-description: "Vad du ska göra om ett avbrott i Azure Storage"
+title: Vad du ska göra om ett avbrott i Azure Storage | Microsoft Docs
+description: Vad du ska göra om ett avbrott i Azure Storage
 services: storage
 documentationcenter: .net
 author: tamram
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: 66406ed327f496dce7e77bb9ff650e0eec44bbdd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3c313025917bba06675d3b2d844a6740fab89fbc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Vad du gör om ett avbrott i Azure Storage inträffar?
 På Microsoft är arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga. Ibland tvingar utöver våra styr hur oss på ett sätt som kan leda till oplanerade driftstopp i en eller flera regioner. För att hantera dessa sällsynta förekomster ska ger vi följande övergripande riktlinjer för Azure Storage-tjänster.
@@ -42,10 +42,10 @@ Om en eller flera lagringstjänster är otillgängliga just nu på en eller fler
 I så fall krävs ingen åtgärd. Vi arbetar ordentligt om du vill återställa Azure tjänsternas tillgänglighet. Du kan övervaka status för tjänsten på den [Azure Hälsoinstrumentpanelen](https://azure.microsoft.com/status/).
 
 ### <a name="option-2-copy-data-from-secondary"></a>Alternativ 2: Kopiera data från sekundär
-Om du väljer [geo-redundant lagring med läsbehörighet (RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (rekommenderas) för dina lagringskonton, du har läsbehörighet till dina data från den sekundära regionen. Du kan använda verktyg som [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), och [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) att kopiera data från den sekundära regionen till ett annat lagringskonto i en unimpacted region och peka på dina program till att lagringskontot för både läsa och skriva tillgänglighet.
+Om du väljer [geo-redundant lagring med läsbehörighet (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (rekommenderas) för dina lagringskonton, du har läsbehörighet till dina data från den sekundära regionen. Du kan använda verktyg som [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), och [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) att kopiera data från den sekundära regionen till ett annat lagringskonto i en unimpacted region och peka på dina program till att lagringskontot för både läsa och skriva tillgänglighet.
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Vad som händer om det uppstår redundans lagring
-Om du väljer [Geo-redundant lagring (GRS)](storage-redundancy.md#geo-redundant-storage) eller [geo-redundant lagring med läsbehörighet (RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (rekommenderas), Azure Storage kommer att hålla dina data beständig i två regioner (primär eller sekundär). I båda regioner underhåller Azure Storage ständigt flera kopior av dina data.
+Om du väljer [Geo-redundant lagring (GRS)](storage-redundancy-grs.md) eller [geo-redundant lagring med läsbehörighet (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (rekommenderas), Azure Storage kommer att hålla dina data beständig i två regioner (primär eller sekundär). I båda regioner underhåller Azure Storage ständigt flera kopior av dina data.
 
 När en regional katastrof påverkar din primära region, kommer vi först försöker återställa tjänsten i den regionen. Beroende av haveriet och dess påverkan, i vissa sällsynta fall vi kanske inte kan återställa den primära regionen. Vi kommer då att utföra en geo-redundans. Cross-region datareplikering är en asynkron åtgärd som kan medföra en fördröjning, så det är möjligt att ändringar som ännu inte har replikerats till den sekundära regionen kan gå förlorade. Du kan fråga efter den [”tidpunkt för senaste synkronisering” för ditt lagringskonto](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) att hämta information om replikeringsstatus.
 

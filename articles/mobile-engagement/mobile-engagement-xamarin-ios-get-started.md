@@ -1,11 +1,11 @@
 ---
-title: "Kom igång med Azure Mobile Engagement för Xamarin.iOS"
-description: "Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Xamarin.iOS-appar."
+title: Kom igång med Azure Mobile Engagement för Xamarin.iOS
+description: Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Xamarin.iOS-appar.
 services: mobile-engagement
 documentationcenter: xamarin
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0448209e-fff6-47bd-985c-2cf074bac12f
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 9938c3e994acf31244825b1afb347f8c9f90ebe3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 78ba376eb4552468810a1de72d53ceb59ec9d395
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-xamarinios-apps"></a>Kom igång med Azure Mobile Engagement för Xamarin.iOS-appar
+> [!IMPORTANT]
+> Azure Mobile Engagement dras tillbaka den 31 mars 2018. Den här sidan tas bort strax efter det.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 I den här artikeln beskrivs hur du använder Azure Mobile Engagement för att förstå appanvändningen, och hur du skickar push-meddelanden till segmenterade användare i ett Xamarin.iOS-program.
@@ -68,7 +72,7 @@ Vi kommer att skapa en grundläggande app i Xamarin för att demonstrera integra
 
 Xamarin Studio skapar demoappen där Mobile Engagement ska integreras. 
 
-### <a name="connect-your-app-to-mobile-engagement-backend"></a>Ansluta appen till Mobile Engagement-serverdelen
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Anslut appen till Mobile Engagement-serverdelen
 1. Högerklicka på mappen **Packages** (Paket) i lösningsfönstret och välj **Add Packages** (Lägg till paket).
    
     ![][5]

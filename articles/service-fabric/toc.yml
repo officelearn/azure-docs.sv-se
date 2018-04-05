@@ -317,10 +317,6 @@
               href: service-fabric-deploy-multiple-apps.md
         - name: Skapa en behållartjänst
           items:
-            - name: Använda certifikat i behållare
-              href: service-fabric-securing-containers.md
-            - name: Konfigurera gMSA för Windows-behållare
-              href: service-fabric-setup-gmsa-for-windows-containers.md
             - name: Docker Compose (förhandsversion)
               href: service-fabric-docker-compose.md
             - name: Resursstyrning för behållare och tjänster
@@ -383,22 +379,30 @@
               href: service-fabric-reliable-actors-fabrictransportsettings.md
             - name: Konfigurera ReliableDictionaryActorStateProvider
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
-        - name: Migrera gamla Java-program som stöder Maven
-          href: service-fabric-migrate-old-javaapp-to-use-maven.md
-        - name: Konfigurera omvänd proxy för säker kommunikation
-          href: service-fabric-reverseproxy-configure-secure-communication.md
         - name: Skapa en ASP.NET Core-tjänst
           href: service-fabric-add-a-web-frontend.md
         - name: Konfigurera säkerhet
           items:
             - name: Hantera programhemligheter
               href: service-fabric-application-secret-management.md
+            - name: Konfigurera omvänd proxy för säker kommunikation
+              href: service-fabric-reverseproxy-configure-secure-communication.md
             - name: Köra skript för start av tjänster som ett lokalt konto för användaren eller systemet
               href: service-fabric-run-script-at-service-startup.md
             - name: Köra en tjänst som ett lokalt konto för användaren eller systemet
               href: service-fabric-application-runas-security.md
             - name: Tilldela en säkerhetsåtkomstprincip för slutpunkter
               href: service-fabric-assign-policy-to-endpoint.md
+            - name: Köra tjänster som AD-användare eller -grupp
+              href: service-fabric-run-service-as-ad-user-or-group.md
+            - name: Köra tjänster som grupphanterade tjänstkonton
+              href: service-fabric-run-service-as-gmsa.md
+            - name: Använda certifikat i behållare
+              href: service-fabric-securing-containers.md
+            - name: Konfigurera gMSA för Windows-behållare
+              href: service-fabric-setup-gmsa-for-windows-containers.md
+        - name: Migrera gamla Java-program som stöder Maven
+          href: service-fabric-migrate-old-javaapp-to-use-maven.md
     - name: Arbeta i en Windows/VS-utvecklarmiljö
       items:
         - name: Hantera program i Visual Studio
@@ -501,8 +505,6 @@
               href: service-fabric-cluster-upgrade.md
             - name: Ange åtkomstkontroll
               href: service-fabric-cluster-security-roles.md
-            - name: Konfigurera
-              href: service-fabric-cluster-fabric-settings.md
             - name: Öppna en port i belastningsutjämnaren
               href: create-load-balancer-rule.md
             - name: Hantera klustercertifikat
@@ -525,14 +527,8 @@
                   href: service-fabric-cluster-standalone-package-contents.md
             - name: Skala
               href: service-fabric-cluster-windows-server-add-remove-nodes.md
-            - name: Konfigurera säkerhet
-              items:
-                - name: Ange åtkomstkontroll
-                  href: service-fabric-cluster-security-roles.md
-                - name: Köra tjänster som AD-användare eller -grupp
-                  href: service-fabric-run-service-as-ad-user-or-group.md
-                - name: Köra tjänster som grupphanterade tjänstkonton
-                  href: service-fabric-run-service-as-gmsa.md
+            - name: Ange åtkomstkontroll
+              href: service-fabric-cluster-security-roles.md
             - name: Konfigurera
               href: service-fabric-cluster-manifest.md
             - name: Uppgradera
@@ -614,6 +610,8 @@
       href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
     - name: REST
       href: /rest/api/servicefabric
+    - name: Konfigurera klusterinställningar och uppgraderingsprincip för infrastruktur
+      href: service-fabric-cluster-fabric-settings.md
     - name: XML-schema för tjänstmodell
       href: service-fabric-service-model-schema.md
     - name: Miljövariabler

@@ -1,31 +1,31 @@
 ---
-title: "Hantera resurser för Batch-kontot med klientbiblioteket för .NET - Azure | Microsoft Docs"
-description: "Skapa, ta bort och ändra resurser för Azure Batch-kontot med Batch Management .NET-biblioteket."
+title: Hantera resurser för Batch-kontot med klientbiblioteket för .NET - Azure | Microsoft Docs
+description: Skapa, ta bort och ändra resurser för Azure Batch-kontot med Batch Management .NET-biblioteket.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 16279b23-60ff-4b16-b308-5de000e4c028
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/24/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eafde9258222a2ab09ade2e366f9cc595a303dec
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 7f2d0b261a991dc02b670488c14392697ea984ec
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Hantera Batch-konton och kvoter med Batch Management klientbiblioteket för .NET
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](batch-account-create-portal.md)
+> * [Azure Portal](batch-account-create-portal.md)
 > * [Batch Management .NET](batch-management-dotnet.md)
 > 
 > 

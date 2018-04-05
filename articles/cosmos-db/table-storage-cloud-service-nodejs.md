@@ -1,6 +1,6 @@
 ---
 title: 'Azure Table storage: skapa en Node.js-webbapp | Microsoft Docs'
-description: "En självstudiekurs som bygger på webbprogram med snabb kursen genom att lägga till Azure Storage-tjänster och Azure-modulen."
+description: En självstudiekurs som bygger på webbprogram med snabb kursen genom att lägga till Azure Storage-tjänster och Azure-modulen.
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: 9acd197c26e6365e396fd8f6321d764bba7bbb6c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b63f6b3be2e4576b304c1a73ff326a937815b27e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Azure Table storage: Node.js-Webbapp
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/18/2018
 ## <a name="overview"></a>Översikt
 I den här självstudiekursen programmet du skapade i den [Node.js-Webbapp med hjälp av] kursen utökas som arbetar med data management-tjänster med Microsoft Azure-klientbibliotek för Node.js. Du kan utöka ditt program genom att skapa en webbaserad-uppgiftslista program som du kan distribuera till Azure. Listan kan användaren hämta uppgifter, lägga till nya aktiviteter och markera aktiviteter som slutförda.
 
-Uppgiftsobjekt lagras i Azure Storage. Azure Storage tillhandahåller lagring av Ostrukturerade data som är feltolerant och hög tillgänglighet. Azure Storage innehåller flera datastrukturer där du kan lagra och komma åt data. Du kan använda lagringstjänsterna från API: er som ingår i Azure SDK för Node.js eller via REST API: er. Mer information finns i [lagring och åtkomst till Data i Azure].
+Uppgiftsobjekt lagras i Azure Storage eller Azure Cosmos DB. Azure Storage och Azure Cosmos DB tillhandahåller lagring av Ostrukturerade data som är feltolerant och hög tillgänglighet. Azure Storage och Azure Cosmos DB innehåller flera datastrukturer där du kan lagra och komma åt data. Du kan använda lagring och Azure Cosmos DB services från API: er som ingår i Azure SDK för Node.js eller via REST API: er. Mer information finns i [lagring och åtkomst till Data i Azure].
 
 Den här kursen förutsätter att du har slutfört den [Node.js-Webbapp] och [Node.js med snabb][Node.js-Webbapp med hjälp av] självstudier.
 
@@ -40,7 +40,7 @@ Följande skärmbild visar den färdiga appen:
 ![Slutförda webbsida i internet explorer](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
 ## <a name="setting-storage-credentials-in-webconfig"></a>Ange autentiseringsuppgifter för lagring i Web.Config
-Du måste överföra i lagring autentiseringsuppgifter för åtkomst till Azure Storage. Detta görs genom att använda inställningarna för web.config-programmet.
+Du måste överföra i lagring autentiseringsuppgifter för åtkomst till Azure Storage eller Azure Cosmos DB. Detta görs genom att använda inställningarna för web.config-programmet.
 Inställningarna för web.config skickas som miljövariabler till noden, som läses sedan av Azure SDK.
 
 > [!NOTE]
@@ -144,7 +144,7 @@ I det här avsnittet grundläggande program som skapats av den **express** komma
     Task.prototype = {
       find: function(query, callback) {
         self = this;
-        self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
+        self.storageClient.queryEntities(this.tablename, query, null, null, function entitiesQueried(error, result) {
           if(error) {
             callback(error);
           } else {
@@ -181,7 +181,7 @@ I det här avsnittet grundläggande program som skapats av den **express** komma
             callback(error);
           }
           entity.completed._ = true;
-          self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+          self.storageClient.replaceEntity(self.tableName, entity, function entityUpdated(error) {
             if(error) {
               callback(error);
             }
@@ -215,7 +215,7 @@ I det här avsnittet grundläggande program som skapats av den **express** komma
     TaskList.prototype = {
       showTasks: function(req, res) {
         self = this;
-        var query = azure.TableQuery()
+        var query = new azure.TableQuery()
           .where('completed eq ?', false);
         self.task.find(query, function itemsFound(error, items) {
           res.render('index',{title: 'My ToDo List ', tasks: items});
@@ -224,7 +224,10 @@ I det här avsnittet grundläggande program som skapats av den **express** komma
 
       addTask: function(req,res) {
         var self = this
-        var item = req.body.item;
+        var item = {
+            name: req.body.name, 
+            category: req.body.category
+        };
         self.task.addItem(item, function itemAdded(error) {
           if(error) {
             throw error;
@@ -307,7 +310,7 @@ I det här avsnittet grundläggande program som skapats av den **express** komma
             td Category
             td Date
             td Complete
-          if tasks != []
+          if tasks == []
             tr
               td
           else
@@ -325,9 +328,9 @@ I det här avsnittet grundläggande program som skapats av den **express** komma
       hr
       form.well(action="/addtask", method="post")
         label Item Name:
-        input(name="item[name]", type="textbox")
+        input(name="name", type="textbox")
         label Item Category:
-        input(name="item[category]", type="textbox")
+        input(name="category", type="textbox")
         br
         button.btn(type="submit") Add item
     ```
@@ -414,7 +417,7 @@ Följande steg visar hur du stoppar och ta bort programmet.
    Det kan ta flera minuter att ta bort tjänsten. När tjänsten har tagits bort, visas ett meddelande som anger att tjänsten har tagits bort.
 
 [Node.js-Webbapp med hjälp av]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
-[lagring och åtkomst till Data i Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[lagring och åtkomst till Data i Azure]: https://docs.microsoft.com/azure/storage/
 [Node.js-Webbapp]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
 
 

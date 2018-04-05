@@ -1,8 +1,8 @@
 ---
-title: "Så här övervakar du ett Azure Storage-konto | Microsoft Docs"
-description: "Lär dig hur du övervakar ett lagringskonto i Azure med hjälp av Azure portal."
+title: Så här övervakar du ett Azure Storage-konto | Microsoft Docs
+description: Lär dig hur du övervakar ett lagringskonto i Azure med hjälp av Azure portal.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ffc7d46bbfa4db47a47e416c395efdfc451cadc1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Övervaka ett lagringskonto i Azure-portalen
 
@@ -28,8 +28,6 @@ ms.lasthandoff: 01/24/2018
 > Det finns kostnader i samband med att undersöka övervakningsdata i Azure-portalen. Mer information finns i [Storage Analytics och fakturering för](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > Azure Files för närvarande stöder Storage Analytics mätvärden, men ännu stöder inte loggning.
->
-> Storage-konton med en replikeringstyp av zonredundant lagring (ZRS) stöder mått och loggning. De tidigare ZRS-konton som har bytt namn ZRS klassiska, har inte stöd för mått eller loggning. Mer information om ZRS finns [zonen-redundant lagring](storage-redundancy.md#zone-redundant-storage). 
 > 
 > En detaljerad vägledning om använder Storage Analytics och andra verktyg för att identifiera, diagnostisera och felsöka problem med Azure Storage finns [övervaka, diagnostisera och felsöka Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -47,7 +45,7 @@ ms.lasthandoff: 01/24/2018
 
    Det finns två typer av mått som du kan aktivera för varje tjänst som är aktiverad som standard för nya storage-konton:
 
-   * **Sammanställd**: samlar in mätvärden, till exempel ingång-/ utgång, tillgänglighet, svarstid och lyckade procenttal. De här måtten samman för blob, kön, tabell och Filtjänster.
+   * **Sammanställd**: samlar in mätvärden, till exempel ingång-/ utgång, tillgänglighet, svarstid och lyckade procenttal. De här måtten sammanställs för blob-, kö-, tabell- och filtjänster.
    * **Per API**: förutom sammanställd statistik, samlar in samma uppsättning mätvärden för varje Lagringsåtgärden i Azure Storage service API.
 
    Ange databevarandeprincip genom att flytta den **bevarande (dagar)** skjutreglaget eller ange antal dagar som data ska bevaras från 1 till 365. Standard för nya storage-konton är sju dagar. Om du inte vill ange en bevarandeprincip ange noll. Om det finns inga bevarandeprincip, är det att ta bort övervakningsdata.

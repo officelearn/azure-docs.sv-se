@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 94bf1a8fd9ac37087862823317bde5f3d130a3d6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e9343b4a0049b2eea30f903159fdeff0ae7ff851
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guide för Azure Marketplace och AppSource publisher
 
@@ -116,7 +116,7 @@ Varje storefront stöder flera publishing alternativ och erbjudande typer. Välj
 |**Utvärdering**   |     Kostnadsfri utvärderingsversion, SaaS utvärderingsversion, interaktiva demo, Testkör    |  Azure Marketplace, AppSource       |
 |**Transaktionen**     |   Virtuell dator, lösningsmall för, hanterade program      |    Azure Marketplace     |
 
-### <a name="list"></a>Visa lista
+### <a name="list"></a>Lista
 
 Använd kontakta mig när deltagande test- eller transaktionen nivå inte är möjligt. Fördelen med den här metoden är att du kan utgivare med en lösning på marknaden omedelbart tar emot leads som kan vara nurtured i grundläggande avtal att starta business-svänghjul. Nackdelen är dock att kunden engagement är begränsad, jämfört med andra erbjudandetyper av.
 
@@ -227,7 +227,7 @@ I det här scenariot debiterar Microsoft $0.14 per timme för användning av din
 
 En viktig fördel med transaktionen publicering alternativet är att Microsoft kan en faktura licens kostnaderna samtidigt som den underliggande Azure användningen direkt till kunden. I det här scenariot Microsoft växlar och samlar in för din räkning, vilket eliminerar behovet av du vill skapa egna inköp relation med kunden. Detta kan spara tid och resurser för att fokusera på hamnar försäljning, inte samlar in växeln.
 
-### <a name="enterprise-agreement"></a>Enterprise Agreement
+### <a name="enterprise-agreement"></a>Enterprise-avtal
 
 Microsofts kunder använder ibland ett Enterprise-avtal för Microsoft-produkter, inklusive användning av Azure. Den här betalningsalternativ är utformad för organisationer som vill licens programvara och molntjänster under minst tre år. Kunder har du möjlighet att sprida betalningar i stället för en direkta betalning. När en kund med EA använder betala per användning transaktion lista, följer fakturering för utgivarens programvarukostnader licens kvartalsvis EA-överförbrukning fakturering cykel.
 
@@ -271,8 +271,8 @@ Samtliga Enterprise Agreement-kunder kan nu lägga till Azure i avtalet genom at
 
 |**Krav** |**Detaljer**  |**Publiceringsalternativ**  |
 |---------|---------|---------|
-|**Tjänsten erbjudande egenskaper**     | Rådgivning tjänsten måste vara: <br>-Levereras som en fast omfång, fast varaktighet, fast pris (eller gratis) engagement. <br>-Främst förförsäljnings inriktade. <br>-Begränsat till en kund. <br>-Utförs på platsen.        |    Visa lista     |
-|**Partnerkrav för samråd tjänster**    |   *Endast AppSource*:  <br>- **Dynamics 365 för kunden Engagement**: har Silver eller guld [moln Customer Relationship Management](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency) kompetensen. <br>- **Dynamics 365 för ekonomi och åtgärder Enterprise edition**: har Silver eller guld [Enterprise resursplanering](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) kompetensen och en minsta intäkter av 25 000 i molnet åtgärder i efterföljande tolv månader. <br>- **Dynamics 365 för ekonomi och åtgärder, Business edition**: fungera som [moln-providers (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) eller [digitala Partner av posten (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) för minst en kund. <br>- **Power BI**: uppfyller kriterierna [samarbetspartner] (file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20 & % 20Incentives.pdf). <br>- **PowerApps**: har en [Partner samlade](https://powerapps.microsoft.com/en-us/partner-showcase/) lösning. |    Visa lista     |
+|**Tjänsten erbjudande egenskaper**     | Rådgivning tjänsten måste vara: <br>-Levereras som en fast omfång, fast varaktighet, fast pris (eller gratis) engagement. <br>-Främst förförsäljnings inriktade. <br>-Begränsat till en kund. <br>-Utförs på platsen.        |    Lista     |
+|**Partnerkrav för samråd tjänster**    |   *Endast AppSource*:  <br>- **Dynamics 365 för kunden Engagement**: har Silver eller guld [moln Customer Relationship Management](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency) kompetensen. <br>- **Dynamics 365 för ekonomi och åtgärder Enterprise edition**: har Silver eller guld [Enterprise resursplanering](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) kompetensen och en minsta intäkter av 25 000 i molnet åtgärder i efterföljande tolv månader. <br>- **Dynamics 365 för ekonomi och åtgärder, Business edition**: fungera som [moln-providers (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) eller [digitala Partner av posten (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) för minst en kund. <br>- **Power BI**: uppfyller kriterierna [samarbetspartner] (file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20 & % 20Incentives.pdf). <br>- **PowerApps**: har en [Partner samlade](https://powerapps.microsoft.com/en-us/partner-showcase/) lösning. |    Lista     |
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Använda Azure Active Directory för att aktivera försök
 Azure Active Directory är en molntjänst identitet som aktiverar autentisering med ett Microsoft arbets- eller skolkonto med hjälp av standardiserade protokoll: OAuth och OpenID Connect. Lär dig mer om Azure AD på den [produkten webbsidan](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
@@ -335,7 +335,7 @@ Det är viktigt att förstå de nödvändiga komponenterna för att skapa ett er
 |Du behöver den här publishing artefakt  |För den här erbjudandetypen  |
 |---------|---------|
 |**Erbjuder namn (200 tecken) och en beskrivning (2 000 tecken)**    |  Alla        |
-|**MPN-ID och befogenheter**   |  Rådgivning       |
+|**ID för Microsoft Partner Network (MPN)**   |  Alla       |
 |**Land/region tillgänglighet**   | Alla        |
 |**Varaktighet för engagement**     |   Rådgivning      |
 |**Tillämpliga branscher, kategorier och sökord**     |  Alla       |
@@ -345,7 +345,7 @@ Det är viktigt att förstå de nödvändiga komponenterna för att skapa ett er
 |**Marknadsföring dokument (maximalt 3)**    |  Alla       |
 |**Leda mål**    |   Alla      |
 
-### <a name="contacts"></a>Contacts
+### <a name="contacts"></a>Kontakter
 
 
 |Du behöver den här publishing artefakt  |För den här erbjudandetypen  |
@@ -412,10 +412,11 @@ I det här avsnittet förklarar vi hur du:
 
 |Marketplace-registreringssteget  |Tid  |Beskrivning  |
 |---------|---------|---------|
-|Skapa ett Microsoft-ID     |   15 minuter      |   Partner som måste ha ett Microsoft-ID. Den här Microsoft-ID används för att få åtkomst till partnerportalen molnet.       |
+| Registrera i Microoft partnernätverk | 15 min | Utgivare måste vara registrerad i Microsoft Partner Network (MPN) för att kunna ha första nivån av konto och ta emot ytterligare fördelar och stöd för att vara en utgivare för Azure Marketplace |
+|Skapa ett Microsoft-ID     |   15 minuter      |   Partner som måste ha ett Microsoft-ID. Den här Microsoft-ID används för att få åtkomst till partnerportalen molnet.       |
 |Skicka formuläret marketplace kandidat     |  1-3 dagar       |  Partners måste du skicka formuläret kandidat för att starta godkännandeprocessen på Marketplace. När formuläret har skickats, granska programmet marketplace onboarding-teamet och verifiera begäran.       |
 |Registrera i Developer Center     |    5-10 dagar     | Registrering med Microsoft Developer Center krävs för att Microsoft ska du kontrollera att partnern som är en giltig juridisk person med ett giltigt ID för det land där det är registrerat. Developer Center aktiverar partnern som ska vara registrerad Microsoft utvecklare och ge dem åtkomst till Azure developer-programmet. <br><br>Observera att om du inte har slutfört formuläret marketplace kandidat du tillfrågad att betala en avgift för registrering av $99. Om du vill att den här avgiften åsidosättas fylla i marketplace kandidat och du får en kampanjkoden via e-post.  |
-|Logga in på partnerportalen moln     |  15 minuter       |   När partnern som tar emot godkännande från Marketplace-teamet att deras kandidat har godkänts, partner åtkomst till den [moln partnerportalen](https://cloudpartner.azure.com/) är aktiverad. Partnern ska använda Microsoft-ID från formuläret kandidat för att logga in på sin publisher profil i molnet Partner-portalen. Efter registreringen med Developer Center behöver partnern associera Developer Center-konto med sin Azure Marketplace publisher profil att publicera.      |
+|Logga in på partnerportalen moln     |  15 minuter       |   När partnern som tar emot godkännande från Marketplace-teamet att deras kandidat har godkänts, partner åtkomst till den [moln partnerportalen](https://cloudpartner.azure.com/) är aktiverad. Partnern ska använda Microsoft-ID från formuläret kandidat för att logga in på sin publisher profil i molnet Partner-portalen. Efter registreringen med Developer Center behöver partnern associera Developer Center-konto med sin Azure Marketplace publisher profil att publicera.      |
 
 #### <a name="create-a-microsoft-id"></a>Skapa ett Microsoft-ID
 
@@ -424,6 +425,9 @@ Via publiceringsprocessen hela marketplace, kan du använda en e-postadress som 
 Du bör ha endast ett ID för Microsoft-konto för din Azure Marketplace och AppSource erbjudanden. Vi rekommenderar starkt att du inte dela med andra tjänster eller erbjudanden.
 
 Den valda e-postadressen bör helst vara i din företagsdomän och styrs av din IT-teamet. För riktlinjer innan du skapar ett ID granska avsnitt i [riktlinjer och instruktioner](#guidelines-and-how-tos). 
+
+#### <a name="register-in-microsoft-partner-network"></a>Registrera i Microsoft Partner Network 
+Att kommer partner blir en Azure Marketplace eller AppSource Publisher ditt företag med Microsoft. Genom att delta i Microsoft Partner Network (MPN) kommer du få åtkomst till fördelar hjälper ditt företag utveckla tekniska lösningar och växa (ex: inkluderar teknisk support). Genom att delta i Marketplace som utgivare kan bidra till att din fördelar i Microsoft Partner Network. Om du vill registrera i MPN besöker [Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/). Du bör verifiera om ditt företag har redan registrerats i MPN. När registreringen är klar uppmanas för MPN-id att verifiera ditt konto att verifiera utgivaren profilen i [moln partnerportalen](https://cloudpartner.azure.com/). 
 
 #### <a name="submit-the-marketplace-nomination-form"></a>Skicka formuläret marketplace kandidat
 Som en del av onboarding-processen marketplace måste du skicka en kandidat formuläret. Formuläret innehåller information om ditt program eller tjänsterbjudande företagets information och supportnivå som ska tillhandahållas. 
@@ -435,7 +439,7 @@ När du har skickat formuläret granska programmet Marketplace-teamet och verifi
 
 #### <a name="register-in-the-developer-center"></a>Registrera i Developer Center
 
-Den [Microsoft Developer Center](https://developer.microsoft.com/) används för att registrera ditt företags information. Registrant måste vara en giltig representativ för företaget och måste ange sina personliga information för att verifiera sin identitet. Registrant måste använda ett Microsoft-ID som är gemensam för företaget och samma konto måste användas i den [moln partnerportalen](https://cloudpartner.azure.com/). 
+Den [Microsoft Developer Center](https://developer.microsoft.com/) krävs för att publicera program som ska ha transact funktioner, till exempel virtuella datorer, Lösningsmallar och hanterade appar i Azure. Detta krav kan Microsoft för att kontrollera företagets information företagets juridiska skatt och bankwebbplatser entiteter. Registrant måste vara en giltig representativ för företaget och måste ange sina personliga information för att verifiera sin identitet. Den person som registrerar måste använda ett Microsoft-ID som är gemensam för företaget och samma konto måste användas i den [moln partnerportalen](https://cloudpartner.azure.com/). 
 
 >[!IMPORTANT]
 >Innan du försöker skapa ett Microsoft Developer Center-konto kan du kontrollera att ditt företag inte redan har en.
@@ -446,16 +450,16 @@ Under processen kan vi samla in adressen företagsinformation, bank kontoinforma
 |**Publisher profil**  |**Starta profil**  |**Mellanlagring**  |**Lista och utvärderingsversion**  |**Transact**
 |---------|---------|---------|---------|---------|
 |**Registrering av företagets**     | Måste ha        |  Måste ha       | Måste ha        |  Måste ha       |
-|**Skatt profil-ID**   |    Valfri     |    Valfri     |  Valfri       | Måste ha      |
-|**Konto**     |   Valfri      |    Valfri     |  Valfri       |  Måste ha      |
+|**Skatt profil-ID**   |    Valfritt     |    Valfritt     |  Valfritt       | Måste ha      |
+|**Konto**     |   Valfritt      |    Valfritt     |  Valfritt       |  Måste ha      |
 
 En steg för steg-beskrivning av den här processen finns [instruktioner om hur du registrerar i Developer Center](#instructions-on-how-to-register-in-the-developer-center). 
 
 #### <a name="sign-in-to-the-cloud-partner-portal"></a>Logga in på partnerportalen moln
 
-När du har fått godkännande från Marketplace-teamet som kandidat har godkänts och du har registrerat i den [Microsoft Developer Center](https://dev.windows.com), ett konto skapas för dig att komma åt den [partnerportalen för molnet ](https://cloudpartner.azure.com). Första gången inloggningsuppgifter ingår i e-postmeddelandet kandidat godkännande. 
+När du har fått godkännande från Marketplace-teamet som kandidat har godkänts och du har registrerat i den [Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/) och i [Microsoft Developer Center](https://dev.windows.com) (om obligatoriskt), ett konto skapas för dig att komma åt den [moln partnerportalen](https://cloudpartner.azure.com). Första gången inloggningsuppgifter ska inkluderas i e-postmeddelandet kandidat godkännande. 
 
-Använda din Marketplace-konto (Microsoft-ID) för att komma åt din publisher-profil. När du är i molnet partnerportalen är det sista steget att koppla Developer Center-konto till respektive Marketplace publisher profilen att publicera. Du kan göra den här associationen i partnerportalen moln i din profil för utgivaren, via knappen längst ned på skärmen.
+Använda din Marketplace-konto (Microsoft-ID) för att komma åt din publisher-profil. I partnerportalen molntjänster är en gång det sista steget att koppla Microsoft Partner Network- och Developer Center-konto (vid behov) till respektive Marketplace Publisher profilen att publicera. Detta kan göras i partnerportalen molntjänster i din profil utgivare via knappen längst ned på skärmen.
 
 Detaljerad information om hur du använder partnerportalen moln går du till den [Läs](https://cloudpartner.azure.com/#Learn) -menyn i portalen och granska de **dokumentationen** avsnitt. 
 
@@ -621,6 +625,5 @@ Om du har problem med registreringen Developer Center logga ett supportärende:
    ![Knappen ”Skicka en incident”](./media/marketplace-publishers-guide/devcentersubmitincident.png)
 
 3. Välj **hjälp med Dev Center** som **problemtyp**, och välj **publicera och hantera appar** som **kategori**. Efter det markerar du den **starta e-post** knappen.   
-
 4. På sidan logga in att använda något Microsoft-konto för att logga in. Om du inte har ett Microsoft-konto kan du skapa en med hjälp av länken. 
 5. Fyll i information om problemet och skicka biljetten genom att välja den **skicka** knappen.

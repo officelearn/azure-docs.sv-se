@@ -1,25 +1,25 @@
 ---
-title: "Skapa uppgifter för att förbereda jobb och fullständig jobb på datornoderna - Azure Batch | Microsoft Docs"
-description: "Använd jobbet nivå förberedande uppgifter för att minimera överföring av data till Azure Batch-beräkningsnoder och släpp aktiviteter för rensning av noden på jobbet har slutförts."
+title: Skapa uppgifter för att förbereda jobb och fullständig jobb på datornoderna - Azure Batch | Microsoft Docs
+description: Använd jobbet nivå förberedande uppgifter för att minimera överföring av data till Azure Batch-beräkningsnoder och släpp aktiviteter för rensning av noden på jobbet har slutförts.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aecce83b4d4444f2651f48475b596fa76cb5f44a
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 543c03c22b31389c3d6e048cc9f13c24add5aae7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Kör jobbförberedelse och jobbet versionen uppgifter på Batch-beräkningsnoder
 
@@ -57,7 +57,7 @@ Du kanske vill behålla en kopia av loggfiler som dina aktiviteter genererar ell
 > 
 > 
 
-## <a name="job-preparation-task"></a>Förberedelse för projektaktivitet
+## <a name="job-preparation-task"></a>Jobbförberedelseuppgift
 Innan körningen av ett jobb uppgifter utför Batch förberedelse projektaktivitet på varje beräkningsnod som kommer att köra en aktivitet. Som standard väntar Batch-tjänsten för förberedelse projektaktivitet ska slutföras innan du kör uppgifter som är schemalagda att köras på noden. Du kan dock konfigurera tjänsten som inte ska vänta. Om noden har startats om förberedelse projektaktivitet körs igen, men du kan också inaktivera det här beteendet.
 
 Förberedelse av projektaktivitet körs bara på noder som är schemalagda att köra en aktivitet. Detta förhindrar att onödiga körningen av en jobbförberedelseuppgift om en nod inte har tilldelats en aktivitet. Detta kan inträffa när antalet aktiviteter för ett jobb är mindre än antalet noder i en pool. Det gäller även när [samtidiga uppgiftskörningen](batch-parallel-node-tasks.md) är aktiverad, vilket lämnar vissa noder inaktiv om antal uppgifter är lägre än totalt antal möjliga samtidiga uppgifter. Genom att inte köra förberedelse projektaktivitet på inaktiv noder kan lägga du mindre pengar på kostnader för överföring av data.
@@ -67,7 +67,7 @@ Förberedelse av projektaktivitet körs bara på noder som är schemalagda att k
 > 
 > 
 
-## <a name="job-release-task"></a>Versionen för projektaktivitet
+## <a name="job-release-task"></a>Jobbpubliceringsuppgift
 När ett jobb har markerats som slutförd, körs jobbet viktig aktivitet på varje nod i den pool som körs minst en aktivitet. Du kan markera ett jobb som slutförd genom att utfärda en avsluta begäran. Batch-tjänsten sedan anger jobbets status till *avslutar*, avbryts alla aktiva eller köra uppgifter som är kopplad till jobbet och kör jobbet versionen aktiviteten. Jobbet flyttas sedan till den *slutförts* tillstånd.
 
 > [!NOTE]

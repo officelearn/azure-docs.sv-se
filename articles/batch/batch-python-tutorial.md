@@ -1,11 +1,11 @@
 ---
-title: "Självstudiekurs – Använda Azure Batch SDK för Python | Microsoft Docs"
-description: "Lär dig de grundläggande principerna för Azure Batch och skapa en enkel lösning med Python."
+title: Självstudiekurs – Använda Azure Batch SDK för Python | Microsoft Docs
+description: Lär dig de grundläggande principerna för Azure Batch och skapa en enkel lösning med Python.
 services: batch
 documentationcenter: python
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 42cae157-d43d-47f8-88f5-486ccfd334f4
 ms.service: batch
 ms.devlang: python
@@ -13,18 +13,18 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b620ff7d49b3e2712393de6124e31ff417220db2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Kom igång med Batch SDK för Python
 
 > [!div class="op_single_selector"]
-> * [NET](batch-dotnet-get-started.md)
+> * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
 > * [Node.js](batch-nodejs-get-started.md)
 >
@@ -34,7 +34,7 @@ Lär dig grunderna om [Azure Batch][azure_batch] och [Batch Python][py_azure_sdk
 
 ![Arbetsflöde för Batch-lösning (grundläggande)][11]<br/>
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Den här artikeln förutsätter att du har kunskaper om Python och att du är bekant med Linux. Vi förutsätter också att du uppfyller kontokraven som anges nedan för Azure och Batch- och Storage-tjänsterna.
 
 ### <a name="accounts"></a>Konton
@@ -424,7 +424,7 @@ Nu när jobbet har skapats är det dags att lägga till aktiviteterna som ska ut
 
 Batch-**aktiviteter** är enskilda arbetsenheter som körs på beräkningsnoderna. En aktivitet har en kommandorad och kör skripten eller de körbara filer som du anger på kommandoraden.
 
-För att arbetet ska utföras måste aktiviteter läggas till i ett jobb. Varje [CloudTask][py_task] konfigureras med hjälp av en kommandoradsegenskap och [ResourceFiles][py_resource_file] (som med poolens StartTask) som aktiviteten hämtar till noden innan dess kommandorad körs automatiskt. I exemplet bearbetar varje aktivitet endast en fil. Det betyder att dess ResourceFiles-samling innehåller ett enda element.
+För att arbetet ska utföras måste aktiviteter läggas till i ett jobb. Varje [CloudTask][py_task] konfigureras med hjälp av en kommandoradsegenskap och [ResourceFiles][py_resource_file] (som med poolens StartTask) som aktiviteten hämtar till noden innan dess kommandorad körs automatiskt. I exemplet bearbetar varje aktivitet endast en fil. Det betyder att dess ResourceFiles-samling kan innehålla ett enda element.
 
 ```python
 def add_tasks(batch_service_client, job_id, input_files,

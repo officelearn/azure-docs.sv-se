@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 73212a231d11136854115922df423a7cb5b08f05
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5219ebc22e56ad4b5cdfc125f7fa5882c61adb9f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption för Windows och Linux-IaaS-VM
 Microsoft Azure värnar starkt din datasekretess, data suveränitet och aktiverar du att styra dina Azure värdbaserade data via ett intervall med avancerade tekniker för att kryptera, styra och hantera krypteringsnycklar kontroll & granska åtkomsten till data. Det ger Azure-kunder möjlighet att välja den lösning som bäst uppfyller deras behov av företag. I det här dokumentet, vi innehåller en introduktion till en ny tekniklösning ”Azure Disk Encryption för Windows och Linux IaaS VMS” om du vill skydda och skydda dina data för att uppfylla din organisations säkerhet och efterlevnad åtaganden. Dokumentet ger detaljerad information om hur du använder Azure disk encryption-funktioner inklusive scenarierna som stöds och användaren inträffar.
@@ -131,7 +131,7 @@ Om du vill inaktivera hårddiskkryptering för IaaS-VM utför du följande anvis
  > Om du inaktiverar kryptering för OS-disk för Linux stöds inte. Steget dekryptering är endast tillåtna för dataenheter i virtuella Linux-datorer.
 Inaktivera disk datakryptering för Linux stöds inte om OS-enheten är krypterad.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Innan du aktiverar Azure Disk Encryption på Azure IaaS-VM för de scenarier som stöds som beskrivs i avsnittet ”Översikt”, se följande krav:
 
 * Du måste ha en giltig aktiv Azure-prenumeration att skapa resurser i Azure i regionerna som stöds.
@@ -780,14 +780,10 @@ Använd den [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx
 > Förbered den virtuella datorn med en separat/Dataresurs VHD för att hämta den externa nyckeln med hjälp av BitLocker.
 
 #### <a name="encrypting-an-os-drive-on-a-running-linux-vm"></a>Kryptera en OS-enheten på en Linux-VM som körs
-Kryptering av en OS-enhet på en Linux-VM som körs stöds på följande distributioner:
-
-* RHEL 7.2
-* CentOS 7.2
-* Ubuntu 16.04
 
 ##### <a name="prerequisites-for-os-disk-encryption"></a>Krav för OS-diskkryptering
 
+* Den virtuella datorn måste använda en distributionsplats som är kompatibel med OS-diskkryptering som anges i den [Azure Disk Encryption vanliga frågor och svar](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
 * Den virtuella datorn måste skapas från Marketplace-avbildning i Azure Resource Manager.
 * Azure virtuell dator med minst 4 GB RAM-minne (rekommenderas storleken är 7 GB).
 * (För RHEL och CentOS) Inaktivera SELinux. Om du vill inaktivera SELinux finns i ”4.4.2. Inaktivera SELinux ”i den [SELinux användar- och Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) på den virtuella datorn.
@@ -1076,7 +1072,7 @@ Och ändra alla förekomster av:
 ```
     if [ -z "$DRACUT_SYSTEMD" ]; then
 ```
-till
+i
 ```
     if [ 1 ]; then
 ```

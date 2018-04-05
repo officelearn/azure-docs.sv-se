@@ -1,5 +1,5 @@
 ---
-title: Skapa, visa och hantera aviseringar med hjälp av Azure Monitor - aviseringar (förhandsversion) | Microsoft Docs
+title: Skapa, visa och hantera aviseringar med hjälp av Azure-Monitor | Microsoft Docs
 description: Använd den nya miljön enhetlig Azure aviseringar skapa, visa och hantera mått och logga in Varningsregler från en plats.
 author: msvijayn
 manager: kmadnani1
@@ -14,31 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 6bd2c452059950f714de304cc30c7b4bd023fd86
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: fdb3ebe3820191a642c4503851b04dd5fc5e6048
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Skapa, visa och hantera aviseringar med hjälp av Azure-Monitor - aviseringar (förhandsgranskning)
+# <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar via Azure-Monitor  
 
 ## <a name="overview"></a>Översikt
-Den här artikeln visar hur du konfigurerar aviseringar i nya aviseringar (förhandsgranskning)-gränssnittet i Azure-portalen. Definitionen av en aviseringsregel är i tre delar:
+Den här artikeln visar hur du konfigurerar aviseringar via gränssnittet nya aviseringar i Azure-portalen. Definitionen av en aviseringsregel är i tre delar:
 - Mål: Specifika Azure-resurs, som ska övervakas
 - Villkor: Specifika villkor eller logik som när visas signal ska utlösa åtgärd
 - Åtgärd: Specifika anrop skickas till en mottagare av ett meddelande - e-post, SMS, webhook osv.
 
-Varning (förhandsgranskning) använder termen **loggen aviseringar** att beskriva aviseringar där signalen är en anpassad fråga baserat på [Azure logganalys](../log-analytics/log-analytics-tutorial-viewdata.md) eller [Azure Application Insights](../application-insights/app-insights-analytics.md). Mått avisering kapaciteten kallas [nära realtid mått aviseringar](monitoring-near-real-time-metric-alerts.md) i befintliga aviseringar upplevelse kallas **mått aviseringar** i aviseringar (förhandsversion). I *mått aviseringar*, vissa resurstyper kan [flerdimensionellt mått](monitoring-metric-charts.md) för specifika Azure-resurs och därför aviseringar om dessa resurs kan göras mer specifika med ytterligare filter på dimensioner. dessa aviseringar kallas **Multi-Dimensional mått aviseringar**.
-Azure aviseringar (förhandsversion) ger också en samlad bild Varningsregler och möjligheten att hantera dem med en enda plats; inklusive visa alla olösta aviseringar. Mer information om funktioner från [Azure Alerts(Preview) - översikt över](monitoring-overview-unified-alerts.md).
+Azure-aviseringar innehåller också en samlad bild Varningsregler och möjligheten att hantera dem med en enda plats; inklusive visa alla olösta aviseringar. Mer information om funktioner från [Azure varningar – översikt över](monitoring-overview-unified-alerts.md).
+
+Aviseringen använder termen **loggen aviseringar** att beskriva aviseringar där signalen är en anpassad fråga baserat på [logganalys](../log-analytics/log-analytics-tutorial-viewdata.md) eller [Programinsikter](../application-insights/app-insights-analytics.md). Den [nya mått avisering funktionen](monitoring-near-real-time-metric-alerts.md) ger möjlighet att aviseringen på [flerdimensionellt mått](monitoring-metric-charts.md) för specifika Azure-resurser. Aviseringar för denna resurs kan använda ytterligare filter för att skapa dimensioner **Multi-Dimensional mått aviseringar**.
+
 
 > [!NOTE]
-> Medan Azure aviseringar (förhandsversion) ger en ny och förbättrad upplevelse för att skapa aviseringar i Azure. Den befintliga [Azure aviseringar](monitoring-overview-alerts.md) upplevelse förblir användbart
+> När aviseringar som Azure erbjuder en ny och förbättrad upplevelse för att skapa aviseringar i Azure. Den befintliga [aviseringar (klassisk)](monitoring-overview-alerts.md) upplevelse förblir användbart.
 >
 
-Detaljerad nästa finns stegvisa instruktioner för att använda Azure aviseringar (förhandsversion).
+Detaljerad nästa finns stegvisa instruktioner för att använda Azure-aviseringar.
 
 ## <a name="create-an-alert-rule-with-the-azure-portal"></a>Skapa en aviseringsregel med Azure-portalen
-1. I den [portal](https://portal.azure.com/)väljer **övervakaren** och välj under avsnittet MONITOR - **aviseringar (förhandsgranskning)**.  
+1. I den [portal](https://portal.azure.com/)väljer **övervakaren** och välj under avsnittet MONITOR - **aviseringar**.  
     ![Övervakning](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
 
 2. Välj den **ny Aviseringsregel** för att skapa en ny avisering i Azure.
@@ -48,7 +50,7 @@ Detaljerad nästa finns stegvisa instruktioner för att använda Azure avisering
 
     ![Skapa regel](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
 
-4.  Definiera villkoret för aviseringen genom att använda den **Välj resurser** länk och ange mål, genom att välja en resurs. Filtret korrekt genom att välja behövs *prenumeration*, *resurstypen*, och väljer slutligen krävs *resurs*.
+4.  Definiera villkoret för aviseringen genom att använda den **Välj resurser** länk och ange mål, genom att välja en resurs. Filter genom att välja den *prenumeration* , *resurstypen* , och väljer slutligen krävs *resurs*.
 
     >[!NOTE]
 
@@ -56,16 +58,16 @@ Detaljerad nästa finns stegvisa instruktioner för att använda Azure avisering
 
     ![Välj resurs](./media/monitor-alerts-unified/Alert-SelectResource.png)
 
- Eftersom Azure aviseringar (förhandsgranskning) gör att du kan skapa olika typer av aviseringar från ett enda gränssnitt; beroende på vilken typ av avisering som önskas väljer nästa steg som:
+ Användargränssnittet kan du skapa olika typer av aviseringar från en plats. Beroende på vilken typ av avisering som önskas väljer nästa steg som:
 
     - För **mått aviseringar**: Följ steg 5 till 7; gå direkt till steg 11
     - För **loggen aviseringar**, hoppa till steg 8.
 
     > [!NOTE]
 
-    > Enhetlig aviseringar (förhandsversion) stöder också aktivitetsloggen aviseringar. [Läs mer](monitoring-activity-log-alerts-new-experience.md).
+    > Aktiviteten loggen aviseringar stöds också, men finns i förhandsgranskningen. [Läs mer](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Mått aviseringar*: Kontrollera **resurstypen** är markerad med signaltyp som **mått**, en gång sedan lämplig **resurs** är valt klickar du på  *Utfärdat* vill gå tillbaka till skapa aviseringen. Därefter använder den **lägga till villkor** för att välja specifika signalen från lista över signal alternativ, övervakningstjänsten och typen som anges - som är tillgängliga för den tidigare markerade resursen.
+5. *Mått aviseringar* : Kontrollera **resurstypen** är markerad med signaltyp som **mått**, en gång sedan lämplig **resurs** är valt klickar du på  *Utfärdat* vill gå tillbaka till skapa aviseringen. Därefter använder den **lägga till villkor** för att välja specifika signalen från lista över signal alternativ, övervakningstjänsten och typen som anges - som är tillgängliga för den tidigare markerade resursen.
 
     ![Välj en resurs](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
@@ -77,7 +79,13 @@ Detaljerad nästa finns stegvisa instruktioner för att använda Azure avisering
 
     ![Konfigurera signal logik för måttet](./media/monitor-alerts-unified/AlertsPreviewCriteria.png)
 
-7. *Mått aviseringar*: om signalen är ett mått och sedan aviseringen fönster kan filtreras med flera datapunkter eller dimensioner för det Azure-resursen. Liknar mått aviseringar, visualisering av signalen historiken kan väljas genom varaktigheten mellan **visa tidigare** listrutan. Dessutom kan dimensioner för det valda måttet väljas för att filtrera fram nödvändiga tidsserier; välja dimensioner är valfri och upp till fem dimensioner kan användas. **Varna logik** kan väljas från visas alternativ för villkor, sammanställning och slutligen tröskelvärdet. Som förhandsgranskning av logik som visas villkoret i visualiseringen tillsammans med signal historik att indikera när aviseringen skulle ha utlösts tidigare. Slutligen anger för vilken varaktighet, aviseringen ska söka efter de angivna villkoren genom att välja den **Period** alternativet tillsammans med hur ofta aviseringen ska köras genom att välja **frekvens**.
+7. *Mått aviseringar*: om signalen är ett mått och sedan aviseringen fönster kan filtreras med flera datapunkter eller dimensioner för det Azure-resursen. 
+
+    a. Välj en varaktighet från den **visa tidigare** listrutan visualisera en annan tidsperiod. Du kan välja dimensioner för mätvärdena som stöds att filtrera på tidsserier; välja dimensioner är valfri och upp till fem dimensioner kan användas. 
+
+    b. **Varna logik** kan väljas från visas alternativ för *villkoret*, *aggregering* och *tröskelvärdet*. Som förhandsgranskning av logik som visas villkoret i visualiseringen tillsammans med signal historik att indikera när aviseringen skulle ha utlösts tidigare. 
+
+    c. Ange varaktighet, väljer **Period** tillsammans med hur ofta aviseringen ska köras genom att välja **frekvens**.
 
     ![Konfigurera signal logik för flerdimensionella mått](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
@@ -87,7 +95,7 @@ Detaljerad nästa finns stegvisa instruktioner för att använda Azure avisering
 
    > [!NOTE]
 
-   > Aviseringar (förhandsgranskning) listor kan importera analytics-fråga som signaltyp - **logg (sparad fråga)**enligt ovan bild. Så att användare kan perfekt frågan i Analytics och spara dem för framtida användning i varningar – mer information om hur du använder sparar frågan finns på [med loggen Sök i logganalys](../log-analytics/log-analytics-log-searches.md) eller [delade frågan i application insights Analytics](../log-analytics/log-analytics-overview.md). 
+   > Aviseringar visar kan importera analytics-fråga som signaltyp - **logg (sparad fråga)**enligt ovan bild. Så att användare kan perfekt frågan i Analytics och spara dem för framtida användning i varningar – mer information om hur du använder sparar frågan finns på [med loggen Sök i logganalys](../log-analytics/log-analytics-log-searches.md) eller [delade frågan i application insights Analytics](../log-analytics/log-analytics-overview.md). 
 
 9.  *Logga varningar*: när du valt frågan för aviseringar kan anges i **sökfråga** fältet; om frågesyntaxen är felaktigt fältet visar fel i rött. Om frågesyntaxen är korrekt - referens visas historiska data för den angivna frågan som ett diagram med alternativet för att justera tidsfönstret senaste sex timmar till föregående vecka.
 
@@ -107,7 +115,7 @@ För **loggen aviseringar** aviseringar kan baseras på:
    - *Mått mätning*: en avisering skapas om varje *aggregera värdet* överskrider tröskelvärdet som angetts i resultaten och det är *grupperade efter* valt värde. Antalet överträdelser för en avisering är antalet gånger som tröskelvärdet har överskridits i den valda tidsperioden. Du kan ange totala överträdelser för valfri kombination av överträdelser över resultatmängd eller på varandra följande överträdelser att kräva att överträdelserna måste ske i beräkningar. Lär dig mer om [loggen aviseringar och deras typer](monitor-alerts-unified-log.md).
 
     > [!TIP]
-    > För närvarande i aviseringar (förhandsgranskning) - loggen sökaviseringar kan ta anpassade *period* och *frekvens* värde i minuter. Värdena kan variera mellan 5 minuter till 1440 minuter (det vill säga) 24 timmar. Så om du vill att aviseringen period ska säga tre timmar, konvertera den till minuter – 180 minuter före användning
+    > För närvarande i aviseringar - loggen sökaviseringar kan ta anpassade *period* och *frekvens* värde i minuter. Värdena kan variera mellan 5 minuter till 1440 minuter (det vill säga) 24 timmar. Så om du vill att aviseringen period ska säga tre timmar, konvertera den till minuter – 180 minuter före användning
 
 11. Som det andra steget definierar du ett namn för aviseringen i den **varningsregelns namn** fältet tillsammans med en **beskrivning** med information om programvarukrav för aviseringen och **allvarlighetsgrad** värdet från den alternativen. Dessa uppgifter återanvänds i alla aviseringar, meddelanden eller push som utförs av Azure-Monitor. Dessutom kan användaren välja att aktivera varningsregeln skapar omedelbart genom att klicka på lämpligt sätt **Aktivera regel när du skapar** alternativet.
 
@@ -126,7 +134,7 @@ För **loggen aviseringar** aviseringar kan baseras på:
 
         ![Åtgärden åsidosättningar för logg-aviseringar](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 
-13. Om alla fält är giltiga och med grön skalstreck den **skapa varningsregeln** på knappen och aviseringen har skapats i Azure-Monitor - aviseringar (förhandsversion). Alla aviseringar kan visas från instrumentpanelen aviseringar (förhandsversion).
+13. Om alla fält är giltiga och med grön skalstreck den **skapa varningsregeln** på knappen och en avisering har skapats i Azure-Monitor - aviseringar. Alla aviseringar kan visas från aviseringar instrumentpanelen.
 
     ![Skapa en regel](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
 
@@ -134,9 +142,9 @@ För **loggen aviseringar** aviseringar kan baseras på:
 
 ## <a name="view-your-alerts-in-azure-portal"></a>Visa aviseringar i Azure-portalen
 
-1. I den [portal](https://portal.azure.com/)väljer **övervakaren** och välj under avsnittet MONITOR - **aviseringar (förhandsgranskning)**.  
+1. I den [portal](https://portal.azure.com/)väljer **övervakaren** och välj under avsnittet MONITOR - **aviseringar**.  
 
-2. Den **aviseringar (förhandsgranskning) instrumentpanelen** visas - där alla Azure-aviseringar finns unified och visas i ett enda kort ![avisering instrumentpanelen](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
+2. Den **aviseringar instrumentpanelen** visas - där alla Azure-aviseringar finns unified och visas i ett enda kort ![avisering instrumentpanelen](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
 3. Från övre vänstra till höger visar på instrumentpanelen en överblick över den följande: Klicka på att se en detaljerad lista:
     - *Utlöses aviseringar*: antalet aviseringar för närvarande har uppfyllts logik och utlöses i tillstånd
     - *Totalt antal Varningsregler*: antal Varningsregler skapas och i underordnad text, hur många som för närvarande har aktiverats
@@ -144,7 +152,7 @@ För **loggen aviseringar** aviseringar kan baseras på:
 5. Hjälp i söka efter specifika aviseringar; alternativen listrutan överst kan använda för att filtrera specifika *prenumeration, resursgrupp eller resurs*. Ytterligare för någon olöst Varna ett sätt att använda den *Filter avisering* alternativet för att hitta för angivna nyckelordet - specifika matchande aviseringar med *namn, aviseringen kriterier, resursgrupp, och målresurs*
 
 ## <a name="managing-your-alerts-in-azure-portal"></a>Hantera aviseringar i Azure-portalen
-1. I den [portal](https://portal.azure.com/)väljer **övervakaren** och välj under avsnittet MONITOR - **aviseringar (förhandsgranskning)**.  
+1. I den [portal](https://portal.azure.com/)väljer **övervakaren** och välj under avsnittet MONITOR - **aviseringar**.  
 2. Välj den **hantera regler** knappen i det översta fältet att navigera till regeln hantering - där alla Varningsregler skapade räknas; inklusive aviseringar som har inaktiverats.
 3. För att hitta för specifika Varningsregler kan antingen använda listrutan filter överst, vilket ger möjlighet att shortlist Varningsregler för specifika *prenumeration, resursgrupper och/eller resursen*. Alternativt med hjälp av sökfunktionen rutan ovanför listan varningsregeln markerat *filtrera aviseringar*, en kan ge nyckelord som matchas mot *avisering namn, villkor och målresurs*; om du vill visa endast regler för matchning.
    ![Hantera regler för avisering](./media/monitoring-alerts-unified-usage/alerts-preview-rules.png)
@@ -157,7 +165,7 @@ För **loggen aviseringar** aviseringar kan baseras på:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om den nya [nära realtid mått aviseringar (förhandsgranskning)](monitoring-near-real-time-metric-alerts.md)
+- Mer information om den nya [nära realtid mått aviseringar](monitoring-near-real-time-metric-alerts.md)
 - Hämta en [översikt över mått samling](insights-how-to-customize-monitoring.md) att kontrollera att tjänsten är tillgänglig och svarstid.
-- Lär dig mer om [loggen aviseringar i Azure aviseringar (förhandsgranskning)](monitor-alerts-unified-log.md)
+- Lär dig mer om [Logga varningar i Azure-aviseringar](monitor-alerts-unified-log.md)
 - [Lär dig mer om aktiviteten loggen aviseringar i aviseringar (förhandsgranskning)-upplevelse](monitoring-activity-log-alerts-new-experience.md)

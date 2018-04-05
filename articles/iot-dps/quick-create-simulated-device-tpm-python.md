@@ -1,22 +1,22 @@
 ---
-title: "Etablera en simulerad TPM-enhet på Azure IoT Hub med Python | Microsoft Docs"
-description: "Azure snabbstart – Skapa och etablera en simulerad TPM-enhet med Java-enhets-SDK för IoT Hub Device Provisioning-tjänsten"
+title: Etablera en simulerad TPM-enhet på Azure IoT Hub med Python | Microsoft Docs
+description: Azure snabbstart – Skapa och etablera en simulerad TPM-enhet med Java-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 services: iot-dps
-keywords: 
+keywords: ''
 author: msebolt
 ms.author: v-masebo
 ms.date: 12/12/2017
 ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 6803dd31ce5953c2be14f6c4a2e65bdafc48e3e2
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 603ca504d95b7999137a4638aeed3ac58ce6c72d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad TPM-enhet med Python-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 
@@ -26,6 +26,7 @@ Dessa steg visar hur du skapar en simulerad enhet på utvecklingsdatorn som kör
 
 Se till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure-portalen) innan du fortsätter.
 
+[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön 
 

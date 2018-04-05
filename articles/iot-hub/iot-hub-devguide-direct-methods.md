@@ -1,11 +1,11 @@
 ---
-title: "Förstå Azure IoT Hub direkt metoder | Microsoft Docs"
-description: "Utvecklarhandbok - Använd direkt metoder för att anropa kod på dina enheter från en app service."
+title: Förstå Azure IoT Hub direkt metoder | Microsoft Docs
+description: Utvecklarhandbok - Använd direkt metoder för att anropa kod på dina enheter från en app service.
 services: iot-hub
 documentationcenter: .net
 author: nberdy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9f0535f1-02e6-467a-9fc4-c0950702102d
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,14 +15,17 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 003b3f6ef8a6fbc1c6fcdfc58f7d35bf6c42c9ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 47bf7437eda09a536aa2d960cf5ec474e23356a6
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Förstå och anropa direkt metoder från IoT-hubb
 IoT-hubb kan du anropa direkt metoder på enheter från molnet. Direkta metoder representerar en request-reply-interaktion med en enhet som liknar ett HTTP-anrop i att de lyckas eller misslyckas omedelbart (efter en användardefinierade timeout). Den här metoden är användbar för scenarier där loppet av omedelbara åtgärder är olika beroende på om enheten har kan svara. Exempelvis skickar ett SMS-wake-up till en enhet om den är offline (SMS är dyrare än ett metodanrop).
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 Varje enhet metod riktar sig till en enda enhet. [Jobb] [ lnk-devguide-jobs] är ett sätt att anropa direkt metoder på flera enheter och schemalägga metodanropet för frånkopplade enheter.
 
 Alla med **tjänsten ansluta** behörigheter för IoT-hubb kan anropa en metod på en enhet.
@@ -86,7 +89,7 @@ Backend-appen tar emot ett svar som omfattar:
 ## <a name="handle-a-direct-method-on-a-device"></a>Hantera en direkt metod på en enhet
 ### <a name="mqtt"></a>MQTT
 #### <a name="method-invocation"></a>Metodanropet
-Enheter får direkta metodbegäranden om MQTT avsnittet:`$iothub/methods/POST/{method name}/?$rid={request id}`
+Enheter får direkta metodbegäranden om MQTT avsnittet: `$iothub/methods/POST/{method name}/?$rid={request id}`
 
 Meddelandetexten som tar emot enheten är i följande format:
 
@@ -109,7 +112,7 @@ Innehållet har angetts av enheten och kan vara status.
 
 ### <a name="amqp"></a>AMQP
 #### <a name="method-invocation"></a>Metodanropet
-Enheten tar emot direkta metodbegäranden genom att skapa en receive-länk på adressen`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+Enheten tar emot direkta metodbegäranden genom att skapa en receive-länk på adressen `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
 
 AMQP meddelandet anländer på mottagarsidan länken som representerar metoden begäran. Det innehåller följande:
 * Egenskapen Korrelation ID, som innehåller en begäran-ID som ska skickas tillbaka med motsvarande metodsvaret
@@ -117,7 +120,7 @@ AMQP meddelandet anländer på mottagarsidan länken som representerar metoden b
 * AMQP meddelandetexten som innehåller nyttolasten metoden som JSON
 
 #### <a name="response"></a>Svar
-Enheten skapar en Skicka länk för att returnera metodsvaret på adressen`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+Enheten skapar en Skicka länk för att returnera metodsvaret på adressen `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
 
 Metodens svar returneras på länken skickas och med följande struktur:
 * Egenskapen Korrelations-ID, som innehåller begäran-ID skickades i metodens begärandemeddelandet

@@ -1,13 +1,13 @@
 ---
-title: "Azure DB Cosmos-bindningar för funktioner"
-description: "Förstå hur du använder Azure Cosmos DB utlösare och bindningar i Azure Functions."
+title: Azure DB Cosmos-bindningar för funktioner
+description: Förstå hur du använder Azure Cosmos DB utlösare och bindningar i Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure functions, funktioner, händelsebearbetning, dynamiska beräkning serverlösa arkitektur"
+editor: ''
+tags: ''
+keywords: Azure functions, funktioner, händelsebearbetning, dynamiska beräkning serverlösa arkitektur
 ms.service: functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: eb6008b73bfd15ec193e728fc9007af5c2d25c67
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ac869cc45d352bdeed16bb3ca926ec7a921d1f75
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure DB Cosmos-bindningar för Azure Functions
 
@@ -492,7 +492,7 @@ I C# och F # funktioner, när funktionen avslutas, sparas ändringar som görs t
 
 I JavaScript-funktioner görs uppdateringar inte automatiskt vid utloggning av funktionen. Använd i stället `context.bindings.<documentName>In` och `context.bindings.<documentName>Out` att göra uppdateringar. Finns det [JavaScript exempel](#input---javascript-example).
 
-## <a name="output"></a>Resultat
+## <a name="output"></a>Utdata
 
 Azure Cosmos DB utdata bindning kan skriva du ett nytt dokument till en Azure Cosmos-DB-databas. 
 
@@ -769,7 +769,7 @@ När du skriver till Utdataparametern i din funktion skapas ett dokument i datab
 
 | Bindning | Referens |
 |---|---|
-| CosmosDB | [Felkoder för CosmosDB](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
+| CosmosDB | [Felkoder för CosmosDB](https://docs.microsoft.com/en-us/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 ## <a name="next-steps"></a>Nästa steg
 

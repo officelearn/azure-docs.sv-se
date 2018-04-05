@@ -14,21 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 74645f3fdece14790311592a0fdd4ce6570a5bae
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 97b0e4c4dd8c67fdcd422fb04b7c32815b6c3fdb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Hantera din IoT-hubb enheten identiteter i grupp
 
 Varje IoT-hubben har en identitetsregistret som du kan använda för att skapa per enhet resurser i tjänsten. Identitetsregistret kan du styra åtkomsten till enheter riktade slutpunkter. Den här artikeln beskriver hur du importerar och exporterar enheten identiteter gruppvis till och från en identitetsregistret.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Import och export-åtgärder sker i samband med *jobb* som gör att du kan köra tjänsten massåtgärder mot en IoT-hubb.
 
 Den **RegistryManager** klassen innehåller den **ExportDevicesAsync** och **ImportDevicesAsync** metoder som använder den **jobbet** framework. Dessa metoder kan du exportera, importera och synkronisera identitetsregistret en IoT-hubb i sin helhet.
 
 Det här avsnittet beskrivs med hjälp av den **RegistryManager** klass och **jobbet** systemet att utföra bulk import och export av enheter till och från en IoT-hubb identitetsregistret. Du kan också använda Azure IoT-hubb Device etablering Service för att aktivera zero touch, just-in-time etablering till en eller flera IoT-hubbar utan mänsklig inblandning. Mer information finns i [etablering dokumentation för tjänsten][lnk-dps].
+
 
 ## <a name="what-are-jobs"></a>Vad är jobb?
 

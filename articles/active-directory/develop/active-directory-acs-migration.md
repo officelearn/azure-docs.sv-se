@@ -1,11 +1,11 @@
 ---
-title: "Migrera från tjänsten Azure Access Control | Microsoft Docs"
-description: "Alternativ för att flytta appar och tjänster från Azure Access Control service"
+title: Migrera från tjänsten Azure Access Control | Microsoft Docs
+description: Alternativ för att flytta appar och tjänster från Azure Access Control service
 services: active-directory
 documentationcenter: dev-center-name
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
-ms.openlocfilehash: f634adbacc8e1fc128ecef15ad38f2f8b28eb25d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6c22f85d3e76a005c45a4679ddfd8948a46acffc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrera från tjänsten Azure Access Control
 
-Azure Access Control, en tjänst av Azure Active Directory (Azure AD), kommer tas bort i November 2018. Program och tjänster som använder åtkomstkontroll måste fullständigt flyttas till en annan autentiseringsmekanism innan dess. Den här artikeln beskriver rekommendationer för aktuella kunder som du planerar att inaktualisera din användning av åtkomstkontroll. Om du inte använder åtkomstkontroll, behöver du inte vidta några åtgärder.
+Azure Access Control, en tjänst av Azure Active Directory (Azure AD), kommer tas bort på 7 November 2018. Program och tjänster som använder åtkomstkontroll måste fullständigt flyttas till en annan autentiseringsmekanism innan dess. Den här artikeln beskriver rekommendationer för aktuella kunder som du planerar att inaktualisera din användning av åtkomstkontroll. Om du inte använder åtkomstkontroll, behöver du inte vidta några åtgärder.
 
 
 ## <a name="overview"></a>Översikt
@@ -54,11 +54,9 @@ Om du vill använda dessa komponenter måste du skapa ett eller flera namnområd
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-All kommunikation med STS och hanteringsåtgärder är klar på denna URL. Du kan använda olika sökvägar för olika ändamål. Ta reda på om dina program eller tjänster använder åtkomstkontroll genom att övervaka för all trafik till https://\<namnområde\>. accesscontrol.windows.net. All trafik till URL: en hanteras av åtkomstkontroll och behöver avbrytas. 
+All kommunikation med STS och hanteringsåtgärder är klar på denna URL. Du kan använda olika sökvägar för olika ändamål. Ta reda på om dina program eller tjänster använder åtkomstkontroll genom att övervaka för all trafik till https://<namespace>. accesscontrol.windows.net. All trafik till URL: en hanteras av åtkomstkontroll och behöver avbrytas. 
 
-Undantaget till detta är all trafik till https://accounts.accesscontrol.windows.net. Trafik till URL: en hanteras redan av en annan tjänst och påverkas inte av utfasningen åtkomstkontroll. 
-
-Du bör också logga in på den klassiska Azure-portalen och Sök efter alla Access Control-namnområden i prenumerationer som du äger. Access Control namnområden visas på den **Access Control namnområden** fliken, under den **Active Directory** service.
+Undantaget till detta är all trafik till `https://accounts.accesscontrol.windows.net`. Trafik till URL: en hanteras redan av en annan tjänst och **är inte** påverkas av utfasningen åtkomstkontroll. 
 
 Mer information om åtkomstkontroll finns [Access Control Service 2.0 (arkiverad)](https://msdn.microsoft.com/library/hh147631.aspx).
 
@@ -68,9 +66,9 @@ Från och med November 2017 är alla komponenter för åtkomstkontroll fullstän
 
 Här följer schemat för att sluta åtkomstkontroll komponenter:
 
-- **November 2017**: Azure AD-administratör som uppstår i den klassiska Azure-portalen [har dragits tillbaka](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Nu hantering av namnområdet för åtkomstkontroll är tillgängligt på en ny, dedikerad URL: http://manage.windowsazure.com?restoreClassic=true. Använd denna URl att visa dina befintliga namnområden, aktivera och inaktivera namnområden och ta bort namnområden, om du väljer.
-- **April 2018**: hantering av åtkomstkontroll namnområden är inte längre tillgänglig på http://manage.windowsazure.com?restoreClassic=true dedikerad URL. Nu kan du inaktivera eller aktivera, ta bort eller räkna upp Access Control-namnområden. Access Control management portal kommer dock att helt funktionella och finns på https://\<namnområde\>. accesscontrol.windows.net. Alla andra komponenter i åtkomstkontroll fortsätter att fungera normalt.
-- **November 2018**: alla åtkomstkontroll komponenter permanent är avstängd. Detta inkluderar hanteringsportalen för åtkomstkontroll, management-tjänsten, STS och token regeln omvandlingsmotorn. Nu är alla förfrågningar som skickas till åtkomstkontroll (som finns i \<namnområde\>. accesscontrol.windows.net) misslyckas. Du bör har migrerat alla befintliga appar och tjänster till andra tekniker väl före denna tidpunkt.
+- **November 2017**: Azure AD-administratör som uppstår i den klassiska Azure-portalen [har dragits tillbaka](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Nu hantering av namnområdet för åtkomstkontroll är tillgängligt på en ny, dedikerad URL: `http://manage.windowsazure.com?restoreClassic=true`. Använd denna URl att visa dina befintliga namnområden, aktivera och inaktivera namnområden och ta bort namnområden, om du väljer.
+- **Den 2 april 2018**: Azure klassiska portal helt är pensionerad, vilket innebär att hantering av åtkomstkontroll namnområden är inte längre tillgängligt via en URL. Nu kan du inaktivera eller aktivera, ta bort eller räkna upp Access Control-namnområden. Access Control management portal kommer dock att helt funktionella och finns på `https://\<namespace\>.accesscontrol.windows.net`. Alla andra komponenter i åtkomstkontroll fortsätter att fungera normalt.
+- **7 november 2018**: alla åtkomstkontroll komponenter permanent är avstängd. Detta inkluderar hanteringsportalen för åtkomstkontroll, management-tjänsten, STS och token regeln omvandlingsmotorn. Nu är alla förfrågningar som skickas till åtkomstkontroll (som finns i \<namnområde\>. accesscontrol.windows.net) misslyckas. Du bör har migrerat alla befintliga appar och tjänster till andra tekniker väl före denna tidpunkt.
 
 
 ## <a name="migration-strategies"></a>Migreringsstrategier för
@@ -98,6 +96,17 @@ Varje Microsoft-molntjänst som accepterar token som utfärdas av åtkomstkontro
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
 
+
+### <a name="sharepoint-customers"></a>SharePoint-kunder
+
+SharePoint 2013 2016 och SharePoint Online-kunder har länge använt ACS för autentisering i molnet och lokala hybrid scenarier. Vissa funktioner för SharePoint och användningsfall kommer att påverkas av ACS pensionering, medan andra inte kommer. I tabellen nedan sammanfattas vägledning för migrering för några av de mest populära SharePoint funktion som utnyttjar ACS:
+
+| Funktion | Riktlinjer |
+| ------- | -------- |
+| Autentisering av användare från Azure AD | Tidigare Azure AD stöder inte 1.1 för SAML-token som krävs för SharePoint för autentisering och ACS användes som en mellanhand som SharePoint-kompatibelt med Azure AD-token-format. Nu kan du [SharePoint ansluta direkt till Azure AD med hjälp av token utgivningsprinciper](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication). |
+| [Appen autentisering & server till server-autentisering i SharePoint på lokalt](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Inte påverkas av ACS pensionering; Inga ändringar behövs. | 
+| [Låg förtroende auktorisering för SharePoint-tillägg (värd-providern och SharePoint finns)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Inte påverkas av ACS pensionering; Inga ändringar behövs. |
+| [SharePoint molnet hybrid-sökning](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Inte påverkas av ACS pensionering; Inga ändringar behövs. |
 
 ### <a name="web-applications-that-use-passive-authentication"></a>Webbprogram som använder passiv autentisering
 
@@ -143,14 +152,14 @@ På en hög nivå *Azure Active Directory är antagligen det bästa valet för d
 | WIF | Stöds | Stöds, men begränsad instruktioner finns |
 | WS-Federation | Stöds | Stöds |
 | OAuth 2.0 | Stöd för ett utkast till 13 | Stöd för RFC 6749, i de flesta moderna specifikationen |
-| WS-Trust | Stöds | Stöds inte |
+| WS-Trust | Stöds | Stöds ej |
 | **Token format** | | |
 | JWT | Stöds i Beta | Stöds |
-| SAML 1.1 | Stöds | Förhandsversion |
+| SAML 1.1 | Stöds | Förhandsgranskning |
 | SAML 2.0 | Stöds | Stöds |
-| SWT | Stöds | Stöds inte |
+| SWT | Stöds | Stöds ej |
 | **Anpassningar** | | |
-| Anpassningsbara startsfär identifiering/konto-plockning UI | Nedladdningsbar kod som kan införlivas i appar | Stöds inte |
+| Anpassningsbara startsfär identifiering/konto-plockning UI | Nedladdningsbar kod som kan införlivas i appar | Stöds ej |
 | Ladda upp anpassade certifikat för tokensignering | Stöds | Stöds |
 | Anpassa anspråk i token |-Släpp igenom inkommande anspråk från identitetsleverantörer<br />-Hämta token från identitetsleverantören som ett anspråk<br />-Utfärda utgående anspråk baserade på värden för inkommande anspråk<br />-Utfärda utgående anspråk med konstanta värden |-Det går inte att passera anspråk från federerad Identitetsproviders<br />-Det går inte att hämta token från identitetsleverantören som ett anspråk<br />-Det går inte att utfärda utgående anspråk baserat på värdena för inkommande anspråk<br />-Kan utfärda utgående anspråk med konstanta värden<br />-Kan utfärda utgående anspråk baserat på Egenskaper för användare som synkroniseras till Azure AD |
 | **Automation** | | |
@@ -203,15 +212,15 @@ I följande tabell jämförs funktionerna för åtkomstkontroll som är relevant
 | Microsoft-konton för personligt bruk | Stöds | Stöds | 
 | Facebook, Google, Yahoo konton | Stöds | Facebook och Google stöds internt, Yahoo stöds via OpenID Connect federation med hjälp av anpassade principer |
 | **Protokoll och SDK-kompatibilitet** | | |
-| Windows Identity Foundation (WIF) | Stöds | Stöds inte |
-| WS-Federation | Stöds | Stöds inte |
+| Windows Identity Foundation (WIF) | Stöds | Stöds ej |
+| WS-Federation | Stöds | Stöds ej |
 | OAuth 2.0 | Stöd för ett utkast till 13 | Stöd för RFC 6749, i de flesta moderna specifikationen |
-| WS-Trust | Stöds | Stöds inte |
+| WS-Trust | Stöds | Stöds ej |
 | **Token format** | | |
 | JWT | Stöds i Beta | Stöds |
-| SAML 1.1 | Stöds | Stöds inte |
-| SAML 2.0 | Stöds | Stöds inte |
-| SWT | Stöds | Stöds inte |
+| SAML 1.1 | Stöds | Stöds ej |
+| SAML 2.0 | Stöds | Stöds ej |
+| SWT | Stöds | Stöds ej |
 | **Anpassningar** | | |
 | Anpassningsbara startsfär identifiering/konto-plockning UI | Nedladdningsbar kod som kan införlivas i appar | Helt anpassningsbar UI via anpassade CSS |
 | Ladda upp anpassade certifikat för tokensignering | Stöds | Anpassade Signeringsnycklar, inte certifikat stöds via anpassade principer |
@@ -243,7 +252,7 @@ I dessa fall kanske du vill bör du migrera ditt webbprogram till en annan molnt
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) är en flexibel identitet molntjänst som har skapats [övergripande migrering vägledning för kunder i åtkomstkontroll](https://auth0.com/acs), och stöder nästan alla funktioner som ACS. |
-| ![Pinga](./media/active-directory-acs-migration/rsz_ping.png) | [Ping-identitet](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en molntjänst identitet som stöder många av samma funktioner som ACS och PingFederate är en produkt med liknande lokal identitet som ger bättre flexibilitet. Referera till [Ping's ACS pensionering vägledning](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) för mer information om hur du använder dessa produkter.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping-identitet](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en molntjänst identitet som stöder många av samma funktioner som ACS och PingFederate är en produkt med liknande lokal identitet som ger bättre flexibilitet. Referera till [Ping's ACS pensionering vägledning](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) för mer information om hur du använder dessa produkter.  |
 
 Vårt mål i att arbeta med Ping identitets- och Auth0 är att säkerställa att alla åtkomstkontroll kunder har en migreringssökväg för sina appar och tjänster som minimerar mängden arbete som krävs för att flytta från åtkomstkontroll.
 
@@ -305,7 +314,7 @@ I dessa fall kan du migrera ditt webbprogram till en annan molntjänst för aute
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) är en flexibel identitet molntjänst som har skapats [övergripande migrering vägledning för kunder i åtkomstkontroll](https://auth0.com/acs), och stöder nästan alla funktioner som ACS. |
-| ![Pinga](./media/active-directory-acs-migration/rsz_ping.png) | [Ping-identitet](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en molntjänst identitet som stöder många av samma funktioner som ACS och PingFederate är en produkt med liknande lokal identitet som ger bättre flexibilitet. Referera till [Ping's ACS pensionering vägledning](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) för mer information om hur du använder dessa produkter.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping-identitet](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en molntjänst identitet som stöder många av samma funktioner som ACS och PingFederate är en produkt med liknande lokal identitet som ger bättre flexibilitet. Referera till [Ping's ACS pensionering vägledning](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) för mer information om hur du använder dessa produkter.  |
 
 Vårt mål i att arbeta med Ping identitets- och Auth0 är att säkerställa att alla åtkomstkontroll kunder har en migreringssökväg för sina appar och tjänster som minimerar mängden arbete som krävs för att flytta från åtkomstkontroll.
 

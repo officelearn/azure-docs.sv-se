@@ -1,25 +1,25 @@
 ---
-title: "Kör Linux på den virtuella datorn datornoder - Azure Batch | Microsoft Docs"
-description: "Lär dig mer om att bearbeta din parallella beräkning av arbetsbelastningar på pooler för Linux-datorer i Azure Batch."
+title: Kör Linux på den virtuella datorn datornoder - Azure Batch | Microsoft Docs
+description: Lär dig mer om att bearbeta din parallella beräkning av arbetsbelastningar på pooler för Linux-datorer i Azure Batch.
 services: batch
 documentationcenter: python
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: ''
 ms.workload: na
 ms.date: 05/22/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b2257917e2368478beb75957677de23d4157865
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9aa896bfc4c860c87757f9379fc44cc5ee8d18a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Etablera Linux compute-noder i Batch-pooler
 
@@ -57,9 +57,9 @@ När du konfigurerar en virtuell dator en bildreferens kan ange du egenskaperna 
 ### <a name="node-agent-sku"></a>Noden agent SKU
 Agent för Batch-nod är ett program som körs på varje nod i poolen och ger och kommandokontroll gränssnittet mellan noden och Batch-tjänsten. Det finns olika implementeringar av agenten nod kallas SKU: er, för olika operativsystem. I princip när du skapar en konfiguration av virtuell dator du första ange bildreferens virtuella datorn och ange sedan noden agenten att installera avbildningen. Normalt varje nod agent SKU är kompatibel med flera virtuella avbildningar. Här följer några exempel på noden agent SKU: er:
 
-* batch.node.Ubuntu 14.04
+* batch.node.ubuntu 14.04
 * batch.node.centos 7
-* batch.node.Windows amd64
+* batch.node.windows amd64
 
 > [!IMPORTANT]
 > Inte alla virtuella avbildningar som är tillgängliga i Marketplace är kompatibla med de tillgängliga Batch nod agenterna. Använda Batch-SDK: er för att visa tillgängliga noden agenten SKU: er och virtuella avbildningar som de är kompatibla. Finns det [lista virtuella avbildningar](#list-of-virtual-machine-images) senare i den här artikeln för mer information och exempel på hur du hämtar en lista över giltiga bilder vid körning.
@@ -213,28 +213,28 @@ I följande tabell visas de virtuella datorn Marketplace-bilder som är kompatib
 >
 >
 
-| **Publisher** | **Erbjudande** | **Bild SKU** | **Version** | **Noden agent SKU-ID** |
+| **Utgivare** | **Erbjudande** | **Bild SKU** | **Version** | **Noden agent SKU-ID** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| Canonical | UbuntuServer | 14.04.5-LTS | senaste | batch.node.Ubuntu 14.04 |
-| Canonical | UbuntuServer | 16.04.0-LTS | senaste | batch.node.Ubuntu 16.04 |
+| Canonical | UbuntuServer | 14.04.5-LTS | senaste | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 16.04.0-LTS | senaste | batch.node.ubuntu 16.04 |
 | credativ | Debian | 8 | senaste | batch.node.debian 8 |
 | OpenLogic | CentOS | 7.0 | senaste | batch.node.centos 7 |
 | OpenLogic | CentOS | 7.1 | senaste | batch.node.centos 7 |
-| OpenLogic | CentOS HPC | 7.1 | senaste | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1 | senaste | batch.node.centos 7 |
 | OpenLogic | CentOS | 7.2 | senaste | batch.node.centos 7 |
-| Oracle | Oracle Linux | 7.0 | senaste | batch.node.centos 7 |
-| Oracle | Oracle Linux | 7.2 | senaste | batch.node.centos 7 |
-| SUSE | openSUSE | 13.2 | senaste | batch.node.OpenSuSE 13.2 |
-| SUSE | openSUSE Leap | 42.1 | senaste | batch.node.OpenSuSE 42.1 |
-| SUSE | SLES | 12-SP1 | senaste | batch.node.OpenSuSE 42.1 |
-| SUSE | SLES HPC | 12-SP1 | senaste | batch.node.OpenSuSE 42.1 |
-| Microsoft-annonser | Linux-data-vetenskap-vm | linuxdsvm | senaste | batch.node.centos 7 |
-| Microsoft-annonser | standard-data-vetenskap-vm | standard-data-vetenskap-vm | senaste | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008 R2 SP1 | senaste | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | senaste | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | senaste | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter | senaste | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter med behållare | senaste | batch.node.Windows amd64 |
+| Oracle | Oracle-Linux | 7.0 | senaste | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.2 | senaste | batch.node.centos 7 |
+| SUSE | openSUSE | 13.2 | senaste | batch.node.opensuse 13.2 |
+| SUSE | openSUSE-Leap | 42.1 | senaste | batch.node.opensuse 42.1 |
+| SUSE | SLES | 12-SP1 | senaste | batch.node.opensuse 42.1 |
+| SUSE | SLES-HPC | 12-SP1 | senaste | batch.node.opensuse 42.1 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | senaste | batch.node.centos 7 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | senaste | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | senaste | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | senaste | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | senaste | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | senaste | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter med behållare | senaste | batch.node.windows amd64 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>Anslut till Linux-noder via SSH
 Under utveckling eller vid felsökning kan det vara nödvändigt att logga in på noderna i din pool. Du kan inte använda Remote Desktop Protocol (RDP) till skillnad från Windows compute-noder för att ansluta till Linux-noder. Batch-tjänsten kan i stället SSH-åtkomst på varje nod för fjärranslutning.

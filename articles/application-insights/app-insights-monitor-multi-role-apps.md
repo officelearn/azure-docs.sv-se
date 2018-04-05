@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights stöd för flera komponenter, mikrotjänster och behållare | Microsoft Docs"
-description: "Övervakning av appar som består av flera komponenter eller roller för prestanda och användning."
+title: Azure Application Insights stöd för flera komponenter, mikrotjänster och behållare | Microsoft Docs
+description: Övervakning av appar som består av flera komponenter eller roller för prestanda och användning.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 046661bf7903b4e5ea528282ad5170901a45b35c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9b03aff140eec5b355383447f0a815220d6408e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Övervaka flera komponenten program med Application Insights (förhandsversion)
 
@@ -42,11 +42,11 @@ För att få flera komponenten programavbildningen måste att uppnå dessa mål:
 
 * **Installera den senaste förhandsversionen** Application Insights-paketet i varje komponent i programmet. 
 * **Dela en enda Application Insights-resurs** för alla komponenter i ditt program.
-* **Aktivera flera rollen programavbildningen** i bladet förhandsgranskningar.
+* **Aktivera sammansatta programavbildningen** i bladet förhandsgranskningar.
 
 Konfigurera varje komponent i ditt program med en lämplig metod för typen. ([ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), [JavaScript](app-insights-javascript.md).)
 
-### <a name="1-install-the-latest-pre-release-package"></a>1. Installera det senaste förhandsversionen paketet
+### <a name="1-install-the-latest-pre-release-package"></a>1 Installera det senaste förhandsversionen paketet
 
 Uppdatera eller installera Application Insights-paket i projektet för varje serverkomponent. Om du använder Visual Studio:
 
@@ -61,21 +61,21 @@ Uppdatera eller installera Application Insights-paket i projektet för varje ser
     * Microsoft.ApplicationInsights.ServiceFabric.Native - för tillförlitlig tjänster i ServiceFabric program
     * Microsoft.ApplicationInsights.Kubernetes för komponenter som körs i Docker på Kubernetes
 
-### <a name="2-share-a-single-application-insights-resource"></a>2. Dela en enda Application Insights-resurs
+### <a name="2-share-a-single-application-insights-resource"></a>2 Dela en enda Application Insights-resurs
 
 * Högerklicka på ett projekt i Visual Studio och välj **konfigurera Application Insights**, eller **Programinsikter > Konfigurera**. Använd guiden Skapa Application Insights-resurs för det första projektet. Välj samma resurs för efterföljande projekt.
 * Om det finns inga Application Insights-menyn, konfigurera manuellt:
 
    1. I [Azure-portalen](https://portal,azure.com), öppna Application Insights-resurs som du redan har skapats för en annan komponent.
    2. I bladet översikt, öppna Essentials nedrullningsbara fliken och kopiera den **Instrumentation nyckel.**
-   3. Öppna ApplicationInsights.config och infoga i projektet:`<InstrumentationKey>your copied key</InstrumentationKey>`
+   3. Öppna ApplicationInsights.config och infoga i projektet: `<InstrumentationKey>your copied key</InstrumentationKey>`
 
 ![Kopiera nyckeln instrumentation till .config-filen](./media/app-insights-monitor-multi-role-apps/copy-instrumentation-key.png)
 
 
-### <a name="3-enable-multi-role-application-map"></a>3. Aktivera flera rollen programavbildningen
+### <a name="3-enable-composite-application-map"></a>3 Aktivera sammansatta programavbildningen
 
-Öppna resursen för ditt program i Azure-portalen. I bladet förhandsgranskningar aktivera *flera rollen programavbildningen*.
+Öppna resursen för ditt program i Azure-portalen. Klicka på förhandsgranskning för att öppna bladet förhandsgranskningar under rubriken konfigurera underordnade. I bladet förhandsgranskningar aktivera *sammansatta programavbildningen*.
 
 ### <a name="4-enable-docker-metrics-optional"></a>4. Aktivera Docker mätvärden (valfritt) 
 

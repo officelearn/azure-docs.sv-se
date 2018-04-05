@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 894b2234074dcfb262de9033a7728cad3bef2248
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6b3205603b91077ca2c3226dcb78589de37d15cf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Felsökning och vanliga frågor och svar för Application Insights för Java
 Frågor eller problem med [Azure Application Insights i Java][java]? Här följer några tips.
@@ -48,7 +48,7 @@ Frågor eller problem med [Azure Application Insights i Java][java]? Här följe
 * Tittar på rätt AI-resurs? Kontrollera matcha iKey för programmet till den resurs där du förväntar dig telemetri. De ska vara samma.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Alla data som jag förväntade visas inte
-* Öppna kvoter och prissättning bladet och kontrollera om [provtagning](app-insights-sampling.md) är i drift. (100% transmission innebär att provtagning inte är i drift.) Application Insights-tjänsten kan ställas in att godkänna en bråkdel av telemetri som tas emot från din app. Detta gör att inom din månatliga kvoten av telemetri. 
+* Öppna användningen och uppskattade kostnaden sidan och kontrollera om [provtagning](app-insights-sampling.md) är i drift. (100% transmission innebär att provtagning inte är i drift.) Application Insights-tjänsten kan ställas in att godkänna en bråkdel av telemetri som tas emot från din app. Detta gör att inom din månatliga kvoten av telemetri. 
 * Har du SDK provtagning aktiverad? Om Ja, skulle data samlas in vid den angivna för alla tillämpliga typer.
 * Kör du en äldre version av Java SDK? Från och med version 2.0.1, har vi introducerade feltolerans mekanism för att hantera återkommande nätverk och backend-fel samt-datapersistence på lokala enheter.
 * Har du komma begränsats på grund av mycket telemetri? Om du aktiverar loggning INFO, en logg visas meddelandet ”App begränsas”. Vår aktuella gränsen är 32 kB telemetri objekt/sekund.

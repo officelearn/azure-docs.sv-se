@@ -15,15 +15,15 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: e789d3c6e10399491eb055b850a590ae10aacd11
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 85a3898145f7aea5d3f668caeafb62286006230d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="web-apps-overview"></a>Översikt över Web Apps
 
-*Azure App Service Web Apps* (eller bara Web Apps) är en tjänst som kan användas som värd för webbprogram, REST API:er och mobila serverdelar. Du kan utveckla i det språk du föredrar, oavsett om det är .NET, .NET Core, Java, Ruby, Node.js, PHP eller Python. Du kan enkelt köra och skala appar på virtuella Windows- eller Linux-datorer (se [App Service på Linux](containers/app-service-linux-intro.md)). 
+*Azure App Service Web Apps* (eller bara Web Apps) är en tjänst som kan användas som värd för webbprogram, REST API:er och mobila serverdelar. Du kan utveckla i det språk du föredrar, oavsett om det är .NET, .NET Core, Java, Ruby, Node.js, PHP eller Python. Program körs och skalas enkelt i Windows-baserade miljöer. Mer information om Linux-baserade miljöer finns i [App Service i Linux](containers/app-service-linux-intro.md). 
 
 Web Apps lägger inte bara till kraften hos Microsoft Azure i ditt program, t.ex. säkerhet, belastningsutjämning, automatisk skalning och automatiserad hantering. Du kan även dra nytta av dess DevOps-funktioner, t.ex. löpande utveckling från VSTS, GitHub, Docker Hub och andra källor, pakethantering, mellanlagringsmiljöer, anpassade domäner och SSL-certifikat. 
 

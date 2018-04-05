@@ -1,9 +1,9 @@
 ---
-title: "Översikt över Azure aktivitetsloggen | Microsoft Docs"
-description: "Lär dig vad Azure-aktivitetsloggen är och hur du kan använda den för att förstå händelser i din Azure-prenumeration."
+title: Översikt över Azure aktivitetsloggen | Microsoft Docs
+description: Lär dig vad Azure-aktivitetsloggen är och hur du kan använda den för att förstå händelser i din Azure-prenumeration.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: c274782f-039d-4c28-9ddb-f89ce21052c7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: aef427483d647c53ba45688ce33a75f876115d08
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6e373740d6b5af4b3b7d3dca8877c952d79f8b20
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervakaraktiviteten i prenumerationen med Azure-aktivitetsloggen
 Den **Azure-aktivitetsloggen** är en prenumerationslogg som ger inblick i prenumerationsnivån händelser som har inträffat i Azure. Detta omfattar en mängd data från Azure Resource Manager användningsdata till uppdateringar på händelser för Hälsotjänst. Aktivitetsloggen tidigare kallades ”granskningsloggar” eller ”operativa loggar” eftersom de administrativa kategorin rapporter kontroll-plan händelserna för dina prenumerationer. Använder aktivitetsloggen, kan du bestämma den ' vad som, och när ' för alla skrivåtgärder (PUT, POST, ta bort) tas för de resurser i din prenumeration. Du kan också få status för åtgärden och andra relevanta egenskaper. Aktivitetsloggen omfattar inte läsåtgärder (GET) eller åtgärder för resurser som använder klassiskt / ”RDFE” modellen.
@@ -38,7 +38,7 @@ Du kan hämta händelser från din aktivitetsloggen med Azure-portalen, CLI, Pow
 
 > [!NOTE]
 
->  [Aviseringar (förhandsgranskning)](monitoring-overview-unified-alerts.md) erbjuder en förbättrad upplevelse i Skapa och hantera aktivitet loggen Varningsregler för tillfället.  [Läs mer](monitoring-activity-log-alerts-new-experience.md).
+>  [Nyare aviseringar)](monitoring-overview-unified-alerts.md) ger en förbättrad upplevelse när skapa och hantera aktivitet logga Varningsregler.  [Läs mer](monitoring-activity-log-alerts-new-experience.md).
 
 
 Visa följande videoklipp introduktion till aktivitetsloggen.
@@ -126,7 +126,7 @@ Du kan strömma aktivitetsloggen till en Händelsehubb eller lagra dem i ett Lag
   * Service Bus Namespace som du vill att en Händelsehubb skapas för direktuppspelning av dessa händelser.
 
      ![Exportera aktivitetsloggen bladet](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. Klicka på **spara** dessa inställningar ska sparas. Inställningarna tillämpas omedelbart till din prenumeration.
+4. Klicka på **spara** dessa inställningar ska sparas. Inställningarna tillämpas omedelbart på din prenumeration.
 
 ### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Konfigurera loggen profiler med hjälp av Azure PowerShell-Cmdlets
 #### <a name="get-existing-log-profile"></a>Hämta befintlig logg-profil
@@ -141,7 +141,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | Egenskap | Krävs | Beskrivning |
 | --- | --- | --- |
-| Namn |Ja |Namnet på loggen profilen. |
+| namn |Ja |Namnet på loggen profilen. |
 | StorageAccountId |Nej |Resurs-ID för det Lagringskonto där aktivitetsloggen ska sparas. |
 | serviceBusRuleId |Nej |Service Bus regel-ID för Service Bus-namnområde som har skapats i händelsehubbar. Är en sträng med formatet: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Platser |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser för aktivitetsloggen. |

@@ -1,12 +1,12 @@
 ---
 title: Ut data i Azure Cosmos DB med time to live | Microsoft Docs
-description: "Med TTL tillhandahåller Microsoft Azure Cosmos DB möjligheten att låta dokument automatiskt bort från systemet efter en viss tidsperiod."
+description: Med TTL tillhandahåller Microsoft Azure Cosmos DB möjligheten att låta dokument automatiskt bort från systemet efter en viss tidsperiod.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 keywords: Time to live-
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 3737a240d92d9420bac7d42475622182fb425a2b
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 6f8ce4e270b94bf1043c27ba879878e20372ffe7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Data i Azure Cosmos DB samlingar automatiskt med time to live-att gälla
 Program kan skapa och lagra stora mängder data. Vissa av dessa data, t.ex. datorn genereras data, loggar och användaren händelsesessionen information är bara användbara för en bestämd tidsperiod. När data blir överflödiga enligt behov av programmet som det är säkert att rensa data och minska lagringsbehov för ett program.
@@ -49,7 +49,7 @@ Ovanstående logiken kan visas i matrisen följande:
 | --- |:--- |:--- |:--- |
 | TTL-värde saknas i dokumentet |Inget att åsidosätta på dokumentnivå eftersom både dokumentet och samling har något begrepp om TTL-värde. |Inga dokument i den här samlingen upphör att gälla. |Dokument i den här samlingen upphör att gälla efter intervall n tiden. |
 | TTL = -1 i dokumentet |Inget att åsidosätta på dokumentnivå eftersom samlingen inte definierar egenskapen DefaultTTL som ett dokument kan åsidosätta. TTL-värde i ett dokument är icke tolkad av systemet. |Inga dokument i den här samlingen upphör att gälla. |Dokumentet med TTL =-1 i den här samlingen upphör aldrig att gälla. Alla dokument upphör att gälla efter ”n” intervall. |
-| TTL = n i dokumentet |Inget att åsidosätta på dokumentnivå. TTL-värde på ett dokument i icke tolkad av systemet. |Dokumentet har TTL = n upphör att gälla efter intervall n, i sekunder. Andra dokument kommer att ärva intervallet-1 och aldrig går ut. |Dokumentet har TTL = n upphör att gälla efter intervall n, i sekunder. Andra dokument ärver ”n” intervall från samlingen. |
+| TTL = n i dokumentet |Inget att åsidosätta på dokumentnivå. TTL-värde i ett dokument är icke tolkad av systemet. |Dokumentet har TTL = n upphör att gälla efter intervall n, i sekunder. Andra dokument kommer att ärva intervallet-1 och aldrig går ut. |Dokumentet har TTL = n upphör att gälla efter intervall n, i sekunder. Andra dokument ärver ”n” intervall från samlingen. |
 
 ## <a name="configuring-ttl"></a>Konfigurera TTL-värde
 Time to live-är inaktiverat som standard i alla Cosmos DB samlingar och på alla dokument som standard. TTL-värdet kan ställas in via programmering eller i Azure-portalen i den **inställningar** avsnittet för samlingen. 
@@ -155,7 +155,7 @@ Lägga till eller ändra inställningen TTL-värde på en samling ändrar underl
 
 Om du behöver exakt data som returneras, ändras inte TTL-värdet när indexering läget är inställt på lazy. Helst bör du valt konsekvent index för att säkerställa konsekvent frågeresultat. 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor och svar
 **Vad TTL kostar mig?**
 
 Det finns utan extra kostnad för att ange ett TTL-värde i ett dokument.

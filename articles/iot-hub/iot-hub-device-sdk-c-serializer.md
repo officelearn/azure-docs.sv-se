@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT-enhet SDK för C - serialiseraren | Microsoft Docs"
-description: "Hur du använder serialiseraren biblioteket i Azure IoT-enhet SDK för C för att skapa appar för enheter som kommunicerar med en IoT-hubb."
+title: Azure IoT-enhet SDK för C - serialiseraren | Microsoft Docs
+description: Hur du använder serialiseraren biblioteket i Azure IoT-enhet SDK för C för att skapa appar för enheter som kommunicerar med en IoT-hubb.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
 ms.service: iot-hub
 ms.devlang: cpp
@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: yizhon
-ms.openlocfilehash: da9a2dd8bad68c03bb75d1772cf9e5dc539892aa
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 04b5ebf6d8c568fbfd9b291bef95af973ec5d6d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT-enhet SDK för C – mer information om serialiseraren
 Den [först artikel](iot-hub-device-sdk-c-intro.md) i den här serien introduceras de **Azure IoT-enhet SDK för C**. I nästa artikel tillhandahålls en mer detaljerad beskrivning av den [ **IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). Den här artikeln är klar täckning av SDK genom att tillhandahålla en mer detaljerad beskrivning av återstående komponenten: den **serialiseraren** bibliotek.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Inledande artikeln beskrivs hur du använder den **serialiseraren** biblioteket för att skicka händelser till och ta emot meddelanden från IoT-hubb. I den här artikeln vi utöka denna diskussion genom att tillhandahålla en fullständig förklaring av hur du modellera dina data med den **serialiseraren** makrospråk. Artikeln också innehåller mer information om hur biblioteket Serialiserar meddelanden (och i vissa fall hur du kan styra beteendet serialisering). Vi kommer också att beskriva vissa parametrar som du kan ändra som bestämmer storleken på modeller som du skapar.
 

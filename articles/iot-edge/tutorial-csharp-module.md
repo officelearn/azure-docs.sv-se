@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 95ca66f34548f86e25c1e7af331fa88797847906
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 11c737adb6578437a3708bb97397a24114e39585
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Utveckla och distribuera en C# IoT kant-modul till den simulerade enheten - förhandsgranskning
 
@@ -28,7 +28,7 @@ Du kan använda IoT kant-moduler för att distribuera kod som implementerar aff�
 
 Modulen IoT kant som du skapar i den här självstudiekursen filtrerar temperatur data som genereras av enheten. Den endast skickar meddelanden uppströms om är överskrider ett angivet tröskelvärde. Den här typen av analys i utkanten är användbart för att minska mängden data meddelas och lagras i molnet. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure IoT gränsenheten som du skapade i Snabbstart eller första självstudierna.
 * Primärnyckelns anslutningssträng för IoT Edge-enheten.  
@@ -223,6 +223,7 @@ Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET cor
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
+   Användarnamn, lösenord och logga in server som ska användas i det här kommandot finns [Azure-portalen] (https://portal.azure.com). Från **alla resurser**, klickar du på panelen för din Azure-behållaren registret för att öppna dess egenskaper och klicka sedan på **åtkomstnycklar**. Kopiera värdena i den **användarnamn**, **lösenord**, och **inloggningsserver** fält. 
 
 2. VS kod explorer, högerklicka på den **module.json** fil och klicka på **Build och kant Push IoT modulen Docker avbildning**. I popup-listrutan överst i fönstret VS-kod, väljer du den behållare plattformen antingen **amd64** för Linux-behållare eller **windows amd64** för Windows-behållaren. VS-kod och skapar sedan koden, containerize i `FilterModule.dll` och push i registret för behållaren som du angav.
 

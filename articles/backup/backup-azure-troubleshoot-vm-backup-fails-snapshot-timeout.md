@@ -1,12 +1,12 @@
 ---
-title: "Felsöka Azure Backup-fel: Gäst Agent Status otillgänglig | Microsoft Docs"
-description: "Symptom, orsaker och lösningar Azure Backup-fel som rör agent, tillägg och -diskar."
+title: 'Felsöka Azure Backup-fel: Gäst Agent Status otillgänglig | Microsoft Docs'
+description: Symptom, orsaker och lösningar Azure Backup-fel som rör agent, tillägg och -diskar.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
-keywords: "Azure-säkerhetskopiering; VM-agent. Nätverksanslutningen;"
+editor: ''
+keywords: Azure-säkerhetskopiering; VM-agent. Nätverksanslutningen;
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: problem med agenten eller tillägg
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller felsökning som kan hjälpa dig att lösa Azure Ba
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM-agenten kan inte kommunicera med Azure Backup
+## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM-agenten kunde inte kommunicera med Azure Backup
 
 Felmeddelande: ”VM-agenten kunde inte kommunicera med Azure Backup”
 
@@ -78,21 +78,6 @@ När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänst
 **Orsak 4: [går inte att hämta status för ögonblicksbild eller en ögonblicksbild kan inte utföras](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Orsak 5: [tillägget säkerhetskopiering misslyckas med att uppdatera eller läsa in](#the-backup-extension-fails-to-update-or-load)**  
 **Orsak 6: [Backup-tjänsten har inte behörighet att ta bort gamla återställningspunkter på grund av ett lås för resurs-grupp](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
-
-## <a name="disk-configuration-is-not-supported"></a>Diskkonfigurationen stöds inte
-
-Felmeddelande: ”angivna diskkonfigurationen stöds inte”
-
-> [!NOTE]
-> Vi har en privat förhandsgranskning för att stödja säkerhetskopieringar för virtuella datorer som har diskar som är större än 1 TB. Mer information finns i [privat förhandsgranskning för stora diskstöd för säkerhetskopiering av VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
->
->
-
-För närvarande Azure Backup stöder inte diskar som är [större än 1,023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). Om du har diskar som är större än 1 TB:  
-1. [Koppla nya diskar](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) som är mindre än 1 TB.  
-2. Kopiera data från diskar som är större än 1 TB till nya diskar som är mindre än 1 TB.  
-3. Se till att alla data har kopierats. Ta sedan bort de diskar som är större än 1 TB.  
-4. Påbörja säkerhetskopieringen.
 
 ## <a name="causes-and-solutions"></a>Orsaker och lösningar
 

@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 57296d828156184aa36532cd649fbec0c81b5e27
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0e7ab68075fbce729d3905375acce0dace22c483
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Simulera ett fel vid läsåtkomst till redundant lagring
 
-Den här självstudien är del två i en serie.  I den här kursen kan du använda antingen [Fiddler](#simulate-a-failure-with-fiddler) eller [statisk routning](#simulate-a-failure-with-an-invalid-static-route) för att simulera fel för begäranden till den primära slutpunkten i ditt [Read-Access Geo Redundant](../common/storage-redundancy.md#read-access-geo-redundant-storage)-lagringskonto (RA-GRS) och få programmet att läsa från den sekundära slutpunkten.
+Den här självstudien är del två i en serie.  I den här kursen kan du använda antingen [Fiddler](#simulate-a-failure-with-fiddler) eller [statisk routning](#simulate-a-failure-with-an-invalid-static-route) för att simulera fel för begäranden till den primära slutpunkten i ditt [Read-Access Geo Redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)-lagringskonto (RA-GRS) och få programmet att läsa från den sekundära slutpunkten.
 
 ![Scenarioprogram](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
@@ -117,7 +117,7 @@ När det är klart trycker du på **valfri tangent** för att återuppta körnin
 
 
 ## <a name="simulate-a-failure-with-an-invalid-static-route"></a>Simulera ett fel med en felaktig statisk väg 
-Du kan skapa en felaktig statisk väg för alla begäranden till den primära slutpunkten för ditt [Read-Access Geo Redundant](../common/storage-redundancy.md#read-access-geo-redundant-storage)-lagringskonto (RA-GRS). I den här kursen används den lokala värden som gateway för dirigering av begäranden till lagringskontot. När den lokala värden används som gateway kommer alla begäranden till den primära slutpunkt för lagringskontot att utföra en loopback i värden, vilket resulterar i ett fel. Följ stegen nedan för att simulera ett fel och en återställning av den primära slutpunkten med en felaktig statisk väg. 
+Du kan skapa en felaktig statisk väg för alla begäranden till den primära slutpunkten för ditt [Read-Access Geo Redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)-lagringskonto (RA-GRS). I den här kursen används den lokala värden som gateway för dirigering av begäranden till lagringskontot. När den lokala värden används som gateway kommer alla begäranden till den primära slutpunkt för lagringskontot att utföra en loopback i värden, vilket resulterar i ett fel. Följ stegen nedan för att simulera ett fel och en återställning av den primära slutpunkten med en felaktig statisk väg. 
 
 ### <a name="start-and-pause-the-application"></a>Starta och pausa programmet
 

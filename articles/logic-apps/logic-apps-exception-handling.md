@@ -1,24 +1,24 @@
 ---
-title: "Fel- och undantagshantering för Logic Apps i Azure | Microsoft Docs"
-description: "Mönster för fel- och undantagshantering i Logic Apps."
+title: Fel- och undantagshantering för Logic Apps i Azure | Microsoft Docs
+description: Mönster för fel- och undantagshantering i Logic Apps.
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: dereklee
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 2ae4f0ae9782ada23089d364e8a1700144ef5ff7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70dd4e98dbffd9dac27752f0b4c2f5ce4ca70bdc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>Hantera fel och undantag i Logic Apps
 
@@ -42,7 +42,7 @@ Om du vill konfigurera försök principer, om tillämpligt, öppna logik App Des
 
 Mer information om syntax och **indata** avsnittet, finns det [återförsöksprincip avsnittet i arbetsflödesåtgärder och utlösare][retryPolicyMSDN]. Information om begränsningar för återförsök princip finns [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md). 
 
-### <a name="default"></a>Standard
+### <a name="default"></a>Standardvärde
 
 När du inte definierar en återförsöksprincip i den **retryPolicy** avsnittet logikappen använder standardprincipen, som är en [exponentiell intervall princip](#exponential-interval) som skickar upp till fyra återförsök vid exponentiellt öka intervall som skalas 7.5 sekunder. Intervallet är begränsat mellan 5 och 45 sekunder. Den här principen motsvarar principen i det här exemplet HTTP arbetsflödesdefinitionen:
 
@@ -55,16 +55,16 @@ När du inte definierar en återförsöksprincip i den **retryPolicy** avsnittet
         "retryPolicy" : {
             "type": "exponential",
             "count": 4,
-            "interval": "PT7.5S",
+            "interval": "PT7S",
             "minimumInterval": "PT5S",
-            "maximumInterval": "PT45S"
+            "maximumInterval": "PT1H"
         }
     },
     "runAfter": {}
 }
 ```
 
-### <a name="none"></a>Ingen
+### <a name="none"></a>Inget
 
 Om du ställer in **retryPolicy** till **ingen**, misslyckade begäranden försök inte i den här principen.
 
@@ -80,8 +80,8 @@ Om du ställer in **retryPolicy** till **fast**, den här principen försöker e
 | Elementnamn | Krävs | Typ | Beskrivning |
 | ------------ | -------- | ---- | ----------- |
 | typ | Ja | Sträng | **Fast** |
-| antal | Ja | Integer | Antal nya försök, vilket måste vara mellan 1 och 90 | 
-| interval | Ja | Sträng | Återförsöksintervall i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), som måste vara mellan PT5S och PT1D | 
+| antal | Ja | Heltal | Antal nya försök, vilket måste vara mellan 1 och 90 | 
+| intervall | Ja | Sträng | Återförsöksintervall i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), som måste vara mellan PT5S och PT1D | 
 ||||| 
 
 <a name="exponential-interval"></a>
@@ -93,8 +93,8 @@ Om du ställer in **retryPolicy** till **exponentiell**, den här principen för
 | Elementnamn | Krävs | Typ | Beskrivning |
 | ------------ | -------- | ---- | ----------- |
 | typ | Ja | Sträng | **exponential** |
-| antal | Ja | Integer | Antal nya försök, vilket måste vara mellan 1 och 90  |
-| interval | Ja | Sträng | Återförsöksintervall i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), som måste vara mellan PT5S och PT1D. |
+| antal | Ja | Heltal | Antal nya försök, vilket måste vara mellan 1 och 90  |
+| intervall | Ja | Sträng | Återförsöksintervall i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), som måste vara mellan PT5S och PT1D. |
 | minimumInterval | Nej | Sträng | Minsta återförsöksintervall i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), som måste vara mellan PT5S och **intervall** |
 | maximumInterval | Nej | Sträng | Minsta återförsöksintervall i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), som måste vara mellan **intervall** och PT1D | 
 ||||| 
@@ -177,7 +177,7 @@ Fånga fel från ett scope är användbart, men du kanske också vill kontext f�
 
 Den  **@result()** funktionen accepterar en parameter (scope-namn) och returnerar en matris med alla åtgärd resultat från i omfattningen. Åtgärd eller skriva in samma attribut som den  **@actions()** objekt, t.ex åtgärdens starttid, sluttid, status, indata, Korrelations-ID: N och utdata. Om du vill skicka kontext för åtgärder som inte godkänts i ett omfång som du lätt kan koppla en  **@result()** fungerar med en **runAfter** egenskapen.
 
-Att köra en åtgärd *för varje* åtgärden i en omfattning som har en **misslyckades** resultat, och om du vill filtrera matris av resultaten till misslyckade åtgärder du kan koppla  **@result()** med en  **[Filter matris](../connectors/connectors-native-query.md)**  åtgärd och en  **[ForEach](../logic-apps/logic-apps-control-flow-loops.md)**  loop. Du kan ta matrisen filtrerade resultat och utföra en åtgärd för varje fel med hjälp av den **ForEach** loop. 
+Att köra en åtgärd *för varje* åtgärden i en omfattning som har en **misslyckades** resultat, och om du vill filtrera matris av resultaten till misslyckade åtgärder du kan koppla  **@result()** med en **[Filter matris](../connectors/connectors-native-query.md)** åtgärd och en **[ForEach](../logic-apps/logic-apps-control-flow-loops.md)** loop. Du kan ta matrisen filtrerade resultat och utföra en åtgärd för varje fel med hjälp av den **ForEach** loop. 
 
 Här är ett exempel, följt av en detaljerad förklaring som skickar en HTTP POST-begäran med brödtext för svar för alla åtgärder som inte omfattas ”My_Scope”:
 

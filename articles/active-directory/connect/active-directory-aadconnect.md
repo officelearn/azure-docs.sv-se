@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 6f0b5cd7b981cddeda7e5630967f5f8dba18bb98
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: febe055348efb49ea1e6bc670333f435de654cfc
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrerar dina lokala kataloger med Azure Active Directory
 Azure AD Connect integrerar dina lokala kataloger med Azure Active Directory. På så sätt kan du erbjuda en gemensam identitet för dina användare för Office 365- och Azure SaaS-program som är integrerade med Azure AD. I det här avsnittet beskrivs planerings-, distributions- och användningsstegen. Det är en samling länkar till avsnitt relaterade till det här området.
@@ -88,7 +88,7 @@ Azure AD Connect har flera funktioner som du kan aktivera om du vill eller som �
 
 [Filtrering](active-directory-aadconnectsync-configure-filtering.md) används när du vill begränsa vilka objekt som synkroniseras till Azure AD. Som standard synkroniseras alla användare, kontakter, grupper och Windows 10-datorer. Du kan ändra filtreringen baserat på domäner, organisationsenheter eller attribut.
 
-[Lösenordssynkronisering](active-directory-aadconnectsync-implement-password-synchronization.md) synkroniserar lösenordshashen i Active Directory till Azure AD. Slutanvändare kan använda samma lösenord lokalt och i molnet men hanterar det endast på en plats. Eftersom din lokala Active Directory används som auktoritet kan du också använda en egen lösenordsprincip.
+[Synkronisering av lösenordshash](active-directory-aadconnectsync-implement-password-hash-synchronization.md) synkroniserar lösenordshashen i Active Directory med Azure AD. Slutanvändare kan använda samma lösenord lokalt och i molnet men hanterar det endast på en plats. Eftersom din lokala Active Directory används som auktoritet kan du också använda en egen lösenordsprincip.
 
 Med [tillbakaskrivning av lösenord](../active-directory-passwords-getting-started.md) kan dina användare ändra och återställa sina lösenord i molnet och tillämpa din lokala lösenordsprincip.
 
@@ -102,7 +102,7 @@ Funktionen [Automatisk uppgradering](active-directory-aadconnect-feature-automat
 |Avsnitt |Länk|  
 | --- | --- |
 |Konfigurera filtrering | [Azure AD Connect-synkronisering: Konfigurera filtrering](active-directory-aadconnectsync-configure-filtering.md)|
-|Lösenordssynkronisering | [Azure AD Connect-synkronisering: Implementera lösenordssynkronisering](active-directory-aadconnectsync-implement-password-synchronization.md)|
+|Synkronisering av lösenordshash | [Azure AD Connect-synkronisering: Implementera synkronisering av lösenordshash](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
 |Tillbakaskrivning av lösenord | [Komma igång med lösenordshantering](../active-directory-passwords-getting-started.md)|
 |Tillbakaskrivning av enheter | [Aktivera tillbakaskrivning av enheter i Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
 |Förhindra oavsiktliga borttagningar | [Azure AD Connect-synkronisering: Förhindra oavsiktliga borttagningar](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|

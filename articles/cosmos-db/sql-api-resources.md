@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f64d79cd3929a279c7e279e74b0b21d163c0fa45
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 948fc84db2fd2d6f2059f9807b84194ebac59472
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Hierarkisk Azure Cosmos DB-resursmodell och huvudkoncept
 
@@ -57,7 +57,7 @@ När du börjar arbeta med resurser, måste du [skapa ett databaskonto](create-s
 | Databaskonto |Ett databaskonto är associerad med en uppsättning databaser och en fast mängd blob-lagring för bifogade filer. Du kan skapa en eller flera databasen konton med hjälp av din Azure-prenumeration. Mer information finns i [sida med priser](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 | Databas |En databas är en logisk behållare för dokumentlagring, partitionerad över samlingarna. Det är en användarbehållare. |
 | Användare |Det logiska namnområden scope behörigheter. |
-| Behörighet |En autentiseringstoken som associeras med en användare för åtkomst till en viss resurs. |
+| Behörigheter |En autentiseringstoken som associeras med en användare för åtkomst till en viss resurs. |
 | Samling |En samling är en behållare för JSON-dokument och associerad JavaScript-applogik. En samling är en fakturerbar enhet där [kostnaden](performance-levels.md) bestäms av samlingens prestandanivå. Samlingar kan omfatta en eller flera partitioner/servrar och skalas för att hantera praktiskt taget obegränsade volymer av lagring eller dataflöde. |
 | Lagrad procedur |Programlogik skriven i JavaScript, som är registrerade med en samling och transaktionellt köras inom databasmotorn. |
 | Utlösare |Programlogik som skrivits i JavaScript utföras före eller efter antingen ett insert-, ersätta eller ta bort igen. |
@@ -158,7 +158,7 @@ Som en del av etablera och hantera ett konto kan du konfigurera och läsa följa
     </tbody>
 </table>
 
-Förutom etablering, konfigurera och hantera ditt konto i Azure Portal, du kan också programmässigt skapa och hantera Cosmos DB databasen konton med hjälp av den [Azure Cosmos DB REST API: er](/rest/api/documentdb/) samt [client SDK](sql-api-sdk-dotnet.md).  
+Förutom etablering, konfigurera och hantera ditt konto i Azure Portal, du kan också programmässigt skapa och hantera Cosmos DB databasen konton med hjälp av den [Azure Cosmos DB REST API: er](/rest/api/cosmos-db/) samt [client SDK](sql-api-sdk-dotnet.md).  
 
 ## <a name="databases"></a>Databaser
 En Cosmos-DB-databas är en logisk behållare för en eller flera samlingar och användare, som visas i följande diagram. Du kan skapa valfritt antal databaser under en Cosmos-DB-databaskonto med erbjudandet begränsningar.  
@@ -177,7 +177,7 @@ Du kan skapa valfritt antal samlingar i en databas, upp till erbjudandet. Varje 
 
 En Azure Cosmos-DB-databas är också en behållare för användare. En användare i sin tur är ett logiskt namnområde för en uppsättning behörigheter som ger detaljerad behörighet och åtkomst till samlingar, dokument och bifogade filer.  
 
-Eftersom andra resurser i Azure Cosmos DB resursmodell databaser kan skapas, ersätts, tas bort, läsa eller räkna upp enkelt med antingen den [REST API: er](/rest/api/documentdb/) eller någon av de [klient-SDK: er](sql-api-sdk-dotnet.md). Azure Cosmos-DB garanterar stark konsekvens för läsning eller en fråga till metadata för en resurs i databasen. Ta bort en databas automatiskt garanterar att du inte kan komma åt någon av de samlingar eller användare som finns i den.   
+Eftersom andra resurser i Azure Cosmos DB resursmodell databaser kan skapas, ersätts, tas bort, läsa eller räkna upp enkelt med antingen den [REST API: er](/rest/api/cosmos-db/) eller någon av de [klient-SDK: er](sql-api-sdk-dotnet.md). Azure Cosmos-DB garanterar stark konsekvens för läsning eller en fråga till metadata för en resurs i databasen. Ta bort en databas automatiskt garanterar att du inte kan komma åt någon av de samlingar eller användare som finns i den.   
 
 ## <a name="collections"></a>Samlingar
 En Cosmos-DB-samling är en behållare för JSON-dokument. 
@@ -195,7 +195,7 @@ Indexprincip för varje samling kan du kompromissa prestanda och lagring som är
 * Välj om du vill inkludera eller exkludera specifika sökvägar eller mönster i dokument från indexet. Du kan respektive åstadkomma detta genom att inställningen includedPaths och excludedPaths på indexingPolicy i en samling. Du kan också konfigurera lagrings- och prestandakrav avvägningarna för intervall och hash för angiven sökväg mönster. 
 * Välj mellan synkron (konsekvent) och uppdateringar av index för asynkron (lazy). Indexet uppdateras synkront som standard på varje insert-, ersätta eller ta bort ett befintligt dokument i samlingen. Detta gör att frågorna ta hänsyn till samma konsekvensnivå som dokumentet läsningar. Du kan konfigurera vissa samlingar för att uppdatera deras index lazy medan Azure Cosmos DB skrivåtgärder optimerad och stöder varaktigt volymer av dokumentet skrivningar tillsammans med synkron index underhåll och betjänar konsekvent frågor. Lazy indexering förstärker skrivprestanda ytterligare och är idealisk för bulk införandet scenarier för främst frekventa Läs samlingar.
 
-Indexprincip kan ändras genom att köra en PUT på samlingen. Detta kan vara uppnås antingen via den [klient-SDK](sql-api-sdk-dotnet.md), [Azure-portalen](https://portal.azure.com) eller [REST API: er](/rest/api/documentdb/).
+Indexprincip kan ändras genom att köra en PUT på samlingen. Detta kan vara uppnås antingen via den [klient-SDK](sql-api-sdk-dotnet.md), [Azure-portalen](https://portal.azure.com) eller [REST API: er](/rest/api/cosmos-db/).
 
 ### <a name="querying-a-collection"></a>Fråga till en samling
 Dokumenten inom en samling kan ha godtyckliga scheman och du kan fråga dokument i en samling utan att ange något schema eller sekundärindex förskott. Du kan fråga en samling med hjälp av den [referens för Azure Cosmos-Databasens SQL-syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx), vilket ger omfattande hierarkiska relationella och spatial operatorer och utvidgas via JavaScript-baserade UDF: er. JSON-grammatik gör det möjligt för att modellera JSON-dokument som träd med etiketter som trädnoder. Både SQL API-metoder för automatisk indexering samt Azure Cosmos DB SQL dialect utnyttjas. SQL-frågespråket består av tre huvudsakliga aspekter:   
@@ -204,7 +204,7 @@ Dokumenten inom en samling kan ha godtyckliga scheman och du kan fråga dokument
 2. En delmängd av relationella operations inklusive sammansättning, filter, projektioner, mängder och self kopplingar. 
 3. Ren JavaScript-baserade UDF: er som fungerar med (1) och (2).  
 
-Azure Cosmos DB frågemodell försöker göra en avvägning mellan funktionerna, effektivitet och enkelhet. Databasmotorn Azure Cosmos DB internt kompileras och körs SQL-fråga uttryck. Du kan fråga en samling med hjälp av den [REST API: er](/rest/api/documentdb/) eller någon av de [client SDK](sql-api-sdk-dotnet.md). .NET SDK innehåller en LINQ-providern.
+Azure Cosmos DB frågemodell försöker göra en avvägning mellan funktionerna, effektivitet och enkelhet. Databasmotorn Azure Cosmos DB internt kompileras och körs SQL-fråga uttryck. Du kan fråga en samling med hjälp av den [REST API: er](/rest/api/cosmos-db/) eller någon av de [client SDK](sql-api-sdk-dotnet.md). .NET SDK innehåller en LINQ-providern.
 
 > [!TIP]
 > Du kan prova att använda SQL-API och köra SQL-frågor mot vår datauppsättning i den [Query Playground](https://www.documentdb.com/sql/demo).
@@ -226,7 +226,7 @@ JavaScript-logik som registrerats på en samlingsnivå kan sedan utfärda databa
 
 Möjligheten att köra JavaScript direkt i databasmotorn i samma adressutrymme som buffertpoolen kan performant och transaktionell körning av databasåtgärder mot dokumenten i en samling. Dessutom Cosmos-databasen databasmotor gör ett djupgående åtagande att JSON och JavaScript åtgärdar eventuella impedans matchningsfel mellan de typ av program och databasen.   
 
-Efter att en samling kan du registrera lagrade procedurer, utlösare och UDF: er med en samling med hjälp av den [REST API: er](/rest/api/documentdb/) eller någon av de [client SDK](sql-api-sdk-dotnet.md). Du kan referera till och köra dem efter registreringen. Överväg följande lagrade procedur helt skrivna i JavaScript, koden nedan tar två argument (namn och författarens namn) och skapar ett nytt dokument, frågar om ett dokument och uppdaterar sin – alla inom en implicit ACID-transaktion. Om en JavaScript-undantagsfel utlöses när som helst under körningen avbryts hela transaktionen.
+Efter att en samling kan du registrera lagrade procedurer, utlösare och UDF: er med en samling med hjälp av den [REST API: er](/rest/api/cosmos-db/) eller någon av de [client SDK](sql-api-sdk-dotnet.md). Du kan referera till och köra dem efter registreringen. Överväg följande lagrade procedur helt skrivna i JavaScript, koden nedan tar två argument (namn och författarens namn) och skapar ett nytt dokument, frågar om ett dokument och uppdaterar sin – alla inom en implicit ACID-transaktion. Om en JavaScript-undantagsfel utlöses när som helst under körningen avbryts hela transaktionen.
 
     function businessLogic(name, author) {
         var context = getContext();
@@ -279,10 +279,10 @@ Observera att eftersom databasen förstår internt JSON och JavaScript, det finn
 
 Lagrade procedurer och utlösare interagera med en samling och dokument i en samling via en väldefinierad objektmodell som visar den aktuella kontexten i samlingen.  
 
-Samlingar i SQL-API kan skapas, tagits bort, läs eller uppräknade enkelt med antingen den [REST API: er](/rest/api/documentdb/) eller någon av de [klient-SDK: er](sql-api-sdk-dotnet.md). SQL-API ger alltid stark konsekvens för läsning eller en fråga till metadata för en samling. Om du tar bort en samling automatiskt säkerställer att du kan inte komma åt dokument, bifogade filer, lagrade procedurer, utlösare och UDF: er som finns i den.   
+Samlingar i SQL-API kan skapas, tagits bort, läs eller uppräknade enkelt med antingen den [REST API: er](/rest/api/cosmos-db/) eller någon av de [klient-SDK: er](sql-api-sdk-dotnet.md). SQL-API ger alltid stark konsekvens för läsning eller en fråga till metadata för en samling. Om du tar bort en samling automatiskt säkerställer att du kan inte komma åt dokument, bifogade filer, lagrade procedurer, utlösare och UDF: er som finns i den.   
 
 ## <a name="stored-procedures-triggers-and-user-defined-functions-udf"></a>Lagrade procedurer, utlösare och användaren definierat funktioner (UDF)
-Enligt beskrivningen i föregående avsnitt, kan du skriva programlogiken till att köras direkt i en transaktion i databasmotorn. Logik för programmet kan vara helt skrivna i JavaScript och kan modelleras som en lagrad procedur, utlösare eller en UDF. JavaScript-kod i en lagrad procedur eller en utlösare kan infoga, Ersätt, ta bort, läs eller fråga dokument i en samling. Å andra sidan JavaScript inom en UDF inte insert-, ersätta eller ta bort dokument. UDF: Räkna upp dokument för en frågeresultatet och skapar en annan resultatuppsättning. Azure Cosmos DB tillämpar en strikt reservation-baserade resurs styrning för flera innehavare. Alla lagrade procedurer, utlösare och en UDF hämtar en fast quantum av systemresurser med sitt arbete. Dessutom lagrade procedurer, utlösare och UDF: er kan inte länka mot externa JavaScript-bibliotek och övriga om de överskrider budgetarna resurs tilldelas. Du kan registrera, avregistrera lagrade procedurer, utlösare och UDF: er med en samling med hjälp av REST-API: er.  Vid registreringen en lagrad procedur, utlösare eller en UDF före kompileras och lagras som bytekod genomförs senare. Följande ssection illustrateshow som du kan använda Azure Cosmos DB JavaScript SDK för att registrera, köra och avregistrera en lagrad procedur, utlösare och en UDF. JavaScript SDK är en enkel omslutning över den [REST API: er](/rest/api/documentdb/). 
+Enligt beskrivningen i föregående avsnitt, kan du skriva programlogiken till att köras direkt i en transaktion i databasmotorn. Logik för programmet kan vara helt skrivna i JavaScript och kan modelleras som en lagrad procedur, utlösare eller en UDF. JavaScript-kod i en lagrad procedur eller en utlösare kan infoga, Ersätt, ta bort, läs eller fråga dokument i en samling. Å andra sidan JavaScript inom en UDF inte insert-, ersätta eller ta bort dokument. UDF: Räkna upp dokument för en frågeresultatet och skapar en annan resultatuppsättning. Azure Cosmos DB tillämpar en strikt reservation-baserade resurs styrning för flera innehavare. Alla lagrade procedurer, utlösare och en UDF hämtar en fast quantum av systemresurser med sitt arbete. Dessutom lagrade procedurer, utlösare och UDF: er kan inte länka mot externa JavaScript-bibliotek och övriga om de överskrider budgetarna resurs tilldelas. Du kan registrera, avregistrera lagrade procedurer, utlösare och UDF: er med en samling med hjälp av REST-API: er.  Vid registreringen en lagrad procedur, utlösare eller en UDF före kompileras och lagras som bytekod genomförs senare. Följande ssection illustrateshow som du kan använda Azure Cosmos DB JavaScript SDK för att registrera, köra och avregistrera en lagrad procedur, utlösare och en UDF. JavaScript SDK är en enkel omslutning över den [REST API: er](/rest/api/cosmos-db/). 
 
 ### <a name="registering-a-stored-procedure"></a>Registrera en lagrad procedur
 Registrering av en lagrad procedur skapar en ny resurs lagrad procedur på en samling via HTTP POST.  
@@ -410,7 +410,7 @@ Avregistrerar en UDF görs bara genom att utfärda ett HTTP DELETE mot en befint
             console.log("Error");
         });
 
-Även om kodavsnitt ovan visade registrering (POST), avregistreringen (PUT), Läs-/ Liståtgärder (GET) och körningen (POST) via den [JavaScript SDK](https://github.com/Azure/azure-documentdb-js), du kan också använda den [REST API: er](/rest/api/documentdb/) eller andra [client SDK](sql-api-sdk-dotnet.md). 
+Även om kodavsnitt ovan visade registrering (POST), avregistreringen (PUT), Läs-/ Liståtgärder (GET) och körningen (POST) via den [JavaScript SDK](https://github.com/Azure/azure-documentdb-js), du kan också använda den [REST API: er](/rest/api/cosmos-db/) eller andra [client SDK](sql-api-sdk-dotnet.md). 
 
 ## <a name="documents"></a>Dokument
 Du kan infoga, Ersätt, ta bort, Läs, räkna upp och fråga godtyckliga JSON-dokument i en samling. Azure Cosmos-DB tvingade inte alla scheman och kräver inte sekundärindex för att stödja frågealternativ över dokument i en samling. Den maximala storleken för ett dokument är 2 MB.   
@@ -454,7 +454,7 @@ Oavsett specifika horisontell partitionering strategin du, kan du modellera fakt
 
 Precis som alla andra resurser, användare i Azure Cosmos DB kan skapas, ersätts, tas bort, läsa eller räkna upp enkelt använda REST API: er eller någon av klient-SDK:. Azure Cosmos-DB ger alltid stark konsekvens för läsning eller en fråga till metadata för en användarresurs. Det är värt pekar på att ta bort en användare automatiskt garanterar att du inte kan komma åt någon av de behörigheter som finns i den. Även om Azure Cosmos DB återtar kvoten av behörigheter som en del av den borttagna användaren i bakgrunden, borttagna behörigheter är tillgänglig direkt igen som du kan använda.  
 
-## <a name="permissions"></a>Behörigheter
+## <a name="permissions"></a>Behörighet
 Ur ett access control, resurser, till exempel databasen konton, databaser, användare och behörigheten anses *administrativa* resurser eftersom de kräver administratörsbehörighet. Å andra sidan resurser inklusive samlingarna, dokument, bifogade filer, lagrade procedurer, utlösare och UDF: er omfång under en viss databas och anses vara *programresurser*. Auktoriseringsmodellen som motsvarar de två typerna av resurser och de roller som kan komma åt dem (nämligen administratörer och användare) definierar två typer av *åtkomstnycklar*: *huvudnyckeln* och  *Resursnyckeln*. Huvudnyckeln är en del av kontot och har angetts för utvecklare (eller administratör) som etablerar databaskontot. Den här huvudnyckeln har administratören semantik i att den kan användas för att bevilja åtkomst till både administrativa och program. En Resursnyckeln är däremot ett detaljerade åtkomstnyckel som ger åtkomst till en *specifika* programresursen. Det innebär den samlar in relationen mellan användare av en databas och vilka behörigheter användaren har för en viss resurs (exempelvis samling dokument, bifogad fil, lagrade procedurer, utlösare eller UDF).   
 
 Det enda sättet att hämta en Resursnyckeln är genom att skapa en behörighet resurs under en viss användare. Observera att för att skapa eller hämta behörighet, en huvudnyckel måste vara angiven på authorization-huvud. En behörighet resurs kopplar samman resursen, dess åtkomst och användaren. När du har skapat en behörighet resurs behöver användaren bara finns nyckeln associerad resurs för att få åtkomst till den aktuella resursen. Därför kan en Resursnyckeln ses som en logisk och compact representation av resursen behörighet.  

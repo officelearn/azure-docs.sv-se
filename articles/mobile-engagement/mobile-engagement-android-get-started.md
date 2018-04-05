@@ -1,11 +1,11 @@
 ---
-title: "Komma igång med Azure Mobile Engagement för Andoid-appar"
-description: "Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Android-appar."
+title: Komma igång med Azure Mobile Engagement för Andoid-appar
+description: Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Android-appar.
 services: mobile-engagement
 documentationcenter: android
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3c286c6d-cfef-4e3e-9b2c-715429fe82db
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,19 +14,24 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 2c5d9c5458b77263a5d1da93e5305e61999f229f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 4eda8129e03e4880e168f7c154c7236da028e81e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Komma igång med Azure Mobile Engagement för Android-appar
+# <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Kom igång med Azure Mobile Engagement för Android-appar
+> [!IMPORTANT]
+> Azure Mobile Engagement dras tillbaka den 31 mars 2018. Den här sidan tas bort strax efter det.
+> 
+
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 I det här avsnittet beskrivs hur du använder Azure Mobile Engagement för att förstå appanvändningen, och hur du skickar push-meddelanden till segmenterade användare i en Android-app.
 I den här självstudiekursen visas ett enkelt scenario för sändning med Mobile Engagement. I självstudiekursen skapar du en tom Android-app som samlar in grundläggande data och tar emot push-meddelanden med Google Cloud Messaging (GCM).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För den här kursen krävs [Android Developer Tools](https://developer.android.com/sdk/index.html) (utvecklingsverktyg för Android) som omfattar Android Studio Integrated Development Environment och den senaste Android-plattformen.
 
 Du behöver även [Mobile Engagement Android SDK](https://aka.ms/vq9mfn).

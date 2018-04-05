@@ -1,6 +1,6 @@
 ---
-title: "Övervaka Azure SQL datasynkronisering med OMS Log Analytics | Microsoft Docs"
-description: "Lär dig hur du övervakar Azure SQL Data Sync med hjälp av OMS logganalys"
+title: Övervaka Azure SQL datasynkronisering (förhandsversion) med OMS Log Analytics | Microsoft Docs
+description: Lär dig att övervaka Azure SQL Data Sync (förhandsversion) med hjälp av OMS logganalys
 services: sql-database
 ms.date: 11/07/2017
 ms.topic: article
@@ -9,17 +9,17 @@ author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 423614227b16ad6cfa6dadfab1c5f2b93c5bbe62
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c106d5bbea118c9b78cbccee187b8eb5c347f232
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Övervaka SQL datasynkronisering (förhandsversion) med OMS logganalys 
 
 I aktivitetsloggen SQL datasynkronisering och identifiera fel och varningar genom tvungen du tidigare att kontrollera SQL datasynkronisering manuellt i Azure-portalen eller Använd PowerShell eller REST API. Följ stegen i den här artikeln för att konfigurera en anpassad lösning som förbättrar datasynkronisering övervakning upplevelse. Du kan anpassa den här lösningen så att den passar din situation.
 
-En översikt över SQL datasynkronisering finns [synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering (förhandsgranskning)](sql-database-sync-data.md).
+En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync (förhandsversion)](sql-database-sync-data.md).
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Instrumentpanelen för övervakning för alla synkroniseringsgrupper 
 
@@ -53,7 +53,7 @@ Hämta följande två exemplen:
 
 -   [Synkronisera loggen OMS datavy](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Kontrollera att du har ställt in följande saker:
 
@@ -190,20 +190,20 @@ Hämta kodexempel som beskrivs i den här artikeln från följande platser:
 -   [Synkronisera loggen OMS datavy](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Nästa steg
-För mer information om SQL-datasynkronisering, se:
+Mer information om SQL Data Sync finns i:
 
--   [Synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering](sql-database-sync-data.md)
--   [Konfigurera Azure SQL datasynkronisering](sql-database-get-started-sql-data-sync.md)
--   [Metodtips för Azure SQL-datasynkronisering](sql-database-best-practices-data-sync.md)
--   [Felsökning av problem med Azure SQL-datasynkronisering](sql-database-troubleshoot-data-sync.md)
+-   [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)
+-   [Konfigurera Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Metodtips för Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
--   Slutför PowerShell-exempel som visar hur du konfigurerar SQL datasynkronisering:
+-   Slutför PowerShell-exempel som visar hur du konfigurerar SQL Data Sync:
     -   [Använd PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
 
--   [Hämta SQL Data Sync REST API-dokumentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [Ladda ned REST API-dokumentation för SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
-För mer information om SQL-databasen, se:
+Mer information om SQL Database finns i:
 
--   [Översikt över SQL-databas](sql-database-technical-overview.md)
--   [Livscykelhantering för databasen](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Översikt över SQL Database](sql-database-technical-overview.md)
+-   [Livscykelhantering för databas](https://msdn.microsoft.com/library/jj907294.aspx)

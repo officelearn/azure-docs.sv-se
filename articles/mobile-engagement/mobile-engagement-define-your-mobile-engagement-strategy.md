@@ -1,11 +1,11 @@
 ---
-title: "Definiera en strategi för Mobile Engagement | Microsoft Docs"
-description: "Lär dig hur du integrerar och optimerar Azure Mobile Engagement med analyser och push-meddelanden."
+title: Definiera en strategi för Mobile Engagement | Microsoft Docs
+description: Lär dig hur du integrerar och optimerar Azure Mobile Engagement med analyser och push-meddelanden.
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7533e318-81b9-4360-aace-b7be8225985b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: db68bd3ebf7efde1d23820445f07c83c8c27dc20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 494dd27acfd59eb79da13dae9bbbe0f80ee41370
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="define-your-mobile-engagement-strategy"></a>Definiera en strategi för Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement dras tillbaka den 31 mars 2018. Den här sidan tas bort strax efter det.
+> 
+
 *Alla som skapar appar vill att folk ska använda dem.*
 
 Vi tror att du har lagt ned mycket tid och möda på att skapa en riktigt bra app som alla gillar. Förmodligen har du också satsat en hel del pengar på att marknadsföra den och få fler användare. I början är det otroligt spännande att se hur antalet användare bara växer och växer, men så plötsligt börjar trenden ge vika och du märker av en tydlig nedgång i användningen. *Det är här som Azure Mobile Engagement kommer in!* Vi hjälper dig att behålla användarna och att förbättra din app genom testning och nya insikter.

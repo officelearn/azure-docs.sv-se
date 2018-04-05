@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 300b9b7786c17972c5c48df7e5b6d28491adc095
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d0614e2eae0f60068e69b7a4687fc62fbe082c64
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -30,7 +30,7 @@ Samplingsfrekvensen minskar kostnaderna för trafik och data och hjälper dig at
 ## <a name="in-brief"></a>Kort sagt:
 * Sampling behåller 1 i *n* registrerar och ignorerar resten. Det kan till exempel lagra 1: 5 händelser, en samplingsfrekvensen 20%. 
 * Sampling sker automatiskt om programmet skickar mycket telemetri i ASP.NET web server apps.
-* Du kan också ange provtagning manuellt, antingen i portalen på sidan prisnivå; eller i SDK för ASP.NET i .config-fil. eller i Java SDK i filen ApplicationInsights.xml också minska nätverkstrafiken.
+* Du kan också ange provtagning manuellt, antingen i portalen på användningen och beräknade kostnader för sidan. eller i SDK för ASP.NET i .config-fil. eller i Java SDK i filen ApplicationInsights.xml också minska nätverkstrafiken.
 * Om du loggar anpassade händelser och du vill kontrollera att en uppsättning händelser är antingen bevaras eller tas bort tillsammans, se till att de har samma åtgärds-ID-värde.
 * Sampling divisorn *n* rapporteras i varje post i egenskapen `itemCount`, som i sökningen visas under namnet ”begäran antal” eller ”händelseantal”. När provtagning inte är i drift, `itemCount==1`.
 * Om du skriver Analytics-frågor, bör du [ta hänsyn till provtagning](app-insights-analytics-tour.md#counting-sampled-data). I synnerhet i stället för bara räknar poster, du bör använda `summarize sum(itemCount)`.
@@ -49,7 +49,7 @@ Det här formuläret för provtagning fungerar på den plats där telemetri frå
 
 Använd den här typen av samplingsfrekvensen om din app ofta färdas över månatliga kvoten och du inte har möjlighet att använda någon av SDK-baserade typer för provtagning. 
 
-Ange samplingsfrekvensen i kvoter och prissättning bladet:
+Ange samplingsfrekvensen i användnings- och uppskattade kostnaderna sidan:
 
 ![I bladet program Översikt Klicka på inställningar, kvot, prover, välj sedan en samplingsfrekvensen, och klicka på Uppdatera.](./media/app-insights-sampling/04.png)
 

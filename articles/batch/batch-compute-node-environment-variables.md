@@ -1,22 +1,22 @@
 ---
-title: "Azure Batch compute-nod miljövariabler | Microsoft Docs"
-description: "Compute-nod miljö variabelreferens för Azure Batch Analytics."
+title: Azure Batch compute-nod miljövariabler | Microsoft Docs
+description: Compute-nod miljö variabelreferens för Azure Batch Analytics.
 services: batch
-author: tamram
-manager: timlt
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 05/05/2017
-ms.author: tamram
-ms.openlocfilehash: 29f642754430957e77ef68946f721f8e15dba065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: ca8d6a6484cd1f145e7d807681bf2d012f2399e0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch compute-nod miljövariabler
 Den [Azure Batch-tjänsten](https://azure.microsoft.com/services/batch/) anger följande miljövariabler för compute-noder. Du kan referera till dessa miljövariabler i aktiviteten kommandorader och i program och skript som körs av kommandorader.
@@ -40,11 +40,11 @@ Kommandorader som körs av uppgifter på compute-noder gör inte köras under et
 | Variabelnamn                     | Beskrivning                                                              | Tillgänglighet | Exempel |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | Namnet på Batch-kontot som aktiviteten tillhör.                  | Alla aktiviteter.   | mybatchaccount |
-| AZ_BATCH_CERTIFICATES_DIR       | En katalog i den [arbetskatalog för aktiviteten] [ files_dirs] i vilka certifikat som lagras för Linux compute-noder. Observera att den här miljövariabeln inte gäller för Windows compute-noder.                                                  | Alla aktiviteter.   |  /mnt/batch/Tasks/workitems/batchjob001/Job-1/task001/certs |
+| AZ_BATCH_CERTIFICATES_DIR       | En katalog i den [arbetskatalog för aktiviteten] [ files_dirs] i vilka certifikat som lagras för Linux compute-noder. Observera att den här miljövariabeln inte gäller för Windows compute-noder.                                                  | Alla aktiviteter.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_JOB_ID                 | ID:t för jobbet som aktiviteten hör till. | Alla aktiviteter utom starta uppgiften. | batchjob001 |
 | AZ_BATCH_JOB_PREP_DIR           | Den fullständiga sökvägen till jobbförberedelseuppgiften [aktivitet directory] [ files_dirs] på noden. | Alla aktiviteter utom start och aktiviteten jobbet förberedelser. Endast tillgänglig om jobbet har konfigurerats med en förberedelse för projektaktivitet. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
 | AZ_BATCH_JOB_PREP_WORKING_DIR   | Den fullständiga sökvägen till jobbförberedelseuppgiften [arbetskatalog för aktiviteten] [ files_dirs] på noden. | Alla aktiviteter utom start och aktiviteten jobbet förberedelser. Endast tillgänglig om jobbet har konfigurerats med en förberedelse för projektaktivitet. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
-| AZ_BATCH_NODE_ID                | ID för den nod som har tilldelats aktiviteten. | Alla aktiviteter. | TVM-1219235766_3-20160919t172711z |
+| AZ_BATCH_NODE_ID                | ID för den nod som har tilldelats aktiviteten. | Alla aktiviteter. | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_ROOT_DIR          | Den fullständiga sökvägen till roten för alla [Batch-kataloger] [ files_dirs] på noden. | Alla aktiviteter. | C:\user\tasks |
 | AZ_BATCH_NODE_SHARED_DIR        | Den fullständiga sökvägen till den [delade katalogen] [ files_dirs] på noden. Alla aktiviteter som utförs på en nod har åtkomst till den här katalogen. Uppgifter som utförs på andra noder har inte fjärråtkomst till den här katalogen (det inte är en ”delad” nätverkskatalog). | Alla aktiviteter. | C:\user\tasks\shared |
 | AZ_BATCH_NODE_STARTUP_DIR       | Den fullständiga sökvägen till den [starta uppgiften directory] [ files_dirs] på noden. | Alla aktiviteter. | C:\user\tasks\startup |
@@ -52,7 +52,7 @@ Kommandorader som körs av uppgifter på compute-noder gör inte köras under et
 | AZ_BATCH_TASK_DIR               | Den fullständiga sökvägen till den [aktivitet directory] [ files_dirs] på noden. Den här katalogen innehåller det `stdout.txt` och `stderr.txt` för uppgiften och AZ_BATCH_TASK_WORKING_DIR. | Alla aktiviteter. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | ID:t för den aktuella aktiviteten. | Alla aktiviteter utom starta uppgiften. | task001 |
 | AZ_BATCH_TASK_WORKING_DIR       | Den fullständiga sökvägen till den [arbetskatalog för aktiviteten] [ files_dirs] på noden. Aktiviteten körs för tillfället har åtkomst till den här katalogen. | Alla aktiviteter. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
-| CCP_NODES                       | Listan över noder och antalet kärnor per nod som har tilldelats en [flera instansuppgift][multi_instance]. Noder och kärnor anges i formatet`numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, där antalet noder som följs av en eller flera noden IP-adresser och antalet kärnor för varje. |  Flera instanser primära och underaktiviteter. |`2 10.0.0.4 1 10.0.0.5 1` |
+| CCP_NODES                       | Listan över noder och antalet kärnor per nod som har tilldelats en [flera instansuppgift][multi_instance]. Noder och kärnor anges i formatet `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, där antalet noder som följs av en eller flera noden IP-adresser och antalet kärnor för varje. |  Flera instanser primära och underaktiviteter. |`2 10.0.0.4 1 10.0.0.5 1` |
 | AZ_BATCH_NODE_LIST              | Listan över noder som har tilldelats en [flera instansuppgift] [ multi_instance] i formatet `nodeIP;nodeIP`. | Flera instanser primära och underaktiviteter. | `10.0.0.4;10.0.0.5` |
 | AZ_BATCH_HOST_LIST              | Listan över noder som har tilldelats en [flera instansuppgift] [ multi_instance] i formatet `nodeIP,nodeIP`. | Flera instanser primära och underaktiviteter. | `10.0.0.4,10.0.0.5` |
 | AZ_BATCH_MASTER_NODE            | IP-adressen och porten för Beräkningsnoden där den främsta uppgiften för en [flera instansuppgift] [ multi_instance] körs. | Flera instanser primära och underaktiviteter. | `10.0.0.4:6000`|

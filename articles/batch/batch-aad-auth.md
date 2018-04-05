@@ -1,25 +1,25 @@
 ---
-title: "Använda Azure Active Directory för att autentisera Azure Batch tjänstelösningar | Microsoft Docs"
-description: "Batch har stöd för Azure AD för autentisering från Batch-tjänsten."
+title: Använda Azure Active Directory för att autentisera Azure Batch tjänstelösningar | Microsoft Docs
+description: Batch har stöd för Azure AD för autentisering från Batch-tjänsten.
 services: batch
 documentationcenter: .net
 author: dlepow
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 8ad9c3a779ca52140a78ae905e4825f3144976aa
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e2d97929ada820a1ce969c59fb69b3518fe2eb6c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera Batch tjänstelösningar med Active Directory
 
@@ -138,7 +138,7 @@ För att autentisera med en tjänstens huvudnamn, måste du tilldela en RBAC-rol
 
 1. Navigera till Batch-kontot som används av ditt program i Azure-portalen.
 2. I den **inställningar** bladet för Batch-kontot väljer **Access Control (IAM)**.
-3. Klicka på den **Lägg till** knappen. 
+3. Klicka på knappen **Lägg till**. 
 4. Från den **rollen** listrutan och välj någon av _deltagare_ eller _Reader_ roll för ditt program. Mer information om dessa roller finns [Kom igång med rollbaserad åtkomstkontroll i Azure portal](../active-directory/role-based-access-control-what-is.md).  
 5. I den **Välj** anger du namnet på ditt program. Markera programmet i listan och klickar på **spara**.
 

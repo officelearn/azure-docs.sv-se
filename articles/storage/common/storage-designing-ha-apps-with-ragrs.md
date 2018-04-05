@@ -1,6 +1,6 @@
 ---
-title: "Designa hög tillgängliga program med hjälp av Azure Geo-Redundant lagring med läsbehörighet (RA-GRS) | Microsoft Docs"
-description: "Hur du använder Azure RA-GRS lagring och skapa en högtillgänglig program som är tillräckligt flexibelt för att hantera avbrott."
+title: Designa hög tillgängliga program med hjälp av Azure Geo-Redundant lagring med läsbehörighet (RA-GRS) | Microsoft Docs
+description: Hur du använder Azure RA-GRS lagring och skapa en högtillgänglig program som är tillräckligt flexibelt för att hantera avbrott.
 services: storage
 documentationcenter: .net
 author: tamram
@@ -12,28 +12,26 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/21/2018
 ms.author: tamram
-ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: f7f3f2d99e5582a1bcb672cc176258dfff9c3217
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Designa hög tillgängliga program med hjälp av RA-GRS
 
 En vanlig funktion för molnbaserad infrastruktur som Azure Storage är de ger en plattform för hög tillgänglighet som värd för program. Utvecklare av molnbaserade program måste noggrant igenom hur man utnyttjar den här plattformen för att tillhandahålla hög tillgänglighet program till sina användare. Den här artikeln fokuserar på hur utvecklare kan använda Geo-Redundant lagring med läsbehörighet (RA-GRS) så som sina Azure Storage-program är hög tillgänglighet.
 
-Azure Storage erbjuder fyra alternativ för redundans för data i ditt lagringskonto:
-
-- LRS (lokalt Redundant lagring)
-- ZRS (zonen Redundant lagring) 
-- GRS (Geo-Redundant lagring)
-- RA-GRS (Geo-Redundant lagring med läsbehörighet). 
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 Den här artikeln fokuserar på GRS och RA-GRS. Med GRS hålls tre kopior av dina data i den primära region som du valde när du ställer in storage-konto. Tre ytterligare kopior underhålls asynkront i en sekundär region som anges av Azure. RA-GRS är detsamma som GRS förutom att du har läsbehörighet till den alternativa kopian. Mer information om de olika alternativen för Azure Storage-redundans finns [Azure Storage-replikering](https://docs.microsoft.com/azure/storage/storage-redundancy). Replikering artikeln visar också pairings av de primära och sekundära regionerna.
 
 Det finns kodstycken som ingår i den här artikeln och en länk till ett fullständigt exempel slutet som du kan hämta och köra.
+
+> [!NOTE]
+> Azure Storage stöder nu zonredundant lagring (ZRS) för att skapa mycket tillgängliga program. ZRS ger en enkel lösning för många program redundans behov. ZRS ger skydd mot maskinvarufel eller oåterkalleligt katastrofer som påverkar en enstaka datacenter. Mer information finns i [zonen-redundant lagring (ZRS): hög tillgänglighet Azure Storage-program](storage-redundancy-zrs.md).
 
 ## <a name="key-features-of-ra-grs"></a>Viktiga funktioner i RA-GRS
 
@@ -105,7 +103,7 @@ Det finns många sätt att hantera begäranden om att uppdatera när du kör i s
 
 Hur vill du veta vilka fel återförsökbart? Detta bestäms av storage-klientbiblioteket. Ett 404-fel (Det gick inte att hitta resurs) är exempelvis inte återförsökbart eftersom du försöker den inte är sannolikt att lyckas. Ett fel 500 är å andra sidan återförsökbart eftersom det är ett serverfel och det kan vara ett övergående problem. Mer information finns i [öppna källkoden för klassen ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) i storage-klientbiblioteket för .NET. (Leta efter metoden ShouldRetry).
 
-### <a name="read-requests"></a>Läs begäranden
+### <a name="read-requests"></a>Läsförfrågningar
 
 Läs begäranden kan omdirigeras till den sekundära lagringsplatsen om det finns ett problem med primära lagringsplatsen. Som beskrivs ovan i [med slutligen konsekventa Data](#using-eventually-consistent-data), måste det vara godkänd för tillämpningsprogrammet för att kunna läsa inaktuella data. Om du använder storage-klientbibliotek för åtkomst till RA-GRS data, kan du ange beteendet för en läsbegäran försök igen genom att ange ett värde för den **LocationMode** egenskapen till ett av följande:
 
@@ -135,7 +133,7 @@ För dessa scenarier kan du identifiera att det är ett pågående problem med p
 
 Strömbrytare mönster kan också användas för att uppdatera begäranden. Dock omdirigeras inte begäranden om att uppdatera till sekundära lagringsplatsen, vilket är skrivskyddad. För sådana begäranden, bör du lämna den **LocationMode** egenskapen **PrimaryOnly** (standard). Du kan tillämpa ett mått på begäran – till exempel 10 fel i en rad – och när din tröskelvärdet har uppnåtts växla programmet till skrivskyddat läge för att hantera dessa fel. Du kan använda samma metoder för att returnera för att uppdatera läge som de som beskrivs nedan i nästa avsnitt om strömbrytare mönstret.
 
-## <a name="circuit-breaker-pattern"></a>Mönster för strömbrytare
+## <a name="circuit-breaker-pattern"></a>Strömbrytarmönstret
 
 Hur du använder mönstret strömbrytare i ditt program kan förhindra att den du försöker en åtgärd som troligen kommer att misslyckas flera gånger. Det innebär att du kan fortsätta att köras i stället för tar tid medan åtgärden försöks exponentiellt. Dessutom upptäcks när felet har korrigerats som programmet kan försöka igen.
 
@@ -200,7 +198,7 @@ För scenariot med tredje när pinga primära lagringsplatsen slutpunkten blir l
 
 ## <a name="handling-eventually-consistent-data"></a>Hantering av överensstämmelse data
 
-RA-GRS fungerar genom att replikera transaktioner från den primära servern till den sekundära regionen. Den här replikeringen garanterar att data i den sekundära regionen är *överensstämmelse*. Detta innebär att alla transaktioner i den primära regionen kommer slutligen att visas i den sekundära regionen, men att det kan finnas en fördröjning innan de kan visas och att det är inte säkert transaktioner ankommer i den sekundära regionen i samma ordning som som de ursprungligen tillämpades på den primära regionen. Om transaktionerna kommer till den sekundära regionen utanför måste du *kan* Överväg att dina data i den sekundära regionen är i ett inkonsekvent tillstånd förrän tjänsten fångar.
+Med RA-GRS replikeras transaktioner från den primära regionen till den sekundära. Den här replikeringen garanterar att data i den sekundära regionen är *överensstämmelse*. Detta innebär att alla transaktioner i den primära regionen kommer slutligen att visas i den sekundära regionen, men att det kan finnas en fördröjning innan de kan visas och att det är inte säkert transaktioner ankommer i den sekundära regionen i samma ordning som som de ursprungligen tillämpades på den primära regionen. Om transaktionerna kommer till den sekundära regionen utanför måste du *kan* Överväg att dina data i den sekundära regionen är i ett inkonsekvent tillstånd förrän tjänsten fångar.
 
 I följande tabell visas ett exempel på vad som händer när du uppdaterar information om en anställd att göra hon medlem i den *administratörer* roll. För det här exemplet detta kräver att du uppdaterar den **medarbetare** entiteten och uppdatera en **administratörsroll** entitet med en beräkning av det totala antalet administratörer. Observera hur uppdateringarna tillämpas i ordning i den sekundära regionen.
 
@@ -208,8 +206,8 @@ I följande tabell visas ett exempel på vad som händer när du uppdaterar info
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transaktionen A: <br> Infoga medarbetare <br> entiteten i primär |                                   |                    | Transaktionen A infogas primära,<br> replikeras inte ännu. |
 | T1       |                                                            | Transaktionen A <br> replikeras till<br> sekundär | T1 | Transaktionen A replikeras till sekundär. <br>Synkronisera senast uppdaterat.    |
-| T2       | Transaktionen B:<br>Uppdatering<br> medarbetare entitet<br> i primära  |                                | T1                 | Transaktionen skrivs till primära B<br> replikeras inte ännu.  |
-| T3       | Transaktionen C:<br> Uppdatering <br>Administratören<br>rollentiteten i<br>primär |                    | T1                 | Transaktionen skrivs till primära C<br> replikeras inte ännu.  |
+| T2       | Transaktionen B:<br>Uppdatera<br> medarbetare entitet<br> i primära  |                                | T1                 | Transaktionen skrivs till primära B<br> replikeras inte ännu.  |
+| T3       | Transaktionen C:<br> Uppdatera <br>Administratören<br>rollentiteten i<br>primär |                    | T1                 | Transaktionen skrivs till primära C<br> replikeras inte ännu.  |
 | *T4*     |                                                       | Transaktionen C <br>replikeras till<br> sekundär | T1         | Transaktionen C replikeras till sekundär.<br>LastSyncTime inte uppdateras eftersom <br>transaktionen B har ännu inte replikerats.|
 | *T5*     | Läs entiteter <br>från sekundär                           |                                  | T1                 | Inaktuella värdet för medarbetare hämtas <br> entiteten eftersom transaktionen B har inte <br> replikerade ännu. Du får det nya värdet för<br> administratören rollentiteten eftersom C har<br> replikeras. Tid för senaste synkronisering har fortfarande inte<br> har uppdaterats eftersom transaktionen B<br> har inte replikeras. Du kan se den<br>administratören rollentiteten är inkonsekvent <br>eftersom entiteten tidsvärdet efter <br>Tid för senaste synkronisering. |
 | *T6*     |                                                      | Transaktionen B<br> replikeras till<br> sekundär | T6                 | *T6* – alla transaktioner via C har <br>har replikerats tid för senaste synkronisering<br> har uppdaterats. |

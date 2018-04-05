@@ -1,22 +1,22 @@
 ---
-title: "Etablera en simulerad TPM-enhet på Azure IoT Hub med C | Microsoft Docs"
-description: "Azure Quickstart – Skapa och etablera en simulerad TPM-enhet med C-enhets-SDK för Azure IoT Hub Device Provisioning-tjänsten"
+title: Etablera en simulerad TPM-enhet på Azure IoT Hub med C | Microsoft Docs
+description: Azure Quickstart – Skapa och etablera en simulerad TPM-enhet med C-enhets-SDK för Azure IoT Hub Device Provisioning-tjänsten
 services: iot-dps
-keywords: 
+keywords: ''
 author: dsk-2015
 ms.author: dkshir
 ms.date: 12/20/2017
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: d4abd68aa559540da3b735d7a583fc86107531f9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 9187ce298071550a2af29cad28389b8d93ba802f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad TPM-enhet med C-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 
@@ -25,6 +25,8 @@ ms.lasthandoff: 03/05/2018
 Dessa steg visar hur du skapar en simulerad enhet på utvecklingsdatorn som kör Windows OS, kör Windows TPM-simulatorn som [maskinvarusäkerhetsmodul (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) för enheten och använder kodexemplet för att ansluta till denna simulerade enhet med Device Provisioning-tjänsten och IoT-hubben. 
 
 Se till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure-portalen) innan du fortsätter.
+
+[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
 <a id="setupdevbox"></a>
 

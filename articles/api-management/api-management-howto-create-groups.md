@@ -1,11 +1,11 @@
 ---
-title: "Hantera konton för utvecklare med hjälp av grupper i Azure API Management | Microsoft Docs"
-description: "Lär dig att hantera developer konton med hjälp av grupper i Azure API Management"
+title: Hantera konton för utvecklare med hjälp av grupper i Azure API Management | Microsoft Docs
+description: Lär dig att hantera developer konton med hjälp av grupper i Azure API Management
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: f4e1f8a701b5584138b92526e0e65e28d45e7c04
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 184c8fff35a59715407989589d6d69b3dc2481e0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Hur du skapar och använda grupper för att hantera developer konton i Azure API Management
 I API Management används grupper för att hantera hur produkter visas för utvecklare. Produkter görs först synliga för grupper och sedan utvecklare i dessa grupper kan visa och prenumerera på de produkter som är kopplade till grupperna. 
@@ -32,9 +32,9 @@ Förutom grupperna system kan administratörer skapa anpassade grupper eller [ut
 
 Den här guiden visar hur administratörer av en instans för API-hantering kan lägga till nya grupper och koppla dem till produkter och utvecklare.
 
-Förutom att skapa och hantera grupper i publisher portal, du kan skapa och hantera grupper med hjälp av API Management REST API [grupp](https://msdn.microsoft.com/library/azure/dn776329.aspx) entitet.
+Förutom att skapa och hantera grupper i publisher portal, du kan skapa och hantera grupper med hjälp av API Management REST API [grupp](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entitet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Utföra åtgärder i den här artikeln: [skapa en instans av Azure API Management](get-started-create-service-instance.md).
 
@@ -94,7 +94,7 @@ När kopplingen har lagts till mellan utvecklare och gruppen, kan du visa den i 
 ## <a name="next-steps"> </a>Nästa steg
 
 * När en utvecklare har lagts till i en grupp, kan de visa och prenumerera på de produkter som är kopplade till den gruppen. Mer information finns i [hur skapa och publicera en produkt i Azure API Management][How create and publish a product in Azure API Management],
-* Förutom att skapa och hantera grupper i publisher portal, du kan skapa och hantera grupper med hjälp av API Management REST API [grupp](https://msdn.microsoft.com/library/azure/dn776329.aspx) entitet.
+* Förutom att skapa och hantera grupper i publisher portal, du kan skapa och hantera grupper med hjälp av API Management REST API [grupp](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entitet.
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product

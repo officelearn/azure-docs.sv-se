@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: c36a3451dabbb0d08e5e475e0eec14f861bd41ce
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: efb24f5e55d7ba0077797d3f7d0f2177020f92b3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Skapa, ändra eller ta bort en offentlig IP-adress
 
@@ -44,10 +44,10 @@ Offentliga IP-adresser har en nominell kostnad. Om du vill visa prissättning, l
 2. Klicka på **+ Lägg till** i den **offentliga IP-adressen** bladet som visas.
 3. Ange eller Välj värden för följande inställningar i den **skapa offentlig IP-adress** bladet som visas, klicka sedan på **skapa**:
 
-    |Inställning|Krävs?|Information|
+    |Inställning|Obligatorisk?|Information|
     |---|---|---|
     |SKU|Ja|Alla offentliga IP-adresser som skapats innan introduktionen av SKU: er är **grundläggande** SKU offentliga IP-adresser.  Du kan inte ändra SKU: N efter att den offentliga IP-adressen har skapats. En fristående virtuell dator, virtuella datorer i en tillgänglighetsuppsättning eller skalningsuppsättningar i virtuella datorer kan använda Basic eller Standard SKU: er.  Blanda SKU: er mellan virtuella datorer i tillgänglighetsuppsättningar eller skaluppsättningar tillåts inte. **Grundläggande** SKU: Om du skapar en offentlig IP-adress i en region som stöder tillgänglighet zoner i **tillgänglighet zonen** inställningen *ingen* som standard. Du kan välja att välja en tillgänglighet zon att garantera en viss zon för din offentliga IP-adress. **Standard** SKU: A Standard SKU offentliga IP-Adressen kan vara kopplad till en virtuell dator eller en belastningen belastningsutjämnaren klientdel. Om du skapar en offentlig IP-adress i en region som stöder tillgänglighet zoner i **tillgänglighet zonen** inställningen *redundantzonen* som standard. Mer information om tillgänglighet zoner finns på **tillgänglighet zonen** inställningen. Standard-SKU krävs om du kopplar adressen till en belastningsutjämnare som Standard. Mer information om standard belastningsutjämnare finns [Azure belastningsutjämnare standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). När du tilldelar en offentlig IP-adress för standard-SKU till en virtuell dators nätverksgränssnitt måste du uttryckligen tillåta den avsedda trafiken med en [nätverkssäkerhetsgrupp](security-overview.md#network-security-groups). Kommunikationen med resursen misslyckas tills du har skapat och kopplat en nätverkssäkerhetsgrupp och uttryckligen tillåtit önskad trafik.|
-    |Namn|Ja|Namnet måste vara unikt inom resursgruppen som du väljer.|
+    |namn|Ja|Namnet måste vara unikt inom resursgruppen som du väljer.|
     |IP Version|Ja| Välj IPv4 eller IPv6. Medan offentliga IPv4-adresser kan tilldelas till flera Azure-resurser, kan en IPv6-offentliga IP-adress endast tilldelas en Internetriktade belastningsutjämnare. Belastningsutjämnaren kan belastningsutjämna IPv6-trafik till virtuella Azure-datorer. Lär dig mer om [IPv6-trafik till virtuella datorer för belastningsutjämning](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du har valt den **Standard SKU**, behöver du inte välja *IPv6*. Du kan bara skapa en IPv4-adress när du använder den **Standard SKU**.|
     |IP-adresstilldelning|Ja|**Dynamiska:** dynamiska adresser tilldelas endast när den offentliga IP-adressen är kopplad till ett nätverksgränssnitt som är kopplade till en virtuell dator och den virtuella datorn startas för första gången. Dynamiska adresser kan ändras om den virtuella datorn som nätverksgränssnittet är kopplad till har stoppats (frigjorts). Adressen förblir detsamma om den virtuella datorn har startats om eller stoppats (men inte frigöra). **Statiskt:** statiska adresser tilldelas när den offentliga IP-adressen har skapats. Statiska adresser ändras inte även om den virtuella datorn försätts i tillståndet Stoppad (frigjord). Adressen släpps endast när nätverksgränssnittet tas bort. Du kan ändra metoden tilldelning när nätverksgränssnittet har skapats. Om du väljer *IPv6* för den **IP version**, tilldelning av-metoden är *dynamiska*. Om du väljer *Standard* för **SKU**, tilldelning av-metoden är *statiska*.|
     |Tidsgränsen för inaktivitet (minuter)|Nej|Hur många minuter att hålla en TCP eller HTTP-anslutning öppen utan klienter skickar keep-alive-meddelanden. Om du väljer IPv6 för **IP Version**, det här värdet kan inte ändras. |
@@ -58,7 +58,7 @@ Offentliga IP-adresser har en nominell kostnad. Om du vill visa prissättning, l
     |Prenumeration|Ja|Det måste finnas i samma [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) som resursen som du vill associera offentliga IP-adressen.|
     |Resursgrupp|Ja|Det kan finnas i samma eller olika, [resursgruppen](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) som resursen som du vill associera offentliga IP-adressen.|
     |Plats|Ja|Det måste finnas i samma [plats](https://azure.microsoft.com/regions), även avses som region som resursen som du vill associera offentlig IP adress till.|
-    |Tillgänglighetszon| Nej | Den här inställningen visas bara om du väljer en plats som stöds. En lista över platser som stöds, se [översikt över tillgänglighet zoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Tillgänglighet zoner är för närvarande i förhandsversionen. Innan du väljer en zon eller zonredundant alternativet, måste du slutföra stegen i [registrera sig för tillgänglighet zoner förhandsversion](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#get-started-with-the-availability-zones-preview). Om du har valt den **grundläggande** SKU, *ingen* väljs automatiskt för dig. Om du föredrar att garantera en viss zon kan du välja en viss zon. Alternativen är inte zonredundant. Om du har valt den **Standard** SKU: zonredundant väljs automatiskt och gör din datasökväg flexibel för zonen fel. Om du föredrar att garantera en viss zon som inte är känsligt för zonen fel, kan du välja en viss zon.
+    |Tillgänglighet zon| Nej | Den här inställningen visas bara om du väljer en plats som stöds. En lista över platser som stöds, se [översikt över tillgänglighet zoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du har valt den **grundläggande** SKU, *ingen* väljs automatiskt för dig. Om du föredrar att garantera en viss zon kan du välja en viss zon. Alternativen är inte zonredundant. Om du har valt den **Standard** SKU: zonredundant väljs automatiskt och gör din datasökväg flexibel för zonen fel. Om du föredrar att garantera en viss zon som inte är känsligt för zonen fel, kan du välja en viss zon.
   
 
 **Kommandon**

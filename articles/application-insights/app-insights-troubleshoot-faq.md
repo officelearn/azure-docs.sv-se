@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 721799703923339d397113fc278cdeb6c6dbb88f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 245bd348b9eb5b434360d734e219efd7c663a406
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Vanliga frågor och svar
 
@@ -60,7 +60,7 @@ Enterprise-planen har en avgift för varje dag som varje webbservernoden skickar
 
 ## <a name="how-much-is-it-costing"></a>Hur mycket det kostnadshantering?
 
-* Öppna den **funktioner + pris** sida i Application Insights-resurs. Det finns ett diagram för senare användning. Du kan ange en volym fjärrskrivbordsanslutning data om du vill.
+* Öppna den **användnings- och uppskattade kostnaderna sidan** sida i Application Insights-resurs. Det finns ett diagram för senare användning. Du kan ange en volym fjärrskrivbordsanslutning data om du vill.
 * Öppna den [Azure Billing bladet](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) att se din växlar över alla resurser.
 
 ## <a name="q14"></a>Vad Application Insights ändra i projektet?
@@ -211,7 +211,7 @@ Varje objekt som överförs utför en `itemCount` egenskap som visar hur många 
 ```
 
 
-## <a name="automation"></a>Automation
+## <a name="automation"></a>Automatisering
 
 ### <a name="configuring-application-insights"></a>Konfigurera Application Insights
 

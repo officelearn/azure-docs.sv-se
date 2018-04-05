@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/21/2018
+ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: cd36d52df24610af1d2cb2d9e6e41f33bb7ea5fe
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e22c656218abcd0564faec6fae6d6979f09b386a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="run-a-service-as-a-group-managed-service-account"></a>Kör en tjänst som ett grupphanterat tjänstkonto
-Du kan skydda program som körs i kluster under olika användarkonton med hjälp av Azure Service Fabric. Kör program under olika konton, även i en delad värdmiljö gör dem säkrare från varandra. Service Fabric-program körs under kontot som Fabric.exe-processen körs under som standard. För ett fristående Windows Server-kluster kan du köra en tjänst som ett grupphanterat tjänstkonto (gMSA) eller en [Active Directory-användare eller grupp](service-fabric-run-service-as-ad-user-or-group.md) med en RunAs-princip. Observera att detta använder Active Directory lokalt i din domän och inte Azure Active Directory (AD Azure). Det finns inget lösenord genom att använda ett gMSA eller krypterade lösenordet lagras i den `Application Manifest`.
+# <a name="run-a-service-as-a-group-managed-service-account"></a>Köra tjänster som grupphanterade tjänstkonton
+Du kan köra en tjänst som ett grupphanterat tjänstkonto (gMSA) med hjälp av en RunAs-princip på en fristående Windows Server-kluster.  Service Fabric-program körs under kontot som Fabric.exe-processen körs under som standard. Kör program under olika konton, även i en delad värdmiljö gör dem säkrare från varandra. Observera att detta använder Active Directory lokalt i din domän och inte Azure Active Directory (AD Azure). Genom att använda ett gMSA, finns det ingen lösenord eller krypterade lösenordet lagras i programmanifestet.  Du kan också köra en tjänst som en [Active Directory-användare eller grupp](service-fabric-run-service-as-ad-user-or-group.md).
 
 I följande exempel visas hur du skapar ett konto för gMSA kallas *svc-Test$*; distribuera det hanterade tjänstkontot till klusternoderna, och hur du konfigurerar användarens huvudnamn.
 

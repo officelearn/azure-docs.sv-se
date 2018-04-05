@@ -1,11 +1,11 @@
 ---
-title: "Komma igång med Azure Mobile Engagement för Cordova/Phonegap"
-description: "Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Cordova/Phonegap-appar."
+title: Komma igång med Azure Mobile Engagement för Cordova/Phonegap
+description: Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Cordova/Phonegap-appar.
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 54fe9113-e239-4ed7-9fd1-a502d7ac7f47
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d7a761310782faab1dda023785f93cf90742e2ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abe0ad6117cc2feb72ebe788d07b50e8f145174c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-cordovaphonegap"></a>Komma igång med Azure Mobile Engagement för Cordova/Phonegap
+> [!IMPORTANT]
+> Azure Mobile Engagement dras tillbaka den 31 mars 2018. Den här sidan tas bort strax efter det.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 I det här avsnittet beskrivs hur du använder Azure Mobile Engagement för att förstå appanvändningen, och hur du skickar push-meddelanden till segmenterade användare i en mobilapp utvecklad med Cordova.

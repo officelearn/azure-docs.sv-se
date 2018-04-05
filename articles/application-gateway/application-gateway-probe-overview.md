@@ -1,25 +1,23 @@
 ---
-title: "Översikt för hälsoövervakning för Azure Programgateway | Microsoft Docs"
-description: "Lär dig mer om övervakningsfunktionerna i Azure Programgateway"
+title: Översikt för hälsoövervakning för Azure Programgateway
+description: Lär dig mer om övervakningsfunktionerna i Azure Programgateway
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
-ms.assetid: 7eeba328-bb2d-4d3e-bdac-7552e7900b7f
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
-ms.author: davidmu
-ms.openlocfilehash: 83a0b1be1aba48146aa1aaedb36ad9d9d23f17d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 3/30/2018
+ms.author: victorh
+ms.openlocfilehash: 2f62f01c1178f9529eb46051f088affccc5279a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Gateway hälsa övervakning Programöversikt
 
@@ -40,19 +38,38 @@ Exempel: du konfigurerar din Programgateway att använda backend-servrar A, B oc
 
 Om standard avsökningen kontrollen misslyckas Server A programgatewayen tas den bort från dess backend-adresspool och nätverkstrafik slutar flöda till den här servern. Standard-avsökning fortsätter ändå att kontrollera för servern en var 30: e sekund. När server A svarar har en begäran från en standard hälsoavsökningen, läggs den tillbaka som felfri till backend-poolen och trafiken börjar flöda till servern igen.
 
+### <a name="probe-matching"></a>Avsökning matchar
+
+Som standard anses en HTTP (S)-respons med statuskod 200 felfritt. Anpassade hälsoavsökningar har dessutom stöd för två matchande villkor. Matchar villkoren kan användas för att du kan också ändra standardtolkning av vilka consititutes felfri svar.
+
+Följande matchar villkoren: 
+
+- **HTTP-svar status koden matchar** - avsökningen som matchar villkoret för att acceptera HTTP-svar kod eller svar kod områden angavs. Enskilda kommaseparerade statuskoder svar eller ett intervall med statuskoden stöds.
+- **HTTP-svar brödtext matchar** - avsökning matchningsvillkor som ser ut på brödtext för HTTP-svar och matchar med en användare angett sträng. Observera att matchningen ser endast om användaren angett sträng i brödtext för svar och är inte en fullständig reguljärt uttryck för matchning.
+
+Matchningsvillkor kan anges med hjälp av den `New-AzureRmApplicationGatewayProbeHealthResponseMatch` cmdlet.
+
+Exempel:
+
+```
+$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
+$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
+```
+När matchningsvillkor anges den kan kopplas till avsökning för konfiguration av en `-Match` parameter i PowerShell.
+
 ### <a name="default-health-probe-settings"></a>Standardinställningarna hälsa avsökning
 
 | Avsökningen egenskapen | Värde | Beskrivning |
 | --- | --- | --- |
-| URL för webbavsökning |http://127.0.0.1:\<port\>/ |URL-sökväg |
-| intervall |30 |Avsökningsintervall i sekunder |
+| Avsökningswebbadress |http://127.0.0.1:\<port\>/ |URL-sökväg |
+| Intervall |30 |Avsökningsintervall i sekunder |
 | Timeout |30 |Avsökningen tidsgräns i sekunder |
 | Tröskelvärde för ohälsosamt värde |3 |Avsökning för antal nya försök. Backend-server markeras när efterföljande avsökningen Felberäkning når tröskelvärde för ohälsosamt värde. |
 
 > [!NOTE]
 > Porten är samma port som backend-HTTP-inställningar.
 
-Standard-avsökning kontrollerar endast http://127.0.0.1:\<port\> att fastställa hälsostatus. Om du behöver konfigurera hälsoavsökningen för att gå till en anpassad URL eller ändra andra inställningar måste du använda anpassade avsökningar enligt beskrivningen i följande steg:
+Standard-avsökning kontrollerar endast http://127.0.0.1: \<port\> att fastställa hälsostatus. Om du behöver konfigurera hälsoavsökningen för att gå till en anpassad URL eller ändra andra inställningar måste du använda anpassade avsökningar enligt beskrivningen i följande steg:
 
 ## <a name="custom-health-probe"></a>Anpassade hälsoavsökningen
 
@@ -64,11 +81,11 @@ Följande tabell innehåller definitioner för egenskaperna för en anpassad hä
 
 | Avsökningen egenskapen | Beskrivning |
 | --- | --- |
-| Namn |Namnet på avsökningen. Det här namnet används för att referera till avsökning i backend-HTTP-inställningar. |
+| namn |Namnet på avsökningen. Det här namnet används för att referera till avsökning i backend-HTTP-inställningar. |
 | Protokoll |Protokoll som används för att skicka avsökningen. Avsökningen används protokollet som definieras i backend-HTTP-inställningar |
 | Värd |Värdnamn för att skicka avsökningen. Gäller endast när flera platser har konfigurerats på Application Gateway, Använd annars ”127.0.0.1”. Det här värdet skiljer sig från den virtuella datorns värdnamn. |
 | Sökväg |Avsökningen relativ sökväg. Ogiltig sökväg startar från '/'. |
-| intervall |Avsökning intervall i sekunder. Det här värdet är tidsintervallet mellan två på varandra följande avsökningar. |
+| Intervall |Avsökning intervall i sekunder. Det här värdet är tidsintervallet mellan två på varandra följande avsökningar. |
 | Timeout |Avsökning tidsgräns i sekunder. Om ett giltigt svar inte emot inom denna tidsgräns, markeras avsökningen som misslyckad.  |
 | Tröskelvärde för ohälsosamt värde |Avsökning för antal nya försök. Backend-server markeras när efterföljande avsökningen Felberäkning når tröskelvärde för ohälsosamt värde. |
 

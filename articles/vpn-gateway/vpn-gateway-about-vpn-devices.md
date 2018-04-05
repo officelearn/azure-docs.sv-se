@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2018
 ms.author: yushwang
-ms.openlocfilehash: 7f69b5268adc857c6e45f8fa11fbcca42f64b71f
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: b3d9d45da0fb62445867d13c9dff7502af77e8a8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Om VPN-enheter och IPSec-/IKE-parametrar för anslutningar för VPN-gateway från plats till plats
 
@@ -57,7 +57,7 @@ Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig
 | Cisco              |ASA       |8.3<br>8.4 och senare versioner (IKEv2*) |[Konfigurationsexempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[Konfigurationsguide*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |Principbaserad: IOS 15.1<br>Routningsbaserad: IOS 15.2 |[Konfigurationsexempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Konfigurationsexempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |Principbaserad: IOS 15.0<br>Routningsbaserad*: IOS 15.1 |[Konfigurationsexempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Konfigurationsexempel\*\*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
-| Cisco |Meraki |Gäller inte |Inte kompatibel |Inte kompatibel |
+| Cisco |Meraki |Saknas |Inte kompatibel |Inte kompatibel |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 och senare |[Konfigurationsguide](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Inte kompatibel |
 | F5 |BIG-IP-serien |12.0 |[Konfigurationsguide](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Konfigurationsguide](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 |  |[Konfigurationsguide](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
@@ -67,7 +67,7 @@ Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig
 | Juniper |ISG |ScreenOS 6.3 |[Konfigurationsexempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[Konfigurationsexempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
 | Juniper |SSG |ScreenOS 6.2 |[Konfigurationsexempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[Konfigurationsexempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft |Routning och fjärråtkomst |Windows Server 2012 |Inte kompatibel |[Konfigurationsexempel](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
-| Open Systems AG |Mission Control Security Gateway |Gäller inte |[Konfigurationsguide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Inte kompatibel |
+| Open Systems AG |Mission Control Security Gateway |Saknas |[Konfigurationsguide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Inte kompatibel |
 | Palo Alto Networks |Alla enheter som kör PAN-OS |PAN-OS<br>Principbaserad: 6.1.5 eller senare<br>Routningsbaserad: 7.1.4 |[Konfigurationsguide](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Konfigurationsguide](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
 | ShareTech | Nästa datagenerations UTM (Nu-serien) | 9.0.1.3 | Inte kompatibel | [Konfigurationsguide](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ-serie, NSA-serie<br>SuperMassive-serie<br>NSA-serie i E-klassen |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Inte kompatibel |[Konfigurationsguide](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
@@ -81,9 +81,13 @@ Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig
 >
 > (\*\*) Routrar i ISR 7200-serien stöder endast principbaserade VPN-gatewayer.
 
-## <a name="Download VPN device configuration scripts from Azure"></a>Hämta konfigurationsskript för VPN-enhet från Azure
+## <a name="configscripts"></a>Hämta konfigurationsskript för VPN-enhet från Azure
 
 För vissa enheter kan du hämta konfigurationsskript direkt från Azure. Mer information och instruktioner finns [hämta VPN-enhet konfigurationsskript](vpn-gateway-download-vpndevicescript.md).
+
+### <a name="devices-with-available-configuration-scripts"></a>Enheter med tillgängliga konfigurationsskript
+
+[!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
 ## <a name="additionaldevices"></a>Icke-verifierade VPN-enheter
 
@@ -133,7 +137,7 @@ I följande tabeller:
 | IKE-version           |IKEv1              |IKEv2              |
 | Diffie-Hellman Group  |Grupp 2 (1 024 bitar) |Grupp 2 (1 024 bitar) |
 | Autentiseringsmetod |I förväg delad nyckel     |I förväg delad nyckel     |
-| Krypterings- och hash-algoritmer |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
+| Krypterings- och hash-algoritmer |1. AES256, SHA256<br>2 AES256, SHA1<br>3 AES128, SHA1<br>4. 3DES, SHA1 |1 AES256, SHA1<br>2 AES256, SHA256<br>3 AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
 | SA-livstid           |28 800 sekunder     |28 800 sekunder     |
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parametrar för IKE fas 2 (snabbläge)
@@ -141,11 +145,11 @@ I följande tabeller:
 | **Egenskap**                  |**Principbaserad**| **Routningsbaserad**                              |
 | ---                           | ---           | ---                                         |
 | IKE-version                   |IKEv1          |IKEv2                                        |
-| Krypterings- och hash-algoritmer |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA-erbjudanden](#RouteBasedOffers) |
+| Krypterings- och hash-algoritmer |1. AES256, SHA256<br>2 AES256, SHA1<br>3 AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA-erbjudanden](#RouteBasedOffers) |
 | SA-livstid (tid)            |3 600 sekunder  |27 000 sekunder                                |
 | SA-livstid (byte)           |102 400 000 kB | -                                           |
 | PFS (Perfect Forward Secrecy) |Nej             |[RouteBased QM SA-erbjudanden](#RouteBasedOffers) |
-| Utebliven peer-identifiering (DPD)     |Stöds inte  |Stöds                                    |
+| Utebliven peer-identifiering (DPD)     |Stöds ej  |Stöds                                    |
 
 
 ### <a name ="RouteBasedOffers"></a>Erbjudanden för RouteBased VPN IPsec-säkerhetsassociation (IKE-snabbläge SA)
@@ -156,24 +160,24 @@ Följande tabell visar erbjudanden för IPsec SA (IKE-snabbläge). Erbjudandena 
 
 |-  |**Kryptering**|**Autentisering**|**PFS-grupp**|
 |---| ---          |---               |---          |
-| 1 |GCM AES256    |GCM (AES256)      |Ingen         |
+| 1 |GCM AES256    |GCM (AES256)      |Inget         |
 | 2 |AES256        |SHA1              |Ingen         |
-| 3 |3DES          |SHA1              |Ingen         |
-| 4 |AES256        |SHA256            |Ingen         |
-| 5 |AES128        |SHA1              |Ingen         |
-| 6 |3DES          |SHA256            |Ingen         |
+| 3 |3DES          |SHA1              |Inget         |
+| 4 |AES256        |SHA256            |Inget         |
+| 5 |AES128        |SHA1              |Inget         |
+| 6 |3DES          |SHA256            |Inget         |
 
 #### <a name="azure-gateway-as-responder"></a>Azure Gateway som svarare
 
 |-  |**Kryptering**|**Autentisering**|**PFS-grupp**|
 |---| ---          | ---              |---          |
-| 1 |GCM AES256    |GCM (AES256)      |Ingen         |
+| 1 |GCM AES256    |GCM (AES256)      |Inget         |
 | 2 |AES256        |SHA1              |Ingen         |
-| 3 |3DES          |SHA1              |Ingen         |
-| 4 |AES256        |SHA256            |Ingen         |
-| 5 |AES128        |SHA1              |Ingen         |
-| 6 |3DES          |SHA256            |Ingen         |
-| 7 |DES           |SHA1              |Ingen         |
+| 3 |3DES          |SHA1              |Inget         |
+| 4 |AES256        |SHA256            |Inget         |
+| 5 |AES128        |SHA1              |Inget         |
+| 6 |3DES          |SHA256            |Inget         |
+| 7 |DES           |SHA1              |Inget         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |
 | 10|AES256        |SHA1              |14           |
@@ -188,7 +192,7 @@ Följande tabell visar erbjudanden för IPsec SA (IKE-snabbläge). Erbjudandena 
 | 19|AES256        |SHA256            |14           |
 | 20|AES256        |SHA1              |24           |
 | 21|AES256        |SHA256            |24           |
-| 22|AES128        |SHA256            |Ingen         |
+| 22|AES128        |SHA256            |Inget         |
 | 23|AES128        |SHA256            |1            |
 | 24|AES128        |SHA256            |2            |
 | 25|AES128        |SHA256            |14           |

@@ -1,21 +1,5 @@
----
-title: 'Självstudie: Utforma Azure Database for PostgreSQL med Azure CLI'
-description: I den här självstudien visar vi hur du skapar, konfigurerar och frågar din första Azure Database for PostgreSQL-server med Azure CLI.
-services: postgresql
-author: rachel-msft
-ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
-ms.service: postgresql
-ms.custom: mvc
-ms.devlang: azure-cli
-ms.topic: tutorial
-ms.date: 02/28/2018
-ms.openlocfilehash: 56425ec7ccb1d6629b82db6683a02a57ab9999b4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+--Rubrik: ' Självstudier: utforma en Azure-databas för PostgreSQL med Azure CLI-beskrivning: den här kursen visar hur du skapar, konfigurerar och fråga din första Azure-databas för PostgreSQL-server med Azure CLI.
+tjänster: postgresql författare: rachel msft ms.author: raagyema manager: kfile editor: jasonwhowell ms.service: postgresql ms.custom: mvc ms.devlang: azure cli ms.topic: självstudiekurs ms.date: 04/01/2018
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Självstudie: Utforma Azure Database for PostgreSQL med Azure CLI 
 I den här självstudien kommer du att använda Azure CLI (kommandoradsgränssnittet) och andra verktyg till följande:
@@ -61,11 +45,11 @@ JSON-returfilen bör innehålla följande:
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.3"
+    "version": "0.0.5"
 }
 ```
 
-Om version 0.0.3 inte returneras kör du följande för att uppdatera tillägget: 
+Om version 0.0.5 inte returneras, kör du följande för att uppdatera tillägget: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```
@@ -149,7 +133,7 @@ psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<db
   Följande kommando ansluter till exempel till standarddatabasen som heter **postgres** på din PostgreSQL-server **mydemoserver.postgres.database.azure.com** med hjälp av autentiseringsuppgifter. Ange den `<server_admin_password>` som du valde när du uppmanades att ange lösenordet.
   
   ```azurecli-interactive
-psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver ---dbname=postgres
+psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
 ```
 
 2.  När du är ansluten till servern skapar du en tom databas:

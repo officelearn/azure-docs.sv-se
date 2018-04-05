@@ -1,11 +1,11 @@
 ---
-title: "Överföra filer från enheter till Azure IoT-hubb med noden | Microsoft Docs"
-description: "Hur du överför filer från en enhet till molnet med Azure IoT-enhet SDK för Node.js. Överförda filer lagras i ett Azure storage blob-behållaren."
+title: Överföra filer från enheter till Azure IoT-hubb med noden | Microsoft Docs
+description: Hur du överför filer från en enhet till molnet med Azure IoT-enhet SDK för Node.js. Överförda filer lagras i ett Azure storage blob-behållaren.
 services: iot-hub
 documentationcenter: nodejs
 author: msebolt
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
 ms.devlang: node
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: v-masebo
-ms.openlocfilehash: cff0f2fc664e0c09bfa1f8f0e0d488a049a6f448
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: dd6f25173806d6e420bfeebaae3f81e39f8fd97f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från enheten till molnet med IoT-hubb
 
@@ -29,10 +29,10 @@ Den här kursen bygger på koden i den [meddelanden moln till enhet med IoT-hubb
 - Ange en enhet på ett säkert sätt med en Azure blob-URI för att överföra en fil.
 - Använd IoT-hubb filen överför meddelanden för att utlösa bearbetning av filen i din app-serverdelen.
 
-Den [Kom igång med IoT-hubb](iot-hub-node-node-getstarted.md) och [meddelanden moln till enhet med IoT-hubben](iot-hub-node-node-c2d.md) självstudiekurser visar grundläggande enhet till moln och moln till enhet meddelandetjänsten funktioner i IoT-hubb. Men i vissa fall kan du enkelt mappa data enheterna skickar till relativt liten enhet till moln meddelanden som accepterar IoT-hubb. Exempel:
+Den [Kom igång med IoT-hubb](iot-hub-node-node-getstarted.md) självstudiekursen visas de grundläggande enhet till moln meddelanden funktionerna i IoT-hubb. Men i vissa fall kan du enkelt mappa data enheterna skickar till relativt liten enhet till moln meddelanden som accepterar IoT-hubb. Exempel:
 
 * Stora filer som innehåller bilder
-* Videoklipp
+* Videor
 * Vibration data samplas vid hög frekvens
 * Någon form av förbearbetade data.
 

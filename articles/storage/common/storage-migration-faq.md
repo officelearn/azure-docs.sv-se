@@ -1,6 +1,6 @@
 ---
-title: "Azure Storage migration vanliga frågor och svar | Microsoft Docs"
-description: "Svar på vanliga frågor om hur du migrerar Azure Storage"
+title: Azure Storage migration vanliga frågor och svar | Microsoft Docs
+description: Svar på vanliga frågor om hur du migrerar Azure Storage
 services: storage
 documentationcenter: na
 author: genlin
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 89d1a4767c240c7e4fedb9d7ac47d6d4fb0aa737
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Vanliga frågor och svar om Azure Storage-migrering
 
@@ -168,7 +168,7 @@ Använda AzCopy för att hämta data. Mer information finns i [överföra data m
 
 **Hur ändrar den sekundära platsen till Europa region för ett lagringskonto?**
 
-När du skapar ett lagringskonto, väljer du den primära regionen för kontot. Valet av den sekundära regionen som är baserad på den primära regionen och kan inte ändras. Mer information finns i [Azure Storage-replikering](storage-redundancy.md).
+När du skapar ett lagringskonto, väljer du den primära regionen för kontot. Valet av den sekundära regionen som är baserad på den primära regionen och kan inte ändras. Mer information finns i [Geo-redundant lagring (GRS): mellan regionala replikering för Azure Storage](storage-redundancy.md).
 
 **Var kan jag få mer information om Azure Storage Service kryptering (SSE)?**  
   

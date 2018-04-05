@@ -1,25 +1,25 @@
 ---
-title: "Börja skapa Batch-lösningar med Visual Studio-projektmallar - Azure | Microsoft Docs"
-description: "Lär dig mer om Visual Studio-projektmallar hur du kan implementera och köra din beräkningsintensiva arbetsbelastningar i Azure Batch."
+title: Skapa Batch-lösningar med Visual Studio - mallar i Azure | Microsoft Docs
+description: Lär dig mer om Visual Studio-projektmallar hur du kan implementera och köra din beräkningsintensiva arbetsbelastningar i Azure Batch.
 services: batch
 documentationcenter: .net
-author: fayora
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da77ce827c65deb18d9d84ce5cf768d89788e205
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5241c62e8b423b20477fc72c87303daf3d4ab43c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Använd Visual Studio-projektmallar att Batch lösningar
 
@@ -51,7 +51,7 @@ I diagrammet nedan visas ett jobb för beräkning som använder de här mallarna
 
 ![Diagram över hur klientkod samverkar med Batch-tjänsten][diagram01]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill använda Batch-mallar, behöver du följande:
 
 * En dator med Visual Studio 2015 installerat. Batch-mallar är för närvarande stöds endast för Visual Studio 2015.
@@ -89,7 +89,7 @@ Följ dessa steg om du vill lägga till en jobbhanteraren i lösningen som du sk
 1. Öppna din befintliga lösning i Visual Studio.
 2. Högerklicka på lösningen i Solution Explorer, klicka på **Lägg till** > **nytt projekt**.
 3. Under **Visual C#**, klickar du på **moln**, och klicka sedan på **Azure Batch Job Manager med jobbet delningslisten**.
-4. Ange ett namn som beskriver ditt program och identifierar det här projektet som jobbhanteraren (t.ex.) ”LitwareJobManager”).
+4. Ange ett namn som beskriver ditt program och identifierar det här projektet som jobbhanteraren (t.ex.) "LitwareJobManager").
 5. Klicka för att skapa projektet **OK**.
 6. Slutligen skapa projekt för att tvinga Visual Studio för att läsa in alla refererade NuGet-paket och kontrollera att projektet är giltigt innan du börjar att ändra den.
 
@@ -258,7 +258,7 @@ Följ dessa steg om du vill lägga till en aktivitet processor i lösningen som 
 1. Öppna din befintliga lösning i Visual Studio.
 2. Högerklicka på lösningen i Solution Explorer, klicka på **Lägg till**, och klicka sedan på **nytt projekt**.
 3. Under **Visual C#**, klickar du på **moln**, och klicka sedan på **Azure Batch uppgiften Processor**.
-4. Ange ett namn som beskriver ditt program och identifierar det här projektet som aktiviteten-processor (t.ex.) ”LitwareTaskProcessor”).
+4. Ange ett namn som beskriver ditt program och identifierar det här projektet som aktiviteten-processor (t.ex.) "LitwareTaskProcessor").
 5. Klicka för att skapa projektet **OK**.
 6. Slutligen skapa projekt för att tvinga Visual Studio för att läsa in alla refererade NuGet-paket och kontrollera att projektet är giltigt innan du börjar att ändra den.
 

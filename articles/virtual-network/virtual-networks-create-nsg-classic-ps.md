@@ -1,11 +1,11 @@
 ---
-title: "Skapa säkerhetsgrupper (klassisk) för nätverk i Azure - PowerShell | Microsoft Docs"
-description: "Lär dig hur du skapar och distribuerar NSG: er i klassiskt läge med hjälp av PowerShell"
+title: Skapa en säkerhetsgrupp för nätverk (klassiska) med hjälp av PowerShell | Microsoft Docs
+description: Lär dig hur du skapar och distribuerar en nätverkssäkerhetsgrupp (klassisk) med hjälp av PowerShell
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
-editor: tysonn
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 86810b0d-0240-46a2-8548-fca22daa56f3
 ms.service: virtual-network
@@ -15,194 +15,81 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-ms.openlocfilehash: 72f962fdc3b5d1b26dc0a08916a21694ddf7afe7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dece453e0ac6d4a8d31accaeb2403f1acdb1266f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="how-to-create-nsgs-classic-in-powershell"></a>Hur du skapar NSG: er (klassisk) i PowerShell
+# <a name="create-a-network-security-group-classic-using-powershell"></a>Skapa en säkerhetsgrupp för nätverk (klassiskt) med hjälp av PowerShell
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen. Du kan också [skapa NSG: er i Resource Manager-distributionsmodellen](virtual-networks-create-nsg-arm-ps.md).
+Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen. Du kan också [skapa NSG: er i Resource Manager-distributionsmodellen](tutorial-filter-network-traffic.md).
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
 Exempel PowerShell-kommandona nedan förväntar sig en enkel miljö som redan har skapats baserat på scenariot ovan. Om du vill köra kommandon som de visas i det här dokumentet först skapa testmiljö av [skapa ett virtuellt nätverk](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
-## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Hur du skapar NSG för undernätet frontend
-Så här skapar du en NSG som heter **NSG-klientdel** baserat på scenariot ovan, Följ stegen nedan:
+## <a name="create-an-nsg-for-the-front-end-subnet"></a>Skapa en NSG för undernätet frontend
 
-1. Om du aldrig använt Azure PowerShell tidigare, se [Installera och konfigurera Azure PowerShell](/powershell/azure/overview) och följ instruktionerna till slutet för att logga in på Azure och välja din prenumeration.
-2. Skapa en säkerhetsgrupp för nätverk med namnet **NSG-klientdel**.
-   
-        New-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" -Location uswest `
-            -Label "Front end subnet NSG"
-   
-    Förväntad utdata:
+1. Om du aldrig har använt Azure PowerShell, se [installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 
-        Name         Location   Label               
-        
-        NSG-FrontEnd West US     Front end subnet NSG
+2. Skapa en säkerhetsgrupp för nätverk med namnet *NSG-klientdel*:
 
-3. Skapa en säkerhetsregel tillåter åtkomst från Internet till port 3389.
-   
-        Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
-        | Set-AzureNetworkSecurityRule -Name rdp-rule `
-            -Action Allow -Protocol TCP -Type Inbound -Priority 100 `
-            -SourceAddressPrefix Internet  -SourcePortRange '*' `
-            -DestinationAddressPrefix '*' -DestinationPortRange '3389'
-   
-    Förväntad utdata:
-   
-        Name     : NSG-FrontEnd
-        Location : Central US
-        Label    : Front end subnet NSG
-        Rules    :
-   
-                      Type: Inbound
-   
-                   Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
-                                                           Prefix          Range         Address Prefix   Port Range             
-                   
-                   rdp-rule             100       Allow    INTERNET        *             *                3389           TCP     
-                   ALLOW VNET INBOUND   65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
-                   ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
-                   BALANCER INBOUND                        CER                                                                   
-                   DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
+    ```powershell   
+    New-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" -Location uswest `
+      -Label "Front end subnet NSG"
+   ```
 
-                      Type: Outbound
+3. Skapa en säkerhetsregel tillåter åtkomst från internet till port 3389:
 
-                   Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
-                                                           Prefix          Range         Address Prefix   Port Range             
-                   
-                   ALLOW VNET OUTBOUND  65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
-                   ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
-                   OUTBOUND                                                                                                      
-                   DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *
+    ```powershell   
+    Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
+      | Set-AzureNetworkSecurityRule -Name rdp-rule `
+      -Action Allow -Protocol TCP -Type Inbound -Priority 100 `
+      -SourceAddressPrefix Internet  -SourcePortRange '*' `
+      -DestinationAddressPrefix '*' -DestinationPortRange '3389'
+   ```
 
-1. Skapa en säkerhetsregel tillåter åtkomst från Internet till port 80.
-   
-        Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
-        | Set-AzureNetworkSecurityRule -Name web-rule `
-            -Action Allow -Protocol TCP -Type Inbound -Priority 200 `
-            -SourceAddressPrefix Internet  -SourcePortRange '*' `
-            -DestinationAddressPrefix '*' -DestinationPortRange '80'
-   
-    Förväntad utdata:
+4. Skapa en säkerhetsregel tillåter åtkomst från internet till port 80:
 
-        Name     : NSG-FrontEnd
-        Location : Central US
-        Label    : Front end subnet NSG
-        Rules    :
+    ```powershell   
+    Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
+      | Set-AzureNetworkSecurityRule -Name web-rule `
+      -Action Allow -Protocol TCP -Type Inbound -Priority 200 `
+      -SourceAddressPrefix Internet  -SourcePortRange '*' `
+      -DestinationAddressPrefix '*' -DestinationPortRange '80'
+    ```
 
-                      Type: Inbound
+## <a name="create-an-nsg-for-the-back-end-subnet"></a>Skapa en NSG för backend-undernät
 
-                   Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
-                                                           Prefix          Range         Address Prefix   Port Range             
-                   
-                   rdp-rule             100       Allow    INTERNET        *             *                3389           TCP     
-                   web-rule             200       Allow    INTERNET        *             *                80             TCP     
-                   ALLOW VNET INBOUND   65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
-                   ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
-                   BALANCER INBOUND                        CER                                                                   
-                   DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
+1. Skapa en säkerhetsgrupp för nätverk med namnet *NSG BackEnd*:
+   
+    ```powershell
+    New-AzureNetworkSecurityGroup -Name "NSG-BackEnd" -Location uswest `
+      -Label "Back end subnet NSG"
+    ```
 
+2. Skapa en säkerhetsregel tillåter åtkomst från klientdelen undernätet till port 1433 (standardporten som används av SQL Server):
+   
+    ```powershell
+    Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
+      | Set-AzureNetworkSecurityRule -Name rdp-rule `
+      -Action Allow -Protocol TCP -Type Inbound -Priority 100 `
+      -SourceAddressPrefix 192.168.1.0/24  -SourcePortRange '*' `
+      -DestinationAddressPrefix '*' -DestinationPortRange '1433'
+    ```
 
-                      Type: Outbound
-
-                   Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
-                                                           Prefix          Range         Address Prefix   Port Range             
-                   
-                   ALLOW VNET OUTBOUND  65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
-                   ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
-                   OUTBOUND                                                                                                      
-                   DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
-
-## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>Hur du skapar NSG för backend-undernät
-1. Skapa en säkerhetsgrupp för nätverk med namnet **NSG BackEnd**.
+3. Skapa en säkerhetsregel blockerar åtkomst från undernätet till internet:
    
-        New-AzureNetworkSecurityGroup -Name "NSG-BackEnd" -Location uswest `
-            -Label "Back end subnet NSG"
-   
-    Förväntad utdata:
-   
-        Name        Location   Label              
-        
-        NSG-BackEnd West US    Back end subnet NSG
-2. Skapa en säkerhetsregel att tillåta åtkomst från klientdelens undernät till port 1433 (standardporten som används av SQL Server).
-   
-        Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
-        | Set-AzureNetworkSecurityRule -Name rdp-rule `
-            -Action Allow -Protocol TCP -Type Inbound -Priority 100 `
-            -SourceAddressPrefix 192.168.1.0/24  -SourcePortRange '*' `
-            -DestinationAddressPrefix '*' -DestinationPortRange '1433'
-   
-    Förväntad utdata:
-   
-        Name     : NSG-BackEnd
-        Location : Central US
-        Label    : Back end subnet NSG
-        Rules    :
-   
-                      Type: Inbound
-   
-                   Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
-                                                           Prefix          Range         Address Prefix   Port Range             
-                   
-                   fe-rule              100       Allow    192.168.1.0/24  *             *                1433           TCP     
-                   ALLOW VNET INBOUND   65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
-                   ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
-                   BALANCER INBOUND                        CER                                                                   
-                   DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
-
-                      Type: Outbound
-
-                   Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
-                                                           Prefix          Range         Address Prefix   Port Range             
-                   
-                   ALLOW VNET OUTBOUND  65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
-                   ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
-                   OUTBOUND                                                                                                      
-                   DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *      
-
-1. Skapa en säkerhetsregel blockerar åtkomst från undernätet till Internet.
-   
-        Get-AzureNetworkSecurityGroup -Name "NSG-BackEnd" `
-        | Set-AzureNetworkSecurityRule -Name block-internet `
-            -Action Deny -Protocol '*' -Type Outbound -Priority 200 `
-            -SourceAddressPrefix '*'  -SourcePortRange '*' `
-            -DestinationAddressPrefix Internet -DestinationPortRange '*'
-   
-    Förväntad utdata:
-   
-        Name     : NSG-BackEnd
-        Location : Central US
-        Label    : Back end subnet NSG
-        Rules    :
-   
-                      Type: Inbound
-   
-                   Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
-                                                           Prefix          Range         Address Prefix   Port Range             
-                   
-                   fe-rule              100       Allow    192.168.1.0/24  *             *                1433           TCP     
-                   ALLOW VNET INBOUND   65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
-                   ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
-                   BALANCER INBOUND                        CER                                                                   
-                   DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
-
-                      Type: Outbound
-
-                   Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
-                                                           Prefix          Range         Address Prefix   Port Range             
-                   
-                   block-internet       200       Deny     *               *             INTERNET         *              *       
-                   ALLOW VNET OUTBOUND  65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
-                   ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
-                   OUTBOUND                                                                                                      
-                   DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
+    ```powershell
+    Get-AzureNetworkSecurityGroup -Name "NSG-BackEnd" `
+      | Set-AzureNetworkSecurityRule -Name block-internet `
+      -Action Deny -Protocol '*' -Type Outbound -Priority 200 `
+      -SourceAddressPrefix '*'  -SourcePortRange '*' `
+      -DestinationAddressPrefix Internet -DestinationPortRange '*'
+   ```

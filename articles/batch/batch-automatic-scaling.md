@@ -1,25 +1,25 @@
 ---
 title: Automatiskt skala compute-noder i en Azure Batch-pool | Microsoft Docs
-description: "Aktivera automatisk skalning på poolen moln att dynamiskt justera antalet beräkningsnoder i poolen."
+description: Aktivera automatisk skalning på poolen moln att dynamiskt justera antalet beräkningsnoder i poolen.
 services: batch
-documentationcenter: 
-author: tamram
-manager: timlt
-editor: tysonn
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
 ms.service: batch
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: multiple
 ms.date: 06/20/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0e49cd8a64a48c53f5b6104703164a597c797f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1114ea90ae6976a3bc3580ebae5fd853de0274a1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en automatisk skalning formel för att skala beräkningsnoder i en Batch-pool
 
@@ -125,17 +125,17 @@ Dessa typer stöds i en formel:
 * dubbla
 * doubleVec
 * doubleVecList
-* Sträng
+* sträng
 * tidsstämpel--tidsstämpel är en sammansatt struktur som innehåller följande medlemmar:
 
-  * År
+  * år
   * månaden (1-12)
   * dag (1-31)
   * veckodag (i formatet för tal, till exempel 1 för måndag)
   * timme (i 24-timmarsformat format, till exempel 13 innebär 1 PM)
   * minuter (00-59)
   * andra (00-59)
-* TimeInterval
+* timeinterval
 
   * TimeInterval_Zero
   * TimeInterval_100ns
@@ -154,16 +154,16 @@ Dessa åtgärder är tillåtna för de typer som anges i föregående avsnitt.
 | Åtgärd | Stöds operatorer | Typ av resultat |
 | --- | --- | --- |
 | dubbla *operatorn* dubbla |+, -, *, / |dubbla |
-| dubbla *operatorn* timeinterval |* |TimeInterval |
+| dubbla *operatorn* timeinterval |* |timeinterval |
 | doubleVec *operatorn* dubbla |+, -, *, / |doubleVec |
 | doubleVec *operatorn* doubleVec |+, -, *, / |doubleVec |
-| TimeInterval *operatorn* dubbla |*, / |TimeInterval |
-| TimeInterval *operatorn* timeinterval |+, - |TimeInterval |
+| TimeInterval *operatorn* dubbla |*, / |timeinterval |
+| TimeInterval *operatorn* timeinterval |+, - |timeinterval |
 | TimeInterval *operatorn* tidsstämpel |+ |tidsstämpel |
 | tidsstämpel *operatorn* timeinterval |+ |tidsstämpel |
-| tidsstämpel *operatorn* tidsstämpel |- |TimeInterval |
+| tidsstämpel *operatorn* tidsstämpel |- |timeinterval |
 | *operatorn*dubbla |-, ! |dubbla |
-| *operatorn*timeinterval |- |TimeInterval |
+| *operator*timeinterval |- |timeinterval |
 | dubbla *operatorn* dubbla |<, <=, ==, >=, >, != |dubbla |
 | strängen *operatorn* sträng |<, <=, ==, >=, >, != |dubbla |
 | tidsstämpel *operatorn* tidsstämpel |<, <=, ==, >=, >, != |dubbla |
@@ -175,26 +175,26 @@ När du testar ett double med en ternär operator (`double ? statement1 : statem
 ## <a name="functions"></a>Funktioner
 De här fördefinierade **funktioner** är tillgängliga som du kan använda för att definiera en automatisk skalning formel.
 
-| Funktionen | Returtyp | Beskrivning |
+| Funktion | Returtyp | Beskrivning |
 | --- | --- | --- |
-| AVG(doubleVecList) |dubbla |Returnerar medelvärdet för alla värden i doubleVecList. |
-| Len(doubleVecList) |dubbla |Returnerar längden på vektorn som skapas från doubleVecList. |
+| avg(doubleVecList) |dubbla |Returnerar medelvärdet för alla värden i doubleVecList. |
+| len(doubleVecList) |dubbla |Returnerar längden på vektorn som skapas från doubleVecList. |
 | LG(Double) |dubbla |Returnerar loggen bas 2 i double. |
-| LG(doubleVecList) |doubleVec |Returnerar component-wise loggen bas 2 i doubleVecList. En vec(double) måste uttryckligen skickades för parametern. I annat fall antas den dubbla lg(double)-versionen. |
+| lg(doubleVecList) |doubleVec |Returnerar component-wise loggen bas 2 i doubleVecList. En vec(double) måste uttryckligen skickades för parametern. I annat fall antas den dubbla lg(double)-versionen. |
 | LN(Double) |dubbla |Returnerar dubbla naturlig log. |
-| LN(doubleVecList) |doubleVec |Returnerar component-wise loggen bas 2 i doubleVecList. En vec(double) måste uttryckligen skickades för parametern. I annat fall antas den dubbla lg(double)-versionen. |
+| ln(doubleVecList) |doubleVec |Returnerar component-wise loggen bas 2 i doubleVecList. En vec(double) måste uttryckligen skickades för parametern. I annat fall antas den dubbla lg(double)-versionen. |
 | log(Double) |dubbla |Returnerar loggen bas 10 av dubbla. |
 | log(doubleVecList) |doubleVec |Returnerar component-wise loggen bas 10 av doubleVecList. En vec(double) måste uttryckligen skickades för den enda dubbla parametern. I annat fall antas den dubbla log(double)-versionen. |
-| Max(doubleVecList) |dubbla |Returnerar det största värdet i doubleVecList. |
+| max(doubleVecList) |dubbla |Returnerar det största värdet i doubleVecList. |
 | min(doubleVecList) |dubbla |Returnerar det minsta värdet i doubleVecList. |
 | norm(doubleVecList) |dubbla |Returnerar två normen för vektorn som skapas från doubleVecList. |
 | percentil (doubleVec v dubbla p) |dubbla |Returnerar elementet percentil för vektorn v. |
-| SLUMP() |dubbla |Returnerar ett slumpmässigt värde mellan 0,0 och 1,0. |
-| Range(doubleVecList) |dubbla |Returnerar skillnaden mellan lägsta och högsta värden i doubleVecList. |
-| Std(doubleVecList) |dubbla |Returnerar standardavvikelsen för urvalet av värdena i doubleVecList. |
+| rand() |dubbla |Returnerar ett slumpmässigt värde mellan 0,0 och 1,0. |
+| range(doubleVecList) |dubbla |Returnerar skillnaden mellan lägsta och högsta värden i doubleVecList. |
+| std(doubleVecList) |dubbla |Returnerar standardavvikelsen för urvalet av värdena i doubleVecList. |
 | Stop) | |Stoppar utvärderingen av uttrycket för autoskalning. |
-| SUM(doubleVecList) |dubbla |Returnerar summan av alla komponenter i doubleVecList. |
-| tid (string dateTime = ””) |tidsstämpel |Returnerar tidsstämpeln för den aktuella tiden om inga parametrar skickas eller tidsstämpeln för dateTime-sträng om den skickas. Stöds dateTime-format är W3C DTF och RFC 1123. |
+| sum(doubleVecList) |dubbla |Returnerar summan av alla komponenter i doubleVecList. |
+| time(string dateTime="") |tidsstämpel |Returnerar tidsstämpeln för den aktuella tiden om inga parametrar skickas eller tidsstämpeln för dateTime-sträng om den skickas. Stöds dateTime-format är W3C DTF och RFC 1123. |
 | val (doubleVec v dubbla i) |dubbla |Returnerar värdet för det element som är på plats i i vector v, med startIndex noll. |
 
 Några av de funktioner som beskrivs i föregående tabell kan acceptera en lista som ett argument. Kommaavgränsad lista är en kombination av *dubbla* och *doubleVec*. Exempel:
@@ -212,7 +212,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 | Metod | Beskrivning |
 | --- | --- |
-| GetSample() |Den `GetSample()` metoden returnerar en vector av insamlade data.<br/><br/>Ett exempel är 30 sekunder värt mått data. Med andra ord hämtas exempel var 30: e sekund. Men som anges nedan, det finns en fördröjning mellan när ett exempel som samlas in och när den är tillgänglig för en formel. Därför kanske inte alla prover för en viss tidsperiod för utvärdering av en formel.<ul><li>`doubleVec GetSample(double count)`<br/>Anger antalet exempel som att hämta från de senaste samplingarna som samlades in.<br/><br/>`GetSample(1)`Returnerar den senaste tillgängliga insamlingen. För mått som `$CPUPercent`, men detta bör inte användas eftersom det är omöjligt att veta *när* provet samlades in. Det kan vara senaste eller på grund av problem med systemet, kan det vara mycket äldre. Det är bättre i sådana fall att använda ett tidsintervall som visas nedan.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Anger en tid för att samla in exempeldata. Du kan också anger den också procentandelen exempel som måste vara tillgängliga i den begärda tidsperioden.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)`Returnerar 20 prov om alla prover för de senaste 10 minuterna finns i CPUPercent historiken. Om den senaste minuten tidigare inte var tillgänglig, men skulle endast 18 exempel returneras. I det här fallet:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)`misslyckas eftersom endast 90 procent av exemplen är tillgängliga.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)`fungerar.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Anger en tid för att samla in data med både en starttid och en sluttid.<br/><br/>Som nämnts ovan är det en fördröjning mellan när ett exempel som samlas in och när den är tillgänglig för en formel. Tänk fördröjningen när du använder den `GetSample` metoden. Se `GetSamplePercent` nedan. |
+| GetSample() |Den `GetSample()` metoden returnerar en vector av insamlade data.<br/><br/>Ett exempel är 30 sekunder värt mått data. Med andra ord hämtas exempel var 30: e sekund. Men som anges nedan, det finns en fördröjning mellan när ett exempel som samlas in och när den är tillgänglig för en formel. Därför kanske inte alla prover för en viss tidsperiod för utvärdering av en formel.<ul><li>`doubleVec GetSample(double count)`<br/>Anger antalet exempel som att hämta från de senaste samplingarna som samlades in.<br/><br/>`GetSample(1)` Returnerar den senaste tillgängliga insamlingen. För mått som `$CPUPercent`, men detta bör inte användas eftersom det är omöjligt att veta *när* provet samlades in. Det kan vara senaste eller på grund av problem med systemet, kan det vara mycket äldre. Det är bättre i sådana fall att använda ett tidsintervall som visas nedan.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Anger en tid för att samla in exempeldata. Du kan också anger den också procentandelen exempel som måste vara tillgängliga i den begärda tidsperioden.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` Returnerar 20 prov om alla prover för de senaste 10 minuterna finns i CPUPercent historiken. Om den senaste minuten tidigare inte var tillgänglig, men skulle endast 18 exempel returneras. I det här fallet:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` misslyckas eftersom endast 90 procent av exemplen är tillgängliga.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` fungerar.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Anger en tid för att samla in data med både en starttid och en sluttid.<br/><br/>Som nämnts ovan är det en fördröjning mellan när ett exempel som samlas in och när den är tillgänglig för en formel. Tänk fördröjningen när du använder den `GetSample` metoden. Se `GetSamplePercent` nedan. |
 | GetSamplePeriod() |Returnerar antal prover som har tagits i historiska data exempeldata. |
 | Count() |Returnerar det totala antalet prov i historiken för mått. |
 | HistoryBeginTime() |Returnerar tidsstämpeln för den äldsta tillgängliga datasampel för måttet. |
@@ -385,7 +385,7 @@ Förutom Batch .NET, kan du använda någon av de andra [Batch SDK](batch-apis-t
 ### <a name="automatic-scaling-interval"></a>Intervall för automatisk skalning
 Som standard justeras Batch-tjänsten poolstorlek enligt dess Autoskala formel var 15: e minut. Intervallet kan konfigureras med hjälp av följande egenskaper för programpoolen:
 
-* [CloudPool.AutoScaleEvaluationInterval] [ net_cloudpool_autoscaleevalinterval] (Batch .NET)
+* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
 * [autoScaleEvaluationInterval] [ rest_autoscaleinterval] (REST-API)
 
 Det minsta intervallet är fem minuter och högsta är 168 timmar. Om ett intervall som är utanför intervallet har angetts returnerar en felaktig begäran (400) fel i Batch-tjänsten.

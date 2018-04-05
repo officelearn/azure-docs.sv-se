@@ -1,43 +1,89 @@
 ---
-title: "Säkerhetskopiera och återställa en server i Azure-databas för MySQL"
-description: "Lär dig hur du säkerhetskopierar och återställer en server i Azure-databas för MySQL med hjälp av Azure CLI."
+title: Säkerhetskopiera och återställa en server i Azure-databas för MySQL
+description: Lär dig hur du säkerhetskopierar och återställer en server i Azure-databas för MySQL med hjälp av Azure CLI.
 services: mysql
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: b954e26c9ecb1767b971117fc9102e8573beaaac
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 04/01/2018
+ms.openlocfilehash: 322de1fb19461455a063d939ace3d5553ed1fc79
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure-databas för MySQL med hjälp av Azure CLI
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure-databas för MySQL med hjälp av Azure CLI
 
-Använd Azure-databas för MySQL för att återställa en server-databas till ett tidigare datum som sträcker sig från 7 till 35 dagar.
+## <a name="backup-happens-automatically"></a>Säkerhetskopieringen sker automatiskt
+Azure-databas för MySQL-servrar säkerhetskopieras regelbundet för att aktivera funktioner för återställning. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare i tidpunkt, på en ny server.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att slutföra den här instruktioner:
-- En [Azure-databas för MySQL-server och databas](quickstart-create-mysql-server-database-using-azure-portal.md)
+- En [Azure-databas för MySQL-server och databas](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+ 
+
 > [!IMPORTANT]
-> Om du installerar och använder Azure CLI lokalt, kräver den här instruktioner att du använder Azure CLI version 2.0 eller senare. Om du vill bekräfta version Kommandotolken Azure CLI, ange `az --version`. Om du vill installera eller uppgradera, se [installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+> Den här instruktioner kräver att du använder Azure CLI version 2.0 eller senare. Om du vill bekräfta version Kommandotolken Azure CLI, ange `az --version`. Om du vill installera eller uppgradera, se [installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="backup-happens-automatically"></a>Säkerhetskopieringen sker automatiskt
-När du använder Azure-databas för MySQL görs databastjänsten en säkerhetskopia av tjänsten var femte minut. 
+## <a name="add-the-extension"></a>Lägga till tillägget
+Lägg till det uppdaterade hanteringstillägget för Azure Database for MySQL med följande kommando:
+```azurecli-interactive
+az extension add --name rdbms
+``` 
 
-För grundläggande nivån finns säkerhetskopieringar för 7 dagar. För standardnivån är säkerhetskopior tillgängliga för 35 dagar. Mer information finns i [Azure-databas för MySQL prisnivåer](concepts-pricing-tiers.md).
+Kontrollera att du har rätt tilläggsversion installerad. 
+```azurecli-interactive
+az extension list
+```
 
-Med funktionen om automatisk säkerhetskopiering kan du återställa servern och databaserna till ett tidigare datum eller tidpunkt.
+JSON-returfilen bör innehålla följande: 
+```json
+{
+    "extensionType": "whl",
+    "name": "rdbms",
+    "version": "0.0.5"
+}
+```
 
-## <a name="restore-a-database-to-a-previous-point-in-time-by-using-the-azure-cli"></a>Återställa en databas till en tidigare tidpunkt med hjälp av Azure CLI
-Använd Azure-databas för MySQL för att återställa servern till en tidigare tidpunkt. Återställda data kopieras till en ny server och den befintliga servern är kvar. Till exempel kan en tabell av misstag utelämnas kl. tolv idag så, du återställa tiden innan på dagen. Du kan sedan hämta saknas tabellen och data från den återställda kopian av servern. 
+Om version 0.0.5 inte returneras, kör du följande för att uppdatera tillägget: 
+```azurecli-interactive
+az extension update --name rdbms
+```
+
+
+## <a name="set-backup-configuration"></a>Ange konfigurationen för säkerhetskopiering
+
+Du välja mellan att konfigurera servern för lokalt redundant säkerhetskopiering eller geografiskt redundant säkerhetskopiering på server har skapats. 
+
+> [!NOTE]
+> När en server har skapats kan typ av redundans som finns, kan inte växlas geografiskt redundant jämfört med lokalt redundant.
+>
+
+När du skapar en server via den `az mysql server create` kommando, den `--geo-redundant-backup` parametern beslutar alternativ för redundans en säkerhetskopia. Om `Enabled`, geo-redundant säkerhetskopieringar vidtas. Eller om `Disabled` lokalt redundant säkerhetskopieringar vidtas. 
+
+Säkerhetskopiering loggperioden anges av parametern `--backup-retention-days`. 
+
+Mer information om hur du anger dessa värden under skapa finns i [Azure-databas för MySQL server CLI Quickstart](quickstart-create-mysql-server-database-using-azure-cli.md).
+
+Säkerhetskopiering kvarhållningsperiod på en server kan ändras på följande sätt:
+
+```azurecli-interactive
+az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+```
+
+Föregående exempel ändrar säkerhetskopiering kvarhållningsperioden för mydemoserver på 10 dagar.
+
+Säkerhetskopiering loggperioden styr hur långt tillbaka i tiden en point-in-time-återställning kan hämtas, eftersom den är baserad på säkerhetskopior som är tillgängliga. Point-in-time-återställning är ytterligare beskrivs i nästa avsnitt.
+
+## <a name="server-point-in-time-restore"></a>Servern point-in-time-återställning
+Du kan återställa servern till en tidigare tidpunkt. Återställda data kopieras till en ny server och den befintliga servern är kvar. Till exempel kan en tabell av misstag utelämnas kl. tolv idag så, du återställa tiden innan på dagen. Du kan sedan hämta saknas tabellen och data från den återställda kopian av servern. 
 
 Använd Azure CLI för att återställa servern [az mysql server återställning](/cli/azure/mysql/server#az_mysql_server_restore) kommando.
 
@@ -46,24 +92,57 @@ Använd Azure CLI för att återställa servern [az mysql server återställning
 Om du vill återställa servern Kommandotolken Azure CLI, anger du följande kommando:
 
 ```azurecli-interactive
-az mysql server restore --resource-group myresourcegroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
+az mysql server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time 2018-03-13T13:59:00Z --source-server mydemoserver
 ```
 
 Den `az mysql server restore` kommandot kräver följande parametrar:
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
-| resursgruppen. | myresourcegroup |  Resursgruppen där källservern finns.  |
-| namn | myserver-restored | Namnet på den nya servern som skapas med kommandot restore. |
-| restore-point-in-time | 2017-04-13T13:59:00Z | Välj en punkt i tid att återställa till. Datumet och tiden måste vara inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd formatet ISO8601 datum och tid. Exempelvis kan du använda din egen lokala tidszon som `2017-04-13T05:59:00-08:00`. Du kan också använda Zulu UTC-format, till exempel `2017-04-13T13:59:00Z`. |
-| source-server | mydemoserver | Namnet eller ID på källservern för att återställa från. |
+| resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
+| namn | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
+| restore-point-in-time | 2018-03-13T13:59:00Z | Välj en punkt i tid att återställa till. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd formatet ISO8601 datum och tid. Exempelvis kan du använda din egen lokala tidszon som `2018-03-13T05:59:00-08:00`. Du kan också använda Zulu UTC-format, till exempel `2018-03-13T13:59:00Z`. |
+| source-server | mydemoserver | Namn eller ID på källservern som återställningen görs från. |
 
 När du återställer en server till en tidigare tidpunkt, skapas en ny server. Den ursprungliga servern och dess databaser från den angivna tidpunkten kopieras till den nya servern.
 
 Plats och prisnivå nivåvärden för den återställda servern vara densamma som den ursprungliga servern. 
 
-Den `az mysql server restore` kommandot är synkront. När servern har återställts kan använda du den för att upprepa processen för en annan tidpunkt. 
+När återställningen är klar, leta upp den nya servern och kontrollera att data återställs som förväntat.
+
+## <a name="geo-restore"></a>GEO-återställning
+Om du har konfigurerat din server för geografiskt redundant säkerhetskopiering till kan en ny server skapas från en säkerhetskopia av den befintliga servern. Den här nya servern kan skapas i en region som Azure-databasen för MySQL är tillgänglig.  
+
+Använd Azure CLI för att skapa en server med en geo-redundant säkerhetskopia `az mysql server georestore` kommando.
+
+Ange följande kommando för att återställa geo server Kommandotolken Azure CLI:
+
+```azurecli-interactive
+az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen4_8 
+```
+Det här kommandot skapar en ny server som kallas *mydemoserver georestored* i östra USA som hör till *myresourcegroup*. Det är en generell Gen 4 server med 8 vCores. Servern har skapats från en geo-redundant säkerhetskopia av *mydemoserver*, vilket är också i resursgruppen *myresourcegroup*
+
+Om du vill skapa den nya servern i en annan resursgrupp än den befintliga servern sedan i den `--source-server` parametern väljer du namnet på server som i följande exempel:
+
+```azurecli-interactive
+az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen4_8
+
+```
+
+Den `az mysql server georestore` kommandot requies följande parametrar:
+| Inställning | Föreslaget värde | Beskrivning  |
+| --- | --- | --- |
+|resource-group| myresourcegroup | Namnet på resursgruppen den nya servern ska tillhöra.|
+|namn | mydemoserver-georestored | Namnet på den nya servern. |
+|source-server | mydemoserver | Namnet på den befintliga servern vars geo-redundant säkerhetskopieringar används. |
+|plats | usaöstra | Platsen för den nya servern. |
+|sku-name| GP_Gen4_8 | Den här parametern anger prisnivå nivå, beräkning generation och antalet vCores på den nya servern. GP_Gen4_8 mappar till en generell Gen 4 server med 8 vCores.|
+
+
+>[!Important]
+>När du skapar en ny server med geo-återställning, ärver samma lagringsutrymme och prisnivå som källservern. Dessa värden kan inte ändras när du skapar. När du har skapat den nya servern skalas dess lagringsstorlek upp.
 
 När återställningen är klar, leta upp den nya servern och kontrollera att data återställs som förväntat.
 
 ## <a name="next-steps"></a>Nästa steg
-[Anslutningsbibliotek för Azure-databas för MySQL](concepts-connection-libraries.md)
+- Mer information om tjänstens [säkerhetskopieringar](concepts-backup.md).
+- Lär dig mer om [företagskontinuitet](concepts-business-continuity.md) alternativ.

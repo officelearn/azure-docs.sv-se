@@ -1,30 +1,30 @@
 ---
-title: "Översikt över Azure PIM resurs RBAC | Microsoft Docs"
-description: "Få en översikt över funktionen RBAC i PIM inklusive terminologi och meddelanden"
+title: Översikt över Azure PIM resurs RBAC | Microsoft Docs
+description: Få en översikt över funktionen RBAC i PIM inklusive terminologi och meddelanden
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
-ms.author: barclayn
-ms.openlocfilehash: 19715f800e7d8d40336d8e9fa3bf8073795dce5b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 03/30/2018
+ms.author: billmath
+ms.openlocfilehash: 87d349933a8daeaf8b7a4487612ad62dd2b9efc2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="pim-for-azure-resources-preview"></a>PIM för Azure-resurser (förhandsgranskning)
+# <a name="pim-for-azure-resources"></a>PIM för Azure-resurser
 
-Med Azure Active Directory Privileged Identity Management (PIM), kan du nu hantera, kontrollera och övervaka åtkomst till resurser i Azure (förhandsversion) inom din organisation. Detta inkluderar prenumerationer och resursgrupper även virtuella datorer. Alla resurser i Azure-portalen som använder Azure rollbaserad åtkomstkontroll (RBAC)-funktioner kan dra nytta av alla bra säkerhets- och hanteringsfunktioner för livscykel Azure AD PIM har att erbjuda och vissa nya funktionerna som vi planerar att göra Azure AD-roller snart. 
+Med Azure Active Directory Privileged Identity Management (PIM), kan du nu hantera, kontrollera och övervaka åtkomst till Azure-resurser i din organisation. Detta inkluderar prenumerationer och resursgrupper även virtuella datorer. Alla resurser i Azure-portalen som använder Azure rollbaserad åtkomstkontroll (RBAC)-funktioner kan dra nytta av alla bra säkerhets- och hanteringsfunktioner för livscykel Azure AD PIM har att erbjuda och vissa nya funktionerna som vi planerar att göra Azure AD-roller snart. 
 
-## <a name="pim-for-azure-resources-preview-helps-resource-administrators"></a>PIM resurser för Azure (förhandsversion) hjälper administratörer att resurs
+## <a name="pim-for-azure-resources-helps-resource-administrators"></a>PIM för Azure-resurser som hjälper administratörer att resurs
 
 - Se vilka användare och grupper är tilldelade roller för Azure-resurser du administrerar
 - Aktivera på begäran, just-in-time ”tillgång till att hantera resurser, till exempel prenumerationer och resursgrupper
@@ -39,25 +39,25 @@ Azure AD PIM kan hantera inbyggda roller i Azure-resurshanteraren, samt anpassad
 - Ägare
 - Administratör för användaråtkomst
 - Deltagare
-- Säkerhet Admin
+- Säkerhetsadministratör
 - Säkerhetshanteraren och mycket mer
 
 >[!NOTE]
 Användare eller medlemmar i en grupp som tilldelats ägare eller administratör för användaråtkomst roller och globala administratörer som möjliggör prenumerationshantering av i Azure AD är administratörer för resursen. Dessa administratörer kan tilldela roller, konfigurera rollinställningar för och granska åtkomst med hjälp av PIM för Azure-resurser. Visa en lista över [inbyggda roller för Azure-resurser](../role-based-access-built-in-roles.md).
 
-## <a name="tasks"></a>Uppgifter
+## <a name="tasks"></a>Aktiviteter
 
 PIM ger åtkomst till Aktivera roller, visa väntande aktiveringar/begäranden väntande godkännanden (för [Azure AD directory roller](azure-ad-pim-approval-workflow.md)), och granskar väntar på ditt svar från avsnittet uppgifter i den vänstra navigeringsmenyn.
 
-Vid åtkomst till alla menyalternativ uppgifter från översikt startpunkt innehåller resulterande vyn resultat för både roller för Azure AD-katalog och Azure-resurshanteraren roller (förhandsversion). 
+Vid åtkomst till alla menyalternativ uppgifter från översikt startpunkt innehåller resulterande vyn resultat för både roller för Azure AD-katalog och Azure-resurshanteraren roller. 
 
 ![](media/azure-pim-resource-rbac/role-settings-details.png)
 
-Min roller innehåller en lista över dina aktiva och berättigade rolltilldelningar för Azure AD directory roller och Azure-resurshanteraren roller (förhandsversion).
+Min roller innehåller en lista över dina aktiva och berättigade rolltilldelningar för Azure AD directory roller och Azure-resurshanteraren roller.
 
 ## <a name="activate-roles"></a>Aktivera roller
 
-Aktivera roller för Azure-resurser (förhandsgranskning) introducerar en ny upplevelse som berättigade rollmedlemmar kan schemalägga aktivering för framtida datum/tid och välj en specifik aktivering varaktighet inom den Maxtid (konfigurerad av administratörer). Lär dig mer om [aktivera Azure AD-roller här](../active-directory-privileged-identity-management-how-to-activate-role.md).
+Aktivera roller för Azure-resurser introducerar en ny upplevelse som berättigade rollmedlemmar kan schemalägga aktivering för framtida datum/tid och välj en specifik aktivering varaktighet inom den Maxtid (konfigurerad av administratörer). Lär dig mer om [aktivera Azure AD-roller här](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -73,7 +73,7 @@ Om aktiveringen är schemalagd vid en senare tid, visas en väntande begäran p�
 
 ## <a name="discover-and-manage-azure-resources"></a>Identifiera och hantera Azure-resurser
 
-Välj Azure-resurser (förhandsgranskning) under fliken hantera i den vänstra navigeringsmenyn för att hitta och hantera roller för en Azure-resurs. Använda filter eller sökfältet överst på sidan för att hitta en resurs.
+Välj Azure-resurser i den vänstra navigeringsmenyn hantera fliken för att hitta och hantera roller för en Azure-resurs. Använda filter eller sökfältet överst på sidan för att hitta en resurs.
 
 ![](media/azure-pim-resource-rbac/azure-resources.png)
 
@@ -173,10 +173,10 @@ Klicka på Redigera från Åtgärdsfältet överst på sidan kan du ändra varje
 
 ![](media/azure-pim-resource-rbac/role-settings-02.png)
 
-## <a name="resource-audit"></a>Resurs-granskning
+## <a name="resource-audit"></a>Resursgranskning
 
 Granskning för resursen ger dig en överblick över alla aktiviteter i rollen för resursen. Du kan filtrera informationen genom att använda ett fördefinierat datum eller ett anpassat intervall.
-![](media/azure-pim-resource-rbac/last-day.png)Resursen audit också ger snabb åtkomst om du vill visa information om en användare-aktivitet. I vyn är alla ”aktivera rollen” åtgärder länkar till den begärande resurs aktiviteten.
+![](media/azure-pim-resource-rbac/last-day.png) Resursen audit också ger snabb åtkomst om du vill visa information om en användare-aktivitet. I vyn är alla ”aktivera rollen” åtgärder länkar till den begärande resurs aktiviteten.
 ![](media/azure-pim-resource-rbac/resource-audit.png)
 
 ## <a name="just-enough-administration"></a>Bara tillräckligt med administration

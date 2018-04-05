@@ -1,25 +1,25 @@
 ---
-title: "Azure-Monitor: översikt | Microsoft Docs"
-description: "Azure övervakaren samlar in statistik för aviseringar, webhooks, Autoskala och automatisering. Artikel också en lista över andra Microsoft-övervakningsalternativ."
+title: 'Azure-Monitor: översikt | Microsoft Docs'
+description: Azure övervakaren samlar in statistik för aviseringar, webhooks, Autoskala och automatisering. Artikel också en lista över andra Microsoft-övervakningsalternativ.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 448711b7b2e102662bc157485561c33bf7f5fba1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-azure-monitor"></a>Översikt över Azure Övervakare
 Den här artikeln innehåller en översikt över Azure-Monitor-tjänsten i Microsoft Azure. Det beskriver vad Azure-Monitor finns och innehåller länkar till ytterligare information om hur du använder Azure-Monitor.  Om du föredrar en videointroduktion finns i nästa steg länkarna längst ned i den här artikeln. 
@@ -35,15 +35,13 @@ Azure övervakaren har en landningssida som hjälper användarna att:
 - Förstå övervakningsfunktionerna som Azure erbjuder.
 - Identifiera, konfigurera, och inbyggd Azure-plattformen och premium övervakningsfunktionerna.
 
-När tjänsten Azure-Monitor släpps, är översikt landningssida i förhandsgranskningen. 
-
 Sidan är en startpunkt för navigering, inklusive-boarding. Det visar granskat anmärkningsvärda problem från olika tjänster och används att navigera till dem i kontexten.
  
 ![Modellen för övervakning och diagnostik för icke-beräkningsresurser](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
 
 När du öppnar sidan kan välja du bland de prenumerationer som du har läsbehörighet till. Du kan se för en vald prenumeration:
 
-- **Utlöst aviseringar och avisering källor** – den här tabellen visar sammanfattning inventeringar, varning källor och hur många gånger aviseringar som aktiveras för den valda varaktigheten. Det gäller både mått och aktivitet loggen aviseringar. *< redigera: aviseringar (förhandsversion) med en enhetlig miljö som visas för alla aviseringar - händelser, mått och loggar >*
+- **Utlöst aviseringar och avisering källor** – den här tabellen visar sammanfattning inventeringar, varning källor och hur många gånger aviseringar som aktiveras för den valda varaktigheten. Det gäller både äldre och nyare aviseringar. Läs mer om den [nyare Azure aviseringar](monitoring-overview-unified-alerts.md). 
 - **Aktiviteten logga fel** – om någon av dina Azure-resurser logghändelser med fel-samma allvarlighetsgrad som du kan visa ett övergripande antal och klicka vidare till sidan aktivitet loggen att undersöka varje händelse.
 - **Tjänstens hälsa för Azure** -du kan se en uppräkning av tjänstens hälsa för problem med tjänsters planerade underhållshändelser och hälsa rekommendationerna. Tjänstens hälsa för Azure ger personlig information när problem i Azure-infrastrukturen påverka dina tjänster.  Se [Azure tjänstens hälsa](../service-health/service-health-overview.md) för mer information.  
 - **Application Insights** -finns KPI: er för varje AppInsights resurs i den aktuella prenumerationen. KPI: er som är optimerade för programmet för serversidan övervakning över ASP.NET-webbprogram, Java, Node och allmänna programtyper. KPI: er inkluderar mått för förfrågningar, varaktighet för svar, fel och tillgänglighet i procent. 
@@ -59,7 +57,7 @@ Om du inte har publicerat till logganalys eller Application Insights, eller om d
 
 Här beräknings-tjänster omfattar 
 - Cloud Services 
-- Virtuella datorer 
+- Virtual Machines 
 - Skaluppsättningar för den virtuella datorn 
 - Service Fabric
 
@@ -143,26 +141,26 @@ Några visualiseringen metoderna är:
 
 ### <a name="automate"></a>Automatisera
 > [!NOTE]
-> Som en del av en pågående utvecklingen av aviseringar i Microsoft Azure, som nu en enhetlig miljö för aviseringar förhandsgranskas. Mer information om [Azure aviseringar (förhandsgranskning)](monitoring-overview-unified-alerts.md)
+> Som en del av en pågående utvecklingen av aviseringar i Microsoft Azure, nu är en enhetlig miljö för aviseringar tillgänglig. Mer information om [nya Azure aviseringar](monitoring-overview-unified-alerts.md)
 
-Du kan använda övervakningsdata till utlösaren aviseringar eller med hela processer i den Azure-aviseringar som standard. Exempel:
+Du kan använda övervakningsdata till utlösaren aviseringar eller med hela processer i Azure-aviseringar. Exempel:
 
 * Användningsdata Autoskala compute-instanser uppåt eller nedåt utifrån belastningen för programmet.
-* Skicka e-postmeddelanden när ett mått korsar ett förutbestämt tröskelvärde.
+* Skicka e-postmeddelanden baserat på villkor som mått eller loggfilen. 
 * Anropa en URL (webhook) för att utföra en åtgärd i ett system utanför Azure
 * Starta en runbook i Azure automation för att utföra en rad olika uppgifter
 
 ## <a name="methods-of-accessing-azure-monitor"></a>Metoder för att komma åt Azure-Monitor
 I allmänhet kan du ändra dataspårning, Routning och hämtning med någon av följande metoder. Inte alla metoder är tillgängliga för alla åtgärder eller -datatyper.
 
-* [Azure-portalen](https://portal.azure.com)
+* [Azure Portal](https://portal.azure.com)
 * [PowerShell](insights-powershell-samples.md)  
 * [Plattformsoberoende kommandoradsgränssnittet (CLI)](insights-cli-samples.md)
 * [REST API](https://docs.microsoft.com/rest/api/monitor/)
 * [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om
+Läs mer om
 - En videogenomgång av bara Azure-Monitor finns på  
 [Kom igång med Azure-Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). 
 - En video som förklarar ett scenario där du kan använda Azure-Monitor finns på [utforska Microsoft Azure-övervakning och diagnostik](https://channel9.msdn.com/events/Ignite/2016/BRK2234) och [Azure Övervakare i ett videoklipp från Ignite 2016](https://myignite.microsoft.com/videos/4977).

@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement – Komma igång med bästa praxis"
-description: "Komma igång med Azure Mobile Engagement och bästa praxis för integrering"
+title: Azure Mobile Engagement – Komma igång med bästa praxis
+description: Komma igång med Azure Mobile Engagement och bästa praxis för integrering
 services: mobile-engagement
 documentationcenter: mobile
 author: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dfce1183-6398-466e-aa7e-ed702fb52818
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf9dc5febeae27473d2adb8a024536b945bb9d13
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement – Komma igång med bästa praxis
+> [!IMPORTANT]
+> Azure Mobile Engagement dras tillbaka den 31 mars 2018. Den här sidan tas bort strax efter det.
+> 
+
 ## <a name="overview"></a>Översikt
 **Det är många som är med och slåss om en plats på mobilskärmen:** Enligt en undersökning från 2013 fanns det i genomsnitt 27 appar installerade på varje mobil enhet. Användarna lade i snitt ned 30 timmar i månaden på apparna. Största delen av tiden tillbringades på sociala nätverk och med spel (cirka 20 timmar). År 2014 fanns det runt 1,5 miljoner appar på Android-marknaden. Apples App Store innehöll då runt 1,2 miljoner appar. Användningen av mobilappar bara fortsätter att öka och konkurrensen mellan de olika apputvecklarna är stenhård. 
 

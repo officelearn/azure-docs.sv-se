@@ -25,9 +25,15 @@
 ### Belastningsutjämnare
 #### [Vad är belastningsutjämnare?](../load-balancer/load-balancer-standard-overview.md)
 #### [Load Balancer Standard och tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md)
-#### [Skapa zonredundant offentlig Load Balancer Standard med Azure Portal](../load-balancer/load-balancer-get-started-internet-az-portal.md)
-#### [Skapa zonredundant Load Balancer Standard med PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
-#### [Skapa zonredundant offentlig Load Balancer Standard med CLI](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+
+#### [Skapa en zonredundant offentlig Standard Load Balancer](../load-balancer/load-balancer-get-started-internet-az-portal.md)
+##### [Skapa en zonredundant offentlig Standard Load Balancer (PowerShell)](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
+##### [Skapa en zonredundant offentlig Standard Load Balancer (CLI)](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+#### [Skapa en zonindelad offentlig Standard Load Balancer](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+##### [Skapa en zonindelad offentlig Standard Load Balancer (PowerShell)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+##### [Skapa en zonredundant offentlig Standard Load Balancer (CLI)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+#### [Belastningsutjämna virtuella datorer mellan tillgänglighetszoner](../load-balancer/load-balancer-standard-public-availability-zones-portal.md)
+##### [Belastningsutjämna virtuella datorer mellan tillgänglighetszoner med Azure (CLI)](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 
 ### [Offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
@@ -35,7 +41,7 @@
 #### [Tillgänglighetszoner med SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)
 
 ### Lagring
-#### [Zonredundant lagring](../storage/common/storage-redundancy.md#zone-redundant-storage)
+#### [Zonredundant lagring](../storage/common/storage-redundancy-zrs.md)
 
 # Haveriberedskap
 ## [Använd Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)

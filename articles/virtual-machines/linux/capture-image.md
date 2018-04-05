@@ -1,11 +1,11 @@
 ---
-title: "Hämta en avbildning av en Linux VM i Azure med hjälp av CLI 2.0 | Microsoft Docs"
-description: "Hämta en avbildning av en Azure VM ska användas för masslagring distributioner som använder Azure CLI 2.0."
+title: Hämta en avbildning av en Linux VM i Azure med hjälp av CLI 2.0 | Microsoft Docs
+description: Hämta en avbildning av en Azure VM ska användas för masslagring distributioner som använder Azure CLI 2.0.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/22/2018
 ms.author: cynthn
-ms.openlocfilehash: 15ad240ea9b635cd7995bfae403a93e0b392850a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: e83319b8b4ace495a4301dd850cea27633115426
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Så här skapar du en avbildning av en virtuell dator eller virtuell Hårddisk
 
@@ -89,6 +89,8 @@ Använda Azure CLI 2.0 för att markera den virtuella datorn som generaliserad o
    
    > [!NOTE]
    > Bilden har skapats i samma resursgrupp som ditt Virtuella källdatorn. Du kan skapa virtuella datorer i valfri resursgrupp i din prenumeration från den här avbildningen. Ur management kan du skapa en viss resursgrupp för VM-resurser och bilder.
+   >
+   > Om du vill lagra avbildningen i zonen flexibel måste du skapa i en region som stöder [tillgänglighet zoner](../../availability-zones/az-overview.md) och inkludera den `--zone-resilient true` parameter.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Steg 3: Skapa en virtuell dator från avbildningen
 Skapa en virtuell dator med hjälp av den avbildning som du skapat med [az vm skapa](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVMDeployed* från avbildningen med namnet *myImage*:

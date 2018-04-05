@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: 946d0f6456ce27931c91066d63c028388ecec84c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 7039b87c80aecb837059d80087c97e8691da2988
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Vanliga frågor om Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos-grunderna
@@ -122,7 +122,7 @@ Kom ihåg att Azure Cosmos DB respekterar statliga och offentliga moln när du s
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Hur börjar jag utveckla mot SQL-API?
 Du måste först registrera dig för en Azure-prenumeration. När du registrerar dig för en Azure-prenumeration kan du lägga till en SQL-API-behållare till din Azure-prenumeration. Anvisningar för att lägga till ett konto i Azure Cosmos DB finns [skapa ett databaskonto Azure Cosmos DB](create-sql-api-dotnet.md#create-account). 
 
-[SDK:er](sql-api-sdk-dotnet.md) är tillgängliga för .NET, Python, Node.js, JavaScript och Java. Utvecklare kan också använda den [RESTful http-API: er](/rest/api/documentdb/) att interagera med Azure Cosmos DB resurser från olika plattformar och språk.
+[SDK:er](sql-api-sdk-dotnet.md) är tillgängliga för .NET, Python, Node.js, JavaScript och Java. Utvecklare kan också använda den [RESTful http-API: er](/rest/api/cosmos-db/) att interagera med Azure Cosmos DB resurser från olika plattformar och språk.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Kan jag använda vissa färdiga prov för att komma igång?
 Exempel för SQL-API [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md), och [Python](sql-api-python-samples.md) SDK finns på GitHub.
@@ -140,10 +140,10 @@ En samling är en grupp av dokument och deras associerade JavaScript-programlogi
 Samlingar är också faktureringsenheterna för Azure Cosmos DB. Varje samling faktureras timvis baserat på etablerat dataflöde och använt lagringsutrymme. Mer information finns i [priser för Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>Hur skapar jag en databas?
-Du kan skapa databaser med hjälp av den [Azure-portalen](https://portal.azure.com), enligt beskrivningen i [lägger till en samling](create-sql-api-dotnet.md#create-collection), med en av de [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md), eller [REST API: er](/rest/api/documentdb/). 
+Du kan skapa databaser med hjälp av den [Azure-portalen](https://portal.azure.com), enligt beskrivningen i [lägger till en samling](create-sql-api-dotnet.md#create-collection), med en av de [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md), eller [REST API: er](/rest/api/cosmos-db/). 
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Hur ställer jag in användare och behörigheter?
-Du kan skapa användare och behörigheter genom att använda en av de [Cosmos DB API SDK](sql-api-sdk-dotnet.md) eller [REST API: er](/rest/api/documentdb/).  
+Du kan skapa användare och behörigheter genom att använda en av de [Cosmos DB API SDK](sql-api-sdk-dotnet.md) eller [REST API: er](/rest/api/cosmos-db/).  
 
 ### <a name="does-the-sql-api-support-sql"></a>Stöder SQL-API SQL?
 SQL-frågespråket stöds av SQL-API-konton är en förbättrad underuppsättning av de frågefunktioner som stöds av SQL Server. Azure Cosmos-Databasens SQL-frågespråket ger omfattande hierarkiska och relationella operatorer och kan utvidgas via JavaScript-baserade, användardefinierade funktioner (UDF). JSON-grammatik gör det möjligt för att modellera JSON-dokument som träd med märkt noder som används av både Azure Cosmos DB tekniker för automatisk indexering och SQL-frågedialekt av Azure Cosmos DB. Information om hur du använder SQL-grammatik finns i [SQL-frågan] [ query] artikel.

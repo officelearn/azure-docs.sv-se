@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 6729c4281f4aa10b653d1c4f29104fd10a08a96e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 14aa0002ff88678bb54a3abed8bf7eeed3b717f4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 När du skapar en virtuell Azure-dator (VM) måste du skapa ett [virtuellt nätverk](../articles/virtual-network/virtual-networks-overview.md) (VNet) eller använda ett befintligt VNet. Du måste också bestämma hur dina virtuella datorer är avsedda att användas på VNet. Det är viktigt att [planera innan du skapar resurser](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) och att säkerställa att du förstår [begränsningarna för nätverksresurser](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -29,7 +29,7 @@ Du kan skapa ett VNet innan du skapar en virtuell dator eller så kan du när du
 Utöver dessa grundläggande resurser bör du även överväga dessa valfria resurser:
 
 - Nätverkssäkerhetsgrupper
-- Belastningsutjämnare 
+- Belastningsutjämning 
 
 ## <a name="network-interfaces"></a>Nätverksgränssnitt
 
@@ -110,11 +110,11 @@ Den här tabellen anger de metoder som du kan använda för att skapa en nätver
 | Metod | Beskrivning |
 | ------ | ----------- |
 | [Azure Portal](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md) | När du skapar en virtuell dator i Azure-portalen skapas en NSG automatiskt och kopplas till det NIC som portalen skapar. Namnet på denna NSG är en kombination av namnet på den virtuella datorn och **-nsg**. Denna NSG innehåller en inkommande regel med prioritet 1000, tjänst inställd på RDP, protokoll inställt på TCP, port inställd på 3389 och åtgärd inställd på Tillåt. Om du vill tillåta annan inkommande trafik till den virtuella datorn måste du lägga till ytterligare regler i NSG. |
-| [Azure PowerShell](../articles/virtual-network/virtual-networks-create-nsg-arm-ps.md) | Använd [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) och ange nödvändig regelinformation. Använd [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) för att skapa NSG. Använd [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) för att konfigurera NSG för undernätet. Använd [Set AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) för att lägga till NSG till VNet. |
-| [Azure CLI](../articles/virtual-network/virtual-networks-create-nsg-arm-cli.md) | Använd [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) för att först skapa NSG. Använd [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) för att lägga till regler i NSG. Använd [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) för att lägga till NSG i undernätet. |
+| [Azure PowerShell](../articles/virtual-network/tutorial-filter-network-traffic.md) | Använd [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) och ange nödvändig regelinformation. Använd [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) för att skapa NSG. Använd [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) för att konfigurera NSG för undernätet. Använd [Set AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) för att lägga till NSG till VNet. |
+| [Azure CLI](../articles/virtual-network/tutorial-filter-network-traffic-cli.md) | Använd [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) för att först skapa NSG. Använd [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) för att lägga till regler i NSG. Använd [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) för att lägga till NSG i undernätet. |
 | [Mall](../articles/virtual-network/virtual-networks-create-nsg-arm-template.md) | Använd [Skapa en nätverkssäkerhetsgrupp ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) som en vägledning för att distribuera en säkerhetsgrupp i nätverket med hjälp av en mall. |
 
-## <a name="load-balancers"></a>Belastningsutjämnare
+## <a name="load-balancers"></a>Belastningsutjämning
 
 [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) levererar hög tillgänglighet och nätverksprestanda till dina program. En belastningsutjämnare kan konfigureras för att [balansera inkommande internettrafik](../articles/load-balancer/load-balancer-internet-overview.md) till virtuella datorer eller [balansera trafik mellan virtuella datorer i ett VNet](../articles/load-balancer/load-balancer-internal-overview.md). En belastningsutjämnare kan även balansera trafik mellan lokala datorer och virtuella datorer mellan lokala nätverk eller vidarebefordra extern trafik till en specifik virtuell dator.
 

@@ -6,9 +6,10 @@
 ## [Prenumerations- och tjänstbegränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Kom igång
-## [Skapa en ruttbaserad VPN-gateway – Azure Portal](create-routebased-vpn-gateway-portal.md)
-## [Skapa en ruttbaserad VPN-gateway – PowerShell](create-routebased-vpn-gateway-powershell.md)
-## [Skapa en ruttbaserad VPN-gateway – CLI](create-routebased-vpn-gateway-cli.md)
+## Skapa en ruttbaserad VPN-gateway
+### [Azure Portal](create-routebased-vpn-gateway-portal.md)
+### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
+### [Azure CLI](create-routebased-vpn-gateway-cli.md)
 
 # Begrepp
 ## [Planering och design för VPN Gateway](vpn-gateway-plan-design.md)
@@ -87,13 +88,16 @@
 ### [Exempel: Cisco ASA-enhet (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## [Migrering från klassisk till Resource Manager](vpn-gateway-classic-resource-manager-migration.md)
 ## [Felsöka](vpn-gateway-troubleshoot.md)
-### [Validera VPN-dataflöde till VNet](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Community-föreslaget VPN eller brandväggsinställningar för enhet](vpn-gateway-third-party-settings.md)
-### [Problem med punkt-till-plats-anslutning](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-#### [Problem med punkt-till-plats-anslutning – VPN-klient för Mac OS X-klient](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
-### [Problem med plats-till-plats-anslutning](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
-#### [Plats-till-plats-anslutningen kopplas från periodvis](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Konfigurera och verifiera VNet- eller VPN-anslutningar](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
+### [Validera VPN-dataflöde till VNet](vpn-gateway-validate-throughput-to-vnet.md)
+### Punkt-till-plats-anslutningsproblem
+#### [Problem med punkt-till-plats-anslutning](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+#### [Problem med punkt-till-plats-anslutning – VPN-klient för Mac OS X-klient](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+### Plats-till-plats-anslutningsproblem
+#### [Problem med plats-till-plats-anslutning](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
+#### [Plats-till-plats-anslutningen kopplas från periodvis](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
+
 
 # Referens
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

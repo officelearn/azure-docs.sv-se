@@ -1,12 +1,12 @@
 ---
 title: Enheten firmware-uppdatering med Azure IoT Hub (.NET/.NET) | Microsoft Docs
-description: "Hur du använder hantering av enheter på Azure IoT Hub för att initiera en firmware-uppdatering för enheten. Du kan använda Azure IoT-enhet SDK för .NET för att implementera en simulerad enhetsapp och tjänsten Azure IoT SDK för .NET att implementera ett service-appen som utlöser firmware-uppdatering."
+description: Hur du använder hantering av enheter på Azure IoT Hub för att initiera en firmware-uppdatering för enheten. Du kan använda Azure IoT-enhet SDK för .NET för att implementera en simulerad enhetsapp och tjänsten Azure IoT SDK för .NET att implementera ett service-appen som utlöser firmware-uppdatering.
 services: iot-hub
 documentationcenter: .net
 author: JimacoMS2
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
 ms.author: v-jamebr
-ms.openlocfilehash: bd0a227861d75dc66af8fb4865a17a3b6d0f70ba
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 984fd7516b5c05973c45891f4eda31c41a5a2be5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Använd enhetshantering för att starta en enhet på en firmware-uppdatering (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## <a name="introduction"></a>Introduktion
 I den [Kom igång med enhetshantering] [ lnk-dm-getstarted] självstudiekursen du sett hur du använder den [enheten dubbla] [ lnk-devtwin] och [direkt metoder] [ lnk-c2dmethod] primitiver att starta om en enhet via fjärranslutning. Den här kursen visar hur du gör en slutpunkt till slutpunkt simulerade firmware-uppdatering använder samma IoT-hubb primitiver.  Det här mönstret används i uppdatering av inbyggd hanteringsprogramvara för den [hallon Pi enheten implementering exempel][lnk-rpi-implementation].
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 I den här självstudiekursen lär du dig att:
 
@@ -75,7 +77,7 @@ I det här avsnittet skapar du en .NET-konsolapp (med C#) som initierar en fjär
     static string targetDevice = "{deviceIdForTargetDevice}";
     ```
         
-6. Lägg till följande metod för att den **programmet** klass. Den här metoden avsöker enheten två uppdaterade status var 500 millisekunder. Skriver den till konsolen endast när status faktiskt har ändrats. För det här exemplet för att förhindra att förbruka extra IoT-hubb meddelanden i din prenumeration avsökning slutar när enheten rapporterar statusen **applyComplete** eller ett fel.  
+6. Lägg till följande metod i klassen **Program**. Den här metoden avsöker enheten två uppdaterade status var 500 millisekunder. Skriver den till konsolen endast när status faktiskt har ändrats. För det här exemplet för att förhindra att förbruka extra IoT-hubb meddelanden i din prenumeration avsökning slutar när enheten rapporterar statusen **applyComplete** eller ett fel.  
    
     ```csharp   
     public static async Task QueryTwinFWUpdateReported(DateTime startTime)

@@ -1,24 +1,24 @@
 ---
-title: "Köra uppgifter under användarkonton i Azure Batch | Microsoft Docs"
-description: "Konfigurera användarkonton för att köra uppgifter i Azure Batch"
+title: Köra uppgifter under användarkonton i Azure Batch | Microsoft Docs
+description: Konfigurera användarkonton för att köra uppgifter i Azure Batch
 services: batch
-author: tamram
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: tamram
-ms.openlocfilehash: d408c0565c0ed81fc97cc2b3976a4fc233e31302
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: 1b9c0514e93fa89f8776d830ef242fc4963a6f7b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Köra uppgifter under användarkonton i Batch
 
@@ -312,7 +312,7 @@ Batch-tjänstversion 2017-01-01.4.0 introducerar en ny ändring ersätter den **
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.RunElevated = true;`       | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));`    |
 | `CloudTask.RunElevated = false;`      | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));` |
-| `CloudTask.RunElevated`inte angetts | Ingen uppdatering krävs                                                                                               |
+| `CloudTask.RunElevated` Inte angetts | Ingen uppdatering krävs                                                                                               |
 
 ### <a name="batch-java"></a>Batch Java
 
@@ -320,7 +320,7 @@ Batch-tjänstversion 2017-01-01.4.0 introducerar en ny ändring ersätter den **
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.withRunElevated(true);`        | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.ADMIN));`    |
 | `CloudTask.withRunElevated(false);`       | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.NONADMIN));` |
-| `CloudTask.withRunElevated`inte angetts | Ingen uppdatering krävs                                                                                                                     |
+| `CloudTask.withRunElevated` Inte angetts | Ingen uppdatering krävs                                                                                                                     |
 
 ### <a name="batch-python"></a>Python för Batch
 
@@ -328,7 +328,7 @@ Batch-tjänstversion 2017-01-01.4.0 introducerar en ny ändring ersätter den **
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`, där <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin)) `                |
 | `run_elevated=False`                      | `user_identity=user`, där <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin)) `             |
-| `run_elevated`inte angetts | Ingen uppdatering krävs                                                                                                                                  |
+| `run_elevated` Inte angetts | Ingen uppdatering krävs                                                                                                                                  |
 
 
 ## <a name="next-steps"></a>Nästa steg

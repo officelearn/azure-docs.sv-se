@@ -1,8 +1,8 @@
 ---
 title: Automatisera Azure Application Insights med PowerShell | Microsoft Docs
-description: "Automatisera skapar resursen, aviseringen och tillgänglighet tester i PowerShell med en Azure Resource Manager-mall."
+description: Automatisera skapar resursen, aviseringen och tillgänglighet tester i PowerShell med en Azure Resource Manager-mall.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: f4f9d1558d2ef9dc5e1b7b248ad5bc8753f59cf9
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 46ba4ce992640e8a6d171ab839dd7cdb24e0b404
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Skapa Application Insights-resurser med hjälp av PowerShell
 Den här artikeln visar hur du automatisera skapandet och uppdatering av [Programinsikter](app-insights-overview.md) resurser automatiskt med Azure Resource Manager. Du kan till exempel göra det som en del av en build-process. Tillsammans med grundläggande Application Insights-resursen kan du skapa [tillgänglighet webbtester](app-insights-monitor-web-app-availability.md), Ställ in [aviseringar](app-insights-alerts.md), ange den [priser schemat](app-insights-pricing.md), och skapa andra Azure-resurser .
@@ -166,9 +166,9 @@ Skapa en ny fil i JSON - vi anropa den `template1.json` i det här exemplet. Kop
 
     ``` 
    
-   * `-ResourceGroupName`är gruppen som du vill skapa nya resurser.
-   * `-TemplateFile`måste inträffa innan anpassade parametrar.
-   * `-appName`Namnet på resursen som ska skapas.
+   * `-ResourceGroupName` är gruppen som du vill skapa nya resurser.
+   * `-TemplateFile` måste inträffa innan anpassade parametrar.
+   * `-appName` Namnet på resursen som ska skapas.
 
 Du kan lägga till andra parametrar - hittar du beskrivningar i avsnittet parametrar i mallen.
 
@@ -196,15 +196,15 @@ Skapa en resurs i appen med pris företagsplan, med den här mallen ovan:
                -appName myNewApp
 ```
 
-|priceCode|Planera|
+|priceCode|plan|
 |---|---|
-|1|Basic|
+|1|Grundläggande|
 |2|Enterprise|
 
 * Om du endast vill använda baspris standardplanen kan du utelämna CurrentBillingFeatures resursen från mallen.
 * Om du vill ändra pris planen när komponenten resursen har skapats kan du använda en mall som utesluter resursen ”microsoft.insights/components”. Dessutom utelämna den `dependsOn` noden från resursen för fakturering. 
 
-Kontrollera uppdaterade priset planen genom att titta på den ”funktioner + pris” bladet i webbläsaren. **Uppdatera webbläsaren vyn** så att du kan se det aktuella tillståndet.
+Kontrollera uppdaterade priset planen genom att titta på den **användnings- och uppskattade kostnaderna sidan** bladet i webbläsaren. **Uppdatera webbläsaren vyn** så att du kan se det aktuella tillståndet.
 
 
 
@@ -426,7 +426,7 @@ Här följer exempel på ersättningar som du vill se. Det finns flera förekoms
 | `"myWebTest-myAppName"` |`"[variables(testName)]"'` |
 | `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
 | `"myAppName"` |`"[parameters('appName')]"` |
-| `"myappname"`(gemen) |`"[toLower(parameters('appName'))]"` |
+| `"myappname"` (gemen) |`"[toLower(parameters('appName'))]"` |
 | `"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>Ta bort Guid och -Id. |
 
 ### <a name="set-dependencies-between-the-resources"></a>Ange beroenden mellan resurser

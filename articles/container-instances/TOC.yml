@@ -35,9 +35,11 @@
       href: container-instances-multi-container-group.md
     - name: Distribuera från Azure Container Registry
       href: container-instances-using-azure-container-registry.md
+    - name: Köra ett kommando (exec)
+      href: container-instances-exec.md
     - name: Köra behållarbaserade uppgifter
       href: container-instances-restart-policy.md
-    - name: Ange miljövariabler
+    - name: Ange miljövariabler (env)
       href: container-instances-environment-variables.md
     - name: Felsöka distributioner
       href: container-instances-troubleshooting.md

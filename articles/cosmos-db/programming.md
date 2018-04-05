@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 2b55307c3122513b414c3f90a6a36d230f3459c2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 328cf016c98575ecd0fa7be023b48e670211babf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure DB Cosmos serversidan programmering: lagrade procedurer, databasutlösare och UDF: er
 
@@ -54,7 +54,7 @@ Den här metoden för *”JavaScript som en modern dag T-SQL”* Frigör program
   * Det lägger till ett Abstraktionslager ovanpå rådata, vilket gör att data arkitekter att utveckla sina program oberoende av data. Det här lagret Abstraktionslager är användbar när data är schema-mindre på grund av spröda antaganden som kan behöva vara inbyggd till programmet om de måste behandla data direkt.  
   * Denna framställning kan företag skydda sina data genom att effektivisera åtkomst från skript.  
 
-Skapa och körning av databasutlösare, lagrade procedurer och anpassade frågeoperatorer stöds via den [Azure-portalen](https://portal.azure.com), [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), och [client SDK](sql-api-sdk-dotnet.md) på flera olika plattformar inklusive .NET, Node.js och JavaScript.
+Skapa och körning av databasutlösare, lagrade procedurer och anpassade frågeoperatorer stöds via den [Azure-portalen](https://portal.azure.com), [REST API](/rest/api/cosmos-db/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), och [client SDK](sql-api-sdk-dotnet.md) på flera olika plattformar inklusive .NET, Node.js och JavaScript.
 
 Den här kursen använder den [Node.js SDK med Q löftena](http://azure.github.io/azure-documentdb-node-q/) att illustrera syntax och användning av lagrade procedurer, utlösare och UDF: er.   
 
@@ -723,7 +723,7 @@ Och följande exempel visar hur du skapar en användardefinierad funktion (UDF) 
         Console.WriteLine("Read {0} from query", book);
     }
 
-## <a name="rest-api"></a>REST-API
+## <a name="rest-api"></a>REST API
 Alla Azure DB som Cosmos-åtgärder kan utföras på ett RESTful sätt. Lagrade procedurer, utlösare och användardefinierade funktioner kan registreras i en samling med hjälp av HTTP POST. Följande är ett exempel på hur du registrerar en lagrad procedur:
 
     POST https://<url>/sprocs/ HTTP/1.1

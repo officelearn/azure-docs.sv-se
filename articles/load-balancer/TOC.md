@@ -20,13 +20,19 @@
 
 # Gör så här för att
 
+## [Skapa en zonredundant offentlig Standard Load Balancer](load-balancer-get-started-internet-az-portal.md)
+### [Skapa en zonredundant offentlig Standard Load Balancer (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Skapa en zonredundant offentlig Standard Load Balancer (CLI)](load-balancer-get-started-internet-az-cli.md)
+## [Skapa en zonindelad offentlig Standard Load Balancer](load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+### [Skapa en zonindelad offentlig Standard Load Balancer (PowerShell)](load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+### [Skapa en zonredundant offentlig Standard Load Balancer (CLI)](load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+## [Belastningsutjämna virtuella datorer mellan tillgänglighetszoner](load-balancer-standard-public-availability-zones-portal.md)
+###  [Belastningsutjämna virtuella datorer mellan tillgänglighetszoner (CLI)](load-balancer-standard-public-zone-redundant-cli.md)
+##  [Belastningsutjämna virtuella datorer inom en zon (CLI)](load-balancer-standard-public-zonal-cli.md)   
+## [Skapa en Basic Load Balancer (mall)](load-balancer-get-started-internet-arm-template.md)
 ## [Skapa offentlig Load Balancer med IPv6](load-balancer-ipv6-internet-ps.md)
 ### [Skapa offentlig Load Balancer med IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [Skapa offentlig Load Balancer med IPv6 (mall)](load-balancer-ipv6-internet-template.md)
-## [Skapa en zonredundant offentlig Load Balancer Standard](load-balancer-get-started-internet-az-portal.md)
-### [Skapa en zonredundant offentlig Load Balancer Standard (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
-### [Skapa en zonredundant offentlig Load Balancer Standard (CLI)](load-balancer-get-started-internet-az-cli.md)
-## [Skapa en Basic Load Balancer (mall)](load-balancer-get-started-internet-arm-template.md)
 ## [Konfigurera intern Load Balancer](load-balancer-get-started-ilb-arm-portal.md)
 ### [Konfigurera intern Load Balancer (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
 ### [Konfigurera intern Load Balancer (CLI)](load-balancer-get-started-ilb-arm-cli.md)

@@ -1,19 +1,19 @@
 ---
-title: "Skapa och hantera Azure-databas för MySQL-servern med hjälp av Azure-portalen"
-description: "Den här artikeln beskriver hur du kan snabbt skapa en ny Azure-databas för MySQL-server och hantera servern med hjälp av Azure-portalen."
+title: Skapa och hantera Azure-databas för MySQL-servern med hjälp av Azure-portalen
+description: Den här artikeln beskriver hur du kan snabbt skapa en ny Azure-databas för MySQL-server och hantera servern med hjälp av Azure-portalen.
 services: mysql
 author: ajlam
-ms.author: nolanwu
+ms.author: andrela
 editor: jasonwhowell
 manager: kfile
 ms.service: mysql-database
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 0e274c0ada3de5e9000ae41516e5b9b67ef1490b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4b52cb9e42e582d42424c2814e2e30f764a8679b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Skapa och hantera Azure-databas för MySQL-servern med hjälp av Azure-portalen
 Det här avsnittet beskrivs hur du snabbt kan skapa en ny Azure-databas för MySQL-servern. Det innehåller även information om hur du hanterar servern med hjälp av Azure portal. Server management innehåller visa serverinformation och databaser, återställer lösenordet, skalning resurser och ta bort servern.
@@ -46,7 +46,7 @@ Följ dessa steg om du vill skapa en Azure-databas för MySQL-server med namnet 
     | *Plats* | Sydostasien (Välj mellan Norra Europa och västra USA) |
     | *Version* | 5.7 (Välj Azure-databas för MySQL server-version) |
 
-4. Klicka på **prisnivå** att ange tjänstenivå för tjänstnivå och prestandanivå för den nya servern. Välj den **generella** fliken. *Gen 4*, *2 vCores*, *5 GB*, och *7 dagar* standardvärdena för **Compute Generation**, **vCore** , **Lagring**, och **säkerhetskopiera kvarhållningsperiod**. Du kan lämna dessa skjutreglage som är. Din server säkerhetskopieringarna geo-redundant lagring Välj **geografiskt Redundant** från den **redundansalternativ**.
+4. Klicka på **prisnivå** att ange tjänstenivå för tjänstnivå och prestandanivå för den nya servern. Välj den **generella** fliken. *Gen 4*, *2 virtuella kärnor*, *5 GB*, och *7 dagar* är standardvärdena för **Compute-generering**, **Virtuell kärna** , **Lagring** och **Kvarhållningsperiod för säkerhetskopior**. Du kan lämna dessa skjutreglage som de är. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior.
 
    ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 

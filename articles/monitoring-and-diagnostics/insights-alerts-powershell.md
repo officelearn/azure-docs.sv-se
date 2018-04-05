@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 03/28/2018
 ms.author: robb
-ms.openlocfilehash: 03026ee8bedd5277b2bb6cf28dabafabf207b0ae
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8f7df424b27e6899821a9bdd2f1d8397a0de35a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Skapa klassiska mått aviseringar i Azure-Monitor för Azure-tjänster - PowerShell
 > [!div class="op_single_selector"]
@@ -31,18 +31,18 @@ ms.lasthandoff: 03/23/2018
 ## <a name="overview"></a>Översikt
 
 > [!NOTE]
-> Den här artikeln beskriver hur du skapar äldre mått aviseringar. Stöd för Azure övervakaren [nyare, bättre mått aviseringar](monitoring-near-real-time-metric-alerts.md). Dessa aviseringar kan du övervaka flera och tillåter aviseringar om dimensionell mått. PowerShell-stöd för nyare mått aviseringar kommer snart.
+> Den här artikeln beskriver hur du skapar äldre klassiska mått aviseringar. Stöd för Azure övervakaren [nyare, bättre mått aviseringar](monitoring-near-real-time-metric-alerts.md). Dessa aviseringar kan du övervaka flera och tillåter aviseringar om dimensionell mått. PowerShell-stöd för nyare mått aviseringar kommer snart.
 >
 >
 
-Den här artikeln visar hur du ställer in Azure mått aviseringar med hjälp av PowerShell.  
+Den här artikeln visar hur du ställer in Azure klassiska mått aviseringar med hjälp av PowerShell.  
 
 Du kan ta emot en avisering baserat på övervakning mätvärden för eller händelser på Azure-tjänster.
 
 * **Måttvärden** -aviseringen utlöses när värdet för ett visst mått överskrider ett tröskelvärde som du tilldelar i båda riktningarna. Det vill säga den utlöser både när villkoret uppfylls först och sedan efteråt när villkor som inte längre är uppfyllt.    
 * **Aktiviteten logghändelser** -utlösa en avisering på *varje* händelse eller bara när en viss händelse inträffar. Mer information om aktiviteten loggen aviseringar [Klicka här](monitoring-activity-log-alerts.md)
 
-Du kan konfigurera en mått avisering när den utlöser gör du följande:
+Du kan konfigurera en klassiska mått avisering när den utlöser gör du följande:
 
 * Skicka e-postmeddelanden till tjänstadministratören och medadministratörer
 * Skicka e-post till ytterligare e-postmeddelanden som du anger.
@@ -135,8 +135,8 @@ För ytterligare information, kan du alltid skriva ```Get-Help``` och sedan av P
 
 ## <a name="next-steps"></a>Nästa steg
 * [Få en översikt över Azure övervakning](monitoring-overview.md) inklusive typerna av information som du kan samla in och övervaka.
-* Lär dig mer om [hur du konfigurerar webhooks i aviseringar](insights-webhooks-alerts.md).
-* Lär dig mer om [konfigurera aviseringar på aktiviteten logghändelser](monitoring-activity-log-alerts.md).
+* Lär dig hur du [konfigurerar webhooks i aviseringar](insights-webhooks-alerts.md).
+* Lär dig hur du [konfigurera aviseringar på aktiviteten logghändelser](monitoring-activity-log-alerts.md).
 * Lär dig mer om [Azure Automation-Runbooks](../automation/automation-starting-a-runbook.md).
 * Hämta en [översikt över att samla in diagnostikloggar](monitoring-overview-of-diagnostic-logs.md) att samla in detaljerade hög frekvens mått på din tjänst.
 * Hämta en [översikt över mått samling](insights-how-to-customize-monitoring.md) att kontrollera att tjänsten är tillgänglig och svarstid.

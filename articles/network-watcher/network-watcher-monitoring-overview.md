@@ -1,11 +1,11 @@
 ---
-title: "Introduktion till Azure Nätverksbevakaren | Microsoft Docs"
-description: "Den här sidan innehåller en översikt över tjänsten Nätverksbevakaren för övervakning och visualisering av nätverk anslutet resurser i Azure"
+title: Introduktion till Azure Nätverksbevakaren | Microsoft Docs
+description: Den här sidan innehåller en översikt över tjänsten Nätverksbevakaren för övervakning och visualisering av nätverk anslutet resurser i Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 792b96e4f5ba5dc0f2f943f099a2fee339407d66
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Azure-nätverk övervakning-översikt
 
@@ -47,28 +47,29 @@ Nätverksbevakaren har för närvarande följande funktioner:
 * **[Nätverk prenumerationsbegränsningar](#network-subscription-limits)**  -kan du visa nätverksresursanvändning mot gränser.
 * **[Konfigurera diagnostik loggen](#diagnostic-logs)**  – innehåller en om du vill aktivera eller inaktivera diagnostik loggar för nätverksresurser i en resursgrupp.
 * **[Felsöka anslutning](network-watcher-connectivity-overview.md)**  -verifierar möjligheten att upprätta en direkt TCP-anslutning från en virtuell dator till en viss slutpunkt utökat med Azure kontext.
+* **[Övervakaren anslutning](connection-monitor.md)**  -övervaka problem svarstid och konfiguration mellan en virtuell Azure-dator och en IP-adress med hjälp av käll- och IP-adress och port.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Rollbaserad åtkomstkontroll (RBAC) i Nätverksbevakaren
 
 Watcher nätverket i [rollbaserad åtkomstkontroll (RBAC) modellen](../active-directory/role-based-access-control-what-is.md). Följande behörigheter krävs av Nätverksbevakaren. Det är viktigt att se till att den roll som används för att initiera nätverket Watcher API: er eller använda Nätverksbevakaren från portalen har tillräcklig behörighet.
 
-|Resurs| Behörighet|
+|Resurs| Behörigheter|
 |---|---| 
-|Microsoft.Storage/ |Läsa|
-|Microsoft.Authorization/| Läsa| 
-|Microsoft.Resources/subscriptions/resourceGroups/| Läsa|
-|Microsoft.Storage/storageAccounts/listServiceSas/ | Åtgärd|
-|Microsoft.Storage/storageAccounts/listAccountSas/ |Åtgärd|
-|Microsoft.Storage/storageAccounts/listKeys/ | Åtgärd|
-|Microsoft.Compute/virtualMachines/ |Läsa|
-|Microsoft.Compute/virtualMachines/ |Skriva|
-|Microsoft.Compute/virtualMachineScaleSets/ |Läsa|
-|Microsoft.Compute/virtualMachineScaleSets/ |Skriva|
-|Microsoft.Network/networkWatchers/packetCaptures/ |Läsa|
-|Microsoft.Network/networkWatchers/packetCaptures/| Skriva|
-|Microsoft.Network/networkWatchers/packetCaptures/| Ta bort|
-|Microsoft.Network/networkWatchers/ |Skriva |
-|Microsoft.Network/networkWatchers/| Läsa |
+|Microsoft.Storage/ |Läs|
+|Microsoft.Authorization/| Läs| 
+|Microsoft.Resources/subscriptions/resourceGroups/| Läs|
+|Microsoft.Storage/storageAccounts/listServiceSas/ | åtgärd|
+|Microsoft.Storage/storageAccounts/listAccountSas/ |åtgärd|
+|Microsoft.Storage/storageAccounts/listKeys/ | åtgärd|
+|Microsoft.Compute/virtualMachines/ |Läs|
+|Microsoft.Compute/virtualMachines/ |Skriv|
+|Microsoft.Compute/virtualMachineScaleSets/ |Läs|
+|Microsoft.Compute/virtualMachineScaleSets/ |Skriv|
+|Microsoft.Network/networkWatchers/packetCaptures/ |Läs|
+|Microsoft.Network/networkWatchers/packetCaptures/| Skriv|
+|Microsoft.Network/networkWatchers/packetCaptures/| Radera|
+|Microsoft.Network/networkWatchers/ |Skriv |
+|Microsoft.Network/networkWatchers/| Läs |
 |Microsoft.Insights/alertRules/ |*|
 |Microsoft.Support/ | *|
 
@@ -82,7 +83,7 @@ Nätverket prenumerationsbegränsningar ger dig information om användning av va
 
 Följande funktioner är tillgängliga för nivån Resursövervakning:
 
-### <a name="audit-log"></a>Granskningslogg
+### <a name="audit-log"></a>granskningslogg
 
 Åtgärder som utförs som en del av konfigurationen av nätverk loggas. Dessa loggar kan visas i Azure-portalen eller hämtas med hjälp av Microsoft-verktyg, till exempel Power BI eller verktyg från tredje part. Granskningsloggar är tillgängliga via portalen, PowerShell, CLI och Rest-API. Mer information om granskningsloggarna finns [granskningsåtgärder med Resource Manager](../resource-group-audit.md)
 

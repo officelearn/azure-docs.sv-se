@@ -9,16 +9,17 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: 2c69519b865169b477950bc8fa659d5ad9081bbf
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 75d1580df5e36b2c88939fde9077c5a1948f6348
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-storage-account-options"></a>Alternativ för Azure Storage-konton
 
 ## <a name="overview"></a>Översikt
-Azure Storage tillhandahåller tre olika kontoalternativ, med olika priser och olika funktioner som stöds. Fundera på de här skillnaderna innan du skapar ett lagringskonto för att komma fram till vilket alternativ som passar bäst för dina behov. Dessa är de tre alternativen av lagringskonton:
+
+Azure Storage tillhandahåller tre olika kontoalternativ, med olika priser och olika funktioner som stöds. Fundera på de här skillnaderna innan du skapar ett lagringskonto för att komma fram till vilket alternativ som passar bäst för dina behov. Dessa är de tre alternativen för lagringskonton:
 
 * **GPv2**-konton (General-purpose v2) 
 * **GPv1**-konton (General-purpose v1)
@@ -36,7 +37,7 @@ Du kan uppgradera ditt GPv1-konto till ett GPv2-konto med PowerShell eller Azure
 
 För blockblobar i ett GPv2-lagringskonto kan du ange frekvent och lågfrekvent lagringsnivå på kontonivå, eller ange frekvent eller lågfrekvent nivå eller arkivnivå på blobnivå, baserat på åtkomstmönster. Lagra data som sällan, mer sällan eller ofta används på lagringsnivåerna för frekvent eller lågfrekvent åtkomst eller arkivering för att optimera kostnaderna. 
 
-I GPv2-konton visas attributet **Åtkomstnivå** på kontonivå, vilket innebär att standardlagringsnivån för kontot kan anges till **Frekvent** eller **Lågfrekvent**. Lagringskontots standardnivå tillämpas på alla blobar som inte har en uttryckligen tilldelad nivå angiven på blobnivån. Du kan när som helst byta mellan de olika lagringsnivåerna om användningsmönstret förändras. **Arkivnivån** kan endast användas på blobnivån.
+I GPv2-konton visas attributet **Åtkomstnivå** på kontonivå, vilket innebär att standardlagringsnivån för kontot kan anges till **Frekvent** eller **Lågfrekvent**. Lagringskontonivån som är standard tillämpas på alla blobar som inte har en explicit nivå angiven på blobnivån. Du kan när som helst byta mellan de olika lagringsnivåerna om användningsmönstret förändras. **Arkivnivån** kan endast användas på blobnivån.
 
 > [!NOTE]
 > Ändringar av lagringsnivån kan medför ytterligare avgifter. Mer information finns i avsnittet [Priser och fakturering](#pricing-and-billing).
@@ -49,7 +50,7 @@ Användare kan när som helst uppgradera ett GPv1-konto till ett GPv2-konto via 
 
 #### <a name="upgrade-with-powershell"></a>Uppgradera med PowerShell
 
-Om du vill uppgradera ett GPv1-konto till ett GPv2-konto med hjälp av PowerShell ska du först uppdatera PowerShell så att du använder den senaste versionen av modulen **AzureRm.Storage**. Mer information om hur du installerar PowerShell finns i [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Anropa sedan följande kommando för att uppgradera kontot, ersätt namnet på resursgruppen och lagringskontot:
+Om du vill uppgradera ett GPv1-konto till ett GPv2-konto med hjälp av PowerShell ska du först uppdatera PowerShell så att du använder den senaste versionen av modulen **AzureRm.Storage**. Mer information om hur du installerar PowerShell finns i [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Anropa sedan följande kommando för att uppgradera kontot genom att ersätta namnet på resursgruppen och lagringskontot:
 
 ```powershell
 Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
@@ -57,7 +58,7 @@ Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <stor
 
 #### <a name="upgrade-with-azure-cli"></a>Uppgradera med Azure CLI
 
-Om du vill uppgradera ett GPv1-konto till ett GPv2-konto med Azure CLI ska du först installera den senaste versionen av Azure CLI. Information om att installera CLI finns i [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Anropa sedan följande kommando för att uppgradera kontot, ersätt namnet på resursgruppen och lagringskontot:
+Om du vill uppgradera ett GPv1-konto till ett GPv2-konto med Azure CLI ska du först installera den senaste versionen av Azure CLI. Information om att installera CLI finns i [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Anropa sedan följande kommando för att uppgradera kontot genom att ersätta namnet på resursgruppen och lagringskontot:
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
@@ -84,7 +85,7 @@ Mer information om lagringskonton finns i [Om Azure Storage-konton](../common/st
 
 Om du endast behöver block- eller tilläggsbloblagring rekommenderar vi att du använder GPv2-konton så att du kan dra nytta av de olika prissättningsmodellerna för olika lagringsnivåer. Dock kanske du vill använda GPv1 i vissa fall, till exempel:
 
-* Du fortfarande måste använda den klassiska distributionsmodellen. Blob Storage-konton är bara tillgängliga via Azure Resource Manager-distributionsmodellen.
+* Du måste fortfarande använda den klassiska distributionsmodellen. Blob Storage-konton är bara tillgängliga via Azure Resource Manager-distributionsmodellen.
 
 * Du har stora transaktionsvolymer eller behöver stor bandbredd för geo-replikering, vilket ger högre kostnader med GPv2- och Blob Storage-konton än med GPv1, samtidigt som du inte har tillräckligt med lagringsutrymme för att kunna dra nytta av de lägre kostnaderna för GB-lagring.
 
@@ -218,7 +219,7 @@ Om du vill övervaka dina befintliga lagringskonton och samla in dessa data kan 
 Mer information finns i [Om mätvärden i Storage Analytics](https://msdn.microsoft.com/library/azure/hh343258.aspx) och [Schema över måttabeller i Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> Blob Storage-konton exponerar endast tabelltjänstens slutpunkt för att lagra och komma åt mätvärden för det aktuella kontot. ZRS-konton (Zonredundant lagring) har stöd för att samla in mätdata, men det har inte ZRS Classic-lagringskonton. Mer information om ZRS finns i [Zonredundant lagring](storage-redundancy.md#zone-redundant-storage). 
+> Blob Storage-konton exponerar endast tabelltjänstens slutpunkt för att lagra och komma åt mätvärden för det aktuella kontot. 
 
 Om du vill övervaka lagringsanvändningen för Blob Storage måste du aktivera kapacitetsmåtten.
 När du har gjort det registreras kapacitetsdata varje dag för ett lagringskontos Blob Service och registreras som en tabellpost som skrivs till tabellen *$MetricsCapacityBlob* i samma lagringskonto.

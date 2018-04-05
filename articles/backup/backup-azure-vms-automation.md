@@ -1,11 +1,11 @@
 ---
-title: "Distribuera och hantera säkerhetskopior för Resource Manager distribuerade virtuella datorer med hjälp av PowerShell | Microsoft Docs"
-description: "Använda PowerShell för att distribuera och hantera säkerhetskopior i Azure för Resource Manager distribuerade virtuella datorer"
+title: Distribuera och hantera säkerhetskopior för Resource Manager distribuerade virtuella datorer med hjälp av PowerShell | Microsoft Docs
+description: Använda PowerShell för att distribuera och hantera säkerhetskopior i Azure för Resource Manager distribuerade virtuella datorer
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 68606e4f-536d-4eac-9f80-8a198ea94d52
 ms.service: backup
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab75c88409c6e20f9bc46ad3b4336da150abd52c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: bac1e679aa46b280596ab09ba40da780c81cac5d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Använda AzureRM.RecoveryServices.Backup-cmdletar för att säkerhetskopiera virtuella datorer
 
@@ -88,7 +88,7 @@ Börja:
     PS C:\> Select-AzureRmSubscription -SubscriptionName $SubscriptionName
     ```
 
-5. Om du använder Azure Backup för första gången, måste du använda den  **[registrera AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  för att registrera providern Azure Recovery-tjänsten med din prenumeration.
+5. Om du använder Azure Backup för första gången, måste du använda den **[registrera AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** för att registrera providern Azure Recovery-tjänsten med din prenumeration.
 
     ```PS
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -100,7 +100,7 @@ Börja:
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ``` 
-Kommandots utdata den **RegistrationState** ställas in på **registrerade**. Om inte, bara kör den  **[registrera AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  cmdlet som visas ovan.
+Kommandots utdata den **RegistrationState** ställas in på **registrerade**. Om inte, bara kör den **[registrera AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet som visas ovan.
 
 Följande aktiviteter kan automatiseras med PowerShell:
 
@@ -114,17 +114,17 @@ Följande aktiviteter kan automatiseras med PowerShell:
 
 Följande steg leder dig genom att skapa ett Recovery Services-valvet. Recovery Services-valvet skiljer sig en Backup-valvet.
 
-1. Recovery Services-valvet är en Resource Manager-resurs, så du måste placera det inom en resursgrupp. Du kan använda en befintlig resursgrupp eller skapa en resursgrupp med det  **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)**  cmdlet. När du skapar en resursgrupp kan du ange namn och plats för resursgruppen.  
+1. Recovery Services-valvet är en Resource Manager-resurs, så du måste placera det inom en resursgrupp. Du kan använda en befintlig resursgrupp eller skapa en resursgrupp med det **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)** cmdlet. När du skapar en resursgrupp kan du ange namn och plats för resursgruppen.  
 
     ```PS
     PS C:\> New-AzureRmResourceGroup -Name "test-rg" -Location "West US"
     ```
-2. Använd den  **[ny AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)**  för att skapa Recovery Services-valvet. Se till att ange samma plats för valvet som användes för resursgruppen.
+2. Använd den **[ny AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)** för att skapa Recovery Services-valvet. Se till att ange samma plats för valvet som användes för resursgruppen.
 
     ```PS
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
-3. Ange vilken typ av lagring redundans ska användas. Du kan använda [lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) eller [Geo-Redundant lagring (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). I följande exempel visas alternativet - BackupStorageRedundancy för testvault anges till GeoRedundant.
+3. Ange vilken typ av lagring redundans ska användas. Du kan använda [lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy-lrs.md) eller [Geo-Redundant lagring (GRS)](../storage/common/storage-redundancy-grs.md). I följande exempel visas alternativet - BackupStorageRedundancy för testvault anges till GeoRedundant.
 
     ```PS
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault -Name "testvault"
@@ -137,7 +137,7 @@ Följande steg leder dig genom att skapa ett Recovery Services-valvet. Recovery 
    >
 
 ## <a name="view-the-vaults-in-a-subscription"></a>Visa valv i en prenumeration
-Använd  **[Get-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault)**  att visa listan över alla valv i den aktuella prenumerationen. Du kan använda det här kommandot för att kontrollera att ett nytt valv skapades eller för att se tillgängliga valv i prenumerationen.
+Använd **[Get-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault)** att visa listan över alla valv i den aktuella prenumerationen. Du kan använda det här kommandot för att kontrollera att ett nytt valv skapades eller för att se tillgängliga valv i prenumerationen.
 
 Kör kommandot Get-AzureRmRecoveryServicesVault att visa alla valv i prenumerationen. I följande exempel visas den information som visas för varje valvet.
 
@@ -157,7 +157,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 Skydda dina virtuella datorer med hjälp av Recovery Services-valvet. Innan du installerar skyddet ange valvet kontext (vilken typ av data som skyddas i valvet) och kontrollera protection-principen. Protection-principen är schemat när säkerhetskopieringsjobben kör och hur länge varje ögonblicksbild av säkerhetskopian ska sparas.
 
 ### <a name="set-vault-context"></a>Ange valvet kontext
-Innan du aktiverar skyddet på en virtuell dator använda  **[Set AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)**  ange kontexten valvet. När kontexten valvet har angetts gäller alla efterföljande cmdletar. I följande exempel anger valvet kontext för valvet, *testvault*.
+Innan du aktiverar skyddet på en virtuell dator använda **[Set AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** ange kontexten valvet. När kontexten valvet har angetts gäller alla efterföljande cmdletar. I följande exempel anger valvet kontext för valvet, *testvault*.
 
 ```
 PS C:\> Get-AzureRmRecoveryServicesVault -Name "testvault" | Set-AzureRmRecoveryServicesVaultContext
@@ -166,7 +166,7 @@ PS C:\> Get-AzureRmRecoveryServicesVault -Name "testvault" | Set-AzureRmRecovery
 ### <a name="create-a-protection-policy"></a>Skapa en skyddsprincip för
 När du skapar ett Recovery Services-valv kommer med standardskydd och bevarandeprinciper. Standardprincipen för protection utlöser en säkerhetskopiering varje dag vid en viss tidpunkt. Bevarandeprincip standard behåller den dagliga återställningspunkten för 30 dagar. Du kan använda standardprincipen för att snabbt skydda den virtuella datorn och redigerar principen senare med annan information.
 
-Använd  **[Get-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupprotectionpolicy)**  visa protection-principer i valvet. Du kan använda denna cmdlet för att hämta en specifik princip eller visa principerna som associeras med en Arbetsbelastningstyp. I följande exempel hämtar principer för Arbetsbelastningstyp, AzureVM.
+Använd **[Get-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupprotectionpolicy)** visa protection-principer i valvet. Du kan använda denna cmdlet för att hämta en specifik princip eller visa principerna som associeras med en Arbetsbelastningstyp. I följande exempel hämtar principer för Arbetsbelastningstyp, AzureVM.
 
 ```
 PS C:\> Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
@@ -180,7 +180,7 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 >
 >
 
-En säkerhetskopiering protection-principen är associerad med minst en bevarandeprincip. Bevarandeprincip definierar hur länge en återställningspunkt sparas innan den tas bort. Använd  **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)**  att visa standard bevarandeprincip.  På liknande sätt kan du använda  **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)**  att hämta schema standardprincipen. Den  **[ny AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  cmdlet skapar ett PowerShell-objekt som innehåller information om princip för säkerhetskopiering. Principobjekt schema och förvaring används som indata för den  **[ny AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  cmdlet. I följande exempel lagrar schema-principen och bevarandeprincipen i variabler. I exemplet används dessa variabler för att definiera parametrar när du skapar en skyddsprincip *NewPolicy*.
+En säkerhetskopiering protection-principen är associerad med minst en bevarandeprincip. Bevarandeprincip definierar hur länge en återställningspunkt sparas innan den tas bort. Använd **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)** att visa standard bevarandeprincip.  På liknande sätt kan du använda **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)** att hämta schema standardprincipen. Den **[ny AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)** cmdlet skapar ett PowerShell-objekt som innehåller information om princip för säkerhetskopiering. Principobjekt schema och förvaring används som indata för den **[ny AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)** cmdlet. I följande exempel lagrar schema-principen och bevarandeprincipen i variabler. I exemplet används dessa variabler för att definiera parametrar när du skapar en skyddsprincip *NewPolicy*.
 
 ```
 PS C:\> $schPol = Get-AzureRmRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
@@ -193,7 +193,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 
 
 ### <a name="enable-protection"></a>Aktivera skydd
-När du har definierat säkerhetskopiering protection-principen kan aktivera du fortfarande principen för ett objekt. Använd  **[aktivera AzureRmRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/enable-azurermrecoveryservicesbackupprotection)**  att aktivera skyddet. Aktiverar skydd kräver två objekt - objektet och principen. När principen har associerats med valvet, utlöses säkerhetskopiering arbetsflödet vid den tidpunkt som definierats i policyschemat.
+När du har definierat säkerhetskopiering protection-principen kan aktivera du fortfarande principen för ett objekt. Använd **[aktivera AzureRmRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/enable-azurermrecoveryservicesbackupprotection)** att aktivera skyddet. Aktiverar skydd kräver två objekt - objektet och principen. När principen har associerats med valvet, utlöses säkerhetskopiering arbetsflödet vid den tidpunkt som definierats i policyschemat.
 
 I följande exempel aktiverar skyddet för objektet, V2VM, med principer, NewPolicy. Att aktivera skydd på icke-krypterade hanteraren för virtuella datorer
 
@@ -243,7 +243,7 @@ PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -Policy $pol  -Retenti
 ```
 
 ## <a name="trigger-a-backup"></a>Utlös en säkerhetskopiering
-Du kan använda  **[säkerhetskopiering AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)**  att utlösa ett säkerhetskopieringsjobb. Om det är den första säkerhetskopian är en fullständig säkerhetskopia. Efterföljande säkerhetskopieringar ta en inkrementell kopia. Se till att använda  **[Set AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)**  ange valvet kontexten innan säkerhetskopieringsjobbet. I följande exempel förutsätter valvet kontext angavs.
+Du kan använda **[säkerhetskopiering AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)** att utlösa ett säkerhetskopieringsjobb. Om det är den första säkerhetskopian är en fullständig säkerhetskopia. Efterföljande säkerhetskopieringar ta en inkrementell kopia. Se till att använda **[Set AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** ange valvet kontexten innan säkerhetskopieringsjobbet. I följande exempel förutsätter valvet kontext angavs.
 
 ```
 PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
@@ -260,7 +260,7 @@ V2VM              Backup               InProgress            4/23/2016 5:00:30 P
 >
 
 ## <a name="monitoring-a-backup-job"></a>Övervakning av ett säkerhetskopieringsjobb
-Du kan övervaka långvariga åtgärder, till exempel säkerhetskopieringsjobb, utan att använda Azure-portalen. Status för ett pågående jobb får använda den  **[Get-AzureRmRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjob)**  cmdlet. Denna cmdlet hämtar säkerhetskopieringsjobb för en specifik valvet och att valvet har angetts i kontexten för valvet. I följande exempel hämtar status för ett pågående jobb som en matris och lagrar status i variabeln $joblist.
+Du kan övervaka långvariga åtgärder, till exempel säkerhetskopieringsjobb, utan att använda Azure-portalen. Status för ett pågående jobb får använda den **[Get-AzureRmRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjob)** cmdlet. Denna cmdlet hämtar säkerhetskopieringsjobb för en specifik valvet och att valvet har angetts i kontexten för valvet. I följande exempel hämtar status för ett pågående jobb som en matris och lagrar status i variabeln $joblist.
 
 ```
 PS C:\> $joblist = Get-AzureRmRecoveryservicesBackupJob –Status "InProgress"
@@ -270,7 +270,7 @@ WorkloadName     Operation            Status               StartTime            
 V2VM             Backup               InProgress            4/23/2016 5:00:30 PM           cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-I stället för avsökning av dessa jobb för slutförande - som är onödiga ytterligare kod – Använd den  **[vänta AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob)**  cmdlet. Denna cmdlet pausar körningen tills jobbet har slutförts eller det angivna tidsgränsvärdet har nåtts.
+I stället för avsökning av dessa jobb för slutförande - som är onödiga ytterligare kod – Använd den **[vänta AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob)** cmdlet. Denna cmdlet pausar körningen tills jobbet har slutförts eller det angivna tidsgränsvärdet har nåtts.
 
 ```
 PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
@@ -295,10 +295,10 @@ Följande bild visar objekthierarkin från RecoveryServicesVault nedåt i Backup
 
 ![Recovery Services objekthierarkin visar BackupContainer](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
 
-Identifiera säkerhetskopierade objekt och den återställningspunkt som innehåller data i tidpunkt om du vill återställa säkerhetskopierade data. Använd den  **[återställning AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)**  cmdlet för att återställa data från valvet på kundens konto.
+Identifiera säkerhetskopierade objekt och den återställningspunkt som innehåller data i tidpunkt om du vill återställa säkerhetskopierade data. Använd den **[återställning AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)** cmdlet för att återställa data från valvet på kundens konto.
 
 ### <a name="select-the-vm"></a>Välj den virtuella datorn
-Starta från behållare i valvet för att få PowerShell-objektet som identifierar just säkerhetskopiering artikeln och gå nedåt i objekthierarkin. Markera den behållare som representerar den virtuella datorn med hjälp av  **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)**  cmdlet och skicka som att den  **[ Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)**  cmdlet.
+Starta från behållare i valvet för att få PowerShell-objektet som identifierar just säkerhetskopiering artikeln och gå nedåt i objekthierarkin. Markera den behållare som representerar den virtuella datorn med hjälp av **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** cmdlet och skicka som att den **[ Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)** cmdlet.
 
 ```
 PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
@@ -306,7 +306,7 @@ PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem -Container $namedCon
 ```
 
 ### <a name="choose-a-recovery-point"></a>Välj en återställningspunkt
-Använd den  **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)**  för att visa en lista med alla återställningspunkter för säkerhetskopiering objektet. Välj återställningspunkt att återställa. Om du inte vet vilken återställningspunkt som ska användas, är det en bra idé att välja den senaste RecoveryPointType = AppConsistent punkten i listan.
+Använd den **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)** för att visa en lista med alla återställningspunkter för säkerhetskopiering objektet. Välj återställningspunkt att återställa. Om du inte vet vilken återställningspunkt som ska användas, är det en bra idé att välja den senaste RecoveryPointType = AppConsistent punkten i listan.
 
 I följande skript variabeln, **$rp**, är en matris med återställningspunkter för det markerade säkerhetskopiering objektet från de senaste sju dagarna. Matrisen är sorterad i omvänd ordning för den senaste återställningspunkten vid index 0. Använd standard PowerShell matris indexering för att välja återställningspunkten. I det här exemplet väljer $rp [0] den senaste återställningspunkten.
 
@@ -331,7 +331,7 @@ BackupManagementType        : AzureVM
 
 
 ### <a name="restore-the-disks"></a>Återställa diskar
-Använd den  **[återställning AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)**  för att återställa en säkerhetskopiering objektets data och konfigurationsinformation till en återställningspunkt. När du har identifierat en återställningspunkt kan använda det som värdet för den **- RecoveryPoint** parameter. I föregående exempelkod **$rp [0]** var återställningspunkten som ska använda. I följande exempelkod **$rp [0]** är återställningspunkten som ska använda för att återställa disken.
+Använd den **[återställning AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)** för att återställa en säkerhetskopiering objektets data och konfigurationsinformation till en återställningspunkt. När du har identifierat en återställningspunkt kan använda det som värdet för den **- RecoveryPoint** parameter. I föregående exempelkod **$rp [0]** var återställningspunkten som ska använda. I följande exempelkod **$rp [0]** är återställningspunkten som ska använda för att återställa disken.
 
 Att återställa diskar och konfigurationsinformation:
 
@@ -343,13 +343,13 @@ WorkloadName     Operation          Status               StartTime              
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-Använd den  **[vänta AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob)**  för att vänta återställningsjobbet ska slutföras.
+Använd den **[vänta AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob)** för att vänta återställningsjobbet ska slutföras.
 
 ```
 PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $restorejob -Timeout 43200
 ```
 
-När Återställningsjobbet har slutförts, använda den  **[Get-AzureRmRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjobdetails)**  för att hämta information om återställningen. Egenskapen JobDetails har information som behövs för att återskapa den virtuella datorn.
+När Återställningsjobbet har slutförts, använda den **[Get-AzureRmRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjobdetails)** för att hämta information om återställningen. Egenskapen JobDetails har information som behövs för att återskapa den virtuella datorn.
 
 ```
 PS C:\> $restorejob = Get-AzureRmRecoveryServicesBackupJob -Job $restorejob
@@ -533,7 +533,7 @@ Grundläggande steg för att återställa en fil från Virtuella Azure-säkerhet
 
 
 ### <a name="select-the-vm"></a>Välj den virtuella datorn
-Starta från behållare i valvet för att få PowerShell-objektet som identifierar just säkerhetskopiering artikeln och gå nedåt i objekthierarkin. Markera den behållare som representerar den virtuella datorn med hjälp av  **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)**  cmdlet och skicka som att den  **[ Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)**  cmdlet.
+Starta från behållare i valvet för att få PowerShell-objektet som identifierar just säkerhetskopiering artikeln och gå nedåt i objekthierarkin. Markera den behållare som representerar den virtuella datorn med hjälp av **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** cmdlet och skicka som att den **[ Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)** cmdlet.
 
 ```
 PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
@@ -541,7 +541,7 @@ PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem -Container $namedCon
 ```
 
 ### <a name="choose-a-recovery-point"></a>Välj en återställningspunkt
-Använd den  **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)**  för att visa en lista med alla återställningspunkter för säkerhetskopiering objektet. Välj återställningspunkt att återställa. Om du inte vet vilken återställningspunkt som ska användas, är det en bra idé att välja den senaste RecoveryPointType = AppConsistent punkten i listan.
+Använd den **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)** för att visa en lista med alla återställningspunkter för säkerhetskopiering objektet. Välj återställningspunkt att återställa. Om du inte vet vilken återställningspunkt som ska användas, är det en bra idé att välja den senaste RecoveryPointType = AppConsistent punkten i listan.
 
 I följande skript variabeln, **$rp**, är en matris med återställningspunkter för det markerade säkerhetskopiering objektet från de senaste sju dagarna. Matrisen är sorterad i omvänd ordning för den senaste återställningspunkten vid index 0. Använd standard PowerShell matris indexering för att välja återställningspunkten. I det här exemplet väljer $rp [0] den senaste återställningspunkten.
 
@@ -565,7 +565,7 @@ BackupManagementType        : AzureVM
 
 ### <a name="mount-the-disks-of-recovery-point"></a>Montera diskar återställningspunkt
 
-Använd den  **[Get-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprpmountscript)**  för att hämta skriptet för att montera alla diskar för återställningspunkten.
+Använd den **[Get-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprpmountscript)** för att hämta skriptet för att montera alla diskar för återställningspunkten.
 
 > [!NOTE]
 > Diskarna monteras som iSCSI-anslutna diskar till den dator där skriptet körs. Därför är nästan omedelbar och till inte en avgift
@@ -582,7 +582,7 @@ Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc54
 Kör skriptet på datorn där du vill återställa filer. Du måste ange lösenordet som visas ovan för att köra skriptet. När diskarna är kopplade använda Utforskaren i Windows och bläddra igenom nya volymer och filer. Mer information finns i den [filen recovery dokumentation](backup-azure-restore-files-from-vm.md)
 
 ### <a name="unmount-the-disks"></a>Demontera diskar
-När de nödvändiga filerna har kopierats demontera diskarna med hjälp av den  **[inaktivera AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/disable-azurermrecoveryservicesbackuprpmountscript?view=azurermps-5.0.0)**  cmdlet. Detta rekommenderas eftersom det säkerställer att längre tillgång till filerna för återställningspunkten
+När de nödvändiga filerna har kopierats demontera diskarna med hjälp av den **[inaktivera AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/disable-azurermrecoveryservicesbackuprpmountscript?view=azurermps-5.0.0)** cmdlet. Detta rekommenderas eftersom det säkerställer att längre tillgång till filerna för återställningspunkten
 
 ```
 PS C:\> Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]

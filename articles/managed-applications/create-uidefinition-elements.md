@@ -1,6 +1,6 @@
 ---
-title: Azure-hanterade program skapa UI definition funktioner | Microsoft Docs
-description: "Beskriver funktionerna som ska användas när man skapar UI definitioner för hanterade program i Azure"
+title: Azure skapar element i Användargränssnittet | Microsoft Docs
+description: Beskriver de element som ska användas när man skapar UI definitioner för Azure-portalen.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 23e407bf93bc51116ca45339bffcb801d69290f0
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d6f96d4aa66839518023b4d567caf1ff839a29fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="createuidefinition-elements"></a>CreateUiDefinition element
-Den här artikeln beskriver schemat och egenskaperna för alla element som stöds av en CreateUiDefinition. Du använder de här elementen när [att skapa ett Azure hanterade program](publish-service-catalog-app.md). Schemat för de flesta element är följande:
+Den här artikeln beskriver schemat och egenskaperna för alla element som stöds av en CreateUiDefinition. Schemat för de flesta element är följande:
 
 ```json
 {
   "name": "element1",
   "type": "Microsoft.Common.TextBox",
   "label": "Some text box",
-  "defaultValue": "foobar",
-  "toolTip": "Keep calm and visit the [Azure Portal](portal.azure.com).",
+  "defaultValue": "my value",
+  "toolTip": "Provide a descriptive name.",
   "constraints": {},
   "options": {},
   "visible": true
@@ -65,5 +65,4 @@ I dokumentationen för varje element innehåller ett exempel på UI, schemat, an
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
 
 ## <a name="next-steps"></a>Nästa steg
-* En introduktion till hanterade program, se [översikt över Azure Managed Application](overview.md).
-* En introduktion till att skapa UI-definitioner, se [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+En introduktion till att skapa UI-definitioner, se [komma igång med CreateUiDefinition](create-uidefinition-overview.md).

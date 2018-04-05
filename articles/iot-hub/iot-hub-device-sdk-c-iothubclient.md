@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT-enhet SDK för C - IoTHubClient | Microsoft Docs"
-description: "Hur du använder IoTHubClient biblioteket i Azure IoT-enhet SDK för C för att skapa appar för enheter som kommunicerar med en IoT-hubb."
+title: Azure IoT-enhet SDK för C - IoTHubClient | Microsoft Docs
+description: Hur du använder IoTHubClient biblioteket i Azure IoT-enhet SDK för C för att skapa appar för enheter som kommunicerar med en IoT-hubb.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 828cf2bf-999d-4b8a-8a28-c7c901629600
 ms.service: iot-hub
 ms.devlang: cpp
@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: yizhon
-ms.openlocfilehash: 6efd2980ce4dde99d934b3fe174d341fb68fac03
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 0fa07b2a785bd7d1a26924918e4428fd420e1547
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Azure IoT-enhet SDK för C – mer information om IoTHubClient
 Den [först artikel](iot-hub-device-sdk-c-intro.md) i den här serien introduceras de **Azure IoT-enhet SDK för C**. Artikeln förklaras att det finns två arkitektur lager i SDK. I grunden är den **IoTHubClient** bibliotek som hanterar direkt kommunikation med IoT-hubb. Det finns också i **serialiseraren** bibliotek som bygger som för att tillhandahålla tjänster för serialisering. I den här artikeln ska vi ge ytterligare information om den **IoTHubClient** bibliotek.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Föregående artikel beskrivs hur du använder den **IoTHubClient** biblioteket för att skicka händelser till IoT-hubb och ta emot meddelanden. Den här artikeln utökar den beskrivning som förklarar hur du hanterar mer exakt *när* du skicka och ta emot data, introducerar du den **lågnivå-API: er**. Vi förklarar också hur du ansluter egenskaper på händelser (och hämta dem från meddelanden) med hjälp av egenskapen hantering av funktioner i den **IoTHubClient** bibliotek. Slutligen ska vi ger ytterligare förklaring av olika sätt att hantera meddelanden som tagits emot från IoT-hubb.
 

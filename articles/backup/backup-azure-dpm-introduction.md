@@ -1,12 +1,12 @@
 ---
-title: "Använda DPM för att säkerhetskopiera arbetsbelastningar till Azure-portalen | Microsoft Docs"
-description: "En introduktion till att säkerhetskopiera DPM-servrar med Azure Backup-tjänsten"
+title: Använda DPM för att säkerhetskopiera arbetsbelastningar till Azure-portalen | Microsoft Docs
+description: En introduktion till att säkerhetskopiera DPM-servrar med Azure Backup-tjänsten
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: adigan
 manager: nkolli
-editor: 
-keywords: "System Center Data Protection Manager data protection manager, dpm-säkerhetskopiering"
+editor: ''
+keywords: System Center Data Protection Manager data protection manager, dpm-säkerhetskopiering
 ms.assetid: c8c322cf-f5eb-422c-a34c-04a4801bfec7
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 0e547a5991c0ce00344eff6d6b77edb0e34bd62c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 05917705264965afda873fb32a28b70e4da87aa3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Förbereder för att säkerhetskopiera arbetsbelastningar till Azure med DPM
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Företagets fördelar med att säkerhetskopiera DPM-servrar till Azure är:
 * Använd Azure som ett alternativ till långsiktig distribution till band för lokal DPM-distribution.
 * Omfördela lagring från Azure-disken för att distribuera DPM på en virtuell dator i Azure. Lagra äldre data i Recovery Services-valvet kan du skala upp din verksamhet genom att lagra nya data till disk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Förbered Azure Backup för att säkerhetskopiera DPM-data på följande sätt:
 
 1. **Skapa ett Recovery Services-valv** – skapa ett valv i Azure-portalen.
@@ -70,7 +70,7 @@ Här följer några viktiga definitioner för säkerhetskopiering till Azure fö
 4. **Återställningsmappen** – det är frasen som säkerhetskopior från molnet hämtas tillfälligt till under molnet återställningar. Storleken ska ungefär vara lika med storleken på de säkerhetskopiera objekten som du vill återställa parallellt.
 
 
-### <a name="1-create-a-recovery-services-vault"></a>1. Skapa ett Recovery Services-valv
+### <a name="1-create-a-recovery-services-vault"></a>1 Skapa ett Recovery Services-valv
 Så här skapar du ett Recovery Services-valv:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
@@ -94,7 +94,7 @@ Så här skapar du ett Recovery Services-valv:
    När du har skapat ditt valv öppnas i portalen.
 
 ### <a name="set-storage-replication"></a>Konfigurera lagringsreplikering
-Med alternativet för lagringsreplikering kan du välja mellan geo-redundant lagring och lokalt redundant lagring. Valvet använder geo-redundant lagring som standard. Lämna alternativet inställt på geo-redundant lagring om det här är din primära säkerhetskopia. Välj lokalt redundant lagring om du vill använda ett billigare alternativ som inte är lika beständigt. Läs mer om alternativen för [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage) och [lokalt redundant](../storage/common/storage-redundancy.md#locally-redundant-storage) lagring i [Översikt över Azure Storage-replikering](../storage/common/storage-redundancy.md).
+Med alternativet för lagringsreplikering kan du välja mellan geo-redundant lagring och lokalt redundant lagring. Valvet använder geo-redundant lagring som standard. Lämna alternativet inställt på geo-redundant lagring om det här är din primära säkerhetskopia. Välj lokalt redundant lagring om du vill använda ett billigare alternativ som inte är lika beständigt. Läs mer om alternativen för [geo-redundant](../storage/common/storage-redundancy-grs.md) och [lokalt redundant](../storage/common/storage-redundancy-lrs.md) lagring i [Översikt över Azure Storage-replikering](../storage/common/storage-redundancy.md).
 
 Så här redigerar du inställningen för lagringsreplikering:
 
@@ -105,7 +105,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
     När du har valt lagringsalternativet för valvet är det dags att associera den virtuella datorn med valvet. För att börja kopplingen identifierar du och registrerar de virtuella Azure-datorerna.
 
-### <a name="2-download-vault-credentials"></a>2. Ladda ned autentiseringsuppgifter för valvet
+### <a name="2-download-vault-credentials"></a>2 Ladda ned autentiseringsuppgifter för valvet
 Valvautentiseringsfilen är ett certifikat som genereras av portalen för varje säkerhetskopieringsvalv. Portalen överför sedan den offentliga nyckeln till Access Control Service (ACS). Den privata nyckeln för certifikatet görs tillgänglig för användaren som en del av arbetsflödet som angetts som indata i arbetsflöde för registrering av datorn. Detta autentiserar datorn för att skicka säkerhetskopierade data till ett identifierade valv i Azure Backup-tjänsten.
 
 Valvautentiseringen används endast under registreringsarbetsflödet. Det är användarens ansvar att se till att valvautentiseringsfilen inte äventyras. Om den hamnar i händerna på en obehörig användare kan valvautentiseringsfilen användas för att registrera andra datorer mot samma valv. Men eftersom den säkerhetskopiera informationen krypteras med en lösenfras som hör till kunden, kan inte befintlig säkerhetskopierad data vara hotad. Valvautentiseringsuppgifter är inställda att gälla inom 48hrs för att minska risken för detta. Du kan ladda ned valvautentiseringsuppgifter av en återställningstjänster valfritt antal gånger – men endast det senaste valvautentiseringsfilen gäller under registreringen av arbetsflödet.
@@ -119,16 +119,16 @@ Valvautentiseringsfilen hämtas via en säker kanal från Azure-portalen. Azure 
     ![Öppna menyn för valvet](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 4. På sidan Egenskaper **hämta** under **säkerhetskopiering autentiseringsuppgifter**. Portalen genererar valvautentiseringsfilen som görs tillgänglig för hämtning.
 
-    ![Ladda ned](./media/backup-azure-dpm-introduction/vault-credentials.png)
+    ![Hämta](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
 Portalen kommer att generera en valvautentiseringen med hjälp av en kombination av valvnamnet och det aktuella datumet. Klicka på **spara** att hämta autentiseringsuppgifter för valv till det lokala kontot hämtningsmapp eller välj Spara som Spara-menyn för att ange en plats för autentiseringsuppgifter för valv. Det kan ta upp till en minut för filen som ska genereras.
 
-### <a name="note"></a>Obs!
+### <a name="note"></a>OBS
 * Se till att valvautentiseringsfilen sparas på en plats som kan nås från datorn. Om den är lagrad i en fil resursen/SMB Kontrollera åtkomstbehörigheten.
 * Valvautentiseringsfilen används endast under registreringen av arbetsflödet.
 * Valvautentiseringsfilen upphör att gälla efter 48hrs och kan hämtas från portalen.
 
-### <a name="3-install-backup-agent"></a>3. Installera säkerhetskopieringsagenten
+### <a name="3-install-backup-agent"></a>3 Installera säkerhetskopieringsagenten
 När du har skapat Azure Backup-valvet, ska en agent installeras på var och en av dina Windows-datorer (Windows Server, Windows-klient, System Center Data Protection Manager-server eller Azure Backup Server-dator) som möjliggör säkerhetskopiering av data och program till Azure .
 
 1. Öppna Recovery Services-valvet som du vill registrera DPM-datorn.
@@ -137,7 +137,7 @@ När du har skapat Azure Backup-valvet, ska en agent installeras på var och en 
     ![Öppna menyn för valvet](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. På sidan Inställningar **hämta** under **Azure Backup-agenten**.
 
-    ![Ladda ned](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
+    ![Hämta](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
    När agenten har hämtats kan köra MARSAgentInstaller.exe om du vill starta installationen av Azure Backup-agenten. Välj installationsmappen och tillfälliga mapp som krävs för agenten. Cacheplats som anges måste ha ledigt utrymme som är minst 5% av säkerhetskopierade data.
 4. Om du använder en proxyserver för att ansluta till internet, i den **proxykonfiguration** anger information för proxy-server. Om du använder en autentiserad proxyserver måste du ange användarinformation namn och lösenord i den här skärmen.

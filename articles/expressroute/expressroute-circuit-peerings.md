@@ -1,11 +1,11 @@
 ---
-title: "Azure ExpressRoute-kretsar och routningsdomäner | Microsoft Docs"
-description: "Den här sidan innehåller en översikt över ExpressRoute-kretsar och routningsdomänerna."
+title: Azure ExpressRoute-kretsar och routningsdomäner | Microsoft Docs
+description: Den här sidan innehåller en översikt över ExpressRoute-kretsar och routningsdomänerna.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: 943305c78a17031d647bf2fa0977d10c51213ef5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0e060e67d615f0d6aa8ca6cbe305670956ac3faf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute-kretsar och routningsdomäner
  Måste du sortera en *ExpressRoute-krets* att ansluta din lokala infrastruktur till Microsoft via en anslutning provider. Följande bild visar en logisk representation av anslutningen mellan din WAN och Microsoft.
@@ -72,7 +72,7 @@ Finns det [vanliga frågor om sidan](expressroute-faqs.md) för mer information 
 ## <a name="routing-domain-comparison"></a>Routning domän jämförelse
 I följande tabell jämförs de tre routningsdomänerna:
 
-|  | **Privat Peering** | **Offentlig Peering** | **Microsoft-Peering*** |
+|  | **Privat Peering** | **Offentlig Peering** (föråldrad för nya skapande) | **Microsoft Peering** |
 | --- | --- | --- | --- |
 | **Max. # prefix stöd per peering** |4000 som standard 10 000 med ExpressRoute Premium |200 |200 |
 | **IP-adressintervall som stöds** |En giltig IP-adress inom din WAN. |Offentliga IP-adresser som ägs av dig eller anslutningsleverantören. |Offentliga IP-adresser som ägs av dig eller anslutningsleverantören. |
@@ -81,7 +81,7 @@ I följande tabell jämförs de tre routningsdomänerna:
 | **Routing gränssnitts-IP-adresser** |RFC1918 och offentliga IP-adresser |Offentliga IP-adresser som registrerad i Routning register. |Offentliga IP-adresser som registrerad i Routning register. |
 | **MD5-Hash-support** |Ja |Ja |Ja |
 
-(*) Kräver premiumnivån tillägg SKU
+
 
 Du kan välja att aktivera en eller flera av routningsdomänerna som en del av ExpressRoute-kretsen. Du kan välja att ha alla routningsdomäner spärra samma VPN om du vill kombinera dem till en enda routningsdomän. Du kan också publicera dem på olika routningsdomäner liknar diagrammet. Den rekommenderade konfigurationen är att privat peering är direkt ansluten till Kärnnätverket och offentliga och Microsoft peering länkar är anslutna till ditt Perimeternätverk.
 

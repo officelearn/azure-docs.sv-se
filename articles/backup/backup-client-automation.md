@@ -1,11 +1,11 @@
 ---
-title: "Säkerhetskopiera Windows Server till Azure med hjälp av PowerShell | Microsoft Docs"
-description: "Lär dig hur du distribuerar och hanterar Azure Backup med hjälp av PowerShell"
+title: Säkerhetskopiera Windows Server till Azure med hjälp av PowerShell | Microsoft Docs
+description: Lär dig hur du distribuerar och hanterar Azure Backup med hjälp av PowerShell
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: 
+editor: ''
 ms.assetid: 65218095-2996-44d9-917b-8c84fc9ac415
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.openlocfilehash: cabf40367a6bd8401cae3eade4b832702e5acf31
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 61bb58b2cf0d76f662144cb1911a6521394e92b6
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för Windows Server/Windows-klient med hjälp av PowerShell
 Den här artikeln visar hur du använder PowerShell för att konfigurera Azure Backup på Windows Server eller en Windows-klient och hantera säkerhetskopiering och återställning.
@@ -54,7 +54,7 @@ Följande steg leder dig genom att skapa ett Recovery Services-valvet. Recovery 
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
-4. Ange vilken typ av lagring redundans ska användas. Du kan använda [lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) eller [Geo-Redundant lagring (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). I följande exempel visas alternativet - BackupStorageRedundancy för testVault anges till GeoRedundant.
+4. Ange vilken typ av lagring redundans ska användas. Du kan använda [lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy-lrs.md) eller [Geo-Redundant lagring (GRS)](../storage/common/storage-redundancy-grs.md). I följande exempel visas alternativet - BackupStorageRedundancy för testVault anges till GeoRedundant.
 
    > [!TIP]
    > Många Azure Backup-cmdletar kräver Recovery Services-valvet objekt som indata. Därför är det praktiskt att lagra säkerhetskopian Recovery Services-valvet objekt i en variabel.
@@ -107,7 +107,7 @@ Detta installerar agent med alla standardalternativ. Installationen tar några m
 
 Listan över installerade program, gå till **Kontrollpanelen** > **program** > **program och funktioner**.
 
-![Agenten har installerats](./media/backup-client-automation/installed-agent-listing.png)
+![Agenten är installerad](./media/backup-client-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Installationsalternativ
 Om du vill se alla alternativ som är tillgängliga via kommandoraden använder du följande kommando:
@@ -118,7 +118,7 @@ PS C:\> MARSAgentInstaller.exe /?
 
 Tillgängliga alternativ inkluderar:
 
-| Alternativ | Information | Standard |
+| Alternativ | Information | Standardvärde |
 | --- | --- | --- |
 | /q |Tyst installation |- |
 | / p: ”plats” |Sökvägen till installationsmappen för Azure Backup-agenten. |C:\Program Files\Microsoft Azure Recovery Services-agenten |

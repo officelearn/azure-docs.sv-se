@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
-ms.openlocfilehash: cf93c95a37c9c32333727059317e05cfcc252905
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9ea7da35acefc139625e71904c8aa1b01b87e4df
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Skapa klassiska mått aviseringar i Azure-Monitor för Azure-tjänster - plattformar CLI
 > [!div class="op_single_selector"]
@@ -30,11 +30,11 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="overview"></a>Översikt
 > [!NOTE]
-> Den här artikeln beskriver hur du skapar äldre mått aviseringar. Stöd för Azure övervakaren [nyare, bättre mått aviseringar](monitoring-near-real-time-metric-alerts.md). Dessa aviseringar kan du övervaka flera och tillåter aviseringar om dimensionell mått. CLI-stöd för nyare mått aviseringar kommer snart.
+> Den här artikeln beskriver hur du skapar äldre klassiska mått aviseringar. Stöd för Azure övervakaren [nyare, bättre mått aviseringar](monitoring-near-real-time-metric-alerts.md). Dessa aviseringar kan du övervaka flera och tillåter aviseringar om dimensionell mått. CLI-stöd för nyare mått aviseringar kommer snart.
 >
 >
 
-Den här artikeln visar hur du ställer in Azure mått aviseringar via plattformsoberoende kommandoradsgränssnittet (CLI).
+Den här artikeln visar hur du ställer in Azure klassiska mått aviseringar via plattformsoberoende kommandoradsgränssnittet (CLI).
 
 > [!NOTE]
 > Azure övervakaren är det nya namnet för vad anropades ”Azure Insights” förrän den 25 september 2016. Namnområden och därmed nedanstående kommandon fortfarande innehåller dock ”insikter”.
@@ -46,14 +46,14 @@ Du kan ta emot en avisering baserat på övervakning mätvärden för eller hän
 * **Måttvärden** -aviseringen utlöses när värdet för ett visst mått överskrider ett tröskelvärde som du tilldelar i båda riktningarna. Det vill säga den utlöser både när villkoret uppfylls först och sedan efteråt när villkor som inte längre är uppfyllt.    
 * **Aktiviteten logghändelser** -utlösa en avisering på *varje* händelse eller bara när en viss händelse inträffar. Mer information om aktiviteten loggen aviseringar [Klicka här](monitoring-activity-log-alerts.md)
 
-Du kan konfigurera en mått avisering när den utlöser gör du följande:
+Du kan konfigurera en klassiska mått avisering när den utlöser gör du följande:
 
 * Skicka e-postmeddelanden till tjänstadministratören och medadministratörer
 * Skicka e-post till ytterligare e-postmeddelanden som du anger.
 * anropa en webhook
 * Starta körning av en Azure-runbook (endast från Azure-portalen just nu)
 
-Du kan konfigurera och få information om mått Varningsregler med
+Du kan konfigurera och få information om klassiska mått Varningsregler med
 
 * [Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
@@ -112,7 +112,7 @@ Du kan alltid få hjälp för kommandon genom att skriva ett kommando och tas - 
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
 
     ```
-5. För att skapa webhooken eller skicka e-postmeddelande när en avisering om mått utlöses, först skapa e-post och/eller webhooks. Skapa regel omedelbart efteråt. Du kan inte associera webhook eller e-post med redan skapat regler med hjälp av CLI.
+5. För att skapa webhooken eller skicka e-postmeddelande när en klassiska mått avisering utlöses, först skapa e-post och/eller webhooks. Skapa regel omedelbart efteråt. Du kan inte associera webhook eller e-post med redan skapat regler med hjälp av CLI.
 
     ```console
     azure insights alerts actions email create --customEmails myemail@contoso.com

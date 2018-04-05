@@ -1,5 +1,5 @@
 ---
-title: Skapa en Azure skala som använder tillgänglighet zoner (förhandsversion) | Microsoft Docs
+title: Skapa en Azure skala som använder tillgänglighet zoner | Microsoft Docs
 description: Lär dig hur du skapar skalningsuppsättningar i virtuella Azure-datorn som använder tillgänglighet zoner för ökad redundans mot avbrott
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -13,18 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 03/07/2018
 ms.author: iainfou
-ms.openlocfilehash: 8b497af8bc7e3060e184dd6a029b23ccb2d2bbfb
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: dee06eee045bc24c2864333a66a6d145a771b3ad
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>Skapa en skaluppsättning för virtuell dator som använder tillgänglighet zoner (förhandsgranskning)
+# <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Skapa en skaluppsättning för virtuell dator som använder tillgänglighet zoner
 Du kan skapa en skala in över tillgänglighet zoner för att skydda din skalningsuppsättningar i virtuella datorer från fel datacenter-nivå. Azure-regioner som har stöd för tillgänglighet zoner har minst tre separata zoner med sina egna oberoende power käll-, nätverks- och kylning. Mer information finns i [översikt av tillgänglighet zoner](../availability-zones/az-overview.md).
-
-[!INCLUDE [availability-zones-preview-statement.md](../../includes/availability-zones-preview-statement.md)]
 
 
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>Skaluppsättningar för en zon och zonredundant
@@ -32,13 +30,28 @@ När du distribuerar en skaluppsättning för virtuell dator kan välja du att a
 
 När du skapar en skala som anges i en zon, styr vilken zon dessa VM-instanser körs i och skaluppsättning hanteras och autoscales endast inom zonen. Zonredundant skaluppsättning kan du skapa en enda skaluppsättning som sträcker sig över flera zoner. När VM-instanser som skapas som standard balanseras de jämnt mellan zoner. Bör avbrott uppstår i någon av zonerna kan en skaluppsättning inte automatiskt kan skaländras ut till öka kapaciteten. Ett bra tips är att konfigurera automatiska regler baserat på användning av CPU eller minne. Autoskala reglerna att skaluppsättningen att svara på en förlust av VM-instanser i en zonen genom att skala ut nya instanser i de återstående operativa zonerna.
 
-Om du vill använda tillgänglighet zoner din skaluppsättning måste skapas i en [stöd för Azure-region](../availability-zones/az-overview.md#regions-that-support-availability-zones). Du måste också [registrera för tillgänglighet zoner Förhandsgranska](http://aka.ms/azenroll). Du kan skapa en skalningsuppsättning som använder tillgänglighet zoner med någon av följande metoder:
+Om du vill använda tillgänglighet zoner din skaluppsättning måste skapas i en [stöd för Azure-region](../availability-zones/az-overview.md#regions-that-support-availability-zones). Du kan skapa en skalningsuppsättning som använder tillgänglighet zoner med någon av följande metoder:
 
 - [Azure Portal](#use-the-azure-portal)
 - [Azure CLI 2.0](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager-mallar](#use-azure-resource-manager-templates)
 
+## <a name="availability-considerations"></a>Överväganden för tillgänglighet
+Från och med API version 2017-12-01, när du distribuerar en skala som angetts i en eller flera zoner har möjlighet att distribuera med ”max sprida” eller ”statiska 5 fel domän sprida”. Med max sprida sprids uppsättningen skala din virtuella dator över som många fault domäner som möjligt inom varje zon. Den här sprida kan vara över större eller mindre än fem fault domäner per zon. Å andra sidan med ”statiska 5 fel domän spridning” skaluppsättning sprider ut dina virtuella datorer över exakt 5 feldomäner per zon. Om skaluppsättning inte kan hitta 5 distinkta feldomäner per zon att uppfylla begäran om minnesallokering, misslyckas denna begäran.
+
+**Vi rekommenderar att du distribuerar med max sprida för de flesta arbetsbelastningar** eftersom max sprida ger den bästa spridning i de flesta fall. Om du behöver repliker sprids över distinkta maskinvara isolering enheter, rekommenderar vi sprida över tillgänglighet zoner och använder max sprida inom varje zon. Observera att med max sprida endast visas en feldomän i scale set VM-instansvyn och instans metadata oavsett hur många feldomäner som de virtuella datorerna är faktiskt spridda över; sprida inom varje zon är implicit.
+
+Ange ”platformFaultDomainCount” 1 om du vill använda max spridning. Om du vill använda statiska 5 fel domän sprider värdet ”platformFaultDomainCount” 5. I API version 2017-12-01 ”platformFaultDomainCount” som standard 1 för skalningsuppsättningar i en zon och mellan zon. För närvarande stöds endast statiska 5 fel domän sprida för regional skaluppsättningar.
+
+Dessutom, när du distribuerar en skaluppsättning har möjlighet att distribuera med en enda [placering grupp](./virtual-machine-scale-sets-placement-groups.md) per zon för tillgänglighet eller med flera per zon (för regional skaluppsättningar valet är att ha en enda placering grupp i den region eller har flera i region). För de flesta arbetsbelastningar bör du använda flera placering grupper, vilket gör att för större skala. Skala anger standard till flera grupper för placering för en zon och mellan zon skalningsuppsättningar i API version 2017-12-01, men för enskild placering grupp för regional skaluppsättningar standard.
+
+>[!NOTE]
+> Om du använder max sprida, måste du använda flera grupper för placering.
+
+Slutligen för skalningsuppsättningar distribution över flera zoner, ha du också möjlighet att välja ”bästa prestanda zonen balance” eller ”strikt zonen balance”. En skalningsuppsättning anses ”belastningsutjämnade” om antalet virtuella datorer i varje zon är inom ett antal virtuella datorer i alla zoner för skalan. För instans, en skala som anges med 2 virtuella datorer i zonen 1, 3 virtuella datorer i zonen 2 och 3 virtuella datorer i zonen 3 anses belastningsutjämnade. Men en skala som med 1 VM i zonen 1, 3 virtuella datorer i zonen 2 och 3 virtuella datorer i zon 3 anses obalanserade. Det är möjligt att virtuella datorer i skaluppsättning har skapats, medan misslyckas tillägg på dessa virtuella datorer. Dessa virtuella datorer med tillägget fel räknas fortfarande när du bestämmer om en skalningsuppsättning balanseras. Till exempel en skala som anges med 3 virtuella datorer i zonen 1, 3 virtuella datorer i zonen 2 och 3 virtuella datorer i zonen 3 anses belastningsutjämnade även om alla tillägg misslyckades i zonen 1 och alla tillägg lyckades zoner 2 och 3. Bästa prestanda zonen balansen skaluppsättning försöker skala in och ut samtidigt saldo. Men om du av någon anledning detta inte är möjligt (till exempel en zon kraschar, så skaluppsättning går inte att skapa en ny virtuell dator i zonen) sedan skaluppsättning tillåter tillfälliga obalanserad för att kunna skala in eller ut. Lägger till virtuella datorer i zoner som behöver flera virtuella datorer för skaluppsättningen att balansera på efterföljande skala ut försök skaluppsättning. På samma sätt på efterföljande skala inloggningsförsök skaluppsättning tar bort virtuella datorer i zoner som behöver färre virtuella datorer för skalan ska balanseras har ställt in. Med ”strikt zonen balance” misslyckas skaluppsättning å andra sidan, om du försöker skala in eller ut om det skulle orsaka obalanserad.
+
+Om du vill använda bästa prestanda zonen balansen värdet ”zoneBalance” FALSKT (standard i version 2017-12-01-API). Ange ”zoneBalance” för att använda strikt zonen saldo till true.
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 Processen för att skapa en skalningsuppsättning som använder en tillgänglighet zon är samma som i den [komma igång artikel](quick-create-portal.md). Se till att du har [registrerad för tillgänglighet zoner Förhandsgranska](http://aka.ms/azenroll). När du väljer en Azure-regionen stöds kan skapa du en skala som angetts i någon av de tillgängliga zonerna som visas i följande exempel:
@@ -66,36 +79,7 @@ az vmss create \
 För en komplett exempel på en enda zon skala och nätverksresurser finns i avsnittet [exempelskriptet CLI](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.sh.)
 
 ### <a name="zone-redundant-scale-set"></a>Zonredundant skaluppsättning
-Så här skapar du en zonredundant skala kan du använda en *Standard* SKU offentliga IP-adress och läsa in belastningsutjämning. För förbättrad redundans i *Standard* SKU skapar zonredundant nätverksresurser. Mer information finns i [Azure Load Balancer Standard översikt](../load-balancer/load-balancer-standard-overview.md). Första gången som du skapar en zonredundant skala ange eller belastningsutjämnare, måste du utföra följande steg för att registrera ditt konto för dessa förhandsgranskningsfunktioner.
-
-1. Registrera ditt konto för zonredundant skaluppsättning och nätverk funktioner med [az funktionen registrera](/cli/azure/feature#az_feature_register) på följande sätt:
-
-    ```azurecli
-    az feature register --name MultipleAvailabilityZones --namespace Microsoft.Compute
-    az feature register --name AllowLBPreview --namespace Microsoft.Network
-    ```
-    
-2. Det kan ta några minuter att registrera för funktioner. Du kan kontrollera status för åtgärden med [az funktionen Visa](/cli/azure/feature#az_feature_show):
-
-    ```azurecli
-    az feature show --name MultipleAvailabilityZones --namespace Microsoft.Compute
-    az feature show --name AllowLBPreview --namespace Microsoft.Network
-    ```
-
-    I följande exempel visas önskad status för funktionen som *registrerad*:
-    
-    ```json
-    "properties": {
-          "state": "Registered"
-       },
-    ```
-
-3. När zonredundant skalan angetts och nätverk resurser rapporterar som *registrerade*, registrera den *Compute* och *nätverk* providers med [az registrera providern](/cli/azure/provider#az_provider_register) på följande sätt:
-
-    ```azurecli
-    az provider register --namespace Microsoft.Compute
-    az provider register --namespace Microsoft.Network
-    ```
+Så här skapar du en zonredundant skala kan du använda en *Standard* SKU offentliga IP-adress och läsa in belastningsutjämning. För förbättrad redundans i *Standard* SKU skapar zonredundant nätverksresurser. Mer information finns i [Azure Load Balancer Standard översikt](../load-balancer/load-balancer-standard-overview.md). 
 
 Om du vill skapa en zonredundant skaluppsättning ange flera zoner med de `--zones` parameter. I följande exempel skapas en zonredundant skala uppsättning med namnet *myScaleSet* över zoner *1,2,3*:
 
@@ -130,36 +114,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 För en komplett exempel på en enda zon skala och nätverksresurser finns i avsnittet [PowerShell-exempelskriptet](https://github.com/Azure/azure-docs-powershell-samples/blob/master/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.ps1)
 
 ### <a name="zone-redundant-scale-set"></a>Zonredundant skaluppsättning
-Så här skapar du en zonredundant skala kan du använda en *Standard* SKU offentliga IP-adress och läsa in belastningsutjämning. För förbättrad redundans i *Standard* SKU skapar zonredundant nätverksresurser. Mer information finns i [Azure Load Balancer Standard översikt](../load-balancer/load-balancer-standard-overview.md). Första gången som du skapar en zonredundant skala ange eller belastningsutjämnare, måste du utföra följande steg för att registrera ditt konto för dessa förhandsgranskningsfunktioner.
-
-1. Registrera ditt konto för zonredundant skaluppsättning och nätverk funktioner med [registrera AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) på följande sätt:
-
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName MultipleAvailabilityZones -ProviderNamespace Microsoft.Compute
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
-    
-2. Det kan ta några minuter att registrera för funktioner. Du kan kontrollera status för åtgärden med [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature):
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName MultipleAvailabilityZones -ProviderNamespace Microsoft.Compute 
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
-
-    I följande exempel visas önskad status för funktionen som *registrerad*:
-    
-    ```powershell
-    RegistrationState
-    -----------------
-    Registered
-    ```
-
-3. När zonredundant skalan angetts och nätverk resurser rapporterar som *registrerade*, registrera den *Compute* och *nätverk* providers med [ Registrera AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) på följande sätt:
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
+Så här skapar du en zonredundant skala kan du använda en *Standard* SKU offentliga IP-adress och läsa in belastningsutjämning. För förbättrad redundans i *Standard* SKU skapar zonredundant nätverksresurser. Mer information finns i [Azure Load Balancer Standard översikt](../load-balancer/load-balancer-standard-overview.md).
 
 Om du vill skapa en zonredundant skaluppsättning ange flera zoner med de `-Zone` parameter. I följande exempel skapas en zonredundant scale set config med namnet *myScaleSet* över *östra USA 2* zoner *1, 2, 3*:
 
@@ -220,7 +175,7 @@ I följande exempel skapas en Linux enskild zon skaluppsättningen namngivna *my
 }
 ```
 
-För en komplett exempel på en enda zon skala och nätverksresurser finns i avsnittet [exempel Resource Manager-mallen](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/singlezone.json)
+För en komplett exempel på en enda zon skala och nätverksresurser finns i avsnittet [exempel Resource Manager-mallen](https://github.com/Azure/vm-scale-sets/blob/master/zones/singlezone.json)
 
 ### <a name="zone-redundant-scale-set"></a>Zonredundant skaluppsättning
 Om du vill skapa en zonredundant skaluppsättning ange flera värden i den `zones` -egenskapen för den *Microsoft.Compute/virtualMachineScaleSets* resurstypen. I följande exempel skapas en zonredundant skala uppsättning med namnet *myScaleSet* över *östra USA 2* zoner *1,2,3*:
@@ -241,7 +196,7 @@ Om du vill skapa en zonredundant skaluppsättning ange flera värden i den `zone
 
 Om du skapar en offentlig IP-adress eller en belastningsutjämnare, ange den *”sku”: {”name”: ”Standard”} ”* egenskap för att skapa zonredundant nätverksresurser. Du måste skapa en säkerhetsgrupp för nätverk och regler för att tillåta all trafik. Mer information finns i [Azure Load Balancer Standard översikt](../load-balancer/load-balancer-standard-overview.md).
 
-En komplett exempel på en zonredundant skala och nätverksresurser finns i avsnittet [exempel Resource Manager-mallen](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
+En komplett exempel på en zonredundant skala och nätverksresurser finns i avsnittet [exempel Resource Manager-mallen](https://github.com/Azure/vm-scale-sets/blob/master/zones/multizone.json)
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,8 +1,7 @@
 ---
-title: 'Azure Active Directory B2C: Referera: anpassa Användargränssnittet för en användare resa med anpassade principer | Microsoft Docs'
-description: Ett ämne på Azure Active Directory B2C anpassade principer
+title: Anpassa Användargränssnittet för en användare resa med anpassade principer | Microsoft Docs
+description: Lär dig mer om Azure Active Directory B2C anpassade principer
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
 editor: ''
@@ -11,31 +10,31 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: b0f68f76bfb746b91cb82b2b7e9e750f15f14253
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4fe9e90996c56773480eb147e5aef7475453fe43
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Anpassa Användargränssnittet för en användare resa med anpassade principer
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 > [!NOTE]
-> Den här artikeln är en avancerad beskrivning av hur anpassningar fungerar och hur du aktiverar med B2C anpassade principer, med hjälp av ramverket identitet upplevelse
+> Den här artikeln är en avancerad beskrivning av hur anpassningar fungerar och hur du aktiverar med Azure AD B2C anpassade principer, med hjälp av ramverket identitet upplevelse.
 
 
 En smidig användarupplevelse är nyckel för alla business-to-consumer-lösningar. En smidig användarupplevelse är en upplevelse på enheten eller webbläsaren, där en användare resa via tjänsten går att skilja från som kundservice som de använder.
 
 ## <a name="understand-the-cors-way-for-ui-customization"></a>Förstå hur CORS för anpassning av Användargränssnittet
 
-Azure AD B2C kan du anpassa den utseende, känslan användarupplevelse (UX) på olika sidor som hanteras och visas av Azure AD B2C via din anpassade principer.
+Azure AD B2C kan du anpassa den utseende, känslan användarupplevelse (UX) på olika sidor som hanteras och visas i Azure AD B2C din anpassade principer.
 
 För detta ändamål Azure AD B2C kör kod i din klientens webbläsare och använder metoden moderna och standard [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/) att läsa in anpassat innehåll från en specifik URL som du anger i en anpassad princip för att peka till din HTML5/CSS-mallar. CORS är en mekanism som gör att begränsade resurser, t.ex. teckensnitt, på en webbsida begäras från en annan domän utanför domänen som resursen kommer från.
 
 Jämfört med det gamla traditionella sätt, där mallen sidor som äger lösning där du har angett begränsad text och bilder, där begränsad kontroll över layout och känslan erbjöds leder till mer än problem med att uppnå ett smidigt sätt för CORS har stöd för HTML5 och CSS och du kan:
 
-- Värdar för innehåll och lösningen lägger in dess kontroller med hjälp av skript på klienten.
+- Värdar för innehåll och lösningen lägger in dess kontroller med hjälp av klientskript.
 - Ha fullständig kontroll över varje pixel layout och utseende.
 
 Du kan ange så många innehåll sidor som du vill genom att utforma HTML5/CSS-filer vid behov.
@@ -57,7 +56,7 @@ Alla HTML5/CSS-mallar kan du ange en *fästpunkt* element som motsvarar de nödv
 </html>
 ```
 
-Azure AD B2C-relaterade innehåll för sidan är injekteras i div, medan resten av sidan är din kontroll. Azure AD B2C JavaScript-kod tar emot innehållet och lägger in HTML till den här specifika div-element. Azure AD B2C lägger in följande kontroller efter behov: konto Väljaren kontroll måste du logga in kontroller, Multi-Factor (för närvarande telefon) kontroller och attributet samling kontroller. Azure AD B2C garanterar att alla kontrollerna är HTML5 kompatibla och komma åt alla kontroller kan fullständigt formaterad och som en kontroll version inte affärsmöjlighetens.
+Azure AD B2C-relaterade innehåll för sidan är injekteras i div, medan resten av sidan är din kontroll. Azure AD B2C JavaScript-koden tar emot innehållet och lägger in HTML till den här specifika div-element. Azure AD B2C lägger in följande kontroller efter behov: konto Väljaren kontroll måste du logga in kontroller, Multi-Factor (för närvarande telefon) kontroller och attributet samling kontroller. Azure AD B2C garanterar att alla kontrollerna är HTML5 kompatibla och komma åt alla kontroller kan fullständigt formaterad och som en kontroll version inte affärsmöjlighetens.
 
 Det sammanlagda innehållet visas slutligen som dynamiskt dokument till en förbrukare skapas.
 
@@ -66,7 +65,7 @@ För att säkerställa att allt fungerar som förväntat, måste du:
 - Se till att ditt innehåll är HTML5 kompatibla och tillgänglig
 - Kontrollera innehållsservern har aktiverats för CORS.
 - Hantera innehåll över HTTPS.
-- Använda absoluta URL: er, till exempel https://yourdomain/content för alla länkar och CSS-innehåll.
+- Använda absoluta URL: er som https://yourdomain/content för alla länkar och CSS-innehåll.
 
 > [!TIP]
 > Om du vill kontrollera att du är värd för ditt innehåll på platsen har CORS är aktiverat och testa CORS begäranden, du kan använda webbplatsen http://test-cors.org/. Tack vare den här platsen kan antingen skicka CORS-begäran till en fjärrserver (för att kontrollera om det finns stöd för CORS) eller skicka CORS-begäran till en testserver (för att utforska vissa funktioner i CORS).
@@ -115,7 +114,7 @@ Om du har följt de föregående stegen HTML5 och CSS-filer för den *UI-anpassn
 
 ## <a name="ensure-the-storage-account-has-cors-enabled"></a>Se till att lagringskontot har CORS aktiverat
 
-CORS (Cross-Origin Resource Sharing) måste vara aktiverat på slutpunkten för Azure AD B2C Premium för att läsa in ditt innehåll eftersom innehållet finns på en annan domän än den Azure AD B2C Premium används av sidan från.
+CORS (Cross-Origin Resource Sharing) måste vara aktiverat på slutpunkten för Azure AD B2C att läsa in ditt innehåll. Det beror på att innehållet finns på en annan domän än den Azure AD B2C kommer betjänar sidan från.
 
 Om du vill kontrollera att den lagring som du är värd för ditt innehåll i har CORS är aktiverat, fortsätter du med följande steg:
 
@@ -161,11 +160,11 @@ Följande tabell beskriver uppsättningen innehåll Definitions-ID som identifie
 | *api.idpselections.signup* | **Identitet providern val för registrering**. Den här sidan innehåller en lista över identitetsleverantörer som användaren kan välja bland under registreringen. Dessa providers är enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton (baserat på e-adress eller användare). |
 | *api.localaccountpasswordreset* | **Har du glömt lösenordssidan**. Den här sidan innehåller ett formulär med användaren att fylla för att initiera sina återställning av lösenord.  |
 | *api.localaccountsignin* | **Lokalt konto inloggningssidan**. Den här sidan innehåller en inloggning formulär med användaren att fylla i när du loggar in med ett lokalt konto som baseras på en e-postadress eller ett användarnamn. Formuläret kan innehålla en textruta och inmatningsfält för lösenord. |
-| *api.localaccountsignup* | **Lokalt konto registreringssidan**. Den här sidan innehåller en logga in formuläret som användaren har för att fylla i när du registrerar dig för ett lokalt konto som baseras på en e-postadress eller ett användarnamn. Formuläret kan innehålla olika inkommande kontroller, till exempel textrutan inmatningsfält för lösenord, knappen, enkelval listrutorna och välja flera kryssrutor. |
-| *api.phonefactor* | **Multifaktorautentiseringssidan**. På den här sidan användare kan verifiera sina telefonnummer (med text eller röst) när du registrerar dig eller loggar in. |
-| *api.selfasserted* | **Sociala konto registreringssidan**. Den här sidan innehåller ett formulär med användaren att fylla i när du loggar med ett befintligt konto från en sociala identitetsleverantören, till exempel Facebook eller Google +-registrering. Den här sidan liknar föregående sociala konto sidan registrera med undantag för transaktionen lösenordsfält. |
-| *api.selfasserted.profileupdate* | **Uppdatera profilsida**. Den här sidan innehåller ett formulär som användaren kan använda för att uppdatera sin profil. Den här sidan liknar föregående sociala konto sidan registrera med undantag för transaktionen lösenordsfält. |
-| *api.signuporsignin* | **Enhetlig registrering eller inloggning sidan**.  Den här sidan hanterar både logga in och loggar in användare som kan använda enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook eller Google + eller lokala konton.
+| *api.localaccountsignup* | **Lokalt konto registreringssidan**. Den här sidan innehåller en registreringsformuläret som användaren har för att fylla i när du registrerar dig för ett lokalt konto som baseras på en e-postadress eller ett användarnamn. Formuläret kan innehålla olika inkommande kontroller, till exempel textrutan inmatningsfält för lösenord, knappen, enkelval listrutorna och välja flera kryssrutor. |
+| *api.phonefactor* | **Multifaktorautentiseringssidan**. Användare kan verifiera sina telefonnummer (med text eller röst) under registrering eller inloggning på den här sidan. |
+| *api.selfasserted* | **Sociala konto registreringssidan**. Den här sidan innehåller en registreringsformuläret som användaren har för att fylla i när du loggar in med ett befintligt konto från en sociala identitetsleverantören, till exempel Facebook eller Google +. Den här sidan liknar föregående sociala konto registreringssidan med undantag för transaktionen lösenordsfält. |
+| *api.selfasserted.profileupdate* | **Uppdatera profilsida**. Den här sidan innehåller ett formulär som användaren kan använda för att uppdatera sin profil. Den här sidan liknar föregående sociala konto registreringssidan med undantag för transaktionen lösenordsfält. |
+| *api.signuporsignin* | **Enhetlig registrering eller inloggning sidan**.  Den här sidan hanterar både registrering och inloggning av användare som kan använda enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook eller Google + eller lokala konton.
 
 ## <a name="next-steps"></a>Nästa steg
 [Referens: Förstå hur anpassade principer arbeta med Identity upplevelse ramverk i B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)

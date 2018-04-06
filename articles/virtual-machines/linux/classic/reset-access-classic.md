@@ -1,11 +1,11 @@
 ---
-title: "Återställ Linux VM lösenord och SSH-nyckeln från CLI | Microsoft Docs"
-description: "Hur du använder VMAccess-tillägget från Azure kommandoradsgränssnittet (CLI) för att återställa Linux VM lösenord eller SSH-nyckel, åtgärda SSH-konfigurationen och kontrollera disk konsekvenskontroll"
+title: Återställ Linux VM lösenord och SSH-nyckeln från CLI | Microsoft Docs
+description: Hur du använder VMAccess-tillägget från Azure kommandoradsgränssnittet (CLI) för att återställa Linux VM lösenord eller SSH-nyckel, åtgärda SSH-konfigurationen och kontrollera disk konsekvenskontroll
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: d975eb70-5ff1-40d1-a634-8dd2646dcd17
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.openlocfilehash: 4577b6b9656b6a1cf83e6f9a227526701ba297b4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: c36498d2f4fef506dc7047fe91666aceec73c13d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Hur du återställer en Linux VM lösenord eller SSH-nyckel, åtgärda SSH-konfigurationen och kontrollera disk överensstämmelse med hjälp av VMAccess-tillägget
 Om du inte ansluta till en virtuell Linux-dator på Azure på grund av ett nytt lösenord, en felaktigt SSH (Secure Shell) nyckel eller ett problem med SSH-konfigurationen använder VMAccessForLinux-tillägget med Azure CLI för att återställa lösenord eller SSH-nyckel, åtgärda SSH-konfigurationen och kontrollera disk konsekvenskontroll. 
@@ -42,7 +42,7 @@ Med Azure CLI, kan du göra följande:
 * [Kontrollera konsekvensen för tillagda diskar](#checkdisk)
 * [Reparera tillagda diskar på Linux-VM](#repairdisk)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du måste göra följande:
 
 * Du behöver [installerar Azure CLI](../../../cli-install-nodejs.md) och [ansluta till din prenumeration](/cli/azure/authenticate-azure-cli) att använda Azure-resurser som är kopplade till ditt konto.
@@ -53,7 +53,7 @@ Du måste göra följande:
 * Har ett nytt lösenord eller SSH-nycklar, om du vill återställa någon. Du behöver inte dessa om du vill återställa SSH-konfigurationen.
 
 ## <a name="pwresetcli"></a>Återställa lösenordet
-1. Skapa en fil på den lokala datorn med namnet PrivateConf.json med dessa rader. Ersätt **MittAnvändarnamn** och  **myP@ssW0rd**  med användarnamn och lösenord och Ställ in datum för förfallodatum.
+1. Skapa en fil på den lokala datorn med namnet PrivateConf.json med dessa rader. Ersätt **MittAnvändarnamn** och **myP@ssW0rd** med användarnamn och lösenord och Ställ in datum för förfallodatum.
 
     ```   
         {
@@ -83,7 +83,7 @@ Du måste göra följande:
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ## <a name="resetbothcli"></a>Återställa lösenordet och SSH-nyckeln
-1. Skapa en fil som heter PrivateConf.json med innehållet. Ersätt den **MittAnvändarnamn**, **mySSHKey** och  **myP@ssW0rd**  värden med din egen information.
+1. Skapa en fil som heter PrivateConf.json med innehållet. Ersätt den **MittAnvändarnamn**, **mySSHKey** och **myP@ssW0rd** värden med din egen information.
 
     ``` 
         {

@@ -1,8 +1,8 @@
 ---
-title: "Bästa praxis för att använda Azure Data Lake Store | Microsoft Docs"
-description: "Läs Metodtips om datapåfyllning, datum säkerhet och prestanda som rör bruket av Azure Data Lake Store"
+title: Bästa praxis för att använda Azure Data Lake Store | Microsoft Docs
+description: Läs Metodtips om datapåfyllning, datum säkerhet och prestanda som rör bruket av Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: daa6a0fd6927a166ee4809dc1dc5df612765403a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Metodtips för Azure Data Lake Store
 I den här artikeln får information du om metodtips och överväganden för att arbeta med Azure Data Lake Store. Den här artikeln innehåller information kring säkerhet, prestanda, återhämtning och övervakning för Data Lake Store. Arbeta med verkligen stordata i tjänster som Azure HDInsight var krånglig innan Data Lake Store. Var du tvungen att fragmentera data över flera Blob storage-konton så att petabyte lagring och optimala prestanda som kan byggas ut kan uppnås. De flesta av de hårda gränsvärdena för storlek och prestanda tas bort med Data Lake Store. Det finns dock fortfarande vissa aspekter som den här artikeln täcker så att du kan få bästa möjliga prestanda med Data Lake Store. 
@@ -102,7 +102,7 @@ Nedan visas de översta tre rekommenderade alternativ för samordna replikering 
 |**Stöder kopiera går**     |   Ja      | Nej         | Nej         |
 |**Inbyggda orchestration**     |  Nej (Använd Oozie luftflödet eller cron)       | Ja        | Nej (Använd Azure Automation eller Schemaläggaren i Windows)         |
 |**Filsystem som stöds**     | ADL, HDFS, WASB, S3, GS, CFS        |Ett stort antal, se [kopplingar](../data-factory/connector-azure-blob-storage.md).         | ADL till ADL WASB till ADL (endast samma region)        |
-|**OS-stöd**     |Någon OS kör Hadoop         | Gäller inte          | Windows 10         |
+|**OS-stöd**     |Någon OS kör Hadoop         | Saknas          | Windows 10         |
    
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Använd Distcp för flytt av data mellan två platser 
@@ -129,7 +129,7 @@ Data Lake Store ger detaljerad diagnostiska loggar och granskning. Data Lake Sto
 
 ### <a name="export-data-lake-store-diagnostics"></a>Exportera Data Lake Store-diagnostik 
 
-En av de snabbaste sätten att få åtkomst till sökbara loggar från Data Lake Store är att låta loggöverföring till **Operations Management Suite (OMS)** under den **diagnostik** bladet för Data Lake Store-konto. Detta ger omedelbar åtkomst till inkommande loggar tid och innehåll filter tillsammans med aviseringar alternativ (e-post/webhook) som utlösts inom 15 minuters mellanrum. Instruktioner finns i [åtkomst till diagnostikloggarna för Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
+En av de snabbaste sätten att få åtkomst till sökbara loggar från Data Lake Store är att låta loggöverföring till **logganalys** under den **diagnostik** bladet för Data Lake Store-konto. Detta ger omedelbar åtkomst till inkommande loggar tid och innehåll filter tillsammans med aviseringar alternativ (e-post/webhook) som utlösts inom 15 minuters mellanrum. Instruktioner finns i [åtkomst till diagnostikloggarna för Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
 
 Realtid mer och mer kontroll över var ska hamna i loggarna, bör du exporterar loggar till Azure EventHub där innehåll kan analyseras individuellt eller via ett tidsfönster för att skicka meddelanden i realtid till en kö. Ett separat program som en [Logikapp](../connectors/connectors-create-api-azure-event-hubs.md) kan sedan använda och kommunicera aviseringar till rätt kanal, samt skicka med övervakningsverktyg som NewRelic, Datadog eller AppDynamics. Om du använder ett verktyg från tredje part, till exempel ElasticSearch kan du också exportera loggarna till Blob Storage och använda den [plugin-program för Azure Logstash](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob) att nyttja data i Elasticsearch och Kibana Logstash (ELK)-stacken.
 
@@ -139,7 +139,7 @@ Om Data Lake Store loggöverföring inte är påslagen, Azure HDInsight innehål
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-När egenskapen har angetts och noderna har startats om Data Lake Store diagnostik skrivs till YARN-loggar på noderna (/tmp/<user>/yarn.log), och viktig information som fel eller begränsning (felkod HTTP 429) kan övervakas. Samma information kan också övervakas i OMS eller var loggar levereras till i den [diagnostik](data-lake-store-diagnostic-logs.md) bladet för Data Lake Store-konto. Det rekommenderas minst ha klientsidan loggning aktiverad eller använda alternativet med Data Lake Store för operativa synlighet och enklare felsökning av loggöverföring.
+När egenskapen har angetts och noderna har startats om Data Lake Store diagnostik skrivs till YARN-loggar på noderna (/tmp/<user>/yarn.log), och viktig information som fel eller begränsning (felkod HTTP 429) kan övervakas. Samma information kan också övervakas i logganalys eller var loggar levereras till i den [diagnostik](data-lake-store-diagnostic-logs.md) bladet för Data Lake Store-konto. Det rekommenderas minst ha klientsidan loggning aktiverad eller använda alternativet med Data Lake Store för operativa synlighet och enklare felsökning av loggöverföring.
 
 ### <a name="run-synthetic-transactions"></a>Kör syntetiska transaktioner 
 

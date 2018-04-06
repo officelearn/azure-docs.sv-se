@@ -1,10 +1,10 @@
 ---
-title: "Hämta en avbildning av en Linux-VM | Microsoft Docs"
-description: "Lär dig mer om att hämta en avbildning av en Linux-baserade Azure virtuell dator (VM) skapas med den klassiska distributionsmodellen."
+title: Hämta en avbildning av en Linux-VM | Microsoft Docs
+description: Lär dig mer om att hämta en avbildning av en Linux-baserade Azure virtuell dator (VM) skapas med den klassiska distributionsmodellen.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: be463b18c049c8b92c21cfde82defcf76718a5f0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 29a1d5bc839fcf533973271638bf283d6e48e93b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Spara en klassisk virtuell Linux-dator som en avbildning
+# <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Så här skapar du en klassisk virtuell Linux-dator som en avbildning
 > [!IMPORTANT]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig hur du [utför dessa steg med hjälp av Resource Manager-modellen](../capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]

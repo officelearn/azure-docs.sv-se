@@ -1,13 +1,13 @@
 ---
-title: "Distribuera din första app till molnet Foundry på Microsoft Azure | Microsoft Docs"
-description: "Distribuera program till molnet Foundry på Azure"
+title: Distribuera din första app till molnet Foundry på Microsoft Azure | Microsoft Docs
+description: Distribuera program till molnet Foundry på Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: seanmck
-manager: timlt
-editor: 
-tags: 
-keywords: 
+manager: jeconnoc
+editor: ''
+tags: ''
+keywords: ''
 ms.assetid: 8fa04a58-56ad-4e6c-bef4-d02c80d4b60f
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: b617127fc0a3f8dcae293e356ea669edcfa5deff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e7b321c9fc8f8568cd8109cea0ae877048d3663
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Distribuera din första app till molnet Foundry på Microsoft Azure
 
@@ -35,7 +35,7 @@ Det finns flera alternativ för att skapa en miljö med molnet Foundry i Azure:
 - [Distribuera paket för öppen källkod molnet Foundry direkt] [ oss-cf-bosh] genom att ställa in en [BOSH](http://bosh.io) chef, en virtuell dator som samordnar distributionen av molnet Foundry-miljö.
 
 > [!IMPORTANT] 
-> Om du distribuerar PCF från Azure Marketplace, notera SYSTEMDOMAINURL och administratörsautentiseringsuppgifter för att komma åt hanteraren spela en central appar som beskrivs i distributionsguiden marketplace. De behövs för att slutföra den här självstudiekursen. Marketplace-distributioner är SYSTEMDOMAINURL i formuläret https://system. *ip-adress*. cf.pcfazure.com.
+> Om du distribuerar PCF från Azure Marketplace, notera SYSTEMDOMAINURL och administratörsautentiseringsuppgifter för att komma åt hanteraren spela en central appar som beskrivs i distributionsguiden marketplace. De behövs för att slutföra den här självstudiekursen. För marketplace-distributioner är SYSTEMDOMAINURL i formuläret https://system. *IP-adress*. cf.pcfazure.com.
 
 ## <a name="connect-to-the-cloud-controller"></a>Ansluta till molnet-styrenhet
 

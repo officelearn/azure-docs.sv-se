@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/22/2018
-ms.openlocfilehash: cfebdbe7485f0ffaa15828803d72c2a3f97c118d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 53c8d51ddf9b7465a99b8b0685d7f6ce177fc526
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Azure-databas som stöds för MySQL server-versioner
 Azure MySQL-databas har utvecklats från [MySQL Community Edition](https://www.mysql.com/products/community/), InnoDB-motorn.  Azure-databas för MySQL stöder för närvarande följande versioner:
@@ -22,7 +22,7 @@ Azure MySQL-databas har utvecklats från [MySQL Community Edition](https://www.m
 Referera till MySQL [dokumentationen](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-38.html) för mer information om förbättringar och korrigeringar i MySQL 5.6.38.
 
 ## <a name="mysql-version-5720"></a>MySQL Version 5.7.20
-Referera till MySQL [dokumentationen](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-20.htmll) mer information om förbättringar och korrigeringar i MySQL 5.7.20.
+Referera till MySQL [dokumentationen](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-20.html) mer information om förbättringar och korrigeringar i MySQL 5.7.20.
 
 > [!NOTE]
 > En gateway används i tjänsten, att omdirigera anslutningarna till server-instanser. När anslutningen har upprättats visas MySQL-klienten version av MySQL i gatewayen, inte den faktiska versionen som körs på din MySQL server-instans. Använd för att avgöra versionen av du MySQL server-instansen av `SELECT VERSION();` kommandot MySQL i Kommandotolken. 

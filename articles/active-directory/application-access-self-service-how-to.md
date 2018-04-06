@@ -1,23 +1,23 @@
 ---
-title: "Konfigurera självbetjäning programmet tilldelning | Microsoft Docs"
-description: "Aktivera självbetjäning programåtkomst så att användarna kan hitta sina egna program"
+title: Konfigurera självbetjäning programmet tilldelning | Microsoft Docs
+description: Aktivera självbetjäning programåtkomst så att användarna kan hitta sina egna program
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 04/02/2018
 ms.author: asteen
-ms.openlocfilehash: 8aeda498847759debab18ddf4b44a75cd739a56c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cf70da4933f5513b75f84aef01dec1ef902eab85
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Konfigurera självbetjäning programmet tilldelning
 
@@ -64,7 +64,10 @@ Följ stegen nedan om du vill aktivera självbetjäning programmet åtkomst till
 8.  Om du vill aktivera självbetjäning programåtkomst för det här programmet, aktivera den **Tillåt användare att begära åtkomst till det här programmet?** växla till **Ja.**
 
 9.  Klicka sedan på selector bredvid etiketten för att välja gruppen till vilken användare som begär åtkomst till det här programmet ska läggas till, **vilken grupp ska tilldelade användare läggas?** och välja en grupp.
-
+  
+  > [!NOTE]
+  > Grupper som synkroniserats från lokala stöds inte för att användas för en grupp användare som begär åtkomst till det här programmet ska läggas till.
+  
 10. **Valfritt:** om du vill kräva en business godkännande innan användare tillåts åtkomst genom att ange den **kräver godkännande innan åtkomst beviljas till det här programmet?** växla till **Ja**.
 
 11. **Valfritt: för program som använder enkel inloggning för lösenord på endast** om du vill att dessa företag godkännare att ange de lösenord som skickas till det här programmet för godkända användare måste ange den **Tillåt godkännare att ange användarens lösenord för det här programmet?**  växla till **Ja**.

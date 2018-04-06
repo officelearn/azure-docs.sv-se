@@ -1,8 +1,8 @@
 ---
-title: "Fråga Azure Log Analytics för att övervaka Azure HDInsight-kluster | Microsoft Docs"
-description: "Lär dig mer om att köra frågor i Azure Log Analytics för att övervaka jobb som körs i ett HDInsight-kluster."
+title: Fråga Azure Log Analytics för att övervaka Azure HDInsight-kluster | Microsoft Docs
+description: Lär dig mer om att köra frågor i Azure Log Analytics för att övervaka jobb som körs i ett HDInsight-kluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: f9e023ae8d6c50049b588cf056629cd8d46ee603
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1b2f5fc9bd4f8fc8cd70437e38831595d0a8a819
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Frågan Azure Log Analytics för att övervaka HDInsight-kluster
 
@@ -29,11 +29,11 @@ Läs om några grundläggande scenarier för hur du använder Azure Log Analytic
 * [Sök efter specifika loggmeddelanden](#search-for-specific-log-messages)
 * [Skapa aviseringar](#create-alerts-for-tracking-events)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Du måste ha konfigurerat ett HDInsight-kluster för att använda Azure logganalys. Instruktioner finns i [Använd Azure logganalys med HDInsight-kluster](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
-* Du måste ha lagt till HDInsight klusterspecifika hanteringslösningarna till den [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) arbetsytan enligt beskrivningen i [lägga till HDInsight-kluster hanteringslösningar till logganalys](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
+* Du måste ha lagt till HDInsight klusterspecifika hanteringslösningarna till den [logganalys](../operations-management-suite/operations-management-suite-overview.md) arbetsytan enligt beskrivningen i [lägga till HDInsight-kluster hanteringslösningar till logganalys](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>Analysera mått för HDInsight-kluster
 
@@ -86,7 +86,7 @@ Lär dig hur man söker felmeddelanden under en viss tid. Stegen här är bara e
 
     ![Öppna instrumentpanelen i OMS](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "öppna OMS-instrumentpanelen")
 
-2. I OMS-instrumentpanelen från startsidan, klickar du på **loggen Sök**.
+2. I OMS-portalen från startsidan, klickar du på **loggen Sök**.
 
     ![Öppna loggen sökning](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "öppna loggen sökning")
 
@@ -126,7 +126,7 @@ Du kan använda en fråga som du vill skapa en avisering.
 
     ![Öppna instrumentpanelen i OMS](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "öppna OMS-instrumentpanelen")
 
-2. I OMS-instrumentpanelen från startsidan, klickar du på **loggen Sök**.
+2. I OMS-portalen från startsidan, klickar du på **loggen Sök**.
 
     ![Öppna loggen sökning](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "öppna loggen sökning")
 
@@ -152,5 +152,5 @@ Du kan använda en fråga som du vill skapa en avisering.
 
 ## <a name="see-also"></a>Se också
 
-* [Arbeta med Operations Management Suite logganalys](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Arbeta med logganalys](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Skapa Varningsregler i logganalys](../log-analytics/log-analytics-alerts-creating.md)

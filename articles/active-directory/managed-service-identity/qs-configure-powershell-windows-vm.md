@@ -1,11 +1,11 @@
 ---
-title: "Hur du konfigurerar MSI på en virtuell Azure-dator med hjälp av PowerShell"
-description: "Steg för steg-instruktioner för hur du konfigurerar en hanterad tjänst identitet (MSI) på en Azure VM, med hjälp av PowerShell."
+title: Hur du konfigurerar MSI på en virtuell Azure-dator med hjälp av PowerShell
+description: Steg för steg-instruktioner för hur du konfigurerar en hanterad tjänst identitet (MSI) på en Azure VM, med hjälp av PowerShell.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 42c361ac69122d00df290f4c3c2eb2cfeeb9eb47
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 76ea24a658c728aebd15be55cc0c8dfca27f01ec
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Konfigurera en virtuell dator hanteras Service identitet (MSI) med hjälp av PowerShell
 
@@ -27,7 +27,7 @@ Hanterade tjänstidentiteten ger Azure-tjänster med en automatiskt hanterade id
 
 I den här artikeln beskrivs hur du aktiverar och ta bort MSI för en Azure-dator med hjälp av PowerShell.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -40,9 +40,9 @@ Skapa en MSI-aktiverad virtuell dator:
 1. Se något av följande Azure VM Snabbstart, Slutför bara de nödvändiga avsnitt (”logga in på Azure”, ”skapa resursgrupp”, ”skapa nätverk grupp”, ”skapa den virtuella datorn”). 
 
    > [!IMPORTANT] 
-   > När du kommer till avsnittet ”Skapa den virtuella datorns”, gör en mindre ändring av [ny AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet syntax. Se till att lägga till en `-IdentityType "SystemAssigned"` parametern för att etablera den virtuella datorn med en MSI, till exempel:
+   > När du kommer till avsnittet ”Skapa den virtuella datorns”, gör en mindre ändring av [ny AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet syntax. Se till att lägga till en `-AssignIdentity "SystemAssigned"` parametern för att etablera den virtuella datorn med en MSI, till exempel:
    >  
-   > `$vmConfig = New-AzureRmVMConfig -VMName myVM -IdentityType "SystemAssigned" ...`
+   > `$vmConfig = New-AzureRmVMConfig -VMName myVM -AssignIdentity "SystemAssigned" ...`
 
    - [Skapa en Windows-dator med hjälp av PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
    - [Skapa en Linux-dator med hjälp av PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
@@ -66,11 +66,11 @@ Om du behöver aktivera MSI på en befintlig virtuell dator:
    Login-AzureRmAccount
    ```
 
-2. Först hämta VM-egenskaper med hjälp av den `Get-AzureRmVM` cmdlet. Om du vill aktivera MSI använder den `-IdentityType` växla den [uppdatering AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
+2. Först hämta VM-egenskaper med hjälp av den `Get-AzureRmVM` cmdlet. Om du vill aktivera MSI använder den `-AssignIdentity` växla den [uppdatering AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
 
    ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
-   Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType "SystemAssigned"
+   Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity "SystemAssigned"
    ```
 
 3. Lägg till MSI VM-tillägget med den `-Type` parameter på den [Set AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. Du kan skicka ”ManagedIdentityExtensionForWindows” eller ”ManagedIdentityExtensionForLinux”, beroende på vilken typ av virtuell dator och använda den `-Name` parameter. Den `-Settings` parametern anger vilken port som används av token OAuth-slutpunkten för token. Se till att ange rätt `-Location` parametern matchar platsen för den befintliga virtuella datorn:

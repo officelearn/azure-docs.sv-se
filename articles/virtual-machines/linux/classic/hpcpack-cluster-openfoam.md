@@ -1,11 +1,11 @@
 ---
-title: "Kör OpenFOAM med HPC Pack på virtuella Linux-datorer | Microsoft Docs"
-description: "Distribuera ett kluster för Microsoft HPC Pack på Azure och kör en OpenFOAM jobb på flera Linux compute-noder i ett nätverk med RDMA."
+title: Kör OpenFOAM med HPC Pack på virtuella Linux-datorer | Microsoft Docs
+description: Distribuera ett kluster för Microsoft HPC Pack på Azure och kör en OpenFOAM jobb på flera Linux compute-noder i ett nätverk med RDMA.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: c0bb1637-bb19-48f1-adaa-491808d3441f
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: ef124a8983fa112d499252460bff9ed2fcccc02b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f43790d3495e1c09730e90b5077ec840731a7d83
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Kör OpenFoam med Microsoft HPC Pack på ett Linux RDMA-kluster i Azure
 Den här artikeln får du ett sätt att köra OpenFoam i virtuella Azure-datorer. Här kan du distribuera ett Microsoft HPC Pack kluster med Linux compute-noder på Azure och kör en [OpenFoam](http://openfoam.com/) jobbet med Intel MPI. Du kan använda RDMA-kompatibla virtuella Azure-datorer för compute-noder så att datornoderna kommunicera över nätverket Azure RDMA. Andra alternativ för att köra OpenFoam i Azure innehåller helt konfigurerade kommersiella bilder som finns på marknaden, till exempel Ubercloud's [OpenFoam 2.3 på CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/), och genom att köra på [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
@@ -267,9 +267,9 @@ I det här steget skapar du en värd-fil (en lista över compute-noder) som den 
    
    1. Ställer in miljövariablerna för **mpirun**, och vissa parametrar för att lägga till kör MPI-jobb via nätverket RDMA. I så fall anger du följande variabler:
       
-      * I_MPI_FABRICS = shm:dapl
-      * I_MPI_DAPL_PROVIDER = en-v2-ib0
-      * I_MPI_DYNAMIC_CONNECTION = 0
+      * I_MPI_FABRICS=shm:dapl
+      * I_MPI_DAPL_PROVIDER=ofa-v2-ib0
+      * I_MPI_DYNAMIC_CONNECTION=0
    2. Skapar en värd-fil enligt miljön variabeln $CCP_NODES_CORES som anges av HPC-huvudnoden när jobbet är aktiverad.
       
       Formatet för $CCP_NODES_CORES följer detta mönster:
@@ -280,9 +280,9 @@ I det här steget skapar du en värd-fil (en lista över compute-noder) som den 
       
       där
       
-      * `<Number of nodes>`-antalet noder som allokerats till det här jobbet.  
-      * `<Name of node_n_...>`-namnet på varje nod som allokerats till det här jobbet.
-      * `<Cores of node_n_...>`-antal kärnor på den nod som allokerats till det här jobbet.
+      * `<Number of nodes>` -antalet noder som allokerats till det här jobbet.  
+      * `<Name of node_n_...>` -namnet på varje nod som allokerats till det här jobbet.
+      * `<Cores of node_n_...>` -antal kärnor på den nod som allokerats till det här jobbet.
       
       Till exempel om jobbet måste två noder för att köra, liknar $CCP_NODES_CORES
       
@@ -291,8 +291,8 @@ I det här steget skapar du en värd-fil (en lista över compute-noder) som den 
       ```
    3. Anrop av **mpirun** kommando och lägger till två parametrar på kommandoraden.
       
-      * `--hostfile <hostfilepath>: <hostfilepath>`– sökvägen till värdfilen skapar skriptet
-      * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}`-en miljövariabel som angetts av huvudnod HPC Pack, som lagrar antalet Totalt antal kärnor som allokerats till det här jobbet. I det här fallet anger antalet processer för **mpirun**.
+      * `--hostfile <hostfilepath>: <hostfilepath>` – sökvägen till värdfilen skapar skriptet
+      * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}` -en miljövariabel som angetts av huvudnod HPC Pack, som lagrar antalet Totalt antal kärnor som allokerats till det här jobbet. I det här fallet anger antalet processer för **mpirun**.
 
 ## <a name="submit-an-openfoam-job"></a>Skicka ett OpenFOAM-jobb
 Nu kan du skicka ett jobb i HPC Cluster Manager. Du måste ange skript hpcimpirun.sh kommandorader för vissa av uppgifterna i jobbet.
@@ -305,7 +305,7 @@ Nu kan du skicka ett jobb i HPC Cluster Manager. Du måste ange skript hpcimpiru
    ![Jobbinformation][job_details]
 5. I **jobbet resurser**, Välj typ av resurs som ”nod” och ange minst till 2. Den här konfigurationen körs jobbet på två noder i Linux, var och en har åtta kärnor i det här exemplet.
    
-   ![Jobbet resurser][job_resources]
+   ![Jobbresurser][job_resources]
 6. Klicka på **redigera uppgifter** i det vänstra navigeringsfönstret och klicka sedan på **Lägg till** att lägga till en aktivitet i jobbet. Lägga till fyra uppgifter i jobbet med följande kommandorader och inställningar.
    
    > [!NOTE]
@@ -339,12 +339,12 @@ Nu kan du skicka ett jobb i HPC Cluster Manager. Du måste ange skript hpcimpiru
      * **Arbetskatalogen** -/ openfoam/sloshingTank3D
 7. Lägga till beroenden i dessa uppgifter i stigande ordning.
    
-   ![Aktivitetsberoenden][task_dependencies]
+   ![Aktivitetssamband][task_dependencies]
 8. Klicka på **skicka** jobbet ska köras.
    
    Som standard skickar HPC Pack jobb som din aktuella inloggade användarkontot. När du klickar på **skicka**, du kan se en dialogruta där du uppmanas att ange användarnamn och lösenord.
    
-   ![Jobbet autentiseringsuppgifter][creds]
+   ![Jobbautentiseringsuppgifter][creds]
    
    Under vissa förhållanden HPC Pack kommer ihåg användarinformationen du inkommande innan och inte visa den här dialogrutan. HPC Pack visa igen, ange följande kommando vid en kommandotolk och skicka jobbet.
    
@@ -364,7 +364,7 @@ Nu kan du skicka ett jobb i HPC Cluster Manager. Du måste ange skript hpcimpiru
 Du kan också använda [EnSight](https://www.ceisoftware.com/) att visualisera och analysera resultaten av OpenFOAM jobbet. Finns det mer information om visualisering och animeringen i EnSight [video guiden](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html).
 
 1. När du har installerat EnSight på huvudnoden startar du den.
-2. Öppna C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.
+2. Open C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.
    
    Du kan se en behållare i visningsprogrammet.
    

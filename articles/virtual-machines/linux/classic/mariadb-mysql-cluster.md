@@ -1,11 +1,11 @@
 ---
-title: "Kör en MariaDB (MySQL)-kluster i Azure | Microsoft Docs"
-description: "Skapa en MariaDB + Galera MySQL-kluster på Azure virtual machines"
+title: Kör en MariaDB (MySQL)-kluster i Azure | Microsoft Docs
+description: Skapa en MariaDB + Galera MySQL-kluster på Azure virtual machines
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: sabbour
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: d0d21937-7aac-4222-8255-2fdc4f2ea65b
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
-ms.openlocfilehash: 53e9bf18b26338212411ea7c4f260eb308486738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5438bfb75abaac2bed55a76b38f69790f7fc87fa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB (MySQL) kluster: Azure självstudiekursen
 > [!IMPORTANT]
@@ -163,10 +163,10 @@ Den här artikeln beskrivs hur du utför följande steg:
             service mysql stop
 7. Skapa en platshållare för konfigurationen.
 
-   a. Redigera MySQL-konfiguration om du vill skapa en platshållare för för klustret. Ersätt inte den  **`<Variables>`**  eller ta bort kommentarerna nu. Som sker när du har skapat en virtuell dator från den här mallen.
+   a. Redigera MySQL-konfiguration om du vill skapa en platshållare för för klustret. Ersätt inte den **`<Variables>`** eller ta bort kommentarerna nu. Som sker när du har skapat en virtuell dator från den här mallen.
 
             vi /etc/my.cnf.d/server.cnf
-   b. Redigera den  **[galera]**  avsnittet och ta bort.
+   b. Redigera den **[galera]** avsnittet och ta bort.
 
    c. Redigera den **[mariadb]** avsnitt.
 
@@ -184,11 +184,11 @@ Den här artikeln beskrivs hur du utför följande steg:
            #wsrep_node_name='<NodeName>' # CHANGE: Uncomment and set the node name of this server
 8. Öppna portar i brandväggen som krävs med hjälp av FirewallD på CentOS 7.
 
-   * MySQL:`firewall-cmd --zone=public --add-port=3306/tcp --permanent`
-   * GALERA:`firewall-cmd --zone=public --add-port=4567/tcp --permanent`
-   * GALERA IST:`firewall-cmd --zone=public --add-port=4568/tcp --permanent`
-   * RSYNC:`firewall-cmd --zone=public --add-port=4444/tcp --permanent`
-   * Läs in brandväggen:`firewall-cmd --reload`
+   * MySQL: `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
+   * GALERA: `firewall-cmd --zone=public --add-port=4567/tcp --permanent`
+   * GALERA IST: `firewall-cmd --zone=public --add-port=4568/tcp --permanent`
+   * RSYNC: `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
+   * Läs in brandväggen: `firewall-cmd --reload`
 
 9. Optimera systemets prestanda. Mer information finns i [strategi för prestandajustering](optimize-mysql.md).
 
@@ -281,8 +281,8 @@ Skapa tre virtuella datorer med hjälp av mallen du skapat, konfigurera och star
 
         sudo vi /etc/my.cnf.d/server.cnf
 
-    Ta bort kommentarerna  **`wsrep_cluster_name`**  och  **`wsrep_cluster_address`**  genom att ta bort den  **#**  i början av raden.
-    Dessutom kan ersätta  **`<ServerIP>`**  i  **`wsrep_node_address`**  och  **`<NodeName>`**  i  **`wsrep_node_name`**  med den Virtuella IP-adress, namn, och ta bort kommentarerna samt dessa rader.
+    Ta bort kommentarerna **`wsrep_cluster_name`** och **`wsrep_cluster_address`** genom att ta bort den **#** i början av raden.
+    Dessutom kan ersätta **`<ServerIP>`** i **`wsrep_node_address`** och **`<NodeName>`** i **`wsrep_node_name`** med den Virtuella IP-adress, namn, och ta bort kommentarerna samt dessa rader.
 5. Starta klustret på MariaDB1 och låt den körs vid start.
 
         sudo service mysql bootstrap
@@ -299,7 +299,7 @@ Använda Azure belastningsutjämnare för att utjämna begäranden mellan tre no
 
 Kör följande kommandon på datorn med hjälp av Azure CLI.
 
-Parametrarna kommandostruktur är:`azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
+Parametrarna kommandostruktur är: `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
 
     azure vm endpoint create-multiple mariadb1 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb2 3306:3306:tcp:false:MySQL:tcp:3306

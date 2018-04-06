@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 5f1fa378c8eea68181d4596700238d03f360c5d0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a5cdc67a138e2316c2e87a72371a6df527cc36ac
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Åtkomst till diagnostikloggarna för Azure Data Lake Store
 Lär dig att aktivera loggning för ditt Data Lake Store-konto och visa loggar som samlats in för ditt konto.
 
 Organisationer kan aktivera diagnostikloggning för sina Azure Data Lake Store-konto att samla in data granskningsspår från filåtkomstförsök som innehåller information, till exempel listan över användare som har åtkomst till data, hur ofta data används hur mycket data som lagras i konto, osv. När aktiverad loggas diagnostik och/eller begäranden för bästa prestanda. Både begäranden och diagnostik loggposter skapas bara om det finns begäranden som görs mot tjänstslutpunkten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure Data Lake Store-konto**. Följ instruktionerna i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md).
 
@@ -47,7 +47,7 @@ Organisationer kan aktivera diagnostikloggning för sina Azure Data Lake Store-k
         
         * Välj alternativet för att **dataströmmen till en händelsehubb** dataströmmen logga data till en Azure-Händelsehubb. Du kommer troligen använda det här alternativet om du har en bearbetningen nedströms rörledning för att analysera inkommande loggar i realtid. Om du väljer det här alternativet måste du ange detaljer för Azure-Händelsehubb som du vill använda.
 
-        * Välj alternativet för att **skicka till logganalys** att använda Azure Log Analytics-tjänsten för att analysera den genererade loggdata. Om du väljer det här alternativet måste du ange information för Operations Management Suite-arbetsyta som du skulle använda utför logganalysen. Se [vy eller analysera data som samlas in med logganalys loggen search](../log-analytics/log-analytics-tutorial-viewdata.md) mer information om hur du använder logganalys.
+        * Välj alternativet för att **skicka till logganalys** att använda Azure Log Analytics-tjänsten för att analysera den genererade loggdata. Om du väljer det här alternativet måste du ange information för logganalys-arbetsytan som du skulle använda utför logganalysen. Se [vy eller analysera data som samlas in med logganalys loggen search](../log-analytics/log-analytics-tutorial-viewdata.md) mer information om hur du använder logganalys.
      
    * Ange om du vill hämta granskningsloggar eller begäran loggar eller båda.
    * Ange antalet dagar som data måste behållas. Kvarhållning gäller endast om du använder Azure storage-konto för att arkivera loggdata.
@@ -114,9 +114,9 @@ Här är ett exempel i JSON-formaterad begäran-loggen. Varje blobb har en rotob
     }
 
 #### <a name="request-log-schema"></a>Schemat för begäran-logg
-| Namn | Typ | Beskrivning |
+| namn | Typ | Beskrivning |
 | --- | --- | --- |
-| time |Sträng |Loggen tidsstämpel (i UTC) |
+| tid |Sträng |Loggen tidsstämpel (i UTC) |
 | resourceId |Sträng |ID för den resurs som åtgärden tog placera på |
 | category |Sträng |Log-kategori. Till exempel **begäranden**. |
 | operationName |Sträng |Namnet på åtgärden som är inloggad. Till exempel getfilestatus. |
@@ -127,7 +127,7 @@ Här är ett exempel i JSON-formaterad begäran-loggen. Varje blobb har en rotob
 | properties |JSON |Mer information finns nedan |
 
 #### <a name="request-log-properties-schema"></a>Begäran loggen egenskaper schema
-| Namn | Typ | Beskrivning |
+| namn | Typ | Beskrivning |
 | --- | --- | --- |
 | HttpMethod |Sträng |HTTP-metoden används för åtgärden. Till exempel få. |
 | Sökväg |Sträng |Sökvägen åtgärden utfördes på |
@@ -161,9 +161,9 @@ Här är ett exempel i JSON-formaterad granskningsloggen. Varje blobb har en rot
     }
 
 #### <a name="audit-log-schema"></a>Granska loggen schema
-| Namn | Typ | Beskrivning |
+| namn | Typ | Beskrivning |
 | --- | --- | --- |
-| time |Sträng |Loggen tidsstämpel (i UTC) |
+| tid |Sträng |Loggen tidsstämpel (i UTC) |
 | resourceId |Sträng |ID för den resurs som åtgärden tog placera på |
 | category |Sträng |Log-kategori. Till exempel **Audit**. |
 | operationName |Sträng |Namnet på åtgärden som är inloggad. Till exempel getfilestatus. |
@@ -174,7 +174,7 @@ Här är ett exempel i JSON-formaterad granskningsloggen. Varje blobb har en rot
 | properties |JSON |Mer information finns nedan |
 
 #### <a name="audit-log-properties-schema"></a>Granska loggen egenskaper schema
-| Namn | Typ | Beskrivning |
+| namn | Typ | Beskrivning |
 | --- | --- | --- |
 | StreamName |Sträng |Sökvägen åtgärden utfördes på |
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/18/2017
 ms.author: sngun
-ms.openlocfilehash: a641c7e5e792b020be54a2ebc4bac63b545ce71e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ae8c4daf6b4beff3b1baf7ef5a5f3b84d706401a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Strömma Analytics utdata: alternativ för lagring, analys
 När du redigerar ett Stream Analytics-jobb kan du överväga hur resulterande data används. Hur kan du visa resultatet av Stream Analytics-jobbet och där kan du lagra den?
@@ -70,7 +70,7 @@ I tabellen nedan visas vilka egenskapsnamn och deras beskrivning som behövs fö
 <td>Serialiseringsformat för utdata. JSON-, CSV- och Avro stöds.</td>
 </tr>
 <tr>
-<td>Encoding</td>
+<td>Kodning</td>
 <td>Om du använder CSV- eller JSON-format, måste kodning anges. UTF-8 är det enda kodformat som stöds för närvarande.</td>
 </tr>
 <tr>
@@ -106,7 +106,7 @@ Du måste autentiseras ditt Data Lake Store-konto om lösenordet har ändrats se
 > 
 > 
 
-## <a name="blob-storage"></a>Blob Storage
+## <a name="blob-storage"></a>Blobblagring
 BLOB storage erbjuder en kostnadseffektiv och skalbar lösning för att lagra stora mängder Ostrukturerade data i molnet.  En introduktion på Azure Blob storage och användning finns i dokumentationen till [hur du använder BLOB](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa en blob-utdata.
@@ -150,7 +150,7 @@ I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa 
 <td>Serialiseringsformat för utdata.  JSON-, CSV- och Avro stöds.</td>
 </tr>
 <tr>
-<td>Encoding</td>
+<td>Kodning</td>
 <td>Om du använder CSV- eller JSON-format, måste kodning anges. UTF-8 är det enda kodformat som stöds för närvarande.</td>
 </tr>
 <tr>
@@ -181,13 +181,13 @@ Det finns några parametrar som behövs för att konfigurera Event Hub-dataströ
 | Egenskapsnamn | Beskrivning |
 | --- | --- |
 | Kolumnalias |Ett eget namn som används i frågor för att dirigera utdata till den här Event Hub. |
-| Service Bus-namnområde |En Service Bus-namnrymd är en behållare för en uppsättning meddelandeentiteter. När du har skapat en ny Händelsehubb skapade du även en Service Bus-namnrymd |
+| Service Bus-namnrymd |En Service Bus-namnrymd är en behållare för en uppsättning meddelandeentiteter. När du har skapat en ny Händelsehubb skapade du även en Service Bus-namnrymd |
 | Händelsehubb |Namnet på din Event Hub-utdata |
 | Namnet på Händelsehubben princip |Den princip för delad åtkomst som kan skapas på fliken Event Hub konfigurera. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar |
 | Event Hub principnyckel |Den delade åtkomstnyckeln som används för att autentisera åtkomst till Service Bus-namnrymd |
 | Partitionen nyckelkolumn [valfritt] |Kolumnen innehåller Partitionsnyckeln för Event Hub-utdata. |
 | Händelsen serialiseringsformat |Serialiseringsformat för utdata.  JSON-, CSV- och Avro stöds. |
-| Encoding |För CSV- och JSON är UTF-8 endast stöds Kodningsformatet just nu |
+| Kodning |För CSV- och JSON är UTF-8 endast stöds Kodningsformatet just nu |
 | Avgränsare |Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering av data i CSV-format. Värden som stöds är kommatecken, semikolon, utrymme, fliken och vertikalstreck. |
 | Format |Gäller endast för JSON-serialisering. Radseparering innebär att utdata formateras genom att varje JSON-objekt avgränsas med en ny rad. Matrisen anger att utdata formateras som en matris av JSON-objekt. Denna matris stängs endast när jobbet stoppar eller Stream Analytics har gått vidare till nästa tidsfönstret. I allmänhet är det bättre att använda rad avgränsade JSON, eftersom den inte kräver någon särskild hantering när utdatafilen fortfarande skrivs till. |
 
@@ -283,12 +283,12 @@ I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa 
 | Egenskapsnamn | Beskrivning |
 | --- | --- |
 | Kolumnalias |Ett eget namn som används i frågor för att dirigera utdata till den här Service Bus-kö. |
-| Service Bus-namnområde |En Service Bus-namnrymd är en behållare för en uppsättning meddelandeentiteter. |
+| Service Bus-namnrymd |En Service Bus-namnrymd är en behållare för en uppsättning meddelandeentiteter. |
 | Könamnet |Namnet på Service Bus-kö. |
 | Kön Principnamn |När du skapar en kö kan skapa du även principer för delad åtkomst på fliken Konfigurera för kön. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar. |
 | Kön principnyckel |Den delade åtkomstnyckeln som används för att autentisera åtkomst till Service Bus-namnrymd |
 | Händelsen serialiseringsformat |Serialiseringsformat för utdata.  JSON-, CSV- och Avro stöds. |
-| Encoding |För CSV- och JSON är UTF-8 endast stöds Kodningsformatet just nu |
+| Kodning |För CSV- och JSON är UTF-8 endast stöds Kodningsformatet just nu |
 | Avgränsare |Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering av data i CSV-format. Värden som stöds är kommatecken, semikolon, utrymme, fliken och vertikalstreck. |
 | Format |Gäller endast för JSON-typen. Radseparering innebär att utdata formateras genom att varje JSON-objekt avgränsas med en ny rad. Matrisen anger att utdata formateras som en matris av JSON-objekt. |
 
@@ -300,12 +300,12 @@ I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa 
 | Egenskapsnamn | Beskrivning |
 | --- | --- |
 | Kolumnalias |Ett eget namn som används i frågor för att dirigera utdata till den här Service Bus-ämne. |
-| Service Bus-namnområde |En Service Bus-namnrymd är en behållare för en uppsättning meddelandeentiteter. När du har skapat en ny Händelsehubb skapade du även en Service Bus-namnrymd |
+| Service Bus-namnrymd |En Service Bus-namnrymd är en behållare för en uppsättning meddelandeentiteter. När du har skapat en ny Händelsehubb skapade du även en Service Bus-namnrymd |
 | Ämnesnamn |Ämnen är meddelandeentiteter, liknande händelsehubbar och köer. De har utformats för att samla in händelseströmmar från ett antal olika enheter och tjänster. När ett ämne skapas, ges även ett specifikt namn. Meddelanden som skickas till ett ämne är inte tillgängligt om inte en prenumeration har skapats, så se till att det finns en eller flera prenumerationer under avsnittet |
 | Avsnittet Principnamn |När du skapar ett ämne kan skapa du även principer för delad åtkomst på fliken avsnittet Konfigurera. Varje princip för delad åtkomst har namn, behörigheter som du ställa in och åtkomstnycklar |
 | Avsnittet principnyckel |Den delade åtkomstnyckeln som används för att autentisera åtkomst till Service Bus-namnrymd |
 | Händelsen serialiseringsformat |Serialiseringsformat för utdata.  JSON-, CSV- och Avro stöds. |
- | Encoding |Om du använder CSV- eller JSON-format, måste kodning anges. UTF-8 är endast stöds Kodningsformatet just nu |
+ | Kodning |Om du använder CSV- eller JSON-format, måste kodning anges. UTF-8 är endast stöds Kodningsformatet just nu |
 | Avgränsare |Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering av data i CSV-format. Värden som stöds är kommatecken, semikolon, utrymme, fliken och vertikalstreck. |
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
@@ -342,7 +342,7 @@ Observera att när Azure Stream Analytics tar emot 413 (http-begäran entiteten 
 
 
 ## <a name="get-help"></a>Få hjälp
-Om du behöver mer hjälp kan du besöka vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Om du behöver mer hjälp kan du besöka vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Nästa steg
 Du har fått en introduktion till Stream Analytics, en hanteringstjänst för analys av dataströmmar från Internet of Things. Mer information om den här tjänsten finns här:

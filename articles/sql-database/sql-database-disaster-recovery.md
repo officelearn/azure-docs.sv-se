@@ -1,20 +1,20 @@
 ---
-title: "SQL Database-katastrofåterställning | Microsoft Docs"
-description: "Lär dig hur du återställer en databas från en regionala datacenter avbrott eller ett fel med Azure SQL Database aktiv geo-replikering och funktioner för geo-återställning."
+title: SQL Database-katastrofåterställning | Microsoft Docs
+description: Lär dig hur du återställer en databas från en regionala datacenter avbrott eller ett fel med Azure SQL Database aktiv geo-replikering och funktioner för geo-återställning.
 services: sql-database
 author: anosov1960
 manager: jhubbard
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e9ec0a0a602965561b77619123588db57c59993c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: dc97c0703150df9773427b13fc07371c3593ce9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Återställa en Azure SQL Database eller växling vid fel till en sekundär
 Azure SQL-databasen innehåller följande funktioner för återställning efter ett avbrott:
@@ -26,7 +26,7 @@ Azure SQL-databasen innehåller följande funktioner för återställning efter 
 Läs om business continuity scenarier och funktioner som stöder dessa scenarier i [företagskontinuitet](sql-database-business-continuity.md).
 
 > [!NOTE]
-> Om du använder zonredundant Premium-databaser och pooler återställningen sker automatiskt och resten av detta material är inte giltigt. 
+> Om du använder zonredundant Premium eller Business kritiska databaser eller pooler (förhandsgranskning) återställningen sker automatiskt och resten av detta material är inte giltigt. 
 
 ### <a name="prepare-for-the-event-of-an-outage"></a>Förbereda för händelse av ett avbrott
 För att lyckas med återställning till en annan dataområdet med redundans grupper eller geo-redundant säkerhetskopior måste du förbereda en server i en annan Datacenter avbrott blir den nya primära servern senare om behovet skulle uppstå samt ha väldefinierade stegen och testats för att säkerställa en smidig. Dessa förberedelsesteg inkluderar:

@@ -1,6 +1,6 @@
 ---
-title: "Bästa praxis för företag som flyttar till Azure | Microsoft Docs"
-description: "Beskriver en kodskelett företag kan använda för att säkerställa en säker och hanterbar miljö."
+title: Bästa praxis för företag som flyttar till Azure | Microsoft Docs
+description: Beskriver en kodskelett företag kan använda för att säkerställa en säker och hanterbar miljö.
 services: azure-resource-manager
 documentationcenter: na
 author: rdendtler
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 3b5087faaf3db087b15b77fedac8df0d7e4a899a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 02553bb59cb37bab21d53adafc42fddcf08795a7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure enterprise kodskelett - normativ prenumeration styrning
 Företag vidtar allt det offentliga molnet dess rörlighet och flexibilitet. De använder Molnets styrkor för att generera intäkter eller optimera resurser för företaget. Microsoft Azure tillhandahåller många olika tjänster att företag kan sätta ihop som byggstenar för att adressera en mängd olika arbetsbelastningar och program. 
@@ -135,7 +135,7 @@ Principer för Azure Resource Manager är ett kraftfullt verktyg i Azure toolkit
 > 
 
 ### <a name="audit---what-happened"></a>Gransknings - vad hände?
-Om du vill visa hur din miljö fungerar, måste du granska användaraktivitet. De flesta typer av resurser i Azure skapa diagnostikloggar som du kan analysera via ett verktyg i loggen eller i Azure Operations Management Suite. Du kan samla in aktivitetsloggar i flera prenumerationer att tillhandahålla en avdelningsnivå eller enterprise-vyn. Granskningsposter är både ett viktigt diagnostiska verktyg och en avgörande mekanism för att utlösa händelser i Azure-miljön.
+Om du vill visa hur din miljö fungerar, måste du granska användaraktivitet. De flesta typer av resurser i Azure skapa diagnostikloggar som du kan analysera via ett verktyg i loggen eller i Azure logganalys. Du kan samla in aktivitetsloggar i flera prenumerationer att tillhandahålla en avdelningsnivå eller enterprise-vyn. Granskningsposter är både ett viktigt diagnostiska verktyg och en avgörande mekanism för att utlösa händelser i Azure-miljön.
 
 Aktivitetsloggar från Resource Manager distributioner gör det möjligt att fastställa den **operations** som tog plats och vem som utförde dem. Aktivitetsloggar kan samlas in och sammanställs med verktyg som logganalys.
 
@@ -151,7 +151,7 @@ Resurstaggarna är flexibla och ska kopplas till mest resurser. Exempel på vanl
 * Programmet ägare
 * Projektnamn
 
-![tags](./media/resource-manager-subscription-governance/resource-group-tagging.png)
+![taggar](./media/resource-manager-subscription-governance/resource-group-tagging.png)
 
 Fler exempel på taggar finns [rekommenderas namnkonventionerna för Azure-resurser](../guidance/guidance-naming-conventions.md).
 
@@ -159,8 +159,8 @@ Fler exempel på taggar finns [rekommenderas namnkonventionerna för Azure-resur
 > Överväg att göra en princip som kräver märkning för:
 > 
 > * Resursgrupper
-> * Lagring
-> * Virtuella datorer
+> * Storage
+> * Virtual Machines
 > * Tjänsten miljöer/web programservrar
 > 
 > Den här märkning strategin identifierar alla prenumerationer vilka metadata som behövs för företag, ekonomi, säkerhet, riskhantering och övergripande hanteringen av miljön. 
@@ -207,7 +207,7 @@ I de inbyggda rollerna beviljas endast ägare och administratör för användar�
 > [!TIP]
 > Nätverksalternativ för kärnor bör skyddas med lås. Oavsiktlig borttagning av en gateway för plats-till-plats VPN skulle vara katastrofal till en Azure-prenumeration. Azure tillåter inte att ta bort ett virtuellt nätverk som används, men att använda fler begränsningar är en bra försiktighetsåtgärd. 
 > 
-> * Virtuellt nätverk: CanNotDelete
+> * Virtual Network: CanNotDelete
 > * Nätverkssäkerhetsgruppen: CanNotDelete
 > * Principer: CanNotDelete
 > 
@@ -228,7 +228,7 @@ I de inbyggda rollerna beviljas endast ägare och administratör för användar�
 > 
 > De här tipsen hjälper dig att implementera säker nätverksresurser.
 
-### <a name="automation"></a>Automation
+### <a name="automation"></a>Automatisering
 Hantera resurser individuellt är både tidskrävande och potentiellt känsliga för vissa åtgärder. Azure tillhandahåller olika automatiseringsfunktionerna inklusive Azure Automation, Logic Apps och Azure Functions. [Azure Automation](../automation/automation-intro.md) gör att administratörer kan skapa och definiera runbooks för att hantera vanliga uppgifter vid hantering av resurser. Du kan skapa runbooks med hjälp av en redigerare för PowerShell eller grafiska redigerare. Du kan skapa komplexa arbetsflöden i flera steg. Azure Automation används ofta för att hantera vanliga aktiviteter som att stänga av oanvända resurser eller skapar resurser som svar på en utlösare utan mänsklig inblandning.
 
 > [!TIP]

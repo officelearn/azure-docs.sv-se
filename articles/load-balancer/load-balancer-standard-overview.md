@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 ms.author: kumud
-ms.openlocfilehash: b5443cb1d883bd829a13b6d941d2c87c6205c64f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Översikt över Azure Load Balancer Standard
 
@@ -43,7 +43,7 @@ Läs in belastningsutjämnaren resurser är objekt inom vilken express hur Azure
 
 ## <a name="why-use-standard-load-balancer"></a>Varför använda Standard belastningsutjämnaren?
 
-Du kan använda Standard belastningsutjämnare för en fullständig uppsättning virtuella datacenter från liten skala distributioner till stora och komplexa flera zonen arkitekturerna.
+Standard belastningsutjämnare kan du skala ditt program och skapa hög tillgänglighet för liten skala distributioner till stora och komplexa flera zonen arkitekturerna.
 
 Granska tabellen nedan ger en översikt över skillnaderna mellan Standard belastningsutjämnare och grundläggande belastningsutjämnare:
 

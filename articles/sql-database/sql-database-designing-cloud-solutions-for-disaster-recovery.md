@@ -1,28 +1,28 @@
 ---
-title: "Utforma tjänst med hög tillgänglighet med hjälp av Azure SQL Database | Microsoft Docs"
-description: "Läs mer om programmet design för hög tillgänglighet med hjälp av Azure SQL Database-tjänster."
-keywords: "molnet katastrofåterställning, katastrofåterställning, app-säkerhetskopiering, geo-replikering, kontinuerlig planering"
+title: Utforma tjänst med hög tillgänglighet med hjälp av Azure SQL Database | Microsoft Docs
+description: Läs mer om programmet design för hög tillgänglighet med hjälp av Azure SQL Database-tjänster.
+keywords: molnet katastrofåterställning, katastrofåterställning, app-säkerhetskopiering, geo-replikering, kontinuerlig planering
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c596006e33c2c4f0228c14a65f58e82bcf300727
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d19087743740799ec9972bed7a602073afea9f26
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Designa tjänster med hög tillgänglighet med hjälp av Azure SQL Database
 
 När du skapar och distribuerar tjänster med hög tillgänglighet på Azure SQL Database, använder du [redundans grupper och aktiv geo-replikering](sql-database-geo-replication-overview.md) att tillhandahålla återhämtning i regionala avbrott och oåterkalleligt fel. Snabb återställning till de sekundära databaserna kan också. Den här artikeln fokuserar på vanliga program mönster och beskriver fördelar och avvägningarna med varje alternativ. Information om aktiv geo-replikering med elastiska pooler finns [elastisk Pool strategi för katastrofåterställning](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 > [!NOTE]
-> Om du använder Premium-databaser och pooler du dem flexibel regionala avbrott genom att konvertera dem till zonen redundant distributionskonfiguration (för närvarande under förhandsgranskning). Se [redundantzonen databaser](sql-database-high-availability.md).  
+> Om du använder Premium eller Business (förhandsgranskning) databaser och elastiska pooler, kan du göra dem motståndskraftiga mot regionala avbrott genom att konvertera dem till zonen redundant distributionskonfiguration (för närvarande under förhandsgranskning). Se [redundantzonen databaser](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scenario 1: Använda två Azure-regioner för företagskontinuitet med minimal avbrottstid
 I det här scenariot har programmen följande egenskaper: 

@@ -1,11 +1,11 @@
 ---
-title: "Ställa in ett Linux RDMA-kluster som kör MPI program | Microsoft Docs"
-description: "Skapa ett Linux-kluster av storlek H16r H16mr, A8 eller A9 virtuella datorer för att köra MPI appar med Azure RDMA-nätverk"
+title: Ställa in ett Linux RDMA-kluster som kör MPI program | Microsoft Docs
+description: Skapa ett Linux-kluster av storlek H16r H16mr, A8 eller A9 virtuella datorer för att köra MPI appar med Azure RDMA-nätverk
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 01834bad-c8e6-48a3-b066-7f1719047dd2
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 428dc1e8ba03ba17e348a33a33b5cf5e6118a43c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 18549a8606285238f26d2c8cec54793e26e3e8d1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Konfigurera ett Linux RDMA-kluster för att köra MPI-program
 Lär dig hur du ställer in ett Linux RDMA-kluster i Azure med [högpresterande compute VM-storlekar](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) att köra parallella Message Passing Interface (MPI) program. Den här artikeln innehåller steg för att förbereda en Linux HPC-avbildning för att köra Intel MPI på ett kluster. Efter förberedelse, kan du distribuera ett kluster för virtuella datorer med hjälp av den här avbildningen och en av RDMA-kompatibla Azure VM-storlekar (för närvarande H16r H16mr, A8 eller A9). Använd klustret för att köra MPI-program som effektiv kommunicerar över ett nätverk för låg latens, hög genomströmning baserat på remote direct memory access (RDMA)-teknik.
@@ -42,7 +42,7 @@ Följande steg visar hur du använder Azure CLI för att distribuera en SUSE Lin
 >
 >
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 * **Klientdatorn**: du behöver en Mac, Linux eller Windows-klientdator att kommunicera med Azure. De här stegen förutsätter att du använder en Linux-klient.
 * **Azure-prenumeration**: Om du inte har en prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/) på bara några minuter. Överväg att en prenumeration med användningsbaserad betalning eller andra köpalternativ för större kluster.
 * **Tillgänglighet för VM-storlek**: följande instans storleken är RDMA-kompatibla: H16r, H16mr, A8 och A9. Kontrollera [produkter som är tillgängliga efter region](https://azure.microsoft.com/regions/services/) för tillgänglighet i Azure-regioner.

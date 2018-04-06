@@ -1,11 +1,11 @@
 ---
-title: "Översikt över Azure virtuell Linux-dator | Microsoft Docs"
-description: "Lär dig hur du installerar och konfigurerar Linux-agenten (waagent) för att hantera den virtuella datorns interaktion med Azure-Infrastrukturkontrollanten."
+title: Översikt över Azure virtuell Linux-dator | Microsoft Docs
+description: Lär dig hur du installerar och konfigurerar Linux-agenten (waagent) för att hantera den virtuella datorns interaktion med Azure-Infrastrukturkontrollanten.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: szarkos
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: be3955c670382af1a2b558e8e7d656ca5a1f353d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Förstå och använda Azure Linux-agenten
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -80,7 +80,7 @@ Följande datorer har testats och är känt att arbeta med Azure Linux-agenten:
 
 * CoreOS
 * CentOS 6.3 +
-* Red Hat Enterprise Linux 6.7 +
+* Red Hat Enterprise Linux 6.7+
 * Debian 7.0 +
 * Ubuntu 12.04 +
 * openSUSE 12.3 +
@@ -93,8 +93,8 @@ Andra operativsystem som stöds:
 
 Linux-agenten beror på vissa Systempaket för att fungera korrekt:
 
-* Python 2.6 +
-* OpenSSL 1.0 +
+* Python 2.6+
+* OpenSSL 1.0+
 * OpenSSH 5.3 +
 * Verktyg för filsystem: sfdisk datorn mkfs, åtskilda
 * Lösenord verktyg: chpasswd sudo
@@ -273,7 +273,7 @@ Standard: n
 
 Om mängd loggen detaljnivå förstärks. Waagent loggar till /var/log/waagent.log och använder system logrotate funktioner för att rotera loggar.
 
-**OS. EnableRDMA**  
+**OS.EnableRDMA**  
 Typ: booleskt  
 Standard: n
 
@@ -291,7 +291,7 @@ Standard: ingen
 
 Detta kan användas för att ange en alternativ sökväg för openssl binära för kryptografiska åtgärder.
 
-**HttpProxy.Host HttpProxy.Port**  
+**HttpProxy.Host, HttpProxy.Port**  
 Typ: Sträng  
 Standard: ingen
 

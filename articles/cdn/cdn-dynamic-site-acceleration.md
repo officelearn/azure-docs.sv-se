@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: rli
-ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: rli; v-deasim
+ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Dynamiska acceleration via Azure CDN
 
@@ -152,7 +152,7 @@ Med DSA, cachelagring är inaktiverat som standard på CDN, även om ursprung in
 
 Om du har en webbplats med en blandning av statiska och dynamiska tillgångar, är det bäst att en hybrid-metod för att få bästa möjliga prestanda. 
 
-För **Azure CDN från Verizon Standard** och **Azure CDN från Akamai Standard** profiler, kan du aktivera cachelagring för specifika DSA-slutpunkter med hjälp av [cachelagring regler](cdn-caching-rules.md).
+För **Azure CDN Standard från Verizon** och **Azure CDN Standard från Akamai** profiler, kan du aktivera cachelagring för specifika DSA-slutpunkter med hjälp av [cachelagring regler](cdn-caching-rules.md).
 
 Öppna cachelagring regler:
 
@@ -164,7 +164,7 @@ För **Azure CDN från Verizon Standard** och **Azure CDN från Akamai Standard*
 
 2. Skapa en global eller anpassade cachelagring regel för att aktivera cachelagring för DSA-slutpunkten. 
 
-För **Azure CDN från Verizon Premium** profiler kan du aktivera cachelagring för specifika DSA-slutpunkter med hjälp av den [regelmotor](cdn-rules-engine.md). Alla regler som har skapats påverkas endast slutpunkter som är optimerade för DSA för din profil. 
+För **Azure CDN Premium från Verizon** profiler kan du aktivera cachelagring för specifika DSA-slutpunkter med hjälp av den [regelmotor](cdn-rules-engine.md). Alla regler som har skapats påverkas endast slutpunkter som är optimerade för DSA för din profil. 
 
 Öppna regelmotor:
     

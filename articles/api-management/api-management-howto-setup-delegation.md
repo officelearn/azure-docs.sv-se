@@ -1,11 +1,11 @@
 ---
-title: "Hur du delegerar användarens registrering och produkt-prenumeration"
-description: "Lär dig att delegera användarens registrering och produkten prenumeration till en tredje part i Azure API Management."
+title: Hur du delegerar användarens registrering och produkt-prenumeration
+description: Lär dig att delegera användarens registrering och produkten prenumeration till en tredje part i Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8b7ad5ee-a873-4966-a400-7e508bbbe158
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: fc8c5774eb616c33c00ecebeacd31e2a07b36e0c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8c19111ed966ff89a2934dd5232625aab1f8b28b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Hur du delegerar användarens registrering och produkt-prenumeration
 Delegering kan du använda din befintliga webbplats för att hantera developer logga-i/sign-upp och din prenumeration på produkter i stället för med inbyggda funktioner i developer-portalen. Detta gör att din webbplats ska äga användardata och utföra valideringen av stegen i ett anpassat sätt.
@@ -173,7 +173,7 @@ Mer information om delegering finns i följande video:
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
 [begär en enkel inloggning (SSO) token]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[Skapa en användare]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
+[Skapa en användare]: https://docs.microsoft.com/en-us/rest/api/apimanagement/user/createorupdate
 [anropa REST-API för produkten prenumeration]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps
 [exempelkoden nedan]: #delegate-example-code

@@ -1,8 +1,8 @@
 ---
-title: "Använda Log Analytics för att övervaka Azure HDInsight-kluster | Microsoft Docs"
-description: "Lär dig hur du använder Azure Log Analytics för att övervaka jobb som körs i ett HDInsight-kluster."
+title: Använda Log Analytics för att övervaka Azure HDInsight-kluster | Microsoft Docs
+description: Lär dig hur du använder Azure Log Analytics för att övervaka jobb som körs i ett HDInsight-kluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 2c43b9aabda56e1204870575e86934bf93d05882
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: be71b065999c30546432895804df8633da21b43e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Använda Azure Log Analytics för att övervaka HDInsight-kluster
 
 Lär dig hur du använder Azure Log Analytics för att övervaka åtgärder för Hadoop-kluster i HDInsight.
 
-[Logga Analytics](../log-analytics/log-analytics-overview.md) är en tjänst i [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) som övervakar molnet och lokala miljöer för att upprätthålla sin tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor. 
+[Logga Analytics](../log-analytics/log-analytics-overview.md) är en tjänst som övervakar molnet och lokala miljöer för att upprätthålla sin tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **En Azure-prenumeration**. Innan du börjar följa de här självstudierna måste du ha en Azure-prenumeration. Se [Skapa ett kostnadsfritt Azure-konto i dag](https://azure.microsoft.com/free).
 
-* **Ett Azure HDInsight-kluster**. För närvarande kan du använda Azure Operations Management Suite med följande typer av HDInsight-kluster:
+* **Ett Azure HDInsight-kluster**. För närvarande kan du använda logganalys med följande typer av HDInsight-kluster:
 
     * Hadoop
     * HBase

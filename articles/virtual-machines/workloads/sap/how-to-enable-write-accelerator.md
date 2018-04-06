@@ -1,13 +1,13 @@
 ---
-title: "Azure skriva snabbtangenten för SAP distributioner | Microsoft Docs"
-description: "Handboken för SAP HANA-system som distribueras på virtuella Azure-datorer."
+title: Azure skriva snabbtangenten för SAP distributioner | Microsoft Docs
+description: Handboken för SAP HANA-system som distribueras på virtuella Azure-datorer.
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: msjuergent
 manager: patfilot
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d1ca15028590824cef95e3e9c2d957f9883a0e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 177bc05eea3aa05231c71a42950fa622b68afc53
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>Azure skriva snabbtangenten för SAP-distributioner
 Azure skriva Accelerator är en funktion som hämtar lyfts för virtuella datorer M-serien exklusivt. Azure skriva Accelerator är inte tillgänglig i alla andra VM-serien i Azure, förutom M-serien. Som namnet tillstånd, är syftet med funktionen för att förbättra i/o-fördröjningen för skrivningar mot Azure Premium-lagring. 
@@ -28,10 +28,11 @@ Azure skriva Accelerator är en funktion som hämtar lyfts för virtuella datore
 >[!NOTE]
 > Nu Azure skriva Accelerator är tillgänglig som förhandsversion och kräver vitt-lista över Azure prenumerations-ID
 
-Funktionen Azure skriva Accelerator är tillgänglig som förhandsversion i:
+Azure skriva Accelerator-funktionen är tillgänglig för distribution av M-serien som förhandsversion i:
 
 - Västra US2
-- Västeuropa
+- Västra Europa
+- Sydostasien
 
 ## <a name="planning-for-using-azure-write-accelerator"></a>Planering för att använda Azure skriva Accelerator
 Azure skriva Accelerator ska användas för volymer som innehåller transaktionsloggen eller gör om-loggarna för ett DBMS. Det rekommenderas inte att använda Azure skriva snabbtangenten för datavolymer i en DBMS. Orsak till den här begränsningen är att Azure skriva Accelerator kräver Azure Premium Storage VHD-diskarna monteras utan ytterligare skrivskyddade cachelagring som är tillgängligt för Premium-lagring. Större fördelar med den här typen av cachelagring kan iakttas med traditionella databaser. Eftersom skriva Accelerator påverkar endast skrivåtgärder aktiviteter och inte påskynda läsningar, är stöds designen för SAP använda skriva Accelerator mot transaktionsloggen eller göra om loggen enheter av SAP stöds databaser. 
@@ -70,7 +71,7 @@ De följande avsnitten beskrivs hur Azure skriva Accelerator kan aktiveras på A
 
 Vid denna tidpunkt, är aktivera skriva Accelerator via Azure Rest-API och Power Shell de enda. Andra metoder för upp till stöd i Azure portal följer under nästa några veckor.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 Följande krav gäller för användning av Azure skriva Accelerator vid denna tidpunkt:
 
 - Ditt prenumerations-ID som användes för att distribuera virtuell dator och lagring för den virtuella datorn måste vara tomt i listan. Kontakta din Microsoft CSA GBB, eller Kontoansvariga att hämta ditt prenumerations-ID tomt angiven. 

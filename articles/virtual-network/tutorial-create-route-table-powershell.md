@@ -1,12 +1,13 @@
 ---
-title: Dirigera nätverkstrafik - Azure PowerShell | Microsoft Docs
-description: Lär dig mer om att dirigera nätverkstrafik till en routingtabell med hjälp av PowerShell.
+title: Dirigera nätverkstrafik Azure PowerShell | Microsoft Docs
+description: I den här artikeln lär du dig hur att dirigera nätverkstrafik till en routingtabell med hjälp av PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
@@ -16,24 +17,23 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: f7be6aa58c6779150d3e79893e6e179d08611567
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f6f3bd2a9683daf5f523cc5cfe43e568fb508694
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Dirigera nätverkstrafik till en routingtabell med hjälp av PowerShell
 
-Azure automatiskt vägar trafik mellan alla undernät i ett virtuellt nätverk som standard. Du kan skapa egna flöden om du vill åsidosätta Azures standardroutning. Möjligheten att skapa anpassade vägar är användbart om du exempelvis vill vidarebefordra trafik mellan undernät via en virtuell nätverksenhet (NVA). I den här artikeln lär du dig hur du:
+Azure automatiskt vägar trafik mellan alla undernät i ett virtuellt nätverk som standard. Du kan skapa egna flöden om du vill åsidosätta Azures standardroutning. Möjligheten att skapa anpassade vägar är användbart om du exempelvis vill vidarebefordra trafik mellan undernät via en virtuell nätverksenhet (NVA). I den här artikeln får du lära dig hur du:
 
-> [!div class="checklist"]
-> * Skapa en routingtabell
-> * Skapa en väg
-> * Skapa ett virtuellt nätverk med flera undernät
-> * Associera en routingtabell till ett undernät
-> * Skapa en NVA som dirigerar trafik
-> * Distribuera virtuella datorer (VM) i olika undernät
-> * Vidarebefordra trafik från ett undernät till en annan genom en NVA
+* Skapa en routingtabell
+* Skapa en väg
+* Skapa ett virtuellt nätverk med flera undernät
+* Associera en routingtabell till ett undernät
+* Skapa en NVA som dirigerar trafik
+* Distribuera virtuella datorer (VM) i olika undernät
+* Vidarebefordra trafik från ett undernät till en annan genom en NVA
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -239,43 +239,43 @@ mstsc /v:<publicIpAddress>
 
 Ange användarnamn och lösenord som du angav när du skapar den virtuella datorn (du kan behöva välja **fler alternativ**, sedan **Använd ett annat konto**, för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn), Välj sedan **OK**. Du kan få en certifikatvarning under inloggningen. Välj **Ja** att fortsätta med anslutningen. 
 
-Kommandot tracert.exe används i ett senare steg att testa routning. Tracert använder den kontrollen meddelandet ICMP (Internet Protocol), som nekas via Windows-brandväggen. Aktivera ICMP via Windows-brandväggen genom att skriva följande kommando från PowerShell:
+Kommandot tracert.exe används i ett senare steg att testa routning. Tracert använder den kontrollen meddelandet ICMP (Internet Protocol), som nekas via Windows-brandväggen. Aktivera ICMP via Windows-brandväggen genom att skriva följande kommando från PowerShell de *myVmPrivate* VM:
 
 ```powershell
-New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
+New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 ```
 
-Även om tracert används för att testa routning i den här artikeln, rekommenderas inte att tillåta ICMP via Windows-brandväggen för Produktionsdistribution.
+Även om spårningsrutt för att testa routning i den här artikeln, rekommenderas inte att tillåta ICMP via Windows-brandväggen för Produktionsdistribution.
 
-Aktivera IP-vidarebefordring i operativsystemet på den *myVmNva* genom att utföra följande steg från den *myVmPrivate* VM:
+Du har aktiverat IP-vidarebefordran i Azure för den Virtuella datorns nätverksgränssnitt i [aktivera IP-fowarding](#enable-ip-forwarding). I den virtuella datorn, måste operativsystemet eller ett program som körs på den virtuella datorn också kunna vidarebefordra nätverkstrafik. Aktivera IP-vidarebefordring i operativsystemet på den *myVmNva*.
 
-Fjärrskrivbord till den *myVmNva* virtuell dator med följande kommando från PowerShell:
+Från en kommandotolk på den *myVmPrivate* VM fjärrskrivbord till den *myVmNva*:
 
 ``` 
 mstsc /v:myvmnva
 ```
     
-Ange följande kommando för att aktivera IP-vidarebefordring i operativsystemet i PowerShell:
+Ange följande kommando för att aktivera IP-vidarebefordring i operativsystemet i PowerShell från den *myVmNva* VM:
 
 ```powershell
 Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
 ```
     
-Starta om den virtuella datorn, som också kopplar från fjärrskrivbords-sessionen.
+Starta om den *myVmNva* VM, som också kopplar från fjärrskrivbords-sessionen.
 
-När fortfarande är ansluten till den *myVmPrivate* VM, efter den *myVmNva* VM omstarter, skapa en fjärrskrivbordssession till den *myVmPublic* virtuell dator med följande kommando:
+När fortfarande är ansluten till den *myVmPrivate* VM, skapa en fjärrskrivbordssession till den *myVmPublic* VM, efter den *myVmNva* VM startas om:
 
 ``` 
 mstsc /v:myVmPublic
 ```
     
-Aktivera ICMP via Windows-brandväggen genom att skriva följande kommando från PowerShell:
+Aktivera ICMP via Windows-brandväggen genom att skriva följande kommando från PowerShell de *myVmPublic* VM:
 
 ```powershell
-New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
+New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 ```
 
-Att testa routning av nätverkstrafik till den *myVmPrivate* virtuell dator från den *myVmPublic* VM, anger du följande kommando från PowerShell:
+Att testa routning av nätverkstrafik till den *myVmPrivate* virtuell dator från den *myVmPublic* VM, anger du följande kommando från PowerShell de *myVmPublic* VM:
 
 ```
 tracert myVmPrivate
@@ -293,10 +293,11 @@ over a maximum of 30 hops:
 Trace complete.
 ```
       
-Du kan se att det första hoppet är 10.0.2.4, vilket är den virtuella nätverksenhets privat IP-adress. Ett andra hopp är 10.0.1.4 privata IP-adressen för den *myVmPrivate* VM. Vägen som lagts till i den *myRouteTablePublic* routningstabellen och som är associerade med den *offentliga* undernät orsakade Azure för att dirigera trafik via en NVA i stället för direkt till den *privata* undernät.
+Du kan se att det första hoppet är 10.0.2.4, vilket är en NVA privat IP-adress. Ett andra hopp är 10.0.1.4 privata IP-adressen för den *myVmPrivate* VM. Vägen som lagts till i den *myRouteTablePublic* routningstabellen och som är associerade med den *offentliga* undernät orsakade Azure för att dirigera trafik via en NVA i stället för direkt till den *privata* undernät.
 
 Stäng fjärrskrivbordssession till den *myVmPublic* VM, vilket lämnar du fortfarande är ansluten till den *myVmPrivate* VM.
-Att testa routning av nätverkstrafik till den *myVmPublic* virtuell dator från den *myVmPrivate* VM, anger du följande kommando från en kommandotolk:
+
+Att testa routning av nätverkstrafik till den *myVmPublic* virtuell dator från den *myVmPrivate* VM, anger du följande kommando från en kommandotolk den *myVmPrivate* VM:
 
 ```
 tracert myVmPublic
@@ -309,7 +310,7 @@ Tracing route to myVmPublic.vpgub4nqnocezhjgurw44dnxrc.bx.internal.cloudapp.net 
 over a maximum of 30 hops:
     
 1     1 ms     1 ms     1 ms  10.0.0.4
-    
+   
 Trace complete.
 ```
 
@@ -327,9 +328,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln, skapa en routingtabell och som är kopplad till ett undernät. Du har skapat en enkel virtuell nätverksenhet som dirigeras trafiken från offentliga undernät till ett privat undernät. Distribuera en mängd olika förkonfigurerade virtuella nätverksenheter som utför nätverks-funktioner, till exempel brandvägg och WAN-optimering från den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Innan du distribuerar routningstabeller för produktion, rekommenderas att du noggrant bekanta dig med [routning i Azure](virtual-networks-udr-overview.md), [hantera vägtabeller](manage-route-table.md), och [Azure begränsar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+I den här artikeln, skapa en routingtabell och som är kopplad till ett undernät. Du har skapat en enkel virtuell nätverksenhet som dirigeras trafiken från offentliga undernät till ett privat undernät. Distribuera en mängd olika förkonfigurerade virtuella nätverksenheter som utför nätverks-funktioner, till exempel brandvägg och WAN-optimering från den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Mer information om routning finns [routning: översikt](virtual-networks-udr-overview.md) och [hantera en routingtabell](manage-route-table.md).
 
-Resurser för vissa Azure PaaS-tjänster kan inte distribueras till ett virtuellt nätverk medan du kan distribuera många Azure-resurser inom ett virtuellt nätverk. Du kan fortfarande begränsa åtkomsten till resurser av vissa Azure PaaS-tjänster till trafik från ett undernät för virtuellt nätverk men. Gå vidare till nästa kurs att lära dig att begränsa nätverksåtkomsten till Azure PaaS-resurser.
-
-> [!div class="nextstepaction"]
-> [Begränsa nätverksåtkomst till PaaS-resurser](tutorial-restrict-network-access-to-resources-powershell.md)
+Resurser för vissa Azure PaaS-tjänster kan inte distribueras till ett virtuellt nätverk medan du kan distribuera många Azure-resurser inom ett virtuellt nätverk. Du kan fortfarande begränsa åtkomsten till resurser av vissa Azure PaaS-tjänster till trafik från ett undernät för virtuellt nätverk men. Mer information finns i avsnittet [begränsa nätverksåtkomst till PaaS-resurser](tutorial-restrict-network-access-to-resources-powershell.md).

@@ -4,7 +4,7 @@ description: Lär dig hur du aktiverar eller inaktiverar HTTPS för Azure CDN-sl
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
-ms.author: casoper
-ms.openlocfilehash: fea7121fc67944b20b8f39007edb0c0aad86aeaa
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: rli; v-deasim
+ms.openlocfilehash: 554ae4c19d1a3d35075ad174549a62a20329e5fa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>Konfigurera HTTPS på en anpassad domän för innehållsleveransnätverk i Azure
 
@@ -45,7 +45,7 @@ Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 
 ### <a name="step-1-enable-the-feature"></a>Steg 1: Aktivera funktionen 
 
-1. I den [Azure-portalen](https://portal.azure.com), bläddra till Verizon standard eller premium CDN-profilen.
+1. I den [Azure-portalen](https://portal.azure.com), bläddra till din **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon** CDN-profilen.
 
 2. Klicka på den slutpunkt som innehåller din anpassade domän i listan över slutpunkter.
 
@@ -69,7 +69,7 @@ När du har lagt till en anpassad domän i din slutpunkt, skapa en CNAME-post i 
 
 CNAME-post måste vara i följande format, där *namn* är ditt domännamn och *värdet* är CDN-slutpunktens värdnamn:
 
-| Namn            | Typ  | Värde                 |
+| namn            | Typ  | Värde                 |
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azureedge.net |
 
@@ -149,7 +149,7 @@ När du har aktiverat HTTPS på en anpassad domän, kan du inaktivera det senare
 
 ### <a name="step-1-disable-the-feature"></a>Steg 1: Inaktivera funktionen 
 
-1. I den [Azure-portalen](https://portal.azure.com), bläddra till Verizon standard eller premium CDN-profilen.
+1. I den [Azure-portalen](https://portal.azure.com), bläddra till din **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon** CDN-profilen.
 
 2. Klicka på den slutpunkt som innehåller din anpassade domän i listan över slutpunkter.
 
@@ -177,7 +177,7 @@ I följande tabell visas förloppet igen som händer när du inaktiverar HTTPS. 
 | 2 borttagning av certifikat | Tar bort certifikat |
 | 3 slutfört | Certifikatet har tagits bort |
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 1. *Vem är certifikat-providern och vilken typ av certifikat används?*
 

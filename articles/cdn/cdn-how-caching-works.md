@@ -4,7 +4,7 @@ description: Cachelagring är en process för att lagra data lokalt så att fram
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
-ms.openlocfilehash: 26a0478f8713cb3584045f59c181c0a38331ea97
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: rli; v-deasim
+ms.openlocfilehash: 88c1b98a9dcaa1d22cdc1be3853b1fa7116c8a48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-caching-works"></a>Så här fungerar cachelagring
 
@@ -64,7 +64,7 @@ Två huvuden kan användas för att definiera cache dokumentens: `Cache-Control`
 ## <a name="cache-directive-headers"></a>Cache-direktiv rubriker
 
 > [!IMPORTANT]
-> Som standard en Azure CDN-slutpunkt som är optimerad för DSA ignorerar cache-direktiv sidhuvuden och kringgår cachelagring. För **Azure CDN från Verizon Standard** och **Azure CDN från Akamai Standard** profiler, du kan ändra hur en Azure CDN-slutpunkt behandlar dessa huvuden med hjälp av [cachelagringsregler för CDN](cdn-caching-rules.md)att aktivera cachelagring. För **Azure CDN från Verizon Premium** profiler kan du använda den [regelmotor](cdn-rules-engine.md) att aktivera cachelagring.
+> Som standard en Azure CDN-slutpunkt som är optimerad för DSA ignorerar cache-direktiv sidhuvuden och kringgår cachelagring. För **Azure CDN Standard från Verizon** och **Azure CDN Standard från Akamai** profiler, du kan ändra hur en Azure CDN-slutpunkt behandlar dessa huvuden med hjälp av [cachelagringsregler för CDN](cdn-caching-rules.md)att aktivera cachelagring. För **Azure CDN Premium från Verizon** profiler kan du använda den [regelmotor](cdn-rules-engine.md) att aktivera cachelagring.
 
 Azure CDN stöder följande HTTP-cache-direktiv huvuden, som definierar cachelagringens varaktighet och delning av cachen.
 
@@ -102,7 +102,7 @@ När cachen är inaktuella används HTTP cache verifierare för att jämföra de
 - En cache verifierar en fil som använder `ETag` genom att skicka en `If-None-Match` huvud med en eller flera `ETag` verifierare i begäran. Till exempel `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Om serverns version matchar en `ETag` verifieraren på listan skickar den statuskod 304 (inte ändrade) i sitt svar. Om versionen inte svarar servern med statuskod 200 (OK) och den uppdaterade resursen.
 
 **Last Modified:**
-- För **Azure CDN från Verizon endast**, `Last-Modified` används om `ETag` ingår inte i HTTP-svaret. 
+- För **Azure CDN från Verizon** endast `Last-Modified` används om `ETag` ingår inte i HTTP-svaret. 
 - Anger det datum och tid som den ursprungliga servern har fastställt resursen senast ändrades. Till exempel `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - En cache verifierar en fil med hjälp av `Last-Modified` genom att skicka en `If-Modified-Since` huvud med ett datum och tid i begäran. Den ursprungliga servern Jämför detta datum med den `Last-Modified` rubriken för den senaste resursen. Om resursen inte har ändrats sedan den angivna tiden, returnerar servern statuskod 304 (inte ändrade) i sitt svar. Om resursen har ändrats, returnerar servern status code 200 (OK) och den uppdaterade resursen.
 

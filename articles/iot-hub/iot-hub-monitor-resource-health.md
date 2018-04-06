@@ -1,12 +1,12 @@
 ---
-title: "Övervaka hälsotillståndet hos Azure IoT Hub | Microsoft Docs"
-description: "Använd Azure-Monitor och Azure Resource Health att övervaka din IoT-hubb och diagnostisera problem snabbt"
+title: Övervaka hälsotillståndet hos Azure IoT Hub | Microsoft Docs
+description: Använd Azure-Monitor och Azure Resource Health att övervaka din IoT-hubb och diagnostisera problem snabbt
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/09/2017
 ms.author: kgremban
-ms.openlocfilehash: 3051af03d0c1433db98bcc674a072188e7ce80e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28903c4cc530937b4b39a5239d2a6d1ea6896924
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt
 
 Företag som implementerar Azure IoT Hub förvänta sig tillförlitlig prestanda från sina resurser. För att hjälpa dig att bibehålla en nära klockan på din verksamhet IoT-hubben är helt integrerat med [Azure-Monitor] [ lnk-AM] och [Azure Resource Health] [ lnk-ARH]. Dessa två tjänster fungerar tillsammans för att förse dig med de data som behövs för att hålla din IoT-lösningar upp och körs i ett felfritt tillstånd. 
 
-Azure övervakaren är en enda källa för övervakning och loggning för alla dina Azure-tjänster. Du kan skicka loggar som genereras av Azure-Monitor OMS logganalys, Händelsehubbar eller Azure Storage för anpassade bearbetning. Inställningar för Azure övervakaren mätvärden och diagnostikfunktionerna ge realtid insyn prestandan för dina resurser. Fortsätta att läsa den här artikeln för att lära dig hur du [Använd Azure-Monitor](#use-azure-monitor) med IoT-hubben. 
+Azure övervakaren är en enda källa för övervakning och loggning för alla dina Azure-tjänster. Du kan skicka loggar som genereras av Övervakare för Azure Log Analytics, Händelsehubbar eller Azure Storage för anpassade bearbetning. Inställningar för Azure övervakaren mätvärden och diagnostikfunktionerna ge realtid insyn prestandan för dina resurser. Fortsätta att läsa den här artikeln för att lära dig hur du [Använd Azure-Monitor](#use-azure-monitor) med IoT-hubben. 
 
 Azure Resource Health hjälper dig att diagnostisera och få support när ett problem med Azure påverkar dina resurser. En anpassad instrumentpanel innehåller aktuella och tidigare hälsostatus för din IoT-hubbar. Fortsätta att läsa den här artikeln för att lära dig hur du [Använd Azure Resource Health](#use-azure-resource-health) med IoT-hubben. 
 

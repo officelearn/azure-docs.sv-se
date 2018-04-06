@@ -1,12 +1,12 @@
 ---
-title: "Övervaka och få insikter om din logikapp köras med hjälp av OMS - Azure Logic Apps | Microsoft Docs"
-description: "Övervaka logik appen körs med logganalys och Operations Management Suite (OMS) för att få insikter och bättre felsökning information för felsökning och diagnostik"
+title: Övervaka och få insikter om din logikapp körs med logganalys - Azure Logic Apps | Microsoft Docs
+description: Övervaka logik appen körs med logganalys få insikter och bättre felsökning information för felsökning och diagnostik
 author: divyaswarnkar
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 2f9f27dc74348909b89941c2bb17ccdf610dba33
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d484aaf7d7582bd474d7437a7a62f41880690dbc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>Övervaka och få insikter om logik appen körs med Operations Management Suite (OMS) och logganalys
+# <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Övervaka och få insikter om logik appen körs med logganalys
 
-För övervakning och bättre felsökningsinformation kan du aktivera logganalys samtidigt när du skapar en logikapp. Log Analytics tillhandahåller diagnostik loggning och övervakning för din logikapp körs via portalen Operations Management Suite (OMS). När du lägger till Logic Apps hanteringslösning OMS hämta aggregerad status för din logik app körs och en specifik information som status, körningstid, omsändning status och Korrelations-ID: N.
+För övervakning och bättre felsökningsinformation kan du aktivera logganalys samtidigt när du skapar en logikapp. Log Analytics tillhandahåller diagnostik loggning och övervakning för din logikapp körs via Azure-portalen. När du lägger till hanteringslösning för Logic Apps får du aggregerad status för din logik app körs och en specifik information som status, körningstid, omsändning status och Korrelations-ID: N.
 
-Det här avsnittet visar hur du aktiverar logganalys eller installera Logic Apps hanteringslösning i OMS så att du kan visa runtime händelser och data för din logikapp som körs.
+Det här avsnittet beskrivs hur du aktiverar logganalys så att du kan visa runtime händelser och data för din logikapp kör.
 
  > [!TIP]
- > Så här för att övervaka dina befintliga logikappar [aktivera diagnostikloggning och skicka logik app Körningsdata till OMS](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+ > Så här för att övervaka dina befintliga logikappar [aktivera diagnostikloggning och skicka logik app Körningsdata till logganalys](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 ## <a name="requirements"></a>Krav
 
-Innan du börjar bör behöver du ha en OMS-arbetsyta. Läs [hur du skapar en OMS-arbetsyta](../log-analytics/log-analytics-get-started.md). 
+Innan du börjar behöver du ha logganalys-arbetsytan. Läs [hur du skapar en logganalys-arbetsytan](../log-analytics/log-analytics-quick-create-workspace.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Aktivera diagnostikloggning när du skapar logikappar
 
@@ -44,56 +44,47 @@ Innan du börjar bör behöver du ha en OMS-arbetsyta. Läs [hur du skapar en OM
    1. Ange ett namn för din logikapp och välj din Azure-prenumeration. 
    2. Skapa eller välj en Azure-resursgrupp.
    3. Ange **logga Analytics** till **på**. 
-   Välj OMS-arbetsyta där du vill skicka data för din logikapp körs. 
+   Välj logganalys-arbetsyta där du vill skicka data för din logikapp körs. 
    4. När du är klar kan du välja **fäst på instrumentpanelen** > **skapa**.
 
       ![Skapa en logikapp](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-app.png)
 
-      När du har slutfört det här steget Azure skapar din logikapp nu som är associerade med din OMS-arbetsyta. 
-      Det här steget installerar också automatiskt Logic Apps hanteringslösning i OMS-arbetsyta.
+      När du har slutfört det här steget Azure skapar din logikapp nu som är kopplade till logganalys-arbetsytan. 
+      Det här steget installerar också automatiskt Logic Apps hanteringslösning i arbetsytan.
 
-3. Visa dina logic appen körs i OMS, [fortsätta med de här stegen](#view-logic-app-runs-oms).
+3. Visa din logikapp körs [fortsätta med de här stegen](#view-logic-app-runs-oms).
 
-## <a name="install-the-logic-apps-management-solution-in-oms"></a>Installera Logic Apps hanteringslösning i OMS
+## <a name="install-the-logic-apps-management-solution"></a>Installera hanteringslösning för Logic Apps
 
-Om du redan aktiverat logganalys när du skapade din logikapp, hoppar du över det här steget. Du har redan Logic Apps hanteringslösningen installerats i OMS.
+Om du redan aktiverat logganalys när du skapade din logikapp, hoppar du över det här steget. Du har redan Logic Apps hanteringslösningen installerad.
 
 1. I den [Azure-portalen](https://portal.azure.com), Välj **fler tjänster**. Sök efter ”logganalys” som filter och välja **logganalys** som visas:
 
    ![Choose "Log Analytics"](media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
-2. Under **logganalys**, söka efter och välj din OMS-arbetsyta. 
+2. Under **logganalys**, söka efter och välj logganalys-arbetsytan. 
 
-   ![Välj din OMS-arbetsyta](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
+   ![Välj logganalys-arbetsytan](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
 
 3. Under **Management**, Välj **OMS-portalen**.
 
    ![Välj ”OMS-portalen”](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
 
-4. På startsidan OMS om uppgraderingen banderoll visas, väljer du banderollen så att du först uppgradera din OMS-arbetsyta. Välj **lösningar galleriet**.
-
-   ![Välj ”lösningar galleriet”](media/logic-apps-monitor-your-logic-apps-oms/solutions-gallery.png)
-
-5. Under **alla lösningar för**, söka efter och välj panelen för den **Logic Apps Management** lösning.
+4. Under **alla lösningar för**, söka efter och välj panelen för den **Logic Apps Management** lösning.
 
    ![Välj ”Logic Apps Management”](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
 
-6. Om du vill installera lösningen i OMS-arbetsytan, Välj **Lägg till**.
+5. Om du vill installera lösningen i logganalys-arbetsytan, Välj **Lägg till**.
 
    ![Välj ”Lägg till” för ”Logic Apps Management”](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 
-## <a name="view-your-logic-app-runs-in-your-oms-workspace"></a>Visa din logikapp som körs i din OMS-arbetsyta
+## <a name="view-your-logic-app-runs-in-your-log-analytics-workspace"></a>Visa din logikapp som körs i logganalys-arbetsytan
 
-1. Om du vill visa antalet och status för logik appen körs, går du till översiktssidan för din OMS-arbetsyta. Granska informationen på den **Logic Apps Management** panelen.
+1. Om du vill visa antalet och status för logik appen körs, går du till översiktssidan för logganalys-arbetsytan. Granska informationen på den **Logic Apps Management** panelen.
 
    ![Översikt över panelen visar logik app kör antal och status](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
-
-   > [!Note]
-   > Om den här uppgraderingen banderoll visas i stället för Logic Apps Management-panelen, väljer du banderollen så att du först uppgradera din OMS-arbetsyta.
-  
-   > ![Uppgradera ”OMS-arbetsytan”](media/logic-apps-monitor-your-logic-apps-oms/oms-upgrade-banner.png)
 
 2. Välj för att visa en sammanfattning med mer information om logik appen körs den **Logic Apps Management** panelen.
 

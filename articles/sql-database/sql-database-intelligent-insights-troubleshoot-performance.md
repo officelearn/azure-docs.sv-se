@@ -1,6 +1,6 @@
 ---
-title: "Felsöka Azure SQL Database prestandaproblem med Intelligent insikter | Microsoft Docs"
-description: "Intelligent Insights hjälper dig att felsöka problem med Azure SQL Database prestanda."
+title: Felsöka Azure SQL Database prestandaproblem med Intelligent insikter | Microsoft Docs
+description: Intelligent Insights hjälper dig att felsöka problem med Azure SQL Database prestanda.
 services: sql-database
 author: danimir
 manager: craigg
@@ -8,13 +8,13 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: 0f23a76506a6692dd907a0b9fc7cfadfe7cd8f40
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7830a8a4bfc43e158069cc7cdc186e289e166751
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsöka Azure SQL Database prestandaproblem med Intelligent insikter
 
@@ -30,7 +30,7 @@ Intelligent insikter identifierar automatiskt prestandaproblem med SQL Database 
 
 | Kan upptäckas prestandamönster | Information för utdata |
 | :------------------- | ------------------- |
-| [Nå gränserna](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Användningen av tillgängliga resurser (Dtu), databasen arbetstrådar eller databasen inloggningsessioner som är tillgängliga på den övervakade prenumerationen har nått gränser, vilket gör SQL Database prestandaproblem. |
+| [Gränserna för att](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Användningen av tillgängliga resurser (Dtu), databasen arbetstrådar eller databasen inloggningsessioner som är tillgängliga på den övervakade prenumerationen har nått gränser, vilket gör SQL Database prestandaproblem. |
 | [Ökning av arbetsbelastning](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Arbetsbelastningen ökning eller kontinuerlig anhopning av arbetsbelastningen på databasen identifierades, vilket gör SQL Database prestandaproblem. |
 | [Minnesbelastning](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Anställda som har begärt minne ger måste vänta tills minnesallokering för statistiskt stora mängder tid. Eller så finns det en ökad anhopning av de anställda som har begärt minne beviljar, som påverkar prestanda för SQL-databasen. |
 | [Låsning](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Långa databasen låsning upptäcktes, som påverkar prestanda för SQL-databasen. |
@@ -52,13 +52,13 @@ Intelligent insikter identifierar automatiskt prestandaproblem med SQL Database 
 
 I följande avsnitt beskrivs tidigare angivna kan upptäckas prestandamönster i detalj.
 
-## <a name="reaching-resource-limits"></a>Nå gränserna
+## <a name="reaching-resource-limits"></a>Gränserna för att
 
 ### <a name="what-is-happening"></a>Vad händer
 
 Det här mönstret kan upptäckas prestanda kombinerar prestandaproblem som är relaterade till når tillgänglig resurs för gränser, worker begränsningar och sessionsgränser. När det här prestandaproblemet upptäcks anger en beskrivningsfält diagnostik loggens om prestandaproblem är relaterad till resursen, worker eller tidsgränser för sessioner.
 
-Resurser på SQL-databas är vanligtvis kallas [DTU-resurser](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). De består av en blandning av processor- och i/o (data och transaktionen loggning i/o) resurser. Mönstret nå gränserna kan identifieras när frågan prestandaförsämring orsakas av når någon uppmätta resurs-gränser.
+Resurser på SQL-databas är vanligtvis kallas [DTU-resurser](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). De består av en blandning av processor- och -i/o (data och transaktionen loggning i/o) resurser. Mönstret nå gränserna kan identifieras när frågan prestandaförsämring orsakas av når någon uppmätta resurs-gränser.
 
 Resursen session gränser som anger antalet tillgängliga samtidiga inloggningar till SQL-databasen. Det här mönstret prestanda kan identifieras när program som är anslutna till SQL-databaser har uppnått antalet tillgängliga samtidiga inloggningar till databasen. Om program försöker att använda flera sessioner än vad som är tillgängliga på en databas, påverkas prestanda för frågor.
 
@@ -154,7 +154,7 @@ Lås är förenklad synkroniseringsmekanismer som används av SQL-databas för a
 
 Det finns många typer av lås på SQL-databasen. För enkelhetens skull används buffert Lås för att skydda sidor i minne i buffertpoolen. I/o-Lås för att skydda sidor som ännu inte har lästs in i buffertpoolen. När data skrivs till eller läses från en sida i buffertpoolen, måste en arbetstråd att erhålla en buffert spärren för sidan först. När en arbetstråd försöker komma åt en sida som inte finns i poolen i minnesbufferten, görs en i/o-begäran att läsa in nödvändig information från lagringsplatsen. Denna sekvens av händelser som indikerar en allvarligare form av försämrade prestanda.
 
-På sidan Lås konkurrens när flera trådar samtidigt försöker hämta lås på samma struktur i minnet, vilket ger en ökad väntetiden för att köra frågor. När det gäller pagelatch i/o konkurrens när data behöver komma åt från lagringen, är väntetiden ännu större. Det kan påverka arbetsbelastningens prestanda avsevärt. Pagelatch konkurrens är det vanligaste scenariot för trådar som väntar på varandra och konkurrerar om resurser på flera CPU-system.
+På sidan Lås konkurrens när flera trådar samtidigt försöker hämta lås på samma struktur i minnet, vilket ger en ökad väntetiden för att köra frågor. När det gäller pagelatch IO konkurrens när data behöver komma åt från lagringen, är väntetiden ännu större. Det kan påverka arbetsbelastningens prestanda avsevärt. Pagelatch konkurrens är det vanligaste scenariot för trådar som väntar på varandra och konkurrerar om resurser på flera CPU-system.
 
 ### <a name="troubleshooting"></a>Felsökning
 
@@ -162,7 +162,7 @@ Diagnostik-loggen matar ut pagelatch konkurrens information. Du kan använda den
 
 Eftersom en pagelatch är en mekanism för intern kontroll av SQL-databas, bestämmer den automatiskt när de ska användas. Programmet beslut, inklusive schemat design, kan påverka pagelatch sätt på grund av deterministiska beteendet för lås.
 
-Ett sätt att hantera spärren konkurrens är att ersätta en sekventiell indexnyckeln med en sekventiellt för att distribuera infogningar jämnt över ett index intervall. Normalt distribuerar en inledande kolumnen i indexet arbetsbelastningen proportionerligt. Ett annat sätt att tänka på är Tabellpartitionering. Att skapa en hash partitioneringsschema med en beräknad kolumn för en partitionerad tabell är en vanlig metod för att minimera konkurrens överdriven spärren. När det gäller pagelatch i/o konkurrens hjälper introduktion till index till att minimera det här prestandaproblemet. 
+Ett sätt att hantera spärren konkurrens är att ersätta en sekventiell indexnyckeln med en sekventiellt för att distribuera infogningar jämnt över ett index intervall. Normalt distribuerar en inledande kolumnen i indexet arbetsbelastningen proportionerligt. Ett annat sätt att tänka på är Tabellpartitionering. Att skapa en hash partitioneringsschema med en beräknad kolumn för en partitionerad tabell är en vanlig metod för att minimera konkurrens överdriven spärren. När det gäller pagelatch IO konkurrens hjälper introduktion till index till att minimera det här prestandaproblemet. 
 
 Mer information finns i [diagnostisera och åtgärda spärr konkurrens på SQL Server](http://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (nedladdning PDF).
 
@@ -234,7 +234,7 @@ Mer information finns i [introduktion till minnesoptimerade tabeller](https://do
 
 Det här mönstret kan upptäckas prestanda anger en försämring i den aktuella databasen arbetsbelastningsprestanda jämfört med de senaste sju dagar baslinjen. Det beror på brist på tillgängliga dtu: er i den elastiska poolen för din prenumeration. 
 
-Resurser på SQL-databas är vanligtvis kallas [DTU-resurser](sql-database-what-is-a-dtu.md), som består av en blandning av processor- och i/o (data och transaktionen loggning i/o) resurser. [Azure elastisk pool resurser](sql-database-elastic-pool.md) används som en pool med tillgängliga eDTU-resurserna som delas mellan flera databaser för att skala syften. När tillgängliga eDTU-resurserna i din elastisk pool inte är tillräckligt stor för att stödja alla databaser i poolen, identifierade en elastisk pool DTU lite prestandaproblemet av systemet.
+Resurser på SQL-databas är vanligtvis kallas [DTU-resurser](sql-database-what-is-a-dtu.md), som består av en blandning av processor- och -i/o (data och transaktionen loggning i/o) resurser. [Azure elastisk pool resurser](sql-database-elastic-pool.md) används som en pool med tillgängliga eDTU-resurserna som delas mellan flera databaser för att skala syften. När tillgängliga eDTU-resurserna i din elastisk pool inte är tillräckligt stor för att stödja alla databaser i poolen, identifierade en elastisk pool DTU lite prestandaproblemet av systemet.
 
 ### <a name="troubleshooting"></a>Felsökning
 

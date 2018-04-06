@@ -1,11 +1,11 @@
 ---
-title: "Kör STAR-CCM + med HPC Pack på virtuella Linux-datorer | Microsoft Docs"
-description: "Distribuera ett kluster för Microsoft HPC Pack på Azure och köra en stjärna-CCM + jobb på flera Linux compute-noder i ett nätverk med RDMA."
+title: Kör STAR-CCM + med HPC Pack på virtuella Linux-datorer | Microsoft Docs
+description: Distribuera ett kluster för Microsoft HPC Pack på Azure och köra en stjärna-CCM + jobb på flera Linux compute-noder i ett nätverk med RDMA.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: xpillons
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 75523406-d268-4623-ac3e-811c7b74de4b
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
-ms.openlocfilehash: b45fcfb981287035da02fda62eaf5f9436ec2379
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8689d7abfd5ab45277df3b5672a1f6e7e874d88e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Kör STAR-CCM + med Microsoft HPC Pack på en Linux RDMA kluster i Azure
 Den här artikeln visar hur du distribuerar ett Microsoft HPC Pack kluster på Azure och kör en [CD-simuleringar STAR-CCM +](http://www.cd-adapco.com/products/star-ccm%C2%AE) jobb på flera Linux compute-noder som är sammankopplade med InfiniBand.
@@ -212,7 +212,7 @@ Inkommande modellen och **runstarccm.sh** skriptet lagras i den **/hpcdata** res
 
 Loggfilerna namnges med jobb-ID och lagras i den **/hpcdata resursen**, tillsammans med STJÄRNAN-CCM + utgående filer.
 
-#### <a name="sample-submitstarccmjobps1-script"></a>Exempelskript för SubmitStarccmJob.ps1
+#### <a name="sample-submitstarccmjobps1-script"></a>Sample SubmitStarccmJob.ps1 script
 ```
     Add-PSSnapin Microsoft.HPC -ErrorAction silentlycontinue
     $scheduler="headnodename"
@@ -284,7 +284,7 @@ Ersätt **runner.java** med din önskade stjärna-CCM + Java modellen programsta
     exit ${RTNSTS}
 ```
 
-I vår test använde vi en licens Power på begäran-token. För att denna token måste du ange den **$CDLMD_LICENSE_FILE** miljövariabeln  **1999@flex.cd-adapco.com**  och nyckeln i den **- podkey** alternativ på kommandoraden.
+I vår test använde vi en licens Power på begäran-token. För att denna token måste du ange den **$CDLMD_LICENSE_FILE** miljövariabeln **1999@flex.cd-adapco.com** och nyckeln i den **- podkey** alternativ på kommandoraden.
 
 Efter vissa initiering extraherar skriptet--från den **$CCP_NODES_CORES** miljövariabler som HPC Pack ange--listan över noder för att skapa en hostfile MPI programstart använder. Den här hostfile innehåller listan över beräkning nod-namn som används för jobbet, ett namn per rad.
 
@@ -296,19 +296,19 @@ Formatet på **$CCP_NODES_CORES** följer detta mönster:
 
 Där:
 
-* `<Number of nodes>`är antalet noder som allokerats till det här jobbet.
-* `<Name of node_n_...>`är namnet på varje nod som allokerats till det här jobbet.
-* `<Cores of node_n_...>`är antalet kärnor på den nod som allokerats till det här jobbet.
+* `<Number of nodes>` är antalet noder som allokerats till det här jobbet.
+* `<Name of node_n_...>` är namnet på varje nod som allokerats till det här jobbet.
+* `<Cores of node_n_...>` är antalet kärnor på den nod som allokerats till det här jobbet.
 
 Antal kärnor (**$NBCORES**) beräknas baserat på antalet noder (**$NBNODES**) och antalet kärnor per nod (som anges som parameter **$NBCORESPERNODE**).
 
 För MPI-alternativ är de som används med Intel MPI på Azure
 
-* `-mpi intel`Ange Intel MPI.
-* `-fabric UDAPL`att använda Azure InfiniBand verb.
-* `-cpubind bandwidth,v`att optimera bandbredd för MPI med stjärna-CCM +.
-* `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"`Om du vill se Intel MPI arbeta med Azure InfiniBand och ange antalet kärnor per nod som krävs.
-* `-batch`Starta STAR-CCM + i batchläge med något användargränssnitt.
+* `-mpi intel` Ange Intel MPI.
+* `-fabric UDAPL` att använda Azure InfiniBand verb.
+* `-cpubind bandwidth,v` att optimera bandbredd för MPI med stjärna-CCM +.
+* `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"` Om du vill se Intel MPI arbeta med Azure InfiniBand och ange antalet kärnor per nod som krävs.
+* `-batch` Starta STAR-CCM + i batchläge med något användargränssnitt.
 
 Slutligen, om du vill starta ett jobb, kontrollera att noderna är igång och körs och är online i hanteraren för. Från en PowerShell-Kommandotolken kör detta:
 

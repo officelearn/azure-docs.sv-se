@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/11/2017
 ms.author: sngun
-ms.openlocfilehash: 0ddc3187e9fc0664838dd07f781f4d7e2e4a7fe0
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 405fcf190ab03b84ec463da8a1942adb8e326498
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Dataanslutningen: Lär dig mer om data dataströmmen indata från händelser till Stream Analytics
 Dataanslutningen till ett Stream Analytics-jobb är en dataström med händelser från datakällan, vilket kallas jobbets *inkommande*. Stream Analytics har förstklassigt integrering med Azure strömmen datakällor, inklusive [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), och [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). Dessa indatakällor kan vara från samma Azure-prenumerationen som analytics-jobb, eller från en annan prenumeration.
@@ -176,7 +176,7 @@ FROM Input
 ````
 
 ## <a name="get-help"></a>Få hjälp
-För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 Du har lärt dig om anslutningsalternativ för data i Azure för Stream Analytics-jobb. Mer information om Stream Analytics finns:

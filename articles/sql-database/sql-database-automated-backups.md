@@ -1,20 +1,21 @@
 ---
-title: "Automatisk, geo-redundant säkerhetskopieringar i Azure SQL Database | Microsoft Docs"
-description: "SQL-databasen och skapar en lokal databassäkerhetskopia med några minuters mellanrum automatiskt och använder Azure geo-redundant lagring med läsbehörighet för geo-redundans."
+title: Automatisk, geo-redundant säkerhetskopieringar i Azure SQL Database | Microsoft Docs
+description: SQL-databasen och skapar en lokal databassäkerhetskopia med några minuters mellanrum automatiskt och använder Azure geo-redundant lagring med läsbehörighet för geo-redundans.
 services: sql-database
-author: CarlRabeler
-manager: jhubbard
+author: anosov1960
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
 ms.workload: Active
-ms.date: 07/05/2017
-ms.author: carlrab
-ms.openlocfilehash: 053dd680af020aa05bc071c49f0f47ebe6a8f0da
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/04/2018
+ms.author: sashan
+ms.reviewer: carlrab
+ms.openlocfilehash: ab1793621950fd57d3f0be545772d85b32f5d7b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Lär dig mer om automatisk säkerhetskopiering i SQL-databas
 
@@ -22,7 +23,7 @@ SQL-databas skapas säkerhetskopiorna av databasen automatiskt och använder Azu
 
 ## <a name="what-is-a-sql-database-backup"></a>Vad är en säkerhetskopia av SQL-databasen?
 
-SQL-databasen använder SQL Server-teknik för att skapa [fullständig](https://msdn.microsoft.com/library/ms186289.aspx), [differentiella](https://msdn.microsoft.com/library/ms175526.aspx), och [transaktionsloggen](https://msdn.microsoft.com/library/ms191429.aspx) säkerhetskopior. Säkerhetskopieringarna av transaktionsloggen inträffa normalt var 5-10 minut, ofta baserat på prestanda och mycket Databasaktivitet. Säkerhetskopiering av transaktionsloggar, med fullständig och differentiell säkerhetskopiering kan du återställa en databas till en specifik i tidpunkt till samma server som är värd för databasen. När du återställer en databas räknat tjänsten ut där full, differentiella och transaktionen loggfiler säkerhetskopior som ska återställas.
+SQL-databasen använder SQL Server-teknik för att skapa [fullständig](https://msdn.microsoft.com/library/ms186289.aspx), [differentiella](https://msdn.microsoft.com/library/ms175526.aspx), och [transaktionsloggen](https://msdn.microsoft.com/library/ms191429.aspx) säkerhetskopior i syfte att tidpunkts-återställning (PITR). Säkerhetskopieringarna av transaktionsloggen inträffa normalt var 5-10 minut, ofta baserat på prestanda och mycket Databasaktivitet. Säkerhetskopiering av transaktionsloggar, med fullständig och differentiell säkerhetskopiering kan du återställa en databas till en specifik i tidpunkt till samma server som är värd för databasen. När du återställer en databas räknat tjänsten ut där full, differentiella och transaktionen loggfiler säkerhetskopior som ska återställas.
 
 
 Du kan använda dessa säkerhetskopieringar till:
@@ -30,7 +31,7 @@ Du kan använda dessa säkerhetskopieringar till:
 * Återställa en databas till en i tidpunkt inom kvarhållningsperioden. Den här åtgärden skapar en ny databas på samma server som den ursprungliga databasen.
 * Återställa en borttagen databas till den tid som det har tagits bort eller inom kvarhållningsperioden. Borttagen databas kan bara återställas på samma server som var den ursprungliga databasen har skapats.
 * Återställa en databas till en annan geografisk region. På så sätt kan du återställa en geografisk katastrofåterställning när du inte kommer åt din server och databas. En ny databas skapas i en befintlig server som helst i världen. 
-* Återställa en databas från en specifik säkerhetskopia som lagras i Azure Recovery Services-valvet. På så sätt kan du återställa en gammal version av databasen att uppfylla en begäran om kompatibilitet eller kör en gammal version av programmet. Se [långsiktig kvarhållning](sql-database-long-term-retention.md).
+* Återställa en databas från en specifik långsiktig säkerhetskopiering om databasen har konfigurerats med en långsiktig bevarandeprincip. På så sätt kan du återställa en gammal version av databasen att uppfylla en begäran om kompatibilitet eller kör en gammal version av programmet. Se [långsiktig kvarhållning](sql-database-long-term-retention.md).
 * Om du vill utföra en återställning, se [återställa databasen från säkerhetskopior](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
@@ -49,10 +50,14 @@ Varje säkerhetskopiering i SQL-databas har en kvarhållningsperiod som baseras 
 * Grundläggande tjänstnivå är 7 dagar.
 * Standard-tjänstnivå är 35 dagar.
 * Premiumnivån är 35 dagar.
+* Generella nivå kan konfigureras med 35 dagar maximala (7 dagar som standard) *
+* Kritiska affärsnivå (förhandsversion) kan konfigureras med 35 dagar maximala (7 dagar som standard) *
 
-Om du nedgradera databasen från tjänstnivåer Standard eller Premium till Basic sparas säkerhetskopieringar i sju dagar. Alla befintliga säkerhetskopior som är äldre än sju dagar är inte längre tillgängliga. 
+\* Under förhandsgranskningen gör säkerhetskopior kvarhållningsperioden kan inte konfigureras och löses till 7 dagar.
 
-Om du uppgraderar databasen från grundläggande tjänstnivån till Standard eller Premium behåller SQL Database befintliga säkerhetskopior tills de 35 dagar gammal. Den bevarar nya säkerhetskopior allteftersom de sker för 35 dagar.
+Om du konverterar en databas med längre säkerhetskopior bevaras till en databas med kortare bevaras inte längre alla befintliga säkerhetskopior som är äldre än kvarhållningsperioden för mål-nivå.
+
+Om du uppgraderar en databas med en kortare period till en databas med en längre period, håller SQL Database befintliga säkerhetskopior tills längre kvarhållningsperioden har uppnåtts. 
 
 Om du tar bort en-databas håller säkerhetskopieringar på samma sätt som för en onlinedatabas SQL-databas. Anta att du tar bort en grundläggande databas som har en kvarhållningsperiod på sju dagar. En säkerhetskopia som är fyra dagar gamla sparas för tre dagar.
 
@@ -61,17 +66,17 @@ Om du tar bort en-databas håller säkerhetskopieringar på samma sätt som för
 > 
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>Hur du utökar säkerhetskopiering loggperioden?
-Om ditt program kräver att säkerhetskopiorna är tillgänglig under längre tid kan du utöka inbyggda kvarhållningsperioden genom att konfigurera den långsiktiga säkerhetskopiering bevarandeprincip för enskilda databaser (LTR princip). På så sätt kan du utöka inbyggda it kvarhållningsperioden från 35 dagar till upp till 10 år. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
 
-När du lägger till LTR principen till en databas med Azure-portalen eller API kopieras veckovisa fullständiga databassäkerhetskopieringar automatiskt till din egen Azure Backup Service-valvet. Om databasen är krypterad med TDE krypteras automatiskt säkerhetskopior i vila.  Säkerhetskopiorna har upphört att gälla, baserat på deras tidsstämpel och LTR principen tas bort automatiskt i Services-valvet.  Så du inte behöver hantera schemat för säkerhetskopiering eller bekymra dig om rensning av de gamla filerna. Restore-API: et stöder säkerhetskopior som lagras i valvet så länge valvet är i samma prenumeration som din SQL-databas. Du kan använda Azure-portalen eller PowerShell för att komma åt dessa säkerhetskopior.
+Om ditt program kräver att säkerhetskopiorna är tillgänglig under längre tid än den maximala PITR-kvarhållningsperioden för säkerhetskopiering, kan du konfigurera en långsiktig säkerhetskopiering bevarandeprincip för enskilda databaser (LTR princip). På så sätt kan du utöka inbyggda it kvarhållningsperioden från maximala 35 dagar till upp till 10 år. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
 
-> [!TIP]
-> En instruktioner finns i [konfigurera och återställning från Azure SQL Database långsiktig lagring av säkerhetskopior.](sql-database-long-term-backup-retention-configure.md)
->
+När du lägger till LTR principen till en databas med Azure-portalen eller API kopieras veckovisa fullständiga databassäkerhetskopieringar automatiskt till en behållare för lagring av separata RA-GRS för långsiktig Kvarhållning (LTR lagring). Om databasen är krypterad med TDE krypteras automatiskt säkerhetskopior i vila. Säkerhetskopiorna har upphört att gälla, baserat på deras tidsstämpel och LTR principen tas bort automatiskt i SQL-databas. När principen har konfigurerats, behöver du inte hantera schemat för säkerhetskopiering eller bekymra dig om rensning av de gamla filerna. Du kan använda Azure-portalen eller PowerShell för att visa, återställa eller ta bort dessa säkerhetskopior.
 
 ## <a name="are-backups-encrypted"></a>Krypteras säkerhetskopieringar
 
 När TDE är aktiverat för en Azure SQL database, är säkerhetskopior också krypterade. Alla nya Azure SQL-databaser har konfigurerats med TDE aktiverad som standard. Mer information om TDE finns [Transparent datakryptering med Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+
+## <a name="are-the-automatic-backups-compliant-with-gdpr"></a>Följer automatiska säkerhetskopieringar BNPR?
+Om säkerhetskopian innehåller personliga data, vilket är föremål allmänna Data Protection förordning (BNPR) krävs att vidta åtgärder för ökad säkerhet för att skydda data från obehörig åtkomst. För att följa BNPR behöver du ett sätt att hantera databegäranden från en dataägare utan att behöva komma åt säkerhetskopieringar.  För säkerhetskopiering på kort sikt, en lösning kan vara att förkorta säkerhetskopieringen fönstret till under 30 dagar, vilket är tid som tillåts för att slutföra åtkomstbegäranden data.  Om längre sikt säkerhetskopieringar krävs, rekommenderas att lagra endast ”sysselsättningsuppgifter” data i säkerhetskopieringar. Till exempel om information om en person behöver tas bort eller uppdatera kräver det inte ta bort eller uppdatera befintliga säkerhetskopior. Du hittar mer information om metodtips för BNPR i [datastyrning BNPR kompatibilitet](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html).
 
 ## <a name="next-steps"></a>Nästa steg
 

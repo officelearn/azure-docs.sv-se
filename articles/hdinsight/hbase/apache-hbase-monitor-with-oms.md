@@ -1,13 +1,13 @@
 ---
-title: "Övervaka HBase med Operations Management Suite (OMS) - Azure HDInsight | Microsoft Docs"
-description: "Använd OMS med Azure Log Analytics för att övervaka HDInsight HBase-kluster."
+title: Övervaka HBase med Azure logganalys - Azure HDInsight | Microsoft Docs
+description: Övervaka HDInsight HBase-kluster med hjälp av Azure logganalys.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
@@ -16,23 +16,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: f78d570cfa8b040cd7673a5e14e6a992511f60bb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3746713cdadff0a4c6f4fe25d278e8d78555f9d6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="monitor-hbase-with-operations-management-suite-oms"></a>Övervakaren HBase med Operations Management Suite (OMS)
+# <a name="monitor-hbase-with-log-analytics"></a>Övervakaren HBase med logganalys
 
 Övervakning av HBase i HDInsight använder Azure Log Analytics att samla in prestandavärden för HDInsight HBase från HDInsight-klusternoder. Övervakaren ger HBase-specifika visualiseringar och instrumentpaneler, verktyg för att söka efter mätvärdena och möjligheten att skapa anpassade regler för övervakning och aviseringar. Du kan övervaka mätvärden för flera kluster i HDInsight HBase över flera Azure-prenumerationer.
 
-Log Analytics är en tjänst i [Operations Management Suite (OMS)](../../operations-management-suite/operations-management-suite-overview.md) som övervakar molnet och lokala miljöer för att upprätthålla sin tillgänglighet och prestanda. Logganalys samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analys över flera källor.
+Log Analytics är en tjänst i [Azure](../../operations-management-suite/operations-management-suite-overview.md) som övervakar molnet och lokala miljöer för att upprätthålla sin tillgänglighet och prestanda. Logganalys samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analys över flera källor.
 
-[Logga Analytics hanteringslösningar](../../log-analytics/log-analytics-add-solutions.md) lägger till funktioner i OMS, vilket ger ytterligare data och verktyg för analys. Hanteringslösningar för log Analytics är en samling logik och visualisering data förvärv regler som ger mått för ett visst område. En lösning kan också definiera nya posttyper för att samla in och dessa poster kan analyseras med loggen sökningar eller nya gränssnittsfunktioner.
+[Logga Analytics hanteringslösningar](../../log-analytics/log-analytics-add-solutions.md) lägga till funktioner till logganalys ger ytterligare information och verktyg för analys. Hanteringslösningar för log Analytics är en samling logik och visualisering data förvärv regler som ger mått för ett visst område. En lösning kan också definiera nya posttyper för att samla in och dessa poster kan analyseras med loggen sökningar eller nya gränssnittsfunktioner.
 
 [Insight & Analytics](https://azure.microsoft.com/pricing/details/insight-analytics/) bygger på logganalys-plattform. Du kan välja att använda Log Analytics-funktionerna och betala per GB som inhämtas i tjänsten, eller växla arbetsytan Insight & Analytics-nivån och betala per nod som hanteras av tjänsten. Insight & Analytics erbjuder en supermängd funktionerna som erbjuds av logganalys. Övervakning av HBase-lösning är tillgänglig med logganalys eller Insight & Analytics.
 
-När du etablerar en lösning för övervakning av HBase i HDInsight kan du skapa en OMS-arbetsyta. Varje arbetsyta som en unik logganalys-miljö med en egen lagringsplats för data, datakällor och lösningar. Du kan skapa flera arbetsytor i din prenumeration för att stödja flera miljöer, till exempel produktion och testa.
+När du etablerar en lösning för övervakning av HBase i HDInsight kan du skapa en logganalys-arbetsytan. Varje arbetsyta som en unik logganalys-miljö med en egen lagringsplats för data, datakällor och lösningar. Du kan skapa flera arbetsytor i din prenumeration för att stödja flera miljöer, till exempel produktion och testa.
 
 ## <a name="provision-hdinsight-hbase-monitoring"></a>Etablera HDInsight HBase övervakning
 
@@ -50,7 +50,7 @@ När du etablerar en lösning för övervakning av HBase i HDInsight kan du skap
 
     ![Hantering av lösningar fönstret](./media/apache-hbase-monitor-with-oms/hbase-solution.png)  
 6. Granska informationen om hanteringslösningen i fönstret management-lösning och välj sedan **skapa**. 
-7. I den *management lösningsnamn* väljer en befintlig arbetsyta associera med hanteringslösningen eller skapa en ny OMS-arbetsyta och markerar den.
+7. I den *management lösningsnamn* väljer en befintlig arbetsyta associera med hanteringslösningen eller skapa en ny logganalys-arbetsyta och markerar den.
 8. Ändra arbetsytan inställningar för Azure-prenumeration, resursgrupp och plats efter behov. 
     ![lösningens arbetsyta](./media/apache-hbase-monitor-with-oms/solution-workspace.png)  
 9. Välj **Skapa**.  
@@ -68,9 +68,9 @@ När du etablerar en lösning för övervakning av HBase i HDInsight kan du skap
 
 Om du vill använda de verktyg som tillhandahålls av HDInsight HBase övervakning, måste du konfigurera klustret så att den skickar måtten från dess region server, huvudnoderna och ZooKeeper-noder till logganalys. Den här konfigurationen görs genom att köra en skriptåtgärd mot HDInsight HBase-kluster.
 
-### <a name="get-oms-workspace-id-and-workspace-key"></a>Hämta OMS arbetsyte-ID och Arbetsytenyckel
+### <a name="get-log-analytics-workspace-id-and-workspace-key"></a>Hämta Log Analytics arbetsyte-ID och Arbetsytenyckel
 
-Du behöver din OMS arbetsyte-ID och Arbetsytenyckel för att noder i klustret för att autentisera med logganalys. Hämta dessa värden:
+Du behöver din Log Analytics arbetsyte-ID och Arbetsytenyckel för att noder i klustret för att autentisera med logganalys. Hämta dessa värden:
 
 1. Välj översikt över din HBase övervakning rutan i Azure-portalen.
 
@@ -146,5 +146,5 @@ När skriptåtgärden är klar bör du se data i övervakning-lösningen inom n�
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa aviseringar i OMS logganalys](../../log-analytics/log-analytics-alerts-creating.md)
+* [Skapa aviseringar i logganalys](../../log-analytics/log-analytics-alerts-creating.md)
 * [Söka efter data med loggen sökningar i Azure Log Analytics](../../log-analytics/log-analytics-log-searches.md).

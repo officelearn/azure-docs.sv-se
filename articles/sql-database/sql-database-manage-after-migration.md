@@ -1,6 +1,6 @@
 ---
 title: Hantera efter migreringen - Azure SQL Database | Microsoft Docs
-description: "Lär dig hur du hanterar din databas efter migrering till Azure SQL Database."
+description: Lär dig hur du hanterar din databas efter migrering till Azure SQL Database.
 services: sql-database
 author: joesackmsft
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 4e50a1be3437ab1b027c1ca0f160402239e13e92
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 96bc75e15c99897414fad8c138c8a34ef790af21
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera en databas i Azure SQL Database
 
-Flytta från den traditionella själva hanteras själva kontrollerad miljö till en PaaS-miljö kan det verka lite överväldigande först. Som en app-utvecklare eller DBA, skulle du vill veta grundfunktionerna i plattformen som hjälper dig att hålla ditt program som är tillgängliga, performant, säker och flexibel - alltid. Det syftet är att göra just den här artikeln. Artikeln kortfattat ordnar resurser och ger vägledning om hur du bäst använder de viktigaste funktionerna i SQL-databas att hantera och att programmet fungerar smidigt och uppnå bästa resultat i molnet. Vanliga målgruppen för den här artikeln är de som:-
+Flytta från den traditionella själva hanteras själva kontrollerad miljö till en PaaS-miljö kan det verka lite överväldigande först. Som en app-utvecklare eller DBA, skulle du vill veta grundfunktionerna i plattformen som hjälper dig att hålla ditt program som är tillgängliga, performant, säker och flexibel - alltid. Det syftet är att göra just den här artikeln. Artikeln kortfattat ordnar resurser och ger vägledning om hur du bäst använder de viktigaste funktionerna i SQL-databas att hantera och att programmet fungerar smidigt och uppnå bästa resultat i molnet. Vanliga målgruppen för den här artikeln är de som: 
 - Utvärderar migrering av associerade program till Azure SQL DB – Modernizing dina program.
 - Håller på att migrera sina program – pågående Migreringsscenario.
 - Nyligen har slutförts migrering till Azure SQL DB – nya DBA i molnet.
@@ -40,7 +40,7 @@ Du skapa inte säkerhetskopior på Azure SQL DB och det beror på att du inte be
 
 |Prestandanivå|Kvarhållningsperioden i dagar|
 |---|:---:|
-|Basic|7|
+|Grundläggande|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -218,7 +218,7 @@ Din strategi för felsökning av prestandaproblem med avsevärt kan dra nytta av
 
 Med felsökning av prestanda är det viktigt att identifiera om det är bara program eller databasen säkerhetskopiera dem, som påverkar programmets prestanda. Ofta är prestandaproblemet Applikationsnivån. Det kan vara arkitekturen eller mönstret för dataåtkomst. Anta till exempel att du har en chatty program som är känsliga för nätverks-svarstid. I det här fallet drabbas av ditt program eftersom det skulle vara många kort förfrågningar fram och tillbaka (”chatty”) mellan programmet och servern och på ett överbelastat nätverk, dessa görs summera fast. Du kan använda för att förbättra prestanda i det här fallet [Batch frågor](sql-database-performance-guidance.md#batch-queries). Med hjälp av journaler hjälper dig att oerhört mycket eftersom nu dina begäranden bearbetas i en batch; Därför hjälper dig att minska tur och RETUR-svarstid och förbättra programmets prestanda. 
 
-Dessutom, om du märker en försämring i den allmänna prestandan för din databas, kan du övervaka den [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) och [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) hantering av dynamiska vyer för att Förstå förbrukning av CPU, i/o och minne. Prestandan påverkas kanske eftersom databasen har för lite resurser. Det kan bero på att du kan behöva ändra prestandanivå och servicenivå baserat på den växande och minska storleken på arbetsbelastning. 
+Dessutom, om du märker en försämring i den allmänna prestandan för din databas, kan du övervaka den [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) och [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) hantering av dynamiska vyer för att Förstå förbrukning av CPU, IO och minne. Prestandan påverkas kanske eftersom databasen har för lite resurser. Det kan bero på att du kan behöva ändra prestandanivå och servicenivå baserat på den växande och minska storleken på arbetsbelastning. 
 
 En omfattande uppsättning rekommendationer för att finjustera prestandaproblem, se: [finjustera din databas](sql-database-performance-guidance.md#tune-your-database).
 

@@ -1,23 +1,22 @@
 ---
-title: "Affärskontinuitet i molnet – databasåterställning – SQL Database | Microsoft Docs"
-description: "Lär dig hur Azure SQL Database stöder databasåterställning och affärskontinuitet i molnet och hur du kan köra verksamhetskritiska molnprogram."
-keywords: "affärskontinuitet, molnaffärskontinuitet, databashaveriberedskap, databasåterställning"
+title: Affärskontinuitet i molnet – databasåterställning – SQL Database | Microsoft Docs
+description: Lär dig hur Azure SQL Database stöder databasåterställning och affärskontinuitet i molnet och hur du kan köra verksamhetskritiska molnprogram.
+keywords: affärskontinuitet, molnaffärskontinuitet, databashaveriberedskap, databasåterställning
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 08/25/2017
+ms.date: 04/04/2018
 ms.author: sashan
-ms.openlocfilehash: 160e65130efc78bc1a98a0feceb1c824cf226156
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: carlrab
+ms.openlocfilehash: 1f125596a6cc874f285611290d5c42700009afbe
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -27,20 +26,20 @@ Den här översikten beskriver de funktioner som Azure SQL Database tillhandahå
 
 SQL Database tillhandahåller flera funktioner för affärskontinuitet, inklusive automatiserade säkerhetskopieringar och valfri databasreplikering. Den uppskattade återställningstiden (ERT) och den potentiella dataförlusten för de senaste transaktionerna skiljer sig mellan de olika metoderna. Om du förstår de olika alternativen blir det enklare att välja mellan dem, och i de flesta fall kan du använda dem tillsammans för olika scenarier. När du utvecklar din affärskontinuitetsplan är det viktigt att du tittar på den högsta acceptabla tiden innan programmet är helt återställt efter en avbrottshändelse – detta är ditt mål för återställningstid (RTO). Du måste också att förstå hur senaste data uppdateringar (tidsintervall) programmet kan tolerera förlorar när återställning efter händelsen störande – det här är ditt mål för återställningspunkt (RPO).
 
-I följande tabell jämförs ERT och RPO för de tre vanligaste scenarierna.
+I följande tabell jämförs infoga och Återställningspunktmål för varje tjänstnivå för de tre vanligaste scenarierna.
 
-| Funktion | Basic-nivå | Standard-nivå | Premiumnivå |
-| --- | --- | --- | --- |
-| Återställning till tidpunkt från säkerhetskopia |En återställningspunkt inom 7 dagar |En återställningspunkt inom 35 dagar |En återställningspunkt inom 35 dagar |
-| GEO-återställning från säkerhetskopior georeplikerad |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme |
-| Återställning från Azure Backup Vault |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka |
-| Aktiv geo-replikering |ERT < 30 sekunder, RPO < 5 sekunder |ERT < 30 sekunder, RPO < 5 sekunder |ERT < 30 sekunder, RPO < 5 sekunder |
+| Funktion | Grundläggande | Standard | Premium  | Allmän | Verksamhetskritisk
+| --- | --- | --- | --- |--- |--- |
+| Återställning till tidpunkt från säkerhetskopia |En återställningspunkt inom 7 dagar |En återställningspunkt inom 35 dagar |En återställningspunkt inom 35 dagar |En återställningspunkt inom konfigurerade tid (upp till 35 dagar)|En återställningspunkt inom konfigurerade tid (upp till 35 dagar)|
+| GEO-återställning från säkerhetskopior georeplikerad |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme|ERT < 12 timme, RPO < 1 timme|
+| Återställning från Azure Backup Vault |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka|ERT < 12 timme, RPO < 1 vecka|
+| Aktiv geo-replikering |ERT < 30 sekunder, RPO < 5 sekunder |ERT < 30 sekunder, RPO < 5 sekunder |ERT < 30 sekunder, RPO < 5 sekunder |ERT < 30 sekunder, RPO < 5 sekunder|ERT < 30 sekunder, RPO < 5 sekunder|
 
-### <a name="use-database-backups-to-recover-a-database"></a>Använda databassäkerhetskopior för att återställa en databas
+### <a name="use-point-in-time-restore-to-recover-a-database"></a>Använda point-in-time-återställning för att återställa en databas
 
-SQL-databas utförs automatiskt en kombination av fullständiga databassäkerhetskopieringar varje vecka, varje timme differentiella säkerhetskopieringar och transaktionen loggsäkerhetskopior var femte - tio minuter för att skydda företaget från förlust av data. Dessa säkerhetskopior lagras i geo-redundant lagring för 35 dagar för databaser i tjänstnivåer Standard och Premium och 7 dagar för databaser på Basic tjänstnivån. Mer information finns i [tjänstnivåer](sql-database-service-tiers.md). Om kvarhållningsperioden för din tjänstenivå inte uppfyller dina verksamhetskrav kan du öka kvarhållningsperioden genom att [byta tjänstnivå](sql-database-service-tiers.md). De fullständiga och differentiella säkerhetskopieringarna replikeras också till ett [kopplat datacenter](../best-practices-availability-paired-regions.md) för skydd mot avbrott på datacentret. Mer information finns i [automatiska säkerhetskopieringar](sql-database-automated-backups.md).
+SQL-databas utförs automatiskt en kombination av fullständiga databassäkerhetskopieringar varje vecka, varje timme differentiella säkerhetskopieringar och transaktionen loggsäkerhetskopior var femte - tio minuter för att skydda företaget från förlust av data. Dessa säkerhetskopior lagras i RA-GRS-lagring för 35 dagar för databaser i tjänstnivåer Standard och Premium och 7 dagar för databaser på Basic tjänstnivån. I den generella och kritiska tjänstnivåer för företag (förhandsversion) är säkerhetskopieringar kvarhållning Konfigurerbart upp till 35 dagar. Mer information finns i [tjänstnivåer](sql-database-service-tiers.md). Om kvarhållningsperioden för din tjänstenivå inte uppfyller dina verksamhetskrav kan du öka kvarhållningsperioden genom att [byta tjänstnivå](sql-database-service-tiers.md). De fullständiga och differentiella säkerhetskopieringarna replikeras också till ett [kopplat datacenter](../best-practices-availability-paired-regions.md) för skydd mot avbrott på datacentret. Mer information finns i [automatiska säkerhetskopieringar](sql-database-automated-backups.md).
 
-Om inbyggda kvarhållningsperioden inte är tillräcklig för programmet, utöka du den genom att konfigurera databasen långsiktiga bevarandeprincip. Mer information finns i [långsiktig kvarhållning](sql-database-long-term-retention.md).
+Om den högsta bevarandeperioden för stöds PITR inte räcker för ditt program, kan du utöka den genom att konfigurera en kvarhållningsprincip för långsiktig (LTR) för databaserna. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
 
 Du kan använda dessa automatiska databassäkerhetskopior för att återställa en databas från olika avbrottshändelser, både i ditt datacenter och till ett annat datacenter. Om du använder automatiska databassäkerhetskopieringar beror den beräknade återställningstiden på flera faktorer, inklusive det totala antalet databaser som återställs i samma region vid samma tidpunkt, databasens storlek, transaktionsloggarnas storlek och nätverksbandbredden. Tiden för återställning är vanligtvis mindre än 12 timmar. När du återställer till en annan dataregion är den potentiella dataförlusten begränsad till 1 timme med geo-redundant lagring med differentiella säkerhetskopieringar varje timme.
 
@@ -55,7 +54,7 @@ Använd automatiska säkerhetskopieringar som din affärskontinuitets- och åter
 * Har en låg frekvens av dataändringar (lågt antal transaktioner per timme) och en förlust på upp till en timmes ändringar är en acceptabel dataförlust.
 * Är kostnadskänsligt.
 
-Om du behöver snabbare återställning använder [aktiv geo-replikering](sql-database-geo-replication-overview.md) (beskrivs nedan). Om du behöver för att kunna återställa data från en period som är äldre än 35 dagar använder [långsiktig lagring av säkerhetskopior](sql-database-long-term-retention.md). 
+Om du behöver snabbare återställning använder [aktiv geo-replikering](sql-database-geo-replication-overview.md) (beskrivs nedan). Om du behöver för att kunna återställa data från en period som är äldre än 35 dagar använder [långsiktig kvarhållning](sql-database-long-term-retention.md). 
 
 ### <a name="use-active-geo-replication-and-auto-failover-groups-in-preview-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Använda aktiv geo-replikering och automatisk redundans grupper (i förhandsversion) för att minska tiden för återställning och begränsa förlust av data som är associerade med en återställning
 
@@ -77,12 +76,12 @@ Använd aktiv geo-replikering och automatisk redundans grupper (under förhandsg
 * Har en hög frekvens av dataändringar och en timmes dataförlust är inte acceptabelt.
 * Den extra kostnaden för aktiv geo-replikering är lägre än de potentiella ekonomiska skyldigheterna och den associerade affärsförlusten.
 
->
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Återställa en databas efter ett användar- eller programfel
-* Ingen är perfekt! En användare kan oavsiktligt ta bort vissa data eller av misstag radera en viktig tabell eller till och med en hel databas. Och ett program kan av misstag skriva över värdefulla data med felaktiga data på grund av ett fel i programmet.
+
+Ingen är perfekt! En användare kan oavsiktligt ta bort vissa data eller av misstag radera en viktig tabell eller till och med en hel databas. Och ett program kan av misstag skriva över värdefulla data med felaktiga data på grund av ett fel i programmet.
 
 I det här scenariot har du följande återställningsalternativ.
 
@@ -101,8 +100,9 @@ Mer information och detaljerade anvisningar som beskriver hur du återställer e
 >
 >
 
-### <a name="restore-from-azure-backup-vault"></a>Återställning från Azure Backup Vault
-Om dataförlusten inträffat utanför den aktuella kvarhållningsperioden för automatisk säkerhetskopiering och databasen har konfigurerats för långsiktig kvarhållning, kan du återställa från en veckovis säkerhetskopiering i Azure Backup Vault till en ny databas. I detta läge kan du antingen ersätta den ursprungliga databasen med den återställda databasen eller kopiera nödvändiga data från den återställda databasen till den ursprungliga databasen. Om du behöver hämta en gammal version av databasen före en uppgradering av större programmet uppfylla en begäran från granskare eller en juridiska ordning du kan skapa en databas med en fullständig säkerhetskopia som sparats i Azure Backup-valvet.  Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
+### <a name="restore-backups-from-long-term-retention"></a>Återställa säkerhetskopior från långsiktig kvarhållning
+
+Om dataförlusten inträffat utanför den aktuella kvarhållningsperioden för automatisk säkerhetskopiering och databasen har konfigurerats för långsiktig kvarhållning, kan du återställa från en fullständig säkerhetskopia i LTR lagringen till en ny databas. I detta läge kan du antingen ersätta den ursprungliga databasen med den återställda databasen eller kopiera nödvändiga data från den återställda databasen till den ursprungliga databasen. Om du behöver hämta en gammal version av databasen före en uppgradering av större programmet uppfylla en begäran från granskare eller en juridiska ordning du kan skapa en databas med en fullständig säkerhetskopia som sparats i Azure Backup-valvet.  Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Återställa en databas till en annan region från ett avbrott på ett regionalt Azure-datacenter
 <!-- Explain this scenario -->

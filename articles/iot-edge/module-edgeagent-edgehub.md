@@ -1,23 +1,23 @@
 ---
 title: Azure IoT EdgeAgent och EdgeHub referens | Microsoft Docs
-description: "Granska de specifika egenskaperna och deras värden för modul-twins edgeAgent och edgeHub"
+description: Granska de specifika egenskaperna och deras värden för modul-twins edgeAgent och edgeHub
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 17c97c6f233c9861ac42abc0a1f11089bb938e7c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0971d5bba59ce3c7b1a6409ef3248f33a41e37c9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Egenskaper för Edge agent och Edge hubb modulen twins
 
-Edge agenten och kant-hubben är två moduler som utgör IoT kant-körningsmiljön. Mer information om vilka uppgifter som utför varje modul, se [förstå Azure IoT kant-runtime och dess architecture]](iot-edge-runtime.md). 
+Edge agenten och kant-hubben är två moduler som utgör IoT kant-körningsmiljön. Mer information om vilka uppgifter som utför varje modul, se [förstå Azure IoT kant-runtime och dess arkitektur](iot-edge-runtime.md). 
 
 Den här artikeln innehåller egenskaper och rapporterade egenskaperna för runtime modulen twins. Se [distributionen och övervakar] [ lnk-deploy] för mer information om hur du distribuerar moduler på IoT Edge-enheter.
 

@@ -1,12 +1,12 @@
 ---
-title: "Flytta appar från BizTalk-tjänst till Azure Logikappar | Microsoft Docs"
-description: "Flytta eller migrera Azure BizTalk-tjänster (MABS) till Azure Logic Apps"
+title: Flytta appar från BizTalk-tjänst till Azure Logikappar | Microsoft Docs
+description: Flytta eller migrera Azure BizTalk-tjänster (MABS) till Azure Logic Apps
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jonfancey
 manager: anneta
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: jonfan; LADocs
-ms.openlocfilehash: 6e00e62e60c059a16731a77e529b4b93f50802e9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f5ad003189d70216198f2d5c7719a971c16d5479
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="move-from-biztalk-services-to-azure-logic-apps"></a>Flytta från BizTalk-tjänst till Azure Logikappar
 
@@ -40,7 +40,7 @@ Den här tabellen motsvarar Logic Apps BizTalk-tjänst-funktioner.
 | BizTalk Services   | Logic Apps            | Syfte                      |
 | ------------------ | --------------------- | ---------------------------- |
 | Anslutning          | Anslutning             | Skicka och ta emot data   |
-| Platslänksbrygga             | Logikapp             | Pipeline-processor           |
+| Platslänksbrygga             | Logisk app             | Pipeline-processor           |
 | Validera fas     | XML-verifiering åtgärd | Validera ett XML-dokument mot ett schema | 
 | Utöka fas       | Data-token           | Befordra egenskaper i meddelanden eller för beslut om routning |
 | Transformera fas    | Transformera åtgärd      | Konvertera XML-meddelanden från ett format till en annan |
@@ -84,7 +84,7 @@ I BizTalk-tjänst kan du ta emot olika typer av XML-meddelanden och fastställa 
 
 Logic Apps tillhandahåller liknande funktioner. Du får en flat-fil via olika protokoll som använder olika connector utlösare (filsystem, FTP-, HTTP och så vidare) och använda den [Flat fil avkoda](../logic-apps/logic-apps-enterprise-integration-flatfile.md) åtgärder för att omvandla inkommande data till XML. Du kan flytta dina befintliga scheman flat fil direkt till Logic Apps utan några ändringar och sedan ladda upp scheman till ditt konto för integrering.
 
-### <a name="validation"></a>Validering
+### <a name="validation"></a>Verifiering
 
 När inkommande data har konverterats till XML (eller om XML var meddelandeformat togs emot), kör verifiering för att avgöra om meddelandet följer XSD-schemat. Använd för att utföra den här uppgiften i Logikappar i [XML-verifiering](../logic-apps/logic-apps-enterprise-integration-xml-validation.md) åtgärd. Du kan använda samma scheman från BizTalk-tjänst utan några ändringar.
 
@@ -130,7 +130,7 @@ Till skillnad från BizTalk-tjänst frikopplad åtgärderna från transportproto
 
 ## <a name="manage-and-monitor"></a>Hantera och övervaka
 
-För BizTalk-tjänst som en dedikerad portal spårningsfunktioner att övervaka och felsöka problem. Logic Apps ger bättre spårning och övervakning av funktioner via den [Azure-portalen](../logic-apps/logic-apps-monitor-your-logic-apps.md), och med den [Operations Management Suite B2B-lösning](../logic-apps/logic-apps-monitor-b2b-message.md), innehåller en mobilapp för att hålla koll på saker När du är på språng.
+För BizTalk-tjänst som en dedikerad portal spårningsfunktioner att övervaka och felsöka problem. Logic Apps ger bättre spårning och övervakning av funktioner via den [Azure-portalen](../logic-apps/logic-apps-monitor-your-logic-apps.md), och innehåller en mobilapp för att hålla koll på saker när du är på språng.
 
 ## <a name="high-availability"></a>Hög tillgänglighet
 

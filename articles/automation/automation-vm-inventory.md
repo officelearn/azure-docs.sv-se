@@ -5,39 +5,41 @@ services: automation
 keywords: inventory, automation, change, tracking
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 09/13/2017
+ms.date: 03/30/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b23132f6e5693f5d731bf044ac5c2544a9308ee1
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 6eb1a77613c6f7784e251bb99a03e6ca7e1f7017
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Hantera en virtuell Azure-dator med inventeringssamling
 
 Du kan aktivera inventeringssamling för en virtuell Azure-dator via den virtuella datorns resurssida. Den här metoden ger ett webbläsarbaserat användargränssnitt för att installera och konfigurera inventeringssamling.
 
 ## <a name="before-you-begin"></a>Innan du börjar
+
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
-Om du inte har en virtuell Azure-dator ska du skapa en [virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal).
+
+Den här artikeln förutsätter att du har en virtuell dator för att konfigurera lösningen på. Om du inte har en virtuell Azure-dator ska du skapa en [virtuell dator](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
+
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Aktivera inventeringssamling via en virtuell dators resurssida
 
 1. I rutan till vänster på Azure Portal väljer du **Virtuella datorer**.
 2. Från listan med virtuella datorer väljer du en virtuell dator.
-3. Välj **Inventering (förhandsversion)** på **resursmenyn** under **Åtgärder**.  
-    En banderoll visas högst upp i fönstret, om att lösningen inte är aktiverad. 
-4. Markera banderollen för att aktivera lösningen.
-5. Välj en Log Analytics-arbetsyta där du lagrar dina dataloggar.  
-    Om det inte finns några tillgängliga arbetsytor för dig för en regionen uppmanas du att skapa en standardarbetsyta och ett Automation-konto. 
-6. Klicka på **Aktivera** för att börjar integrera datorn.
+3. På den **resurs** menyn under **Operations**väljer **inventering**.
+4. Välj en Log Analytics-arbetsyta där du lagrar dina dataloggar.
+    Om det inte finns några tillgängliga arbetsytor för dig för en regionen uppmanas du att skapa en standardarbetsyta och ett Automation-konto.
+5. Klicka på **Aktivera** för att börjar integrera datorn.
 
-   ![Visa integreringsalternativ](./media/automation-vm-inventory/inventory-onboarding-options.png)  
-    Ett statusfält meddelar dig att lösningen aktiveras. Processen kan ta upp till 15 minuter. Under den här tiden kan du stänga fönstret eller ha det öppet så får du ett meddelande när lösningen har aktiverats. Du kan övervaka distributionsstatusen via meddelandefönstret.
+   ![Visa integreringsalternativ](./media/automation-vm-inventory/inventory-onboarding-options.png)
+
+    Ett statusfält meddelar dig att lösningen aktiveras. Processen kan ta upp till 15 minuter. Du kan stänga fönstret under denna tid och du kan inte ha den meddelar dig när lösningen har aktiverats. Du kan övervaka distributionsstatusen via meddelandefönstret.
 
    ![Visa inventeringslösningen direkt efter integreringen](./media/automation-vm-inventory/inventory-onboarded.png)
 
@@ -47,20 +49,52 @@ När distributionen är klar försvinner statusfältet. Systemet samlar fortfara
 
 Som standard konfigureras programvara, Windows-tjänster och Linux-daemon för insamling. Om du vill inventera Windows-registret och filer kan du konfigurera inställningarna för inventeringsinsamling.
 
-1. I vyn **Inventering (förhandsversion)** väljer du knappen **Redigera inställningar** högst upp i fönstret.
-2. Om du vill lägga till en ny insamlingsinställning går du till inställningskategorin du vill lägga till genom att välja **Windows-registret**, **Windows-filer** och **Linux-filer**. 
-3. Välj **Lägg till** högst upp i fönstret.
-4. Om du vill visa detaljer och beskrivningar för varje inställningsegenskap går du till [sidan med inventeringsdokumentation](https://aka.ms/configinventorydocs).
+1. I den **inventering** visa, Välj den **redigera inställningar för** längst upp i fönstret.
+2. Om du vill lägga till en ny insamlingsinställning går du till inställningskategorin du vill lägga till genom att välja **Windows-registret**, **Windows-filer** och **Linux-filer**.
+3. Välj lämplig kategori och klicka på **Lägg till** längst upp i fönstret.
+
+Följande tabeller innehåller information om varje egenskap som kan konfigureras för olika kategorier.
+
+### <a name="windows-registry"></a>Windows-registret
+
+|Egenskap  |Beskrivning  |
+|---------|---------|
+|Aktiverad     | Fastställer om inställningen tillämpas        |
+|Objektnamn     | Eget namn på filen som ska spåras        |
+|Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
+|Windows-registernyckel   | Sökvägen för att söka efter filen Till exempel: ”HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
+
+### <a name="windows-files"></a>Windows-filer
+
+|Egenskap  |Beskrivning  |
+|---------|---------|
+|Aktiverad     | Fastställer om inställningen tillämpas        |
+|Objektnamn     | Eget namn på filen som ska spåras        |
+|Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
+|Ange sökväg     | Sökvägen för att söka efter filen Till exempel: ”c:\temp\myfile.txt”
+
+### <a name="linux-files"></a>Linux-filer
+
+|Egenskap  |Beskrivning  |
+|---------|---------|
+|Aktiverad     | Fastställer om inställningen tillämpas        |
+|Objektnamn     | Eget namn på filen som ska spåras        |
+|Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
+|Ange sökväg     | Sökvägen för att söka efter filen Till exempel: ”/etc/*.conf”       |
+|Sökvägstyp     | Typ av objekt som ska spåras, möjliga värden är Fil och Katalog        |
+|Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
+|Använda Sudo     | Den här inställningen styr om sudo ska användas vid sökningen efter objektet.         |
+|Länkar     | Den här inställningen styr hur symboliska länkar ska hanteras när de passerar kataloger.<br> **Ignorera** – Ignorerar symboliska länkar och inkluderar inte refererade filer/kataloger<br>**Följ** – Följer de symboliska länkarna under rekursion och inkluderar refererade filer/kataloger<br>**Hantera** – Följer de symboliska länkarna och tillåter ändring av behandling av returnerat innehåll      |
 
 ## <a name="disconnect-your-virtual-machine-from-management"></a>Koppla bort den virtuella datorn från hantering
 
 Ta bort den virtuella datorn från inventeringshantering:
 
 1. Välj **Log Analytics** i den vänstra rutan på Azure Portal och välj sedan den arbetsyta du använde när du integrerade den virtuella datorn.
-2. I fönstret **Log Analytics** väljer du **Virtuella datorer** under kategorin **Datakällor för arbetsyta** på **resursmenyn**. 
-3. Välj den virtuella dator du vill koppla bort från listan. Den virtuella datorn har en grön bock bredvid texten **Den här arbetsytan** i kolumnen **OMS-anslutning**. 
+2. I fönstret **Log Analytics** väljer du **Virtuella datorer** under kategorin **Datakällor för arbetsyta** på **resursmenyn**.
+3. Välj den virtuella dator du vill koppla bort från listan. Den virtuella datorn har en grön bock bredvid texten **Den här arbetsytan** i kolumnen **OMS-anslutning**.
 4. Överst på nästa sida väljer du **Koppla från**.
-5. Välj **Ja** i bekräftelsefönstret.  
+5. Välj **Ja** i bekräftelsefönstret.
     Den här åtgärden kopplar från datorn från hanteringen.
 
 ## <a name="next-steps"></a>Nästa steg

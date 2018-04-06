@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/20/2018
+ms.date: 04/03/2018
 ms.author: dekapur
-ms.openlocfilehash: 4b0845cbb25d160b53b483641e242422c98029ee
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dbafe0da58f5026400381a3cc96cf99ade0795de
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="add-the-oms-agent-to-a-cluster"></a>Lägga till OMS-Agent till ett kluster
 

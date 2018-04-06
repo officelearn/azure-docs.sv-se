@@ -5,16 +5,16 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/02/2018
+ms.date: 04/03/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 6ad9c365894feed61fa4f55d442194d1cf996889
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 81357bce92bb8bd2f77f7aaabc8e3b1d49047a1b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
-**Dokumentera senaste uppdatering**: 2 April 10:00 AM PST.
+**Dokumentera senaste uppdatering**: 3 April 3:00 PM PST.
 
 Senaste avslöjande av en [ny klass för CPU-säkerhetsrisker](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) spekulativ exekvering sida-kanal attacker som kallas har resulterat i frågor från kunder som vill ha mer tydlighets skull.  
 
@@ -25,7 +25,7 @@ Dessutom Azure utökar användningen av [minne bevarar Underhåll](https://docs.
 > [!NOTE] 
 > Sen februari 2018 Intel Corporation publicerade uppdaterade [mikrokod Revision vägledning](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) statusen för sina mikrokod-versioner som förbättrar stabiliteten och skyddar mot de senaste säkerhetsrisker som visas av [Google projektet noll](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). Ändringar gjorda av Azure [3 januari 2018](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/) påverkas inte av Intels mikrokod uppdateringen. Microsoft placera redan starkt åtgärder som skyddar Azure-kunder från andra virtuella Azure-datorer.  
 >
-> Intels mikrokod adresser variant 2 Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715)) att skydda mot attacker som endast är tillämpliga där du kör delade eller ej betrodda arbetsbelastningar i din virtuella dator på Azure. Våra tekniker testar stabiliteten för att minimera påverkan på prestanda för mikrokod innan du gör den tillgänglig för Azure-kunder.  Som ett fåtal kunder köra ej betrodda arbetsbelastningar inom deras virtuella datorer, behöver de flesta kunder inte aktivera den här funktionen ut en gång. 
+> Intels mikrokod adresser variant 2 Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) eller gren mål injection) att skydda mot attacker som endast är tillämpliga där du kör delade eller ej betrodda arbetsbelastningar i din virtuella dator på Azure. Våra tekniker testar stabiliteten för att minimera påverkan på prestanda för mikrokod innan du gör den tillgänglig för Azure-kunder.  Som ett fåtal kunder köra ej betrodda arbetsbelastningar inom deras virtuella datorer, behöver de flesta kunder inte aktivera den här funktionen ut en gång. 
 >
 > Den här sidan kommer att uppdateras när finns mer information.  
 
@@ -64,7 +64,7 @@ Ingen ytterligare kunden åtgärd krävs om du inte kör icke betrodd kod. Om du
 
 
 ### <a name="windows"></a>Windows 
-Om du använder Windows och värd icke betrodd kod, bör du även aktivera en Windows-funktion som kallas Kernel virtuell adress (KVA) skuggning som ger ytterligare skydd mot spekulativ exekvering sida-kanal säkerhetsrisker (särskilt variant 3 ska smälta, [CVE-2017-5754](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754)). Den här funktionen är inaktiverad som standard och kan påverka prestanda om aktiverat. Följ [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) instruktioner för att aktivera skydd på servern. Om du använder Azure Cloud Services, kontrollera att du kör WA-GÄST-OS-5.15_201801-01 eller WA-GUEST-OS-4.50_201801-01 (tillgänglig från på 10 januari 2018) och aktivera registret nyckel via en startaktivitet.
+Om du använder Windows och värd icke betrodd kod, bör du även aktivera en Windows-funktion som kallas Kernel virtuell adress (KVA) skuggning som ger ytterligare skydd mot spekulativ exekvering sida-kanal säkerhetsproblem (specifikt för Variant 3 ska smälta, [CVE-2017-5754](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754), eller falsk datainläsning cache). Den här funktionen är inaktiverad som standard och kan påverka prestanda om aktiverat. Följ [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) instruktioner för att aktivera skydd på servern. Om du använder Azure Cloud Services, kontrollera att du kör WA-GÄST-OS-5.15_201801-01 eller WA-GUEST-OS-4.50_201801-01 (tillgänglig från på 10 januari 2018) och aktivera registret nyckel via en startaktivitet.
 
 
 ### <a name="linux"></a>Linux

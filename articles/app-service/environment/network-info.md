@@ -1,6 +1,6 @@
 ---
-title: "Överväganden för nätverk med en Azure Apptjänst-miljö"
-description: "Förklarar ASE nätverkstrafik och hur du ställer in NSG: er och udr: er med din ASE"
+title: Överväganden för nätverk med en Azure Apptjänst-miljö
+description: 'Förklarar ASE nätverkstrafik och hur du ställer in NSG: er och udr: er med din ASE'
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 03/20/2018
 ms.author: ccompy
-ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 54257ae3e02a00c5097aa7880fa356da3bc0ecce
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Överväganden för nätverk för en Apptjänstmiljö #
 
@@ -47,7 +47,7 @@ Om du har en ILB ASE är IP-adressen för ILB slutpunkten för HTTP/S, FTP-/ S, 
 
 Åtkomstportar normal app är:
 
-| Användning | Från | Till |
+| Använda | Från | Till |
 |----------|---------|-------------|
 |  HTTP/HTTPS  | Kan konfigureras av användaren |  80, 443 |
 |  FTP/FTPS    | Kan konfigureras av användaren |  21, 990, 10001-10020 |
@@ -66,7 +66,7 @@ Storleken på det undernät som används som värd för en ASE kan inte ändras 
 
 En ASE inkommande åtkomst beroende är:
 
-| Användning | Från | Till |
+| Använda | Från | Till |
 |-----|------|----|
 | Hantering | App Service management-adresser | ASE undernät: 454, 455 |
 |  ASE intern kommunikation | ASE undernät: alla portar | ASE undernät: alla portar
@@ -83,9 +83,9 @@ Om du använder app tilldelade IP-adresser som du vill tillåta trafik från IP-
 
 En ASE beror på flera externa system för utgående åtkomst. Dessa beroenden system definieras med DNS-namn och mappas inte till en fast uppsättning IP-adresser. ASE kräver därför utgående åtkomst från undernätet som ASE till alla externa IP-adresser i olika portar. En ASE har följande utgående beroenden:
 
-| Användning | Från | Till |
+| Använda | Från | Till |
 |-----|------|----|
-| Azure Storage | ASE undernät | Table.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 krävs endast för ASEv1.) |
+| Azure-lagring | ASE undernät | Table.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 krävs endast för ASEv1.) |
 | Azure SQL Database | ASE undernät | Database.Windows.NET: 1433, 11000 11999, 14000 14999 (Mer information finns i [SQL Database V12 portar används](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
 | Azure-hantering | ASE undernät | management.core.windows.net, management.azure.com: 443 
 | SSL-certifikatverifiering |  ASE undernät            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
@@ -114,7 +114,7 @@ Förutom funktionella beroenden ASE finns några extra artiklar som rör portal 
 -   Kudu
 -   Tillägg
 -   Processutforskaren
--   Konsolen
+-   Konsol
 
 När du använder en ILB ASE den SCM platsen inte är tillgänglig utanför det virtuella nätverket internet. När din app finns i en ASE ILB, fungerar inte vissa funktioner från portalen.  
 
@@ -163,7 +163,7 @@ De två första inkommande kraven för ASE ska fungera som visas överst i lista
 
 ![Inkommande säkerhetsregler][4]
 
-En standardregel kan IP-adresser i virtuella nätverk tala med ASE undernätet. En annan standardregel som aktiverar belastningsutjämnare, även kallat det offentliga VIP att kommunicera med ASE. Om du vill se standardreglerna, Välj **standard regler** bredvid den **Lägg till** ikon. Om du placerar en neka allt annat regel när NSG: N regler visas kan du förhindra att trafik mellan VIP och ASE. Lägga till egna regel som tillåter inkommande för att förhindra att trafik som kommer från inuti VNet. Med ett mål för en datakälla som är lika med AzureLoadBalancer **alla** och ett portintervall på  **\*** . Eftersom NSG regeln tillämpas på undernätet ASE, behöver du inte måste vara specifikt i målet.
+En standardregel kan IP-adresser i virtuella nätverk tala med ASE undernätet. En annan standardregel som aktiverar belastningsutjämnare, även kallat det offentliga VIP att kommunicera med ASE. Om du vill se standardreglerna, Välj **standard regler** bredvid den **Lägg till** ikon. Om du placerar en neka allt annat regel när NSG: N regler visas kan du förhindra att trafik mellan VIP och ASE. Lägga till egna regel som tillåter inkommande för att förhindra att trafik som kommer från inuti VNet. Med ett mål för en datakälla som är lika med AzureLoadBalancer **alla** och ett portintervall på **\***. Eftersom NSG regeln tillämpas på undernätet ASE, behöver du inte måste vara specifikt i målet.
 
 Om som din app tilldelats en IP-adress, kontrollerar du att de portar hålls öppna. Om du vill se vilka portar, Välj **Apptjänstmiljö** > **IP-adresser**.  
 
@@ -175,31 +175,10 @@ När dina NSG: er har definierats kan du tilldela dem till undernät som din ASE
 
 ## <a name="routes"></a>Vägar ##
 
-Vägar är en viktig aspekt för vad tvingande dirigering är och hur man hanterar det. I ett virtuellt Azure-nätverk sker routning baserat på den längsta prefix-matchningen (LPM). Om det finns fler än en väg med samma LPM-matchning väljs en väg baserat på dess ursprung i följande ordning:
+Tvingad tunneling är när du ställer in vägar på ditt VNet så att den utgående trafiken inte gå direkt till internet men någon annanstans som en ExpressRoute-gateway eller en virtuell installation.  Om du behöver konfigurera din ASE på ett sådant sedan läsa dokumentet på [konfigurera din Apptjänst-miljö med Tvingad tunneltrafik][forcedtunnel].  Det här dokumentet visar alternativ som fungerar med ExpressRoute och Tvingad tunneling.
 
-- Användardefinierad väg (UDR)
-- BGP-väg (när ExpressRoute används)
-- Systemväg
-
-Mer information om routning i ett virtuellt nätverk finns i [Användardefinierade vägar och IP-vidarebefordring][UDRs].
-
-Azure SQL-databas som ASE använder för att hantera systemet har en brandvägg. Kommunikation till kommer från det offentliga VIP ASE krävs. Anslutningar till SQL-databasen från ASE nekas om de skickas ut en annan IP-adress och ExpressRoute-anslutningen.
-
-Om svar på inkommande management-begäranden skickas ned ExpressRoute skiljer svarsadressen sig det ursprungliga målet. Denna felmatchning bryter TCP-kommunikation.
-
-För din ASE arbeta medan ditt virtuella nätverk har konfigurerats med en ExpressRoute är enklast att:
-
--   Konfigurera ExpressRoute annonserar _0.0.0.0/0_. Som standard dirigeras all utgående trafik lokalt tvingande.
--   Skapa en UDR. Tillämpa den på det undernät som innehåller ASE med ett adressprefix för _0.0.0.0/0_ och en nästa hopptyp av _Internet_.
-
-Om du ändrar de här två, är inte avsedda internet trafik från undernätet ASE expressroute har skapats och ASE tvingas fungerar. 
-
-> [!IMPORTANT]
-> Vägarna som definieras i en UDR måste vara tillräckligt specifika för att få företräde framför eventuella vägar som annonseras av ExpressRoute-konfigurationen. Föregående exempel använder det breda adressintervallet 0.0.0.0/0. Det kan eventuellt åsidosättas av misstag av vägannonseringar som använder mer specifika adressintervall.
->
-> ASEs stöds inte med ExpressRoute-konfigurationer som cross-annonserar vägar från offentlig peering-sökvägen till privat peering-sökväg. ExpressRoute-konfigurationer med offentlig peering har konfigurerats för att få vägannonseringar från Microsoft. Annonseringarna innehåller ett stort antal IP-adressintervall för Microsoft Azure. Om adressintervallen mellan annonseras i privat peering-sökvägen, är alla utgående paket från den ASE undernät kraft tunneldata kundens lokala nätverkets infrastruktur. Det här flödet i nätverk stöds för närvarande inte med ASEs. En lösning på detta problem är att stoppa korsannonsering av vägar från den offentliga peering-vägen till den privata peering-vägen.
-
-Så här skapar du en UDR:
+När du skapar en ASE i portalen skapa vi också en uppsättning vägtabeller i undernätet som skapas med ASE.  Dessa vägar att helt enkelt att skicka utgående trafik direkt till internet.  
+Följ dessa steg om du vill skapa samma vägar manuellt:
 
 1. Gå till Azure-portalen. Välj **nätverk** > **routningstabeller**.
 
@@ -217,17 +196,15 @@ Så här skapar du en UDR:
 
     ![NSG: er och vägar][7]
 
-### <a name="deploy-into-existing-azure-virtual-networks-that-are-integrated-with-expressroute"></a>Distribuera i befintliga virtuella Azure-nätverk som är integrerade med ExpressRoute ###
+## <a name="service-endpoints"></a>Serviceslutpunkter ##
 
-Om du vill distribuera dina ASE till ett virtuellt nätverk som är integrerad med ExpressRoute förkonfigurera undernätet där du vill att ASE distribueras. Använd sedan Resource Manager-mall för att distribuera den. Om du vill skapa en ASE i ett VNet som redan har ExpressRoute konfigureras:
+Med tjänstens slutpunkter kan du begränsa åtkomsten för tjänster med flera innehavare till en uppsättning virtuella Azure-nätverk och undernät. Du kan läsa mer om tjänstens slutpunkter i dokumentationen [Tjänstens slutpunkter för virtuella nätverk][serviceendpoints]. 
 
-- Skapa ett undernät som värd för ASE.
+När du aktiverar tjänstens slutpunkter för en resurs, finns det vägar som skapats med högre prioritet än andra vägar. Om du använder tjänstens slutpunkter med tvingad tunneltrafik för ASE, kommer hanteringstrafiken för Azure SQL och Azure Storage inte omfattas av den tvingade tunneltrafiken. 
 
-    > [!NOTE]
-    > Inget annat kan finnas i undernätet men ASE. Se till att välja ett adressutrymme som gör det möjligt för framtida tillväxt. Du kan inte ändra denna inställning senare. Vi rekommenderar en storlek på `/25` med 128-adresser.
+När tjänstens slutpunkter är aktiverade på ett undernät med en Azure SQL-instans, måste alla Azure SQL-instanser som är anslutna från undernätet ha aktiverat tjänstens slutpunkter. Om du vill ha åtkomst till flera Azure SQL-instanser från samma undernät kan du inte aktivera tjänstens slutpunkter på en Azure SQL-instans och inte på en annan. Azure Storage fungerar inte på samma sätt som Azure SQL. När du aktiverar tjänstens slutpunkter med Azure Storage kan du låsa åtkomsten till resursen från undernätet, men du kan ändå använda andra Azure Storage-konton även om de inte har aktiverat tjänstens slutpunkter.  
 
-- Skapa udr: er (till exempel vägtabeller) som tidigare beskrivits och ange som på undernätet.
-- Skapa ASE med hjälp av en Resource Manager-mall som beskrivs i [skapar en ASE med hjälp av en Resource Manager-mall][MakeASEfromTemplate].
+![Serviceslutpunkter][8]
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
@@ -237,6 +214,7 @@ Om du vill distribuera dina ASE till ett virtuellt nätverk som är integrerad m
 [5]: ./media/network_considerations_with_an_app_service_environment/networkase-outboundnsg.png
 [6]: ./media/network_considerations_with_an_app_service_environment/networkase-udr.png
 [7]: ./media/network_considerations_with_an_app_service_environment/networkase-subnet.png
+[8]: ./media/network_considerations_with_an_app_service_environment/serviceendpoint.png
 
 <!--Links-->
 [Intro]: ./intro.md
@@ -258,3 +236,6 @@ Om du vill distribuera dina ASE till ett virtuellt nätverk som är integrerad m
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[forcedtunnel]: ./forced-tunnel-support.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md

@@ -1,12 +1,12 @@
 ---
-title: "Förfallodatum för Office 365-grupper i Azure Active Directory | Microsoft Docs"
-description: "Hur du ställer in förfallodatum för Office 365-grupper i Azure Active Directory"
+title: Förfallodatum för Office 365-grupper i Azure Active Directory | Microsoft Docs
+description: Hur du ställer in förfallodatum för Office 365-grupper i Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 95593eaacd73316ab527ffda8f977fbf0eb15558
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: aa8551db8c3982fa61b3d4731a8aac3e2832f1b1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurera en princip för Office 365-grupper
 
@@ -39,7 +39,7 @@ Information om hur du hämtar och installerar Azure AD PowerShell-cmdlets finns 
 ## <a name="roles-and-permissions"></a>Roller och behörigheter
 Följande är de roller som kan konfigurera och använda giltighetstid för Office 365-grupper i Azure AD.
 
-Roll | Behörigheter
+Roll | Behörighet
 -------- | --------
 Global administratör eller Användaradministratör för kontot | Kan skapa, läsa, uppdatera eller ta bort principinställningarna upphör att gälla för Office 365-grupper<br>Förnya alla Office 365-grupper
 Användare | Förnya ett Office 365-grupp som de äger<br>Återställa en Office 365-grupp som de äger<br>Kan läsa upphör att gälla principinställningar
@@ -66,7 +66,7 @@ E-postmeddelanden som den här skickas till Office 365 gruppen ägare 30 dagar, 
 
 ![Förfallodatum för e-postavisering](./media/active-directory-groups-lifecycle-azure-portal/expiration-notification.png)
 
-Från den **förnya grupp** e-postmeddelande gruppen ägare kan direkt hegroup åtkomstinformation t sidan på åtkomstpanelen. Där kan kan användarna få mer information om gruppen, till exempel dess beskrivning, när den senast förnyades, när den upphör att gälla och möjlighet att förnya gruppen. Informationssidan om grupp nu innehåller också länkar till gruppresurser Office 365 så att gruppägare lätt kan visa innehåll och aktiviteter i sin grupp.
+Från den **förnya grupp** e-postmeddelande, gruppen ägare har direkt åtkomst till gruppen informationssidan på åtkomstpanelen. Där kan kan användarna få mer information om gruppen, till exempel dess beskrivning, när den senast förnyades, när den upphör att gälla och möjlighet att förnya gruppen. Informationssidan om grupp nu innehåller också länkar till gruppresurser Office 365 så att gruppägare lätt kan visa innehåll och aktiviteter i sin grupp.
 
 När en grupp upphör att gälla bort gruppen en dag efter förfallodatumet. Ett e-postmeddelande som den här skickas till Office 365 gruppen ägare informerar dem om förfallodatum och efterföljande borttagning av deras Office 365-grupp.
 

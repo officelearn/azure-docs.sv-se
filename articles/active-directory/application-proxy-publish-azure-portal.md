@@ -1,8 +1,8 @@
 ---
 title: Publicera appar med Azure AD Application Proxy | Microsoft Docs
-description: "Publicera lokala program till molnet med Azure AD Application Proxy på Azure-portalen."
+description: Publicera lokala program till molnet med Azure AD Application Proxy på Azure-portalen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
@@ -15,11 +15,11 @@ ms.date: 12/06/2017
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 43cabb03a698dd87f12fef8e9a4dd54ee42c3ec9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 1bf72b450747e98e254db77514fc7a902bbe70cc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicera program med Azure AD Application Proxy
 
@@ -53,7 +53,7 @@ Följ dessa steg för att publicera dina appar med Application Proxy. Om du inte
    - **Intern URL**: URL: en som används för att komma åt programmet inifrån ditt privata nätverk. Du kan ange en specifik sökväg på backend-servern som du vill publicera, medan resten av servern är opublicerad. På så sätt kan du publicera olika platser på samma server som olika appar och ge vart och ett eget namn och regler.
 
      > [!TIP]
-     > Om du publicerar en sökväg, så se till att den innehåller alla bilder, skript och formatmallar som krävs för ditt program. Om din app t.ex. finns på https://yourapp/app och använder bilder som finns på https://yourapp/media, så bör du publicera https://yourapp/ som sökväg. Intern URL: en måste inte vara landningssida användarna finns. Mer information finns i [ange en anpassad hemsida för publicerade appar](application-proxy-office365-app-launcher.md).
+     > Om du publicerar en sökväg, så se till att den innehåller alla bilder, skript och formatmallar som krävs för ditt program. Om din app är i till exempel https://yourapp/app och använder avbildningar som finns på https://yourapp/media, och du bör publicera https://yourapp/ som sökväg. Intern URL: en måste inte vara landningssida användarna finns. Mer information finns i [ange en anpassad hemsida för publicerade appar](application-proxy-office365-app-launcher.md).
 
    - **Extern URL**: adressen användarna skickas till för att komma åt appen från utanför nätverket. Om du inte vill använda Application Proxy standarddomänen Läs om [anpassade domäner i Azure AD Application Proxy](active-directory-application-proxy-custom-domains.md).
    - **Förautentisering**: hur Application Proxy verifierar användare innan de får åtkomst till ditt program. 
@@ -61,6 +61,9 @@ Följ dessa steg för att publicera dina appar med Application Proxy. Om du inte
      - Azure Active Directory: Programproxyn omdirigerar användarna till att logga in med Azure AD, som autentiserar deras katalog- och programbehörigheter. Vi rekommenderar detta alternativ som standard, så att du kan dra nytta av säkerhetsfunktionerna i Azure AD som villkorlig åtkomst och Multi-Factor Authentication.
      - Genomströmning: Användarna inte behöver autentiseras mot Azure Active Directory för att få åtkomst till programmet. Du kan fortfarande installera autentiseringskrav på serverdelen.
    - **Kopplingen grupp**: kopplingar bearbeta fjärråtkomst till ditt program och connector grupper hjälper dig att ordna kopplingar och appar efter region, nätverk eller syfte. Om du inte har någon koppling grupper som skapats ännu din app har tilldelats **standard**.
+
+>[!NOTE]
+>Om programmet använder websockets för att ansluta, används till att du har connector-version 1.5.612.0 eller senare med stöd för websocket och Connector grupp endast dessa kopplingar.
 
    ![Konfigurera ditt program](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. Om det behövs kan du konfigurera ytterligare inställningar. De flesta fall bör du behålla inställningarna i sina standardtillstånd. 

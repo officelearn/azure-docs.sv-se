@@ -1,11 +1,11 @@
 ---
 title: Linux compute virtuella datorer i ett kluster med HPC Pack | Microsoft Docs
-description: "Lär dig hur du skapar och använder ett HPC Pack-kluster i Azure för Linux högpresterande datorbearbetning (HPC) arbetsbelastningar"
+description: Lär dig hur du skapar och använder ett HPC Pack-kluster i Azure för Linux högpresterande datorbearbetning (HPC) arbetsbelastningar
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 4d080fdd-5ffe-4f54-a78d-4c818f6eb3fb
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57ad5d5d2e7e068f47d51408527f1f7553917279
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Kom igång med beräkningsnoder för Linux i ett HPC Pack-kluster i Azure
 Konfigurera en [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) kluster i Azure som innehåller en huvudnod som kör Windows Server och flera compute-noder som kör ett Linux-distribution som stöds. Utforska alternativ för att flytta data mellan noder för Linux och Windows huvudnod i klustret. Lär dig mer om att skicka Linux HPC-jobb till klustret.
@@ -46,7 +46,7 @@ Mer information om HPC Pack distributionsalternativ för kluster i Azure finns [
 * **Linux-distributioner** -för närvarande HPC Pack stöder följande Linux-distributioner för compute-noder. Du kan använda dessa distributioner Marketplace-versioner där det är tillgängligt eller ange egna.
   
   * **CentOS-baserade**: 6.5, 6.6, 6.7, 7.0, 7.1, 7.2, 6.5 HPC, 7.1 HPC
-  * **Red Hat Enterprise Linux**: 6.7, 6.8 och 7.2
+  * **Red Hat Enterprise Linux**: 6.7, 6.8, 7.2
   * **SUSE Linux Enterprise Server**: SLES 12 SLES 12 (Premium) SLES 12 SP1, SLES 12 SP1 (Premium) SLES 12 för HPC SLES 12 för HPC (Premium)
   * **Ubuntu Server**: 14.04 LTS, 16.04 LTS
     
@@ -149,7 +149,7 @@ HPC Pack IaaS-distributionsskriptet använder en XML-konfigurationsfil som indat
    
     b. Skriptet startar sedan att verifiera konfigurationsfilen. Det kan ta upp till flera minuter beroende på nätverksanslutningen.
    
-    ![Validering][validate]
+    ![Verifiering][validate]
    
     c. När verifieringar skicka visar skriptet klusterresurserna som du vill skapa. Ange *Y* att fortsätta.
    

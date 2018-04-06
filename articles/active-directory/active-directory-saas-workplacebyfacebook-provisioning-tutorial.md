@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Konfigurera arbetsplats av Facebook för automatisk användaretablering med Azure Active Directory | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och arbetsplats med Facebook."
+title: 'Självstudier: Konfigurera arbetsplats av Facebook för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och arbetsplats med Facebook.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 15cbaafcd86c576f4789a61ed80c526b6fe705ab
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d42a6b63833bffc3cce1830a728ec21083b25dc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Självstudier: Konfigurera arbetsplats av Facebook för automatisk användaretablering
 
 Syftet med den här kursen är att visa de steg som du behöver utföra på arbetsplats av Facebook och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till arbetsplatsen med Facebook.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med arbetsplats av Facebook, behöver du följande:
 
@@ -57,7 +57,7 @@ Innan du konfigurerar och aktiverar tjänsten etablering, måste du bestämma vi
 Det här avsnittet hjälper dig att ansluta din Azure AD till arbetsplatsen via Facebooks användarkontot etablering API och konfigurera tjänsten etablering för att skapa, uppdatera och inaktivera tilldelade användarkonton i arbetsplats av Facebook baserat på tilldelning av användare och grupper i Azure AD.
 
 >[!Tip]
->Du kan också välja att aktivera SAML-baserade enkel inloggning för arbetsplats med Facebook, följer du instruktionerna som anges i [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om dessa två funktioner komplettera varandra.
+>Du kan också välja att aktivera SAML-baserade enkel inloggning för arbetsplats av Facebook, följer du instruktionerna som anges i [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om dessa två funktioner komplettera varandra.
 
 ### <a name="to-configure-user-account-provisioning-to-workplace-by-facebook-in-azure-ad"></a>Så här konfigurerar du kontot användaretablering till arbetsplatsen av Facebook i Azure AD:
 
@@ -75,7 +75,7 @@ Azure AD stöder möjligheten att synkronisera automatiskt kontoinformation för
 
     ![etablering](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. Under den **administratörsautentiseringsuppgifter** avsnittet, ange Token hemligheten för din arbetsplats av Facebook-administratör och ange klient-URL-värdet till `https://www.facebook.com/scim/v1/` .
+5. Under den **administratörsautentiseringsuppgifter** , ange åtkomst-Token från din arbetsplats av Facebook-administratör och ange klient-URL-värdet `https://www.facebook.com/scim/v1/` . Dessa [instruktioner](https://developers.facebook.com/docs/workplace/integrations/custom-integrations/apps) om hur du skapar en åtkomst-Token för arbetsplats. 
 
 6. I Azure-portalen klickar du på **Testanslutningen** så Azure AD kan ansluta till din arbetsplats med Facebook-app. Om anslutningen misslyckas, kontrollera din arbetsplats av Facebook-konto har teamet administratörsbehörigheter.
 
@@ -91,7 +91,7 @@ Azure AD stöder möjligheten att synkronisera automatiskt kontoinformation för
 
 12. Klicka på **spara.**
 
-Mer information om hur du konfigurerar automatisk etablering finns [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
+Läs mer om hur du konfigurerar automatisk etablering [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
 
 Du kan nu skapa ett testkonto. Vänta i upp till 20 minuter att verifiera att kontot har synkroniserats till arbetsplatsen med Facebook.
 

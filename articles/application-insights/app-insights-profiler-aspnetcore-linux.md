@@ -1,6 +1,6 @@
 ---
-title: Profilen ASP.NET core Azure Linux-webbappar med Application Insights Profiler | Microsoft Docs
-description: Översikt över begrepp och stegvisa självstudier om hur du aktiverar det
+title: Profilen ASP.NET Core Azure Linux-webbappar med Application Insights Profiler | Microsoft Docs
+description: En översikt och stegvisa självstudier om hur du använder Application Insights Profiler.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -12,43 +12,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 63a7ceacffe1ee33227d3a8272dda7de7b3b1135
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5596c4efeba14e9d2bfdadd7ce92bb6b2c9fcbf0
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profilen ASP.NET Core Azure Linux-Webbappar med Application Insights Profiler
+# <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profilen ASP.NET Core Azure Linux-webbappar med Application Insights Profiler
 
-Den här funktionen är för närvarande under förhandsgranskning
+Den här funktionen är för närvarande en förhandsversion.
 
-Ta reda på hur mycket tid läggs i varje webbprogrammet live-metoden när du använder [Programinsikter](app-insights-overview.md). Profiler är nu tillgängliga för webbprogram för ASP.NET core finns i Linux på App-tjänster. Den här guiden innehåller stegvisa instruktioner om hur profiler-spårningar kan samlas in för webbprogram för ASP.NET core Linux.
+Ta reda på hur mycket tid läggs i varje webbprogrammet live-metoden när du använder [Programinsikter](app-insights-overview.md). Application Insights Profiler är nu tillgänglig för ASP.NET Core webbprogram som finns i Linux på Azure App Service. Den här guiden innehåller stegvisa instruktioner om hur Profiler-spårningar kan samlas in för ASP.NET Core Linux web apps.
 
-När du har slutfört den här genomgången appen samlar in profiler-spårningar liknar skärmbilden nedan. I det här exemplet anger profileraren spårningen en viss webbegäran är långsam eftersom de flesta arbetstid för väntar. Varm sökvägen i koden som saktas ner appen föregås av ikonen låga. Det här exemplet illustrerar `About` metod i `HomeController` långsam webbprogrammet eftersom det anropar `Thread.Sleep`.
+När du har slutfört den här genomgången appen kan samla in Profiler-spårningar som spår som visas i bilden. I det här exemplet anger profileraren spårningen att en viss webbegäran går långsamt på grund av tid väntar. Den *varm sökvägen* i koden som saktas appen markeras med en ikon för låga. Den **om** metod i den **HomeController** avsnitt saktas webbprogrammet eftersom metoden anropar den **Thread.Sleep** funktion.
 
 ![Profiler-spårningar](./media/app-insights-profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="pre-requisites"></a>Förutsättningar
-Anvisningarna nedan för alla Windows, Linux och Mac utvecklingsmiljöer:
+## <a name="prerequisites"></a>Krav
+Följande instruktioner gäller för alla miljöer för utveckling av Windows, Linux och Mac:
 
-* Installera [.NET core SDK 2.1.2 eller senare](https://www.microsoft.com/net/download/windows/build)
-* Installera Git följa anvisningarna i [komma igång - installerar Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* Installera den [.NET Core SDK 2.1.2 eller senare](https://www.microsoft.com/net/download/windows/build).
+* Installera Git genom att följa anvisningarna i [komma igång - installerar Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-## <a name="setup-project-locally"></a>Konfigurera projektet lokalt
+## <a name="set-up-the-project-locally"></a>Konfigurera projektet lokalt
 
-1. Öppna en kommandotolk på din dator. Anvisningarna nedan fungerar för alla Windows, Linux och Mac utvecklingsmiljöer.
+1. Öppna ett kommandotolksfönster på din dator. Följande instruktioner fungerar för alla Windows, Linux och Mac utvecklingsmiljöer.
 
-2. Skapa en ASP.NET core MVC-webbapp
+2. Skapa ett ASP.NET Core MVC-webbprogram:
+
     ```
     dotnet new mvc -n LinuxProfilerTest
     ```
-3. Ändra katalogen i Kommandotolken till rotmappen för projektet
 
-4. Lägg till Nuget-paketet för att samla in profiler-spårningar.
+3. Ändra arbetskatalogen till rotmappen för projektet.
+
+4. Lägg till NuGet-paketet för att samla in Profiler-spårningar:
+
     ```
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
-5. Lägg till en rad med kod för att slumpmässigt fördröjning på några sekunder i HomeController.cs
+
+5. Lägg till en rad med kod i den **HomeController.cs** avsnittet för att slumpmässigt fördröjning på några sekunder:
 
     ```csharp
         using System.Threading;
@@ -62,7 +66,8 @@ Anvisningarna nedan för alla Windows, Linux och Mac utvecklingsmiljöer:
                 return View();
             }
     ```
-6. Spara och genomför ändringarna till den lokala databasen
+
+6. Spara och genomför ändringarna till den lokala databasen:
 
     ```
         git init
@@ -70,37 +75,43 @@ Anvisningarna nedan för alla Windows, Linux och Mac utvecklingsmiljöer:
         git commit -m "first commit"
     ```
 
-## <a name="create-azure-app-service-for-hosting-your-project"></a>Skapa Azure App Service som värd för ditt projekt
-1. Skapa en App Services Linux-miljö
+## <a name="create-the-linux-web-app-to-host-your-project"></a>Skapa Linux-webbprogram som värd för ditt projekt
 
-    ![Skapa Linux Apptjänster](./media/app-insights-profiler-aspnetcore-linux/create-linux-appservice.png)
+1. Skapa webbprogrammiljö genom att använda Apptjänst på Linux:
 
-2. Skapa distribution av autentiseringsuppgifter. Anteckna lösenordet som du behöver det senare när du distribuerar din app.
+    ![Skapa Linux-webbprogram](./media/app-insights-profiler-aspnetcore-linux/create-linux-appservice.png)
+
+2. Skapa autentiseringsuppgifter för distribution:
+
+    > [!NOTE]
+    > Registrera ditt lösenord för senare användning när du distribuerar ditt webbprogram.
 
     ![Skapa autentiseringsuppgifter för distribution](./media/app-insights-profiler-aspnetcore-linux/create-deployment-credentials.png)
 
-3. Välj alternativ för användning. Konfigurera en lokal Git-lagringsplats i webbapp följa instruktionerna på Azure-portalen. En Git-lagringsplats skapas automatiskt.
+3. Välj distributionsalternativ för. Konfigurera en lokal Git-lagringsplats i webbapp genom att följa anvisningarna på Azure-portalen. En Git-lagringsplats skapas automatiskt.
 
     ![Konfigurera Git-lagringsplats](./media/app-insights-profiler-aspnetcore-linux/setup-git-repo.png)
 
-Fler distributionsalternativ för finns [här](https://docs.microsoft.com/azure/app-service/containers/choose-deployment-type)
+Fler distributionsalternativ, se [i den här artikeln](https://docs.microsoft.com/azure/app-service/containers/choose-deployment-type).
 
 ## <a name="deploy-your-project"></a>Distribuera projektet
 
-1. I Kommandotolken, navigerar du till din rotmapp för projektet. Lägg till fjärransluten Git-lagringsplats att peka på App-tjänster:
+1. Bläddra till rotmappen för ditt projekt i Kommandotolk-fönster. Lägg till en fjärransluten Git-lagringsplats att peka mot databasen på Apptjänst:
 
     ```
     git remote add azure https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
     ```
-    * Använda 'användarnamn' från steg i ”Skapa distribution av autentiseringsuppgifter”.
-    * Använd 'app name' från steg i ”Skapa apptjänst”.
 
-2. Distribuera projektet genom att skicka ändringarna till Azure
+    * Använd den **användarnamn** som användes för att skapa autentiseringsuppgifter för distribution.
+    * Använd den **appnamn** som användes för att skapa webbprogrammet med hjälp av Apptjänst i Linux.
+
+2. Distribuera projektet genom att skicka ändringarna till Azure:
 
     ```
     git push azure master
     ```
-Du kommer se utdata som liknar följande:
+
+Du bör se utdata som liknar följande exempel:
 
     ```
     Counting objects: 9, done.
@@ -124,39 +135,43 @@ Du kommer se utdata som liknar följande:
     ```
 
 ## <a name="add-application-insights-to-monitor-your-web-apps"></a>Lägg till Application Insights för att övervaka dina webbprogram
-1. [Skapa en Application Insights-resurs](./app-insights-create-new-resource.md)
-2. Kopiera iKey av Application Insights-resursen och ange följande inställningar i App-tjänster
+
+1. [Skapa en resurs för Application Insights](./app-insights-create-new-resource.md).
+
+2. Kopiera den **iKey** värdet för Application Insights-resursen och ange följande inställningar i web apps:
 
     ```
     APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]
     ASPNETCORE_HOSTINGSTARTUPASSEMBLIES: Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-    ![Ange inställningar för app](./media/app-insights-profiler-aspnetcore-linux/set-appsettings.png)
+    ![Konfigurera appinställningar för](./media/app-insights-profiler-aspnetcore-linux/set-appsettings.png)
 
-    Ändra inställningar för appen startas automatiskt platsen. När de nya inställningarna tillämpas startar profileraren omedelbart 2 minuter. sedan körs i två minuter varje timme.
+    När app-inställningar ändras, platsen startar om automatiskt. När de nya inställningarna tillämpas körs omedelbart profileraren i två minuter. Profileraren körs i två minuter varje timme.
 
-3. Generera en viss trafik till din webbplats. Du kan uppdatera platsen ```About``` för några gånger.
+3. Generera en viss trafik till din webbplats. Du kan skapa trafik genom att uppdatera platsen **om** sidan några gånger.
 
-4. Vänta 2-5 minuter så att händelserna som kan sammanställas till Application Insights.
+4. Vänta två till fem minuter för att händelser ska sammanställd till Application Insights.
 
-5. Gå till Application Insights prestanda rutan i Azure-portalen. Du ser profiler-spårningar som är tillgängliga i det nedre högra hörnet.
+5. Bläddra till Application Insights **prestanda** rutan i Azure-portalen. Du kan visa Profiler-spårningar längst ned till höger i fönstret.
 
-    ![Visa spårningar](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
+    ![Visa Profiler-spårningar](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
 
 ## <a name="known-issues"></a>Kända problem
 
-### <a name="enable-button-in-profiler-configuration-pane-does-not-work"></a>Aktivera knappen i profileraren konfiguration fönstret inte fungerar
-**Om du är värd för ditt program med App Services Linux, behöver du inte aktivera profileraren igen i fönstret prestanda i App Insights-portalen. Inklusive NuGet-paket i projektet och ange App Insights iKey i App-inställningar som är tillräckliga för att aktivera profileraren**.
+### <a name="the-enable-action-in-the-profiler-configuration-pane-doesnt-work"></a>Åtgärden Aktivera i rutan profileraren konfigurationen fungerar inte
 
-Om du följer den [App Insights Profiler för Windows](./app-insights-profiler.md) aktivering arbetsflödet klickar du på **aktivera** i rutan Konfigurera Profiler får du ett felmeddelande som knappen försöker installera Windows-versionen av profileraren agenten på Linux-miljö.
+> [!NOTE]
+> Om du är värd för din app med hjälp av Apptjänst i Linux, behöver du inte återaktivera profileraren i den **prestanda** rutan i Application Insights-portalen. Du kan inkludera NuGet-paketet i ditt projekt och ange Application Insights **iKey** värdet i din webbprograminställningarna för att aktivera profileraren.
 
-Vi arbetar på att lösa det här problemet i upplevelsen för aktivering.
+Om du följer aktivering arbetsflödet för [insikter Profiler för Windows](./app-insights-profiler.md) och välj **aktivera** i den **konfigurera Profiler** rutan ett felmeddelande. Åtgärden Aktivera försöker installera Windows-versionen av agenten Profiler på Linux-miljö.
 
-![Du behöver inte aktivera profileraren igen i rutan prestanda så att profileraren fungerar på Linux App Services](./media/app-insights-profiler-aspnetcore-linux/issue-enable-profiler.png)
+Vi arbetar på en lösning på problemet.
+
+![Försök inte att återaktivera profileraren i fönstret prestanda](./media/app-insights-profiler-aspnetcore-linux/issue-enable-profiler.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
-Om du använder anpassade behållare hos Apptjänster, följer du anvisningarna från [ aktivera Service Profiler för av ASP.NET Core programmet](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) att aktivera App Insights Profiler
+Om du använder anpassade behållare som hanteras av Azure App Service, följ instruktionerna i [ aktivera Service Profiler för ett av ASP.NET Core program](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) att aktivera Application Insights Profiler.
 
-Om du har några problem eller förslag kan rapportera till vår github-lagringsplats: [ApplicationInsights-Profiler-AspNetCore: problem](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues)
+Rapportera eventuella problem eller förslag till Application Insights GitHub-lagringsplatsen: [ApplicationInsights-Profiler-AspNetCore: problem med](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).

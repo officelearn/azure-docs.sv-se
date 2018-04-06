@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: e9343b4a0049b2eea30f903159fdeff0ae7ff851
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 07fb601b2cf6e3fe3cc9bfb7bca3bdcbec7e9ca7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guide för Azure Marketplace och AppSource publisher
 
@@ -121,7 +121,8 @@ Varje storefront stöder flera publishing alternativ och erbjudande typer. Välj
 Använd kontakta mig när deltagande test- eller transaktionen nivå inte är möjligt. Fördelen med den här metoden är att du kan utgivare med en lösning på marknaden omedelbart tar emot leads som kan vara nurtured i grundläggande avtal att starta business-svänghjul. Nackdelen är dock att kunden engagement är begränsad, jämfört med andra erbjudandetyper av.
 
 >[!IMPORTANT]
->Vi rekommenderar inte att kontakten mig listtyp. Du bör använda endast i situationer där det inte går att upprätta en utvärderingsversionen. Engagera kunder är bäst med test och transaktionen erbjudanden. Om du har någon typ av utvärderingsversionen leder våra onboarding-processen dig till något av dessa alternativ beroende på ditt scenario.
+<<<<<<< HEAD kunden engagement är bäst med utvärderingsversion och Transact erbjuder. Värdet för kontakta mig är lead som visas, så om du väljer den här typen av lista, se till att ditt lead mål har konfigurerats och du är redo att maximera lead. === Vi rekommenderar inte att kontakten mig listtyp. Du bör använda endast i situationer där det inte går att upprätta en utvärderingsversionen. Engagera kunder är bäst med test och transaktionen erbjudanden. Om du har någon typ av utvärderingsversionen leder våra onboarding-processen dig till något av dessa alternativ beroende på ditt scenario.
+>>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
 
 När erbjudandet består i huvudsak av professionella tjänster (till exempel bedömningar implementeringar, diskussionsgrupper), Använd erbjuda tjänster samråd med typen. Erbjudande omfång, varaktighet och pris måste åtgärdas, måste vara för en kund och måste utföras på platsen.
 

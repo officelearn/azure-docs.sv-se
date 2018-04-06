@@ -1,11 +1,11 @@
 ---
-title: "Felsöka anslutningar med Nätverksbevakaren Azure - Azure REST API | Microsoft Docs"
-description: "Lär dig hur du använder anslutningen felsöka möjligheterna för Nätverksbevakaren i Azure med hjälp av Azure REST API."
+title: Felsöka anslutningar med Nätverksbevakaren Azure - Azure REST API | Microsoft Docs
+description: Lär dig hur du använder anslutningen felsöka möjligheterna för Nätverksbevakaren i Azure med hjälp av Azure REST API.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: fc0392e8a6bc8662c7b664710b7073ae09c49a7c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 26acb70ac5ac017fc8162e8abeec48b8b9ecfa7f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Felsöka anslutningar med Azure Nätverksbevakaren med hjälp av Azure REST API
 
@@ -37,7 +37,7 @@ Den här artikeln förutsätter att du har följande resurser:
 * Virtuella datorer för att felsöka anslutningar med.
 
 > [!IMPORTANT]
-> Felsöka anslutningen kräver ett tillägg för virtuell dator `AzureNetworkWatcherExtension`. Installera tillägget på en Windows VM finns [tillägg för virtuell dator i Azure Network Watcher Agent för Windows](../virtual-machines/windows/extensions-nwa.md) och för Linux VM besöka [tillägg för virtuell dator i Azure Network Watcher Agent för Linux](../virtual-machines/linux/extensions-nwa.md).
+> Felsökning av anslutning kräver att den virtuella datorn som du felsöker från den `AzureNetworkWatcherExtension` VM-tillägget installeras. Installera tillägget på en Windows VM finns [tillägg för virtuell dator i Azure Network Watcher Agent för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för Linux VM besöka [tillägg för virtuell dator i Azure Network Watcher Agent för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på målslutpunkten.
 
 ## <a name="log-in-with-armclient"></a>Logga in med ARMClient
 

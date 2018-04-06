@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL Database prestandajustering vägledning | Microsoft Docs"
-description: "Lär dig mer om hur du använder rekommendationer för att förbättra prestanda för Azure SQL Database-frågor."
+title: Azure SQL Database prestandajustering vägledning | Microsoft Docs
+description: Lär dig mer om hur du använder rekommendationer för att förbättra prestanda för Azure SQL Database-frågor.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 63a8b9f8c81ad3dc122bf25d8a06cdf242a0f35b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 89575f94e95c5ae378d95220d63c162e53158069
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Justera prestanda i Azure SQL Database
 
@@ -39,8 +39,8 @@ Azure SQL Database erbjuder fyra [tjänstnivåer](sql-database-service-tiers.md)
   * **Du har en databas med en enda användare**. Program som vanligtvis associerar en användare med en-databas har inte hög kraven för samtidighet och prestanda. Dessa program lämpar sig för grundläggande tjänstnivån.
 * **Standard**: den Standard-tjänstnivå erbjuder bättre prestanda, förutsägbarhet och ger bra prestanda för databaser som har flera samtidiga förfrågningar, som arbetsgrupp och webbprogram. När du väljer en Standard-nivån tjänstdatabasen, du kan ändra storlek på databasen appen baserat på förutsägbar prestanda, minut över minut.
   * **Databasen har flera samtidiga förfrågningar**. Program som tjänsten mer än en användare åt gången vanligtvis måste högre prestandanivåer. Exempelvis är arbetsgrupps- eller webbappar program som har låg medelhög i/o-trafik krav som stöder flera samtidiga frågor bra kandidater för Standard-tjänstnivå.
-* **Premium**: den premiumnivån erbjuder förutsägbara prestanda, andra över andra, för varje Premium-databas. När du väljer premiumnivån storleken du databasprogrammet utifrån belastning för den här databasen. Planen tar bort fall i vilka prestanda varians kan orsaka små frågor tar längre tid än förväntat i känslig för fördröjningar åtgärder. Den här modellen kan förenkla utvecklings- och validering cykler för program som behöver göra starkt uttalanden om resursbehov för belastning, prestanda varians eller svarstid. Premium-tjänsten nivå används oftast har en eller flera av följande egenskaper:
-  * **Hög belastning**. Ett program som kräver betydande CPU, minne eller indata/utdata (I/O) att slutföra dessa åtgärder kräver en dedikerad, högpresterande nivå. Till exempel är en databasåtgärd känt att använda flera processorkärnor en längre tid en kandidat för premiumnivån.
+* **Premium**: den premiumnivån erbjuder förutsägbara prestanda sekund över sekund, för varje Premium eller Business kritiska (förhandsgranskning)-databas. När du väljer premiumnivån storleken du databasprogrammet utifrån belastning för den här databasen. Planen tar bort fall i vilka prestanda varians kan orsaka små frågor tar längre tid än förväntat i känslig för fördröjningar åtgärder. Den här modellen kan förenkla utvecklings- och validering cykler för program som behöver göra starkt uttalanden om resursbehov för belastning, prestanda varians eller svarstid. Premium-tjänsten nivå används oftast har en eller flera av följande egenskaper:
+  * **Hög belastning**. Ett program som kräver betydande CPU, minne eller in-/ utdata (I/O) att slutföra dessa åtgärder kräver en dedikerad, högpresterande nivå. Till exempel är en databasåtgärd känt att använda flera processorkärnor en längre tid en kandidat för premiumnivån.
   * **Många samtidiga förfrågningar**. Vissa databasprogram tjänst många samtidiga förfrågningar, exempelvis när du hanterar en webbplats som har en hög trafik. Basic och Standard tjänstnivåer begränsa antalet samtidiga förfrågningar per databas. Program som kräver fler anslutningar måste du välja en lämplig Reservationsstorleken att hantera det maximala antalet begäranden som behövs.
   * **Låg latens**. Vissa program behöver garantera ett svar från databasen i minimal tid. Om en specifik lagrad procedur anropas som en del av en bredare kund-åtgärd, kanske ett krav för att ha en returtyp från anropet i fler än 20 millisekunder 99 procent av tiden. Den här typen av program fördelar från premiumnivån, se till att nödvändiga datorkraft är tillgänglig.
 
@@ -134,7 +134,7 @@ När den har skapats, hämtar en annan plan som använder en Målsökning i stä
 
 ![En frågeplan med korrigerade index](./media/sql-database-performance-guidance/query_plan_corrected_indexes.png)
 
-Den viktiga information är att i/o-kapaciteten för ett delat, vara system är mer begränsad än den som en dedikerad server-dator. Det finns en premium på Minimera onödiga i/o för att drar maximal nytta av systemet i DTU för varje prestandanivå Azure SQL Database servicenivåer. Lämplig fysiska databasdesign val kan avsevärt förbättra svarstiden för enskilda frågor, förbättra systemets genomflöde samtidiga förfrågningar som hanteras per skalningsenhet och minimera kostnader som krävs för att uppfylla frågan. Mer information om saknas index av DMV: er finns [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
+Den viktiga information är att i/o-kapaciteten för ett delat, vara system är mer begränsad än den som en dedikerad server-dator. Det finns en premium på Minimera onödiga IO du drar maximal nytta av systemet i DTU för varje prestandanivå Azure SQL Database servicenivåer. Lämplig fysiska databasdesign val kan avsevärt förbättra svarstiden för enskilda frågor, förbättra systemets genomflöde samtidiga förfrågningar som hanteras per skalningsenhet och minimera kostnader som krävs för att uppfylla frågan. Mer information om saknas index av DMV: er finns [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
 
 ### <a name="query-tuning-and-hinting"></a>Frågejusteringar och bl a
 Frågeoptimeraren i Azure SQL Database liknar Frågeoptimeringen traditionella SQL Server. De flesta av bästa praxis för inställning av frågor och förstå motivera modellen begränsningar för Frågeoptimeringen gäller även för Azure SQL Database. Om du finjustera frågor i Azure SQL Database, kan du få ytterligare fördelen med att minska behovet av sammanställda resursdata. Programmet kanske kan köras på en lägre kostnad än untuned motsvarande eftersom det kan köras på en lägre prestandanivå.
@@ -267,7 +267,7 @@ För program som har åtkomst till data med hjälp av stora volymer, ofta ad hoc
 Vissa program är processorintensiva skrivning. Ibland kan du minska den totala i/o-belastningen på en databas genom att beakta så grupperas skrivningar. Oftast är det enkelt med explicita transaktioner i stället för automatiskt genomförande transaktioner i lagrade procedurer och ad hoc-batchar. En utvärdering av olika metoder som du kan använda finns i [batchbearbetning tekniker för SQL Database-program i Azure](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx). Experimentera med arbetsbelastningen att hitta rätt modellen för batchbearbetning. Se till att förstå att en modell kan ha lite olika transaktionella konsekvens garanterar. Hitta rätt arbetsbelastningen som minimerar Resursanvändning kräver att hitta rätt kombination av konsekvens och prestanda avvägningarna.
 
 ### <a name="application-tier-caching"></a>Programmet skikt cachelagring
-Vissa databasprogram har läs-frekventa arbetsbelastningarna. Cachelagring lager kan minska belastningen på databasen och kan minska prestandanivå som krävs för att stödja en databas med hjälp av Azure SQL Database. Med [Azure Redis-Cache](https://azure.microsoft.com/services/cache/), om du har en Läs frekventa arbetsbelastning, kan du läsa data en gång (eller kanske en gång per program skikt dator, beroende på hur den är konfigurerad), och sedan lagra dessa data utanför din SQL-databas. Detta är ett sätt att minska databasbelastningen (processor och Läs i/o), men det finns en effekt på transaktionskonsekvens eftersom de data som läses från cachen kanske är inte synkroniserade med data i databasen. Även om vissa andelen inkonsekvens är acceptabel för många program, som gäller inte för alla arbetsbelastningar. Du bör till fullo förstå kraven för application innan du implementerar en strategi för cachelagring av programmet skikt.
+Vissa databasprogram har läs-frekventa arbetsbelastningarna. Cachelagring lager kan minska belastningen på databasen och kan minska prestandanivå som krävs för att stödja en databas med hjälp av Azure SQL Database. Med [Azure Redis-Cache](https://azure.microsoft.com/services/cache/), om du har en Läs frekventa arbetsbelastning, kan du läsa data en gång (eller kanske en gång per program skikt dator, beroende på hur den är konfigurerad), och sedan lagra dessa data utanför din SQL-databas. Detta är ett sätt att minska databasbelastningen (processor och Läs IO), men det finns en effekt på transaktionskonsekvens eftersom de data som läses från cachen kanske är inte synkroniserade med data i databasen. Även om vissa andelen inkonsekvens är acceptabel för många program, som gäller inte för alla arbetsbelastningar. Du bör till fullo förstå kraven för application innan du implementerar en strategi för cachelagring av programmet skikt.
 
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om tjänstnivåer finns [SQL Database-alternativ och prestanda](sql-database-service-tiers.md)

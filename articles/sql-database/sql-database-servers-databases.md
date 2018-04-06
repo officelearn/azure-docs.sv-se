@@ -1,6 +1,6 @@
 ---
 title: Skapa och hantera Azure SQL-servrar och databaser | Microsoft Docs
-description: "Lär dig mer om Azure SQL Database-server och databasbegrepp och skapa och hantera servrar och databaser."
+description: Lär dig mer om Azure SQL Database-server och databasbegrepp och skapa och hantera servrar och databaser.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e05be2131ca89a084da5eeffc0b025b38432a8d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 18f904a2bac70bce3e1208945a7b94b59f6225f7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Skapa och hantera Azure SQL Database-servrar och databaser
 
@@ -26,7 +26,7 @@ SQL-databas erbjuder tre typer av databaser:
 Microsoft Azure SQL Database stöder tabelldata dataström (TDS) protokollet klientversionen 7.3 eller senare och tillåter bara krypterade TCP/IP-anslutningar.
 
 > [!IMPORTANT]
-> SQL-hanterade databasinstans erbjuder för närvarande i förhandsversion, en enda generella tjänstnivå. Mer information finns i [hanteras SQL-databasinstans](sql-database-managed-instance.md). Resten av den här artikeln gäller inte för hanterade instans.
+> SQL-hanterade databasinstans erbjuder för närvarande i förhandsversion, en enda generella tjänstnivå. Mer information finns i [SQL Database Managed Instance](sql-database-managed-instance.md). Resten av den här artikeln gäller inte för hanterade instans.
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Vad är en logisk Azure SQL-server?
 
@@ -53,7 +53,7 @@ En logisk Azure Database-server:
 - Ger åtkomst till metadata för inneslutna resurser via DMV:er genom att ansluta till en huvuddatabas. 
 - Ger omfång för principer för hantering som gäller för dess databaser - inloggningar, brandvägg, granska, hot identifiering osv. 
 - Begränsas av en kvot i den överordnade prenumerationen (sex servrar per prenumeration som standard - [finns prenumeration begränsar här](../azure-subscription-service-limits.md))
-- Innehåller omfattningen för databaskvoten och DTU-kvot för de resurser som den innehåller (till exempel 45 000 DTU)
+- Innehåller omfattningen för databaskvoten och DTU eller vCore kvot för de resurser som den innehåller (till exempel 45 000 DTU)
 - Är versionshantering omfånget för funktioner på befintliga resurser 
 - Huvudkontoinloggningar på servernivå kan hantera alla databaser på en server.
 - Kan innehålla inloggningar som liknar de i instanser av SQL Server i din lokala miljö som har åtkomst till en eller flera databaser på servern, samt kan beviljas begränsade administrativa rättigheter. Mer information finns i avsnittet om [inloggningar](sql-database-manage-logins.md).
@@ -135,7 +135,7 @@ Skapa och hantera Azure SQL server-databaser och brandväggar med den [Azure CLI
 |[AZ sql db lista-versioner](/cli/azure/sql/db#az_sql_db_list_editions)|Visar tillgängliga mål och Lagringsgränser|
 |[AZ sql db lista-användningsområden](/cli/azure/sql/db#az_sql_db_list_usages)|Returnerar databasen användningsområden|
 |[AZ sql db visa](/cli/azure/sql/db#az_sql_db_show)|Hämtar ett databasen eller data warehouse|
-|[AZ sql db-uppdateringen](/cli/azure/sql/db#az_sql_db_update)|Uppdaterar en-databas|
+|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|Uppdaterar en-databas|
 |[AZ sql db bort](/cli/azure/sql/db#az_sql_db_delete)|Tar bort en databas|
 |[az group create](/cli/azure/group#az_group_create)|Skapar en resursgrupp|
 |[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Skapar en server|
@@ -169,7 +169,7 @@ Använd följande T-SQL-kommandon för att skapa och hantera Azure SQL server-da
 |[ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Ändrar ett Azure SQL Data Warehouse.|
 |[Ta bort databasen (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Tar bort en databas.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returnerar edition (tjänstnivån), tjänstmålet (prisnivån) och namn på elastisk pool, för en Azure SQL-databas eller ett Azure SQL Data Warehouse. Returnerar information om alla databaser om inloggad på master-databasen i en Azure SQL Database-server. För Azure SQL Data Warehouse, måste du vara ansluten till master-databasen.|
-|[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Returnerar förbrukning av CPU, i/o och minne för en Azure SQL Database-databas. Det finns en rad för var 15: e sekund, även om det finns ingen aktivitet i databasen.|
+|[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Returnerar förbrukning av CPU, IO och minne för en Azure SQL Database-databas. Det finns en rad för var 15: e sekund, även om det finns ingen aktivitet i databasen.|
 |[sys.resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Returnerar CPU-användning och lagring data för en Azure SQL Database. Data som samlas in och sammanställs inom fem-minuters mellanrum.|
 |[sys.database_connection_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Innehåller statistik för SQL Database connectivity databashändelser, ger en översikt av databasen anslutning framgångar och misslyckanden. |
 |[sys.event_log (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)|Returnerar lyckade Azure SQL Database-databasanslutningar anslutningsfel och deadlocks. Du kan använda den här informationen för att övervaka och felsöka din Databasaktivitet med SQL-databas.|

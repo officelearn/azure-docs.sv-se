@@ -1,11 +1,11 @@
 ---
-title: "Introduktion till Azure Watcher nätverksanslutning felsöka | Microsoft Docs"
-description: "Den här sidan innehåller en översikt över Nätverksbevakaren anslutning felsökning kapaciteten"
+title: Introduktion till Azure Watcher nätverksanslutning felsöka | Microsoft Docs
+description: Den här sidan innehåller en översikt över Nätverksbevakaren anslutning felsökning kapaciteten
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: f8825af71620722065c03a28c93e113876c5aa71
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0268c7e54aa82df12243f98fd72de836fbc82070
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introduktion till anslutning felsöka i Azure Nätverksbevakaren
 
 Felsöka anslutningen funktion i Nätverksbevakaren ger möjlighet att kontrollera en direkt TCP-anslutning från en virtuell dator till en virtuell dator (VM), fullständigt kvalificerade domännamnet (FQDN), URI, eller IPv4-adress. Scenarier för nätverk är komplexa, implementeras med hjälp av nätverkssäkerhetsgrupper, brandväggar, användardefinierade vägar och resurser som tillhandahålls av Azure. Komplexa konfigurationer gör det svårt felsöker problem med nätverksanslutningen. Nätverksbevakaren hjälper till att minska mängden tid att hitta och identifiera problem med nätverksanslutningen. Resultaten kan ge insikter om ett anslutningsproblem beror på en plattform eller ett problem med användare. Anslutningen kan kontrolleras med [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md), och [REST API](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> Felsöka anslutningen kräver ett tillägg för virtuell dator `AzureNetworkWatcherExtension`. Installera tillägget på en Windows VM finns [tillägg för virtuell dator i Azure Network Watcher Agent för Windows](../virtual-machines/windows/extensions-nwa.md) och för Linux VM besöka [tillägg för virtuell dator i Azure Network Watcher Agent för Linux](../virtual-machines/linux/extensions-nwa.md).
+> Felsökning av anslutning kräver att den virtuella datorn som du felsöker från den `AzureNetworkWatcherExtension` VM-tillägget installeras. Installera tillägget på en Windows VM finns [tillägg för virtuell dator i Azure Network Watcher Agent för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för Linux VM besöka [tillägg för virtuell dator i Azure Network Watcher Agent för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på målslutpunkten.
 
 ## <a name="response"></a>Svar
 
@@ -75,7 +75,7 @@ Anslutningen felsöka returnerar fel typer om anslutningen. Följande tabell inn
 
 |Typ  |Beskrivning  |
 |---------|---------|
-|Processor     | Hög processoranvändning.       |
+|CPU     | Hög processoranvändning.       |
 |Minne     | Hög minnesanvändning.       |
 |GuestFirewall     | Trafik blockeras på grund av en virtuell dator brandväggskonfiguration.        |
 |DNSResolution     | DNS-matchningen misslyckades för måladressen.        |

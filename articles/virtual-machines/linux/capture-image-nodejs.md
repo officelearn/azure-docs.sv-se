@@ -1,11 +1,11 @@
 ---
-title: "Avbilda en virtuell Azure Linux-dator ska användas som en mall | Microsoft Docs"
-description: "Lär dig mer om att fånga och generalisera en avbildning av en Linux-baserade Azure virtuell dator (VM) skapats med Azure Resource Manager-distributionsmodellen."
+title: Avbilda en virtuell Azure Linux-dator ska användas som en mall | Microsoft Docs
+description: Lär dig mer om att fånga och generalisera en avbildning av en Linux-baserade Azure virtuell dator (VM) skapats med Azure Resource Manager-distributionsmodellen.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: f990a0da0be7f10dc16aa2e5a6320b456cfffed1
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 71c60c8d29e4db8aab1932a1bece03396a12e4da
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Avbilda en Linux-dator som körs på Azure
 Följ stegen i den här artikeln för att generalisera och avbilda dina Azure Linux-dator (VM) i Resource Manager-distributionsmodellen. När du generaliserar den virtuella datorn, ta bort personlig information och förbereda den virtuella datorn som ska användas som en bild. Du sedan avbilda en generaliserad virtuell hårddisk (VHD) avbildas för Operativsystemet, virtuella hårddiskar för bifogade datadiskar och en [Resource Manager-mall](../../azure-resource-manager/resource-group-overview.md) för nya VM-distributioner. Den här artikeln beskriver hur du hämta en datoravbildning av virtuell med Azure CLI 1.0 för en virtuell dator med hjälp av ohanterade diskar. Du kan också [avbilda en virtuell dator i Azure hanterade diskar med Azure CLI 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Hanterade diskar hanteras av Azure-plattformen och behöver inte alla förberedelse eller plats att lagra dem. Mer information finns i [Översikt över Azure Managed Disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
@@ -86,7 +86,7 @@ Använda Azure CLI för att generalisera och avbilda den virtuella datorn. Ersä
    > [!IMPORTANT]
    > VHD-avbildningsfiler skapas som standard i samma lagringskonto som används för den ursprungliga virtuella datorn. Använd den *samma lagringskonto* att lagra de virtuella hårddiskarna för alla nya virtuella datorer som du skapar från avbildningen. 
 
-6. Öppna JSON-mall för att hitta platsen för en avbildning i en textredigerare. I den **storageProfile**, hitta den **uri** av den **bild** finns i den **system** behållare. Till exempel liknar URI för diskavbildning OS`https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
+6. Öppna JSON-mall för att hitta platsen för en avbildning i en textredigerare. I den **storageProfile**, hitta den **uri** av den **bild** finns i den **system** behållare. Till exempel liknar URI för diskavbildning OS `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Steg 3: Skapa en virtuell dator från avbildningen
 Nu använda avbildningen med en mall för att skapa en Linux VM. Dessa steg visar hur du använder Azure CLI och JSON-fil-mall som du hämtat för att skapa den virtuella datorn i ett nytt virtuellt nätverk.
@@ -113,7 +113,7 @@ Om du vill distribuera en virtuell dator från avbildningen med hjälp av JSON s
 azure network nic show myResourceGroup1 myNIC
 ```
 
-Den **Id** i utdata liknar`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic`
+Den **Id** i utdata liknar `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic`
 
 ### <a name="create-a-vm"></a>Skapa en virtuell dator
 Nu ska du köra följande kommando för att skapa den virtuella datorn från den VM-avbildningen. Använd den **-f** parametern för att ange sökvägen till mallen JSON-fil som du sparade.
@@ -177,7 +177,7 @@ Använd den fångade avbildningen och mallen för att distribuera ytterligare vi
 Så här (beskrivs i föregående avsnitt) för att använda den fångade avbildningen och mallen:
 
 * Se till att VM-avbildning finns i samma lagringskonto som är värd för den Virtuella datorns virtuella Hårddisken.
-* Kopiera mallen JSON-fil och ange ett unikt namn för OS-disken på den nya VM VHD (eller virtuella hårddiskar). Till exempel i den **storageProfile**under **vhd**i **uri**, ange ett unikt namn för den **osDisk** VHD som liknar`https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/MyNewVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
+* Kopiera mallen JSON-fil och ange ett unikt namn för OS-disken på den nya VM VHD (eller virtuella hårddiskar). Till exempel i den **storageProfile**under **vhd**i **uri**, ange ett unikt namn för den **osDisk** VHD som liknar `https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/MyNewVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
 * Skapa ett nätverkskort i samma eller ett annat virtuellt nätverk.
 * Skapa en distribution i resursgruppen som du ställer in det virtuella nätverket med ändrade mallen JSON-fil.
 

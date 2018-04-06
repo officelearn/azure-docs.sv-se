@@ -1,13 +1,13 @@
 ---
-title: "Tillgänglighet för SAP HANA över Azure-regioner | Microsoft Docs"
-description: "Innehåller en översikt över för tillgänglighet överväganden när du kör SPA HANA på Azure Virtual Machines"
+title: Tillgänglighet för SAP HANA över Azure-regioner | Microsoft Docs
+description: En översikt över tillgänglighet överväganden när du kör SAP HANA på virtuella Azure-datorer i Azure-regioner.
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: msjuergent
 manager: patfilot
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -16,57 +16,63 @@ ms.workload: infrastructure
 ms.date: 02/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 052394884f85d527caa88ff6c9464af669f47bb5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: edbd1885dd529e4ccd38f2012d56865a2147f64d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Tillgänglighet för SAP HANA över Azure-regioner
-I den här artikeln beskrivs och beskrivs scenarier runt SAP HANA tillgänglighet över olika Azure-regioner. Med tanke på att olika Azure-regioner har större avståndet mellan dem, finns det speciella överväganden som anges i den här artikeln.
 
-## <a name="motivation-to-deploy-across-multiple-azure-regions"></a>Skälet till att distribuera över flera Azure-regioner
-Olika Azure-regioner avgränsas med ett större avstånd. Beroende på geopolitiska region, detta kan vara hundratals mil eller även flera tusen miles som i USA. På grund av avståndet mellan olika Azure-regioner nätverkstrafik mellan tillgångar som distribuerats i två olika Azure-regioner upplevelser betydande roundtrip Nätverksfördröjningen. Betydande tillräckligt för att utesluta synkront datautbyte mellan två instanser av SAP HANA under normal SAP belastning. På den andra sidan står du ofta inför det faktum att det finns definierade krav på avståndet mellan ditt primära datacenter och ett sekundärt datacenter för att ge tillgänglighet vid naturkatastrof träffa ett större område. Till exempel orkaner nådde som området Västindien och Florida i September och oktober 2017. Eller minst ett krav på minsta avstånd. I de flesta fall kunden definitionen för denna minsta avstånd som kräver att du att utforma för hög tillgänglighet över [Azure-regioner](https://azure.microsoft.com/regions/). Eftersom avståndet är för stort mellan kan två Azure-regioner att använda synkron replikeringsläge HANA, krav för RTO och Återställningspunktmål tvinga dig att distribuera tillgänglighet konfigurationer i en region och sedan komplettera med ytterligare distributioner på en sekund region.
+Den här artikeln beskrivs scenarier som rör tillgängligheten för SAP HANA mellan olika Azure-regioner. På grund av avståndet mellan Azure-regioner innebär att ställa in SAP HANA tillgänglighet i Azure-regioner speciella överväganden.
 
-En annan aspekt beaktas när dessa konfigurationer är växling vid fel och omdirigerings-klienten. Förutsättningen är att växling mellan SAP HANA-instanser i två olika Azure-regioner alltid är en manuell växling vid fel. Eftersom replikering läget för SAP HANA System replikering är satt asynkrona, finns det risk att data i den primära HANA-instansen inte har gjort det ännu till den sekundära HANA-instansen. Automatisk redundans kan därför inte accepteras för konfigurationer där den replikeras asynkront. Du måste vidta åtgärder för att se till att alla data som utförts på den primära sidan gjorde det till den sekundära instansen innan du flyttar manuellt till andra Azure-regionen även med manuell kontrollerade redundans, som i ett failover-övningen.
+## <a name="why-deploy-across-multiple-azure-regions"></a>Varför distribuerar över flera Azure-regioner
+
+Azure-regioner är ofta åtskilda av stora avstånd. Beroende på området geopolitiska kanske avståndet mellan Azure-regioner hundratals mil eller även flera tusen miles som i USA. På grund av avståndet upplevelse nätverkstrafik mellan tillgångar som har distribuerats i två olika Azure-regioner betydande roundtrip Nätverksfördröjningen. Svarstiden är viktiga för att utesluta synkront datautbyte mellan två instanser av SAP HANA under vanliga SAP-arbetsbelastningar. 
+
+Organisationer har å andra sidan ofta ett krav för avståndet mellan platsen för det primära datacentret och ett sekundärt datacenter. Ett krav för avståndet ger tillgänglighet om en naturkatastrof uppstår i en större geografisk plats. Exempel: orkaner som träffar Västindien och Florida i September och oktober 2017. Din organisation ha minst ett krav på minsta avstånd. För de flesta Azure kunder, en definition av minsta avstånd som kräver att du att utforma för hög tillgänglighet över [Azure-regioner](https://azure.microsoft.com/regions/). Eftersom avståndet mellan två Azure-regioner är för stort för att använda HANA synkron replikeringsläge, RTO och Återställningspunktmål krav kan tvinga fram du distribuera tillgänglighet konfigurationer i en region och sedan komplettera med ytterligare distributioner på en sekund region.
+
+En annan aspekt att tänka på i det här scenariot är redundans och dirigera om klienten. Förutsättningen är att växling mellan SAP HANA-instanser i två olika Azure-regioner alltid är en manuell växling vid fel. Eftersom replikering läget för SAP HANA system replication har angivits för asynkron, finns det risk att data i den primära HANA-instansen inte har ännu gjorde det till den sekundära HANA-instansen. Därför automatisk redundans är inte ett alternativ för konfigurationer där den replikeras asynkront. Du måste vidta åtgärder för att se till att alla data som utförts på den primära sidan gjorde det till den sekundära instansen innan du manuellt flytta till andra Azure-regionen även med manuellt kontrollerade redundans, som i ett failover-övningen.
  
-Eftersom du använder med en annan IP-adressintervall i Azure-Vnet, som har distribuerats i andra Azure-regionen, SAP HANA klienter antingen behöver ändras i konfigurationen eller sätt bättre måste du placera steg för att ändra namnmatchningen. Så att klienterna ska komma omdirigeras till den nya sekundära datorns IP-adress. SAP-artikel på [klienten anslutning återställning efter övertag](https://help.sap.com/doc/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c93a723ceedc45da9a66ff47672513d3.html) blir mer information.   
+Virtuella Azure-nätverket använder ett annat IP-adressintervall. IP-adresser har distribuerats i andra Azure-region. Så, antingen måste du ändra klientkonfigurationen för SAP HANA eller helst måste du skapa steg om du vill ändra namnmatchningen. På så sätt kan omdirigeras klienter till den nya sekundära platsen serverns IP-adress. Mer information finns i artikeln SAP [klienten anslutning återställning efter övertag](https://help.sap.com/doc/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c93a723ceedc45da9a66ff47672513d3.html).   
 
 ## <a name="simple-availability-between-two-azure-regions"></a>Enkel tillgänglighet mellan två Azure-regioner
-I det här scenariot valt du inte att upprätta någon konfiguration för tillgänglighet inom en enskild region. Men du har behovet att arbetsbelastningen hanteras vid en katastrof. Typiska fall då man system som som är icke-system. Även om du kan klara om du vill att systemet ned för en halv dag eller ännu en dag, kan du låta systemet inte vara tillgängliga 48 timmar eller mer. För att göra installationen mindre kostsam, du kör ett annat system som är även mindre viktiga med den virtuella datorn som fungerar som ett mål eller ändra storlek på den virtuella datorn i sekundära regionen som är mindre och väljer att inte före läsa in data. Eftersom växling vid fel ska vara manuell och innebär att många fler steg att redundansväxla den hela appen-stacken, tillåts mer tid att ta ner den virtuella datorn, ändra storlek på den och starta den virtuella datorn igen.
+
+Du kan välja inte att upprätta någon konfiguration för tillgänglighet inom en enskild region, men har fortfarande begäran ha arbetsbelastningen hanteras om en olycka inträffar. Typiska fall då man system som det är icke-produktionsmiljöer system. Även om det är hållbara med systemet ned för en halv dag eller ännu en dag, kan du låta systemet otillgängligt 48 timmar eller mer. Om du vill att installationsprogrammet kostnadseffektivare kör ett annat system som är även mindre viktiga i den virtuella datorn. De andra systemfunktioner som mål. Du kan också ändra storlek på den virtuella datorn i den sekundära regionen ska vara mindre och väljer att inte förinläsas. Ytterligare tid för att stänga av den virtuella datorn, ändra storlek på den och sedan starta om den virtuella datorn är acceptabelt eftersom växling vid fel är manuell och innebär att många fler steg till hela appen stack-redundans.
 
 > [!NOTE]
-> Även om du inte före datainläsning i HANA System replikeringsmål, behöver du minst 64 GB minne och utöver det tillräckligt med minnet för att skydda rowstore data i minnet på målinstansen.
+> Även om du inte använder data preload i replikeringsmålet HANA system, behöver du minst 64 GB minne. Du måste också tillräckligt med minne förutom 64 GB för att lagra rowstore-data i minnet på målinstansen.
 
-![Två virtuella datorer över två områden](./media/sap-hana-availability-two-region/two_vm_HSR_async_2regions_nopreload.PNG)
+![Diagram över två virtuella datorer över två områden](./media/sap-hana-availability-two-region/two_vm_HSR_async_2regions_nopreload.PNG)
 
 > [!NOTE]
-> I den här konfigurationen kan du ange ett Återställningpunktsmål = 0 eftersom HANA System Replication-läge är asynkron. Om du måste ange ett Återställningpunktsmål = 0, den här konfigurationen är inte konfigurationen av valet.
+> I den här konfigurationen kan du ange ett Återställningpunktsmål = 0 eftersom HANA system replication läget är asynkron. Om du måste ange ett Återställningpunktsmål = 0, den här konfigurationen är inte konfigurationen av valet.
 
-En mindre ändring i konfigurationen är att konfigurera förinläsning av data. Men eftersom manuell växling vid fel och det faktum att programmet lager måste flytta till den andra regionen, det inte kan vara klokt att i förväg ladda data. 
+En mindre ändring som du kan göra i konfigurationen kan vara att konfigurera data som förinläsning av. Men kan eftersom manuell växling vid fel och det faktum att programmet lager också behöva flytta till den andra regionen, det inte vara klokt att förinläsa data. 
 
 ## <a name="combine-availability-within-one-region-and-across-regions"></a>Kombinera tillgänglighet inom en region och över regioner 
-En kombination av tillgänglighet inom och över regioner kan drivas av:
 
-- Kravet för Återställningspunktmål = 0 i en Azure-Region.
-- Inte vill eller kan ha globala åtgärder på företaget som påverkas av en större fysiska allvarlig händelse som påverkar ett större område. Det skett av vissa orkaner som träffar Västindien under de senaste åren.
-- Förordningar som begäran sträckor mellan primär och sekundär plats som är tydligt utöver vad Azure tillgänglighet zoner kan ge.
+En kombination av tillgänglighet inom och över regioner kan drivas av dessa faktorer:
 
- 
-I sådana fall måste du konfigurera vilka SAP-anrop en [replikeringskonfiguration för SAP HANA Multitier System](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) med HANA System replikering. Arkitekturen ser ut som:
+- Ett krav för Återställningspunktmål = 0 i en Azure-region.
+- Organisationen är inte vill eller kan ha globala åtgärder som påverkas av en större fysiska allvarlig händelse som påverkar ett större område. Detta är fallet för vissa orkaner som träffar Västindien under de senaste åren.
+- Förordningar som begäran sträckor mellan primära och sekundära platser som är klart utöver vad Azure tillgänglighet zoner kan ge.
 
-![tre virtuella datorer över två områden](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
+I dessa fall måste du ställa in vilka SAP-anrop en [replikeringskonfiguration för SAP HANA flera skikt system](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) med hjälp av HANA system replikering. Arkitekturen skulle se ut så här:
 
-Den här konfigurationen tillhandahåller ett Återställningpunktsmål = 0 med små RTO gånger inom den primära regionen och dessutom ger fallande Återställningspunktmål vid en flytta över till den andra regionen. Återställningstidsmålet gånger i andra region är beroende av om du konfigurerar före datainläsning eller inte. I många fall för kunden används den virtuella datorn i den sekundära regionen för att köra ett testsystem. På grund av att användning av kan data inte före laddas.
+![Diagram över tre virtuella datorer över två områden](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
+
+Den här konfigurationen tillhandahåller ett Återställningpunktsmål = 0, med låga RTO i den primära regionen. Konfigurationen innehåller också hyfsad Återställningspunktmål om en flytt till andra region ingår. Återställningstidsmålet gånger i andra region är beroende av om data är förinläst. Många kunder använder den virtuella datorn i den sekundära regionen för att köra ett testsystem. I som användningsfall, kan inte vara förinstallerade data.
 
 > [!NOTE]
-> Eftersom du använder arbetsläge logreplay för HANA System replikering ska nivå 2 (synkron replikering på primär region) från nivå 1, får inte replikering mellan nivå 2 och nivå 3 (replikering till sekundär plats) vara i delta_datashipping åtgärd läge. Information om arbetslägen och vissa begränsningar som finns dokumenterade av SAP i [arbetslägen för SAP HANA System replikering](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html). 
+> Eftersom du använder **logreplay** arbetsläge för HANA system replikering går från nivå 1 till nivå 2 (synkron replikering i den primära regionen) replikering mellan nivå 2 och nivå 3 (replikering till den sekundära platsen) kan inte vara i **delta_datashipping** arbetsläge. Mer information om arbetslägen och vissa begränsningar finns i artikeln SAP [arbetslägen för SAP HANA system replikering](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html). 
 
 ## <a name="next-steps"></a>Nästa steg
-Om du behöver steg-för-steg-anvisningar om hur du ställer in en sådan konfiguration i Azure läser du i artiklar:
 
-- [Konfigurera SAP HANA System Replication i virtuella Azure-datorer](sap-hana-high-availability.md)
-- [Din SAP på Azure – del 4 – hög tillgänglighet för SAP HANA med System-replikering](https://blogs.sap.com/2018/01/08/your-sap-on-azure-part-4-high-availability-for-sap-hana-using-system-replication/)
+Stegvisa anvisningar om hur du konfigurerar dessa konfigurationer i Azure finns i:
+
+- [Konfigurera replikering för SAP HANA-system i virtuella Azure-datorer](sap-hana-high-availability.md)
+- [Hög tillgänglighet för SAP HANA med hjälp av system-replikering](https://blogs.sap.com/2018/01/08/your-sap-on-azure-part-4-high-availability-for-sap-hana-using-system-replication/)
 
  
 

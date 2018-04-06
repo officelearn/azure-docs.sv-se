@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 624a40b1e40db6ceac9c567926b3932449e7bf7e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 12f63bc42f8450f086ed9f0e8d598c9c91a0c3d4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Så här fungerar på Azure AD B2C anpassad princip startpaket anpassade principer
 
@@ -39,7 +39,7 @@ Detta anspråk scheman är indelat i tre delar:
 3.  Och slutligen ett tredje avsnitt som visar en lista över ytterligare och valfria anspråk som kan samlas in från användare, lagras i katalogen och skickas i token under inloggningen. Ny typ av anspråk till samlas in från användaren och skickas i token som kan läggas till i det här avsnittet.
 
 > [!IMPORTANT]
-> Anspråk schemat innehåller begränsningar för vissa anspråk som lösenord och användarnamn. Principen förtroende Framework (TF) behandlar Azure AD som andra anspråksprovider och dess begränsningar utformas i premium-principen. En princip kan ändras om du vill lägga till fler begränsningar eller Använd en annan anspråksprovider för lagring av autentiseringsuppgifter som har sin egen begränsningar.
+> Anspråk schemat innehåller begränsningar för vissa anspråk som lösenord och användarnamn. Principen förtroende Framework (TF) behandlar Azure AD som andra anspråksprovider och dess begränsningar utformas i den anpassade principen. En princip kan ändras om du vill lägga till fler begränsningar eller Använd en annan anspråksprovider för lagring av autentiseringsuppgifter som har sin egen begränsningar.
 
 Nedan visas de tillgängliga anspråkstyper.
 
@@ -51,12 +51,12 @@ Följande anspråk krävs för användaren resor ska fungera korrekt:
 |-------------|-------------|
 | *Användar-ID* | Användarnamn |
 | *signInName* | Logga in namn |
-| *tenantId* | Klient ID-Numret för användarobjektet i Azure AD B2C Premium |
-| *objectId* | Objekt-ID (ID) för användarobjektet i Azure AD B2C Premium |
+| *tenantId* | Klient ID-Numret för användarobjektet i Azure AD B2C |
+| *objectId* | Objekt-ID (ID) för användarobjektet i Azure AD B2C |
 | *Lösenord* | Lösenord |
 | *Nytt lösenord* | |
 | *reenterPassword* | |
-| *passwordPolicies* | Lösenordsprinciper som används av Azure AD B2C Premium för att fastställa lösenordssäkerhet, upphör att gälla, osv. |
+| *passwordPolicies* | Lösenordsprinciper som används av Azure AD B2C för att fastställa lösenordssäkerhet, upphör att gälla, osv. |
 | *sub* | |
 | *alternativeSecurityId* | |
 | *identityProvider* | |
@@ -66,9 +66,9 @@ Följande anspråk krävs för användaren resor ska fungera korrekt:
 | *E-post* | E-postadress som kan användas för att kontakta användaren |
 | *signInNamesInfo.emailAddress* | E-postadress som användaren kan använda för att logga in |
 | *otherMails* | E-postadresser som kan användas för att kontakta användaren |
-| *userPrincipalName* | Användarnamnet som lagras i Azure AD B2C-Premium |
+| *userPrincipalName* | Användarnamnet som lagras i Azure AD B2C |
 | *upnUserName* | Användarnamn för att skapa användarens huvudnamn |
-| *mailNickName* | Användarens e-smeknamn som lagras i Azure AD B2C-Premium |
+| *mailNickName* | Användarens e-smeknamn som lagras i Azure AD B2C |
 | *newUser* | |
 | *executed-SelfAsserted-Input* | Anspråk som anger om attribut samlades in från användaren |
 | *executed-PhoneFactor-Input* | Anspråk som anger om ett nytt telefonnummer samlats in från användaren |

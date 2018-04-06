@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 961b783b44b95a871c98f96d3783f3429636f295
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2fcbbc2532e5cb9963922b4987ba0c7080fdb170
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-azure-automation"></a>Kom igång med Azure Automation
 
@@ -33,13 +33,13 @@ För att automatisera distribution och hantering av resurser i ditt lokala datac
 
 Du kan distribuera flera Hybrid Runbook Workers. Använd Hybrid Runbook Worker för att tillhandahålla hög tillgänglighet för dina runbooks och belastningsutjämning för runbook-jobb. I vissa fall kan tilldela du runbook-jobb för specifika arbetsbelastningar eller miljöer. Microsoft Monitoring Agent på Hybrid Runbook Worker initierar kommunikation med tjänsten Automation via TCP-port 443. Hybrid Runbook Worker har inga krav för inkommande brandväggen.  
 
-Du kanske vill en runbook som körs på en Hybrid Runbook Worker att utföra hanteringsuppgifter mot andra datorer eller tjänster i din miljö. I det scenariot kan runbook också behöva åtkomst till andra portar. Om din IT-säkerhetsprinciper inte Tillåt datorer i nätverket för att ansluta till internet, granska [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md). Operations Management Suite (OMS) Gateway fungerar som proxy för Hybrid Runbook Worker. Den samlar in jobbstatus och tar emot konfigurationsinformation från ditt Automation-konto.
+Du kanske vill en runbook som körs på en Hybrid Runbook Worker att utföra hanteringsuppgifter mot andra datorer eller tjänster i din miljö. I det scenariot kan runbook också behöva åtkomst till andra portar. Om din IT-säkerhetsprinciper inte Tillåt datorer i nätverket för att ansluta till internet, granska [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md). OMS-Gateway fungerar som proxy för Hybrid Runbook Worker. Den samlar in jobbstatus och tar emot konfigurationsinformation från ditt Automation-konto.
 
 Runbooks som körs på en Hybrid Runbook Worker körs i kontexten för det lokala systemkontot på datorn. Vi rekommenderar en säkerhetskontext när du utför administrativa åtgärder på den lokala Windows-datorn. Om du vill att runbook körs åtgärder mot resurser som ligger utanför den lokala datorn kan du behöva definiera säker inloggningstillgångar i Automation-kontot. Du kan komma åt säker inloggningstillgångar från runbook och använda dem för att autentisera med den externa resursen. Du kan använda [autentiseringsuppgifter](automation-credentials.md), [certifikat](automation-certificates.md), och [anslutning](automation-connections.md) tillgångar i din runbook. Använda tillgångar med cmdletar som du kan använda för att ange autentiseringsuppgifter för att autentisera dem.
 
-Du kan använda DSC-konfigurationer som lagras i Azure Automation till virtuella datorer. Andra fysiska och virtuella datorer kan begära konfigurationer från hämtningsservern i Automation DSC. Du behöver inte distribuera en infrastruktur för att stödja hämtningsservern Automation DSC för att hantera konfigurationer av din lokala fysiska eller virtuella Windows- och Linux-system. Du behöver bara utgående Internetåtkomst från varje dator som du tänker hantera med hjälp av Automation DSC. Kommunikationen sker via TCP-port 443 till OMS-tjänsten.   
+Du kan använda DSC-konfigurationer som lagras i Azure Automation till virtuella datorer. Andra fysiska och virtuella datorer kan begära konfigurationer från hämtningsservern i Automation DSC. Du behöver inte distribuera en infrastruktur för att stödja hämtningsservern Automation DSC för att hantera konfigurationer av din lokala fysiska eller virtuella Windows- och Linux-system. Du behöver bara utgående Internetåtkomst från varje dator som du tänker hantera med hjälp av Automation DSC. Kommunikationen sker via TCP-port 443 till Log Analytics-tjänsten.   
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="automation-dsc"></a>Automation DSC
 Du kan använda Automation DSC för att hantera dessa datorer:
@@ -125,9 +125,9 @@ Följande artiklar innehåller översikt och implementering steg för att konfig
 För Azure kör som och klassiska kör som-konton, [uppdatera Automation kör som-konto](automation-create-runas-account.md) beskriver hur du uppdaterar ett befintligt Automation-konto med Kör som-konton från portalen. Det beskriver också hur du använder PowerShell om Automation-kontot inte ursprungligen konfigurerats med en Kör som- eller klassiska kör som-konto. Du kan skapa ett kör som-konto och klassiska kör som-konto med hjälp av ett certifikat som utfärdas av enterprise-certifikatutfärdare (CA). Granska [uppdatering Automation kör som-konto](automation-create-runas-account.md) information om hur du skapar konton med hjälp av den här konfigurationen.     
  
 ## <a name="network-planning"></a>Planera ditt nätverk
-För Hybrid Runbook Worker kan ansluta till och registrera med OMS måste den ha åtkomst till portnumret och URL: erna som beskrivs i det här avsnittet. Detta är tillägg till den [portar och URL: er som krävs för Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) ska anslutas till OMS. 
+För Runbook Worker-hybriden att ansluta till och registrera med logganalys, måste den ha åtkomst till portnumret och URL: erna som beskrivs i det här avsnittet. Detta är tillägg till den [portar och URL: er som krävs för Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) att ansluta till logganalys. 
 
-Om du använder en proxyserver för kommunikation mellan agenten och OMS-tjänsten måste du kontrollera att lämpliga resurser är tillgängliga. Om du använder en brandvägg för att begränsa åtkomsten till internet, måste du konfigurera brandväggen att tillåta åtkomst till.
+Om du använder en proxyserver för kommunikation mellan agenten och Log Analytics-tjänsten måste du kontrollera att lämpliga resurser är tillgängliga. Om du använder en brandvägg för att begränsa åtkomsten till internet, måste du konfigurera brandväggen att tillåta åtkomst till.
 
 Följande porten och URL: er krävs att kommunicera med Automation Hybrid Runbook Worker rollen:
 
@@ -138,17 +138,17 @@ Om du har ett Automation-konto som har definierats för en viss region, kan du b
 
 | **Region** | **DNS-post** |
 | --- | --- |
-| Södra centrala USA |scus-jobruntimedata-prod-su1.azure-automation.net |
-| Östra USA 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
+| USA, södra centrala |scus-jobruntimedata-prod-su1.azure-automation.net |
+| USA, östra 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
 | Västra centrala USA | wcus-jobruntimedata-prod-su1.azure-automation.net |
-| Västra Europa |we-jobruntimedata-prod-su1.azure-automation.net |
-| Norra Europa |ne-jobruntimedata-prod-su1.azure-automation.net |
-| Centrala Kanada |cc-jobruntimedata-prod-su1.azure-automation.net |
-| Sydostasien |sea-jobruntimedata-prod-su1.azure-automation.net |
+| Europa, västra |we-jobruntimedata-prod-su1.azure-automation.net |
+| Europa, norra |ne-jobruntimedata-prod-su1.azure-automation.net |
+| Kanada, centrala |cc-jobruntimedata-prod-su1.azure-automation.net |
+| Asien, sydöstra |sea-jobruntimedata-prod-su1.azure-automation.net |
 | Indien, centrala |cid-jobruntimedata-prod-su1.azure-automation.net |
-| Östra Japan |jpe-jobruntimedata-prod-su1.azure-automation.net |
+| Japan, östra |jpe-jobruntimedata-prod-su1.azure-automation.net |
 | Sydöstra Australien |ase-jobruntimedata-prod-su1.azure-automation.net |
-| Storbritannien, södra | uks-jobruntimedata-prod-su1.azure-automation.net |
+| Södra Storbritannien | uks-jobruntimedata-prod-su1.azure-automation.net |
 | Virginia (USA-förvaltad region) | usge-jobruntimedata-prod-su1.azure-automation.us |
 
 En lista över region IP-adresser i stället för regionnamn, hämta den [Azure Datacenter-IP-adress](https://www.microsoft.com/download/details.aspx?id=41653) XML-fil från Microsoft Download Center. 
@@ -167,36 +167,36 @@ I följande tabell beskrivs metoder för att skapa ett Automation-konto i Azure-
 
 |Metod | Beskrivning |
 |-------|-------------|
-| Välj **Automation- och kontrollservern** i Azure Marketplace | Ett Azure Marketplace-erbjudande skapas ett Automation-konto och OMS-arbetsyta som är länkade och i samma resursgrupp och region. Integrering med OMS även fördelen med att använda Log Analytics att övervaka och analysera runbook-jobbet status och jobbstatus dataströmmar över tid. Du kan också använda de avancerade funktionerna i logganalys eskalera eller undersöka problem. Erbjudandet distribuerar den **ändringsspårning** och **uppdateringshantering** lösningar, som är aktiverade som standard. |
-| Välj **Automation** i Marketplace | Den här metoden skapar ett Automation-konto i en ny eller befintlig resursgrupp som inte är kopplad till en OMS-arbetsyta. Det innehåller inte några tillgängliga lösningar från den **Automation- och kontrollservern** erbjudande. Den här metoden är en grundläggande konfiguration som ger en introducerar till Automation. Det kan hjälpa dig att lära dig hur du skriver runbooks och DSC-konfigurationer och lär dig att använda funktionerna i tjänsten. |
-| Välj **Management** lösningar | Om du väljer en **Management** lösning, inklusive [uppdateringshantering](../operations-management-suite/oms-solution-update-management.md), [Starta/stoppa virtuella datorer vid låg belastning](automation-solution-vm-management.md), eller [ändringsspårning](../log-analytics/log-analytics-change-tracking.md), lösningen uppmanas du att välja ett befintligt Automation-konto och OMS-arbetsyta. Lösningen kan du skapa ett Automation-konto och OMS-arbetsyta som krävs för lösningen ska distribueras i din prenumeration. |
+| Välj **Automation- och kontrollservern** i Azure Marketplace | Ett Azure Marketplace-erbjudande skapas ett Automation-konto och logganalys-arbetsytan som är länkade och i samma resursgrupp och region. Integrering med logganalys även fördelen att använder den för att övervaka och analysera runbook-jobbet status och jobbstatus dataströmmar över tid. Du kan också använda de avancerade funktionerna i logganalys eskalera eller undersöka problem. Erbjudandet distribuerar den **ändringsspårning** och **uppdateringshantering** lösningar, som är aktiverade som standard. |
+| Välj **Automation** i Marketplace | Den här metoden skapar ett Automation-konto i en ny eller befintlig resursgrupp som inte är länkad till logganalys-arbetsytan. Det innehåller inte några tillgängliga lösningar från den **Automation- och kontrollservern** erbjudande. Den här metoden är en grundläggande konfiguration som ger en introducerar till Automation. Det kan hjälpa dig att lära dig hur du skriver runbooks och DSC-konfigurationer och lär dig att använda funktionerna i tjänsten. |
+| Välj **Management** lösningar | Om du väljer en **Management** lösning, inklusive [uppdateringshantering](../operations-management-suite/oms-solution-update-management.md), [Starta/stoppa virtuella datorer vid låg belastning](automation-solution-vm-management.md), eller [ändringsspårning](../log-analytics/log-analytics-change-tracking.md), lösningen uppmanas du att välja ett befintligt Automation-konto och logganalys-arbetsytan. Lösningen kan du skapa ett Automation-konto och logganalys-arbetsytan som krävs för lösningen ska distribueras i din prenumeration. |
 
-### <a name="create-an-automation-account-thats-integrated-with-oms"></a>Skapa ett Automation-konto som är integrerad med OMS
-Att publicera Automation, rekommenderar vi att du väljer den **Automation- och kontrollservern** erbjudande på Marketplace. Med den här metoden skapar ett Automation-konto och upprättar integrering med en OMS-arbetsyta. När du använder den här metoden har också möjlighet att installera hanteringslösningarna som är tillgängliga i erbjudandet.  
+### <a name="create-an-automation-account-thats-integrated-with-log-analytics"></a>Skapa ett Automation-konto som är integrerad med logganalys
+Att publicera Automation, rekommenderar vi att du väljer den **Automation- och kontrollservern** erbjudande på Marketplace. Med den här metoden skapar ett Automation-konto och upprättar integrering med logganalys-arbetsytan. När du använder den här metoden har också möjlighet att installera hanteringslösningarna som är tillgängliga i erbjudandet.  
 
-[Skapa en fristående Automation-konto](automation-create-standalone-account.md) vägleder dig genom processen att skapa ett Automation-konto och OMS-arbetsytan genom onboarding i **Automation- och kontrollservern** erbjudande. Du kan lära dig hur du skapar en fristående Automation-konto för att testa eller Förhandsgranska tjänsten.  
+[Skapa en fristående Automation-konto](automation-create-standalone-account.md) vägleder dig genom processen att skapa ett Automation-konto och logganalys-arbetsytan genom onboarding i **Automation- och kontrollservern** erbjudande. Du kan lära dig hur du skapar en fristående Automation-konto för att testa eller Förhandsgranska tjänsten.  
 
-Skapa ett Automation-konto och OMS-arbetsyta med hjälp av den **Automation- och kontrollservern** Marketplace-erbjudande:
+Skapa ett Automation-konto och logganalys-arbetsytan med hjälp av den **Automation- och kontrollservern** Marketplace-erbjudande:
 
 1. Logga in på Azure-portalen med ett konto som är medlem i rollen administratörer för prenumeration och en coadministrator för prenumerationen.
 2. Välj **nya**.<br><br> ![Välj ny på Azure-portalen](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 3. Sök efter **Automation**. I sökresultaten väljer **Automation- och kontrollservern**.<br><br> ![Sök efter och välj kontrollen & Automation i Azure Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
 4. Granska beskrivning för att erbjuda och markera **skapa**.  
-5. Under **Automation- och kontrollservern**väljer **OMS-arbetsytan**. Under **OMS arbetsytor**, Välj en OMS-arbetsyta som är kopplad till Azure-prenumerationen som Automation-kontot. Om du inte har en OMS-arbetsyta, Välj **Skapa ny arbetsyta**. Under **OMS-arbetsytan**: 
+5. Under **Automation- och kontrollservern**väljer **OMS-arbetsytan**. Under **OMS arbetsytor**, Välj en logganalys-arbetsyta som är länkad till den Azure-prenumeration som Automation-kontot finns i. Om du inte har en logganalys-arbetsytan, Välj **Skapa ny arbetsyta**. Under **OMS-arbetsytan**: 
   1. För **OMS-arbetsytan**, ange ett namn för det nya arbetsområdet.
   2. För **prenumeration**, välja en prenumeration att länka till. Om standardvalet inte den prenumeration som du vill använda, Välj prenumerationen från den nedrullningsbara listan.
   3. För **resursgruppen**, du kan skapa en resursgrupp eller välja en befintlig resursgrupp.  
   4. För **plats**, Välj en region. Mer information finns i [vilka regioner som Azure Automation finns i](https://azure.microsoft.com/regions/services/). Lösningar som erbjuds i två nivåer: gratis och per nod (OMS) tjänstnivån. Den kostnadsfria nivån har en gräns på mängden data som har samlats in varje dag, Bevarandeperiod och runbook-jobbet runtime minuter. Den per nod (OMS) nivån inte har en gräns på mängden data som samlas in varje dag.  
-  5. Välj **Automation-konto**.  Om du skapar en ny OMS-arbetsyta, måste du också skapa ett Automation-konto som är kopplad till den nya OMS-arbetsytan. Ta din Azure-prenumeration, resursgrupp och region. 
+  5. Välj **Automation-konto**.  Om du skapar en ny logganalys-arbetsyta, måste du också skapa ett Automation-konto som är kopplad till den nya logganalys-arbetsytan. Ta din Azure-prenumeration, resursgrupp och region. 
     1. Välj **skapa ett Automation-konto**.
     2. Under **Automatiseringskontot**i den **namn** , ange namnet på Automation-kontot.
-    Alla andra alternativ fylls i automatiskt baserat på OMS-arbetsyta som valts. Du kan inte ändra dessa alternativ. 
+    Alla andra alternativ fylls i automatiskt baserat på logganalys-arbetsytan som valts. Du kan inte ändra dessa alternativ. 
     3. Ett Azure Kör som-konto är standardmetoden för autentisering för erbjudandet. När du har valt **OK**konfigurationsalternativen verifieras och Automation-kontot har skapats. Om du vill spåra förloppet på menyn Välj **meddelanden**. 
-    4. Annars väljer du ett befintligt Automation Kör som-konto. Det konto som du väljer länkad inte redan till en annan OMS-arbetsyta. Om det är, visas ett meddelande. Om kontot är redan länkad till en OMS-arbetsyta, Välj ett annat Automation kör som-konto eller skapa en.
+    4. Annars väljer du ett befintligt Automation Kör som-konto. Det konto som du väljer länkad inte redan till en annan logganalys-arbetsytan. Om det är, visas ett meddelande. Om kontot är redan länkad till logganalys-arbetsytan, Välj ett annat Automation kör som-konto eller skapa en.
     5. När du anger eller väljer du informationen som krävs, Välj **skapa**. Informationen har verifierats och Automation-konto och kör som-konton skapas. Du automatiskt tillbaka till den **OMS-arbetsytan** fönstret.  
 6. När du anger eller väljer du informationen som krävs på den **OMS-arbetsytan** väljer **skapa**.  Informationen har verifierats och att arbetsytan har skapats. Om du vill spåra förloppet på menyn Välj **meddelanden**. Du kommer tillbaka till den **Lägg till lösning** fönstret.  
 7. Under **Automation- och kontrollservern** inställningar, bekräfta att du vill installera de förvalda rekommenderade lösningarna. Om du ändrar något av standardalternativen, kan du installera lösningarna individuellt senare.  
-8. Om du vill fortsätta med onboarding Automation och en OMS-arbetsyta, Välj **skapa**. Alla inställningar verifieras och sedan Azure försöker distribuera erbjudandet i din prenumeration. Den här processen kan ta flera sekunder. Om du vill följa upp förloppet i menyn, Välj **meddelanden**. 
+8. Om du vill fortsätta med onboarding Automation och en logganalys-arbetsytan, Välj **skapa**. Alla inställningar verifieras och sedan Azure försöker distribuera erbjudandet i din prenumeration. Den här processen kan ta flera sekunder. Om du vill följa upp förloppet i menyn, Välj **meddelanden**. 
 
 När erbjudandet har publicerats eller så kan göra du följande:
 * Börja skapa runbooks.

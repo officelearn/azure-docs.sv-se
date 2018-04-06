@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: f9711f9cfaab1ef22da220a773689c95b1103970
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9c61fe7c62f0718d390509d3b0ff3327bd193f43
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 
 Du kan använda Azure diagnostikloggar för att visa core analytics och spara dem i en eller flera mål, inklusive:
 
- - Azure-lagringskonto
+ - Azure Storage-konto
  - Azure Event Hubs
- - [OMS Log Analytics-databasen](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
+ - [Log Analytics-arbetsyta](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
 Den här funktionen är tillgänglig för alla CDN-slutpunkter som hör till Verizon (Standard och Premium) och Akamai (Standard) CDN profiler. 
 
@@ -34,7 +34,7 @@ Azure diagnostics loggar kan du exportera grundläggande användningsstatistik f
 
 - Exportera data till blob storage, exportera till CSV och skapa diagram i Excel.
 - Exportera data till Händelsehubbar och samordna med data från andra Azure-tjänster.
-- Exportera data för att logga analytics och visa data i din egen OMS-arbetsyta
+- Exportera data för att logga analytics och visa data i din egen logganalys-arbetsyta
 
 Följande bild visar en typisk CDN core analytics data.
 
@@ -68,9 +68,9 @@ Logga in på [Azure-portalen](http://portal.azure.com). Om du inte redan har CDN
 
 *Bild 2 - loggning med Azure Storage*
 
-### <a name="logging-with-oms-log-analytics"></a>Loggning med OMS logganalys
+### <a name="logging-with-log-analytics"></a>Loggning med logganalys
 
-Följ dessa steg om du vill använda OMS logganalys för att lagra loggfilerna:
+Följ dessa steg om du vill använda logganalys för att lagra loggfilerna:
 
 1. Från den **diagnostik loggar** bladet väljer **skicka till logganalys**. 
 
@@ -84,7 +84,7 @@ Följ dessa steg om du vill använda OMS logganalys för att lagra loggfilerna:
 
     ![Portal - diagnostik loggar](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. Ange ett nytt namn för OMS-arbetsytan. En OMS arbetsytans namn måste vara unika och innehålla bara bokstäver, siffror och bindestreck; blanksteg och understreck tillåts inte. 
+4. Ange ett nytt namn för logganalys-arbetsytan. Ett namn för logganalys-arbetsytan måste vara unika och innehålla bara bokstäver, siffror och bindestreck; blanksteg och understreck tillåts inte. 
 5. Välj sedan en befintlig prenumeration, resursgrupp (ny eller befintlig), plats och prisnivå. Du har också möjlighet att fästa den här konfigurationen på instrumentpanelen. Klicka på **OK** för att slutföra konfigurationen.
 
     ![Portal - diagnostik loggar](./media/cdn-diagnostics-log/08_Workspace-resource.png)
@@ -97,11 +97,11 @@ Följ dessa steg om du vill använda OMS logganalys för att lagra loggfilerna:
 
 6. Klicka på **Spara**.
 
-7. Om du vill visa den nya OMS-arbetsytan, gå till instrumentpanelen i Azure portal och klicka på namnet på log analytics-arbetsyta. Klicka på panelen OMS-portalen om du vill visa arbetsytan i OMS-databasen. 
+7. Om du vill visa nya logganalys-arbetsytan, gå till instrumentpanelen i Azure portal och klicka på namnet på log analytics-arbetsyta. Klicka på panelen OMS-portalen om du vill visa logganalys-arbetsytan. 
 
     ![Portal - diagnostik loggar](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
 
-    OMS-databasen är nu redo att logga data. För att kunna använda data måste du använda en [OMS lösningen](#consuming-oms-log-analytics-data), tas upp senare i den här artikeln.
+    Logganalys-arbetsytan är nu redo att logga data. För att kunna använda data måste du använda en [Log Analytics lösningen](#consuming-diagnostics-logs-from-a-log-analytics-workspace), tas upp senare i den här artikeln.
 
 Läs mer om logga data fördröjningar [logga data fördröjningar](#log-data-delays).
 
@@ -123,7 +123,7 @@ Att aktivera diagnostikloggar i ett Lagringskonto, Använd följande kommando:
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
 ```
-Använd följande kommando för att aktivera diagnostik-loggar i OMS-arbetsyta:
+Använd följande kommando för att aktivera diagnostik-loggar i logganalys-arbetsytan:
 
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
@@ -156,9 +156,9 @@ Innan du kan komma åt core analysdata från Azure Storage-konto, måste du för
 
 **Beskrivning av fält:**
 
-|värde|description|
+|värde|beskrivning|
 |-------|---------|
-|Prenumerations-ID:t    |ID för Azure-prenumeration i Guid-format.|
+|Prenumerations-ID    |ID för Azure-prenumeration i Guid-format.|
 |Resurs |Gruppnamn namnet på resursgruppen som CDN resurser tillhör.|
 |Profilnamn |Namnet på CDN-profilen|
 |Namnet på slutpunkten |Namnet på CDN-slutpunkten|
@@ -179,16 +179,16 @@ Här är hur du kan använda verktyget:
 4.  Kör verktyget.
 5.  Den resulterande CSV-filen innehåller analytics-data i en enkel platt hierarki.
 
-## <a name="consuming-diagnostics-logs-from-an-oms-log-analytics-repository"></a>Förbrukar diagnostik loggar från en OMS Log Analytics-databas
-Log Analytics är en tjänst i Operations Management Suite (OMS) och som övervakar molnet och lokala miljöer för att upprätthålla sin tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor. 
+## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Förbrukar diagnostik loggar från logganalys-arbetsytan
+Log Analytics är en tjänst i Azure som hjälper dig att övervaka molnet och lokala miljöer för att bibehålla tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor. 
 
-Om du vill använda logganalys måste du [aktivera loggning](#enable-logging-with-azure-storage) till Azure logganalys för OMS-databasen som beskrivs tidigare i den här artikeln.
+Om du vill använda logganalys måste du [aktivera loggning](#enable-logging-with-azure-storage) till Azure logganalys-arbetsyta som beskrivs tidigare i den här artikeln.
 
-### <a name="using-the-oms-repository"></a>Med hjälp av OMS-databasen
+### <a name="using-the-log-analytics-workspace"></a>Med hjälp av logganalys-arbetsytan
 
  Följande diagram visar arkitekturen för indata och utdata för databasen:
 
-![OMS Log Analytics-databasen](./media/cdn-diagnostics-log/12_Repo-overview.png)
+![Log Analytics-arbetsyta](./media/cdn-diagnostics-log/12_Repo-overview.png)
 
 *Bild 3 - Log Analytics-databasen*
 
@@ -196,7 +196,7 @@ Du kan visa data i en mängd olika sätt med hjälp av lösningar för hantering
 
 Du kan installera hanteringslösningar från Azure marketplace genom att klicka på den **blir det nu** länken längst ned i varje lösning.
 
-### <a name="adding-an-oms-cdn-management-solution"></a>Lägga till en OMS CDN hanteringslösning
+### <a name="adding-a-log-analytics-cdn-management-solution"></a>Lägga till en Log Analytics CDN lösning
 
 Följ dessa steg för att lägga till en lösning:
 
@@ -209,63 +209,63 @@ Följ dessa steg för att lägga till en lösning:
 
 3. I den **övervakning + management** bladet, klickar du på **se alla**.
 
-    ![Se alla](./media/cdn-diagnostics-log/15_See-all.png)
+    ![Se allt](./media/cdn-diagnostics-log/15_See-all.png)
 
 4.  Sök efter CDN i sökrutan.
 
-    ![Se alla](./media/cdn-diagnostics-log/16_Search-for.png)
+    ![Se allt](./media/cdn-diagnostics-log/16_Search-for.png)
 
 5.  Välj **Azure CDN Core Analytics**. 
 
-    ![Se alla](./media/cdn-diagnostics-log/17_Core-analytics.png)
+    ![Se allt](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
-6.  När du klickar på **skapa**, uppmanas du att skapa en ny OMS-arbetsyta eller använda en befintlig. 
+6.  När du klickar på **skapa**, uppmanas du att skapa en ny logganalys-arbetsyta eller använda en befintlig. 
 
-    ![Se alla](./media/cdn-diagnostics-log/18_Adding-solution.png)
+    ![Se allt](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
 7.  Välj arbetsytans innan. Du måste sedan lägga till ett automation-konto.
 
-    ![Se alla](./media/cdn-diagnostics-log/19_Add-automation.png)
+    ![Se allt](./media/cdn-diagnostics-log/19_Add-automation.png)
 
 8. Följande skärmbild visar formuläret automation-konto måste du fylla ut. 
 
-    ![Se alla](./media/cdn-diagnostics-log/20_Automation.png)
+    ![Se allt](./media/cdn-diagnostics-log/20_Automation.png)
 
 9. När du har skapat automation-kontot, är du redo att lägga till din lösning. Klicka på knappen **Skapa**.
 
-    ![Se alla](./media/cdn-diagnostics-log/21_Ready.png)
+    ![Se allt](./media/cdn-diagnostics-log/21_Ready.png)
 
 10. Din lösning har nu lagts till arbetsytan. Gå tillbaka till instrumentpanelen i Azure portal.
 
-    ![Se alla](./media/cdn-diagnostics-log/22_Dashboard.png)
+    ![Se allt](./media/cdn-diagnostics-log/22_Dashboard.png)
 
     Klicka på logganalys-arbetsytan som du skapade för att gå till arbetsytan. 
 
-11. Klicka på den **OMS-portalen** ruta visas den nya lösningen i OMS-portalen.
+11. Klicka på den **OMS-portalen** ruta visas den nya lösningen.
 
-    ![Se alla](./media/cdn-diagnostics-log/23_workspace.png)
+    ![Se allt](./media/cdn-diagnostics-log/23_workspace.png)
 
-12. OMS-portalen bör nu se ut som följande skärmbild:
+12. Din portal bör nu se ut som följande skärmbild:
 
-    ![Se alla](./media/cdn-diagnostics-log/24_OMS-solution.png)
+    ![Se allt](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
     Klicka på ett av rutor finns flera vyer i dina data.
 
-    ![Se alla](./media/cdn-diagnostics-log/25_Interior-view.png)
+    ![Se allt](./media/cdn-diagnostics-log/25_Interior-view.png)
 
     Du kan rulla åt vänster eller höger för att se ytterligare paneler som representerar enskilda vyer i data. 
 
     Klicka på någon av panelerna får du mer information om dina data.
 
-     ![Se alla](./media/cdn-diagnostics-log/26_Further-detail.png)
+     ![Se allt](./media/cdn-diagnostics-log/26_Further-detail.png)
 
 ### <a name="offers-and-pricing-tiers"></a>Erbjudanden och prisnivåer
 
-Du kan se erbjudanden och prisnivåer för OMS hanteringslösningar [här](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+Du kan se erbjudanden och prisnivåer för hanteringslösningar [här](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
 
 ### <a name="customizing-views"></a>Anpassa vyer
 
-Du kan anpassa vyn i dina data med hjälp av den **Vydesigner**. Om du vill börja designa, gå till OMS-arbetsytan och klicka på den **Vydesigner** panelen.
+Du kan anpassa vyn i dina data med hjälp av den **Vydesigner**. Om du vill börja designa, gå till logganalys-arbetsytan och klicka på **Vydesigner** panelen.
 
 ![Vydesigner](./media/cdn-diagnostics-log/27_Designer.png)
 
@@ -410,7 +410,7 @@ Exempel egenskaper:
 
 * [Azure diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Core analytics via Azure CDN kompletterande portalen](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure OMS logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 

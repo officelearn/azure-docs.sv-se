@@ -1,11 +1,11 @@
 ---
-title: "Planer och fakturering i Azure Schemaläggaren"
-description: "Planer och fakturering i Azure Schemaläggaren"
+title: Planer och fakturering i Azure Schemaläggaren
+description: Planer och fakturering i Azure Schemaläggaren
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,33 +14,27 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: f0662230c5d1663e37ee2be58f234934ec3d55dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b25e97b0f0d0b6f63134a774856eb7ec8f77b679
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="plans-and-billing-in-azure-scheduler"></a>Planer och fakturering i Azure Schemaläggaren
 ## <a name="job-collection-plans"></a>Samlingen Jobbplaner
-Jobbsamlingar är fakturerbar enhet i Azure Schemaläggaren. Jobbsamlingar innehåller ett antal jobb och kommer i tre planer – lediga, Standard och Premium – som beskrivs nedan.
+Jobbsamlingar är fakturerbar enhet i Azure Schemaläggaren. Jobbsamlingar innehåller ett antal jobb och kommer i tre planer – Standard, Premium P10 och P20 Premium – som beskrivs nedan.
 
 | **Jobbet Samlingsplanen** | **Max antal jobb per Jobbsamlingen** | **Max upprepning** | **Max Jobbsamlingar per prenumeration** | **Begränsningar** |
 |:--- |:--- |:--- |:--- |:--- |
-| **Ledigt** |5 jobb per jobbsamlingen |En gång i timmen. Det går inte att köra jobb oftare än en gång i timmen |Upp till 1 fri jobbsamling tillåts i en prenumeration |Det går inte att använda [HTTP utgående auktorisering objekt](scheduler-outbound-authentication.md) |
 | **Standard** |50 jobb per jobbsamlingen |En gång per minut. Det går inte att köra jobb oftare än en gång i minuten |Upp till 100 standard jobbsamlingar tillåts i en prenumeration |Åtkomst till hela funktionsuppsättningen Schemaläggaren |
 | **P10 Premium** |50 jobb per jobbsamlingen |En gång per minut. Det går inte att köra jobb oftare än en gång i minuten |Upp till 10 000 P10 Premium jobbsamlingar tillåts för en prenumeration. <a href="mailto:wapteams@microsoft.com">Kontakta oss</a> mer information. |Åtkomst till hela funktionsuppsättningen Schemaläggaren |
 | **P20 Premium** |1000 jobb per jobbsamlingen |En gång per minut. Det går inte att köra jobb oftare än en gång i minuten |Upp till 10 000 P20 Premium jobbsamlingar tillåts för en prenumeration. <a href="mailto:wapteams@microsoft.com">Kontakta oss</a> mer information. |Åtkomst till hela funktionsuppsättningen Schemaläggaren |
 
 ## <a name="upgrades-and-downgrades-of-job-collection-plans"></a>Uppgraderingar och Downgrades av jobbet Samlingsplaner
-Du kan uppgradera eller nedgradera ett jobb samlingsplanen när som helst bland lediga, Standard och Premium-planer. När Nedgradera till en fri jobbsamling misslyckas nedgraderingen av något av följande skäl:
-
-* En fri jobbsamling redan finns i prenumerationen
-* Ett jobb i jobbsamlingen har en upprepning som högre än det tillåtna jobben kostnadsfria jobbsamlingar. Största antal upprepningar som tillåts i en fri jobbsamling är en gång i timmen
-* Det finns mer än 5 jobb i jobbsamlingen
-* Ett jobb i jobbsamlingen har en åtgärd för HTTP eller HTTPS som använder en [HTTP utgående auktorisering objekt](scheduler-outbound-authentication.md)
+Du kan uppgradera eller nedgradera ett jobb samlingsplanen när som helst mellan Standard och Premium P10 P20 Premium-planer.
 
 ## <a name="billing-and-azure-plans"></a>Fakturerings- och Azure-planer
-Prenumerationer debiteras inte gratis jobbsamlingar. Om du har fler än 100 standard jobbsamlingar (10 fakturering standardenheter) är en bättre affären har alla jobbsamlingar i premiumplan.
+Om du har fler än 100 standard jobbsamlingar (10 fakturering standardenheter) är en bättre affären har alla jobbsamlingar i premiumplan.
 
 Om du har en standard jobbsamlingen och en premium jobbsamlingen är du fakturerade en standard fakturering enhet *och* en premium fakturering enhet. Schemaläggaren service-växlar baserat på antalet aktiva jobbsamlingar som har angetts till standard eller premium; Detta beskrivs närmare i följande två avsnitt.
 

@@ -1,261 +1,161 @@
 ---
-title: "Konfigurera långsiktig lagring av säkerhetskopior. - Azure SQL database | Microsoft Docs"
-description: "Lär dig hur för automatiska säkerhetskopieringar i Azure Recovery Services-valvet och att återställa från Azure Recovery Services-valvet"
+title: Långsiktig lagring av säkerhetskopior & ARS valvet - Azure SQL Database | Microsoft Docs
+description: Lär dig hur du lagrar automatisk säkerhetskopiering i SQL Azure-lagring och återställa dem
 services: sql-database
-author: CarlRabeler
+author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/10/2017
-ms.author: carlrab
-ms.openlocfilehash: f6d32976cc4b9d669e629005be4d7aacebd62f9e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/10/2018
+ms.author: sashan
+ms.reviewer: carlrab
+ms.openlocfilehash: 80dd58a9c0267975c9e4df74c77d60ac861a1fdb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention"></a>Konfigurera och återställa från Azure SQL Database långsiktig lagring av säkerhetskopior.
+# <a name="configure-and-restore-backups-from-azure-sql-database-long-term-backup-retention-using-azure-sql-storage"></a>Konfigurera och återställa säkerhetskopior från Azure SQL Database långsiktig lagring av säkerhetskopior använder SQL Azure-lagring
 
-Du kan konfigurera Azure Recovery Services-valvet för att lagra säkerhetskopiorna av Azure SQL-databasen och sedan återställa en databas med hjälp av säkerhetskopior som lagras i valvet med Azure-portalen eller PowerShell.
+Du kan konfigurera Azure SQL database med en [långsiktig lagring av säkerhetskopior](sql-database-long-term-retention.md) princip (LTR) automatiskt säkerhetskopiorna ska behållas i Azure blob storage för upp till 10 år. Du kan sedan återställa en databas med dessa säkerhetskopior med hjälp av Azure-portalen eller PowerShell.
 
-## <a name="azure-portal"></a>Azure Portal
+> [!NOTE]
+> Som en del av den första versionen av förhandsversionen av den här funktionen i oktober 2016 lagras säkerhetskopior i Azure Recovery Services-tjänsten-valvet. Den här uppdateringen tar bort den här beroende, men för bakåtkompatibilitet ursprungliga API stöds förrän den 31 maj 2018. Om du behöver interagera med säkerhetskopieringar i Azure Services Recovery-valvet finns [långsiktig lagring av säkerhetskopior med hjälp av Azure Recovery Services-tjänsten valvet](sql-database-long-term-backup-retention-configure-vault.md). 
 
-Följande avsnitt visar hur du använder Azure-portalen för att konfigurera Azure Recovery Services-valvet, visa säkerhetskopieringar i valvet och återställning från valvet.
+## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Använda Azure portal för att konfigurera principer för långsiktig kvarhållning och återställa säkerhetskopior
 
-### <a name="configure-the-vault-register-the-server-and-select-databases"></a>Konfigurera valvet, registrera servern och välj databaser
+Följande avsnitt visar hur du använder Azure-portalen för att konfigurera långsiktig kvarhållning, visa säkerhetskopieringar i långsiktig kvarhållning och återställa säkerhetskopia från långsiktig kvarhållning.
 
-Du [konfigurera ett Azure Recovery Services-valv om du vill behålla automatiska säkerhetskopieringar](sql-database-long-term-retention.md) under längre tid än kvarhållningsperioden för din tjänstnivån. 
+### <a name="configure-long-term-retention-policies"></a>Konfigurera principer för långsiktig kvarhållning
 
-1. Öppna den **SQL Server** för servern.
+Du kan konfigurera SQL-databas till [behålla automatiska säkerhetskopieringar](sql-database-long-term-retention.md) under längre tid än kvarhållningsperioden för din tjänstnivån. 
 
-   ![sql server page](./media/sql-database-get-started-portal/sql-server-blade.png)
+1. Välj SQL-server i Azure-portalen och klicka sedan på **långsiktig lagring av säkerhetskopior**.
 
-2. Klicka på **Long-term backup retention** (Långsiktig kvarhållning av säkerhetskopior).
+   ![länk till långsiktig kvarhållning av säkerhetskopior](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
-   ![länk till långsiktig kvarhållning av säkerhetskopior](./media/sql-database-get-started-backup-recovery/long-term-backup-retention-link.png)
+2. På den **konfigurera principer** fliken, markera den databas som du vill ange eller ändra långsiktig säkerhetskopiering bevarandeprinciper.
 
-3. På den **långsiktig lagring av säkerhetskopior** för servern, granska och Godkänn förhandsversionen villkor (om du redan har gjort det - eller den här funktionen är inte längre i preview).
+   ![Välj databas](./media/sql-database-long-term-retention/ltr-configure-select-database.png)
 
-   ![acceptera villkoren för förhandsversionen](./media/sql-database-get-started-backup-recovery/accept-the-preview-terms.png)
+3. I den **konfigurera principer** rutan, Välj om vill behålla varje vecka, månad eller år säkerhetskopieringar och ange kvarhållningsperiod för varje. 
 
-4. Om du vill konfigurera långsiktig lagring av säkerhetskopior Välj databasen i rutnätet och klicka sedan på **konfigurera** i verktygsfältet.
+   ![Konfigurera principer](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
-   ![välj databas för långsiktig kvarhållning av säkerhetskopior](./media/sql-database-get-started-backup-recovery/select-database-for-long-term-backup-retention.png)
+4. När du är klar klickar du på **tillämpa**.
 
-5. På den **konfigurera** klickar du på **konfigurera nödvändiga inställningar** under **Recovery service-valvet**.
+### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Visa säkerhetskopior och återställa från en säkerhetskopia med hjälp av Azure portal
 
-   ![länk för att konfigurera valv](./media/sql-database-get-started-backup-recovery/configure-vault-link.png)
+Visa säkerhetskopieringar som finns kvar för en viss databas med en princip för LTR och återställning från dessa säkerhetskopior. 
 
-6. På den **återställningstjänstvalvet** väljer en befintlig valvet, om sådana finns. Om inget Recovery Services-valv hittades för din prenumeration klickar du för att avbryta flödet och skapar ett Recovery Services-valv.
+1. Välj SQL-server i Azure-portalen och klicka sedan på **långsiktig lagring av säkerhetskopior**.
 
-   ![Skapa valv länk](./media/sql-database-get-started-backup-recovery/create-new-vault-link.png)
+   ![länk till långsiktig kvarhållning av säkerhetskopior](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
-7. På den **Recovery Services-valv** klickar du på **Lägg till**.
+2. På den **tillgängliga säkerhetskopieringar** Markera databasen som du vill se tillgängliga säkerhetskopior.
 
-   ![Lägg till valvet länk](./media/sql-database-get-started-backup-recovery/add-new-vault-link.png)
-   
-8. På den **Recovery Services-valvet** anger ett giltigt namn för Recovery Services-valvet.
+   ![Välj databas](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
 
-   ![namn på nytt valv](./media/sql-database-get-started-backup-recovery/new-vault-name.png)
+3. I den **tillgängliga säkerhetskopieringar** fönstret granska de tillgängliga säkerhetskopiorna. 
 
-9. Välj din prenumeration och resursgrupp och välj sedan platsen för valvet. När du är klar klickar du på **Skapa**.
+   ![Visa säkerhetskopior](./media/sql-database-long-term-retention/ltr-available-backups.png)
 
-   ![Skapa valv](./media/sql-database-get-started-backup-recovery/create-new-vault.png)
+4. Välj den säkerhetskopia som du vill återställa och ange sedan det nya databasnamnet.
 
-   > [!IMPORTANT]
-   > Valvet måste finnas i samma region som den logiska Azure SQL-servern och måste använda samma resursgrupp som den logiska servern.
-   >
+   ![återställ](./media/sql-database-long-term-retention/ltr-restore.png)
 
-10. När det nya valvet har skapats kan köra de nödvändiga stegen för att återgå till den **återställningstjänstvalvet** sidan.
+5. Klicka på **OK** att återställa databasen från en säkerhetskopia i Azure SQL storage till den nya databasen.
 
-11. På den **återställningstjänstvalvet** klickar du på valvet och klicka sedan på **Välj**.
-
-   ![välj befintligt valv](./media/sql-database-get-started-backup-recovery/select-existing-vault.png)
-
-12. På den **konfigurera** sidan, ange ett giltigt namn för den nya bevarandeprincipen, ändra standardprincipen för kvarhållning efter behov och klicka sedan på **OK**.
-
-   ![definiera kvarhållningsprincip](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
-   
-   >[!NOTE]
-   >Kvarhållning principens namn kan inte vissa tecken inklusive blanksteg.
-
-13. På den **långsiktig lagring av säkerhetskopior** för din databas, klickar du på **spara** och klicka sedan på **OK** vill tillämpa principen för långsiktig lagring av säkerhetskopior för alla valda databaser.
-
-   ![definiera kvarhållningsprincip](./media/sql-database-get-started-backup-recovery/save-retention-policy.png)
-
-14. Klicka på **Spara** för att aktivera långsiktig kvarhållning av säkerhetskopior med den här nya principen för Azure Recovery Services-valvet som du har konfigurerat.
-
-   ![definiera kvarhållningsprincip](./media/sql-database-get-started-backup-recovery/enable-long-term-retention.png)
-
-> [!IMPORTANT]
-> När de har konfigurerats visas säkerhetskopiorna i valvet inom sju dagar. Fortsätt inte den här självstudiekursen förrän säkerhetskopiorna visas i valvet.
->
-
-### <a name="view-backups-in-long-term-retention-using-azure-portal"></a>Visa säkerhetskopior i långsiktig kvarhållning med hjälp av Azure portal
-
-Visa information om din databas säkerhetskopior i [långsiktig lagring av säkerhetskopior](sql-database-long-term-retention.md). 
-
-1. Öppna Azure Recovery Services-valv för databassäkerhetskopiorna i Azure-portalen (Gå till **alla resurser** och markera den i listan över resurser för din prenumeration) att visa hur mycket lagringsutrymme som används av databassäkerhetskopiorna i den valvet.
-
-   ![visa Recovery Services-valvet med säkerhetskopior](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault-with-data.png)
-
-2. Öppna den **SQL-databas** för din databas.
-
-   ![nya exempelsida db](./media/sql-database-get-started-portal/new-sample-db-blade.png)
-
-3. Klicka på **Återställ** i verktygsfältet.
-
-   ![verktygsfältet Återställ](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
-
-4. På sidan återställning **långsiktiga**.
-
-5. Under Azure vault backups (Säkerhetskopior i Azure-valv) klickar du på **Välj en säkerhetskopia** för att visa de tillgängliga databassäkerhetskopiorna i långsiktig kvarhållning av säkerhetskopior.
-
-   ![säkerhetskopior i valv](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
-
-### <a name="restore-a-database-from-a-backup-in-long-term-backup-retention-using-the-azure-portal"></a>Återställa en databas från en säkerhetskopia i långsiktig lagring av säkerhetskopior med Azure-portalen
-
-Du kan återställa databasen till en ny databas från en säkerhetskopia i Azure Recovery Services-valvet.
-
-1. På den **Azure valvet säkerhetskopieringar** klickar du på säkerhetskopian för att återställa och klicka sedan på **Välj**.
-
-   ![välj säkerhetskopia i valv](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
-
-2. I textrutan **Databasnamn** anger du namnet på den återställda databasen.
-
-   ![nytt databasnamn](./media/sql-database-get-started-backup-recovery/new-database-name.png)
-
-3. Klicka på **OK** för att återställa databasen från säkerhetskopian i valvet till den nya databasen.
-
-4. Klicka på meddelandeikonen i verktygsfältet för att visa återställningsjobbets status.
+6. Klicka på meddelandeikonen i verktygsfältet för att visa återställningsjobbets status.
 
    ![förlopp över återställningsjobb från valvet](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
 5. När Återställningsjobbet har slutförts, öppna den **SQL-databaser** sidan kan du visa den nyligen återställda databasen.
 
-   ![återställd databas från valvet](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
-
 > [!NOTE]
 > Här kan du ansluta till den återställda databasen med hjälp av SQL Server Management Studio för att utföra nödvändiga åtgärder, till exempel [för att extrahera en del data från den återställda databasen och kopiera dem till den befintliga databasen eller för att ta bort den befintliga databasen och byta namn på den återställda databasen till det befintliga databasnamnet](sql-database-recovery-using-backups.md#point-in-time-restore).
 >
 
-## <a name="powershell"></a>PowerShell
+## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>Använda PowerShell för att konfigurera principer för långsiktig kvarhållning och återställa säkerhetskopior
 
-Följande avsnitt visar hur du använder PowerShell för att konfigurera Azure Recovery Services-valvet, visa säkerhetskopieringar i valvet och återställning från valvet.
+Följande avsnitt visar hur du använder PowerShell för att konfigurera långsiktig säkerhetskopiering kvarhållning, visa säkerhetskopieringar i Azure SQL-lagring och återställning från en säkerhetskopia i SQL Azure storage.
 
-### <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
+### <a name="create-an-ltr-policy"></a>Skapa en princip för LTR
 
-Använd den [ny AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) att skapa ett recovery services-valv.
+```powershell
+# Get the SQL server 
+# $subId = “{subscription-id}”
+# $serverName = “{server-name}”
+# $resourceGroup = “{resource-group-name}” 
+# $dbName = ”{database-name}”
 
-> [!IMPORTANT]
-> Valvet måste finnas i samma region som den logiska Azure SQL-servern och måste använda samma resursgrupp som den logiska servern.
+Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionId $subId
 
-```PowerShell
-# Create a recovery services vault
+# get the server
+$server = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $resourceGroup
 
-#$resourceGroupName = "{resource-group-name}"
-#$serverName = "{server-name}"
-$serverLocation = (Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName).Location
-$recoveryServiceVaultName = "{new-vault-name}"
+# create LTR policy with WeeklyRetention = 12 weeks. MonthlyRetention and YearlyRetention = 0 by default.
+Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W 
 
-$vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -ResourceGroupName $ResourceGroupName -Location $serverLocation 
-Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant -Vault $vault
+# create LTR policy with WeeklyRetention = 12 weeks, YearlyRetetion = 5 years and WeekOfYear = 16 (week of April 15). MonthlyRetention = 0 by default.
+Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W -YearlyRetention P5Y -WeekOfYear 16
 ```
 
-### <a name="set-your-server-to-use-the-recovery-vault-for-its-long-term-retention-backups"></a>Ange din server recovery-valvet för dess långsiktig kvarhållning säkerhetskopieringar
+### <a name="view-ltr-policies"></a>Visa LTR principer
+Det här exemplet visar hur du listar LTR principer på en server
 
-Använd den [Set AzureRmSqlServerBackupLongTermRetentionVault](/powershell/module/azurerm.sql/set-azurermsqlserverbackuplongtermretentionvault) för att associera en tidigare skapad recovery services-ventilen med en specifik Azure SQL-server.
+```powershell
+# Get all LTR policies within a server
+$ltrPolicies = Get-AzureRmSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | Get-AzureRmSqlDatabaseLongTermRetentionPolicy -Current 
 
-```PowerShell
-# Set your server to use the vault to for long-term backup retention 
-
-Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGroupName -ServerName $serverName -ResourceId $vault.Id
+# Get the LTR policy of a specific database 
+$ltrPolicies = Get-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup -Current
 ```
 
-### <a name="create-a-retention-policy"></a>Skapa en kvarhållningsprincip
+### <a name="view-ltr-backups"></a>Visa LTR säkerhetskopior
 
-I en kvarhållningsprincip anger du hur länge en säkerhetskopia av databasen ska bevaras. Använd den [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupretentionpolicyobject) för att hämta den standard bevarandeprincip som ska användas som mall för att skapa principer. I den här mallen anges kvarhållningsperioden i två år. Kör den [ny AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) slutligen skapa principen. 
+Det här exemplet visar hur du listar LTR säkerhetskopieringar på en server. 
 
-> [!NOTE]
-> Vissa cmdletar kräver att du ställer in valvet kontexten innan du kör ([Set AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)) så att du ser denna cmdlet i några relaterade kodavsnitt. Du kan ange kontexten eftersom principen ingår i valvet. Du kan skapa flera kvarhållningsprinciper för varje valv och sedan använda önskad princip för specifika databaser. 
+```powershell
+# Get the list of all LTR backups in a specific Azure region 
+# The backups are grouped by the logical database id.
+# Within each group they are ordered by the timestamp, the earliest
+# backup first.  
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location 
 
+# Get the list of LTR backups from the Azure region under 
+# the named server. 
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName
 
-```PowerShell
-# Retrieve the default retention policy for the AzureSQLDatabase workload type
-$retentionPolicy = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType AzureSQLDatabase
+# Get the LTR backups for a specific database from the Azure region under the named server 
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName -DatabaseName $dbName
 
-# Set the retention value to two years (you can set to any time between 1 week and 10 years)
-$retentionPolicy.RetentionDurationType = "Years"
-$retentionPolicy.RetentionCount = 2
-$retentionPolicyName = "my2YearRetentionPolicy"
+# List LTR backups only from live databases (you have option to choose All/Live/Deleted)
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -DatabaseState Live
 
-# Set the vault context to the vault you are creating the policy for
-Set-AzureRmRecoveryServicesVaultContext -Vault $vault
-
-# Create the new policy
-$policy = New-AzureRmRecoveryServicesBackupProtectionPolicy -name $retentionPolicyName -WorkloadType AzureSQLDatabase -retentionPolicy $retentionPolicy
-$policy
+# Only list the latest LTR backup for each database 
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName -OnlyLatestPerDatabase
 ```
 
-### <a name="configure-a-database-to-use-the-previously-defined-retention-policy"></a>Konfigurera en databas om du vill använda den tidigare definierade kvarhållningsprincipen
+### <a name="delete-ltr-backups"></a>Ta bort LTR säkerhetskopior
 
-Använd den [Set AzureRmSqlDatabaseBackupLongTermRetentionPolicy](/powershell/module/azurerm.sql/set-azurermsqldatabasebackuplongtermretentionpolicy) för att använda den nya principen till en viss databas.
+Det här exemplet visar hur du tar bort en LTR säkerhetskopiering från listan över säkerhetskopior.
 
-```PowerShell
-# Enable long-term retention for a specific SQL database
-$policyState = "enabled"
-Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -State $policyState -ResourceId $policy.Id
+```powershell
+# remove the earliest backup 
+$ltrBackup = $ltrBackups[0]
+Remove-AzureRmSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 
-### <a name="view-backup-info-and-backups-in-long-term-retention"></a>Visa information om säkerhetskopiering och säkerhetskopieringar i långsiktig kvarhållning
+### <a name="restore-from-ltr-backups"></a>Återställa från LTR säkerhetskopior
+Det här exemplet visas hur du återställer från en säkerhetskopia LTR. Observera att det här gränssnittet inte har ändrats men resurs-id-parametern kräver nu LTR säkerhetskopiering resurs-id. 
 
-Visa information om din databas säkerhetskopior i [långsiktig lagring av säkerhetskopior](sql-database-long-term-retention.md). 
-
-Använd följande cmdletar för att visa information om säkerhetskopiering:
-
-- [Get-AzureRmRecoveryServicesBackupContainer](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)
-- [Get-AzureRmRecoveryServicesBackupItem](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)
-- [Get-AzureRmRecoveryServicesBackupRecoveryPoint](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)
-
-```PowerShell
-#$resourceGroupName = "{resource-group-name}"
-#$serverName = "{server-name}"
-$databaseNeedingRestore = $databaseName
-
-# Set the vault context to the vault we want to restore from
-#$vault = Get-AzureRmRecoveryServicesVault -ResourceGroupName $resourceGroupName
-Set-AzureRmRecoveryServicesVaultContext -Vault $vault
-
-# the following commands find the container associated with the server 'myserver' under resource group 'myresourcegroup'
-$container = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL -FriendlyName $vault.Name
-
-# Get the long-term retention metadata associated with a specific database
-$item = Get-AzureRmRecoveryServicesBackupItem -Container $container -WorkloadType AzureSQLDatabase -Name $databaseNeedingRestore
-
-# Get all available backups for the previously indicated database
-# Optionally, set the -StartDate and -EndDate parameters to return backups within a specific time period
-$availableBackups = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $item
-$availableBackups
+```powershell
+# Restore LTR backup as an S3 database
+Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId -ServerName $serverName -ResourceGroupName $resourceGroup -TargetDatabaseName $dbName -ServiceObjectiveName S3
 ```
-
-### <a name="restore-a-database-from-a-backup-in-long-term-backup-retention"></a>Återställa en databas från en säkerhetskopia i långsiktig kvarhållning av säkerhetskopior
-
-Återställa från långsiktig lagring av säkerhetskopior använder den [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) cmdlet.
-
-```PowerShell
-# Restore the most recent backup: $availableBackups[0]
-#$resourceGroupName = "{resource-group-name}"
-#$serverName = "{server-name}"
-$restoredDatabaseName = "{new-database-name}"
-$edition = "Basic"
-$performanceLevel = "Basic"
-
-$restoredDb = Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceId $availableBackups[0].Id -ResourceGroupName $resourceGroupName `
- -ServerName $serverName -TargetDatabaseName $restoredDatabaseName -Edition $edition -ServiceObjectiveName $performanceLevel
-$restoredDb
-```
-
 
 > [!NOTE]
 > Härifrån kan du kan ansluta till den återställda databasen använder SQL Server Management Studio för att utföra uppgifter som krävs, exempelvis genom att extrahera en bit data från den återställda databasen ska kopieras till den befintliga databasen eller ta bort den befintliga databasen och Byt namn på den återställda databasen till det befintliga databasnamnet. Se [punkt tidpunkt för återställning](sql-database-recovery-using-backups.md#point-in-time-restore).
@@ -264,4 +164,3 @@ $restoredDb
 
 - Mer information om tjänstgenererade automatiska säkerhetskopior finns i avsnittet om [automatiska säkerhetskopior](sql-database-automated-backups.md)
 - Mer information om långsiktig kvarhållning av säkerhetskopior finns i avsnittet om [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md)
-- Mer information om hur du återställer från säkerhetskopior finns i avsnittet om hur du [återställer från säkerhetskopior](sql-database-recovery-using-backups.md)

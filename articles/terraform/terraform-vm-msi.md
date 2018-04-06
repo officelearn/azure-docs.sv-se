@@ -1,92 +1,101 @@
 ---
-title: "Använda en Azure Marketplace-avbildning för att skapa en Terraform Linux-dator med hanterade tjänstidentiteten"
-description: "Använd Marketplace-avbildning för att skapa Terraform virtuell Linux-dator med hantering av hanterade tjänstidentiteten och fjärr-tillstånd för att enkelt distribuera resurser till Azure."
+title: Använda en Azure Marketplace-avbildning för att skapa en Terraform Linux-dator med hanterade tjänstidentiteten
+description: Använd Marketplace-avbildning för att skapa Terraform Linux-dator med hanterade tjänstidentiteten och fjärrhantering för tillstånd för att enkelt distribuera resurser till Azure.
 keywords: terraform, devops, MSI, virtual machine, remote state, azure
 author: VaijanathB
 manager: rloutlaw
 ms.author: tarcher
 ms.date: 3/12/2018
 ms.topic: article
-ms.openlocfilehash: ce8a3e8b813bf4224a1fd77d60ec30f2f8e080a7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: db45e9fe1eb724e6404f5e83bbbe4f62ee32343d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Använda en Azure Marketplace-avbildning för att skapa en Terraform Linux-dator med hanterade tjänstidentiteten
 
-Den här artikeln visar hur du använder en [Terraform Marketplace-avbildning](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) att skapa en `Ubuntu Linux VM (16.04 LTS)` med senaste [Terraform](https://www.terraform.io/intro/index.html) version installeras och konfigureras med hjälp av [hanterade tjänstidentiteten ( MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Den här avbildningen konfigurerar också en fjärransluten serverdel för att aktivera [Remote tillstånd](https://www.terraform.io/docs/state/remote.html) hantering med hjälp av Terraform. Terraform Marketplace-avbildning gör det enkelt att komma igång med Terraform på Azure i minuter, utan att behöva installera Terraform och konfigurera autentisering manuellt. 
+Den här artikeln visar hur du använder en [Terraform Marketplace-avbildning](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) att skapa en virtuell Ubuntu Linux-dator (16.04 LTS) med senast [Terraform](https://www.terraform.io/intro/index.html) version installeras och konfigureras med hjälp av [hanteras Tjänsten identitet (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Den här avbildningen konfigurerar också en fjärransluten serverdel så att [remote tillstånd](https://www.terraform.io/docs/state/remote.html) hantering med hjälp av Terraform. 
 
-Det finns inga avgifter för programvara för den här Terraform VM-avbildning. Du betalar endast Azure maskinvara användning avgifter som utvärderas baserat på storleken på den virtuella datorn som har etablerats. Mer information om beräkning avgifter kan hittas på den [prissättning för Linux virtuella datorer](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+Terraform Marketplace-avbildning gör det enkelt att komma igång med Terraform på Azure, utan att behöva installera och konfigurera Terraform manuellt. 
 
-## <a name="prerequisites"></a>Förutsättningar
-Innan du kan skapa en virtuell Linux Terraform-dator, måste du ha en Azure-prenumeration. Om du inte redan har en, se [skapa din kostnadsfria Azure-konto idag](https://azure.microsoft.com/free/).  
+Det finns inga avgifter för programvara för den här Terraform VM-avbildning. Du betalar endast Azure maskinvara användning avgifter som utvärderas baserat på storleken på den virtuella dator som har etablerats. Mer information om beräkning avgifter finns i [Linux virtuella datorer sida med priser](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+
+## <a name="prerequisites"></a>Krav
+Innan du kan skapa en virtuell dator för Linux Terraform, måste du ha en Azure-prenumeration. Om du inte redan har ett, se [skapa din kostnadsfria Azure-konto idag](https://azure.microsoft.com/free/).  
 
 ## <a name="create-your-terraform-virtual-machine"></a>Skapa den virtuella datorn Terraform 
 
-Här följer stegen för att skapa en instans av Linux Terraform Virtual Machine. 
+Här följer stegen för att skapa en instans av en virtuell dator för Linux Terraform: 
 
-1. Gå till [skapar du en resurs](https://ms.portal.azure.com/#create/hub) lista på Azure-portalen.
-2. Sök efter `Terraform` i den `Search the Marketplace` sökfältet. Välj den `Terraform` mall. Välj den **skapa** knappen fliken Terraform information till nedre höger.
-![alternativ text](media\terraformmsi.png)
-3. Följande avsnitt innehåller indata för varje steg i guiden (**räknas upp till höger**) att skapa Terraform Linux virtuella dator.  Här följer de indata som behövs för att konfigurera var och en av de här stegen
+1. I Azure-portalen går du till den [skapar du en resurs](https://ms.portal.azure.com/#create/hub) lista.
 
-## <a name="details-in-create-terraform-tab"></a>Mer information i Skapa Terraform fliken
+2. I den **söka Marketplace** sökfältet, söka efter **Terraform**. Välj den **Terraform** mall. 
 
-Här är den information som måste anges i Skapa Terraform fliken.
+3. På fliken Terraform information längst ned till höger väljer du den **skapa** knappen.
 
-a. **Grundläggande inställningar**
+    ![Skapa en virtuell dator för Terraform](media\terraformmsi.png)
+
+4. Följande avsnitt innehåller indata för varje steg i guiden för att skapa Terraform Linux-dator. I följande avsnitt visas indata som behövs för att konfigurera var och en av de här stegen.
+
+## <a name="details-on-the-create-terraform-tab"></a>Informationen på fliken Skapa Terraform
+
+Ange följande information den **skapa Terraform** fliken:
+
+1. **Grundläggande inställningar**
     
-* **Namnet**: namnet på den virtuella datorn Terraform.
-* **Användarnamnet**: första kontot inloggning ID.
-* **Lösenordet**: första kontolösenord (du kan använda offentliga SSH-nyckeln i stället för lösenord).
-* **Prenumerationen**: Om du har mer än en prenumeration väljer du en som datorn ska skapas och debiteras. Du måste ha behörighet för resursen skapas för den här prenumerationen.
-* **Resursgruppen**: du kan skapa en ny eller Använd en befintlig grupp.
-* **Plats**: Välj datacenter som är mest lämplig. Vanligtvis är det datacenter som har de flesta av dina data, eller så ligger närmast din fysiska platsen för snabbaste nätverksåtkomst.
+   * **Namnet**: namnet på den virtuella datorn Terraform.
+   * **Användarnamnet**: det första kontot inloggning ID.
+   * **Lösenordet**: första kontolösenord. (Du kan använda en offentlig SSH-nyckel i stället för ett lösenord.)
+   * **Prenumerationen**: prenumerationen som datorn ska skapas och debiteras. Du måste ha behörighet för resursen skapas för den här prenumerationen.
+   * **Resursgruppen**: en ny eller befintlig resursgrupp.
+   * **Plats**: datacenter som är mest lämplig. Vanligtvis är det datacenter som har de flesta av dina data, eller en som ligger närmast din fysiska platsen för snabbaste nätverksåtkomst.
 
-b. **Ytterligare inställningar**
+2. **Ytterligare inställningar**
 
-* Storlek: Storleken på den virtuella datorn.
-* Typ av VM-disk: Välj mellan SSD och HDD
+   * **Storlek**: storleken på den virtuella datorn. 
+   * **VM disktyp**: SSD och Hårddisk.
 
-c. **Översikt över Terraform**
+3. **Översikt över Terraform**
 
-* Kontrollera att all information du angett är korrekt. 
+   * Kontrollera att all information som du angett är korrekt. 
 
-d. **Köpa**
+4. **Köpa**
 
-* Starta etableringen, klicka på köp. En länk som villkoren i transaktionen. Den virtuella datorn har inte några ytterligare kostnader utöver beräkning för server-storlek som du valde i steg storlek.
+   * Om du vill starta etableringsprocessen, Välj **köpa**. En länk som villkoren i transaktionen. Den virtuella datorn har inte några ytterligare kostnader utöver beräkning för servern som du angav i steg storlek.
 
-Utför följande steg för Terraform VM-avbildning
+Terraform VM-avbildning utför följande steg:
 
-* Skapar en virtuell dator med system som tilldelats identitet, baserat på bilden Ubuntu 16.04 LTS
-* MSI-tillägget installeras på den virtuella datorn så att OAuth-token som utfärdas för Azure-resurser
-* Tilldela RBAC behörigheter till hanterade identitet, bevilja ägarrättigheter för resursgruppen
-* Skapar en Terraform mall-mapp (tfTemplate)
-* Före konfigurerar Terraform remote tillstånd med den Azure-serverdelen
+* Skapar en virtuell dator med system som tilldelats identitet som baseras på Ubuntu 16.04 LTS bilden.
+* Installerar MSI-tillägget på den virtuella datorn så att OAuth-token som utfärdas för Azure-resurser.
+* Tilldelar RBAC-behörighet till hanterade identitet, bevilja ägarrättigheter för resursgruppen.
+* Skapar en Terraform mall-mapp (tfTemplate).
+* Före konfigurerar tillståndet Terraform remote Azure säkerhetskopiera slutet.
 
-## <a name="how-to-access-and-configure-linux-terraform-virtual-machine"></a>Åtkomst till och konfigurera Terraform virtuell Linux-dator
+## <a name="access-and-configure-a-linux-terraform-virtual-machine"></a>Åtkomst till och konfigurera en virtuell dator för Linux Terraform
 
-När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH. Använd de kontoautentiseringsuppgifter som du skapade i avsnittet grunderna i steg 3 för gränssnittet text shell. På Windows, kan du ladda ned en SSH-klientverktyg som [Putty](http://www.putty.org/)
+När du har skapat den virtuella datorn kan logga du in till den med hjälp av SSH. Använd de kontoautentiseringsuppgifter som du skapade i avsnittet ”grunderna” i steg 3 för gränssnittet text shell. På Windows, kan du ladda ned en SSH-klientverktyg som [Putty](http://www.putty.org/).
 
-När du har använt `SSH` för att ansluta till den virtuella datorn, måste du ge bidragsgivarbehörighet för hela prenumerationen för hanterade tjänstidentiteten på den virtuella datorn. Deltagare behörighet hjälper MSI på den virtuella datorn att använda Terraform för att skapa resurser utanför VM resursgruppen. Du kan lätt få den här åtgärden genom att köra ett skript på en gång. Här är kommandot för att göra det.
+När du använder SSH för att ansluta till den virtuella datorn, måste du ge hanterade tjänstidentiteten bidragsgivarbehörighet för hela prenumerationen på den virtuella datorn. 
+
+Deltagare behörighet hjälper MSI på den virtuella datorn att använda Terraform för att skapa resurser utanför VM resursgruppen. Du kan lätt få den här åtgärden genom att köra ett skript på en gång. Ange följande kommando:
 
 `. ~/tfEnv.sh`
 
-Föregående skript använder [AZ CLI v 2.0 interaktiv inloggning](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) mekanism för att autentisera med Azure och tilldela tjänstidentiteten för virtuell dator hanteras deltagare behörighet för hela prenumerationen. 
+Föregående skript använder den [AZ CLI v 2.0 interaktiv inloggning](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) mekanism för att autentisera med Azure och tilldela den virtuella datorn hanterade tjänstidentiteten deltagare behörighet för hela prenumerationen. 
 
- Den virtuella datorn har Terraform Remote tillstånd backend skapas och om du vill aktivera det på Terraform distributionen, måste du kopiera remoteState.tf fil från tfTemplate katalog till roten i Terraform-skript.  
+ Den virtuella datorn har en Terraform remote tillstånd serverdel. Om du vill aktivera det på Terraform distributionen, du kopiera filen remoteState.tf från tfTemplate directory till roten i Terraform-skript.  
 
  `cp  ~/tfTemplate/remoteState.tf .`
 
- Du kan läsa mer om hantering av tillstånd [här](https://www.terraform.io/docs/state/remote.html). Lagringsåtkomstnyckel exponeras i den här filen och behöver kontrolleras noga till källkontroll.  
+ Läs mer om hantering av tillstånd, [den här sidan om Terraform remote tillståndet](https://www.terraform.io/docs/state/remote.html). Lagringsåtkomstnyckel exponeras i den här filen och behöver kontrolleras noga till källkontroll.  
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln du har lärt dig hur du ställer in en Terraform Linux-dator på Azure. Här följer några ytterligare resurser för att lära dig mer om Terraform på Azure. 
+I den här artikeln har du lärt dig hur du ställer in en Terraform Linux-dator på Azure. Nedan följer några ytterligare resurser för att lära dig mer om Terraform i Azure: 
 
  [Terraform hubben i Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure Provider-dokumentationen](http://aka.ms/terraform)  
- [Terraform Azure Provider källa](http://aka.ms/tfgit)  
+ [Terraform Azure provider-dokumentationen](http://aka.ms/terraform)  
+ [Terraform Azure provider källa](http://aka.ms/tfgit)  
  [Terraform Azure-moduler](http://aka.ms/tfmodules)
  
 

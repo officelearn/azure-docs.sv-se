@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: d8adf097d6bee404cff8e7b15782c6c59531a897
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bca2629ea4a0c859e92d829b49072fbdf3f9ffe2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Funktionsjämförelse: Azure SQL Database och SQL Server 
 
@@ -45,7 +45,7 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [Registrering av ändringsdata](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Nej | Ja |
 | [Spårning av ändringar](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Ja |Ja |
 | [Instruktioner för sortering](https://docs.microsoft.com/sql/t-sql/statements/collations) | Ja | Ja |
-| [Columnstore-index](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Ja - [Premium-nivå och Standardnivå - S3 och senare](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Ja |
+| [Columnstore-index](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Ja - [Premium-nivån, standardnivån - S3 och senare generella nivå och företag kritiska nivåer](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Ja |
 | [CLR (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Nej | Ja - finns [CLR skillnader](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Inneslutna databaser](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Ja | Ja |
 | [Inneslutna användare](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Ja | Ja |
@@ -82,7 +82,7 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [GEO-återställning](sql-database-recovery-using-backups.md#geo-restore) | Ja | Nej – du kan återställa COPY_ONLY fullständiga säkerhetskopieringar som utföras med jämna mellanrum - finns [säkerhetskopiera skillnader](sql-database-managed-instance-transact-sql-information.md#backup) och [återställa skillnader](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
 | [Geo-replikering](sql-database-geo-replication-overview.md) | Ja | Nej |
 | [Diagrammet bearbetning](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Ja | Ja |
-| [Minnesintern optimering](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja - [endast Premium edition](sql-database-in-memory.md) | Nej |
+| [Minnesintern optimering](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja - [Premium- och Business kritiska nivåer](sql-database-in-memory.md) | Nej |
 | [Stöd för JSON-data](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Ja | Ja |
 | [Språkelement](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | De flesta - finns i enskilda element |  Ja - finns [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md) |
 | [Länkade servrar](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Finns inte - [elastisk fråga](sql-database-elastic-query-horizontal-partitioning.md) | Endast till SQLServer |

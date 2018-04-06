@@ -1,8 +1,8 @@
 ---
 title: Samla in anpassade loggar i Azure Log Analytics | Microsoft Docs
-description: "Logganalys kan samla in händelser från textfiler på Windows- och Linux-datorer.  Den här artikeln beskriver hur du definierar en ny anpassad logg och information om poster skapas i logganalys-arbetsytan."
+description: Logganalys kan samla in händelser från textfiler på Windows- och Linux-datorer.  Den här artikeln beskriver hur du definierar en ny anpassad logg och information om poster skapas i logganalys-arbetsytan.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 04/04/2018
 ms.author: bwren
-ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: bf9acd5d7130a5e35182271f07593adab19d448b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Anpassade loggar i logganalys
 Datakälla för anpassade loggar i logganalys kan du samla in händelser från textfiler på Windows- och Linux-datorer. Många program loggar information till textfiler i stället för standardtjänster loggning, till exempel Windows-händelseloggen eller Syslog.  När samlas in, analyserar du varje post i inloggningen till enskilda fält med hjälp av den [anpassade fält](log-analytics-custom-fields.md) funktion i logganalys.
@@ -31,7 +31,7 @@ Loggfilerna ska hämtas måste matcha följande kriterier.
 
     ÅÅÅÅ-MM-DD: MM: SS<br>M/D/ÅÅÅÅ HH: MM: SS TID <br>MON DD, YYYY: mm: ss
 
-- Loggfilen får inte tillåta cirkulär uppdateringar där filen skrivs över med nya poster.
+- Loggfilen får inte tillåta cirkulär loggning eller loggrotationen, där filen skrivs över med nya poster.
 - Loggfilen måste använda ASCII- eller UTF-8-kodning.  Andra format, till exempel UTF-16 stöds inte.
 
 >[!NOTE]
@@ -78,7 +78,7 @@ Följande tabell innehåller exempel på giltiga att ange olika loggfilerna.
 | Alla filer i */var/log/audit* med ett namn som börjar med loggen och filnamnstillägget .txt på Linux-agent |/var/log/audit/log\*.txt |
 
 1. Välj Windows eller Linux för att ange vilka sökvägsformat du lägger till.
-2. Ange sökvägen och klicka på den  **+**  knappen.
+2. Ange sökvägen och klicka på den **+** knappen.
 3. Upprepa processen för eventuella ytterligare sökvägar.
 
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Steg 4. Ange ett namn och en beskrivning av loggen

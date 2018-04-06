@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: f3e7b9c7432538c0f78662213544d4d691652f13
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7af0dd37b5c16e48ce4e504211e68a29cf8bce77
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="application-and-service-level-logging"></a>Programmet och service nivån loggning
 
@@ -36,10 +36,11 @@ När du skapar en Service Fabric-lösning från en mall i Visual Studio en **Eve
 
 Det är viktigt att planera noggrant hur du kommer instrumentera din kod. Höger instrumentation planen kan hjälpa dig att undvika potentiell destabilizing din kodbas och sedan behöver reinstrument koden. För att minska risken kan du välja en instrumentation bibliotek som [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/), vilket är en del av Microsoft ASP.NET Core. ASP.NET Core har en [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) gränssnitt som du kan använda med leverantören av ditt val när minimera effekten på befintlig kod. Du kan använda koden i ASP.NET Core på Windows och Linux och i fullständig .NET Framework, så instrumentation koden är standardiserad.
 
-## <a name="choosing-a-logging-provider"></a>Att välja en provider för loggning
+## <a name="application-insights-sdk"></a>Application Insights SDK
 
-Om programmet är beroende av hög prestanda, **EventSource** vanligtvis är en bra metod. **EventSource** *vanligtvis* använder färre resurser och presterar bättre än ASP.NET Core loggning eller någon av de tillgängliga lösningarna från tredje part.  Detta är inte ett problem för många tjänster, men om tjänsten är inriktade på prestanda, med hjälp av **EventSource** kan vara ett bättre alternativ. Emellertid att hämta dessa fördelarna med strukturerade loggning, **EventSource** kräver en större från din teknikteamet. Om möjligt gör en snabb prototyp av några alternativ för loggning och sedan välja den som bäst uppfyller dina behov.
+Application Insights har en omfattande integrering med Service Fabric direkt. Användare kan lägga till nuget-paketen AI Service Fabric och ta emot data och loggfiler som skapas och samlas in på Azure-portalen. Dessutom kan bör användare lägga till egna telemetri för att diagnostisera och felsöka sina program och spåra som tjänster och delar av sina program används mest. Den [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) i SDK-klassen innehåller många sätt att spåra telemetri i dina program. Checka ut ett exempel på hur instrumentera och lägga till application insights i ditt program i våra självstudier för [övervakning och diagnos av ett .NET-program](service-fabric-tutorial-monitoring-aspnet.md)
+
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har valt loggning-providern kan instrumentera dina program och tjänster, måste din loggar och händelser ska aggregeras innan de kan skickas till alla analysplattform. Läs mer om [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) och [BOMULLSTUSS](service-fabric-diagnostics-event-aggregation-wad.md) att bättre förstå några av de rekommenderade alternativ.
+När du har valt loggning-providern kan instrumentera dina program och tjänster, måste din loggar och händelser ska aggregeras innan de kan skickas till alla analysplattform. Läs mer om [Programinsikter](service-fabric-diagnostics-event-analysis-appinsights.md), [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md), och [BOMULLSTUSS](service-fabric-diagnostics-event-aggregation-wad.md) att bättre förstå några av de rekommenderade alternativ.

@@ -11,49 +11,49 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: c991a1535b82a76a3d0b9bdbf4ede8f3e22bc866
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4b4a5b9199fe648425304eaa8db0130bb1b4264d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Använda Azure Batch CLI-mallar och filöverföring (förhandsversion)
 
 Med Azure CLI är det möjligt att köra batchjobb utan att skriva kod.
 
-Skapa och använda mallfilerna med Azure CLI för att skapa Batch pooler, jobb och uppgifter. Jobbet indatafiler kan lätt överföras till storage-konto som är associerade med Batch-konto och jobbet utdatafilerna hämtas.
+Skapa och använda mallfilerna med Azure CLI för att skapa Batch pooler, jobb och uppgifter. Enkelt överför jobb indatafiler till storage-konto som är associerade med Batch-kontot och nedladdning utdatafilerna.
 
 ## <a name="overview"></a>Översikt
 
-Ett tillägg till Azure CLI kan Batch ska använda slutpunkt till slutpunkt av användare som inte är utvecklare. Du kan skapa en pool, indata har överförts, jobb och förknippade aktiviteter som skapats och resulterande utdata hämtas – ingen kod krävs CLI som används direkt eller integreras i skript.
+Ett tillägg till Azure CLI kan Batch ska använda slutpunkt till slutpunkt av användare som inte är utvecklare. Med bara CLI-kommandon, kan du skapa en pool, överför indata, skapa jobb och förknippade aktiviteter och hämta resulterande utdata. Ingen ytterligare kod krävs. Kör CLI-kommandona direkt eller integrera dem i skript.
 
-Batch-mallar som bygger på den [befintliga Batch-stöd i Azure CLI](https://docs.microsoft.com/azure/batch/batch-cli-get-started#json-files-for-resource-creation) som gör det möjligt för JSON-filer att ange egenskapsvärden för att skapa pooler, projekt, uppgifter och andra objekt. Följande funktioner läggs över vad du kan göra med JSON-filer med Batch-mallar:
+Batch-mallar som bygger på den [befintliga Batch-stöd i Azure CLI](batch-cli-get-started.md#json-files-for-resource-creation) för JSON-filer att ange egenskapsvärden när du skapar pooler, projekt, uppgifter och andra objekt. Följande funktioner läggs över vad du kan göra med JSON-filer med Batch-mallar:
 
 -   Du kan definiera parametrar. När mallen används anges bara parametervärden till att skapa objektet med andra objekt egenskapsvärden som anges i brödtexten i mallen. En användare som förstår Batch och program som ska köras av Batch kan skapa mallar, ange pool, jobb och egenskapsvärden för aktiviteten. En användare mindre känner till Batch och/eller program behöver bara ange värden för de definierade parametrarna.
 
 -   Jobbet uppgiften fabriker skapa en eller flera uppgifter som är kopplad till ett jobb, vilket minskar behovet av att många definitioner för uppgiften att skapas och förenkla avsevärt jobbet.
 
 
-Indata-filer måste anges för jobb och utdata datafiler produceras ofta. Ett lagringskonto associeras som standard med varje Batch-kontot och filer kan lätt överföras till och från det här lagringskontot med hjälp av CLI med ingen kodning och inga autentiseringsuppgifter för lagring krävs.
+Jobb vanligtvis använda filer som indata och skapar utdata datafiler. Ett lagringskonto associeras som standard med varje Batch-kontot. Överföra filer till och från det här lagringskontot med hjälp av CLI med ingen kodning och inga autentiseringsuppgifter för lagring.
 
-Till exempel [ffmpeg](http://ffmpeg.org/) är ett populärt program som bearbetar ljud- och bildfiler. Azure Batch CLI kan användas för att anropa ffmpeg att kodas om käll-filer till olika lösningar.
+Till exempel [ffmpeg](http://ffmpeg.org/) är ett populärt program som bearbetar ljud- och bildfiler. Här är åtgärder med Azure Batch CLI för att anropa ffmpeg att kodas om käll-filer till olika lösningar.
 
--   En pool mall skapas. Användaren som skapar mallen vet hur du anropar ffmpeg programmet och dess krav. de ange lämpliga OS, VM storlek, hur ffmpeg är installerat (från ett programpaket eller med Pakethanteraren, till exempel) och andra poolen egenskapsvärden. Parametrar skapas när mallen används endast programpools-ID och antal virtuella datorer måste anges.
+-   Skapa en mall för poolen. Användaren som skapar mallen vet hur du anropar ffmpeg programmet och dess krav. de ange lämpliga OS, VM storlek, hur ffmpeg är installerat (från ett programpaket eller med Pakethanteraren, till exempel) och andra poolen egenskapsvärden. Parametrar skapas när mallen används endast programpools-ID och antal virtuella datorer måste anges.
 
--   Ett jobb skapas. Användaren som skapar mallen vet hur ffmpeg måste anropas för att kodas om källan video till en annan upplösning och anger vilken kommandorad för uppgift; de vet att det finns en mapp som innehåller källan videofiler, med en aktivitet som behövs per indatafilen.
+-   Skapa en jobbmall. Användaren som skapar mallen vet hur ffmpeg måste anropas för att kodas om källan video till en annan upplösning och anger vilken kommandorad för uppgift; de vet att det finns en mapp som innehåller källan videofiler, med en aktivitet som behövs per indatafilen.
 
--   En användare med en uppsättning videofiler ska kunna koda skapar först en pool med mallen poolen att ange pool-ID och antal virtuella datorer som krävs. De kan sedan överföra källfilerna ska kunna koda. Ett jobb kan sedan skickas med jobbmallen att ange pool-ID och platsen för källfiler som har överförts. Batch-jobbet har skapats med en aktivitet per indatafilen som genereras. Slutligen kan utdatafilerna kodas hämtas.
+-   En användare med en uppsättning videofiler ska kunna koda skapar först en pool med mallen poolen att ange pool-ID och antal virtuella datorer som krävs. De kan sedan överföra källfilerna ska kunna koda. Ett jobb kan sedan skickas med jobbmallen att ange pool-ID och platsen för källfiler som har överförts. Batch-jobbet har skapats med en aktivitet per indatafilen som genereras. Slutligen kan du hämta kodas utdatafilerna.
 
 ## <a name="installation"></a>Installation
 
-Mall och fil överföring funktionerna kräver ett tillägg som ska installeras.
+Installera tillägget Azure Batch CLI för att använda en mall och fil överföring.
 
-Anvisningar om hur du installerar Azure CLI finns [installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Instruktioner om hur du installerar Azure CLI finns [installera Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-När du har installerat Azure CLI kan den senaste versionen av tillägget Batch installeras med följande CLI-kommando:
+När Azure CLI har installerats kan du installera den senaste versionen av Batch-tillägget med hjälp av kommandot CLI:
 
 ```azurecli
-az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.1/azure_batch_cli_extensions-2.0.1-py2.py3-none-any.whl
+az extension add --name azure-batch-cli-extensions
 ```
 
 Mer information om Batch-tillägg finns [Microsoft Azure Batch CLI-tillägg för Windows, Mac och Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux).
@@ -76,23 +76,23 @@ Azure Batch-mallar liknar Azure Resource Manager-mallar i funktioner och syntax.
 
 -   **Variabler**
 
-    -   Tillåt enkla eller avancerade parametervärden som ska anges i en enda plats och på en eller flera platser i brödtexten i mallen. Variabler kan förenkla och minska storleken på mallen samt göra den mer hanterbar genom olika platser för att ändra egenskaper vars värde ändras.
+    -   Tillåt enkla eller avancerade parametervärden som ska anges i en enda plats och på en eller flera platser i brödtexten i mallen. Variabler kan förenkla och minska storleken på mallen samt göra den mer hanterbar genom olika platser för att ändra egenskaperna.
 
 -   **Konstruktioner på högre nivå**
 
-    -   Vissa på högre nivå konstruktioner är tillgängliga i den mall som inte är ännu tillgängliga i Batch-API: er. Exempelvis kan en aktivitet fabrik definieras i en jobbmall för som skapar flera uppgifter för jobbet med en gemensam aktivitetsdefinition. Dessa konstruktioner undvika att behöva koden för att dynamiskt skapa flera JSON-filer, till exempel en fil per aktivitet, samt skapa skriptfiler för att installera program via en Pakethanteraren, t.ex.
+    -   Vissa på högre nivå konstruktioner är tillgängliga i den mall som inte är ännu tillgängliga i Batch-API: er. Exempelvis kan en aktivitet fabrik definieras i en jobbmall för som skapar flera uppgifter för jobbet med en gemensam aktivitetsdefinition. Dessa konstruktioner undvika att behöva koden för att dynamiskt skapa flera JSON-filer, till exempel en fil per aktivitet, samt skapa skriptfiler för att installera program via en Pakethanteraren.
 
-    -   På någon punkt i tillämpliga fall kanske dessa konstruktioner läggas till i Batch-tjänsten och är tillgängliga i Batch-API: er, användargränssnitt, osv.
+    -   Dessa konstruktioner kanske på någon punkt läggas till i Batch-tjänsten och är tillgängliga i Batch-API: er, användargränssnitt, osv.
 
 ### <a name="pool-templates"></a>Pool-mallar
 
-Förutom funktionerna som standardmall för parametrar och variabler stöds följande på högre nivå konstruktioner av pool-mallen:
+Poolen mallar stöder standardmall funktionerna i parametrar och variabler. De stöder även följande på högre nivå konstruktion:
 
 -   **Paketet refererar till**
 
-    -   Alternativt kan program som ska kopieras till poolen noder med hjälp av paketet chefer. Package manager och paket-ID har angetts. Kunna deklarerar ett eller flera paket undanröjer behovet av att skapa ett skript som hämtar de nödvändiga paketen installera skriptet och kör skriptet på varje nod i poolen.
+    -   Alternativt kan program som ska kopieras till poolen noder med hjälp av paketet chefer. Package manager och paket-ID har angetts. Genom att deklarera ett eller flera paket undvika du att skapa ett skript som hämtar de nödvändiga paketen, installera skriptet och kör skriptet på varje nod i poolen.
 
-Följande är ett exempel på en mall som skapar en pool av virtuella Linux-datorer med ffmpeg installerade och endast kräver en pool-ID-sträng och antalet virtuella datorer för att ange om du vill använda:
+Följande är ett exempel på en mall som skapar en pool av virtuella Linux-datorer med ffmpeg installerad. Ange endast en pool med ID-sträng och antalet virtuella datorer i poolen för att använda den:
 
 ```json
 {
@@ -139,7 +139,7 @@ Följande är ett exempel på en mall som skapar en pool av virtuella Linux-dato
 }
 ```
 
-Om mallfilen hette _pool ffmpeg.json_, och sedan mallen skulle anropas på följande sätt:
+Om mallfilen hette _pool ffmpeg.json_, anropa mallen på följande sätt:
 
 ```azurecli
 az batch pool create --template pool-ffmpeg.json
@@ -147,13 +147,13 @@ az batch pool create --template pool-ffmpeg.json
 
 ### <a name="job-templates"></a>Jobbmallar
 
-Förutom funktionerna som standardmall för parametrar och variabler stöds följande på högre nivå konstruktioner av jobbmallen:
+Jobbmallar stöder standardmall funktionerna i parametrar och variabler. De stöder även följande på högre nivå konstruktion:
 
 -   **Uppgiften fabriken**
 
     -   Skapar flera uppgifter för ett jobb från en aktivitetsdefinition. Tre typer av aktiviteten fabriken stöds – parametrisk Sopa aktivitet per fil och uppgift samling.
 
-Följande är ett exempel på en mall som skapar ett jobb som använder ffmpeg att kodas om MP4-filer till en av två lägre lösningar med en aktivitet som skapats per video källfilen:
+Följande är ett exempel på en mall som skapar ett jobb för att kodas om MP4-filer med ffmpeg till en av två lägre upplösningar. Den skapar en aktivitet per video källfilen:
 
 ```json
 {
@@ -229,7 +229,7 @@ Följande är ett exempel på en mall som skapar ett jobb som använder ffmpeg a
 }
 ```
 
-Om mallfilen hette _jobbet ffmpeg.json_, och sedan mallen skulle anropas på följande sätt:
+Om mallfilen hette _jobbet ffmpeg.json_, anropa mallen på följande sätt:
 
 ```azurecli
 az batch job create --template job-ffmpeg.json
@@ -237,11 +237,11 @@ az batch job create --template job-ffmpeg.json
 
 ## <a name="file-groups-and-file-transfer"></a>Filgrupper och filöverföring
 
-De flesta jobb och uppgifter kräver att inkommande filer och skapar utdatafilerna. Både inkommande filer och utdatafilerna vanligtvis måste överföras från klienten till noden, eller från noden till klienten. Azure Batch CLI-tillägget avlägsnar bort filöverföring och använder det lagringskonto som skapas som standard för varje Batch-kontot.
+De flesta jobb och uppgifter kräver att inkommande filer och skapar utdatafilerna. Vanligtvis överförs inkommande och utgående filer, från klienten till noden, eller från noden till klienten. Azure Batch CLI-tillägget avlägsnar bort filöverföring och använder det lagringskonto som skapas som standard för varje Batch-kontot.
 
 En filgrupp som är lika med en behållare som skapats i Azure storage-konto. Filgruppen kan ha undermappar.
 
-Tillägget Batch CLI innehåller kommandon för att ladda upp filer från klienten till en angiven fil-grupp och hämta filer från den angivna filgruppen till en klient.
+Tillägget Batch CLI innehåller kommandon för att överföra filer från klienten till en angiven filgrupp och hämta filer från den angivna filgruppen till en klient.
 
 ```azurecli
 az batch file upload --local-path c:\source_videos\*.mp4 
@@ -251,7 +251,7 @@ az batch file download --file-group ffmpeg-output --local-path
     c:\output_lowres_videos
 ```
 
-Poolen och jobb med mallar kan filer som lagras i filgrupper anges för kopiering till poolen noder eller inaktivera poolen noder tillbaka till en filgrupp. Till exempel i jobbmallen angav tidigare, har filen grupp ”ffmpeg-indata” angetts för uppgiften fabriken som plats för video källfilerna kopieras ned till noden för omkodning; filen grupp ”ffmpeg-utdata” används som den plats där utdatafiler kodas kopieras till från den nod som kör varje aktivitet.
+Poolen och jobb med mallar kan filer som lagras i filgrupper anges för kopiering till poolen noder eller inaktivera poolen noder tillbaka till en filgrupp. Till exempel i jobbmallen angav tidigare, har filen grupp ”ffmpeg-indata” angetts för uppgiften fabriken som plats för video källfilerna kopieras ned till noden för omkodning; filen grupp ”ffmpeg-utdata” är den plats där utdatafiler kodas kopieras till från den nod som kör varje aktivitet.
 
 ## <a name="summary"></a>Sammanfattning
 

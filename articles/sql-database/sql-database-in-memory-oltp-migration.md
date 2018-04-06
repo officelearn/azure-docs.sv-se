@@ -1,6 +1,6 @@
 ---
-title: "Minnesintern OLTP förbättrar prestanda för SQL-txn | Microsoft Docs"
-description: "Anta Minnesintern OLTP att förbättra prestanda i en befintlig SQL-databas."
+title: Minnesintern OLTP förbättrar prestanda för SQL-txn | Microsoft Docs
+description: Anta Minnesintern OLTP att förbättra prestanda i en befintlig SQL-databas.
 services: sql-database
 author: jodebrui
 manager: craigg
@@ -10,14 +10,14 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
-ms.openlocfilehash: 77e73ec1004babb5fce1e293acfade9264cd6945
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 00823ca44ec7135a9937bb37dd4ed58ec996c89d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Använd InMemory-OLTP att förbättra din programprestanda i SQL-databas
-[Minnesintern OLTP](sql-database-in-memory.md) kan användas för att förbättra prestanda för transaktionsbearbetning, datapåfyllning och tillfälligt datascenarier i [Premium](sql-database-service-tiers.md) Azure SQL-databaser utan att öka prisnivån. 
+[Minnesintern OLTP](sql-database-in-memory.md) kan användas för att förbättra prestanda för transaktionsbearbetning, datapåfyllning och tillfälligt datascenarier i [Premium-och Business kritiska](sql-database-service-tiers.md) databaser utan att öka prisnivån. 
 
 > [!NOTE] 
 > Lär dig hur [kvorum fördubblar viktiga databasen arbetsbelastning och sänka DTU med 70% med SQL-databas](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
@@ -25,8 +25,8 @@ ms.lasthandoff: 03/16/2018
 
 Följ dessa steg för att införa Minnesintern OLTP i den befintliga databasen.
 
-## <a name="step-1-ensure-you-are-using-a-premium-database"></a>Steg 1: Kontrollera att du använder en Premium-databas
-Minnesintern OLTP stöds endast i Premium-databaser. I minnet stöds om det returnerade resultatet är 1 (inte 0):
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Steg 1: Kontrollera att du använder en Premium och företag kritisk nivå-databas
+Minnesintern OLTP stöds bara i Premium- och Business kritisk nivå-databaser. I minnet stöds om det returnerade resultatet är 1 (inte 0):
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');

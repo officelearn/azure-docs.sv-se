@@ -1,7 +1,7 @@
 ---
-title: "Övervaka databasprestanda i Azure SQL Database | Microsoft Docs"
-description: "Läs mer om alternativ för att övervaka din databas med Azure-verktyg och dynamiska hanteringsvyer."
-keywords: "databasövervakning, molndatabasprestanda"
+title: Övervaka databasprestanda i Azure SQL Database | Microsoft Docs
+description: Läs mer om alternativ för att övervaka din databas med Azure-verktyg och dynamiska hanteringsvyer.
+keywords: databasövervakning, molndatabasprestanda
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -10,11 +10,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: ba2239b1a4cd14f7723e88ee83f7ad93da717e0a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4bc2c8578157bd29894bfee221174501c5003a42
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Övervaka databasprestanda i Azure SQL Database
 Prestandaövervakning för en SQL-databas i Azure startar med att övervaka resursutnyttjandet i förhållande till nivån på databasprestanda som du valt. Övervakning hjälper dig att avgöra om din databas har överflödig kapacitet eller har problem på grund av att resurserna är överutnyttjade och därefter bestämma när det är dags att justera prestandanivån och [tjänstnivån](sql-database-service-tiers.md) för databasen. Du kan övervaka din databas med grafiska verktyg i [Azure-portalen](https://portal.azure.com) eller med SQL [dynamiska hanteringsvyer](https://msdn.microsoft.com/library/ms188754.aspx).
@@ -59,15 +59,15 @@ Du kan också övervaka användningen med hjälp av dessa två vyer:
 * [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
 #### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
-Du kan använda den [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) vyn i varje SQL-databas. Den **sys.dm_db_resource_stats** vyn visar de senaste Använd resursdata i förhållande till tjänstnivån. Genomsnittlig procent för processor, data i/o, skrivs loggen och minne registreras var 15: e sekund och bevaras i timmen.
+Du kan använda den [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) vyn i varje SQL-databas. Den **sys.dm_db_resource_stats** vyn visar de senaste Använd resursdata i förhållande till tjänstnivån. Genomsnittlig procent för processor, data-i/o, skrivs loggen och minne registreras var 15: e sekund och bevaras i timmen.
 
 Eftersom den här vyn innehåller en mer detaljerad titt på Resursanvändning, använda **sys.dm_db_resource_stats** första för alla aktuella tillstånd analys eller felsökning. Den här frågan visar till exempel genomsnittliga och högsta resursanvändningen för den aktuella databasen under den senaste timmen:
 
     SELECT  
         AVG(avg_cpu_percent) AS 'Average CPU use in percent',
         MAX(avg_cpu_percent) AS 'Maximum CPU use in percent',
-        AVG(avg_data_io_percent) AS 'Average data I/O in percent',
-        MAX(avg_data_io_percent) AS 'Maximum data I/O in percent',
+        AVG(avg_data_io_percent) AS 'Average data IO in percent',
+        MAX(avg_data_io_percent) AS 'Maximum data IO in percent',
         AVG(avg_log_write_percent) AS 'Average log write use in percent',
         MAX(avg_log_write_percent) AS 'Maximum log write use in percent',
         AVG(avg_memory_usage_percent) AS 'Average memory use in percent',
@@ -117,8 +117,8 @@ I nästa exempel visas olika sätt som du kan använda den **sys.resource_stats*
         SELECT
             avg(avg_cpu_percent) AS 'Average CPU use in percent',
             max(avg_cpu_percent) AS 'Maximum CPU use in percent',
-            avg(avg_data_io_percent) AS 'Average physical data I/O use in percent',
-            max(avg_data_io_percent) AS 'Maximum physical data I/O use in percent',
+            avg(avg_data_io_percent) AS 'Average physical data IO use in percent',
+            max(avg_data_io_percent) AS 'Maximum physical data IO use in percent',
             avg(avg_log_write_percent) AS 'Average log write use in percent',
             max(avg_log_write_percent) AS 'Maximum log write use in percent',
             avg(max_session_percent) AS 'Average % of sessions',
@@ -127,7 +127,7 @@ I nästa exempel visas olika sätt som du kan använda den **sys.resource_stats*
             max(max_worker_percent) AS 'Maximum % of workers'
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-3. Med den här informationen om de genomsnittliga och högsta värdena för varje resurs mått bedöma du hur bra din arbetsbelastning passar in i prestandanivå du valt. Vanligtvis medelvärden från **sys.resource_stats** ger dig en bra baslinje att använda mot målstorleken. Det bör vara primär mätning-minne. Exempelvis kan du använda Standard-tjänstnivå med S2 prestandanivå. Medelvärdet använder procent för processor- och i/o-läsningar och skrivningar är lägre än 40 procent, det genomsnittliga antalet anställda understiger 50 och det genomsnittliga antalet sessioner är under 200. Din arbetsbelastning kan passar in i S1-prestandanivå. Det är enkelt att se om databasen passar in i worker och session-gränser. Om du vill se om en databas som passar in i en lägre prestandanivå med avseende på CPU, läser och skrivningar, dividera antalet lägre prestandanivå med din nuvarande prestandanivå DTU antalet DTU och multiplicera resultatet med 100:
+3. Med den här informationen om de genomsnittliga och högsta värdena för varje resurs mått bedöma du hur bra din arbetsbelastning passar in i prestandanivå du valt. Vanligtvis medelvärden från **sys.resource_stats** ger dig en bra baslinje att använda mot målstorleken. Det bör vara primär mätning-minne. Exempelvis kan du använda Standard-tjänstnivå med S2 prestandanivå. Medelvärdet använder procent för processor- och -i/o-läsningar och skrivningar är lägre än 40 procent, det genomsnittliga antalet anställda understiger 50 och det genomsnittliga antalet sessioner är under 200. Din arbetsbelastning kan passar in i S1-prestandanivå. Det är enkelt att se om databasen passar in i worker och session-gränser. Om du vill se om en databas som passar in i en lägre prestandanivå med avseende på CPU, läser och skrivningar, dividera antalet lägre prestandanivå med din nuvarande prestandanivå DTU antalet DTU och multiplicera resultatet med 100:
    
     **S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
    
@@ -153,7 +153,7 @@ I nästa exempel visas olika sätt som du kan använda den **sys.resource_stats*
         SELECT
         (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
         ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent'
-        ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data I/O fit percent'
+        ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data IO fit percent'
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
    

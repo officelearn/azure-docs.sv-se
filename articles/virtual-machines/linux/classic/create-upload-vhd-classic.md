@@ -1,10 +1,10 @@
 ---
 title: Skapa och ladda upp en Linux VHD till Azure | Microsoft Docs
-description: "Skapa och ladda upp en Azure virtuell hårddisk (VHD) som innehåller Linux-operativsystem som använder den klassiska distributionsmodellen"
+description: Skapa och ladda upp en Azure virtuell hårddisk (VHD) som innehåller Linux-operativsystem som använder den klassiska distributionsmodellen
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
-ms.openlocfilehash: 49cf4f1718e4dce1e86aa3c8921eaa8af5f16192
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 1ba568eeaf3bbc3d786cc48e54404aa65a00fecc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Skapa och ladda upp en virtuell hårddisk som innehåller operativsystemet Linux
 > [!IMPORTANT] 
@@ -29,10 +29,10 @@ ms.lasthandoff: 01/08/2018
 Den här artikeln visar hur du skapar och överför en virtuell hårddisk (VHD) så att du kan använda den som en egen avbildning för att skapa virtuella datorer i Azure. Lär dig hur du förbereder operativsystemet så du kan använda för att skapa flera virtuella datorer baserat på avbildningen. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Den här artikeln förutsätter att du har följande objekt:
 
-* **Linux-operativsystem i en VHD-fil** -du har installerat en [Azure-godkända Linux-distribution](../endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (eller se [information för icke-godkända distributioner](../create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) till en virtuell disk VHD-format. Det finns flera verktyg för att skapa en virtuell dator och virtuell Hårddisk:
+* **Linux-operativsystem i en VHD-fil** -du har installerat en [Azure-godkända Linux-distribution](../endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (eller se [information för icke-godkända distributioner](../create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) till en virtuell disk i den VHD-format. Det finns flera verktyg för att skapa en virtuell dator och virtuell Hårddisk:
   * Installera och konfigurera [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) eller [KVM](http://www.linux-kvm.org/page/RunningKVM), och ser till att använda VHD som bildformat. Om det behövs kan du [konvertera en bild](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) med `qemu-img convert`.
   * Du kan också använda Hyper-V [på Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) eller [på Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
@@ -46,7 +46,7 @@ Den här artikeln förutsätter att du har följande objekt:
 ## <a name="step-1-prepare-the-image-to-be-uploaded"></a>Steg 1: Förbered avbildningen som skulle överföras
 Azure stöder olika Linux-distributioner (se [godkända distributioner](../endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). I följande artiklar leder dig igenom hur du förbereder de olika Linux-distributioner som stöds på Azure. När du har slutfört stegen i följande guider återvända hit när du har en VHD-fil som är redo att överföra till Azure:
 
-* **[CentOS-baserade distributioner](../create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[CentOS-based Distributions](../create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](../debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](../oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Red Hat Enterprise Linux](../redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -59,7 +59,7 @@ Azure stöder olika Linux-distributioner (se [godkända distributioner](../endor
 > 
 > 
 
-Se även den  **[Linux installationsinformation](../create-upload-generic.md#general-linux-installation-notes)**  mer allmänna tips om hur du förbereder Linux avbildningar för Azure.
+Se även den **[Linux installationsinformation](../create-upload-generic.md#general-linux-installation-notes)** mer allmänna tips om hur du förbereder Linux avbildningar för Azure.
 
 <a id="connect"> </a>
 

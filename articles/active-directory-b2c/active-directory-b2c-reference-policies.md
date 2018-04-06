@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 35b31c46b350474caa1472829d705b4d068d9642
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c733f919189dadcf1181ddbe2a1057b2bcf66fc4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: Inbyggda principer
 
@@ -62,7 +62,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>Skapa en registrerings- eller inloggningsprincip
 
-Den här principen hanterar upplevelser för registrering och inloggning i båda konsumenten med en enda konfiguration. Konsumenterna ledde till rätt sökvägen (registrering eller inloggning) beroende på kontext. Här beskrivs också innehållet i token som programmet ska ta emot lyckats logga in eller inloggningar.  En kodexempel för registrering eller inloggning principen är [tillgänglig här](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Är det rekommenderade att du använder den här principen via en principen för registrering och inloggning princip.  
+Den här principen hanterar upplevelser för registrering och inloggning i båda konsumenten med en enda konfiguration. Konsumenterna ledde till rätt sökvägen (registrering eller inloggning) beroende på kontext. Här beskrivs också innehållet i token som programmet ska ta emot lyckats logga in eller inloggningar.  En kodexempel för registrering eller inloggning principen är [tillgänglig här](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Det rekommenderas att du använder den här principen via en principen för registrering och inloggning princip.  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
@@ -82,7 +82,7 @@ Den här principen hanterar upplevelser för registrering och inloggning i båda
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 ### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Hur länkar en princip för registrering eller inloggning med en princip för lösenordsåterställning?
 När du skapar en princip för registrering eller inloggning (med lokala konton) visas en **har du glömt lösenordet?** länk på den första sidan i miljön. Klicka på den här länken återställs inte utlösaren lösenord automatiskt princip. 

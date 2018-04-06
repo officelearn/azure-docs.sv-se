@@ -1,26 +1,26 @@
 ---
-title: "Skapa anpassade rollbaserad åtkomst kontroll roller och tilldela interna och externa användare i Azure | Microsoft Docs"
-description: "Tilldela anpassade RBAC-roller med hjälp av PowerShell och CLI för interna och externa användare"
+title: Skapa anpassade rollbaserad åtkomst kontroll roller och tilldela interna och externa användare i Azure | Microsoft Docs
+description: Tilldela anpassade RBAC-roller med hjälp av PowerShell och CLI för interna och externa användare
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: kgremban
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/06/2017
+ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 75a45b492c230b19d2f7237f8ea7fe2c49de29bf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b60b30e3a5a4f5adec4fbef8c4e981ad034a7f6c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="intro-on-role-based-access-control"></a>Introduktion på rollbaserad åtkomstkontroll
 
@@ -28,7 +28,7 @@ Rollbaserad åtkomstkontroll är en Azure portal endast funktionen som tillåter
 
 RBAC kan bättre säkerhetshantering för stora organisationer och för små och medelstora företag arbetar med externa samarbetspartners, leverantörer eller freelancers som behöver åtkomst till specifika resurser i din miljö, men inte nödvändigtvis att hela infrastrukturen eller någon fakturerings-relaterade scope. RBAC kan flexibiliteten för en Azure-prenumeration som äger hanteras av administratörskontot (service administratörsrollen på en prenumerationsnivå) och har flera användare uppmanas för att arbeta under samma prenumeration, men utan några administrativa rättigheter för det. . Från en hanteringen och fakturering perspektiv bevisar RBAC-funktionen ska vara ett tids- och effektivt alternativ för att använda Azure i olika scenarier.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Med RBAC i Azure-miljön kräver:
 
 * Med en fristående Azure-prenumeration tilldelas användaren som ägare (prenumeration roll)
@@ -53,10 +53,10 @@ Det finns två vanliga exempel när RBAC används (men inte begränsat till):
 * Arbeta med användare i organisationen (det är en del av användarens Azure Active Directory-klient) men en del av olika grupper eller grupper som behöver detaljerad åtkomst till hela prenumerationen eller till vissa resursgrupp eller resurs scope i miljön
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>Bevilja åtkomst till en prenumerationsnivå för en användare utanför Azure Active Directory
-RBAC-roller som kan beviljas endast av **ägare** prenumerationens därför administratörsanvändare måste vara inloggad med ett användarnamn som har rollen förinställda eller har skapats i Azure-prenumeration.
+RBAC-roller som kan beviljas endast av **ägare** för prenumerationen. Därför måste administratören logga in som en användare som har rollen förinställda eller har skapats i Azure-prenumeration.
 
 Azure-portalen när du loggar in som administratör, Välj ”prenumerationer” och välj en.
-![prenumerationsbladet i Azure-portalen](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) som standard om administratören har köpt Azure-prenumeration användaren visas som **kontoadministratören**, detta är rollen prenumeration. Mer information om Azure-prenumeration roller finns [lägga till eller ändra Azure-administratörsroller som hanterar prenumerationen eller tjänster](/billing/billing-add-change-azure-subscription-administrator.md).
+![prenumerationsbladet i Azure-portalen](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) som standard om administratören har köpt Azure-prenumeration användaren visas som **kontoadministratören**, detta är rollen prenumeration. Läs mer om Azure-prenumeration roller [lägga till eller ändra Azure-administratörsroller som hanterar prenumerationen eller tjänster](/billing/billing-add-change-azure-subscription-administrator.md).
 
 I det här exemplet är användaren ”alflanigan@outlook.com” är den **ägare** prenumerationen i AAD för ”utvärderingsversion” klient ”standard klient Azure”. Eftersom den här användaren är skapare av Azure-prenumeration med inledande Account ”Outlook” (Account = Outlook Live etc.) standarddomännamnet för alla andra användare som lagts till i den här klienten kommer att **”@alflaniganuoutlook.onmicrosoft.com”**. Avsiktligt syntaxen för den nya domänen bildas genom att sätta ihop användarnamn och domän namnet på användaren som skapade klienten och lägger till tillägget **”. onmicrosoft.com”**.
 Dessutom kan användare logga in med ett anpassat domännamn i klienten efter att lägga till och verifierar för den nya innehavaren. Mer information om hur du verifierar ett anpassat domännamn i Azure Active Directory-klient finns [lägga till ett anpassat domännamn i katalogen](/active-directory/active-directory-add-domain).
@@ -185,154 +185,154 @@ För större organisationer kan RBAC-roller tillämpas på samma sätt för Azur
 Dessa grupper är säkerhetsgrupper som etableras och hanteras i Azure Active Directory.
 
 ## <a name="create-a-custom-rbac-role-to-open-support-requests-using-powershell"></a>Skapa en anpassad RBAC-roll för att öppna supportärenden med hjälp av PowerShell
-De inbyggda RBAC-roller som är tillgängliga i Azure kontrollera vissa behörighetsnivåer baserat på tillgängliga resurser i miljön. Men om ingen av dessa roller passar admin-användare, finns alternativet att begränsa åtkomsten ytterligare genom att skapa anpassade RBAC-roller.
+De inbyggda roller som är tillgängliga i Azure kontrollera vissa behörighetsnivåer baserat på tillgängliga resurser i miljön. Om inbyggda roller inte uppfyller dina behov, kan du skapa anpassade roller.
 
-Skapa anpassade RBAC-roller kräver att ta en inbyggd roll, redigera och importera den sedan tillbaka i miljön. Ladda ned och överföra rollen som hanteras med PowerShell eller CLI.
+Om du vill skapa en anpassad roll du börja med en inbyggd roll, redigera den och sedan skapa en ny roll. I det här exemplet inbyggt **Reader** roll har anpassats för att tillåta användaren att öppna supportärenden.
 
-Det är viktigt att förstå kraven för att skapa en anpassad roll som kan ge detaljerade åtkomst på prenumerationsnivå och även tillåta inbjudna användaren möjlighet att öppna supportärenden.
+I PowerShell använder den [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) kommando för att exportera den **Reader** roll i JSON-format.
 
-I det här exemplet den inbyggda rollen **Reader**, vilket gör att användare kan visa alla resurs-scope, men inte att redigera dem eller skapa nya har anpassats för att tillåta användaren att öppna supportärenden.
-
-Den första åtgärden för att exportera den **Reader** roll måste utföras i PowerShell kördes med förhöjda behörigheter som administratör.
-
-```
-Login-AzureRMAccount
-
-Get-AzureRMRoleDefinition -Name "Reader"
-
-Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
-
+```powershell
+Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
 ```
 
+Nedan visas ett JSON-utdata för rollen läsare.
 
+```json
+{
+    "Name":  "Reader",
+    "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "IsCustom":  false,
+    "Description":  "Lets you view everything, but not make any changes.",
+    "Actions":  [
+                    "*/read"
+                ],
+    "NotActions":  [
 
-
-
-![PowerShell skärmbild för läsare RBAC roll](./media/role-based-access-control-create-custom-roles-for-internal-external-users/15.png)
-
-Du måste sedan extrahera JSON-mall för rollen.
-
-
-
-
-
-![JSON-mall för anpassad Reader RBAC-roll](./media/role-based-access-control-create-custom-roles-for-internal-external-users/16.png)
-
-En typisk RBAC-rollen består av tre huvudavsnitt **åtgärder**, **NotActions** och **AssignableScopes**.
-
-I den **åtgärd** finns i avsnittet visas alla tillåtna åtgärder för den här rollen. Det är viktigt att förstå att tilldelas varje åtgärd från en resursleverantör. I detta fall för att skapa supportärenden den **Microsoft.Support** resursprovidern måste anges.
-
-Du kan använda PowerShell för att kunna se alla resursleverantörer tillgänglig och registrerade i din prenumeration.
-```
-Get-AzureRMResourceProvider
-
-```
-Dessutom kan du söka efter de alla tillgängliga PowerShell cmdletarna för hantering av resursleverantörer.
-    ![PowerShell skärmbild för providern resurshantering](./media/role-based-access-control-create-custom-roles-for-internal-external-users/17.png)
-
-Om du vill begränsa alla åtgärder för en viss roll RBAC resursproviders anges under avsnittet **NotActions**.
-Senast, är det obligatoriskt att rollen RBAC innehåller explicit prenumerationen ID: N där den används. Prenumerations-ID: N visas under den **AssignableScopes**, annars du kommer inte att importera rollen i din prenumeration.
-
-När du skapar och anpassar RBAC-rollen, behöver importeras tillbaka i miljön.
-
-```
-New-AzureRMRoleDefinition -InputFile "C:\rbacrole2.json"
-
+                   ],
+    "AssignableScopes":  [
+                             "/"
+                         ]
+}
 ```
 
-I det här exemplet är eget namn för den här rollen RBAC ”Reader stöd biljetter åtkomstnivå” så att användaren kan visa allt i prenumerationen och också öppna supportärenden.
+Därefter kan du redigera JSON-utdata för att skapa din egen roll.
+
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
+
+                   ],
+    "AssignableScopes":  [
+                             "/subscriptions/11111111-1111-1111-1111-111111111111"
+                         ]
+}
+```
+
+En typisk roll består av tre huvudavsnitt **åtgärder**, **NotActions**, och **AssignableScopes**.
+
+Den **åtgärd** avsnitt visar en lista över tillåtna operationer för rollen. I det här fallet att skapa stöd tjänstbiljetter du, den **Microsoft.Support/&ast;**  måste läggas till igen. Det är viktigt att förstå att varje åtgärd görs tillgängliga från en resursleverantör. Du kan använda för att få en lista över åtgärder för en resursleverantör, den [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) kommando eller se [Azure Resource Manager Resource Provider operations](role-based-access-control-resource-provider-operations.md).
+
+Om du vill begränsa alla åtgärder för en viss roll resursproviders visas under den **NotActions** avsnitt.
+Det är obligatoriskt att rollen som innehåller explicita prenumerationen ID: N där den används. Prenumerations-ID: N visas under **AssignableScopes**, annars du kommer inte att importera rollen till din prenumeration.
+
+Om du vill skapa den anpassade rollen som du använder den [ny AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) kommando och ange definitionsfilen för uppdaterade JSON-rollen.
+
+```powershell
+New-AzureRmRoleDefinition -InputFile "C:\rbacrole2.json"
+```
+
+I det här exemplet är namnet på den här anpassade rollen ”Reader supportärenden åtkomstnivå”. Tillåter användare att visa allt i prenumerationen och även öppna supportärenden.
 
 > [!NOTE]
-> Bara två inbyggda RBAC rollerna tillåter åtgärden öppnandet av supportärenden är **ägare** och **deltagare**. För en användare för att kunna öppna supportärenden måste han tilldelas en RBAC roll bara definitionsområdet prenumeration, eftersom alla supportärenden skapas baserat på en Azure-prenumeration.
+> Bara två inbyggda roller som tillåter användare att öppna supportärenden är **ägare** och **deltagare**. För en användare för att kunna öppna supportärenden måste han tilldelas en roll definitionsområdet prenumerationen eftersom alla supportärenden skapas baserat på en Azure-prenumeration.
 
-Den här nya anpassade rollen har tilldelats till en användare från samma katalog.
+Den nya anpassa rollen är nu tillgänglig i Azure portal och kan tilldelas användare.
 
+![Skärmbild av anpassad roll som importeras i Azure-portalen](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
 
+![Skärmbild av tilldela anpassade importerade roll till användare i samma katalog](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
 
+![Skärmbild av behörigheter för anpassad importerade roll](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
 
+Användare med den här anpassade rollen kan nu skapa nya supportförfrågningar.
 
-![Skärmbild av anpassade RBAC-roll som importeras i Azure-portalen](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
+![Skärmbild av anpassade roll som skapar supportärenden](./media/role-based-access-control-create-custom-roles-for-internal-external-users/21.png)
 
+Användare med den här anpassade rollen kan inte utföra andra åtgärder, exempelvis skapa virtuella datorer eller skapa resursgrupper.
 
+![Skärmbild av anpassad roll går inte att skapa virtuella datorer](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
 
-
-
-![Skärmbild av tilldela anpassade importerade RBAC roll till användare i samma katalog](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
-
-
-
-
-
-![Skärmbild av behörigheter för anpassad importerade RBAC-roll](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
-
-Exemplet har mer detaljerad att visa gränserna för den här anpassade RBAC-rollen på följande sätt:
-* Kan skapa nya supportförfrågningar
-* Det går inte att skapa den nya resursen scope (till exempel: virtuell dator)
-* Det går inte att skapa nya resursgrupper
-
-
-
-
-
-![Skärmbild av anpassade RBAC roll skapar supportärenden](./media/role-based-access-control-create-custom-roles-for-internal-external-users/21.png)
-
-
-
-
-
-![Skärmbild av anpassad RBAC roll går inte att skapa virtuella datorer](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
-
-
-
-
-
-![Skärmbild av anpassad RBAC roll går inte att skapa nya RGs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
+![Skärmbild av anpassad roll går inte att skapa nya RGs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
 
 ## <a name="create-a-custom-rbac-role-to-open-support-requests-using-azure-cli"></a>Skapa en anpassad RBAC-roll för att öppna supportärenden med Azure CLI
-Körs på en Mac och utan att ha åtkomst till PowerShell, är Azure CLI att.
 
-Stegen för att skapa en anpassad roll är desamma, med det enda undantaget att med hjälp av CLI rollen inte kan hämtas i en JSON-mall, men den kan visas i CLI.
+Stegen för att skapa en anpassad roll med hjälp av Azure CLI liknar med hjälp av PowerShell, förutom att JSON-utdata är olika.
 
-Jag har valt den inbyggda rollen för det här exemplet **säkerhetskopiering Reader**.
+I det här exemplet kan du börjar med inbyggt **Reader** roll. Om du vill visa en lista med åtgärder för rollen Läsare, Använd den [az rollen definitionslista](/cli/azure/role/definition#az_role_definition_list) kommando.
 
+```azurecli
+az role definition list --name "Reader" --output json
 ```
 
-azure role show "backup reader" --json
-
+```json
+[
+  {
+    "additionalProperties": {},
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "Lets you view everything, but not make any changes.",
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "permissions": [
+      {
+        "actions": [
+          "*/read"
+        ],
+        "additionalProperties": {},
+        "notActions": []
+      }
+    ],
+    "roleName": "Reader",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
 ```
 
+Skapa en JSON-fil med följande format. Den **Microsoft.Support/&ast;**  åtgärden har lagts till i den **åtgärder** avsnitt så att användaren kan öppna supportärenden när fortsätter att vara en läsare. Du måste lägga till prenumerations-ID där den här rollen ska användas i den **AssignableScopes** avsnitt.
 
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
 
-
-
-![Visa CLI Skärmbild av rollen säkerhetskopiering läsare](./media/role-based-access-control-create-custom-roles-for-internal-external-users/24.png)
-
-Redigera rollen i Visual Studio när du har kopierat proprieties i en JSON-mall i **Microsoft.Support** resursprovidern har lagts till i den **åtgärder** avsnitt så att användaren kan öppna stöd begäranden när fortsätter att vara en läsare för säkerhetskopieringsvalv. Igen är det nödvändigt att lägga till prenumerations-ID där den här rollen ska användas i den **AssignableScopes** avsnitt.
-
+                   ],
+    "AssignableScopes": [
+                            "/subscriptions/11111111-1111-1111-1111-111111111111"
+                        ]
+}
 ```
 
-azure role create --inputfile <path>
+Använd för att skapa den anpassade rollen som den [az rolldefinitionen skapa](/cli/azure/role/definition#az_role_definition_create) kommando.
 
+```azurecli
+az role definition create --role-definition ~/roles/rbacrole1.json
 ```
 
+Den nya anpassa rollen är nu tillgänglig i Azure-portalen och processen för att använda den här rollen är desamma som i föregående avsnitt i PowerShell.
 
-
-
-
-![CLI Skärmbild av Importera anpassad RBAC-roll](./media/role-based-access-control-create-custom-roles-for-internal-external-users/25.png)
-
-Den nya rollen är nu tillgänglig i Azure-portalen och assignation-processen är densamma som i föregående exempel.
-
-
-
-
-
-![Azure portal Skärmbild av anpassade RBAC-roll som skapats med hjälp av CLI 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)
-
-Azure Cloud-gränssnittet är allmänt tillgänglig från och med den senaste Build 2017. Azure Cloud-gränssnittet är ett komplement till IDE- och Azure portal. Med den här tjänsten får du ett webbaserat gränssnitt som är autentiserad och värdbaserad i Azure och du kan använda den i stället för CLI installerat på datorn.
-
-
-
-
-
-![Azure Cloud Shell](./media/role-based-access-control-create-custom-roles-for-internal-external-users/27.png)
+![Azure portal Skärmbild av anpassad roll som skapats med hjälp av CLI 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)

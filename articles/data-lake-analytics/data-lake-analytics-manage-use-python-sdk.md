@@ -1,8 +1,8 @@
 ---
-title: "Hantera Azure Data Lake Analytics med hjälp av Python | Microsoft Docs"
-description: "Lär dig hur du använder Python för att skapa ett Data Lake Store-konto och skicka jobb. "
+title: Hantera Azure Data Lake Analytics med hjälp av Python | Microsoft Docs
+description: 'Lär dig hur du använder Python för att skapa ett Data Lake Store-konto och skicka jobb. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: matt1883
 manager: jhubbard
 editor: cgronlun
@@ -15,15 +15,15 @@ ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: saveenr
 ms.custom: devcenter
-ms.openlocfilehash: 22b56e9569ac1fd2afe2c91013fa5605f9f3ef99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0182a14979550c880904ec829f6b59dee016cad2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Hantera Azure Data Lake Analytics använder Python
 
-## <a name="python-versions"></a>Python-versioner
+## <a name="python-versions"></a>Python versions
 
 * Använda en 64-bitars version av Python.
 * Du kan använda standard Python-distribution finns på  **[Python.org hämtar](https://www.python.org/downloads/)**. 
@@ -150,13 +150,11 @@ armGroupResult = resourceClient.resource_groups.create_or_update( rg, ResourceGr
 Skapa först en store-konto.
 
 ```python
-adlaAcctResult = adlaAcctClient.account.create(
+adlsAcctResult = adlsAcctClient.account.create(
     rg,
-    adla,
-    DataLakeAnalyticsAccount(
-        location=location,
-        default_data_lake_store_account=adls,
-        data_lake_store_accounts=[DataLakeStoreAccountInfo(name=adls)]
+    adls,
+    DataLakeStoreAccount(
+        location=location)
     )
 ).wait()
 ```

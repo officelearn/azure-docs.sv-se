@@ -12,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: 99d10cfd9e1e0eb078d1f90396a87e5e5dc4a7a6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fe4a4962acce06a6448cef8d5c1af398e3965a33
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 Den här artikeln beskrivs olika beräknings-miljöer som du kan använda för att bearbeta eller Transformera data. Det ger också information om olika konfigurationer (på begäran eller ta med din egen) som stöds av Data Factory när du konfigurerar länkade tjänster länka dessa compute miljöer till ett Azure data factory.
 
 Följande tabell innehåller en lista över compute-miljöer som stöds av Data Factory och de aktiviteter som kan köras på dem. 
 
-| Compute-miljö                      | activities                               |
+| Compute-miljö                      | aktiviteter                               |
 | ---------------------------------------- | ---------------------------------------- |
 | [HDInsight-kluster på begäran](#azure-hdinsight-on-demand-linked-service) eller [egna HDInsight-kluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service) | [Anpassad](transform-data-using-dotnet-custom-activity.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning-aktiviteter: batchkörning och resursuppdatering](transform-data-using-machine-learning.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Lagrad procedur](transform-data-using-stored-procedure.md) |
+| [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Lagrad procedur](transform-data-using-stored-procedure.md) |
 
 >  
 
@@ -138,9 +138,9 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight länkad tjän
 
 På begäran HDInsight länkade tjänsten kräver ett huvudnamn autentiseringen av tjänsten att skapa HDInsight-kluster för din räkning. Du använder service principal autentisering, registrera en Programenhet i Azure Active Directory (Azure AD) och bevilja den **deltagare** rollen för prenumerationen eller resursgrupp som HDInsight-klustret skapas. Detaljerade anvisningar finns i [använda portalen för att skapa ett Azure Active Directory applikationen eller tjänsten säkerhetsobjekt som kan komma åt resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 
-- Program-ID:t
+- Program-ID
 - Nyckeln för programmet 
-- Klient-ID:t
+- Klientorganisations-ID
 
 Använd service principal autentisering genom att ange följande egenskaper:
 
@@ -440,7 +440,7 @@ Du skapar en SQL Server som är länkad tjänst och använda den med den [lagrad
 ## <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - namngivningsregler
 Följande tabell innehåller namngivningsregler för Data Factory-artefakter.
 
-| Namn                             | Unika namn                          | Kontroller                        |
+| namn                             | Unika namn                          | Kontroller                        |
 | :------------------------------- | :--------------------------------------- | :--------------------------------------- |
 | Data Factory                     | Unikt över Microsoft Azure. Namn är inte skiftlägeskänsliga, det vill säga `MyDF` och `mydf` referera till samma data factory. | <ul><li>Varje datafabriken är kopplad till en Azure-prenumeration.</li><li>Objektnamn måste börja med en bokstav eller en siffra och får innehålla endast bokstäver, siffror och streck (-).</li><li>Varje streck (-) måste föregås och följas av en bokstav eller en siffra. Streck i följd är inte tillåtna i behållarnamn.</li><li>Namnet kan innehålla 3-63 tecken.</li></ul> |
 | Länkade tjänster/tabeller/pipelines | Unikt med i en data factory. Namn är inte skiftlägeskänsliga. | <ul><li>Maximalt antal tecken i ett tabellnamn: 260.</li><li>Objektnamn måste börja med en bokstav, siffra eller ett understreck (_).</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/” ”, <” ”, >” ”, *”, ”%”, ”&” ”,:” ”,\\”</li></ul> |

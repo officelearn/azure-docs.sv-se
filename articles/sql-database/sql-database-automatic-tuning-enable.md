@@ -1,6 +1,6 @@
 ---
-title: "Aktivera automatisk justering för Azure SQL Database | Microsoft Docs"
-description: "Du kan aktivera automatisk justering på Azure SQL Database enkelt."
+title: Aktivera automatisk justering för Azure SQL Database | Microsoft Docs
+description: Du kan aktivera automatisk justering på Azure SQL Database enkelt.
 services: sql-database
 author: veljko-msft
 manager: drasumic
@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: vvasic
-ms.openlocfilehash: cfee95f5978073277a5351b976156cafefb87c16
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2ea5c0e640ac7e635692dafac1f30f377aa79625
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="enable-automatic-tuning"></a>Aktivera automatisk inställning
 
@@ -22,18 +22,18 @@ Azure SQL Database är en automatiskt hanterade datatjänst som ständigt överv
 ## <a name="enable-automatic-tuning-on-server"></a>Aktivera automatisk justering på servern
 Du kan välja att ärva automatisk justering konfiguration från ”Azure standard” eller inte ärva konfigurationen på servernivå. Azure standardvärdena är FORCE_LAST_GOOD_PLAN aktiverad, CREATE_INDEX aktiverat och inaktiverat DROP_INDEX.
 
-## <a name="configure-automiatic-tuning-e-mail-notifications"></a>Konfigurera automiatic justera e-postaviseringar
+## <a name="configure-automatic-tuning-e-mail-notifications"></a>Konfigurera automatisk justering e-postmeddelanden
 
 Se [automatisk justering e-postaviseringar](sql-database-automatic-tuning-email-notifications.md)
 
 ### <a name="azure-portal"></a>Azure Portal
 Om du vill aktivera automatisk justering på Azure SQL Database-server, gå till servern i Azure-portalen och välj **automatisk justering** på menyn. Välj Automatisk justering alternativ som du vill aktivera och välja **Verkställ**:
 
-![Server](./media/sql-database-automatic-tuning-enable/server.png)
+![Server ](./media/sql-database-automatic-tuning-enable/server.png)
 
 Alternativ för automatisk justering på servern som tillämpas på alla databaser på servern. Som standard alla databaser ärver konfigurationen från sina överordnade servern, men detta kan åsidosättas och anges separat för varje databas.
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 [Klicka här om du vill läsa mer om hur du aktiverar automatisk justering på servernivå via REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)
 
 ## <a name="enable-automatic-tuning-on-an-individual-database"></a>Aktivera automatisk inställning på en individuell databas

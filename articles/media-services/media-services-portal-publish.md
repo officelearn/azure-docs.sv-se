@@ -1,11 +1,11 @@
 ---
-title: "Publicera innehåll i Azure portal | Microsoft Docs"
-description: "Den här självstudiekursen vägleder dig genom stegen för att publicera ditt innehåll i Azure-portalen."
+title: Publicera innehåll i Azure portal | Microsoft Docs
+description: Den här självstudiekursen vägleder dig genom stegen för att publicera ditt innehåll i Azure-portalen.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 92c364eb-5a5f-4f4e-8816-b162c031bb40
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 6759d3f49e15a3b01022df318a83563ad6bd859f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5c79f4e0209658e5c95e158c3ef78f91dba8966f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicera innehåll i Azure-portalen
 > [!div class="op_single_selector"]
@@ -41,15 +41,15 @@ För att ge användaren en URL som kan användas för att strömma eller hämta 
 
 Lägg till *(format = m3u8 aapl)* till URL:en för att skapa en HLS-strömnings-URL:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
 
 Om du vill skapa en strömnings-URL som ska spela upp Smooth Streaming-tillgångar använder du följande URL-format:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest
 
 Om du vill skapa en strömnings-URL för MPEG-DASH lägger du till *(format=mpd-time-csf)* i URL:en:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
 
 En URL för signatur för delad åtkomst har följande format:
 
@@ -91,7 +91,7 @@ Vissa förutsättningar gäller:
 * Azure-portalens mediaspelare spelar upp från den slutpunkt för direktuppspelning som är standard. Klicka för att kopiera URL:en och klistra in den i en annan spelare om du vill spela upp från en slutpunkt för direktuppspelning som inte är standard. Du kan till exempel testa videon i [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 * Den strömningsslutpunkt från vilken du strömning måste köras.  
 
-## <a name="provide-feedback"></a>Ge feedback
+## <a name="provide-feedback"></a>Skicka feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg

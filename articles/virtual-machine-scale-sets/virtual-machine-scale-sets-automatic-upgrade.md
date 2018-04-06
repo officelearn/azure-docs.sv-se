@@ -1,13 +1,13 @@
 ---
 title: Den automatiska OS uppgraderingar med virtuella Azure-datorn skala anger | Microsoft Docs
-description: "Lär dig hur man automatiskt uppgraderar Operativsystemet på VM-instanser i en skaluppsättning"
+description: Lär dig hur man automatiskt uppgraderar Operativsystemet på VM-instanser i en skaluppsättning
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 59dad832977c4afc39db3773edf9789cd1a704e7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 28a9b3d68037aac0c1198da4232c045487b01174
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Automatiska OS-uppgraderingar skaluppsättning för virtuell Azure-dator
 
@@ -93,9 +93,9 @@ Följande SKU: er stöds för närvarande (mer läggs):
 > [!NOTE]
 > Det här avsnittet gäller enbart för skalningsuppsättningar i utan Service Fabric. Service Fabric har sin egen begreppet programmets hälsotillstånd. När du använder automatisk OS-uppgraderingar med Service Fabric distribuerat ny operativsystemsavbildning Uppdateringsdomän av Uppdateringsdomän att upprätthålla hög tillgänglighet för de tjänster som körs i Service Fabric. Mer information om hållbarhet egenskaperna för Service Fabric-kluster finns [denna dokumentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
-Under en OS-uppgradering VM-instanser i en skaluppsättning uppgraderas en batch i taget. Uppgraderingen bör bara fortsätta om kunden-programmet är felfritt på de uppgraderade VM-instanserna. Vi rekommenderar att programmet tillhandahåller hälsa signalerar till scale set OS uppgradera-motorn. Som standard under OS uppgraderingar anser plattformen VM energisparläge och tillägget Etableringsstatus för att avgöra om en VM-instans är felfri efter en uppgradering. OS-disk på en VM-instans ersätts under OS-uppgradering av en VM-instans med en ny disk baserat på senaste Avbildningsversion. När OS-uppgraderingen har slutförts, kör konfigurerade tillägg på dessa virtuella datorer. Endast när alla tillägg på en virtuell dator har etablerats anses programmet felfritt. 
+Under en OS-uppgradering VM-instanser i en skaluppsättning uppgraderas en batch i taget. Uppgraderingen bör bara fortsätta om kunden-programmet är felfritt på de uppgraderade VM-instanserna. Därför kräver att programmet tillhandahåller hälsa signalerar till scale set OS uppgradera-motorn. Under OS uppgraderingar anser plattformen VM energisparläge och tillägget Etableringsstatus för att avgöra om en VM-instans är felfri efter en uppgradering. OS-disk på en VM-instans ersätts under OS-uppgradering av en VM-instans med en ny disk baserat på senaste Avbildningsversion. När OS-uppgraderingen har slutförts, kör konfigurerade tillägg på dessa virtuella datorer. Endast när alla tillägg på en virtuell dator har etablerats anses programmet felfritt. 
 
-En skalningsuppsättning kan alternativt konfigureras med programmet Hälsoavsökning att tillhandahålla plattform med korrekt information om den pågående statusen för programmet. Programmet Hälsoavsökning är anpassad belastningen belastningsutjämnaren-avsökningar som används som en signal hälsa. Det program som körs på en skala set VM-instans kan svara på externa HTTP eller TCP-begäranden om den är felfri. Mer information om hur anpassade läsa in belastningsutjämning-avsökningar fungerar finns i [förstå load balancer avsökningar](../load-balancer/load-balancer-custom-probe-overview.md). Ett program hälsa avsökning krävs inte för automatiska OS-uppgraderingar, men det rekommenderas starkt.
+Dessutom skaluppsättning *måste* konfigureras med programmet Hälsoavsökning att tillhandahålla plattform med korrekt information om den pågående statusen för programmet. Programmet Hälsoavsökning är anpassad belastningen belastningsutjämnaren-avsökningar som används som en signal hälsa. Det program som körs på en skala set VM-instans kan svara på externa HTTP eller TCP-begäranden om den är felfri. Mer information om hur anpassade läsa in belastningsutjämning-avsökningar fungerar finns i [förstå load balancer avsökningar](../load-balancer/load-balancer-custom-probe-overview.md).
 
 Om skaluppsättning är konfigurerad för att använda flera placering grupper, avsökningar med hjälp av en [Standard belastningsutjämnaren](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) behöver användas.
 
@@ -110,7 +110,7 @@ Rekommenderade åtgärder för att återställa virtuella datorer och aktivera a
 * Distribuera den uppdaterade skaluppsättning, vilket uppdaterar alla VM-instanser, inklusive de misslyckades. 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Ange hur du konfigurerar en anpassad belastningen belastningsutjämnaren avsökning som programmet hälsa avsökning på en skala
-Som bästa praxis, skapa en belastningsutjämningsavsökning explicit för skaluppsättning för hälsotillstånd. Samma slutpunkten för en befintlig HTTP-avsökningen eller TCP-avsökning kan användas men ett hälsoavsökningen kan kräva olika beteenden från en traditionell belastningsutjämnare avsökning. En traditionell belastningsutjämningsavsökning kan returnera feltillstånd om belastningen på instansen är för högt som inte kan vara lämpligt för att fastställa instans hälsa under en automatisk uppgradering av Operativsystemet. Konfigurera avsökningen så att den har en hög andel avsöknings mindre än två minuter.
+Du *måste* för att skapa en belastningsutjämningsavsökning explicit för skaluppsättning för hälsotillstånd. Samma slutpunkten för en befintlig HTTP-avsökningen eller TCP-avsökning kan användas men ett hälsoavsökningen kan kräva olika beteenden från en traditionell belastningsutjämnare avsökning. En traditionell belastningsutjämningsavsökning kan returnera feltillstånd om belastningen på instansen är för högt som inte kan vara lämpligt för att fastställa instans hälsa under en automatisk uppgradering av Operativsystemet. Konfigurera avsökningen så att den har en hög andel avsöknings mindre än två minuter.
 
 Avsökningen belastningsutjämnare kan referera till den *networkProfile* ange omfattning och kan vara associerat med antingen en intern eller offentlig Internetriktade belastningsutjämnare på följande sätt:
 
@@ -183,7 +183,7 @@ I följande exempel används Azure CLI (2.0.20 eller senare) att kontrollera sta
 az vmss rolling-upgrade get-latest --resource-group myResourceGroup --name myVMSS
 ```
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 I följande exempel används REST API för att kontrollera status för skaluppsättningen namngivna *myVMSS* i resursgrupp med namnet *myResourceGroup*:
 
 ```
@@ -227,7 +227,7 @@ För att expandera för användning av programmet hälsoavsökningar kör scale 
 2. Identifiera VM-instanser för att uppgradera med hjälp av en batch med högst 20% av totalt antal instanser nästa batch.
 3. Uppgradera Operativsystemet för nästa batch för VM-instanser.
 4. Om mer än 20% av uppgraderade instanser är ohälsosamma, stoppar du uppgraderingen; Annars Fortsätt.
-5. Om kunden har konfigurerat programmet Hälsoavsökning kan uppgraderingen väntar upp till 5 minuter för avsökningar ska bli felfri och sedan omedelbart fortsätter till nästa batch; Annars väntar den 30 minuter innan du fortsätter till nästa batch.
+5. Skaluppsättningar som inte är en del av ett Service Fabric-kluster, uppgraderingen väntar upp till 5 minuter för avsökningar ska bli felfri och sedan omedelbart fortsätter till nästa batch. För skalningsuppsättningar som ingår i ett Service Fabric-kluster, ange skalan väntar 30 minuter innan du fortsätter till nästa batch.
 6. Om det finns återstående instanser som du vill uppgradera, gå till steg 1) för nästa batch; Annars är uppgraderingen slutförd.
 
 Uppgradera OS-motorn söker efter den övergripande hälsan för VM-instansen innan du uppgraderar varje batch skaluppsättning. När du uppgraderar en grupp, kan det finnas andra samtidiga planerad eller oplanerad underhåll som händer i Azure-datacenter som kan påverka tillgängligheten för din virtuella dator. Därför är det möjligt att tillfälligt fler än 20% instanser kanske inte körs. I sådana fall ange i slutet av aktuell batch skalan uppgradera Stopp.
@@ -237,7 +237,8 @@ Uppgradera OS-motorn söker efter den övergripande hälsan för VM-instansen in
 
 Du kan använda följande mall för att distribuera en skalningsuppsättning som använder automatiska uppgraderingar <a href='https://github.com/Azure/vm-scale-sets/blob/master/preview/upgrade/autoupdate.json'>automatisk rullande uppgraderingar - Ubuntu 16.04-LTS</a>
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
 

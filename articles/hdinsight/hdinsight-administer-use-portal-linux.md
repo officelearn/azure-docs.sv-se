@@ -1,8 +1,8 @@
 ---
-title: "Hantera Hadoop-kluster i HDInsight med hjälp av Azure-portalen | Microsoft Docs"
-description: "Lär dig mer om att skapa och hantera HDInsight-kluster med Azure-portalen."
+title: Hantera Hadoop-kluster i HDInsight med hjälp av Azure-portalen | Microsoft Docs
+description: Lär dig mer om att skapa och hantera HDInsight-kluster med Azure-portalen.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: b0a9b808f2c1a65d10c1c12500325a9b5a34bc5a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9b5df3d5e355fac0c0ea4203d28170a2d3c04ad9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Hadoop-kluster i HDInsight med hjälp av Azure portal
 
@@ -33,7 +33,7 @@ Med hjälp av den [Azure-portalen][azure-portal], kan du hantera Hadoop-kluster 
 Om du vill följa stegen i den här artikeln behöver du en **Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="open-the-azure-portal"></a>Öppna Azure-portalen
-1. Logga in på [https://portal.azure.com](https://portal.azure.com).
+1. Logga in på [ https://portal.azure.com ](https://portal.azure.com).
 2. När du öppnar portalen kan du:
 
    * Klicka på **skapar du en resurs** i den vänstra menyn för att skapa ett nytt kluster:
@@ -75,7 +75,7 @@ När du skapar ett HDInsight-kluster måste du ange en Azure-prenumeration. Klus
 Om du får felet NoRegisteredProviderFound eller MissingSubscriptionRegistration felet, se [felsöka vanliga Azure-distribution med Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
 ## <a name="list-and-show-clusters"></a>Listan och visa kluster
-1. Logga in på [https://portal.azure.com](https://portal.azure.com).
+1. Logga in på [ https://portal.azure.com ](https://portal.azure.com).
 2. Klicka på **HDInsight-kluster** i den vänstra menyn för att visa befintliga kluster. Om du inte ser **HDInsight-kluster**, klickar du på **alla tjänster** första.
 3. Klicka på klusternamnet. Om klustret är långt, kan du använda filter överst på sidan.
 4. Klicka på ett kluster från listan som ska visas på översiktssidan:
@@ -103,7 +103,7 @@ Om du får felet NoRegisteredProviderFound eller MissingSubscriptionRegistration
     * **Externa Metastores**: Visa Hive och Oozie metastores. Metastores kan bara konfigureras när klustret skapas. Se [använda Hive/Oozie metastore](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Script åtgärder**: köra Bash-skript på klustret. Se [anpassa Linux-baserade HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
     * **Program**: Lägg till/ta bort HDInsight-program.  Se [installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
-    * **Övervaka**: övervaka kluster i Azure Operations Management Suite och Azure logganalys.
+    * **Övervaka**: övervaka kluster i Azure logganalys.
     * **Egenskaper för**: Visa egenskaper för klustret.
     * **Storage-konton**: Visa storage-konton och nycklarna. Storage-konton har konfigurerats när klustret skapas.
     * **Data Lake Store-åtkomst**: Konfigurera åtkomst som lagrar Data Lake.  Se [skapa HDInsight-kluster med Data Lake Store med hjälp av Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
@@ -158,7 +158,7 @@ Effekten av att ändra antalet datanoder som varierar för varje typ av kluster 
     Sömlöst kan du öka antalet arbetarnoder i ett Hadoop-kluster som körs utan att påverka alla väntande eller körs jobb. Också du kan skicka nya jobb medan åtgärden pågår. Fel i en åtgärd för skalning hanteras korrekt så att klustret alltid kvar i ett fungerande tillstånd.
 
     När ett Hadoop-kluster skalas ned genom att minska antalet datanoder som, en del av tjänsterna i klustret har startats om. Detta medför alla körs och väntande jobb misslyckas vid skalning åtgärden slutfördes. Du kan dock skicka jobb när åtgärden har slutförts.
-* HBase
+* Hbase
 
     Du kan sömlöst Lägg till eller ta bort noder till HBase-kluster, medan den körs. Regional servrar balanseras automatiskt inom några minuter för att slutföra åtgärden. skalning. Du kan också manuellt balansera regionala servrar genom att logga in på headnode i klustret och köra följande kommandon från en kommandotolk:
 
@@ -281,7 +281,7 @@ Ambari och ändrar lösenordet på alla noder i klustret.
 
    | Fält | Värde |
    | --- | --- |
-   | Namn |Ändra ssh lösenord |
+   | namn |Ändra ssh lösenord |
    | Bash-skript-URI |URI: N till filen changepassword.sh |
    | Noder (Head, Worker, Nimbus, chef, Zookeeper osv.) |✓ för alla nodtyper som anges |
    | Parametrar |Ange SSH-användarnamn och det nya lösenordet. Det bör finnas ett blanksteg mellan användarnamnet och lösenordet. |
@@ -345,7 +345,7 @@ Se [hantera HDInsight-kluster med Ambari-Webbgränssnittet](hdinsight-hadoop-man
 ## <a name="browse-files"></a>Bläddra bland filer
 Du kan bläddra innehållet i standardbehållaren med Azure-portalen.
 
-1. Logga in på [https://portal.azure.com](https://portal.azure.com).
+1. Logga in på [ https://portal.azure.com ](https://portal.azure.com).
 2. Klicka på **HDInsight-kluster** i den vänstra menyn för att visa befintliga kluster.
 3. Klicka på klusternamnet. Om klustret är långt, kan du använda filter överst på sidan.
 4. Klicka på **Lagringskonton** i den vänstra menyn i klustret.

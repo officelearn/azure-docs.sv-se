@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
-ms.openlocfilehash: 771c4a539d240a6bfdc9770adc7cfada01571939
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 5ca2ea638dfa43b3b687ef65a420886f1ddf92f9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Skydda åtkomst till Azure Cosmos DB data
 Den här artikeln innehåller en översikt över skydda åtkomsten till data som lagras i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -130,7 +130,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 
 <a id="permissions"></a>
 
-## <a name="permissions"></a>Behörigheter
+## <a name="permissions"></a>Behörighet
 En Cosmos-DB behörighet resurs är associerad med en Cosmos-DB-användare.  Varje användare kan innehålla noll eller flera Cosmos-DB-behörigheter.  En behörighet för resursen ger åtkomst till en säkerhetstoken som användaren måste när du försöker komma åt en resurs för specifika program.
 Det finns två tillgängliga åtkomstnivåer som kan tillhandahållas av en behörighet:
 
@@ -151,7 +151,7 @@ Följande kodexempel visar hur du skapar en resurs för behörighet, läsa resur
 Permission docPermission = new Permission
 {
     PermissionMode = PermissionMode.Read,
-    ResourceLink = documentCollection.SelfLink,
+    ResourceLink = UriFactory.CreateDocumentCollectionUri("db", "collection"),
     Id = "readperm"
 };
   

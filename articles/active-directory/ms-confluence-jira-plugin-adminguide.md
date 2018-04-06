@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Active Directory enkel inloggning Plugin Admin guiden | Microsoft Docs
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Microsoft Azure Active Directory enkel inloggning för JIRA."
+title: Admin-guide för Azure Active Directory SSO plugin | Microsoft Docs
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Jira/växer samman.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,165 +14,139 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: jeedes
-ms.openlocfilehash: af949d1db8af37a534a16364f9f0763479c436e4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d34ff6021816c73fb064a3ce73b7fcf3ae22dbd1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="microsoft-azure-active-directory-single-sign-on-plugin-admin-guide"></a>Microsoft Azure Active Directory enkel inloggning Plugin Admin Guide
-
-## <a name="table-of-contents"></a>Innehållsförteckning
-
-1. **[OVERVIEW](#overview)**
-2. **[SÅ HÄR FUNGERAR DET](#how-it-works)**
-3. **[AUDIENCE](#audience)**
-4. **[ANTAGANDEN](#assumptions)**
-5. **[NÖDVÄNDIGA KOMPONENTER](#prerequisites)**
-6. **[VERSIONER SOM STÖDS AV JIRA OCH VÄXER SAMMAN](#supported-versions-of-jira-and-confluence)**
-7. **[INSTALLATION](#installation)**
-8. **[PLUGIN-KONFIGURATION](#plugin-configuration)**
-9. **[FÄLTET FÖRKLARING FÖR SKÄRM FÖR KONFIGURATION AV TILLÄGG:](#field-explanation-for-add---on-configuration-screen:)**
-10. **[FELSÖKNING](#troubleshooting)**
+# <a name="admin-guide-for-the-azure-active-directory-sso-plug-in"></a>Admin-guide för Azure Active Directory SSO plugin-program
 
 ## <a name="overview"></a>Översikt
 
-Dessa tillägg aktivera Microsoft Azure AD kunderna att använda organisation användarnamn och lösenord för inloggning till Atlassian Jira och antal samverkande Server baserade produkter. Den implementerar SAML 2.0 SSO baserat.
+I Azure Active Directory (AD Azure) enkel inloggning (SSO) plugin-programmet Microsoft Azure AD ger kunder möjlighet att använda sina arbets- eller skolkonto konto för inloggning till Atlassian Jira och antal samverkande Server-baserade produkter. Den implementerar SAML 2.0-baserade enkel inloggning.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
-När du vill logga in på Atlassian Jira eller växer samman de finns på **inloggning med Azure AD** knappen på inloggningssidan. När de klickar på den krävs de för att logga in med Azure AD-organisation inloggningssidan.
+När du vill logga in på programmet Atlassian Jira eller växer samman de finns på **inloggning med Azure AD** på sidan logga in. När de väljer det, är de krävs för att logga in med hjälp av Azure AD organisation inloggningssida visas (det vill säga sina arbets- eller skolkonto-konto).
 
-När användarna autentiseras ska de kunna logga in på programmet. Om de redan har autentiserats med organisations-ID och lösenord, sedan de direkt logga in i programmet. Observera också att inloggningen fungerar JIRA och växer samman. Om användare är inloggade i JIRA program och antal samverkande visas också i samma webbläsarfönster, de behöver för att logga in en gång och inte behöver ange autentiseringsuppgifterna igen för andra program. Användarna kan också öppna Atlassian-produkten via myapps under Azure-konto och de ska loggas utan att ange autentiseringsuppgifterna.
+När användarna autentiseras ska de kunna logga in till programmet. Om de redan har autentiserats med ID och lösenord för sitt arbets- eller skolkonto konto de direkt och logga sedan in till programmet. 
+
+Logga in fungerar över Jira och växer samman. Om användare är inloggad på Jira program och antal samverkande öppnas i samma webbläsarfönster, behöver de ange autentiseringsuppgifter för den andra appen. 
+
+Användare kan också få Atlassian-produkten via Mina appar under arbets-eller skolkonto. De ska logga in utan att ange autentiseringsuppgifter.
 
 > [!NOTE]
-> Användaretablering inte görs med hjälp av det här tilläggsprogrammet.
+> Användaretablering görs inte via plugin-programmet.
 
 ## <a name="audience"></a>Målgrupp
 
-JIRA och antal samverkande administratörer som planerar att använda den här plugin-programmet för att aktivera enkel inloggning med Azure AD.
+Jira och antal samverkande administratörer kan använda plugin-programmet för att aktivera enkel inloggning med hjälp av Azure AD.
 
 ## <a name="assumptions"></a>Antaganden
 
-* JIRA/antal samverkande instansen är HTTPS-aktiverade
-* Användare har redan skapats i JIRA/växer samman
-* Användare har tilldelats i JIRA/antal samverkande rollen
-* Administratörer har åtkomst till information som krävs för att konfigurera plugin-programmet
-* JIRA/antal samverkande finns utanför företagets nätverk
-* Lägg till om fungerar med endast lokala versionen av JIRA och växer samman
+* Jira och antal samverkande instanserna är HTTPS-aktiverade.
+* Användare har redan skapats i Jira eller växer samman.
+* Användare har roller i Jira eller växer samman.
+* Administratörer har åtkomst till information som krävs för att konfigurera plugin-programmet.
+* Jira eller växer samman finns utanför företagets nätverk.
+* Plugin-program fungerar med endast den lokala versionen av Jira och växer samman.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Observera följande krav innan du kan fortsätta med installationen av tillägget:
+Observera följande information innan du installerar plugin-programmet:
 
-* JIRA/antal samverkande är installerade på Windows 64-bitarsversionen
-* JIRA/antal samverkande versioner är HTTPS-aktiverade
-* Observera versionen som stöds för plugin-programmet i ”versioner som stöds” nedan.
-* JIRA/antal samverkande är tillgänglig på internet.
-* Administratörsautentiseringsuppgifter för JIRA/växer samman
-* Autentiseringsuppgifter som administratör för Azure AD
-* WebSudo bör inaktiveras i JIRA och växer samman
+* Jira och antal samverkande är installerade på Windows 64-bitarsversionen.
+* Jira och antal samverkande är HTTPS-aktiverade.
+* Jira och antal samverkande finns på internet.
+* Admin-autentiseringsuppgifter är för Jira och växer samman.
+* Admin-autentiseringsuppgifter är på plats för Azure AD.
+* WebSudo har inaktiverats i Jira och växer samman.
 
-## <a name="supported-versions-of-jira-and-confluence"></a>Versioner som stöds av JIRA och växer samman
+## <a name="supported-versions-of-jira-and-confluence"></a>Versioner som stöds av Jira och växer samman
 
-Från och med nu stöds följande versioner av JIRA och växer samman:
+Plugin-programmet stöder följande versioner av Jira och växer samman:
 
-* JIRA Core- och programvara: 6.0 7.2.0
-* JIRA helpdesk: 3.0 och 3.2
+* Jira Core- och programvara: 6.0 7.2.0
+* Jira helpdesk: 3.0 och 3.2
 * Antal samverkande: 5.0 till 5.10
 
 ## <a name="installation"></a>Installation
 
-Admin bör följa stegen som anges nedan för att installera plugin-programmet:
+Följ dessa steg om du vill installera plugin-programmet:
 
-1. Logga in på din JIRA/antal samverkande-instans som administratör
+1. Logga in på din Jira eller växer samman instans som en administratör.
     
-2. Gå till Administration av JIRA/växer samman och klicka på tillägg.
+2. Gå till Jira/antal samverkande-administrationskonsolen och välj **tillägg**.
     
-3. Söka efter från Atlassian marknadsplatsen **Microsoft SAML SSO Plugin**
+3. Sök efter från Atlassian Marketplace **Microsoft SAML SSO Plugin**.
  
-4. Lämplig version av tillägget visas i sökningen
+   Lämplig version av plugin-programmet visas i sökresultaten.
  
-5. Välj plugin-programmet och installerar finns på samma.
+5. Välj plugin-programmet och universella plugin Manager (finns på) installeras den.
  
-6. När plugin-programmet installeras, visas det i användaren installerat tillägg i avsnittet Hantera tillägg
- 
-7. Du måste konfigurera plugin-programmet innan du börjar använda den.
- 
-8. Klicka på plugin-programmet och konfigurera knappen.
- 
-9. Klicka på den för att tillhandahålla konfiguration indata
+När plugin-programmet installeras, visas den i den **användaren installerat tillägg** avsnitt i **Hantera tillägg**.
     
-## <a name="plugin-configuration"></a>Plugin-konfiguration
+## <a name="plug-in-configuration"></a>Konfiguration av pluginprogrammet
 
-Följande bild visar skärm för konfiguration av tillägg i både JIRA och växer samman
-    
-![tillägget konfiguration](./media/ms-confluence-jira-plugin-adminguide/jira.png)
+Innan du börjar använda plugin-programmet, måste du konfigurera den. Plugin-program, väljer den **konfigurera** knappen och ange konfigurationsinformationen.
 
-### <a name="field-explanation-for-add-on-configuration-screen"></a>Fältet förklaring för skärm för konfiguration av tillägg:
-
-1.   URL för tjänstmetadata: URL: en att hämta federationsmetadata från Azure AD
- 
-2.   ID: Används av Azure AD för att validera källan för begäran. Detta mappas till ID-elementet i Azure AD. Det här är automatisk härleds genom att plugin-programmet som https://<domain:port>/
- 
-3.   Svars-URL: Använd Reply URL i din IdP att initiera SAML-inloggningen. Det här mappar i elementet Reply URL i Azure AD. Det här är automatisk härleds genom att plugin-programmet som https://<domain:port>/plugins/servlet/saml/auth
- 
-4.   URL: en inloggning: Använd logga på URL: en i din IdP att initiera SAML-inloggningen. Det här mappar i elementet inloggning i Azure AD. Det här är automatisk härleds genom att plugin-programmet som https://<domain:port>/plugins/servlet/saml/auth
- 
-5.   IdP enhets-ID: Den enhets-ID som din IdP använder. Detta fylls när Metadata-URL är löst.
- 
-6.   Inloggnings-URL: Inloggnings-URL från din IdP. Detta är ifylld från Azure AD när Metadata-URL är löst.
- 
-7.   URL för utloggning: Logga ut URL: en från din IdP. Detta är ifylld från Azure AD när Metadata-URL är löst.
- 
-8.   X.509-certifikat: Din IdP X.509-certifikat. Detta är ifylld från Azure AD när Metadata-URL är löst.
- 
-9.   Knappen inloggningsnamn: Name inloggningsknappen organisationen vill se. Den här texten visas för användarna på inloggningsknappen på inloggningsskärmen.
- 
-10.   Platser för SAML användar-ID: Där användar-id förväntades i SAML-svar. Det kan antingen vara i NameID eller i ett namn för anpassat attribut. Detta ID måste vara JIRA/antal samverkande användar-id.
- 
-11.   Attributnamn: namnet på det attribut som där användar-Id förväntades.
- 
-12.   Startsida för aktivera identifiering av startsfär: Kontrollera den här flaggan om företaget genom att använda AD FS-baserade inloggningen.
- 
-13.   Domännamn: Ange domännamnet här vid inloggningen ADFS-baserade
- 
-14.   Aktivera enkel inloggning ut: Kontrollera den här office om du vill logga ut från Azure AD när en användare loggar från JIRA/växer samman.
-
-### <a name="troubleshooting"></a>Felsökning
-
-* Om du får felmeddelanden för flera certifikat
+Följande bild visar skärm för konfiguration i både Jira och växer samman:
     
-    * Logga in på Azure AD och ta bort flera certifikat som är tillgängliga mot appen. Kontrollera att det finns bara ett certifikat finns.
+![Konfiguration av pluginprogrammet skärmen](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-* Certifikatet upphör snart att gälla i Azure AD.
-    
-    * Tillägg hand ta om automatisk förnyelse av certifikatet. När ett certifikat ska gälla nya certifikatet ska markeras active och används inte certifikatet bör tas bort. När en användare försöker logga in på JIRA i det här scenariot tillägg hämtar det nya certifikatet och spara i plugin-programmet.
+*   **URL för tjänstmetadata**: URL: en att hämta federationsmetadata från Azure AD.
+ 
+*   **Identifierare**: URL: en som Azure AD använder för att verifiera källan för begäran. Den mappar till den **identifierare** element i Azure AD. Plugin-programmet automatiskt härleds Webbadressen som https://*< domän: port >*/.
+ 
+*   **Reply URL**: reply-URL: en i din identitetsprovider (IdP) som initierar SAML-inloggning. Den mappar till den **Reply URL** element i Azure AD. Plugin-programmet automatiskt härleds Webbadressen som https://*< domän: port >*/plugins/servlet/saml/auth.
+ 
+*   **Logga URL**: URL inloggning i din IdP som initierar SAML-inloggning. Den mappar till den **inloggning** element i Azure AD. Plugin-programmet automatiskt härleds Webbadressen som https://*< domän: port >*/plugins/servlet/saml/auth.
+ 
+*   **IdP enhets-ID**: enhets-ID som din IdP använder. Den här rutan fylls när metadata-URL är löst.
+ 
+*   **Inloggnings-URL**: Logga in URL: en från din IdP. Den här rutan är ifylld från Azure AD när metadata-URL är löst.
+ 
+*   **Logga ut URL**: Logga ut URL-Adressen från din IdP. Den här rutan är ifylld från Azure AD när metadata-URL är löst.
+ 
+*   **X.509-certifikat**: din IdP X.509-certifikat. Den här rutan är ifylld från Azure AD när metadata-URL är löst.
+ 
+*   **Knappen inloggningsnamnet**: namnet på knappen Logga in som organisationen vill att användarna ska se på sidan logga in.
+ 
+*   **SAML användar-ID platser**: den plats där Jira eller växer samman användar-ID förväntades i SAML-svaret. Det kan vara i **NameID** eller i ett namn för anpassat attribut.
+ 
+*   **Attributnamn**: namnet på det attribut som där användar-ID förväntas.
+ 
+*   **Aktivera identifiering av startsfär**: valet att göra om företaget använder Active Directory Federation Services (AD FS) - baserade logga - i.
+ 
+*   **Domännamn**: domännamn om inloggningen är AD FS-baserade.
+ 
+*   **Aktivera enkel utloggning**: markeringen ska göra om du vill logga ut från Azure AD när användaren loggar från Jira eller växer samman.
 
-* Så här inaktiverar du WebSudo (inaktivera säker administratör session)
-    
-    * JIRA: Skydda administratör sessioner (det vill säga bekräftade lösenordet innan du använder funktioner för administration) är aktiverat som standard. Om du vill inaktivera det i din JIRA-instans kan du inaktivera den här funktionen genom att ange följande rad i filen jira config.properties ”: ira.websudo.is.disabled = true”
-    
-    * Antal samverkande: Följ stegen som anges i följande URL https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html
+## <a name="troubleshooting"></a>Felsökning
 
-* Fält som ska fyllas i Metadata-URL komma fylls inte
-    
-    * Kontrollera om URL: en är korrekt. Kontrollera om du har mappat rätt klient och app-id.
-    
-    * Klicka på Webbadressen i webbläsaren och se om du tar emot XML-federationsmetadata.
+* **Du håller på att flera certifikatfel**: Logga in på Azure AD och ta bort flera certifikat som är tillgängliga mot appen. Se till att bara ett certifikat finns.
 
-* Internt serverfel:
-    
-    * Gå igenom loggarna som finns i loggkatalogen för installationen. Om du får felet när användaren försöker logga in med Azure AD SSO, kan du dela loggarna med supportinformation som anges nedan i det här dokumentet.
+* **Ett certifikat upphör snart att gälla i Azure AD**: tillägg ta hand om automatisk förnyelse av certifikatet. När ett certifikat upphör snart att gälla, ett nytt certifikat ska markeras aktiva och oanvända certifikat ska tas bort. När en användare försöker logga in på Jira i det här scenariot plugin-programmet hämtar och sparar det nya certifikatet.
 
-* Användar-ID hittades inte när användaren försöker logga in
+* **Vill du inaktivera WebSudo (inaktivera säker administratör sessionen)**:
     
-    * Användaren har inte skapats i JIRA/växer samman, så du måste skapa samma.
+  * För Jira aktiverad säker administratör sessioner (det vill säga bekräftade lösenordet innan du använder funktioner för administration) som standard. Om du vill ta bort den här möjligheten i din Jira-instans anger du följande rad i filen jira config.properties: `ira.websudo.is.disabled = true`
+    
+  * För antal samverkande, Följ stegen på den [växer samman supportwebbplats](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html).
 
-* Gick inte att hitta i Azure AD App
+* **Fält som ska fyllas i metadata-URL komma fylls inte**:
     
-    * Se om rätt URL mappas till appen i Azure AD.
+  * Kontrollera om URL: en är korrekt. Kontrollera om du har mappat rätt klient- och app-ID.
+    
+  * Anger en URL i en webbläsare och se om du får XML-federationsmetadata.
 
-* Information om stöd: nå ut till oss på: [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Vi svarar inom 24-48 kontorstid.
+* **Det finns ett internt serverfel**: i loggarna i loggkatalogen för installationen. Om du får felet när användaren försöker logga in med hjälp av Azure AD SSO, kan du dela loggarna med supportgruppen.
+
+* **Det finns ett användar-ID inte att hitta ”-fel när användaren försöker logga in**: skapa användar-ID i Jira eller växer samman.
+
+* **Det finns ett ”inte att hitta appen”-fel i Azure AD**: se om rätt URL mappas till appen i Azure AD.
+
+* **Du behöver support**: nå ut till den [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Teamet svarar i 24-48 kontorstid.
     
-    * Du kan också medföra ett supportärende med Microsoft via Azure portal-kanalen.
+  Du kan också medföra ett supportärende med Microsoft via Azure portal-kanalen.

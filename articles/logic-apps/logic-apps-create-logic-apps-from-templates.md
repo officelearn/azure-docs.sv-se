@@ -1,11 +1,11 @@
 ---
-title: "Skapa arbetsflöden från mallar - Azure Logic Apps | Microsoft Docs"
-description: "Skapa arbetsflöden snabbare med hjälp av logic app mallar"
+title: Skapa arbetsflöden från mallar - Azure Logic Apps | Microsoft Docs
+description: Skapa arbetsflöden snabbare med hjälp av logic app mallar
 author: kevinlam1
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9145b9cb85cda9179f7ce46de017a0ab3a38924
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a2e939143d7181722df17ea7837658d96272e3a3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Skapa logik app arbetsflöden från fördefinierade mallar
 
@@ -42,7 +42,7 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
 
 1. Om du inte redan gjort logga in på den [Azure-portalen](https://portal.azure.com "Azure-portalen").
 
-2. Azure Huvudmeny, Välj **skapar du en resurs** > **Enterprise Integration** > **Logikapp**.
+2. Välj **Skapa en resurs** > **Enterprise-integration** > **Logikapp** på Azure-huvudmenyn.
 
    ![Azure Portal, Ny, Enterprise-integration, Logikapp](./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png)
 
@@ -56,7 +56,7 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
    | **Prenumeration** | *namn-på-Azure-prenumerationen* | Ange den prenumeration som du vill använda. | 
    | **Resursgrupp** | *namn-på-Azure-resursgruppen* | Skapa eller välj en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) för den här logikapp och för att organisera alla resurser som är associerade med den här appen. | 
    | **Plats** | *din-Azure-datacenter-region* | Välj datacenterregion för att distribuera logikappen, till exempel USA, västra. | 
-   | **Log Analytics** | **Inaktivera** (standard) eller **på** | Aktivera [diagnostikloggning](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) för din logikapp via [Azure logganalys](../log-analytics/log-analytics-overview.md). Kräver att du redan har en [Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md) arbetsytan. | 
+   | **Log Analytics** | **Inaktivera** (standard) eller **på** | Aktivera [diagnostikloggning](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) för din logikapp via [Azure logganalys](../log-analytics/log-analytics-overview.md). Kräver att du redan har en logganalys-arbetsytan. | 
    |||| 
 
 4. När du är klar väljer du **Fäst på instrumentpanelen**. På så sätt visas logikappen automatiskt på din Azure-instrumentpanel och öppnas efter distributionen. Välj **Skapa**.

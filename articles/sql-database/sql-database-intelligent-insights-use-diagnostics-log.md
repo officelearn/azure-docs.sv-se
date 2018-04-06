@@ -1,6 +1,6 @@
 ---
 title: Intelligent insikter prestanda diagnostik logg - Azure SQL Database | Microsoft Docs
-description: "Intelligent insikter ger en diagnostik logg över Azure SQL Database prestandaproblem"
+description: Intelligent insikter ger en diagnostik logg över Azure SQL Database prestandaproblem
 services: sql-database
 author: danimir
 manager: craigg
@@ -8,13 +8,13 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: b380d3a8a35750602a4a0d20d595f71b125fc118
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5ce83198e1d2afb713044879724df88ad2696548
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Använd Intelligent insikter Azure SQL Database prestanda diagnostik loggen
 
@@ -77,7 +77,7 @@ Prestandaproblem som identifierats information för utdata i diagnostiken loggfi
 
 | Kan upptäckas prestandamönster | Information för utdata |
 | :------------------- | ------------------- |
-| Nå gränserna | <li>Resurser som påverkas</li><li>Frågan hashvärden</li><li>Resursen förbrukning procent</li> |
+| Gränserna för att | <li>Resurser som påverkas</li><li>Frågan hashvärden</li><li>Resursen förbrukning procent</li> |
 | Ökning av arbetsbelastning | <li>Antal frågor vars körning ökade</li><li>Fråga hash-värden för frågor med största bidrar till ökad arbetsbelastning</li> |
 | Minnesbelastning | <li>Minnes-Clerk under</li> |
 | Låsning | <li>Påverkas frågan hashvärden</li><li>Blockerar frågan hashvärden</li> |

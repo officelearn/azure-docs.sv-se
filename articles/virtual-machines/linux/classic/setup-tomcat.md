@@ -1,11 +1,11 @@
 ---
-title: "Ställa in Apache Tomcat på en Linux-dator | Microsoft Docs"
-description: "Lär dig hur du ställer in Apache Tomcat7 med hjälp av Azure virtuella datorer som kör Linux."
+title: Ställa in Apache Tomcat på en Linux-dator | Microsoft Docs
+description: Lär dig hur du ställer in Apache Tomcat7 med hjälp av Azure virtuella datorer som kör Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 45ecc89c-1cb0-4e80-8944-bd0d0bbedfdc
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 161a56a019f8c2c8ce5e3890e73ad5c5710e7b82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Ställa in Tomcat7 på en Linux-dator med Azure
 Apache Tomcat (eller bara Tomcat kan också kallades Djakarta Tomcat) är en öppen källkod webbservern och servlet-behållare som utvecklats av Apache Software Foundation (ASF). Tomcat implementerar Java-Servlet och specifikationer för JavaServer sidor (JSP) från Sun Microsystems. Tomcat ger en ren Java HTTP web server-miljö där du kan köra Java-kod. I den enklaste konfigurationen körs Tomcat i en enda process. Den här processen körs en Java virtual machine (JVM). Alla HTTP-begäran från en webbläsare till Tomcat behandlas som en separat tråd i Tomcat-processen.  
@@ -92,7 +92,7 @@ TCP-port 8080 är standardportnumret som Tomcat använder för att lyssna. Om de
 
       Om du ställer in den 80, behöver du inte inkludera portnumret i den URL som används för att komma åt Tomcat. Till exempel http://tomcatdemo.cloudapp.net.    
 
-      Om du anger ett annat värde, till exempel 81, behöver du lägga till portnumret i URL: en för Tomcat. Till exempel http://tomcatdemo.cloudapp.net:81 /.
+      Om du anger ett annat värde, till exempel 81, behöver du lägga till portnumret i URL: en för Tomcat. Till exempel http://tomcatdemo.cloudapp.net:81/.
    2. Ange 8080 i **privat Port**. Som standard lyssnar Tomcat på TCP-port 8080. Om du har ändrat standardinställningen lyssna port Tomcat, bör du uppdatera **privat Port** ska vara samma som Tomcat lyssningsport.  
       ![Skärmbild av Användargränssnittet som visar Lägg till kommandot offentlig Port och privat Port][7]
 4. Klicka på **OK** att lägga till slutpunkten till den virtuella datorn.
@@ -184,7 +184,7 @@ Använd följande kommando för att installera Tomcat7.
 Om du inte använder Tomcat7, använder du lämplig variation av det här kommandot.  
 
 #### <a name="confirm-that-tomcat7-installation-is-successful"></a>Bekräfta att Tomcat7 installationen har lyckats
-Bläddra till Tomcat-serverns DNS-namn om du vill kontrollera om Tomcat7 har installerats. Exempel-URL är http://tomcatexample.cloudapp.net/ i den här artikeln. Om du ser ett meddelande som följande Tomcat7 är korrekt installerad.
+Bläddra till Tomcat-serverns DNS-namn om du vill kontrollera om Tomcat7 har installerats. I den här artikeln exempel-URL är http://tomcatexample.cloudapp.net/. Om du ser ett meddelande som följande Tomcat7 är korrekt installerad.
 ![Lyckad Tomcat7 installationen visas][16]
 
 ### <a name="install-other-tomcat7-components"></a>Installera komponenter för andra Tomcat7
@@ -231,7 +231,7 @@ När du redigerar filen, bör du starta om Tomcat7 tjänster med följande komma
 
     sudo /etc/init.d/tomcat7 restart  
 
-Öppna din webbläsare och ange **http://<your tomcat server DNS name>/manager/html** som URL. Till exempel i den här artikeln är URL: en http://tomcatexample.cloudapp.net/manager/html.  
+Öppna din webbläsare och ange **http://<your tomcat server DNS name>/manager/html** som URL. Till exempel i den här artikeln URL är http://tomcatexample.cloudapp.net/manager/html.  
 
 Efter anslutning, bör du se något som liknar följande:  
 ![Skärmbild av Tomcat Web Application Manager][18]
@@ -265,7 +265,7 @@ Efter anslutning, bör du se något som liknar följande:
         sudo yum installera w3m w3m-img
 
 
-        w3m http://localhost: 8080  
+        w3m http://localhost:8080  
 #### <a name="solution"></a>Lösning
 
   * Om Tomcat lyssna porten är inte samma som den privata porten för slutpunkten för trafik till den virtuella datorn, behöver du ändra den privata porten för att vara samma som Tomcat lyssningsport.   

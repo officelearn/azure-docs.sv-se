@@ -1,13 +1,13 @@
 ---
-title: "Konfigurera nätverket Prestandaövervakaren för Azure ExpressRoute-kretsar | Microsoft Docs"
-description: "Konfigurera molnbaserade nätverksövervakning för Azure ExpressRoute-kretsar."
+title: Konfigurera nätverket Prestandaövervakaren för Azure ExpressRoute-kretsar | Microsoft Docs
+description: Konfigurera molnbaserade nätverksövervakning för Azure ExpressRoute-kretsar.
 documentationcenter: na
 services: expressroute
 author: ajaycode
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 586d78e29177dd4a627c94cd754c21cc2b6f37d4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7d6f064be21f717c825843780fac28bc874f46ce
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurera nätverket Prestandaövervakaren för ExpressRoute
 
-Network Performance Monitor (NPM) är en molnbaserad nätverk övervakningslösning som övervakar anslutning mellan Azure-molndistributioner och lokala platser (avdelningskontor, etc.). NPM är en del av Microsoft Operations Management Suite (OMS). NPM erbjuder ett tillägg för ExpressRoute där du kan övervaka nätverkets prestanda över ExpressRoute-kretsar som är konfigurerade för att använda privat Peering. När du konfigurerar NPM för ExpressRoute kan du identifiera problem för att identifiera och eliminera.
+Network Performance Monitor (NPM) är en molnbaserad nätverk övervakningslösning som övervakar anslutning mellan Azure-molndistributioner och lokala platser (avdelningskontor, etc.). NPM är en del av logganalys. NPM erbjuder ett tillägg för ExpressRoute där du kan övervaka nätverkets prestanda över ExpressRoute-kretsar som är konfigurerade för att använda privat Peering. När du konfigurerar NPM för ExpressRoute kan du identifiera problem för att identifiera och eliminera.
 
 Du kan:
 
@@ -43,10 +43,10 @@ Du kan:
 
 Du kan övervaka ExpressRoute-kretsar i alla delar av världen med hjälp av en arbetsyta som ligger på något av följande områden:
 
-* Västra Europa
+* Europa, västra
 * Västra centrala USA
-* Östra USA 
-* Sydostasien 
+* USA, östra 
+* Asien, sydöstra 
 * Syd Östra Australien
 
 >[!NOTE]
@@ -72,11 +72,11 @@ Skapa en arbetsyta i den prenumeration som har Vnet-länk till ExpressRoute circ
 
 1. I den [Azure-portalen](https://portal.azure.com), Välj den prenumeration som har Vnet peerkoppla till ExpressRoute-krets. Sök i listan över tjänster i den **Marketplace** för 'Network Performance Monitor'. Återkommer, klicka för att öppna den **Network Performance Monitor** sidan.
 
->[!NOTE]
->Du kan skapa en ny arbetsyta eller Använd en befintlig arbetsyta.  Om du vill använda en befintlig arbetsyta måste du kontrollera att arbetsytan har migrerats till det nya språket i fråga. [Mer information...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
->
+   >[!NOTE]
+   >Du kan skapa en ny arbetsyta eller Använd en befintlig arbetsyta.  Om du vill använda en befintlig arbetsyta måste du kontrollera att arbetsytan har migrerats till det nya språket i fråga. [Mer information...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >
 
-  ![portal](.\media\how-to-npm\3.png)<br><br>
+   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. Längst ned i huvudsakliga **Network Performance Monitor** klickar du på **skapa** att öppna **Network Performance Monitor - skapa nya lösningen** sidan. Klicka på **OMS-arbetsyta - Välj en arbetsyta** att öppna sidan arbetsytor. Klicka på **+ Skapa ny arbetsyta** att öppna sidan arbetsytan.
 3. På den **OMS-arbetsytan** väljer **Skapa nytt** och konfigurera följande inställningar:
 
@@ -86,15 +86,15 @@ Skapa en arbetsyta i den prenumeration som har Vnet-länk till ExpressRoute circ
   * Plats – du måste välja en [stöds region](#regions).
   * Prisnivån - väljer lediga
   
-  >[!NOTE]
-  >ExpressRoute-kretsen kan finnas var som helst i världen och behöver inte finnas i samma region som arbetsytan.
-  >
+    >[!NOTE]
+    >ExpressRoute-kretsen kan finnas var som helst i världen och behöver inte finnas i samma region som arbetsytan.
+    >
   
-  ![Arbetsytan](.\media\how-to-npm\4.png)<br><br>
+    ![Arbetsytan](.\media\how-to-npm\4.png)<br><br>
 4. Klicka på **OK** att spara och distribuera inställningar för mallen. När mallen validerar klickar du på **skapa** att distribuera på arbetsytan.
 5. Efter att arbetsytan har distribuerats, navigera till den **NetworkMonitoring(name)** resurs som du skapade. Verifiera inställningarna och klicka sedan på **lösningen kräver ytterligare konfiguration**.
 
-  ![ytterligare konfigurering](.\media\how-to-npm\5.png)
+   ![ytterligare konfigurering](.\media\how-to-npm\5.png)
 
 ## <a name="agents"></a>Steg 2: Installera och konfigurera agenter
 
@@ -126,9 +126,9 @@ Vi rekommenderar att du installerar minst två agenter på varje sida av Express
 2. På sidan **Välkommen** klickar du på **Nästa**.
 3. På den **licensvillkoren** sidan, Läs licensvillkoren och klicka sedan på **jag accepterar**.
 4. På den **målmappen** , ändra eller behålla standardinstallationsmappen, och klickar sedan på **nästa**.
-5. På den **installationsalternativ för Agent** sidan kan du ansluta agenten till Azure logganalys (OMS) eller Operations Manager. Eller lämna alternativen tomt om du vill konfigurera agenten senare. När du har gjort dina selection(s) klickar du på **nästa**.
+5. På den **installationsalternativ för Agent** sidan kan du ansluta agenten till Azure logganalys eller Operations Manager. Eller lämna alternativen tomt om du vill konfigurera agenten senare. När du har gjort dina selection(s) klickar du på **nästa**.
 
-  * Om du väljer att ansluta till **Azure logganalys (OMS)**, klistra in den **arbetsyte-ID** och **Arbetsytenyckel** (primärnyckel) som du kopierade i anteckningar i föregående avsnitt. Klicka sedan på **Nästa**.
+  * Om du väljer att ansluta till **Azure logganalys**, klistra in den **arbetsyte-ID** och **Arbetsytenyckel** (primärnyckel) som du kopierade i anteckningar i föregående avsnitt. Klicka sedan på **Nästa**.
 
     ![ID och nyckel](.\media\how-to-npm\8.png)
   * Om du vill ansluta till **Operations Manager**på den **Hanteringsgruppkonfiguration** anger du den **Hanteringsgruppnamn**, **Management Server** , och **Hanteringsserverporten**. Klicka sedan på **Nästa**.
@@ -139,7 +139,7 @@ Vi rekommenderar att du installerar minst två agenter på varje sida av Express
     ![Konto](.\media\how-to-npm\10.png)
 6. På den **klar att installera** sidan Granska dina val och klicka sedan på **installera**.
 7. På sidan **Konfigurationen har slutförts** klickar du på **Slutför**.
-8. När du är klar visas Microsoft Monitoring Agent på Kontrollpanelen. Du kan granska konfigurationen av det och kontrollera att agenten är ansluten till Operational Insights (OMS). När du är ansluten till OMS agenten visas ett meddelande om: **i Microsoft Monitoring Agent har lyckats ansluta till tjänsten Microsoft Operations Management Suite**.
+8. När du är klar visas Microsoft Monitoring Agent på Kontrollpanelen. Du kan granska konfigurationen av det och kontrollera att agenten är ansluten till Azure logganalys (OMS). När du är ansluten, agenten visas ett meddelande om: **i Microsoft Monitoring Agent har lyckats ansluta till tjänsten Microsoft Operations Management Suite**.
 
 9. Upprepa detta för varje virtuellt nätverk som du behöver övervakas.
 
@@ -162,8 +162,8 @@ Du kan enkelt kontrollera om dina agenter kommunicerar.
 
 1. Öppna på en server med en övervakningsagent på **Kontrollpanelen**.
 2. Öppna den **Microsoft Monitoring Agent**.
-3. Klicka på den **Azure logganalys (OMS)** fliken.
-4. I den **Status** kolumn, bör du se att agenten har ansluten till Operations Management Suite-tjänsten.
+3. Klicka på den **Azure logganalys** fliken.
+4. I den **Status** kolumn, bör du se att agenten har ansluten till logganalys.
 
   ![status](.\media\how-to-npm\12.png)
 

@@ -1,11 +1,11 @@
 ---
-title: "Hantera förfallotiden för webbinnehåll i Azure innehåll Delivery Network | Microsoft Docs"
-description: "Lär dig hur du hanterar du förfallodatum för Azure Web Apps/Cloud Services, ASP.NET och IIS innehållet i Azure CDN."
+title: Hantera förfallotiden för webbinnehåll i Azure innehåll Delivery Network | Microsoft Docs
+description: Lär dig hur du hanterar du förfallodatum för Azure Web Apps/Cloud Services, ASP.NET och IIS innehållet i Azure CDN.
 services: cdn
 documentationcenter: .NET
 author: dksimpson
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: mazha
-ms.openlocfilehash: db7b5053cb926d2ec86c7feea4ac411acbeb1ae2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d1a12e0d5bd5852cf8de3d5fec93f2bfdd3ab257
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Hantera förfallotiden för webbinnehåll i Azure innehåll Delivery Network
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Du kan också styra inställningar för cachelagring i Azure Portal genom att an
 Den bästa metoden för att ställa in en webbserver `Cache-Control` huvud är att använda regler för cachelagring i Azure-portalen. Läs mer om Innehållsleveransnätverk cachelagring regler [kontroll Azure CDN cachelagring av frågesträngar med cachelagring regler](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Regler för cachelagring är bara tillgängliga för **Azure CDN från Verizon Standard** och **Azure CDN från Akamai Standard** profiler. För **Azure CDN från Verizon Premium** profiler, måste du använda den [Azure CDN regelmotor](cdn-rules-engine.md) i den **hantera** portalen för liknande funktionalitet.
+> Regler för cachelagring är bara tillgängliga för **Azure CDN Standard från Verizon** och **Azure CDN Standard från Akamai** profiler. För **Azure CDN Premium från Verizon** profiler, måste du använda den [Azure CDN regelmotor](cdn-rules-engine.md) i den **hantera** portalen för liknande funktionalitet.
 
 **Navigera till sidan CDN cachelagring regler**:
 

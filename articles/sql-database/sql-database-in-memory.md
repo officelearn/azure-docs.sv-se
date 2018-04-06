@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 442c860a13e2af1d5398fb30a6069a0e3764ee64
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 36a6b32851c4778db3405b6b9b35d9551181abf4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimera prestanda genom att använda InMemory-tekniker i SQL-databas
 
@@ -22,7 +22,7 @@ Du kan åstadkomma prestandaförbättringar med olika arbetsbelastningar med hj�
 Här är två exempel på hur Minnesintern OLTP hjälpt att avsevärt förbättra prestanda:
 
 - Med hjälp av Minnesintern OLTP [kvorum affärslösningar kunde fördubbla arbetsbelastningen samtidigt förbättra dtu: er med 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - DTU innebär *databasen genomflödesenhet*, och innehåller en mesurement resursförbrukning.
+    - DTU innebär *database transaction unit*, och innehåller en mesurement resursförbrukning.
 - Följande videoklipp visar viktig förbättringar i resursanvändningen med ett exempel på arbetsbelastning: [Minnesintern OLTP i Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
     - Mer information finns i blogginlägget: [Minnesintern OLTP i Azure SQL Database-blogginlägg](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
@@ -36,7 +36,7 @@ Följande videoklipp beskrivs möjliga prestandafördelar med InMemory-tekniker 
 
 Azure SQL Database har följande InMemory-tekniker:
 
-- *Minnesintern OLTP* ökar dataflödet och minskar svarstiden för transaktionsbearbetning. Scenarier som har nytta i minnet OLTP är: hög genomströmning transaktionsbearbetning, till exempel handel och spel, datapåfyllning från händelser eller IoT-enheter, cachelagring datainläsning, och tillfällig tabell och tabellen variabeln scenarier.
+- *Minnesintern OLTP* ökar transaktion och minskar svarstiden för transaktionsbearbetning. Scenarier som har nytta i minnet OLTP är: hög genomströmning transaktionsbearbetning, till exempel handel och spel, datapåfyllning från händelser eller IoT-enheter, cachelagring datainläsning, och tillfällig tabell och tabellen variabeln scenarier.
 - *Grupperade columnstore-index* minska lagring-storleken (upp till 10 gånger) och förbättra prestanda för frågor för rapportering och analys. Du kan använda den med faktatabeller i-dataarkiv att få mer data i databasen och förbättra prestanda. Du kan också använda den med historiska data i databasen att arkivera och kunna läsa upp till 10 gånger mer data.
 - *Icke-grupperat columnstore-index* för HTAP hjälper dig att få realtid insikter om ditt företag genom att fråga databasen direkt, utan att behöva köra en dyr extrahera transformera, och läsa in (ETL)-processen och vänta tills den datalager fyllas. Icke-grupperat columnstore-index fjärrkörning mycket snabbt analytics frågor på OLTP-databasen samtidigt minska påverkan på operativa arbetsbelastningen.
 - Du kan också ha en kombination av en minnesoptimerad tabell med ett columnstore-index. Den här kombinationen kan du utföra mycket snabbt transaktionsbearbetning och *samtidigt* köra analytics frågor snabbt på samma data.
@@ -71,7 +71,7 @@ Djupgående video om tekniker:
 
 Minnesintern OLTP innehåller minnesoptimerade tabeller som används för lagring av användardata. Dessa tabeller krävs för att få plats i minnet. Eftersom du hantera minne direkt i SQL Database-tjänsten har vi konceptet för en kvot för användardata. Den här idén kallas *Minnesintern OLTP lagring*.
 
-Varje stöds fristående databas prisnivå och varje elastisk pool prisnivån innehåller mängden lagringsutrymme som OLTP i minnet. Vid tidpunkten för skrivning får du ett GB lagringsutrymme för varje 125 datatransaktionsenheter (Dtu) eller elastiska datatransaktionsenheter (edtu: er). Mer information finns i [gränserna för](sql-database-resource-limits.md).
+Varje stöds fristående databas prisnivå och varje elastisk pool prisnivån innehåller mängden lagringsutrymme som OLTP i minnet. Se [DTU-baserade gränserna för](sql-database-dtu-resource-limits.md) och [vCore-baserade gränserna för](sql-database-vcore-resource-limits.md).
 
 Följande objekt räknas in i din Minnesintern OLTP lagring cap:
 
@@ -87,8 +87,8 @@ Mer information om övervakning i minnet OLTP lagringsanvändningen och konfigur
 
 Med elastiska pooler delas Minnesintern OLTP-lagringen mellan alla databaser i poolen. Därför kan användning i en databas potentiellt påverka andra databaser. Det finns två åtgärder för den här:
 
-- Konfigurera en Max-eDTU för databaser som är lägre än antalet eDTU för poolen som helhet. Den här högsta värdet versaler i alla databaser i poolen, till samma storlek som motsvarar antalet eDTU i lagringsanvändningen Minnesintern OLTP.
-- Konfigurera en minsta eDTU som är större än 0. Detta minsta garanterar att varje databas i poolen har mängden tillgängligt lagringsutrymme för OLTP i minnet som motsvarar konfigurerade Min-edtu: er.
+- Konfigurera en `Max-eDTU` eller `MaxvCore` för databaser som är lägre än antalet eDTU eller vCore för poolen som helhet. Den här högsta värdet versaler i alla databaser i poolen, till samma storlek som motsvarar antalet eDTU i lagringsanvändningen Minnesintern OLTP.
+- Konfigurera en `Min-eDTU` eller `MinvCore` som är större än 0. Detta minsta garanterar att varje databas i poolen har mängden tillgängligt lagringsutrymme för OLTP i minnet som motsvarar den konfigurerade `Min-eDTU` eller `vCore`.
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Datastorlek och lagring för columnstore-index
 
@@ -141,7 +141,7 @@ Om du har en **klustrade** columnstore-index hela tabellen blir tillgänglig eft
 
 &nbsp;
 
-## <a name="1-install-the-in-memory-oltp-sample"></a>1. Installera Minnesintern OLTP-exempel
+## <a name="1-install-the-in-memory-oltp-sample"></a>1 Installera Minnesintern OLTP-exempel
 
 Du kan skapa AdventureWorksLT exempeldatabasen med ett par klick i den [Azure-portalen](https://portal.azure.com/). Sedan beskrivs stegen i det här avsnittet hur du kan utöka AdventureWorksLT databasen med InMemory-OLTP-objekt och visa prestandafördelarna.
 
@@ -152,7 +152,7 @@ En mer simplistic, men mer tilltalande prestanda demo för InMemory-OLTP finns:
 
 #### <a name="installation-steps"></a>Installationssteg
 
-1. I den [Azure-portalen](https://portal.azure.com/), skapar en Premium-databas på en server. Ange den **källa** till AdventureWorksLT exempeldatabasen. Detaljerade instruktioner finns [skapa din första Azure SQL-databas](sql-database-get-started-portal.md).
+1. I den [Azure-portalen](https://portal.azure.com/), skapa en Premium eller Business kritiska (förhandsgranskning) databas på en server. Ange den **källa** till AdventureWorksLT exempeldatabasen. Detaljerade instruktioner finns [skapa din första Azure SQL-databas](sql-database-get-started-portal.md).
 
 2. Ansluta till databasen med SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -369,7 +369,7 @@ Våra tester i minnet har visat att prestanda förbättras av **nio gånger** f�
 
 &nbsp;
 
-## <a name="2-install-the-in-memory-analytics-sample"></a>2. Installera InMemory-Analytics-exempel
+## <a name="2-install-the-in-memory-analytics-sample"></a>2 Installera InMemory-Analytics-exempel
 
 
 I det här avsnittet jämför resultaten i/o och statistik när du använder ett columnstore-index jämfört med traditionell b-trädindex.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mazha
-ms.openlocfilehash: 87f00575e0c2c4cd7a8525df96b2f5b13d470643
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ed6f0b2c021fc4b31b85986c07df0502dba826f2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Kontrollen Azure CDN cachelagring av frågesträngar med frågesträngar - standardnivån
 > [!div class="op_single_selector"]
@@ -36,8 +36,13 @@ Med frågan cachelagring av frågesträngar, styr Azure Content Delivery Network
 Tre frågan sträng lägen är tillgängliga:
 
 - **Ignorera frågesträngar**: standardläget. I det här läget noden CDN punkt av förekomst (POP) överför frågesträngar från begäranden till den ursprungliga servern den första begäran och cachelagrar tillgången. Alla efterföljande begäranden om tillgången som hämtas från POP Ignorera frågesträngar tills cachelagrade tillgången upphör att gälla.
+
 - **Kringgå cachelagring för frågesträngar**: I det här läget begäranden med frågesträngar inte cachelagras på noden CDN POP. Noden POP hämtar tillgången direkt från den ursprungliga servern och skickar den till begäranden med varje begäran.
-- **Cachelagra varje unik URL**: I det här läget varje förfrågan med en unik URL, inklusive frågesträngen behandlas som en unik tillgång med sin egen cache. Till exempel svaret från den ursprungliga servern för en begäran om `example.ashx?q=test1` är cachelagras på noden POP och returneras för efterföljande med samma frågesträngen. En begäran om `example.ashx?q=test2` cachelagras som en separat tillgång med sin egen time to live-inställningen.
+
+- **Cachelagra varje unik URL**: I det här läget varje förfrågan med en unik URL, inklusive frågesträngen behandlas som en unik tillgång med sin egen cache. Svaret från den ursprungliga servern för en begäran om example.ashx?q=test1 är cachelagras på noden POP och returneras för efterföljande med samma frågesträngen. En begäran om example.ashx?q=test2 cachelagras som en separat tillgång med sin egen time to live-inställningen.
+   
+    >[!IMPORTANT] 
+    > Använd inte det här läget när frågesträngen innehåller parametrar som ändrar med alla begäranden, till exempel ett sessions-ID eller ett användarnamn, eftersom det kommer att resultera i förhållandet låg cache-träff.
 
 ## <a name="changing-query-string-caching-settings-for-standard-cdn-profiles"></a>Ändra inställningar för standard CDN-profiler för cachelagring av frågesträng
 1. Öppna en CDN-profil, och välj sedan CDN-slutpunkt som du vill hantera.

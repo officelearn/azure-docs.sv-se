@@ -1,24 +1,24 @@
 ---
-title: "Hantera åtkomst till molnappar genom att begränsa klienter – Azure | Microsoft Docs"
-description: "Hur du använder klient begränsningar för att hantera vilka användare kan öppna programmen baserat på sina Azure AD-klient."
+title: Hantera åtkomst till molnappar genom att begränsa klienter – Azure | Microsoft Docs
+description: Hur du använder klient begränsningar för att hantera vilka användare kan öppna programmen baserat på sina Azure AD-klient.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
 editor: yossib
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 04/03/2018
 ms.author: kgremban
-ms.openlocfilehash: 63e0fa54433a60fe7384d21cf7d215cc8283afca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a6b498b38e76dfa2553bf3a916b723cd774d950d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Använd klient begränsningar för att hantera åtkomst till SaaS molnprogram
 
@@ -30,7 +30,7 @@ Klient begränsningar ger organisationer möjlighet att ange en lista över klie
 
 Den här artikeln fokuserar på klient begränsningar för Office 365, men funktionen ska fungera med alla SaaS-molnappar som använder modern autentiseringsprotokoll med Azure AD för enkel inloggning. Om du använder SaaS-appar med en annan Azure AD-klient från klienten som används av Office 365, se till att alla nödvändiga klienter tillåts. Mer information om SaaS molnappar finns i [Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/).
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Virtualiseringslösningen består av följande komponenter: 
 
@@ -71,8 +71,8 @@ Följande konfiguration krävs för att aktivera begränsningar för klient via 
 Infoga två HTTP-huvuden för varje inkommande begäran att login.microsoftonline.com och login.microsoft.com login.windows.net: *begränsa åtkomst till klienter* och *begränsa åtkomst kontext*.
 
 Sidhuvuden bör innehålla följande element: 
-- För *begränsa åtkomst till klienter*, värdet \<tillåts klienten listan\>, vilket är en kommaavgränsad lista över klienter som du vill ge användare åtkomst till. Alla domäner som har registrerats med en klient kan användas för att identifiera klienten i den här listan. Till exempel om du vill tillåta åtkomst till både Contoso och Fabrikam hyresgäster namn/värde-par ser ut som:`Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
-- För *begränsa åtkomst kontext*, ett värde av en enskild katalog-ID, deklarerar vilken är att lägga till begränsningar för innehavare. Till exempel för att deklarera Contoso som klienten som anger klient begränsningar principen namn/värde-par ser ut som:`Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
+- För *begränsa åtkomst till klienter*, värdet \<tillåts klienten listan\>, vilket är en kommaavgränsad lista över klienter som du vill ge användare åtkomst till. Alla domäner som har registrerats med en klient kan användas för att identifiera klienten i den här listan. Till exempel om du vill tillåta åtkomst till både Contoso och Fabrikam hyresgäster namn/värde-par ser ut som:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
+- För *begränsa åtkomst kontext*, ett värde av en enskild katalog-ID, deklarerar vilken är att lägga till begränsningar för innehavare. Till exempel för att deklarera Contoso som klienten som anger klient begränsningar principen namn/värde-par ser ut som: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
 > [!TIP]
 > Du kan hitta din katalog-ID i den [Azure-portalen](https://portal.azure.com). Logga in som administratör, Välj **Azure Active Directory**och välj **egenskaper**.
@@ -112,7 +112,9 @@ Referera till [uppdateras Office 365 modern autentisering](https://blogs.office.
 
 Klient-begränsningar för närvarande stöds av Office 365-webbläsarbaserade program (Office-portalen Yammer, SharePoint-platser, Outlook Web osv.). För tjock klienter (Outlook, Skype för företag, Word, Excel, PowerPoint, etc.) Klient begränsningar kan bara tillämpas när modern autentisering används.  
 
-Outlook och Skype för företag-klienter som stöder modern autentisering kan fortfarande använda äldre protokoll mot klienter där modern autentisering inte har aktiverats, effektivt kringgå klient begränsningar. För Outlook på Windows kan kunderna välja att implementera begränsningar som hindrar användare från att lägga till icke-godkända e-postkonto till deras profiler. Se exempelvis den [förhindra att lägga till konton som inte är standard Exchange](http://gpsearch.azurewebsites.net/default.aspx?ref=1) grupprincipinställning. Fullständigt stöd för klienten är inte tillgängliga för Outlook på Windows-plattformar och för Skype för företag på alla plattformar.
+Outlook och Skype för företag-klienter som stöder modern autentisering kan fortfarande kan använda äldre protokoll mot klienter där modern autentisering är inte aktiverat effektivt kringgå klient begränsningar. Program som använder äldre protokoll blockeras av klient begränsningar om de kontaktar login.microsoftonline.com, login.microsoft.com eller login.windows.net under autentiseringen.
+
+För Outlook på Windows kan kunderna välja att implementera begränsningar som hindrar användare från att lägga till icke-godkända e-postkonto till deras profiler. Se exempelvis den [förhindra att lägga till konton som inte är standard Exchange](http://gpsearch.azurewebsites.net/default.aspx?ref=1) grupprincipinställning. Fullständigt stöd för klienten är inte tillgängliga för Outlook på Windows-plattformar och för Skype för företag på alla plattformar.
 
 ## <a name="testing"></a>Testning
 

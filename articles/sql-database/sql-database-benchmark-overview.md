@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL Database benchmark-översikt"
-description: "Det här avsnittet beskriver Azure SQL Database Benchmark används i mätning av prestanda i Azure SQL Database."
+title: Azure SQL Database DTU benchmark-översikt
+description: Det här avsnittet beskriver Azure SQL Database Benchmark används i mätning av prestanda i Azure SQL Database.
 services: sql-database
 author: jan-eng
 manager: jhubbard
@@ -9,15 +9,18 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 06/21/2016
 ms.author: janeng
-ms.openlocfilehash: 25685f663d976674ad877bcfa1409ef016dd02ae
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 684ae62400adbde6f0624b802b79a926c06961c8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="azure-sql-database-benchmark-overview"></a>Azure SQL Database benchmark-översikt
+# <a name="azure-sql-database-dtu-benchmark-overview"></a>Azure SQL Database DTU benchmark-översikt
 ## <a name="overview"></a>Översikt
-Microsoft Azure SQL Database erbjuder tre [tjänstnivåer](sql-database-service-tiers.md) med flera prestandanivåer. Varje prestandanivå innehåller en ökande uppsättning resurser och ström, utformats för att ge allt högre genomströmning.
+I DTU-baserade inköpsmodell Microsoft Azure SQL Database erbjuder tre [tjänstnivåer](sql-database-service-tiers.md) med flera prestandanivåer. Varje prestandanivå innehåller en ökande uppsättning resurser och ström, utformats för att ge allt högre genomströmning.
+
+> [!IMPORTANT]
+> Azure SQL Database stöder nu också en vCore-baserade inköpsmodell (förhandsversion). Mer information finns i [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
 
 Det är viktigt för att kunna beräkna hur ökande kraften i varje prestandanivå översätter till ökad databasprestanda. Om du vill göra det här Microsoft har utvecklat Azure SQL Database Benchmark (ASDB). Benchmark utför en blandning av grundläggande åtgärder som finns i alla OLTP-arbetsbelastningar. Vi mäter genomflödet uppnås för databaser som körs i varje prestandanivå.
 
@@ -54,7 +57,7 @@ Arbetsbelastningen består av nio transaktionstyper som visas i tabellen nedan. 
 | Uppdatera aktiverat |UPPDATERA; oftast inte i minnet; skrivskyddad |
 | Infoga Lite |INFOGA. i minnet; skrivskyddad |
 | Infoga aktiverat |INFOGA. oftast inte i minnet; skrivskyddad |
-| Ta bort |TA BORT. blandning av i minnet och inte i minnet; skrivskyddad |
+| Radera |TA BORT. blandning av i minnet och inte i minnet; skrivskyddad |
 | CPU-aktiverat |VÄLJ; i minnet; relativt hög CPU-belastning; skrivskyddad |
 
 ## <a name="workload-mix"></a>Blandning av arbetsbelastning
@@ -69,7 +72,7 @@ Transaktioner väljs slumpmässigt från en viktad distributionsplats med följa
 | Uppdatera aktiverat |3 |
 | Infoga Lite |3 |
 | Infoga aktiverat |2 |
-| Ta bort |2 |
+| Radera |2 |
 | CPU-aktiverat |10 |
 
 ## <a name="users-and-pacing"></a>Användare och hastighetsstyrningen
@@ -94,7 +97,7 @@ Tabellen nedan visar hur många användare som faktiskt råkat ut för varje ser
 
 | Tjänstnivån (prestandanivå) | Användare | Databasstorlek |
 | --- | --- | --- |
-| Basic |5 |720 MB |
+| Grundläggande |5 |720 MB |
 | Standard (S0) |10 |1 GB |
 | Standard (S1) |20 |2.1 GB |
 | Standard (S2) |50 |7.1-GB |
@@ -115,7 +118,7 @@ Viktiga mått i benchmark är genomflöde och svarstid.
 | --- | --- | --- |
 | Premium |Transaktioner per sekund |95: e percentilen 0,5 sekunder |
 | Standard |Transaktioner per minut |90: e percentilen 1.0 sekunder |
-| Basic |Transaktioner per timme |80: e percentilen 2.0 sekunder |
+| Grundläggande |Transaktioner per timme |80: e percentilen 2.0 sekunder |
 
 ## <a name="conclusion"></a>Sammanfattning
 Azure SQL Database Benchmark mäter den relativa prestandan för Azure SQL Database köra inom intervallet för tillgängliga servicenivåer och prestandanivåer. Benchmark utför en blandning av grundläggande databasåtgärder som förekommer oftast i online transaktionsbearbetning (OLTP) arbetsbelastningar. Genom att mäta faktiska prestanda ger benchmark ett mer beskrivande bedömning av påverkan på dataflöde för att ändra prestandanivå än vad som är möjligt genom att bara lista de resurser som tillhandahålls av varje nivå, till exempel CPU-hastighet, minne och IOPS. I framtiden kommer fortsätter vi att utvecklas prestandamått för att utöka sitt omfång och expandera den informationen.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/10/2017
+ms.date: 04/02/2018
 ms.author: borisb
-ms.openlocfilehash: fe354c6c9415c1525527dd6b95d1b3a481b5a2de
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 336990373027ae13688f41e453b9a262f120c6e0
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update infrastruktur för att på begäran Red Hat Enterprise Linux virtuella datorer i Azure
  [Infrastrukturen för Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) gör att molntjänstleverantörer, till exempel Azure att spegla Red Hat-värdbaserad databasinnehåll, skapa anpassade databaser med Azure-specifika innehåll och gör den tillgänglig för slutanvändaren virtuella datorer.

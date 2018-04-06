@@ -1,13 +1,13 @@
 ---
-title: "Utlösare och bindningar i Azure Functions"
-description: "Lär dig hur du använder utlösare och bindningar i Azure Functions för att ansluta din kodkörning online händelser och molnbaserade tjänster."
+title: Utlösare och bindningar i Azure Functions
+description: Lär dig hur du använder utlösare och bindningar i Azure Functions för att ansluta din kodkörning online händelser och molnbaserade tjänster.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure-funktioner, funktioner, händelsebearbetning, webhooks, dynamisk beräkning, serverlös arkitektur"
+editor: ''
+tags: ''
+keywords: azure-funktioner, funktioner, händelsebearbetning, webhooks, dynamisk beräkning, serverlös arkitektur
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: 559cfee1a8116703371a5641cf4534b7ad6f7578
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d008e94186dd3c5a18c92617ebddfffa966358d5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-utlösare och bindningar begrepp
 
@@ -49,7 +49,7 @@ I version 2.x av Azure Functions-runtime måste du explicit registrera den [bind
 
 Tillägg levereras som NuGet-paket, där paketet vanligtvis namn börjar med [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  Hur du installerar och registrerar bindning tillägg beror på hur du utvecklar dina funktioner: 
 
-+ [Lokalt i C# med hjälp av Visual Studio eller VS-kod](#precompiled-functions-c)
++ [Lokalt i C# med hjälp av Visual Studio eller VS-kod](#local-c-development-using-visual-studio-or-vs-code)
 + [Lokalt med hjälp av Azure Functions grundläggande verktyg](#local-development-azure-functions-core-tools)
 + [I Azure-portalen](#azure-portal-development) 
 
@@ -473,7 +473,7 @@ Till exempel stöder en Azure Queue storage-utlösare följande egenskaper:
 * QueueTrigger - utlösa meddelandeinnehåll om en giltig sträng
 * DequeueCount
 * ExpirationTime
-* Id
+* ID
 * InsertionTime
 * NextVisibleTime
 * PopReceipt
@@ -635,7 +635,7 @@ I C# och andra .NET-språk, kan du använda en tvingande bindning mönster, till
 
 ## <a name="functionjson-file-schema"></a>schemat för Function.JSON
 
-Den *function.json* schema som finns på [http://json.schemastore.org/function](http://json.schemastore.org/function).
+Den *function.json* schema som finns på [ http://json.schemastore.org/function ](http://json.schemastore.org/function).
 
 ## <a name="handling-binding-errors"></a>Hantering av Bindningsfel
 

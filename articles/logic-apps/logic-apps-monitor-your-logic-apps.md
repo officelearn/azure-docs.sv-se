@@ -1,11 +1,11 @@
 ---
-title: "Kontrollera status, ställa in loggning och få varningar – Azure Logic Apps | Microsoft Docs"
-description: "Övervaka statusen och prestanda för logic apps loggar diagnostikdata och ställa in aviseringar"
+title: Kontrollera status, ställa in loggning och få varningar – Azure Logic Apps | Microsoft Docs
+description: Övervaka statusen och prestanda för logic apps loggar diagnostikdata och ställa in aviseringar
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Övervaka status, konfigurera diagnostikloggning och aktivera aviseringar för Azure Logic Apps
 
@@ -76,9 +76,9 @@ Om du vill få meddelanden om fel eller andra möjliga problem, Ställ in [avise
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Aktivera loggning för din logikapp diagnostik
 
-För bättre felsökning med runtime information och händelser som du kan ställa in diagnostik loggning med [Azure logganalys](../log-analytics/log-analytics-overview.md). Log Analytics är en tjänst i [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) som övervakar molnet och lokala miljöer som hjälper dig att upprätthålla sin tillgänglighet och prestanda. 
+För bättre felsökning med runtime information och händelser som du kan ställa in diagnostik loggning med [Azure logganalys](../log-analytics/log-analytics-overview.md). Log Analytics är en tjänst i Azure som övervakar molnet och lokala miljöer som hjälper dig att upprätthålla sin tillgänglighet och prestanda. 
 
-Innan du börjar bör behöver du ha en OMS-arbetsyta. Läs [hur du skapar en OMS-arbetsyta](../log-analytics/log-analytics-get-started.md).
+Innan du börjar behöver du ha logganalys-arbetsytan. Läs [hur du skapar en logganalys-arbetsytan](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. I den [Azure-portalen](https://portal.azure.com), söka efter och välj din logikapp. 
 
@@ -90,16 +90,16 @@ Innan du börjar bör behöver du ha en OMS-arbetsyta. Läs [hur du skapar en OM
 
    ![Aktivera diagnostikloggar](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. Nu välja OMS-arbetsytan och händelse-kategori för loggning enligt:
+4. Nu välja logganalys-arbetsytan och händelse-kategori för loggning enligt:
 
    1. Välj **skicka till logganalys**. 
    2. Under **logganalys**, Välj **konfigurera**. 
-   3. Under **OMS arbetsytor**, Välj OMS-arbetsyta för loggning.
+   3. Under **OMS arbetsytor**, Välj logganalys-arbetsytan ska användas för loggning.
    4. Under **loggen**, Välj den **WorkflowRuntime** kategori.
    5. Välj det mått intervallet.
    6. När du är klar väljer du **Spara**.
 
-   ![Välj OMS-arbetsytan och data för loggning](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+   ![Välj logganalys-arbetsytan och data för loggning](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
 Nu hittar du händelser och andra data för utlösaren händelser, kör händelser och händelser för åtgärden.
 
@@ -113,23 +113,23 @@ Om du vill söka efter och visa händelser i din logikapp, t.ex. utlösa händel
 
    ![Choose "Log Analytics"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
-2. Under **logganalys**, söka efter och välj din OMS-arbetsyta. 
+2. Under **logganalys**, söka efter och välj logganalys-arbetsytan. 
 
-   ![Välj din OMS-arbetsyta](media/logic-apps-monitor-your-logic-apps/selectla.png)
+   ![Välj logganalys-arbetsytan](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
 3. Under **Management**, Välj **OMS-portalen**.
 
    ![Välj ”OMS-portalen”](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
 
-4. Välj på startsidan OMS **loggen Sök**.
+4. På startsidan, Välj **loggen Sök**.
 
-   ![På startsidan OMS väljer du ”loggen Sök”](media/logic-apps-monitor-your-logic-apps/logsearch.png)
+   ![På startsidan, väljer du ”loggen Sök”](media/logic-apps-monitor-your-logic-apps/logsearch.png)
 
    ELLER
 
-   ![På menyn OMS väljer du ”loggen Sök”](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
+   ![På menyn, väljer du ”loggen Sök”](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
 
-5. I sökrutan anger du ett fält som du vill söka efter och tryck på **RETUR**. När du börjar skriva in visas OMS möjliga matchningar och åtgärder som du kan använda. 
+5. I sökrutan anger du ett fält som du vill söka efter och tryck på **RETUR**. När du börjar skriva visas möjliga matchningar och åtgärder som du kan använda. 
 
    Till exempel vill hitta topp 10-händelser som har inträffat, ange och välj sökfrågan: **söka kategori == ”WorkflowRuntime” | begränsa 10**
 

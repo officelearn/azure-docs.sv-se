@@ -1,11 +1,11 @@
 ---
-title: "Vad är programåtkomst och enkel inloggning med Azure Active Directory? | Microsoft Docs"
-description: "Använd Azure Active Directory för att aktivera enkel inloggning till alla SaaS och webb-program som du behöver för företag."
+title: Vad är programåtkomst och enkel inloggning med Azure Active Directory? | Microsoft Docs
+description: Använd Azure Active Directory för att aktivera enkel inloggning till alla SaaS och webb-program som du behöver för företag.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 42a24654eb059894a855474c922a4dd2da185149
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f19d33c905d6153dffa1e7d5cdaea92ed1b94ff7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Vad är programåtkomst och enkel inloggning med Azure Active Directory?
 Enkel inloggning innebär att kunna komma åt alla program och resurser som du behöver göra affärer, genom att logga in bara en gång med ett enda användarkonto. När du är inloggad du har åtkomst till alla program som du behöver, utan som krävs för att autentisera (Skriv till exempel ett lösenord) en andra gång.
@@ -68,7 +68,7 @@ Konfigurera lösenordsbaserade enkel inloggning gör att användare i din organi
 Azure AD stöder lösenordsbaserad enkel inloggning för molnbaserade appar som har en HTML-baserad inloggningssidan. Genom att använda ett anpassat webbläsare plugin-program kan AAD automatiserar användarens inloggningsprocessen via på ett säkert sätt hämta autentiseringsuppgifter, till exempel användarnamn och lösenord från katalogen och anger autentiseringsuppgifterna i programmets inloggningssida för den användaren. Det finns två användningsområden:
 
 1. **Administratören hanterar autentiseringsuppgifter** – administratörer kan skapa och hantera autentiseringsuppgifter och tilldelar dessa behörigheter till användare eller grupper som behöver åtkomst till programmet. I dessa fall måste slutanvändaren behöver inte känner till autentiseringsuppgifterna, men fortfarande får enkel inloggning åtkomst till programmet genom att klicka på den i deras åtkomstpanelen eller via en angiven länk. På så sätt kan både livscykelhantering av autentiseringsuppgifter som administratör, samt bekvämlighet för slutanvändare där de inte behöver komma ihåg eller hantera app-specifik lösenord. Autentiseringsuppgifterna som har dolts från användaren under automatisk inloggning; men de är tekniskt sett kan upptäckas av användaren med hjälp av web felsökningsverktyg och användare och administratörer bör följa samma säkerhetsprinciper som om autentiseringsuppgifterna som presenteras direkt av användaren. Autentiseringsuppgifter för administratören är användbara när ge kontot tillgång som delas av många användare, till exempel sociala medier eller dokumentdelning program.
-2. **Användaren hanterar autentiseringsuppgifter** – administratörer kan tilldela program till användare eller grupper och tillåta att användarna anger sina egna autentiseringsuppgifter direkt vid åtkomst till programmet för första gången i sina åtkomstpanelen. Detta skapar i syfte att underlätta för slutanvändare där de inte behöver kontinuerligt ange app-specifik lösenord varje gång som de har åtkomst till programmet. Den här användningsfall kan också användas som en version bricka administrativa hanteringen av de autentiseringsuppgifter som administratören kan där ange nya autentiseringsuppgifter för programmet senare utan att ändra app åtkomst upplevelse för slutanvändaren.
+2. **Användaren hanterar autentiseringsuppgifter** – administratörer kan tilldela program till användare eller grupper och tillåta att användarna anger sina egna autentiseringsuppgifter direkt vid åtkomst till programmet för första gången i sina åtkomstpanelen. Detta skapar i syfte att underlätta för slutanvändare där de inte behöver kontinuerligt ange app-specifik lösenord varje gång som de har åtkomst till programmet. Användare kan fortsätta att hantera sina lösenord genom att uppdatera eller ta bort dem efter behov. Den här användningsfall kan också användas som en version bricka administrativa hanteringen av de autentiseringsuppgifter som administratören kan där ange nya autentiseringsuppgifter för programmet senare utan att ändra app åtkomst upplevelse för slutanvändaren.
 
 I båda fallen autentiseringsuppgifter lagras i ett krypterat tillstånd i katalogen och skickas endast över HTTPS under processen för automatisk inloggning. Azure AD erbjuder med hjälp av lösenordsbaserade enkel inloggning, en smidig åtkomstlösning för Identitetshantering för appar som inte kan stödja federation protokoll.
 
@@ -151,7 +151,7 @@ Azure AD innehåller flera anpassningsbara sätt att distribuera program till an
 Vilken metod du vill distribuera i din organisation är så önskar.
 
 ### <a name="azure-ad-access-panel"></a>Azure AD-åtkomstpanelen
-Åtkomstpanelen på https://myapps.microsoft.com är en webbaserad portal som gör att en användare med ett organisationskonto i Azure Active Directory för att visa och starta molnbaserade program som de har beviljats åtkomst av Azure AD-administratör . Om du är en användare med [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), du kan också använda självbetjäning hanteringsmöjligheter till åtkomstpanelen.
+Åtkomstpanelen på https://myapps.microsoft.com är en webbaserad portal som tillåter en användare med ett organisationskonto i Azure Active Directory för att visa och starta molnbaserade program som de har beviljats åtkomst av Azure AD-administratör. Om du är en användare med [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), du kan också använda självbetjäning hanteringsmöjligheter till åtkomstpanelen.
 
 ![Azure AD-åtkomstpanelen](media/active-directory-appssoaccess-whatis/azure-ad-access-panel.png)
 
@@ -160,7 +160,7 @@ Vilken metod du vill distribuera i din organisation är så önskar.
 Mer information om Azure AD-åtkomstpanelen finns i [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md).
 
 ### <a name="office-365-application-launcher"></a>Startprogrammet för Office 365
-Program som tilldelats till användare via Azure AD visas också i Office 365-portalen på https://portal.office.com/myapps för organisationer som har distribuerat Office 365. Detta gör det enkelt och för användare i en organisation att starta sina appar utan att behöva använda andra portal och är den rekommenderade app startar lösningen för organisationer som använder Office 365.
+För organisationer som har distribuerat Office 365, visas också program som tilldelats till användare via Azure AD i Office 365-portalen på https://portal.office.com/myapps. Detta gör det enkelt och för användare i en organisation att starta sina appar utan att behöva använda andra portal och är den rekommenderade app startar lösningen för organisationer som använder Office 365.
 
 ![][4]
 

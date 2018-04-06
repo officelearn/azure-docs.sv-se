@@ -1,6 +1,6 @@
 ---
-title: "Komma igång med elastisk databas jobb | Microsoft Docs"
-description: "Använd elastisk databas jobb för att köra T-SQL-skript som sträcker sig över flera databaser."
+title: Komma igång med elastisk databas jobb | Microsoft Docs
+description: Använd elastisk databas jobb för att köra T-SQL-skript som sträcker sig över flera databaser.
 services: sql-database
 manager: craigg
 author: stevestein
@@ -9,18 +9,18 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: sstein
-ms.openlocfilehash: 5d55ae225ca1b550bbf70314e2f48fc0161ad107
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 85fd04966822f8dd6a0c3086002e4388411d1051
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Komma igång med jobb för elastisk databas
 Elastiska databasen jobb (förhandsversion) för Azure SQL Database kan du köra T-SQL-skript som sträcker sig över flera databaser när du försöker och ge garantier för eventuell slutförande automatiskt på ett tillförlitligt sätt. Mer information om funktionen för elastisk databas jobb finns [elastiska jobb](sql-database-elastic-jobs-overview.md).
 
 Den här artikeln utökar exemplet hittades i [komma igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md). När du är klar, lär du dig att skapa och hantera jobb som hanterar en grupp av relaterade databaser. Du behöver inte använda verktygen elastisk skalbarhet för att kunna dra nytta av fördelarna med elastiska jobb.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Hämta och kör den [komma igång med elastisk databas verktyg exempel](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Skapa en Fragmentera kartan manager med sample-appen
@@ -460,7 +460,7 @@ Alla rader från **kunder** tabell som sparas i olika delar fylla i Excel-blad.
 Du kan nu använda Excel-data. Använda anslutningssträngen med servernamnet, databasnamnet och autentiseringsuppgifter för att ansluta din verktyg för BI och integrering till elastisk fråga databas. Kontrollera att SQL Server stöds som en datakälla för verktyget du behöver. Referera till elastisk fråga databas och externa tabeller precis som andra SQL Server-databas och SQL Server-tabeller som du vill ansluta till med din-verktyget.
 
 ### <a name="cost"></a>Kostnad
-Det finns utan extra kostnad för att använda funktionen för elastisk databas frågan. Dock just nu den här funktionen är bara tillgängliga på premiumdatabaser som en slutpunkt, men delar som kan vara av en tjänstnivå.
+Det finns utan extra kostnad för att använda funktionen för elastisk databas frågan. Dock just nu den här funktionen är bara tillgängliga på Premium- och Business kritiska (förhandsgranskning) databaser och elastiska pooler som en slutpunkt, men delar som kan vara av en tjänstnivå.
 
 Mer information om priser finns [prisinformation för SQL-databasen](https://azure.microsoft.com/pricing/details/sql-database/).
 

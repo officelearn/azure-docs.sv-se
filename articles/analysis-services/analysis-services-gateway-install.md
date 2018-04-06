@@ -1,30 +1,30 @@
 ---
 title: Installera lokala datagateway | Microsoft Docs
-description: "Lär dig hur du installerar och konfigurerar en lokala datagateway."
+description: Lär dig hur du installerar och konfigurerar en lokala datagateway.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 04/03/2018
 ms.author: owend
-ms.openlocfilehash: c2cbe1c60f67c689a38d1585245610a6fa73bff4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b57ee7d9617f8bf2e54122ac37f351ae0cf9db26
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installera och konfigurera en gateway för lokala data
 En lokal datagateway krävs när en eller flera Azure Analysis Services-servrar i samma region som ansluter till lokala datakällor. Mer information om gateway finns [lokala datagateway](analysis-services-gateway.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 **Minimikrav:**
 
 * .NET 4.5 Framework
@@ -44,6 +44,7 @@ En lokal datagateway krävs när en eller flera Azure Analysis Services-servrar 
 * Installera gatewayen på en dator som finns kvar på och går inte för att viloläge.
 * Installera inte gatewayen på en dator som trådlöst ansluten till nätverket. Prestanda kan minskas.
 * Logga in på Azure med ett konto i Azure AD för samma [klient](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) som prenumerationen du registrerar gatewayen på den. Azure B2B (gästkonton) stöds inte när du installerar och registrerar en gateway.
+* (Enhetlig) gatewayen beskrivs här stöds inte i Azure Government (Fairfax). Använd den dedicerade lokala gatewayen för Azure Analysis Services. Dedikerad gateway stöder inte ytterligare tjänster som Power BI och Power appar. Dedikerad gateway har installerats från dina servrar Snabbstart i portalen.
 
 
 ## <a name="download"></a>Ladda ned
@@ -59,7 +60,7 @@ En lokal datagateway krävs när en eller flera Azure Analysis Services-servrar 
 
 3. Logga in i Azure. Kontot måste vara i din klient Azure Active Directory. Det här kontot används för gateway-administratören. Azure B2B (gästkonton) stöds inte när installera och registrera gatewayen.
 
-   ![Logga in på Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
+   ![Logga in till Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
    > [!NOTE]
    > Om du loggar in med ett domänkonto är mappad till ditt organisationskonto i Azure AD. Ditt organisationskonto används som gateway-administratören.

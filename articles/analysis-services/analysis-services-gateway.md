@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 04/03/2018
 ms.author: owend
-ms.openlocfilehash: 2bb85eafc7722840b6a35956403c29d4ac642cc1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f38faf4d75125201ee209eb40c9f223a0487f042
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Ansluter till lokala datakällor med Azure-lokala Data Gateway
 Lokala datagateway fungerar som en brygga som tillhandahåller säker dataöverföring mellan lokala datakällor och dina Azure Analysis Services-servrar i molnet. Förutom att arbeta med flera Azure Analysis Services-servrar i samma region fungerar även den senaste versionen av gatewayen med Azure Logikappar, Power BI, Power appar och Microsoft Flow. Du kan associera flera tjänster i samma region med en enda gateway. 
@@ -39,7 +39,7 @@ Om du vill komma igång nu direkt, se [installera och konfigurera lokala datagat
 ## <a name="how-it-works"> </a>Så här fungerar det
 Den gateway som du installerar på en dator i din organisation körs som en windowstjänst **lokala datagateway**. Den här lokal tjänst har registrerats med Gateway-Molntjänsten via Azure Service Bus. Du kan sedan skapa en gateway-resurs Gateway Cloud Service för din Azure-prenumeration. Azure Analysis Services-servrar är nu ansluten till din gateway-resurs. När modeller på servern behöver ansluta till dina lokala data källor för frågor eller bearbetning, passerar fråga och dataflöde gatewayresursen, Azure Service Bus, lokala lokala data gateway-tjänsten och dina datakällor. 
 
-![Hur det fungerar](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
+![Så här fungerar det](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
 Frågor och dataflöde:
 

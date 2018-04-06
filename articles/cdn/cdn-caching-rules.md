@@ -4,7 +4,7 @@ description: Du kan använda CDN cachelagring regler för att ange eller ändra 
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
-ms.openlocfilehash: 735978a0986b2b16b4f96faca78c06d798915002
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: rli; v-deasim
+ms.openlocfilehash: 60693b919fad6808bfe60b504d2a70caf80fbe48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Kontrollen Azure CDN cachelagring av frågesträngar med cachelagring regler
 
 > [!NOTE] 
-> Regler för cachelagring är bara tillgängliga för **Azure CDN från Verizon Standard** och **Azure CDN från Akamai Standard**. För **Azure CDN från Verizon Premium**, du kan använda den [Azure CDN regelmotor](cdn-rules-engine.md) i den **hantera** portalen för liknande funktionalitet.
+> Regler för cachelagring är bara tillgängliga för **Azure CDN Standard från Verizon** och **Azure CDN Standard från Akamai**. För **Azure CDN Premium från Verizon**, du kan använda den [Azure CDN regelmotor](cdn-rules-engine.md) i den **hantera** portalen för liknande funktionalitet.
  
 Azure Content Delivery Network (CDN) finns två sätt att styra hur dina filer cachelagras: 
 
@@ -35,7 +35,7 @@ Azure Content Delivery Network (CDN) finns två sätt att styra hur dina filer c
 
 Information om standard cachelagring direktivet sidhuvuden och funktionssätt för cachelagring finns [hur cachelagring fungerar](cdn-how-caching-works.md).
 
-## <a name="tutorial"></a>Självstudier
+## <a name="tutorial"></a>Självstudie
 
 Hur du ställer in CDN cachelagring regler:
 

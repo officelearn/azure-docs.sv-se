@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 89469af2b1d02ef00fc347e47719956885e7f142
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2bc2559dc1cf737e018895ffae61d0da0e56fc85
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer som utlösare för Azure Functions 
 
@@ -168,16 +168,16 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**Typ** | Saknas | Måste anges till ”timerTrigger”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
-|**Riktning** | Saknas | Måste anges till ”i”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
-|**Namn** | Saknas | Namnet på variabeln som representerar timer-objekt i funktionskoden. | 
-|**schedule**|**ScheduleExpression**|En [CRON-uttryck](#cron-expressions) eller en [TimeSpan](#timespan) värde. En `TimeSpan` kan endast användas för en funktionsapp som körs på en App Service-Plan. Du kan placera schema-uttrycket i en appinställning och ange egenskapen till appen inställningsnamn kapslas in i **%** tecken, som i följande exempel: ”% NameOfAppSettingWithScheduleExpression %”. |
-|**runOnStartup**|**RunOnStartup**|Om `true`, funktionen anropas när körningen startar. Exempelvis startar körningen när appen funktionen aktiveras efter att inaktiveras på grund av inaktivitet. När funktionen appen startas om på grund av funktionen ändringar och när appen funktionen skalas ut. Så **runOnStartup** bör sällan om någonsin anges till `true`, vilket gör koden köra vid hög oväntade tidpunkter. Om du behöver utlösa funktionen utanför timer-schemat kan du skapa en annan funktion med en annan utlösartypen och dela koden mellan de två funktionerna. Kan till exempel att utlösa för distribution [anpassa distributionen](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) att anropa funktionen sekund genom att göra en HTTP-begäran när distributionen är klar.|
+|**typ** | saknas | Måste anges till ”timerTrigger”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|**riktning** | saknas | Måste anges till ”i”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|**Namn** | saknas | Namnet på variabeln som representerar timer-objekt i funktionskoden. | 
+|**schedule**|**ScheduleExpression**|En [CRON-uttryck](#cron-expressions) eller en [TimeSpan](#timespan) värde. En `TimeSpan` kan endast användas för en funktionsapp som körs på en App Service-Plan. Du kan placera schema-uttrycket i en appinställning och ange egenskapen till appen inställningsnamn kapslas in i **%** tecken, som i följande exempel: ”% ScheduleAppSetting %”. |
+|**runOnStartup**|**RunOnStartup**|Om `true`, funktionen anropas när körningen startar. Exempelvis startar körningen när appen funktionen aktiveras efter att inaktiveras på grund av inaktivitet. När funktionen appen startas om på grund av funktionen ändringar och när appen funktionen skalas ut. Så **runOnStartup** bör sällan om någonsin anges till `true`, vilket gör koden köra vid hög oväntade tidpunkter.|
 |**useMonitor**|**UseMonitor**|Ange till `true` eller `false` att indikera om schemat bör övervakas. Övervakning av schemat kvarstår schema förekomster till stöd för schemat underhålls på rätt sätt när du startar om funktionen app-instanser. Om den inte har angetts explicit är standardvärdet `true` för scheman som har ett intervall som är större än 1 minut. För scheman som utlöser mer än en gång per minut som standard är `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>Användning
+## <a name="usage"></a>Syntax
 
 När en timer utlösaren funktionen anropas på [timer-objekt](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) skickades till funktionen. Följande JSON är ett exempel representation av timer-objektet. 
 

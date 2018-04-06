@@ -1,12 +1,12 @@
 ---
-title: "Översikt över Azure serverlösa | Microsoft Docs"
-description: "Skapa kraftfulla lösningar i molnet utan att tänka på infrastrukturen."
-keywords: 
+title: Översikt över Azure serverlösa | Microsoft Docs
+description: Skapa kraftfulla lösningar i molnet utan att tänka på infrastrukturen.
+keywords: ''
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5cc6837ed0b0f4467e48c736f5d596a51a799fae
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 30c7dd36efca5ffcae770fe310a43a107d9136af
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Översikt över Azure serverlösa med funktioner och Logic Apps
 
@@ -45,7 +45,7 @@ Börja med att komma igång med Logic Apps [skapa din första logikapp](quicksta
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Hur kan skapa och distribuera serverlösa program i Azure?
 
-Azure tillhandahåller en omfattande uppsättning av verktyg för utveckling, distribution och hantering av serverlösa appar.  Appar kan skapas direkt i Azure-portalen eller med [tooling från Visual Studio](logic-apps-serverless-get-started-vs.md).  När ett program som har utvecklats kan det vara [distribueras direkt](logic-apps-create-deploy-template.md).  Azure tillhandahåller också övervakning för serverlösa appar.  Denna övervakning kan nås från Azure-portalen via API: et eller SDK eller med integrerad verktygsuppsättning OMS och Application Insights.
+Azure tillhandahåller en omfattande uppsättning av verktyg för utveckling, distribution och hantering av serverlösa appar.  Appar kan skapas direkt i Azure-portalen eller med [tooling från Visual Studio](logic-apps-serverless-get-started-vs.md).  När ett program som har utvecklats kan det vara [distribueras direkt](logic-apps-create-deploy-template.md).  Azure tillhandahåller också övervakning för serverlösa appar.  Denna övervakning kan nås från Azure-portalen via API: et eller SDK eller med integrerad verktygsuppsättning logganalys och Application Insights.
 
 ## <a name="next-steps"></a>Nästa steg
 

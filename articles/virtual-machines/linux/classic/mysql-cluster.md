@@ -1,11 +1,11 @@
 ---
-title: "Clusterize MySQL med belastningsutjämnade uppsättningar | Microsoft Docs"
-description: "Konfigurera en belastningsutjämnad hög tillgänglighet Linux MySQL-kluster skapas med den klassiska distributionsmodellen på Azure"
+title: Clusterize MySQL med belastningsutjämnade uppsättningar | Microsoft Docs
+description: Konfigurera en belastningsutjämnad hög tillgänglighet Linux MySQL-kluster skapas med den klassiska distributionsmodellen på Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: bureado
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 6c413a16-e9b5-4ffe-a8a3-ae67046bbdf3
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.openlocfilehash: 8b39da7b96002e14c7d9a567ddc4f1dbc9d45c60
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e2671def47879e3d4eae000c9084cd458e29b933
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Använda belastningsutjämnade uppsättningar till clusterize MySQL på Linux
 > [!IMPORTANT]
@@ -335,7 +335,7 @@ Följande begränsningar:
 
 * Linbit DRBD resurs skriptet som hanterar DRBD som en resurs i Pacemaker använder `drbdadm down` när du stänger en nod, även om noden ska bara i vänteläge. Detta är inte idealiskt eftersom underordnade inte kommer att synkronisera resursen DRBD medan huvudservern hämtar skrivningar. Om huvudservern inte misslyckas graciously, kan underordnade ta över en äldre tillståndet för filsystemet. Det finns två möjliga sätt att lösa det här:
   * Framtvinga en `drbdadm up r0` i alla noder i klustret via ett lokalt (inte clusterized) watchdog
-  * Redigera skriptet linbit DRBD att se till att `down` inte anropas`/usr/lib/ocf/resource.d/linbit/drbd`
+  * Redigera skriptet linbit DRBD att se till att `down` inte anropas `/usr/lib/ocf/resource.d/linbit/drbd`
 * Belastningsutjämnaren måste minst fem sekunder att svara så att program ska vara kluster och vara mer tolerant för timeout. Andra arkitekturer som app-köer och fråga middlewares kan också.
 * Inställning av MySQL är nödvändigt för att säkerställa att skrivning utförs i en hanterbar takt och cacheminnen rensade så ofta som möjligt för att minimera minne på disk.
 * Skriva prestanda beror på virtuell dator sammankoppling i den virtuella växeln eftersom det här är den mekanism som används av DRBD för att replikera enheten.

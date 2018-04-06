@@ -1,38 +1,38 @@
 ---
 title: Begränsa nätverksåtkomst till PaaS - resurser i Azure CLI | Microsoft Docs
-description: Lär dig mer om att begränsa och begränsa nätverksåtkomst till Azure-resurser, till exempel Azure Storage och Azure SQL Database med virtuella nätverksslutpunkter med hjälp av Azure CLI.
+description: I den här artikeln lär du dig att begränsa och begränsa nätverksåtkomst till Azure-resurser, till exempel Azure Storage och Azure SQL Database med virtuella nätverksslutpunkter med hjälp av Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 5c0c6a802c931b71f5be8b01c610cf0810b0b4d1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f357861a7a44b249e06f091a8693b7f2d8dd5178
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Begränsa nätverksåtkomst till PaaS-resurser med virtuella nätverksslutpunkter med hjälp av Azure CLI
 
 Slutpunkter för virtuellt nätverk kan du begränsa nätverksåtkomsten till resurser i Azure-tjänsten som ett undernät för virtuellt nätverk. Du kan också ta bort internet-åtkomst till resurserna. Tjänsteslutpunkter ger direkt anslutning från det virtuella nätverket till stöds Azure-tjänster, så att du kan använda privata adressutrymmet för det virtuella nätverket för att komma åt Azure-tjänster. Trafik till Azure-resurser via Tjänsteslutpunkter alltid kvar på stamnät Microsoft Azure-nätverk. I den här artikeln får du lära dig hur du:
 
-> [!div class="checklist"]
-> * Skapa ett virtuellt nätverk med ett undernät
-> * Lägg till ett undernät och aktivera en tjänstslutpunkt
-> * Skapa en Azure-resurs och ge åtkomst till nätverket till den från bara ett undernät
-> * Distribuera en virtuell dator (VM) till varje undernät
-> * Bekräfta åtkomst till en resurs från ett undernät
-> * Bekräfta att åtkomst nekas till en resurs från ett undernät och internet
+* Skapa ett virtuellt nätverk med ett undernät
+* Lägg till ett undernät och aktivera en tjänstslutpunkt
+* Skapa en Azure-resurs och ge åtkomst till nätverket till den från bara ett undernät
+* Distribuera en virtuell dator (VM) till varje undernät
+* Bekräfta åtkomst till en resurs från ett undernät
+* Bekräfta att åtkomst nekas till en resurs från ett undernät och internet
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -82,7 +82,7 @@ az network vnet subnet create \
   --service-endpoints Microsoft.Storage
 ```
 
-## <a name="restrict-network-access-to-and-from-subnet"></a>Begränsa nätverksåtkomst till och från undernätet
+## <a name="restrict-network-access-for-a-subnet"></a>Begränsa nätverksåtkomsten till ett undernät
 
 Skapa en nätverkssäkerhetsgrupp med [az nätverket nsg skapa](/cli/azure/network/nsg#az_network_nsg_create). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNsgPrivate*.
 
@@ -311,7 +311,7 @@ Skapa en katalog för en monteringspunkt:
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-Försök att montera filresursen Azure till den katalog som du skapade. Den här kursen förutsätter att du har distribuerat den senaste versionen av Ubuntu. Om du använder tidigare versioner av Ubuntu [montera på Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för mer information om hur du monterar filresurser. Innan du kör följande kommando ersätter `<storage-account-name>` med kontonamn och `<storage-account-key>` med den nyckel som du hämtade i [skapa ett lagringskonto](#create-a-storage-account):
+Försök att montera filresursen Azure till den katalog som du skapade. Den här artikeln förutsätter att du har distribuerat den senaste versionen av Ubuntu. Om du använder tidigare versioner av Ubuntu [montera på Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för mer information om hur du monterar filresurser. Innan du kör följande kommando ersätter `<storage-account-name>` med kontonamn och `<storage-account-key>` med den nyckel som du hämtade i [skapa ett lagringskonto](#create-a-storage-account):
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -341,9 +341,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har aktiverat en tjänstslutpunkt för ett undernät för virtuellt nätverk i den här självstudiekursen. Du har lärt dig att slutpunkter kan aktiveras för resurser som har distribuerats med Azure-tjänster. Du har skapat ett Azure Storage-konto och begränsad nätverksåtkomst till lagringskontot endast resurser inom ett undernät för virtuellt nätverk. Innan du skapar slutpunkter i produktion virtuella nätverk, rekommenderas att du noggrant bekanta dig med [tjänstens slutpunkter](virtual-network-service-endpoints-overview.md).
+Du har aktiverat en tjänstslutpunkt för ett undernät för virtuellt nätverk i den här artikeln. Du har lärt dig att slutpunkter kan aktiveras för resurser som har distribuerats med Azure-tjänster. Du har skapat ett Azure Storage-konto och begränsad nätverksåtkomst till lagringskontot endast resurser inom ett undernät för virtuellt nätverk. Läs mer om Tjänsteslutpunkter i [översikt över slutpunkter](virtual-network-service-endpoints-overview.md) och [hantera undernät](virtual-network-manage-subnet.md).
 
-Om du har flera virtuella nätverk i ditt konto kan du vill ansluta två virtuella nätverk tillsammans så resurser inom varje virtuellt nätverk kan kommunicera med varandra. Gå vidare till nästa kurs att lära dig att ansluta virtuella nätverk.
-
-> [!div class="nextstepaction"]
-> [Ansluta virtuella nätverk](./tutorial-connect-virtual-networks-cli.md)
+Om du har flera virtuella nätverk i ditt konto kan du vill ansluta två virtuella nätverk tillsammans så resurser inom varje virtuellt nätverk kan kommunicera med varandra. Mer information finns i avsnittet [ansluta virtuella nätverk](tutorial-connect-virtual-networks-cli.md).

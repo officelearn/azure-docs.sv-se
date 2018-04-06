@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med ersättning Gateway | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ersättning Gateway."
+title: 'Självstudier: Azure Active Directory-integrering med ersättning Gateway | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ersättning Gateway.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 6e46668804da237e789cea73d25982953a31edef
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 76e34b2d170ad1a47dca180fe7caf8c015d17634
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Självstudier: Azure Active Directory-integrering med ersättning Gateway
 
@@ -127,7 +127,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Kontakta [ersättning Gateway supportteamet](mailto:clientsupport@rewardgateway.com) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. För att få starta dessa värden ställa in Integration på ersättning Manager-portalen. Information finns på http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
  
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -137,7 +137,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_400.png)
 
-6. Konfigurera enkel inloggning på **ersättning Gateway** sida, måste du skicka den hämtade **XML-Metadata för** till [ersättning Gateway supportteamet](mailto:clientsupport@rewardgateway.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
+6. Konfigurera enkel inloggning på **ersättning Gateway** sida, börjar skapa en Integration på ersättning Manager Portal. Hämta ditt signeringscertifikat och ladda upp som under-konfigurationen med hjälp av hämtade metadata. Information finns på http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

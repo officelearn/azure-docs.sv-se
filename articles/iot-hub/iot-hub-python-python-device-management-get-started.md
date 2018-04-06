@@ -1,11 +1,11 @@
 ---
-title: "Kom igång med Azure IoT Hub enhetshantering (Python) | Microsoft Docs"
-description: "Hur du använder IoT-hubb enhetshantering för att initiera en omstart av fjärranslutna enheter. Azure IoT-SDK för Python används för att implementera en simulerad enhetsapp som innehåller en direkt metod och en service-appen som anropar metoden direkt."
+title: Kom igång med Azure IoT Hub enhetshantering (Python) | Microsoft Docs
+description: Hur du använder IoT-hubb enhetshantering för att initiera en omstart av fjärranslutna enheter. Azure IoT-SDK för Python används för att implementera en simulerad enhetsapp som innehåller en direkt metod och en service-appen som anropar metoden direkt.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
 ms.service: iot-hub
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
-ms.author: v-masebo
-ms.openlocfilehash: b9dfbd775de3bb54e405e4054bca4e2b878305a3
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: 001a5d180e2b97894174ba7c63ec3947c9968364
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-device-management-python"></a>Komma igång med hantering av enheter (Python)
 
@@ -39,8 +39,8 @@ I slutet av den här kursen har du två Python konsolappar:
 För att kunna genomföra den här kursen behöver du följande:
 
 * [Python 2.x eller 3.x][lnk-python-download]. Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i den plattformsspecifika miljövariabeln när du uppmanas att göra det under installationen. Om du använder Python 2.x kan du behöva [installera eller uppgradera *PIP* (pakethanteringssystemet för Python)][lnk-install-pip].
-    * Installera den [azure-iothub-enhet-klient](https://pypi.org/project/azure-iothub-device-client/) paketet med hjälp av kommandot`pip install azure-iothub-device-client`
-    * Installera den [azure-iothub-service-klient](https://pypi.org/project/azure-iothub-service-client/) paketet med hjälp av kommandot`pip install azure-iothub-service-client`
+    * Installera den [azure-iothub-enhet-klient](https://pypi.org/project/azure-iothub-device-client/) paketet med hjälp av kommandot   `pip install azure-iothub-device-client`
+    * Installera den [azure-iothub-service-klient](https://pypi.org/project/azure-iothub-service-client/) paketet med hjälp av kommandot   `pip install azure-iothub-service-client`
 * Om du använder Windows OS installerar du [Visual C++ redistributable package][lnk-visual-c-redist] så att du kan använda native-DLL:er från Python.
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnadsfritt konto][lnk-free-trial] på bara några minuter.)
 

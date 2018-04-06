@@ -8,37 +8,24 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/03/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 331f8ed2e77a076dd8969dc37add1cdeafc852dc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e10fefdd3bd46aeb90fd2cfc82d4fee3b17d867b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Application Proxy och Qlik mening 
 Azure Active Directory Application Proxy och Qlik mening samarbetar tillsammans för att säkerställa att du kan enkelt använda programproxy för att ge fjärråtkomst för distributionen Qlik mening.  
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 Resten av det här scenariot förutsätter att du har gjort följande:
  
 - Konfigurerad [Qlik meningsfullt](https://community.qlik.com/docs/DOC-19822). 
-- Har installerat en Application Proxy connector 
-
-## <a name="install-an-application-proxy-connector"></a>Installera en Application Proxy connector 
-Om du redan har Application Proxy är aktiverat och har en koppling installeras, kan du hoppa över det här avsnittet och gå vidare till [lägga till din app i Azure AD med Application Proxy](application-proxy-ping-access.md). 
-
-Application Proxy connector är en Windows Server-tjänst som dirigerar trafik från fjärranslutna anställda till publicerade appar. Mer detaljerad Installationsinstruktioner finns [aktivera Application Proxy på Azure-portalen](active-directory-application-proxy-enable.md). 
-
-
-1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör. 
-2. Välj Azure Active Directory > Application proxy. 
-3. Välj Hämta anslutning för att starta Application Proxy connector hämtningen. Följ installationsanvisningarna. 
- 
->[!NOTE]
->Hämtar anslutningen automatiskt aktivera Application Proxy för din katalog, men om inte du väljer **aktivera Application Proxy**. 
+- [Har installerat en Application Proxy connector](active-directory-application-proxy-enable.md#install-and-register-a-connector) 
  
 ## <a name="publish-your-applications-in-azure"></a>Publicera dina program i Azure 
 Om du vill publicera QlikSense, måste du publicera två program i Azure.  
@@ -47,12 +34,12 @@ Om du vill publicera QlikSense, måste du publicera två program i Azure.
 Följ dessa steg om du vill publicera en app. En mer detaljerad genomgång av steg 1 – 8, se [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md). 
 
 
-1. Om du inte i det sista avsnittet inloggningen till Azure-portalen som global administratör. 
+1. Logga in på Azure-portalen som global administratör. 
 2. Välj **Azure Active Directory** > **företagsprogram**. 
 3. Välj **Lägg till** längst upp på bladet. 
 4. Välj **lokalt program**. 
 5.       Fyll i de obligatoriska fälten med information om den nya appen. Använd följande riktlinjer för inställningarna: 
-    - **Intern URL**: det här programmet ska ha en intern URL är Webbadressen QlikSense sig själv. Till exempel **https&#58;//demo.qlikemm.com** 
+    - **Intern URL**: det här programmet ska ha en intern URL är Webbadressen QlikSense sig själv. Till exempel **https&#58;//demo.qlikemm.com:4244** 
     - **Förautentiseringsmetoden**: Azure Active Directory (rekommenderas men krävs inte) 
 1.       Välj **Lägg till** längst ned på bladet. Programmet har lagts till och snabb start-menyn öppnas. 
 2.       Snabb startmenyn väljer du **tilldela en användare för att testa**, och Lägg till minst en användare till programmet. Kontrollera att det här testet kontot har åtkomst till lokala program. 
@@ -62,8 +49,8 @@ Följ dessa steg om du vill publicera en app. En mer detaljerad genomgång av st
 ### <a name="application-2"></a>Programmet #2: 
 Följ samma steg för programmet #1, med följande undantag: 
 
-**Steg #5**: Intern URL: en ska nu vara QlikSense-URL: en med den autentiseringsport som används av programmet. Standardvärdet är **4244** för HTTPS och 4248 för HTTP. Ex: **https&#58;//demo.qlik.com:4244** 
-**steg #10:** inte konfigurera enkel inloggning och lämna den **enkel inloggning inaktiverad**
+**Steg #5**: Intern URL: en ska nu vara QlikSense-URL: en med den autentiseringsport som används av programmet. Standardvärdet är **4244** för HTTPS och 4248 för HTTP. Ex: **https&#58;//demo.qlik.com:4244**</br></br> 
+**Steg #10:** inte konfigurera enkel inloggning och lämna den **enkel inloggning inaktiverad**
  
  
 ## <a name="testing"></a>Testning 

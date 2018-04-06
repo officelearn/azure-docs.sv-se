@@ -1,24 +1,24 @@
 ---
-title: "Kom igång med Azure IoT Hub enhetshantering (.NET/.NET) | Microsoft Docs"
-description: "Hur du använder hantering av Azure IoT Hub-enheter för att initiera en omstart av fjärranslutna enheter. Du kan använda Azure IoT-enhet SDK för .NET för att implementera en simulerad enhetsapp som innehåller en direkt metod och Azure IoT SDK för .NET att implementera ett service-appen som anropar metoden direkt."
+title: Kom igång med Azure IoT Hub enhetshantering (.NET/.NET) | Microsoft Docs
+description: Hur du använder hantering av Azure IoT Hub-enheter för att initiera en omstart av fjärranslutna enheter. Du kan använda Azure IoT-enhet SDK för .NET för att implementera en simulerad enhetsapp som innehåller en direkt metod och Azure IoT SDK för .NET att implementera ett service-appen som anropar metoden direkt.
 services: iot-hub
 documentationcenter: .net
-author: JimacoMS2
+author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/15/2017
-ms.author: v-jamebr
-ms.openlocfilehash: 3af7fbfb9740e00d9ff9c2b077cb444a8057b8c3
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.author: v-jamebr;dobett
+ms.openlocfilehash: 44160eeb90f0f65c974b7188dd7c70cce382bf21
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-device-management-netnet"></a>Komma igång med hantering av enheter (.NET/.NET)
 
@@ -68,7 +68,7 @@ I det här avsnittet skapar du en .NET-konsolapp (med C#) som initierar en fjär
         static ServiceClient client;
         static string targetDevice = "myDeviceId";
         
-6. Lägg till följande metod för att den **programmet** klass.  Den här koden hämtar enheten dubbla för om enheten och matar ut rapporterade egenskaper.
+6. Lägg till följande metod i klassen **Program**.  Den här koden hämtar enheten dubbla för om enheten och matar ut rapporterade egenskaper.
    
         public static async Task QueryTwinRebootReported()
         {
@@ -76,7 +76,7 @@ I det här avsnittet skapar du en .NET-konsolapp (med C#) som initierar en fjär
             Console.WriteLine(twin.Properties.Reported.ToJson());
         }
         
-7. Lägg till följande metod för att den **programmet** klass.  Den här koden initierar omstart på enheten med en direkt metod.
+7. Lägg till följande metod i klassen **Program**.  Den här koden initierar omstart på enheten med en direkt metod.
 
         public static async Task StartReboot()
         {

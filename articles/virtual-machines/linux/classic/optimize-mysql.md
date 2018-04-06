@@ -1,11 +1,11 @@
 ---
-title: "Optimera prestanda för MySQL på Linux | Microsoft Docs"
-description: "Lär dig hur du optimerar MySQL som körs på en Azure-dator (VM) kör Linux."
+title: Optimera prestanda för MySQL på Linux | Microsoft Docs
+description: Lär dig hur du optimerar MySQL som körs på en Azure-dator (VM) kör Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 0c1c7fc5-a528-4d84-b65d-2df225f2233f
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: ningk
-ms.openlocfilehash: 7e7582a31cb3e74fd8c3cd0dd54961392d9c53bb
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 447532452a848c88fd927f42e4263cef4742dd89
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Optimera MySQL prestanda på virtuella Azure Linux-datorer
 Det finns många faktorer som påverkar prestanda MySQL på Azure, både i val av virtuell maskinvara och konfiguration av programvara. Den här artikeln fokuserar på optimera prestanda via lagring, system och konfigurationer för databasen.
@@ -187,7 +187,7 @@ Lägg till följande fyra rader i filen /etc/security/limits.conf för att öka 
 
     * mjuka nofile 65536
     * hårda nofile 65536
-    * mjuka nproc 65536
+    * soft nproc 65536
     * hårda nproc 65536
 
 ### <a name="update-the-system-for-the-new-limits"></a>Uppdatera systemet för de nya gränserna
@@ -308,9 +308,9 @@ Filstorlekarna som används för detta test är 30 och 1 GB respektive, med RAID
 
 **Konfigurationsinställning för standard och optimering är följande:**
 
-| Parametrar | Standard | Optimering |
+| Parametrar | Standardvärde | Optimering |
 | --- | --- | --- |
-| **innodb_buffer_pool_size** |Ingen |7 GB |
+| **innodb_buffer_pool_size** |Inget |7 GB |
 | **innodb_log_file_size** |5 MB |512 MB |
 | **max_connections** |100 |5000 |
 | **innodb_file_per_table** |0 |1 |
@@ -324,10 +324,10 @@ Mer detaljerad [optimering konfigurationsparametrar](http://dev.mysql.com/doc/re
 
 | Maskinvara | Information |
 | --- | --- |
-| Processor |AMD Opteron (TM)-Processor 4171 HAN / 4 kärnor |
+| CPU |AMD Opteron (TM)-Processor 4171 HAN / 4 kärnor |
 | Minne |14 GB |
-| Disk |10 GB-disk |
-| Operativsystem |Ubuntu 14.04.1 LTS |
+| Disk |10 GB/disk |
+| OS |Ubuntu 14.04.1 LTS |
 
 [1]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-01.png
 [2]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-02.png

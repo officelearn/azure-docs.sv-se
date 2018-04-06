@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure Active Directory enkel inloggning Plugin vanliga frågor och svar | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Microsoft Azure Active Directory enkel inloggning för JIRA."
+title: Vanliga frågor om Azure Active Directory SSO plugin | Microsoft Docs
+description: Få svar på vanliga frågor om hur du konfigurerar enkel inloggning mellan Azure Active Directory och Jira/växer samman.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,70 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 571fbd5078f66375f6e81cba2a790121366f9d60
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b642d6de9fd9265d7f7ee11b827a36d20e5bcce7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="microsoft-azure-active-directory-single-sign-on-plugin-faq"></a>Microsoft Azure Active Directory enkel inloggning Plugin vanliga frågor och svar 
+# <a name="faq-for-the-azure-active-directory-sso-plug-in"></a>Vanliga frågor om Azure Active Directory SSO plugin-program 
 
-## <a name="1-whats-the-microsoft-sso-add-on"></a>1. Vad är Microsoft SSO-tillägg?
+## <a name="what-does-the-plug-in-do"></a>Vad gör plugin-programmet gör?
 
-Det här tillägget innehåller kapaciteten för enkel inloggning för Atlassian's JIRA (inklusive JIRA kärnor, JIRA program, JIRA helpdesk) och antal samverkande lokal programvara. Tillägget fungerar med Azure AD som IdP.
+Plugin-programmet innehåller kapaciteten för enkel inloggning (SSO) för Atlassian Jira (inklusive Jira kärnor, Jira program, Jira helpdesk) och antal samverkande lokal programvara. Plugin-program fungerar med Azure Active Directory (AD Azure) som en identitetsleverantör (IdP).
 
-## <a name="2-add-on-works-with-which-atlassian-products"></a>2. Tillägg fungerar med vilka Atlassian produkter?
+## <a name="which-atlassian-products-does-the-plug-in-work-with"></a>Vilka Atlassian produkter har plugin-program fungerar med?
 
-Från och med nu fungerar tillägget med lokala versioner av JIRA och växer samman.
+Plugin-program fungerar med lokala versioner av Jira och växer samman.
 
-## <a name="3-does-this-add-on-work-on-cloud-version"></a>3. Fungerar det här tilläggsprogrammet på molnversionen?
+## <a name="does-the-plug-in-work-on-cloud-versions"></a>Är den plugin-programmet i molnet versioner?
 
-Nej. Endast stöds lokala versioner av JIRA och antal samverkande.
+Nej. Plugin-programmet stöder endast lokala versioner av Jira och växer samman.
 
-## <a name="4-which-versions-of-jira-and-confluence-are-supported"></a>4. Vilka versioner av JIRA och antal samverkande stöds?
+## <a name="which-versions-of-jira-and-confluence-does-the-plug-in-support"></a>Vilka versioner av Jira och antal samverkande stöder plugin-programmet?
 
-Nedan visas en lista över versioner som stöds:
+Plugin-programmet stöder följande versioner:
 
-* JIRA Core- och programvara: 6.0 7.2.2 
-* JIRA helpdesk: 3.0 och 3.2 
+* Jira Core- och programvara: 6.0 7.2.2 
+* Jira helpdesk: 3.0 och 3.2 
 * Antal samverkande: 5.0 till 5.10
 
-## <a name="5-is-this-add-on-free-or-paid"></a>5. Är det här tillägget lediga eller betald?
+## <a name="is-the-plug-in-free-or-paid"></a>Är gratis plugin-programmet eller betald?
 
-Detta är ett kostnadsfritt tillägg och kan installeras från Atlassian marknadsplatsen.
+Det är ett kostnadsfritt tillägg. Du kan installera den från Atlassian Marketplace.
 
-## <a name="6-do-i-need-to-restart-jiraconfluence-once-i-deploy-the-add-on"></a>6. Behöver jag om JIRA/växer samman när jag distribuerar tillägget
+## <a name="do-i-need-to-restart-jira-or-confluence-after-i-deploy-the-plug-in"></a>Jag behöver starta om Jira eller växer samman när jag distribuerar plugin-programmet?
 
-Starta om är inte obligatoriska efter tillägg distribution. Du kan börja använda tillägget direkt efter distributionen.
+En omstart krävs inte. Du kan börja använda plugin-programmet omedelbart.
 
-## <a name="7-how-do-i-get-support-for-the-add-on"></a>7. Hur får jag support för tillägget?
+## <a name="how-do-i-get-support-for-the-plug-in"></a>Hur får jag support för plugin-programmet?
 
-Nå ut till oss på: <email> . Vi kommer att svara inom <> timmar. Du kan också medföra ett supportärende med Microsoft via Azure portal-kanalen. Du kan också kontakta oss på: <Number> mellan <> är att <> pm för veckodagar.
+Nå ut till den [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Teamet svarar i 24-48 kontorstid. 
 
-## <a name="8-would-this-add-on-work-on-mac-or-ubuntu-installation-of-jira-and-confluence"></a>8. Det här tilläggsprogrammet fungerar på Mac- eller Ubuntu installation av JIRA och antal samverkande?
+Du kan också medföra ett supportärende med Microsoft via Azure portal-kanalen.
 
-Vi har testat det här tillägget bara på 64-bitars Windows server-installationer av JIRA och växer samman.
+## <a name="would-the-plug-in-work-on-a-mac-or-ubuntu-installation-of-jira-and-confluence"></a>Skulle plugin arbetet på en Mac- eller Ubuntu installation av Jira och antal samverkande?
 
-## <a name="9-does-this-add-on-work-with-other-idps-than-azure-ad"></a>9. Fungerar det här tillägget med andra IdPs än Azure AD?
+Vi har testat plugin-programmet bara på 64-bitars Windows Server-installationer av Jira och växer samman.
 
-Nej. Tillägg fungerar endast med Azure AD.
+## <a name="does-the-plug-in-work-with-idps-other-than-azure-ad"></a>Stöder plugin-program fungerar med IdPs än Azure AD?
 
-## <a name="10-what-version-of-saml-does-the-add-on-work-with"></a>10. Vilken version av SAML fungerar tillägget med?
+Nej. Den fungerar bara med Azure AD.
 
-Tillägg fungerar med SAML 2.0.
+## <a name="what-version-of-saml-does-the-plug-in-work-with"></a>Vilken version av SAML har plugin-program fungerar med?
 
-## <a name="11-does-the-add-on-do-use-provisioning-as-well"></a>11. Har tillägget Använd samt etablering?
+Den fungerar med SAML 2.0.
 
-Nej. Från och med nu här tillägget bara SAML 2.0-baserade enkel inloggning. Användaren måste tillhandahållas i programmet innan SSO-inloggning.
+## <a name="does-the-plug-in-do-user-provisioning"></a>Plugin-programmet gör användaretablering?
 
-## <a name="12-are-cluster-versions-of-jira-and-confluence-supported-by-add-on"></a>12. Är klustret versioner av JIRA och antal samverkande stöds av tillägget?
+Nej. Plugin-programmet innehåller SAML 2.0-baserade SSO. Användaren måste tillhandahållas i programmet innan SSO-inloggning.
 
-Nej. Tillägget fungerar med lokala versioner av JIRA och växer samman.
+## <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>Har stöd för plugin-programmet kluster-versioner av Jira och växer samman?
 
-## <a name="13-would-this-plugin-work-with-http-version-of-jira-and-confluence"></a>13. Det här plugin-programmet skulle fungera med HTTP-versionen av JIRA och antal samverkande?
+Nej. Plugin-program fungerar med lokala versioner av Jira och växer samman.
 
-Nej. Tillägg fungerar med HTTPS aktiverat endast installationer.
+## <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>Stöder plugin-program fungerar med HTTP-versioner av Jira och antal samverkande?
 
-## <a name="14-do-i-need-to-buy-license-of-the-add-on"></a>14. Behöver jag köpa licens med tillägget?
-
-Det är ett kostnadsfritt tillägg.
+Nej. Plugin-program fungerar med endast HTTPS-aktiverad installationer.

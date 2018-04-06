@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c41c8c9f8fd9302c610ce356b0485e33ea3c967d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c4c68df9650fa300ea20ea0621c732cb96d167ef
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Logghändelser diagnostiska utvärdering och övervakning av Batch-lösningar
 
@@ -97,7 +97,7 @@ Förutom att lagra diagnostiska logghändelser i ett Azure Storage-konto kan du 
   Strömma Batch diagnostiska händelser till den skalbara tjänsten för dataingång, Händelsehubbar. Händelsehubbar kan mata in miljontals händelser per sekund, vilket du kan sedan omvandla och lagra med hjälp av en leverantör av realtidsanalys.
 * [Analysera Azure diagnostikloggar med logganalys](../log-analytics/log-analytics-azure-storage.md)
   
-  Skicka dina diagnostikloggar till logganalys där du kan analysera dem i portalen Operations Management Suite (OMS) eller exportera dem för analys i Power BI eller Excel.
+  Skicka dina diagnostikloggar till logganalys där du kan analysera dem i Azure-portalen eller exportera dem för analys i Power BI eller Excel.
 
 [pool_create]: https://msdn.microsoft.com/library/azure/mt743615.aspx
 [pool_delete_start]: https://msdn.microsoft.com/library/azure/mt743610.aspx

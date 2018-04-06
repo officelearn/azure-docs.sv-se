@@ -1,6 +1,6 @@
 ---
-title: "SQL Database: Vad är en DTU? | Microsoft Docs"
-description: "Förstå vad en Azure SQL Database-transaktionsenhet är."
+title: 'SQL Database: Vad är en DTU? | Microsoft Docs'
+description: Förstå vad en Azure SQL Database-transaktionsenhet är.
 keywords: databasalternativ, databasprestanda
 services: sql-database
 author: CarlRabeler
@@ -10,17 +10,17 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: carlrab
-ms.openlocfilehash: 9d13541444f487ad6afb9f59c6c6ac646091d42c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b5d6ffc9aa13e6aaf948028fabe3087f8dea2a1d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Databasen Transaction Units (Dtu) och elastiska Datatransaktionsenheter (edtu: er)
 Den här artikeln förklarar vad databastransaktionsenheter (DTU:er) och elastiska databastransaktionsenheter (eDTU:er) är och vad som händer när du når det högsta antalet tillåtna DTU:er eller eDTU:er.  
 
 ## <a name="what-are-database-transaction-units-dtus"></a>Vad är Database Transaction Units (Dtu)?
-För en enda Azure SQL-databas på specifika prestandanivåer inom en [tjänstnivån](sql-database-single-database-resources.md), Microsoft garanterar en viss nivå av resurser för den här databasen (oberoende av andra databas i Azure-molnet), och tillhandahålla en förutsägbar nivå av prestanda. Den här mängden resurser beräknas som ett antal Database Transaction Units eller dtu: er och är en blandning av processor, minne, i/o (data och transaktionen loggning i/o). Förhållandet mellan resurserna har ursprungligen bestäms av ett [OLTP-arbetsbelastning benchmark](sql-database-benchmark-overview.md) utformats är typiska för verkliga OLTP-arbetsbelastningar. När din arbetsbelastning överskrider mängden någon av dessa resurser, är din dataflödet begränsad – vilket resulterar i långsammare prestanda och timeout. De resurser som används av din arbetsbelastning påverkar inte resurserna som är tillgängliga för andra SQL-databaser i Azure-molnet och resurs som används av andra arbetsbelastningar som inte påverkar resurserna som är tillgängliga för din SQL-databas.
+För en enda Azure SQL-databas på specifika prestandanivåer inom en [tjänstnivån](sql-database-single-database-resources.md), Microsoft garanterar en viss nivå av resurser för den här databasen (oberoende av andra databas i Azure-molnet), och tillhandahålla en förutsägbar nivå av prestanda. Den här mängden resurser beräknas som ett antal Database Transaction Units eller dtu: er och är ett anpassade mått för bearbetning, lagring och i/o-resurser. Förhållandet mellan resurserna har ursprungligen bestäms av ett [OLTP-arbetsbelastning benchmark](sql-database-benchmark-overview.md) utformats är typiska för verkliga OLTP-arbetsbelastningar. När din arbetsbelastning överskrider mängden någon av dessa resurser, är din dataflödet begränsad – vilket resulterar i långsammare prestanda och timeout. De resurser som används av din arbetsbelastning påverkar inte resurserna som är tillgängliga för andra SQL-databaser i Azure-molnet och resurs som används av andra arbetsbelastningar som inte påverkar resurserna som är tillgängliga för din SQL-databas.
 
 ![avgränsningsram](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
@@ -52,9 +52,9 @@ Om du vill migrera en befintlig lokal VM-arbetsbelastning eller en VM-arbetsbela
 Pooler lämpar sig för ett stort antal databaser med specifika användningsmönster. För en viss databas kännetecknas det här mönstret av låg genomsnittlig användning med relativt ovanliga användningstoppar. SQL Database utvärderar automatiskt den historiska resursanvändningen för databaser på en befintlig SQL Database-server och rekommenderar lämplig poolkonfiguration på Azure Portal. Mer information finns i [När ska jag använda en elastisk pool?](sql-database-elastic-pool.md)
 
 ## <a name="what-happens-when-i-hit-my-maximum-dtus"></a>Vad händer när jag träffar min maximala dtu: er?
-Prestandanivåerna kalibreras och regleras för att tillhandahålla nödvändiga resurser så att din databasarbetsbelastning kan köra upp till den högsta gränsen som tillåts för din valda tjänstnivå/prestandanivå. Om din arbetsbelastning når någon av gränserna för processor, data-IO eller logg-IO tillhandahålls fortfarande resurser på den högsta tillåtna nivån, men du kan märka att svarstiderna för dina frågor blir längre. Dessa gränser resulterar inte i fel, men i en långsammare arbetsbelastning, såvida inte fördröjningarna blir så allvarliga att tidsgränsen för frågorna överskrids. Om du når gränsen för det högsta antalet tillåtna samtidiga användarsessioner/begäranden (arbetstrådar) returneras explicita fel. Information om gränserna för andra resurser än processor, minne, data-I/O och transaktionsloggs-I/O finns i [Azure SQL Database-resursgränser]( sql-database-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached).
+Prestandanivåerna kalibreras och regleras för att tillhandahålla nödvändiga resurser så att din databasarbetsbelastning kan köra upp till den högsta gränsen som tillåts för din valda tjänstnivå/prestandanivå. Om din arbetsbelastning når någon av gränserna för processor, data-IO eller logg-IO tillhandahålls fortfarande resurser på den högsta tillåtna nivån, men du kan märka att svarstiderna för dina frågor blir längre. Dessa gränser resulterar inte i fel, men i en långsammare arbetsbelastning, såvida inte fördröjningarna blir så allvarliga att tidsgränsen för frågorna överskrids. Om du når gränsen för det högsta antalet tillåtna samtidiga användarsessioner/begäranden (arbetstrådar) returneras explicita fel. Se [gränserna för Azure SQL Database]( sql-database-dtu-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached) för information om gränsen för resurser än CPU, minne, data-i/o och transaktionen logga IO.
 
 ## <a name="next-steps"></a>Nästa steg
-* Se [tjänstnivån](sql-database-service-tiers.md) för information om dtu: er och edtu: er som är tillgängliga för enskilda databaser och elastiska pooler, samt gränser resurser förutom CPU, minne, data-i/o och transaktionen logga i/o.
+* Se [tjänstnivån](sql-database-service-tiers.md) för information om dtu: er och edtu: er som är tillgängliga för enskilda databaser och elastiska pooler, samt gränser resurser förutom CPU, minne, data-i/o och transaktionen logga IO.
 * Information som hjälper dig att avgöra din förbrukning (DTU:er) finns i [SQL Database Query Performance Insight](sql-database-query-performance.md).
 * Information om metodiken bakom benchmark-arbetsbelastningen för OLTP som används för att fastställa DTU-kombinationen finns i [Översikt över SQL Database-benchmark](sql-database-benchmark-overview.md).

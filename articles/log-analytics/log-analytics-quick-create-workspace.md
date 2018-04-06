@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 8ac3d2d90909d740d28eb05396b915280f58c8ba
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e05d620a457edf427c946366a9caca471ac8531e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Skapa en logganalys-arbetsyta i Azure-portalen
 I Azure-portalen kan du ställa in en logganalys-arbetsyta som är en unik logganalys-miljö med en egen lagringsplats för data, datakällor och lösningar.  Stegen som beskrivs i den här artikeln krävs om du avser att samla in data från följande källor:
@@ -47,7 +47,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
   * Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
   * För **resursgruppen**, väljer att använda en befintlig resurs grupp redan installationen eller skapa en ny.  
   * Välj ett tillgängligt **plats**.  Mer information finns i avsnittet om [tillgängliga regioner för Log Analytics](https://azure.microsoft.com/regions/services/).
-  * Om du skapar en arbetsyta i en ny prenumeration som skapats efter den 2 April 2018 automatiskt använda den *Per GB* priser planerings- och välja en prisnivå blir inte tillgängliga.  Om du skapar en arbetsyta för en befintlig prenumeration som skapats före den 2 April, eller till en prenumeration som är knutet till en befintlig EA-registrering, har du möjlighet att välja mellan tre prisnivåer.  I den här snabbstarten ska du välja den kostnadsfria nivån.  Mer information om de olika nivåerna finns i [prisinformation om Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+  * Om du skapar en arbetsyta i en ny prenumeration som skapats efter den 2 April 2018 automatiskt använda den *Per GB* priser planerings- och välja en prisnivå blir inte tillgängliga.  Om du skapar en arbetsyta för en befintlig prenumeration som skapats före den 2 April eller till prenumerationen som är knutet till en befintlig EA-registrering, Välj önskade prisnivå.  Mer information om de olika nivåerna finns i [prisinformation om Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 

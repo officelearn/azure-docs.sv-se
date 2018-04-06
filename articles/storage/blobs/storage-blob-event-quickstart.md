@@ -1,31 +1,29 @@
 ---
-title: "Vidarebefordra Azure Blob storage-händelser till en anpassad webbslutpunkten | Microsoft Docs"
-description: "Använd Azure Event Grid för att prenumerera på Blob Storage-händelser."
+title: Vidarebefordra Azure Blob storage-händelser till en anpassad webbslutpunkten | Microsoft Docs
+description: Använd Azure Event Grid för att prenumerera på Blob Storage-händelser.
 services: storage,event-grid
-keywords: 
+keywords: ''
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 4f10d9b26cb75bee8103d986b7fa1197168c692f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f0764ebc423cfb5323f2b634ce5a5ecbe075135c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Vidarebefordra Blob storage-händelser till en anpassad webbplats slutpunkt med Azure CLI
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure CLI för att prenumerera på Blob Storage-händelser och utlösa händelsen för att visa resultatet. 
 
-Normalt kan du skicka händelser till en slutpunkt som svarar på händelsen, exempelvis en webhook eller Azure Function. För att enkelt beskriva exemplen i den här artikeln kan du skicka händelser till en URL som endast samlar in meddelanden. Du skapar den här URL: en med hjälp av tredjeparts-verktyg från antingen [RequestBin](https://requestb.in/) eller [Hookbin](https://hookbin.com/).
+Normalt kan du skicka händelser till en slutpunkt som svarar på händelsen, exempelvis en webhook eller Azure Function. För att enkelt beskriva exemplen i den här artikeln kan du skicka händelser till en URL som endast samlar in meddelanden. Du skapar den här URL:en med ett tredjepartsverktyg från [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **RequestBin** och **Hookbin** är inte avsedda för användning med hög genomströmning. Användning av dessa verktyg är rent demonstrativt. Om du push-överför fler än en händelse i taget kanske du inte ser alla händelser i verktyget.
+> **Hookbin** är inte avsedd för användning med hög genomströmning. Här används verktyget endast i instruktionssyfte. Om du push-överför fler än en händelse i taget kanske du inte ser alla händelser i verktyget.
 
 När du slutför stegen som beskrivs i den här artikeln ser du att händelsedata har skickats till en slutpunkt.
-
-![Händelsedata](./media/storage-blob-event-quickstart/request-result.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -68,11 +66,11 @@ az storage account create \
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
 
-Innan du prenumererar på ämnet ska vi ska slutpunkten för händelsemeddelandet. I stället för att skriva kod för att svar på händelsen ska vi skapa en slutpunkt som samlar in meddelandena så att du kan visa dem. RequestBin och Hookbin är tredjeparts-verktyg kan du skapa en slutpunkt och visa förfrågningar som skickas till den. Gå till [RequestBin](https://requestb.in/), och klicka på **skapa en RequestBin**, eller gå till [Hookbin](https://hookbin.com/) och på **Skapa ny slutpunkt**.  Kopiera lagerplatsens URL eftersom du behöver den för att prenumerera på ämnet.
+Innan du prenumererar på ämnet ska vi ska slutpunkten för händelsemeddelandet. I stället för att skriva kod för att svar på händelsen ska vi skapa en slutpunkt som samlar in meddelandena så att du kan visa dem. Hookbin är ett tredjepartsverktyg som låter dig skapa en slutpunkt och visa förfrågningar som skickas till den. Gå till [Hookbin](https://hookbin.com/) och klicka på **Skapa ny slutpunkt**.  Kopiera lagerplatsens URL eftersom du behöver den för att prenumerera på ämnet.
 
 ## <a name="subscribe-to-your-storage-account"></a>Prenumerera på ditt lagringskonto
 
-Du prenumererar på ett ämne för att ange för Event Grid vilka händelser du vill följa. I följande exempel prenumererar på storage-konto som du har skapat och överför URL: en från RequestBin eller Hookbin som slutpunkt för händelseavisering. Ersätt `<event_subscription_name>` med ett unikt namn för din händelseprenumeration och `<endpoint_URL>` med värdet från föregående avsnitt. Genom att ange en slutpunkt när du prenumererar kan Event Grid hantera omdirigeringen av händelser till denna slutpunkt. För `<resource_group_name>` och `<storage_account_name>` använder du det värde du skapade tidigare.  
+Du prenumererar på ett ämne för att ange för Event Grid vilka händelser du vill följa. I följande exempel prenumererar på storage-konto som du har skapat och överför URL: en från Hookbin som slutpunkt för händelseavisering. Ersätt `<event_subscription_name>` med ett unikt namn för din händelseprenumeration och `<endpoint_URL>` med värdet från föregående avsnitt. Genom att ange en slutpunkt när du prenumererar kan Event Grid hantera omdirigeringen av händelser till denna slutpunkt. För `<resource_group_name>` och `<storage_account_name>` använder du det värde du skapade tidigare.  
 
 ```azurecli-interactive
 storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -97,7 +95,7 @@ touch testfile.txt
 az storage blob upload --file testfile.txt --container-name testcontainer --name testfile.txt
 ```
 
-Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt du konfigurerade när du startade prenumerationen. Bläddra till slutpunkts-URL som du skapade tidigare. Eller klicka på Uppdatera i webbläsaren öppna. Du kan se den händelse du just skickade. 
+Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt du konfigurerade när du startade prenumerationen. Bläddra till slutpunktsadress du skapade tidigare. Du kan också klicka på Uppdatera i webbläsaren du har öppen. Du kan se den händelse du just skickade. 
 
 ```json
 [{

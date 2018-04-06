@@ -1,11 +1,11 @@
 ---
-title: "Lägg till en disk i Linux VM som använder Azure CLI | Microsoft Docs"
-description: "Lär dig att lägga till en beständig disk till din Linux VM med Azure CLI 1.0 och 2.0."
-keywords: "Linux-dator, Lägg till resurs-disk"
+title: Lägg till en disk i Linux VM som använder Azure CLI | Microsoft Docs
+description: Lär dig att lägga till en beständig disk till din Linux VM med Azure CLI 1.0 och 2.0.
+keywords: Linux-dator, Lägg till resurs-disk
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
@@ -17,18 +17,18 @@ ms.devlang: azurecli
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9db7d300b745001906bdc38769dcbe6e4d7c7b83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c3d3e3468b491f366473899f5d073704ea9a95ea
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Lägg till en disk till en virtuell Linux-dator
 Den här artikeln visar hur du kopplar en beständig disk till den virtuella datorn så att du kan behålla data – även om den virtuella datorn etableras på grund av underhåll eller ändrar storlek på. 
 
 
 ## <a name="use-managed-disks"></a>Använda hanterade diskar
-Azure-hanterade diskar förenklar Diskhantering för virtuella Azure-datorer genom att hantera de lagringskonton som är associerade med VM-diskarna. Du behöver bara ange typen (Standard eller Premium) och storleken på disken som du behöver och Azure skapar och hanterar disken åt dig. Mer information finns i [översikt för hanterade diskar](managed-disks-overview.md).
+Azure Managed Disks förenklar diskhanteringen för virtuella Azure-datorer genom att hantera lagringskontona som är kopplade till de virtuella datorernas diskar. Du behöver bara ange typ (Premium eller Standard) och diskstorlek och sedan skapar och hanterar Azure disken. Mer information finns i [översikt för hanterade diskar](managed-disks-overview.md).
 
 
 ### <a name="attach-a-new-disk-to-a-vm"></a>Koppla en ny disk till en virtuell dator

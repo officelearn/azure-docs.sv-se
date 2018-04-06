@@ -1,19 +1,20 @@
 ---
-title: "Återställa en Azure SQL-databas från en säkerhetskopia | Microsoft Docs"
-description: "Läs mer om Point-in-Time-återställning, där du kan återställa en Azure SQL Database till en tidigare tidpunkt (upp till 35 dagar)."
+title: Återställa en Azure SQL-databas från en säkerhetskopia | Microsoft Docs
+description: Läs mer om Point-in-Time-återställning, där du kan återställa en Azure SQL Database till en tidigare tidpunkt (upp till 35 dagar).
 services: sql-database
-author: CarlRabeler
+author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 02/13/2018
-ms.author: carlrab
-ms.openlocfilehash: d2cc2e44c13750b654e2d6acf39d4f6a80cac98a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/04/2018
+ms.author: sashan
+ms.reviewer: carlrab
+ms.openlocfilehash: afe06d6e61d4b2b99a47f3d3348299c61863fec3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL-databas med automatisk databassäkerhetskopieringar
 SQL-databas finns följande alternativ för databas återställning med hjälp av [automatisk säkerhetskopiering av databaser](sql-database-automated-backups.md) och [säkerhetskopieringar i långsiktig kvarhållning](sql-database-long-term-retention.md). Du kan återställa från en säkerhetskopia av databasen till:
@@ -30,7 +31,7 @@ En återställd databas har en extra lagring kostnad under följande förhållan
 - Återställning av P11 – P15 S12 S4 förpackningen eller P1 – P6 om den maximala databasstorleken är större än 500 GB.
 - Återställning av P1 – P6 till S12 S4 förpackningen om den maximala databasstorleken är större än 250 GB.
 
-Extra kostnaden är eftersom maxstorleken på den återställda databasen är större än mängden lagringsutrymme som ingår för prestandanivå och eventuella extra lagring som etablerats över inkluderade mängden debiteras extra.  Prisinformation extra lagringsutrymme, finns det [SQL-databas sida med priser](https://azure.microsoft.com/pricing/details/sql-database/).  Om den faktiska mängden diskutrymme som används är mindre än mängden lagringsutrymme som ingår, kan sedan detta extra kostnad undvikas genom att minska den maximala databasstorleken så ingår. Mer information om databasen lagringsstorlekar och ändra den maximala databasstorleken finns [enkel gränserna för databasen](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
+Extra kostnaden är eftersom maxstorleken på den återställda databasen är större än mängden lagringsutrymme som ingår för prestandanivå och eventuella extra lagring som etablerats över inkluderade mängden debiteras extra.  Prisinformation extra lagringsutrymme, finns det [SQL-databas sida med priser](https://azure.microsoft.com/pricing/details/sql-database/).  Om den faktiska mängden diskutrymme som används är mindre än mängden lagringsutrymme som ingår, kan sedan detta extra kostnad undvikas genom att minska den maximala databasstorleken så ingår. Mer information om databasen lagringsstorlekar och ändra den maximala databasstorleken finns [enkel databas DTU-baserade gränserna](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels) och [enkel databas vCore-baserade gränserna för](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
 
 > [!NOTE]
 > [Automatisk säkerhetskopiering av databaser](sql-database-automated-backups.md) används när du skapar en [databaskopieringen](sql-database-copy.md). 
@@ -117,7 +118,7 @@ GEO-återställning är standardalternativet när databasen är inte tillgängli
 Point-in-time-återställning på en geo sekundär stöds inte för närvarande. Point-in-time-återställning kan göras endast på en primär databas. Detaljerad information om hur du använder geo-återställning för att återställa från ett avbrott finns [återställa från avbrott](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Återställning från säkerhetskopior är den mest grundläggande katastrofåterställning som är tillgängliga i SQL-databas med längsta Recovery punkt mål (RPO) och uppskattning Recovery tid (Infoga). Lösningar med hjälp av grundläggande databaser, är geo-återställning ofta en rimlig DR-lösning med en Infoga på 12 timmar. Lösningar med hjälp av större Standard eller Premium-databaser som kräver kortare återställningstiden, bör du använda [aktiv geo-replikering](sql-database-geo-replication-overview.md). Aktiv geo-replikering har en mycket lägre Återställningspunktmål och infoga eftersom det endast kräver att du påbörja en växling till en kontinuerligt replikerade sekundär. Mer information om business continuity val finns [översikt över verksamhetskontinuitet](sql-database-business-continuity.md).
+> Återställning från säkerhetskopior är den mest grundläggande katastrofåterställning som är tillgängliga i SQL-databas med längsta Recovery punkt mål (RPO) och uppskattning Recovery tid (Infoga). Lösningar med hjälp av små databaser (t.ex. grundläggande tjänstnivån eller klient databaser i elastiska pooler är små), är geo-återställning ofta en rimlig DR-lösning med en Infoga på 12 timmar. Lösningar med stora databaser och kortare återkräva tider, bör du använda [redundans grupper och aktiv geo-replikering](sql-database-geo-replication-overview.md). Aktiv geo-replikering har en mycket lägre Återställningspunktmål och infoga eftersom det endast kräver att du påbörja en växling till en kontinuerligt replikerade sekundär. Mer information om business continuity val finns [översikt över verksamhetskontinuitet](sql-database-business-continuity.md).
 > 
 
 ### <a name="azure-portal"></a>Azure Portal
@@ -136,7 +137,7 @@ Som tidigare vi nämnt, utöver Azure portal, kan återställning av databasen u
 | [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) |Återställer en SQL-databas. |
 |  | |
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 | API | Beskrivning |
 | --- | --- |
 | [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Återställer en databas |
@@ -149,6 +150,5 @@ Automatisk säkerhetskopiering skydda dina databaser från användar- och progra
 ## <a name="next-steps"></a>Nästa steg
 * En översikt över verksamhetskontinuitet och scenarier finns [översikt över verksamhetskontinuitet](sql-database-business-continuity.md).
 * Lär dig mer om Azure SQL Database automatiserad säkerhetskopieringar, se [SQL-databas automatisk säkerhetskopiering](sql-database-automated-backups.md).
-* Läs om långsiktig säkerhetskopiering kvarhållning i [långsiktig lagring av säkerhetskopior](sql-database-long-term-retention.md).
-* Konfigurera, hantera och återställa från långsiktig lagring av automatiserad säkerhetskopieringar i ett Azure Recovery Services-valv med Azure-portalen, se [konfigurera och använda långsiktig säkerhetskopiering kvarhållning](sql-database-long-term-backup-retention-configure.md). 
+* Läs om långsiktig kvarhållning i [långsiktig kvarhållning](sql-database-long-term-retention.md).
 * Mer information om alternativ för snabbare återställning, se [redundans grupper och aktiv geo-replikering](sql-database-geo-replication-overview.md).  

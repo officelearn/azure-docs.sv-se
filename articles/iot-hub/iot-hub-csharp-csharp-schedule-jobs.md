@@ -3,7 +3,7 @@ title: Schemalägga med Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Så här schemalägger du ett Azure IoT Hub-jobb att anropa en direkt metod på flera enheter. Du kan använda Azure IoT-enhet SDK för .NET för att implementera de simulerade enheten apparna och service-appen för att köra jobbet.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: dominicbetts
 manager: timlt
 editor: ''
 ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 012/16/2018
-ms.author: v-masebo
-ms.openlocfilehash: 59d78c390e479acd16d47b70e8af5e164d746905
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: v-masebo;dobett
+ms.openlocfilehash: 8ea2a5bc0a2f017c17bce4d366cb39acfba935aa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Schemat och sändning jobb (.NET/.NET)
 

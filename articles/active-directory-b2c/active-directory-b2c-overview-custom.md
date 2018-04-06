@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 269b65662796c092190cd2622c240756f6bd1cf7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4c09fa5c454cee6ca9a0ed0d3fd4582b222c0c1a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: Anpassade policys
 
@@ -35,7 +35,7 @@ Anpassade principer är konfigurationsfiler som definierar beteendet för din Az
 | Attributanpassning | Standard- och anpassade attribut | samma |
 |Hantering av token och session | Anpassade token och flera olika sessionsalternativ för | samma |
 |Identitetsproviders| **Idag**: fördefinierade lokal, sociala provider<br><br>**Framtida**: standardbaserad OIDC SAML OAuth | **Idag**: standardbaserad OIDC OAUTH SAML<br><br>**Framtida**: WsFed |
-|Identitet uppgifter (exempel) | Registrera dig eller logga in med lokala och många sociala konton<br><br>Återställning av lösenord för självbetjäning<br><br>Redigera profil<br><br>Multi-Factor Authentication-scenarier<br><br>Anpassa token och sessioner<br><br>Åtkomsttoken flödar | Utföra samma åtgärder som inbyggda principer med hjälp av anpassade identitetsleverantörer eller använda anpassade omfattningar<br><br>Etablera användare i ett annat system vid tiden för registrering<br><br>Skicka ett välkomstmeddelande med din egen e-post-leverantör<br><br>Använd en användararkivet utanför B2C<br><br>Verifiera användarens angivna information med en betrodd dator via API |
+|Identitet uppgifter (exempel) | Registrera dig eller logga in med lokala och många sociala konton<br><br>Lösenordsåterställning via självbetjäning<br><br>Redigera profil<br><br>Multi-Factor Authentication-scenarier<br><br>Anpassa token och sessioner<br><br>Åtkomsttoken flödar | Utföra samma åtgärder som inbyggda principer med hjälp av anpassade identitetsleverantörer eller använda anpassade omfattningar<br><br>Etablera användare i ett annat system vid tiden för registrering<br><br>Skicka ett välkomstmeddelande med din egen e-post-leverantör<br><br>Använd en användararkivet utanför B2C<br><br>Verifiera användarens angivna information med en betrodd dator via API |
 
 ## <a name="policy-files"></a>Principfiler
 
@@ -48,7 +48,7 @@ Vi rekommenderar användning av tre typer av principfiler:
 - **en förlitande part (RP)-fil** som är den enda uppgift fokuserar fil som anropas direkt av programmet eller tjänsten (även kallat förlitande part).  Läs artikeln på principdefinitioner för mer information.  Varje unik aktiviteten kräver sin egen RP och beroende på anpassningen krav antalet vara ”Totalt program x Totalt antal användningsområden”.
 
 
-Inbyggda principer i Azure AD B2C följer mönstret för 3-fil som beskrivs ovan, men utvecklaren ser endast förlitande part (RP)-fil, medan portalen gör ändringar i filen EXTenstions i bakgrunden.
+Inbyggda principer i Azure AD B2C följer mönstret för 3-fil som beskrivs ovan, men utvecklaren ser endast förlitande part (RP)-fil, medan portalen gör ändringar i bakgrunden i filen tillägg.
 
 ## <a name="core-concepts-you-should-know-when-using-custom-policies"></a>Grundläggande begrepp som du bör känna till när du använder anpassade principer
 
@@ -62,7 +62,7 @@ Azures identitets- och hantering (CIAM) kundtjänst. Tjänsten omfattar:
 
 Azure AD B2C samverkar med identitetsleverantörer, användare, andra system och lokala användarkatalogen i följd att uppnå en identity-aktivitet (till exempel en användare logga in registrera en ny användare, återställa ett lösenord). Den underliggande plattformen som upprättar flerparti förtroende och utför dessa steg anropas identitet upplevelse Framework och en princip (kallas även för en användare resa eller en förtroendeprincipen framework) definierar aktörer, åtgärder, protokoll, och sekvens med steg för att slutföra.
 
-### <a name="identity-experience-framework"></a>Identity Experience Framework
+### <a name="identity-experience-framework"></a>Ramverk för identitetsupplevelse
 
 Ett fullständigt konfigurerbara, principer, molnbaserad Azure-plattformen som samordnar förtroende mellan enheter (brett Anspråksproviders) i standardprotokoll format, till exempel OpenIDConnect, OAuth, SAML, WSFed och några standardmässiga format (till exempel REST API-based--system till anspråk utbyte). I2E skapar användarvänliga, whitelabelled inträffar som stöd för HTML, CSS och javascript.  Idag är endast tillgänglig i samband med tjänsten Azure AD B2C och prioriterad för uppgifter som rör CIAM identitet upplevelse ramen.
 
@@ -89,7 +89,7 @@ En anpassad princip representeras som en eller flera XML-formaterade filer som r
 
 | Typ av princip-fil | Exempel filnamn | Rekommenderad användning | Ärver från |
 |---------------------|--------------------|-----------------|---------------|
-| BAS |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Innehåller grundläggande anspråk schemat, anspråksomvandlingar, Anspråksproviders och användaren resor konfigureras av Microsoft<br><br>Göra minimala ändringar i filen | Ingen |
+| BAS |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Innehåller grundläggande anspråk schemat, anspråksomvandlingar, Anspråksproviders och användaren resor konfigureras av Microsoft<br><br>Göra minimala ändringar i filen | Inget |
 | Tillägget (EXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | Konsolidera dina ändringar i grundläggande filen<br><br>Ändrade Anspråksproviders<br><br>Ändrade användaren resor<br><br>Anpassat schemadefinitionerna | BAS-fil |
 | Förlitande part (RP) | B2C_1A_sign_up_sign_in.xml| Ändra token form och session här| Extensions(ext) fil |
 

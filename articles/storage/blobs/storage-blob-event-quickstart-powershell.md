@@ -1,33 +1,31 @@
 ---
-title: "Vidarebefordra Azure Blob storage-händelser till en anpassad webbplats slutpunkt - Powershell | Microsoft Docs"
-description: "Använd Azure Event Grid för att prenumerera på Blob Storage-händelser."
+title: Vidarebefordra Azure Blob storage-händelser till en anpassad webbplats slutpunkt - Powershell | Microsoft Docs
+description: Använd Azure Event Grid för att prenumerera på Blob Storage-händelser.
 services: storage,event-grid
-keywords: 
+keywords: ''
 author: david-stanford
 ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 374a24448eb1bf366e26bb55fdf09e470b030c89
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e5524732185d7b80ebf16a9bce6de9ca0183c27e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Vidarebefordra Blob storage-händelser till en anpassad webbplats slutpunkt med PowerShell
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder Azure PowerShell för att prenumerera på Blob storage-händelser, utlösa en händelse och visa resultatet. 
 
-Normalt kan du skicka händelser till en slutpunkt som svarar på händelsen, exempelvis en webhook eller Azure Function. För att förenkla exemplet som visas i den här artikeln, skickas händelser till en URL som endast samlar in meddelanden. Du skapar den här URL:en med hjälp av ett tredjepartsverktyg från antingen [RequestBin](https://requestb.in/) eller [Hookbin](https://hookbin.com/).
+Normalt kan du skicka händelser till en slutpunkt som svarar på händelsen, exempelvis en webhook eller Azure Function. För att förenkla exemplet som visas i den här artikeln, skickas händelser till en URL som endast samlar in meddelanden. Du skapar den här URL:en med ett tredjepartsverktyg från [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **RequestBin** och **Hookbin** är inte avsedda för användning med stora dataflöden. Här används verktygen endast i demonstrativt syfte. Om du push-överför fler än en händelse i taget kanske du inte ser alla händelser i verktyget.
+> **Hookbin** är inte avsedd för användning med hög genomströmning. Här används verktyget endast i instruktionssyfte. Om du push-överför fler än en händelse i taget kanske du inte ser alla händelser i verktyget.
 
 När du slutför stegen som beskrivs i den här artikeln ser du att händelsedata har skickats till en slutpunkt.
 
-![Händelsedata](./media/storage-blob-event-quickstart/request-result.png)
-
-## <a name="setup"></a>Konfiguration
+## <a name="setup"></a>Inställningar
 
 Den här artikeln kräver att du kör den senaste versionen av Azure PowerShell. Om du behöver installera eller uppgradera kan du läsa [Installera och konfigurera Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -84,7 +82,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
 
-Innan du prenumererar på ämnet ska vi ska slutpunkten för händelsemeddelandet. I stället för att skriva kod för att svar på händelsen ska vi skapa en slutpunkt som samlar in meddelandena så att du kan visa dem. RequestBin och Hookbin är tredjepartsverktyg med öppen källkod som låter dig skapa en slutpunkt och visa förfrågningar som skickas till den. Gå till [RequestBin](https://requestb.in/) och klicka på **Skapa en RequestBin**, eller gå till [Hookbin](https://hookbin.com/) och klicka på **Skapa ny slutpunkt**. Kopiera URL som bin och Ersätt `<bin URL>` i skriptet nedan.
+Innan du prenumererar på ämnet ska vi ska slutpunkten för händelsemeddelandet. I stället för att skriva kod för att svar på händelsen ska vi skapa en slutpunkt som samlar in meddelandena så att du kan visa dem. Hookbin är ett tredjepartsverktyg som låter dig skapa en slutpunkt och visa förfrågningar som skickas till den. Gå till [Hookbin](https://hookbin.com/) och klicka på **Skapa ny slutpunkt**. Kopiera URL som bin och Ersätt `<bin URL>` i skriptet nedan.
 
 ```powershell
 $binEndPoint = "<bin URL>"
@@ -92,7 +90,7 @@ $binEndPoint = "<bin URL>"
 
 ## <a name="subscribe-to-your-storage-account"></a>Prenumerera på ditt lagringskonto
 
-Du prenumererar på ett ämne för att ange för Event Grid vilka händelser du vill följa. I följande exempel prenumererar på storage-konto som du har skapat och överför URL: en från RequestBin eller Hookbin som slutpunkt för händelseavisering. 
+Du prenumererar på ett ämne för att ange för Event Grid vilka händelser du vill följa. I följande exempel prenumererar på storage-konto som du har skapat och överför URL: en från Hookbin som slutpunkt för händelseavisering. 
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id

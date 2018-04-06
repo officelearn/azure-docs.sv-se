@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: d4229a3ecbcf8aa044eb448290c243e9920bd5cb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ab4bc4024248675c6325159b5507add1274addc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API-begränsningar för import och kända problem
 ## <a name="about-this-list"></a>Om den här listan
@@ -27,9 +27,11 @@ När du importerar en API kan du stöta på vissa begränsningar eller identifie
 ## <a name="open-api"> </a>Öppna API/Swagger
 Om felmeddelanden importera dokumentet öppna API: et, se till att du har validerat den - antingen med hjälp av designern i Azure-portalen (Design - frontend - öppna API specifikation-redigeraren), eller en tredjeparts-verktyget som <a href="http://www.swagger.io">Swagger Editor</a>.
 
-* **Värdnamn** APIM kräver ett host name-attribut.
-* **Basera sökvägen** APIM kräver ett bassökväg-attribut.
-* **Scheman** APIM kräver en matris för schemat.
+* Endast JSON-format för OpenAPI stöds.
+* Scheman som refereras till med hjälp av **$ref** egenskaper får inte innehålla andra **$ref** egenskaper.
+* **$ref** pekare kan inte referera till externa filer.
+* **x-ms-sökvägar** och **x servrar** är de enda tillägg som stöds.
+* Anpassade tillägg ignoreras för import och sparas eller bevaras för export.
 
 > [!IMPORTANT]
 > Se den här [dokument](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) viktig information och tips som rör OpenAPI import.

@@ -1,11 +1,11 @@
 ---
-title: "Med hjälp av Azure CDN med CORS | Microsoft Docs"
-description: "Lär dig hur du använder i Azure Content innehållsleveransnätverk (CDN) till med Cross-Origin Resource Sharing (CORS)."
+title: Med hjälp av Azure CDN med CORS | Microsoft Docs
+description: Lär dig hur du använder i Azure Content innehållsleveransnätverk (CDN) till med Cross-Origin Resource Sharing (CORS).
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 86740a96-4269-4060-aba3-a69f00e6f14e
 ms.service: cdn
 ms.workload: tbd
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7070397f6e69b21add75bad8220f0b8ebe36d266
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="using-azure-cdn-with-cors"></a>Med hjälp av Azure CDN med CORS
 ## <a name="what-is-cors"></a>Vad är CORS?
@@ -29,7 +29,7 @@ Det finns två typer av CORS-förfrågningar, *enkla begäranden* och *komplexa 
 
 ### <a name="for-simple-requests"></a>För enkla begäranden:
 
-1. Webbläsaren skickar en begäran för CORS med en ytterligare **ursprung** HTTP-huvud. Värdet för det här sidhuvudet är ursprung som hanteras av den överordnade sidan som har definierats som en kombination av *protokoll,* *domän,* och *port.*  När en sida från https://www.contoso.com försöker få åtkomst till användardata i fabrikam.com ursprung, skulle begärandehuvudet följande skickas till fabrikam.com:
+1. Webbläsaren skickar en begäran för CORS med en ytterligare **ursprung** HTTP-huvud. Värdet för det här sidhuvudet är ursprung som hanteras av den överordnade sidan som har definierats som en kombination av *protokoll,* *domän,* och *port.*  När en sida från https://www.contoso.com försöker få åtkomst till användardata i fabrikam.com ursprung, begärandehuvudet följande skulle skickas till fabrikam.com:
 
    `Origin: https://www.contoso.com`
 

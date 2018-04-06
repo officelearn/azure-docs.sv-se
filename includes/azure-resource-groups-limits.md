@@ -16,7 +16,7 @@
 | Parametrar |256 |256 |
 | Variabler |256 |256 |
 | Resurserna (inklusive antal kopior) |800 |800 |
-| utdata |64 |64 |
+| Utdata |64 |64 |
 | Malluttryck |24,576 tecken |24,576 tecken |
 | Resurser i exporterade mallar |200 |200 | 
 | Mallstorlek |1 MB |1 MB |

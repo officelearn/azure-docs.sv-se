@@ -1,11 +1,11 @@
 ---
-title: "Analysera gränsnodprestanda i Azure CDN | Microsoft Docs"
-description: "Analysera gränsnodprestanda i Microsoft Azure CDN. Edge prestanda Analytics ger detaljerad information trafik och bandbredd användning för CDN."
+title: Analysera gränsnodprestanda i Azure CDN | Microsoft Docs
+description: Analysera gränsnodprestanda i Microsoft Azure CDN. Edge prestanda Analytics ger detaljerad information trafik och bandbredd användning för CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
 ms.service: cdn
 ms.workload: tbd
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analysera gränsnodsprestanda i Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -58,7 +58,7 @@ Den här instrumentpanelen består av:
    
     Edge nod analytics instrumentpanelen visas.
 
-### <a name="chart"></a>Diagrammet
+### <a name="chart"></a>Diagram
 Instrumentpanelen innehåller ett diagram som visar ett mått över valda i tidslinjen visas direkt under den tidsperioden.  En tidslinje att diagram upp till den sista två års CDN aktivitet visas direkt under diagrammet.
 
 #### <a name="using-the-chart"></a>Med hjälp av diagrammet
@@ -182,7 +182,7 @@ Varje rapport i den här modulen innehåller ett diagram och statistik över anv
 | 502 fel |Innehåller ett stapeldiagram som gör att du kan visa de översta 10 begäranden som resulterade i en 502 felaktig Gateway-svarskod. En 502 felaktig Gateway-svarskod inträffar när ett HTTP-protokollfel inträffar mellan en server och en HTTP-proxy. När det gäller våra CDN normalt en 502 felaktig Gateway-svarskod när en kund ursprungsservern returnerar ett ogiltigt svar på en gränsserver. Ett svar är ogiltigt om det inte går att parsa eller om den är ofullständig. |
 | 5xx-fel |Innehåller ett stapeldiagram som gör att du kan visa de översta 10 begäranden som resulterade i en svarskod inom intervallet 500.  Undantas från den här rapporten är 502 felaktig Gateway och svarskoder 504 Gateway-Timeout. |
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Azure CDN-översikt](cdn-overview.md)
 * [Realtid statistik i Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Åsidosätta standardbeteendet i HTTP-motorn regler](cdn-rules-engine.md)

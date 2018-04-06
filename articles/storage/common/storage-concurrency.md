@@ -1,8 +1,8 @@
 ---
 title: Hantera samtidighet i Microsoft Azure Storage
-description: "Så här hanterar du samtidighet för Blob, kön, tabell och filen tjänster"
+description: Så här hanterar du samtidighet för Blob, kön, tabell och filen tjänster
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: jasontang501
 manager: tadb
 editor: tysonn
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.openlocfilehash: 937cca66a0af0674b868e6a87681adbea330e91c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Hantera samtidighet i Microsoft Azure Storage
 ## <a name="overview"></a>Översikt
@@ -113,7 +113,7 @@ I följande tabell sammanfattas blob-åtgärder som accepterar villkorlig huvude
 | Hämta Blobbmetadata |Ja |Ja |
 | Ange Blobbmetadata |Ja |Ja |
 | Lånet Blob (*) |Ja |Ja |
-| Snapshot-Blob |Ja |Ja |
+| Snapshot Blob |Ja |Ja |
 | Kopiera Blob |Ja |Ja (för käll- och blob) |
 | Avbryt kopiera Blob |Nej |Nej |
 | Ta bort blobben |Nej |Ja |
@@ -197,7 +197,7 @@ Mer information finns i:
 
 * [Ange villkorlig huvuden för Blob-tjänståtgärder](http://msdn.microsoft.com/library/azure/dd179371.aspx)
 * [Lånet behållare](http://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Lånet Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Lånet Blob ](http://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## <a name="managing-concurrency-in-the-table-service"></a>Hantera samtidighet i Tabelltjänsten
 Tabelltjänsten använder Optimistisk samtidighet kontrollerar som standard när du arbetar med entiteter, till skillnad från blob-tjänsten där du måste uttryckligen välja att utföra Optimistisk samtidighet kontroller. Skillnaden mellan tabellen och blob-tjänsterna är att du kan endast hantera samtidighet beteendet för entiteter i blob-tjänsten kan du hantera samtidighet på både behållare och blobbar.  
@@ -285,7 +285,7 @@ Fullständig exempelprogrammet som hänvisas till i den här bloggen:
 
 Mer information om Azure Storage finns:  
 
-* [Startsida för Microsoft Azure Storage](https://azure.microsoft.com/services/storage/)
+* [Microsoft Azure Storage Home Page](https://azure.microsoft.com/services/storage/)
 * [Introduktion till Azure Storage](storage-introduction.md)
 * Komma igång för lagring [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [tabell](../../cosmos-db/table-storage-how-to-use-dotnet.md), [köer](../storage-dotnet-how-to-use-queues.md), och [filer](../storage-dotnet-how-to-use-files.md)
 * Lagringsarkitektur – [Azure Storage: en högtillgänglig Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

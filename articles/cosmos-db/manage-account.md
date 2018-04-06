@@ -1,9 +1,9 @@
 ---
 title: Hantera en Azure DB som Cosmos-konto via Azure Portal | Microsoft Docs
-description: "Lär dig hur du hanterar Azure DB som Cosmos-konto via Azure Portal. Hitta en vägledning om hur du använder Azure-portalen visa, kopiera, ta bort och ha åtkomst till konton."
+description: Lär dig hur du hanterar Azure DB som Cosmos-konto via Azure Portal. Hitta en vägledning om hur du använder Azure-portalen visa, kopiera, ta bort och ha åtkomst till konton.
 keywords: Azure Portal, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: kirillg
 manager: jhubbard
 editor: cgronlun
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: kirillg
 ms.openlocfilehash: e5820cb17cfbaa15f10f24881f02a37aec617267
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Så här hanterar du ett konto i Azure Cosmos DB
 Lär dig mer om att ställa in globalt konsekvensfel, fungerar med nycklar och ta bort ett Azure DB som Cosmos-konto i Azure-portalen.
@@ -50,7 +50,7 @@ Skrivskyddad är också tillgängliga på den här sidan. Läsning och frågor �
 ### <a name="copy-an-access-key-or-password-in-the-azure-portal"></a>Kopiera en åtkomstnyckel eller lösenord i Azure-portalen
 På den **nycklar** sidan (eller **anslutningssträngen** för MongoDB-API-konton), klickar du på den **kopiera** knappen till höger om nyckeln eller lösenordet som du vill kopiera.
 
-![Visa och kopiera snabbtangent i Azure portal, nycklar-sida](./media/manage-account/copykeys.png)
+![Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar](./media/manage-account/copykeys.png)
 
 ### <a name="regenerate-access-keys-and-passwords"></a>Återskapa åtkomstnycklar och lösenord
 Du bör ändra snabbtangenter (och lösenorden för MongoDB-API) till Azure DB som Cosmos-konto med jämna mellanrum för att skydda dina anslutningar. Två åtkomst nycklar lösenord tilldelas så att du kan upprätthålla anslutningar till Azure Cosmos DB kontot den ena åtkomstnyckeln medan du återskapar den andra åtkomstnyckeln.
@@ -86,7 +86,7 @@ Hämta din anslutningssträng genom att göra följande:
 
 Om du använder anslutningssträngen i den [Migreringsverktyget för Azure Cosmos DB databasen](import-data.md), Lägg till namnet på databasen i slutet av anslutningssträngen. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
 
-## <a id="delete"></a>Ta bort ett Azure DB som Cosmos-konto
+## <a id="delete"></a> Ta bort ett Azure DB som Cosmos-konto
 Om du vill ta bort ett Azure DB som Cosmos-konto i Azure Portal som du inte längre använder, högerklicka på namnet på kontot och klicka på **ta bort kontot**.
 
 ![Hur du tar bort ett Azure DB som Cosmos-konto i Azure-portalen](./media/manage-account/deleteaccount.png)

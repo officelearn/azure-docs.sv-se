@@ -1,8 +1,8 @@
 ---
-title: "Team vetenskap av data i praktiken - med ett Azure HDInsight Hadoop-kluster på en datamängd för 1 TB | Microsoft Docs"
-description: "Med hjälp av Team datavetenskap Process för en slutpunkt till slutpunkt-scenario med HDInsight Hadoop-kluster för att skapa och distribuera en modell med en stor (1 TB) offentligt tillgängliga datauppsättning"
+title: Team vetenskap av data i praktiken - med ett Azure HDInsight Hadoop-kluster på en datamängd för 1 TB | Microsoft Docs
+description: Med hjälp av Team datavetenskap Process för en slutpunkt till slutpunkt-scenario med HDInsight Hadoop-kluster för att skapa och distribuera en modell med en stor (1 TB) offentligt tillgängliga datauppsättning
 services: machine-learning,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev
 ms.openlocfilehash: 760e08643fb3e71478fc899278591569da1d515b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team vetenskap av data i praktiken - med ett Azure HDInsight Hadoop-kluster på en datamängd för 1 TB
 
@@ -98,7 +98,7 @@ Här är en typisk första inloggningen till klustret headnode ser ut:
 
 Nu du ställa in och är redo för att börja första delen av genomgången: datagranskning med Hive och förbereda data för Azure Machine Learning.
 
-## <a name="hive-db-tables"></a>Skapa Hive-databasen och tabeller
+## <a name="hive-db-tables"></a> Skapa Hive-databasen och tabeller
 Om du vill skapa Hive-tabeller för våra Criteo dataset, öppna den ***Hadoop kommandoraden*** på skrivbordet för huvudnoden, och ange Hive-katalogen genom att ange kommandot
 
     cd %hive_home%\bin
@@ -124,7 +124,7 @@ Följande kod skapar en databas ”criteo” och sedan genererar 4 tabeller:
 
 Dela testdatauppsättningen i två olika tabeller eftersom en av dagarna är helgdagar. Målet är att avgöra om modellen identifiera skillnader mellan en helgdag och icke-helgdagar från klicka igenom frekvensen.
 
-Skriptet [exempel &#95; hive &#95; Skapa &#95; criteo &#95; databas &#95; och &#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql) visas här av praktiska skäl:
+Skriptet [exempel&#95;hive&#95;skapa&#95;criteo&#95;databasen&#95;och&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql) visas här av praktiska skäl:
 
     CREATE DATABASE IF NOT EXISTS criteo;
     DROP TABLE IF EXISTS criteo.criteo_count;
@@ -165,7 +165,7 @@ Dessa tabeller är externa så att du helt enkelt peka till deras platser i Azur
         hive
    
      Nu på REPL kommandoradsverktyg kör kopiera och klistra in frågan den.
-2. **Spara frågor till en fil och kommandot**: andra är att spara frågor till en .hql-fil ([exempel &#95; hive &#95; Skapa &#95; criteo &#95; databas &#95; och &#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) och sedan kör du följande kommando för att köra frågan:
+2. **Spara frågor till en fil och kommandot**: andra är att spara frågor till en .hql-fil ([exempel&#95;hive&#95;skapa&#95;criteo&#95;databasen&#95;och&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) och sedan kör du följande kommando för att köra frågan:
    
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
@@ -194,11 +194,11 @@ Du bör se följande utdata:
         criteo_train
         Time taken: 1.437 seconds, Fetched: 4 row(s)
 
-## <a name="exploration"></a>Datagranskning i Hive
+## <a name="exploration"></a> Datagranskning i Hive
 Nu är du redo att göra vissa grundläggande datagranskning i Hive. Du börjar med att räkna antalet exempel i tåget och testa datatabeller.
 
 ### <a name="number-of-train-examples"></a>Antal train-exempel
-Innehållet i [exempel &#95; hive &#95; antal &#95; train &#95; tabellen &#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_train_table_examples.hql) visas här:
+Innehållet i [exempel&#95;hive&#95;antal&#95;träna&#95;tabell&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_train_table_examples.hql) visas här:
 
         SELECT COUNT(*) FROM criteo.criteo_train;
 
@@ -212,7 +212,7 @@ Alternativt kan en även kör du följande kommando från lagerplatsen Hive / di
         hive -f C:\temp\sample_hive_count_criteo_train_table_examples.hql
 
 ### <a name="number-of-test-examples-in-the-two-test-datasets"></a>Antal test exemplen i de två test datauppsättningarna
-Nu räkna antalet exempel i två test datauppsättningar. Innehållet i [exempel &#95; hive &#95; antal &#95; criteo &#95; test &#95; dag &#95; 22 &#95; tabellen &#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_22_table_examples.hql) finns här:
+Nu räkna antalet exempel i två test datauppsättningar. Innehållet i [exempel&#95;hive&#95;antal&#95;criteo&#95;testa&#95;dag&#95;22&#95;tabell&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_22_table_examples.hql) finns här:
 
         SELECT COUNT(*) FROM criteo.criteo_test_day_22;
 
@@ -227,7 +227,7 @@ Som vanligt du också kan anropa skriptet från Hive bin / directory kommandopro
 
 Slutligen kan du undersöka antalet test exemplen i testdata baserat på dag\_23.
 
-Kommandot för att göra detta liknar den som bara visas (se [exempel &#95; hive &#95; antal &#95; criteo &#95; test &#95; dag &#95; 23 &#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
+Kommandot för att göra detta liknar den som bara visas (se [exempel&#95;hive&#95;antal&#95;criteo&#95;testa&#95;dag&#95;23&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
 
         SELECT COUNT(*) FROM criteo.criteo_test_day_23;
 
@@ -237,7 +237,7 @@ Detta ger:
         Time taken: 253.089 seconds, Fetched: 1 row(s)
 
 ### <a name="label-distribution-in-the-train-dataset"></a>Etikett distribution i train datauppsättningen
-Distributionen av etikett i train datamängden är av intresse. Om du vill se den här visar du innehållet i [exempel &#95; hive &#95; criteo &#95; etikett &#95; distri &#95; train &#95;table.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_label_distribution_train_table.hql):
+Distributionen av etikett i train datamängden är av intresse. Om du vill se den här visar du innehållet i [exempel&#95;hive&#95;criteo&#95;etikett&#95;distribution&#95;träna&#95;table.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_label_distribution_train_table.hql):
 
         SELECT Col1, COUNT(*) AS CT FROM criteo.criteo_train GROUP BY Col1;
 
@@ -250,7 +250,7 @@ Detta ger etikett-distribution:
 Observera att procentandelen positivt etiketter är ungefär 3.3% (konsekvent med den ursprungliga datauppsättningen).
 
 ### <a name="histogram-distributions-of-some-numeric-variables-in-the-train-dataset"></a>Histogram distributioner av vissa numeriska variablerna i datauppsättningen train
-Du kan använda registreringsdata intern ”histogram\_numeriska” funktionen för att ta reda på hur distributionen av variablerna numeriska ser ut. Här är innehållet i [exempel &#95; hive &#95; criteo &#95; histogram &#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
+Du kan använda registreringsdata intern ”histogram\_numeriska” funktionen för att ta reda på hur distributionen av variablerna numeriska ser ut. Här är innehållet i [exempel&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
 
         SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM
             (SELECT
@@ -287,7 +287,7 @@ Detta ger följande:
 LATERALA Visa - Expandera kombination i Hive används för att skapa en SQL-liknande utdata i stället för vanliga listan. Observera att i den här tabellen, den första kolumnen motsvarar bin center och andra för bin frekvens.
 
 ### <a name="approximate-percentiles-of-some-numeric-variables-in-the-train-dataset"></a>Ungefärlig percentiler av vissa numeriska variablerna i datauppsättningen train
-Är också beräkning av ungefärliga percentiler intressanta med numeriska variabler. Hive datorns inbyggda ”percentil\_ungefärlig” matchar det för oss. Innehållet i [exempel &#95; hive &#95; criteo &#95; ungefärliga &#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) är:
+Är också beräkning av ungefärliga percentiler intressanta med numeriska variabler. Hive datorns inbyggda ”percentil\_ungefärlig” matchar det för oss. Innehållet i [exempel&#95;hive&#95;criteo&#95;ungefärliga&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) är:
 
         SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
 
@@ -299,7 +299,7 @@ Detta ger:
 Distribution av percentiler är nära relaterade till histogram distribution av en numerisk variabel vanligtvis.         
 
 ### <a name="find-number-of-unique-values-for-some-categorical-columns-in-the-train-dataset"></a>Räkna antalet unika värden för vissa kategoriska kolumner i datauppsättningen train
-Fortsätter datagranskning, hitta, för vissa kategoriska kolumner antalet unika värden som de vidtar. Det gör du genom att visa innehållet i [exempel &#95; hive &#95; criteo &#95; unika &#95; värden &#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql):
+Fortsätter datagranskning, hitta, för vissa kategoriska kolumner antalet unika värden som de vidtar. Det gör du genom att visa innehållet i [exempel&#95;hive&#95;criteo&#95;unika&#95;värden&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql):
 
         SELECT COUNT(DISTINCT(Col15)) AS num_uniques FROM criteo.criteo_train;
 
@@ -310,7 +310,7 @@ Detta ger:
 
 Observera att Col15 19M unika värden! Med hjälp av naïve metoder som ”en-hot kodning” är om du vill koda sådana hög endimensionell kategoriska variabler inte möjligt. I synnerhet är en teknik som kraftfulla och stabila kallas [inlärning med antal](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) för effektivt hantera problemet är förklaras och visas.
 
-Slutligen titta på antalet unika värden för vissa andra kategoriska kolumner samt. Innehållet i [exempel &#95; hive &#95; criteo &#95; unika &#95; värden &#95; flera &#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) är:
+Slutligen titta på antalet unika värden för vissa andra kategoriska kolumner samt. Innehållet i [exempel&#95;hive&#95;criteo&#95;unika&#95;värden&#95;flera&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) är:
 
         SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)),
         COUNT(DISTINCT(Col18), COUNT(DISTINCT(Col19), COUNT(DISTINCT(Col20))
@@ -325,7 +325,7 @@ Igen och Observera att förutom Col20, de andra kolumnerna många unika värden.
 
 ### <a name="co-occurrence-counts-of-pairs-of-categorical-variables-in-the-train-dataset"></a>Samtidigt förekomsten räknar par kategoriska variablerna i datauppsättningen train
 
-Samtidigt förekomsten antal par kategoriska variabler är också av intresse. Detta kan fastställas med hjälp av koden i [exempel &#95; hive &#95; criteo &#95; parad &#95; kategoriska &#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
+Samtidigt förekomsten antal par kategoriska variabler är också av intresse. Detta kan fastställas med hjälp av koden i [exempel&#95;hive&#95;criteo&#95;parad&#95;kategoriska&#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
 
         SELECT Col15, Col16, COUNT(*) AS paired_count FROM criteo.criteo_train GROUP BY Col15, Col16 ORDER BY paired_count DESC LIMIT 15;
 
@@ -348,10 +348,10 @@ Omvänd ordning antal av deras förekomst och titta på högsta 15 i det här fa
         265366bf        6f5c7c41        782142
         Time taken: 560.22 seconds, Fetched: 15 row(s)
 
-## <a name="downsample"></a>Ned exempel datamängder för Azure Machine Learning
+## <a name="downsample"></a> Ned exempel datamängder för Azure Machine Learning
 Med utforskade datauppsättningar och visas hur du gör den här typen av exploatera några variabler (inklusive kombinationer), ned exempel datauppsättningar så att modeller i Azure Machine Learning kan byggas. Kom ihåg att fokuserar på problemet: med en uppsättning exempel attribut (funktionen värden från Col2 - Col40) förutsäga om Kol1 är 0 (ingen klicka) eller 1 (klicka).
 
-Till exempel tåget och testa datauppsättningar till 1% av den ursprungliga storleken funktionen registreringsdata interna RAND(). Skriptet nästa [exempel &#95; hive &#95; criteo &#95; nedsampla &#95; train &#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) gör detta för tåget datauppsättningen:
+Till exempel tåget och testa datauppsättningar till 1% av den ursprungliga storleken funktionen registreringsdata interna RAND(). Skriptet nästa [exempel&#95;hive&#95;criteo&#95;nedsampla&#95;träna&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) gör detta för tåget datauppsättningen:
 
         CREATE TABLE criteo.criteo_train_downsample_1perc (
         col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
@@ -368,7 +368,7 @@ Detta ger:
         Time taken: 12.22 seconds
         Time taken: 298.98 seconds
 
-Skriptet [exempel &#95; hive &#95; criteo &#95; nedsampla &#95; test &#95; dag &#95; 22 &#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) matchar för testdata, dag\_22:
+Skriptet [exempel&#95;hive&#95;criteo&#95;nedsampla&#95;testa&#95;dag&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) matchar för testdata, dag\_22:
 
         --- Now for test data (day_22)
 
@@ -386,7 +386,7 @@ Detta ger:
         Time taken: 317.66 seconds
 
 
-Slutligen skriptet [exempel &#95; hive &#95; criteo &#95; nedsampla &#95; test &#95; dag &#95; 23 &#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) matchar för testdata, dag\_23:
+Slutligen skriptet [exempel&#95;hive&#95;criteo&#95;nedsampla&#95;testa&#95;dag&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) matchar för testdata, dag\_23:
 
         --- Finally test data day_23
         CREATE TABLE criteo.criteo_test_day_23_downsample_1perc (
@@ -406,7 +406,7 @@ Med den här är du redo att använda vår nedåt provade tåg och testa dataupp
 
 Det finns en sista viktig komponent innan du fortsätter till Azure Machine Learning som berör tabellen antal. Tabellen antal beskrivs i nästa underavsnitt i viss detalj.
 
-## <a name="count"></a>En kort beskrivning på tabellen antal
+## <a name="count"></a> En kort beskrivning på tabellen antal
 Som du såg har flera kategoriska variabler en mycket hög dimensionalitet. I den här genomgången en kraftfull metod anropas [inlärning med antal](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) för att koda dessa variabler i en effektiv robust sätt visas. Mer information om den här tekniken finns i länken.
 
 [!NOTE]
@@ -415,7 +415,7 @@ Som du såg har flera kategoriska variabler en mycket hög dimensionalitet. I de
 
 Använda data för att skapa antal tabeller på antalet data i mappen rådata/antal. I avsnittet modellering visas för användarna hur du skapar dessa antal tabeller för kategoriska funktioner från början, eller också använda en förskapad antal tabell för sina explorations. I vilka sätt när ”inbyggd antal tabeller” anges till, vi menar med antalet tabeller som har angetts. Detaljerade anvisningar om hur du kommer åt dessa tabeller finns i nästa avsnitt.
 
-## <a name="aml"></a>Skapa en modell med Azure Machine Learning
+## <a name="aml"></a> Skapa en modell med Azure Machine Learning
 Vår modell processen i Azure Machine Learning för att bygga följer de här stegen:
 
 1. [Hämta data från Hive-tabeller i Azure Machine Learning](#step1)
@@ -426,7 +426,7 @@ Vår modell processen i Azure Machine Learning för att bygga följer de här st
 
 Du är nu redo att bygga modeller i Azure Machine Learning studio. Vår nedåt samplade data sparas som Hive-tabeller i klustret. Använda Azure Machine Learning **importera Data** modulen att läsa informationen. Autentiseringsuppgifter för åtkomst till lagringskontot för det här klustret finns i följande.
 
-### <a name="step1"></a>Steg 1: Hämta data från Hive-tabeller i Azure Machine Learning med hjälp av modulen importera Data och markera ett maskininlärningsexperiment
+### <a name="step1"></a> Steg 1: Hämta data från Hive-tabeller i Azure Machine Learning med hjälp av modulen importera Data och markera ett maskininlärningsexperiment
 Starta genom att välja en **+ ny** -> **EXPERIMENT** -> **tomt Experiment**. Sedan från den **Sök** rutan längst upp till vänster, Sök efter ”importera Data”. Dra och släpp den **importera Data** modulen in experimentet arbetsytan (mellersta delen av skärmen) ska kunna använda modulen för dataåtkomst.
 
 Det här är vad den **importera Data** ser ut som att hämta data från Hive-tabell:
@@ -460,7 +460,7 @@ Om du vill välja den sparade datamängden för användning i ett machine learni
 > 
 > 
 
-### <a name="step2"></a>Steg 2: Skapa ett enkelt experiment i Azure Machine Learning att förutsäga klick / några klick
+### <a name="step2"></a> Steg 2: Skapa ett enkelt experiment i Azure Machine Learning att förutsäga klick / några klick
 Vårt Azure ML-experiment ser ut så här:
 
 ![Machine Learning-experiment](./media/hive-criteo-walkthrough/xRpVfrY.png)
@@ -537,7 +537,7 @@ Den här utdrag visar att för de kolumner som har inventerats på du få fram d
 
 Du är nu redo att skapa en Azure Machine Learning-modell med hjälp av dessa transformerade data. I nästa visar avsnitt hur detta kan göras.
 
-### <a name="step3"></a>Steg 3: Skapa, träna och betygsätta modellen
+### <a name="step3"></a> Steg 3: Skapa, träna och betygsätta modellen
 
 #### <a name="choice-of-learner"></a>Valet av deltagaren
 Först måste du välja en deltagaren. Använd ett två-klass förstärkta beslutsträd som våra deltagaren. Här är alternativ för den här deltagaren:
@@ -556,7 +556,7 @@ När du har en tränad modell är du redo att poängsätta mot testdatauppsättn
 
 ![Modulen Poängsätta modell](./media/hive-criteo-walkthrough/fydcv6u.png)
 
-### <a name="step4"></a>Steg 4: Utvärdera modellen
+### <a name="step4"></a> Steg 4: Utvärdera modellen
 Slutligen bör du analysera modellen prestanda. Vanligtvis är två klass (binär) klassificering problem ett bra mått på AUC. Om du vill visualisera detta koppla samman den **Poängmodell** modulen ett **utvärdera modell** -modul för detta. Klicka på **visualisera** på den **utvärdera modell** modulen ger en bild som den följande:
 
 ![Utvärdera modulen BDT modellen](./media/hive-criteo-walkthrough/0Tl0cdg.png)
@@ -565,7 +565,7 @@ I binär (eller två klassen) klassificering problem, ett bra mått på föruts�
 
 ![Visualisera modulen utvärdera modell](./media/hive-criteo-walkthrough/IRfc7fH.png)
 
-### <a name="step5"></a>Steg 5: Publicera modellen som en webbtjänst
+### <a name="step5"></a> Steg 5: Publicera modellen som en webbtjänst
 Möjligheten att publicera en Azure Machine Learning-modell som webbtjänster med minsta möjliga ansträngning är en viktig funktion för att göra den allmänt tillgänglig. När det är klart, göra vem som helst anrop till webbtjänsten med indata att de behöver förutsägelser för och webbtjänsten använder modellen för att returnera dessa förutsägelser.
 
 Gör detta genom att först spara vår tränad modell som en Trained Model-objektet. Detta görs genom att högerklicka på den **Träningsmodell** modulen och använder den **Spara som Trained Model** alternativet.

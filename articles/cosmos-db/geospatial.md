@@ -1,8 +1,8 @@
 ---
 title: Arbeta med geospatiala data i Azure Cosmos DB | Microsoft Docs
-description: "Förstå hur du skapar, index- och fråga spatial objekt med Azure Cosmos DB och SQL-API."
+description: Förstå hur du skapar, index- och fråga spatial objekt med Azure Cosmos DB och SQL-API.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
 editor: monicar
@@ -16,10 +16,10 @@ ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3e778f4a9b7ec4935d53eb335462f3c414ff99cd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Arbeta med geospatial och GeoJSON platsdata i Azure Cosmos DB
 Den här artikeln ger en introduktion till funktionen geospatiala i [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). När du har läst detta, kommer du att kunna besvara följande frågor:
@@ -192,7 +192,7 @@ Spatial funktioner kan användas för att utföra närhet frågor mot spatialdat
     FROM Families f 
     WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
 
-**Resultat**
+**Results**
 
     [{
       "id": "WakefieldFamily"
@@ -213,7 +213,7 @@ Polygon argument i ST_WITHIN kan innehålla endast en enkel signal, det vill sä
         'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
     })
 
-**Resultat**
+**Results**
 
     [{
       "id": "WakefieldFamily",
@@ -233,7 +233,7 @@ Azure Cosmos-DB stöder också utföra omvända frågor, det vill säga kan du i
     WHERE ST_WITHIN({'type': 'Point', 'coordinates':[31.9, -4.8]}, a.location)
 
 
-**Resultat**
+**Results**
 
     [{
       "id": "MyDesignatedLocation",
@@ -249,7 +249,7 @@ ST_ISVALID och ST_ISVALIDDETAILED kan användas för att kontrollera om en Rumso
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 
-**Resultat**
+**Results**
 
     [{
       "$1": false
@@ -263,7 +263,7 @@ Dessa funktioner kan också användas för att validera polygoner. Till exempel 
         [ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
         ]]})
 
-**Resultat**
+**Results**
 
     [{
        "$1": { 

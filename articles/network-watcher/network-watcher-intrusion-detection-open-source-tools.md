@@ -1,11 +1,11 @@
 ---
-title: "Utföra nätverket intrångsidentifiering med öppen källkod verktyg och Azure Nätverksbevakaren | Microsoft Docs"
-description: "Den här artikeln beskriver hur du använder Azure Nätverksbevakaren och Öppna källa verktyg för att utföra intrångsidentifiering för nätverk"
+title: Utföra nätverket intrångsidentifiering med öppen källkod verktyg och Azure Nätverksbevakaren | Microsoft Docs
+description: Den här artikeln beskriver hur du använder Azure Nätverksbevakaren och Öppna källa verktyg för att utföra intrångsidentifiering för nätverk
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: aff1b5f9e8860d3b8dc09b37684bb8a4ac2bf134
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Utföra nätverket intrångsidentifiering med öppen källkod verktyg och Nätverksbevakaren
 
@@ -38,7 +38,7 @@ Båda verktyg med öppen källkod kan ställas in på en virtuell dator i Azure,
 
 ### <a name="install-suricata"></a>Installera Suricata
 
-Alla andra metoder för installation finns i http://suricata.readthedocs.io/en/latest/install.html
+Alla andra metoder för installation finns http://suricata.readthedocs.io/en/latest/install.html
 
 1. Kör följande kommandon i Kommandotolken terminal på den virtuella datorn:
 
@@ -232,7 +232,7 @@ Ytterligare instruktioner om hur du installerar Logstash finns i den [officiella
     ./bin/kibana
     ```
 
-1. Om du vill visa dina Kibana webbgränssnitt, gå till`http://localhost:5601`
+1. Om du vill visa dina Kibana webbgränssnitt, gå till `http://localhost:5601`
 1. I det här scenariot index mönstret för Suricata loggarna är ”logstash-*”
 
 1. Om du vill visa infopanelen Kibana via fjärranslutning, skapar du en inkommande NSG regel för att tillåta åtkomst till **port 5601**.
@@ -259,7 +259,7 @@ I exemplet på instrumentpanel innehåller flera visualiseringar Suricata aviser
 
 1. Översta 10 aviseringar – en sammanfattning av de vanligaste 10 utlöst aviseringar och deras beskrivning. Klicka på en enskild varning filtrerar ned instrumentpanelen på den information som rör den specifika aviseringen.
 
-    ![bild 4][4]
+    ![image 4][4]
 
 1. Antal aviseringar – totalt antal aviseringar som har utlösts av den RuleSet-metod
 
@@ -267,7 +267,7 @@ I exemplet på instrumentpanel innehåller flera visualiseringar Suricata aviser
 
 1. Övre 20 källan/målet IP-adresser portar - cirkeldiagram visar de översta 20 IP-adresser och portar som aviseringar har utlösts av. Du kan filtrera nedåt på specifika IP-adresser/portar att se hur många och vilka typer av aviseringar aktiveras.
 
-    ![bild 6][6]
+    ![image 6][6]
 
 1. Aviseringen sammanfattning – en tabell sammanfattar närmare för varje enskild varning. Du kan anpassa den här tabellen om du vill visa andra parametrar av intresse för varje avisering.
 
@@ -275,7 +275,7 @@ I exemplet på instrumentpanel innehåller flera visualiseringar Suricata aviser
 
 Mer dokumentation om hur du skapar anpassade visualiseringar och instrumentpaneler finns [Kibanas officiella dokumentation](https://www.elastic.co/guide/en/kibana/current/introduction.html).
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Samlar in angivna genom Nätverksbevakaren och verktyg för öppen källkod-ID: N som Suricata, du kan utföra nätverket intrångsidentifiering för en mängd olika hot genom att kombinera paket. Instrumentpanelerna kan du snabbt se trender och avvikelser i nätverket, som korrekt gräva i data för att identifiera rotorsaken till aviseringar, till exempel skadliga användaragenter eller sårbara portarna. Med den här extraherade data fatta du välgrundade beslut om hur du ta hänsyn till och skydda nätverket från skadliga intrångsförsök och skapa regler för att förhindra framtida intrång i nätverket.
 

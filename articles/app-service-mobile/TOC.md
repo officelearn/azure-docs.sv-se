@@ -119,7 +119,6 @@
 #### [Node.js-serverdelen](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
 ## Skydda
-### [Autentisering och auktorisering](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Autentisera med identitetsproviders
 #### [Azure Active Directory-autentisering](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Facebook-autentisering](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

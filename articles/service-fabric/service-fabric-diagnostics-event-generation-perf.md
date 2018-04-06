@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric prestanda övervakning | Microsoft Docs"
-description: "Mer information om prestandaräknare för övervakning och diagnostik av Azure Service Fabric-kluster."
+title: Azure Service Fabric prestanda övervakning | Microsoft Docs
+description: Mer information om prestandaräknare för övervakning och diagnostik av Azure Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="performance-metrics"></a>Prestandamått
 
@@ -30,21 +30,21 @@ Mått ska samlas in för att förstå prestanda för klustret, samt de program s
 
 | Räknaren kategori | Räknarens namn |
 | --- | --- |
-| Fysisk disk (per Disk) | Genomsn. Läs diskkölängd |
-| Fysisk disk (per Disk) | Genomsn. Diskkölängd för skrivning |
-| Fysisk disk (per Disk) | Genomsn. Disk sek/läsning |
-| Fysisk disk (per Disk) | Genomsn. Disk sek/skrivning |
+| Fysisk disk (per Disk) | Avg. Läs diskkölängd |
+| Fysisk disk (per Disk) | Avg. Diskkölängd för skrivning |
+| Fysisk disk (per Disk) | Avg. Disk sek/läsning |
+| Fysisk disk (per Disk) | Avg. Disk sek/skrivning |
 | Fysisk disk (per Disk) | Diskläsningar/sek |
-| Fysisk disk (per Disk) | Disk-lästa byte/sek |
+| Fysisk disk (per Disk) | Disk – lästa byte/sek |
 | Fysisk disk (per Disk) | Diskskrivningar/sek |
-| Fysisk disk (per Disk) | Disk-skrivna byte/s |
+| Fysisk disk (per Disk) | Disk – skrivna byte/sek |
 | Minne | Tillgängliga megabyte |
 | Växling fil | % Användning |
 | Processor(total) | % Processortid |
 | Processen (per service) | % Processortid |
-| Processen (per service) | Process-ID |
+| Processen (per service) | ID Process |
 | Processen (per service) | Privata byte |
-| Processen (per service) | Antal tråd |
+| Processen (per service) | Antal trådar |
 | Processen (per service) | Virtuell storlek-byte |
 | Processen (per service) | Sidmängd |
 | Processen (per service) | Privat arbetsminne |

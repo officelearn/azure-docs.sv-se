@@ -3,7 +3,7 @@
 | --- | --- | --- | --- |
 | API-anrop |500 KB |1.5 M / enhet |15 M / enhet |
 | Aktiva enheter |500 |Obegränsat |Obegränsat |
-| Skala |Saknas |Upp till 6 enheter |Obegränsade enheter |
+| Skala |Gäller inte |Upp till 6 enheter |Obegränsade enheter |
 | Push-meddelanden |Notification Hubs kostnadsfria nivån ingår, upp till 1 miljon push-meddelanden |Notification Hubs grundläggande nivån ingår, upp till 10 M push-meddelanden |Notification Hubs standardnivån ingår, upp till 10 M push-meddelanden |
 | Messaging realtid /<br/>Web Sockets |Begränsad |350 / mobila tjänsten |Obegränsat |
 | Synkroniseringar offline |Begränsad |Ingår |Ingår |

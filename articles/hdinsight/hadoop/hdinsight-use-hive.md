@@ -1,9 +1,9 @@
 ---
-title: "Vad är Apache Hive och HiveQL - Azure HDInsight | Microsoft Docs"
-description: "Apache Hive är ett data warehouse system för Hadoop. Du kan fråga efter data som lagras i Hive med HiveQL, som liknar Transact-SQL. Lär dig hur du använder Hive och HiveQL med Azure HDInsight i det här dokumentet."
-keywords: "hiveql, vad är hive, hadoop hiveql, hur du använder hive, Läs hive, vad är hive"
+title: Vad är Apache Hive och HiveQL - Azure HDInsight | Microsoft Docs
+description: Apache Hive är ett data warehouse system för Hadoop. Du kan fråga efter data som lagras i Hive med HiveQL, som liknar Transact-SQL. Lär dig hur du använder Hive och HiveQL med Azure HDInsight i det här dokumentet.
+keywords: hiveql, vad är hive, hadoop hiveql, hur du använder hive, Läs hive, vad är hive
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 01/26/2018
 ms.author: larryfr
 ms.openlocfilehash: afd2bc95beb2458ec149824723ec62381b31b2da
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Vad är Apache Hive och HiveQL på Azure HDInsight?
 
@@ -78,7 +78,7 @@ STORED AS TEXTFILE LOCATION '/example/data/';
 
 Hive även stöder anpassad **serialiseraren/deserializers (SerDe)** för komplex eller oregelbundet strukturerade data. Mer information finns i [hur du använder en anpassad JSON-SerDe med HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) dokumentet.
 
-Mer information om filformat som stöds av Hive finns i [Language manual (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
+Mer information om filformat som stöds av Hive finns i [språk manuell (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
 ### <a name="hive-internal-tables-vs-external-tables"></a>Hive interna register vs externa tabeller
 

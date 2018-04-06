@@ -1,11 +1,11 @@
 ---
 title: Ansluta Operations Manager till logganalys | Microsoft Docs
-description: "För att underhålla din investering i System Center Operations Manager och använder utökade funktioner med logganalys, kan du integrera Operations Manager med din OMS-arbetsyta."
+description: För att underhålla din investering i System Center Operations Manager och använder utökade funktioner med logganalys, kan du integrera Operations Manager med din OMS-arbetsyta.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 245ef71e-15a2-4be8-81a1-60101ee2f6e6
 ms.service: log-analytics
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/10/2017
 ms.author: magoedte
 ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Ansluta Operations Manager till logganalys
 För att underhålla din investering i System Center Operations Manager och använder utökade funktioner med logganalys, kan du integrera Operations Manager med din OMS-arbetsyta.  På så sätt kan du utnyttja möjligheter i OMS medan du använder Operations Manager till:
@@ -33,7 +33,7 @@ Agenter som rapporterar till Operations Manager-hanteringsgruppen samla in data 
 
 Följande diagram visar anslutningen mellan hanteringsservrarna och agenterna i en hanteringsgrupp för System Center Operations Manager och OMS, inklusive riktning och portar.   
 
-![OMS-operationer-manager-integrering-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
+![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
 Om din IT-säkerhetsprinciper inte tillåter datorer i nätverket för att ansluta till Internet, kan hanteringsservrar konfigureras för att ansluta till OMS-Gateway för att ta emot information om konfiguration och skicka insamlade data beroende på lösningen som du har aktiverat.  Mer information och anvisningar om hur du konfigurerar din Operations Manager-hanteringsgrupp att kommunicera via en OMS-Gateway till OMS-tjänsten finns [ansluta datorer till OMS med OMS-gatewayen](log-analytics-oms-gateway.md).  
 
@@ -101,7 +101,7 @@ Utför följande steg om en intern proxyserver mellan hanteringsgruppen och OMS-
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
 2. Expandera Operations Management Suite och klicka sedan på **anslutningar**.
 3. I vyn OMS-anslutning klickar du på **Konfigurera proxyserver**.
-4. På **guiden Operations Management Suite: proxyserver** väljer **använder en proxyserver för att få åtkomst till Operations Management Suite**, och Skriv URL: en för med portnummer, till exempel http:// corpproxy:80 och klicka sedan på **Slutför**.
+4. På **guiden Operations Management Suite: proxyserver** väljer **använder en proxyserver för att få åtkomst till Operations Management Suite**, och ange sedan Webbadressen med portnummer, till exempel http://corpproxy:80 och klicka sedan på **Slutför**.
 
 Om proxyservern kräver autentisering, utför följande steg för att konfigurera autentiseringsuppgifter och inställningar som måste tillämpas på hanterade datorer som rapporterar till OMS i hanteringsgruppen.
 
@@ -150,7 +150,7 @@ Det finns några olika sätt som du kan kontrollera att din OMS till integrering
 2. Välj **anslutna källor**.
 3. Du bör se namnet på hanteringsgruppen som visas i listan med antalet agenter och status när data togs emot senast i tabellen i avsnittet System Center Operations Manager.
    
-   ![OMS-inställningar-connectedsources](./media/log-analytics-om-agents/oms-settings-connectedsources.png)
+   ![oms-settings-connectedsources](./media/log-analytics-om-agents/oms-settings-connectedsources.png)
 4. Observera den **arbetsyte-ID** värde under vänster på sidan Inställningar.  Du kan verifiera den mot din Operations Manager-hanteringsgrupp nedan.  
 
 ### <a name="to-confirm-integration-from-the-operations-console"></a>Bekräfta integration från Operations-konsolen
@@ -159,7 +159,7 @@ Det finns några olika sätt som du kan kontrollera att din OMS till integrering
 3. Beroende på de lösningar som du har aktiverat kan du se ett motsvarande hanteringspaket som visas i sökresultaten.  Om du har aktiverat aviseringen hanteringslösningen, till exempel är hanteringspaket Microsoft System Center Advisor Alert Management i listan.
 4. Från den **övervakning** visa, navigera till den **Operations hanteringstillstånd Suite\Health** vyn.  Välj en hanteringsserver under den **Hanteringsservertillstånd** fönstret och i den **detaljvy** rutan Bekräfta värdet för egenskapen **URI för autentiseringstjänst** matchar OMS arbetsyte-ID.
    
-   ![OMS-OpsMgr-mg-authsvcuri-Property-MS](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
+   ![oms-opsmgr-mg-authsvcuri-property-ms](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
 ## <a name="remove-integration-with-oms"></a>Ta bort Integration med OMS
 Det finns flera steg som krävs för att ta bort anslutning och konfiguration korrekt i hanteringsgruppen när du inte längre behöver integrering mellan Operations Manager-hanteringsgruppen och OMS-arbetsyta. Följande procedur har du uppdatera din OMS-arbetsyta genom att ta bort referensen till hanteringsgruppen, ta bort OMS-kopplingar och ta sedan bort hanteringspaket stöder OMS.   
@@ -172,8 +172,8 @@ Hanteringspaketen för lösningarna som du har aktiverat som integreras med Oper
     > Verifiera du inte har några anpassade hanteringspaket med word Advisor eller IntelligencePack i namnet innan du fortsätter, annars följande tas bort från hanteringsgruppen.
     > 
 
-2. Från Kommandotolken, skriver du:`Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-3. Nästa typ`Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+2. Från Kommandotolken, skriver du: `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+3. Nästa typ `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 4. Ta bort återstående som är beroende av andra hanteringspaket för System Center Advisor management packs med skriptet *RecursiveRemove.ps1* du tidigare hämtade från TechNet Script Center.  
  
     > [!NOTE]

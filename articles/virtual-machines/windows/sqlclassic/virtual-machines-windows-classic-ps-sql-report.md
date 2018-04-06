@@ -1,6 +1,6 @@
 ---
-title: "Skapa en virtuell dator med en rapportserver i enhetligt läge med hjälp av PowerShell | Microsoft Docs"
-description: "Det här avsnittet beskriver och vägleder dig genom distributionen och konfigurationen av en rapportserver för SQL Server Reporting Services enhetligt läge i en virtuell dator i Azure. "
+title: Skapa en virtuell dator med en rapportserver i enhetligt läge med hjälp av PowerShell | Microsoft Docs
+description: 'Det här avsnittet beskriver och vägleder dig genom distributionen och konfigurationen av en rapportserver för SQL Server Reporting Services enhetligt läge i en virtuell dator i Azure. '
 services: virtual-machines-windows
 documentationcenter: na
 author: guyinacube
@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Använd PowerShell för att skapa en virtuell Azure-dator med en rapportserver i enhetligt läge
 > [!IMPORTANT] 
@@ -66,7 +66,7 @@ Det här avsnittet beskriver och vägleder dig genom distributionen och konfigur
    * **Storlek: A3** är den rekommenderade VM-storleken för SQL Server-arbetsbelastningar. Om en virtuell dator används endast som en rapportserver, räcker en VM-storlek för A2 om rapportservern påträffar en stor belastning. VM information om priser finns i [prissättning för Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/).
    * **Nytt användarnamn**: namnet som du anger skapas som en administratör på den virtuella datorn.
    * **Nytt lösenord** och **Bekräfta**. Detta lösenord används för det nya administratörskontot och det rekommenderas att du använder ett starkt lösenord.
-   * Klicka på **Nästa**. ![Nästa](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+   * Klicka på **Nästa**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 7. På nästa sida, redigera följande fält:
    
    * **Molntjänsten**: Välj **skapa en ny molntjänst**.
@@ -80,7 +80,7 @@ Det här avsnittet beskriver och vägleder dig genom distributionen och konfigur
      * **HTTPS**: de offentliga och privata portarna som standard är **443**. Av säkerhetsskäl är att ändra den privata porten och konfigurera brandväggen och rapportservern att använda den privata porten. Läs mer på slutpunkter [så ange kommunikation med en virtuell dator](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observera att om du använder en annan port än 443, ändra parametern **$HTTPsport = 443** i skriptet med HTTPS.
    * Klicka på Nästa. ![nästa](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. På den sista sidan i guiden, behåller du standardvärdet **installera den Virtuella datoragenten** valda. Stegen i det här avsnittet gör du genom att använda den Virtuella datoragenten, men om du planerar att behålla den här virtuella datorn av VM-agent och tillägg kan du förbättra han CM.  Mer information om den Virtuella datoragenten finns [VM-Agent och tillägg – del 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). En standard tillägg installerade ad kör är tillägget ”BGINFO” som visas på den Virtuella datorn, Systeminformation, till exempel intern IP-adress och ledigt diskutrymme.
-9. Klicka på Slutför. ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
+9. Klicka på Slutför. ![Okej](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 10. Den **Status** av den virtuella datorn visas som **start (etablering)** under processen för etablering och sedan visar som **kör** när den virtuella datorn är allokerade och redo att användas.
 
 ## <a name="step-2-create-a-server-certificate"></a>Steg 2: Skapa ett servercertifikat
@@ -546,7 +546,7 @@ Om du har konfigurerat en privat port för HTTPS än 443, ändra följande skrip
 
     get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayname,enabled,action
 
-## <a name="verify-the-configuration"></a>Kontrollera att konfigurationen
+## <a name="verify-the-configuration"></a>Verifiera konfigurationen
 Öppna din webbläsare med administratörsbehörighet för att verifiera att grundläggande report server-funktioner nu fungerar, och bläddra sedan till följande rapport server ad report manager URL: er:
 
 * Bläddra till rapportserverns URL på den virtuella datorn:

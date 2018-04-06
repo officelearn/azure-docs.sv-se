@@ -1,6 +1,6 @@
 ---
-title: "Skapa DNS-zoner och postuppsättningar i Azure DNS med .NET SDK | Microsoft Docs"
-description: "Hur du skapar DNS-zoner och postuppsättningar i Azure DNS med hjälp av .NET SDK."
+title: Skapa DNS-zoner och postuppsättningar i Azure DNS med .NET SDK | Microsoft Docs
+description: Hur du skapar DNS-zoner och postuppsättningar i Azure DNS med hjälp av .NET SDK.
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: jonatul
 ms.openlocfilehash: c0fb0be8da1c0ca48a4d43ea027d30a0bc17fe30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Skapa DNS-zoner och postuppsättningar med .NET SDK
 
@@ -41,7 +41,7 @@ Normalt beviljas programmatisk åtkomst till Azure-resurser via ett särskilt ko
 Om du vill använda Azure DNS .NET SDK, måste du installera den **Azure DNS-bibliotek** NuGet-paketet och andra krävs för Azure-paket.
 
 1. I **Visual Studio**, öppna ett projekt eller ett nytt projekt.
-2. Gå till **verktyg**  **>**  **NuGet Package Manager**  **>**  **hantera NuGet-paket för Lösning...** .
+2. Gå till **verktyg** **>** **NuGet Package Manager** **>** **hantera NuGet-paket för Lösning...** .
 3. Klicka på **Bläddra**, aktivera den **inkludera förhandsversion** kryssrutan och skriv **Microsoft.Azure.Management.Dns** i sökrutan.
 4. Välj paketet och klickar på **installera** lägga till den i Visual Studio-projekt.
 5. Upprepa proceduren ovan för att även installera följande paket: **Microsoft.Rest.ClientRuntime.Azure.Authentication** och **Microsoft.Azure.Management.ResourceManager**.

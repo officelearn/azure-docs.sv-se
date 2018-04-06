@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: Uttryck för deklarativ etablering | Microsoft Docs"
-description: "Beskrivs uttryck för deklarativ etablering."
+title: 'Azure AD Connect: Uttryck för deklarativ etablering | Microsoft Docs'
+description: Beskrivs uttryck för deklarativ etablering.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
 ms.workload: identity
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 797c0949aceea415652a72df5ee23ef9888ab975
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect-synkronisering: Förstå uttryck för deklarativ etablering
 Azure AD Connect-synkronisering bygger på deklarativ etablering introducerades i Forefront Identity Manager 2010. På så sätt kan du implementera affärslogik fullständig identity integration utan att behöva skriva koden.
@@ -50,7 +50,7 @@ En parameter har definierats av en koppling eller av en administratör med hjäl
 
 Active Directory-koppling avses regler för inkommande synkronisering följande parametrar:
 
-| Parameternamn | Kommentera |
+| Parameternamn | Kommentar |
 | --- | --- |
 | Domain.Netbios |NetBIOS-format för den domän som för närvarande importeras, till exempel FABRIKAMSALES |
 | Domain.FQDN |FQDN-format i domänen som importerats, till exempel sales.fabrikam.com |
@@ -80,9 +80,9 @@ Operatorer utvärderas vänster till höger och har samma prioritet för utvärd
 Funktionerna fungerar med både enstaka och flera värden. Funktionen fungerar över varje värde för flera värden attribut och gäller samma funktion för varje värde.
 
 Exempel:  
-`Trim([proxyAddresses])`Göra en Trimning av varje värde i attributet proxyAddress.  
-`Word([proxyAddresses],1,"@") & "@contoso.com"`För varje värde med en @-sign, Ersätt den med @contoso.com.  
-`IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])`Leta efter SIP-adress och ta bort den från värden.
+`Trim([proxyAddresses])` Göra en Trimning av varje värde i attributet proxyAddress.  
+`Word([proxyAddresses],1,"@") & "@contoso.com"` För varje värde med en @-sign, Ersätt den med @contoso.com.  
+`IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Leta efter SIP-adress och ta bort den från värden.
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om Konfigurationsmodell i [förstå deklarativ etablering](active-directory-aadconnectsync-understanding-declarative-provisioning.md).

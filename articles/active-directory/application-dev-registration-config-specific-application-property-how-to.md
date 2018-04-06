@@ -1,11 +1,11 @@
 ---
-title: "Fylla i specifika fält för en anpassad utvecklade program | Microsoft Docs"
-description: "Anvisningar om hur du fyller i specifika fält när du registrerar ett anpassat utvecklade program med Azure AD"
+title: Fylla i specifika fält för en anpassad utvecklade program | Microsoft Docs
+description: Anvisningar om hur du fyller i specifika fält när du registrerar ett anpassat utvecklade program med Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Fylla i specifika fält för en anpassad utvecklade program
 
@@ -48,7 +48,7 @@ När du har fyllt fälten ovan kan programmet registreras i Azure portal och du 
 | Fält           | Beskrivning                                                                                                                                                                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Program-ID:t  | När du registrerar ett program, tilldelas Azure AD programmet en program-ID. Program-ID kan användas för att identifiera ditt program i autentiseringsbegäranden till Azure AD, samt för att komma åt resurser som Graph API.                                                          |
-| URI för App-ID      | Detta bör vara ett unikt URI, vanligtvis i formuläret **https://&lt;klient\_namn&gt;/&lt;programmet\_namn&gt;.** Används under authorization grant flödet, som en unik identifierare för att ange den resurs som ska vara utfärdade token för. Det blir också 'eller' anspråk i utfärdade åtkomsttoken. |
+| App-ID-URI      | Detta bör vara ett unikt URI, vanligtvis i formuläret **https://&lt;klient\_namn&gt;/&lt;programmet\_namn&gt;.** Används under authorization grant flödet, som en unik identifierare för att ange den resurs som ska vara utfärdade token för. Det blir också 'eller' anspråk i utfärdade åtkomsttoken. |
 | Ladda upp ny logo | Du kan använda den för att ladda upp en logotyp för ditt program. Logotypen måste vara i formatet .bmp, .jpg eller .png och filstorleken måste vara mindre än 100KB. Dimensioner för avbildningen ska 215 x 215 bildpunkter med central bildmåtten 94 x 94 bildpunkter.                                                       |
 | Hemside-URL   | Det här är den inloggning URL som anges under programmet registreringen.                                                                                                                                                                                                                                              |
 | Utloggnings-URL      | Den här URL: en enda utloggning logga ut. Azure AD skickar en logga ut begäran till denna URL när användaren tar bort sin session med Azure AD med hjälp av andra registrerade programmet.                                                                                                                                       |

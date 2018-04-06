@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * En [FTP](https://wikipedia.org/wiki/File_Transfer_Protocol) konto  
 
 Innan du kan använda din FTP-konto i en logikapp, måste du godkänna logik för att ansluta till din FTP-konto. Lyckligtvis kan du göra detta direkt i din logikapp på Azure Portal.  

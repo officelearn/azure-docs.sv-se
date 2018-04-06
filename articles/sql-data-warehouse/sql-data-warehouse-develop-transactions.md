@@ -1,11 +1,11 @@
 ---
 title: Transaktioner i SQL Data Warehouse | Microsoft Docs
-description: "Tips för transaktioner i Azure SQL Data Warehouse för utveckling av lösningar."
+description: Tips för transaktioner i Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ae621788-e575-41f5-8bfe-fa04dc4b0b53
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 ms.openlocfilehash: 29d53e18539f2c24dd64090b2ac6f9dd4c783961
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="transactions-in-sql-data-warehouse"></a>Transaktioner i SQL Data Warehouse
 Precis som väntat stöder transaktioner som en del av arbetsbelastningen för informationslager i SQL Data Warehouse. För att säkerställa prestanda för SQL Data Warehouse underhålls i skala är vissa funktioner dock begränsad jämfört med SQL Server. Den här artikeln visar skillnaderna och visar en lista över de andra. 

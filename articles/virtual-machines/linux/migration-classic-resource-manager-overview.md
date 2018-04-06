@@ -1,11 +1,11 @@
 ---
-title: "Översikt över plattformar som stöds migrering av IaaS-resurser från klassiska till Azure Resource Manager | Microsoft Docs"
-description: "Den här artikeln innehåller stegvisa migreringen plattform som stöds av resurser från klassiska till Azure Resource Manager"
+title: Översikt över plattformar som stöds migrering av IaaS-resurser från klassiska till Azure Resource Manager | Microsoft Docs
+description: Den här artikeln innehåller stegvisa migreringen plattform som stöds av resurser från klassiska till Azure Resource Manager
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-linux
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: kasing
 ms.openlocfilehash: 99a77b2c817b1b3f5834870f0085be805693cd0b
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/05/2018
 ---
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-overview.md)]
 

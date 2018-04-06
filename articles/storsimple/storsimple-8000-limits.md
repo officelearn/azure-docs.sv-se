@@ -1,11 +1,11 @@
 ---
-title: "StorSimple 8000-serien system gränser | Microsoft Docs"
-description: "Beskriver system gränser och rekommenderade storlekar för StorSimple 8000-serien komponenter och anslutningar."
+title: StorSimple 8000-serien system gränser | Microsoft Docs
+description: Beskriver system gränser och rekommenderade storlekar för StorSimple 8000-serien komponenter och anslutningar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c7392678-0924-46c6-9c59-1665cb9b6586
 ms.service: storsimple
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.date: 03/28/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc3c0ad193af7625c8c4c1c2e82b6bdc8be33310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>Vad är StorSimple 8000-serien system gränser?
 
@@ -53,9 +53,9 @@ StorSimple innehåller skalbara och flexibla lagring för ditt datacenter. Det f
 | Maximalt antal klienter läsning och skrivning genomströmning (när hanteras från hårddisknivån) * |120/250 MB/s | |
 | Maximalt antal klienter läsning och skrivning genomströmning (när hanteras från molnnivån) * för uppdatering 3 och senare ** |40/60 MB/s för nivåindelade volymer<br><br>60/80 MB/s för nivåindelade volymer med arkivering alternativet under skapande av volym |Läs genomströmning beroende klienter skapa och upprätthålla tillräcklig i/o-ködjup. <br><br>Hastigheten uppnås beror på hastigheten på det underliggande storage-konto som används. |
 
-&#42; Maximalt dataflöde per i/o-typ har mätt med 100 procent Läs- och 100 procent skrivåtgärder scenarier. Faktiska genomflöde kan vara lägre och beror på i/o blanda och nätverk villkor.
+&#42;Maximalt dataflöde per i/o-typ har mätt med 100 procent Läs- och 100 procent skrivåtgärder scenarier. Faktiska genomflöde kan vara lägre och beror på i/o blanda och nätverk villkor.
 
-&#42; &#42; Prestanda siffror före uppdatering 3 kan vara lägre.
+&#42;&#42;Prestanda siffror före uppdatering 3 kan vara lägre.
 
 ## <a name="next-steps"></a>Nästa steg
 Granska de [StorSimple systemkrav](storsimple-8000-system-requirements.md).

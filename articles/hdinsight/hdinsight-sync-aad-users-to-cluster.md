@@ -1,13 +1,13 @@
 ---
-title: "Synkronisera Azure Active Directory-användare till ett kluster - Azure HDInsight | Microsoft Docs"
-description: "Synkronisera autentiserade användare från Azure Active Directory till ett kluster."
+title: Synkronisera Azure Active Directory-användare till ett kluster - Azure HDInsight | Microsoft Docs
+description: Synkronisera autentiserade användare från Azure Active Directory till ett kluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 01/19/2018
 ms.author: ashishth
 ms.openlocfilehash: ad1586a6e358dfb1ca2391474ecdd9bee2f6226d
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synkronisera Azure Active Directory-användare till ett HDInsight-kluster
 
@@ -134,7 +134,7 @@ Följande metod använder POST med Ambari REST API. Mer information finns i [han
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>Kontrollera den nytillagda Azure AD-användare
 
-Öppna den [Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md) att kontrollera att den nya Azure AD-användare har lagts till. Komma åt Ambari-Webbgränssnittet genom att bläddra till  **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** . Ange klustrets administratörsanvändarnamn och lösenord.
+Öppna den [Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md) att kontrollera att den nya Azure AD-användare har lagts till. Komma åt Ambari-Webbgränssnittet genom att bläddra till **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Ange klustrets administratörsanvändarnamn och lösenord.
 
 1. Ambari-instrumentpanelen, Välj **hantera Ambari** under den **admin** menyn.
 

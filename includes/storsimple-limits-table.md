@@ -25,5 +25,5 @@
 | Maximalt antal klienter läsning och skrivning genomströmning (när hanteras från hårddisknivån) * |120/250 MB/s | |
 | Maximalt antal klienter läsning och skrivning genomströmning (när hanteras från molnnivån) * |11/41 MB/s |Läs genomströmning beroende klienter skapa och upprätthålla tillräcklig i/o-ködjup. |
 
-&#42; Maximalt dataflöde per i/o-typ har mätt med 100 procent Läs- och 100 procent skrivåtgärder scenarier. Faktiska genomflöde kan vara lägre och beror på i/o blanda och nätverk villkor.
+&#42;Maximalt dataflöde per i/o-typ har mätt med 100 procent Läs- och 100 procent skrivåtgärder scenarier. Faktiska genomflöde kan vara lägre och beror på i/o blanda och nätverk villkor.
 

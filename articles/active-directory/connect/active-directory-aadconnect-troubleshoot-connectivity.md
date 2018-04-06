@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: Felsöka anslutningsproblem | Microsoft Docs"
-description: "Beskriver hur du felsöker problem med nätverksanslutningen med Azure AD Connect."
+title: 'Azure AD Connect: Felsöka anslutningsproblem | Microsoft Docs'
+description: Beskriver hur du felsöker problem med nätverksanslutningen med Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
 ms.workload: identity
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Felsökning av anslutningsproblem med Azure AD Connect
 Den här artikeln förklarar hur anslutning mellan Azure AD Connect och AD Azure fungerar och hur du felsöker problem med nätverksanslutningen. Dessa problem är stor sannolikhet kommer att visas i en miljö med en proxyserver.
@@ -40,7 +40,7 @@ Proxyservern måste också ha de URL: erna öppnas. Den officiella förteckninge
 
 Följande tabell är det absoluta minst för att kunna ansluta till Azure AD alls av dessa webbadresser. Den här listan innehåller inte några valfria funktioner, till exempel tillbakaskrivning av lösenord eller Azure AD Connect Health. Den dokumenteras här för att underlätta felsökningen för den inledande konfigurationen.
 
-| Webbadress | Port | Beskrivning |
+| URL | Port | Beskrivning |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
 | \*.verisign.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
@@ -75,10 +75,10 @@ Det här felet uppstår om slutpunkten **https://secure.aadcdn.microsoftonline-p
 Om installationsguiden lyckas ansluta till Azure AD, men själva lösenordet går inte att verifiera det här felet visas.  
 ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
-* Är lösenordet som ett tillfälligt lösenord och måste ändras? Är det faktiska lösenordet? Försök att logga in på https://login.microsoftonline.com (på en annan dator än Azure AD Connect-servern) och kontrollera att kontot som kan användas.
+* Är lösenordet som ett tillfälligt lösenord och måste ändras? Är det faktiska lösenordet? Försök att logga in på https://login.microsoftonline.com (på en annan dator än Azure AD Connect-server) och kontrollera att kontot är användbara.
 
 ### <a name="verify-proxy-connectivity"></a>Kontrollera proxy-anslutningen
-För att verifiera om Azure AD Connect-servern är ansluten till faktiska med Proxy- och Internet, använder du vissa PowerShell för att se om proxyservern tillåter webbegäranden eller inte. I PowerShell-Kommandotolken kör `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Tekniskt det första anropet är att https://login.microsoftonline.com och URI: N fungerar också, men andra URI: N går snabbare att svara.)
+För att verifiera om Azure AD Connect-servern är ansluten till faktiska med Proxy- och Internet, använder du vissa PowerShell för att se om proxyservern tillåter webbegäranden eller inte. I PowerShell-Kommandotolken kör `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Tekniskt det första anropet är att https://login.microsoftonline.com och den här URI fungerar också, men andra URI: N går snabbare att svara.)
 
 PowerShell använder konfigurationen i machine.config för att kontakta proxyservern. Inställningarna i winhttp/netsh bör inte påverkar dessa cmdlets.
 
@@ -90,7 +90,7 @@ Om du får **kan inte ansluta till fjärrservern**, sedan PowerShell försöker 
 Om proxy inte är korrekt konfigurerad, du får ett felmeddelande: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
 ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
-| Fel | Feltext | Kommentera |
+| Fel | Feltext | Kommentar |
 | --- | --- | --- |
 | 403 |Förbjudna |Proxyn har inte öppnats för begärd URL. Kontrollera igen proxykonfigurationen och kontrollera att den [URL: er](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) har öppnats. |
 | 407 |Det krävs proxyautentisering |Proxyservern måste en inloggning och inget har tillhandahållits. Om proxyservern kräver autentisering, se till att ha den här inställningen konfigurerad i machine.config. Kontrollera också att du använder domänkonton för användaren som kör guiden och för tjänstkontot. |
@@ -110,7 +110,7 @@ Här är en dump från en verklig proxy-loggen och installationssidan från var 
 
 **Anslut till Azure AD**
 
-| Tid | Webbadress |
+| Tid | URL |
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
@@ -121,7 +121,7 @@ Här är en dump från en verklig proxy-loggen och installationssidan från var 
 
 **Konfigurera**
 
-| Tid | Webbadress |
+| Tid | URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
@@ -137,7 +137,7 @@ Här är en dump från en verklig proxy-loggen och installationssidan från var 
 
 **Inledande synkronisering**
 
-| Tid | Webbadress |
+| Tid | URL |
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |

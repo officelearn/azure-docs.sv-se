@@ -3,7 +3,7 @@
 -->
 Du kan skapa en pipeline med kopieringsaktiviteten med något av följande verktyg/SDK: Klicka på en länk för att navigera till en självstudiekurs med stegvisa anvisningar för att skapa en pipeline med en kopia-aktivitet. 
 
-- [Azure-portalen](../articles/data-factory/quickstart-create-data-factory-portal.md)
+- [Azure Portal](../articles/data-factory/quickstart-create-data-factory-portal.md)
 - [.NET SDK](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
 - [Python SDK](../articles/data-factory/quickstart-create-data-factory-python.md)
 - [Azure PowerShell](../articles/data-factory/quickstart-create-data-factory-powershell.md)

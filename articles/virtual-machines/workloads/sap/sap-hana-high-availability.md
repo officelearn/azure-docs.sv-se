@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: b84b523f919e6b253462139b6888e5eb16248084
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: HT
+ms.openlocfilehash: e3fb06309dabd7f66d5873e4c5faa48b468854f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Hög tillgänglighet för SAP HANA på virtuella Azure-datorer (VM)
 
@@ -34,6 +34,7 @@ ms.lasthandoff: 03/28/2018
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2388694]:https://launchpad.support.sap.com/#/notes/2388694
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -155,15 +156,36 @@ Du kan använda en av quickstart mallar på github för att distribuera alla nö
         1. Ange namnet på den nya hälsoavsökningen (till exempel hana-hp)
         1. Välj TCP som protokoll, port 625**03**, hålla intervallet 5 och tröskelvärde för ohälsosamt värde 2
         1. Klicka på OK
-    1. Skapa regler för belastningsutjämning
+    1. SAP HANA 1.0: Skapa regler för belastningsutjämning
         1. Öppna belastningsutjämnaren, Välj regler för belastningsutjämning och klicka på Lägg till
         1. Ange namnet på den nya regeln för belastningsutjämnare (till exempel hana-lb-3**03**15)
+        1. Välj klientdelens IP-adress, serverdelspool och hälsoavsökningen som du skapade tidigare (till exempel hana-klientdel)
+        1. Håll protokollet TCP, ange port 3**03**15
+        1. Öka tidsgränsen för inaktivitet till 30 minuter
+        1. **Se till att aktivera flytande IP**
+        1. Klicka på OK
+        1. Upprepa stegen ovan för port 3**03**17
+    1. SAP HANA 2.0: Skapa regler för systemdatabasen för belastningsutjämning
+        1. Öppna belastningsutjämnaren, Välj regler för belastningsutjämning och klicka på Lägg till
+        1. Ange namnet på den nya regeln för belastningsutjämnare (till exempel hana-lb-3**03**13)
         1. Välj klientdelens IP-adress, serverdelspool och hälsoavsökningen som du skapade tidigare (till exempel hana-klientdel)
         1. Håll protokollet TCP, ange port 3**03**13
         1. Öka tidsgränsen för inaktivitet till 30 minuter
         1. **Se till att aktivera flytande IP**
         1. Klicka på OK
-        1. Upprepa stegen ovan för port 3**03**15 och 3**03**17
+        1. Upprepa stegen ovan för port 3**03**14
+    1. SAP HANA 2.0: Skapa belastningsutjämningsregler för första klient-databas
+        1. Öppna belastningsutjämnaren, Välj regler för belastningsutjämning och klicka på Lägg till
+        1. Ange namnet på den nya regeln för belastningsutjämnare (till exempel hana-lb-3**03**40)
+        1. Välj klientdelens IP-adress, serverdelspool och hälsoavsökningen som du skapade tidigare (till exempel hana-klientdel)
+        1. Håll protokollet TCP, ange port 3**03**40
+        1. Öka tidsgränsen för inaktivitet till 30 minuter
+        1. **Se till att aktivera flytande IP**
+        1. Klicka på OK
+        1. Upprepa stegen ovan för port 3**03**41 och 3**03**42
+
+Mer information om portarna som krävs för SAP HANA Läs kapitlet [anslutningar till klient databaser](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) av den [SAP HANA-klient databaser](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide eller [SAP Obs 2388694] [2388694].
+
 
 ## <a name="create-pacemaker-cluster"></a>Skapa Pacemaker kluster
 
@@ -290,7 +312,7 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder **[1]**
     
     ```
 
-Installera SAP HANA System Replication enligt kapitel 4 i den [SAP HANA SR prestanda optimerade scenariot guiden][suse-hana-ha-guide].
+Installera SAP HANA System Replication enligt kapitel 4 i guiden för SAP HANA SR prestanda optimerade scenariot på https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
 
 1. **[A]**  Kör hdblcm från DVD: n HANA
     * Välj installation -> 1

@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/03/2018
 ms.author: bonova
-ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad-instans (förhandsgranskning)?
 
@@ -49,7 +49,7 @@ Följande tabell beskrivs nyckeln skillnader och envisioned Användningsscenarie
 
 I följande tabell visas flera egenskaper, tillgängligt via Transact SQL som du kan använda för att identifiera att programmet fungerar med hanterade instans och hämta viktiga egenskaper.
 
-|Egenskap|Värde|Kommentar|
+|Egenskap|Värde|Kommentera|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) Microsoft Corporation som 2018.|Det här värdet är densamma som SQL-databasen.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Det här värdet är densamma som SQL-databasen.|
@@ -68,6 +68,23 @@ I följande tabell visas flera egenskaper, tillgängligt via Transact SQL som du
 |Isolerad miljö (VNet integration, stöd för en innehavare service, dedikerad beräkning och lagring <br>Kryptering av data under överföring <br>Azure AD-autentisering, stöd för enkel inloggning <br>Följer efterlevnadsstandarder samma som Azure SQL-databas <br>SQL-granskning <br>Hotidentifiering |Azure Resource Manager API för att automatisera service etablering och skalning <br>Azure portal funktioner för manuell tjänst för etablering och skalning <br>Migrering datatjänst 
 
 ![Enkel inloggning](./media/sql-database-managed-instance/sso.png) 
+
+## <a name="vcore-based-purchasing-model"></a>vCore-baserade inköpsmodell
+
+VCore-baserade inköpsmodell ger din flexibilitet, kontroll, genomskinlighet och ett enkelt sätt att översätta krav på lokal arbetsbelastning till molnet. Den här modellen kan du skala beräknings-, minnes- och storage baserat på deras behov av arbetsbelastning. Modellen vCore också är berättigad till upp till 30 procent besparingarna med den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+
+En virtuell kärna representerar logiska Processorn erbjuds med möjlighet att välja mellan generationer av maskinvara.
+- Gen 4 logiska processorer är baserade på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer.
+- Gen 5 logiska processorer är baserade på Intel E5-2673 v4 (Broadwell) 2.3 GHz-processorer.
+
+Tabellen nedan hjälper dig att förstå hur du väljer den bästa konfigurationen för beräkning, minne, lagring och i/o-resurserna.
+
+||Generation 4|Generation 5|
+|----|------|-----|
+|Maskinvara|Intel E5-2673 v3 (Haswell) 2,4 GHz processorer kopplade SSD vCore = 1 PP (fysiska kärnor)|Intel E5-2673 v4 (Broadwell) 2.3 GHz-processorer snabb eNVM SSD vCore = 1 LP (hyper-tråd)|
+|Prestandanivåer|8, 16, 24 vCores|8, 16, 24, 32, 40 vCores|
+|Minne|7GB per vCore|5.5GB per vCore|
+||||
 
 ## <a name="managed-instance-service-tier"></a>Hanterade instans tjänstnivå
 
@@ -89,11 +106,11 @@ Följande beskriver viktiga funktioner i tjänstnivån generella:
 
 |Funktion | Beskrivning|
 |---|---|
-| Antal vCores * | 8, 16, 24|
+| Antal vCores * | 8, 16, 24 (gen 4)<br>8, 16, 24, 32, 40 (Gen5)|
 | SQL Server-version / skapa | SQL Server senaste (tillgänglig) |
 | Min lagringsstorlek | 32 GB |
 | Maxstorlek för lagring | 8 TB |
-| Maximalt lagringsutrymme per databas | 4 TB |
+| Maximalt lagringsutrymme per databas | 8 TB |
 | Förväntade lagring IOPS | 500-7500 IOPS per fil (beroende på datafilen). Se [Premium-lagring](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Antalet datafiler (rader) per databasen | Flera | 
 | Antal loggfiler (loggning) per databas | 1 | 
@@ -106,7 +123,7 @@ Följande beskriver viktiga funktioner i tjänstnivån generella:
 | Stöd för Portal | Ja|
 |||
 
-\* En virtuell kärna representerar logiska Processorn erbjuds med möjlighet att välja mellan generationer av maskinvara. Gen 4 logiska processorer är baserade på Intel E5-2673 v3 (Haswell) 2,4 GHz processorer och Gen 5 logiska processorer är baserade på Intel E5-2673 v4 (Broadwell) 2.3 GHz-processorer.  
+\* En virtuell kärna representerar logiska Processorn erbjuds med möjlighet att välja mellan generationer av maskinvara. Gen 4 logiska processorer är baserade på Intel E5-2673 v3 (Haswell) 2,4 GHz processorer och Gen 5 logiska processorer är baserade på Intel E5-2673 v4 (Broadwell) 2.3 GHz-processorer. 
 
 ## <a name="advanced-security-and-compliance"></a>Avancerad säkerhet och efterlevnad 
 
@@ -152,7 +169,7 @@ Med SQL Database kan du centralt hantera identiteter för databasanvändare och 
 SQL-autentisering för databasen syftar på hur användare bevisa sin identitet vid anslutning till databasen. SQL Database stöder två typer av autentisering:  
 
 - SQL-autentisering, som använder ett användarnamn och lösenord.
-- Azure Active Directory-autentisering, som använder identiteter som hanteras av Azure Active Directory och stöds för hanterade och integrerad domäner.  
+- Azure Active Directory-autentisering, som använder identiteter som hanteras av Azure Active Directory och stöds för hanterade och integrerad domäner. 
 
 ### <a name="authorization"></a>Auktorisering
 
@@ -160,11 +177,11 @@ Auktorisering refererar till vilka en användare kan utföra i en Azure SQL Data
 
 ## <a name="database-migration"></a>Databasmigrering 
 
-Hanterade instans mål användarscenarier masslagring databasen migreringen från lokala eller IaaS databasen implementeringar.  Hanterade instans stöder flera alternativ för migrering av databasen: 
+Hanterade instans mål användarscenarier masslagring databasen migreringen från lokala eller IaaS databasen implementeringar. Hanterade instans stöder flera alternativ för migrering av databasen: 
 
 ### <a name="data-migration-service"></a>Migrering datatjänst
 
-Tjänsten Azure Database migrering är en helt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure Data plattformar med minimal avbrottstid.   Den här tjänsten förenklar uppgifter som krävs för att flytta befintliga tredjeparts- och SQL Server-databaser till Azure. Distributionsalternativ inkluderar Azure SQL Database, hanteras instans och SQL Server i Azure VM i Public Preview. Se [hur du migrerar lokala databasen till hanterade instans med DMS](https://aka.ms/migratetoMIusingDMS).  
+Tjänsten Azure Database migrering är en helt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure Data plattformar med minimal avbrottstid. Den här tjänsten förenklar uppgifter som krävs för att flytta befintliga tredjeparts- och SQL Server-databaser till Azure. Distributionsalternativ inkluderar Azure SQL Database, hanteras instans och SQL Server i Azure VM i Public Preview. Se [hur du migrerar lokala databasen till hanterade instans med DMS](https://aka.ms/migratetoMIusingDMS). 
 
 ### <a name="backup-and-restore"></a>Säkerhetskopiering och återställning  
 
@@ -174,7 +191,7 @@ Metod för migrering utnyttjar SQL-säkerhetskopiering till Azure blob storage. 
 
 Hanterade instans syftet är att leverera nära ytan 100% kompatibilitet med lokal SQL Server kommer i steg tills tjänsten Allmän tillgänglighet. För en funktioner och jämförelse lista, se [SQL vanliga funktioner](sql-database-features.md).
  
-Hanterade instans stöder bakåtkompatibilitet till SQL 2008-databaser.  Direkt migrering från SQL 2005 databasservrar stöds, kompatibilitetsnivå för migrerade SQL 2005-databaserna har uppdaterats till SQL 2008. 
+Hanterade instans stöder bakåtkompatibilitet till SQL 2008-databaser. Direkt migrering från SQL 2005 databasservrar stöds, kompatibilitetsnivå för migrerade SQL 2005-databaserna har uppdaterats till SQL 2008. 
  
 Följande diagram ger en översikt över ytan kompatibilitet i hanterade instans:  
 
@@ -182,7 +199,7 @@ Följande diagram ger en översikt över ytan kompatibilitet i hanterade instans
 
 ### <a name="key-differences-between-sql-server-on-premises-and-managed-instance"></a>Viktiga skillnader mellan SQL Server lokalt och hanteras instans 
 
-Hanterade instans fördelar från att alltid upp-hittills i molnet, vilket innebär att vissa funktioner i lokal SQL Server kan vara antingen föråldrade avyttras eller har alternativ.  Det finns särskilda fall när verktygen behöver känner igen att en viss funktion fungerar på ett något annorlunda sätt eller att tjänsten inte körs i en miljö som du inte helt styra: 
+Hanterade instans fördelar från att alltid upp-hittills i molnet, vilket innebär att vissa funktioner i lokal SQL Server kan vara antingen föråldrade avyttras eller har alternativ. Det finns särskilda fall när verktygen behöver känner igen att en viss funktion fungerar på ett något annorlunda sätt eller att tjänsten inte körs i en miljö som du inte helt styra: 
 
 - Hög tillgänglighet är inbyggd och förkonfigurerade. Funktioner med hög tillgänglighet alltid på exponeras inte på samma sätt som i SQL-IaaS-implementeringar 
 - Automatisk säkerhetskopiering och punkt tidpunkt för återställning. Kunden kan initiera `copy-only` säkerhetskopieringar som inte stör automatisk säkerhetskopiering kedjan. 
@@ -192,7 +209,7 @@ Hanterade instans fördelar från att alltid upp-hittills i molnet, vilket inneb
  
 ### <a name="managed-instance-administration-features"></a>Hanterade instans-funktioner för administration  
 
-Hanterade instans aktivera systemadministratören att fokusera på vad gäller de flesta för företag. Många system administratör/DBA aktiviteter krävs inte eller så är enkel. Till exempel OS / RDBMS installationen och korrigering, dynamiska instans storleksändring och konfiguration, säkerhetskopiering, databasreplikering (inklusive systemdatabaser), konfiguration för hög tillgänglighet och konfigurationen av hälsotillstånd och prestanda övervakningsdata dataströmmar.  
+Hanterade instans aktivera systemadministratören att fokusera på vad gäller de flesta för företag. Många system administratör/DBA aktiviteter krävs inte eller så är enkel. Till exempel OS / RDBMS installationen och korrigering, dynamiska instans storleksändring och konfiguration, säkerhetskopiering, databasreplikering (inklusive systemdatabaser), konfiguration för hög tillgänglighet och konfigurationen av hälsotillstånd och prestanda övervakningsdata dataströmmar. 
 
 > [!IMPORTANT]
 > En lista över funktioner som stöds, delvis stöds och som inte stöds, se [SQL databasfunktioner](sql-database-features.md). En lista över T-SQL-skillnader i hanterade instanser jämfört med SQL Server finns [hanteras instans T-SQL-skillnader från SQL Server](sql-database-managed-instance-transact-sql-information.md)

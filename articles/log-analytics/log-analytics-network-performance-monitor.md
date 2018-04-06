@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9b3c4efc712ebe9c0fe209d2ca0478367872d3b7
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
-ms.translationtype: MT
+ms.openlocfilehash: 9d5e189720a92ca17289d0c9717e9e10bf8691d1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -43,10 +43,10 @@ Mer information om de olika funktioner som stöds av [Network Performance Monito
  
 ## <a name="supported-regions"></a>Regioner som stöds
 NPM Kontrollera anslutningen mellan nätverk och program i alla delar av världen, från en arbetsyta som finns i något av följande områden:
-* Västra Europa
+* Europa, västra
 * Västra centrala USA
-* Östra USA
-* Sydostasien
+* USA, östra
+* Asien, sydöstra
 * Syd Östra Australien
 * Syd Storbritannien
 * Amerikanska myndigheter Virginia
@@ -167,7 +167,7 @@ Om du vill samla in information för förluster eller fördröjningar, använder
 
 I följande tabell visar metoder för insamling av data och annan information om hur data samlas in för Network Performance Monitor.
 
-| Plattform | Styr agent | System Center Operations Manager-agenten | Azure Storage | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Insamlingsfrekvens |
+| Plattform | Styr agent | System Center Operations Manager-agenten | Azure-lagring | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Insamlingsfrekvens |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows | &#8226; | &#8226; |  |  |  |TCP-handskakningar på/ICMP ECHO-meddelanden var femte sekund data skickas var 3: e minut |
  
@@ -250,9 +250,11 @@ Topologin visas på kartan är nivå 3-topologi och innehåller inte nivå 2-enh
 
 Alla data som är exponerade grafiskt via Network Performance Monitor-instrumentpanelen och nedåt sidor finns också internt i [logganalys söka](log-analytics-log-search-new.md). Du kan utföra interaktiv analys av data i databasen och korrelera data från olika källor. Du kan också skapa anpassade aviseringar och vyer och exportera data till Excel, Power BI eller delbart länk. Den **vanliga frågor** område i instrumentpanelen har vissa användbara frågor som du kan använda som utgångspunkt för att skapa egna frågor och rapporter. 
 
- 
+##<a name="pricing"></a>Prissättning
 
-## <a name="provide-feedback"></a>Ge feedback 
+Information om priser finns [online](log-analytics-network-performance-monitor-pricing-faq.md).
+
+## <a name="provide-feedback"></a>Skicka feedback 
 
 * **UserVoice:** du kan publicera dina idéer för Network Performance Monitor-funktioner som du vill att vi ska arbeta med. Besök den [UserVoice sidan](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 

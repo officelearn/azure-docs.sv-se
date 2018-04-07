@@ -1,24 +1,24 @@
 ---
-title: "Lägga till en VM-avbildning i Azure stapel | Microsoft Docs"
-description: "Lägg till din organisations anpassade Windows eller Linux VM bild för klienter att använda."
+title: Lägga till en VM-avbildning i Azure stapel | Microsoft Docs
+description: Lägg till din organisations anpassade Windows eller Linux VM bild för klienter att använda.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2018
+ms.date: 04/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0ba0bc4e8350a65a95dc41788c93d5c89fc48334
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: eb2035f6e667a9b3ab642d42cb9bb5ecf5c86fb1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Göra en virtuell datoravbildning tillgängligt i Azure-stacken
 
@@ -126,6 +126,7 @@ Om du vill lägga till bilden på Azure Marketplace för stacken, gör du följa
     -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
   ```
 
+
 Kommandot gör följande:
 
 * Autentiserar till Azure Stack-miljö.
@@ -133,9 +134,9 @@ Kommandot gör följande:
 * Lägger till VM-avbildning till Virtuella datoravbildningens centrallager.
 * Skapar en Marketplace-objektet.
 
-Kontrollera att kommandot har körts utan problem, i portalen, gå till Marketplace. Verifiera att VM-avbildning är tillgängliga i den **virtuella datorer** kategori.
+Kontrollera att kommandot har körts utan problem, i portalen, gå till Marketplace. Verifiera att VM-avbildning är tillgängliga i den **Compute** kategori.
 
-![VM-avbildning som har lagts till](./media/azure-stack-add-vm-image/image5.PNG)
+![VM-avbildning som har lagts till](./media/azure-stack-add-vm-image/verify-vm.png)
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>Ta bort en VM-avbildning med hjälp av PowerShell
 
@@ -185,7 +186,7 @@ Bilder måste kunna refereras av en URI för Blob-lagring. Förbereda en Windows
 
    * När du överför den [Windows VM-avbildning](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), se till att ersätta den **inloggning till Azure** med den [konfigurera operatorn Stack Azure PowerShell-miljö](azure-stack-powershell-configure-admin.md) steg.  
 
-   * Anteckna Blob storage URI: N där du laddar upp avbildningen. URI för Blob-lagring har följande format:  *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* VHD.
+   * Anteckna Blob storage URI: N där du laddar upp avbildningen. URI för Blob-lagring har följande format: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*VHD.
 
    * Om du vill göra blob anonymt tillgänglig, går du till kontot lagringsblobbehållare där VM-avbildning VHD överfördes. Välj **Blob**, och välj sedan **åtkomstprincip**. Alternativt kan kan du i stället Generera en signatur för delad åtkomst för behållaren och inkludera den som en del av blob-URI.
 

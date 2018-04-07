@@ -1,12 +1,11 @@
 ---
-title: "MongoDB-anslutningssträng för ett konto i Azure Cosmos DB | Microsoft Docs"
-description: "Lär dig mer om att ansluta appen MongoDB till ett Azure DB som Cosmos-konto med hjälp av en anslutningssträng för MongoDB."
-keywords: "anslutningssträngen för mongodb"
+title: MongoDB-anslutningssträng för ett konto i Azure Cosmos DB | Microsoft Docs
+description: Lär dig mer om att ansluta appen MongoDB till ett Azure DB som Cosmos-konto med hjälp av en anslutningssträng för MongoDB.
+keywords: anslutningssträngen för mongodb
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
+manager: kfile
+documentationcenter: ''
 ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: anhoh
-ms.openlocfilehash: 41c0b360b54f9a9dcd2458ce5bdc05911c4f73a5
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: dfdcb458d0f81c0ddb9399ee8b89a52c4cbc6270
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Ansluta ett MongoDB-program till Azure Cosmos DB
 Lär dig mer om att ansluta appen MongoDB till ett Azure DB som Cosmos-konto med hjälp av en anslutningssträng för MongoDB. Du kan sedan använda en Azure Cosmos-DB-databas som data store för MongoDB-app. 
@@ -43,7 +42,7 @@ Den här kursen finns det två sätt att hämta information om anslutningssträn
 
     ![Snabbstart-bladet](./media/connect-mongodb-account/QuickStartBlade.png)
 
-## <a id="GetCustomConnection"></a>Hämta anslutningssträngen för MongoDB för att anpassa
+## <a id="GetCustomConnection"></a> Hämta anslutningssträngen för MongoDB för att anpassa
 1. I en webbläsare, logga in på den [Azure-portalen](https://portal.azure.com).
 2. I den **Azure Cosmos DB** bladet välj API för MongoDB-kontot. 
 3. I den vänstra rutan på konto-bladet klickar du på **anslutningssträngen**. 

@@ -1,31 +1,25 @@
 ---
-title: Skala Stream Analytics-jobb att öka genomflödet | Microsoft Docs
-description: Lär dig mer om att skala Stream Analytics-jobb genom att konfigurera inkommande partitioner, justera frågedefinitionen och ange jobbet enheter för strömning.
-keywords: data som strömmas, finjustera strömning databehandling analytics
+title: Skala uppåt och utåt i Azure Stream Analytics-jobb
+description: Den här artikeln beskriver hur du skalar en Stream Analytics-jobbet genom partitionering indata, justera frågan och ange jobbet enheter för strömning.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 2e0487a9e4cd6346312c6817ef2768556cba72ba
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/22/2017
+ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Skala Azure Stream Analytics-jobb för att öka genomströmning
+# <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Skala Azure Stream Analytics-jobbet för att öka genomströmning
 Den här artikeln visar hur du ställer in en Stream Analytics-fråga för att öka genomflödet för Streaming Analytics-jobb. Du kan använda följande guide för att skala ditt jobb för att hantera högre belastning och dra nytta av mer systemresurser (till exempel mer bandbredd, mer CPU-resurser, mer minne).
 En förutsättning är kan du behöva läsa följande artiklar:
 -   [Förstå och justera direktuppspelningsenheter](stream-analytics-streaming-unit-consumption.md)
 -   [Skapa parallell jobb](stream-analytics-parallelization.md)
-
 
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Fall 1 – frågan finns i sin natur fullständigt över inkommande partitioner
 Om din fråga i sin natur fullständigt mellan inkommande partitioner, kan du följa följande steg:
@@ -42,14 +36,13 @@ Om din fråga i sin natur fullständigt mellan inkommande partitioner, kan du f�
 > Du har till exempel mäts din 6 SU jobb kan uppnå 4 MB/s bearbetning hastighet och din inkommande partitionsantal är 4. Du kan välja att köra jobbet med 12 SU för att uppnå ungefär 8 MB/s-behandlingstakt eller 24 SU för att uppnå 16 MB/s. Sedan kan du bestämma när ökar antalet SU för att jobbet ska vilket värde som en funktion i vilken takt dina indata.
 
 
-
 ## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>Case 2 – om din fråga inte embarrassingly parallellt.
 Om frågan inte embarrassingly parallella följa du anvisningarna nedan.
 1.  Börja med en fråga utan **PARTITION BY** först för att undvika partitionering komplexitet och köra frågan med 6 SU att mäta största belastning som i [fall 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions).
 2.  Om du kan uppnå din förväntade belastningen på sikt genomströmning, är du klar. Du kan också välja att mäta samma jobb som körs på 3 SU och 1 SU för att ta reda på det minsta antalet SU som passar ditt scenario.
 3.  Om du inte går att utföra det önskade dataflödet, försök att dela din fråga i flera steg om möjligt om det inte redan har flera steg och allokera upp till 6 SU för varje steg i frågan. Till exempel om du har 3 steg, allokera 18 SU i alternativet ”skala”.
 4.  När du kör sådant jobb placerar Stream Analytics varje steg på sin egen nod med dedicerade 6 SU-resurser. 
-5.  Om du fortfarande inte har uppnåtts mål-belastning kan du försöker använda **PARTITION BY** från steg närmare till indata. För **GROUP BY** operator som inte kanske naturligt partitionable lokala globala sammanställd mönstret kan använda för att utföra en partitionerad **GROUP BY** följt av en icke-partitionerat **GROUP BY** . Till exempel om du vill räkna kan hur många bilar som passerar varje avgift monter var 3: e minut och mängden data som är större än vad hanteras av 6 SU.
+5.  Om du fortfarande inte har uppnåtts mål-belastning kan du försöker använda **PARTITION BY** från steg närmare till indata. För **GROUP BY** operator som inte kanske naturligt partitionable lokala globala sammanställd mönstret kan använda för att utföra en partitionerad **GROUP BY** följt av en icke-partitionerat **GROUP BY **. Till exempel om du vill räkna kan hur många bilar som passerar varje avgift monter var 3: e minut och mängden data som är större än vad hanteras av 6 SU.
 
 Fråga:
 
@@ -150,7 +143,7 @@ Och följande diagram visar en visualisering av relationen mellan SUs och genomf
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Få hjälp
-För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 5c79f4e0209658e5c95e158c3ef78f91dba8966f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6fec9b21e8612376dced6af9da7304f4c2b1a93f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicera innehåll i Azure-portalen
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/05/2018
 
 För att ge användaren en URL som kan användas för att strömma eller hämta innehållet måste du först publicera tillgången genom att skapa en lokaliserare. Lokaliserare ger åtkomst till tillgångsfiler. Azure Media Services stöder två typer av lokaliserare: 
 
-* **Strömningslokaliserare (OnDemandOrigin)**. Strömningslokaliserare används för anpassad strömning. Exempel på anpassningsbar strömning är Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming och dynamiska anpassningsbar strömning via HTTP (TANKSTRECK, kallas även MPEG-DASH). Om du vill skapa en strömningslokaliserare måste tillgången innehålla en .ism-fil. 
+* **Strömningslokaliserare (OnDemandOrigin)**. Strömningslokaliserare används för anpassad strömning. Exempel på anpassningsbar strömning är Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming och dynamiska anpassningsbar strömning via HTTP (TANKSTRECK, kallas även MPEG-DASH). Om du vill skapa en strömningslokaliserare måste tillgången innehålla en .ism-fil. Till exempel http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
 * **Progressiv lokaliserare (signatur för delad åtkomst)**. Progressiva lokaliserare används för att leverera video via progressiv nedladdning.
 
 Lägg till *(format = m3u8 aapl)* till URL:en för att skapa en HLS-strömnings-URL:
@@ -91,7 +91,7 @@ Vissa förutsättningar gäller:
 * Azure-portalens mediaspelare spelar upp från den slutpunkt för direktuppspelning som är standard. Klicka för att kopiera URL:en och klistra in den i en annan spelare om du vill spela upp från en slutpunkt för direktuppspelning som inte är standard. Du kan till exempel testa videon i [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 * Den strömningsslutpunkt från vilken du strömning måste köras.  
 
-## <a name="provide-feedback"></a>Skicka feedback
+## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg

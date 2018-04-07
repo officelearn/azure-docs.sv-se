@@ -1,29 +1,29 @@
 ---
-title: "Distribuera moduler till IoT-gränsenheterna med IoT-tillägg för Azure CLI 2.0 | Microsoft Docs"
-description: "Distribuera moduler till en insticksenhet för IoT som använder IoT-tillägg för Azure CLI 2.0"
+title: Distribuera moduler till IoT-gränsenheterna med IoT-tillägg för Azure CLI 2.0 | Microsoft Docs
+description: Distribuera moduler till en insticksenhet för IoT som använder IoT-tillägg för Azure CLI 2.0
 services: iot-edge
-keywords: 
+keywords: ''
 author: chrissie926
 manager: timlt
 ms.author: menchi
 ms.date: 03/02/2018
 ms.topic: article
 ms.service: iot-edge
-ms.custom: mvc
+ms.custom: ''
 ms.reviewer: kgremban
-ms.openlocfilehash: 25f1becff11138e59595c211802acbf791094e53
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1f71fdfb7090dce24ba73f1fa01e287c52b065f8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Distribuera moduler till en insticksenhet för IoT som använder IoT-tillägg för Azure CLI 2.0
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) är en öppen källkod mellan plattform kommandoradsverktyg för att hantera Azure-resurser som IoT kant. Azure CLI 2.0 är tillgänglig på Windows, Linux och MacOS.
+[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) är ett kommandoradsverktyg med öppen källkod för flera plattformar, för hantering av Azure-resurser som IoT Edge. Azure CLI 2.0 finns för Windows, Linux och MacOS.
 
-Azure CLI 2.0 kan du hantera Azure IoT Hub resurser enheten etablering tjänstinstanser och länkade hubs direkt. Det nya tillägget IoT förbättra Azure CLI 2.0 med funktioner som enhetshantering och kapaciteten för fullständig IoT kant.
+Azure CLI 2.0 kan du hantera Azure IoT Hub-resurser, tjänstinstanser för enhetsetablering samt länkade hubbar direkt. Det nya tillägget IoT förbättra Azure CLI 2.0 med funktioner som enhetshantering och kapaciteten för fullständig IoT kant.
 
-I kursen får slutföra du först stegen för att konfigurera Azure CLI 2.0- och IoT-tillägget. Sedan får du lära dig hur du distribuerar moduler till en gräns för IoT-enhet med hjälp av de tillgängliga CLI-kommandona.
+I den här artikeln kan du ställa in Azure CLI 2.0 och IoT-tillägget. Sedan får du lära dig hur du distribuerar moduler till en gräns för IoT-enhet med hjälp av de tillgängliga CLI-kommandona.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -31,7 +31,7 @@ I kursen får slutföra du först stegen för att konfigurera Azure CLI 2.0- och
 
 * [Python 2.7 x eller Python 3.x](https://www.python.org/downloads/).
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Minst Azure CLI 2.0 måste du ha 2.0.24 eller senare. Använd `az –-version` att validera. Den här versionen stöder az tillägget kommandon och introducerar Knack kommandot ramen. Ett enkelt sätt att installera på Windows är att hämta och installera den [MSI](https://aka.ms/InstallAzureCliWindows).
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Din Azure CLI 2.0-version måste vara 2.0.24 eller senare. Validera med `az –-version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack. Ett enkelt sätt att installera i Windows är att hämta och installera [MSI](https://aka.ms/InstallAzureCliWindows).
 
 * [IoT-tillägget för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension):
    1. Kör `az extension add --name azure-cli-iot-ext`. 

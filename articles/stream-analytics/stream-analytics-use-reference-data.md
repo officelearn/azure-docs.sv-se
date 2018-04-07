@@ -1,26 +1,21 @@
 ---
-title: Använd data och slå upp referenstabellerna i Stream Analytics | Microsoft Docs
-description: Använda referensdata i en Stream Analytics-fråga
-keywords: uppslagstabellen referensdata
+title: Använda referensdata för sökningar i Azure Stream Analytics
+description: Den här artikeln beskriver hur du använder referensdata att söka efter eller korrelera data i en Azure Stream Analytics-jobbet frågans design.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 06103be5-553a-4da1-8a8d-3be9ca2aff54
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 77a4a9a28060206a30c658216156d7339bddc398
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 9d1763697e93ea0bd5eaeaeb92f5f882f39a6c64
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Med hjälp av data- eller lookup register i en Stream Analytics Indataströmmen
+# <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Använda referensdata för sökningar i Stream Analytics
 Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statisk eller saktas ändra karaktär används för att utföra en sökning eller att korrelera med din dataström. För att använda referensdata i Azure Stream Analytics-jobbet, använder du normalt en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. Stream Analytics använder Azure Blob storage som lagringsskikt för referensdata med Azure Data Factory-referensen kan data omvandlas eller kopieras till Azure Blob storage för användning som referensdata från [valfritt antal molnbaserade och lokalt datalager](../data-factory/copy-activity-overview.md). Referensdata modelleras som en serie blobbar (definieras i den inkommande configuration) i stigande ordning efter datum/tid som anges i blob-namn. Den **endast** har stöd för att lägga till i slutet av sekvensen med hjälp av ett datum/tid **större** än den som angetts av den senaste blobben i sekvensen.
 
 Stream Analytics har en **gränsen på 100 MB per blob** men jobb kan bearbeta flera referens blobbar med hjälp av den **sökvägar** egenskapen.
@@ -97,7 +92,7 @@ Om din referensdata är en långsamt föränderliga datauppsättning, sedan stö
 3. Om du vill undvika att behöva listan stort antal blobbar, Överväg att ta bort gamla mycket blobbar som bearbetningen inte längre kommer att ske. Observera att ASA kan gå har Ombearbeta lite i vissa scenarier, t.ex. en omstart.
 
 ## <a name="get-help"></a>Få hjälp
-Om du behöver mer hjälp kan du besöka vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Om du behöver mer hjälp kan du besöka vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Nästa steg
 Du har fått en introduktion till Stream Analytics, en hanteringstjänst för analys av dataströmmar från Internet of Things. Mer information om den här tjänsten finns här:

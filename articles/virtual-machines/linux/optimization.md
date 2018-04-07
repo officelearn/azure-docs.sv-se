@@ -1,11 +1,11 @@
 ---
 title: Optimera din virtuella Linux-dator i Azure | Microsoft Docs
-description: "Läs tips optimering för att se till att du har lagt upp ditt Linux VM för optimala prestanda på Azure"
+description: Läs tips optimering för att se till att du har lagt upp ditt Linux VM för optimala prestanda på Azure
 keywords: Linux-dator, virtuella linux ubuntu virtuell dator
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 8baa30c8-d40e-41ac-93d0-74e96fe18d4c
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: d3ee98253a69580e5ecafb4e117ef93f7c981416
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5b0d7eb0767bb18cd74c545dc386aa16be487dae
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
 Det är enkelt att göra från kommandoraden eller från portalen att skapa en Linux-dator (VM). Den här kursen visar hur du se till att du har konfigurerat den för att optimera prestandan på Microsoft Azure-plattformen. Det här avsnittet använder en virtuell Ubuntu Server-dator, men du kan också skapa Linux virtuella datorer med hjälp av [egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -124,7 +124,7 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Med hjälp av programvara RAID för att uppnå högre I / Ops
-Om dina arbetsbelastningar kräver fler IOps än vad en enda disk, måste du använda en programvara RAID-konfiguration av flera diskar. Eftersom Azure utför redan disk återhämtning i lokala fabric-lagret, kan du få högsta möjliga prestanda från en konfiguration med RAID-0 striping.  Etablera och skapa diskar i Azure-miljön och koppla dem till din Linux VM före partitionering, formatering och montera enheterna.  Mer information om hur du konfigurerar en RAID konfiguration av programvara på din Linux VM i azure finns i den  **[konfigurera programvara RAID på Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**  dokumentet.
+Om dina arbetsbelastningar kräver fler IOps än vad en enda disk, måste du använda en programvara RAID-konfiguration av flera diskar. Eftersom Azure utför redan disk återhämtning i lokala fabric-lagret, kan du få högsta möjliga prestanda från en konfiguration med RAID-0 striping.  Etablera och skapa diskar i Azure-miljön och koppla dem till din Linux VM före partitionering, formatering och montera enheterna.  Mer information om hur du konfigurerar en RAID konfiguration av programvara på din Linux VM i azure finns i den **[konfigurera programvara RAID på Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** dokumentet.
 
 ## <a name="next-steps"></a>Nästa steg
 Kom ihåg att du behöver utföra tester före och efter varje ändring av åtgärdens påverkan ändringen har med alla optimering diskussioner.  Optimering är en steg-för-steg-process som har olika resultat på olika datorer i din miljö.  Vad fungerar för en konfiguration fungerar inte för andra.

@@ -1,11 +1,11 @@
 ---
-title: "Installera Azure VM-agenten i offlineläge | Microsoft Docs"
-description: "Lär dig hur du installerar Azure VM-agenten i offline-läge."
+title: Installera Azure VM-agenten i offlineläge | Microsoft Docs
+description: Lär dig hur du installerar Azure VM-agenten i offline-läge.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: genlin
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: genli
-ms.openlocfilehash: 3770cc3338c89a9bf88e2cf9ec3faa37e2ff109b
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 8b9d1ea3e4b5bf959484a737453d7f6f1f63d1e6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installera Azure Virtual Machine-agenten i offline-läge 
 

@@ -1,18 +1,18 @@
 ---
-title: "Skicka händelsen till anpassad Azure händelse rutnätet ämne"
-description: "Beskriver hur du publicerar en händelse till ett eget avsnitt för rutnät för Azure-händelse"
+title: Skicka händelsen till anpassad Azure händelse rutnätet ämne
+description: Beskriver hur du publicerar en händelse till ett eget avsnitt för rutnät för Azure-händelse
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 43dcdf9ab0fee5f7e61ecdc42aaf40430e272d92
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Efter att anpassade avsnittet för rutnät för Azure-händelse
 
@@ -91,8 +91,34 @@ Ett giltigt händelsenamn data schema är till exempel:
 }]
 ```
 
+## <a name="response"></a>Svar
+
+Efter bokföring till avsnittet slutpunkten får du svar. Svaret är en standard HTTP-svarskoden. Några vanliga svar är:
+
+|Resultat  |Svar  |
+|---------|---------|
+|Lyckades  | 200 OK  |
+|Felaktig slutpunkt | 404 Hittades inte |
+|Ogiltig snabbtangent | 401 obehörig |
+|Händelsedata är i felaktigt format | 400 Felaktig förfrågan |
+
+För fel har meddelandetexten följande format:
+
+```json
+{
+    "error": {
+        "code": "<HTTP status code>",
+        "message": "<description>",
+        "details": [{
+            "code": "<HTTP status code>",
+            "message": "<description>"
+    }]
+  }
+}
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till routning anpassade händelser, se [skapa och flöde anpassade händelser med Azure CLI och händelsen rutnät](custom-event-quickstart.md) eller [skapa och flöde anpassade händelser med Azure PowerShell och händelsen rutnätet](custom-event-quickstart-powershell.md).
+* Information om hur du övervakar händelse leveranser finns [övervakaren händelse rutnätet meddelandeleverans](monitor-event-delivery.md).
 * Läs mer om autentiseringsnyckeln [händelse rutnätet säkerhets- och autentiseringstjänster](security-authentication.md).
 * Mer information om hur du skapar en prenumeration på Azure händelse rutnätet finns [händelse rutnätet prenumeration schemat](subscription-creation-schema.md).

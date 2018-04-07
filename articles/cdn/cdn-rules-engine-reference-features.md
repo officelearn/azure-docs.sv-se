@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 748cecbdf4c59469c9a56da03631dd04a819043b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN regler motorn funktioner
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga funktioner för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
@@ -28,7 +28,6 @@ Den tredje delen av en regel är en funktion. En funktion som definierar typ av 
 ## <a name="access-features"></a>Access-funktioner
 
 Dessa funktioner är utformade för att styra åtkomsten till innehåll.
-
 
 Namn | Syfte
 -----|--------
@@ -312,7 +311,7 @@ Ta bort| Det här alternativet ser till att en `Cache-Control` huvud ingår inte
 
 Viktig information:
 
-- Ange en eller flera frågan sträng parametern namn. Deliminate namnge varje parameter med ett blanksteg.
+- Ange en eller flera sträng parametern frågenamn och avgränsa varje parameternamn med ett blanksteg.
 - Den här funktionen avgör om frågan string-parametrar är inkluderas eller uteslutas från cache-nyckeln. Ytterligare information har angetts för varje alternativ i följande tabell.
 
 Typ|Beskrivning
@@ -325,6 +324,9 @@ Typ|Beskrivning
 Motorn regler kan du anpassa det sätt som cachelagring av frågesträngar i fråga har implementerats. Du kan till exempel ange att cachelagring av frågesträngar i frågan utförs endast på vissa platser eller filtyper.
 
 Skapa en regel som innehåller en URL-frågan med jokertecken matchar villkor och en kringgå Cache-funktionen om du vill duplicera ”no-cache” frågesträngen cachelagring av frågesträngar på sidan cachelagring av frågesträng. Ange URL: en fråga med jokertecken matchar villkoret en asterisk (*).
+
+>[!IMPORTANT] 
+> Om token tillstånd är aktiverat för valfri sökväg för det här kontot, är standard-cache det enda läge som kan användas för cachelagring av frågesträngar i frågan. Mer information finns i [Kontrollera cachelagringsbeteendet med frågesträngar](cdn-query-string-premium.md).
 
 #### <a name="sample-scenarios"></a>Exempelscenarier
 
@@ -1052,12 +1054,14 @@ Disabled| Återställer standardbeteendet. Standardinställningen är att konfig
 
 ---
 ### <a name="token-auth-denial-code"></a>Token Auth DOS-kod
-**Syfte:** avgör vilken typ av svar som returneras till en användare när en begäran nekades på grund av Token-baserad autentisering.
+**Syfte:** avgör vilken typ av svar som returneras till en användare när en begäran nekades på grund av token-baserad autentisering.
 
-Tillgängliga svarskoder visas nedan.
+Token Auth DOS-kod kan inte användas med en alltid matchar villkoret. Använd i stället den **anpassad DOS-hantering** i avsnittet den **Token Auth** sida av den **hantera** portal. Mer information finns i [skydda Azure CDN tillgångar med tokenautentisering](cdn-token-auth.md).
+
+I följande tabell visas tillgängliga svarskoder.
 
 Svarskod|Svaret namn|Beskrivning
-----------------|-----------|--------
+-------------|-------------|--------
 301|Flytta permanent|Den här statuskoden omdirigerar obehöriga användare till den URL som anges i huvudet plats.
 302|Hittad|Den här statuskoden omdirigerar obehöriga användare till den URL som anges i huvudet plats. Den här statuskoden är branschstandard standardmetoden för att utföra en omdirigering.
 307|Tillfällig omdirigering|Den här statuskoden omdirigerar obehöriga användare till den URL som anges i huvudet plats.

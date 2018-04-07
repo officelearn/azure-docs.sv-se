@@ -1,12 +1,12 @@
 ---
-title: "Azure Relay mätvärden i Azure-Monitor (förhandsversion) | Microsoft Docs"
-description: "Använda Azure-övervakning för att övervaka Azure Relay"
+title: Azure Relay mätvärden i Azure-Monitor (förhandsversion) | Microsoft Docs
+description: Använda Azure-övervakning för att övervaka Azure Relay
 services: service-bus-relay
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: dd5bc0dd0088856954e06d880f2c03f0a74ed9d7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b919f1fb0799ec497742115b2611f34872af2027
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure Relay mätvärden i Azure-Monitor (förhandsgranskning)
 
@@ -44,7 +44,7 @@ För statistik som stöd för dimensioner, måste du filtrera med värdet för �
 
 ## <a name="billing"></a>Fakturering
 
-Med hjälp av mätvärden i Azure-Monitor är för närvarande gratis när i förhandsgranskningen. Om du använder ytterligare lösningar som infognings-mätvärdesdata kan debiteras du dock av dessa lösningar. Till exempel debiteras du av Azure Storage om du arkiverar mått data till ett Azure Storage-konto. Du debiteras också av åtgärden Management Suite (OMS) om du strömma mätvärdesdata till OMS för avancerad analys.
+Med hjälp av mätvärden i Azure-Monitor är för närvarande gratis när i förhandsgranskningen. Om du använder ytterligare lösningar som infognings-mätvärdesdata kan debiteras du dock av dessa lösningar. Till exempel debiteras du av Azure Storage om du arkiverar mått data till ett Azure Storage-konto. Du debiteras också av logganalys om direktuppspelning av mätvärdesdata till logganalys för avancerad analys.
 
 Följande mått ger dig en översikt över hälsotillståndet för din tjänst. 
 

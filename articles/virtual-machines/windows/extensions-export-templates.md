@@ -1,11 +1,11 @@
 ---
-title: "Exportera Azure-resursgrupper som innehåller VM-tillägg | Microsoft Docs"
-description: "Exportera Resource Manager-mallar som inkluderar tillägg för virtuell dator."
+title: Exportera Azure-resursgrupper som innehåller VM-tillägg | Microsoft Docs
+description: Exportera Resource Manager-mallar som inkluderar tillägg för virtuell dator.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7f4e2ca6-f1c7-4f59-a2cc-8f63132de279
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: danis
-ms.openlocfilehash: 739ae7995fca41fe8abb7cd54ccb72ff3bc43854
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 2dc05fd21df3d408ed57badeec2b5c06e25bf50c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportera resursgrupper som innehåller VM-tillägg
 
@@ -35,16 +35,16 @@ Följande tillägg kan exporteras med funktionen för automation-skript.
 
 | Anknytning ||||
 |---|---|---|---|
-| Acronis säkerhetskopiering | Datadog Windows-agenten | OS-korrigering för Linux | VM-ögonblicksbild Linux
+| Acronis säkerhetskopiering | Datadog Windows-agenten | OS-korrigering för Linux | VM Snapshot Linux
 | Acronis säkerhetskopiering Linux | Docker-tillägg | Puppet-Agent |
 | BG Info | DSC-tillägg | Plats 24 x 7 Apm Insight |
 | BMC CTM Agent Linux | Dynatrace Linux | Linux platsservern 24 x 7 |
 | BMC CTM Agent Windows | Dynatrace Windows | Windows platsservern 24 x 7 |
 | Chef klienten | HPE säkerhet programmet Defender | Trend Micro DSA |
-| Anpassat skript | IaaS program mot skadlig kod | Trend Micro DSA Linux |
+| Anpassat skript | IaaS Antimalware | Trend Micro DSA Linux |
 | Anpassat skripttillägg | IaaS-diagnostik | VM-åtkomst för Linux |
 | Anpassat skript för Linux | Klienten för Linux-Chef | VM-åtkomst för Linux |
-| Datadog Linux-Agent | Linux-diagnostik | VM-ögonblicksbild |
+| Datadog Linux-Agent | Linux-diagnostik | VM Snapshot |
 
 ## <a name="export-the-resource-group"></a>Exportera resursgruppen.
 

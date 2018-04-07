@@ -1,10 +1,10 @@
 ---
 title: Skapa en kopia av Linux-VM med Azure CLI 1.0 | Microsoft Docs
-description: "Lär dig hur du skapar en kopia av den virtuella Azure Linux-datorn med Azure CLI 1.0 i Resource Manager-distributionsmodellen"
+description: Lär dig hur du skapar en kopia av den virtuella Azure Linux-datorn med Azure CLI 1.0 i Resource Manager-distributionsmodellen
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager
 ms.assetid: 770569d2-23c1-4a5b-801e-cddcd1375164
 ms.service: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 62ae54f3596c9383cbf3b401fcfdb42ecfdee63c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb350f8d14ad451ad3ff7cd617ca3f90967aaa4b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-the-azure-cli-10"></a>Skapa en kopia av en Linux-dator som körs på Azure med Azure CLI 1.0
 Den här artikeln visar hur du skapar en kopia av din Azure virtuell dator (VM kör Linux med hjälp av Resource Manager-distributionsmodellen). Först du kopiera över operativsystemet och datadiskar till en ny behållare och sedan konfigurera nätverksresurserna och skapa den nya virtuella datorn.
@@ -46,7 +46,7 @@ Se till att du uppfyller följande krav innan du startar stegen:
 | Behållarens namn |`azure storage container list -a <sourcestorageaccountname>` |
 | Namn på datakälla VM VHD-filen |`azure storage blob list --container <containerName>` |
 
-* Du behöver göra vissa val om den nya virtuella datorn:   <br> -Behållarnamn   <br> Namn på virtuell dator-   <br> VM - storlek   <br> vNet - namn   <br> -Undernätsnamn   <br> -IP-namn   <br> NIC - namn
+* Du behöver göra vissa val om den nya virtuella datorn:    <br> -Behållarnamn    <br> Namn på virtuell dator-    <br> VM - storlek    <br> vNet - namn    <br> -Undernätsnamn    <br> -IP-namn    <br> NIC - namn
 
 ## <a name="login-and-set-your-subscription"></a>Logga in och ange din prenumeration
 1. Logga in CLI.

@@ -1,11 +1,11 @@
 ---
-title: "Lodrätt skala virtuella Azure-datorn med Azure Automation | Microsoft Docs"
-description: "Hur man lodrätt skala en Linux-dator för att övervaka aviseringar med Azure Automation"
+title: Lodrätt skala virtuella Azure-datorn med Azure Automation | Microsoft Docs
+description: Hur man lodrätt skala en Linux-dator för att övervaka aviseringar med Azure Automation
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: dcee199e-fa25-44d5-9b25-df564cee9b45
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/29/2016
 ms.author: singhkay
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ffcecf1e61fc0cd9ee668514fbb913dafe39bd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 683348c907484ccd9394eb4aae18e9006ecb5c48
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Lodrätt skala Azure Linux-dator med Azure Automation
 Lodrät skalning är processen att öka eller minska resurser för en dator som svar på arbetsbelastningen. I Azure kan detta åstadkommas genom att ändra storleken på den virtuella datorn. Detta hjälper i följande scenarier

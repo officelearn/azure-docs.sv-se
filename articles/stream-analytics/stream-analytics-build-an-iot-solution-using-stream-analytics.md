@@ -1,31 +1,26 @@
 ---
-title: Skapa en IoT-lösning med hjälp av Stream Analytics | Microsoft Docs
+title: Skapa en IoT-lösning med hjälp av Azure Stream Analytics
 description: Komma igång-kursen för Stream Analytics IoT-lösningen på ett scenario med vaktkur
-keywords: IOT-lösningen, fönstrets funktioner
-documentationcenter: ''
 services: stream-analytics
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
+ms.reviewer: jasonh, sngun
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/21/2018
-ms.author: sngun
-ms.openlocfilehash: b36833a9fe35f14eba6d9e397eb0958b716b313b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 80e287d09fdc5ab7157b9ee46bc830fd2db4d501
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Skapa en IoT-lösning med hjälp av Stream Analytics
 
 ## <a name="introduction"></a>Introduktion
-I kursen får du lära dig hur du använder Azure Stream Analytics för att få realtidsinsikter från dina data. Utvecklare kan enkelt kombinera dataströmmar, till exempel klicka på dataströmmar, loggar och händelser som genereras av enheten med historisk poster eller referensdata att härleda insikter som företag. Azure Stream Analytics ger inbyggd återhämtning, låg latens och skalbarhet för att hämta du upp och körs i minuter som en helt hanterad, realtid dataströmmen beräkning tjänst som finns i Microsoft Azure.
+Lär dig hur du använder Azure Stream Analytics för att få realtidsinsikter från dina data i den här lösningen. Utvecklare kan enkelt kombinera dataströmmar, till exempel klicka på dataströmmar, loggar och händelser som genereras av enheten med historisk poster eller referensdata att härleda insikter som företag. Azure Stream Analytics ger inbyggd återhämtning, låg latens och skalbarhet för att hämta du upp och körs i minuter som en helt hanterad, realtid dataströmmen beräkning tjänst som finns i Microsoft Azure.
 
-När du har slutfört den här självstudiekursen kommer du att kunna:
+När du har slutfört den här lösningen ska du kunna:
 
 * Bekanta dig med Azure Stream Analytics-portalen.
 * Konfigurera och distribuera ett direktuppspelningsjobb.
@@ -34,13 +29,8 @@ När du har slutfört den här självstudiekursen kommer du att kunna:
 * Använd övervakning och loggning upplevelse för att felsöka problem.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Du behöver följande förutsättningar för att kunna slutföra den här självstudiekursen:
-
-* Den senaste versionen av [Azure PowerShell](/powershell/azure/overview)
-* Visual Studio 2017 2015, eller den kostnadsfria [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
+Du behöver följande förutsättningar för att kunna slutföra den här lösningen:
 * En [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/)
-* Administratörsbehörighet på datorn
-* Ladda ned källkoden för TollApp sensor dataanalys från den [azure stream analytics GitHub-lagringsplatsen.](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp). Den här lagringsplatsen innehåller exempeldata och frågor som du ska använda i nästa avsnitt. 
 
 ## <a name="scenario-introduction-hello-toll"></a>Scenariot introduktion: ”Hello, avgift”!
 En avgift station är en gemensam företeelse. Du hittar dem i många utsättas bryggor och tunnlar över hela världen. Varje station avgift har flera avgift kabiner. Vid manuell kabiner stoppa för att betala avgift till en attendant. Vid automatisk kabiner söker en sensor ovanpå varje monter RFID-kort som fästs på vindrutan av din fordon som du skickar avgift monter. Det är enkelt att visualisera övergången genom dessa avgift stationer som en händelse dataström som intressanta åtgärder kan utföras.
@@ -48,10 +38,10 @@ En avgift station är en gemensam företeelse. Du hittar dem i många utsättas 
 ![Bild av bilar på avgift kabiner](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
 
 ## <a name="incoming-data"></a>Inkommande data
-Den här kursen fungerar med två dataströmmar. Sensorer som installerats i ingång och utgång avgift stationer producera första dataströmmen. Den andra är en statisk sökning datamängd som har vehicle registreringsdata.
+Den här lösningen fungerar med två dataströmmar. Sensorer som installerats i ingång och utgång avgift stationer producera första dataströmmen. Den andra är en statisk sökning datamängd som har vehicle registreringsdata.
 
 ### <a name="entry-data-stream"></a>Posten dataström
-Dataströmmen posten innehåller information om bilar då de anträder avgift stationer.
+Dataströmmen posten innehåller information om bilar då de anträder avgift stationer. Avsluta Datahändelser är live strömmas till en Händelsehubb kö från en Webbapp som ingår i exempelappen.
 
 | TollID | EntryTime | LicensePlate | Status | Kontrollera | Modell | VehicleType | VehicleWeight | Avgift | Tagga |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -78,7 +68,7 @@ Här är en kort beskrivning av kolumnerna:
 | Tagga |E-tagg på bil som automatiserar betalning. tomt där betalningen gjordes manuellt |
 
 ### <a name="exit-data-stream"></a>Avsluta dataström
-Avsluta dataströmmen innehåller information om bilar lämnar avgift stationen.
+Avsluta dataströmmen innehåller information om bilar lämnar avgift stationen. Avsluta Datahändelser är live strömmas till en Händelsehubb kö från en Webbapp som ingår i exempelappen.
 
 | **TollId** | **ExitTime** | **LicensePlate** |
 | --- | --- | --- |
@@ -98,7 +88,7 @@ Här är en kort beskrivning av kolumnerna:
 | LicensePlate |Licens skylt antalet för programuppdatering |
 
 ### <a name="commercial-vehicle-registration-data"></a>Kommersiellt fordon registreringsdata
-I självstudiekursen använder en statisk ögonblicksbild av en databas för registrering av kommersiellt fordon.
+Lösningen använder en statisk ögonblicksbild av en databas för registrering av kommersiellt fordon. Informationen sparas som en JSON-fil i Azure blob-lagring som ingår i exemplet.
 
 | LicensePlate | RegistrationId | Har upphört att gälla |
 | --- | --- | --- |
@@ -118,313 +108,219 @@ Här är en kort beskrivning av kolumnerna:
 | Har upphört att gälla |Registreringstillstånd för för programuppdatering: 0 om vehicle registrering är aktiv, 1 om registreringen har upphört att gälla |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Ställa in miljön för Azure Stream Analytics
-Den här kursen behöver ett Microsoft Azure-prenumeration. Microsoft erbjuder kostnadsfri utvärderingsversion för Microsoft Azure-tjänster.
-
-Om du inte har ett Azure-konto kan du [begära en kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/).
-
-> [!NOTE]
-> Om du vill registrera dig för en kostnadsfri utvärderingsversion, behöver du en mobil enhet som kan ta emot textmeddelanden och ett giltigt kreditkort.
-> 
-> 
+Du behöver ett Microsoft Azure-prenumeration för att slutföra den här lösningen. Om du inte har ett Azure-konto kan du [begära en kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/).
 
 Se till att följa stegen i avsnittet ”Rensa ditt Azure-konto” i slutet av den här artikeln så att du kan göra din Azure-kredit på bästa sätt.
 
-## <a name="provision-azure-resources-required-for-the-tutorial"></a>Etablera Azure-resurser som krävs för kursen
-Den här kursen kräver två händelsehubbar att ta emot *post* och *avsluta* dataströmmar. Azure SQL Database visas resultatet av Stream Analytics-jobb. Azure Storage lagrar referensdata om vehicle registreringar.
+## <a name="deploy-the-sample"></a>Distribuera exemplet 
+Det finns flera resurser som enkelt kan distribueras i en resursgrupp tillsammans med några få klickningar. Lösningsdefinition finns i github-lagringsplats på [ https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp ](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
 
-Du kan använda skriptet Setup.ps1 i mappen TollApp på GitHub för att skapa alla nödvändiga resurser. Att tid rekommenderar vi att du kör den. Om du vill veta mer om hur du konfigurerar dessa resurser i Azure portal finns ”konfigurera självstudiekurs resurser i Azure-portalen”-tillägg.
+### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Distribuera TollApp mallen i Azure-portalen
+1. Distribuera TollApp miljön till Azure genom att använda den här länken till [distribuera TollApp Azure mallen](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
 
-Hämta och spara stödfiler [TollApp](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) mappar och filer.
+2. Logga in på Azure portal om du blir tillfrågad.
 
-Öppna en **Microsoft Azure PowerShell** fönstret *som administratör*. Om du inte ännu har Azure PowerShell, följ instruktionerna i [installera och konfigurera Azure PowerShell](/powershell/azure/overview) att installera den.
+3. Välj den prenumeration där olika resurser faktureras.
 
-Eftersom Windows blockerar automatiskt .ps1, .dll och .exe-filer, måste du ange körningsprincipen innan du kör skriptet. Kontrollera att Azure PowerShell-fönstret körs *som administratör*. Kör **Set-ExecutionPolicy obegränsad**. När du uppmanas ange **Y**.
+4. Ange en ny resursgrupp med ett unikt namn, till exempel `MyTollBooth`. 
 
-![Skärmbild av ”Set-ExecutionPolicy obegränsad” körs i Azure PowerShell-fönster](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image2.png)
+5. Välj en Azure-plats.
 
-Kör **Get-ExecutionPolicy** att se till att kommandot fungerade.
+6. Ange en **intervall** som ett antal sekunder. Det här värdet används i exempelwebbapp för hur ofta du vill skicka data till Händelsehubben. 
 
-![Skärmbild av ”Get-ExecutionPolicy” körs i Azure PowerShell-fönster](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image3.png)
+7. **Kontrollera** accepterar villkoren.
 
-Gå till den katalog som innehåller skript och generator program.
+8. Välj **fäst på instrumentpanelen** så att du lätt kan hitta resurserna vid ett senare tillfälle.
 
-![Skärmbild av ”cd .\TollApp\TollApp” körs i Azure PowerShell-fönster](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image4.png)
+9. Välj **inköp** att distribuera mallen exempel.
 
-Typen **.\\ Setup.ps1** om du vill konfigurera ditt Azure-konto, skapa och konfigurera alla nödvändiga resurser och börja Generera händelser. Skriptet hämtar slumpmässigt en region att skapa dina resurser. För att explicit ange en region, kan du skicka den **-plats** parameter som i följande exempel:
+10. Efter en liten stund visas ett meddelande som bekräftar den **distributionen lyckades**.
 
-**. \\Setup.ps1-platsen ”centrala USA”**
+### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Granska Azure Stream Analytics TollApp resurser
+1. Logga in på Azure Portal
 
-![Skärmbild av sidan för Azure-inloggning](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image5.png)
+2. Leta upp den resursgrupp som du angav i föregående avsnitt.
 
-Skriptet öppnas den **logga In** sidan för Microsoft Azure. Ange autentiseringsuppgifterna för ditt konto.
+3. Kontrollera att följande resurser finns i resursgruppen:
+   - En Cosmos DB-konto
+   - One Azure Stream Analytics Job
+   - En Azure Storage-konto
+   - One Azure Event Hub
+   - Two Web Apps
 
-> [!NOTE]
-> Om ditt konto har åtkomst till flera prenumerationer, blir du ombedd att ange prenumerationsnamnet på som du vill använda för kursen.
-> 
-> 
+## <a name="examine-the-sample-tollapp-job"></a>Granska exempel TollApp jobbet 
+1. Starta från resursgruppen i föregående avsnitt, Välj Stream Analytics direktuppspelningsjobbet börjar med namnet **tollapp** (namn innehåller slumpmässiga tecken för unikhet).
 
-Skriptet kan ta flera minuter att köra. När den är klar utdata ska se ut som följande skärmbild.
+2. På den **översikt** sidan för projektet, meddelande i **fråga** om du vill visa frågesyntaxen.
 
-![Skärmbild av utdata från skriptet i Azure PowerShell-fönster](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image6.PNG)
+   ```sql
+   SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
+   INTO CosmosDB
+   FROM EntryStream TIMESTAMP BY EntryTime
+   GROUP BY TUMBLINGWINDOW(minute, 3), TollId
+   ```
 
-Ett annat fönster som liknar följande skärmbild visas också. Det här programmet skickar händelser till Azure Event Hubs, vilket krävs för att köra guiden. Därför inte stoppa programmet eller stänga det här fönstret förrän du har avslutat guiden.
+   Om du vill skriva syftet med frågan anta att du behöver räkna antalet fordon som anger en avgift monter. Eftersom en motorväg avgift monter har en ständig ström med att ange fordon, är ingången händelser är detsamma som en dataström som inte upphör. Om du vill kvantifiera dataströmmen måste du definiera en ”tidsperiod” att mäta över. Vi förfina frågan dessutom ”hur många fordon anger en avgift monter alla tre minuter”? Detta kallas ofta för antalet rullande.
 
-![Skärmbild av ”skicka event hub data”](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image7.png)
+   Som du kan se använder Azure Stream Analytics ett frågespråk som som SQL och lägger till några tillägg om du vill ange tidsrelaterade aspekter av frågan.  Mer information finns i avsnittet om [tidshantering](https://msdn.microsoft.com/library/azure/mt582045.aspx) och [fönsterhantering](https://msdn.microsoft.com/library/azure/dn835019.aspx) konstruktioner som används i frågan.
 
-Du ska kunna se dina resurser i Azure-portalen nu. Gå till <https://portal.azure.com>, och logga in med autentiseringsuppgifterna för ditt konto. Observera att för närvarande vissa funktioner använder den klassiska portalen. De här stegen att tydligt anges.
+3. Granska indata för TollApp exempel jobb. EntryStream indata används i den aktuella frågan.
+   - **EntryStream** indata är en anslutning till Händelsehubb som köer data som representerar varje gång en bil anger en vaktkur på plats. Skapar en webbapp som ingår i exemplet händelser och data är i kö i den här Event Hub. Observera att den här indata efterfrågas i FROM-satsen för strömmande frågan.
+   - **ExitStream** indata är en anslutning till Händelsehubb som köer data som representerar varje gång en bil avslutar en vaktkur på plats. Den här strömmande indata används i senare variationer av frågesyntaxen.
+   - **Registrering** indata är en Azure Blob storage-anslutning, pekar på en statisk registration.json-fil som används för sökningar efter behov. Den här referensindata används i senare variationer av frågesyntaxen.
 
-### <a name="azure-event-hubs"></a>Azure Event Hubs
+4. Granska utdata för TollApp exempel jobbet.
+   - **Cosmos DB** utdata är en Cosmos-databasen samling som tar emot utdata sink-händelser. Observera att den här utdatan används i INTO-sats för strömmande frågan.
 
-Azure-portalen klickar du på **fler tjänster** längst ned i fönstret vänstra management. Typen **händelsehubbar** i fältet, ser du ett nytt Event Hub-namnområde som börjar med **tolldata**. Den här namesapce skapas med skriptet Setup.ps1. Du ser två händelsehubbar med namnet **post** och **avsluta** skapas i det här namnområdet.
+## <a name="start-the-tollapp-streaming-job"></a>Starta direktuppspelningsjobbet TollApp
+Följ dessa steg om du vill starta direktuppspelningsjobbet:
 
-### <a name="azure-storage-container"></a>Azure Storage-behållare
-Bläddra till storage-konton från Azure-portalen, bör du se ett lagringskonto som börjar med **tolldata**. Klicka på den **tolldata** behållare för att se den överförda JSON-filen som har vehicle registreringsdata.
+1. På den **översikt** sidan för projektet, Välj **starta**.
 
-### <a name="azure-sql-database"></a>Azure SQL Database
-1. Gå tillbaka till Azure portal på den första fliken som har öppnats i webbläsaren. Klicka på **SQL-databaser** på vänster sida av Azure portal och se SQL-databasen som ska användas i guiden och klicka på **tolldatadb**.
-   
-    ![Skärmbild av den SQL-databasen har skapats](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image15.png)
-2. Kopiera servernamnet utan portnumret (*servername*. database.windows.net, till exempel).
-    ![Skärmbild av skapade SQL-databas db](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image15a.png)
+2. På den **startjobb** väljer **nu**.
 
-## <a name="connect-to-the-database-from-visual-studio"></a>Ansluta till databasen från Visual Studio
-Använda Visual Studio för att få åtkomst till resultatet av frågan i Utdatadatabasen.
+3. Efter en liten stund när jobbet körs på den **översikt** direktuppspelningsjobbet visa sidan på **övervakning** diagram. Diagrammet ska visa flera tusen inkommande händelser och flera händelser för utdata.
 
-Anslut till SQL-databasen (målet) från Visual Studio:
+## <a name="review-the-cosmosdb-output-data"></a>Granska utdata CosmosDB
+1. Leta upp resursgruppen som innehåller TollApp resurser.
 
-1. Öppna Visual Studio och klicka sedan på **verktyg** > **Anslut till databas**.
-2. Om du blir tillfrågad, klickar du på **Microsoft SQL Server** som en datakälla.
-   
-    ![Ändra dialogrutan för datakälla](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image16.png)
-3. I den **servernamn** fältet, klistra in det namn som du kopierade i föregående avsnitt från Azure-portalen (det vill säga *servername*. database.windows.net).
-4. Klicka på **använda SQL Server-autentisering**.
-5. Ange **tolladmin** i den **användarnamn** fält och **123toll!** i den **lösenord** fältet.
-6. Klicka på **Välj eller ange ett databasnamn**, och välj **TollDataDB** som databas.
-   
-    ![Lägg till dialogrutan anslutning](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image17.jpg)
-7. Klicka på **OK**.
-8. Öppna Server Explorer.
-   
-    ![Server Explorer](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image18.png)
-9. Se fyra tabeller i databasen TollDataDB.
-   
-    ![Tabeller i databasen TollDataDB](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)
+2. Välj Azure Cosmos-DB-konto med namnmönster **tollapp<random>-cosmos**.
 
-## <a name="event-generator-tollapp-sample-project"></a>Händelsen generator: TollApp exempelprojektet
-PowerShell-skriptet startar automatiskt att skicka händelser med hjälp av programmet TollApp exempel. Du behöver inte utföra några ytterligare steg.
+3. Välj den **Data Explorer** rubriken för att öppna sidan Data Explorer.
 
-Men om du är intresserad av implementeringsdetaljer du hittar källkoden för programmet TollApp i GitHub [exempel/TollApp](https://aka.ms/azure-stream-analytics-toll-source).
+4. Expandera den **tollAppDatabase** > **tollAppCollection** > **dokument**.
 
-![Skärmbild av exempelkod som visas i Visual Studio](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image20.png)
+5. I listan över ID: n visas flera dokument när utdata är tillgänglig.
 
-## <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
-1. Klicka på grönt plustecken i det övre vänstra hörnet på sidan för att skapa ett nytt Stream Analytics-jobb i Azure-portalen. Välj **Intelligence + analys** och klicka sedan på **Stream Analytics-jobbet**.
-   
-    ![Knappen Ny](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image21.png)
-2. Ange ett jobbnamn, verifiera prenumerationen är korrekt och sedan skapa en ny resursgrupp i samma region som Event hub-lagring (standard är södra centrala USA för skriptet).
-3. Klicka på **fäst på instrumentpanelen** och sedan **skapa** längst ned på sidan.
-   
-    ![Skapa Stream Analytics-jobbet alternativ](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image22.png)
+6. Markera varje id att granska JSON-dokumentet. Lägg märke till varje tollid windowend tid och antalet bilar från fönstret.
 
-## <a name="define-input-sources"></a>Definiera indatakällor
-1. Jobbet skapar och öppnar sidan jobb. Eller klicka skapade analytics-jobbet på portalens instrumentpanel.
+7. Efter en ytterligare tre minuter en annan uppsättning fyra dokument är tillgänglig, ett dokument per tollid. 
 
-2. Klicka på den **indata** att definiera källdata.
-   
-    ![Fliken indata](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image24.png)
-3. Klicka på **lägga till indata**.
-   
-    ![Lägg till ett indata-alternativ](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image25.png)
-4. Ange **EntryStream** som **INMATADE ALIASET**.
-5. Datakällans typ är **dataström**
-6. Källan är **händelsehubb**.
-7. **Service bus-namnrymd** ska vara en TollData i nedrullningsbara ned.
-8. **Namnet på händelsehubben** ska anges till **post**.
-9. **Namnet på händelsehubben princip*är **RootManageSharedAccessKey** (standardvärdet).
-10. Välj **JSON** för **händelse SERIALISERINGSFORMAT** och **UTF8** för **KODNING**.
-   
-    Dina inställningar kommer att se ut:
-   
-    ![Händelsehubbsinställningar](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image28.png)
 
-10. Klicka på **skapa** längst ned på sidan om du vill avsluta guiden.
-    
-    Nu när du har skapat posten dataströmmen ska du följa samma steg för att skapa avsluta dataströmmen. Se till att ange värden som på följande skärmbild.
-    
-    ![Inställningar för dataströmmen avsluta](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image31.png)
-    
-    Du har definierat två inkommande dataströmmar:
-    
-    ![Definierade inkommande dataströmmar i Azure-portalen](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image32.png)
-    
-    Därefter ska du lägga till referensindata för blob-fil som innehåller bil registreringsdata.
-11. Klicka på **lägga till**, och följ samma process för dataströmmen indata men välj **REFERENSDATA** i stället för **dataströmmen** och **indata Alias** är **registrering**.
-
-12. Storage-konto som börjar med **tolldata**. Behållarens namn bör vara **tolldata**, och **SÖKVÄGAR** ska vara **registration.json**. Det här namnet är skiftlägeskänsligt och måste vara **gemener**.
-    
-    ![Inställningar för lagring av blogg](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image34.png)
-13. Klicka på **skapa** och slutföra guiden.
-
-Nu har alla indata definierats.
-
-## <a name="define-output"></a>Definiera målet
-1. Välj på översiktsfönstret Stream Analytics-jobbet **utdata**.
-   
-    ![Fliken utmatning och alternativet ”Lägg till utdata”](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image37.png)
-2. Klicka på **Lägg till**.
-3. Ange den **utdataalias** till ”utdata” och sedan **Sink** till **SQL-databas**.
-3. Välj namnet på servern som användes i avsnittet ”ansluta till databasen från Visual Studio” i artikeln. Databasnamnet är **TollDataDB**.
-4. Ange **tolladmin** i den **användarnamn** fältet **123toll!** i den **lösenord** fältet och **TollDataRefJoin** i den **tabell** fältet.
-   
-    ![Inställningar för SQL-databas](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.png)
-5. Klicka på **Skapa**.
-
-## <a name="azure-stream-analytics-query"></a>Azure Stream analytics-fråga
-Den **FRÅGAN** fliken innehåller en SQL-fråga som omvandlar inkommande data.
-
-![En fråga till fliken fråga](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image39.png)
-
-Den här självstudiekursen försöker besvara frågor från flera företag som är relaterade till avgiftsbelagt data och konstruktioner Stream Analytics-frågor som kan användas i Azure Stream Analytics för att tillhandahålla en relevant svar.
-
-Innan du börjar din första Stream Analytics-jobbet utforska vi några scenarier och frågesyntaxen.
-
-## <a name="introduction-to-azure-stream-analytics-query-language"></a>Introduktion till Azure Stream Analytics-frågespråket
-- - -
-Anta att du behöver räkna antalet fordon som anger en avgift monter. Eftersom detta är en ständig ström av händelser, måste du definiera en ”tidsperiod”. Nu ska vi ändra frågan så att ”hur många fordon anger en avgift monter alla tre minuter”?. Detta kallas ofta för antalet rullande.
-
-Nu ska vi titta på Azure Stream Analytics-fråga som svar på den här frågan:
-
-    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
-    FROM EntryStream TIMESTAMP BY EntryTime
-    GROUP BY TUMBLINGWINDOW(minute, 3), TollId
-
-Som du kan se använder Azure Stream Analytics ett frågespråk som som SQL och lägger till några tillägg om du vill ange tidsrelaterade aspekter av frågan.
-
-Mer information finns i avsnittet om [tidshantering](https://msdn.microsoft.com/library/azure/mt582045.aspx) och [fönsterhantering](https://msdn.microsoft.com/library/azure/dn835019.aspx) konstruktioner som används i frågan på MSDN.
-
-## <a name="testing-azure-stream-analytics-queries"></a>Testa Azure Stream Analytics-frågor
-Nu när du har skrivit ditt första Azure Stream Analytics-fråga, är det dags att testa med exempeldatafiler i mappen TollApp på följande sökväg:
-
-**..\\TollApp\\TollApp\\Data**
-
-Den här mappen innehåller följande filer:
-
-* Entry.json
-* Exit.json
-* Registration.json
-
-## <a name="question-1-number-of-vehicles-entering-a-toll-booth"></a>Fråga 1: Antal fordon att ange en avgift monter
-1. Öppna Azure-portalen och gå till skapade Azure Stream Analytics-jobbet. Klicka på den **FRÅGAN** fliken och klistra in frågan från föregående avsnitt.
-
-2. För att verifiera den här frågan mot exempeldata, ladda upp data till EntryStream indata genom att klicka på den ... symbol och välja **ladda upp exempeldata från filen**.
-
-    ![Skärmbild av filen Entry.json](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image41.png)
-3. I fönstret som visas markerar filen (Entry.json) på den lokala datorn och på **OK**. Den **Test** ikon kommer nu belysa och vara klickbara.
-   
-    ![Skärmbild av filen Entry.json](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image42.png)
-3. Kontrollera att resultatet av frågan är korrekt:
-   
-    ![Testresultaten](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image43.png)
-
-## <a name="question-2-report-total-time-for-each-car-to-pass-through-the-toll-booth"></a>Fråga 2: Rapporten total tid för varje bil att passera avgift monter
+## <a name="report-total-time-for-each-car"></a>Rapporten total tid för varje bil
 Den genomsnittliga tiden som krävs för en bil passerar avgift hjälper dig för att utvärdera effektiviteten för processen och customer experience.
 
-För att hitta den totala tiden måste du ansluta till EntryTime ström med ExitTime dataströmmen. Du kommer att ansluta till dataströmmar för TollId och LicencePlate kolumner. Den **ansluta** operator måste du ange temporal handtag som beskriver godkända tidsskillnaden mellan de kopplade händelserna. Du kommer att använda **DATEDIFF** funktion för att ange att händelser ska vara mer än 15 minuter från varandra. Du kan också använda den **DATEDIFF** funktion för att avsluta och posten gånger att beräkna den faktiska tid som en bil tillbringar i avgift stationen. Observera skillnaden mellan användningen av **DATEDIFF** när den används i en **Välj** instruktionen snarare än en **ansluta** villkor.
+Anslut EntryTime ström med ExitTime dataströmmen för att hitta den totala tiden. Anslut två inkommande strömmar på lika matchande TollId och LicencePlate kolumner. Den **ansluta** operator måste du ange temporal handtag som beskriver godkända tidsskillnaden mellan de kopplade händelserna. Använd den **DATEDIFF** funktion för att ange att händelser ska vara mer än 15 minuter från varandra. Gäller även de **DATEDIFF** funktion för att avsluta och posten gånger att beräkna den faktiska tid som en bil tillbringar i avgift stationen. Observera skillnaden mellan användningen av **DATEDIFF** när den används i en **Välj** instruktionen snarare än en **ansluta** villkor.
 
-    SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
-    FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN ExitStream TIMESTAMP BY ExitTime
-    ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
-    AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
-
-1. Testa den här frågan genom att uppdatera frågan på den **FRÅGAN** för jobbet. Lägga till testfil för **ExitStream** precis som **EntryStream** angavs ovan.
-   
-2. Klicka på **Test**.
-
-3. Markera kryssrutan för att testa frågan och visa utdata:
-   
-    ![Utdata för testet](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image45.png)
-
-## <a name="question-3-report-all-commercial-vehicles-with-expired-registration"></a>Fråga 3: Rapportera alla kommersiella fordon med utgångna registrering
-Azure Stream Analytics kan använda statiska ögonblicksbilder av data för att ansluta med temporala dataströmmar. Använd följande exempel fråga om du vill visa den här funktionen.
-
-Om en kommersiell vehicle registreras med avgift företaget, släpper den igenom avgift monter utan att ha stoppats för inspektion. Du använder kommersiellt fordon registrering uppslagstabell för att identifiera alla kommersiella fordon som har upphört att gälla registreringar.
-
+```sql
+SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute, EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
+INTO CosmosDB
+FROM EntryStream TIMESTAMP BY EntryTime
+JOIN ExitStream TIMESTAMP BY ExitTime
+ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
+AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 ```
+
+### <a name="to-update-the-tollapp-streaming-job-query-syntax"></a>Så här uppdaterar TollApp streaming job frågesyntaxen:
+
+1. På den **översikt** sidan för projektet, Välj **stoppa**.
+
+2. Vänta en stund för det meddelande som jobbet har stoppats.
+
+3. Under rubriken jobbet TOPOLOGI Välj **< > fråga**
+
+4. Klistra in justerade strömmande SQL-frågan.
+
+5. Välj **spara** att spara frågan. Bekräfta **Ja** spara ändringarna.
+
+6. På den **översikt** sidan för projektet, Välj **starta**.
+
+7. På den **startjobb** väljer **nu**.
+
+### <a name="review-the-total-time-in-the-output"></a>Granska den totala tiden i utdata
+Upprepa stegen i föregående avsnitt för att granska CosmosDB utdata från direktuppspelningsjobbet. Granska de senaste JSON-dokument. 
+
+Det här dokumentet visar till exempel ett exempel bil med en viss licens skylt, entrytime och avsluta tid och DATEDIFF beräknade durationinminutes fältet visar avgift monter varaktighet som två minuter: 
+```JSON
+{
+    "tollid": 4,
+    "entrytime": "2018-04-05T06:51:39.0491173Z",
+    "exittime": "2018-04-05T06:53:09.0491173Z",
+    "licenseplate": "JVR 9425",
+    "durationinminutes": 2,
+    "id": "ff52eb25-d580-7566-2879-1f52bba6601e",
+    "_rid": "+8E4AI1DZgBjAAAAAAAAAA==",
+    "_self": "dbs/+8E4AA==/colls/+8E4AI1DZgA=/docs/+8E4AI1DZgBjAAAAAAAAAA==/",
+    "_etag": "\"ad02f6b8-0000-0000-0000-5ac5c8330000\"",
+    "_attachments": "attachments/",
+    "_ts": 1522911283
+}
+```
+
+## <a name="report-vehicles-with-expired-registration"></a>Rapporten fordon med utgångna registrering
+Azure Stream Analytics kan använda statiska ögonblicksbilder av referensdata för att ansluta med temporala dataströmmar. Använd följande exempel fråga om du vill visa den här funktionen. Registrering-indata är en statisk blob json-fil som visar förfallodatum för licens-taggar. Genom att anslutas på licens skylt jämförs referensdata med varje fordon passerar avgift båda. 
+
+Om en kommersiell vehicle registreras med avgift företaget, släpper den igenom avgift monter utan att ha stoppats för inspektion. Använd uppslagstabellen registrering för att identifiera alla kommersiella fordon som har upphört att gälla registreringar.
+
+```sql
 SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId
+INTO CosmosDB
 FROM EntryStream TIMESTAMP BY EntryTime
 JOIN Registration
 ON EntryStream.LicensePlate = Registration.LicensePlate
 WHERE Registration.Expired = '1'
 ```
 
-Du måste definiera en källa för referensdata som du redan har gjort för att testa en fråga med hjälp av referensdata.
+1. Upprepa stegen i föregående avsnitt för att uppdatera TollApp streaming job frågesyntaxen.
 
-Testa den här frågan genom att klistra in frågan i den **FRÅGAN** klickar du på **testa**, och ange två indatakällor registreringen exempeldata och klicka på **testa**.  
-   
-![Utdata för testet](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image46.png)
+2. Upprepa stegen i föregående avsnitt för att granska CosmosDB utdata från direktuppspelningsjobbet. 
 
-## <a name="start-the-stream-analytics-job"></a>Starta Stream Analytics-jobbet
-Nu är det dags att slutföra konfigurationen och starta jobbet. Spara frågan från fråga 3, som resultat som matchar schemat för den **TollDataRefJoin** utdatatabellen.
+Exempel på utdata:
+```json
+    {
+        "entrytime": "2018-04-05T08:01:28.0252168Z",
+        "licenseplate": "GMT 3221",
+        "tollid": 1,
+        "registrationid": "763220582",
+        "id": "47db0535-9716-4eb2-db58-de7886966cbf",
+        "_rid": "y+F8AJ9QWACSAQAAAAAAAA==",
+        "_self": "dbs/y+F8AA==/colls/y+F8AJ9QWAA=/docs/y+F8AJ9QWACSAQAAAAAAAA==/",
+        "_etag": "\"88007d8d-0000-0000-0000-5ac5d7e20000\"",
+        "_attachments": "attachments/",
+        "_ts": 1522915298
+    }
+```
 
-Gå till jobbet **INSTRUMENTPANELEN**, och klicka på **starta**.
-
-![Skärmbild av knappen Start på jobb-instrumentpanel](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image48.png)
-
-I dialogrutan som öppnas, ändra den **starta utdata** dags att **anpassad tid**. Ändra timme till en timme före aktuell tid. Den här ändringen gör att alla händelser från event hub bearbetas eftersom du startade att generera händelser i början av kursen. Klicka på den **starta** för att starta jobbet.
-
-![Val av anpassade tid](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image49.png)
-
-Startar jobbet kan ta några minuter. Du kan se status på sidan på den översta nivån för Stream Analytics.
-
-![Skärmbild av status för jobbet](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image50.png)
-
-## <a name="check-results-in-visual-studio"></a>Kontrollera resultaten i Visual Studio
-1. Öppna Visual Studio Server Explorer och högerklicka på den **TollDataRefJoin** tabell.
-2. Klicka på **visa tabelldata** att se resultatet av ditt jobb.
-   
-    ![Val av ”Visa Data för tabell” i Server Explorer](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image51.jpg)
-
-## <a name="scale-out-azure-stream-analytics-jobs"></a>Skala ut Azure Stream Analytics-jobb
+## <a name="scale-out-the-job"></a>Skala ut jobbet
 Azure Stream Analytics utformats Elastiskt skala så att den kan hantera stora mängder data. Azure Stream Analytics-fråga kan använda en **PARTITION BY** -sats som anger att det här steget ska skalas ut. **PartitionId** är en särskild kolumn som läggs för att matcha partitions-ID för inmatningen (händelsehubb).
 
-    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
-    FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId
-    GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
+Om du vill skala upp frågan till partitioner, redigerar du frågesyntaxen till följande kod:
+```sql
+SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
+INTO CosmosDB
+FROM EntryStream 
+TIMESTAMP BY EntryTime 
+PARTITION BY PartitionId
+GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
+```
 
-1. Stoppa det aktuella jobbet och uppdatera frågan i den **FRÅGAN** och öppna den **inställningar** redskap i instrumentpanelen för jobbet. Klicka på **skala**.
+Att skala upp direktuppspelningsjobbet till fler strömmande enheter:
+
+1. **Stoppa** det aktuella jobbet. 
+
+2. Uppdatera frågesyntaxen i den **< > frågan** sidan och spara ändringarna.
+
+3. Under rubriken konfigurera på direktuppspelningsjobbet Välj **skala**.
    
-    **STREAMING enheter** anger hur mycket datorkraft som jobbet kan ta emot.
-2. Ändra nedrullningsbara från 1 från 6.
-   
-    ![Skärmbild av du väljer 6 enheter för strömning](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image52.png)
-3. Gå till den **utdata** fliken och ändra namnet på SQL-tabellen till **TollDataTumblingCountPartitioned**.
+4. Dra den **Strömningsenheter** skjutreglaget från 1 till 6. Enheter för strömning anger hur mycket datorkraft som jobbet kan ta emot. Välj **Spara**.
 
-Om du startar jobbet nu kan Azure Stream Analytics distribuera arbete i fler beräkningsresurser och få bättre genomströmning. Observera att programmet TollApp även skickar händelser som har partitionerats med TollId.
+5. **Starta** direktuppspelningsjobbet att visa ytterligare skalan. Azure Stream Analytics fördelar arbete över fler beräkningsresurser och få bättre genomströmning partitionering arbetet över resurser i kolumnen som anges i PARTITION BY-satsen. 
 
-## <a name="monitor"></a>Övervaka
-Den **ÖVERVAKAREN** innehåller statistik om jobb som körs. Första gången konfiguration krävs för att använda lagring konto i samma region (namnet avgift som resten av det här dokumentet).   
+## <a name="monitor-the-job"></a>Övervaka jobbet
+Den **ÖVERVAKAREN** innehåller statistik om jobb som körs. Första gången konfiguration krävs för att använda lagringskontot i samma region (namnet avgift som resten av det här dokumentet).   
 
 ![Skärmbild av Övervakare](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
 
 Du kan komma åt **aktivitetsloggar** från instrumentpanelen jobbet **inställningar** samt område.
 
+## <a name="clean-up-the-tollapp-resources"></a>Rensa TollApp resurser
+1. Stoppa Stream Analytics-jobbet i Azure-portalen.
+
+2. Leta upp resursgruppen som innehåller åtta resurser som rör TollApp mallen.
+
+3. Välj **Ta bort resursgrupp**. Skriv namnet på resursgruppen att bekräfta borttagningen.
 
 ## <a name="conclusion"></a>Sammanfattning
-Den här självstudiekursen introducerade du till Azure Stream Analytics-tjänsten. Det visas hur du konfigurerar indata och utdata för Stream Analytics-jobbet. Med avgift Data scenariot beskrivs kursen vanliga problem som uppstår i utrymmet för data i rörelse och hur de kan lösas med den enkla SQL-liknande frågor i Azure Stream Analytics. Kursen beskrivs SQL tillägget konstruktioner för att arbeta med temporala data. Den visade hur du kopplar dataströmmar, så att utöka dataströmmen med statiska referensdata och hur du skala ut en fråga för att uppnå högre genomströmning.
+Den här lösningen introducerade du till Azure Stream Analytics-tjänsten. Det visas hur du konfigurerar indata och utdata för Stream Analytics-jobbet. Lösningen beskrivs använder avgift Data scenariot vanliga problem som uppstår i utrymmet för data i rörelse och hur de kan lösas med den enkla SQL-liknande frågor i Azure Stream Analytics. Lösningen beskrivs SQL tillägget konstruktioner för att arbeta med temporala data. Den visade hur du kopplar dataströmmar, så att utöka dataströmmen med statiska referensdata och hur du skala ut en fråga för att uppnå högre genomströmning.
 
-Även om den här kursen ger en bra introduktion, är det inte fullständig på något sätt. Du kan hitta mer frågemönster med SAQL språket på [fråga exempel för vanliga Stream Analytics användningsmönster](stream-analytics-stream-analytics-query-patterns.md).
-Referera till den [onlinedokumentation](https://azure.microsoft.com/documentation/services/stream-analytics/) lära dig mer om Azure Stream Analytics.
-
-## <a name="clean-up-your-azure-account"></a>Rensa ditt Azure-konto
-1. Stoppa Stream Analytics-jobbet i Azure-portalen.
-   
-    Skriptet Setup.ps1 skapar två händelsehubbar och en SQL-databas. Följande anvisningar hjälper dig att ta bort resurser i slutet av kursen.
-2. Ange i ett PowerShell-fönster **.\\ CleanUp.ps1** att starta det skript som tar bort resurser som används i självstudiekursen.
-   
-   > [!NOTE]
-   > Resurser som identifieras av namnet. Kontrollera att varje objekt granska noggrant innan du bekräftar borttagningen.
-   > 
-   > 
-
-
+Den här lösningen ger en bra introduktion, är det inte fullständig på något sätt. Du kan hitta mer frågemönster med SAQL språket på [fråga exempel för vanliga Stream Analytics användningsmönster](stream-analytics-stream-analytics-query-patterns.md).

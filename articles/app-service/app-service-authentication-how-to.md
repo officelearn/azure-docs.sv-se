@@ -13,18 +13,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: b7c641cebad5a3157808938040ea9309d2868896
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 10decbd5291e2054e373bfef266b64eae36ea1cf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Anpassa autentisering och auktorisering i Azure App Service
 
-Den här artikeln visar hur du anpassar autentisering och auktorisering i Apptjänst och för att hantera identitet från ditt program. 
+Den här artikeln visar hur du anpassar [autentisering och auktorisering i Apptjänst](app-service-authentication-overview.md), och för att hantera identitet från ditt program. 
 
 Om du vill komma igång snabbt, finns i något av följande kurser:
 
+* [Självstudier: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service](app-service-web-tutorial-auth-aad.md)
 * [Så här konfigurerar du din app för att använda Azure Active Directory-inloggning](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Så här konfigurerar du din app för att använda Facebook-inloggning](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Så här konfigurerar du din app för att använda Google-inloggning](app-service-mobile-how-to-configure-google-authentication.md)
@@ -144,3 +145,7 @@ Klicka på **redigera**ändra följande egenskaper och klicka sedan på **placer
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
 ```
+## <a name="next-steps"></a>Nästa steg
+
+> [!div class="nextstepaction"]
+> [Självstudier: Autentisera och auktorisera användare slutpunkt till slutpunkt](app-service-web-tutorial-auth-aad.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9d5e189720a92ca17289d0c9717e9e10bf8691d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: 6e81f2cdd0cd3f62d93c85c1a073e0b9df542ec7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -43,10 +43,10 @@ Mer information om de olika funktioner som stöds av [Network Performance Monito
  
 ## <a name="supported-regions"></a>Regioner som stöds
 NPM Kontrollera anslutningen mellan nätverk och program i alla delar av världen, från en arbetsyta som finns i något av följande områden:
-* Europa, västra
+* Västra Europa
 * Västra centrala USA
-* USA, östra
-* Asien, sydöstra
+* Östra USA
+* Sydostasien
 * Syd Östra Australien
 * Syd Storbritannien
 * Amerikanska myndigheter Virginia
@@ -167,7 +167,7 @@ Om du vill samla in information för förluster eller fördröjningar, använder
 
 I följande tabell visar metoder för insamling av data och annan information om hur data samlas in för Network Performance Monitor.
 
-| Plattform | Styr agent | System Center Operations Manager-agenten | Azure-lagring | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Insamlingsfrekvens |
+| Plattform | Styr agent | System Center Operations Manager-agenten | Azure Storage | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Insamlingsfrekvens |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows | &#8226; | &#8226; |  |  |  |TCP-handskakningar på/ICMP ECHO-meddelanden var femte sekund data skickas var 3: e minut |
  
@@ -254,7 +254,7 @@ Alla data som är exponerade grafiskt via Network Performance Monitor-instrument
 
 Information om priser finns [online](log-analytics-network-performance-monitor-pricing-faq.md).
 
-## <a name="provide-feedback"></a>Skicka feedback 
+## <a name="provide-feedback"></a>Ge feedback 
 
 * **UserVoice:** du kan publicera dina idéer för Network Performance Monitor-funktioner som du vill att vi ska arbeta med. Besök den [UserVoice sidan](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 

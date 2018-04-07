@@ -1,6 +1,6 @@
 ---
 title: Skydda en API med OAuth 2.0 med Azure Active Directory och API-hantering | Microsoft Docs
-description: Lär dig hur du skyddar en webb-API-serverdel med Azure Active Directory och API-hantering.
+description: Lär dig hur du skyddar en web API-serverdel med Azure Active Directory och API-hantering.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -13,177 +13,171 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 2c05407d761a8848f9e032aa219960cd7ea6fa93
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f5662a4082487137dfd642cc3264a90f8ab19054
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="how-to-protect-an-api-using-oauth-20-with-azure-active-directory-and-api-management"></a>Hur du skyddar ett API med OAuth 2.0 med Azure Active Directory och API-hantering
+# <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Skydda en API med OAuth 2.0 med Azure Active Directory och API-hantering
 
-Den här guiden visar hur du konfigurerar din API Management (APIM)-instans för att skydda en API med OAuth 2.0-protokollet med Azure Active Directory (AAD). 
+Den här guiden visar hur du konfigurerar din Azure API Management-instans för att skydda en API med OAuth 2.0-protokollet med Azure Active Directory (AD Azure). 
 
-## <a name="prerequisite"></a>Förutsättning
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill följa stegen i den här artikeln, måste du ha:
-* En APIM-instans
-* En API som publiceras med APIM-instansen
+* En instans för API Management
+* En API som publiceras som använder API Management-instans
 * En Azure AD-klient
 
 ## <a name="overview"></a>Översikt
 
-Den här guiden visar hur du skyddar ett API med OAuth 2.0 i APIM. I den här artikeln används Azure AD som auktorisering Server (OAuth-Server). Nedan finns en snabb överblick över stegen:
+Här är en snabb överblick över stegen:
 
-1. Registrera ett program (backend-app) i Azure AD för att representera API: et
-2. Registrera ett annat program (klientappen) i Azure AD för att representera ett klientprogram som måste anropa API: et
-3. Bevilja behörigheter för att tillåta klientappen att anropa backend-app i Azure AD
-4. Konfigurera Developer-konsolen för att använda OAuth 2.0 användarautentiseringen
-5. Lägg till princip för att verifiera jwt för att validera OAuth-token för varje inkommande begäran
+1. Registrera ett program (backend-app) i Azure AD för att representera API: et.
+2. Registrera ett annat program (klientappen) i Azure AD för att representera ett klientprogram som måste anropa API: et.
+3. Bevilja behörigheter för att tillåta klientappen att anropa backend-app i Azure AD.
+4. Konfigurera Developer-konsolen för att använda OAuth 2.0 användarautentiseringen.
+5. Lägg till den **Validera jwt** princip för att validera OAuth-token för varje inkommande begäran.
 
 ## <a name="register-an-application-in-azure-ad-to-represent-the-api"></a>Registrera ett program i Azure AD för att representera API: et
 
 Det första steget är att registrera ett program i Azure AD som representerar API: et för att skydda en API med Azure AD. 
 
-Navigera till din Azure AD-klient och navigera till **App registreringar**.
+1. Bläddra till Azure AD-klienten och bläddra sedan till **App registreringar**.
 
-Välj **nya appregistrering**. 
+2. Välj **Ny programregistrering**. 
 
-Ange ett namn för programmet. I det här exemplet `backend-app` används.  
+3. Ange ett namn för programmet. (Det här exemplet är namn `backend-app`.)  
 
-Välj **webbapp / API** som den **programtyp**. 
+4. Välj **webbapp / API** som den **programtyp**. 
 
-För **inloggnings-URL**, kan du använda `https://localhost` som platshållare.
+5. För **inloggnings-URL**, kan du använda `https://localhost` som platshållare.
 
-Klicka på **skapa**.
+6. Välj **Skapa**.
 
-När programmet har skapats, notera den **program-ID** för användning i ett senare skede. 
+När programmet har skapats, notera den **program-ID**, för användning i ett senare skede. 
 
 ## <a name="register-another-application-in-azure-ad-to-represent-a-client-application"></a>Registrera ett annat program i Azure AD för att representera ett klientprogram
 
-Alla klientprogram som behöver anropa API: N måste vara registrerad som ett program i Azure AD. I den här guiden använder vi Developer-konsolen i APIM Developer-portalen som klienten exempelprogrammet. 
+Alla klientprogram som anropar API: N måste vara registrerad som ett program i Azure AD. I det här exemplet är klienten exempelprogrammet Developer-konsolen i API Management developer-portalen. Här är att registrera ett annat program i Azure AD för att representera Developer-konsolen.
 
-Vi behöver registrera ett annat program i Azure AD för att representera Developer-konsolen.
+1. Välj **Ny programregistrering**. 
 
-Klicka på **nya appregistrering** igen. 
+2. Ange ett namn för programmet. (Det här exemplet är namn `client-app`.)
 
-Ange ett namn för programmet och välj **webbapp / API** som den **programtyp**. I det här exemplet `client-app` används.  
+3. Välj **webbapp / API** som den **programtyp**.  
 
-För **inloggnings-URL**, kan du använda `https://localhost` som en platshållare eller använda inloggning URL-Adressen för din APIM-instans. I det här exemplet `https://contoso5.portal.azure-api.net/signin` används.
+4. För **inloggnings-URL**, kan du använda `https://localhost` som platshållare eller Använd logga in URL: en för API Management-instans. (Det här exemplet är URL: en `https://contoso5.portal.azure-api.net/signin`.)
 
-Klicka på **skapa**.
+5. Välj **Skapa**.
 
-När programmet har skapats, notera den **program-ID** för användning i ett senare skede. 
+När programmet har skapats, notera den **program-ID**, för användning i ett senare skede. 
 
-Nu ska vi skapa en klienthemlighet för det här programmet för användning i ett senare steg.
+Nu ska du skapa en klienthemlighet för det här programmet för användning i ett senare skede.
 
-Klicka på **inställningar** igen och gå till **nycklar**.
+1. Välj **inställningar** igen och gå till **nycklar**.
 
-Under **lösenord**, ange en **nyckeln beskrivning**, Välj när nyckeln ska upphöra att gälla och klicka på **spara**.
+2. Under **lösenord**, ange en **nyckeln beskrivning**. Välj när nyckeln ska upphöra att gälla, och välj **spara**.
 
 Anteckna värdet för nyckeln. 
 
-## <a name="grant-permissions-in-aad"></a>Bevilja behörighet i AAD
+## <a name="grant-permissions-in-azure-ad"></a>Bevilja behörighet i Azure AD
 
-Vi har nu registrerats två program för att representera API (backend-app) och Developer-konsolen (klient-app), måste vi du bevilja behörigheter för att tillåta klientappen att anropa backend-app.  
+Nu när du har registrerat två program för att representera API: et och Developer-konsolen, måste du bevilja behörigheter för att tillåta klientappen att anropa backend-app.  
 
-Gå till **programmet registreringar** igen. 
+1. Bläddra till **programmet registreringar**. 
 
-Klicka på `client-app` och gå till **inställningar**.
+2. Välj `client-app`, och gå till **inställningar**.
 
-Klicka på **nödvändiga behörigheter** och sedan **Lägg till**.
+3. Välj **nödvändiga behörigheter** > **Lägg till**.
 
-Klicka på **väljer en API** och Sök efter `backend-app`.
+4. Välj **väljer en API**, och Sök efter `backend-app`.
 
-Kontrollera `Access backend-app` under **delegerad behörighet**. 
+5. Under **delegerade behörigheter**väljer `Access backend-app`. 
 
-Klicka på **Välj** och sedan **klar**. 
+6. Välj **Välj**, och välj sedan **klar**. 
 
 > [!NOTE]
-> Om **Windows** **Azure Active Directory** är inte i listan under behörigheter för andra program, klickar du på **Lägg till** och lägga till den i listan.
+> Om **Azure Active Directory** visas under behörigheter för andra program, Välj **Lägg till** att lägga till den i listan.
 > 
 > 
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>Aktivera OAuth 2.0 användarautentiseringen i Developer-konsolen
 
-Nu vi har skapat våra program i Azure AD och har korrekt behörighet att tillåta klientappen att anropa backend-app. 
+Nu är du har skapat dina program i Azure AD och har korrekt behörighet att tillåta klientappen att anropa backend-app. 
 
-I den här guiden använder vi Developer-konsolen som klienten-app. Nedanstående steg Beskriv hur du aktiverar OAuth 2.0-användarautentiseringen i Utvecklarkonsolen 
+I det här exemplet är Developer Console klient-app. Följande steg beskriver hur du aktiverar OAuth 2.0 användarautentiseringen i Utvecklarkonsolen. 
 
-Gå till din APIM-instans.
+1. Bläddra till din API Management-instans.
 
-Klicka på **OAuth 2.0** och sedan **lägga till**.
+2. Välj **OAuth 2.0** > **lägga till**.
 
-Ange en **visningsnamn** och **beskrivning**.
+3. Ange en **visningsnamn** och **beskrivning**.
 
-Sidan-URL för klientregistrering ** ange ett platshållarvärde som `http://localhost`.  Den **klienten URL för registrering** pekar på den sida som användare kan använda för att skapa och konfigurera sina egna konton för OAuth 2.0-leverantörer som stöder Användarhantering av konton. I det här exemplet användare inte skapa och konfigurera sina egna konton, så att en platshållare används.
+4. För den **klienten URL för registrering**, ange en platshållarvärde som `http://localhost`. Den **klienten URL för registrering** pekar på den sida som användarna kan använda för att skapa och konfigurera sina egna konton för OAuth 2.0-providers som stöder den här. I det här exemplet användare inte skapa och konfigurera sina egna konton, så att du använder en platshållare i stället.
 
-Kontrollera **Auktoriseringskoden** som den **auktorisering bevilja typer**.
+5. För **auktorisering bevilja typer**väljer **Auktoriseringskoden**.
 
-Ange sedan **slutpunkts-URL-auktorisering** och **Token slutpunkts-URL**.
+6. Ange den **slutpunkts-URL-auktorisering** och **Token slutpunkts-URL**. Hämtar värdena från den **slutpunkter** sida i Azure AD-klienten. Bläddra till den **App registreringar** igen och väljer **slutpunkter**.
 
-Dessa värden kan hämtas från den **slutpunkter** sida i Azure AD-klienten. Om du vill komma åt slutpunkterna, navigera till den **App registreringar** sidan igen och klicka på **slutpunkter**.
+7. Kopiera den **OAuth 2.0-Autentiseringsslutpunkt**, och klistrar in det i den **slutpunkts-URL-auktorisering** textruta.
 
-Kopiera den **OAuth 2.0-Autentiseringsslutpunkt** och klistrar in det i den **slutpunkts-URL-auktorisering** textruta.
+8. Kopiera den **OAuth 2.0-Token för slutpunkt**, och klistrar in det i den **Token slutpunkts-URL** textruta. Förutom klistra in tokenslutpunkten, lägga till en brödtext parameter med namnet **resurs**. Värdet på parametern använder den **program-ID** för backend-app.
 
-Kopiera den **OAuth 2.0-Token för slutpunkt** och klistrar in det i den **Token slutpunkts-URL** textruta.
+9. Därefter anger du klientautentiseringsuppgifterna. Det är dessa autentiseringsuppgifter för klient-app.
 
-Förutom klistra in tokenslutpunkten, lägga till en ytterligare brödtext parameter med namnet **resurs** och använda värdet i **program-ID** för backend-app.
+10. För **klient-ID**, använda den **program-ID** för klient-app.
 
-Därefter anger du klientautentiseringsuppgifterna. Det är dessa autentiseringsuppgifter för klient-app.
+11. För **klienthemlighet**, med den nyckel som du skapade tidigare för klient-app. 
 
-För **klient-Id**, använda den **program-ID** för klient-app.
+12. Omedelbart efter klienthemligheten är den **redirect_url** kod bevilja typ för tillståndet. Anteckna denna URL.
 
-För **klienthemlighet**, med den nyckel som du skapade tidigare för klient-app. 
+13. Välj **Skapa**.
 
-Omedelbart efter klienthemligheten är den **redirect_url** kod bevilja typ för tillståndet.
+14. Gå tillbaka till den **inställningar** sidan i din klientapp.
 
-Anteckna denna URL.
+15. Välj **Reply URL: er**, och klistra in den **redirect_url** på den första raden. I det här exemplet ersätts `https://localhost` med URL-Adressen på den första raden.  
 
-Klicka på **skapa**.
+Nu när du har konfigurerat en server för OAuth 2.0-auktorisering, kan Developer-konsolen hämta åtkomsttoken från Azure AD. 
 
-Gå tillbaka till den **inställningar** sidan i din klientapp.
+Nästa steg är att aktivera användarautentiseringen för OAuth 2.0 för din API. Detta gör att Utvecklarkonsolen om du vill veta att de måste få en åtkomsttoken på uppdrag av användaren innan anrop till ditt API.
 
-Klicka på **Reply URL: er** och klistra in den **redirect_url** på den första raden. I det här exemplet ersätts vi `https://localhost` med URL-Adressen på den första raden.  
+1. Bläddra till din API Management-instans och gå till **API: er**.
 
-Nu vi har konfigurerat en OAuth 2.0-auktorisering Server ska Developer-konsolen kunna hämta åtkomsttoken från Azure AD. 
+2. Välj API som du vill skydda. I det här exemplet använder du den `Echo API`.
 
-Nästa steg är att aktivera användarautentiseringen för OAuth 2.0 för vårt API, så att den Utvecklarkonsolen vet det måste få en åtkomsttoken för användarens räkning innan anrop till vårt API.
+3. Gå till **inställningar**.
 
-Navigera till din APIM-instans, gå till **API: er**.
+4. Under **säkerhet**, Välj **OAuth 2.0**, och välj den OAuth 2.0-server som du tidigare har konfigurerat. 
 
-Klicka på det API som du vill skydda. I det här exemplet ska vi använda den `Echo API`.
-
-Gå till **inställningar**.
-
-Under **säkerhet**, Välj **OAuth 2.0** och välja en OAuth 2.0-server som vi har konfigurerat tidigare. 
-
-Klicka på **Spara**.
+5. Välj **Spara**.
 
 ## <a name="successfully-call-the-api-from-the-developer-portal"></a>Anropa API: et från developer-portalen
 
-Nu när användarautentiseringen OAuth 2.0 är aktiverat på den `Echo API`, Developer-konsolen ska få en åtkomsttoken för användarens räkning innan du anropar API: et.
+Nu när användarautentiseringen OAuth 2.0 är aktiverat på den `Echo API`, Developer-konsolen hämtar en åtkomst-token för användarens räkning, innan du anropar API: et.
 
-Navigera till alla åtgärder under den `Echo API` i Developer-portalen och klicka på **prova**, som kommer att få oss till Developer-konsolen.
+1. Bläddra till alla åtgärder under den `Echo API` i developer portal och välj **prova**. Detta ger dig till Developer-konsolen.
 
-Lägg märke till ett nytt objekt i den **auktorisering** avsnittet motsvarar auktoriserings-server som du just lagt till.
+2. Lägg märke till ett nytt objekt i den **auktorisering** avsnittet motsvarar auktoriserings-server som du just lagt till.
 
-Välj **Auktoriseringskoden** från tillståndet nedrullningsbara listan och du uppmanas att logga in på Azure AD-klient. Om du redan har loggat in med kontot, kan du inte ombedd.
+3. Välj **Auktoriseringskoden** från tillståndet listrutan, och du uppmanas att logga in på Azure AD-klient. Om du har redan loggat in med kontot, kan du inte ombedd.
 
-Efter lyckad inloggning, en `Authorization` sidhuvud ska läggas till på begäran med en åtkomst-token från Azure AD. 
+4. Efter lyckad inloggning, en `Authorization` huvudet har lagts till på begäran med en åtkomst-token från Azure AD. Följande är ett exempel token (Base64-kodade):
 
-En exempel-token ser ut som nedan, det är Base64-kodad.
+   ```
+   Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlNTUWRoSTFjS3ZoUUVEU0p4RTJnR1lzNDBRMCIsImtpZCI6IlNTUWRoSTFjS3ZoUUVEU0p4RTJnR1lzNDBRMCJ9.eyJhdWQiOiIxYzg2ZWVmNC1jMjZkLTRiNGUtODEzNy0wYjBiZTEyM2NhMGMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC80NDc4ODkyMC05Yjk3LTRmOGItODIwYS0yMTFiMTMzZDk1MzgvIiwiaWF0IjoxNTIxMTUyNjMzLCJuYmYiOjE1MjExNTI2MzMsImV4cCI6MTUyMTE1NjUzMywiYWNyIjoiMSIsImFpbyI6IkFWUUFxLzhHQUFBQUptVzkzTFd6dVArcGF4ZzJPeGE1cGp2V1NXV1ZSVnd1ZXZ5QU5yMlNkc0tkQmFWNnNjcHZsbUpmT1dDOThscUJJMDhXdlB6cDdlenpJdzJLai9MdWdXWWdydHhkM1lmaDlYSGpXeFVaWk9JPSIsImFtciI6WyJyc2EiXSwiYXBwaWQiOiJhYTY5ODM1OC0yMWEzLTRhYTQtYjI3OC1mMzI2NTMzMDUzZTkiLCJhcHBpZGFjciI6IjEiLCJlbWFpbCI6Im1pamlhbmdAbWljcm9zb2Z0LmNvbSIsImZhbWlseV9uYW1lIjoiSmlhbmciLCJnaXZlbl9uYW1lIjoiTWlhbyIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0Ny8iLCJpcGFkZHIiOiIxMzEuMTA3LjE3NC4xNDAiLCJuYW1lIjoiTWlhbyBKaWFuZyIsIm9pZCI6IjhiMTU4ZDEwLWVmZGItNDUxMS1iOTQzLTczOWZkYjMxNzAyZSIsInNjcCI6InVzZXJfaW1wZXJzb25hdGlvbiIsInN1YiI6IkFGaWtvWFk1TEV1LTNkbk1pa3Z3MUJzQUx4SGIybV9IaVJjaHVfSEM1aGciLCJ0aWQiOiI0NDc4ODkyMC05Yjk3LTRmOGItODIwYS0yMTFiMTMzZDk1MzgiLCJ1bmlxdWVfbmFtZSI6Im1pamlhbmdAbWljcm9zb2Z0LmNvbSIsInV0aSI6ImFQaTJxOVZ6ODBXdHNsYjRBMzBCQUEiLCJ2ZXIiOiIxLjAifQ.agGfaegYRnGj6DM_-N_eYulnQdXHhrsus45QDuApirETDR2P2aMRxRioOCR2YVwn8pmpQ1LoAhddcYMWisrw_qhaQr0AYsDPWRtJ6x0hDk5teUgbix3gazb7F-TVcC1gXpc9y7j77Ujxcq9z0r5lF65Y9bpNSefn9Te6GZYG7BgKEixqC4W6LqjtcjuOuW-ouy6LSSox71Fj4Ni3zkGfxX1T_jiOvQTd6BBltSrShDm0bTMefoyX8oqfMEA2ziKjwvBFrOjO0uK4rJLgLYH4qvkR0bdF9etdstqKMo5gecarWHNzWi_tghQu9aE3Z3EZdYNI_ZGM-Bbe3pkCfvEOyA
+   ```
 
-```
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlNTUWRoSTFjS3ZoUUVEU0p4RTJnR1lzNDBRMCIsImtpZCI6IlNTUWRoSTFjS3ZoUUVEU0p4RTJnR1lzNDBRMCJ9.eyJhdWQiOiIxYzg2ZWVmNC1jMjZkLTRiNGUtODEzNy0wYjBiZTEyM2NhMGMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC80NDc4ODkyMC05Yjk3LTRmOGItODIwYS0yMTFiMTMzZDk1MzgvIiwiaWF0IjoxNTIxMTUyNjMzLCJuYmYiOjE1MjExNTI2MzMsImV4cCI6MTUyMTE1NjUzMywiYWNyIjoiMSIsImFpbyI6IkFWUUFxLzhHQUFBQUptVzkzTFd6dVArcGF4ZzJPeGE1cGp2V1NXV1ZSVnd1ZXZ5QU5yMlNkc0tkQmFWNnNjcHZsbUpmT1dDOThscUJJMDhXdlB6cDdlenpJdzJLai9MdWdXWWdydHhkM1lmaDlYSGpXeFVaWk9JPSIsImFtciI6WyJyc2EiXSwiYXBwaWQiOiJhYTY5ODM1OC0yMWEzLTRhYTQtYjI3OC1mMzI2NTMzMDUzZTkiLCJhcHBpZGFjciI6IjEiLCJlbWFpbCI6Im1pamlhbmdAbWljcm9zb2Z0LmNvbSIsImZhbWlseV9uYW1lIjoiSmlhbmciLCJnaXZlbl9uYW1lIjoiTWlhbyIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0Ny8iLCJpcGFkZHIiOiIxMzEuMTA3LjE3NC4xNDAiLCJuYW1lIjoiTWlhbyBKaWFuZyIsIm9pZCI6IjhiMTU4ZDEwLWVmZGItNDUxMS1iOTQzLTczOWZkYjMxNzAyZSIsInNjcCI6InVzZXJfaW1wZXJzb25hdGlvbiIsInN1YiI6IkFGaWtvWFk1TEV1LTNkbk1pa3Z3MUJzQUx4SGIybV9IaVJjaHVfSEM1aGciLCJ0aWQiOiI0NDc4ODkyMC05Yjk3LTRmOGItODIwYS0yMTFiMTMzZDk1MzgiLCJ1bmlxdWVfbmFtZSI6Im1pamlhbmdAbWljcm9zb2Z0LmNvbSIsInV0aSI6ImFQaTJxOVZ6ODBXdHNsYjRBMzBCQUEiLCJ2ZXIiOiIxLjAifQ.agGfaegYRnGj6DM_-N_eYulnQdXHhrsus45QDuApirETDR2P2aMRxRioOCR2YVwn8pmpQ1LoAhddcYMWisrw_qhaQr0AYsDPWRtJ6x0hDk5teUgbix3gazb7F-TVcC1gXpc9y7j77Ujxcq9z0r5lF65Y9bpNSefn9Te6GZYG7BgKEixqC4W6LqjtcjuOuW-ouy6LSSox71Fj4Ni3zkGfxX1T_jiOvQTd6BBltSrShDm0bTMefoyX8oqfMEA2ziKjwvBFrOjO0uK4rJLgLYH4qvkR0bdF9etdstqKMo5gecarWHNzWi_tghQu9aE3Z3EZdYNI_ZGM-Bbe3pkCfvEOyA
-```
-
-Klicka på **skicka** och du ska kunna anropa API: N har.
+5. Välj **skicka**, och du kan anropa API: N har.
 
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Konfigurera en princip för verifiering av JWT för att godkänna begäranden före
 
-Nu när en användare försöker att ringa ett samtal från Developer-konsolen, användaren uppmanas att logga in och Developer-konsolen ska få en åtkomst-Token för användarens räkning. Allt fungerar som förväntat. Men vad händer om någon ringer vårt API utan en token eller med en ogiltig token? Exempelvis kan du ta bort den `Authorization` sidhuvud och hittar du kan fortfarande att anropa API: et. Det beror på eftersom APIM inte validerar åtkomst-Token i det här läget. Helt enkelt passerar den `Auhtorization` sidhuvud till API-serverdelen.
+Nu uppmanas användaren att logga in när en användare försöker ringa ett samtal från Developer-konsolen. Developer-konsolen hämtar en åtkomst-token för användarens räkning.
 
-Vi kan använda den [Validera JWT](api-management-access-restriction-policies.md#ValidateJWT) princip för att godkänna begäranden i APIM före genom att verifiera åtkomsttoken för varje inkommande begäran. Om en begäran inte har en giltig token, blockeras av API-hantering och skickas inte vidare till serverdelen. Vi kan till exempel lägga till den nedan för att den `<inbound>` principavdelningen i det `Echo API`. Den kontrollerar målgruppen anspråk i en åtkomst-token och returnerar ett felmeddelande om token inte är giltig. Mer information om hur du konfigurerar principer finns [ange eller redigera principer](set-edit-policies.md).
+Men vad händer om någon ringer ditt API utan en token eller med en ogiltig token? Exempelvis kan du fortfarande anropa API: et även om du tar bort den `Authorization` rubrik. Anledningen är att API-hantering inte kan valideras åtkomsttoken nu. Helt enkelt passerar den `Authorization` sidhuvud till backend-API: et.
+
+Du kan använda den [Validera JWT](api-management-access-restriction-policies.md#ValidateJWT) princip för att godkänna begäranden i API Management före genom att verifiera åtkomsttoken för varje inkommande begäran. Om en begäran inte har en giltig token blockerar den API-hantering. Exempelvis kan du lägga till följande principen så att den `<inbound>` principavsnitt i den `Echo API`. Den kontrollerar målgruppen anspråk i en åtkomst-token och returnerar ett felmeddelande om token inte är giltig. Mer information om hur du konfigurerar principer finns [ange eller redigera principer](set-edit-policies.md).
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -198,12 +192,13 @@ Vi kan använda den [Validera JWT](api-management-access-restriction-policies.md
 
 ## <a name="build-an-application-to-call-the-api"></a>Skapa ett program för att anropa API: et
 
-I den här handboken vi använde Developer-konsolen i APIM som klienten exempelprogrammet för att anropa den `Echo API` skyddas av OAuth 2.0. Läs mer om hur du skapar ett program och implementera flödet för OAuth 2.0 i [kodexempel för Azure Active Directory](../active-directory/develop/active-directory-code-samples.md).
+I den här guiden du använde Utvecklarkonsolen i API-hantering som klienten exempelprogrammet för att anropa den `Echo API` skyddas av OAuth 2.0. Läs mer om hur du skapar ett program och implementera OAuth 2.0 i [kodexempel för Azure Active Directory](../active-directory/develop/active-directory-code-samples.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [Azure Active Directory och OAuth2.0](../active-directory/develop/active-directory-authentication-scenarios.md)
+* Lär dig mer om [Azure Active Directory och OAuth2.0](../active-directory/develop/active-directory-authentication-scenarios.md).
 * Checka ut mer [videor](https://azure.microsoft.com/documentation/videos/index/?services=api-management) om API-hantering.
 * Andra sätt att skydda din backend-tjänst finns [ömsesidig autentisering](api-management-howto-mutual-certificates.md).
 
-[Create an API Management service instance]: get-started-create-service-instance.md
-[Manage your first API]: import-and-publish.md
+* [Skapa en instans för API Management-tjänsten](get-started-create-service-instance.md).
+
+* [Hantera din första API](import-and-publish.md).

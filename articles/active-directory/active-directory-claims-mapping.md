@@ -1,6 +1,6 @@
 ---
-title: "Anspråk mappning i Azure Active Directory (förhandsversion) | Microsoft Docs"
-description: "Den här sidan beskrivs Azure Active Directory anspråk mappning."
+title: Anspråk mappning i Azure Active Directory (förhandsversion) | Microsoft Docs
+description: Den här sidan beskrivs Azure Active Directory anspråk mappning.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e35a33cbe77d9d29b975ede8535abbded2cde4c3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Anspråk mappning i Azure Active Directory (förhandsversion)
 
@@ -234,7 +234,7 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>Anspråk mappning Principegenskaper
-Använd egenskaperna för ett anspråk mappning av princip för att styra vilka anspråk som släpps och där data kommer från. Om ingen princip har angetts utfärdar token som innehåller kärnor anspråksuppsättningen och den grundläggande anspråksuppsättningen valfria anspråk som programmet har valt att ta emot i systemet.
+Använd egenskaperna för ett anspråk mappning av princip för att styra vilka anspråk som släpps och där data kommer från. Om ingen princip har angetts system problem token som innehåller grundläggande anspråk uppsättningen, den grundläggande anspråksuppsättningen och alla [valfria anspråk](develop/active-directory-optional-claims.md) som programmet har valt att ta emot.
 
 ### <a name="include-basic-claim-set"></a>Innehåller grundläggande anspråksuppsättningen
 

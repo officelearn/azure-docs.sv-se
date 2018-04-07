@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 04/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 177bc05eea3aa05231c71a42950fa622b68afc53
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b0cb9b4003faa2ccdd07ccc78c2095472690f0e7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>Azure skriva snabbtangenten för SAP-distributioner
 Azure skriva Accelerator är en funktion som hämtar lyfts för virtuella datorer M-serien exklusivt. Azure skriva Accelerator är inte tillgänglig i alla andra VM-serien i Azure, förutom M-serien. Som namnet tillstånd, är syftet med funktionen för att förbättra i/o-fördröjningen för skrivningar mot Azure Premium-lagring. 
@@ -31,7 +31,7 @@ Azure skriva Accelerator är en funktion som hämtar lyfts för virtuella datore
 Azure skriva Accelerator-funktionen är tillgänglig för distribution av M-serien som förhandsversion i:
 
 - Västra US2
-- Västra Europa
+- Västeuropa
 - Sydostasien
 
 ## <a name="planning-for-using-azure-write-accelerator"></a>Planering för att använda Azure skriva Accelerator
@@ -55,15 +55,16 @@ Det finns begränsningar för Azure Premium Storage virtuella hårddiskar per vi
 > Aktivera Azure skriva Accelerator till en befintlig Azure disk som inte ingår i en volym build utanför flera diskar med disk i Windows eller volymhanterare lagringsutrymmen för Windows, Windows skalbar filserver (SOFS), Linux LVM eller MDADM, arbetsbelastning åtkomst till den Azure-disken måste stängas av. Databasprogram med hjälp av Azure-disken måste stängas av.
 
 > [!IMPORTANT]
-> Aktivera skriva snabbtangenten för Azure operativsystemdisken för den virtuella datorn startas om den virtuella datorn. 
+> Aktivera skriva snabbtangenten för Azure VM operativsystemdisken för den virtuella datorn startas om den virtuella datorn. 
 
 Aktivera Azure skriva snabbtangenten för operativsystemet diskar inte får vara nödvändiga för SAP relaterade VM-konfigurationer
 
 ### <a name="restrictions-when-using-azure-write-accelerator"></a>Begränsningar när du använder Azure skriva Accelerator
 Dessa begränsningar gäller när du använder Azure skriva snabbtangenten för ett Azure disk/VHD:
 
-- Premium-diskcachelagring måste anges till ”None”. Cachelagring lägen stöds inte.
+- Premium-diskcachelagring måste anges till 'Ingen' eller 'Read Only'. Cachelagring lägen stöds inte.
 - Ögonblicksbilder på disken skriva Accelerator aktiverad stöds inte ännu. Den blockerar Azure Backup-tjänsten möjligheten att utföra en programkonsekvent ögonblicksbild av alla diskar på den virtuella datorn.
+- Endast mindre i/o-storlekar tar snabbare sökvägen. I arbetsbelastningen situationer där data blir bulk läsas in eller där transaction log buffertar för olika DBMS fylls i större utsträckning innan du hämtar beständig lagring, risken är som i/o som skrivs till disk inte tar snabbare sökvägen.
 
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Aktivera skriva Accelerator på en specifik disk
@@ -71,7 +72,7 @@ De följande avsnitten beskrivs hur Azure skriva Accelerator kan aktiveras på A
 
 Vid denna tidpunkt, är aktivera skriva Accelerator via Azure Rest-API och Power Shell de enda. Andra metoder för upp till stöd i Azure portal följer under nästa några veckor.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Följande krav gäller för användning av Azure skriva Accelerator vid denna tidpunkt:
 
 - Ditt prenumerations-ID som användes för att distribuera virtuell dator och lagring för den virtuella datorn måste vara tomt i listan. Kontakta din Microsoft CSA GBB, eller Kontoansvariga att hämta ditt prenumerations-ID tomt angiven. 
@@ -290,7 +291,7 @@ Utdata kan se ut så:
 
 ```
 
-Nästa steg är att uppdatera JSON-fil och aktivera skriva Accelerator på disken kallas 'log1'. Detta gör du genom att lägga till attributet i JSON-filen efter cacheposten på disken. 
+Nästa steg är att uppdatera JSON-fil och aktivera skriva Accelerator på disken kallas 'log1'. Det här steget kan utföras genom att lägga till attributet i JSON-filen efter cacheposten på disken. 
 
 ```
         {

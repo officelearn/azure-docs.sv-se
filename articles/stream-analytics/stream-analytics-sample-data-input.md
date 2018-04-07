@@ -1,26 +1,21 @@
 ---
-title: Frågetestning i Azure Stream Analytics | Microsoft Docs
-description: Identifiera problem när du felsöker Stream Analytics-jobb.
-keywords: Felsöka inkommande, inkommande provtagning
-documentationcenter: ''
+title: Testa en fråga med exempeldata i Azure Stream Analytics
+description: Den här artikeln beskriver hur du testar en fråga med några exempel på indata i Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 99c9f7f2dc84f53d09b7aee1916c5532427de692
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: 305b767ee86de6c8b04fed17514a9092afc2d735
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-stream-analytics-query-testing-and-input-stream-sampling"></a>Azure Stream Analytics query testning och indata-stream provtagning
+# <a name="test-a-query-and-sample-input-in-azure-stream-analytics"></a>Testa en fråga och indata i Azure Stream Analytics-exempel 
 
 Du kan prova inkommande händelser som kommer från en fil och testa frågor i portalen utan att behöva starta eller stoppa ett jobb med hjälp av Azure Stream Analytics.
 
@@ -56,7 +51,7 @@ När du är nöjd med resultaten du spara frågan, starta jobbet, tillbaka sitta
 
 ## <a name="get-help"></a>Få hjälp
 
-För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+För ytterligare hjälp försök den [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)

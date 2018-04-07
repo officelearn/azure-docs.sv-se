@@ -1,13 +1,13 @@
 ---
-title: "Hantera Underhåll meddelanden för Linux virtuella datorer i Azure | Microsoft Docs"
-description: "Visa aviseringar för underhåll för Linux virtuella datorer som körs i Azure och starta självbetjäning underhåll."
+title: Hantera Underhåll meddelanden för Linux virtuella datorer i Azure | Microsoft Docs
+description: Visa aviseringar för underhåll för Linux virtuella datorer som körs i Azure och starta självbetjäning underhåll.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: zivraf
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: d551a62a59e0a7f63f5fd4862680a271de659a19
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: b1b4720c64d2eaa7578def6eac8f8231e4664d53
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Hantering av planerat underhåll meddelanden för Linux virtuella datorer
 

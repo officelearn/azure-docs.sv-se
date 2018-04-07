@@ -1,18 +1,17 @@
 ---
-title: "Hur du söker efter en adress med hjälp av Azure baserad platstjänster (förhandsgranskning) söktjänsten | Microsoft Docs"
-description: "Lär dig att söka efter en adress med Azure plats baserat Services (förhandsversion) söktjänsten"
+title: Hur du söker efter en adress med hjälp av Azure baserad platstjänster (förhandsgranskning) söktjänsten | Microsoft Docs
+description: Lär dig att söka efter en adress med Azure plats baserat Services (förhandsversion) söktjänsten
 services: location-based-services
-keywords: "Lägg inte till eller redigera nyckelord utan att först kontakta den SEO-ansvarige."
 author: kgremban
 ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8b886607fe0915396a659593cd5910a271fca93
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Så här hittar du en adress som använder tjänsten Azure baserad platstjänster (förhandsgranskning) Search
 Söktjänsten är en RESTful uppsättning API: er som utformats för utvecklare att söka efter adresser, platser, punkter av intresse, företag och andra geografisk information. Söktjänsten tilldelar latitud/longitud till en specifik adress mellan gata, geografiska funktion eller intressant (POI). Latitud och longitud värden som returneras av söktjänsten API: er kan användas som parametrar i andra Azure baserad platstjänster, till exempel flödet och trafiken flödar API: er.

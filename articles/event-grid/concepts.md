@@ -1,18 +1,18 @@
 ---
-title: "Azure händelse rutnätet begrepp"
-description: "Beskriver Azure händelse rutnätet och dess begrepp. Definierar flera viktiga komponenter av händelse rutnät."
+title: Azure händelse rutnätet begrepp
+description: Beskriver Azure händelse rutnätet och dess begrepp. Definierar flera viktiga komponenter av händelse rutnät.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/04/2018
 ms.author: babanisa
-ms.openlocfilehash: 4fd44387ac1c3dad9f0194f1b2c97d6350f9b15d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Koncept i Azure händelse rutnätet
 
@@ -32,9 +32,11 @@ Utgivare kategorisera händelser i avsnitt. Avsnittet innehåller en slutpunkt d
 
 System avsnitten är inbyggt avsnitt som tillhandahålls av Azure-tjänster. Anpassade avsnitt är program- och tredjeparts-avsnitt.
 
+När du skapar ditt program, skapar du ett anpassat ämne för varje kategori av relaterade händelser. Tänk dig ett program som skickar händelser relaterade till ändring av användarkonton och bearbetning av order. Det är inte troligt alla händelsehanteraren vill båda typer av händelser. Skapa två anpassade avsnitt och kan prenumerera på det som intresserar dem händelsehanterare. När du prenumererar på avsnittet anpassade kan händelsehanteraren filtrera efter händelsetyp.
+
 ## <a name="event-subscriptions"></a>Prenumerationer på händelser
 
-En prenumeration instruerar händelse rutnätet på vilka händelser på ett ämne en prenumerant är intresserad av att ta emot.  En prenumeration innehåller också information om hur händelser som ska levereras till prenumeranten.
+En prenumeration instruerar händelse rutnätet på vilka händelser på ett ämne en prenumerant är intresserad av att ta emot. En prenumeration innehåller också information om hur händelser som ska levereras till prenumeranten.
 
 ## <a name="event-handlers"></a>Händelsehanterare
 

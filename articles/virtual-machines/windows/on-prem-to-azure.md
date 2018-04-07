@@ -1,13 +1,13 @@
 ---
-title: "Migrera från andra plattformar och AWS till hanterade diskar i Azure | Microsoft Docs"
-description: "Skapa virtuella datorer i Azure med hjälp av virtuella hårddiskar som överförts från andra moln som AWS eller andra virtualiseringsplattformar och dra nytta av Azure hanterade diskar."
+title: Migrera från andra plattformar och AWS till hanterade diskar i Azure | Microsoft Docs
+description: Skapa virtuella datorer i Azure med hjälp av virtuella hårddiskar som överförts från andra moln som AWS eller andra virtualiseringsplattformar och dra nytta av Azure hanterade diskar.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 02dce319c055f7988355cfadbc1d63df5e268e53
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: b7fe27ed8615b9684e14276d6d0f5bf84ee5ee81
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrera från Amazon Web Services (AWS) och andra plattformar till hanterade diskar i Azure
 
@@ -55,6 +55,7 @@ Azure-hanterade diskar förenklar VM management genom att ta bort behovet av att
 
 Det här avsnittet hjälper dig att göra det bästa på VM- och diskresurser typer.
 
+Om du planerar att migrera från ohanterade diskar till hanterade diskar, bör du vara medveten att användare med den [Virtual Machine-deltagare](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) rollen kommer inte att kunna ändra storleken på virtuella datorn (eftersom de kunde före konvertering). Det beror på att virtuella datorer med hanterade diskar användaren måste ha behörigheten Microsoft.Compute/disks/write på OS-diskar.
 
 ### <a name="location"></a>Plats
 

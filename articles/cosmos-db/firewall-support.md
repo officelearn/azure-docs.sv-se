@@ -3,9 +3,8 @@ title: Åtkomstkontroll för Azure DB Cosmos-brandväggsstöd & IP | Microsoft D
 description: Lär dig hur du använder IP-principer för åtkomstkontroll för brandväggsstöd för på Azure Cosmos DB databasen konton.
 keywords: IP-åtkomstkontroll, brandväggsstöd
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 tags: azure-resource-manager
 documentationcenter: ''
 ms.assetid: c1b9ede0-ed93-411a-ac9a-62c113a8e887
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
-ms.author: mimig
-ms.openlocfilehash: 5b70f77d49651e2873428fc7798fff3770b7a095
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: sngun
+ms.openlocfilehash: 4d5743703f3a1d98b720bd92a30c91549bbf89c0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure DB Cosmos-brandväggsstöd
 Om du vill skydda data som lagras i Azure DB som Cosmos-databaskonto har Azure Cosmos DB fanns stöd för en hemlighet baserat [auktoriseringsmodellen](https://msdn.microsoft.com/library/azure/dn783368.aspx) som använder en stark hashbaserad meddelandeautentiseringskod (HMAC). Förutom den hemliga baserat auktoriseringsmodellen stöder nu Azure Cosmos DB drivs IP-baserade åtkomstkontroller för inkommande brandväggsstöd-princip. Den här modellen liknar brandväggsregler vid traditionella system och ger en extra nivå av säkerhet till databaskontot Azure Cosmos DB. Med den här modellen kan du nu konfigurera en Azure Cosmos DB konto om du vill att endast nås från en godkänd uppsättning datorer och/eller molntjänster. Åtkomst till Azure Cosmos DB resurser från dessa godkända uppsättningar av datorer och tjänster kräver fortfarande anroparen presentera en giltig auktoriserings-token.
@@ -46,7 +45,7 @@ När IP-åtkomstkontroll på möjligheten portalen att ange IP-adresser och inte
 
 När du aktiverar en IP-principer för åtkomstkontroll programmässigt du behöver lägga till IP-adressen för Azure-portalen till den **ipRangeFilter** egenskapen att upprätthålla åtkomsten. Portalen IP-adresser är:
 
-|Område|IP-adress|
+|Region|IP-adress|
 |------|----------|
 |Alla regioner utom de som anges nedan|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 |Tyskland|51.4.229.218|

@@ -1,13 +1,13 @@
 ---
 title: Azure Windows VM-storlekar - GPU | Microsoft Docs
-description: "Visar olika GPU optimerad storlekar som finns tillgängliga för Windows-datorer i Azure. Visar information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredd för storlekar i den här serien."
+description: Visar olika GPU optimerad storlekar som finns tillgängliga för Windows-datorer i Azure. Visar information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredd för storlekar i den här serien.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: fcfdf9fe9bda5428e369e081e95912f698c89e9f
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d7f4bbe5e9950f864c6998b6a7c8844503083559
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU optimerade storlekar för virtuella datorer
 

@@ -9,20 +9,19 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0ea2dc723c674e7119b6ef38771a73ff4c11e98d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6c94701507f86f6ecab2875f952215cc3e4cc719
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code---preview"></a>Utveckla en kant för IoT-lösning med flera moduler i Visual Studio Code - förhandsgranskning
-Du kan använda Visual Studio-koden för att utveckla kant för IoT-lösning med flera moduler. Den här självstudiekursen vägleder dig genom att skapa, uppdatera och distribuera en lösning för IoT kant som bara skicka vidare sensordata på simulerade IoT gränsenheten i Visual Studio-koden. I den här guiden får du lära dig hur man:
+Du kan använda Visual Studio-koden för att utveckla kant för IoT-lösning med flera moduler. Den här artikeln vägleder genom att skapa, uppdatera och distribuera en gräns för IoT-lösning som rör sensordata på simulerade IoT gränsenheten i Visual Studio-koden. I den här artikeln får du lära dig hur du:
 
-> [!div class="checklist"]
-> * Använd Visual Studio-koden för att skapa en gräns för IoT-lösning
-> * Använda VS-kod för att lägga till en ny modul till verkliga IoT kant lösning. 
-> * Distribuera lösningen för IoT kant (flera moduler) till din IoT-Edge-enhet
-> * Visa genererade data
+* Använd Visual Studio-koden för att skapa en gräns för IoT-lösning
+* Använda VS-kod för att lägga till en ny modul till verkliga IoT kant lösning. 
+* Distribuera lösningen för IoT kant (flera moduler) till din IoT-Edge-enhet
+* Visa genererade data
 
 ## <a name="prerequisites"></a>Förutsättningar
 * Slutföra nedan självstudier
@@ -62,13 +61,12 @@ Du kan använda Visual Studio-koden för att utveckla kant för IoT-lösning med
 
 ## <a name="view-generated-data"></a>Visa genererade data
 
-1. Om du vill övervaka data som inkommer till IoT-hubben, Välj den **visa** > **kommandot paletten...**  och Sök efter **IoT: börja övervaka D2C meddelandet**. 
-2. Om du vill stoppa övervakningen av data, Använd den **IoT: stoppa övervakningen D2C meddelandet** i paletten kommando. 
+1. Om du vill övervaka data som kommer till IoT-hubben, väljer du **Visa** > **Kommandopaletten...** och söker efter **IoT: börja övervaka D2C-meddelande**. 
+2. Om du vill stoppa dataövervakningen, använder du kommandot **IoT: stoppa övervakning av D2C-meddelande** i kommandopaletten. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får skapat du en gräns för IoT-lösning med en C#-modulen, senare du lagt till en funktionsmodul, uppdatera vägar för lösningen, skapats och distribuerats till enheten simulerade IoT kant. Du kan fortsätta in på något av följande kurser vill veta mer om andra scenarier när du utvecklar Azure IoT gränsen i VS-kod.
+Du kan fortsätta in på något av följande artiklar för att lära dig om andra scenarier när utveckla Azure IoT gränsen i Visual Studio-koden:
 
-> [!div class="nextstepaction"]
-> [Felsöka en C#-modul i VS kod](how-to-vscode-debug-csharp-module.md)
-> [felsöka en C#-funktion i VS-kod](how-to-vscode-debug-azure-function.md)
+* [Felsöka en C#-modul i VS-kod](how-to-vscode-debug-csharp-module.md)
+* [Felsöka en C#-funktion i VS-kod](how-to-vscode-debug-azure-function.md)

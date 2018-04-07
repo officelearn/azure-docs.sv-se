@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/19/2018
+ms.date: 4/6/2018
 ms.author: raiye
-ms.openlocfilehash: 0456bf8d8cdd84078d12c3fc0f48d16b0370cddd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 1f24db331b3d59eaad54c5c2488e56913261cff2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst-OS-versioner och SDK-kompatibilitetsmatris
 Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem släpper för molntjänster. Den här informationen hjälper dig att planera din uppgradering innan ett gäst-OS är inaktiverad. Om du konfigurerar dina roller att använda *automatisk* Gästoperativsystem uppdateras enligt beskrivningen i [Azure gäst-OS uppdateringsinställningar][Azure Guest OS Update Settings], inte är det viktigt att du läser den här sidan.
@@ -42,6 +42,9 @@ Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem slä
 Osäker på om vilka Gästoperativsystem är eller hur gäst-OS släpper arbete? Läs [detta](#how-it-works) avsnitt.
 
 ## <a name="news-updates"></a>Nyheter
+###### <a name="april-6-2018"></a>**6 april 2018**
+Gästoperativsystem mars har publicerat.
+
 ###### <a name="march-19-2018"></a>**19 mars 2018**
 Gästoperativsystem februari har publicerat.
 
@@ -90,8 +93,9 @@ Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 a
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.17_201803-01 |6 april 2018 |Post 5.19 |TBD |
 | WA-GUEST-OS-5.16_201802-01 |12 mars 2018 |Bokför 5.18 |TBD |
-| WA-GUEST-OS-5.15_201801-01 |4 januari 2018 |Bokför 5,17 |TBD |
+|~~WA-GUEST-OS-5.15_201801-01~~ |4 januari 2018 |6 april 2018 |TBD |
 |~~WA-GUEST-OS-5.14_201712-01~~ |4 januari 2018 |12 mars 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 december 2017 |4 januari 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
@@ -116,8 +120,9 @@ Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 a
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.52_201803-01 |6 april 2018 |Bokför 4.54.b |TBD |
 | WA-GUEST-OS-4.51_201802-01 |12 mars 2018 |Post 4,53 |TBD |
-| WA-GUEST-OS-4.50_201801-01 |4 januari 2018 |Bokför 4.52 |TBD |
+|~~WA-GUEST-OS-4.50_201801-01~~ |4 januari 2018 |6 april 2018 |TBD |
 |~~WA-GUEST-OS-4.49_201712-01~~ |4 januari 2018 |12 mars 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 december 2017 |4 januari 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
@@ -142,8 +147,9 @@ Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 a
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.59_201803-01 |6 april 2018 |Bokför 3,61 |TBD |
 | WA-GUEST-OS-3.58_201802-01 |19 mars 2018 |Post 3,60 |TBD |
-| WA-GUEST-OS-3.57_201801-01 |Den 29 januari 2018 |Bokför 3.59 |TBD |
+|~~WA-GUEST-OS-3.57_201801-01~~ |Den 29 januari 2018 |6 april 2018 |TBD |
 |~~WA-GUEST-OS-3.56_201712-01~~ |4 januari 2018 |19 mars 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 december 2017 |Den 29 januari 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
@@ -168,8 +174,9 @@ Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 a
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.72_201803-01 |6 april 2018 |Post 2.74 |TBD |
 | WA-GUEST-OS-2.71_201802-01 |12 mars 2018 |Bokför 2,73 |TBD |
-| WA-GUEST-OS-2.70_201801-01 |Den 29 januari 2018 |Bokför 2.72 |TBD |
+|~~WA-GUEST-OS-2.70_201801-01~~ |Den 29 januari 2018 |6 april 2018 |TBD |
 |~~WA-GUEST-OS-2.69_201712-01~~ |4 januari 2018 |12 mars 2018 |TBD |
 |~~WA-GUEST-OS-2.68_201711-01~~ |14 december 2017 |Den 29 januari 2018 |TBD |
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |

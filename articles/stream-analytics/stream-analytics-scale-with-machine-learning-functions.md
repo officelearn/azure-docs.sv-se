@@ -1,27 +1,22 @@
 ---
-title: Jobbet skalning med Azure Stream Analytics & AzureML functions | Microsoft Docs
-description: Lär dig hur du korrekt skala Stream Analytics-jobb (partitionering, SU antal och mer) när du använder Azure Machine Learning-funktioner.
-keywords: ''
-documentationcenter: ''
+title: Skala Machine Learning-funktioner i Azure Stream Analytics
+description: Den här artikeln beskriver hur du skalar Stream Analytics-jobb som använder funktioner i Machine Learning, genom att konfigurera enheter för partitionering och dataströmmen.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 47ce7c5e-1de1-41ca-9a26-b5ecce814743
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: dd6effab3ba0b411131414bd757ffe8cc54e49d2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 015312ab95d6dd5615a5f5bc62d270d46b795ffa
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Skala Stream Analytics-jobbet med Azure Machine Learning-funktioner
-Ofta är det enkelt att ställa in ett Stream Analytics-jobb och köra exempeldata genom den. Vad gör vi när vi behöver köra samma jobb med högre datavolym? Det krävs oss att förstå hur du konfigurerar Stream Analytics-jobbet så att det skalas. I det här dokumentet fokuserar på särskilda aspekter skalning Stream Analytics-jobb med Machine Learning-funktioner. Information om hur du skalar Stream Analytics-jobb i allmänhet finns i artikeln [skalning jobb](stream-analytics-scale-jobs.md).
+Det är enkelt att ställa in ett Stream Analytics-jobb och köra exempeldata genom den. Vad gör vi när vi behöver köra samma jobb med högre datavolym? Det krävs oss att förstå hur du konfigurerar Stream Analytics-jobbet så att det skalas. I det här dokumentet fokuserar på särskilda aspekter skalning Stream Analytics-jobb med Machine Learning-funktioner. Information om hur du skalar Stream Analytics-jobb i allmänhet finns i artikeln [skalning jobb](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Vad är Azure Machine Learning-funktionen i Stream Analytics?
 En Machine Learning i Stream Analytics kan användas som ett reguljärt funktionsanrop i Stream Analytics-frågespråket. Bakom scenen emellertid funktionsanropen faktiskt Azure Machine Learning-webbtjänst begäranden. Machine Learning-webbtjänster stöd för ”batchbearbetning” flera rader som kallas Mini batch i samma API webbtjänstanropet, att förbättra totala genomflödet. Se följande artiklar för mer information; [Azure Machine Learning-funktioner i Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) och [Azure Machine Learning-webbtjänster](../machine-learning/studio/consume-web-services.md).
@@ -111,7 +106,7 @@ Följande objekt måste beaktas för att sammanfatta de viktigaste aspekterna f�
 2. Tillåten svarstiden för Stream Analytics-jobb som körs (och därmed batchstorlek för Machine Learning webbtjänstbegäranden)
 3. Etablerade Stream Analytics SUs och antalet Machine Learning webbtjänstbegäranden (ytterligare funktion-relaterade kostnader)
 
-En fullständigt partitionerade Stream Analytics-fråga används som exempel. Om en mer komplex fråga krävs det [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) är en utmärkt resurs Stream Analytics-teamet för att få ytterligare hjälp.
+En fullständigt partitionerade Stream Analytics-fråga används som exempel. Om en mer komplex fråga krävs det [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) är en utmärkt resurs Stream Analytics-teamet för att få ytterligare hjälp.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Stream Analytics finns:

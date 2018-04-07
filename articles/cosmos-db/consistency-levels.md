@@ -3,9 +3,8 @@ title: Konsekvensnivåer i Azure Cosmos DB | Microsoft Docs
 description: Azure Cosmos-DB har fem konsekvensnivåer för att belastningsutjämna eventuell konsekvens, tillgänglighet och svarstid kompromisser.
 keywords: eventual consistency, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
@@ -14,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
-ms.author: mimig
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b0e46eb001e0b100ad1e181b02c18cfe67648f9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 512f9e22d01e3bdb90210402aaf123ac6326759a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Data justerbara konsekvensnivåer i Azure Cosmos DB
 Azure Cosmos-DB är utformad från grunden upp med global distributionsplatsen i åtanke för varje datamodell. Den är utformad att erbjuda förutsägbar låg latens garantier och flera väldefinierade Avslappnad konsekvenskontroll modeller. För närvarande Azure Cosmos DB innehåller fem konsekvensnivåer: stark, begränsat föråldrad, session, konsekvent prefix och eventuell. Begränsat föråldrad, session, konsekvent prefix och eventuell är kallas ”Avslappnad konsekvenskontroll modeller” eftersom de ger mindre konsekvent än starkt, vilket är de flesta hög konsekvent modell tillgänglig. 
@@ -109,7 +108,7 @@ Du kan konfigurera en konsekvenskontroll Standardnivå på ditt konto som gälle
 
 ## <a name="configuring-the-default-consistency-level"></a>Konfigurera standardnivå för konsekvenskontroll
 1. I den [Azure-portalen](https://portal.azure.com/), i Jumpbar klickar du på **Azure Cosmos DB**.
-2. I den **Azure Cosmos DB** väljer du kontot att ändra.
+2. Markera det databaskonto du vill ändra på sidan **Azure Cosmos DB**.
 3. På kontosidan klickar du på **standard konsekvenskontroll**.
 4. I den **standard konsekvenskontroll** väljer du den nya konsekvensnivå och klicka på **spara**.
    

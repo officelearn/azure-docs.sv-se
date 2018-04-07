@@ -1,12 +1,12 @@
 ---
 title: Styrning i Azure | Microsoft Docs
-description: "Läs mer om molnbaserad databearbetning tjänster som omfattar ett brett urval av compute-instanser och tjänster som kan skalas upp och ned automatiskt så att den passar ditt program-eller enterprise."
+description: Läs mer om molnbaserad databearbetning tjänster som omfattar ett brett urval av compute-instanser och tjänster som kan skalas upp och ned automatiskt så att den passar ditt program-eller enterprise.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 875b78f6af330aea3333b045ee72e9632e9aa8a6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 04d9e6152c87a49a5f1b1b1a29c16d80de00f4e9
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="governance-in-azure"></a>Styrning i Azure
 
@@ -379,7 +379,7 @@ Azure-prenumeranter kan hantera sina molnmiljöer från flera enheter, inklusive
 
 Azure-säkerhet styrning från AD DS-grupprincipobjekt för att styra alla administratörens Windows-gränssnitt, till exempel fildelning. Inkludera hanteringsdatorer processerna för granskning, övervakning och loggning. Spåra alla administratörers och utvecklares åtkomst och användning.
 
-### <a name="azure-security-center"></a>Azure security center
+### <a name="azure-security-center"></a>Azure Security Center
 
 Den [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) innehåller en central för säkerhetsstatusen för resurserna i prenumerationerna och ger rekommendationer som kan förhindra angripna resurser. Det kan aktivera mer detaljerad principer (till exempel tillämpa principer till specifika resursgrupper som gör att företag kan anpassa sina hållningsdata för risk de adressering).
 
@@ -410,33 +410,33 @@ Azure Security Center övervakar följande Azure-resurser:
 
 - Partnerlösningar som är integrerad med din Azure-prenumeration, till exempel en brandvägg för webbaserade program på virtuella datorer och på [Apptjänstmiljö](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme).
 
-### <a name="operations-management-suite"></a>Operations Management Suite
+### <a name="log-analytics"></a>Log Analytics
 
-OMS programvara utvecklings- och gruppens informationssäkerhet och [styrning programmet](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) stöder affärskraven och följer lagar och förordningar enligt beskrivningen i [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) och [Microsoft Trust Center kompatibilitet](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Hur OMS upprätta säkerhetskrav, identifierar säkerhetsåtgärder, hanterar och övervakar risker beskrivs också det. Årligen, vi granska principer, standarder och procedurer som riktlinjer.
+Logganalys programvara utvecklings- och gruppens informationssäkerhet och [styrning programmet](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) stöder affärskraven och följer lagar och förordningar enligt beskrivningen i [litar på Microsoft Azure Center](https://azure.microsoft.com/support/trust-center/) och [Microsoft Trust Center kompatibilitet](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Hur logganalys upprätta säkerhetskrav, identifierar säkerhetsåtgärder, hanterar och övervakar risker beskrivs också det. Årligen, vi granska principer, standarder och procedurer som riktlinjer.
 
-Varje medlem i gruppen OMS utveckling får formella säkerhetsutbildning. Internt, använder vi ett system för version för programutveckling. Varje projekt program är skyddat av systemet för versionskontroll.
+Varje medlem i gruppen logganalys utveckling får formella säkerhetsutbildning. Internt, använder vi ett system för version för programutveckling. Varje projekt program är skyddat av systemet för versionskontroll.
 
-Microsoft har ett team för säkerhet och efterlevnad som övervakar och utvärderar alla tjänster i Microsoft. Information security polis utgör teamet och de är inte kopplade till de tekniska avdelningar som utvecklar OMS. De har sina egna management kedjan och utföra oberoende bedömning av produkter och tjänster för att garantera säkerhet och efterlevnad.
+Microsoft har ett team för säkerhet och efterlevnad som övervakar och utvärderar alla tjänster i Microsoft. Information security polis utgör teamet och de är inte kopplade till de tekniska avdelningar som utvecklar logganalys. De har sina egna management kedjan och utföra oberoende bedömning av produkter och tjänster för att garantera säkerhet och efterlevnad.
 
-Operations Management Suite (även kallat OMS) är en samling hanteringstjänster som redan från början har utformats för molnet. I stället för att distribuera och hantera lokala resurser finns helt OMS-komponenter i Azure. Konfigurationen är minimal, och du kommer igång på bara några minuter.
+Azure tillhandahåller en uppsättning tjänster som har utformats i molnet från början. I stället för att distribuera och hantera lokala resurser finns helt komponenterna i Azure. Konfigurationen är minimal, och du kommer igång på bara några minuter.
 
 ![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
-Bara för att OMS-tjänsterna körs i molnet betyder det inte att de inte kan hantera din lokala miljö på ett effektivt sätt.
+Bara eftersom Log Analytics-tjänster som körs betyder molnet att de effektivt kan hantera din lokala miljö.
 
 Placera en agent på alla Windows eller Linux-dator i datacentret och den skickar data till logganalys där den kan analyseras tillsammans med andra data som samlas in från molnet eller lokala tjänster. Använda Azure Backup och Azure Site Recovery för att utnyttja molnet för säkerhetskopiering och hög tillgänglighet för på lokala resurser.
 
 Runbook-flöden i molnet kan normalt inte komma åt dina lokala resurser, men du kan installera en agent på en eller flera datorer som fungerar som värd för runbook-flöden i ditt datacenter. När du startar en runbook anger du om du vill att den ska köras i molnet eller på en lokal arbetsprocess.
 
-Huvudfunktionerna i OMS tillhandahålls genom en uppsättning tjänster som körs i Azure. Varje tjänst tillhandahåller en specifik hanteringsfunktion, och du kan kombinera tjänster för olika hanteringsscenarier.
+Huvudfunktionerna i logganalys tillhandahålls av en uppsättning tjänster som körs i Azure. Varje tjänst tillhandahåller en specifik hanteringsfunktion, och du kan kombinera tjänster för olika hanteringsscenarier.
 
 ![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
-Azure-åtgärden manager överskrider dess funktioner genom att tillhandahålla lösningar för hantering. [Hanteringslösningar](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) är färdigförpackade uppsättningar av logik som implementerar ett hanteringsscenario som utnyttjar en eller flera OMS-tjänster.
+Azure-åtgärden manager överskrider dess funktioner genom att tillhandahålla lösningar för hantering. [Hanteringslösningar](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) är färdigförpackade uppsättningar av logik som implementerar ett hanteringsscenario som utnyttjar en eller flera tjänster.
 
 ![Hantera Azure-åtgärden](./media/governance-in-azure/security-governance-in-azure-fig10.png)
 
-Olika lösningar är tillgängliga från Microsoft och partners. Du kan enkelt lägga till dem i din Azure-prenumeration för att öka värdet av din OMS-investering.
+Olika lösningar är tillgängliga från Microsoft och att du kan enkelt lägga till din Azure-prenumeration att öka värdet på din investering i logganalys-partner.
 
 Som partner kan skapa du egna lösningar för att stödja dina program och tjänster och ge dem till användare via Azure Marketplace eller snabb Start mallar.
 
@@ -455,7 +455,7 @@ Aviseringar är tillgängliga för olika tjänster, inklusive:
 >[!Note]
 > Se [Ställ in aviseringar på Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) och [övervaka tillgänglighet och svarstider för alla webbplatser](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
 
-- Logganalys (Operations Management Suite): Gör routning av aktivitet och diagnostiska loggar till logganalys. Operations Management Suite kan mått, logg och andra aviseringstyper.
+- Logganalys: Gör routning av aktivitet och diagnostiska loggar till logganalys och att mått, logg och andra aviseringstyper.
 
 >[!Note]
 > Mer information finns i aviseringar i [logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).

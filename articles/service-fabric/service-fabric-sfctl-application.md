@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3a10437d0a2d680e586ada6a87750a69453c1f0c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: fe0ef5c81b1ef6bef298e65cde3649c9464089d8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sfctl-application"></a>sfctl application
 Skapa, ta bort och hantera program och programtyper.
@@ -46,7 +46,7 @@ Skapa, ta bort och hantera program och programtyper.
 | återuppta uppgradering  | Återupptar uppgradera ett program i Service Fabric-klustret.|
 | upgrade-rollback| Startar återställer för närvarande löpande uppgradering av ett program i Service Fabric-klustret.|
 | uppgradera status  | Hämtar information för den senaste uppgraderingen utförs på det här programmet.|
-| Ladda upp       | Kopiera ett Service Fabric-programpaket till image store.|
+| upload       | Kopiera ett Service Fabric-programpaket till image store.|
 
 ## <a name="sfctl-application-create"></a>Skapa sfctl program
 Skapar ett Service Fabric-program med den angivna beskrivningen.
@@ -241,9 +241,7 @@ Hämtar manifestet som beskriver en typ av program. Svaret innehåller programma
 ## <a name="sfctl-application-provision"></a>sfctl programmet etablera
 Tillhandahåller eller registrerar skriver ett Service Fabric-program med klustret med SFPKG paketet i externa store eller använda programpaketet i image store.
 
-Etablerar ett Service Fabric programtyp med klustret. Detta krävs innan några nya program kan initieras. Etableringsåtgärden kan utföras antingen på programpaket som anges av relativePathInImageStore eller med hjälp av URI för externa SFPKG. Om inte--externa etablera anges förväntar det här kommandot avbildningsarkivet
-
-etablera.
+Etablerar ett Service Fabric programtyp med klustret. Detta krävs innan några nya program kan initieras. Etableringsåtgärden kan utföras antingen på programpaket som anges av relativePathInImageStore eller med hjälp av URI för externa SFPKG. Om--externa etablera anges, Etablerar det här kommandot programpaketet från avbildningsarkivet.
         
 
 

@@ -1,23 +1,19 @@
 ---
-title: Azure Stream Analytics JavaScript användardefinierade funktioner | Microsoft Docs
-description: Utföra en avancerad fråga säkerhetsnivån med JavaScript användardefinierade funktioner
-keywords: JavaScript, användardefinierade funktioner, udf
+title: JavaScript användardefinierade funktioner i Azure Stream Analytics
+description: Den här artikeln beskriver hur du utför avancerad fråga säkerhetsnivån med JavaScript användardefinierade funktioner i Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: f2b14029ebea7f9cf1fa74a384ecbb72b08b7ad6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 462bd55dfae3a2c471d1111637a6de0bc95e6bfa
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Azure Stream Analytics JavaScript användardefinierade funktioner
 Azure Stream Analytics stöder användardefinierade funktioner som skrivits i JavaScript. Med omfattande uppsättning **sträng**, **RegExp**, **matematiska**, **matris**, och **datum** metoder som JavaScript innehåller, komplexa Datatransformationer med Stream Analytics-jobb blir det lättare att skapa.
@@ -138,7 +134,7 @@ FROM
 ```
 
 ## <a name="get-help"></a>Få hjälp
-För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)

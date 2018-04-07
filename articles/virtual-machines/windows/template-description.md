@@ -1,11 +1,11 @@
 ---
 title: Virtuella datorer i en Azure Resource Manager-mall | Microsoft Azure
-description: "Läs mer om hur den virtuella datorresursen har definierats i en Azure Resource Manager-mall."
+description: Läs mer om hur den virtuella datorresursen har definierats i en Azure Resource Manager-mall.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.openlocfilehash: 9c0039987ec28601c9338d2b94633c38c31e01f8
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 43cd6322bb03b5c781a890c3280247cbb2d118f6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuella datorer i en Azure Resource Manager-mall
 
@@ -278,10 +278,10 @@ Nätverksgränssnittet måste finnas för att ange den här egenskapen. Därför
 
 Flera profil element används när du definierar en virtuell datorresurs. Vissa är obligatoriska och vissa är valfria. Till exempel hardwareProfile, osProfile, storageProfile och networkProfile-element krävs, men diagnosticsProfile är valfritt. De här profilerna definiera inställningar som:
    
-- [storlek](sizes.md)
+- [Storlek](sizes.md)
 - [namnet](/architecture/best-practices/naming-conventions) och autentiseringsuppgifter
 - disk och [inställningar för operativsystem](cli-ps-findimage.md)
-- [nätverksgränssnitt](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
+- [Nätverksgränssnitt](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - Startdiagnostikinställningar
 
 ## <a name="disks-and-images"></a>Diskar och bilder

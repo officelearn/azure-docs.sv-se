@@ -1,9 +1,9 @@
 ---
-title: "Strömma Azure diagnostiska loggar till en händelsehubb | Microsoft Docs"
-description: "Lär dig mer om att strömma Azure diagnostiska loggar till en händelsehubb."
+title: Strömma Azure diagnostiska loggar till en händelsehubb | Microsoft Docs
+description: Lär dig mer om att strömma Azure diagnostiska loggar till en händelsehubb.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 42bc4845-c564-4568-b72d-0614591ebd80
@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 72876e38f77aa7a13c0dd9a8cdf9479e058f4a0d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1f5a97f5af47a3c5731d5c5d4d5e8cf17097ae60
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Azure strömmen diagnostiska loggar till en händelsehubb
-**[Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)**  kan strömmas i nära realtid för alla program med alternativet inbyggda ”exportera till Händelsehubbar” i portalen eller genom att aktivera Event Hub auktorisering regel-ID i diagnostikinställningen via Azure PowerShell-Cmdlets eller Azure CLI.
+**[Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)**  kan strömmas i nära realtid för alla program med alternativet inbyggda ”exportera till Händelsehubbar” i portalen eller genom att aktivera Event Hub auktorisering regel-ID i diagnostikinställningen via Azure PowerShell-Cmdlets eller Azure CLI 2.0.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>Vad du kan göra med diagnostik loggar och Händelsehubbar
 Här följer några olika sätt som du kan använda den strömmande kapaciteten för diagnostikloggar:
 
 * **Strömma loggar till 3 loggning och telemetri part** – kan du strömma alla dina diagnostikloggar till en enda event hub pipe logga data till en SIEM- eller log analytics tredjepartsverktyg.
 * **Visa tjänstens hälsa med streaming ”varm path” data till PowerBI** – med Händelsehubbar, Stream Analytics och PowerBI, kan du enkelt transformera diagnostikdata i till nära realtidsinsikter på Azure-tjänster. [Den här dokumentationen artikeln ger en bra överblick över hur du ställer in Händelsehubbar, bearbeta data med Stream Analytics och använder PowerBI som utdata](../stream-analytics/stream-analytics-power-bi-dashboard.md). Här följer några tips om att hämta inställd med diagnostikloggar:
-  
+
   * En händelsehubb för diagnostikloggar skapas automatiskt när du markerar alternativet i portalen eller aktivera via PowerShell, så att du vill välja händelsehubben i namnområdet med namn som börjar med **insights -**.
   * Följande SQL-kod är en Stream Analytics-fråga som du kan använda för att analysera alla loggdata i en PowerBI-tabellen:
 
@@ -45,16 +45,23 @@ Här följer några olika sätt som du kan använda den strömmande kapaciteten 
 * **Skapa en anpassad telemetri och loggning plattform** – om du redan har ett specialbyggt telemetri plattform eller är bara om du tänker skapa en mycket skalbar natur att publicera och prenumerera i Händelsehubbar kan du flexibelt kan mata in diagnostikloggar. [Finns Dan Rosanova guide med Händelsehubbar i en global skala telemetri platform här](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>Strömning av diagnostiska loggar
+
 Du kan aktivera strömning av diagnostikloggar programmässigt via portalen eller med hjälp av den [Azure övervakaren REST API: er](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). Oavsett hur du skapar en diagnostikinställningen där du anger ett namnområde för Händelsehubbar och logg kategorier och mått som du vill skicka namnområdet. En händelsehubb har skapats i namnområdet för varje logg kategori som du aktiverar. En diagnostik **loggen kategori** är en typ av logg som en resurs kan samla in.
 
 > [!WARNING]
 > Aktivera och strömning diagnostikloggar från beräkningsresurser (till exempel virtuella datorer eller Service Fabric) [kräver en annan uppsättning steg](../event-hubs/event-hubs-streaming-azure-diags-data.md).
-> 
-> 
 
 Namnområdet Händelsehubbar behöver inte finnas i samma prenumeration som resursen avger loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC åtkomst till båda prenumerationer.
 
+> [!NOTE]
+> Skicka flerdimensionell mätvärden via diagnostikinställningar stöds inte för närvarande. Mått med dimensioner exporteras som Flat enda dimensionell mått som aggregeras på värden.
+>
+> *Till exempel*: 'Inkommande meddelanden' mått på en Händelsehubb kan utforskade och i diagrammet på en per kön nivå. Men när exporteras via diagnostikinställningar mått representeras av alla inkommande meddelanden i alla köer i hubben.
+>
+>
+
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Dataströmmen diagnostikloggar med hjälp av portalen
+
 1. Gå till Azure-Monitor i portalen och klicka på **diagnostikinställningar**
 
     ![Avsnittet av Azure-Monitor övervakning](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-blade.png)
@@ -70,9 +77,9 @@ Namnområdet Händelsehubbar behöver inte finnas i samma prenumeration som resu
    ![Lägg till diagnostikinställningen - befintliga inställningar](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-multiple.png)
 
 3. Ge din ange ett namn och markera kryssrutan för **dataströmmen till en händelsehubb**, välj sedan ett namnområde för Händelsehubbar.
-   
+
    ![Lägg till diagnostikinställningen - befintliga inställningar](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
-    
+
    Det namnområde som valts kommer att där händelsehubben skapas (om det här är din första gången strömmande diagnostikloggar) eller strömmas till (om det finns redan resurser som direktuppspelas loggen kategorin för att det här namnområdet), och principen definierar vilka behörigheter som har mekanismen för strömning. Idag kräver strömning till en händelsehubb behörighet att hantera, skicka och lyssna. Du kan skapa eller ändra principer för Händelsehubbar namnområde delad åtkomst i portalen under fliken Konfigurera för namnområdet. Om du vill uppdatera en av dessa diagnostikinställningar måste klienten ha behörigheten ListKey på Händelsehubbar auktoriseringsregeln. Du kan också ange en händelsehubbens namn. Om du anger ett händelsehubbens namn, dirigeras loggar till den event hub i stället för en nyligen skapade händelsehubb per loggen kategori.
 
 4. Klicka på **Spara**.
@@ -80,6 +87,7 @@ Namnområdet Händelsehubbar behöver inte finnas i samma prenumeration som resu
 Den nya inställningen visas i din lista över inställningar för den här resursen efter en liten stund och diagnostiska loggar strömmas till den event hub så snart nya händelsedata genereras.
 
 ### <a name="via-powershell-cmdlets"></a>Via PowerShell-Cmdlets
+
 Strömning den [Azure PowerShell-Cmdlets](insights-powershell-samples.md), du kan använda den `Set-AzureRmDiagnosticSetting` med följande parametrar:
 
 ```powershell
@@ -88,16 +96,29 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizati
 
 Event Hub auktorisering regel-ID är en sträng med formatet: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, till exempel `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Du välja för närvarande inte en viss händelse hubbnamn med PowerShell.
 
-### <a name="via-azure-cli"></a>Via Azure CLI
-Strömning den [Azure CLI](insights-cli-samples.md), du kan använda den `insights diagnostic set` kommandot så här:
+### <a name="via-azure-cli-20"></a>Via Azure CLI 2.0
+
+Strömning den [Azure CLI 2.0](insights-cli-samples.md), du kan använda den [az diagnostik-inställningar för övervakning av skapa](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) kommando.
 
 ```azurecli
-azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --event-hub <event hub name> \
+    --event-hub-rule <event hub rule ID> \
+    --resource <target resource object ID> \
+    --logs '[
+    {
+        "category": <category name>,
+        "enabled": true
+    }
+    ]'
 ```
 
-Använd samma format för Event Hub auktorisering regel-ID som förklaras för PowerShell-cmdleten. För närvarande kan du välja en viss händelse hubbnamn med Azure CLI.
+Du kan lägga till ytterligare kategorier diagnostiska loggen genom att lägga till ordlistor JSON-matris som skickades i `--logs` parameter.
+
+Den `--event-hub-rule` argumentet använder samma format som Event Hub auktorisering regel-ID som förklaras för PowerShell-cmdleten.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Hur jag för att använda loggdata från Event Hubs?
+
 Här är exempel utdata från Händelsehubbar:
 
 ```json
@@ -174,9 +195,10 @@ Här är exempel utdata från Händelsehubbar:
 Du kan visa en lista över alla resursproviders som har stöd för strömning till Händelsehubbar [här](monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="stream-data-from-compute-resources"></a>Dataströmmen data från beräkningsresurser
+
 Du kan också strömma diagnostikloggar från beräkningsresurser med Windows Azure-diagnostik-agenten. [Finns den här artikeln](../event-hubs/event-hubs-streaming-azure-diags-data.md) för hur du konfigurerar som.
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Läs mer om Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)
 * [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-

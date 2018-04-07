@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cd289d506cbe22e683392256cce14211a5db0729
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för log Varningsregler
 När en [aviseringen har skapats i Azure ](monitor-alerts-unified-usage.md), har möjlighet att [konfigurera med åtgärdsgrupper](monitoring-action-groups.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika webhook-åtgärder som är tillgängliga och information om hur du konfigurerar anpassade JSON-baserade webhooken.
@@ -54,7 +54,7 @@ Webhooks är en URL och en nyttolast som har formaterats i JSON som är data som
 | Sök intervall StartTime |#searchintervalstarttimeutc |Starttid för frågan i UTC-format. 
 | searchQuery |#searchquery |Loggen sökfråga används av regeln. |
 | SearchResults |”IncludeSearchResults”: true|Poster som returneras av frågan som en JSON-tabellen, begränsat till de första 1 000 posterna. Om ”IncludeSearchResults”: true läggs till i anpassad JSON webhook definition som en egenskap för på den översta nivån. |
-| WorkspaceID |#workspaceid |ID för din arbetsyta logganalys (OMS). |
+| WorkspaceID |#workspaceid |ID för logganalys-arbetsytan. |
 | Program-ID:t |#applicationid |ID för Application Insights app. |
 | Prenumerations-ID:t |#subscriptionid |ID för din Azure-prenumeration som används med Application Insights. 
 
@@ -77,7 +77,7 @@ Se till att inkludera sökresultat i en anpassad nyttolast genom **IncudeSearchR
 Det här avsnittet visas exempel nyttolasten för webhook för loggen aviseringar, inklusive när nyttolasten är standard och när dess egna.
 
 > [!NOTE]
-> För att säkerställa bakåtkompatibilitet standard webhook nyttolasten för aviseringar via Azure Log Analytics är samma som [OMS Varna management](../log-analytics/log-analytics-alerts-creating.md). Men för log aviseringar via [Programinsikter](../application-insights/app-insights-analytics.md), standard webhook-nyttolasten är baserad på grupp schema.
+> För att säkerställa bakåtkompatibilitet standard webhook nyttolasten för aviseringar via Azure Log Analytics är samma som [logganalys Varna management](../log-analytics/log-analytics-alerts-creating.md). Men för log aviseringar via [Programinsikter](../application-insights/app-insights-analytics.md), standard webhook-nyttolasten är baserad på grupp schema.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Standard Webhook för logg-aviseringar 
 Båda dessa exempel ha angett en dummy nyttolast med bara två kolumner och två rader.

@@ -5,14 +5,14 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/21/2018
+ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b317a2d9241016b66651af4659c7daf2e8d8f2cc
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8f212797decdd967154584927984bc0a4e58f4ba
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatisera resurser i ditt datacenter eller molnet med Hybrid Runbook Worker
 
@@ -93,6 +93,7 @@ Utför följande steg för att automatisera installationen och konfigurationen a
 Utför de två första stegen en gång för Automation-miljö och upprepa återstående steg för varje worker-dator.
 
 #### <a name="1-create-log-analytics-workspace"></a>1. Skapa Log Analytics-arbetsyta
+
 Om du inte redan har en logganalys-arbetsytan, skapar du en med hjälp av anvisningarna i [hantera din arbetsyta](../log-analytics/log-analytics-manage-access.md). Du kan använda en befintlig arbetsyta om du redan har en.
 
 #### <a name="2-add-automation-solution-to-log-analytics-workspace"></a>2. Lägg till Automation-lösningen i logganalys-arbetsytan
@@ -102,6 +103,7 @@ Lösningar lägger till funktioner i Log Analytics. Automation-lösningen lägge
 Följ anvisningarna på [att lägga till en lösning med lösningar galleriet](../log-analytics/log-analytics-add-solutions.md) att lägga till den **Automation** lösning till logganalys-arbetsytan.
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Installera Microsoft Monitoring Agent
+
 Microsoft Monitoring Agent ansluter datorer till logganalys. När du installerar agenten på den lokala datorn och ansluta till arbetsytan, hämtas automatiskt de komponenter som krävs för Runbook Worker-Hybrid.
 
 Följ anvisningarna på [ansluta Windows-datorer till logganalys](../log-analytics/log-analytics-windows-agent.md) att installera agenten på den lokala datorn. Du kan upprepa processen för flera datorer att lägga till flera personer i din miljö.

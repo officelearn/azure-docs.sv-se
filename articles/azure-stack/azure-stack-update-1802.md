@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: b3a3c07446ad04a58d5180793404fc04677749b2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6f654e7897a9a00b0e53849002d5d4b16eab2bd6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure-stacken 1802 uppdatering
 
@@ -56,7 +56,9 @@ Azure-stacken 1802 uppdatera versionsnumret är **20180302.1**.
 
 
 ### <a name="post-update-steps"></a>Steg efter uppdateringen
-*Det finns inga efter uppdateringen åtgärder för uppdatering 1802.*
+Installera alla tillämpliga snabbkorrigeringar efter installationen av 1802. Mer information läser du följande knowledge base-artiklar, samt våra [Servicing princip](azure-stack-servicing-policy.md).  
+- [KB 4103348 - Nätverksstyrenhetens API-tjänsten kraschar när du försöker installera en uppdatering för Azure-stacken](https://support.microsoft.com/help/4103348)
+
 
 
 ### <a name="new-features-and-fixes"></a>Nya funktioner och korrigeringar
@@ -141,6 +143,10 @@ Det finns inga kända problem när du har uppdaterat till 1802.
 
 #### <a name="compute"></a>Compute
 - Inställningarna för skalning för virtuella datorer är inte tillgängliga i portalen. Som en tillfällig lösning kan du använda [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). På grund av skillnader mellan versioner PowerShell måste du använda den `-Name` parameter i stället för `-VMScaleSetName`.
+
+- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+
+  Det här problemet är löst i version 1803. Installera Azure-stacken snabbkorrigering för att lösa problemet för version 1802 **1.0.180302.4**. Mer information finns i [KB 4131152: befintliga Skalningsuppsättningar i virtuella datorer inte går att använda]( https://support.microsoft.com/help/4131152). 
 
 - Azure-stacken stöder endast fasta typ av virtuella hårddiskar. Vissa bilder som erbjuds via marketplace Azure stacken använder dynamiska virtuella hårddiskar, men de har tagits bort. Ändra storlek på en virtuell dator (VM) med en dynamisk disk som är ansluten till den lämnar den virtuella datorn i ett felaktigt tillstånd.
 

@@ -1,5 +1,5 @@
 ---
-title: Långsiktig lagring av säkerhetskopior & ARS valvet - Azure SQL Database | Microsoft Docs
+title: Hantera Azure SQL Database långsiktig lagring av säkerhetskopior. | Microsoft Docs
 description: Lär dig hur du lagrar automatisk säkerhetskopiering i SQL Azure-lagring och återställa dem
 services: sql-database
 author: anosov1960
@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 80dd58a9c0267975c9e4df74c77d60ac861a1fdb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 29bfc914dd5c1f4c8b5405ff0e7202b767d032b8
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="configure-and-restore-backups-from-azure-sql-database-long-term-backup-retention-using-azure-sql-storage"></a>Konfigurera och återställa säkerhetskopior från Azure SQL Database långsiktig lagring av säkerhetskopior använder SQL Azure-lagring
+# <a name="manage-azure-sql-database-long-term-backup-retention"></a>Hantera Azure SQL Database långsiktig lagring av säkerhetskopior.
 
 Du kan konfigurera Azure SQL database med en [långsiktig lagring av säkerhetskopior](sql-database-long-term-retention.md) princip (LTR) automatiskt säkerhetskopiorna ska behållas i Azure blob storage för upp till 10 år. Du kan sedan återställa en databas med dessa säkerhetskopior med hjälp av Azure-portalen eller PowerShell.
 
@@ -112,6 +112,12 @@ $ltrPolicies = Get-AzureRmSqlDatabase -ResourceGroupName Default-SQL-WestCentral
 
 # Get the LTR policy of a specific database 
 $ltrPolicies = Get-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup -Current
+```
+### <a name="clear-an-ltr-policy"></a>Ta bort en princip för LTR
+Det här exemplet illustrerar hur du rensar en LTR princip från en-databas
+
+```powershell
+Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -RemovePolicy
 ```
 
 ### <a name="view-ltr-backups"></a>Visa LTR säkerhetskopior

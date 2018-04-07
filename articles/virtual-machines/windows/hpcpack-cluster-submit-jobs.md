@@ -1,11 +1,11 @@
 ---
 title: Skicka jobb till ett HPC Pack kluster i Azure | Microsoft Docs
-description: "Lär dig hur du ställer in en lokal dator att skicka jobb till ett HPC Pack kluster i Azure"
+description: Lär dig hur du ställer in en lokal dator att skicka jobb till ett HPC Pack kluster i Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management,hpc-pack
 ms.assetid: 78f6833c-4aa6-4b3e-be71-97201abb4721
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: d5953f1e1dd2deb4d871bd67352a6a5b2ae13dbf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 263946c1a1bd792b2f23a55388b73a82ddad0000
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Registrera HPC-jobb från lokala datorer till ett HPC Pack-kluster som distribuerats i Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -28,8 +28,8 @@ Konfigurera en lokal klientdator för att skicka jobb till en [Microsoft HPC Pac
 
 ![Skicka ett jobb till ett kluster i Azure][jobsubmit]
 
-## <a name="prerequisites"></a>Krav
-* **HPC Pack huvudnod distribueras i en Azure VM** -rekommenderar vi att du använder automatiserade verktyg som en [Azure quickstart mallen](https://azure.microsoft.com/documentation/templates/) eller en [Azure PowerShell-skript](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) att distribuera huvudnoden och kluster. Du behöver DNS-namnet på huvudnoden och autentiseringsuppgifterna för en Klusteradministratör för att slutföra stegen i den här artikeln.
+## <a name="prerequisites"></a>Förutsättningar
+* **HPC Pack huvudnod distribueras i en Azure VM** -rekommenderar vi att du använder automatiserade verktyg som en [Azure quickstart mallen](https://azure.microsoft.com/documentation/templates/) eller en [Azure PowerShell-skript](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) att distribuera huvudnod och kluster . Du behöver DNS-namnet på huvudnoden och autentiseringsuppgifterna för en Klusteradministratör för att slutföra stegen i den här artikeln.
 * **Klientdatorn** -du behöver en Windows- eller Windows Server-klientdator som kan köra HPC Pack klientverktyg (se [systemkrav](https://technet.microsoft.com/library/dn535781.aspx)). Om du endast vill använda HPC Pack webbportal eller REST API för att skicka jobb kan du använda alla klientdatorer som du väljer.
 * **HPC Pack installationsmediet** - om du vill installera HPC Pack klientverktyg, ledigt installationspaketet för den senaste versionen av HPC Pack (HPC Pack 2012 R2) är tillgängliga från den [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). Kontrollera att du hämtar samma version av HPC Pack som är installerad på huvudnoden VM.
 

@@ -1,11 +1,11 @@
 ---
-title: "HPC Pack kluster för Excel och SOA | Microsoft Docs"
-description: "Kom igång storskaliga Excel- och SOA-arbetsbelastningar som körs i ett HPC Pack-kluster i Azure"
+title: HPC Pack kluster för Excel och SOA | Microsoft Docs
+description: Kom igång storskaliga Excel- och SOA-arbetsbelastningar som körs i ett HPC Pack-kluster i Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,hpc-pack
 ms.assetid: cb6a9abe-caf3-44da-b911-849a50f6cfb3
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: 63babd94fdab15217cfb0757e4cd6efe458a628d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaf26e04fdb38fd76f4ab8211f9fdda8ebafd668
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Kom igång Excel- och SOA-arbetsbelastningar som körs i ett HPC Pack-kluster i Azure
 Den här artikeln visar hur du distribuerar ett Microsoft HPC Pack 2012 R2-kluster på virtuella Azure-datorer med hjälp av en mall för Azure quickstart eller alternativt en Azure PowerShell-distributionsskriptet. Klustret använder Azure Marketplace VM-avbildningar som utformats för att köra Microsoft Excel eller tjänstorienterad arkitektur (SOA) arbetsbelastningar med HPC Pack. Du kan använda klustret för att köra Excel HPC- och SOA-tjänster från en klientdator för lokalt. Excel HPC-tjänster omfattar arbetsboksavlastning i Excel och Excel användardefinierade funktioner eller UDF: er.
@@ -34,7 +34,7 @@ På en hög nivå i följande diagram visas HPC Pack kluster du skapar.
 
 ![HPC-kluster med noder som kör Excel arbetsbelastningar][scenario]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **Klientdatorn** -behöver du en Windows-baserad klientdator att skicka exempel Excel- och SOA-jobb till klustret. Du måste också Windows-datorer kör distributionsskriptet för Azure PowerShell-klustret (om du väljer att distributionsmetoden).
 * **Azure-prenumeration** -om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 * **Kärnor kvoten** – du kan behöva öka kvoten för kärnor, särskilt om du distribuerar flera klusternoder med flera kärnor VM-storlekar. Om du använder en mall för Azure quickstart är kärnor kvot i Resource Manager per Azure-region. I så fall kan du behöva öka kvoten i en viss region. Se [Azure-prenumeration gränser, kvoter och begränsningar](../../azure-subscription-service-limits.md). Att öka kvoten [öppna en supportbegäran online customer](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) utan kostnad.

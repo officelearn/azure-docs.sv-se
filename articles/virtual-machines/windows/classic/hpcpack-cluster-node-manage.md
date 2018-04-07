@@ -1,11 +1,11 @@
 ---
 title: Hantera HPC Pack klustret datornoderna | Microsoft Docs
-description: "Lär dig mer om PowerShell-skript verktyg för att lägga till, ta bort, starta och stoppa HPC Pack 2012 R2-kluster compute-noder i Azure"
+description: Lär dig mer om PowerShell-skript verktyg för att lägga till, ta bort, starta och stoppa HPC Pack 2012 R2-kluster compute-noder i Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 4193f03b-94e9-4704-a7ad-379abde063a9
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: 2ad67efecf9a688ac3e7ccd7cc32576e9a46d1f5
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 453f53be15b24b96f183b4935cc45fc97ad058bd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Hantera antalet och tillgängligheten av beräkningsnoder i ett HPC Pack-kluster i Azure
 Om du har skapat ett HPC Pack 2012 R2-kluster i virtuella Azure-datorer kan du kanske sätt enkelt lägga till, ta bort, starta (tillhandahålla) eller stoppa (avetablering) vissa compute-nod virtuella datorer i klustret. Om du vill utföra dessa uppgifter, kör du Azure PowerShell-skript som är installerade på huvudnoden VM. Dessa skript hjälpa dig att styra antalet och tillgängligheten för din HPC Pack klusterresurser så du kan styra kostnader.
@@ -28,7 +28,7 @@ Om du har skapat ett HPC Pack 2012 R2-kluster i virtuella Azure-datorer kan du k
 > Den här artikeln gäller bara för HPC Pack 2012 R2-kluster i Azure som skapats med hjälp av den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 > PowerShell-skript som beskrivs i den här artikeln är dessutom inte tillgängliga i HPC Pack 2016.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **HPC Pack 2012 R2-kluster i Azure Virtual Machines**: skapa ett HPC Pack 2012 R2-kluster i den klassiska distributionsmodellen. Exempelvis kan du automatisera distributionen med HPC Pack 2012 R2 VM-avbildning i Azure Marketplace och ett Azure PowerShell-skript. Information och krav finns i [skapa ett HPC-kluster med HPC Pack IaaS-distributionsskriptet](hpcpack-cluster-powershell-script.md).
   
     Efter distributionen kan hitta noden hanteringsskript i % CCP\_hem % bin-mappen i huvudnod. Kör alla skript som administratör.

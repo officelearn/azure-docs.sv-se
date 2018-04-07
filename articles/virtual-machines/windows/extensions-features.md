@@ -1,11 +1,11 @@
 ---
-title: "Tillägg för virtuell dator och funktioner för Windows i Azure | Microsoft Docs"
-description: "Lär dig vilka tillägg som är tillgängliga för virtuella Azure-datorer, grupperade efter vad de tillhandahålla och förbättra."
+title: Tillägg för virtuell dator och funktioner för Windows i Azure | Microsoft Docs
+description: Lär dig vilka tillägg som är tillgängliga för virtuella Azure-datorer, grupperade efter vad de tillhandahålla och förbättra.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2017
 ms.author: danis
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0065468e4172f62dc1759c1905a8df48e91e01a6
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: efb7f7cf911ad5dc753afffd077c473cc0faaf74
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Tillägg för virtuell dator och funktioner i Windows
 
@@ -40,7 +40,7 @@ Det finns många olika Virtuella Azure-tillägg, var och en med en specifik anv�
 Förutom processpecifika tillägg är ett tillägg för anpassat skript tillgängligt för både Windows och Linux virtuella datorer. Tillägget för anpassat skript för Windows kan alla PowerShell.skript ska köras på en virtuell dator. Detta är användbart när du skapar Azure-distributioner som kräver konfiguration efter vilken interna Azure verktygsuppsättning kan ge. Mer information finns i [tillägget Windows VM anpassade skript](extensions-customscript.md).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Varje tillägg för virtuell dator kan ha en egen uppsättning krav. Docker VM-tillägget har till exempel en förutsättning för en Linux-fördelning som stöds. Krav för enskilda tillägg beskrivs i dokumentationen för tillägget-specifika.
 

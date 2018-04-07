@@ -1,6 +1,6 @@
 ---
-title: "Övervaka prestanda för en delat flera innehavare Azure SQL-databas i en app för flera innehavare SaaS | Microsoft Docs"
-description: "Övervaka och hantera prestanda för delat flera innehavare Azure SQL-databas i en SaaS-app för flera innehavare"
+title: Övervaka prestanda för en delat flera innehavare Azure SQL-databas i en app för flera innehavare SaaS | Microsoft Docs
+description: Övervaka och hantera prestanda för delat flera innehavare Azure SQL-databas i en SaaS-app för flera innehavare
 keywords: sql database tutorial
 services: sql-database
 author: stevestein
@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 53d8c099d68fd7eb3f00fb4d1be7ec54404521ff
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 43bac88a7ab6320c5fdcc9dc0fb6b5209bdbcaa3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för delat flera innehavare Azure SQL-databas i en SaaS-app för flera innehavare
 
@@ -49,7 +49,7 @@ Hantering av databasprestanda innebär kompilering och analys av prestandadata f
 
 [Azure-portalen](https://portal.azure.com) tillhandahåller inbyggd övervakning och avisering för de flesta resurser. För SQL-databas är övervakning och avisering tillgängligt för databaser. Den här inbyggda övervakning och avisering är resurs-specifika, så det är praktiskt att använda för litet antal resurser, men är inte praktiskt när du arbetar med många resurser.
 
-Omfattande scenarier där du arbetar med många resurser, [logganalys (OMS)](https://azure.microsoft.com/services/log-analytics/) kan användas. Detta är en separat Azure-tjänst som ger analytics över skickade diagnostikloggar och telemetri som samlats in i en log analytics-arbetsyta. Logganalys kan samla in telemetri från många tjänster och användas för att fråga efter och Ställ in aviseringar.
+Omfattande scenarier där du arbetar med många resurser, [logganalys](https://azure.microsoft.com/services/log-analytics/) kan användas. Detta är en separat Azure-tjänst som ger analytics över skickade diagnostikloggar och telemetri som samlats in i en log analytics-arbetsyta. Logganalys kan samla in telemetri från många tjänster och användas för att fråga efter och Ställ in aviseringar.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Hämta Wingtip biljetter SaaS flera innehavare databasen programmets källkod och skript
 

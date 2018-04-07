@@ -1,11 +1,10 @@
 ---
 title: Flera huvuddatabasen arkitekturer med Azure Cosmos DB | Microsoft Docs
-description: "Läs mer om hur du utformar programarkitekturer med lokala läsningar och skrivningar över flera geografiska områden med Azure Cosmos DB."
+description: Läs mer om hur du utformar programarkitekturer med lokala läsningar och skrivningar över flera geografiska områden med Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: 706ced74-ea67-45dd-a7de-666c3c893687
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -15,11 +14,11 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e02b286db42d8a9de8f1df8263f40c3732484038
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 941af42561afbdf91cb3529fd51971ee88fafdbc
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Flera master replikerad globalt databasarkitekturer med Azure Cosmos DB
 Azure Cosmos-DB stöder NYCKELFÄRDIGT [globala replikering](distribute-data-globally.md), där du kan distribuera data till flera regioner med låg latens åtkomst var som helst i arbetsbelastningen. Den här modellen används ofta för utgivaren/konsumenten arbetsbelastningar där det finns en skrivare i en geografisk region och globalt distribuerade läsare i andra (skrivskyddad) regioner. 
@@ -166,7 +165,7 @@ Nu ska vi titta på viktigaste data åtkomstmetoder vi behöver implementera. H�
 ## <a id="Architecture"></a>Konfigurationen av Azure DB Cosmos-konto
 Om du vill garantera lokala läser och skriver vi måste partitionera bara data inte på partition nyckel, men även baserat på geografisk åtkomstmönstret i regioner. Modellen är beroende av att ha ett geo-replikerade Azure Cosmos DB databaskonto för varje region. Till exempel med två regioner är här en konfiguration för flera regioner skrivningar:
 
-| Kontonamn | Skriva Region | Läs Region |
+| Kontonamn | Skrivregion | Läsregion |
 | --- | --- | --- |
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |
@@ -197,7 +196,7 @@ Här är ett kodfragment som visar hur du initierar klienter i en DAL som körs 
 
 Med den föregående installationen kan dataåtkomstnivå vidarebefordra alla skrivningar till det lokala kontot utifrån där den distribueras. Läser utförs av läsning från båda kontona att hämta globala vyn av data. Den här metoden kan utökas till så många regioner som krävs. Här är till exempel en installation med tre geografiska områden:
 
-| Kontonamn | Skriva Region | Läs Region 1 | Läs Region 2 |
+| Kontonamn | Skrivregion | Läs Region 1 | Läs Region 2 |
 | --- | --- | --- | --- |
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |`Southeast Asia` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |

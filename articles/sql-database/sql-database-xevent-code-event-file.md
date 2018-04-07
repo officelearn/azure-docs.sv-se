@@ -1,19 +1,19 @@
 ---
-title: "XEvent-händelsefilen koden för SQL-databas | Microsoft Docs"
-description: "Tillhandahåller PowerShell och Transact-SQL för en tvåfasmigrering kodexempel som visar händelsefilen målet i en utökad händelse på Azure SQL Database. Azure Storage är en obligatorisk del av det här scenariot."
+title: XEvent-händelsefilen koden för SQL-databas | Microsoft Docs
+description: Tillhandahåller PowerShell och Transact-SQL för en tvåfasmigrering kodexempel som visar händelsefilen målet i en utökad händelse på Azure SQL Database. Azure Storage är en obligatorisk del av det här scenariot.
 services: sql-database
 author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 630e0ca84479757d3bb4397aa63ee8a440e69427
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f13ac366a1c382e955db23f3bcefb8f31c89fcb9
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Händelsekod filen mål för utökade händelser i SQL-databas
 
@@ -455,9 +455,9 @@ GO
 
 ## <a name="output"></a>Resultat
 
-När Transact-SQL-skriptet har slutförts klickar du på en cell under den **event_data_XML** kolumnrubriken. En  **<event>**  element visas som visar en UPDATE-instruktion.
+När Transact-SQL-skriptet har slutförts klickar du på en cell under den **event_data_XML** kolumnrubriken. En **<event>** element visas som visar en UPDATE-instruktion.
 
-Här är en  **<event>**  element som genererades under testning:
+Här är en **<event>** element som genererades under testning:
 
 
 ```xml

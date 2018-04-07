@@ -1,28 +1,23 @@
 ---
-title: "Kör Azure Functions med Azure Stream Analytics-jobb | Microsoft Docs"
-description: "Lär dig hur du konfigurerar Azure Functions som utdatamottagare till Stream Analytics-jobb."
-keywords: "data som utdata, strömmande data, Azure-funktion"
-documentationcenter: 
+title: Kör Azure Functions från Azure Stream Analytics-jobb
+description: Den här artikeln beskriver hur du konfigurerar Azure Functions som utdatamottagare i Stream Analytics-jobb att händelsen enhet arbetsbelastningar.
 services: stream-analytics
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 manager: kfile
-ms.assetid: 
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 12/19/2017
-ms.author: sngun
-ms.openlocfilehash: f2f4a8d8cda752dc6ed197b8402119f7cbcaf58f
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: a8eebfa0c40caa455eb20431e5cf4acb8eeb248c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Kör Azure Functions med Azure Stream Analytics-jobb 
+# <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Kör Azure Functions från Azure Stream Analytics-jobb 
 
-Du kan köra Azure Functions med Azure Stream Analytics genom att konfigurera funktioner som en av utdata sänkor till Stream Analytics-jobbet. Functions är en händelsedriven, beräkning på begäran-upplevelse som gör att du kan implementera kod som utlöses av händelser i Azure eller tjänster från tredje part. Den här möjligheten för funktioner att svara på utlösare gör det fysiska utdata till Stream Analytics-jobb.
+Du kan köra Azure Functions från Azure Stream Analytics genom att konfigurera funktioner som en av utdata sänkor till Stream Analytics-jobbet. Funktioner är en händelsedriven, beräkning på begäran-upplevelse som gör att du kan implementera kod som utlöses av händelser i Azure eller tjänster från tredje part. Den här möjligheten för funktioner att svara på utlösare gör det fysiska utdata till Stream Analytics-jobb.
 
 Stream Analytics anropar funktioner via HTTP-utlösare. Utdataadapter funktioner tillåter användare att ansluta funktioner till Stream Analytics, så att händelserna kan utlösas baserat på Stream Analytics-frågor. 
 

@@ -1,10 +1,10 @@
 ---
 title: Importera Cassandra data till Azure Cosmos DB | Microsoft Docs
-description: "Lär dig hur du använder kommandot CQL kopiera för att kopiera Cassandra data till Azure Cosmos DB."
+description: Lär dig hur du använder kommandot CQL kopiera för att kopiera Cassandra data till Azure Cosmos DB.
 services: cosmos-db
 author: govindk
-manager: jhubbard
-documentationcenter: 
+manager: kfile
+documentationcenter: ''
 ms.assetid: eced5f6a-3f56-417a-b544-18cf000af33a
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,24 +14,24 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 21168d0862cfdaaaced60fa80a2dc04859f49550
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 64f60e6beb5451d8f5acd382ca8e5672a2d096f6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB: Importera Cassandra data
 
 Den här självstudiekursen innehåller instruktioner för att importera Cassandra data till Azure Cosmos DB med hjälp av kommandot Cassandra Query Language (CQL) kopiera. 
 
-Den här kursen ingår följande uppgifter:
+Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
 > * Hämta din anslutningssträng
 > * Importera data med hjälp av kommandot cqlsh kopia
 > * Importera med Spark-koppling 
 
-# <a name="prerequisites"></a>Krav
+# <a name="prerequisites"></a>Förutsättningar
 
 * Installera [Apache Cassandra](http://cassandra.apache.org/download/) och mer specifikt säkerställer *cqlsh* finns.
 * Öka genomflödet: din datamigrering varaktighet beror på mängden dataflödet för tabellerna. Se till att öka genomflödet för större migrering av data. När du har slutfört migreringen, minska dataflöde för att spara kostnader. Mer information om ökar genomströmningen i den [Azure-portalen](https://portal.azure.com), finns [Set genomströmning för Azure Cosmos DB behållare](set-throughput.md).

@@ -1,18 +1,18 @@
 ---
-title: Avlänka Azure Automation-konto från logganalys | Microsoft Docs
+title: Ta bort länk till Azure Automation-konto från Log Analytics
 description: Den här artikeln innehåller en översikt över hur du avlänkar Azure Automation-konto från logganalys-arbetsytan.
 services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/19/2018
+ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b8b00f8a82dd63df13ccd0bc7e10429323c15ab3
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 4928f1b92e84fc2b960c1f41e7531de9e346dfa2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Hur du avlänkar ditt Automation-konto från logganalys-arbetsytan
 
@@ -21,16 +21,27 @@ Azure Automation kan integreras med logganalys som inte bara stöd för övervak
 * [Hantering av uppdateringar](../operations-management-suite/oms-solution-update-management.md)
 * [Spårning av ändringar](../log-analytics/log-analytics-change-tracking.md)
 * [Starta/Stoppa VMs kontorstid](automation-solution-vm-management.md)
- 
-Om du inte längre vill integrera ditt Automation-konto med logganalys Avlänka du ditt konto direkt från Azure-portalen.  Innan du fortsätter måste du först ta bort de lösningar som tidigare nämnts, annars kommer den här processen hindras från att du fortsätter.  Granska i avsnittet för en viss lösning som du har importerat för att förstå de steg som krävs för att ta bort den.  
+
+Om du inte längre vill integrera ditt Automation-konto med logganalys Avlänka du ditt konto direkt från Azure-portalen.  Innan du fortsätter måste du först ta bort de lösningar som tidigare nämnts, annars kommer den här processen hindras från att du fortsätter. Granska i avsnittet för en viss lösning som du har importerat för att förstå de steg som krävs för att ta bort den.
 
 När du tar bort dessa lösningar kan du utföra följande steg om du vill Avlänka Automation-konto.
 
+> [!NOTE]
+> Vissa lösningar inklusive tidigare versioner av Azure SQL-övervakningslösning kan ha skapat automation tillgångar och kan även behöva tas bort innan du bryta länken till arbetsytan.
+
 ## <a name="unlink-workspace"></a>Avlänka arbetsytan
 
-1. Öppna ditt Automation-konto från Azure-portalen och på automatisering konto sidan Välj **Avlänka arbetsytan** under avsnittet **relaterade resurser** till vänster.<br><br> ![Avlänka arbetsyta](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)<br><br>  
-2. På sidan Avlänka från arbetsytan **Avlänka arbetsytan**.<br><br> ![Avlänka arbetsytssidan](media/automation-unlink-from-log-analytics/automation-unlink-workspace-blade.png).<br><br>  Ett meddelande visas där du bekräftar att du vill fortsätta.<br><br>
-3. Medan Azure Automation försöker Avlänka kontot logganalys-arbetsytan, du kan följa förloppet under **meddelanden** på menyn.
+1. Öppna ditt Automation-konto från Azure-portalen och på automatisering konto sidan Välj **Avlänka arbetsytan** under avsnittet **relaterade resurser** till vänster.
+
+   ![Avlänka arbetsyta](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)
+
+1. På sidan Avlänka från arbetsytan **Avlänka arbetsytan**.
+
+   ![Avlänka arbetsytssidan](media/automation-unlink-from-log-analytics/automation-unlink-workspace-blade.png).
+
+   Ett meddelande visas där du bekräftar att du vill fortsätta.
+
+1. Medan Azure Automation försöker Avlänka kontot logganalys-arbetsytan, du kan följa förloppet under **meddelanden** på menyn.
 
 Om du har använt lösning för hantering av uppdateringar kanske (valfritt) du vill ta bort följande objekt som inte längre behövs när du tar bort lösningen.
 
@@ -40,10 +51,10 @@ Om du har använt lösning för hantering av uppdateringar kanske (valfritt) du 
 
 Om du använde Starta/stoppa virtuella datorer under låg belastning på nätverket lösning kanske eventuellt du vill ta bort följande objekt som inte längre behövs när du tar bort lösningen.
 
-* Starta och stoppa scheman för VM-runbook 
+* Starta och stoppa scheman för VM-runbook
 * Starta och stoppa runbooks för VM
-* Variabler   
+* Variabler
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill konfigurera om ditt Automation-konto för att integrera med Log Analytics finns [vidarebefordra jobbstatus och jobbet strömmar från Automation till logganalys](automation-manage-send-joblogs-log-analytics.md). 
+Om du vill konfigurera om ditt Automation-konto för att integrera med Log Analytics finns [vidarebefordra jobbstatus och jobbet strömmar från Automation till logganalys](automation-manage-send-joblogs-log-analytics.md).

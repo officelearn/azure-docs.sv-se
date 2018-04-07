@@ -1,11 +1,11 @@
 ---
 title: Ansluta Microsoft Advanced Threat Analytics till Azure Security Center | Microsoft Docs
-description: "Lär dig hur Azure Security Center kan integreras med Microsoft Advanced Threat Analytics."
+description: Lär dig hur Azure Security Center kan integreras med Microsoft Advanced Threat Analytics.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 5d80bf91-16c3-40b3-82fc-e0805e6708db
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: 02e14315018f6586644eb560894785e6b6eb022e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fb32fc55288229fb1d09dce98b6092d38c10abf2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Ansluta Microsoft Advanced Threat Analytics till Azure Security Center
 Det här dokumentet hjälper dig att konfigurera integration mellan Microsoft Advanced Threat Analytics och Azure Security Center.
@@ -58,7 +58,7 @@ Under förutsättning att du redan har ATA installerat och fungerar korrekt loka
 
     ![Styr agent](./media/security-center-ata-integration/security-center-ata-integration-fig6.png)
 
-12. Installera agenten i ATA Center. Under installationen, se till att välja alternativet **ansluta agenten till Azure logganalys (OMS)**, och ange den *arbetsyte-ID*, och *primärnyckel* begäran .
+12. Installera agenten i ATA Center. Under installationen, se till att välja alternativet **Anslut agenten till Azure logganalys**, och ange den *arbetsyte-ID*, och *primärnyckel* begäran.
 
 
 När du slutför installationen integrationen har slutförts och du kommer att kunna se nya aviseringar som skickas från ATA till Security Center i den **Sök** resultat. Lösningen visas i den **säkerhetslösningar** sidan under **anslutna lösningar**. 

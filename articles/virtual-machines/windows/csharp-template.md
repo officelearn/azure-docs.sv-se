@@ -1,10 +1,10 @@
 ---
-title: "Distribuera en virtuell dator med hjälp av C# och Resource Manager-mall | Microsoft Docs"
-description: "Lär dig hur du använder C# och en Resource Manager-mall för att distribuera en Azure VM."
+title: Distribuera en virtuell dator med hjälp av C# och Resource Manager-mall | Microsoft Docs
+description: Lär dig hur du använder C# och en Resource Manager-mall för att distribuera en Azure VM.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: bfba66e8-c923-4df2-900a-0c2643b81240
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: davidmu
-ms.openlocfilehash: b82a70d1b654ff9601db501011d9aa21af8e36c2
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: f2c488a891d1037535f1782da54544ac6af9dd41
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuera en Azure-dator med hjälp av C# och Resource Manager-mall
 Den här artikeln visar hur du distribuerar en Azure Resource Manager-mallen med C#. Den mall som du skapar distribuerar en enskild virtuell dator som kör Windows Server i ett nytt virtuellt nätverk med ett enda undernät.
@@ -200,7 +200,7 @@ Innan du kan distribuera en mall, se till att du har åtkomst till en [Active Di
     graphURL=https://graph.windows.net/
     ```
 
-    Ersätt  **&lt;prenumerations-id&gt;**  med prenumerations-ID  **&lt;program-id&gt;**  med programidentifierare Active Directory  **&lt;autentiseringsnyckel&gt;**  med nyckeln för programmet och  **&lt;klient-id&gt;**  med klient-ID.
+    Ersätt **&lt;prenumerations-id&gt;** med prenumerations-ID **&lt;program-id&gt;** med programidentifierare Active Directory **&lt;autentiseringsnyckel&gt;** med nyckeln för programmet och **&lt;klient-id&gt;** med klient-ID.
 
 3. Spara filen azureauth.properties.
 4. Ange en miljövariabel i Windows som heter AZURE_AUTH_LOCATION med den fullständiga sökvägen till auktoriseringsfilen som du skapade, till exempel följande PowerShell-kommandot kan användas:

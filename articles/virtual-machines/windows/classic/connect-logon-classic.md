@@ -1,10 +1,10 @@
 ---
-title: "Logga in på en klassisk Azure-VM | Microsoft Docs"
-description: "Använda Azure portal för att logga in på en Windows-dator som skapats med den klassiska distributionsmodellen."
+title: Logga in på en klassisk Azure-VM | Microsoft Docs
+description: Använda Azure portal för att logga in på en Windows-dator som skapats med den klassiska distributionsmodellen.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: c35bfeaa81f89dc5a636d67ed9a2a930d689c54a
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: bcbebc216dbd63acfb33cf72ba774d088149a3a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Logga in på en virtuell Windows-dator med Azure Portal
 I Azure portal ska du använda den **Anslut** för att starta en fjärrskrivbordssession och logga in på en virtuell Windows-dator.
@@ -60,10 +60,10 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 ## <a name="next-steps"></a>Nästa steg
 * Om den **Anslut** är inaktiverad eller du har andra problem med anslutningen till fjärrskrivbordet, pröva att återställa konfigurationen. Klicka på **Återställ fjärråtkomst** från instrumentpanelen för virtuell dator.
 
-    ![Återställ fjärråtkomst](./media/connect-logon/virtualmachine_dashboard_reset_remote_access.png)
+    ![Reset-remote-access](./media/connect-logon/virtualmachine_dashboard_reset_remote_access.png)
 
 * För problem med ditt lösenord, pröva att återställa den. Klicka på **Återställ lösenord** längs vänster kant för den virtuella datorn instrumentpanelen under **stöd + felsökning**.
 
-    ![Återställ lösenord](./media/connect-logon/virtualmachine_dashboard_reset_password.png)
+    ![Reset-password](./media/connect-logon/virtualmachine_dashboard_reset_password.png)
 
 Om dessa tips fungerar inte eller inte är vad du behöver kan du se [felsökning av anslutning till fjärrskrivbord till en Windows-baserad Azure-dator](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Den här artikeln beskriver hur du diagnostiserar och löser vanliga problem.

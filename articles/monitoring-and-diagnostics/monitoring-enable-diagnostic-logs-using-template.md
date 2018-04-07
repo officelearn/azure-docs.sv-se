@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: 80f427d5acb884be1752f470e2a9d9d04eee5518
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f1e1c2aa447e35ea483665cc33e4eb6af7a41f51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Aktivera automatiskt diagnostikinställningar när resursen skapas med hjälp av en Resource Manager-mall
 I den här artikeln visar vi hur du kan använda en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) Konfigurera diagnostikinställningar på en resurs när den skapas. På så sätt kan du starta strömning dina diagnostikloggar och mått i Händelsehubbar arkivering dem i ett Lagringskonto eller skicka dem till logganalys när en resurs skapas automatiskt.
@@ -40,7 +40,7 @@ Nedan kan vi ge ett exempel på mallen JSON-fil måste du generera för icke-ber
 ## <a name="non-compute-resource-template"></a>Icke-beräkningsresurser mall
 För icke-beräkningsresurser behöver du göra två saker:
 
-1. Lägga till parametrar till blob med parametrar för lagringskontonamn, event hub auktorisering regel-ID och/eller OMS logganalys arbetsyte-ID (aktivera arkivering av diagnostikloggar i ett lagringskonto, strömning av loggar för Händelsehubbar och/eller skicka loggar till loggen Analytics).
+1. Lägga till parametrar till blob med parametrar för lagringskontonamn, event hub auktorisering regel-ID och/eller logganalys arbetsyte-ID (aktivera arkivering av diagnostikloggar i ett lagringskonto, strömning av loggar för Händelsehubbar och/eller skicka loggar till logganalys).
    
     ```json
     "settingName": {

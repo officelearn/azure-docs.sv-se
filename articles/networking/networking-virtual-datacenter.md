@@ -1,6 +1,6 @@
 ---
-title: "Virtuella Microsoft Azure-Datacenter: Ett Nätverksperspektiv | Microsoft Docs"
-description: "Lär dig hur du skapar din virtuella datacenter i Azure"
+title: 'Virtuella Microsoft Azure-Datacenter: Ett Nätverksperspektiv | Microsoft Docs'
+description: Lär dig hur du skapar din virtuella datacenter i Azure
 services: networking
 author: tracsman
 manager: rossort
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
-ms.openlocfilehash: c4693d91fe81ce55c6faa6610ea19219ac5cfcb5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7fcd8e12a7109218387788e47eddad48e72797bb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Virtuella Microsoft Azure-Datacenter: Ett Nätverksperspektiv
 **Microsoft Azure**: flytta snabbare, spara pengar, integrera lokala appar och data
@@ -259,9 +259,9 @@ Det är mycket viktigt att spåra NSG: er loggar, särskilt informationen i en v
 
 Alla loggar kan lagras i Azure Storage-konton för granskning, statiska analys eller säkerhetskopiering. När loggarna lagras i ett Azure storage-konto, kan kunder använda olika typer av ramverk för att hämta, Förbered dig, analysera och visualisera informationen om du vill rapportera statusen och hälsan på molnresurser.
 
-Stora företag bör redan har fått ett ramverk som standard för att övervaka lokalt system och kan utöka ramverket för att integrera loggar som genereras av distributioner. För organisationer som vill behålla all loggning i molnet, [Microsoft Operations Management Suite (OMS)] [ OMS] är ett bra alternativ. Eftersom OMS implementeras som en molnbaserad tjänst kan du snabbt komma igång med minimal investering i infrastrukturtjänster. OMS kan även integreras med System Center-komponenter, till exempel System Center Operations Manager för att utöka din befintliga management investeringar i molnet.
+Stora företag bör redan har fått ett ramverk som standard för att övervaka lokalt system och kan utöka ramverket för att integrera loggar som genereras av distributioner. För organisationer som vill behålla all loggning i molnet, [logganalys] [ LogAnalytics] är ett bra alternativ. Eftersom logganalys implementeras som en molnbaserad tjänst kan du låta det igång snabbt med minimal investering i infrastrukturtjänster. Log Analytics kan också integreras med System Center-komponenter, till exempel System Center Operations Manager för att utöka din befintliga management investeringar i molnet.
 
-OMS Log analytics är en komponent i OMS-ramverket för att samla in, korrelera, söka och fungerar på loggen och prestanda data som genereras av operativsystem, program, infrastrukturkomponenter i molnet. Den ger kunder realtid åtgärdsinformation som använder integrerad sökning och anpassade instrumentpaneler för att analysera alla poster över alla arbetsbelastningar i en vDC.
+Log Analytics är en tjänst i Azure som hjälper dig att samla in, korrelera, söka och fungerar på loggen och prestanda data som genereras av operativsystem, program och infrastrukturkomponenter för molnet. Den ger kunder realtid åtgärdsinformation som använder integrerad sökning och anpassade instrumentpaneler för att analysera alla poster över alla arbetsbelastningar i en vDC.
 
 #### <a name="component-type-workloads"></a>Komponenttyp: arbetsbelastningar
 Komponenter för arbetsbelastningen är där dina faktiska program och tjänster finns. Det är också där dina program utvecklingsgrupper tillbringar större delen av tiden.
@@ -332,7 +332,7 @@ Följande funktioner beskrivs i det här dokumentet. Klicka på länkarna om du 
 |Nätverksfunktioner|Belastningsutjämning|Anslutning|
 |[Virtuella Azure-nätverk][VNet]</br>[Nätverkssäkerhetsgrupper][NSG]</br>[NSG-loggar][NSGLog]</br>[Användardefinierade Routning][UDR]</br>[Virtuella nätverksenheter][NVA]</br>[Offentliga IP-adresser][PIP]|[Azure belastningsutjämnare (L3) ][ALB]</br>[Programgateway (L7) ][AppGW]</br>[Brandvägg för webbaserade program][WAF]</br>[Azure Traffic Manager][TM] |[VNet-Peering][VNetPeering]</br>[Virtuellt privat nätverk][VPN]</br>[ExpressRoute][ExR]
 |Identitet</br>|Övervakning</br>|Metodtips</br>|
-|[Azure Active Directory][AAD]</br>[Multifaktorautentisering][MFA]</br>[Rollen grundläggande åtkomstkontroller][RBAC]</br>[Standardroller i AAD][Roles] |[Aktivitetsloggar][ActLog]</br>[Diagnostikloggar][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[Metodtips för perimeter-nätverk][DMZ]</br>[Prenumerationshantering][SubMgmt]</br>[Hantering av resursgruppen.][RGMgmt]</br>[Azure-prenumerationsbegränsningar][Limits] |
+|[Azure Active Directory][AAD]</br>[Multifaktorautentisering][MFA]</br>[Rollen grundläggande åtkomstkontroller][RBAC]</br>[Standardroller i AAD][Roles] |[Aktivitetsloggar][ActLog]</br>[Diagnostikloggar][DiagLog]</br>[Log Analytics][LogAnalytics]</br> |[Metodtips för perimeter-nätverk][DMZ]</br>[Prenumerationshantering][SubMgmt]</br>[Hantering av resursgruppen.][RGMgmt]</br>[Azure-prenumerationsbegränsningar][Limits] |
 |Andra Azure-tjänster|
 |[Azure Web Apps][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
 
@@ -379,7 +379,7 @@ Följande funktioner beskrivs i det här dokumentet. Klicka på länkarna om du 
 [ActLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs 
 [DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
-[OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
+[LogAnalytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-overview
 [WebApps]: https://docs.microsoft.com/azure/app-service/
 [HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 

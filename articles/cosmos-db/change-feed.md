@@ -4,8 +4,7 @@ description: Använda Azure Cosmos DB ändra feed stöd för att spåra ändring
 keywords: Ändra feed
 services: cosmos-db
 author: rafats
-manager: jhubbard
-editor: mimig
+manager: kfile
 documentationcenter: ''
 ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
@@ -15,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 16f339540767246ef82bce020aacf9846c8d2e0b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8cc4d8110db0a650b8355f96fee490093826ac30
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Arbeta med ändringen feeds stöd i Azure Cosmos DB
 
@@ -190,7 +189,7 @@ Observera att om du har två serverlösa Azure funktioner som krävs för överv
 Det finns fyra huvudsakliga komponenter för att implementera ändra Feed Processor: samlingen övervakade, lån samlingen, värd för händelsebearbetning och konsumenterna. 
 
 > [!WARNING]
-> Skapa en samling har priser effekter, som du reserverar genomströmning för programmet för att kommunicera med Azure Cosmos DB. Mer information finns i [sida med priser](https://azure.microsoft.com/pricing/details/cosmos-db/)
+> Det finns priseffekter med att skapa en samling eftersom du reserverar genomströmning för programmet för att kommunicera med Azure Cosmos DB. Mer information finns i [sida med priser](https://azure.microsoft.com/pricing/details/cosmos-db/)
 > 
 > 
 

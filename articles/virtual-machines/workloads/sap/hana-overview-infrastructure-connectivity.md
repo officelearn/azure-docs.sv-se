@@ -1,11 +1,11 @@
 ---
 title: Infrastruktur och anslutning till SAP HANA i Azure (stora instanser) | Microsoft Docs
-description: "Konfigurera infrastruktur kräver anslutning om du vill använda SAP HANA i Azure (stora instanser)."
+description: Konfigurera infrastruktur kräver anslutning om du vill använda SAP HANA i Azure (stora instanser).
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 43debeb710e5ab5112f9f0a85a76761cde3051a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastruktur för SAP HANA (stora instanser) och anslutningar på Azure 
 
@@ -49,9 +49,9 @@ Efter inköpet av SAP HANA i Azure (stora instanser) är slutförd mellan dig oc
 - Data för varje HANA stora instanser system:
   - Önskade värdnamnet - helst med fullständigt kvalificerade domännamnet.
   - Önskad IP-adress för HANA stora instans enheten out-of Server Pool för IP-adressintervallet - Kom ihåg att 30 första IP-adresser i Serverpoolen för IP-adressintervallet är reserverade för intern användning i HANA stora instanser
-  - SAP HANA SID namn för SAP HANA-instansen (krävs för att skapa de nödvändiga SAP HANA-relaterade diskvolymer). HANA SID som krävs för att skapa behörigheter för <sidadm> på NFS-volymer som hämtar bifogas HANA stora instans-enhet. Det används också för en namn-komponenter av volymerna som hämta monterade. Om du vill köra flera instanser av HANA på enheten måste du lista över flera HANA SID. Var och en hämtar en separat uppsättning volymer som har tilldelats.
-  - Groupid hana sidadm användaren har i Linux-operativsystem krävs för att skapa de nödvändiga SAP HANA-relaterade diskvolymer. SAP HANA-installationen skapar vanligtvis gruppen sapsys med grupp-id 1001. Hana sidadm användaren tillhör gruppen
-  - Användar-ID som användaren hana sidadm har i Linux-operativsystem krävs för att skapa de nödvändiga SAP HANA-relaterade diskvolymer. Om du kör flera instanser av HANA på enheten, måste du lista alla de <sid>adm-användare 
+  - SAP HANA SID namn för SAP HANA-instansen (krävs för att skapa de nödvändiga SAP HANA-relaterade diskvolymer). HANA SID krävs för att skapa behörigheter för sidadm på NFS-volymer, som hämtar bifogas HANA stora instans-enhet. Det används också för en namn-komponenter av volymerna som hämta monterade. Om du vill köra flera instanser av HANA på enheten måste du lista över flera HANA SID. Var och en hämtar en separat uppsättning volymer som har tilldelats.
+  - Groupid sidadm användaren har i Linux-operativsystem krävs för att skapa de nödvändiga SAP HANA-relaterade diskvolymer. SAP HANA-installationen skapar vanligtvis gruppen sapsys med grupp-id 1001. Sidadm användaren tillhör gruppen
+  - Användar-ID som användaren sidadm har i Linux-operativsystem krävs för att skapa de nödvändiga SAP HANA-relaterade diskvolymer. Om du kör flera instanser av HANA på enheten, måste du lista alla de <sid>adm-användare 
 - Azure prenumerations-ID för Azure-prenumerationen för vilken SAP HANA på Azure HANA stora instanser ska anslutas direkt. Prenumerations-ID refererar till Azure-prenumeration, som kommer att debiteras med HANA stora instans-enheter.
 
 När du har angett informationen Microsoft etablerar SAP HANA i Azure (stora instanser) och returnerar informationen som krävs för att länka ditt Azure Vnet till HANA stora instanser och komma åt HANA stora instans-enheter.
@@ -182,7 +182,7 @@ Om det finns redan en gateway, måste du kontrollera om det är en ExpressRoute-
 
 - Använd antingen den (nya) [Azure-portalen](https://portal.azure.com/), eller PowerShell för att skapa en ExpressRoute-VPN-gateway är ansluten till ditt VNet.
   - Om du använder Azure portal, lägger du till en ny **virtuell nätverksgateway** och välj sedan **ExpressRoute** som gateway-typen.
-  - Om du väljer PowerShell i stället först hämtar och använder senast [Azure PowerShell SDK](https://azure.microsoft.com/downloads/) att säkerställa en optimal upplevelse. Följande kommandon skapar en ExpressRoute-gateway. Texterna föregås av en  _$_  är användardefinierade variabler som behöver uppdateras med din specifika information.
+  - Om du väljer PowerShell i stället först hämtar och använder senast [Azure PowerShell SDK](https://azure.microsoft.com/downloads/) att säkerställa en optimal upplevelse. Följande kommandon skapar en ExpressRoute-gateway. Texterna föregås av en _$_ är användardefinierade variabler som behöver uppdateras med din specifika information.
 
 ```PowerShell
 # These Values should already exist, update to match your environment

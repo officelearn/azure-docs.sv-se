@@ -1,11 +1,10 @@
 ---
 title: Distribuera en webbapp med en mall - Azure Cosmos DB | Microsoft Docs
-description: "Lär dig mer om att distribuera ett Azure DB som Cosmos-konto, Azure App Service Web Apps och ett exempelwebbprogram med hjälp av en Azure Resource Manager-mall."
+description: Lär dig mer om att distribuera ett Azure DB som Cosmos-konto, Azure App Service Web Apps och ett exempelwebbprogram med hjälp av en Azure Resource Manager-mall.
 services: cosmos-db, app-service\web
-author: mimig1
-manager: jhubbard
-editor: monicar
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: 087d8786-1155-42c7-924b-0eaba5a8b3e0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 89513d6c1b9aa9f4709359d6d7681bff9c291618
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 468edd78e0ef8e13b2783485004a9db21906f1fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Distribuera Azure Cosmos DB och Azure App Service Web Apps med en Azure Resource Manager-mall
 Den här kursen visar hur du använder en Azure Resource Manager-mall för att distribuera och integrera [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), en [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) webbapp och en exempelwebbapp.
@@ -77,7 +76,7 @@ Nu ska vi distribuera din första mallen.
    ![Skärmbild av malldistribution UI](./media/create-website/TemplateDeployment6.png)
 7. När distributionen är klar öppnas fönstret resurs grupp.
    ![Skärmbild av rutan resurs grupp](./media/create-website/TemplateDeployment7.png)  
-8. Om du vill använda programmet, navigera till webbappens URL (i exemplet ovan URL: en skulle vara http://mydemodocdbwebapp.azurewebsites.net).  Webbprogrammet följande visas:
+8. Om du vill använda programmet, navigera till webbappens URL (i exemplet ovan är URL: en skulle vara http://mydemodocdbwebapp.azurewebsites.net).  Webbprogrammet följande visas:
    
    ![Todo exempelprogrammet](./media/create-website/image2.png)
 9. Gå vidare och skapa några uppgifter i webbapp och återgå sedan till fönstret resurs grupp i Azure-portalen. Azure Cosmos DB konto resurs i listan över resurser och klicka sedan på **Data Explorer**.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: cbd5b57d0cde3743c7ef70437f702536c27ac999
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b1fdc364b903ed552f657fcabdadcf209d7c969e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Ändra en skaluppsättning för virtuell dator
 Du kan behöva ändra eller uppdatera skaluppsättning för virtuell dator i hela livscykeln för dina program. Dessa uppdateringar kan innehålla hur du uppdaterar konfigurationen av skaluppsättning eller ändra konfigurationen för programmet. Den här artikeln beskriver hur du ändrar en befintlig skaluppsättningen med REST API: er, Azure PowerShell eller Azure CLI 2.0.
@@ -367,7 +367,7 @@ Vissa ändringar kan tillämpas på specifika virtuella datorer i stället för 
 ## <a name="scenarios"></a>Scenarier
 
 ### <a name="application-updates"></a>Programuppdateringar
-Om ett program distribueras till en skala som anges via tillägg, gör en uppdatering av tilläggets konfiguration programmet för att uppdatera i enlighet med principen för versionsuppgradering. Till exempel om du har en ny version av ett skript köras i tillägget för anpassat skript kan du uppdatera den *fileUris* egenskapen att peka mot det nya skriptet. I vissa fall kanske du vill framtvinga en uppdatering även om konfigurationen av tillägget är oförändrad (till exempel du uppdaterade skriptet utan en ändring till URI: N av skriptet). I dessa fall kan du ändra den *forceUpdateTag* tvinga fram en uppdatering. Azure-plattformen tolka inte den här egenskapen. Om du ändrar värdet, finns det ingen effekt på hur tillägget körs. En ändring tvingar bara tillägget igen. Mer information om den *forceUpdateTag*, finns det [REST API-dokumentation för tilläggen](/rest/api/compute/virtualmachineextensions/createorupdate).
+Om ett program distribueras till en skala som anges via tillägg, gör en uppdatering av tilläggets konfiguration programmet för att uppdatera i enlighet med principen för versionsuppgradering. Till exempel om du har en ny version av ett skript köras i tillägget för anpassat skript kan du uppdatera den *fileUris* egenskapen att peka mot det nya skriptet. I vissa fall kanske du vill framtvinga en uppdatering även om konfigurationen av tillägget är oförändrad (till exempel du uppdaterade skriptet utan en ändring till URI: N av skriptet). I dessa fall kan du ändra den *forceUpdateTag* tvinga fram en uppdatering. Azure-plattformen tolka inte den här egenskapen. Om du ändrar värdet, finns det ingen effekt på hur tillägget körs. En ändring tvingar bara tillägget igen. Mer information om den *forceUpdateTag*, finns det [REST API-dokumentation för tilläggen](/rest/api/compute/virtualmachineextensions/createorupdate). Observera att den *forceUpdateTag* kan användas med alla tillägg, inte bara tillägget för anpassat skript.
 
 Det är vanligt för program som ska distribueras via en anpassad avbildning. Det här scenariot beskrivs i följande avsnitt.
 

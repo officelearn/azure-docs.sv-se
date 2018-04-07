@@ -1,12 +1,12 @@
 ---
-title: "Översikt över säkerheten i Azure service fabric | Microsoft Docs"
-description: "Den här artikeln innehåller en översikt över Azure Service Fabric-säkerhet."
+title: Översikt över säkerheten i Azure service fabric | Microsoft Docs
+description: Den här artikeln innehåller en översikt över Azure Service Fabric-säkerhet.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 64717da922701aabd27e15a67e8da1b0acb30b77
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9b6c2463c2a782f463e64d6e350a565fa7898b63
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-service-fabric-security-overview"></a>Översikt över säkerheten i Azure Service Fabric
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) är en plattform för distribuerade system som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster. Service Fabric löser betydande problem för utveckling och hantering av molnprogram. Utvecklare och administratörer kan undvika komplexa infrastrukturproblem och fokusera på att implementera verksamhetskritiska, krävande arbetsbelastningar som är skalbara, tillförlitliga och hanterbara.
@@ -104,7 +104,7 @@ Det totala arbetsflödet för övervakning och diagnostik består av tre steg:
 
 -   **Händelsen aggregering:** Generated händelser behöver samlas in och sammanställs innan de kan visas. Vi rekommenderar vanligtvis använder [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (liknar agent-baserade Logginsamling) eller [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (pågående Logginsamling).
 
--   **Analys:** händelser måste vara visualiserade och tillgänglig i vissa format för analys och visa. Det finns flera plattformar för analys och visualisering av data för övervakning och diagnostik. De två rekommenderar vi är [Operations Management Suite](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) och [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) på grund av deras bra integrering med Service Fabric.
+-   **Analys:** händelser måste vara visualiserade och tillgänglig i vissa format för analys och visa. Det finns flera plattformar för analys och visualisering av data för övervakning och diagnostik. De två rekommenderar vi är [logganalys](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) och [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) på grund av deras bra integrering med Service Fabric.
 
 Du kan också använda [Azure-Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) att övervaka många av de Azure-resurser som en Service Fabric-klustret har skapats.
 

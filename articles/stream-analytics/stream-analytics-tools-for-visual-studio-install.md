@@ -1,34 +1,29 @@
 ---
-title: Installationsinstruktioner för Azure Stream Analytics-verktyg för Visual Studio | Microsoft Docs
-description: Installationsinstruktioner för Azure Stream Analytics-verktyg för Visual Studio
-keywords: Visual studio
-documentationcenter: ''
+title: Konfigurera Azure Stream Analytics-verktyg för Visual Studio
+description: Den här artikeln beskriver Installationskrav och hur du ställer in Azure Stream Analytics-verktyg för Visual Studio.
 services: stream-analytics
 author: su-jie
-manager: ''
-ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 9/19/2017
 ms.author: sujie
-ms.openlocfilehash: fe1f2158439b2c04e8232eb6fe3c9faf79641ffe
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 09/19/2017
+ms.openlocfilehash: 511658fc0e2b480987455007dac5f55cd7850feb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="installation-instructions-for-stream-analytics-tools-for-visual-studio"></a>Installationsinstruktioner för Stream Analytics-verktyg för Visual Studio
-Azure Stream Analytics-verktyg har nu stöd för Visual Studio 2017 2015 och 2013. I det här dokumentet introducerar vi hur du installerar och avinstallerar verktyg.
+# <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Installera Azure Stream Analytics tools för Visual Studio
+Azure Stream Analytics-verktyg har nu stöd för Visual Studio 2017 2015 och 2013. Det här dokumentet beskriver hur du installerar och avinstallerar verktyg.
 
-Lär dig hur du använder [Stream Analytics tools för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Mer information om hur du använder verktygen finns [Stream Analytics tools för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## <a name="install"></a>Installera
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
 * Hämta [Visual Studio-2017 (15.3 eller senare)](https://www.visualstudio.com/). Enterprise (Ultimate/Premium), Professional och Community-versioner stöds. Express edition stöds inte. 
-* Stream Analytics verktyg är en del av den **Azure-utveckling** och **bearbetning och lagring av Data** arbetsbelastningar i Visual Studio-2017. Aktivera någon av dessa två arbetsbelastningar som en del av installationen av Visual Studio.
+* Stream Analytics verktyg är en del av den **Azure-utveckling** och **bearbetning och lagring av Data** arbetsbelastningar i Visual Studio-2017. Aktivera någon av dessa två arbetsbelastningar som en del av Visual Studio-installationen.
 
 Aktivera den **bearbetning och lagring av Data** arbetsbelastning som visas:
 

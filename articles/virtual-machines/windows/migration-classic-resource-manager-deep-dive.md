@@ -1,11 +1,11 @@
 ---
-title: "Tekniska ingående om plattformen stöds från klassiska till Azure Resource Manager | Microsoft Docs"
-description: "Den här artikeln har en teknisk ingående om plattformen stöds migrering av resurser från klassiska till Azure Resource Manager"
+title: Tekniska ingående om plattformen stöds från klassiska till Azure Resource Manager | Microsoft Docs
+description: Den här artikeln har en teknisk ingående om plattformen stöds migrering av resurser från klassiska till Azure Resource Manager
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 1ee40d32-a5e8-42a2-97d0-3232fd3cbb98
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 4898998fe27c48bab4dee3dbaed5a174e23dc83a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: edd23c465054bb01729541f03026af79b98a7762
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>En teknisk djupdykning i plattformsunderstödd migrering från klassiskt läge till Azure Resource Manager
 Låt oss ta en djupdykning i migrera från Azure klassiska distributionsmodellen till Azure Resource Manager-distributionsmodellen. Vi tittar på resurser på en resurs och funktionen nivå som hjälper dig att förstå hur Azure-plattformen migrerar resurser mellan två distributionsmodeller. Mer information finns i service meddelande artikel: [plattform som stöds migrering av IaaS-resurser från klassiska till Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

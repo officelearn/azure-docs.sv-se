@@ -1,24 +1,19 @@
 ---
-title: Azure Stream Analytics datadrivna felsökning med hjälp av jobbet diagrammet | Microsoft Docs
-description: Felsöka Stream Analytics-jobbet med jobb diagram och mått.
-keywords: ''
-documentationcenter: ''
+title: Datadrivna felsökning i Azure Stream Analytics
+description: Den här artikeln beskriver hur du felsöker Azure Stream Analytics-jobbet med jobb diagram och mått i Azure-portalen.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 05/01/2017
 ms.author: jeanb
-ms.openlocfilehash: 65eeeee7daa22b94074f55defdfd1219049774c9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 05/01/2017
+ms.openlocfilehash: e6b2b7f4c01a5280c2fb3a5c17158b8dcc2797d4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Datadrivna felsökning med hjälp av jobb-diagram
 
@@ -85,7 +80,7 @@ Om föregående frågesteg är en inkommande processor Använd inkommande mått 
 
 
 ## <a name="get-help"></a>Få hjälp
-Mer hjälp, försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Mer hjälp, försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Stream Analytics](stream-analytics-introduction.md)

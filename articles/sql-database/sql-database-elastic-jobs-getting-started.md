@@ -7,20 +7,20 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 85fd04966822f8dd6a0c3086002e4388411d1051
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2d8760476fd7b8a5a11d01a434a383ec1ba27ef1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Komma igång med jobb för elastisk databas
 Elastiska databasen jobb (förhandsversion) för Azure SQL Database kan du köra T-SQL-skript som sträcker sig över flera databaser när du försöker och ge garantier för eventuell slutförande automatiskt på ett tillförlitligt sätt. Mer information om funktionen för elastisk databas jobb finns [elastiska jobb](sql-database-elastic-jobs-overview.md).
 
 Den här artikeln utökar exemplet hittades i [komma igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md). När du är klar, lär du dig att skapa och hantera jobb som hanterar en grupp av relaterade databaser. Du behöver inte använda verktygen elastisk skalbarhet för att kunna dra nytta av fördelarna med elastiska jobb.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Hämta och kör den [komma igång med elastisk databas verktyg exempel](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Skapa en Fragmentera kartan manager med sample-appen

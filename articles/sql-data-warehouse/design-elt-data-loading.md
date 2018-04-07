@@ -10,11 +10,11 @@ ms.component: design
 ms.date: 03/28/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: c27ad843c9ee9beed871dcc03254cb1266f6ebe2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 18d5f4131718021de82328719e0538db759dde9c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Designa extrahera, Load and Transform (ELT) för Azure SQL Data Warehouse
 
@@ -47,8 +47,9 @@ PolyBase är en teknik som har åtkomst till data utanför databasen via T-SQL-s
 Du kan använda något av dessa alternativ för inläsning för att läsa in data med PolyBase.
 
 - [PolyBase med T-SQL](load-data-from-azure-blob-storage-using-polybase.md) fungerar bra när dina data i Azure Blob storage eller Azure Data Lake Store. Det ger dig de flesta kontroll över inläsningen, men kräver också att du kan definiera externa dataobjekt. De andra metoderna definiera objekten i bakgrunden som du mappa källtabellerna till måltabell.  Du kan använda Azure Data Factory, SSIS eller Azure functions för att dirigera T-SQL-belastning. 
-- [PolyBase med SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md) fungerar bra när datakällan är i SQL Server, antingen SQL Server lokalt eller i molnet. SSIS definierar källan till målet tabell mappningar, och även samordnar belastningen. Om du redan har SSIS-paket kan du ändra paket att arbeta med den nya data warehouse mål. 
-- [PolyBase med Azure Data Factory (ADM)](sql-data-warehouse-load-with-data-factory.md) är ett annat orchestration-verktyg.  Den definierar en pipeline och schemalägger jobb. 
+- [PolyBase med SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) fungerar bra när datakällan är i SQL Server, antingen SQL Server lokalt eller i molnet. SSIS definierar källan till målet tabell mappningar, och även samordnar belastningen. Om du redan har SSIS-paket kan du ändra paket att arbeta med den nya data warehouse mål. 
+- [PolyBase med Azure Data Factory (ADM)](sql-data-warehouse-load-with-data-factory.md) är ett annat orchestration-verktyg.  Den definierar en pipeline och schemalägger jobb. Du kan använda ADF att parsa JSON-data och läsa in det i SQL Data Warehouse.
+- [PolyBase med Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) överför data från Azure Data Lake Store till SQL Data Warehouse. Du kan använda Azure DataBricks att parsa JSON-data och läsa in data till SQL Data Warehouse. 
 
 ### <a name="polybase-external-file-formats"></a>PolyBase externt filformat
 

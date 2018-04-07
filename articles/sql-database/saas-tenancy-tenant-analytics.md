@@ -1,6 +1,6 @@
 ---
-title: "Kör mellan klient analytics med hjälp av data som extraheras | Microsoft Docs"
-description: "Mellan klient analytics-frågor med data som hämtats från flera databaser i Azure SQL Database."
+title: Kör mellan klient analytics med hjälp av data som extraheras | Microsoft Docs
+description: Mellan klient analytics-frågor med data som hämtats från flera databaser i Azure SQL Database.
 keywords: sql database tutorial
 services: sql-database
 author: stevestein
@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: anjangsh; billgib; genemi
-ms.openlocfilehash: ff57bd054f3ff28662d3fd2eb46dca02e74af69b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ec54e68ee1d0b09b5fb34a2a11c331cb0d478326
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Mellan klient analytics med hjälp av data som hämtas
 
@@ -91,7 +91,7 @@ I följande steg ska du distribuera analytics store, som kallas **tenantanalytic
     - Om du vill använda SQL-databas med kolumnen store **$DemoScenario** = **3**  
 3. Tryck på **F5** att köra skriptet demo (som anropar den *distribuera TenantAnalytics<XX>.ps1* skript) som skapar klient analytics store. 
 
-Nu när du har distribuerat programmet och fylls med intressanta klientdata, använda [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) att ansluta **tenants1-dpt -&lt;användare&gt;**  och **katalog-dpt -&lt;användare&gt;**  servrar med inloggningen = *developer*, lösenord =  *P@ssword1* . Finns det [inledande kursen](saas-dbpertenant-wingtip-app-overview.md) för mer hjälp.
+Nu när du har distribuerat programmet och fylls med intressanta klientdata, använda [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) att ansluta **tenants1-dpt -&lt;användare&gt;**  och **katalog-dpt -&lt;användare&gt;**  servrar med inloggningen = *developer*, lösenord = *P@ssword1*. Finns det [inledande kursen](saas-dbpertenant-wingtip-app-overview.md) för mer hjälp.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -173,7 +173,7 @@ Använd följande steg för att ansluta till Power BI och för att importera de 
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Välj **databasen** sedan ange användarnamn i det vänstra fönstret = *developer*, och ange lösenord =  *P@ssword1* . Klicka på **Anslut**.  
+5. Välj **databasen** sedan ange användarnamn i det vänstra fönstret = *developer*, och ange lösenord = *P@ssword1*. Klicka på **Anslut**.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

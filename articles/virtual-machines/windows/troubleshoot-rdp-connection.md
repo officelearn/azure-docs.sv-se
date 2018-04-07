@@ -5,7 +5,7 @@ keywords: 'Remote desktop-fel, fel anslutning till fjärrskrivbord kan inte ansl
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 0d740f8e-98b8-4e55-bb02-520f604f5b18
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: danis
-ms.openlocfilehash: e2b792743f1b4ba458cff111ab6dd888b0c26d93
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 60c54850c1ca5de0e9bda4b48688ba297874e48e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Felsöka anslutningar till fjärrskrivbord till en virtuell Azure-dator
 Remote Desktop Protocol (RDP)-anslutning till din Windows-baserad Azure virtuell dator (VM) kan misslyckas av olika skäl, så att du inte har åtkomst till den virtuella datorn. Problemet kan vara med Remote Desktop-tjänsten på den virtuella datorn, nätverksanslutningen eller fjärrskrivbordsklienten på värddatorn. Den här artikeln hjälper dig att några av de vanligaste metoderna för att lösa RDP-anslutningsproblem. 
@@ -94,6 +94,10 @@ Försök ansluta till den virtuella datorn igen efter varje steg i felsökningen
     ![Distribuera den virtuella datorn i Azure-portalen](./media/troubleshoot-rdp-connection/redeploy-vm.png)
    
     När den här åtgärden har slutförts tillfälliga diskdata går förlorad och dynamiska IP-adresser som är associerade med den virtuella datorn har uppdaterats.
+
+9. **Kontrollera routning**. Använda nätverket Watcher [nästa hopp](../../network-watcher/network-watcher-check-next-hop-portal.md) möjlighet att bekräfta att en väg inte hindra trafik dirigeras till eller från en virtuell dator. Du kan också granska effektiva vägar för att se alla effektiva vägar för ett nätverksgränssnitt. Mer information finns i [Using effektiva vägar för felsökning av VM-trafik flödet](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+
+10. Kontrollera att alla lokala brandväggen eller brandvägg på datorn, tillåter utgående TCP 3389 trafik till Azure.
 
 Om det fortfarande uppstår problem med RDP, kan du [öppna en supportbegäran](https://azure.microsoft.com/support/options/) eller läsa [mer detaljerad felsökning koncept och steg RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -180,6 +184,10 @@ Försök ansluta till den virtuella datorn igen efter varje steg i felsökningen
     Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
+6. **Kontrollera routning**. Använda nätverket Watcher [nästa hopp](../../network-watcher/network-watcher-check-next-hop-portal.md) möjlighet att bekräfta att en väg inte hindra trafik dirigeras till eller från en virtuell dator. Du kan också granska effektiva vägar för att se alla effektiva vägar för ett nätverksgränssnitt. Mer information finns i [Using effektiva vägar för felsökning av VM-trafik flödet](../../virtual-network/virtual-network-routes-troubleshoot-powershell.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+
+7. Kontrollera att alla lokala brandväggen eller brandvägg på datorn, tillåter utgående TCP 3389 trafik till Azure.
+
 Om det fortfarande uppstår problem med RDP, kan du [öppna en supportbegäran](https://azure.microsoft.com/support/options/) eller läsa [mer detaljerad felsökning koncept och steg RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="troubleshoot-vms-created-using-the-classic-deployment-model"></a>Felsökning av virtuella datorer som skapats med hjälp av den klassiska distributionsmodellen
@@ -217,6 +225,8 @@ Försök ansluta till den virtuella datorn efter varje steg i felsökningen.
     Välj den virtuella datorn i Azure-portalen och klicka på den **översikt** fliken. Klicka på den **starta om** knappen:
    
     ![Starta om den virtuella datorn i Azure-portalen](./media/troubleshoot-rdp-connection/classic-restart-vm.png)
+
+7. Kontrollera att alla lokala brandväggen eller brandvägg på datorn, tillåter utgående TCP 3389 trafik till Azure.
 
 Om det fortfarande uppstår problem med RDP, kan du [öppna en supportbegäran](https://azure.microsoft.com/support/options/) eller läsa [mer detaljerad felsökning koncept och steg RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

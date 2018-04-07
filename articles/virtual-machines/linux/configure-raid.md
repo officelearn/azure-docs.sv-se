@@ -1,10 +1,10 @@
 ---
-title: "Konfigurera programvarubaserad RAID på en virtuell dator som kör Linux | Microsoft Docs"
-description: "Lär dig hur du använder mdadm för att konfigurera RAID på Linux i Azure."
+title: Konfigurera programvarubaserad RAID på en virtuell dator som kör Linux | Microsoft Docs
+description: Lär dig hur du använder mdadm för att konfigurera RAID på Linux i Azure.
 services: virtual-machines-linux
 documentationcenter: na
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 ms.assetid: f3cb2786-bda6-4d2c-9aaf-2db80f490feb
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
-ms.openlocfilehash: 12f540a700fbf85e579e8aadc9f6def039299ff7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d6e831692da37645e264c6674f1ba54bb16d25d4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="configure-software-raid-on-linux"></a>Konfigurera programvaru-RAID på Linux
 Det är ett vanligt scenario du använder programvarubaserad RAID på Linux virtuella datorer i Azure för att presentera flera diskar i bifogade data som en enkel RAID-enhet. Vanligtvis kan detta användas för att förbättra prestanda och möjliggöra bättre genomflöde jämfört med bara en enda disk.
@@ -61,7 +61,7 @@ I det här exemplet skapar vi en enskild diskpartition på /dev/sdc. Den nya dis
                     sectors (command 'u').
     ```
 
-2. Tryck på ”n” i Kommandotolken för att skapa en  **n** y-partition:
+2. Tryck på ”n” i Kommandotolken för att skapa en **n**ny partition:
 
     ```bash
     Command (m for help): n

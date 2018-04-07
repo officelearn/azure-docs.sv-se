@@ -1,20 +1,20 @@
 ---
 title: 'Always Encrypted: Azure SQL Database - Windows certifikatarkiv | Microsoft Docs'
-description: "Den här artikeln visar hur du skyddar känsliga data i en SQL-databas med databaskryptering med hjälp av alltid krypteras guiden i SQL Server Management Studio (SSMS). Den visar också hur du lagrar krypteringsnycklarna i Windows certifikatarkiv."
-keywords: "kryptera data, sql-kryptering, databaskryptering, känsliga data krypteras alltid"
+description: Den här artikeln visar hur du skyddar känsliga data i en SQL-databas med databaskryptering med hjälp av alltid krypteras guiden i SQL Server Management Studio (SSMS). Den visar också hur du lagrar krypteringsnycklarna i Windows certifikatarkiv.
+keywords: kryptera data, sql-kryptering, databaskryptering, känsliga data krypteras alltid
 services: sql-database
 author: stevestein
 manager: jhubbard
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 1bb3f6bd3b4bfc1546e992734a85921248eff8fd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 38c4a724cc963370e60ae796729476c3bbc0342a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: Skydda känsliga data i SQL-databasen och lagra krypteringsnycklar i Windows certifikatarkiv
 

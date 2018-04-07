@@ -1,24 +1,19 @@
 ---
-title: Utnyttja frågan parallellisering i Azure Stream Analytics | Microsoft Docs
-description: Lär dig mer om att skala Stream Analytics-jobb genom att konfigurera inkommande partitioner, justera frågedefinitionen och ange jobbet enheter för strömning.
-keywords: data som strömmas, finjustera strömning databehandling analytics
+title: Använd fråga parallellisering och skala i Azure Stream Analytics
+description: Den här artikeln beskriver hur du skala Stream Analytics-jobb genom att konfigurera inkommande partitioner, justera frågedefinitionen och ange jobbet enheter för strömning.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: eb19a9b4e92e7007f64ae7b593663be6a47a7a4b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/22/2017
+ms.openlocfilehash: 949806379891dbf5a7c145a14cae532104f51497
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Utnyttja frågan parallellisering i Azure Stream Analytics
 Den här artikeln visar hur du dra nytta av parallellisering i Azure Stream Analytics. Du lär dig att skala Stream Analytics-jobb genom att konfigurera inkommande partitioner och justera frågedefinitionen analytics.
@@ -50,7 +45,7 @@ När du arbetar med Stream Analytics kan du dra nytta av partitionering i utdata
 -   IoT-hubb (måste uttryckligen ange Partitionsnyckeln)
 -   Service Bus
 
-PowerBI och SQL-informationslager utdata stöd inte för partitionering. Men du kan fortfarande partitionera indata som beskrivs i [i det här avsnittet](#multi-step-query-with-a-grouping-key) 
+PowerBI och SQL-informationslager utdata stöd inte för partitionering. Men du kan fortfarande partitionera indata som beskrivs i [i det här avsnittet](#multi-step-query-with-different-partition-by-values) 
 
 Mer information om partitioner finns i följande artiklar:
 
@@ -65,7 +60,7 @@ En *embarrassingly parallella* jobbet är den mest skalbara scenario som vi har 
 
 2. När data är placerade på inkommande sida måste du kontrollera att frågan är partitionerad. Detta måste du använda **PARTITION BY** i alla steg. Flera steg tillåts, men de måste vara partitionerad med samma nyckel. För närvarande partitionsnyckel måste anges till **PartitionId** för jobbet ska vara fullständigt parallellt.  
 
-3. De flesta av våra utdata kan dra nytta av partitionering, men om du använder en output-typ som inte stöder partitionering jobbet kommer inte att fullständigt parallellt. Referera till den [utdata avsnittet](#Outputs) för mer information.
+3. De flesta av våra utdata kan dra nytta av partitionering, men om du använder en output-typ som inte stöder partitionering jobbet kommer inte att fullständigt parallellt. Referera till den [utdata avsnittet](#outputs) för mer information.
 
 4. Antalet inkommande partitioner måste vara lika med antalet partitioner för utdata. BLOB storage-utdata stöds inte för närvarande partitioner. Men det är OK, eftersom ärver det överordnade frågans partitioneringsschema. Här följer exempel på partitionen värden som tillåter ett fullständigt parallella jobb:  
 
@@ -221,7 +216,7 @@ Den här frågan kan skalas till 24 SUs.
 
 
 ## <a name="get-help"></a>Få hjälp
-För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)

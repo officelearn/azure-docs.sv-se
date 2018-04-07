@@ -1,11 +1,11 @@
 ---
-title: "Utveckla och kör lokalt Azure functions | Microsoft Docs"
-description: "Lär dig hur du code och testa Azure functions lokalt på datorn innan du kör dem på Azure Functions."
+title: Utveckla och kör lokalt Azure functions | Microsoft Docs
+description: Lär dig hur du code och testa Azure functions lokalt på datorn innan du kör dem på Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 59a15697641dd8e4bdfdb974436d46a34b47ffb5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1fe07790bd534cbe18c25cb5fb1e0634f54ac9e2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Platskod och testa Azure Functions lokalt
 
@@ -110,7 +110,7 @@ Använd för att skapa projektet utan en lokal Git-lagringsplats i `--no-source-
 
 I version 2.x av Azure Functions-runtime måste du explicit registrera den [bindning tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) som du använder i appen funktion. 
 
-[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+[!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
 Mer information finns i [Azure Functions-utlösare och bindningar begrepp](functions-triggers-bindings.md#register-binding-extensions).
 

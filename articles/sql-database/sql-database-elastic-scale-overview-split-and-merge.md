@@ -1,19 +1,19 @@
 ---
-title: "Flytta data mellan databaser som skalats ut molntjänster | Microsoft Docs"
-description: "Beskriver hur du hanterar shards och flytta data via en automatisk värdbaserad tjänst som använder API: er för elastisk databas."
+title: Flytta data mellan databaser som skalats ut molntjänster | Microsoft Docs
+description: 'Beskriver hur du hanterar shards och flytta data via en automatisk värdbaserad tjänst som använder API: er för elastisk databas.'
 services: sql-database
 manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 9e2b231ad2e9fc5ab07532daef44da9870cef4ae
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c70279bd52f7b0b0e0cbc27742eca93d9af5e630
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Flytta data mellan utskalade molndatabaser
 Om du är en programvara som en tjänst-utvecklare och plötsligt enorm begäran görs i appen, måste du anpassa tillväxt. Så får du lägga till flera databaser (shards). Hur du för att distribuera data till de nya databaserna utan att störa dataintegriteten? Använd den **för delade sökvägssammanslagning** att flytta data från begränsad databaser till de nya databaserna.  

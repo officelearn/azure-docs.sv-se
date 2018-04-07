@@ -1,10 +1,10 @@
 ---
-title: "Kopiera en Linux VM som använder Azure CLI 2.0 | Microsoft Docs"
-description: "Lär dig hur du skapar en kopia av din virtuella Azure Linux-datorn med hjälp av Azure CLI 2.0 och hanterade diskar."
+title: Kopiera en Linux VM som använder Azure CLI 2.0 | Microsoft Docs
+description: Lär dig hur du skapar en kopia av din virtuella Azure Linux-datorn med hjälp av Azure CLI 2.0 och hanterade diskar.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager
 ms.assetid: 770569d2-23c1-4a5b-801e-cddcd1375164
 ms.service: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: cynthn
-ms.openlocfilehash: 511a3f1b1bc29514baaa3198125d7d236a6101ab
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 66f2789d717816f5be3fd8b298819825f8cd87f7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-20-and-managed-disks"></a>Skapa en kopia av en Linux-VM med hjälp av Azure CLI 2.0 och hanterade diskar
 

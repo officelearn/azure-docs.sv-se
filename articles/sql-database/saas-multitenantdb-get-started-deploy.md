@@ -9,13 +9,13 @@ ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 3806b165e0124e979f59b51d5583cdbb1f949366
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska ett delat flera innehavare program som använder Azure SQL Database
 
@@ -57,7 +57,7 @@ Följande krav måste uppfyllas för att kunna köra den här självstudiekursen
 
 I stegen i det här avsnittet ger du en *användare* värde som används för att säkerställa globalt unikt namn och ett namn för den *resursgruppen* som innehåller alla resurser som skapats av en distribution i appen. För en person med namnet *Ann Finley*, föreslår vi:
 - *Användare:* **af1***(hennes initialer plus en siffra. Använd ett annat värde (t.ex. af2) om du distribuerar appen till en andra gång.)*
-- *Resursgrupp:* **wingtip-dpt-af1** *(wingtip dpt innebär att det är appen databas per klient. Lägga till användaren namnet af1 korrelerar resursgruppens namn med namnen på de resurser som den innehåller.)*
+- *Resursgrupp:* **wingtip-huvudmålservern-af1** *(wingtip huvudmålservern innebär att det är delat appen för flera innehavare. Lägga till användaren namnet af1 korrelerar resursgruppens namn med namnen på de resurser som den innehåller.)*
 
 Välj namn på din nu och Skriv ned dem. 
 
@@ -123,7 +123,7 @@ Varje plats hämtar en anpassad webbprogram till deras händelser och sälja bil
 Central **händelser hubb** webbsidan innehåller en lista med länkar till innehavare i en viss distribution. Använd följande steg för att uppleva den **händelser hubb** webbsidan och en enskild webbapp:
 
 1. Öppna den **händelser hubb** i webbläsaren:
-    - http://events.Wingtip-MT.&lt;användare&gt;. trafficmanager.net &nbsp; *(Ersätt &lt;användaren&gt; med din distribution användaren värde.)*
+    - http://events.wingtip-mt. &lt;användare&gt;. trafficmanager.net &nbsp; *(Ersätt &lt;användaren&gt; med din distribution användaren värde.)*
 
     ![evenemangshubben](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 

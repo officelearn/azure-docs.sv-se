@@ -1,12 +1,12 @@
 ---
-title: "Skapa en Linux-VM i Azure med flera nätverkskort | Microsoft Docs"
-description: "Lär dig hur du skapar en Linux VM med flera nätverkskort som är kopplade till den med hjälp av Azure CLI eller Resource Manager-mallar."
+title: Skapa en Linux-VM i Azure med flera nätverkskort | Microsoft Docs
+description: Lär dig hur du skapar en Linux VM med flera nätverkskort som är kopplade till den med hjälp av Azure CLI eller Resource Manager-mallar.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 93a32ae7ec0cf73825791e8c8bc3d388cf999ece
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 20e3a65c28e95849822d81076b6780e05a2aebbf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>Skapa en virtuell Linux-dator med flera nätverkskort som använder Azure CLI 1.0
 Du kan skapa en virtuell dator (VM) i Azure som har flera virtuella nätverksgränssnitt (NIC) ansluten till den. Ett vanligt scenario är att ha olika undernät för frontend och backend-anslutning eller ett nätverk som är dedikerad för en lösning för övervakning eller säkerhetskopiering. Den här artikeln innehåller snabb kommandon för att skapa en virtuell dator med flera nätverkskort som är kopplade till den. Olika [VM-storlekar](sizes.md) stöder olika antal nätverkskort, så därför storlek den virtuella datorn.
@@ -43,7 +43,7 @@ azure config mode arm
 
 Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn ingår *myResourceGroup*, *mittlagringskonto*, och *myVM*.
 
-Först skapa en resursgrupp. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *eastus* plats:
+Först skapa en resursgrupp. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli
 azure group create myResourceGroup --location eastus
@@ -143,6 +143,8 @@ azure vm create \
     --ssh-publickey-file ~/.ssh/id_rsa.pub
 ```
 
+När du lägger till flera nätverkskort till en Linux-VM, måste du skapa regler för routning. De här reglerna kan den virtuella datorn att skicka och ta emot trafik som hör till ett visst nätverkskort. Annars trafik som hör till eth1, till exempel kan inte bearbetas på rätt sätt med definierade standardvägen. För att åtgärda problemet routning finns [konfigurera gästoperativsystemet för flera nätverkskort](multiple-nics.md#configure-guest-os-for-multiple-nics).
+
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>Skapa flera nätverkskort med hjälp av Resource Manager-mallar
 Azure Resource Manager-mallar använda deklarativa JSON-filer för att definiera din miljö. Du kan läsa ett [översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Resource Manager-mallar är ett sätt att skapa flera instanser av en resurs under distributionen, till exempel skapa flera nätverkskort. Du använder *kopiera* kan du ange antalet instanser som du vill skapa:
 
@@ -162,6 +164,8 @@ Du kan också använda en `copyIndex()` att sedan lägga till ett tal till ett r
 ```
 
 Du kan läsa en komplett exempel på [skapar flera nätverkskort med hjälp av Resource Manager-mallar](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+När du lägger till flera nätverkskort till en Linux-VM, måste du skapa regler för routning. De här reglerna kan den virtuella datorn att skicka och ta emot trafik som hör till ett visst nätverkskort. Annars trafik som hör till eth1, till exempel kan inte bearbetas på rätt sätt med definierade standardvägen. För att åtgärda problemet routning finns [konfigurera gästoperativsystemet för flera nätverkskort](multiple-nics.md#configure-guest-os-for-multiple-nics).
 
 ## <a name="next-steps"></a>Nästa steg
 Se till att granska [Linux VM-storlekar](sizes.md) vid försök att skapa en virtuell dator med flera nätverkskort. Ta hänsyn till det maximala antalet nätverkskort som har stöd för varje VM-storlek. 

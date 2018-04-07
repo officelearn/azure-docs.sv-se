@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: ancav
-ms.openlocfilehash: 4598267e92716529774f42d22ab7c47d944d4495
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 537213fdf106da1c07d549d65b1d8cf71887db9f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Översikt över mått i Microsoft Azure
 Den här artikeln beskriver vilka mått som finns i Microsoft Azure sina fördelar och hur du börjar använda dem.  
@@ -47,7 +47,7 @@ Du kan också:
 
 * Konfigurera ett mått **avisering regel som skickar ett meddelande eller tar automatisk åtgärd** om måttet överskrider tröskelvärdet som du har angett. Autoskala är en automatisk specialåtgärd som gör att du kan skala upp din resurs för att uppfylla inkommande begäranden eller läses in på webbplatsen eller datorresurser. Du kan konfigurera en regel för automatiska inställningen att skala in eller ut baserat på ett mått som passerar ett tröskelvärde.
 
-* **Väg** alla mått Application Insights eller logganalys (OMS) för att aktivera omedelbara analytics, Sök och anpassade aviseringar på mått data från dina resurser. Du kan också strömma mått till en Händelsehubb, så att du kan sedan dirigera dem till Azure Stream Analytics eller anpassade appar för analys i nära realtid. Du ställa in Event Hub strömning med diagnostikinställningar.
+* **Väg** alla mått Application Insights eller Log Analytics för att aktivera omedelbara analytics, Sök och anpassade aviseringar på mått data från dina resurser. Du kan också strömma mått till en Händelsehubb, så att du kan sedan dirigera dem till Azure Stream Analytics eller anpassade appar för analys i nära realtid. Du ställa in Event Hub strömning med diagnostikinställningar.
 
 * **Arkivera mått till lagring** längre bevarande eller använda dem för offline-rapportering. Du kan vidarebefordra dina till Azure Blob storage när du konfigurerar inställningar för diagnostik för din resurs.
 
@@ -100,11 +100,18 @@ Azure mått kan nås via API: er för Azure-Monitor. Det finns två API: er som 
 En mer detaljerad genomgång med hjälp av Azure övervakaren REST-API: er finns [REST-API för Azure-Monitor genomgången](monitoring-rest-api-walkthrough.md).
 
 ## <a name="export-metrics"></a>Exportera mått
-Går du till den **diagnostikinställningarna** bladet under den **övervakaren** fliken och visa exportalternativ för mått. Du kan välja mått (och diagnostikloggar) ska vidarebefordras till Blob storage till Händelsehubbar i Azure eller till OMS för användningsområden som har nämnts tidigare i den här artikeln.
+Går du till den **diagnostikinställningarna** bladet under den **övervakaren** fliken och visa exportalternativ för mått. Du kan välja mått (och diagnostikloggar) ska vidarebefordras till Blob storage till Händelsehubbar i Azure eller till logganalys för användningsområden som har nämnts tidigare i den här artikeln.
 
  ![Exportalternativ för mätvärden i Azure-Monitor](./media/monitoring-overview-metrics/MetricsOverview3.png)
 
 Du kan konfigurera detta via Resource Manager-mallar [PowerShell](insights-powershell-samples.md), [Azure CLI](insights-cli-samples.md), eller [REST API: er](https://msdn.microsoft.com/library/dn931943.aspx).
+
+> [!NOTE]
+> Skicka flerdimensionell mätvärden via diagnostikinställningar stöds inte för närvarande. Mått med dimensioner exporteras som Flat enda dimensionell mått som aggregeras på värden.
+>
+> *Till exempel*: 'Inkommande meddelanden' mått på en Händelsehubb kan utforskade och i diagrammet på en per kön nivå. Men när exporteras via diagnostikinställningar mått representeras av alla inkommande meddelanden i alla köer i hubben.
+>
+>
 
 ## <a name="take-action-on-metrics"></a>Utför en åtgärd på mått
 Du kan konfigurera Varningsregler eller automatiska inställningar för att ta emot meddelanden eller utför automatiserade åtgärder på mätvärden.

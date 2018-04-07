@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: dekapur;srrengar
-ms.openlocfilehash: b7bd5ce879e5119417a24879c875915245f9070b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 03fa2862bbce39ac9ee6b7da02bd93b02b05f216
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Övervaknings- och diagnostikfunktionerna för Azure Service Fabric
 
@@ -68,7 +68,7 @@ Service Fabric-plattformen innehåller en hälsomodell som ger extensible hälso
 
 ![Instrumentpanelen för hälsotillstånd för SFX](media/service-fabric-diagnostics-overview/sfx-healthstatus.png)
 
-Förutom att visa senaste hälsorapporter i SFX finns också varje rapport som en händelse. Hälsotillstånd händelser kan samlas in via operativa kanalen (se [händelse aggregeringen med Azure-diagnostik](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)), och lagras i OMS Log Analytics för varningar och frågor i framtiden. Detta hjälper dig att identifiera problem som kan påverka din tillgänglighet, så vi rekommenderar att du konfigurerar aviseringar för lämpliga scenarier (anpassade aviseringar via OMS).
+Förutom att visa senaste hälsorapporter i SFX finns också varje rapport som en händelse. Hälsotillstånd händelser kan samlas in via operativa kanalen (se [händelse aggregeringen med Azure-diagnostik](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)), och lagras i Log Analytics för varningar och frågor i framtiden. Detta hjälper dig att identifiera problem som kan påverka din tillgänglighet, så vi rekommenderar att du konfigurerar aviseringar för lämpliga scenarier (anpassade aviseringar via logganalys).
 
 ## <a name="other-logging-solutions"></a>Andra lösningar för loggning
 

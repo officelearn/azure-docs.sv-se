@@ -1,12 +1,12 @@
 ---
-title: "Expandera OS-disken på Linux VM med Azure CLI 1.0 | Microsoft Docs"
-description: "Lär dig hur du expandera den virtuella disken operativsystem (OS) på en Linux VM som använder Azure CLI 1.0 och Resource Manager-distributionsmodellen"
+title: Expandera OS-disken på Linux VM med Azure CLI 1.0 | Microsoft Docs
+description: Lär dig hur du expandera den virtuella disken operativsystem (OS) på en Linux VM som använder Azure CLI 1.0 och Resource Manager-distributionsmodellen
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f81054727bb1f0e8ffa752783e866a72d573589d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Expandera OS-disk på en Linux VM som använder Azure CLI med Azure CLI 1.0
 Standardstorleken för virtuell hårddisk för operativsystem (OS) är vanligtvis 30 GB på en Linux-dator (VM) i Azure. Du kan [lägga till datadiskar](add-disk.md) att tillhandahålla för ytterligare lagringsutrymme, men du kan också expandera OS-disk. Den här artikeln beskriver hur du expandera OS-disk för en Linux-VM med hjälp av ohanterade diskar med Azure CLI 1.0.
@@ -29,7 +29,7 @@ Du kan slutföra uppgiften med någon av följande CLI-versioner:
 - [Azure CLI 1.0](#prerequisites) – våra CLI för klassisk och resurs management på distributionsmodeller (den här artikeln)
 - [Azure CLI 2.0](expand-disks.md) – vår nästa generations CLI för distributionsmodellen resurshantering
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver den [senaste Azure CLI 1.0](../../cli-install-nodejs.md) installerad och inloggad på ett [Azure-konto](https://azure.microsoft.com/pricing/free-trial/) med hjälp av hanteraren för filserverresurser på följande sätt:
 
 ```azurecli
@@ -47,7 +47,7 @@ Ersätt exempel parameternamn med egna värden i följande exempel. Exempel para
     ```
 
     > [!NOTE]
-    > `azure vm stop`Frigör inte beräkningsresurserna. Använd om du vill frigöra beräkningsresurser `azure vm deallocate`. Den virtuella datorn måste frigöras för att expandera den virtuella hårddisken.
+    > `azure vm stop` Frigör inte beräkningsresurserna. Använd om du vill frigöra beräkningsresurser `azure vm deallocate`. Den virtuella datorn måste frigöras för att expandera den virtuella hårddisken.
 
 2. Uppdatera storleken på en ohanterad OS disk med hjälp av den `azure vm set` kommando. I följande exempel uppdateras den virtuella datorn med namnet *myVM* i resursgrupp med namnet *myResourceGroup* ska *50* GB:
 

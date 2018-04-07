@@ -1,53 +1,47 @@
 ---
-title: "B2B-samarbete användaranspråk mappning i Azure Active Directory | Microsoft Docs"
-description: "anspråk mappning referens för Azure Active Directory B2B-samarbete"
+title: B2B-samarbete användaranspråk mappning i Azure Active Directory | Microsoft Docs
+description: Anpassa användaranspråk som har utfärdats i SAML-token för Azure Active Directory (AD Azure) B2B-användare.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/15/2017
+ms.date: 04/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 3fe75e96c153a7cbcad638d606d0fbc248bd983a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8f5e471d4e7102300cd5581976b45c9fa8cc57bc
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>B2B-samarbete användaranspråk mappning i Azure Active Directory
 
-Azure Active Directory (AD Azure) stöder anpassa anspråk som utfärdats i SAML-token för B2B-samarbete användare. När en användare autentiseras för utfärdar Azure AD en SAML-token till appen som innehåller information (eller anspråk) om användaren som unikt identifierar dem. Som standard innehåller detta användarens användarnamn, e-postadress, Förnamn och efternamn. Du kan visa eller redigera anspråk skickas i SAML-token till programmet under fliken attribut.
+Azure Active Directory (AD Azure) stöder anpassa anspråk som utfärdats i SAML-token för B2B-samarbete användare. När en användare autentiseras för utfärdar Azure AD en SAML-token till appen som innehåller information (eller anspråk) om användaren som unikt identifierar dem. Som standard innehåller detta användarens användarnamn, e-postadress, Förnamn och efternamn.
 
-Det finns två möjliga orsaker till varför du kan behöva redigera anspråk som utfärdats i SAML-token.
+I den [Azure-portalen](https://portal.azure.com), du kan visa eller redigera de anspråk som skickas i en SAML-token till programmet. Om du vill komma åt inställningarna, Välj **Azure Active Directory** > **företagsprogram** > det program som har konfigurerats för enkel inloggning > **enkel inloggning** . SAML-token inställningar i den **användarattribut** avsnitt.
 
-1. Programmet har skrivits till kräver en annan uppsättning anspråk URI: er eller anspråksvärden
+![Visar attributen för SAML-token i Användargränssnittet](media/active-directory-b2b-claims-mapping/view-claims-in-saml-token.png)
 
-2. NameIdentifier att anspråket ska vara något annat än användarens huvudnamn som lagras i Azure Active Directory krävs för ditt program.
+Det finns två möjliga orsaker till varför du kan behöva redigera anspråk som utfärdats i SAML-token:
 
-  ![Visa anspråk i SAML-token](media/active-directory-b2b-claims-mapping/view-claims-in-saml-token.png)
+1. Programmet kräver en annan uppsättning anspråk URI: er eller anspråksvärden.
 
-Information om hur du lägger till och redigera anspråk finns i följande artikel på anspråk anpassning [anpassa anspråk som utfärdats i SAML-token för förintegrerade appar i Azure Active Directory](develop/active-directory-saml-claims-customization.md). Användare, mappning NameID och UPN cross-klient som inte av säkerhetsskäl för B2B-samarbete.
+2. Programmet kräver att NameIdentifier anspråket blir något annat än användarens huvudnamn (UPN) som lagras i Azure AD.
 
+Information om hur du lägger till och redigera anspråk finns i [anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory](develop/active-directory-saml-claims-customization.md).
+
+Användare, mappning NameID och UPN cross-klient som inte av säkerhetsskäl för B2B-samarbete.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs andra artiklar om Azure AD B2B-samarbete:
+- Information om B2B-samarbete användaregenskaper finns [egenskaperna för en användare för Azure Active Directory B2B-samarbete](active-directory-b2b-user-properties.md).
+- Information om användartoken för B2B-samarbete användare finns [förstå användartoken i Azure AD B2B-samarbete](active-directory-b2b-user-token.md).
 
-* [Vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Egenskaper för användare av B2B-samarbete](active-directory-b2b-user-properties.md)
-* [Lägger till en B2B-samarbete användare till en roll](active-directory-b2b-add-guest-to-role.md)
-* [Delegera B2bB samarbete inbjudningar](active-directory-b2b-delegate-invitations.md)
-* [Dynamiska grupper och B2B-samarbete](active-directory-b2b-dynamic-groups.md)
-* [B2B-samarbete kod och PowerShell-exempel](active-directory-b2b-code-samples.md)
-* [Konfigurera SaaS-appar för B2B-samarbete](active-directory-b2b-configure-saas-apps.md)
-* [Extern delning av Office 365](active-directory-b2b-o365-external-user.md)
-* [Användartoken för B2B-samarbete](active-directory-b2b-user-token.md)
-* [Aktuella begränsningar för B2B-samarbete](active-directory-b2b-current-limitations.md)

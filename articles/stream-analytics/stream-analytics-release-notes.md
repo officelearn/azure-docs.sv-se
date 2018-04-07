@@ -1,28 +1,24 @@
 ---
-title: Viktig information för Stream Analytics | Microsoft Docs
-description: Stream Analytics viktig information
+title: Azure Stream Analytics - viktig information
+description: Den här artikeln beskriver version historia Azure Stream Analytics och motsvarande Visual Studio-verktygen.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 5e59f893-cd2c-43fb-9eca-c146ce637203
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 05/03/2017
 ms.author: jeanb
-ms.openlocfilehash: 645c9e7014beba0312de3784bbc04734927929a9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 05/03/2017
+ms.openlocfilehash: b5f6f4f42929127521320e56bcc9b36c324cde89
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-analytics-release-notes"></a>Stream Analytics viktig information
 
 ## <a name="notes-for-06142017-update-of-stream-analytics-tools-for-visual-studio"></a>Anteckningar för 2017-06/14 uppdatering av Stream Analytics-verktyg för Visual Studio
-Denna uppdatering är för våra Visual Studio Tools. Den här versionen innehåller följande nya funktioner:
+Denna uppdatering är för Visual Studio Tools. Den här versionen innehåller följande nya funktioner:
 
 | Namn | Beskrivning |
 | --- | --- |
@@ -31,19 +27,19 @@ Denna uppdatering är för våra Visual Studio Tools. Den här versionen innehå
 | CSV- och Avro-stöd för lokal testning indata | Förutom JSON, kan nu du använda filformatet csv- och Avro för lokal testning indata.|
 
 ## <a name="notes-for-05032017-update-of-stream-analytics"></a>Anteckningar för 2017-05/03 uppdatering av Stream Analytics
-Denna uppdatering är vår felsökning dokumentationen-versionen.
+Denna uppdatering är felsökning dokumentationen-versionen.
 
-Den [felsökningsguide för](stream-analytics-troubleshooting-guide.md) och andra dokument har släppts. Granska är feedback Välkommen.
+Den [felsökningsguide för](stream-analytics-troubleshooting-guide.md) och andra dokument har släppts. Granska den här guiden och din feedback är Välkommen.
 
 ## <a name="notes-for-04242017-update-of-stream-analytics-tools-for-visual-studio"></a>Anteckningar för 2017-04/24 uppdatering av Stream Analytics-verktyg för Visual Studio
-Denna uppdatering är för våra Visual Studio Tools. Den här versionen innehåller följande nya funktioner:
+Denna uppdatering är för Visual Studio Tools. Den här versionen innehåller följande nya funktioner:
 
 | Namn | Beskrivning |
 | --- | --- |
 | Visa lokala testresultat i Visual Studio | Om du vill visa det utgående resultatet av det lokala testet, tryck på RETUR i konsolfönstret utdata eller avslutar den. Resultatet visas i ett fönster i Visual Studio i tabellformat. |
 | Utgående lokala resultatet i JSON-format | När du kör ett lokala test genereras det utgående resultatet som både JSON och CSV-filformat. |
 | Förhandsgranska Blob/table storage indata/utdata-data | Genom att dubbelklicka på en blob eller tabell lagring o i vyn jobb kan förhandsgranska du data i Visual Studio enkelt. |
-| Visa felmeddelande för indata/utdata | Om det finns vissa körningsfel som rör ditt jobb indata eller utdata ska visas i diagrammet jobbet där du kan hålla på den för att se det detaljerade felmeddelandet.|
+| Visa felmeddelande för indata/utdata | Om det finns några körningsfel som rör jobbets indata eller utdata, visas den på jobbet diagrammet där du kan hålla på den för att se det detaljerade felmeddelandet.|
 
 
 ## <a name="notes-for-02012017-release-of-stream-analytics"></a>Information om 2017-02/01 versionen av Stream Analytics
@@ -76,7 +72,7 @@ Den här versionen innehåller följande uppdatering:
 | Namn | Beskrivning |
 | --- | --- |
 | Uppdatering för REST API-version |REST API-version har uppdaterats till 2015-10-01. Information finns på MSDN vid [Stream Analytics Management REST API-referens](https://msdn.microsoft.com/library/azure/dn835031.aspx) och [Machine Learning-integrering i Stream Analytics](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md). |
-| Azure Machine Learning-integrering |Med den här versionen har stöd för Azure Machine Learning användardefinierade funktioner. Finns det [kursen](stream-analytics-machine-learning-integration-tutorial.md) mer information samt de [allmänna blogg meddelande](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx). |
+| Azure Machine Learning-integrering |Med den här versionen har stöd för Azure Machine Learning användardefinierade funktioner. Mer information finns i [kursen](stream-analytics-machine-learning-integration-tutorial.md) och [allmänna blogg meddelande](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx). |
 
 ## <a name="notes-for-11122015-release-of-stream-analytics"></a>Anteckningar för 11/12/2015-versionen av Stream Analytics
 Den här versionen innehåller följande uppdatering:
@@ -93,7 +89,7 @@ Den här versionen innehåller följande uppdateringar:
 | Ytterligare språk frågefunktioner |Stream Analytics har utökats frågespråket genom att inkludera följande funktioner: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [tak](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [VÅNING](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [LOGGA](https://msdn.microsoft.com/library/azure/mt605290.aspx), [KVADRAT](https://msdn.microsoft.com/library/azure/mt605288.aspx), och [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx). |
 | Ta bort sammanställd begränsningar |Den här versionen tar bort begränsningen av 15 aggregeringar i en fråga. Det finns nu ingen gräns för antalet mängder per fråga. |
 | GRUPP av System.Timestamp extrafunktioner |Den [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) funktionen tillåter nu antingen window_type eller [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx). |
-| Tillagda FÖRSKJUTNINGEN för rullande och Hopping windows |Som standard [rullande](https://msdn.microsoft.com/library/azure/dn835055.aspx) och [Hopping](https://msdn.microsoft.com/library/azure/dn835041.aspx) windows justeras mot noll tiden (1/1/0001 12:00:00 AM UTC). Den nya (valfria) parametern 'offsetsize' kan du ange en anpassad förskjutningen (eller justering). |
+| Tillagda FÖRSKJUTNINGEN för rullande och Hopping windows |Som standard [rullande](https://msdn.microsoft.com/library/azure/dn835055.aspx) och [Hopping](https://msdn.microsoft.com/library/azure/dn835041.aspx) windows justeras mot noll tiden (1/1/0001 12:00:00 AM UTC). Den nya (valfria) parametern `offsetsize` kan du ange en anpassad förskjutningen (eller justering). |
 
 ## <a name="notes-for-09292015-release-of-stream-analytics"></a>Anteckningar för 29/09/2015-versionen av Stream Analytics
 Den här versionen innehåller följande uppdateringar:
@@ -151,16 +147,16 @@ Den här versionen innehåller följande uppdateringar:
 | --- | --- |
 | Fördröjning i konfigurationen av Azure Storage-kontot |När du skapar ett Stream Analytics-jobb i en region för första gången, uppmanas du att skapa ett nytt lagringskonto eller ange ett befintligt konto för övervakning av Stream Analytics-jobb i området. På grund av latens Konfigurera övervakning, skapar en annan Stream Analytics-jobb i samma region inom 30 minuter Kommandotolken för att ange ett andra Storage-konto i stället för visar det nyligen konfigurerade i övervakning Lagringskonto listrutan. För att undvika att skapa ett onödiga Storage-konto, vänta i 30 minuter när du har skapat ett jobb i en region för första gången innan du etablerar ytterligare jobb i området. |
 | Jobbet uppgradering |Stream Analytics stöder inte live redigeringar definition eller konfiguration av ett jobb som körs för tillfället. För att kunna ändra indata, utdata, fråga, skala eller konfigurationen av ett jobb som körs, måste du stoppa jobbet. |
-| Datatyper härledas från Indatakällan |Om en CREATE TABLE-instruktion används Indatatyp är härledd från Indataformatet, till exempel alla fält i CSV är sträng. Fälten måste uttryckligen konverteras till rätt typ med CAST-funktion för att undvika fel av typen matchningsfel. |
+| Datatyper härledas från Indatakällan |Om en CREATE TABLE-instruktion används Indatatyp är härledd från Indataformatet, till exempel alla fält i CSV är sträng. Explicit konvertera fält till rätt typ med CAST-funktion för att undvika felaktiga matchning. |
 | Fält saknas utdata som null-värden |Refererar till ett fält som inte finns i Indatakällan resulterar i null-värden i output-händelse. |
 | MED rapporterna måste föregå SELECT-uttryck |SELECT-satser måste följa underfrågor som definierats i med instruktioner i din fråga. |
 | Minnet är slut problemet |Streaming Analytics-jobb med en stor tolerans för out-ordning händelser och/eller komplexa frågor upprätthålla en stor mängd tillstånd kan orsaka att jobbet ska få slut på minne, vilket resulterar i ett jobb startas om. Åtgärder för start och stopp visas i jobbets åtgärdsloggar. Undvik problemet genom att skala ut frågan över flera partitioner. Den här begränsningen är adresserad av försämring av prestanda påverkas jobb i stället för att starta om dem i en framtida version. |
 | Stora blob indata utan nyttolast tidsstämpel kan orsaka problem om minnet är slut |Förbrukar stora filer från Blob storage kan orsaka Stream Analytics-jobb kraschar om något tidsstämpelsfält inte har angetts via TIMESTAMP BY. Undvik problemet genom att hålla varje blob under 10 MB i storlek. |
-| SQL-databas händelse volym begränsning |När du använder SQL-databas som en output-mål, kan mycket stora mängder utdata orsaka Stream Analytics-jobbet timeout. Lös problemet, minska volymen genom att använda mängdfunktioner eller filteroperatorerna eller välj Azure Blob storage- eller Händelsehubbar som ett mål för utdata i stället. |
+| SQL-databas händelse volym begränsning |När du använder SQL-databas som en output-mål, kan stora mängder utdata orsaka Stream Analytics-jobbet timeout. Lös problemet, minska volymen genom att använda mängdfunktioner eller filteroperatorerna eller välj Azure Blob storage- eller Händelsehubbar som ett mål för utdata i stället. |
 | PowerBI datauppsättningar kan bara innehålla en tabell |PowerBI stöder inte mer än en tabell i den angivna datauppsättningen. |
 
 ## <a name="get-help"></a>Få hjälp
-Om du behöver mer hjälp kan du besöka vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+För mer hjälp, testa den [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)

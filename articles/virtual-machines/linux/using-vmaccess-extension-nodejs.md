@@ -1,11 +1,11 @@
 ---
-title: "Återställa åtkomst på virtuella Azure Linux-datorer med hjälp av VMAccess-tillägget | Microsoft Docs"
-description: "Återställa åtkomst på virtuella Azure Linux-datorer med hjälp av VMAccess-tillägget."
+title: Återställa åtkomst på virtuella Azure Linux-datorer med hjälp av VMAccess-tillägget | Microsoft Docs
+description: Återställa åtkomst på virtuella Azure Linux-datorer med hjälp av VMAccess-tillägget.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: vlivech
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: v-livech
-ms.openlocfilehash: 278bf1785aac71068ab94cf9916af69a204c44be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fb130fc2e448f3cbc648991ea6bebd5795bc78b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-users-ssh-and-check-or-repair-disks-on-azure-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-10"></a>Hantera användare, SSH och kontrollera eller reparera diskar på virtuella Azure Linux-datorer med Azure CLI 1.0 VMAccess-tillägget
 Den här artikeln visar hur du använder Azure VMAcesss tillägget för att kontrollera eller reparera en disk, återställa användaråtkomst, hantera användarkonton eller återställa SSHD konfigurationen på Linux. Artikeln kräver:

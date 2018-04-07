@@ -7,13 +7,13 @@ manager: drasumic
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 04/01/2018
 ms.author: vvasic
-ms.openlocfilehash: 2ea5c0e640ac7e635692dafac1f30f377aa79625
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f29a7c883450cbc0f1f2b5a230a6c6e081222906
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="enable-automatic-tuning"></a>Aktivera automatisk inställning
 
@@ -29,11 +29,11 @@ Se [automatisk justering e-postaviseringar](sql-database-automatic-tuning-email-
 ### <a name="azure-portal"></a>Azure Portal
 Om du vill aktivera automatisk justering på Azure SQL Database-server, gå till servern i Azure-portalen och välj **automatisk justering** på menyn. Välj Automatisk justering alternativ som du vill aktivera och välja **Verkställ**:
 
-![Server ](./media/sql-database-automatic-tuning-enable/server.png)
+![Server](./media/sql-database-automatic-tuning-enable/server.png)
 
 Alternativ för automatisk justering på servern som tillämpas på alla databaser på servern. Som standard alla databaser ärver konfigurationen från sina överordnade servern, men detta kan åsidosättas och anges separat för varje databas.
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 [Klicka här om du vill läsa mer om hur du aktiverar automatisk justering på servernivå via REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)
 
 ## <a name="enable-automatic-tuning-on-an-individual-database"></a>Aktivera automatisk inställning på en individuell databas

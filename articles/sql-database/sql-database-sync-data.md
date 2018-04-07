@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 6e0b8a999cf38cbef37498d4ee0fb2bceae8f292
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e66adb8b0485e30fded487e18af6b2030f9c7f5b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synkronisera data över flera molntjänster och lokala databaser med SQL-datasynkronisering (förhandsgranskning)
 
@@ -166,7 +166,7 @@ Mer information om SQL Data Sync finns i:
 
 -   [Konfigurera Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
 -   [Metodtips för Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   [Övervaka Azure SQL Data Sync med OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Övervaka Azure SQL-datasynkronisering med logganalys](sql-database-sync-monitor-oms.md)
 -   [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Slutför PowerShell-exempel som visar hur du konfigurerar SQL Data Sync:

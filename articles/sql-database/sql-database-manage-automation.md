@@ -1,19 +1,19 @@
 ---
-title: "Hantera Azure SQL-databaser med hjälp av Azure Automation | Microsoft Docs"
-description: "Läs mer om hur Azure Automation-tjänsten kan användas för att hantera Azure SQL-databaser i större skala."
+title: Hantera Azure SQL-databaser med hjälp av Azure Automation | Microsoft Docs
+description: Läs mer om hur Azure Automation-tjänsten kan användas för att hantera Azure SQL-databaser i större skala.
 services: sql-database, automation
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 0174b2b1dd5942e17ea60c2dce624c87fd1289c8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f0f071c2ad5e79168d89361c89a005c247599655
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Hantera Azure SQL-databaser med hjälp av Azure Automation
 Den här guiden innehåller en introduktion till Azure Automation-tjänsten och hur det kan användas för att förenkla hanteringen av dina Azure SQL-databaser.

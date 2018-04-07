@@ -1,13 +1,13 @@
 ---
-title: "Hantera Azure DDoS-skydd Standard med hjälp av Azure portal | Microsoft Docs"
-description: "Lär dig hur du använder Azure DDoS-skydd Standard telemetri i Azure-Monitor minimera angreppet."
+title: Hantera Azure DDoS-skydd Standard med hjälp av Azure portal | Microsoft Docs
+description: Lär dig hur du använder Azure DDoS-skydd Standard telemetri i Azure-Monitor minimera angreppet.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 6a5ab1ba44197c0103e1e7d353a116dc01dfc163
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5cc03189124dbea56535af2fed84f5ca74aac6cd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Hantera Azure DDoS-skydd Standard med hjälp av Azure portal
 
@@ -84,7 +84,7 @@ Det finns tre alternativ för loggning:
 
 - **Arkivet till ett lagringskonto**: skriver loggar till ett lagringskonto.
 - **Dataströmmen till en händelsehubb**: gör en logg mottagare att hämta loggar med en händelsehubb. Detta möjliggör integrering med Splunk eller andra SIEM-system.
-- **Skicka till logganalys**: skriver loggar till Azure OMS Log Analytics-tjänsten.
+- **Skicka till logganalys**: skriver loggar till Azure Log Analytics-tjänsten.
 
 ## <a name="use-ddos-protection-telemetry"></a>Använd telemetri för DDoS-skydd
 

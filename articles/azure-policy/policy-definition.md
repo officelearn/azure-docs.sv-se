@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 50965010d821d4edf94e2f5727546cb56f61f5db
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 42fdfa2eb629351c38fb72c20a62cd7d78acf229
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -70,7 +70,7 @@ Den **läge** bestämmer vilka typer av resurser som ska utvärderas för en pri
 * `all`: utvärderar resursgrupper och alla typer av resurser 
 * `indexed`: endast utvärdera resurstyper som har stöd för etiketter och plats
 
-Vi rekommenderar att du ställer in **läge** till `all` i de flesta fall. Alla principdefinitioner som skapats via portalen användningen av `all` läge. Om du använder PowerShell eller Azure CLI, måste du ange den **läge** parametern manuellt.
+Vi rekommenderar att du ställer in **läge** till `all` i de flesta fall. Alla principdefinitioner som skapats via portalen användningen av `all` läge. Om du använder PowerShell eller Azure CLI, måste du ange den **läge** parametern manuellt. Om principdefinitionen inte innehåller en **läge** värdet den som standard `indexed` för bakåtkompatibilitet kompatibilitet.
 
 `indexed` ska användas när du skapar principer som tillämpar taggar eller platser. Detta är inte obligatoriskt, men de resurser som inte stöder taggar och platser ska visas som icke-kompatibla i kompatibilitetsresultaten. Det enda undantaget är **resursgrupper**. Principer som försöker använda plats eller taggarna i en resursgrupp ska ange **läge** till `all` och specifikt mål för den `Microsoft.Resources/subscriptions/resourceGroup` typen. Ett exempel finns [genomdriva grupp resurstaggar](scripts/enforce-tag-rg.md).
 
@@ -102,6 +102,8 @@ Du kan använda i metadataegenskap **strongType** att tillhandahålla en flerval
 * `"resourceTypes"`
 * `"storageSkus"`
 * `"vmSKUs"`
+* `"existingResourceGroups"`
+* `"omsWorkspace"`
 
 I principregeln referera parametrar med följande syntax:
 

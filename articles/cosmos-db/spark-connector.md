@@ -1,12 +1,11 @@
 ---
 title: Ansluta Apache Spark till Azure Cosmos DB | Microsoft Docs
-description: "Använd den här självstudiekursen vill veta mer om Azure Cosmos DB Spark-koppling kan du ansluta Apache Spark i Azure Cosmos DB att utföra distribuerade aggregeringar och data sciences på flera innehavare globalt distribuerade databassystemet från Microsoft som utformad för molnet."
+description: Använd den här självstudiekursen vill veta mer om Azure Cosmos DB Spark-koppling kan du ansluta Apache Spark i Azure Cosmos DB att utföra distribuerade aggregeringar och data sciences på flera innehavare globalt distribuerade databassystemet från Microsoft som utformad för molnet.
 keywords: Apache spark
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: dennyglee
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: c4f46007-2606-4273-ab16-29d0e15c0736
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: denlee
-ms.openlocfilehash: 4ba8a53f2018727cc4fa225b2d4ce14d9f1d7467
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: e93148a8870a40dbe5d89a2364497c44096eef7c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Påskynda realtid stordata med Spark på Azure DB som Cosmos-kopplingen
 

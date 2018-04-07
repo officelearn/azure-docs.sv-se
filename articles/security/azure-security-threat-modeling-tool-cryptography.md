@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 96e74371fe51a8050a91c86215e3eefab07bbed8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5e5d487c4c793a49ce1d4ac17f6fcd672e09bb90
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Säkerhet ram: Kryptering | Åtgärder 
 | Produkter eller tjänster | Artikel |
@@ -73,7 +73,7 @@ ms.lasthandoff: 04/05/2018
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
-| **Steg** | <p>Produkter måste använda godkända slumpmässiga nummer generatorer. Pseudoslumpvisa funktioner, till exempel C runtime funktionen SLUMP, .NET Framework-klass System.Random eller systemfunktioner, till exempel GetTickCount måste därför aldrig användas i sådan kod. Användning av den dubbla elliptisk kurva generator (DUAL_EC_DRBG) algoritmen är förbjuden</p><ul><li>**CNG -** BCryptGenRandom (användning av flaggan BCRYPT_USE_SYSTEM_PREFERRED_RNG rekommenderas om anroparen kan köras på alla IRQL som är större än 0 [som är PASSIVE_LEVEL])</li><li>**CAPI -** cryptGenRandom</li><li>**Win32/64-** RtlGenRandom (nya implementeringar bör använda BCryptGenRandom eller CryptGenRandom) * rand_s * SystemPrng (för kernel-läge)</li><li>**. NET -** RNGCryptoServiceProvider eller RNGCng</li><li>**Windows Store Apps -** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom eller. GenerateRandomNumber</li><li>**Apple OS X (10.7+)/iOS(2.0+) -** int SecRandomCopyBytes (SecRandomRef slumpmässigt size_t antal, uint8_t *byte)</li><li>** Apple OS X (< 10.7)-** använder/dev/slumpmässiga för att hämta slumptal</li><li>**Java(including Google Android Java Code) -** java.security.SecureRandom klass. Observera att för Android 4.3 (gelé böna) utvecklare måste följa den rekommenderade lösningen Android och uppdatera sina program att uttryckligen initiera PRNG med entropi från /dev/urandom eller /dev/random</li></ul>|
+| **Steg** | <p>Produkter måste använda godkända slumpmässiga nummer generatorer. Pseudoslumpvisa funktioner, till exempel C runtime funktionen SLUMP, .NET Framework-klass System.Random eller systemfunktioner, till exempel GetTickCount måste därför aldrig användas i sådan kod. Användning av den dubbla elliptisk kurva generator (DUAL_EC_DRBG) algoritmen är förbjuden</p><ul><li>**CNG -** BCryptGenRandom (användning av flaggan BCRYPT_USE_SYSTEM_PREFERRED_RNG rekommenderas om anroparen kan köras på alla IRQL som är större än 0 [som är PASSIVE_LEVEL])</li><li>**CAPI -** cryptGenRandom</li><li>**Win32/64-** RtlGenRandom (nya implementeringar bör använda BCryptGenRandom eller CryptGenRandom) * rand_s * SystemPrng (för kernel-läge)</li><li>**. NET -** RNGCryptoServiceProvider eller RNGCng</li><li>**Windows Store Apps -** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom eller. GenerateRandomNumber</li><li>**Apple OS X (10.7+)/iOS(2.0+) -** int SecRandomCopyBytes (SecRandomRef slumpmässigt size_t antal, uint8_t \*byte)</li><li>**Apple OS X (< 10.7)-** använder/dev/slumpmässiga för att hämta slumptal</li><li>**Java(including Google Android Java Code) -** java.security.SecureRandom klass. Observera att för Android 4.3 (gelé böna) utvecklare måste följa den rekommenderade lösningen Android och uppdatera sina program att uttryckligen initiera PRNG med entropi från /dev/urandom eller /dev/random</li></ul>|
 
 ## <a id="stream-ciphers"></a>Använd inte symmetriska dataströmmen chiffer
 

@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: 84a3834416c7d93ecb4f51fea9c7baed8af85db0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5b2335ee2584af07ed23ce87be92a869f3a07ba1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Priser ändringar för Azure-nätverk Prestandaövervakaren
 
-Vi har lyssnat på du och nyligen har introducerats en [nya priser upplevelse](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), för olika övervaka tjänster i Azure.
+Vi har lyssnat på din feedback och nyligen har introducerats en [nya priser upplevelse](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), för olika övervaka tjänster i Azure.
 
 Det här dokumentet innehåller de prisnivå ändringar som är relaterade till Azure [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) i något lättläst format för frågor och svar.
 
@@ -32,11 +32,11 @@ Network Performance Monitor består av tre komponenter:
 * [Tjänsten Endpoint övervakaren](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor) och
 * [Övervakare för ExpressRoute](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
-Avsnittet nedan förklaras prisnivå ändringar för Prestandaövervakaren, ExpressRoute-övervakaren och Endpoint-tjänsten för övervakning.
+Avsnittet nedan förklaras prisnivå ändringar för komponenterna som ovan.
 
 ## <a name="performance-monitor-pm"></a>Prestandaövervakaren (PM)
 
-**Hur var användning av Prestandaövervakaren debiteras i gamla schemat?**
+**Hur var användning av Prestandaövervakaren debiteras i gamla modellen?**
 
 Faktureringen för NPM baserades på användningsförbrukning av två komponenter:
 * Noder: Alla syntetiska transaktioner som har sitt ursprung och avsluta på noderna. Noder är kallas även för agenter eller MMA (Microsoft Management agenter).
@@ -121,3 +121,8 @@ En anslutning är ett test av tillgänglighet till en slutpunkt (URL eller netwo
 
 - Referera till den [anslutning övervakning](https://azure.microsoft.com/pricing/details/network-watcher/) avsnittet för kostnaden för att övervaka en slutpunkt för hela månaden.
 - Kostnad för data som är tillgängligt på den [sida med priser](https://azure.microsoft.com/pricing/details/log-analytics/) för Log Analytics.  (Avsnittet: Datapåfyllning).
+
+## <a name="references"></a>Referenser
+
+- [Logga Analytics priser vanliga frågor och svar](https://azure.microsoft.com/pricing/details/log-analytics/) -det vanliga frågor om avsnittet innehåller information om kostnadsfria nivån per nod prisnivå, etc.
+

@@ -9,22 +9,19 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c2a1acd2c249bdbc92119bc92f055b095f318f00
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 65f2fb4526f1048ae88193f85a552a2202afa1d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Använda Visual Studio-koden för att felsöka C#-modulen med Azure IoT kant
 Den här artikeln innehåller detaljerade anvisningar för att använda [Visual Studio Code](https://code.visualstudio.com/) som den huvudsakliga utvecklingsverktyg för att felsöka dina Azure IoT kant-moduler.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Den här kursen förutsätter att du använder en dator eller virtuell dator som kör Windows eller Linux som utvecklingsdatorn. Din IoT-Edge-enhet kan vara en annan fysisk enhet eller du kan simulera enheten IoT kanten på utvecklingsdatorn.
+Den här artikeln förutsätter att du använder en dator eller virtuell dator som kör Windows eller Linux som utvecklingsdatorn. Din IoT-Edge-enhet kan vara en annan fysisk enhet eller du kan simulera enheten IoT kanten på utvecklingsdatorn.
 
-Innan du börjar den här vägledningen måste du slutföra följande kursen:
-- [Utveckla en kant för IoT-lösning med flera moduler i Visual Studio Code](tutorial-multiple-modules-in-vscode.md)
-
-Du bör ha följande till hands när du har slutfört föregående kursen:
+Innan du följer riktlinjerna i den här artikeln bör du slutföra stegen i [utveckla en kant för IoT-lösning med flera moduler i Visual Studio Code](tutorial-multiple-modules-in-vscode.md). Sedan kan ha du följande till hands:
 - En lokal Docker-registret som körs på utvecklingsdatorn. Du rekommenderas för att använda en lokal Docker-registret för prototyp och testning. Du kan uppdatera registret behållare i den `module.json` filen i varje modul.
 - En IoT-Edge lösning Projektarbetsyta med en C#-modulen undermapp i den.
 - Den `Program.cs` filen med den senaste modul kod.
@@ -55,8 +52,5 @@ Du bör ha följande till hands när du har slutfört föregående kursen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får du skapat en gräns för IoT-modul och distribuerat för felsökning. Du startade felsökning i VS-kod. Mer information om andra scenarier när du utvecklar Azure IoT gränsen i VS koden finns: 
-
-> [!div class="nextstepaction"]
-> [Utveckla en kant för IoT-lösning med flera moduler i Visual Studio Code](tutorial-multiple-modules-in-vscode.md)
+[Använda Visual Studio-koden för att felsöka Azure Functions med Azure IoT kant](how-to-vscode-debug-azure-function.md)
 

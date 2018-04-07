@@ -1,19 +1,19 @@
 ---
 title: Installera elastisk databas jobb | Microsoft Docs
-description: "Gå igenom installationen av elastiska jobb."
+description: Gå igenom installationen av elastiska jobb.
 services: sql-database
 manager: craigg
 author: ddove
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 7e5258e0ccb88c8e2f3fe3277f69444ae5424cd0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4aeb18a4cdd0fc115c0d604797cf60c867455337
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Installera översikt över elastisk databas
 [**Den elastiska databasen jobb** ](sql-database-elastic-jobs-overview.md) kan installeras via PowerShell eller via Azure-portalen. Du kan komma åt för att skapa och hantera jobb med hjälp av PowerShell API endast om du har installerat PowerShell. Dessutom tillhandahålla PowerShell APIs betydligt fler funktioner än portalen vid denna tidpunkt.

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: f9318b5baa46ab991b5e72e12a89a25e4f635db3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 72e0ed535139c088c4235b43a12ea96da080dc8a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Konfigurera synkronisering för SQL-Data (förhandsgranskning)
 Lär dig hur du ställer in Azure SQL Data Sync genom att skapa en hybrid sync-grupp som innehåller både Azure SQL Database och SQL Server-instanser i den här självstudiekursen. Den nya gruppen sync helt har konfigurerats och synkroniserar enligt det schema du anger.
@@ -275,7 +275,7 @@ Mer information om SQL Data Sync finns i:
 
 -   [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)
 -   [Metodtips för Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   [Övervaka Azure SQL Data Sync med OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Övervaka Azure SQL-datasynkronisering med logganalys](sql-database-sync-monitor-oms.md)
 -   [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Slutför PowerShell-exempel som visar hur du konfigurerar SQL Data Sync:

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 1ee634b3acf0fa8815b69aef21e6213aee636ce1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6020272d79ace55041da94ee45165e557e92b80f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Arkivera Azure-aktivitetsloggen
 I den här artikeln visar vi hur du kan använda Azure-portalen, PowerShell-Cmdlets och plattformsoberoende CLI för att arkivera dina [ **Azure-aktivitetsloggen** ](monitoring-overview-activity-logs.md) i ett lagringskonto. Det här alternativet är användbart om du vill behålla din aktivitetsloggen som är längre än 90 dagar (med fullständig kontroll över bevarandeprincipen) för granskning, statiska analys eller säkerhetskopiering. Om du bara behöver lagra dina händelser i 90 dagar eller mindre och du behöver inte konfigurera arkivering till ett lagringskonto eftersom aktivitetsloggen händelser lagras i Azure-plattformen i 90 dagar utan att aktivera arkivering.
@@ -43,29 +43,43 @@ Om du vill arkivera aktivitetsloggen med någon av metoderna nedan kan du ange d
 5. Klicka på **Spara**.
 
 ## <a name="archive-the-activity-log-via-powershell"></a>Arkivera aktivitetsloggen via PowerShell
-```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus -RetentionInDays 180 -Categories Write,Delete,Action
-```
+
+   ```powershell
+   # Settings needed for the new log profile
+   $logProfileName = "default"
+   $locations = (Get-AzureRmLocation).Location
+   $locations += "global"
+   $subscriptionId = "<your Azure subscription Id>"
+   $resourceGroupName = "<resource group name your storage account belongs to>"
+   $storageAccountName = "<your storage account name>"
+
+   # Build the storage account Id from the settings above
+   $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
+   ```
 
 | Egenskap | Krävs | Beskrivning |
 | --- | --- | --- |
-| StorageAccountId |Nej |Resurs-ID för Storage-konto som aktivitetsloggar ska sparas. |
-| Platser |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser för aktivitetsloggen. Du kan visa en lista över alla regioner [genom att besöka sidan](https://azure.microsoft.com/en-us/regions) eller genom att använda [Azure Management REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays |Ja |Antal dagar för vilka händelser som ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid). |
-| Kategorier |Ja |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva och ta bort åtgärd. |
+| StorageAccountId |Ja |Resurs-ID för Storage-konto som aktivitetsloggar ska sparas. |
+| Platser |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser för aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med `(Get-AzureRmLocation).Location`. |
+| RetentionInDays |Nej |Antal dagar för vilka händelser som ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid). |
+| Kategorier |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva och ta bort åtgärd.  Om inte anges, antas alla möjliga värden |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Arkivera aktivitetsloggen via CLI
-```
-azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --locations global,westus,eastus,northeurope --retentionInDays 180 –categories Write,Delete,Action
-```
+
+   ```azurecli-interactive
+   az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --storage-account-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>"
+   ```
 
 | Egenskap | Krävs | Beskrivning |
 | --- | --- | --- |
 | namn |Ja |Namnet på loggen profilen. |
-| storageId |Nej |Resurs-ID för Storage-konto som aktivitetsloggar ska sparas. |
-| Platser |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser för aktivitetsloggen. Du kan visa en lista över alla regioner [genom att besöka sidan](https://azure.microsoft.com/en-us/regions) eller genom att använda [Azure Management REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| retentionInDays |Ja |Antal dagar för vilka händelser som ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid). |
-| kategorier |Ja |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva och ta bort åtgärd. |
+| storage-account-id |Ja |Resurs-ID för Storage-konto som aktivitetsloggar ska sparas. |
+| Platser |Ja |Blankstegsavgränsad lista över regioner som du vill samla in händelser för aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med `az account list-locations --query [].name`. |
+| dagar |Ja |Antal dagar för vilka händelser som ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid).  Om noll, sedan parametern aktiverade ska anges till true. |
+|aktiverad | Ja |SANT eller FALSKT.  Används för att aktivera eller inaktivera bevarandeprincipen.  Om värdet är True måste dagar-parametern vara ett värde som är större än 0.
+| kategorier |Ja |Blankstegsavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva och ta bort åtgärd. |
 
 ## <a name="storage-schema-of-the-activity-log"></a>Storage-schemat för aktivitetsloggen
 När du har konfigurerat arkivering, skapas en lagringsbehållare i storage-konto så snart aktivitetsloggen händelse inträffar. Blobbar i behållaren följer samma format i aktivitetsloggen och diagnostikloggar. Strukturen för de här blobbar är:

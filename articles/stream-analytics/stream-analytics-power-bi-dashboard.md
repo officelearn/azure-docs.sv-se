@@ -1,24 +1,19 @@
 ---
-title: Power BI-instrumentpanelen på Azure Stream Analytics | Microsoft Docs
-description: Använda en realtid strömmande Power BI-instrumentpanel för att samla in business intelligence och analysera stora volymer data från en Stream Analytics-jobbet.
-keywords: instrumentpanelen, realtid instrumentpanelen
+title: Power BI dashboard integrering med Azure Stream Analytics
+description: Den här artikeln beskriver hur du använder en realtid Power BI-instrumentpanel för att visualisera data från ett Azure Stream Analytics-jobb.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/27/2017
 ms.author: jeanb
-ms.openlocfilehash: e1f1d960c312362e0e0cd6d2f83599c28c8c3f05
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/27/2017
+ms.openlocfilehash: 15b8548e8b5b6ff8d2f5722d2a4031f8e52d044b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Strömma analyser och Power BI: en analys i realtid instrumentpanel för strömmande data
 Azure Stream Analytics gör att du kan dra nytta av en av de inledande verktyg för business intelligence [Microsoft Power BI](https://powerbi.com/). I den här artikeln får du lära dig hur skapa business intelligence-verktyg med hjälp av Power BI som utdata för Azure Stream Analytics-jobb. Du också lära dig hur du skapar och använder en realtid instrumentpanel.
@@ -249,7 +244,7 @@ Om ett jobb startar efter att token har upphört att gälla, uppstår ett fel oc
 När tillståndet har uppdaterats med Power BI, visas en grön avisering i auktorisering för att återspegla att problemet har lösts.
 
 ## <a name="get-help"></a>Få hjälp
-För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)

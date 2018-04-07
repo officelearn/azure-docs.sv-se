@@ -1,24 +1,24 @@
 ---
-title: "Hanterade tjänstidentiteten (MSI) för Azure Active Directory"
-description: "En översikt över hanterade tjänstidentiteten för Azure-resurser."
+title: Hanterade tjänstidentiteten (MSI) för Azure Active Directory
+description: En översikt över hanterade tjänstidentiteten för Azure-resurser.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: 2d711d4fa48a1d10d4c37b9591a66e5b746f1ca7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e4f9d9e4e0f84610ad072d889abf68b62c0dd41f
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Hanterad Service identitet (MSI) för Azure-resurser
 
@@ -38,7 +38,7 @@ Här är ett exempel på hur hanterade tjänstidentiteten fungerar med Azure Vir
 2. Azure Resource Manager skapar ett huvudnamn för tjänsten i Azure AD för att representera identiteten för den virtuella datorn. Tjänstens huvudnamn har skapats i Azure AD-klient som är betrodd av den här prenumerationen.
 3. Azure Resource Manager konfigurerar information för tjänstens huvudnamn i MSI VM-tillägget för den virtuella datorn.  Det här steget omfattar konfigurering av klient-ID och certifikat som används av tillägget för att få åtkomst-token från Azure AD.
 4. Nu när tjänstens huvudnamn identiteten för den virtuella datorn är känt, kan det beviljas åtkomst till Azure-resurser.  Exempelvis om din kod måste anropa Azure Resource Manager, vill du tilldela tjänstens huvudnamn för den virtuella datorn sedan rätt roll med hjälp av rollbaserad åtkomstkontroll (RBAC) i Azure AD.  Om din kod måste anropa Nyckelvalvet, skulle du ge din kodåtkomst till specifika secret eller nyckeln i Nyckelvalvet.
-5. Din kod som körs på den virtuella datorn begär en token från en lokal slutpunkt som är värd MSI VM-tillägg: http://localhost:50342/oauth2/token.  Resursparametern anger vilken tjänst som token som skickas. Till exempel om du vill att din kod för att autentisera till Azure Resource Manager du skulle använda resursen = https://management.azure.com/.
+5. Din kod som körs på den virtuella datorn begär en token från en lokal slutpunkt som är värd MSI VM-tillägg: http://localhost:50342/oauth2/token.  Resursparametern anger vilken tjänst som token som skickas. Till exempel om du vill att din kod för att autentisera till Azure Resource Manager du skulle använda resursen =https://management.azure.com/.
 6. VM-tillägget MSI använder dess konfigurerade klient-ID och certifikat för att begära en åtkomst-token från Azure AD.  Azure AD returnerar en åtkomsttoken för JSON-Webbtoken (JWT).
 7. Koden skickar åtkomsttoken vid ett anrop till en tjänst som stöder Azure AD-autentisering.
 
@@ -62,7 +62,7 @@ Försök hanterade tjänstidentiteten självstudiekursen Läs slutpunkt till slu
 |                    | [Åtkomst till Azure Storage via SAS med en virtuell Linux-dator hanterade tjänstidentiteten](tutorial-linux-vm-access-storage-sas.md) |
 |                    | [Åtkomst till en Azure-AD resurs med en hanterade tjänstidentiteten i Linux VM och Azure Key Vault](tutorial-linux-vm-access-nonaad.md) |
 | Azure App Service  | [Använda hanterade tjänstidentiteten med Azure App Service eller Azure Functions](/azure/app-service/app-service-managed-service-identity) |
-| Azure Function     | [Använda hanterade tjänstidentiteten med Azure App Service eller Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure Functions    | [Använda hanterade tjänstidentiteten med Azure App Service eller Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Azure Service Bus  | [Använda hanterade tjänstidentiteten med Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md) |
 | Azure Event Hubs   | [Använda hanterade tjänstidentiteten med Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md) |
 
@@ -76,10 +76,12 @@ Hanterade tjänstidentiteten stöd för följande Azure-tjänster.
 
 | Tjänst | Status | Date | Konfigurera | Hämta en token |
 | ------- | ------ | ---- | --------- | ----------- |
-| Azure Virtual Machines | Förhandsversion | September 2017 | [Azure-portalen](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[Azure CLI](qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager-mallar](qs-configure-template-windows-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Gå](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
-| Azure App Service | Förhandsversion | September 2017 | [Azure-portalen](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager-mall](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure Functions | Förhandsversion | September 2017 | [Azure-portalen](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager-mall](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure Data Factory V2 | Förhandsversion | November 2017 | [Azure-portalen](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
+| Azure Virtual Machines | Förhandsversion | September 2017 | [Azure Portal](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[Azure CLI](qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager-mallar](qs-configure-template-windows-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
+| Azure App Service | Förhandsversion | September 2017 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager-mall](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Azure Functions<sup>1</sup> | Förhandsversion | September 2017 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager-mall](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Azure Data Factory V2 | Förhandsversion | November 2017 | [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
+
+<sup>1</sup> stöd för azure Functions kan användarkod för att använda en identitet men kan fortfarande kräva anslutningssträngar utlösare och bindningar.
 
 ### <a name="azure-services-that-support-azure-ad-authentication"></a>Azure-tjänster som stöder Azure AD-autentisering
 
@@ -87,7 +89,7 @@ Följande tjänster stöder Azure AD-autentisering och har testats med klienttj�
 
 | Tjänst | Resurs-ID | Status | Date | Tilldela åtkomst |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://management.azure.com | Tillgänglig | September 2017 | [Azure-portalen](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) |
+| Azure Resource Manager | https://management.azure.com | Tillgänglig | September 2017 | [Azure Portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) |
 | Azure Key Vault | https://vault.azure.net | Tillgänglig | September 2017 | |
 | Azure Data Lake | https://datalake.azure.net | Tillgänglig | September 2017 | |
 | Azure SQL | https://database.windows.net | Tillgänglig | Oktober 2017 | |

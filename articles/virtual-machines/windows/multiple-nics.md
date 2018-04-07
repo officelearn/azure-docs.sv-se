@@ -1,11 +1,11 @@
 ---
-title: "Skapa och hantera virtuella Windows-datorer i Azure som använder flera nätverkskort | Microsoft Docs"
-description: "Lär dig mer om att skapa och hantera en virtuell Windows-dator som har flera nätverkskort som är kopplad till den med hjälp av Azure PowerShell eller Resource Manager-mallar."
+title: Skapa och hantera virtuella Windows-datorer i Azure som använder flera nätverkskort | Microsoft Docs
+description: Lär dig mer om att skapa och hantera en virtuell Windows-dator som har flera nätverkskort som är kopplad till den med hjälp av Azure PowerShell eller Resource Manager-mallar.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 9bff5b6d-79ac-476b-a68f-6f8754768413
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0f19ed89e49b34ff4b8abf5d22e7d59b89fd6d72
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Skapa och hantera en virtuell Windows-dator som har flera nätverkskort
 Virtuella datorer (VM) i Azure kan ha flera virtuella nätverkskort (NIC) kopplad. Ett vanligt scenario är att ha olika undernät för frontend och backend-anslutning eller ett nätverk som är dedikerad för en lösning för övervakning eller säkerhetskopiering. Den här artikeln beskrivs hur du skapar en virtuell dator som har flera nätverkskort som är kopplade till den. Du också lära dig hur du lägger till eller ta bort nätverkskort från en befintlig virtuell dator. Olika [VM-storlekar](sizes.md) stöder olika antal nätverkskort, så därför storlek den virtuella datorn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Se till att du har den [senaste Azure PowerShell-versionen installerad och konfigurerad](/powershell/azure/overview).
 
 Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn inkluderar *myResourceGroup*, *myVnet*, och *myVM*.
@@ -116,11 +116,13 @@ Starta nu att skapa VM-konfiguration. Varje VM-storlek har en gräns för det to
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
     ```
 
-5. Skapa slutligen den virtuella datorn med [ny AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
+5. Skapa den virtuella datorn med [nya AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
 
     ```powershell
     New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
     ```
+
+6. Lägga till vägar för sekundära nätverkskort operativsystem genom att slutföra stegen i [konfigurera operativsystemet för flera nätverkskort](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Lägga till ett nätverkskort till en befintlig virtuell dator
 Om du vill lägga till ett virtuellt nätverkskort till en befintlig virtuell dator måste du frigöra den virtuella datorn, Lägg till det virtuella nätverkskortet och sedan starta den virtuella datorn. Olika [VM-storlekar](sizes.md) stöder olika antal nätverkskort, så därför storlek den virtuella datorn. Om det behövs kan du [ändra storlek på en virtuell dator](resize-vm.md).
@@ -175,6 +177,8 @@ Om du vill lägga till ett virtuellt nätverkskort till en befintlig virtuell da
     ```powershell
     Start-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
+
+5. Lägga till vägar för sekundära nätverkskort operativsystem genom att slutföra stegen i [konfigurera operativsystemet för flera nätverkskort](#configure-guest-os-for-multiple-nics).
 
 ## <a name="remove-a-nic-from-an-existing-vm"></a>Ta bort ett nätverkskort från en befintlig virtuell dator
 Om du vill ta bort ett virtuellt nätverkskort från en befintlig virtuell dator du frigör den virtuella datorn, ta bort det virtuella nätverkskortet och starta den virtuella datorn.
@@ -232,6 +236,8 @@ Du kan också använda `copyIndex()` att lägga till ett tal till ett resursnamn
 ```
 
 Du kan läsa en komplett exempel på [skapa flera nätverkskort med Resource Manager-mallar](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+Lägga till vägar för sekundära nätverkskort operativsystem genom att slutföra stegen i [konfigurera operativsystemet för flera nätverkskort](#configure-guest-os-for-multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Konfigurera gästoperativsystemet för flera nätverkskort
 

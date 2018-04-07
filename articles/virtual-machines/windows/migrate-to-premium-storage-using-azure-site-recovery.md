@@ -1,12 +1,12 @@
 ---
 title: Migrera dina virtuella Windows-datorer till Azure Premium-lagring med Azure Site Recovery | Microsoft Docs
-description: "Migrera dina befintliga virtuella datorer till Azure Premium-lagring med hjälp av Site Recovery. Premium-lagring ger stöd för I/O-intensiva arbetsbelastningar som körs på Azure Virtual Machines diskar med hög prestanda, låg latens."
+description: Migrera dina befintliga virtuella datorer till Azure Premium-lagring med hjälp av Site Recovery. Premium-lagring ger stöd för I/O-intensiva arbetsbelastningar som körs på Azure Virtual Machines diskar med hög prestanda, låg latens.
 services: virtual-machines-windows
 cloud: Azure
 documentationcenter: na
 author: luywang
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 15c9a6608421b3eeebe6fbe91a10a849bf36ed85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 171b0f938e44218d11cfb001e3f58ebd0feb35fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrera till Premium-lagring med hjälp av Azure Site Recovery
 
@@ -80,7 +80,7 @@ Du kan använda Site Recovery för att migrera Azure IaaS-VM mellan regioner ell
 ### <a name="step-1-create-a-recovery-services-vault"></a>Steg 1: Skapa ett Recovery Services-valv
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
-2. Välj **skapar du en resurs** > **Management** > **säkerhetskopiering** och **Site Recovery (OMS)**. Du kan också välja **Bläddra** > **Återställningstjänstvalvet** > **Lägg till**. 
+2. Välj **skapar du en resurs** > **Management** > **säkerhetskopierings- och Site Recovery (OMS)**. Du kan också välja **Bläddra** > **Återställningstjänstvalvet** > **Lägg till**. 
 3. Ange en region som virtuella datorer kommer att replikeras till. Välj den region där din virtuella källdatorer och källa storage-konton är för migrering i samma region. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Steg 2: Välja skyddsmål 

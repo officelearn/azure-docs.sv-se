@@ -1,12 +1,12 @@
 ---
-title: "Ändra en tillgänglighetsuppsättning för virtuella datorer | Microsoft Docs"
-description: "Lär dig mer om att ändra tillgänglighetsuppsättning för dina virtuella datorer med hjälp av Azure PowerShell och Resource Manager-distributionsmodellen."
-keywords: 
+title: Ändra en tillgänglighetsuppsättning för virtuella datorer | Microsoft Docs
+description: Lär dig mer om att ändra tillgänglighetsuppsättning för dina virtuella datorer med hjälp av Azure PowerShell och Resource Manager-distributionsmodellen.
+keywords: ''
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: Drewm3
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 44c90f90-bc9a-4260-a36f-5465e2a1ef94
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: drewm
-ms.openlocfilehash: c10c947b6fc0737a7b9fba6b7f3efcae1f96638b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 938614d7427f691dcacbafa324694a9a7f37d3ca
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Ändra tillgänglighetsuppsättning för en virtuell Windows-dator
 Följande steg beskriver hur du ändrar en virtuell dator med hjälp av Azure PowerShell tillgänglighetsuppsättning. En virtuell dator kan bara lägga till en tillgänglighetsuppsättning när den skapas. För att ändra tillgängligheten, måste du ta bort och återskapa den virtuella datorn. 
@@ -35,7 +35,7 @@ Följande steg beskriver hur du ändrar en virtuell dator med hjälp av Azure Po
     $vm.Name
     ```
    
-    VM-storlek
+    Storlek på virtuell dator
    
     ```powershell
     $vm.HardwareProfile.VmSize

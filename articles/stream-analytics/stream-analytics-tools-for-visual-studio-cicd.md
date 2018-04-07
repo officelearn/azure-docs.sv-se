@@ -1,35 +1,30 @@
 ---
-title: Använda Stream Analytics Visual Studio-verktygen för att ställa in kontinuerlig integrering och distribution processen | Microsoft Docs
-description: Självstudier för att använda Stream Analytics Visual Studio tools för att ställa in en kontinuerlig process integrering och distribution
-keywords: Visual studio NuGet, DevOps, CI/CD
-documentationcenter: ''
+title: Integrera kontinuerligt och utveckla med Stream Analytics-verktyg
+description: Den här artikeln beskriver hur du använder Visual Studio tools för Azure Stream Analytics för att ställa in en kontinuerlig integration och distributionsprocessen.
 services: stream-analytics
 author: su-jie
-manager: ''
-ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 9/27/2017
 ms.author: sujie
-ms.openlocfilehash: 14bb15f19b517b55281959f0de970e3f5e0d360b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 9/27/2017
+ms.openlocfilehash: e4e831c602255df66f4c86ffa17336f51d2b52f7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="use-stream-analytics-visual-studio-tools-to-set-up-a-continuous-integration-and-deployment-process"></a>Använda Stream Analytics Visual Studio tools för att ställa in en kontinuerlig process integrering och distribution
-I kursen får du lära dig hur du använder Azure Stream Analytics Visual Studio-verktygen för att ställa in en kontinuerlig integration och distributionsprocessen.
+# <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Integrera kontinuerligt och utveckla med Stream Analytics-verktyg
+Den här artikeln beskriver hur du använder för att använda Azure Stream Analytics-verktyg för Visual Studio för att ställa in en kontinuerlig process integrering och distribution.
 
-Den senaste versionen (2.3.0000.0 eller senare) av [Stream Analytics tools för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) lägger till stöd för MSBuild.
+Använd version 2.3.0000.0 eller senare av [Stream Analytics tools för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) få support för MSBuild.
 
-Det finns också en nyligen utgivna NuGet-paketet [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Den innehåller MSBuild, lokal körning och distributionsverktyg som stöder kontinuerlig integrering och distribution av Stream Analytics Visual Studio-projekt. 
+Ett NuGet-paket är tillgängliga: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Den innehåller MSBuild, lokal körning och distributionsverktyg som stöder kontinuerlig integrering och distribution av Stream Analytics Visual Studio-projekt. 
 > [!NOTE] 
 NuGet-paketet kan användas endast med 2.3.0000.0 eller senare version av Stream Analytics Tools för Visual Studio. Om du har projekt som har skapats i tidigare versioner av Visual Studio tools, öppna dem med 2.3.0000.0 eller senare version och spara. Sedan är de nya funktionerna aktiverade. 
 
-Lär dig hur du använder den [Stream Analytics tools för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Mer information finns i [Stream Analytics tools för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## <a name="msbuild"></a>MSBuild
 Som standard Visual Studio MSBuild-upplevelsen för att skapa ett projekt har du två alternativ. Du kan högerklicka på projektet och välj sedan **skapa**. Du kan också använda **MSBuild** i NuGet-paketet från kommandoraden.

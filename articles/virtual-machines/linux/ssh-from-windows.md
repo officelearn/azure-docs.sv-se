@@ -1,11 +1,11 @@
 ---
-title: "Använda SSH-nycklar med Windows för virtuella Linux-datorer | Microsoft Docs"
-description: "Lär dig hur du skapar och använder SSH-nycklar på en Windows-dator för att ansluta till en virtuell Linux-dator på Azure."
+title: Använda SSH-nycklar med Windows för virtuella Linux-datorer | Microsoft Docs
+description: Lär dig hur du skapar och använder SSH-nycklar på en Windows-dator för att ansluta till en virtuell Linux-dator på Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2cacda3b-7949-4036-bd5d-837e8b09a9c8
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: danlep
-ms.openlocfilehash: 66837a3a153cda041f5351c52c8ccb1f8ccfea50
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fcc2365c3b41fb69492aa68bf7c48c2d3b8ee5f3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Hur man använda SSH-nycklar med Windows på Azure
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ Här följer scenarier för distribution och vilka typer av filer som används i
 ## <a name="install-git-for-windows"></a>Installera Git för Windows
 I föregående avsnitt visas flera paket som innehåller den `openssl` tool för Windows. Det här verktyget behövs för att skapa offentliga och privata nycklar. I följande exempel innehåller information om hur du installerar och använder **Git för Windows**, men du kan välja det paket som du föredrar. **Git för Windows** ger dig tillgång till vissa ytterligare programvara med öppen källkod ([OSS](https://en.wikipedia.org/wiki/Open-source_software)) verktyg och hjälpmedel som kan vara användbar när du arbetar med virtuella Linux-datorer.
 
-1. Hämta och installera **Git för Windows** från följande plats: [https://git-for-windows.github.io/](https://git-for-windows.github.io/).
+1. Hämta och installera **Git för Windows** från följande plats: [ https://git-for-windows.github.io/ ](https://git-for-windows.github.io/).
 2. Acceptera standardalternativen under installationen om du inte specifikt behöver ändra dem.
 3. Kör **Git Bash** från den **Start-menyn** > **Git** > **Git Bash**. Konsolen ser ut ungefär så här:
 

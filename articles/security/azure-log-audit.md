@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c82b56cdf0fc2cb288986cf8fbf43c2dab5eacb6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure-loggning och granskning
 ## <a name="introduction"></a>Introduktion
@@ -74,7 +74,7 @@ I följande tabell listas de viktigaste typ av loggar som är tillgängliga i Az
 |[Lagringsanalys](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Loggning för lagring och ger mätvärdesdata för ett lagringskonto|Ger inblick i trace-begäranden, analysera användningstrender och diagnostisera problem med ditt lagringskonto.|    REST API eller [klientbibliotek](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Loggar för flödet av NSG (Nätverkssäkerhetsgrupp)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON-format och visar utgående och inkommande flöden på grundval av per regel|Visa information om ingående och utgående IP-trafik via en Nätverkssäkerhetsgrupp|[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Loggar, undantag och anpassade diagnostik|    Performance Management (APM) programtjänsten för webbutvecklare på flera plattformar.| REST API [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|Bearbeta Data / Säkerhetsvarning| Azure Security Center-avisering, OMS-avisering| Information om säkerhet och aviseringar.|   REST API: er, JSON|
+|Bearbeta Data / Säkerhetsvarning| Azure Security Center Alert, Log Analytics Alert|   Information om säkerhet och aviseringar.|   REST API: er, JSON|
 
 ### <a name="activity-log"></a>Aktivitetslogg
 Den [Azure-aktivitetsloggen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), ger inblick i åtgärder som utfördes på resurser i din prenumeration. Aktivitetsloggen kallades tidigare ”granskningsloggar” eller ”operativa loggar” eftersom den rapporterar [kontroll-plan händelser](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/) för dina prenumerationer. Använder aktivitetsloggen, kan du bestämma den ”vad som, och när” för alla skrivåtgärder (PUT, POST, ta bort) tas för de resurser i din prenumeration. Du kan också få status för åtgärden och andra relevanta egenskaper. Aktivitetsloggen inkluderar inte läsåtgärder (GET).
@@ -114,7 +114,7 @@ Azure Diagnostics loggar erbjuder flera konfigurationsalternativ som är, Azure-
 
 -   [Strömma dem i Händelsehubbar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs) för införandet av en tjänst från tredje part eller anpassade analytics lösning som [PowerBI.](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
--   Analysera dem med [OMS logganalys.](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+-   Analysera dem med [logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 
 **Tjänster som stöds, schemat för diagnostikloggar och stöds loggen kategorier per resurstyp**
 
@@ -333,11 +333,11 @@ Många säkerhetsåtgärder och incidenter team förlitar sig på en lösning f�
 
 ## <a name="log-analytics"></a>Log Analytics
 
-Log Analytics är en tjänst i [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) som hjälper dig att samla in och analysera data som genereras av resurser i molnet och lokala miljöer. Den ger dig realtidsinsikter som använder integrerad sökning och anpassade instrumentpaneler för att analysera lätt miljontals poster för alla arbetsbelastningar och servrar oavsett fysiska plats.
+Log Analytics är en tjänst i Azure som hjälper dig att samla in och analysera data som genereras av resurser i molnet och lokala miljöer. Den ger dig realtidsinsikter som använder integrerad sökning och anpassade instrumentpaneler för att analysera lätt miljontals poster för alla arbetsbelastningar och servrar oavsett fysiska plats.
 
 ![Log Analytics](./media/azure-log-audit/azure-log-audit-fig8.png)
 
-I mitten av de Log Analytics är OMS-databasen, som finns i Azure-molnet. Data samlas i databasen från anslutna källor genom att konfigurera datakällor och lägga till lösningar i din prenumeration. Alla datakällor och lösningar skapar olika typer av poster som har en egen uppsättning egenskaper, men de kan fortfarande analyseras tillsammans i förfrågningar till databasen. Det gör att du kan använda samma verktyg och metoder för att arbeta med olika typer av data som samlats från olika källor.
+I mitten av de Log Analytics är logganalys-arbetsytan som finns i Azure-molnet. Data samlas in till arbetsytan från anslutna källor genom att konfigurera datakällor och lösningar för att lägga till i din prenumeration. Datakällor och lösningar för skapar varje olika posttyper som har en egen uppsättning egenskaper, men kan fortfarande analyseras tillsammans i frågor till arbetsytan. Det gör att du kan använda samma verktyg och metoder för att arbeta med olika typer av data som samlats från olika källor.
 
 Anslutna datakällor är de datorer och andra resurser som genererar data som samlas in av Log Analytics. Detta kan inkludera agenter som installerats på [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) och [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) datorer som ansluter direkt eller agenter i [en ansluten hanteringsgrupp för System Center Operations Manager.](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents) Log Analytics kan också samla in data från [Azure storage.](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)
 

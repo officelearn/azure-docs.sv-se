@@ -1,6 +1,6 @@
 ---
-title: "Övervaka prestanda för många Azure SQL-databaser i en app för flera innehavare SaaS | Microsoft Docs"
-description: "Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app för flera innehavare"
+title: Övervaka prestanda för många Azure SQL-databaser i en app för flera innehavare SaaS | Microsoft Docs
+description: Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app för flera innehavare
 keywords: sql database tutorial
 services: sql-database
 author: stevestein
@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 352b0d48ab223a236b96c633526f792b6f8a703d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f76a9f0aa5e68e729c67dad52f6dae4e01fdb56a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app för flera innehavare
 
@@ -54,7 +54,7 @@ Pooler och databaserna i poolen, bör övervakas för att säkerställa att de f
 
 [Azure-portalen](https://portal.azure.com) tillhandahåller inbyggd övervakning och avisering för de flesta resurser. För SQL Database, finns övervakning och avisering tillgängligt för databaser och pooler. Den här inbyggda övervakning och avisering är resurs-specifika, så det är praktiskt att använda för litet antal resurser, men är inte är användbart när du arbetar med många resurser.
 
-Omfattande scenarier där du arbetar med många resurser, [logganalys (OMS)](saas-dbpertenant-log-analytics.md) kan användas. Detta är en separat Azure-tjänst som ger analytics över skickade diagnostikloggar och telemetri som samlats in i en log analytics-arbetsyta. Logganalys kan samla in telemetri från många tjänster och användas för att fråga efter och Ställ in aviseringar.
+Omfattande scenarier där du arbetar med många resurser, [logganalys](saas-dbpertenant-log-analytics.md) kan användas. Detta är en separat Azure-tjänst som ger analytics över skickade diagnostikloggar och telemetri som samlats in i en log analytics-arbetsyta. Logganalys kan samla in telemetri från många tjänster och användas för att fråga efter och Ställ in aviseringar.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Hämta programskript Wingtip biljetter SaaS databas Per klient
 
@@ -101,7 +101,7 @@ Wingtip biljetter SaaS databas Per klient är en SaaS-app och verkliga belastnin
 
 Öppna portal till poolen innehåller klient-databaser för att övervaka Resursanvändning som resultat av belastningen tillämpas:
 
-1. Öppna den [Azure-portalen](https://portal.azure.com) och bläddra till den *tenants1-dpt -&lt;användare&gt; * server.
+1. Öppna den [Azure-portalen](https://portal.azure.com) och bläddra till den *tenants1-dpt -&lt;användare&gt;*  server.
 1. Bläddra ned och hitta elastiska pooler och klicka på **Pool1**. Den här poolen innehåller alla klientdatabaser som skapats än så länge.
 
 Se den **elastisk pool övervakning** och **elastisk databas övervakning** diagram.
@@ -119,7 +119,7 @@ Eftersom det finns ytterligare databaser i poolen utöver fem, visar aktivitet s
 
 Ange en avisering i den pool som utlösare på \>75% användning på följande sätt:
 
-1. Öppna *Pool1* (på den *tenants1-dpt -\<användare\> * server) i den [Azure-portalen](https://portal.azure.com).
+1. Öppna *Pool1* (på den *tenants1-dpt -\<användare\>*  server) i den [Azure-portalen](https://portal.azure.com).
 1. Klicka på **aviseringsregler** och därefter på **+ lägg till avisering**:
 
    ![lägg till avisering](media/saas-dbpertenant-performance-monitoring/add-alert.png)
@@ -164,7 +164,7 @@ Databaserna är online och fullt tillgängliga under hela processen. Under det s
 
 Som ett alternativ till att skala upp poolen, kan du skapa en andra pool och flytta databaserna till den för att balansera belastningen mellan de två poolerna. Det gör du genom att skapa den nya poolen på samma server som den första.
 
-1. I den [Azure-portalen](https://portal.azure.com)öppnar den **tenants1-dpt -&lt;användare&gt; ** server.
+1. I den [Azure-portalen](https://portal.azure.com)öppnar den **tenants1-dpt -&lt;användare&gt;**  server.
 1. Klicka på **+ ny pool** att skapa en pool på den aktuella servern.
 1. På den **elastisk databaspool** mallen:
 
@@ -182,7 +182,7 @@ Som ett alternativ till att skala upp poolen, kan du skapa en andra pool och fly
 
 Skapa poolen och Flytta databaserna tar några minuter. När databaser flyttas de fortfarande är online och tillgängliga fullständigt tills sista, då alla öppna anslutningar stängs. Så länge som du har några logik ansluter klienter sedan till databasen i den nya poolen.
 
-Bläddra till **Pool2** (på den *tenants1-dpt -\<användare\> * server) att öppna poolen och övervaka dess prestanda. Om du inte ser det, vänta tills etableringen av den nya poolen för att slutföra.
+Bläddra till **Pool2** (på den *tenants1-dpt -\<användare\>*  server) att öppna poolen och övervaka dess prestanda. Om du inte ser det, vänta tills etableringen av den nya poolen för att slutföra.
 
 Du ser nu att resursanvändningen på *Pool1* har tagits bort och att *Pool2* läses nu på samma sätt.
 
@@ -198,7 +198,7 @@ Den här övningen simulerar effekten av att Contosos konserthall upplever en h�
 1. Kör skriptet med **F5**.
 
 
-1. I den [Azure-portalen](https://portal.azure.com), bläddra till listan över databaser på den *tenants1-dpt -\<användare\> * server. 
+1. I den [Azure-portalen](https://portal.azure.com), bläddra till listan över databaser på den *tenants1-dpt -\<användare\>*  server. 
 1. Klicka på den **contosoconcerthall** databas.
 1. Klicka på poolen som **contosoconcerthall** finns i. Hitta poolen i den **elastisk databaspool** avsnitt.
 

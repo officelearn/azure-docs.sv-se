@@ -1,22 +1,22 @@
 ---
-title: "Kontrollera virtuella skalningsuppsättningarna tillgängliga i Azure-stacken | Microsoft Docs"
-description: "Lär dig hur en moln-operator lägger till virtuella datorn till stacken Azure Marketplace"
+title: Kontrollera virtuella skalningsuppsättningarna tillgängliga i Azure-stacken | Microsoft Docs
+description: Lär dig hur en moln-operator lägger till virtuella datorn till stacken Azure Marketplace
 services: azure-stack
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: anajod
-keywords: 
-ms.openlocfilehash: a4c854bdd659a05f032f5ee232074bc38ff677ef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+keywords: ''
+ms.openlocfilehash: cdabd2a9d336cdd8ac83d27460fe129c45b7e1c6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Använda skalningsuppsättningar i virtuella datorer i Azure-stacken
 
@@ -47,6 +47,7 @@ Skaluppsättningar för den virtuella datorn stöder inte Autoskala på Azure-st
 
    För Linux-support, hämta Ubuntu Server 16.04 och lägga till den med hjälp av ```Add-AzsVMImage``` med följande parametrar: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
 
+
 ## <a name="add-the-virtual-machine-scale-set"></a>Lägg till virtuella datorns skaluppsättning
 
 Redigera följande PowerShell-skript för din miljö och sedan köra den att lägga till en virtuell dator skala inställd på Azure Stack-Marketplace. 
@@ -72,6 +73,38 @@ Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
 ```
+
+## <a name="update-images-in-a-virtual-machine-scale-set"></a>Uppdatera avbildningar i en skaluppsättning för virtuell dator 
+Användare kan uppdatera avbildningar i skaluppsättningen utan skaluppsättningen behöva återskapas när du har skapat en skaluppsättning för virtuell dator. Processen för att uppdatera en bild är beroende av följande scenarier:
+
+1. Skaluppsättning för virtuell dator Distributionsmall **anger senaste** för *version*:  
+
+   När den *version* har angetts som **senaste** i den *imageReference* avsnitt i mallen för en skala ange, skala upp åtgärder på skalan använder den senaste tillgängliga versionen Anger instanser av bilden för skalan. När en skala upp är klar kan du ta bort äldre virtuella skala anger instanser.  (Värdena för *publisher*, *erbjuder*, och *sku* förblir oförändrade). 
+
+   Följande är ett exempel på hur du anger *senaste*:  
+
+          "imageReference": {
+             "publisher": "[parameters('osImagePublisher')]",
+             "offer": "[parameters('osImageOffer')]",
+             "sku": "[parameters('osImageSku')]",
+             "version": "latest"
+             }
+
+   Innan skalas upp kan använda en ny avbildning, måste du hämta den nya avbildningen:  
+
+   - När avbildningen på Marketplace är en senare version än bilden i skaluppsättning: hämta den nya avbildningen som ersätter äldre bild. När avbildningen har bytts ut kan kan en användare fortsätta att skala upp. 
+
+   - När avbildningen versionen på Marketplace är samma som på bilden i skaluppsättning: ta bort den bild som används i skaluppsättning och sedan hämta den nya avbildningen. Du kan skala upp under tiden mellan borttagning av den ursprungliga avbildningen och hämtning av den nya avbildningen. 
+      
+     Den här processen krävs för att resyndicate avbildningar som gör användning av sparse-fil-format, som introducerades i version 1803. 
+ 
+
+2. Skaluppsättning för virtuell dator Distributionsmall **anger inte senaste** för *version* och anger ett versionsnummer i stället:  
+
+     Om du hämtar en bild med en nyare version (som ändras den tillgängliga versionen) kan skaluppsättning skala upp. Detta är avsiktligt som bildversionen som angavs i mallen scale set måste vara tillgängliga.  
+
+Mer information finns i [operativsystemet diskar och bilder](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>Ta bort en virtuella datorns skaluppsättning
 

@@ -1,11 +1,11 @@
 ---
-title: "Skapa virtuell dator från en särskild disk i Azure | Microsoft Docs"
-description: "Skapa en ny virtuell dator genom att koppla en särskild ohanterade disk i Resource Manager-distributionsmodellen."
+title: Skapa virtuell dator från en särskild disk i Azure | Microsoft Docs
+description: Skapa en ny virtuell dator genom att koppla en särskild ohanterade disk i Resource Manager-distributionsmodellen.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 811cc6cea80acbe6cbbf4533c1f9a8c9c7f53702
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ffa36967eb987f5e1b66f007ae60a63e640a609a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Skapa en virtuell dator från en särskild virtuell Hårddisk i ett lagringskonto
 
@@ -138,7 +138,7 @@ Du behöver URL: er för de käll- och storage-kontona. URL: er se ut: `https://
 
 Du kan använda Azure-portalen eller Azure Powershell för att hämta Webbadress:
 
-* **Portalen**: Klicka på den  **>**  för **alla tjänster** > **lagringskonton** > *lagring kontot* > **Blobbar** och käll-VHD-filen är förmodligen i den **virtuella hårddiskar** behållare. Klicka på **egenskaper** för behållaren och kopiera texten märkta **URL**. Du behöver URL: er för både käll- och behållare. 
+* **Portalen**: Klicka på den **>** för **alla tjänster** > **lagringskonton** > *lagring kontot* > **Blobbar** och käll-VHD-filen är förmodligen i den **virtuella hårddiskar** behållare. Klicka på **egenskaper** för behållaren och kopiera texten märkta **URL**. Du behöver URL: er för både käll- och behållare. 
 * **PowerShell**: Använd [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) att hämta information för den virtuella datorn med namnet **myVM** i resursgruppen **myResourceGroup**. I resultaten, titta i den **lagringsprofil** avsnittet för den **Vhd-Uri**. Den första delen av URI: N är Webbadressen till behållaren och den sista delen är virtuella Hårddiskens OS-namn för den virtuella datorn.
 
 ```powershell

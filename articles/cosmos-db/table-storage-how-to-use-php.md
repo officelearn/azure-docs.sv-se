@@ -1,6 +1,6 @@
 ---
-title: "Hur du använder tabelltjänsten för Azure Storage eller Azure Cosmos DB tabell API från PHP | Microsoft Docs"
-description: "Lär dig hur du använder tabellen service API från PHP för att skapa och ta bort en tabell, infoga, ta bort och fråga tabellen."
+title: Hur du använder tabelltjänsten för Azure Storage eller Azure Cosmos DB tabell API från PHP | Microsoft Docs
+description: Lär dig hur du använder tabellen service API från PHP för att skapa och ta bort en tabell, infoga, ta bort och fråga tabellen.
 services: cosmos-db
 documentationcenter: php
 author: mimig1
@@ -14,11 +14,11 @@ ms.devlang: php
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: mimig
-ms.openlocfilehash: 64ce8206b4b0ab3c831417d6e478f9c059188345
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 69fa1f8f9717d1ea4ca5081a45317cff8d752809
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Hur du använder Azure-Lagringstabellen service eller Cosmos DB tabell API från PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -435,9 +435,6 @@ Den **TableRestProxy -> batch** metoden kan du utföra flera åtgärder i en ens
 * **addDeleteEntity** (lägger till en åtgärd för deleteEntity)
 
 I följande exempel visas hur du kör **insertEntity** och **deleteEntity** åtgärder i en enskild begäran. 
-
-> [!NOTE]
-> Azure Cosmos-DB stöder ännu inte batch-åtgärder för tabeller. 
 
 ```php
 require_once 'vendor/autoload.php';

@@ -1,6 +1,6 @@
 ---
 title: Använda logganalys med en SQL-databas multitenant appen | Microsoft Docs
-description: Konfigurera och använda logganalys (Operations Management Suite) med en multitenant Azure SQL Database SaaS-appen
+description: Konfigurera och använda logganalys med en multitenant Azure SQL Database SaaS-app
 keywords: sql database tutorial
 services: sql-database
 author: stevestein
@@ -8,23 +8,23 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 38a849ca5f4a767a4b9d9b9b86549e89a8217a2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 285b8d0acc8a6cbe1a6441a4aabf372de204309e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="set-up-and-use-log-analytics-operations-management-suite-with-a-multitenant-sql-database-saas-app"></a>Konfigurera och använda logganalys (Operations Management Suite) med en multitenant SQL-databasen SaaS-appen
+# <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Konfigurera och använda logganalys med en multitenant SQL-databasen SaaS-app
 
-I kursen får du konfigurera och använda Azure logganalys ([Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)) att övervaka elastiska pooler och databaser. Den här kursen bygger på den [prestanda övervakning och hantering av kursen](saas-dbpertenant-performance-monitoring.md). Den visar hur du använder logganalys för att utöka övervakning och aviseringar som anges i Azure-portalen. Logganalys stöder övervakning tusentals elastiska pooler och hundratals tusentals databaser. Log Analytics tillhandahåller en enda övervakningslösning som kan integrera övervakning av olika program och Azure-tjänster över flera Azure-prenumerationer.
+I kursen får du konfigurera och använda Azure [logganalys](/azure/log-analytics/log-analytics-overview) övervaka elastiska pooler och databaser. Den här kursen bygger på den [prestanda övervakning och hantering av kursen](saas-dbpertenant-performance-monitoring.md). Den visar hur du använder logganalys för att utöka övervakning och aviseringar som anges i Azure-portalen. Logganalys stöder övervakning tusentals elastiska pooler och hundratals tusentals databaser. Log Analytics tillhandahåller en enda övervakningslösning som kan integrera övervakning av olika program och Azure-tjänster över flera Azure-prenumerationer.
 
 I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Installera och konfigurera logganalys (Operations Management Suite).
+> * Installera och konfigurera logganalys.
 > * Använda Log Analytics för att övervaka pooler och databaser.
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
@@ -34,11 +34,11 @@ Följande krav måste uppfyllas för att kunna köra den här självstudiekursen
 
 Finns det [prestanda övervakning och hantering av kursen](saas-dbpertenant-performance-monitoring.md) en beskrivning av SaaS-scenarier och mönster och hur de påverkar kraven på en övervakningslösning.
 
-## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-log-analytics-or-operations-management-suite"></a>Övervaka och hantera prestanda för databasen och elastisk pool med logganalys eller Operations Management Suite
+## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-log-analytics"></a>Övervaka och hantera databaser och elastiska poolen prestanda med logganalys
 
 För Azure SQL Database finns övervakning och avisering på databaser och pooler i Azure-portalen. Den här inbyggda övervakning och avisering är praktiskt, men det är också resursspecifika. Det innebär att det är mindre väl passar för att övervaka större installationer eller tillhandahålla en samlad bild över resurser och -prenumerationer.
 
-Du kan använda Log Analytics för övervakning och avisering för scenarier med stora volymer. Log Analytics är en separat Azure-tjänst som aktiverar analytics över diagnostiska loggar och telemetri som har samlats in i en arbetsyta från potentiellt många tjänster. Logganalys innehåller inbyggda frågan språk och data visualiseringen-verktyg som gör att användningsdata analytics. SQL-Analytics lösningen innehåller flera fördefinierade elastisk pool och databasen övervakning och aviseringar vyer och frågor. Operations Management Suite ger också en anpassad vy designer.
+Du kan använda Log Analytics för övervakning och avisering för scenarier med stora volymer. Log Analytics är en separat Azure-tjänst som aktiverar analytics över diagnostiska loggar och telemetri som har samlats in i en arbetsyta från potentiellt många tjänster. Logganalys innehåller inbyggda frågan språk och data visualiseringen-verktyg som gör att användningsdata analytics. SQL-Analytics lösningen innehåller flera fördefinierade elastisk pool och databasen övervakning och aviseringar vyer och frågor. Logganalys innehåller också en anpassad vy designer.
 
 Loggen arbetsytorna och analytics Analyslösningar öppna i Azure-portalen och Operations Management Suite. Azure portal är nyare åtkomstpunkt, men det kan vara bakom Operations Management Suite-portalen i vissa områden.
 
@@ -129,9 +129,9 @@ Nu kan du öppna Log Analytics i Azure-portalen eller Operations Management Suit
 
 Du kan utforska data loggen och mått i arbetsytan ytterligare Operations Management Suite-portalen. 
 
-Övervakning och avisering i logganalys och Operations Management Suite baseras på frågor över data på arbetsytan, till skillnad från aviseringar som definieras för varje resurs i Azure-portalen. Du kan basera aviseringar på frågor för att definiera en avisering som ser ut över alla databaser, i stället för att definiera en per databas. Frågor begränsas bara av data som är tillgängliga på arbetsytan.
+Övervakning och avisering i logganalys baseras på frågor över data på arbetsytan, till skillnad från aviseringar som definieras för varje resurs i Azure-portalen. Du kan basera aviseringar på frågor för att definiera en avisering som ser ut över alla databaser, i stället för att definiera en per databas. Frågor begränsas bara av data som är tillgängliga på arbetsytan.
 
-Mer information om hur du använder Operations Management Suite att fråga och Ställ in aviseringar finns [arbeta med Varningsregler i logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
+Mer information om hur du använder logganalys att fråga och Ställ in aviseringar finns [arbeta med Varningsregler i logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
 Log Analytics för SQL-databas avgifter baserat på datavolymen i arbetsytan. I kursen får skapat du en kostnadsfri arbetsyta som är begränsad till 500 MB per dag. När gränsen har nåtts, läggs inte längre data till arbetsytan.
 
@@ -141,7 +141,7 @@ Log Analytics för SQL-databas avgifter baserat på datavolymen i arbetsytan. I 
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Installera och konfigurera logganalys (Operations Management Suite).
+> * Installera och konfigurera logganalys.
 > * Använda Log Analytics för att övervaka pooler och databaser.
 
 Försök i [klient analytics kursen](saas-dbpertenant-log-analytics.md).
@@ -150,4 +150,3 @@ Försök i [klient analytics kursen](saas-dbpertenant-log-analytics.md).
 
 * [Ytterligare självstudier som bygger på den första Wingtip biljetter SaaS databas per klient programdistributionen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
-* [Operations Management Suite](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)

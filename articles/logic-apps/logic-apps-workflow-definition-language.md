@@ -1,11 +1,11 @@
 ---
-title: "Arbetsflödet Definition Language schema - Azure Logic Apps | Microsoft Docs"
-description: "Definiera arbetsflöden baserat på arbetsflödet definition schemat för Azure Logic Apps"
+title: Arbetsflödet Definition Language schema - Azure Logic Apps | Microsoft Docs
+description: Definiera arbetsflöden baserat på arbetsflödet definition schemat för Azure Logic Apps
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 994b8946078ed9b4c8aa965a3bc0e117ba3185c0
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 42932e6d1727a1444c62f565ae3c48dc178aeb2b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Arbetsflödet Definition Language schemat för Azure Logic Apps
 
@@ -70,7 +70,7 @@ I följande exempel visar strukturen för en parameterdefinition:
 
 |Elementnamn|Krävs|Beskrivning|  
 |------------------|--------------|-----------------|  
-|typ|Ja|**Typen**: sträng <p> **Deklarationen**: `"parameters": {"parameter1": {"type": "string"}` <p> **Specifikationen**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Typen**: securestring <p> **Deklarationen**: `"parameters": {"parameter1": {"type": "securestring"}}` <p> **Specifikationen**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Typen**: int <p> **Deklarationen**: `"parameters": {"parameter1": {"type": "int"}}` <p> **Specifikationen**: `"parameters": {"parameter1": {"value" : 5}}` <p> **Typen**: bool <p> **Deklarationen**: `"parameters": {"parameter1": {"type": "bool"}}` <p> **Specifikationen**: `"parameters": {"parameter1": { "value": true }}` <p> **Typen**: matris <p> **Deklarationen**: `"parameters": {"parameter1": {"type": "array"}}` <p> **Specifikationen**: `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Typen**: objektet <p> **Deklarationen**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Specifikationen**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Typen**: secureobject <p> **Deklarationen**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Specifikationen**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Obs:** den `securestring` och `secureobject` typer returneras inte i `GET` åtgärder. Alla lösenord, nycklar och hemligheter ska använda den här typen.|  
+|typ|Ja|**Typen**: sträng <p> **Deklarationen**: `"parameters": {"parameter1": {"type": "string"}}` <p> **Specifikationen**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Typen**: securestring <p> **Deklarationen**: `"parameters": {"parameter1": {"type": "securestring"}}` <p> **Specifikationen**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Typen**: int <p> **Deklarationen**: `"parameters": {"parameter1": {"type": "int"}}` <p> **Specifikationen**: `"parameters": {"parameter1": {"value" : 5}}` <p> **Typen**: bool <p> **Deklarationen**: `"parameters": {"parameter1": {"type": "bool"}}` <p> **Specifikationen**: `"parameters": {"parameter1": { "value": true }}` <p> **Typen**: matris <p> **Deklarationen**: `"parameters": {"parameter1": {"type": "array"}}` <p> **Specifikationen**: `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Typen**: objektet <p> **Deklarationen**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Specifikationen**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Typen**: secureobject <p> **Deklarationen**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Specifikationen**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Obs:** den `securestring` och `secureobject` typer returneras inte i `GET` åtgärder. Alla lösenord, nycklar och hemligheter ska använda den här typen.|  
 |Standardvärde|Nej|Anger standardvärdet för parametern när inget värde anges när resursen har skapats.|  
 |allowedValues|Nej|Anger en matris med tillåtna värden för parametern.|  
 |metadata|Nej|Anger ytterligare information om parametern, till exempel en läsbar beskrivning eller designläge data som används av Visual Studio eller andra verktyg.|  

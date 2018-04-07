@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 6e373740d6b5af4b3b7d3dca8877c952d79f8b20
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9768fd96b8023ac97d8c5711e0c02f2c147e28f6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervakaraktiviteten i prenumerationen med Azure-aktivitetsloggen
+
 Den **Azure-aktivitetsloggen** är en prenumerationslogg som ger inblick i prenumerationsnivån händelser som har inträffat i Azure. Detta omfattar en mängd data från Azure Resource Manager användningsdata till uppdateringar på händelser för Hälsotjänst. Aktivitetsloggen tidigare kallades ”granskningsloggar” eller ”operativa loggar” eftersom de administrativa kategorin rapporter kontroll-plan händelserna för dina prenumerationer. Använder aktivitetsloggen, kan du bestämma den ' vad som, och när ' för alla skrivåtgärder (PUT, POST, ta bort) tas för de resurser i din prenumeration. Du kan också få status för åtgärden och andra relevanta egenskaper. Aktivitetsloggen omfattar inte läsåtgärder (GET) eller åtgärder för resurser som använder klassiskt / ”RDFE” modellen.
 
 ![Aktiviteten loggar eller andra typer av loggar ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
@@ -37,9 +38,7 @@ Aktivitetsloggen skiljer sig från [diagnostikloggar](monitoring-overview-of-dia
 Du kan hämta händelser från din aktivitetsloggen med Azure-portalen, CLI, PowerShell-cmdletar och REST-API för Azure-Monitor.
 
 > [!NOTE]
-
->  [Nyare aviseringar)](monitoring-overview-unified-alerts.md) ger en förbättrad upplevelse när skapa och hantera aktivitet logga Varningsregler.  [Läs mer](monitoring-activity-log-alerts-new-experience.md).
-
+>  [Nyare aviseringar](monitoring-overview-unified-alerts.md) ger en förbättrad upplevelse när skapa och hantera aktivitet logga Varningsregler.  [Läs mer](monitoring-activity-log-alerts-new-experience.md).
 
 Visa följande videoklipp introduktion till aktivitetsloggen.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
@@ -103,7 +102,7 @@ En **loggen profil** styr hur din aktivitetsloggen exporteras. Med en logg-profi
 * Vilka regioner (platser) ska exporteras. Se till att inkludera ”globala” som många händelser i aktivitetsloggen är globala händelser.
 * Hur länge aktivitetsloggen ska behållas i ett Lagringskonto.
     - En kvarhållning av noll dagar innebär loggar behålls alltid. I annat fall kan värdet vara valfritt antal dagar mellan 1 och 2147483647.
-    - Om bevarandeprinciper har angetts men lagring loggar i ett Storage-konto har inaktiverats (till exempel om endast Händelsehubbar eller OMS-alternativen är markerade), har bevarandeprinciper ingen effekt.
+    - Om bevarandeprinciper har angetts men lagring loggar i ett Storage-konto har inaktiverats (till exempel om endast Händelsehubbar eller logganalys alternativen är markerade), har bevarandeprinciper ingen effekt.
     - Bevarandeprinciper är tillämpade per dag, så i slutet av dagen (UTC) loggar från den dagen är nu utöver kvarhållning princip tas bort. Till exempel om du har en bevarandeprincip på en dag skulle i början av dagen idag loggar från dag före igår tas bort.
 
 Du kan använda ett lagringsutrymme konto eller händelse hubb namnområde som inte är i samma prenumeration som en avger loggar. Den användare som konfigurerar inställningen måste ha RBAC lämplig åtkomst till båda prenumerationer.
@@ -129,19 +128,22 @@ Du kan strömma aktivitetsloggen till en Händelsehubb eller lagra dem i ett Lag
 4. Klicka på **spara** dessa inställningar ska sparas. Inställningarna tillämpas omedelbart på din prenumeration.
 
 ### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Konfigurera loggen profiler med hjälp av Azure PowerShell-Cmdlets
+
 #### <a name="get-existing-log-profile"></a>Hämta befintlig logg-profil
+
 ```
 Get-AzureRmLogProfile
 ```
 
 #### <a name="add-a-log-profile"></a>Lägg till en logg-profil
+
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
 | Egenskap | Krävs | Beskrivning |
 | --- | --- | --- |
-| namn |Ja |Namnet på loggen profilen. |
+| Namn |Ja |Namnet på loggen profilen. |
 | StorageAccountId |Nej |Resurs-ID för det Lagringskonto där aktivitetsloggen ska sparas. |
 | serviceBusRuleId |Nej |Service Bus regel-ID för Service Bus-namnområde som har skapats i händelsehubbar. Är en sträng med formatet: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Platser |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser för aktivitetsloggen. |
@@ -153,33 +155,32 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### <a name="configure-log-profiles-using-the-azure-cross-platform-cli"></a>Konfigurera loggen profiler som använder Azure CLI för flera plattformar
+### <a name="configure-log-profiles-using-the-azure-cli-20"></a>Konfigurera loggen profiler som använder Azure CLI 2.0
+
 #### <a name="get-existing-log-profile"></a>Hämta befintlig logg-profil
+
+```azurecli
+az monitor log-profiles list
+az monitor log-profiles show --name <profile name>
 ```
-azure insights logprofile list
-```
-```
-azure insights logprofile get --name my_log_profile
-```
+
 Den `name` egenskapen ska vara namnet på loggen-profilen.
 
 #### <a name="add-a-log-profile"></a>Lägg till en logg-profil
-```
-azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
+
+```azurecli
+az monitor log-profiles create --name <profile name> \
+    --locations <location1 location2 ...> \
+    --location <location> \
+    --categories <category1 category2 ...>
 ```
 
-| Egenskap | Krävs | Beskrivning |
-| --- | --- | --- |
-| namn |Ja |Namnet på loggen profilen. |
-| storageId |Nej |Resurs-ID för det Lagringskonto där aktivitetsloggen ska sparas. |
-| serviceBusRuleId |Nej |Service Bus regel-ID för Service Bus-namnområde som har skapats i händelsehubbar. Är en sträng med formatet: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Platser |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser för aktivitetsloggen. |
-| retentionInDays |Ja |Antal dagar för vilka händelser som ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid). |
-| kategorier |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva och ta bort åtgärd. |
+Fullständig dokumentation för att skapa en profil för övervakaren med CLI finns det [CLI kommandoreferens](/cli/azure/monitor/log-profiles#az-monitor-log-profiles-create)
 
 #### <a name="remove-a-log-profile"></a>Ta bort en logg-profil
-```
-azure insights logprofile delete --name my_log_profile
+
+```azurecli
+az monitor log-profiles delete --name <profile name>
 ```
 
 ## <a name="next-steps"></a>Nästa steg

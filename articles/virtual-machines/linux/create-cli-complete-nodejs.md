@@ -1,11 +1,11 @@
 ---
-title: "Skapa en fullständig Linux-miljö med Azure CLI 1.0 | Microsoft Docs"
-description: "Skapa lagring, en Linux VM, ett virtuellt nätverk och undernät, belastningsutjämning, ett nätverkskort, en offentlig IP-adress och en nätverkssäkerhetsgrupp alla från grunden med hjälp av Azure CLI 1.0."
+title: Skapa en fullständig Linux-miljö med Azure CLI 1.0 | Microsoft Docs
+description: Skapa lagring, en Linux VM, ett virtuellt nätverk och undernät, belastningsutjämning, ett nätverkskort, en offentlig IP-adress och en nätverkssäkerhetsgrupp alla från grunden med hjälp av Azure CLI 1.0.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: 201ccd523e49d638ace50fbc0ffdceb705b35473
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a43e138d3497e01fe9e0e5c55a4a66adac767c6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Skapa en fullständig Linux-miljö med Azure CLI 1.0
 I den här artikeln skapar vi ett enkelt nätverk med en belastningsutjämnare och ett par med virtuella datorer som är användbara för utveckling och enkel datoranvändning. Vi går igenom processen kommandot av kommandot förrän du har två fungerar, säker virtuella Linux-datorer som du kan ansluta från var som helst på Internet. Sedan kan du gå vidare till mer komplexa nätverk och miljöer.
@@ -382,7 +382,7 @@ data:    vhds  Off            Sun, 27 Sep 2015 19:03:54 GMT
 info:    storage container list command OK
 ```
 
-## <a name="create-a-virtual-network-and-subnet"></a>Skapa ett virtuellt nätverk och undernät
+## <a name="create-a-virtual-network-and-subnet"></a>Skapa ett virtuellt nätverk och ett undernät
 Härnäst ska du behöver skapa ett virtuellt nätverk som körs i Azure och ett undernät som du kan skapa dina virtuella datorer. I följande exempel skapas ett virtuellt nätverk med namnet `myVnet` med den `192.168.0.0/16` adressprefix:
 
 ```azurecli
@@ -795,7 +795,7 @@ data:    Backend address pool id         : /subscriptions/guid/resourceGroups/my
 info:    network lb rule create command OK
 ```
 
-## <a name="create-a-load-balancer-health-probe"></a>Skapa en belastningsutjämnaren, hälsoavsökningen
+## <a name="create-a-load-balancer-health-probe"></a>Skapa en hälsoavsökning för belastningsutjämnaren
 En avsökning med jämna mellanrum kontroller på virtuella datorer som är bakom våra belastningsutjämnare för att kontrollera att de fungerar och svarar på förfrågningar som har definierats. Om inte, de tas bort från igen så att användare inte dirigeras till dem. Du kan definiera egna kontroller för hälsoavsökningen tillsammans med intervall och timeout-värden. Läs mer om hälsoavsökningar [avsökningar belastningsutjämnaren](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). I följande exempel skapas en TCP hälsa avsöktes namngivna `myHealthProbe`:
 
 ```azurecli

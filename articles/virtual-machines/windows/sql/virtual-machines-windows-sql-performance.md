@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/20/2018
 ms.author: jroth
-ms.openlocfilehash: 2aa066caf6239f29038228c3c91607d913e70682
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e4f955a0880254cb67ccd3e46ad04b3685341263
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Prestandametodtips för SQL Server på virtuella Azure-datorer
 
@@ -39,7 +39,7 @@ Följande är en snabb kontroll lista för optimala prestanda av SQL Server på 
 
 | Område | Optimeringar |
 | --- | --- |
-| [VM-storlek](#vm-size-guidance) |[DS3](../sizes-memory.md) eller högre för SQL Enterprise edition.<br/><br/>[DS2](../sizes-memory.md) eller högre för SQL Standard och webb-utgåvor. |
+| [VM-storlek](#vm-size-guidance) |[DS3](../sizes-general.md) eller högre för SQL Enterprise edition.<br/><br/>[DS2](../sizes-general.md) eller högre för SQL Standard och webb-utgåvor. |
 | [Storage](#storage-guidance) |Använd [Premiumlagring](../premium-storage.md). Standardlagring rekommenderas endast för utveckling och testning.<br/><br/>Behåll den [lagringskonto](../../../storage/common/storage-create-storage-account.md) och SQL Server-VM i samma region.<br/><br/>Inaktivera Azure [geo-redundant lagring](../../../storage/common/storage-redundancy.md) (geo-replikering) på lagringskontot. |
 | [Diskar](#disks-guidance) |Använd minst 2 [P30 diskar](../premium-storage.md#scalability-and-performance-targets) (1 för loggfiler, 1 för datafiler och TempDB).<br/><br/>Undvik att använda operativsystem eller tillfälliga diskar för databaslagring eller loggning.<br/><br/>Aktivera cachelagring för läsning på diskarna som värd för filer och datafiler i TempDB.<br/><br/>Aktivera inte cachelagring på diskarna som är värd för loggfilen.<br/><br/>Viktigt: Stoppa SQL Server-tjänsten när du ändrar inställningar för cachelagring för en virtuell dator i Azure-disken.<br/><br/>Stripe-flera Azure datadiskar för att få ökad i/o-genomströmning.<br/><br/>Formatera med dokumenterade allokering storlekar. |
 | [I/O](#io-guidance) |Aktivera komprimering för databas-sidan.<br/><br/>Aktivera omedelbara filen initiering av datafiler.<br/><br/>Begränsa autogrow på databasen.<br/><br/>Inaktivera autoshrink på databasen.<br/><br/>Flytta alla databaser till datadiskar, inklusive systemdatabaser.<br/><br/>Flytta SQL Server fel logg- och spårningsfiler kataloger till datadiskar.<br/><br/>Konfigurera säkerhetskopiering och databasen standardsökvägar.<br/><br/>Aktivera låsta sidor.<br/><br/>Tillämpa korrigeringar för SQL Server-prestanda. |

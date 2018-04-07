@@ -1,13 +1,13 @@
 ---
-title: "Med hjälp av molnet init för att anpassa en Linux VM under Skapa i Azure | Microsoft Docs"
-description: "Hur du använder molntjänster init för att anpassa en Linux VM under genereringen av med Azure CLI 1.0"
+title: Med hjälp av molnet init för att anpassa en Linux VM under Skapa i Azure | Microsoft Docs
+description: Hur du använder molntjänster init för att anpassa en Linux VM under genereringen av med Azure CLI 1.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: vlivech
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: v-livech
-ms.openlocfilehash: 0b6150bca333188666935b3c9aa02c4b33690db9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e9182a18a2827ed7f54f5fd042e5934b3b1fd5c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-during-creation-with-the-azure-cli-10"></a>Använda molntjänster init för att anpassa en Linux VM under skapande av med Azure CLI 1.0
 Den här artikeln visar hur du gör ett moln init-skript för att ange värdnamnet, uppdateringspaket installeras och hanterar användarkonton.  Molnet init-skript anropas under den virtuella dator skapandet Azure CLI.  Artikeln kräver:
@@ -97,7 +97,7 @@ Att mata in skript när som helst efter omstart:
 > 
 
 ## <a name="cloud-init-availability-on-azure-vm-quick-create-image-aliases"></a>Molnet init tillgänglighet på Virtuella Azure-Snabbregistrering avbildningen alias:
-| Alias | Utgivare | Erbjudande | SKU | Version | molnet initiering |
+| Alias | Utgivare | Erbjudande | SKU | Version | cloud-init |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |Centos |7.2 |senaste |nej |
 | CoreOS |CoreOS |CoreOS |Stable |senaste |ja |

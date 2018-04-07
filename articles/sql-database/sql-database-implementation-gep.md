@@ -1,19 +1,19 @@
 ---
 title: Azure SQL-databas Azure Fallstudie - GEP | Microsoft Docs
-description: "Lär dig mer om hur GEP använder SQL-databas för att nå globala kunder och uppnå större effektivitet"
+description: Lär dig mer om hur GEP använder SQL-databas för att nå globala kunder och uppnå större effektivitet
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 093f891ea9dd36a2766d0a797c4f0a67b11aa8a4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c63076f9e3ed2e9ec16507e62a37e966218ec4d6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-gives-gep-global-reach-and-greater-efficiency"></a>Azure ger GEP globalt omfattande och större effektivitet
 ![GEP-logotyp](./media/sql-database-implementation-gep/geplogo.png)

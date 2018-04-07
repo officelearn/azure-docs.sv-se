@@ -1,23 +1,23 @@
 ---
 title: 20 dagar i Azure Cosmos DB tips | Microsoft Docs
-description: "Hitta alla tips från Simona Cotin 20 dagar i Azure Cosmos DB tips serie på ett ställe."
+description: Hitta alla tips från Simona Cotin 20 dagar i Azure Cosmos DB tips serie på ett ställe.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: cda
-ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 79ef4a8c22143ed77535e1190b5f7e8eb5d17bb0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>20 dagar Azure DB som Cosmos-tips
 
@@ -29,7 +29,7 @@ Besök sidan varje dag för ett nytt tips från September 5 – September 29!
 
 ## <a name="tip-1-what-is-cosmos"></a>Tips 1: Vad är Cosmos?
 
-Vad är #cosmosdb? Den bästa NoSQL-databas som du inte använder! [https://aka.MS/ubw007](https://aka.ms/ubw007)
+Vad är #cosmosdb? Den bästa NoSQL-databas som du inte använder! [https://aka.ms/ubw007](https://aka.ms/ubw007)
 
 > [!VIDEO https://www.youtube.com/embed/cGxO995iakM] 
 
@@ -37,7 +37,7 @@ Vad är #cosmosdb? Den bästa NoSQL-databas som du inte använder! [https://aka.
 
 ## <a name="tip-2-seeing-is-believing"></a>Tips 2: Tusen
 
-Tusen. Använda gränssnittet #cosmosDB visual i Azure-portalen för att inspektera och fråga din DB [https://aka.ms/jprf75](https://aka.ms/jprf75)
+Tusen. Använda gränssnittet #cosmosDB visual i Azure-portalen för att inspektera och fråga din DB  [https://aka.ms/jprf75](https://aka.ms/jprf75)
 
 > [!VIDEO https://www.youtube.com/embed/4aWL5p_SJDE]
 
@@ -45,7 +45,7 @@ Tusen. Använda gränssnittet #cosmosDB visual i Azure-portalen för att inspekt
 
 ## <a name="tip-3-replicate-data-globally"></a>Tips 3: Replikera data globalt
 
-Tips 3: Behöver din app att blixtsnabb snabb var som helst i världen? Replikera dina data med #cosmosDB är död enkelt! [https://aka.MS/nimw2g](https://aka.ms/nimw2g)  
+Tips 3: Behöver din app att blixtsnabb snabb var som helst i världen? Replikera dina data med #cosmosDB är död enkelt! [https://aka.ms/nimw2g](https://aka.ms/nimw2g)  
 
 > [!VIDEO https://www.youtube.com/embed/i22R7I_Rgdg]
 
@@ -61,7 +61,7 @@ Tips 4: Är gremlins din stoppet? #cosmosdb bättre Gremlin för! Visa, fråga o
 
 ## <a name="tip-5-try-azure-cosmos-db-free"></a>Tips 5: Försök Azure Cosmos DB ledigt
 
-Tips 5: Vill prova Azure #CosmosDB kostnadsfritt? Inga registreringen eller kreditkort, gå till [https://aka.ms/d81vxr](https://aka.ms/d81vxr) och börja koda!  
+Tips 5: Vill prova Azure #CosmosDB kostnadsfritt? Inga registreringen eller kreditkort, gå till [ https://aka.ms/d81vxr ](https://aka.ms/d81vxr) och börja koda!  
 
 > [!VIDEO https://www.youtube.com/embed/Vf8iZCmoG2E]
 
@@ -69,7 +69,7 @@ Tips 5: Vill prova Azure #CosmosDB kostnadsfritt? Inga registreringen eller kred
 
 ## <a name="tip-6-migrate-your-mean-app"></a>Tips 6: Migrera medelvärde appen
 
-Tips 6: Är BETYDA din sak? Lär dig hur du migrerar enkelt din app till Azure #cosmosDB! https://aka.MS/gfh6i5 fullständig video: https://aka.ms/aoojih  
+Tips 6: Är BETYDA din sak? Lär dig hur du migrerar enkelt din app till Azure #cosmosDB! https://aka.ms/gfh6i5 Fullständig video:  https://aka.ms/aoojih  
 
 > [!VIDEO https://www.youtube.com/embed/vlAUxc3d2ak]
 
@@ -125,7 +125,7 @@ Artikel: [skapar en MongoDB-app i Cosmos vinkel och Azure DB](https://docs.micro
 
 ## <a name="tip-14-use-cases"></a>Tips 14: Användningsfall
 
-Tips 14: Nyfiken vanliga användningsområden för Azure #CosmosDB? Ta en titt på [https://aka.ms/Ihpf00](https://aka.ms/Ihpf00) att lära dig om IoT, spel och sociala appar
+Tips 14: Nyfiken vanliga användningsområden för Azure #CosmosDB? Ta en titt på [ https://aka.ms/Ihpf00 ](https://aka.ms/Ihpf00) att lära dig om IoT, spel och sociala appar
 
 Artikel: [vanliga Azure Cosmos DB användningsfall](https://aka.ms/Ihpf00)
 
@@ -142,7 +142,7 @@ Tips 15: Skapa ett nytt konto i Azure #CosmosDB utan att lämna @code. Installer
 
 ## <a name="tip-16-functions-and-twilio-demo"></a>Tips 16: Funktioner och Twilio demonstration
 
-Tips 16: Helt otroligt demo! Integrera Azure #cosmosDB, funktioner och @twilio att skicka ett SMS på ändringar DB. Se dokumenten vid [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 
+Tips 16: Helt otroligt demo! Integrera Azure #cosmosDB, funktioner och @twilio att skicka ett SMS på ändringar DB. Se dokumenten på [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 
 
 > [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
 
@@ -159,7 +159,7 @@ Blogg: [använder Mongoose Discriminators för att lagra flera entiteter i en en
 
 ## <a name="tip-18-request-units"></a>Tips 18: Frågeenheter
 
-Tips 18: Lär dig vad begära enheter (RU) är och hur du konfigurerar dem i Azure #CosmosDB. Mer om docs på [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
+Tips 18: Lär dig vad begära enheter (RU) är och hur du konfigurerar dem i Azure #CosmosDB. Mer på docs på [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
 
 Artikel: [begära enheter i Azure Cosmos DB](https://aka.ms/Kt2nbn)
 

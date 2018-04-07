@@ -2,9 +2,8 @@
 title: Lär dig hur du skyddar åtkomsten till data i Azure Cosmos DB | Microsoft Docs
 description: Lär dig mer om access control begrepp i Azure Cosmos-databasen, inklusive huvudnycklar, skrivskyddade nycklar, användare och behörigheter.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: monicar
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: 8641225d-e839-4ba6-a6fd-d6314ae3a51c
 ms.service: cosmos-db
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: mimig
-ms.openlocfilehash: 5ca2ea638dfa43b3b687ef65a420886f1ddf92f9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: sngun
+ms.openlocfilehash: 7a53dda7d6b49187d77ca44bcb55db5f9c305f64
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Skydda åtkomst till Azure Cosmos DB data
 Den här artikeln innehåller en översikt över skydda åtkomsten till data som lagras i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -130,7 +129,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 
 <a id="permissions"></a>
 
-## <a name="permissions"></a>Behörighet
+## <a name="permissions"></a>Behörigheter
 En Cosmos-DB behörighet resurs är associerad med en Cosmos-DB-användare.  Varje användare kan innehålla noll eller flera Cosmos-DB-behörigheter.  En behörighet för resursen ger åtkomst till en säkerhetstoken som användaren måste när du försöker komma åt en resurs för specifika program.
 Det finns två tillgängliga åtkomstnivåer som kan tillhandahållas av en behörighet:
 

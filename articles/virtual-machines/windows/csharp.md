@@ -1,10 +1,10 @@
 ---
-title: "Skapa och hantera en virtuell Azure-dator med hjälp av C# | Microsoft Docs"
-description: "Använd C# och Azure Resource Manager för att distribuera en virtuell dator och alla dess stödfiler resurser."
+title: Skapa och hantera en virtuell Azure-dator med hjälp av C# | Microsoft Docs
+description: Använd C# och Azure Resource Manager för att distribuera en virtuell dator och alla dess stödfiler resurser.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.openlocfilehash: 5d9021c2f65b70e36d5ea82992c9fb9d2d6d394a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43dcc8e5d9756807a3e005d629e84469a2e6eb04
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Skapa och hantera virtuella Windows-datorer i Azure med C# #
 
@@ -73,7 +73,7 @@ Innan du startar det här steget, se till att du har åtkomst till en [Active Di
     graphURL=https://graph.windows.net/
     ```
 
-    Ersätt  **&lt;prenumerations-id&gt;**  med prenumerations-ID  **&lt;program-id&gt;**  med programidentifierare Active Directory  **&lt;autentiseringsnyckel&gt;**  med nyckeln för programmet och  **&lt;klient-id&gt;**  med klient-ID.
+    Ersätt **&lt;prenumerations-id&gt;** med prenumerations-ID **&lt;program-id&gt;** med programidentifierare Active Directory **&lt;autentiseringsnyckel&gt;** med nyckeln för programmet och **&lt;klient-id&gt;** med klient-ID.
 
 3. Spara filen azureauth.properties. 
 4. Ange en miljövariabel i Windows som heter AZURE_AUTH_LOCATION med den fullständiga sökvägen till auktoriseringsfilen som du skapade. Till exempel kan följande PowerShell-kommando användas:
@@ -239,7 +239,7 @@ azure.VirtualMachines.Define("myVM")
 
 ## <a name="perform-management-tasks"></a>Utföra administrativa uppgifter
 
-Under livscykeln för en virtuell dator kan du vill köra hanteringsuppgifter, till exempel starta, stoppa eller ta bort en virtuell dator. Dessutom kanske du vill skapa kod för att automatisera repetitiva och komplicerade uppgifter.
+Under livscykeln för en virtuell dator kan du vilja köra administrativa uppgifter, genom att till exempel starta, stoppa eller ta bort en virtuell dator. Dessutom kanske du vill skapa kod för att automatisera repetitiva och komplicerade uppgifter.
 
 När du behöver göra något med den virtuella datorn måste du hämta en instans av den:
 

@@ -6,90 +6,72 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 2/28/2018
+ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 00affc3d1c02c477826261aeac6e092934037e81
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 085a2976443db8ece7a36dbfc133b173432ce4c8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="ssh-into-azure-container-service-aks-cluster-nodes"></a>SSH till noder i Azure Container Service (AKS)
 
 Ibland kan behöva du åtkomst till en Azure Container Service (AKS)-nod för underhåll, Logginsamling eller andra åtgärder för felsökning. Azure Container Service (AKS) noder exponeras inte till internet. Använd stegen som beskrivs i det här dokumentet för att skapa en SSH-anslutning med en AKS-nod.
 
-## <a name="configure-ssh-access"></a>Konfigurera SSH-åtkomst
+## <a name="get-aks-node-address"></a>Hämta AKS nodadress
 
- Till SSH till en viss nod, skapas en baljor med `hostNetwork` åtkomst. En tjänst skapas också för baljor åtkomst. Den här konfigurationen är privilegierad och bör tas bort efter användning.
+Hämta IP-adressen för en AKS nod med den `az vm list-ip-addresses` kommando. Ersätt resursgruppens namn med namnet på resursgruppen AKS.
 
-Skapa en fil med namnet `aks-ssh.yaml` och kopiera i manifestet. Uppdatera nodnamnet med namnet på AKS målnoden.
+```console
+$ az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
 
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: aks-ssh
-spec:
-  selector:
-    app: aks-ssh
-  type: LoadBalancer
-  ports:
-  - protocol: TCP
-    port: 22
-    targetPort: 22
----
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: aks-ssh
-  labels:
-    app: aks-ssh
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: aks-ssh
-  template:
-    metadata:
-      labels:
-        app: aks-ssh
-    spec:
-      containers:
-      - name: alpine
-        image: alpine:latest
-        ports:
-        - containerPort: 22
-        command: ["/bin/sh", "-c", "--"]
-        args: ["while true; do sleep 30; done;"]
-      hostNetwork: true
-      nodeName: aks-nodepool1-42032720-0
+VirtualMachine            PrivateIPAddresses
+------------------------  --------------------
+aks-nodepool1-42032720-0  10.240.0.6
+aks-nodepool1-42032720-1  10.240.0.5
+aks-nodepool1-42032720-2  10.240.0.4
 ```
 
-Kör manifestet för att skapa baljor och tjänsten.
+## <a name="create-ssh-connection"></a>Skapa SSH-anslutning
 
-```azurecli-interactive
-$ kubectl apply -f aks-ssh.yaml
+Kör den `debian` behållare avbildningen och bifoga en terminalsession. Behållaren kan sedan användas för att skapa en SSH-session med en nod i klustret AKS.
+
+```console
+kubectl run -it --rm aks-ssh --image=debian
 ```
 
-Hämta externa IP-adressen för tjänsten exponerade. Det kan ta ett tag för IP-adresskonfiguration att slutföra. 
+Installera en SSH-klient i behållaren.
 
-```azurecli-interactive
-$ kubectl get service
-
-NAME               TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
-kubernetes         ClusterIP      10.0.0.1      <none>          443/TCP        1d
-aks-ssh            LoadBalancer   10.0.51.173   13.92.154.191   22:31898/TCP   17m
+```console
+apt-get update && apt-get install openssh-client -y
 ```
 
-Skapa den ssh anslutning. 
+Öppna en andra terminal och visa en lista med alla skida för att hämta det nyligen skapade baljor namnet.
 
-Standardanvändarnamnet för ett AKS kluster är `azureuser`. Om det här kontot har ändrats vid tidpunkten för skapandet av klustret i stället rätt administratörsanvändarnamnet. 
+```console
+$ kubectl get pods
 
-Om nyckeln inte är på `~/ssh/id_rsa`, ange rätt plats med hjälp av den `ssh -i` argumentet.
+NAME                       READY     STATUS    RESTARTS   AGE
+aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
+```
 
-```azurecli-interactive
-$ ssh azureuser@13.92.154.191
+Kopiera SSH-nyckel till baljor ersätter baljor namnet med rätt värde.
+
+```console
+kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
+```
+
+Uppdatera den `id_rsa` filen så att den användare som skrivskyddad.
+
+```console
+chmod 0600 id_rsa
+```
+
+Nu skapa en SSH-anslutning till noden AKS. Standardanvändarnamnet för ett AKS kluster är `azureuser`. Om det här kontot har ändrats vid tidpunkten för skapandet av klustret i stället rätt administratörsanvändarnamnet.
+
+```console
+$ ssh -i id_rsa azureuser@10.240.0.6
 
 Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.11.0-1016-azure x86_64)
 
@@ -114,8 +96,4 @@ azureuser@aks-nodepool1-42032720-0:~$
 
 ## <a name="remove-ssh-access"></a>Ta bort SSH-åtkomst
 
-Ta bort tjänsten SSH åtkomst baljor och när du är klar.
-
-```azurecli-interactive
-kubectl delete -f aks-ssh.yaml
-```
+När du är klar avsluta SSH-session och sedan behållare för interaktiva sessionen. Den här åtgärden tar bort baljor som används för SSH-åtkomst från AKS klustret.

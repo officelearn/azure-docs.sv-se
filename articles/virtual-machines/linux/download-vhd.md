@@ -1,13 +1,13 @@
 ---
-title: "Hämta en Linux-VHD från Azure | Microsoft Docs"
-description: "Hämta en Linux VHD med Azure CLI och Azure portal."
+title: Hämta en Linux-VHD från Azure | Microsoft Docs
+description: Hämta en Linux VHD med Azure CLI och Azure portal.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 20af28dd4caa6ee5487b9a2ed83715b9b16fad48
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d177e8de7ace571c57a0b8b39c8834fb5b115365
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Hämta en Linux-VHD från Azure
 
@@ -35,10 +35,10 @@ En virtuell Hårddisk kan inte hämtas från Azure om den är kopplad till en ak
 
 Om du vill använda den virtuella Hårddisken som en bild för att skapa andra virtuella datorer, gör du följande:
 
-1. Använda SSH, kontonamnet och offentliga IP-adressen för den virtuella datorn för att ansluta till den och ta bort etableringen av den. Den + user-parameter tar också bort det senaste kontot för etablerad användare. Om du gräddning autentiseringsuppgifter i för att den virtuella datorn, lämnar ut detta + user-parameter. I följande exempel tar bort det senaste kontot för etablerad användare:
+1. Använda SSH, kontonamnet och offentliga IP-adressen för den virtuella datorn för att ansluta till den och ta bort etableringen av den. Du kan hitta den offentliga IP-adressen med [az nätverket offentliga ip-visa](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#az-network-public-ip-show). Den + user-parameter tar också bort det senaste kontot för etablerad användare. Om du gräddning autentiseringsuppgifter i för att den virtuella datorn, lämnar ut detta + user-parameter. I följande exempel tar bort det senaste kontot för etablerad användare:
 
     ```bash
-    ssh azureuser@40.118.249.235
+    ssh azureuser@<publicIpAddress>
     sudo waagent -deprovision+user -force
     exit 
     ```

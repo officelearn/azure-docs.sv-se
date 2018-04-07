@@ -2,9 +2,9 @@
 title: Ansluta en disk till en klassisk Azure-VM | Microsoft Docs
 description: Ansluta en datadisk till en Windows-dator som skapats med den klassiska distributionsmodellen och initiera den.
 services: virtual-machines-windows, storage
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: cynthn
-ms.openlocfilehash: 8219ee8bbaa3d53f95e441c934a0524666593c7b
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 48a6b96bd611fcc8fa8219aeef359419255b8cef
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Koppla en datadisk till en virtuell Windows-dator skapad med den klassiska distributionsmodellen
 
@@ -67,7 +67,7 @@ Fortsätt genom att följa anvisningarna för att bifoga antingen en [ny disk](#
 1. Ansluta till den virtuella datorn. Instruktioner finns i [ansluta och logga in på en virtuell Azure-dator kör Windows](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. När du loggar in på den virtuella datorn öppnar **Serverhanteraren**. I den vänstra rutan, Välj **fil- och lagringstjänster**.
 
-    ![Öppna Serverhanteraren](../media/attach-disk-portal/fileandstorageservices.png)
+    ![Open Server Manager](../media/attach-disk-portal/fileandstorageservices.png)
 
 3. Välj **diskar**.
 4. Den **diskar** innehåller diskarna. En virtuell dator har mest ofta disk 0, disk 1 och disk 2. 0 är operativsystemdisk, disk 1 är en tillfällig disk och 2 är datadisk som nyligen kopplade till den virtuella datorn. Datadisken visar partitionen som **okänd**.

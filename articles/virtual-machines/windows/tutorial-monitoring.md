@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b908e8877162a6a1d9292616a1704c1c528e1725
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9f8f8cb7fd267e25c83ecceb98b5faa8848fb126
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Övervaka och uppdatera en virtuell Windows-dator med Azure PowerShell
 
@@ -238,7 +238,7 @@ Diagrammet visar ändringar som har skett över tid. När du har lagt till en ak
 
 ## <a name="advanced-monitoring"></a>Avancerad övervakning
 
-Du kan göra mer avancerad övervakning av den virtuella datorn med hjälp av lösningar som uppdateringshantering och ändra och lagret tillhandahålls av Azure Automation. [Operations Management Suite](../../automation/automation-intro.md).
+Du kan göra mer avancerad övervakning av den virtuella datorn med hjälp av lösningar som uppdateringshantering och ändra och inventering som tillhandahålls av [Azure Automation](../../automation/automation-intro.md).
 
 När du har åtkomst till logganalys-arbetsytan hittar du den arbetsyta och arbetsytan identifierare på genom att välja **avancerade inställningar** under **inställningar**. Använd den [Set AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) kommando för att lägga till tillägg för Microsoft Monitoring agent till den virtuella datorn. Uppdatera variabelvärden i den nedan exempel för att återspegla du nyckeln för logganalys-arbetsyta och arbetsytan Id.
 

@@ -1,19 +1,18 @@
 ---
 title: Hur du hanterar din Azure plats Services-konto och nycklar | Microsoft Docs
-description: "Du kan använda Azure-portalen för att hantera Azure plats Services-konto och hantera dina åtkomstnycklar."
+description: Du kan använda Azure-portalen för att hantera Azure plats Services-konto och hantera dina åtkomstnycklar.
 services: location-based-services
-keywords: "Lägg inte till eller redigera nyckelord utan att först kontakta den SEO-ansvarige."
 author: kgremban
 ms.author: kgremban
 ms.date: 11/14/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 8ea7beae054157800ee404cf237772d0677574ca
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 38466a741bc836a6f13db83fd939d178fbbc1a7b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-manage-your-azure-location-based-services-account-and-keys"></a>Hur du hanterar din Azure plats Services-konto och nycklar
 

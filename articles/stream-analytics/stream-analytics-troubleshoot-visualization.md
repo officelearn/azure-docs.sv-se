@@ -1,24 +1,19 @@
 ---
-title: Visualisera och felsöka Stream Analytics-jobb | Microsoft Docs
-description: Lär dig mer om att visualisera ett Stream Analytics-jobbet försäljningsförlopp för självbetjäning felsökning med hjälp av funktionen diagnostik diagram.
-keywords: ''
-documentationcenter: ''
+title: Visualisera och felsöka Azure Stream Analytics-jobb
+description: Den här artikeln beskriver hur du visualisera ett Stream Analytics-jobb med hjälp av funktionen diagnostik diagram om du vill felsöka självbetjäning.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: d87841cd-c59f-4a46-b46e-8b904fdc12e9
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: eae43a6a444514855229af760de6aa1cbec7840a
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 523802f1f9a1dda19c5b6a66da7bc26fee851bd2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>Visualisera och felsöka Stream Analytics-jobb
 I Stream Analytics, precis som med andra molnbaserad teknik behövs felsökning ibland för att undersöka varför ett jobb inte ger utdatan som förväntas (eller inga utdata att). Med detta begrepp i åtanke kan Stream Analytics du visualisera ett direktuppspelningsjobb. Detta är också användbar som ett verktyg för modellering och har sida-förmån för dessa kräver dokumentationen för sitt arbete.

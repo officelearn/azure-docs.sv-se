@@ -1,13 +1,13 @@
 ---
-title: "Använd Freebsds paketfilter för att skapa en brandvägg i Azure | Microsoft Docs"
-description: "Lär dig hur du distribuerar en NAT-brandvägg med Freebsd's PF i Azure."
+title: Använd Freebsds paketfilter för att skapa en brandvägg i Azure | Microsoft Docs
+description: Lär dig hur du distribuerar en NAT-brandvägg med Freebsd's PF i Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: KylieLiang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 0bed776526e3e2f3ee4cdce596c591d0b8419030
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 42312522381529075f544a6c277f66a4ef1982d2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Hur du använder Freebsds paketfilter för att skapa en säker brandvägg i Azure
 Den här artikeln beskriver hur du distribuerar en NAT-brandvägg med Freebsds förpackaren Filter via Azure Resource Manager-mall för web server ovanligt.

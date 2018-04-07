@@ -1,19 +1,18 @@
 ---
-title: "Hur du använder Azure plats baserat Services Kartkontrollen | Microsoft Docs"
-description: "Lär dig hur du använder Azure plats baserat Services Kartkontrollen klientens Javascript-bibliotek."
+title: Hur du använder Azure plats baserat Services Kartkontrollen | Microsoft Docs
+description: Lär dig hur du använder Azure plats baserat Services Kartkontrollen klientens Javascript-bibliotek.
 services: location-based-services
-keywords: "Lägg inte till eller redigera nyckelord utan att först kontakta den SEO-ansvarige."
 author: kgremban
 ms.author: kgremban
 ms.date: 11/22/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 9843387a9e4f3b5751bafceb48d6fc949dff7e23
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ee767c9461f79437ab49d2a919bb82e7de8feba7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>Hur du använder Azure plats baserat Services Kartkontrollen
 Javascript-bibliotek Kartkontrollen på klientsidan kan du återge maps och inbäddade Azure baserad platstjänster funktioner i ditt webb- eller mobila program. 

@@ -1,25 +1,25 @@
 ---
-title: "Använd Visual Studio-koden för att utveckla en C#-modul med Azure IoT kant | Microsoft Docs"
-description: "Utveckla och distribuera en C#-modulen med Azure IoT gränsen i Visual Studio Code utan att växla kontext."
+title: Använd Visual Studio-koden för att utveckla en C#-modul med Azure IoT kant | Microsoft Docs
+description: Utveckla och distribuera en C#-modulen med Azure IoT gränsen i Visual Studio Code utan att växla kontext.
 services: iot-edge
-keywords: 
+keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4cf07d5c4a21fa989e7de6e996cc62424099e3e5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 48c6cacebdeb7505c8dc2bcaed099c33862589ac
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-visual-studio-code-to-develop-a-c-module-with-azure-iot-edge"></a>Använd Visual Studio-koden för att utveckla en C#-modul med Azure IoT kant
 Den här artikeln innehåller detaljerade anvisningar för att använda [Visual Studio Code](https://code.visualstudio.com/) som den huvudsakliga utvecklingsverktyg för att utveckla och distribuera dina Azure IoT kant-moduler. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Den här kursen förutsätter att du använder en dator eller virtuell dator som kör Windows eller Linux som utvecklingsdatorn. Din IoT-Edge-enhet kan vara en annan fysisk enhet eller du kan simulera enheten IoT kanten på utvecklingsdatorn.
+Den här artikeln förutsätter att du använder en dator eller virtuell dator som kör Windows eller Linux som utvecklingsdatorn. Din IoT-Edge-enhet kan vara en annan fysisk enhet eller du kan simulera enheten IoT kanten på utvecklingsdatorn.
 
 Innan du börjar den här vägledningen måste du slutföra följande kurser:
 - Distribuera Azure IoT kanten på en simulerad enhet i [Windows](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-windows) eller [Linux](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux)
@@ -86,7 +86,7 @@ Installera och starta Azure IoT kant-körningsmiljön på enheten. Distribuera e
 I kursen [utveckla en C#-modul](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module), uppdatera, skapa och publicera modulen avbildningen i VS-kod. Sedan gå till Azure portal för att distribuera C#-modulen. Det här avsnittet beskriver hur du använder VS-kod för att distribuera och övervaka C#-modulen.
 
 ### <a name="start-a-local-docker-registry"></a>Starta en lokala Docker-registret
-Du kan använda alla Docker-kompatibel registret för den här självstudiekursen. Två populära Docker registret tjänster som är tillgängliga i molnet är [Azure Container registret](https://docs.microsoft.com/azure/container-registry/) och [Docker-hubb](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Det här avsnittet använder en [lokala Docker-registret](https://docs.docker.com/registry/deploying/), som är enklare för att testa under din tidig utvecklingen.
+Du kan använda alla Docker-kompatibel registret för den här artikeln. Två populära Docker-registertjänster som finns tillgängliga i molnet är [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) och [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Det här avsnittet använder en [lokala Docker-registret](https://docs.docker.com/registry/deploying/), som är enklare för att testa under din tidig utvecklingen.
 I koden VS **integrerad terminal** (Ctrl + ”), kör följande kommando för att starta en lokala registret:  
 
 ```cmd/sh
@@ -253,14 +253,14 @@ Följande steg visar hur du skapar en IoT kant-modul som baseras på .NET Core 2
 
 ### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Skapa en Docker-avbildning och publicera den i registret
 
-1. I VS kod Explorer expanderar den **Docker** mapp. Expandera mappen för din plattform för behållare, antingen **linux x64** eller **windows nano**.
+1. I VS kod Explorer expanderar den **Docker** mapp. Expandera sedan mappen för din behållarplattform, antingen **linux-x64** eller **windows-nano**.
 2. Högerklicka på den **Dockerfile** fil och markera **skapa IoT kant modulen Docker bild**. 
 
     ![Skärmbild av VS kod Explorer](./media/how-to-vscode-develop-csharp-module/build-docker-image.png)
 
 3. I den **Välj mappen** och bläddra till eller ange `./bin/Debug/netcoreapp2.0/publish`. Välj **Välj mapp som EXE_DIR**.
-4. Ange avbildningens namn i popup-textrutan längst upp i fönstret VS-kod. Till exempel: `<your container registry address>/filtermodule:latest`. Om du distribuerar till lokala registret ska `localhost:5000/filtermodule:latest`.
-5. Skicka bilden till Docker-databasen. Använd den **kant: Push-gräns för IoT-modulen Docker bild** kommando och ange bildens URL i popup-textrutan längst upp i fönstret VS-kod. Använd samma bild-URL som du använde i föregående steg. Läs i loggen konsolen för att kontrollera avbildningen har aviserats.
+4. I popup-textrutan överst på VS Code-fönstret anger du avbildningens namn. Till exempel: `<your container registry address>/filtermodule:latest`. Om du distribuerar till lokala registret ska `localhost:5000/filtermodule:latest`.
+5. Pusha bilden till din Docker-lagringsplats. Använd den **kant: Push-gräns för IoT-modulen Docker bild** kommando och ange bildens URL i popup-textrutan längst upp i fönstret VS-kod. Använd samma bild-URL som du använde i föregående steg. Läs i loggen konsolen för att kontrollera avbildningen har aviserats.
 
     ![Skärmbild av push-överföra avbildningen Docker](./media/how-to-vscode-develop-csharp-module/push-image.png) ![Skärmbild av konsolen logg](./media/how-to-vscode-develop-csharp-module/pushed-image.png)
 
@@ -296,7 +296,7 @@ Följande steg visar hur du skapar en IoT kant-modul som baseras på .NET Core 2
     "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
     ```
    > [!NOTE]
-   > Deklarativ regler i körningsmiljön definiera där dessa meddelanden. I den här kursen behöver du två vägar. Första vägen transporter meddelanden från temperatursensorn till filtermodul via ”input1”-slutpunkten. Det här är den slutpunkt du konfigurerade med FilterMessages-hanteraren. Andra vägen transporter meddelanden från modulen filter till IoT-hubb. I den här vägen är överordnad en särskild mål som talar om för IoT-hubb Edge att skicka meddelanden till IoT-hubb.
+   > Deklarativ regler i körningsmiljön definiera där dessa meddelanden. Du behöver två vägar i den här artikeln. Den första vägen transporterar meddelanden från temperatursensorn till filtermodulen via slutpunkten input1. Det här är den slutpunkt du konfigurerade med FilterMessages-hanteraren. Den andra vägen transporterar meddelanden från filtermodulen till IoT Hub. I den här vägen är överordnad en särskild mål som talar om för IoT-hubb Edge att skicka meddelanden till IoT-hubb.
 
 3. Spara filen.
 4. Välj i paletten kommandot **kant: skapa distribution för gränsenheten**. Välj IoT kant enhets-ID att skapa en distribution. Högerklicka enhets-ID i listan över enheter eller och välj **skapa distribution för gränsenheten**.
@@ -317,7 +317,4 @@ Följande steg visar hur du skapar en IoT kant-modul som baseras på .NET Core 2
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen du har skapat en gräns för IoT-modul och distribueras till en insticksenhet för IoT i VS-kod. Mer information om andra scenarier när du utvecklar Azure IoT gränsen i VS koden finns följande kursen:
-
-> [!div class="nextstepaction"]
-> [Felsöka C#-modulen i VS-kod](how-to-vscode-debug-csharp-module.md)
+[Felsöka C#-modulen i VS-kod](how-to-vscode-debug-csharp-module.md)

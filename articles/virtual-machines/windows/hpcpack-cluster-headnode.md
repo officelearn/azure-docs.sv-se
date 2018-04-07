@@ -1,11 +1,11 @@
 ---
 title: Skapa ett HPC Pack huvudnod i en Azure VM | Microsoft Docs
-description: "Lär dig hur du skapar en Microsoft HPC Pack 2012 R2 huvudnod i en Azure VM med hjälp av Azure portal och Resource Manager-distributionsmodellen."
+description: Lär dig hur du skapar en Microsoft HPC Pack 2012 R2 huvudnod i en Azure VM med hjälp av Azure portal och Resource Manager-distributionsmodellen.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,hpc-pack
 ms.assetid: e6a13eaf-9124-47b4-8d75-2bc4672b8f21
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: b2bb9caf82a580dc5f67ea0b0b1c2e9a46363e9c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: acd4cd44dd35a5b1755d9456f683076567d62165
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-the-head-node-of-an-hpc-pack-cluster-in-an-azure-vm-with-a-marketplace-image"></a>Skapa huvudnoden för ett HPC Pack-kluster i en virtuell Azure-dator med en Marketplace-avbildning
 Använd en [Microsoft HPC Pack 2012 R2 avbildning av virtuell dator](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) från Azure Marketplace och Azure portal för att skapa huvudnod i HPC-kluster. HPC Pack VM avbildningen baseras på Windows Server 2012 R2 Datacenter med HPC Pack 2012 R2 uppdatering 3 förinstallerat. Använd den här huvudnod för ett bevis på koncept distributionen av HPC Pack i Azure. Du kan sedan lägga till compute-noderna till klustret för att köra arbetsbelastningar för HPC.

@@ -2,10 +2,10 @@
 title: Skapa en virtuell dator i Azure portal | Microsoft Docs
 description: Skapa en virtuell Windows-dator i Azure-portalen.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: 1871f823-ebd7-4eff-9a22-8e2411555595
@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 99a67821ab926983205e2327c428e854d20a0cf5
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 5fd2128ff436d3211f41c7dfdcc4c2b8aabd0eb0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Skapa en virtuell dator som kör Windows i Azure-portalen
 > [!div class="op_single_selector"]
-> * [Azure-portalen](tutorial.md)
+> * [Azure Portal](tutorial.md)
 > * [PowerShell: Klassisk distribution](create-powershell.md)
 >
 >
@@ -41,7 +41,7 @@ Det här avsnittet visar hur du använder den **instrumentpanelen** i Azure port
 
 Du kan också skapa virtuella datorer med [egna avbildningar](createupload-vhd.md). Läs om denna och andra metoder i [olika sätt att skapa en virtuell dator för Windows](../../virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a id="createvirtualmachine"></a>Skapa den virtuella datorn
+## <a id="createvirtualmachine"> </a>Skapa den virtuella datorn
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
 ## <a name="next-steps"></a>Nästa steg

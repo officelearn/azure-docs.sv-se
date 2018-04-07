@@ -1,8 +1,8 @@
 ---
-title: "Visa Azure aktivitetsloggar att övervaka resurser | Microsoft Docs"
-description: "Använd aktivitetsloggar till användaråtgärder för granskning och fel. Visar PowerShell för Azure Portal, Azure CLI och REST."
+title: Visa Azure aktivitetsloggar att övervaka resurser | Microsoft Docs
+description: Använd aktivitetsloggar till användaråtgärder för granskning och fel. Visar PowerShell för Azure Portal, Azure CLI och REST.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -12,15 +12,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 04/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 990c3ed8c6fd79430b27c7c96673f7845e54b26f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Visa aktivitetsloggar granska åtgärder på resurser
+
 Du kan bestämma via aktivitetsloggar:
 
 * vilka åtgärder som utförts på resurserna i prenumerationen
@@ -38,6 +39,7 @@ Aktivitetsloggar finns kvar i 90 dagar. Du kan fråga efter alla datumintervall,
 Du kan hämta information från aktivitetsloggar via portalen, PowerShell, Azure CLI, insikter REST API eller [insikter .NET-bibliotek](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
 ## <a name="portal"></a>Portalen
+
 1. Om du vill visa aktivitetsloggar via portalen **övervakaren**.
    
     ![Välj aktivitetsloggar](./media/resource-group-audit/select-monitor.png)
@@ -68,6 +70,7 @@ Du kan hämta information från aktivitetsloggar via portalen, PowerShell, Azure
     ![Visa åtgärden](./media/resource-group-audit/view-operation.png)  
 
 ## <a name="powershell"></a>PowerShell
+
 1. Om du vill hämta loggposter kör den **Get-AzureRmLog** kommando. Du kan ange ytterligare parametrar om du vill filtrera listan med poster. Om du inte anger en start- och Slutdatum tid returneras poster för den senaste timmen. Till exempel för att hämta kör åtgärder för en resursgrupp under den senaste timmen:
 
   ```powershell
@@ -136,17 +139,20 @@ Du kan hämta information från aktivitetsloggar via portalen, PowerShell, Azure
 
 
 ## <a name="azure-cli"></a>Azure CLI
-* Om du vill hämta loggposter måste du köra den **azure-grupp loggen visar** kommando.
+
+Om du vill hämta loggposter kör den [az övervaka aktivitetsloggen listan](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) kommando.
 
   ```azurecli
-  azure group log show ExampleGroup --json
+  az monitor activity-log list --resource-group <group name>
   ```
 
 
 ## <a name="rest-api"></a>REST-API
+
 REST-åtgärder för att arbeta med aktivitetsloggen är en del av den [insikter REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx). Om du vill hämta aktivitet logghändelser finns [management-händelser i en prenumeration](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## <a name="next-steps"></a>Nästa steg
+
 * Azure aktivitetsloggar kan användas med Power BI och få större insikter om åtgärderna i din prenumeration. Se [visa och analysera Azure aktivitetsloggar i Power BI och mycket mer](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 * Mer information om att ställa in säkerhetsprinciper, se [Azure rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md).
 * Läs om kommandona för att visa distributionsåtgärder i [visa distributionsåtgärder](resource-manager-deployment-operations.md).

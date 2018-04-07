@@ -1,12 +1,12 @@
 ---
-title: "Felsökning av problem med SSH-anslutningen till en Azure VM | Microsoft Docs"
-description: "Hur du felsöker problem, till exempel ”SSH-anslutningen misslyckades' eller 'SSH-anslutningen nekades' för en Azure-dator som kör Linux."
+title: Felsökning av problem med SSH-anslutningen till en Azure VM | Microsoft Docs
+description: Hur du felsöker problem, till exempel ”SSH-anslutningen misslyckades' eller 'SSH-anslutningen nekades' för en Azure-dator som kör Linux.
 keywords: SSH anslutningen nekades, ssh fel, azure ssh, SSH-anslutning misslyckades
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: dcb82e19-29b2-47bb-99f2-900d4cfb5bbb
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 176477105e1f660b0bd22d95142b744ef17044ee
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 533a80edbb115dfd324db9e4488e5c66dc36667e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Felsökning av SSH-anslutningar till en Azure Linux-dator som misslyckas, fel, eller nekas
 Det finns olika orsaker till att det uppstår fel på SSH (Secure Shell), SSH anslutningsfel eller SSH nekas när du försöker ansluta till en Linux-dator (VM). Den här artikeln hjälper dig att hitta och åtgärda problemen. Du kan använda Azure-portalen, Azure CLI eller tillägg för virtuell dator åtkomst för Linux för att felsöka och lösa anslutningsproblem med.
@@ -68,6 +68,14 @@ Som ett första steg bör du välja `Reset configuration only` från den **läge
 Om du vill återställa autentiseringsuppgifterna för en befintlig användare väljer du antingen `Reset SSH public key` eller `Reset password` från den **läge** nedrullningsbara menyn som i föregående skärmbild. Ange användarnamnet och en SSH-nyckel eller ett nytt lösenord och klicka sedan på den **återställa** knappen.
 
 Du kan också skapa en användare med sudo-behörighet på den virtuella datorn från den här menyn. Ange ett nytt användarnamn och tillhörande lösenord eller SSH-nyckel och klicka sedan på den **återställa** knappen.
+
+### <a name="check-security-rules"></a>Kontrollera säkerhetsregler
+
+Använd [IP-flöde Kontrollera](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) att bekräfta om en regel i en nätverkssäkerhetsgrupp blockerar trafik till eller från en virtuell dator. Du kan också granska effektiva regler för nätverkssäkerhetsgrupper för att säkerställa inkommande ”Tillåt” NSG regel finns och prioriteras för SSH-porten (standard 22). Mer information finns i [Using effektiva säkerhetsregler för felsökning av VM-trafik flödet](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+
+### <a name="check-routing"></a>Kontrollera Routning
+
+Använda nätverket Watcher [nästa hopp](../../network-watcher/network-watcher-check-next-hop-portal.md) möjlighet att bekräfta att en väg inte hindra trafik dirigeras till eller från en virtuell dator. Du kan också granska effektiva vägar för att se alla effektiva vägar för ett nätverksgränssnitt. Mer information finns i [Using effektiva vägar för felsökning av VM-trafik flödet](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
 
 ## <a name="use-the-azure-cli-20"></a>Använda Azure CLI 2.0
 Om du inte redan gjort installera senaste [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/reference-index#az_login).

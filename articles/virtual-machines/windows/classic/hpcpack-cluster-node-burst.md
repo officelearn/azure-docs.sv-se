@@ -1,11 +1,11 @@
 ---
-title: "Lägg till burst-noder i ett kluster med HPC Pack | Microsoft Docs"
-description: "Lär dig hur du expandera ett HPC Pack kluster i Azure på begäran genom att lägga till rollen worker-instanser körs i en tjänst i molnet"
+title: Lägg till burst-noder i ett kluster med HPC Pack | Microsoft Docs
+description: Lär dig hur du expandera ett HPC Pack kluster i Azure på begäran genom att lägga till rollen worker-instanser körs i en tjänst i molnet
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 24b79a8a-24ad-4002-ae76-75abc9b28c83
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 96e332504509ae98e280d1c8585b0b294e0e07cb
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: eee9183321f21676271c8a9c7e023c80c4daf554
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Lägg till på begäran ”burst” noder i ett HPC Pack kluster i Azure
 Om du ställer in en [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) kluster i Azure, kan du ett sätt att snabbt skala klustret kapacitet upp eller ned, utan att behålla en uppsättning förinställda beräkningsnod virtuella datorer. Den här artikeln visar hur du lägger till noder på begäran ”burst” (worker-rollinstanser som körs i en tjänst i molnet) som beräkningsresurser till huvudnod i Azure. 
@@ -32,7 +32,7 @@ Om du ställer in en [Microsoft HPC Pack](https://technet.microsoft.com/library/
 
 Stegen i den här artikeln hjälpa dig att snabbt lägga till Azure-noder till en molnbaserad HPC Pack huvudnod VM för test- eller proof of concept distribution. De övergripande stegen är samma som stegen för att ”burst to Azure” att lägga till molnet beräkningskapacitet till ett lokalt HPC Pack-kluster. En självstudiekurs finns [ställa in ett hybrid beräkningskluster with Microsoft HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Detaljerad information och överväganden för Produktionsdistribution finns [Burst to Azure with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **HPC Pack huvudnod distribueras i en Azure VM** -du kan använda en fristående huvudnod VM eller ett som är en del av en större kluster. Om du vill skapa en fristående huvudnod finns [distribuera ett HPC Pack huvudnod i en Azure VM](../../virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Automatisk HPC Pack klustret distributionsalternativ finns [alternativ för att skapa och hantera en Windows HPC-kluster i Azure with Microsoft HPC Pack](../../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
   > [!TIP]

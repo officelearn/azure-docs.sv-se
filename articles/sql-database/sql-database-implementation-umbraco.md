@@ -1,19 +1,19 @@
 ---
 title: Azure SQL-databas Azure Fallstudie - Umbraco | Microsoft Docs
-description: "Lär dig mer om hur Umbraco använder SQL-databas för att snabbt etablera och skala tjänster för tusentals hyresgäster i molnet"
+description: Lär dig mer om hur Umbraco använder SQL-databas för att snabbt etablera och skala tjänster för tusentals hyresgäster i molnet
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: af59c22279eeee4b3e5d699da4c98094df815c1f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1079adb6ef8a206506823fdee6721aabbf857b4d
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco använder Azure SQL Database till snabbt etablera och skala för tusentals hyresgäster i molnet
 ![Umbraco Logo](./media/sql-database-implementation-umbraco/umbracologo.png)

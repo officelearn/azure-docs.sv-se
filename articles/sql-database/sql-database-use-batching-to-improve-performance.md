@@ -1,19 +1,19 @@
 ---
-title: "Hur du använder batchbearbetning för att förbättra prestanda för Azure SQL Database-program"
-description: "Avsnittet ger bevis som batching databasåtgärder avsevärt imroves hastighet och skalbarheten för dina Azure SQL Database-program. Även om dessa batching metoder fungera för SQL Server-databas, fokuserar av artikeln på Azure."
+title: Hur du använder batchbearbetning för att förbättra prestanda för Azure SQL Database-program
+description: Avsnittet ger bevis som batching databasåtgärder avsevärt imroves hastighet och skalbarheten för dina Azure SQL Database-program. Även om dessa batching metoder fungera för SQL Server-databas, fokuserar av artikeln på Azure.
 services: sql-database
 author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5c7846fdd8d6a7584cab2b4f3811151332171ba4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3367ecc48ee8da7aaf657b5278acb19df5a96e75
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Hur du använder batchbearbetning för att förbättra programmens prestanda för SQL-databas
 Batchbearbetning operations till Azure SQL Database avsevärt bättre prestanda och skalbarhet. Den första delen av den här artikeln innehåller några exempel på testresultat som jämför sekventiella och batch-förfrågningar till en SQL-databas för att förstå fördelarna. Resten av artikeln visar tekniker, scenarier och överväganden som hjälper dig att använda batchbearbetning har i din Azure-program.
@@ -154,7 +154,7 @@ I koden, skapar du en **DataTable** med exakt samma namn och typer av tabelltype
         cmd.ExecuteNonQuery();
     }
 
-I föregående exempel är den **SqlCommand** objekt infogar rader från en tabellvärdesparameter  **@TestTvp** . Den tidigare skapade **DataTable** objekt som har tilldelats den här parametern med det **SqlCommand.Parameters.Add** metod. Batchbearbetning infogningar i ett anrop avsevärt ökar prestanda över sekventiella infogningar.
+I föregående exempel är den **SqlCommand** objekt infogar rader från en tabellvärdesparameter **@TestTvp**. Den tidigare skapade **DataTable** objekt som har tilldelats den här parametern med det **SqlCommand.Parameters.Add** metod. Batchbearbetning infogningar i ett anrop avsevärt ökar prestanda över sekventiella infogningar.
 
 Använda en lagrad procedur i stället för ett textbaserat kommando för att förbättra det tidigare exemplet ytterligare. Följande Transact-SQL-kommando skapar en lagrad procedur som tar den **SimpleTestTableType** tabellvärdesparametern.
 

@@ -7,13 +7,13 @@ manager: jhubbard
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 06/21/2016
+ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: 684ae62400adbde6f0624b802b79a926c06961c8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0dae04ab3de16e2ef51134ec6979c6c289a6da3f
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-sql-database-dtu-benchmark-overview"></a>Azure SQL Database DTU benchmark-översikt
 ## <a name="overview"></a>Översikt
@@ -57,7 +57,7 @@ Arbetsbelastningen består av nio transaktionstyper som visas i tabellen nedan. 
 | Uppdatera aktiverat |UPPDATERA; oftast inte i minnet; skrivskyddad |
 | Infoga Lite |INFOGA. i minnet; skrivskyddad |
 | Infoga aktiverat |INFOGA. oftast inte i minnet; skrivskyddad |
-| Radera |TA BORT. blandning av i minnet och inte i minnet; skrivskyddad |
+| Ta bort |TA BORT. blandning av i minnet och inte i minnet; skrivskyddad |
 | CPU-aktiverat |VÄLJ; i minnet; relativt hög CPU-belastning; skrivskyddad |
 
 ## <a name="workload-mix"></a>Blandning av arbetsbelastning
@@ -72,7 +72,7 @@ Transaktioner väljs slumpmässigt från en viktad distributionsplats med följa
 | Uppdatera aktiverat |3 |
 | Infoga Lite |3 |
 | Infoga aktiverat |2 |
-| Radera |2 |
+| Ta bort |2 |
 | CPU-aktiverat |10 |
 
 ## <a name="users-and-pacing"></a>Användare och hastighetsstyrningen
@@ -97,7 +97,7 @@ Tabellen nedan visar hur många användare som faktiskt råkat ut för varje ser
 
 | Tjänstnivån (prestandanivå) | Användare | Databasstorlek |
 | --- | --- | --- |
-| Grundläggande |5 |720 MB |
+| Basic |5 |720 MB |
 | Standard (S0) |10 |1 GB |
 | Standard (S1) |20 |2.1 GB |
 | Standard (S2) |50 |7.1-GB |
@@ -118,7 +118,7 @@ Viktiga mått i benchmark är genomflöde och svarstid.
 | --- | --- | --- |
 | Premium |Transaktioner per sekund |95: e percentilen 0,5 sekunder |
 | Standard |Transaktioner per minut |90: e percentilen 1.0 sekunder |
-| Grundläggande |Transaktioner per timme |80: e percentilen 2.0 sekunder |
+| Basic |Transaktioner per timme |80: e percentilen 2.0 sekunder |
 
 ## <a name="conclusion"></a>Sammanfattning
 Azure SQL Database Benchmark mäter den relativa prestandan för Azure SQL Database köra inom intervallet för tillgängliga servicenivåer och prestandanivåer. Benchmark utför en blandning av grundläggande databasåtgärder som förekommer oftast i online transaktionsbearbetning (OLTP) arbetsbelastningar. Genom att mäta faktiska prestanda ger benchmark ett mer beskrivande bedömning av påverkan på dataflöde för att ändra prestandanivå än vad som är möjligt genom att bara lista de resurser som tillhandahålls av varje nivå, till exempel CPU-hastighet, minne och IOPS. I framtiden kommer fortsätter vi att utvecklas prestandamått för att utöka sitt omfång och expandera den informationen.

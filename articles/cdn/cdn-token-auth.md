@@ -1,11 +1,11 @@
 ---
-title: "Skydda Azure CDN tillgångar med tokenautentisering | Microsoft Docs"
-description: "Lär dig hur du använder token-autentisering för att skydda åtkomst till Azure CDN-tillgångar."
+title: Skydda Azure CDN tillgångar med tokenautentisering | Microsoft Docs
+description: Lär dig hur du använder token-autentisering för att skydda åtkomst till Azure CDN-tillgångar.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
 manager: zhangmanling
-editor: 
+editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
 ms.service: cdn
 ms.devlang: multiple
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: f6d008a92677d28d0184e64637dcb2e093299519
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: aaec713a7680aeda8317f5af41b9b99bcbdca4b7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Att säkra Azure Content Delivery Network tillgångar med tokenautentisering
+# <a name="securing-azure-cdn-assets-with-token-authentication"></a>Att säkra Azure CDN tillgångar med tokenautentisering
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Översikt
 
-Token-autentisering är en mekanism som gör det möjligt att förhindra att Azure Content Delivery Network (CDN) som betjänar tillgångar obehörig klienter. Tokenautentisering normalt görs för att förhindra ”hotlinking” av innehåll, som använder en annan webbplats, till exempel en anslagstavla dina tillgångar utan behörighet. Hotlinking kan påverka dina kostnader för leverans av innehåll. Genom att aktivera tokenautentisering på CDN verifieras begäranden av CDN gränsservern innan CDN levererar innehållet. 
+Token-autentisering är en mekanism som gör det möjligt att förhindra att Azure Content Delivery Network (CDN) som betjänar tillgångar obehörig klienter. Tokenautentisering normalt görs för att förhindra *hotlinking* av innehåll, som använder en annan webbplats, till exempel en anslagstavla dina tillgångar utan behörighet. Hotlinking kan påverka dina kostnader för leverans av innehåll. Genom att aktivera tokenautentisering på CDN verifieras begäranden av CDN gränsservern innan CDN levererar innehållet. 
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
@@ -42,6 +42,9 @@ Tokenautentisering verifierar att begäranden som genereras av en betrodd plats 
 
 Mer information finns i de detaljerade konfigurationen för varje parameter i [konfigurerar tokenautentisering](#setting-up-token-authentication).
 
+>[!IMPORTANT] 
+> Om token tillstånd är aktiverat för valfri sökväg för det här kontot, är standard-cache det enda läge som kan användas för cachelagring av frågesträngar i frågan. Mer information finns i [Kontrollera cachelagringsbeteendet med frågesträngar](cdn-query-string-premium.md).
+
 ## <a name="reference-architecture"></a>Referensarkitektur
 
 Följande arbetsflödesdiagram beskriver hur CDN använder token-autentisering ska fungera med ditt webbprogram.
@@ -56,11 +59,11 @@ I följande flödesschema beskrivs hur Azure CDN verifierar en klientbegäran om
 
 ## <a name="setting-up-token-authentication"></a>Konfigurera tokenautentisering
 
-1. Från den [Azure-portalen](https://portal.azure.com), bläddra till CDN-profilen och klickar sedan på **hantera** att starta den kompletterande portalen.
+1. Från den [Azure-portalen](https://portal.azure.com), bläddra till CDN-profilen och markerar sedan **hantera** att starta den kompletterande portalen.
 
     ![CDN-profilen hantera knappen](./media/cdn-token-auth/cdn-manage-btn.png)
 
-2. Hovra över **HTTP stora**, klicka på **Token Auth** i utfällda. Du kan ställa in krypteringsnyckeln och kryptering parametrar på följande sätt:
+2. Hovra över **HTTP stora**och välj **Token Auth** i utfällda. Du kan ställa in krypteringsnyckeln och kryptering parametrar på följande sätt:
 
     1. Skapa en eller flera krypteringsnycklar. En krypteringsnyckel är skiftlägeskänsligt och kan innehålla vilken kombination av alfanumeriska tecken. Andra typer av tecken, inklusive blanksteg tillåts inte. Den maximala längden är 250 tecken. Att säkerställa att krypteringsnycklarna är slumpmässig, bör du skapa dem med hjälp av den [OpenSSL verktyget](https://www.openssl.org/). 
 
@@ -76,7 +79,7 @@ I följande flödesschema beskrivs hur Azure CDN verifierar en klientbegäran om
     
     2. Ange en unik krypteringsnyckel i den **primärnyckel** rutan och även ange en reservnyckel i den **Reservnyckel** rutan.
 
-    3. Välj den minsta kryptering versionen för varje nyckel från dess **kryptering minimiversionen** listan och klicka sedan på **uppdatering**:
+    3. Välj minsta kryptering version för varje nyckel från dess **kryptering minimiversionen** listan och väljer sedan **uppdatering**:
        - **V2**: Anger att nyckeln kan användas för att generera version 2.0 och 3.0-token. Använd det här alternativet om du övergång från en äldre version 2.0 krypteringsnyckeln till en nyckel för version 3.0.
        - **V3**: (rekommenderas) anger att nyckeln endast kan användas för att generera token för version 3.0.
 
@@ -130,7 +133,7 @@ I följande flödesschema beskrivs hur Azure CDN verifierar en klientbegäran om
        >       <li>Ett värdnamn eller ett värdnamn och en sökväg.</li>
        >       <li>Flera referenter. Om du vill lägga till flera referenter, Avgränsa varje referent med kommatecken; Lägg inte till ett blanksteg. Om du anger ett värde för referent, men referent information skickas inte i begäran på grund av konfiguration av webbläsaren, nekas begäran som standard.</li> 
        >       <li>Begäranden med information som saknas eller är tomt referent. Som standard den <b>ec_ref_allow</b> parametern blockerar dessa typer av begäranden. Ange antingen den text som ”saknas” eller ett tomt värde (med hjälp av en efterföljande komma) för att tillåta dessa förfrågningar.</li> 
-       >       <li>Underdomäner. Om du vill tillåta underdomäner, anger du en asterisk (\*). Till exempel för att tillåta alla underdomäner i `contoso.com`, ange `*.contoso.com`.</li>
+       >       <li>Subdomains. Om du vill tillåta underdomäner, anger du en asterisk (\*). Till exempel för att tillåta alla underdomäner i `contoso.com`, ange `*.contoso.com`.</li>
        >    </ul>     
        >    Till exempel för att tillåta åtkomst för begäranden från `www.contoso.com`, alla underordnade domäner under `contoso2.com`, och ange begäranden med saknas eller är tomt referenter `www.contoso.com,*.contoso.com,missing`.</td>
        > </tr>
@@ -156,27 +159,29 @@ I följande flödesschema beskrivs hur Azure CDN verifierar en klientbegäran om
     
     6. Välj en kryptering version från den **kryptering** lista: **V2** för version 2 eller **V3** för version 3 (rekommenderas). 
 
-    7. Klicka på **kryptera** att generera token.
+    7. Välj **kryptera** att generera token.
 
     När token som har genererats visas den i den **genereras Token** rutan. Om du vill använda token, lägger du till dem som en frågesträng till slutet av filen i URL-sökväg. Till exempel `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    8. Du kan testa din token med verktyget dekryptera så att du kan visa din token-parametrar. Klistra in token-värde i den **Token för att dekryptera** rutan. Välj krypteringsnyckeln ska användas från den **nyckel att dekryptera** listan och klicka sedan på **dekryptera**.
+    8. Du kan testa din token med verktyget dekryptera så att du kan visa din token-parametrar. Klistra in token-värde i den **Token för att dekryptera** rutan. Välj krypteringsnyckeln ska användas från den **nyckel att dekryptera** lista och sedan välja **dekryptera**.
 
     När token dekrypteras dess parametrar visas i den **ursprungliga parametrarna** rutan.
 
-    9. Du kan också anpassa typ av svarskod som returneras när en begäran nekas. Välj **aktiverad**, Välj svarskod från det **svarskoden** lista. **Huvudets namn** automatiskt **plats**. Klicka på **spara** att implementera nya svarskoden. För vissa svarskoder, måste du också ange Webbadressen till felsidan i den **huvudvärde** rutan. Den **403** svarskoden (förbjuden) väljs som standard. 
+    9. Du kan också anpassa typ av svarskod som returneras när en begäran nekas. Välj **aktiverad**, Välj svarskod från det **svarskoden** lista. **Huvudets namn** automatiskt **plats**. Välj **spara** att implementera nya svarskoden. För vissa svarskoder, måste du också ange Webbadressen till felsidan i den **huvudvärde** rutan. Den **403** svarskoden (förbjuden) väljs som standard. 
 
-3. Under **HTTP stora**, klickar du på **regelmotor**. Du kan använda regelmotor för att definiera sökvägar för att tillämpa funktionen, aktivera funktionen tokenautentisering och aktivera ytterligare token autentisering-relaterade funktioner. Mer information finns i [regler motorn referens](cdn-rules-engine-reference.md).
+3. Under **HTTP stora**väljer **regelmotor**. Du kan använda regelmotor för att definiera sökvägar för att tillämpa funktionen, aktivera funktionen tokenautentisering och aktivera ytterligare token autentisering-relaterade funktioner. Mer information finns i [regler motorn referens](cdn-rules-engine-reference.md).
 
     1. Välj en befintlig regel eller skapa en ny regel för att definiera tillgång eller sökväg som du vill använda tokenautentisering. 
-    2. Välj för att aktivera token autentisering på en regel  **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)**  från den **funktioner** lista och sedan välja **aktiverad**. Klicka på **uppdatering** om du uppdaterar en regel eller **Lägg till** om du skapar en regel.
+    2. Välj för att aktivera token autentisering på en regel **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)** från den **funktioner** lista och sedan välja **aktiverad**. Välj **uppdatering** om du uppdaterar en regel eller **Lägg till** om du skapar en regel.
         
     ![CDN regler motorn tokenautentisering aktivera exempel](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. Du kan också aktivera ytterligare token autentisering-relaterade funktioner i regler-motorn. Om du vill aktivera någon av följande funktioner, välja den från den **funktioner** lista och sedan välja **aktiverad**.
     
     - **[Token Auth DOS-kod](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: Anger typ av svar som returneras till en användare när en begäran nekas. Anger här åsidosätter svarskoden i den **anpassad DOS-hantering** avsnitt på sidan tokenbaserad autentisering.
+
     - **[Token Auth Ignorera URL fallet](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: Anger om URL: en som används för att validera token är skiftlägeskänsliga.
+
     - **[Token Auth parametern](cdn-rules-engine-reference-features.md#token-auth-parameter)**: byter namn på token auth frågesträngparametern som visas i den begärda URL: en. 
         
     ![CDN-regler motorn tokenautentisering inställningar exempel](./media/cdn-token-auth/cdn-rules-engine2.png)
@@ -193,4 +198,4 @@ Tillgängliga språk är:
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN funktioner och providern priser
 
-Mer information om funktionerna finns [CDN-översikt](cdn-overview.md). Information om priser finns i [innehållsleveransnätverk priser](https://azure.microsoft.com/pricing/details/cdn/).
+Mer information om funktionerna finns [Azure CDN produktfunktioner](cdn-features.md). Information om priser finns i [innehållsleveransnätverk priser](https://azure.microsoft.com/pricing/details/cdn/).

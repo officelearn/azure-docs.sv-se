@@ -1,11 +1,11 @@
 ---
-title: "Hantera gästbehörighet med Azure AD åtkomst till granskningar | Microsoft Docs"
-description: "Hantera gästanvändare som medlemmar i en grupp eller ett program med Azure Active Directory access granskningar som tilldelats"
+title: Hantera gästbehörighet med Azure AD åtkomst till granskningar | Microsoft Docs
+description: Hantera gästanvändare som medlemmar i en grupp eller ett program med Azure Active Directory access granskningar som tilldelats
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 8d5cc8035d085ac9c8fc46077376836726afbb1a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 564f4f4a3f7532a7419e15b91fdbae9ee12088fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Hantera gästbehörighet med Azure AD åtkomst till granskningar
 
@@ -31,7 +31,7 @@ Du också kan enkelt se till att gästanvändare har lämplig åtkomst. Du kan b
 >
 >
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Åtkomstgranskningar är tillgängliga med Premium P2-versionen av Azure AD, som ingår i Microsoft Enterprise Mobility + Security, E5. Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md). Varje användare som använder den här funktionen för att skapa en granskning, få åtkomst till en granskning eller tillämpa en granskning kräver en licens.
 
@@ -90,7 +90,7 @@ Du kan använda åtkomst granskningar så att användare som bjudits in för ett
 
 ### <a name="ask-a-sponsor-to-review-a-guests-access-to-an-application"></a>Be en sponsor att granska gästbehörighet till ett program
 
-Du kan begära en sponsor som ägare till ett program för att granska behovet av en gäst för fortsatt åtkomst till programmet.
+Du kan begära en sponsor som ägare till ett program för att granska gästens behovet av fortsatt åtkomst till programmet.
 
 1. Välj granska att inkludera gäster endast om du vill starta en åtkomst-granskning för programmet. Ange en eller flera användare som granskare. Mer information finns i [Skapa en åtkomstgranskning](active-directory-azure-ad-controls-create-access-review.md).
 
@@ -105,15 +105,15 @@ I vissa organisationer kan gäster inte medveten om deras gruppmedlemskap.
 > [!NOTE]
 > Tidigare versioner av Azure portal som tillåter inte administrativ åtkomst av användare med UserType gäst. I vissa fall kan kan en administratör i din katalog ha ändrats en gäst UserType värde till medlem med hjälp av PowerShell. Om den här ändringen utfördes tidigare i din katalog, kanske inte den föregående frågan innehåller alla gästanvändare som tidigare har administrativa rättigheter. I detta fall behöver du ändra gästens UserType eller inkludera gästen manuellt i gruppmedlemskap.
 
-1. Skapa en säkerhetsgrupp i Azure AD med gäster som medlemmar, om en lämplig grupp inte redan finns. Du kan exempelvis skapa en grupp med manuellt behålla medlemskap för gäster. Eller så kan du skapa en dynamisk grupp med ett namn, till exempel ”gäster för Contoso” för användare i Contoso-klienten har UserType-attributvärdet för gäst.
+1. Skapa en säkerhetsgrupp i Azure AD med gäster som medlemmar, om en lämplig grupp inte redan finns. Du kan exempelvis skapa en grupp med manuellt behålla medlemskap för gäster. Eller så kan du skapa en dynamisk grupp med ett namn, till exempel ”gäster för Contoso” för användare i Contoso-klienten har UserType-attributvärdet för gäst.  Effektivitet, kontrollera i gruppen är huvudsakligen gäster - inte markerar du en grupp med användare som inte behöver ses över.
 
 2. Om du vill starta en åtkomst-granskning för gruppen, Välj granskare att vara medlemmar i själva. Mer information finns i [Skapa en åtkomstgranskning](active-directory-azure-ad-controls-create-access-review.md).
 
-3. Be varje gästen för att granska sina egna medlemskap. Som standard varje Gäst som har accepterat inbjudan tar emot ett e-postmeddelande från Azure AD med en länk till access granskningen i åtkomstpanelen för din organisation. Azure AD innehåller anvisningar för gäster som beskriver hur du [granska deras åtkomst](active-directory-azure-ad-controls-perform-access-review.md).
+3. Be varje gästen för att granska sina egna medlemskap. Som standard varje Gäst som har accepterat inbjudan tar emot ett e-postmeddelande från Azure AD med en länk till access granskningen i åtkomstpanelen för din organisation. Azure AD innehåller anvisningar för gäster som beskriver hur du [granska deras åtkomst](active-directory-azure-ad-controls-perform-access-review.md).  Dessa gäster som inte accepterade deras inbjudan visas i granska resultaten som ”meddelas inte”.
 
 4. När granskare ger indata kan stoppa åtkomst granska. Mer information finns i [Slutför en åtkomstgranskning](active-directory-azure-ad-controls-complete-access-review.md).
 
-5. Ta bort gästbehörighet för gäster som nekades, inte slutföras granskningen eller accepterade tidigare deras inbjudan. Om några av gästerna kontakter som har valts för att delta i granskningen eftersom de inte har tidigare accepterar en inbjudan kan inaktivera du sina konton med hjälp av Azure-portalen eller PowerShell. Om gästen inte längre behöver åtkomst och inte är en kontakt, kan ta bort deras användarobjektet från katalogen med hjälp av Azure-portalen eller PowerShell.
+5. Ta bort gästbehörighet för gäster som nekades, inte slutföras granskningen eller accepterade tidigare deras inbjudan. Om några av gästerna kontakter som har valts för att delta i granskningen eller om de tidigare inte accepterat inbjudan, kan du inaktivera sina konton med hjälp av Azure-portalen eller PowerShell. Om gästen inte längre behöver åtkomst och inte är en kontakt, kan ta bort deras användarobjektet från katalogen med hjälp av Azure-portalen eller PowerShell att ta bort objektet gästen användaren.
 
 ## <a name="next-steps"></a>Nästa steg
 

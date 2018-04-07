@@ -1,13 +1,13 @@
 ---
-title: "Överför generalize VHD att skapa flera virtuella datorer i Azure | Microsoft Docs"
-description: "Överför en generaliserad virtuell Hårddisk till en Azure storage-konto för att skapa en virtuell Windows-dator för användning med Resource Manager-distributionsmodellen."
+title: Överför generalize VHD att skapa flera virtuella datorer i Azure | Microsoft Docs
+description: Överför en generaliserad virtuell Hårddisk till en Azure storage-konto för att skapa en virtuell Windows-dator för användning med Resource Manager-distributionsmodellen.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: d8c700d7b23f0e86b4a190e3c1f1143d962a8d63
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 28caca06dd756732314f758e6acb4629f857dd91
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Ladda upp en generaliserad virtuell Hårddisk till Azure för att skapa en ny virtuell dator
 

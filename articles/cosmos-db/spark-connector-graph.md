@@ -1,25 +1,24 @@
 ---
-title: "Azure Cosmos DB: Utföra analyser av diagram med hjälp av Spark och Apache TinkerPop Gremlin | Microsoft Docs"
-description: "Den här artikeln innehåller anvisningar för att installera och köra diagrammet analytics och parallella beräkning i Azure Cosmos-databasen med Spark och TinkerPop SparkGraphComputer."
+title: 'Azure Cosmos DB: Utföra analyser av diagram med hjälp av Spark och Apache TinkerPop Gremlin | Microsoft Docs'
+description: Den här artikeln innehåller anvisningar för att installera och köra diagrammet analytics och parallella beräkning i Azure Cosmos-databasen med Spark och TinkerPop SparkGraphComputer.
 services: cosmosdb
-documentationcenter: 
-author: khdang
-manager: shireest
-editor: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
 ms.custom: quick start connect
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: gremlin
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: khdang
-ms.openlocfilehash: d2ea692c5c353586cc2b653e57eca7ccb8c9c7ce
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: sngun
+ms.openlocfilehash: f44c7d432ac9c07daf9b99dd922f1dcd5de5d58e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB: Utföra analyser av diagram med hjälp av Spark och Apache TinkerPop Gremlin
 
@@ -29,7 +28,7 @@ ms.lasthandoff: 12/11/2017
 
 Du kan utföra både OLTP och OLAP-arbetsbelastningar när du använder Gremlin genom att kombinera Azure Cosmos DB och Spark. Den här Snabbkurs artikeln visar hur du kör Gremlin frågor mot Azure Cosmos DB på ett Azure HDInsight Spark-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan köra det här exemplet måste du uppfylla följande krav:
 * Azure HDInsight Spark-kluster 2.0

@@ -1,19 +1,19 @@
 ---
 title: Skapa skalbara molnresurser databaser | Microsoft Docs
-description: "Skapa skalbara .NET databasen appar med klientbibliotek för elastisk databas"
+description: Skapa skalbara .NET databasen appar med klientbibliotek för elastisk databas
 services: sql-database
 manager: jhubbard
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/12/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: e15254fd529d98f2b92acea8dd1ed908a82841ea
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6000b06950ddd442b76838e5632196808f893ef9
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="building-scalable-cloud-databases"></a>Skapa skalbara molndatabaser
 Skala ut databaser kan enkelt utföras med hjälp av skalbara verktyg och funktioner för Azure SQL Database. I synnerhet kan du använda den **klientbibliotek för elastisk databas** att skapa och hantera databaser som skalats ut. Den här funktionen kan du enkelt utvecklar delat program med hundratals, eller till och med tusentals – för Azure SQL-databaser. [Elastiska jobb](sql-database-elastic-jobs-powershell.md) kan sedan användas för att underlätta hanteringen av dessa databaser.

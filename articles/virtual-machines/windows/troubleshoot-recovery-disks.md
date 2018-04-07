@@ -1,11 +1,11 @@
 ---
-title: "Använda en Windows-felsökning av virtuell dator med Azure PowerShell | Microsoft Docs"
-description: "Lär dig hur du felsöker problem med Windows VM i Azure genom att ansluta OS-disken till återställning av en virtuell dator med hjälp av Azure PowerShell"
+title: Använda en Windows-felsökning av virtuell dator med Azure PowerShell | Microsoft Docs
+description: Lär dig hur du felsöker problem med Windows VM i Azure genom att ansluta OS-disken till återställning av en virtuell dator med hjälp av Azure PowerShell
 services: virtual-machines-windows
-documentationCenter: 
+documentationCenter: ''
 authors: genlin
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 8bac3457e70e86c0f2fb0e70b166097da4a89c23
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: cbb9a47b878471e6efd5f4e280f44c6c8fe78df4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Felsöka en virtuell Windows-dator genom att koppla OS-disken till återställning av en virtuell dator med hjälp av Azure PowerShell
 Om din Windows-dator (VM) i Azure påträffar ett fel vid start- eller disk, kan du behöva utför felsökning på den virtuella hårddisken sig själv. Ett vanligt exempel är en uppdatering för det program som förhindrar den virtuella datorn ska starta. Den här artikeln beskriver hur du använder Azure PowerShell för att ansluta den virtuella hårddisken till en annan Windows virtuell dator att åtgärda eventuella fel och sedan skapa den ursprungliga virtuella datorn igen.
@@ -179,7 +179,7 @@ När din felen är löst kan du demontera och koppla från den befintliga virtue
 ## <a name="create-vm-from-original-hard-disk"></a>Skapa virtuell dator från den ursprungliga hårddisken
 Så här skapar du en virtuell dator från den ursprungliga virtuella hårddisken [Azure Resource Manager-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). Den faktiska JSON-mallen finns på följande länk:
 
-- https://Raw.githubusercontent.com/Azure/Azure-Quickstart-Templates/Master/201-VM-Specialized-VHD-existing-vnet/azuredeploy.JSON
+- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd-existing-vnet/azuredeploy.json
 
 Mallen distribuerar en virtuell dator i ett befintligt virtuellt nätverk med hjälp av VHD-Webbadressen från tidigare kommandot. I följande exempel distribuerar mallen till resursgruppen med namnet `myResourceGroup`:
 

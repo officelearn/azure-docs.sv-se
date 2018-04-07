@@ -1,19 +1,19 @@
 ---
 title: Migrera befintliga databaser att skala ut | Microsoft Docs
-description: "Konvertera delat databaser för att använda elastisk Databasverktyg genom att skapa en Fragmentera kartan manager"
+description: Konvertera delat databaser för att använda elastisk Databasverktyg genom att skapa en Fragmentera kartan manager
 services: sql-database
 author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: d82994f3ab925fa3ace0d0dbe1631a01dd1df586
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 41652717417f47858698b80eac83a4022dcfe13b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrera befintliga databaser ska skalas ut
 Enkelt hantera dina befintliga delat utskalat-databaser som använder Azure SQL Database databaser (som den [klientbibliotek för elastisk databas](sql-database-elastic-database-client-library.md)). Först konvertera en befintlig uppsättning databaser som ska användas i [Fragmentera kartan manager](sql-database-elastic-scale-shard-map-management.md). 

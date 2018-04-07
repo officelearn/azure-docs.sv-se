@@ -1,19 +1,19 @@
 ---
-title: "Övervaka Azure SQL Database med dynamiska hanteringsvyer | Microsoft Docs"
-description: "Lär dig att identifiera och diagnostisera vanliga prestandaproblem med dynamiska hanteringsvyer för att övervaka Microsoft Azure SQL Database."
+title: Övervaka Azure SQL Database med dynamiska hanteringsvyer | Microsoft Docs
+description: Lär dig att identifiera och diagnostisera vanliga prestandaproblem med dynamiska hanteringsvyer för att övervaka Microsoft Azure SQL Database.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 8185e2748f4aeec4343fa649d8b54958cdcb262a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 96255ed92e0dc05aa5a215a78a070f60f001e8bc
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Övervaka Azure SQL Database med dynamiska hanteringsvyer
 Microsoft Azure SQL Database gör det möjligt för en delmängd av dynamiska hanteringsvyer att diagnostisera prestandaproblem som orsakas av blockerade eller långvariga frågor, flaskhalsar för resurser, dåliga frågeplaner och så vidare. Det här avsnittet innehåller information om hur du identifierar vanliga prestandaproblem med dynamiska hanteringsvyer.

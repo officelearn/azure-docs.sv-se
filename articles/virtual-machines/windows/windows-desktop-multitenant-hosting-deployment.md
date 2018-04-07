@@ -4,7 +4,7 @@ description: Lär dig att maximera dina Windows Software Assurance-förmåner f�
 services: virtual-machines-windows
 documentationcenter: ''
 author: xujing
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: c157fd8fded40f08c997c29ef6761f3c09dbd282
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5952c602a90568a9ce9e71dfa2c0dd383aed4e16
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Hur du distribuerar Windows 10 på Azure med Multitenant värd rättigheter 
 För kunder med Windows 10 Enterprise E3/E5 per användare eller Windows virtuella skrivbordet åtkomst per användare (användare prenumerationslicenser eller tillägg användarlicenser prenumeration) kan Multitenant värd rättigheter för Windows 10 du hämta din Windows 10-licenser till molnet och kör Windows 10-datorer i Azure utan att betala för en annan licens. Mer information finns [Multitenant värd för Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -32,7 +32,7 @@ För kunder med Windows 10 Enterprise E3/E5 per användare eller Windows virtuel
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Distribuera Windows 10-avbildning från Azure Marketplace 
 Windows 10-avbildning hittar du med följande publishername, erbjudande, sku för Powershell, CLI och Azure Resource Manager distributioner för mallen.
 
-| OS  |      PublisherName      |  Erbjudande | SKU |
+| Operativsystem  |      PublisherName      |  Erbjudande | Sku |
 |:----------|:-------------:|:------|:------|
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |

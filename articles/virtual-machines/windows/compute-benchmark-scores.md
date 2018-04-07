@@ -4,7 +4,7 @@ description: Jämföra SPECint beräkning benchmark resultat för virtuella Azur
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cynthn
-ms.openlocfilehash: cb77a058e72b8f08cb8974d5ec5088bc498e071d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0b3e717ef9bf8af98650e78ce4a89eb9bf3eb83c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Beräkna benchmark resultat för virtuella Windows-datorer
 Följande SPECInt benchmark poäng visa compute prestanda för Azures högpresterande VM serie kör Windows Server. Beräkning benchmark resultat finns även [virtuella Linux-datorer](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
@@ -27,7 +27,7 @@ Följande SPECInt benchmark poäng visa compute prestanda för Azures högpreste
 > Linux-siffror nyligen har uppdaterats och innehåller en mer omfattande uppsättning virtuella datorer.
 
 ## <a name="a-series---compute-intensive"></a>A-series-beräkningsintensiva
-| Storlek | vCPU:er | NUMA-noder | CPU | Körningar | Genomsnittlig grundavgift | StdDev |
+| Storlek | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig grundavgift | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A8 |8 |1 |Intel Xeon CPU E5-2670 0 @ 2.6 GHz |10 |236.1 |1.1 |
 | Standard_A9 |16 |2 |Intel Xeon CPU E5-2670 0 @ 2.6 GHz |10 |450.3 |7.0 |
@@ -35,7 +35,7 @@ Följande SPECInt benchmark poäng visa compute prestanda för Azures högpreste
 | Standard_A11 |16 |2 |Intel Xeon CPU E5-2670 0 @ 2.6 GHz |7 |454.7 |4.8 |
 
 ## <a name="dv2-series"></a>Dv2-serien
-| Storlek | vCPU:er | NUMA-noder | CPU | Körningar | Genomsnittlig grundavgift | StdDev |
+| Storlek | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig grundavgift | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D1_v2 |1 |1 |Intel Xeon E5 2673 v3 @ 2,4 GHz |83 |36.6 |2.6 |
 | Standard_D2_v2 |2 |1 |Intel Xeon E5 2673 v3 @ 2,4 GHz |27 |70.0 |3.7 |
@@ -48,7 +48,7 @@ Följande SPECInt benchmark poäng visa compute prestanda för Azures högpreste
 | Standard_D14_v2 |16 |2 |Intel Xeon E5 2673 v3 @ 2,4 GHz |15 |460.8 |6.5 |
 
 ## <a name="g-series-gs-series"></a>G-serien, GS-serien
-| Storlek | vCPU:er | NUMA-noder | CPU | Körningar | Genomsnittlig grundavgift | StdDev |
+| Storlek | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig grundavgift | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_G1, Standard_GS1 |2 |1 |Intel Xeon E5-2698B v3 @ 2 GHz-processor |31 |71.8 |6.5 |
 | Standard_G2, Standard_GS2 |4 |1 |Intel Xeon E5-2698B v3 @ 2 GHz-processor |5 |133.4 |13.0 |
@@ -57,7 +57,7 @@ Följande SPECInt benchmark poäng visa compute prestanda för Azures högpreste
 | Standard_G5, Standard_GS5 |32 |2 |Intel Xeon E5-2698B v3 @ 2 GHz-processor |22 |762.8 |3.7 |
 
 ## <a name="h-series"></a>H-serien
-| Storlek | vCPU:er | NUMA-noder | CPU | Körningar | Genomsnittlig grundavgift  | StdDev |
+| Storlek | vCPU:er | NUMA-noder | Processor | Körningar | Genomsnittlig grundavgift  | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8 |8 |1 |Intel Xeon E5 2667 v3 @ 3,2 GHz |5 |297.4 |0.9 |
 | Standard_H16 |16 |2 |Intel Xeon E5 2667 v3 @ 3,2 GHz |5 |575.8 |6.8 |

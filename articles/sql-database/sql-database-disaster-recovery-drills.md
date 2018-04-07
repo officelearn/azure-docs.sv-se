@@ -1,20 +1,20 @@
 ---
-title: "Haveriberedskap för SQL-databasen | Microsoft Docs"
-description: "Lär dig vägledning och bästa praxis för att utföra haveriberedskap med Azure SQL Database."
+title: Haveriberedskap för SQL-databasen | Microsoft Docs
+description: Lär dig vägledning och bästa praxis för att utföra haveriberedskap med Azure SQL Database.
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 04/01/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 10a3891c51d20a26b946847d47bb712d97fa3c51
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 948b8c2c7eac7306336e5dacafffb62a337b8191
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="performing-disaster-recovery-drill"></a>Utför Återställningsgranskning för katastrofåterställning
 Du rekommenderas att verifieringen av programmet beredskap för återställningsarbetsflöde utförs med jämna mellanrum. Verifiera programfunktioner och följderna av förlust av data och/eller störningar innebär att redundansväxlingen är bra engineering. Det är också ett krav som de flesta branschstandarder som en del av business continuity certifikatutfärdare.

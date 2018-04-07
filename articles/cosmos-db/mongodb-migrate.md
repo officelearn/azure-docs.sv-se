@@ -1,12 +1,11 @@
 ---
-title: "Använd mongoimport och mongorestore med Azure Cosmos DB API för MongoDB | Microsoft Docs"
-description: "Lär dig hur du använder mongoimport och mongorestore för att importera data till en API för MongoDB-konto"
-keywords: mongoimport mongorestore
+title: Använd mongoimport och mongorestore med Azure Cosmos DB API för MongoDB | Microsoft Docs
+description: Lär dig hur du använder mongoimport och mongorestore för att importera data till en API för MongoDB-konto
+keywords: mongoimport, mongorestore
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
+manager: kfile
+documentationcenter: ''
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,29 +15,29 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 1555f13c3ea88b61be0ea240b51218b83f6f9724
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c87483e384a09591aca496292638d7b68476beb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: Importera MongoDB-data 
 
-Om du vill migrera data från MongoDB till ett Azure DB som Cosmos-konto för användning med API för MongoDB, måste du:
+Om du vill migrera data från MongoDB till ett Azure Cosmos DB-konto för användning med API för MongoDB, måste du göra följande:
 
 * Hämta antingen *mongoimport.exe* eller *mongorestore.exe* från den [MongoDB Download Center](https://www.mongodb.com/download-center).
-* Hämta din [API: et för MongoDB-anslutningssträng](connect-mongodb-account.md).
+* Hämta [anslutningssträngen för API för MongoDB](connect-mongodb-account.md).
 
 Om du importerar data från MongoDB och planerar att använda med Azure Cosmos DB, bör du använda den [datamigreringsverktyget](import-data.md) att importera data.
 
-Den här kursen ingår följande uppgifter:
+Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
 > * Hämta din anslutningssträng
 > * Importera MongoDB-data med hjälp av mongoimport
 > * Importera MongoDB-data med hjälp av mongorestore
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Öka genomflödet: din datamigrering varaktighet beror på mängden genomströmning som du angett för samlingar. Se till att öka genomflödet för större migrering av data. När du har slutfört migreringen, minska dataflöde för att spara kostnader. Mer information om ökar genomströmningen i den [Azure-portalen](https://portal.azure.com), se [prestandanivåer och prisnivåerna i Azure Cosmos DB](performance-levels.md).
 
@@ -110,7 +109,7 @@ Exempel:
     
 3. Avgör svarstid från din dator till Azure DB som Cosmos-Molntjänsten:
     
-    a. Aktivera utförlig loggning i MongoDB-gränssnittet med hjälp av det här kommandot:```setVerboseShell(true)```
+    a. Aktivera utförlig loggning i MongoDB-gränssnittet med hjälp av det här kommandot: ```setVerboseShell(true)```
     
     b. Kör en enkel fråga mot databasen: ```db.coll.find().limit(1)```. Du får ett svar som detta:
 
@@ -118,7 +117,7 @@ Exempel:
         Fetched 1 record(s) in 100(ms)
         ```
         
-4. Ta bort det infogade dokumentet innan migrering för att säkerställa att det inte finns några dubbletter dokument. Du kan ta bort dokument med hjälp av det här kommandot:```db.coll.remove({})```
+4. Ta bort det infogade dokumentet innan migrering för att säkerställa att det inte finns några dubbletter dokument. Du kan ta bort dokument med hjälp av det här kommandot: ```db.coll.remove({})```
 
 5. Beräkna den ungefärliga *batchSize* och *numInsertionWorkers* värden:
 

@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 648c800da928ae230bde1ba92aea8c319a4d8fe2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9f8d576cbc5c2bb2fe4109086b04711422911390
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="configure-password-complexity-in-custom-policies"></a>Konfigurera lösenordskomplexitet i anpassade principer
 
@@ -27,7 +27,7 @@ Den här artikeln är en avancerad beskrivning av hur lösenordskomplexitet fung
 
 Azure Active Directory B2C (Azure AD B2C) stöder ändring av komplexitetskrav för lösenord som tillhandahålls av en slutanvändare när du skapar ett konto.  Som standard använder Azure AD B2C **starka** lösenord.  Azure AD B2C stöder även konfigurationsalternativ för att styra komplexitet för lösenord som kunder kan använda.  Den här artikeln handlar om hur du konfigurerar lösenordskomplexitet i anpassade principer.  Det är också möjligt att använda [konfigurera lösenordskomplexitet i inbyggda principer](active-directory-b2c-reference-password-complexity.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure AD B2C-klient som konfigurerats för att slutföra ett lokalt konto sign-upp/inloggning, enligt beskrivningen i [komma igång](active-directory-b2c-get-started-custom.md).
 
@@ -99,15 +99,9 @@ Anspråkstyper `newPassword` och `reenterPassword` betraktas som särskilda så 
 ```XML
     <ClaimsSchema>
       <ClaimType Id="newPassword">
-        <Restriction>
-          <Pattern RegularExpression="^.*$" HelpText="" />
-        </Restriction>
         <InputValidationReference Id="PasswordValidation" />
       </ClaimType>
       <ClaimType Id="reenterPassword">
-        <Restriction>
-          <Pattern RegularExpression="^.*$" HelpText="" />
-        </Restriction>
         <InputValidationReference Id="PasswordValidation" />
       </ClaimType>
     </ClaimsSchema>
@@ -144,37 +138,31 @@ Det här exemplet innehåller en verifiering för PIN-kod lösenord och en för 
   <BuildingBlocks>
     <ClaimsSchema>
       <ClaimType Id="newPassword">
-        <Restriction>
-          <Pattern RegularExpression="^.*$" HelpText="" />
-        </Restriction>
         <InputValidationReference Id="PasswordValidation" />
       </ClaimType>
       <ClaimType Id="reenterPassword">
-        <Restriction>
-          <Pattern RegularExpression="^.*$" HelpText="" />
-        </Restriction>
         <InputValidationReference Id="PasswordValidation" />
       </ClaimType>
     </ClaimsSchema>
     <Predicates>
       <Predicate Id="Lowercase" Method="MatchesRegex" HelpText="a lowercase">
         <Parameters>
-          <Parameter Id="RegularExpression">^[a-z]+$</Parameter>
+          <Parameter Id="RegularExpression">[a-z]+</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="Uppercase" Method="MatchesRegex" HelpText="an uppercase">
         <Parameters>
-          <Parameter Id="RegularExpression">^[A-Z]+$</Parameter>
+          <Parameter Id="RegularExpression">[A-Z]+</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="Number" Method="MatchesRegex" HelpText="a number">
         <Parameters>
-          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
+          <Parameter Id="RegularExpression">[0-9]+</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="Symbol" Method="MatchesRegex" HelpText="a symbol">
         <Parameters>
-          <Parameter Id="RegularExpression">^[!@#$%^*()]+$</Parameter>
+          <Parameter Id="RegularExpression">[!@#$%^*()]+</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">

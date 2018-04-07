@@ -1,19 +1,19 @@
 ---
 title: Azure SQL Database JSON-funktioner | Microsoft Docs
-description: "Azure SQL-databas kan du parse-, fråge- och formatera data i JavaScript Object Notation (JSON) notation."
+description: Azure SQL-databas kan du parse-, fråge- och formatera data i JavaScript Object Notation (JSON) notation.
 services: sql-database
 author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.date: 11/15/2016
+ms.date: 04/01/2018
 ms.author: jovanpop
 ms.topic: article
-ms.openlocfilehash: 353a1cc99f122c773f0a005a20f04391236ad913
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f36d7b551a0ff89589564f5f9170aa24f62a61ad
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Komma igång med JSON-funktioner i Azure SQL Database
 Azure SQL-databas, kan du analysera och frågar efter data som representeras i JavaScript Object Notation [(JSON)](http://www.json.org/) formatera och exportera din relationsdata som JSON-texten.

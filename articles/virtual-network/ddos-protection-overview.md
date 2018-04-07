@@ -1,13 +1,13 @@
 ---
-title: "Standard översikt över Azure DDoS-skydd | Microsoft Docs"
-description: "Lär dig mer om tjänsten Azure DDoS-skydd."
+title: Standard översikt över Azure DDoS-skydd | Microsoft Docs
+description: Lär dig mer om tjänsten Azure DDoS-skydd.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 6b15be022ba3b8373cfb852be8fc6915824801dc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb19baae1bc03633b7646fd2255ca910532595c5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Översikt över Azure DDoS-skydd Standard
 
@@ -30,7 +30,7 @@ Azure DDoS-skydd, tillsammans med programmet Metodtips för designen, ger skydd 
 - **Azure DDoS-skydd grundläggande**: aktiveras automatiskt som en del av Azure-plattformen, utan extra kostnad. Finns alltid i trafik övervaknings- och realtid minskning av vanliga på nätverksnivå attacker ger samma försvar som används av Microsoft online services. Hela skalan av Azures globalt nätverk kan användas för att distribuera och minska riskerna för angrepp trafik över regioner. Skydd tillhandahålls för IPv4 och IPv6-Azure [offentliga IP-adresser](virtual-network-public-ip-address.md).
 - **Azure DDoS-skydd Standard** ger ytterligare minskning funktioner inställda specifikt för Azure Virtual Network-resurser. Det är enkelt att aktivera, och kräver inga ändringar i programmet. Skyddsprinciper justerade via dedikerade övervaknings- och machine learning algoritmer och tillämpas på den offentliga IP-adresser som är kopplade till resurser som är distribuerad i virtuella nätverk, till exempel Azure belastningsutjämnare, Azure Application Gateway och Azure Service Fabric-instanser. Realtid telemetri är tillgängliga via Azure-Monitor vyer under en attack och för historik. Programmet skydd kan läggas till via [programmet Gateway Brandvägg för webbaserade program](https://azure.microsoft.com/services/application-gateway). Skydd tillhandahålls för IPv4 Azure [offentliga IP-adresser](virtual-network-public-ip-address.md). 
 
-![Standard för Azure DDoS-skydd](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
+![Azure DDoS Protection Standard](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
 
 > [!IMPORTANT]
 > Azure DDoS-skydd Standard är för närvarande under förhandsgranskning. Skydd har angetts för Azure-resurser som har en Azure offentliga IP-adress som är kopplade till den, till exempel virtuella datorer, belastningsutjämnare och programgatewayer. Du behöver [registrera](http://aka.ms/ddosprotection) för tjänsten innan du kan aktivera DDoS-skydd Standard för din prenumeration. Efter registrering Azure DDoS-teamet kontaktar du och vägleder dig genom processen för aktivering. DDoS-skydd Standard finns i östra USA, östra USA 2, västra USA, västra centrala USA, Nordeuropa, Västeuropa, västra Japan, östra, Östasien och Sydostasien regioner. Under förhandsgranskningen gör debiteras inte du för att använda tjänsten.
@@ -65,7 +65,7 @@ DDoS-skydd Standardfunktionerna innefattar:
 - **Nivå 3 till nivå 7 skydd:** ger fullständig stack DDoS-skydd när det används med en Programgateway.
 - **Omfattande lösning skala:** över 60 olika attack typer kan begränsas med globala kapacitet att skydda mot största kända DDoS-attacker. 
 - **Angrepp mått:** Summarized från varje attacker är tillgängligt via Azure-Monitor.
-- **Attack aviseringar:** aviseringar kan konfigureras på start och stopp av ett angrepp och med hjälp av inbyggda attack mätvärden via den attack varaktighet. Aviseringar integrera din operativa program som Microsoft Operations Management Suite, Splunk, Azure Storage, e-post och Azure-portalen.
+- **Attack aviseringar:** aviseringar kan konfigureras på start och stopp av ett angrepp och med hjälp av inbyggda attack mätvärden via den attack varaktighet. Aviseringar integrera din operativa program som Microsoft Azure logganalys, Splunk, Azure Storage, e-post och Azure-portalen.
 - **Kostnad garanti:** överföra Data och program skalbar servicekrediter för dokumenterade DDoS-attacker.
 
 ## <a name="ddos-protection-standard-mitigation"></a>DDoS-skydd Standard lösning

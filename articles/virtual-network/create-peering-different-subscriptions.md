@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 92cbcad42508f2ae6113d13449aba7eed5acd251
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: eccfdf519d16595f2bda77675d62bff4bf14b4f8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Skapa ett virtuellt nätverk peering - hanteraren för filserverresurser, olika prenumerationer 
 
 I kursen får du lära dig att skapa ett virtuellt nätverk peering mellan virtuella nätverk som skapats via Resource Manager. Virtuella nätverk finns i olika prenumerationer. Peering två virtuella nätverk gör resurser i olika virtuella nätverk för att kommunicera med varandra med samma bandbredd och svarstid som om resurserna som fanns i samma virtuella nätverk. Lär dig mer om [virtuella nätverk peering](virtual-network-peering-overview.md). 
 
-Stegen för att skapa ett virtuellt nätverk som peering är olika beroende på om de virtuella nätverken är på samma eller olika prenumerationer och som [Azure distributionsmodell](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de virtuella nätverken skapas via. Lär dig hur du skapar ett virtuellt nätverk peering i andra scenarier genom att klicka på scenario i följande tabell:
+Stegen för att skapa ett virtuellt nätverk som peering är olika beroende på om de virtuella nätverken är på samma eller olika prenumerationer och som [Azure distributionsmodell](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de virtuella nätverken skapas via. Lär dig hur du skapar ett virtuellt nätverk peering i andra scenarier genom att välja Scenarionamn i följande tabell:
 
 |Azure-distributionsmodell  | Azure-prenumeration  |
 |--------- |---------|
@@ -37,15 +37,15 @@ Att går inte skapa ett virtuellt nätverk som peering mellan två virtuella nä
 
 Den här självstudiekursen peers virtuella nätverk i samma region. Du kan också peer-virtuella nätverk i olika [regioner som stöds](virtual-network-manage-peering.md#cross-region). 
 
-Du kan använda den [Azure-portalen](#portal), Azure [kommandoradsgränssnittet](#cli) (CLI) Azure [PowerShell](#powershell), eller en [Azure Resource Manager-mall](#template)att skapa ett virtuellt nätverk som peering. Klicka på någon av föregående verktyget länkar att gå direkt till steg för att skapa ett virtuellt nätverk peering verktyget dina val.
+Du kan använda den [Azure-portalen](#portal), Azure [kommandoradsgränssnittet](#cli) (CLI) Azure [PowerShell](#powershell), eller en [Azure Resource Manager-mall](#template)att skapa ett virtuellt nätverk som peering. Välj någon av föregående verktyget länkar att gå direkt till steg för att skapa ett virtuellt nätverk peering verktyget dina val.
 
 ## <a name="portal"></a>Skapa peering - Azure-portalen
 
 Den här kursen använder olika konton för varje prenumeration. Om du använder ett konto som har behörighet att båda prenumerationer du använder samma konto för alla åtgärder, hoppa över steg för att logga ut från portalen och hoppa över steg för att tilldela behörigheter för en annan för de virtuella nätverken.
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) som UserA. Du loggar in med kontot måste ha behörighet för att skapa ett virtuellt nätverk som peering. En lista över behörigheter finns [virtuella nätverk peering behörigheter](virtual-network-manage-peering.md#permissions).
-2. Klicka på **+ ny**, klickar du på **nätverk**, klicka på **för virtuella nätverk**.
-3. I den **skapa virtuellt nätverk** bladet anger, eller Välj värden för följande inställningar och sedan klickar du på **skapa**:
+1. Logga in på den [Azure-portalen](https://portal.azure.com) som *UserA*. Du loggar in med kontot måste ha behörighet för att skapa ett virtuellt nätverk som peering. En lista över behörigheter finns [virtuella nätverk peering behörigheter](virtual-network-manage-peering.md#permissions).
+2. Välj **+ skapa en resurs**väljer **nätverk**, och välj sedan **för virtuella nätverk**.
+3. Välj eller ange följande exempelvärden för följande inställningar och sedan **skapa**:
     - **Name**: *myVnetA*
     - **Adressutrymmet**: *10.0.0.0/16*
     - **Undernätnamnet**: *standard*
@@ -53,13 +53,13 @@ Den här kursen använder olika konton för varje prenumeration. Om du använder
     - **Prenumerationen**: Välj prenumeration A.
     - **Resursgruppen**: Välj **Skapa nytt** och ange *myResourceGroupA*
     - **Plats**: *östra USA*
-4. I den **söka resurser** rutan överst i portalen, typen *myVnetA*. Klicka på **myVnetA** när den visas i sökresultaten. Ett blad som visas för den **myVnetA** virtuellt nätverk.
-5. I den **myVnetA** bladet som visas, klickar du på **åtkomstkontroll (IAM)** från lodräta listan till vänster på bladet.
-6. I den **myVnetA - åtkomstkontroll (IAM)** bladet som visas, klickar du på **+ Lägg till**.
-7. I den **lägga till behörigheter** bladet som visas, väljer **Network-deltagare** i den **rollen** rutan.
-8. I den **Välj** markerar ett b, eller Skriv BS e-postadress för att söka efter den. En lista över användare som visas är från samma Azure Active Directory-klientorganisation som det virtuella nätverket som du konfigurerar peering för.
-9. Klicka på **Spara**.
-10. I den **myVnetA - åtkomstkontroll (IAM)** bladet, klickar du på **egenskaper** från lodräta listan till vänster på bladet. Kopiera den **resurs-ID**, som används i ett senare steg. Resurs-ID som liknar följande exempel: /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
+4. I den **söka resurser** rutan överst i portalen, typen *myVnetA*. Välj **myVnetA** när den visas i sökresultaten. 
+5. Välj **åtkomstkontroll (IAM)** från lodräta listan till vänster.
+6. Under **myVnetA - åtkomstkontroll (IAM)**väljer **+ Lägg till**.
+7. Välj **Network-deltagare** i den **rollen** rutan.
+8. I den **Välj** väljer *b*, eller ange användare BS e-postadress för att söka efter den. En lista över användare som visas är från samma Azure Active Directory-klientorganisation som det virtuella nätverket som du konfigurerar peering för. Om du inte ser b, är förmodligen eftersom b i en annan Active Directory-klient än UserA. Om du vill ansluta virtuella nätverk i olika Active Directory-klienter kan du ansluta dem med en [Azure VPN-Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), i stället för ett virtuellt nätverk som peering.
+9. Välj **Spara**.
+10. Under **myVnetA - åtkomstkontroll (IAM)**väljer **egenskaper** från lodräta listan till vänster. Kopiera den **resurs-ID**, som används i ett senare steg. Resurs-ID som liknar följande exempel: /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
 11. Logga ut från portalen som UserA och sedan logga in som användare b.
 12. Slutför steg 2 – 3, att ange eller markera följande värden i steg 3:
 
@@ -71,25 +71,25 @@ Den här kursen använder olika konton för varje prenumeration. Om du använder
     - **Resursgruppen**: Välj **Skapa nytt** och ange *myResourceGroupB*
     - **Plats**: *östra USA*
 
-13. I den **söka resurser** rutan överst i portalen, typen *myVnetB*. Klicka på **myVnetB** när den visas i sökresultaten. Ett blad som visas för den **myVnetB** virtuellt nätverk.
-14. I den **myVnetB** bladet som visas, klickar du på **egenskaper** från lodräta listan till vänster på bladet. Kopiera den **resurs-ID**, som används i ett senare steg. Resurs-ID som liknar följande exempel: /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
-15. Klicka på **åtkomstkontroll (IAM)** i den **myVnetB** bladet och sedan utför steg 5 – 10 för myVnetB, ange **UserA** i steg 8.
+13. I den **söka resurser** rutan överst i portalen, typen *myVnetB*. Välj **myVnetB** när den visas i sökresultaten.
+14. Under **myVnetB**väljer **egenskaper** från lodräta listan till vänster. Kopiera den **resurs-ID**, som används i ett senare steg. Resurs-ID som liknar följande exempel: /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
+15. Välj **åtkomstkontroll (IAM)** under **myVnetB**, och sedan slutföra steg 5 – 10 för myVnetB, ange **UserA** i steg 8.
 16. Logga ut från portalen som användare b och logga in som UserA.
-17. I den **söka resurser** rutan överst i portalen, typen *myVnetA*. Klicka på **myVnetA** när den visas i sökresultaten. Ett blad som visas för den **myVnet** virtuellt nätverk.
-18. Klicka på **myVnetA**.
-19. I den **myVnetA** bladet som visas, klickar du på **Peerkopplingar** från lodräta listan till vänster på bladet.
-20. I den **myVnetA - Peerkopplingar** bladet som visas, klickar du på **+ Lägg till**
-21. I den **Lägg till peering** bladet som visas anger, eller Välj följande alternativ och klicka på **OK**:
+17. I den **söka resurser** rutan överst i portalen, typen *myVnetA*. Välj **myVnetA** när den visas i sökresultaten.
+18. Välj **myVnetA**.
+19. Under **inställningar**väljer **Peerkopplingar**.
+20. Under **myVnetA - Peerkopplingar**väljer **+ Lägg till**
+21. Under **Lägg till peering**, ange, eller Välj följande alternativ och välj sedan **OK**:
      - **Namnet**: *myVnetAToMyVnetB*
      - **Virtuellt nätverk distributionsmodell**: Välj **Resource Manager**.
      - **Jag vet mitt resurs-ID**: den här kryssrutan.
      - **Resurs-ID**: Ange resurs-ID från steg 14.
      - **Tillåt åtkomst till virtuella nätverk:** se till att **aktiverad** är markerad.
     Inga andra inställningar används i den här kursen. Mer information om alla peering inställningar, läsa [hantera peerkopplingar mellan virtuella nätverk](virtual-network-manage-peering.md#create-a-peering).
-22. När du klickar på **OK** i föregående steg i **Lägg till peering** blad stängs och du ser den **myVnetA - Peerkopplingar** bladet igen. Efter några sekunder visas peering du skapat i bladet. **Initierade** ingår i den **PEERING STATUS** kolumnen för den **myVnetAToMyVnetB** peering du skapat. Du har peerkoppla myVnetA till myVnetB, men du måste nu peer-myVnetB till myVnetA. Peering måste skapas i båda riktningarna att aktivera resurser i de virtuella nätverken för att kommunicera med varandra.
+22. Peering du skapat visas en kort vänta när du har valt **OK** i föregående steg. **Initierade** ingår i den **PEERING STATUS** kolumnen för den **myVnetAToMyVnetB** peering du skapat. Du har peerkoppla myVnetA till myVnetB, men du måste nu peer-myVnetB till myVnetA. Peering måste skapas i båda riktningarna att aktivera resurser i de virtuella nätverken för att kommunicera med varandra.
 23. Logga ut från portalen som UserA och logga in som användare b.
 24. Slutför steg 17-21 igen för myVnetB. Namn i steget 21 peering *myVnetBToMyVnetA*väljer *myVnetA* för **för virtuella nätverk**, och ange ID från steg 10 i den **resurs-ID** rutan.
-25. Några sekunder när du klickar på **OK** att skapa peering för myVnetB, den **myVnetBToMyVnetA** peering du precis har skapat visas med **ansluten** i den **PEERING STATUS** kolumn.
+25. Några sekunder efter att ha valt **OK** att skapa peering för myVnetB, den **myVnetBToMyVnetA** peering du precis har skapat visas med **ansluten** i **PEERING STATUS** kolumn.
 26. Logga ut från portalen som användare b och logga in som UserA.
 27. Slutför steg 17-19 igen. Den **PEERING STATUS** för den **myVnetAToVNetB** peering är nu också **ansluten**. Peering har skapats efter att du ser **ansluten** i den **PEERING STATUS** för både virtuella nätverk i peering. Azure-resurser som du skapar i antingen virtuellt nätverk är nu kunna kommunicera med varandra via sina IP-adresser. Om du använder standard-Azure namnmatchning för de virtuella nätverken är resurser i de virtuella nätverken inte kan matcha namnen på de virtuella nätverken. Om du vill matcha namn över virtuella nätverk i en peering måste du skapa DNS-servern. Lär dig hur du ställer in [namnmatchning med hjälp av DNS-servern](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 28. **Valfria**: även om att skapa virtuella datorer inte ingår i den här självstudiekursen, du kan skapa en virtuell dator i varje virtuellt nätverk och ansluta från en virtuell dator till ett annat genom att verifiera anslutningarna.
@@ -97,14 +97,14 @@ Den här kursen använder olika konton för varje prenumeration. Om du använder
 
 ## <a name="cli"></a>Skapa peering - Azure CLI
 
-Den här kursen använder olika konton för varje prenumeration. Om du använder ett konto som har behörighet att båda prenumerationer du använder samma konto för alla åtgärder, hoppa över steg för att logga ut ur Azure och ta bort rader i skriptet som skapar användaren rolltilldelningar. Ersätt UserA@azure.com och UserB@azure.com i alla följande skript med det användarnamn som du använder för användare a och b.
+Den här kursen använder olika konton för varje prenumeration. Om du använder ett konto som har behörighet att båda prenumerationer du använder samma konto för alla åtgärder, hoppa över steg för att logga ut ur Azure och ta bort rader i skriptet som skapar användaren rolltilldelningar. Ersätt UserA@azure.com och UserB@azure.com i alla följande skript med det användarnamn som du använder för användare a och b. Båda av de virtuella nätverk som du vill peer måste vara i prenumerationer som är kopplade till samma Azure Active Directory-klient.  Om du vill ansluta virtuella nätverk i olika Active Directory-klienter kan du ansluta dem med en [Azure VPN-Gateway](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), i stället för ett virtuellt nätverk som peering.
 
 Följande skript:
 
 - Kräver Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Fungerar i ett Bash-gränssnitt. I [Köra Azure CLI på Windows](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json) kan du läsa mer om alternativen för att köra Azure CLI-skript på Windows-klienten. 
 
-Du kan använda Azure Cloud Shell istället för att installera CLI och dess beroenden. Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure-portalen. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Klicka på den **prova** knappen i skriptet som följer, som anropar ett moln-gränssnitt som du kan logga in på kontot med. 
+Du kan använda Azure Cloud Shell istället för att installera CLI och dess beroenden. Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure-portalen. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Välj den **prova** knappen i skriptet som följer, som anropar ett moln-gränssnitt som du kan logga in på kontot med. 
 
 1. Öppna en CLI-session och logga in på Azure som användare a med den `azure login` kommando. Du loggar in med kontot måste ha behörighet för att skapa ett virtuellt nätverk som peering. En lista över behörigheter finns [virtuella nätverk peering behörigheter](virtual-network-manage-peering.md#permissions).
 2. Kopiera följande skript till en textredigerare på datorn genom att ersätta `<SubscriptionA-Id>` med ID SubscriptionA kopiera skriptet ändrade, klistra in den i din CLI-sessionen och tryck på `Enter`. Om du inte vet ditt prenumerations-Id, anger du kommandot ”Visa az konto'. Värdet för **id** i utdata är ditt prenumerations-Id.
@@ -175,7 +175,7 @@ Azure-resurser som du skapar i antingen virtuellt nätverk är nu kunna kommunic
  
 ## <a name="powershell"></a>Skapa peering - PowerShell
 
-Den här kursen använder olika konton för varje prenumeration. Om du använder ett konto som har behörighet att båda prenumerationer du använder samma konto för alla åtgärder, hoppa över steg för att logga ut ur Azure och ta bort rader i skriptet som skapar användaren rolltilldelningar. Ersätt UserA@azure.com och UserB@azure.com i alla följande skript med det användarnamn som du använder för användare a och b.
+Den här kursen använder olika konton för varje prenumeration. Om du använder ett konto som har behörighet att båda prenumerationer du använder samma konto för alla åtgärder, hoppa över steg för att logga ut ur Azure och ta bort rader i skriptet som skapar användaren rolltilldelningar. Ersätt UserA@azure.com och UserB@azure.com i alla följande skript med det användarnamn som du använder för användare a och b. Båda av de virtuella nätverk som du vill peer måste vara i prenumerationer som är kopplade till samma Azure Active Directory-klient.  Om du vill ansluta virtuella nätverk i olika Active Directory-klienter kan du ansluta dem med en [Azure VPN-Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md), i stället för ett virtuellt nätverk som peering.
 
 1. Installera den senaste versionen av PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/)-modulen. Om du inte har använt Azure PowerShell kan du läsa [Översikt över Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Starta en PowerShell-session.
@@ -286,9 +286,9 @@ När du har läst den här självstudiekursen, kanske du vill ta bort de resurse
 ### <a name="delete-portal"></a>Azure-portalen
 
 1. Logga in på Azure-portalen som UserA.
-2. Skriv i sökrutan portal **myResourceGroupA**. I sökresultaten klickar du på **myResourceGroupA**.
-3. På den **myResourceGroupA** bladet, klickar du på den **ta bort** ikon.
-4. Bekräfta borttagningen, i den **typ av RESURSGRUPPENS namn** ange **myResourceGroupA**, och klicka sedan på **ta bort**.
+2. Skriv i sökrutan portal **myResourceGroupA**. I sökresultaten väljer **myResourceGroupA**.
+3. Välj **Ta bort**.
+4. Bekräfta borttagningen, i den **typ av RESURSGRUPPENS namn** ange **myResourceGroupA**, och välj sedan **ta bort**.
 5. Logga ut från portalen som UserA och logga in som användare b.
 6. Slutför steg 2-4 för myResourceGroupB.
 

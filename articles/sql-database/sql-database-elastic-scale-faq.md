@@ -1,20 +1,20 @@
 ---
-title: "Azure SQL elastisk skalbarhet vanliga frågor och svar | Microsoft Docs"
-description: "Vanliga frågor om Azure SQL Database-elastisk skalbarhet."
+title: Azure SQL elastisk skalbarhet vanliga frågor och svar | Microsoft Docs
+description: Vanliga frågor om Azure SQL Database-elastisk skalbarhet.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 575167293d9b4685ecc38303414b69074c366ab2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 57a5ef07aa8ca6d35085f9b2425cbc1c08c23b36
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="elastic-database-tools-faq"></a>Elastisk Databasverktyg vanliga frågor och svar
 #### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>Om jag har en enskild klient per Fragmentera och ingen nyckel för horisontell partitionering, hur jag fylla nyckeln horisontell partitionering schemat information?
@@ -30,7 +30,7 @@ Med hjälp av klientbiblioteket för elastisk databas medför inte några kostna
 Använd inte autentiseringsuppgifterna i formatet ”användar-ID =username@servername”, i stället helt enkelt använda ”användar-ID = username”.  Glöm inte att ”användarnamn” inloggningen har behörighet för Fragmentera.
 
 #### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Behöver skapa en karta Fragmentera-hanteraren och fylla shards varje gång startas Mina program?
-Nej – skapandet av Fragmentera kartan Manager (till exempel  **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) är en engångsåtgärd.  Ditt program bör använda anropet  **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)**  vid starttiden för programmet.  Det bör bara ett sådant anrop per domän.
+Nej – skapandet av Fragmentera kartan Manager (till exempel  **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) är en engångsåtgärd.  Ditt program bör använda anropet **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** vid starttiden för programmet.  Det bör bara ett sådant anrop per domän.
 
 #### <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Jag har frågor om hur du använder elastisk Databasverktyg, hur skaffar jag dem besvarade?
 Kontakta oss på den [Azure SQL Database-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).

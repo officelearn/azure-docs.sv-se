@@ -1,16 +1,16 @@
 ---
-title: "Skala identifiering och bedömning med hjälp av Azure migrera | Microsoft Docs"
-description: "Beskriver hur du utvärdera stort antal lokala datorer med hjälp av Azure migrera tjänsten."
+title: Skala identifiering och bedömning med hjälp av Azure migrera | Microsoft Docs
+description: Beskriver hur du utvärdera stort antal lokala datorer med hjälp av Azure migrera tjänsten.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 9d9ebef66be269c63a62d393eda76254946b13e7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 934f32228d2c37db58c52cf4820ccc331fccd1d3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Upptäck och utvärdera en stor VMware-miljö
 
@@ -29,9 +29,9 @@ Planera identifieringar och utvärderingar baserat på följande begränsningar:
 
 | **Entitet** | **Gränsen för datorn** |
 | ---------- | ----------------- |
-| Project    | 1,500              | 
-| Identifiering  | 1,500              |
-| Utvärdering | 1,500               |
+| Project    | 1,500             |
+| Identifiering  | 1,500             |
+| Utvärdering | 1,500             |
 
 <!-- 
 - If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
@@ -40,12 +40,12 @@ Planera identifieringar och utvärderingar baserat på följande begränsningar:
 - If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
     - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
     - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
--->
+      -->
 
 ## <a name="plan-multiple-discoveries"></a>Planera flera identifieringar
 
 Du kan använda samma Azure migrera insamlaren för att göra flera identifieringar till en eller flera projekt. Tänk på följande överväganden:
- 
+
 - När du gör en identifiering med hjälp av Azure migrera insamlaren kan ange du identifieringsomfånget till en mapp för vCenter-Server, datacenter, kluster eller en värddator.
 - Kontrollera i vCenter Server som de virtuella datorerna som du vill identifiera i mappar, Datacenter, kluster eller värdar som har stöd för begränsning av 1 500 datorer om du vill göra mer än en identifiering.
 - Vi rekommenderar att vid bedömningen, du behåller datorer med beroenden inom samma projekt och assessment. Kontrollera att beroende datorer finns i samma mapp, datacenter eller kluster för att bedöma i vCenter Server.
@@ -73,20 +73,30 @@ Om du har flera projekt måste du hämta insamlaren anordningen bara en gång ti
 2. I **identifiera datorer**väljer **hämta**, för att hämta filen ägg.
 3. I **Kopiera projekt autentiseringsuppgifterna**, kopiera ID: T och nyckeln för projektet. Du behöver dem när du konfigurerar insamlaren.
 
-   
+
 ### <a name="verify-the-collector-appliance"></a>Kontrollera insamlingsprogrammet
 
 Kontrollera att filen ägg är säker innan du distribuerar det:
 
 1. Öppna ett kommandofönster för administratör på den dator som du laddade ned filen till.
+
 2. Kör följande kommando för att generera en hash för OVA-filen:
 
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
    Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+
 3. Kontrollera att den genererade hashen matchar följande inställningar.
 
-    För ägg version 1.0.9.5
+    För ägg version 1.0.9.7
+
+    **Algoritm** | **Hash-värde**
+    --- | ---
+    MD5 | d5b6a03701203ff556fa78694d6d7c35
+    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
+
+    För OVA-version 1.0.9.5
 
     **Algoritm** | **Hash-värde**
     --- | ---
@@ -94,7 +104,7 @@ Kontrollera att filen ägg är säker innan du distribuerar det:
     SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
     SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
 
-    För ägg version 1.0.9.2
+    För OVA-version 1.0.9.2
 
     **Algoritm** | **Hash-värde**
     --- | ---
@@ -109,7 +119,7 @@ Kontrollera att filen ägg är säker innan du distribuerar det:
     MD5 | 71139e24a532ca67669260b3062c3dad
     SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
     SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
- 
+
     För OVA-version 1.0.8.49
 
     **Algoritm** | **Hash-värde**
@@ -136,11 +146,11 @@ Importera den hämta filen till vCenter-servern:
 
 2. I guiden Distribuera OVF mall > **källa**, ange platsen för filen ägg.
 3. I **Namn** och **Plats** anger du ett eget namn för den virtuella insamlardatorn och lagerobjektet där den virtuella datorn kommer att finnas.
-5. I **Värd/kluster** anger du den värd eller det kluster där den virtuella insamlardatorn körs.
-7. Ange lagringsplats för den virtuella insamlardatorn i lagringen.
-8. I **Diskformat** anger du disktyp och storlek.
-9. I **Nätverksmappning** anger du det nätverk som den virtuella insamlardatorn kommer att ansluta till. Nätverket måste internet-anslutning för att skicka metadata till Azure. 
-10. Granska och bekräfta inställningarna och markera **Slutför**.
+4. I **Värd/kluster** anger du den värd eller det kluster där den virtuella insamlardatorn körs.
+5. Ange lagringsplats för den virtuella insamlardatorn i lagringen.
+6. I **Diskformat** anger du disktyp och storlek.
+7. I **Nätverksmappning** anger du det nätverk som den virtuella insamlardatorn kommer att ansluta till. Nätverket måste internet-anslutning för att skicka metadata till Azure. 
+8. Granska och bekräfta inställningarna och markera **Slutför**.
 
 ## <a name="identify-the-id-and-key-for-each-project"></a>Identifiera-ID och nyckel för varje projekt
 
@@ -157,16 +167,16 @@ Vi rekommenderar att du vanliga filegenskaper (3) för statistik nivån så att 
 
 I följande tabell visas också utvärderingsresultat som kommer att påverkas om räknaren inte samlas in.
 
-|Räknaren                                  |Nivå    |Nivå per enhet  |Bedömning påverkan                               |
-|-----------------------------------------|---------|------------------|------------------------------------------------|
-|cpu.usage.average                        | 1       |Ej tillämpligt                |Rekommenderade VM-storlek och kostnad                    |
-|mem.usage.average                        | 1       |Ej tillämpligt                |Rekommenderade VM-storlek och kostnad                    |
-|virtualDisk.read.average                 | 2       |2                 |Diskstorleken och lagringskostnaden är VM-storlek         |
-|virtualDisk.write.average                | 2       |2                 |Diskstorleken och lagringskostnaden är VM-storlek         |
-|virtualDisk.numberReadAveraged.average   | 1       |3                 |Diskstorleken och lagringskostnaden är VM-storlek         |
-|virtualDisk.numberWriteAveraged.average  | 1       |3                 |Diskstorleken och lagringskostnaden är VM-storlek         |
-|net.received.average                     | 2       |3                 |VM-storlek och nätverket kostnad                        |
-|net.transmitted.average                  | 2       |3                 |VM-storlek och nätverket kostnad                        |
+| Räknaren                                 | Nivå | Nivå per enhet | Bedömning påverkan                    |
+| --------------------------------------- | ----- | ---------------- | ------------------------------------ |
+| cpu.usage.average                       | 1     | Ej tillämpligt               | Rekommenderade VM-storlek och kostnad         |
+| mem.usage.average                       | 1     | Ej tillämpligt               | Rekommenderade VM-storlek och kostnad         |
+| virtualDisk.read.average                | 2     | 2                | Diskstorleken och lagringskostnaden är VM-storlek |
+| virtualDisk.write.average               | 2     | 2                | Diskstorleken och lagringskostnaden är VM-storlek |
+| virtualDisk.numberReadAveraged.average  | 1     | 3                | Diskstorleken och lagringskostnaden är VM-storlek |
+| virtualDisk.numberWriteAveraged.average | 1     | 3                | Diskstorleken och lagringskostnaden är VM-storlek |
+| net.received.average                    | 2     | 3                | VM-storlek och nätverket kostnad             |
+| net.transmitted.average                 | 2     | 3                | VM-storlek och nätverket kostnad             |
 
 > [!WARNING]
 > Om du precis har högre statistik, tar det till en dag att generera prestandaräknare. Därför rekommenderar vi att du kör identifieringen efter en dag.
@@ -175,28 +185,28 @@ I följande tabell visas också utvärderingsresultat som kommer att påverkas o
 
 För varje identifiering som du behöver utföra kör insamlaren för att identifiera virtuella datorer i området krävs. Kör identifierade en efter en. Samtidiga identifieringar stöds inte och varje identifiering måste ha ett annat omfång.
 
-1. Högerklicka på den virtuella datorn i vSphere-klientkonsolen > **Öppna konsol**.
-2. Ange språk, tidszon och lösenordsinställningar för produkten.
-3. På skrivbordet, Välj den **kör insamlaren** genväg.
-4. Öppna i Azure migrera-insamlaren **uppfylla krav** och sedan:
+1.  Högerklicka på den virtuella datorn i vSphere-klientkonsolen > **Öppna konsol**.
+2.  Ange språk, tidszon och lösenordsinställningar för produkten.
+3.  På skrivbordet, Välj den **kör insamlaren** genväg.
+4.  Öppna i Azure migrera-insamlaren **uppfylla krav** och sedan:
 
-   a. Acceptera licensvillkoren och läs informationen från tredje part.
+    a. Acceptera licensvillkoren och läs informationen från tredje part.
 
-   Insamlaren kontrollerar att den virtuella datorn har Internetåtkomst.
-   
-   b. Om den virtuella datorn har åtkomst till internet via en proxyserver, väljer **proxyinställningar**, och ange proxyadress och lyssningsport. Ange autentiseringsuppgifter om proxyn kräver autentisering.
+    Insamlaren kontrollerar att den virtuella datorn har Internetåtkomst.
 
-   Insamlaren kontrollerar att insamlingstjänsten körs. Tjänsten installeras som standard på den virtuella insamlardatorn.
+    b. Om den virtuella datorn har åtkomst till internet via en proxyserver, väljer **proxyinställningar**, och ange proxyadress och lyssningsport. Ange autentiseringsuppgifter om proxyn kräver autentisering.
 
-   c. Hämta och installera VMware PowerCLI.
+    Insamlaren kontrollerar att insamlingstjänsten körs. Tjänsten installeras som standard på den virtuella insamlardatorn.
 
-5. Gör följande i **Specify vCenter Server details** (Ange vCenter Server-information):
+    c. Hämta och installera VMware PowerCLI.
+
+5.  Gör följande i **Specify vCenter Server details** (Ange vCenter Server-information):
     - Ange namn (FQDN) eller IP-adressen för vCenter-servern.
     - I **användarnamn** och **lösenord**, ange de skrivskyddade kontoautentiseringsuppgifter som insamlaren använder för att identifiera virtuella datorer i vCenter Server.
     - I **väljer omfattning**, väljer du en omfattning för identifiering av virtuell dator. Insamlaren kan identifiera virtuella datorer i angivet omfång. Omfånget kan anges till en viss mapp, ett datacenter eller ett kluster. Det får inte innehålla fler än 1 000 virtuella datorer. 
 
-6. I **ange migrering projektet**anger ID: T och nyckeln för projektet. Om du inte kopierar dem, öppna Azure-portalen från VM-insamlaren. På projektets **översikt** väljer **identifiera datorer** och kopiera värdena.  
-7. I **Visa förloppet för samlingen**, övervaka identifieringsprocessen och kontrollera att metadata som samlas in från de virtuella datorerna är i ett omfång. Insamlaren visar en ungefärlig identifieringstid.
+6.  I **ange migrering projektet**anger ID: T och nyckeln för projektet. Om du inte kopierar dem, öppna Azure-portalen från VM-insamlaren. På projektets **översikt** väljer **identifiera datorer** och kopiera värdena.  
+7.  I **Visa förloppet för samlingen**, övervaka identifieringsprocessen och kontrollera att metadata som samlas in från de virtuella datorerna är i ett omfång. Insamlaren visar en ungefärlig identifieringstid.
 
 
 ### <a name="verify-vms-in-the-portal"></a>Verifiera virtuella datorer i portalen

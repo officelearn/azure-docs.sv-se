@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric händelse aggregeringen med Linux Azure-diagnostik | Microsoft Docs"
-description: "Läs mer om sammanställa och samlar in händelser med hjälp av LAD för övervakning och diagnostik av Azure Service Fabric-kluster."
+title: Azure Service Fabric händelse aggregeringen med Linux Azure-diagnostik | Microsoft Docs
+description: Läs mer om sammanställa och samlar in händelser med hjälp av LAD för övervakning och diagnostik av Azure Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: b70780b2e1d169aced3412f6fe6d13ad4dab82be
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9ad63a67d3b51cad1376eb9e97e68fb9102013e3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Aggregering av händelse och med Azure-diagnostik för Linux
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 
 När du kör ett Azure Service Fabric-kluster, är det en bra idé att samla in loggar från alla noder i en central plats. Med loggarna på en central plats hjälper dig att analysera och felsöka problem i klustret eller problem i program och tjänster som körs i klustret.
 
-Ett sätt att överföra och samla in loggar är att använda Linux Azure Diagnostics (LAD)-tillägget, som överför loggar till Azure Storage och har även möjlighet att skicka loggar till Azure Application Insights eller Händelsehubbar. Du kan också använda en extern process för att läsa händelser från lagring och placera dem i en analys plattform produkt som [OMS logganalys](../log-analytics/log-analytics-service-fabric.md) eller en annan lösning för parsning av loggen.
+Ett sätt att överföra och samla in loggar är att använda Linux Azure Diagnostics (LAD)-tillägget, som överför loggar till Azure Storage och har även möjlighet att skicka loggar till Azure Application Insights eller Händelsehubbar. Du kan också använda en extern process för att läsa händelser från lagring och placera dem i en analys plattform produkt som [logganalys](../log-analytics/log-analytics-service-fabric.md) eller en annan lösning för parsning av loggen.
 
 ## <a name="log-and-event-sources"></a>Loggen och händelsen källor
 
@@ -52,4 +52,4 @@ Detta konfigurerar LAD agenten för att övervaka angivna loggfilerna. När en n
 ## <a name="next-steps"></a>Nästa steg
 
 1. För att förstå vilka händelser som du bör undersöka vid felsökning av problem i detalj, se [LTTng dokumentationen](http://lttng.org/docs) och [med LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-2. [Ställ in OMS-agenten](service-fabric-diagnostics-event-analysis-oms.md) för att samla in mått kan övervaka behållare som har distribuerats på klustret och visualisera dina loggar 
+2. [Konfigurera agenten logganalys](service-fabric-diagnostics-event-analysis-oms.md) för att samla in mått kan övervaka behållare som har distribuerats på klustret och visualisera dina loggar 

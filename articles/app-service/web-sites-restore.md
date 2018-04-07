@@ -1,8 +1,8 @@
 ---
-title: "Återställ en app i Azure"
-description: "Lär dig hur du återställer din app från en säkerhetskopia."
+title: Återställ en app i Azure
+description: Lär dig hur du återställer din app från en säkerhetskopia.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 60b55acaf687dae76e054b428b8d6584d8eb09f8
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 502e3cefca5e2e60efe6a9875de0b63413bc4578
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="restore-an-app-in-azure"></a>Återställ en app i Azure
 Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/app-service-web-overview.md) som du tidigare har säkerhetskopierat (se [säkerhetskopiera din app i Azure](web-sites-backup.md)). Du kan återställa din app med dess länkade databaser på begäran till ett tidigare tillstånd eller skapa en ny app baserat på en av din ursprungliga app säkerhetskopieringar. Azure Apptjänst har stöd för följande databaser för säkerhetskopiering och återställning:
 - [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
-- [Azure-databas för MySQL (förhandsgranskning)](https://azure.microsoft.com/en-us/services/mysql)
-- [Azure-databas för PostgreSQL (förhandsgranskning)](https://azure.microsoft.com/en-us/services/postgres)
+- [Azure-databas för MySQL)](https://azure.microsoft.com/en-us/services/mysql)
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgres)
 - [MySQL i appen](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 Återställning från säkerhetskopior är tillgängliga för appar som körs **Standard** och **Premium** nivå. Information om skala upp appar finns [skala upp en app i Azure](web-sites-scale.md). **Premium** nivå kan ett större antal daglig säkerhetskopiering ska utföras än **Standard** nivå.

@@ -1,13 +1,13 @@
 ---
 title: Skapa och hantera en virtuell Windows-dator i Azure med Python | Microsoft Docs
-description: "Lär dig använda Python att skapa och hantera en virtuell Windows-dator i Azure."
+description: Lär dig använda Python att skapa och hantera en virtuell Windows-dator i Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: davidmu
-ms.openlocfilehash: bb777d41570d7b1dc97402d532519488912948e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d56143a470be4da1faaea949ea286fca1ffd319d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Skapa och hantera virtuella Windows-datorer i Azure med Python
 
@@ -363,7 +363,7 @@ Nu när du har skapat alla stödresurser kan du skapa en virtuell dator.
 
 ## <a name="perform-management-tasks"></a>Utföra administrativa uppgifter
 
-Under livscykeln för en virtuell dator kan du vill köra hanteringsuppgifter, till exempel starta, stoppa eller ta bort en virtuell dator. Dessutom kanske du vill skapa kod för att automatisera repetitiva och komplicerade uppgifter.
+Under livscykeln för en virtuell dator kan du vilja köra administrativa uppgifter, genom att till exempel starta, stoppa eller ta bort en virtuell dator. Dessutom kanske du vill skapa kod för att automatisera repetitiva och komplicerade uppgifter.
 
 ### <a name="get-information-about-the-vm"></a>Hämta information om den virtuella datorn
 

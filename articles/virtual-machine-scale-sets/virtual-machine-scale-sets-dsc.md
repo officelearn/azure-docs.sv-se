@@ -1,13 +1,13 @@
 ---
-title: "Med hjälp av Desired State Configuration med Skalningsuppsättningar i virtuella | Microsoft Docs"
-description: "Med virtuella skalan uppsättningar med Azure DSC-tillägg"
+title: Med hjälp av Desired State Configuration med Skalningsuppsättningar i virtuella | Microsoft Docs
+description: Med virtuella skalan uppsättningar med Azure DSC-tillägg
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: zjalexander
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: c8f047b5-0e6c-4ef3-8a47-f1b284d32942
 ms.service: virtual-machine-scale-sets
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 04/05/2017
 ms.author: zachal
-ms.openlocfilehash: b61b0acf3072569ab733a13defb465c921d26187
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a68a5f31952d636c054b66dc0bb6ec0579cd7192
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Med virtuella skalan uppsättningar med Azure DSC-tillägg
 [Skaluppsättningar för den virtuella datorn](virtual-machine-scale-sets-overview.md) kan användas med den [Azure önskad tillstånd Configuration (DSC)](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) tillägget hanterare. Skaluppsättningar för den virtuella datorn är ett sätt att distribuera och hantera ett stort antal virtuella datorer och Elastiskt kan skala in eller ut för att läsa in. DSC används för att konfigurera de virtuella datorerna som de är online så att de kör programmet för produktion.

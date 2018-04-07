@@ -1,26 +1,21 @@
 ---
-title: JSON-utdata för Stream Analytics | Microsoft Docs
-description: Lär dig hur Stream Analytics kan inrikta dig på Azure Cosmos DB för JSON-utdata för dataarkivering och låg latens frågor för Ostrukturerade JSON-data.
-keywords: JSON-utdata
-documentationcenter: ''
-services: stream-analytics,documentdb
+title: Azure Stream Analytics-utdata till Cosmos DB
+description: Den här artikeln beskriver hur du använder Azure Stream Analytics för att spara utdata till Azure Cosmos DB för JSON-utdata för dataarkivering och låg latens frågor för Ostrukturerade JSON-data.
+services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 8bda2abda6f2b7207a5a7195c24b07da9089fb06
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: f7115f7d19cd44ae7d0812d3aa6c48d8dd58c20d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Mål Azure Cosmos DB för JSON-utdata från Stream Analytics
+# <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics-utdata till Azure Cosmos DB  
 Stream Analytics kan rikta [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) att aktivera arkivering och låg latens datafrågor på Ostrukturerade JSON-data för JSON-utdata. Det här dokumentet beskrivs några metoder för att implementera den här konfigurationen.
 
 För de som inte är bekant med Cosmos DB, ta en titt på [Azure Cosmos DB Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/documentdb/) att komma igång. 
@@ -35,7 +30,7 @@ Azure DB som Cosmos-utdata i Stream Analytics kan skriva strömmen bearbetning r
 Cosmos DB samling alternativen beskrivs nedan.
 
 ## <a name="tune-consistency-availability-and-latency"></a>Finjustera konsekvens, tillgänglighet och svarstid
-Om du vill matcha ditt programkrav kan Cosmos DB du finjustera databasen och samlingar och kompromissa mellan konsekvens, tillgänglighet och svarstid. Beroende på vilka nivåer av läskonsekvens scenariot behov mot läsa och skriva latens, du kan välja en konsekvensnivå på ditt konto. Som standard kan Cosmos DB också synkron indexering på varje CRUD-åtgärd i din samling. Det här är ett annat bra alternativ för att ange skrivning/läsning prestanda i Cosmos-databasen. Ytterligare information om det här avsnittet finns det [ändra din databas och fråga konsekvensnivåer](../cosmos-db/consistency-levels.md) artikel.
+Om du vill matcha ditt programkrav kan Cosmos DB du finjustera databasen och samlingar och kompromissa mellan konsekvens, tillgänglighet och svarstid. Beroende på vilka nivåer av läskonsekvens scenariot behov mot läsa och skriva latens, du kan välja en konsekvensnivå på ditt konto. Som standard kan Cosmos DB också synkron indexering på varje CRUD-åtgärd i din samling. Det här är ett annat bra alternativ för att ange skrivning/läsning prestanda i Cosmos-databasen. Mer information finns i [ändra din databas och fråga konsekvensnivåer](../cosmos-db/consistency-levels.md) artikel.
 
 ## <a name="upserts-from-stream-analytics"></a>Upserts från Stream Analytics
 Stream Analytics-integrering med Cosmos DB kan du infoga eller uppdatera poster i din Cosmos-DB-samling baserat på en viss dokument-ID-kolumn. Detta kallas även för som en *Upsert*.

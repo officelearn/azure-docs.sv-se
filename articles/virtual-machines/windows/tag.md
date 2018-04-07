@@ -1,10 +1,10 @@
 ---
 title: Hur du tagga en Windows VM-resurs i Azure | Microsoft Docs
-description: "Lär dig mer om en Windows-dator som skapats i Azure med hjälp av Resource Manager-distributionsmodellen-märkning"
+description: Lär dig mer om en Windows-dator som skapats i Azure med hjälp av Resource Manager-distributionsmodellen-märkning
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 56d17f45-e4a7-4d84-8022-b40334ae49d2
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 5f00c4265cea3db02dbb09a7f81be636a3fdd3d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5044bda855b6ac88eb5784f257686bf8a1838222
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Hur du tagga en virtuell Windows-dator i Azure
 Den här artikeln beskrivs olika sätt att märka en virtuell Windows-dator i Azure via Resource Manager-distributionsmodellen. Taggar är användardefinierade nyckel/värde-par som kan placeras direkt på en resurs eller en resursgrupp. Azure stöder för närvarande upp till 15 taggar per resurs och resursgruppen. Taggar kan placeras på en resurs vid tidpunkten för skapandet eller lägga till en befintlig resurs. Observera att taggar stöds för resurser som skapats via den Resource Manager distributionsmodellen. Om du vill att märka en Linux-dator, se [så att märka en Linux-dator i Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -63,7 +63,7 @@ Det andra kommandot visar etiketter för den angivna variabeln.
         Value        Production
         Name        Environment
 
-Tredje kommandot lägger till en ytterligare så att den *$tags* variabeln. Observera användningen av den  **+=**  ska läggas till på nytt nyckel/värde-par till den *$tags* lista.
+Tredje kommandot lägger till en ytterligare så att den *$tags* variabeln. Observera användningen av den **+=** ska läggas till på nytt nyckel/värde-par till den *$tags* lista.
 
         PS C:\> $tags += @{Name="Location";Value="MyLocation"}
 

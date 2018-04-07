@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: cff6d780826164de6ef0122849e40d453192f81c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 11f57f866981cd4d376705dd24e2f0c54126e337
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure-stacken 1803 uppdatering
 
@@ -44,7 +44,9 @@ Azure-stacken 1803 uppdatera versionsnumret är **20180329.1**.
 
 
 ### <a name="post-update-steps"></a>Steg efter uppdateringen
-*Det finns inga efter uppdateringen åtgärder för uppdatering 1803.*
+Installera alla tillämpliga snabbkorrigeringar efter installationen av 1803. Mer information läser du följande knowledge base-artiklar, samt våra [Servicing princip](azure-stack-servicing-policy.md).
+
+- [KB 4103348 - Nätverksstyrenhetens API-tjänsten kraschar när du försöker installera en uppdatering för Azure-stacken](https://support.microsoft.com/en-us/help/4103348)
 
 
 ### <a name="new-features"></a>Nya funktioner 
@@ -90,7 +92,7 @@ Den här uppdateringen innehåller följande förbättringar och korrigeringar f
 
 
 ### <a name="known-issues-with-the-update-process"></a>Kända problem med uppdateringen    
-Under installationen av uppdateringen 1803 kan det vara driftstopp för blob-tjänsten och interna tjänster som använder blob-tjänsten. Detta inkluderar vissa åtgärder för virtuell dator.  Detta stillestånd kan orsaka fel för klient operations eller aviseringar från tjänster som inte kan komma åt data. Det här problemet löser sig själv när uppdateringen är klar med installationen. 
+<!-- 2328416 --> During installation of the 1803 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
 
 
 ### <a name="known-issues-post-installation"></a>Kända problem (efter installationen)
@@ -129,10 +131,6 @@ Följande är efter installationen kända problem för version **20180323.2**.
 
 #### <a name="compute"></a>Compute
 - Inställningarna för skalning för virtuella datorer är inte tillgängliga i portalen. Som en tillfällig lösning kan du använda [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). På grund av skillnader mellan versioner PowerShell måste du använda den `-Name` parameter i stället för `-VMScaleSetName`.
-
-- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
-
-  Lös problemet genom att kontakta supporten och be snabbkorrigering **1.0.180302.4** för Azure-stacken. 
 
 - När du skapar en tillgänglighetsuppsättning i portalen genom att gå till **ny** > **Compute** > **tillgänglighetsuppsättning**, du kan bara skapa en tillgänglighetsuppsättning med en feldomän och uppdateringsdomän 1. Som en lösning när du skapar en ny virtuell dator, skapa tillgänglighetsuppsättning med hjälp av PowerShell, CLI eller från portalen.
 

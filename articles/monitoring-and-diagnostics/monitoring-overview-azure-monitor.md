@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 448711b7b2e102662bc157485561c33bf7f5fba1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1ba2f2be8db424bddfccdf374704ec7be5691feb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="overview-of-azure-monitor"></a>Översikt över Azure Övervakare
 Den här artikeln innehåller en översikt över Azure-Monitor-tjänsten i Microsoft Azure. Det beskriver vad Azure-Monitor finns och innehåller länkar till ytterligare information om hur du använder Azure-Monitor.  Om du föredrar en videointroduktion finns i nästa steg länkarna längst ned i den här artikeln. 
@@ -57,7 +57,7 @@ Om du inte har publicerat till logganalys eller Application Insights, eller om d
 
 Här beräknings-tjänster omfattar 
 - Cloud Services 
-- Virtual Machines 
+- Virtuella datorer 
 - Skaluppsättningar för den virtuella datorn 
 - Service Fabric
 
@@ -160,7 +160,7 @@ I allmänhet kan du ändra dataspårning, Routning och hämtning med någon av f
 * [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om
+Lär dig mer om
 - En videogenomgång av bara Azure-Monitor finns på  
 [Kom igång med Azure-Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). 
 - En video som förklarar ett scenario där du kan använda Azure-Monitor finns på [utforska Microsoft Azure-övervakning och diagnostik](https://channel9.msdn.com/events/Ignite/2016/BRK2234) och [Azure Övervakare i ett videoklipp från Ignite 2016](https://myignite.microsoft.com/videos/4977).
@@ -168,4 +168,4 @@ Läs mer om
 - Ställ in den [Azure Diagnostics tillägg](../azure-diagnostics.md) om du försöker att diagnostisera problem i din molntjänst, virtuell dator, virtuella skala anger eller Service Fabric-programmet.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) om du försöker diagnostiska problem i din App Service Web app.
 - [Felsöka Azure Storage](../storage/common/storage-e2e-troubleshooting.md) när du använder Storage-Blobbar, tabeller eller köer
-- [Logga Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) och [Operations Management Suite](https://www.microsoft.com/oms/)
+- [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/)

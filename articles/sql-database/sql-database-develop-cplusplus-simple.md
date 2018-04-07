@@ -1,6 +1,6 @@
 ---
 title: Ansluta till SQL Database med C och C++ | Microsoft Docs
-description: "Använd exempelkoden i den här Snabbstartsguide för att skapa en modern program med C++ och säkerhetskopieras av en relationsdatabaser i molnet med Azure SQL Database."
+description: Använd exempelkoden i den här Snabbstartsguide för att skapa en modern program med C++ och säkerhetskopieras av en relationsdatabaser i molnet med Azure SQL Database.
 services: sql-database
 author: edmacauley
 manager: craigg
@@ -8,13 +8,13 @@ ms.service: sql-database
 ms.custom: develop apps
 ms.devlang: cpp
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 04/01/2018
 ms.author: edmacauley
-ms.openlocfilehash: 659b413b2686a50a0681e7307b51188e6e6d0859
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 49cbed06d92843fcf0c444e7ef2bb42df2addf7e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Ansluta till SQL Database med C och C++
 Det här exemplet syftar C och C++ utvecklare som försöker ansluta till Azure SQL DB. Den är uppdelad i avsnitt så att du kan gå till avsnittet som bäst samlar in ditt intresse. 

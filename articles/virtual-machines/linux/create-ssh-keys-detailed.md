@@ -1,13 +1,13 @@
 ---
-title: "Detaljerade steg för att skapa ett SSH-nyckelpar för virtuella Linux-datorer i Azure | Microsoft Docs"
-description: "Lär dig ytterligare steg för att skapa ett offentligt och privat SSH-nyckelpar för virtuella Linux-datorer i Azure, tillsammans med specifika certifikat för olika användningsfall."
+title: Detaljerade steg för att skapa ett SSH-nyckelpar för virtuella Linux-datorer i Azure | Microsoft Docs
+description: Lär dig ytterligare steg för att skapa ett offentligt och privat SSH-nyckelpar för virtuella Linux-datorer i Azure, tillsammans med specifika certifikat för olika användningsfall.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/28/2017
 ms.author: danlep
-ms.openlocfilehash: 1308812287fa4484e244c47497a7aef7aa994b14
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 20d36f5e377f2d5af588319cee2be1808571f905
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Detaljerad genomgång för att skapa ett SSH-nyckelpar och ytterligare certifikat för en virtuell Linux-dator i Azure
 Med ett SSH-nyckelpar kan du skapa virtuella datorer i Azure som använder SSH-nycklar för autentisering som standard, vilket gör att inga lösenord krävs för att logga in. Det går att gissa sig fram till lösenord och dina virtuella datorer blir sårbara för råstyrkeattacker som försöker gissa ditt lösenord. Virtuella datorer som skapas med Azure CLI- eller Resource Manager-mallar kan omfatta din offentliga SSH-nyckel som en del av distributionen, så att inga postdistributionskonfigurationssteg krävs för att inaktivera lösenordsinloggningar för SSH. Den här artikeln innehåller detaljerade anvisningar och ytterligare exempel på genererar certifikat, såsom för användning med virtuella Linux-datorer. Om du snabbt vill skapa och använda ett SSH-nyckelpar kan du se [Skapa ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure](mac-create-ssh-keys.md).
@@ -55,7 +55,7 @@ ssh-keygen \
 
 `ssh-keygen` = det program som används för att skapa nycklarna
 
-`-t rsa`= typen av nyckel ska skapas som är den [RSA-formatet](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) 
+`-t rsa` = typen av nyckel ska skapas som är den [RSA-formatet](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) 
  `-b 2048` = bitar i nyckeln
 
 `-C "azureuser@myserver"` = en kommentar i slutet av filen för den offentliga nyckeln som gör det lätt att identifiera den.  Normalt används en e-postadress som kommentaren, men du kan använda det som fungerar bäst för din infrastruktur.

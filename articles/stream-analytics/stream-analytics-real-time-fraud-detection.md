@@ -1,24 +1,19 @@
 ---
-title: 'Stream Analytics: Att upptäcka bedrägerier realtid | Microsoft Docs'
+title: Upptäckt av realtidsskyddet bedrägerier med Azure Stream Analytics
 description: Lär dig hur du skapar en lösning för identifiering av realtidsskyddet bedrägeri med Stream Analytics. Använd en händelsehubb för händelsebearbetning i realtid.
-keywords: Identifiering av avvikelse, att upptäcka bedrägerier, realtid avvikelseidentifiering
 services: stream-analytics
-documentationcenter: ''
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/28/2017
-ms.author: sngun
-ms.openlocfilehash: a622b7851f52f65efe4450191c2cf65e73e816bc
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 1ebbdb22698ec1eab76b6b6b504fe27a6f0b28bf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Komma igång med Azure Stream Analytics: att upptäcka bedrägerier i realtid
 
@@ -405,7 +400,7 @@ Men om du är klar och du inte behöver de resurser som du har skapat, du kan ta
 
 ## <a name="get-support"></a>Få support
 
-För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,11 +1,11 @@
 ---
-title: "Planera för migrering av IaaS-resurser från klassiska till Azure Resource Manager | Microsoft Docs"
-description: "Planera för migrering av IaaS-resurser från klassiska till Azure Resource Manager"
+title: Planera för migrering av IaaS-resurser från klassiska till Azure Resource Manager | Microsoft Docs
+description: Planera för migrering av IaaS-resurser från klassiska till Azure Resource Manager
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 246032701d97fc7d16e6cb38ee79fbd5470f65d9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 586a5590c88ef4124543c47389f62eaa864d2d18
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planera för migrering av IaaS-resurser från klassiska till Azure Resource Manager
 Azure Resource Manager erbjuder en mängd fantastiska funktioner, är det viktigt att du har planerat din migrering resa att göra det för att gå smidigt. Utgifter tid om hur du planerar säkerställer att det inte uppstår problem vid körning av migreringsaktiviteter. 
@@ -164,7 +164,7 @@ För de verkliga migreringarna kanske du vill överväga:
 
 1. Planera och schemalägga det virtuella nätverket (minsta enheten av migrering) med ökande prioritet.  Göra enkla virtuella nätverk och gå vidare med mer komplicerad virtuella nätverk.
 2. De flesta kunder har icke-produktion och produktionsmiljöer.  Schemalägga produktion senast.
-3. **(VALFRITT)**  Schemalägga ett Underhåll driftstopp med mycket buffert ifall oväntade problem uppstå.
+3. **(VALFRITT) ** Schemalägga ett Underhåll driftstopp med mycket buffert ifall oväntade problem uppstå.
 4. Kommunicerar med och justera med din supportteam om problem uppstår.
 
 ### <a name="patterns-of-success"></a>Mönster för att lyckas

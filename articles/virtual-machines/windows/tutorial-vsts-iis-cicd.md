@@ -1,13 +1,13 @@
 ---
 title: Skapa en CI/CD-pipeline i Azure med Team Services | Microsoft Docs
-description: "Lär dig hur du skapar en Visual Studio Team Services pipeline för kontinuerlig integration och som distribuerar ett webbprogram till IIS på en Windows VM"
+description: Lär dig hur du skapar en Visual Studio Team Services pipeline för kontinuerlig integration och som distribuerar ett webbprogram till IIS på en Windows VM
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 006cac5606c411c9d86b36d0069021094fcdb1db
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cf6e3013d4dfc7e18d96a717a76b591cde939139
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Skapa en pipeline för kontinuerlig integrering med Visual Studio Team Services och IIS
 Du kan använda en kontinuerlig integrering och distribution (CI/CD) pipeline för att automatisera bygga, testa och distribution faser för programutveckling. I den här självstudiekursen skapar du en CI/CD-pipeline med hjälp av Visual Studio Team Services och en Windows-dator (VM) i Azure som kör IIS. Lär dig att:
@@ -230,7 +230,7 @@ I kursen får du skapat en ASP.NET-webbprogram i Team Services och konfigurerat 
 > * Skapa en version definitionen för att publicera ny webbplats distribuerar paket till IIS
 > * Testa CI/CD-pipelinen
 
-Gå vidare till nästa kurs att lära dig hur du installerar en SQL &#92; IIS &#92;. NET stacken på ett par med virtuella Windows-datorer.
+Gå till nästa kurs att lära dig hur du installerar en SQL&#92;IIS&#92;.NET-stacken på ett par med virtuella Windows-datorer.
 
 > [!div class="nextstepaction"]
-> [SQL &#92; IIS &#92;. NET stack](tutorial-iis-sql.md)
+> [SQL&#92;IIS&#92;.NET stack](tutorial-iis-sql.md)

@@ -1,24 +1,19 @@
 ---
-title: Introduktion till Stream Analytics | Microsoft Docs
+title: Översikt över Azure Stream Analytics
 description: Lär dig mer om Stream Analytics, en hanterad tjänst som hjälper dig att analysera data i realtid som skickats från IoT (Internet of Things).
-keywords: analytics som en tjänst, hanterade tjänster, stream bearbetning, streaming analytics vad är stream analytics
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 10/17/2017
 ms.author: jeanb
-ms.openlocfilehash: 70a4b0b358b79ec892483a9fa5573e4bf2d57534
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
-ms.translationtype: HT
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 10/17/2017
+ms.openlocfilehash: 1912972b2a5ef40bcc61140225f1fdbcbb1535c3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="what-is-stream-analytics"></a>Vad är Stream Analytics?
 
@@ -86,5 +81,5 @@ Som en hanterad tjänst förhindrar Stream Analytics dataförlust och ger kontin
 
 * Kom igång genom att [experimentera med indata- och frågor från IoT-enheter](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md).
 * Skapa en [Stream Analytics-lösning från slutpunkt-till-slutpunkt](stream-analytics-real-time-fraud-detection.md) som undersöker telefonmetadata för att leta efter bedrägliga samtal.
-* Få svar på dina Stream Analytics-frågor på [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+* Få svar på dina Stream Analytics-frågor på [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 

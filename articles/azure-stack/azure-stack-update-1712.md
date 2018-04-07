@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 04/06/2018
 ms.author: brenduns
-ms.openlocfilehash: c3cb8ab8a838a3f831ece617fcf3e218a9510ea5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e9c39c374d7dfa6759da9f9b9a12816d77c647b1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure-stacken 1712 uppdatering
 
@@ -43,11 +43,14 @@ Azure-stacken 1712 uppdatera versionsnumret är **180106.1**. Om en kund har dis
 Du måste först installera Azure-stacken [1711 uppdatera](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1711) innan du installerar den här uppdateringen.
 
 ### <a name="post-update-steps"></a>Steg efter uppdateringen
+- Installera alla tillämpliga snabbkorrigeringar efter installationen av 1712. Mer information läser du följande knowledge base-artiklar, samt våra [Servicing princip](azure-stack-servicing-policy.md).  
+  - [KB 4103348 - Nätverksstyrenhetens API-tjänsten kraschar när du försöker installera en uppdatering för Azure-stacken](https://support.microsoft.com/help/4103348)
 
-Den här uppdateringen kräver också att du installerar uppdateringar av inbyggd programvara från OEM-partner när du har slutfört installationen av 1712 Azure Stack.
 
-> [!NOTE]
-> Hänvisa till webbplatsen OEM-partner att hämta uppdateringar.
+- Uppdatera 1712 kräver också att du installerar uppdateringar av inbyggd programvara från OEM-partner när du har slutfört installationen av 1712 Azure Stack.
+
+  > [!NOTE]
+  > Hänvisa till webbplatsen OEM-partner att hämta uppdateringar.
 
 ### <a name="new-features-and-fixes"></a>Nya funktioner och korrigeringar
 

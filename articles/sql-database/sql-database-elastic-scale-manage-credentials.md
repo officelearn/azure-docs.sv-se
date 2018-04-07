@@ -1,19 +1,19 @@
 ---
-title: "Hantera autentiseringsuppgifter i klientbibliotek för elastisk databas | Microsoft Docs"
-description: "Hur du anger rätt nivå av autentiseringsuppgifter, admin till skrivskyddat läge, för appar för elastisk databas"
+title: Hantera autentiseringsuppgifter i klientbibliotek för elastisk databas | Microsoft Docs
+description: Hur du anger rätt nivå av autentiseringsuppgifter, admin till skrivskyddat läge, för appar för elastisk databas
 services: sql-database
 manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 26d83779b218f8c936c020d63651861f45bafa2f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c18e5da04fd92fed2cb9e93d13b5f3ecdeaac1a1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Autentiseringsuppgifter som används för att komma åt klientbibliotek för elastisk databas
 Den [klientbibliotek för elastisk databas](sql-database-elastic-database-client-library.md) använder tre olika typer av autentiseringsuppgifter för åtkomst till den [Fragmentera kartan manager](sql-database-elastic-scale-shard-map-management.md). Beroende på behov, använda autentiseringsuppgifter med den lägsta nivån av åtkomst som möjligt.

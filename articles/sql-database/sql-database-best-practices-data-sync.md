@@ -1,18 +1,18 @@
 ---
-title: "Metodtips för datasynkronisering för Azure SQL (förhandsversion) | Microsoft Docs"
-description: "Lär dig mer om metodtips för att konfigurera och köra Azure SQL Data Sync (förhandsversion)."
+title: Metodtips för datasynkronisering för Azure SQL (förhandsversion) | Microsoft Docs
+description: Lär dig mer om metodtips för att konfigurera och köra Azure SQL Data Sync (förhandsversion).
 services: sql-database
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 1c8ad4b318d52b5cb6af284b3304cfa7ad35522b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 7ce7830d853a77b54706201fa614e9f4bee637a4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="best-practices-for-sql-data-sync-preview"></a>Metodtips för SQL-datasynkronisering (förhandsgranskning) 
 
@@ -20,7 +20,7 @@ Den här artikeln beskrivs bästa praxis för datasynkronisering för Azure SQL 
 
 En översikt över SQL datasynkronisering (förhandsgranskning), se [synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering (förhandsgranskning)](sql-database-sync-data.md).
 
-## <a name="security-and-reliability"></a>Säkerhet och tillförlitlighet
+## <a name="security-and-reliability"></a> Säkerhet och tillförlitlighet
 
 ### <a name="client-agent"></a>Klientagenten
 
@@ -45,7 +45,7 @@ Azure SQL Database stöder bara en enda uppsättning autentiseringsuppgifter. Ö
 
 ## <a name="setup"></a>Konfiguration
 
-### <a name="database-considerations-and-constraints"></a>Överväganden för databasen och begränsningar
+### <a name="database-considerations-and-constraints"></a> Överväganden för databasen och begränsningar
 
 #### <a name="sql-database-instance-size"></a>Storlek på SQL-databas
 
@@ -54,7 +54,7 @@ När du skapar en ny instans av SQL-databas, ange den maximala storleken så att
 > [!IMPORTANT]
 > SQL-datasynkronisering (förhandsgranskning) lagrar ytterligare metadata med varje databas. Se till att du ta hänsyn till dessa metadata när du beräknar utrymmet som krävs. Mängden ytterligare kostnader som är relaterad till bredd tabeller (till exempel smala tabeller kräver mer resurser) och mängden trafik.
 
-### <a name="table-considerations-and-constraints"></a>Tabell överväganden och begränsningar
+### <a name="table-considerations-and-constraints"></a> Tabell överväganden och begränsningar
 
 #### <a name="selecting-tables"></a>Om du väljer register
 
@@ -66,7 +66,7 @@ Varje tabell i en grupp för synkronisering måste ha en primärnyckel. Tjänste
 
 Testa prestanda för inledande och pågående synkronisering innan du använder SQL-datasynkronisering (förhandsgranskning) i produktion.
 
-### <a name="provisioning-destination-databases"></a>Etablerar mål databaser
+### <a name="provisioning-destination-databases"></a> Etablerar mål databaser
 
 Förhandsgranska SQL datasynkronisering (förhandsversion) ger autoprovisioning basic-databas.
 
@@ -90,7 +90,7 @@ SQL-datasynkronisering (förhandsversion) har följande begränsningar på autop
 -   Använda SQL-datasynkronisering (förhandsgranskning) autoprovisioning funktionen endast när du testar tjänsten.  
 -   Etablera databasschemat för produktion.
 
-### <a name="locate-hub"></a>Var ska NAV-databas
+### <a name="locate-hub"></a> Var ska NAV-databas
 
 #### <a name="enterprise-to-cloud-scenario"></a>Enterprise-to-cloud-scenario
 
@@ -107,7 +107,7 @@ Riktlinjerna ovan gäller komplexa sync konfigurationer, till exempel de som är
 
 ## <a name="sync"></a>Sync
 
-### <a name="avoid-a-slow-and-costly-initial-synchronization"></a>Undvika långsamt och kostsamt inledande synkronisering
+### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> Undvika långsamt och kostsamt inledande synkronisering
 
 I det här avsnittet diskuterar vi den första synkroniseringen av en grupp för synkronisering. Lär dig hur du vill förhindra att en inledande synkronisering från tar längre tid och som kostar mer än nödvändigt.
 
@@ -121,13 +121,13 @@ Om databaserna är i olika datacenter, måste varje rad färdas mellan olika dat
 
 Starta om möjligt med data i endast en av gruppen synkronisera databaser.
 
-### <a name="design-to-avoid-synchronization-loops"></a>Design så att loopar undviks synkronisering
+### <a name="design-to-avoid-synchronization-loops"></a> Design så att loopar undviks synkronisering
 
 En loop sync uppstår vid cirkelreferenser i en grupp för synkronisering. I det scenariot replikeras varje ändring i en databas oändlighet och cirkulärt via databaserna i gruppen synkronisering.   
 
 Se till att du inte synkronisera slingor, eftersom de prestanda försämras och kan avsevärt öka kostnaderna.
 
-### <a name="handling-changes-that-fail-to-propagate"></a>Ändringar som inte kan sprida
+### <a name="handling-changes-that-fail-to-propagate"></a> Ändringar som inte kan sprida
 
 #### <a name="reasons-that-changes-fail-to-propagate"></a>Det gick inte att sprida skäl som ändras
 
@@ -153,7 +153,7 @@ Se till att du inte synkronisera slingor, eftersom de prestanda försämras och 
 
 ## <a name="maintenance"></a>Underhåll
 
-### <a name="avoid-out-of-date-databases-and-sync-groups"></a>Undvika inaktuella databaser och synkronisera grupper
+### <a name="avoid-out-of-date-databases-and-sync-groups"></a> Undvika inaktuella databaser och synkronisera grupper
 
 En sync-grupp eller en databas i en grupp för synkronisering kan bli inaktuell. När en synkronisering Gruppstatus är **inaktuella**, slutar att fungera. När en databas status är **inaktuella**, data kan gå förlorade. Det är bäst att undvika det här scenariot istället för att försöka återställa från den.
 
@@ -178,7 +178,7 @@ För att förhindra inaktuella synkroniseringsgrupper:
 -   Uppdatera sekundärnyckelvärden för att inkludera de värden som finns i de felaktiga raderna.
 -   Uppdatera datavärdena i raden misslyckade så att de är kompatibla med det schema eller den externa nycklar i måldatabasen.
 
-### <a name="avoid-deprovisioning-issues"></a>Undvika avetablering problem
+### <a name="avoid-deprovisioning-issues"></a> Undvika avetablering problem
 
 I vissa fall kan det orsaka synkronisering misslyckas att avregistrera en databas med en klientagent.
 
@@ -199,7 +199,7 @@ För att återställa från det här scenariot:
 2. Lägga till databasen i varje sync-grupp som du har tagit bort den från igen.  
 3. Distribuera varje berörda sync-grupp (den här åtgärden etablerar databasen).  
 
-### <a name="modifying-your-sync-group"></a>Ändra en grupp för synkronisering
+### <a name="modifying-your-sync-group"></a> Ändra en grupp för synkronisering
 
 Försök inte att ta bort en databas från en grupp för synkronisering och sedan redigera gruppen sync utan att först distribuera en av ändringarna.
 
@@ -212,7 +212,7 @@ Mer information om SQL-datasynkronisering (förhandsgranskning) finns i:
 
 -   [Synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering (förhandsgranskning)](sql-database-sync-data.md)
 -   [Konfigurera Azure SQL datasynkronisering (förhandsgranskning)](sql-database-get-started-sql-data-sync.md)
--   [Övervaka Azure SQL-datasynkronisering (förhandsversion) med OMS logganalys](sql-database-sync-monitor-oms.md)
+-   [Övervaka Azure SQL-datasynkronisering (förhandsversion) med logganalys](sql-database-sync-monitor-oms.md)
 -   [Felsökning av problem med Azure SQL-datasynkronisering (förhandsgranskning)](sql-database-troubleshoot-data-sync.md)  
 -   Slutför PowerShell-exempel som visar hur du konfigurerar SQL-datasynkronisering (förhandsversion):  
     -   [Använd PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)  

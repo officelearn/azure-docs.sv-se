@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: 356c1343443b33e565c65ef0693b8d8455ff1d1b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 445adb7f57332a285494c744763f633806d2675e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Utöka (kopiera) aviseringar från OMS-portalen till Azure
 Operations Management Suite (OMS) portalen visar endast logganalys varningar.  Den nya upplevelsen av aviseringar har nu integrerats aviseringar upplevelsen över olika tjänster och delar i Microsoft Azure. Den nya upplevelsen som är tillgängliga som **aviseringar** under Azure-Monitor i Azure portal som innehåller aktiviteten Logga varningar, mått aviseringar och logga varningar för både logganalys och Application Insights. 
@@ -30,12 +30,13 @@ Förutom fördelar som uppstått i inte behöva gå utanför Azure-portalen, fin
 
 - Till skillnad från i OMS-portalen där endast 250 aviseringar kan skapas och visas; i Azure aviseringar finns den här begränsningen inte
 - Från Azure aviseringar kan alla aviseringstyper hanteras, räknas upp och visat; inte bara logganalys aviseringar som är fallet med OMS-portalen
-- Använda Azure aviseringar [åtgärdsgrupper](monitoring-action-groups.md), vilket kan du ha mer än en åtgärd för varje avisering inklusive SMS, röst anropa, Automation-Runbook, Webhook, ITSM koppling och mer. Logganalys aviseringar är begränsade i båda numret samt som typ av åtgärder som möjligt
+- Kontrollera åtkomsten till användarna bara övervakning och avisering, med hjälp av [Azure-Monitor roll](monitoring-roles-permissions-security.md)
+- Använda Azure aviseringar [åtgärdsgrupper](monitoring-action-groups.md), vilket kan du ha mer än en åtgärd för varje avisering inklusive SMS, röst anropa, Automation-Runbook, Webhook, ITSM koppling och mer. 
 
 ## <a name="process-of-extending-your-alerts"></a>Utöka aviseringar
 Processen för att utöka aviseringar från OMS-portalen i Azure, har **inte** innebär bland annat ändring varningsdefinitionen, frågan eller konfiguration på något sätt. Den enda förändringen som krävs är att webhook-anrop med automation-runbook eller ansluta till ITSM verktyget görs via grupp i Azure, alla åtgärder, till exempel e-postmeddelande. Därför om lämpliga åtgärdsgrupp är associerade med aviseringen - ska de bli utökats till Azure.
 
-Eftersom processen med att utöka är icke-förstörande och inte interruptive, Microsoft förlänga aviseringar skapas automatiskt i OMS-portalen på Azure aviseringar – från och med **23 April 2018**. Microsoft kommer att börja schemalägga utöka aviseringar i Azure och gradvis se alla varningar som finns i OMS-portalen, hanterbar från Azure-portalen från den aktuella dagen. 
+Eftersom processen med att utöka är icke-förstörande och inte interruptive, Microsoft förlänga aviseringar skapas automatiskt i OMS-portalen på Azure aviseringar – från och med **14 maj 2018**. Microsoft kommer att börja schemalägga utöka aviseringar i Azure och gradvis se alla varningar som finns i OMS-portalen, hanterbar från Azure-portalen från den aktuella dagen. 
 
 När aviseringar i logganalys-arbetsytan hämta schemat för att utöka till Azure, de fortsätter att fungera och kommer **inte** på något sätt påverka övervakningen. Schemalagd aviseringarna kanske inte är tillgänglig för ändring/redigering tillfälligt; men nya Azure aviseringar kan fortsätta att skapas i den här kort tid. I den här korta perioden om alla redigera eller skapa avisering görs från OMS-portalen har användare alternativet för att fortsätta i Azure Log Analytics eller Azure-aviseringar.
 
@@ -55,7 +56,12 @@ Som nämnts kan utökas aviseringar som skapats i Microsoft åtgärden Managemen
 
  ![Visar en lista över aviseringar efter att förlängas till Azure OMS-portalen](./media/monitor-alerts-extend/PostExtendList.png)
 
-För någon åtgärd aviseringar som redigera eller skapa utförs i OMS-portalen för dirigeras användare transparent till Azure-aviseringar. Varna skapa fortsätter från det befintliga [Log Analytics API](../log-analytics/log-analytics-api-alerts.md) som tidigare, med bara mindre ändring är att när aviseringar har utökats till Azure - åtgärdsgrupper måste associeras i schemat.
+För någon åtgärd aviseringar som redigera eller skapa utförs i OMS-portalen för dirigeras användare transparent till Azure-aviseringar. 
+
+> [!NOTE]
+> När användare transparent vidtas till Azure på eventuella tillägg eller redigera åtgärd på en avisering i OMS - se till att användarna mappas korrekt med lämpliga [behörigheter för att använda Azure-Monitor och -varningar](monitoring-roles-permissions-security.md)
+
+Varna skapa fortsätter från det befintliga [Log Analytics API](../log-analytics/log-analytics-api-alerts.md) som tidigare, med bara mindre ändring är att när aviseringar har utökats till Azure - åtgärdsgrupper måste associeras i schemat.
 
 ## <a name="next-steps"></a>Nästa steg
 

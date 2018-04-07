@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: b63f6b3be2e4576b304c1a73ff326a937815b27e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3708c4a1bae93682f81d8aad0f3649f6b2381ff5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Azure Table storage: Node.js-Webbapp
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -55,7 +55,7 @@ Utför följande steg för att hämta autentiseringsuppgifter för lagringskonto
 3. Ange följande cmdlet för att hämta kontoinformationen för lagring i Azure Powershell-fönstret:
 
     ```powershell
-    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
+    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccount
     ```
 
    Föregående cmdlet hämtar listan över storage-konton och konto nycklar som hör till din värdbaserade tjänst.
@@ -342,9 +342,20 @@ Filen **layout.jade** i katalogen **views** används som en global mall för and
 
 1. Ladda ned och extrahera filerna för [Twitter Bootstrap](http://getbootstrap.com/). Kopiera den **bootstrap.min.css** filen från den **bootstrap\\dist\\css** mappen till den **offentliga\\matmallar** katalogen för tillämpningsprogrammet tasklist.
 2. Från den **vyer** mapp, öppna den **layout.jade** filen i en textredigerare och Ersätt innehållet med följande:
-
-    doctype html  html    head      title= title      link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')      link(rel='stylesheet', href='/stylesheets/style.css')    body.app      nav.navbar.navbar-default        div.navbar-header          a.navbar-brand(href='/') My Tasks      block content
-
+ 
+```jade
+    doctype html
+    html
+      head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+      body.app
+        nav.navbar.navbar-default
+          div.navbar-header
+            a.navbar-brand(href='/') My Tasks
+        block content
+```
 3. Spara den **layout.jade** fil.
 
 ### <a name="running-the-application-in-the-emulator"></a>Kör programmet i emulatorn

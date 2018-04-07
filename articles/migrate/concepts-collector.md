@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="collector-appliance"></a>Installation av insamlaren
 
@@ -53,7 +53,7 @@ Insamlaren installation måste vara ansluten till internet för att skicka infor
 1. Du kan konfigurera insamlaren så att den har direkt Internetanslutning.
 2. Du kan konfigurera insamlaren ansluter via en proxyserver.
     * Om proxyservern kräver autentisering, kan du ange användarnamnet och lösenordet i anslutningsinställningarna.
-    * IP-adress/FQDN för proxyservern ska ha formatet http://IPaddress eller http://FQDN. Http-proxy stöds.
+    * IP-adress/FQDN för proxyservern måste ha formatet http://IPaddress eller http://FQDN. Http-proxy stöds.
 
 > [!NOTE]
 > HTTPS-baserade proxyservrar stöds inte av insamlaren.
@@ -126,7 +126,7 @@ Du kan välja ett scope för att identifiera när du är ansluten till vCenter. 
 
 1. Omfattningen kan vara ett datacenter, en mapp eller en ESXi-värd. 
 2. Du kan bara välja ett omfång i taget. Om du vill välja flera virtuella datorer kan du slutföra en identifiering och starta om processen för identifiering med ett nytt scope.
-3. Du kan bara välja en omfattning som har *högst 1 000 virtuella datorer*. Om du väljer en omfattning som har högst 1 000 virtuella datorer, måste du dela upp omfånget i mindre enheter genom att skapa mappar. Du måste sedan köra oberoende av mindre mapparna.
+3. Du kan bara välja en omfattning som har *mindre än 1500 virtuella datorer*.
 
 ## <a name="specify-migration-project"></a>Ange migreringsprojekt
 
@@ -197,6 +197,16 @@ Du kan uppgradera insamlaren till den senaste versionen utan att hämta ägg ige
 5. Högerklicka på Setup.ps1 och välj kör med PowerShell och följ anvisningarna på skärmen för att installera uppdateringen.
 
 ### <a name="list-of-updates"></a>Listan över uppdateringar
+
+#### <a name="upgrade-to-version-1097"></a>Uppgradera till version 1.0.9.7
+
+För uppgradering till version 1.0.9.7 download [paketet](https://aka.ms/migrate/col/upgrade_9_7)
+
+**Algoritm** | **Hash-värde**
+--- | ---
+MD5 | 01ccd6bc0281f63f2a672952a2a25363
+SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
+SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
 
 #### <a name="upgrade-to-version-1095"></a>Uppgradera till version 1.0.9.5
 

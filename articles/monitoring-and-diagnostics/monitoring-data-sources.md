@@ -1,12 +1,12 @@
 ---
-title: "Använda övervakningsdata från Azure | Microsoft Docs"
-description: "Läs mer om alla övervakning datakällor på Azure idag."
+title: Använda övervakningsdata från Azure | Microsoft Docs
+description: Läs mer om alla övervakning datakällor på Azure idag.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2017
 ms.author: johnkem
-ms.openlocfilehash: c7075c2e1a2500eca1d0aa9b3a797e8a0e903ede
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b10e95cd6b335468201b4cd123b3a29fb5d1bcdb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Använda övervakningsdata från Azure
 
@@ -45,7 +45,7 @@ I Azure-plattformen levererar vi tillsammans övervakningsdata i en enda plats m
 | Azure övervaka mått aviseringar | Meddelanden | [Visa lista här](monitoring-supported-metrics.md) | <ul><li>**Webhook:** [Azure mått aviseringar](insights-webhooks-alerts.md)</li></ul> |
 | Azure övervaka aktivitetsloggen aviseringar | Meddelanden | Alla Azure-tjänster | <ul><li>**Webhook:** Azure aktivitetsloggen aviseringar</li></ul> |
 | Meddelanden om autoskalning | Meddelanden | [Visa lista här](monitoring-overview-autoscale.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [Autoskala meddelande webhook nyttolast schemat](insights-autoscale-to-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| OMS loggen sökfråga aviseringar | Meddelanden | OMS logganalys | <ul><li>**Webhook:** [logganalys aviseringar](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
+| Logga sökfråga varningar | Meddelanden | Log Analytics | <ul><li>**Webhook:** [logganalys aviseringar](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
 | Application Insights mått aviseringar | Meddelanden | Application Insights | <ul><li>**Webhook:** [Application Insights aviseringar](../application-insights/app-insights-alerts.md)</li></ul> |
 | Application Insights webbtester | Meddelanden | Application Insights | <ul><li>**Webhook:** [Application Insights aviseringar](../application-insights/app-insights-alerts.md)</li></ul> |
 

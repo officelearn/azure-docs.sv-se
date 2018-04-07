@@ -1,19 +1,19 @@
 ---
-title: "Kom igång med Azure SQL database auditing | Microsoft Docs"
-description: "Att Azure SQL database auditing spårar databashändelser till en granskningslogg."
+title: Kom igång med Azure SQL database auditing | Microsoft Docs
+description: Att Azure SQL database auditing spårar databashändelser till en granskningslogg.
 services: sql-database
 author: giladm
 manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 0339dc2ecc93fb9ec260ede9d3f2e9b7b1419b08
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 54cd9864f6ff4bd8234e8ec55e158f4213f9f11b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 Azure SQL database auditing spårar databashändelser och skriver dem till en granskningslogg logga i Azure storage-konto. Granskning också:
@@ -66,12 +66,12 @@ I följande avsnitt beskrivs konfigurationen av granskning med Azure-portalen.
     <a id="auditing-screenshot"></a>![Navigeringsfönstret][1]
 3. Om du vill konfigurera en granskningsprincip för server, kan du välja den **visa inställningarna för** länken i databasbladet för granskning. Du kan visa eller ändra inställningar för servergranskning. Servern granskningsprinciper gäller för alla befintliga och nya databaser på servern.
 
-    ![Navigeringsfönstret][2]
+    ![Navigeringsfönster][2]
 4. Om du vill aktivera blobbgranskning på databasnivå för **granskning**väljer **ON**, och för **granskning typen**väljer **Blob**.
 
     Om servern blobbgranskning är aktiverat, kommer att finnas audit databasen konfigurerad sida vid sida med blob-audit server.
 
-    ![Navigeringsfönstret][3]
+    ![Navigeringsfönster][3]
 5. Öppna den **granska loggarna lagring** bladet väljer **lagringsinformation**. Välj Azure storage-konto där loggar sparas, och välj sedan kvarhållningsperioden. Kommer att ta bort de gamla loggarna. Klicka sedan på **OK**.
    >[!TIP]
    >Använd samma lagringskonto för alla granskad databaser för att få mest av granskning rapporter mallarna.
@@ -96,14 +96,14 @@ Det finns flera metoder du kan använda för att visa blob granskningsloggar:
 
 * Använd den [Azure-portalen](https://portal.azure.com).  Öppna den aktuella databasen. Överst i databasens **Auditing & Threat detection** bladet, klickar du på **visa granskningsloggarna**.
 
-    ![Navigeringsfönstret][7]
+    ![Navigeringsfönster][7]
 
     En **granskningsloggarna** öppnas bladet som kommer du att kunna visa loggfilerna.
 
     - Du kan visa specifika datum genom att klicka på **Filter** överst i den **granskningsloggarna** bladet.
     - Du kan växla mellan granskningsposter som har skapats av en server princip- eller princip för granskning.
 
-       ![Navigeringsfönstret][8]
+       ![Navigeringsfönster][8]
 
 * Använd systemfunktionen **sys.fn_get_audit_file** (T-SQL) att returnera granskningsdata i tabellformat. Mer information om hur du använder den här funktionen finns i [sys.fn_get_audit_file dokumentationen](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
@@ -111,14 +111,14 @@ Det finns flera metoder du kan använda för att visa blob granskningsloggar:
 * Använd **sammanfoga granskningsfilerna** i SQL Server Management Studio (startar med SSMS 17):
     1. Välj menyn SSMS **filen** > **öppna** > **sammanfoga granskningsfilerna**.
 
-        ![Navigeringsfönstret][9]
+        ![Navigeringsfönster][9]
     2. Den **lägga till granskningsfilerna** öppnas. Välj en av de **Lägg till** alternativ att välja om du vill koppla granskningsfilerna från en lokal disk eller importera dem från Azure Storage. Du måste ange dina Azure Storage-information och kontonyckel.
 
     3. När alla filer som ska kopplas har lagts till, klickar du på **OK** att slutföra sammanslagningsåtgärden.
 
     4. Den kopplade filen öppnas i SSMS, där du kan visa och analysera den, samt exportera den till en XEL eller CSV-fil eller en tabell.
 
-* Använd den [synkronisera programmet](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) som vi har skapat. Den körs i Azure och använder Operations Management Suite (OMS) logganalys offentliga API: er att skicka SQL-granskningsloggar i OMS. Synkronisera program push-meddelanden SQL granskningsloggar i OMS Log Analytics för förbrukning via instrumentpanelen OMS logganalys.
+* Använd den [synkronisera programmet](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) som vi har skapat. Den körs i Azure och använder logganalys offentliga API: er för att skicka SQL-granskningsloggar till logganalys. Synkronisera program push-meddelanden SQL granskningsloggar i logganalys för förbrukning via instrumentpanelen logganalys.
 
 * Use Power BI. Du kan visa och analysera granskningsdata i Power BI. Lär dig mer om [Power BI och åtkomst till en mall för nedladdningsbar](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
@@ -158,10 +158,10 @@ Det är sannolikt att uppdatera din lagringsnycklar regelbundet i produktionen. 
 
 1. Öppna den **lagringsinformation** bladet. I den **Lagringsåtkomstnyckel** väljer **sekundära**, och klicka på **OK**. Klicka på **spara** längst upp på bladet granskning konfiguration.
 
-    ![Navigeringsfönstret][5]
+    ![Navigeringsfönster][5]
 2. Gå till bladet storage-konfiguration och återskapa den primära åtkomstnyckeln.
 
-    ![Navigeringsfönstret][6]
+    ![Navigeringsfönster][6]
 3. Gå tillbaka till bladet granskning configuration växla lagringsåtkomstnyckel från sekundär till primär och klicka sedan på **OK**. Klicka på **spara** längst upp på bladet granskning konfiguration.
 4. Gå tillbaka till bladet storage-konfiguration och återskapa den sekundära åtkomstnyckeln (som förberedelse för nyckeln nästa uppdateringscykeln).
 

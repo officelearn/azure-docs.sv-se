@@ -1,10 +1,10 @@
 ---
-title: "Konfigurera LVM på en virtuell dator som kör Linux | Microsoft Docs"
-description: "Lär dig hur du konfigurerar LVM på Linux i Azure."
+title: Konfigurera LVM på en virtuell dator som kör Linux | Microsoft Docs
+description: Lär dig hur du konfigurerar LVM på Linux i Azure.
 services: virtual-machines-linux
 documentationcenter: na
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 ms.assetid: 7f533725-1484-479d-9472-6b3098d0aecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 7926627aaa3f0da935131f491d927ab5cb4b35c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a22426d0422585714cb78d541a84d55d2fce6e0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Konfigurera LVM på en virtuell Linux-dator i Azure
 Det här dokumentet innehåller information om hur du konfigurerar logiska volymen Manager (LVM) i ditt virtuella Azure-datorn. Det är möjligt att konfigurera LVM på en disk ansluten till den virtuella datorn, som standard de flesta molnet bilder inte LVM som konfigurerats på OS-disk. Detta är att förhindra problem med dubbla volym grupper om OS-disken någonsin kopplas till en annan virtuell dator med samma distribution och typ, dvs. under en återställningsscenario. Därför rekommenderas endast för att använda LVM på datadiskar med.
@@ -141,7 +141,7 @@ I den här guiden antar vi att du har kopplat tre datadiskar som vi ska kallar `
     /dev/mapper/data--vg01-data--lv01 on /data type ext4 (rw)
     ```
 
-5. (Valfritt) Felsäker Startparametrar i`/etc/fstab`
+5. (Valfritt) Felsäker Startparametrar i `/etc/fstab`
    
     Många distributioner innehålla antingen den `nobootwait` eller `nofail` montera parametrar som kan läggas till i `/etc/fstab` fil. Dessa parametrar tillåta fel när du monterar en viss filsystemet och Tillåt Linux-datorn och fortsätta att starta även om det inte går att montera korrekt RAID-filsystemet. Se dokumentationen för din distribution för mer information om dessa parametrar.
    

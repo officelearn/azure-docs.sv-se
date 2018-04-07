@@ -1,11 +1,11 @@
 ---
-title: "Slutföra en åtkomst-granskning av medlemmar i en grupp eller användare åtkomst till ett program med Azure AD | Microsoft Docs"
-description: "Lär dig hur du utför en åtkomst-granskning för medlemmar i en grupp eller användare med åtkomst till ett program i Azure Active Directory."
+title: Slutföra en åtkomst-granskning av medlemmar i en grupp eller användare åtkomst till ett program med Azure AD | Microsoft Docs
+description: Lär dig hur du utför en åtkomst-granskning för medlemmar i en grupp eller användare med åtkomst till ett program i Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: de853d633aa65c9f08f5e28088d5240c2e4d7fa6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c4efdbf5a355ddc9a31091517665f91dd8e68ec0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Slutföra en åtkomst-granskning av medlemmar i en grupp eller användare åtkomst till ett program i Azure AD
 
-Administratörer kan använda Azure Active Directory (Azure AD) att [skapa en åtkomst-granska](active-directory-azure-ad-controls-create-access-review.md) för medlemmar i grupper eller användare som är tilldelade till ett program. Azure AD skickar granskare automatiskt ett e-postmeddelande som uppmanar dem att granska åtkomst. Om en användare inte har fått ett e-postmeddelande, kan du skicka dem instruktionerna [granska din åtkomst](active-directory-azure-ad-controls-perform-access-review.md). Följ stegen i den här artikeln finns och att tillämpa resultaten när omprövningsperioden åtkomst är över eller om en administratör slutar åtkomst granska.
+Administratörer kan använda Azure Active Directory (Azure AD) att [skapa en åtkomst-granska](active-directory-azure-ad-controls-create-access-review.md) för medlemmar i grupper eller användare som är tilldelade till ett program. Azure AD skickar granskare automatiskt ett e-postmeddelande som uppmanar dem att granska åtkomst. Om en användare inte har fått ett e-postmeddelande, kan du skicka dem instruktionerna [granska din åtkomst](active-directory-azure-ad-controls-perform-access-review.md). (Observera att gäster som är tilldelad som granskare, men har inte accepterat inbjudan får ett e-postmeddelande från åtkomst granskningar som de måste du acceptera en inbjudan innan granska.) Följ stegen i den här artikeln finns och att tillämpa resultaten när omprövningsperioden åtkomst är över eller om en administratör slutar åtkomst granska.
 
 ## <a name="view-an-access-review-in-the-azure-portal"></a>Visa en åtkomst-granskning i Azure-portalen
 
@@ -35,13 +35,15 @@ Om granskningen inte har nått det schemalagda slutdatumet kan en administratör
 
 ## <a name="apply-the-changes"></a>Tillämpa ändringarna 
 
-När en åtkomst-granskning är klar, eftersom den nått slutdatum eller administratör stoppats manuellt, Välj antingen **tillämpa**. Resultatet av granskningen implementeras genom att uppdatera den grupp eller ett program. Om en användares åtkomst nekades i granskningen, när en administratör väljer det här alternativet, Azure AD tar bort tilldelningen av deras medlemskap eller programmet. 
+När en åtkomst-granskning är klar, antingen eftersom den nått slutdatum eller administratören stoppade tjänsten manuellt och automatiskt tillämpa inte konfigurerats för granskning, kan du välja **tillämpa** att tillämpa ändringarna manuellt. Resultatet av granskningen implementeras genom att uppdatera den grupp eller ett program. Om en användares åtkomst nekades i granskningen, när en administratör väljer det här alternativet, Azure AD tar bort tilldelningen av deras medlemskap eller programmet. 
 
-Att välja **tillämpa** inte har en effekt på en grupp som har sitt ursprung i en lokal katalog eller en dynamisk grupp. Om du vill ändra en grupp som har sitt ursprung lokalt Hämta resultaten och tillämpa ändringarna på representation av gruppen i den katalogen.
+När en åtkomst-granskning har slutförts och tillämpa automatiskt konfigurerades status för granska kommer att ändras från slutförd via mellanliggande tillstånd och slutligen ändrar tillstånd tillämpats. Du bör se nekade användare om något som tas bort från resursen för att gruppera medlemskap eller app tilldelning i ett par minuter.
+
+En konfigurerade automatiskt tillämpa granskning eller välja **tillämpa** inte har en effekt på en grupp som har sitt ursprung i en lokal katalog eller en dynamisk grupp. Om du vill ändra en grupp som har sitt ursprung lokalt Hämta resultaten och tillämpa ändringarna på representation av gruppen i den katalogen.
 
 ## <a name="download-the-results-of-the-review"></a>Hämta resultaten för granska
 
-Om du vill hämta resultaten för granskningen väljer **godkännanden** och välj sedan **hämta**. Den resulterande CSV-filen kan visas i Excel eller andra program som öppnar CSV-filer.
+Om du vill hämta resultaten för granskningen väljer **godkännanden** och välj sedan **hämta**. Den resulterande CSV-fil som kan visas i Excel eller andra program som öppnar UTF-8-kodat CSV-filer.
 
 ## <a name="optional-delete-a-review"></a>Valfritt: Ta bort ett omdöme
 Om du inte längre är intresserad av att granskningen kan du ta bort den. Välj **ta bort** att ta bort granskningen från Azure AD.

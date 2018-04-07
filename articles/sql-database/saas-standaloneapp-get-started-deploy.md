@@ -1,6 +1,6 @@
 ---
-title: "Självstudier för flera innehavare SaaS - Azure SQL Database | Microsoft Docs"
-description: "Distribuera och utforska ett fristående enskild klient SaaS-program, som använder Azure SQL Database."
+title: Självstudier för flera innehavare SaaS - Azure SQL Database | Microsoft Docs
+description: Distribuera och utforska ett fristående enskild klient SaaS-program, som använder Azure SQL Database.
 keywords: sql database tutorial
 services: sql-database
 author: stevestein
@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: e30f096a9f02214839550c2dc143ab665e1cd85c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 86a5bc31639cbbcdac1468f3bc2e35a547068882
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska en enskild klient fristående program som använder Azure SQL Database
 
@@ -43,7 +43,7 @@ Distribuera appen för de tre angivna klienterna:
 1. Klicka på varje blå **till Azure** för att öppna distributionsmallen i den [Azure-portalen](https://portal.azure.com). Varje mall kräver två parametervärden. ett namn för en ny resursgrupp och ett användarnamn som särskiljer den här distributionen från andra distributioner av appen. Nästa steg innehåller information för att ange dessa värden.<br><br>
     <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contoso samklang Hall**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Skogskornell Dojo**
+    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Dogwood Dojo**
 <br><br>
     <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazz Club**
 

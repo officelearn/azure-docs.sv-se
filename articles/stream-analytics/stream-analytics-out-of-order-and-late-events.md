@@ -1,24 +1,19 @@
 ---
-title: Hanterar händelsen ordning och lateness med Azure Stream Analytics | Microsoft Docs
-description: Läs mer om hur Stream Analytics fungerar med out-ordning eller försenade händelser i dataströmmar.
-keywords: i ordning, Sen, händelser
-documentationcenter: ''
+title: Hanterar händelsen ordning och lateness i Azure Stream Analytics
+description: Den här artikeln beskriver hur Stream Analytics hanterar out ordning eller försenade händelser i dataströmmar.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 3c1924ad87715f7a44c3666991e792adc3a20af9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure Stream Analytics händelse ordning överväganden
 
@@ -132,7 +127,7 @@ Azure Stream Analytics implementerar den här funktionen med hjälp av den [TIME
 * När du kombinerar flera tidslinjer, kan bristen på data i en av källorna eller partitioner fördröja utdata av ytterligare sen ankomst tolerans ett fönster.
 
 ## <a name="get-help"></a>Få hjälp
-Mer hjälp, försöker den [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Mer hjälp, försöker den [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Stream Analytics](stream-analytics-introduction.md)

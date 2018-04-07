@@ -3,7 +3,7 @@ title: Partitionering och teckenbredden i Azure Cosmos DB | Microsoft Docs
 description: Lär dig mer om hur partitionering fungerar i Azure Cosmos DB, hur du konfigurerar partitionering och partitions-nycklar och hur du väljer rätt Partitionsnyckeln för ditt program.
 services: cosmos-db
 author: arramac
-manager: jhubbard
+manager: kfile
 editor: monicar
 documentationcenter: ''
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 149d2ba5108fb49741203fbe5c50add6c0d523ae
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 16b0ddd45c8e524798a453af7c731af28f5f5c2d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionera och skala i Azure Cosmos DB
 
@@ -57,11 +57,11 @@ I korthet är här hur partitionering fungerar i Azure Cosmos DB:
 
 Semantik för partitionsnycklar är något annorlunda att matcha semantiken för varje API, som visas i följande tabell:
 
-| API | Partitionsnyckel | Radnyckel |
+| API | Partitionsnyckeln | Radnyckel |
 | --- | --- | --- |
 | Azure Cosmos DB | Anpassad partitionering nyckelsökvägen | Åtgärdade `id` | 
 | MongoDB | Anpassade delad nyckel  | Åtgärdade `_id` | 
-| Diagram | Anpassad partitionering nyckelegenskapen | Åtgärdade `id` | 
+| Graph | Anpassad partitionering nyckelegenskapen | Åtgärdade `id` | 
 | Tabell | Åtgärdade `PartitionKey` | Åtgärdade `RowKey` | 
 
 Azure Cosmos-DB använder hash-baserad partitionering. När du skriver ett objekt Azure Cosmos DB hashar nyckelvärdet partition och använder hashformaterats resultatet för att avgöra vilken partition för att lagra objekt i. Azure Cosmos-DB lagrar alla objekt med samma partitionsnyckel i samma fysiska partition. Valet av Partitionsnyckeln är ett viktigt beslut som du behöver göra i designläge. Du måste välja ett egenskapsnamn som har ett stort antal värden och har även åtkomstmönster. Om en fysiska partition når sin lagringsgräns och samma partitionsnyckel finns på alla data i partitionen Azure Cosmos DB Returnerar ”partitionsnyckel nått maximal storlek på 10 GB”-fel och partitionen inte dela därför att välja en partitionsnyckel är en mycket import Ant beslut.
@@ -83,12 +83,12 @@ Vänster bild visar resultatet av en felaktig partitionsnyckel och den högra bi
 
 För fysiska partitioner för att automatiskt dela upp i **p1** och **p2** enligt beskrivningen i [hur fungerar partitionering arbete](#how-does-partitioning-work), behållaren måste skapas med en genomströmning på 1 000 RU/s eller mer , och en partitionsnyckel som måste anges. När du skapar en behållare i Azure portal väljer den **obegränsad** kapacitet lagringsalternativ dra nytta av partitionering och automatisk skalning. 
 
-Om du har skapat en behållare i Azure-portalen eller programmässigt och inledande kapaciteten var 1 000 RU/s eller mer, och data innehåller en partitionsnyckel, du kan dra nytta av partitionering utan ändringar av din behållaren - detta inkluderar **fast**  storlek behållare, så länge den första behållaren har skapats med minst 1 000 RU/s i througput och en partitionsnyckel finns i data.
+Om du har skapat en behållare i Azure-portalen eller programmässigt och inledande kapaciteten var 1 000 RU/s eller mer, och data innehåller en partitionsnyckel, du kan dra nytta av partitionering utan ändringar av din behållaren - detta inkluderar **fast ** storlek behållare, så länge den första behållaren har skapats med minst 1 000 RU/s i througput och en partitionsnyckel finns i data.
 
 Om du har skapat en **fast** storlek behållare med någon partition nyckel eller skapat ett **fast** storlek behållare med genomflödet som är mindre än 1 000 RU/s, behållaren kan inte automatiskt-dela enligt beskrivningen i den här artikeln. Om du vill migrera data från behållaren så här till ett obegränsat antal behållare (en med minst 1 000 RU/s genomströmning och en partitionsnyckel), måste du använda den [datamigreringsverktyget](import-data.md) eller [ändra Feed biblioteket](change-feed.md) till Migrera ändringarna. 
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Partitionering och etablerat dataflöde
-Azure Cosmos-DB är utformad för förutsägbar prestanda. När du skapar en behållare kan du reservera genomflöde i  *[programbegäran](request-units.md) (RU) per sekund*. Varje begäran har tilldelats ett RU-tillägg som är proportionell mot mängden systemresurser som CPU, minne och i/o som används av åtgärden. En läsning av ett 1-KB-dokument med sessionskonsekvens förbrukar 1 RU. Läs är 1 RU oavsett hur många objekt som lagras eller antalet samtidiga begäranden som körs på samma gång. Större objekt kräver högre RUs beroende på storleken. Om du vet storleken på dina enheter och antalet läsningar som du behöver stöd för ditt program kan etablera du den exakta mängden dataflödet som krävs för ditt program är behöver läsa. 
+Azure Cosmos-DB är utformad för förutsägbar prestanda. När du skapar en behållare kan du reservera genomflöde i * [programbegäran](request-units.md) (RU) per sekund*. Varje begäran har tilldelats ett RU-tillägg som är proportionell mot mängden systemresurser som CPU, minne och i/o som används av åtgärden. En läsning av ett 1-KB-dokument med sessionskonsekvens förbrukar 1 RU. Läs är 1 RU oavsett hur många objekt som lagras eller antalet samtidiga begäranden som körs på samma gång. Större objekt kräver högre RUs beroende på storleken. Om du vet storleken på dina enheter och antalet läsningar som du behöver stöd för ditt program kan etablera du den exakta mängden dataflödet som krävs för ditt program är behöver läsa. 
 
 > [!NOTE]
 > Du måste välja en partitionsnyckel som gör det möjligt att fördela begäranden mellan vissa distinkta partitionsnyckelvärden för att uppnå det totala genomflödet i behållaren.

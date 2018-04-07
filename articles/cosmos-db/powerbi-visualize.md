@@ -3,9 +3,8 @@ title: Power BI självstudiekurs för Azure Cosmos DB connector | Microsoft Docs
 description: Använd den här Power BI självstudiekursen för att importera JSON, skapa insiktsfulla rapporter och visualisera data med hjälp av Azure Cosmos DB och Power BI-anslutningen.
 keywords: Power bi kursen, visualisera data, power bi-anslutningsprogrammet
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: mimig
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: cosmos-db
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: mimig
-ms.openlocfilehash: 74be3e5b25401a7811c1af23a0a7e2887f9055c1
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: sngun
+ms.openlocfilehash: 7f884589cc198bed95a4a5fe51325a72cb799b69
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Power BI-självstudiekurs för Azure Cosmos DB: visualisera data med Power BI-anslutningsprogrammet
 [PowerBI.com](https://powerbi.microsoft.com/) är en onlinetjänst där du kan skapa och dela instrumentpaneler och rapporter med data som är viktiga för dig och din organisation.  Power BI Desktop är en dedikerad rapport redigeringsverktyg som gör att du kan hämta data från olika datakällor, slå samman och transformera data, skapa kraftfulla rapporter och visualiseringar och publicera rapporterna till Power BI.  Med den senaste versionen av Power BI Desktop kan du nu ansluta till ditt Azure DB som Cosmos-konto via Azure DB som Cosmos-koppling för Power BI.   
@@ -90,12 +89,12 @@ Vill du prova? Nu sätter vi igång.
 
     ![Power BI Desktop hämta Data - anslutningsprogrammet för Powerbi](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
 6. På den **Preview Connector** klickar du på **Fortsätt**. Den **Azure Cosmos DB** visas.
-7. Ange Azure Cosmos DB konto slutpunkts-URL du vill hämta data från enligt nedan och klickar sedan på **OK**. Om du vill använda ditt eget konto kan du hämta URL: en från rutan URI i den **[nycklar](manage-account.md#keys)** bladet i Azure-portalen. Om du vill använda demo-kontot måste ange `https://analytics.documents.azure.com` för URL. 
+7. Ange Azure Cosmos DB konto slutpunkts-URL du vill hämta data från enligt nedan och klickar sedan på **OK**. Om du vill använda ditt eget konto kan du hämta URL: en från rutan URI i den ** [nycklar](manage-account.md#keys) ** bladet i Azure-portalen. Om du vill använda demo-kontot måste ange `https://analytics.documents.azure.com` för URL. 
    
     Lämna databasnamnet, samlingsnamn och SQL-instruktionen tomt eftersom dessa fält är valfria.  I stället använder vi Navigatören för att markera den databas och samling för att identifiera där data hämtas från.
    
     ![Power BI självstudiekurs för Azure Cosmos DB Power BI-anslutningsprogrammet - Desktop ansluta fönster](./media/powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-8. Om du ansluter till den här slutpunkten för första gången uppmanas för nyckeln konto. För ditt eget konto kan du hämta nyckeln från den **primärnyckel** rutan den **[skrivskyddade nycklar](manage-account.md#keys)** bladet i Azure-portalen. För kontot demo nyckeln är `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Ange rätt nyckel och klickar sedan på **Anslut**.
+8. Om du ansluter till den här slutpunkten för första gången uppmanas för nyckeln konto. För ditt eget konto kan du hämta nyckeln från den **primärnyckel** rutan den ** [skrivskyddade nycklar](manage-account.md#keys) ** bladet i Azure-portalen. För kontot demo nyckeln är `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Ange rätt nyckel och klickar sedan på **Anslut**.
    
     Vi rekommenderar att du använder den skrivskyddade nyckeln när du skapar rapporter.  Detta förhindrar onödig exponering av huvudnyckeln för potentiella säkerhetsrisker. Skrivskyddad nyckeln är tillgänglig från den [nycklar](manage-account.md#keys) bladet för Azure-portalen eller du kan använda demo-kontoinformation som anges ovan.
    

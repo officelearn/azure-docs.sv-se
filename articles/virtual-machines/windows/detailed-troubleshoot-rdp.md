@@ -1,13 +1,13 @@
 ---
-title: "Detaljerad felsökning i Azure för fjärrskrivbord | Microsoft Docs"
-description: "Granska detaljerad felsökning av remote desktop fel där du kan inte till en Windows-datorer i Azure"
+title: Detaljerad felsökning i Azure för fjärrskrivbord | Microsoft Docs
+description: Granska detaljerad felsökning av remote desktop fel där du kan inte till en Windows-datorer i Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: genlin
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
-keywords: "Det går inte att ansluta till fjärrskrivbord, Felsöka fjärrskrivbord, fjärrskrivbord kan inte ansluta skrivbord fjärrfel, felsökning: fjärrskrivbord, remote desktop problem"
+keywords: 'Det går inte att ansluta till fjärrskrivbord, Felsöka fjärrskrivbord, fjärrskrivbord kan inte ansluta skrivbord fjärrfel, felsökning: fjärrskrivbord, remote desktop problem'
 ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/06/2017
 ms.author: genli
-ms.openlocfilehash: afbaa3afc78efd220d74def2e9f106e9fbd1ee2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1485bc5ac7ae47df9a1a36c8b88d6515b5624360
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Detaljerad felsökning av problem med anslutning till fjärrskrivbord till virtuella Windows-datorer i Azure
 Den här artikeln innehåller detaljerad felsökning för att diagnostisera och åtgärda komplexa Remote Desktop-fel för Windows-baserade virtuella Azure-datorer.
@@ -198,5 +198,5 @@ Kontrollera att Remote Desktop-slutpunkten för den virtuella Azure-datorn ocks�
 
 [Felsökning av SSH (Secure Shell) anslutningar till en Linux-baserade Azure virtuella](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Felsök åtkomst till ett program som körs på en virtuell Azure-dator](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Felsöka åtkomst till ett program som körs på en virtuell Azure-dator](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

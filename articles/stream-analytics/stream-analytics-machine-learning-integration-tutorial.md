@@ -1,24 +1,19 @@
 ---
-title: Azure Stream Analytics och Machine Learning-integrering | Microsoft Docs
-description: Hur du använder en användardefinierad funktion och Machine Learning i ett Stream Analytics-jobb
-keywords: ''
-documentationcenter: ''
+title: Azure Stream Analytics-integrering med Azure Machine Learning
+description: Den här artikeln beskriver hur du snabbt ställa in ett enkelt Azure Stream Analytics-jobb som integrerar Azure Machine Learning med hjälp av en användardefinierad funktion.
 services: stream-analytics
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/01/2018
-ms.author: sngun
-ms.openlocfilehash: e5661f9f3871619201ff9106e87785de802e8933
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 93397e5370863b11b7c153bbf234d6bfdd808718
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Utföra sentiment analys med hjälp av Azure Stream Analytics och Azure Machine Learning
 Den här artikeln beskriver hur du snabbt ställa in ett enkelt Azure Stream Analytics-jobb som integrerar Azure Machine Learning. Du använder en Machine Learning sentiment analytics modell från Cortana Intelligence Gallery analysera strömmande textdata och fastställa sentiment poäng i realtid. Med hjälp av Cortana Intelligence Suite kan du utföra den här uppgiften utan att oroa av bygger en sentiment analytics modell.

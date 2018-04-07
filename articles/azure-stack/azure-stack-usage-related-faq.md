@@ -1,9 +1,25 @@
- ---
-Rubrik: användnings-API relaterade vanliga frågor och svar | Microsoft Docs beskrivning: listan över Azure Stack mätare jämförelse för användning av Azure API, tid för användning och rapporterade tid felkoder.
-tjänster: azure-stacken dokumentationcenter: '' författare: mattbriggs manager: femila editor: ''
-
-ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071 ms.service: azure-stack ms.workload: na ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 03/09/2018 ms.author: mabrigg ms.reviewer: alfredop
-
+---
+title: Användnings-API relaterade vanliga frågor och svar | Microsoft Docs
+description: Lista över Azure Stack mätare, jämförelse för användning av Azure API, tid för användning och rapporterade tid felkoder.
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
+ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/09/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 3d6f2bf569ecfebe3bf4f535a7a8ab3bf22849f1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Vanliga frågor i Azure-stacken användnings-API
 Den här artikeln besvarar några vanliga frågor om Azure-stacken användning API.

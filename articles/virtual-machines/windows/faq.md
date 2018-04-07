@@ -4,7 +4,7 @@ description: Innehåller svar på några vanliga frågor om Windows-datorer som 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-management
 ms.assetid: 757da816-a050-4889-a010-6f75d7978eb7
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: e440385ca0f22dce8668fe73b91efe14e0c8a9b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f427035f413dde304c2270006c6665120cb3e1e1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Vanliga frågor och svar om virtuella Windows-datorer
 Den här artikeln tar några vanliga frågor om Windows-datorer som skapats i Azure med hjälp av Resource Manager-distributionsmodellen. Linux-version av det här avsnittet finns [vanliga frågor om virtuella Linux-datorer](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -99,7 +99,7 @@ Följande användarnamn är inte tillåtna:
         <td style="text-align:center">actuser  </td><td style="text-align:center"> ADM </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
     </tr>
     <tr>
-        <td style="text-align:center">säkerhetskopiering </td><td style="text-align:center"> Konsolen </td><td style="text-align:center"> David </td><td style="text-align:center"> Gäst</td>
+        <td style="text-align:center">säkerhetskopiering </td><td style="text-align:center"> konsol </td><td style="text-align:center"> David </td><td style="text-align:center"> Gäst</td>
     </tr>
     <tr>
         <td style="text-align:center">john </td><td style="text-align:center"> ägare </td><td style="text-align:center"> rot </td><td style="text-align:center"> server</td>

@@ -1,19 +1,19 @@
 ---
-title: "Portar utöver 1433 för SQL-databas | Microsoft Docs"
-description: "Klientanslutningar från ADO.NET till Azure SQL-databas kan kringgå proxyn och interagera direkt med databasen med andra portar än 1433."
+title: Portar utöver 1433 för SQL-databas | Microsoft Docs
+description: Klientanslutningar från ADO.NET till Azure SQL-databas kan kringgå proxyn och interagera direkt med databasen med andra portar än 1433.
 services: sql-database
 author: MightyPen
 manager: jhubbard
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 2f80e95b6d3828bf8c63e2346b6ba4d14bde70bb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: de40a45cfcc1b105384c6b5462511a372a546fc1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portar utöver 1433 för ADO.NET 4.5
 Det här avsnittet beskriver beteendet för Azure SQL Database-anslutningen för klienter som använder ADO.NET 4.5 eller senare. 

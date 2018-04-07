@@ -1,6 +1,6 @@
 ---
-title: "Dela dokument säkerhetskonfiguration | Microsoft Docs"
-description: "Ställ in x409 certifikat för kryptering med delade/kopplingstjänsten för elastisk skalbarhet."
+title: Dela dokument säkerhetskonfiguration | Microsoft Docs
+description: Ställ in x409 certifikat för kryptering med delade/kopplingstjänsten för elastisk skalbarhet.
 metakeywords: Elastic Database certificates security
 services: sql-database
 manager: craigg
@@ -8,13 +8,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 05/27/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: c07ba1e74daace546bae4f4209842312136914a3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 694c1755b5263d48fdfa5cad3c0b13e42bfb8522
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="split-merge-security-configuration"></a>Dela dokument säkerhetskonfiguration
 Om du vill använda delade/kopplingstjänsten måste du konfigurera säkerhet på rätt sätt. Tjänsten är en del av funktionen elastisk skalbarhet i Microsoft Azure SQL Database. Mer information finns i [elastisk skala dela och sammanfoga Service kursen](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -111,7 +111,7 @@ Standardkonfigurationen nekar åtkomst till HTTP-slutpunkten. Det här är den r
 Standardkonfigurationen kan all åtkomst till HTTPS-slutpunkten. Den här inställningen kan begränsas ytterligare.
 
 ### <a name="changing-the-configuration"></a>Ändringar av konfigurationen
-Grupp av regler för åtkomstkontroll som gäller för och slutpunkten har konfigurerats i den  **<EndpointAcls>**  under den **tjänstkonfigurationsfilen**.
+Grupp av regler för åtkomstkontroll som gäller för och slutpunkten har konfigurerats i den **<EndpointAcls>** under den **tjänstkonfigurationsfilen**.
 
     <EndpointAcls>
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
@@ -429,7 +429,7 @@ I guiden Importera certifikat:
 9. Klicka på **OK** på alla fönster för dialogrutan.
 
 ## <a name="upload-certificate"></a>Överför certifikat
-I den [Azure-portalen](https://portal.azure.com/)
+I [Azure Portal](https://portal.azure.com/)
 
 1. Välj **molntjänster**.
 2. Välj Molntjänsten.

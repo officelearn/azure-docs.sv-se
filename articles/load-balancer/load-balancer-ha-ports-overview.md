@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: kumud
-ms.openlocfilehash: 09c51441d393de5d801e7a4c259b711a527349d8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f6e9dd09558a3485629d5b70dd8b68b292427b18
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="high-availability-ports-overview"></a>Översikt över portar för hög tillgänglighet
 
@@ -72,20 +72,20 @@ Den här konfigurationen tillåter inte några andra belastningsutjämning regel
 
 Du kan dock konfigurera offentliga Standard belastningsutjämning för backend-instanser förutom den här HA regeln.
 
-## <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>En enda flytande IP (direkt Serverreturnering) HA Portkonfiguration på interna Standard belastningsutjämnaren
+### <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>En enda flytande IP (direkt Serverreturnering) HA Portkonfiguration på interna Standard belastningsutjämnaren
 
 På liknande sätt kan du konfigurera din belastningsutjämnare för att använda en belastningsutjämningsregeln med **HA Port** med en enda klientdel och **flytande IP** inställd på **aktiverad**. 
 
 Den här konfigurationen kan du lägga till fler flytande IP för belastningsutjämning regler och / eller en offentlig belastningsutjämnare. Du kan dock använda en icke - flytande IP HA boad belastningsutjämning portkonfiguration ovanpå den här konfigurationen.
 
-## <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>Flera konfigurationer för hög tillgänglighet portar på den interna belastningsutjämnare som Standard
+### <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>Flera konfigurationer för hög tillgänglighet portar på den interna belastningsutjämnare som Standard
 
 Om din situation kräver att du konfigurerar mer än en hög tillgänglighet port frontends för samma serverdelspoolen, kan du åstadkomma detta genom att: 
 - konfigurera mer än en klientdel privata IP-adresser för en enskild resurs för intern belastningsutjämnare som Standard.
 - konfigurera flera regler, där varje regel har en enda för belastningsutjämning unika klientdelens IP-adress är markerat.
 - Välj **HA portar** alternativet och ange **flytande IP** till **aktiverad** för alla regler för belastningsutjämning.
 
-## <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>Interna belastningsutjämnare med hög tillgänglighet portar och offentliga belastningsutjämnare på samma backend-instanser
+### <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>Interna belastningsutjämnare med hög tillgänglighet portar och offentliga belastningsutjämnare på samma backend-instanser
 
 Du kan konfigurera **en** offentliga Standard belastningsutjämnaren resurs för serverdelsresurser tillsammans med en enkel intern Standard belastningsutjämnare med hög tillgänglighet portar.
 

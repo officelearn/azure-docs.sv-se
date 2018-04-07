@@ -1,12 +1,12 @@
 ---
 title: Skydd av personuppgifter-dokument med Azure reporting verktyg | Microsoft Docs
-description: "Använd Azure reporting services för att skydda sekretessen för personliga data i initiativ för att vara kompatibel med allmänna Data Protection förordning (BNPR)."
+description: Använd Azure reporting services för att skydda sekretessen för personliga data i initiativ för att vara kompatibel med allmänna Data Protection förordning (BNPR).
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fc859f3aa34531133b7a21e36591b011c63d511c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Skydd av personuppgifter-dokument med Azure reporting verktyg
 
@@ -95,13 +95,13 @@ Analysverktyg i logganalys som loggen sökningar, vyer och lösningar arbeta mot
 
 #### <a name="how-do-i-use-log-analytics"></a>Hur använder Log Analytics?
 
-Du kan använda logganalys via OMS-portalen eller Azure-portalen från en webbläsare. Log Analytics tillhandahåller en frågesyntax för att snabbt hämta och konsolidera data i databasen. Du kan skapa och spara loggen sökningar för att analysera data i portalen direkt.
+Du kan använda logganalys via OMS-portalen eller Azure-portalen från en webbläsare. Logganalys innehåller ett frågespråk för att snabbt hämta och konsolidera data i logganalys-arbetsytan. Du kan skapa och spara loggen sökningar för att analysera data i portalen direkt.
 
 Om du vill skapa en logganalys-arbetsytan i Azure-portalen, gör du följande:
 
 1. Välj **logganalys** från listan över tjänster på Marketplace.
 
-2. Välj **skapa,** sedan ange namnet på din OMS-arbetsyta din prenumeration, resursgrupp, plats och välj prisnivån.
+2. Välj **skapa,** sedan ange namnet på logganalys-arbetsytan din prenumeration, resursgrupp, plats och välj prisnivån.
 
 3. Klicka på **OK** att visa en lista över dina arbetsytor.
 

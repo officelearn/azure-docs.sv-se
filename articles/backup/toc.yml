@@ -155,14 +155,10 @@
           href: backup-client-automation.md
     - name: Azure SQL Database
       items:
-        - name: Konfigurera långsiktig kvarhållning av säkerhetskopior
-          href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Visa säkerhetskopior i ett Recovery Services-valv
-          href: ../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Återställa från långsiktig kvarhållning av säkerhetskopior
-          href: ../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Ta bort långsiktiga Azure SQL-säkerhetskopior
-          href: ../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Konfigurera och återställa SQL Database-säkerhetskopior – SQL-lagring
+          href: ../sql-database/sql-database-long-term-backup-retention-configure.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Konfigurera och återställa SQL Database-säkerhetskopior – Recovery Services-valv
+          href: ../sql-database/sql-database-long-term-backup-retention-configure-vault.md?toc=%2fazure%2fbackup%2ftoc.json
     - name: Windows Server
       items:
         - name: Säkerhetskopiera Windows Server-filer och -mappar

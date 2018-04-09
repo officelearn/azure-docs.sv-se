@@ -1,15 +1,28 @@
 - name: Dokumentation om CDN
   href: index.md
 - name: Översikt
-  href: cdn-overview.md
   items:
     - name: Vad är Azure CDN?
-      href: ../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json
-- name: Kom igång
+      href: cdn-overview.md
+    - name: Azure CDN-produktfunktioner
+      href: cdn-features.md
+- name: Snabbstarter
   items:
-    - name: Aktivera Azure CDN
+    - name: Skapa en profil och en slutpunkt
       href: cdn-create-new-endpoint.md
-- name: Gör så här för att
+- name: Självstudier
+  items:
+    - name: Lägga till en anpassad domän
+      href: cdn-map-content-to-custom-domain.md
+- name: Exempel
+  items:
+    - name: Kodexempel
+      href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
+- name: Begrepp
+  items:
+    - name: Så här fungerar cachelagring
+      href: cdn-how-caching-works.md
+- name: Instruktionsguider
   items:
     - name: Integrera
       items:
@@ -124,8 +137,6 @@
           href: cdn-rules-engine-reference-match-conditions.md
         - name: Regelmotor – funktioner
           href: cdn-rules-engine-reference-features.md
-    - name: Kodexempel
-      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cdn'
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cdn
     - name: .NET
@@ -145,7 +156,7 @@
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn'
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=azurecdn'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cdn/'
     - name: Priskalkylator

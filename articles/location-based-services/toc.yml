@@ -25,10 +25,12 @@
       href: geocoding-coverage.md
     - name: Trafiktäckning
       href: traffic-coverage.md
-    - name: Rendera täckning
+    - name: Renderingstäckning
       href: render-coverage.md
-    - name: Täckningsroutning
+    - name: Routningstäckning
       href: routing-coverage.md
+    - name: Språk som stöds
+      href: supported-languages.md
 - name: Instruktionsguider
   items:
     - name: Hantera konton och nycklar

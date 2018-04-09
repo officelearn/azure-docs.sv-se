@@ -139,6 +139,8 @@
               href: app-service-mobile-how-to-configure-microsoft-authentication.md
             - name: Autentisera med Twitter
               href: app-service-mobile-how-to-configure-twitter-authentication.md
+        - name: Anpassa authN/authZ
+          href: app-service-authentication-how-to.md
         - name: Använd en hanterad tjänstidentitet
           href: app-service-managed-service-identity.md
         - name: Använda SSL-certifikat i programkod

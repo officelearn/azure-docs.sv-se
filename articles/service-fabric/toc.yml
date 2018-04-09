@@ -249,12 +249,12 @@
               href: service-fabric-reliable-services-diagnostics.md
             - name: Reliable Actors-händelser
               href: service-fabric-reliable-actors-diagnostics.md
-            - name: Prestandamått
-              href: service-fabric-diagnostics-event-generation-perf.md
             - name: Övervaka Service Remoting
               href: service-fabric-reliable-serviceremoting-diagnostics.md
         - name: Programloggning
           href: service-fabric-diagnostics-event-generation-app.md
+        - name: Prestandamått
+          href: service-fabric-diagnostics-event-generation-perf.md
         - name: Översikt över hälsotillståndsmodell
           href: service-fabric-health-introduction.md
         - name: Rapportera hälsotillståndshändelser
@@ -433,6 +433,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: Rekommenderade metoder
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
+        - name: Omstrukturera en migrerad app
+          href: /azure/architecture/service-fabric/refactor-migrated-app
     - name: Hantera programlivscykel
       items:
         - name: Paketera ett program

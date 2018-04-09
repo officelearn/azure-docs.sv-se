@@ -43,6 +43,7 @@
 ## Använda MXChip IoT DevKit
 ### [Översätta röstmeddelanden med Azure Cognitive Services](iot-hub-arduino-iot-devkit-az3166-translator.md)
 ### [Hämta ett Twitter-meddelande med Azure Functions](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
+### [Skicka meddelanden till en MQTT-server med Eclipse Paho-API:er](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 ### [Övervaka den magnetiska sensorn och skicka e-postaviseringar med Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
 # Instruktionsguider

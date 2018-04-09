@@ -1,12 +1,12 @@
 ---
-title: "Azure nätverkssäkerhet | Microsoft Docs"
-description: "Läs mer om molnbaserad databearbetning tjänster som omfattar ett brett urval av compute-instanser och tjänster som kan skalas upp och ned automatiskt så att den passar ditt program-eller enterprise."
+title: Azure nätverkssäkerhet | Microsoft Docs
+description: Läs mer om molnbaserad databearbetning tjänster som omfattar ett brett urval av compute-instanser och tjänster som kan skalas upp och ned automatiskt så att den passar ditt program-eller enterprise.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f0cc1716daa70bf7c860373819568774cf6f95d9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9b86eda1f4ddff9b61ff5b0f9c465e5ef6c2088b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-network-security"></a>Azure nätverkssäkerhet
+# <a name="azure-network-security"></a>Azure-nätverkssäkerhet
 
 Vi vet att säkerhet är ett jobb i molnet och det är viktigt att du hitta korrekt och rimlig information om säkerheten i Azure. Ett av de bästa skälen att använda Azure för dina program och tjänster är att dra nytta av Azures mängd säkerhetsverktyg och funktioner. Dessa verktyg och funktioner för att göra det möjligt att skapa säkra lösningar på Azure-plattformen.
 
@@ -392,7 +392,7 @@ Dessutom kan programmet Gateway Brandvägg hjälper dig att övervaka webbprogra
 
 Loggen för JSON-formaterad går direkt till kundens lagringskonto. Du har fullständig kontroll över dessa loggar och kan tillämpa en egen bevarandeprinciper.
 
-Du kan också mata in dessa loggar i din egen analytics system med hjälp av [Azure Log-integrering](https://aka.ms/AzLog). Brandvägg loggar också är integrerade med [Operations Management Suite (OMS)](https://www.microsoft.com/cloud-platform/operations-management-suite) så att du kan använda OMS logganalys för att utföra avancerade detaljerade frågor.
+Du kan också mata in dessa loggar i din egen analytics system med hjälp av [Azure Log-integrering](https://aka.ms/AzLog). Brandvägg loggar också är integrerade med [logganalys](../log-analytics/log-analytics-overview.md) så att du kan använda Log Analytics för att köra avancerade detaljerade frågor.
 
 #### <a name="azure-web-application-firewall-waf"></a>Azure web application firewall (Brandvägg)
 
@@ -510,7 +510,7 @@ Azure erbjuder många verktyg för att övervaka, förebygga, upptäcka och åtg
 
 -   Log Analytics
 
-### <a name="network-watcher"></a>Nätverksbevakaren
+### <a name="network-watcher"></a>Nätverksbevakare
 
 [Nätverk Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) -scenariot-baserad övervakning tillhandahålls med funktionerna i Nätverksbevakaren. Den här tjänsten innehåller paketinsamling, nästa hopp, IP-flöde Kontrollera NSG flödet loggar i gruppvyn säkerhet. Scenariot nivån övervakning innehåller en heltäckande vy av nätverksresurser i stället för enskilda resurs nätverksövervakning.
 
@@ -580,7 +580,7 @@ Nätverksbevakaren ger en [diagnostikloggar](https://docs.microsoft.com/azure/ne
 
 Följande funktioner är tillgängliga för nivån Resursövervakning:
 
-#### <a name="audit-log"></a>granskningslogg
+#### <a name="audit-log"></a>Granskningslogg
 
 Åtgärder som utförs som en del av konfigurationen av nätverk loggas. Dessa granskningsloggar är nödvändiga för att upprätta olika compliances. Dessa loggar kan visas i Azure-portalen eller hämtas med hjälp av Microsoft-verktyg, till exempel Power BI eller verktyg från tredje part. Granskningsloggar är tillgängliga via portalen, PowerShell, CLI och Rest-API.
 
@@ -606,7 +606,7 @@ Nätverksbevakaren ger diagnostikloggar vyn. Den här vyn innehåller alla nätv
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Logga Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) är en tjänst i [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) som övervakar molnet och lokala miljöer för att upprätthålla sin tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor.
+[Logga Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) är en tjänst i Azure som övervakar molnet och lokala miljöer för att upprätthålla sin tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor.
 
 Logganalys erbjuder följande lösningar för att övervaka dina nätverk:
 

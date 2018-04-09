@@ -342,13 +342,20 @@
         - name: Azure-logginsamlare för tillägg
           href: log-collector-extension.md
         - name: Azure-diagnostiktillägg
-          href: ps-extensions-diagnostics.md
+          href: extensions-diagnostics.md
+          items:
+            - name: Tilläggsschema
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
+            - name: Aktivera med PowerShell
+              href: ps-extensions-diagnostics.md
+            - name: Aktivera med mallar
+              href: extensions-diagnostics-template.md
+            - name: Felsökning
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
         - name: Exportera VM-tillägg
           href: extensions-export-templates.md
         - name: Felsökning av tillägg
           href: extensions-troubleshoot.md
-        - name: Tillägg för övervakning och diagnostik
-          href: extensions-diagnostics-template.md
         - name: Network Watcher-agent
           href: extensions-nwa.md
         - name: Begränsa installation av tillägg

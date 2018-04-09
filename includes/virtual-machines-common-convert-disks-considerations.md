@@ -3,6 +3,8 @@
 
 * Omvandlingen kan inte ångras. 
 
+* Tänk på att alla användare med den [Virtual Machine-deltagare](../articles/active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) rollen kommer inte att kunna ändra storleken på virtuella datorn (eftersom de kunde före konvertering). Det beror på att virtuella datorer med hanterade diskar användaren måste ha behörigheten Microsoft.Compute/disks/write på OS-diskar.
+
 * Testa omvandlingen först. Migrera först en virtuell testdator innan du gör en migrering i produktion.
 
 * Under omvandlingen frigör du den virtuella datorn. Den virtuella datorn får en ny ip-adress när den startas efter omvandlingen. Om det behövs kan du [tilldela datorn en statisk ip-adress](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md).

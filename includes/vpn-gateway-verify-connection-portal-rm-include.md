@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b31ed6b37e8d293d4e684ce169e9297e6bf61ec7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bf9d9368207f8791c33db84e1467d44201d6a5af
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 Du kan visa anslutningsstatus för en Resource Manager VPN-gateway i Azure Portal genom att navigera till anslutningen. Följande steg visar ett sätt att navigera till din anslutning och verifiera.
 
@@ -20,4 +20,4 @@ Du kan visa anslutningsstatus för en Resource Manager VPN-gateway i Azure Porta
 2. På bladet för den virtuella nätverksgatewayen, klickar du på **Anslutningar**. Du kan se status för varje anslutning.
 3. Klicka på namnet på den anslutning du vill verifiera för att öppna **Essentials**. I Essentials, kan du visa mer information om din anslutning. **Statusen** är Lyckades och Ansluten, när du har skapat en lyckad anslutning.
 
-  ![Verifiera VPN-gatewayanslutningen med Azure Portal](./media/vpn-gateway-verify-connection-portal-rm-include/connectionsucceeded.png)
+  ![Verifiera VPN-gatewayanslutningen med Azure Portal](./media/vpn-gateway-verify-connection-portal-rm-include/connection-succeeded.png)

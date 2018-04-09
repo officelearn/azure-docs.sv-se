@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c5952422bb4faec196a5a54b9f18cf9700988aad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 655f0b625d9f1b7c7ad216e9276da62d8454380f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 1. På vänstra sidan i portalen klickar du på **+** och skriver "virtuell nätverksgateway" i sökningen. Hitta **Virtuell nätverksgateway** bland sökresultaten och klicka på det. På sidan **Virtuell nätverksgateway** klickar du på **Skapa** längst ned på sidan för att öppna sidan **Skapa en virtuell nätverksgateway**.
 2. På sidan **Skapa en virtuell nätverksgateway** fyller du i värdena för din virtuella nätverksgateway.
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/23/2018
     - Klicka först på **Skapa en IP-gatewaykonfiguration** för att öppna sidan ”Välj offentlig IP-adress” och klicka sedan på **+Skapa ny** för att öppna sidan ”Skapa offentlig IP-adress”.
     - Ange sedan ett **Namn** för den offentliga IP-adressen. Låt SKU:n vara angiven som **Grundläggande** om det inte finns särskild anledning att ändra till något annat. Klicka sedan på **OK** längst ned på sidan för att spara ändringarna.
 
-      ![Skapa offentlig IP](./media/vpn-gateway-add-gw-s2s-rm-portal-include/gwip.png "Skapa offentlig IP")
+      ![Skapa offentlig IP](./media/vpn-gateway-add-gw-rm-portal-include/gwip.png "Skapa offentlig IP")
 
 4. Verifiera inställningarna. Du kan välja **Fäst vid instrumentpanelen** längst ner på sidan om du vill att din gateway ska visas på instrumentpanelen. 
 5. Klicka på **Skapa** för att börja skapa VPN-gatewayen. Inställningarna verifieras och ikonen "Distribuerar virtuell nätverksgateway" visas på instrumentpanelen. Det kan ta upp till 45 minuter att skapa en gateway. Det är möjligt att du behöver uppdatera din portalsida för att se statusen som slutförd.

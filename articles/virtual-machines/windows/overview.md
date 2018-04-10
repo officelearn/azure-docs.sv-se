@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6ab964760ea06c2e82d0c9f69f89fe62dec8ceac
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fe4345f45013359fd77e5ddae3dc754b94af2696
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Översikt över virtuella Windows-datorer i Azure
 
@@ -70,7 +70,7 @@ I den här tabellen finns några exempel på hur du kan hämta en lista över ti
 Azure debiterar ett [pris per timme](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) baserat på storleken och operativsystemet för den virtuella datorn. För delar av timmar tar Azure bara betalt för användningen per minut. Lagringsutrymme prissätts och debiteras separat.
 
 ### <a name="vm-limits"></a>Begränsningar för den virtuella datorn
-Prenumerationen har [standardkvotgränser](../../azure-subscription-service-limits.md) som kan påverka ditt projekt om många virtuella datorer distribueras. Den aktuella gränsen på basis av per prenumeration är 20 virtuella datorer per region. Begränsningen kan ökas om du anmäler ett supportärende och begär en ökning.
+Prenumerationen har [standardkvotgränser](../../azure-subscription-service-limits.md) som kan påverka ditt projekt om många virtuella datorer distribueras. Den aktuella gränsen på basis av per prenumeration är 20 virtuella datorer per region. Begränsningen kan ökas om du [anmäler ett supportärende och begär en ökning](../../azure-supportability/resource-manager-core-quotas-request.md)
 
 ### <a name="operating-system-disks-and-images"></a>Operativsystemsdiskar och avbildningar
 Virtuella datorer använder [virtuella hårddiskar (VHD:ar)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för att lagra sitt operativsystem (OS) och data. VHD:ar används också för de avbildningar du kan välja mellan för att installera ett operativsystem. 

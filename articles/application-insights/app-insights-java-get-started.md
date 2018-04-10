@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 227ca3533c7a06b726c758be931df8ec0314e90f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7331c3385f70de7d13895fc88d1d8630af4e9b05
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Komma igång med Application Insights i ett Java-webbprojekt
 
@@ -47,10 +47,10 @@ Du behöver:
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. Lägga till Application Insights SDK för Java till ditt projekt
 *Välj lämplig metod för ditt projekt.*
 
-#### <a name="if-youre-using-eclipse-to-create-a-maven-or-dynamic-web-project-"></a>Om du använder Eclipse för att skapa ett Maven- eller Dynamic Web-projekt …
+#### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project"></a>Om du använder Eclipse för att skapa ett Dynamic Web-projekt …
 Använd [plugin-programmet Application Insights SDK för Java][eclipse].
 
-#### <a name="if-youre-using-maven"></a>Om du använder Maven …
+#### <a name="if-youre-using-maven-a-namemaven-setup-"></a>Om du använder Maven … <a name="maven-setup" />
 Om ditt projekt redan har konfigurerats för utveckling med Maven sammanfogar du följande kod i pom.xml-filen.
 
 Uppdatera sedan projektberoendena för att få binärfilerna.
@@ -75,15 +75,15 @@ Uppdatera sedan projektberoendena för att få binärfilerna.
     </dependencies>
 ```
 
-* *Stöter du på utvecklingsfel eller fel relaterade till verifieringen av kontrollsummor?* Prova att använda en specifik version, t.ex.: `<version>2.0.n</version>`. Du hittar den senaste versionen i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) eller i våra [Maven-artefakter](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Stöter du på utvecklingsfel eller fel relaterade till verifieringen av kontrollsummor?* Prova att använda en specifik version, t.ex.: `<version>2.0.n</version>`. Den senaste versionen finns i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) eller i våra [Maven-artefakter](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Behöver du uppdatera till en ny SDK?* Uppdatera ditt projekts beroenden.
 
-#### <a name="if-youre-using-gradle"></a>Om du använder Gradle …
+#### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Om du använder Gradle … <a name="gradle-setup" />
 Om ditt projekt redan har konfigurerats för utveckling med Gradle sammanfogar du följande kod i build.gradle-filen.
 
 Uppdatera sedan projektberoendena för att få binärfilerna.
 
-```JSON
+```gradle
 
     repositories {
       mavenCentral()
@@ -95,27 +95,24 @@ Uppdatera sedan projektberoendena för att få binärfilerna.
     }
 ```
 
-* *Stöter du på utvecklingsfel eller fel relaterade till verifieringen av kontrollsummor? Prova att använda en specifik version, t.ex.:* `version:'2.0.n'`. *Du hittar den senaste versionen i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
-* *Så här uppdaterar du till ett nytt SDK*
-  * Uppdatera ditt projekts beroenden.
+* *Stöter du på utvecklingsfel eller fel relaterade till verifieringen av kontrollsummor?* Prova att använda en specifik version, t.ex.: `version:'2.0.n'`. Den senaste versionen finns i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) eller i våra [Maven-artefakter](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Uppdatera till en ny SDK* Uppdatera projektets beroenden.
 
-#### <a name="otherwise-"></a>Eller …
-Lägg till SDK manuellt:
-
-1. Ladda ned [Application Insights SDK för Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest).
-2. Extrahera binärfilerna från ZIP-filen och lägg till dem i projektet.
+#### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>Om du hanterar beroenden manuellt gäller följande:
+Hämta den [senaste versionen](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) och kopiera nödvändiga filer till projektet, så att tidigare versioner ersätts.
 
 ### <a name="questions"></a>Frågor …
-* *Vad är relationen mellan `-core` och `-web`-komponenterna i ZIP-filen?*
-
+* *Vad är relationen mellan komponenterna `-core` och `-web`?*
   * `applicationinsights-core` ger dig det avskalade API:et. Du behöver alltid ha den här komponenten.
   * `applicationinsights-web` ger dig mått som spårar antalet HTTP-förfrågningar och svarstider. Du kan utelämna den här komponenten om du inte vill att den här telemetrin ska samlas in automatiskt. Till exempel om du vill skriva din egen.
-* *Så här uppdaterar du SDK när du publicerar ändringar*
+  
+* *Hur uppdaterar jag SDK till den senaste versionen?*
+  * Om du använder Gradle eller Maven...
+    * Uppdatera versionsfilen så att den senaste versionen anges eller använd Gradle/Maven-jokerteckensyntax för att automatiskt ta med den senaste versionen. Uppdatera sedan projektets beroenden. Syntax med jokertecken kan ses i exemplen ovan för [Gradle](#gradle-setup) eller [Maven](#maven-setup).
+  * Om du hanterar beroenden manuellt gäller följande:
+    * Ladda ned senaste [Application Insights SDK för Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) och ersätt det gamla. Ändringar beskrivs i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
-  * Ladda ned senaste [Application Insights SDK för Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) och ersätt det gamla.
-  * Ändringar beskrivs i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
-
-## <a name="3-add-an-application-insights-xml-file"></a>3. Lägga till en XML-fil för Application Insights
+## <a name="3-add-an-applicationinsightsxml-file"></a>3. Lägga till en ApplicationInsights.xml-fil
 Lägg till ApplicationInsights.xml i resursmappen i ditt projekt eller se till att den läggs till i sökvägen för projektets distributionsklass. Kopiera följande XML-kod till den.
 
 Ersätt instrumenteringsnyckeln som du fick från Azure Portal.
@@ -127,12 +124,10 @@ Ersätt instrumenteringsnyckeln som du fick från Azure Portal.
 
 
       <!-- The key from the portal: -->
-
       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
 
 
       <!-- HTTP request component (not required for bare API) -->
-
       <TelemetryModules>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
@@ -153,11 +148,11 @@ Ersätt instrumenteringsnyckeln som du fick från Azure Portal.
     </ApplicationInsights>
 ```
 
+Konfigurationsfilen kan också finnas på valfri plats som är tillgänglig för ditt program.  Systemegenskapen `-Dapplicationinsights.configurationDirectory` anger den katalog där ApplicationInsights.xml finns. Exempel: En konfigurationsfil som finns på `E:\myconfigs\appinsights\ApplicationInsights.xml` konfigureras med egenskapen `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
 
 * Instrumenteringsnyckeln skickas tillsammans med alla element i telemetrin och uppmanar Application Insights att visa den i din resurs.
 * Komponenten HTTP-begäran är valfri. Den skickar automatiskt telemetri om förfrågningar och svarstider till portalen.
 * Händelsekorrelation är ett tillägg till komponenten HTTP-begäran. Det tilldelar en identifierare för varje förfrågan som tas emot av servern och lägger till denna identifierare som en egenskap för alla objekt i telemetrin som egenskapen Operation.Id. Detta gör att du kan korrelera telemetrin som är associerad med varje begäran genom att ange ett filter i [Diagnostiksökning][diagnostic].
-* Application Insights-nyckeln kan skickas dynamiskt från Azure Portal som en systemegenskap (-DAPPLICATION_INSIGHTS_IKEY = your_ikey). Om det finns inte någon definierad egenskap sker sökning efter miljövariabeln (APPLICATION_INSIGHTS_IKEY) i Azure App-inställningarna. Om båda egenskaperna är odefinierade används som standard InstrumentationKey från ApplicationInsights.xml. Med hjälp av den här sekvensen kan du på ett dynamiskt sätt hantera olika InstrumentationKeys för olika miljöer.
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>Olika sätt att konfigurera instrumenteringsnyckeln på
 Application Insights SDK:n söker efter nyckeln i följande ordning:
@@ -219,7 +214,7 @@ Lägg till det här objektet i Struts-konfigurationsfilen (vanligtvis struts.xml
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
 ```
 
-(Om det finns spärrar som har definierats i en standardstack lägger du bara till spärren till den stacken.)
+Om det finns spärrar som har definierats i en standardstack kan du lägga till spärren till den stacken.
 
 ## <a name="5-run-your-application"></a>5. Köra ditt program
 Kör programmet i felsökningsläge på utvecklingsdatorn eller publicera det till servern.

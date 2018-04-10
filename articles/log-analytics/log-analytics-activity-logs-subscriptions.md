@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2018
+ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 23e4b7c74e6dfb88ec6ec50d5b8ae6d8288223f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 434cbdca42e4287a0f3d7e3960bc0baa373bc358
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Samla in Azures aktivitetsloggar till Log Analytics i alla prenumerationer
 
@@ -324,9 +324,9 @@ Om du vill se detaljerad information om varje steg klickar du på stegets namn f
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>Steg 5 – Visa Azure-aktivitetsloggen i Log Analytics
 Det sista steget är att kontrollera Log Analytics-arbetsytan för att säkerställa att data samlas in som förväntat.
 
-1. I Azure-portalen väljer du **Log Analytics**.
-2. Välj din arbetsyta och sedan panelen **Loggsökning**.
-3. I sökfältet skriver du `AzureActivity_CL` och klickar på sökknappen. Om du inte har gett den anpassade loggen namnet *AzureActivity*, skriver du namnet som du har valt och lägger till `_CL`.
+1. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
+2. Välj din arbetsyta i listan med Log Analytics-arbetsytor.
+3.  Klicka på panelen **Loggsökning** och i fönsterrutan Loggsökning skriver du sedan `AzureActivity_CL` i frågefältet och trycker på retur eller klickar på sökknappen till höger om fältet. Om du inte har gett den anpassade loggen namnet *AzureActivity*, skriver du namnet som du har valt och lägger till `_CL`.
 
 >[!NOTE]
 > Första gången en ny anpassad logg skickas till Log Analytics kan det ta upp till en timme innan den blir sökbar.

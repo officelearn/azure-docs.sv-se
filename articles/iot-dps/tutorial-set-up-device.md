@@ -1,120 +1,169 @@
 ---
-title: "Konfigurera enheten för Azure IoT-hubb enheten Etableringstjänsten | Microsoft Docs"
-description: "Konfigurera enheten för att etablera via IoT Hub-enhet etablering Service under enheten tillverkar process"
+title: Konfigurera enheten för Azure IoT Hub Device Provisioning-tjänsten
+description: Konfigurera enheten för etablering via IoT Hub Device Provisioning-tjänsten under tillverkningsprocessen
 services: iot-dps
-keywords: 
+keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 835a54f147b9ea543df21e7dfeb226ac42aceda3
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: c885e4d5d747d913eaf0b7137b240950e920e7ff
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Konfigurera en enhet för att etablera med hjälp av Azure IoT-hubb enheten Etableringstjänsten
+# <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Konfigurera enheten för etablering med Azure IoT Hub Device Provisioning-tjänsten
 
-Du lärt dig hur du ställer in Azure IoT-hubb Device etablering Service att automatiskt etablera dina enheter till din IoT-hubb i föregående självstudierna. Den här självstudiekursen innehåller anvisningar för att ställa in enheten under produktionsprocessen, så att du kan konfigurera enheten Etableringstjänsten för enheten baserat på dess [maskinvarusäkerhetsmodul (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security), och enheten kan ansluta till tjänsten Enhetsetableringen när den startar för första gången. Den här självstudiekursen beskrivs processer till:
+I den tidigare självstudiekursen fick du lära dig att konfigurera Azure IoT Hub Device Provisioning-tjänsten för att automatiskt etablera dina enheter till din IoT-hubb. I den här kursen visar vi hur du konfigurerar din enhet under tillverkningsprocessen och gör så att den kan etableras automatiskt med IoT-hubben. Enheten etableras baserat på dess [attesteringsmetod](concepts-device.md#attestation-mechanism) vid den första starten och anslutningen till etableringstjänsten. I den här självstudiekursen beskrivs processerna för att:
 
 > [!div class="checklist"]
-> * Välj en maskinvarusäkerhetsmodul
-> * Skapa enheten etablering klient-SDK för valda HSM
-> * Extrahera artefakter för säkerhet
-> * Ställ in konfigurationen för etablering av tjänst på enheten
+> * Bygga ett plattformsspecifikt klient-SDK för enhetsetableringstjänster
+> * Extrahera säkerhetsartefakterna
+> * Skapa programvara för enhetsregistrering
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du fortsätter, skapa din enhet etablering tjänstinstansen och en IoT-hubb med instruktioner som nämns i kursen [konfigurera molnet för enhetsetableringen](./tutorial-set-up-cloud.md).
+Innan du fortsätter ska du skapa en enhetsetableringstjänstinstans och en IoT-hubb enligt instruktionerna i den tidigare kursen [1 – Konfigurera molnresurser](./tutorial-set-up-cloud.md).
 
+I den här kursen används [lagringsplatsen för Azure IoT SDK:er och bibliotek för C](https://github.com/Azure/azure-iot-sdk-c), som innehåller klient-SDK:t för enhetsetableringstjänsten för C. Detta SDK har för närvarande stöd för TPM och X.509 för enheter som körs på Windows- eller Ubuntu-implementeringar. I den här kursen används en Windows-utvecklingsklient, vilket även förutsätter grundläggande kunskaper i Visual Studio 2017. 
 
-## <a name="select-a-hardware-security-module"></a>Välj en maskinvarusäkerhetsmodul
+Om du inte är bekant med processen för automatisk etablering ska du läsa avsnittet om [begrepp inom automatisk etablering](concepts-auto-provisioning.md) innan du fortsätter. 
 
-Den [enhet Etableringstjänsten klient-SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) har stöd för två typer av Maskinvarusäkerhetsmoduler (eller HSM: er): 
+## <a name="build-a-platform-specific-version-of-the-sdk"></a>Skapa en plattformsspecifik version av SDK
 
-- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module).
-    - TPM är en etablerad standard för de flesta plattformar för Windows-baserade enheter, samt några Linux/Ubuntu-baserade enheter. Du kan välja denna HSM om du har något av dessa operativsystem som körs på dina enheter, och om du söker efter en etablerad standard för HSM som en enhetstillverkare. Du kan bara registrera varje enhet individuellt för att enheten Etableringstjänsten med TPM-chip. För utveckling, kan du använda TPM-simulatorn på utvecklingsdatorn Windows eller Linux.
+Klient-SDK:t för enhetsetableringstjänsten hjälper dig att implementera din programvara för enhetsregistrering. Men innan du kan använda det måste du skapa en version av SDK:t som är specifik för plattformen för din utvecklingsklient och din attesteringsmetod. I den här självstudiekursen skapar du ett SDK som använder Visual Studio 2017 på en Windows-utvecklingsplattform för en typ av attestering som stöds:
 
-- [X.509](https://cryptography.io/en/latest/x509/) baserat maskinvarusäkerhetsmoduler. 
-    - X.509 baserat HSM är relativt nyare chip med arbetet som för närvarande framsteg inom Microsoft i RIoT eller RAPPORTANVÄNDARNA kretsar som implementerar X.509-certifikat. Du kan göra med X.509-kretsar massregistrering i portalen. Det stöder också vissa icke - Windows operativsystem som embedOS. För utveckling ändamål stöder enheten Etableringstjänsten klient-SDK ett X.509 enheten simulatorn. 
+1. Installera nödvändiga verktyg och klona GitHub-lagringsplatsen som innehåller klient-SDK:t för etableringstjänsten för C:
 
-Du måste välja maskinvara säkerhet moduler/modulerna som är baserade på någon av de föregående typerna som en enhetstillverkare. Andra typer av HSM: er stöds inte för närvarande i enheten Etableringstjänsten klient-SDK.   
+   a. Kontrollera att du har antingen Visual Studio 2015 eller [Visual Studio 2017](https://www.visualstudio.com/vs/) installerat på datorn. Du måste ha arbetsbelastningen [”Desktop development with C++”](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) (Skrivbordsutveckling med C++) aktiverad för installationen av Visual Studio.
 
+   b. Hämta och installera [CMake-buildsystemet](https://cmake.org/download/). Det är viktigt att Visual Studio med arbetsbelastningen ”Desktop development with C++” (Skrivbordsutveckling med C++) är installerat på datorn **före** installationen.
 
-## <a name="build-device-provisioning-client-sdk-for-the-selected-hsm"></a>Skapa enheten etablering klient-SDK för valda HSM
+   c. Kontrollera att `git` är installerat på datorn och har lagts till i de miljövariabler som är tillgängliga för kommandofönstret. Se [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) för de senaste `git` verktygen, inklusive  **Git Bash**, ett Bash-kommandoradsgränssnitt för att interagera med din lokala Git-lagringsplats. 
 
-Enheten etablering tjänsten Client SDK kan implementera valda säkerhetsmekanism i programvaran. Följande steg visar hur du använder SDK för de valda TPM-chip HSM:
+   d. Öppna Git Bash och klona lagringsplatsen ”Azure IoT SDKs and libraries for C”. Kloningskommandot kan ta ett par minuter att slutföra eftersom det även hämtar flera beroende undermoduler:
+    
+   ```cmd/sh
+   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+   ```
 
-1. Om du har följt den [Snabbstart för att skapa simulerade enheten](./quick-create-simulated-device.md), du har konfigurerat redo att skapa SDK. Annars följer du de första fyra steg från avsnittet [förbereda utvecklingsmiljön](./quick-create-simulated-device.md#setupdevbox). De här stegen klona GitHub-lagringsplatsen för enheten etablering tjänsten Client SDK samt installera den `cmake` skapa verktyget. 
+   e. Skapa en ny `cmake`-underkatalog i den nyligen skapade underkatalogen för lagringsplatsen:
 
-1. Skapa SDK för typ av HSM som du har valt för din enhet med hjälp av någon av följande kommandon i Kommandotolken:
-    - För TPM-enheter:
+   ```cmd/sh
+   mkdir azure-iot-sdk-c/cmake
+   ``` 
+
+2. Byt till azure-iot-sdk-c-lagringsplatsens `cmake`-underkatalog från Git Bash-kommandotolken:
+
+   ```cmd/sh
+   cd azure-iot-sdk-c/cmake
+   ```
+
+3. Bygg SDK för din utvecklingsplattform och någon av de attesteringsmetoder som stöds med hjälp av något av följande kommandon (observera de två avslutande punkterna). När det är klart bygger CMake `/cmake`-underkatalogen med innehåll som är specifikt för din enhet:
+    - För enheter som använder en fysisk TPM/HSM eller ett simulerat X.509-certifikat för attestering:
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON ..
         ```
 
-    - För TPM simulator:
+    - För enheter som använder TPM-simulatorn för attestering:
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
         ```
 
-    - För X.509-enheter och simulator:
-        ```cmd/sh
-        cmake -Duse_prov_client:BOOL=ON ..
-        ```
-
-1. SDK stöder standard för enheter som kör Windows eller Ubuntu implementeringar för TPM och X.509 HSM: er. För dessa stöds HSM, fortsätter du till avsnittet [extrahera säkerhet artefakter](#extractsecurity) nedan. 
+Nu är du redo att använda SDK för att bygga din enhetsregistreringskod. 
  
-## <a name="support-custom-tpm-and-x509-devices"></a>Stöd för anpassade TPM och X.509-enheter
+<a id="extractsecurity"></a> 
 
-Enheten etablering System Client SDK tillhandahåller inte standardstöd för alla TPM och X.509-enheter som inte kör Windows eller Ubuntu. För sådana enheter måste du skriva anpassade koden för en viss HSM-chip som visas i följande steg:
+## <a name="extract-the-security-artifacts"></a>Extrahera säkerhetsartefakterna 
 
-### <a name="develop-your-custom-repository"></a>Utveckla anpassade databasen
+Nästa steg är att extrahera säkerhetsartefakterna för den attesteringsmetod som används av din enhet. 
 
-1. Utveckla ett bibliotek för att komma åt din HSM. Det här projektet måste skapa ett statiskt bibliotek för enheten etablering SDK, för att använda.
-1. Biblioteket måste implementera funktionerna som definierats i följande huvudfilen: en. För anpassade TPM implementera funktioner som är definierade i [anpassade HSM dokumentet](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).
-    b. För anpassade X.509 implementera funktioner som är definierade i [anpassade HSM dokumentet](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
+### <a name="physical-device"></a>Fysisk enhet 
 
-### <a name="integrate-with-the-device-provisioning-service-client"></a>Integrera med enheten etablering-klienten
+Om du har byggt SDK för att använda attestering från en fysisk TPM/HSM:
 
-När biblioteket har bygger på sin egen, kan du flytta till IoThub C-SDK och länka mot biblioteket:
+- För en TPM-enhet måste du bestämma **bekräftelsenyckeln** som är associerad med enheten från TPM-kretstillverkaren. Du kan härleda ett unikt **registrerings-ID** för din TPM-enhet genom att hasha bekräftelsenyckeln.  
 
-1. Ange anpassade HSM GitHub-lagringsplatsen, bibliotekssökvägen och dess namn i kommandot cmake:
-    ```cmd/sh
-    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
+- För X.509-enheter måste du erhålla de certifikat som utfärdats till dina enheter: slutentitetscertifikat för enskilda enhetsregistreringar och rotcertifikat för gruppregistreringar av enheter. 
+
+### <a name="simulated-device"></a>Simulerad enhet
+
+Om du har byggt SDK för att använda attestering från ett simulerat TPM- eller X.509-certifikat:
+
+- För en simulerad TPM-enhet:
+   1. Använd en separat/ny kommandotolk för att navigera till `azure-iot-sdk-c`-underkatalogen och köra TPM-simulatorn. Den lyssnar via en socket på portarna 2321 och 2322. Stäng inte det här kommandofönstret. Den här simulatorn måste fortsätta att köras till slutet av den här snabbstarten. 
+
+      Kör följande kommando från `azure-iot-sdk-c`-underkatalogen för att starta simulatorn:
+
+      ```cmd/sh
+      .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
+      ```
+
+   2. I Visual Studio öppnar du lösningen som genererats i *cmake*-mappen med namnet `azure_iot_sdks.sln`, och bygger den med kommandot "Build solution" (Bygg lösning) på menyn "Build" (Bygg).
+
+   3. I rutan*Solution Explorer* i Visual Studio går du till mappen **Provision (Etablera)\_Verktyg**. Högerklicka på projektet **tpm_device_provision** och markera **Set as Startup Project** (Ange som startprojekt). 
+
+   4. Kör lösningen med något av startkommandona på felsökningsmenyn. I utdatafönstret visas TPM-simulatorns **_registrerings-ID_** och **_bekräftelsenyckeln_** som behövs för enhetsregistrering och registrering. Kopiera dessa värden för senare bruk. Du kan stänga det här fönstret (med registrerings-ID:t och bekräftelsenyckeln), men lämna TPM-simulatorfönstret från steg 1 öppet.
+
+- För en simulerad X.509-enhet:
+  1. I Visual Studio öppnar du lösningen som genererats i *cmake*-mappen med namnet `azure_iot_sdks.sln`, och bygger den med kommandot "Build solution" (Bygg lösning) på menyn "Build" (Bygg).
+
+  2. I rutan*Solution Explorer* i Visual Studio går du till mappen **Provision (Etablera)\_Verktyg**. Högerklicka på projektet **dice\_device\_enrollment** (dice-enhetsregistrering) och markera **Set as Startup Project** (Ange som startprojekt). 
+  
+  3. Kör lösningen med något av startkommandona på felsökningsmenyn. I utdatafönstret anger du **i** för individuell registrering när du blir uppmanad till det. I utdatafönstret visas ett lokalt genererat X.509-certifikat för din simulerade enhet. Kopiera utdata till Urklipp som börjar på *-----BEGIN CERTIFICATE-----* och slutar på den första *-----END CERTIFICATE-----*, och se till att du får med båda raderna. Observera att du behöver bara det första certifikatet från fönstret Utmatning.
+ 
+  4. Skapa en fil med namnet **_X509testcert.pem_**, öppna den i valfritt textredigeringsprogram och kopiera urklippsinnehållet till filen. Spara filen. Du kommer att använda den senare för enhetsregistrering. När din registreringsprogramvara körs använder den samma certifikat vid automatisk etablering.    
+
+Dessa säkerhetsuppgifter krävs vid registrering av enheten till enhetsetableringstjänsten. Etableringstjänsten väntar tills enheten har startats och ansluter till den vid en senare tidpunkt. När enheten startar för första gången interagerar logiken hos klient-SDK:t med din krets (eller simulator) för att extrahera säkerhetsartefakterna från enheten och verifierar registreringen med enhetsetableringstjänsten. 
+
+## <a name="create-the-device-registration-software"></a>Skapa programvara för enhetsregistrering
+
+Det sista steget är att skriva ett registreringsprogram som använder klient-SDK:t för enhetsetableringstjänsten för att registrera enheten med IoT Hub-tjänsten. 
+
+> [!NOTE]
+> För det här steget förutsätter vi att en simulerad enhet används genom att du kör ett SDK-exempelregistreringsprogram från din arbetsstation. Men samma koncept gäller om du skapar ett registreringsprogram för distribution till en fysisk enhet. 
+
+1. Välj bladet **Översikt** i Azure Portal för enhetsetableringstjänsten och kopiera värdet för **_ID-omfång_**. *ID-omfång* genereras av tjänsten och garanterar unikhet. Det är oföränderligt och används för att unikt identifiera registrerings-ID:n.
+
+    ![Extrahera DP-slutpunktsinformation från portalbladet](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
+
+2. I Visual Studio *Solution Explorer* på datorn går du till mappen **Provision (Etablera)\_Exempel**. Välj exempelprojektet med namnet **prov\_dev\_client\_sample** och öppna källfilen **prov\_dev\_client\_sample.c**.
+
+3. Tilldela värdet för _ID-omfång_ som erhölls i steg 1 till variabeln `id_scope` (tar bort vänster /`[` och höger/`]` hakparentes): 
+
+    ```c
+    static const char* global_prov_uri = "global.azure-devices-provisioning.net";
+    static const char* id_scope = "[ID Scope]";
     ```
-   
-1. Öppna SDK i visual studio och skapa den. 
 
-    - Skapar kompileras SDK-biblioteket.
-    - SDK försöker länka mot anpassade HSM som definierats i kommandot cmake.
+    `global_prov_uri`-variabeln gör att klientregistrerings-API:t för IoT-hubb `IoTHubClient_LL_CreateFromDeviceAuth` kan ansluta till den avsedda instansen för enhetsetableringstjänsten.
 
-1. Kör den `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample\prov_dev_client_ll_sample.c` exempel för att kontrollera om din HSM har implementerats korrekt.
+4. I **main()**-funktionen i samma fil kommenterar/avkommenterar du `hsm_type`-variabeln som matchar den attesteringsmetod som används av enhetens registreringsprogramvara (TPM eller X.509): 
 
-<a id="extractsecurity"></a>
-## <a name="extract-the-security-artifacts"></a>Extrahera artefakter för säkerhet
+    ```c
+    hsm_type = SECURE_DEVICE_TYPE_TPM;
+    //hsm_type = SECURE_DEVICE_TYPE_X509;
+    ```
 
-Nästa steg är att extrahera säkerhet artefakter för HSM på enheten.
+5. Spara dina ändringar och bygg om exemplet **prov\_dev\_client\_sample** genom att välja "Build solution" (Bygg lösning) på menyn"Build" (Bygg). 
 
-1. För en TPM-enhet behöver du ta reda på **bekräftelsenyckel** associerad från tillverkaren av TPM-chip. Du kan härleda ett unikt **registrerings-ID** för din TPM-enhet av hashning bekräftelsenyckeln. 
-2. För ett X.509-enhet behöver du skaffa certifikat som utfärdats till din enhet(er) - certifikat för slutanvändare för enskilda enhetsregistrering när rotcertifikat för gruppen registreringar av enheter.
+6. Högerklicka på projektet **prov\_dev\_client\_sample** i mappen **Provision\_Samples** och välj **Set as Startup Project** (Ange som startprojekt). Kör INTE exempelprogrammet ännu.
 
-Dessa artefakter säkerhet krävs för att registrera dina enheter till tjänsten etablering av enheten. Tjänsten etablering väntar sedan någon av dessa enheter för att starta och ansluta till den vid en senare tidpunkt. Se [hantera enhetsregistreringar](how-to-manage-enrollments.md) information om hur du skapar registreringar med hjälp av dessa artefakter säkerhet. 
+> [!IMPORTANT]
+> Kör/starta inte enheten ännu! Du måste slutföra processen genom att registrera enheten med enhetsetableringstjänsten innan du startar enheten. I avsnittet Nästa steg nedan vägleds du till nästa artikel.
 
-När enheten startas för första gången, klient-SDK interagerar med din TPM-chip att extrahera säkerhet artefakter från enheten och verifierar registrering med Enhetsetableringen-tjänsten. 
+### <a name="sdk-apis-used-during-registration-for-reference-only"></a>SDK-API:er används under registreringen (endast som referens)
 
-
-## <a name="set-up-the-device-provisioning-service-configuration-on-the-device"></a>Ställ in konfigurationen för etablering av tjänst på enheten
-
-Det sista steget i enheten tillverkar processen är att skriva ett program som använder enheten Etableringstjänsten klient-SDK för att registrera enheten med tjänsten. Detta SDK innehåller följande API: er för ditt program att använda:
+Som referens tillhandahåller SDK följande API:er som du kan använda i ditt program vid registrering. Med dessa API:er kan enheten ansluta till och registrera med enhetsetableringstjänsten när den startas. Som svar får enheten den information som krävs för att etablera en anslutning till din IoT-hubbinstans:
 
 ```C
-// Creates a Provisioning Client for communications with the Device Provisioning Client Service
+// Creates a Provisioning Client for communications with the Device Provisioning Client Service.  
 PROV_DEVICE_LL_HANDLE Prov_Device_LL_Create(const char* uri, const char* scope_id, PROV_DEVICE_TRANSPORT_PROVIDER_FUNCTION protocol)
 
 // Disposes of resources allocated by the provisioning Client.
@@ -130,70 +179,25 @@ void Prov_Device_LL_DoWork(PROV_DEVICE_LL_HANDLE handle)
 PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const char* optionName, const void* value)
 ```
 
-Kom ihåg att initiera variablerna `uri` och `id_scope` som anges i den [simulera första startsekvens för enheten avsnitt i den här snabbstartsguide](./quick-create-simulated-device.md#firstbootsequence), innan du använder dem. Klientregistrering Enhetsetableringen API `Prov_Device_LL_Create` ansluter till globala enheten Etableringstjänsten. Den *ID Scope* genereras av tjänsten och garanterar unikhet. Det är oföränderlig och används för att unikt identifiera registrering ID: N. Den `iothub_uri` kan IoT-hubb klientregistrering API `IoTHubClient_LL_CreateFromDeviceAuth` att ansluta till rätt IoT-hubben. 
-
-
-Dessa API: er med hjälp av din enhet för att ansluta och registrera med tjänsten etablering enheten när den startas upp, hämta information om din IoT-hubb och anslut sedan till den. Filen `provisioning_client/samples/prov_client_ll_sample/prov_client_ll_sample.c` visar hur du använder dessa API: er. I allmänhet måste du skapa följande ramverket för klientregistrering:
-
-```C
-static const char* global_uri = "global.azure-devices-provisioning.net";
-static const char* id_scope = "[ID scope for your provisioning service]";
-...
-static void register_callback(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* context)
-{
-    USER_DEFINED_INFO* user_info = (USER_DEFINED_INFO *)user_context;
-    ...
-    user_info. reg_complete = 1;
-}
-static void registation_status(DPS_REGISTRATION_STATUS reg_status, void* user_context)
-{
-}
-int main()
-{
-    ...
-    SECURE_DEVICE_TYPE hsm_type;
-    hsm_type = SECURE_DEVICE_TYPE_TPM;
-    //hsm_type = SECURE_DEVICE_TYPE_X509;
-    prov_dev_security_init(hsm_type); // initialize your HSM 
-
-    prov_transport = Prov_Device_HTTP_Protocol;
-    
-    PROV_CLIENT_LL_HANDLE handle = Prov_Device_LL_Create(global_uri, id_scope, prov_transport); // Create your provisioning client
-
-    if (Prov_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
-        do {
-        // The register_callback is called when registration is complete or fails
-            Prov_Client_LL_DoWork(handle);
-        } while (user_info.reg_complete == 0);
-    }
-    Prov_Client_LL_Destroy(handle); // Clean up the Provisioning client
-    ...
-    iothub_client = IoTHubClient_LL_CreateFromDeviceAuth(user_info.iothub_uri, user_info.device_id, transport); // Create your IoT hub client and connect to your hub
-    ...
-}
-```
-
-Du kan förfina enheten Etableringstjänsten registrering klientprogrammet använder en simulerad enhet först med hjälp av en inställningar för tjänsten. När ditt program fungerar i testmiljön måste du skapa för enheten och kopiera den körbara filen i enheten avbildningen. Starta inte enheten, men du behöver [registrera enheten med enheten Etableringstjänsten](./tutorial-provision-device-to-hub.md#enrolldevice) innan du startar enheten. Se nästa steg nedan för att se den här processen. 
+Du kanske också behöver förfina klientregistreringsprogrammet för enhetsetableringstjänsten först med hjälp av en simulerad enhet och en testtjänstinstallation. När ditt program fungerar i testmiljön kan du bygga det för din specifika enhet och kopiera den körbara filen till din enhetsavbildning. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan nu har lagt upp tjänsterna Enhetsetableringen och IoT-hubb i portalen. Om du vill avbryta enheten etablering och/eller fördröjning med någon av dessa tjänster rekommenderar vi att de stängs av att undvika onödiga kostnader.
+I det här läget kanske enhetsetablerings- och IoT-hubbtjänsterna körs i portalen. Om du vill avbryta enhetsetableringsinstallationen och/eller vänta med att slutföra den här kursserien rekommenderar vi att du stänger av dem för att undvika onödiga kostnader.
 
 1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din Device Provisioning-tjänst. Klicka på **Ta bort** överst på bladet **Alla resurser**.  
-1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din IoT-hubb. Klicka på **Ta bort** överst på bladet **Alla resurser**.  
-
+2. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din IoT-hubb. Klicka på **Ta bort** överst på bladet **Alla resurser**.  
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Välj en maskinvarusäkerhetsmodul
-> * Skapa enheten etablering klient-SDK för valda HSM
-> * Extrahera artefakter för säkerhet
-> * Ställ in konfigurationen för etablering av tjänst på enheten
+> * Bygga ett plattformsspecifikt klient-SDK för enhetsetableringstjänsten
+> * Extrahera säkerhetsartefakterna
+> * Skapa programvara för enhetsregistrering
 
-Gå vidare till nästa kursen lär dig hur du etablerar du enheten till din IoT-hubb genom att registrera till Azure IoT Hub-enhet Etableringstjänsten för automatisk etablering.
+Gå vidare till nästa kurs om du vill lära dig hur du etablerar enheten i din IoT-hubb genom att registrera den till Azure IoT Hub Device Provisioning-tjänsten för automatisk etablering.
 
 > [!div class="nextstepaction"]
-> [Etablerar du enheten till din IoT-hubb](tutorial-provision-device-to-hub.md)
+> [Etablera enheten till din IoT-hubb](tutorial-provision-device-to-hub.md)
 

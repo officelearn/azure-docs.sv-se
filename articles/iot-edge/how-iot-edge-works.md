@@ -1,29 +1,32 @@
 ---
-title: "Vad är Azure IoT Edge | Microsoft Docs"
-description: "Översikt över tjänsten Azure IoT Edge"
+title: Vad är Azure IoT Edge | Microsoft Docs
+description: Översikt över tjänsten Azure IoT Edge
 services: iot-Edge
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
 editor: chipalost
-ms.assetid: 
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 04/01/2018
 ms.author: kgremban
-ms.custom: 
-ms.openlocfilehash: 5f69041572729d1458a22a855128639056d61586
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: ''
+ms.openlocfilehash: 9071caedd9ab3b63527c2c0bdab38db2efadb17c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>Vad är Azure IoT Edge – förhandsversion
 
 Azure IoT Edge flyttar molnbaserade analyser och anpassad affärslogik så att din organisation kan fokusera på affärsinsikter istället för datahantering. Gör det möjligt för lösningen att leva upp till kraven på skalning genom att konfigurera din IoT-programvara, distribuera den till enheten via standardbehållare och övervaka alltihop från molnet.
+
+>[!NOTE]
+>Azure IoT Edge är endast tillgängligt på standardnivån för IoT Hub. Mer information om nivåerna Basic och Standard finns i artikeln om att [välja rätt nivå för IoT Hub](../iot-hub/iot-hub-scaling.md).
 
 Analyser ger IoT-lösningar värde, men alla analyser behövs inte i molnet. Om du vill att enheten ska reagera så snabbt som möjligt vid nödfall kan du utföra avvikelseidentifiering på själva enheten. Om du vill minska bandbreddskostnaderna och undvika att överföra terabyte med rådata kan du på samma sätt utföra datarensning och sammanställning lokalt. Skicka sedan insikterna till molnet. 
 

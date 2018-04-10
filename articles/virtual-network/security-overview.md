@@ -1,12 +1,12 @@
 ---
-title: "Översikt över nätverkssäkerhet för Azure | Microsoft Docs"
-description: "Läs mer om säkerhetsalternativ för att styra flödet av nätverkstrafik mellan Azure-resurser."
+title: Översikt över nätverkssäkerhet för Azure | Microsoft Docs
+description: Läs mer om säkerhetsalternativ för att styra flödet av nätverkstrafik mellan Azure-resurser.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: fbf0556cc47bc08a71fcf050b43c2dbbe5d27184
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 950c64ea1ea2edc072650a9f63a6d21ad369c496
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="network-security"></a>Nätverkssäkerhet
 
@@ -141,7 +141,7 @@ Om du skapar andra regler, anger andra programsäkerhetsgrupper som mål, tillä
  
 Mer information om begränsningar när du skapar programsäkerhetsgrupper och hur du anger dem finns i avsnittet om [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Programsäkerhetsgrupper är tillgängliga som förhandsversion. Funktioner i förhandsversionen har inte samma grad av tillgänglighet och tillförlitlighet som funktioner i en allmän version. Innan du kan använda programsäkerhetsgrupper måste du först registrera dig för att använda dem genom att slutföra steg 1 till 5 i Azure- eller PowerShell-avsnitten i [Skapa en nätverkssäkerhetsgrupp med programsäkerhetsgrupper](create-network-security-group-preview.md). Programmet säkerhetsgrupper har följande begränsningar:
+Programmet säkerhetsgrupper har följande begränsningar:
 
 -   Alla nätverksgränssnitt i en säkerhetsgrupp för programmet måste finnas i samma virtuella nätverk. Du kan inte lägga till nätverksgränssnitt från olika virtuella nätverk i säkerhetsgruppen för samma program. Det virtuella nätverket som det första nätverksgränssnittet som tilldelats programsäkerhetsgruppen är i, definierar det virtuella nätverket som alla efterföljande nätverksgränssnitt måste finnas i.
 - Om du anger programsäkerhetsgrupper som källa och mål i en säkerhetsregel måste nätverksgränssnitten i bägge programsäkerhetsgrupperna finnas i samma virtuella nätverk. Om till exempel ASG1 innehåller nätverksgränssnitt från VNet1 och ASG2 innehåller nätverksgränssnitt från VNet2 så går det inte att tilldela ASG1 som källa och ASG2 som mål i en regel. Alla nätverksgränssnitt måste finnas i VNet1.
@@ -165,5 +165,4 @@ Programsäkerhetsgrupper är tillgängliga som förhandsversion. Funktioner i f�
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Slutför självstudiekursen [Skapa en nätverkssäkerhetsgrupp](virtual-networks-create-nsg-arm-pportal.md)
-* Slutför självstudiekursen [Skapa en nätverkssäkerhetsgrupp med programsäkerhetsgrupper](create-network-security-group-preview.md)
+* Läs om hur du [skapar en nätverkssäkerhetsgrupp](tutorial-filter-network-traffic.md).

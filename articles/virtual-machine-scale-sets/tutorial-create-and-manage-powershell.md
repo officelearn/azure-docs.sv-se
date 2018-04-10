@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1f1b987d00fad4931f9ad39b39101cc474c2a1e3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 54f63ec4cddf64110eadf25fff60167238f9f9a6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Självstudie: Skapa och hantera en VM-skalningsuppsättning med Azure PowerShell
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. I den här självstudiekursen får du lära du dig att:
@@ -45,7 +45,6 @@ En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras o
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
-
 Resursgruppens namn anges när du skapar eller ändrar en skalningsuppsättning under den här självstudien.
 
 
@@ -83,10 +82,10 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 Följande exempelutdata visar två virtuella datorinstanser i skalningsuppsättningen:
 
 ```powershell
-ResourceGroupName         Name Location          Sku InstanceID ProvisioningState
------------------         ---- --------          --- ---------- -----------------
-MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS2          0         Succeeded
-MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS2          1         Succeeded
+ResourceGroupName         Name Location             Sku InstanceID ProvisioningState
+-----------------         ---- --------             --- ---------- -----------------
+MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS1_v2          0         Succeeded
+MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
 Om du vill visa mer information om en specifik VM-instans, lägger du till parametern `-InstanceId` till [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). Följande exempel visar information om den virtuella datorinstansen *1*:
@@ -235,7 +234,7 @@ Standard_NV6                       6      57344               24        1047552 
 Standard_NV12                     12     114688               48        1047552               696320
 ```
 
-När du skapade en skalningsuppsättning i början av självstudien, angavs en standard virtuell dator-SKU på *Standard_D1_v2* för de virtuella datorinstanserna. Du kan ange en annan virtuell datorinstans-storlek baserat på utdata från [Get-AzurerRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). Följande exempel skapar en skalningsuppsättning med parametern `-VmSize` för att ange en virtuell datorinstans-storlek på *Standard_F1*. Eftersom det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresurser och virtuella datorinstanser så behöver du inte distribuera följande skalningsuppsättning:
+När du skapade en skalningsuppsättning i början av självstudien angavs en standard-VM-SKU på *Standard_DS1_v2* för de virtuella datorinstanserna. Du kan ange en annan virtuell datorinstans-storlek baserat på utdata från [Get-AzurerRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). Följande exempel skapar en skalningsuppsättning med parametern `-VmSize` för att ange en virtuell datorinstans-storlek på *Standard_F1*. Eftersom det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresurser och virtuella datorinstanser så behöver du inte distribuera följande skalningsuppsättning:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `

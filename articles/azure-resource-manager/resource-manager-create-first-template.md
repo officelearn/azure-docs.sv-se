@@ -1,8 +1,8 @@
 ---
-title: "Skapa din första Azure Resource Manager-mall | Microsoft Docs"
-description: "Stegvisa instruktioner för hur du skapar din första Azure Resource Manager-mall. I guiden beskrivs hur du skapar mallen med hjälp av mallreferensen för ett lagringskonto."
+title: Skapa din första Azure Resource Manager-mall | Microsoft Docs
+description: Stegvisa instruktioner för hur du skapar din första Azure Resource Manager-mall. I guiden beskrivs hur du skapar mallen med hjälp av mallreferensen för ett lagringskonto.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -10,24 +10,25 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/02/2017
+ms.date: 03/30/2018
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adf7d6ad04b9c341eac2172e09da3cb1f044aa62
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Skapa och distribuera din första Azure Resource Manager-mall
 Den här artikeln beskriver steg för steg hur du skapar din första Azure Resource Manager-mall. Resource Manager-mallar är JSON-filer som definierar de resurser du behöver för att distribuera lösningen. En beskrivning av de begrepp som används i samband med distribution och hantering av Azure-lösningar finns i [Översikt över Azure Resource Manager](resource-group-overview.md). Om du har befintliga resurser och behöver en mall för dessa resurser kan du läsa [Exportera en Azure Resource Manager-mall från befintliga resurser](resource-manager-export-template.md).
 
 Du behöver en JSON-redigerare för att skapa och ändra mallar. [Visual Studio Code](https://code.visualstudio.com/) är en enkel, plattformsoberoende kodredigerare med öppen källkod. Vi rekommenderar starkt att du använder Visual Studio Code för att skapa Resource Manager-mallar. I den här artikeln förutsätter vi att du använder VS Code. Om du har en annan JSON-redigerare (t.ex. Visual Studio) kan du använda den.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Visual Studio Code. Om det behövs installerar du det från [https://code.visualstudio.com/](https://code.visualstudio.com/).
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* [Azure PowerShell](/powershell/azure/install-azurerm-ps) eller [Azure CLI](/cli/azure/install-azure-cli) installerat lokalt. Du behöver en lokal installation för den här självstudien eftersom din mall är sparad som lokal fil. Om du vill använda Cloud Shell måste du [läsa in din mall till ett lagringskonto](resource-group-template-deploy-cli.md#deploy-template-from-cloud-shell).
 
 ## <a name="create-template"></a>Skapa mallen
 
@@ -92,24 +93,6 @@ Nu är det dags att distribuera den här mallen. Du använder PowerShell eller A
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
-
-När distributionen är klar finns ditt lagringskonto i resursgruppen.
-
-[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
-
-För Azure CLI använder du följande kommandon:
-
-```azurecli-interactive
-az group create --name examplegroup --location "South Central US"
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-```
-
-För närvarande är PowerShell tillgängligt i Cloud Shell som förhandsversion. För PowerShell använder du följande kommandon:
-
-```powershell
-New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
-```
 
 När distributionen är klar finns ditt lagringskonto i resursgruppen.
 
@@ -244,12 +227,6 @@ Om du använder Azure CLI använder du:
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
-Om du använder Cloud Shell laddar du upp den ändrade mallen till filresursen. Skriv över den befintliga filen. Använd sedan följande kommando:
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
-```
-
 ## <a name="use-autocomplete"></a>Använda automatisk komplettering
 
 Hittills har du bara kopierat och klistrat in JSON-kod från den här artikeln. Men när du skapar en egen mall vill du hitta och ange egenskaper och värden som är tillgängliga för resurstypen. VS Code läser schemat för resurstypen och föreslår egenskaper och värden. Om du vill se hur automatisk komplettering fungerar går du till properties-elementet i mallen och lägger till en ny rad. Skriv ett citattecken och lägg märke till att VS Code genast föreslår namn som är tillgängliga i properties-elementet.
@@ -377,12 +354,6 @@ Om du använder Azure CLI använder du:
 
 ```azurecli
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
-```
-
-Om du använder Cloud Shell laddar du upp den ändrade mallen till filresursen. Skriv över den befintliga filen. Använd sedan följande kommando:
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser

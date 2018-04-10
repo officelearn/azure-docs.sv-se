@@ -1,129 +1,124 @@
 ---
-title: "Cheat blad för Azure SQL Data Warehouse | Microsoft Docs"
-description: "Hitta länkar och bästa praxis att snabbt skapa din Azure SQL Data Warehouse-lösningar."
+title: Lathund för Azure SQL Data Warehouse | Microsoft Docs
+description: Hitta länkar och bästa metoder för att snabbt skapa dina Azure SQL Data Warehouse-lösningar.
 services: sql-data-warehouse
-documentationcenter: NA
 author: acomet
 manager: jhubbard
-editor: 
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 02/20/2018
+ms.topic: overview
+ms.component: design
+ms.date: 03/28/2018
 ms.author: acomet
-ms.openlocfilehash: c67d56ff63f70baa052be17c119d943c558d398f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
-ms.translationtype: MT
+ms.reviewer: mausher,igorstan,jrj
+ms.openlocfilehash: 1e09dc2f3c7e7aa4ae98ef98a8957454a1beee6b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Cheat blad för Azure SQL Data Warehouse
-Den här fusklapp ger nyttiga tips och bästa praxis för att skapa din Azure SQL Data Warehouse-lösningar. Innan du börjar, mer information om varje steg i detalj genom att läsa [Azure SQL Data Warehouse arbetsbelastning mönster och ett mönster](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), som beskriver SQL Data Warehouse är och vad det är inte.
+# <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Lathund för Azure SQL Data Warehouse
+Med den här lathunden får du praktiska tips och bästa metoder för att skapa dina Azure SQL Data Warehouse-lösningar. Innan du börjar bör du lära dig mer om varje steg genom att läsa om [mönster och antimönster i arbetsbelastningar i Azure SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), där det står vad SQL Data Warehouse är och vad det inte är.
 
-Följande bild visar hur du skapar ett datalager:
+Följande bild visar hur du skapar ett informationslager:
 
 ![Skiss]
 
-## <a name="queries-and-operations-across-tables"></a>Frågor och åtgärder mellan tabeller
+## <a name="queries-and-operations-across-tables"></a>Frågor och åtgärder i tabeller
 
-När du vet i förväg primära operationer och frågor för att köras i datalagret kan prioritera du data warehouse-arkitektur för dessa åtgärder. Dessa frågor och åtgärder kan innehålla:
-* Ansluta till en eller två faktatabeller med dimensionstabeller tabellen kombinerade-filtrering och att resultaten i ett dataarkiv.
-* Gör stora eller små uppdateringar till fakta-försäljning.
-* Lägger endast till tabeller.
+När du vet i förväg vilka primära åtgärder och frågor som ska köras i ditt informationslager kan du prioritera arkitekturen för ditt informationslager för de åtgärderna. Dessa frågor och åtgärder kan innehålla:
+* Anslutning till en eller två faktatabeller med dimensionstabeller, filtrering av den kombinerade tabellen och sedan bifogning av resultatet i en data mart.
+* Gör stora eller små uppdateringar i din försäljning.
+* Lägger endast till data i dina tabeller.
 
-Att veta vilka typer av åtgärder i förväg hjälper dig att optimera utformningen av tabeller.
+När du vet åtgärdstyperna i förväg kan du optimera tabellernas design.
 
 ## <a name="data-migration"></a>Datamigrering
 
-Först läsa in data till [Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store) eller Azure Blob storage. Använd sedan PolyBase för att läsa in dina data till SQL Data Warehouse i en mellanlagringstabellen. Använd följande konfiguration:
+Läs först in dina data till [Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store) eller Azure Blob Storage. Använd sedan PolyBase för att läsa in dina data i SQL Data Warehouse i en mellanlagringstabell. Använd följande konfiguration:
 
-| Designa | Rekommendation |
+| Design | Rekommendation |
 |:--- |:--- |
 | Distribution | Resursallokering |
 | Indexering | Heap |
 | Partitionering | Ingen |
 | Resursklass | largerc eller xlargerc |
 
-Lär dig mer om [datamigrering], [datainläsning], och [extrahera, Load and Transform ELT ()-processen](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading). 
+Läs mer om [datamigrering], [datainläsning] och [ELT-processen (Extract, Load, and Transform)](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading). 
 
 ## <a name="distributed-or-replicated-tables"></a>Distribuerade eller replikerade tabeller
 
-Använd följande strategier, beroende på Tabellegenskaper:
+Använd följande strategier, beroende på tabellens egenskaper:
 
-| Typ | Bra val för...| Kontrollerar om...|
+| Typ | Passar bra för...| Se upp om...|
 |:--- |:--- |:--- |
-| Replikerade | • Små dimensionstabeller i ett stjärnschema med mindre än 2 GB lagringsutrymme efter komprimering (~ 5 x komprimering) |• Många skriva transaktioner är för tabellen (till exempel insert, upsert, ta bort, uppdateringen)<br></br>• Ändra Data Warehouse enheter (DWU) etablering ofta<br></br>• Du bara använda 2 – 3 kolumner men din tabell har många kolumner<br></br>• Du indexera en replikerad tabell |
-| Resursallokering (standard) | • Tillfälligt/mellanlagringstabell<br></br> • Uppenbara inte ansluta till nyckeln eller så bra kandidat kolumn |• Prestanda går långsamt på grund av dataförflyttning |
-| Hash | • Faktatabeller<br></br>• Stora dimensionstabeller |• Distributionsnyckeln kan inte uppdateras |
+| Replikerad | • Små dimensionstabeller i ett star-schema med mindre än 2 GB lagring efter komprimering (~5x komprimering) |•  Det finns många skrivtransaktioner i tabellen (som infoga, upsert, ta bort, uppdatera)<br></br>• Du ändrar DWU-etablering (Data Warehouse Units) ofta<br></br>• Du endast använder 2–3 kolumner men tabellen har många kolumner<br></br>•  Du indexerar en replikerad tabell |
+| Resursallokering (standard) | • Tillfällig/mellanlagringstabell<br></br> • Ingen uppenbar kopplingsnyckel eller kolumn för bra kandidater |• Prestanda går långsamt på grund av dataförflyttning |
+| Hash | • Faktatabeller<br></br>•    Stora dimensionstabeller |• Distributionsnyckeln kan inte uppdateras |
 
 **Tips:**
-* Börja med resursallokering, men vill en hash-distributionsstrategi dra nytta av en arkitektur med massivt parallell.
-* Se till att vanliga hash-nycklar har samma format.
-* Distribuera inte på varchar-format.
-* Dimensionstabeller med en gemensam hash-nyckel till en faktatabell med frekventa kopplingsåtgärder kan vara hash som distribueras.
-* Använd  *[sys.dm_pdw_nodes_db_partition_stats]*  att analysera alla snedheten i data.
-* Använd  *[sys.dm_pdw_request_steps]*  förflyttningar bakom frågor, övervaka tiden broadcast för att analysera data och blanda operationer. Det är bra att granska din distributionsstrategi för.
+* Börja med resursallokering, men försök att skapa en hashdistributionsstrategi för att dra nytta av en massiv parallell arkitektur.
+* Se till att vanliga hash-nycklar har samma dataformat.
+* Distribuera inte i varchar-format.
+* Dimensionstabeller med en vanlig hash-nyckel för en faktatabell med många kopplingsåtgärder kan hash-distribueras.
+* Använd *[sys.dm_pdw_nodes_db_partition_stats]* för att analysera eventuella snedställningar i dina data.
+* Använd *[sys.dm_pdw_request_steps]* för att analysera dataförflyttning bakom frågor, övervaka sändningstiden och blanda åtgärder. Det är praktiskt när du granskar din distributionsstrategi.
 
-Lär dig mer om [replikerade tabeller] och [distribuerade tabeller].
+Läs mer om [replikerade tabeller] och [distribuerade tabeller].
 
-## <a name="index-your-table"></a>Index för tabellen
+## <a name="index-your-table"></a>Indexera tabellen
 
-Indexering är användbart för att läsa in tabeller snabbt. Det finns en unik uppsättning tekniker som du kan använda baserat på dina behov:
+Indexering är bra när du vill läsa tabeller snabbt. Det finns en unik uppsättning tekniker som du kan använda utifrån dina behov:
 
-| Typ | Bra val för... | Kontrollerar om...|
+| Typ | Passar bra för... | Se upp om...|
 |:--- |:--- |:--- |
-| Heap | • Mellanlagring/tillfällig tabell<br></br>• Små tabeller med små sökningar |• En sökning söker igenom hela tabellen |
-| Grupperat index | • Tabeller med upp till 100 miljoner rader<br></br>• Stora tabeller (fler än 100 miljoner rader) med endast 1 – 2 för hög |• Som används i en replikerad tabell<br></br>• Du har avancerade frågor som omfattar flera koppling och Group By-åtgärder<br></br>• Du gör uppdateringar i de fulltextindexerade kolumnerna: det tar minne |
-| Grupperade columnstore-indexet (CCI) (standard) | • Stora tabeller (fler än 100 miljoner rader) | • Som används i en replikerad tabell<br></br>• Du gör omfattande uppdateringsåtgärder på tabellen<br></br>• Du overpartition tabellen: radgrupper omfattar inte över en annan distributionsplats noder och partitioner |
+| Heap | • Mellanlagrings-/temporär tabell<br></br>• Små tabeller med små sökningar |• Sökningar som genomsöker hela tabellen |
+| Grupperat index | • Tabeller med upp till 100 miljoner rader<br></br>• Stora tabeller (över 100 miljoner rader) där endast 1–2 kolumner används mycket |•  Används på en replikerad tabell<br></br>•    Du har avancerade frågor som omfattar flera kopplingsåtgärder och Gruppera efter-åtgärder<br></br>•  Du gör uppdateringar för de indexerade kolumnerna: det kräver minne |
+| Grupperade columnstore-index (kolumnlagringsindex) (standard) | •   Stora tabeller (över 100 miljoner rader) | •  Används på en replikerad tabell<br></br>•   Du gör omfattande uppdateringsåtgärder för tabellen<br></br>•  Du överpartitionerar din tabell: radgrupper sträcker sig inte över olika distributionsnoder och partitioner |
 
 **Tips:**
-* Du kanske vill lägga till en icke-grupperat index i en kolumn som kraftigt används för att filtrera ovanpå ett grupperat index. 
-* Var noga med hur du hanterar minne på en tabell med CCI. När du läser in data som du vill användaren (eller frågan) för att dra nytta av en stor resursklassen. Se till att undvika trimning och skapa många små komprimerade radgrupper.
-* Optimerad för att beräkna nivån klippor med CCI.
-* För CCI, kan dåliga prestanda inträffa på grund av dålig komprimering av din radgrupper. Om detta inträffar kan du återskapa eller ordna om din CCI. Vill du minst 100 000 rader per komprimerade radgrupper. Perfekt är 1 miljoner rader i en grupp.
-* Utifrån inkrementell belastningen frekvens och storlek som du vill automatisera när du vill ordna om eller återskapa ditt index. Rensa värdet är alltid bra.
-* Vara strategiska när du vill ta bort en grupp. Hur stora är öppna radgrupper? Hur mycket data du vill läsa in under de kommande dagarna?
+* Förutom ett grupperat index kanske du vill lägga till ett icke-grupperat index till en kolumn som används ofta för filtrering. 
+* Var försiktig med hur du hanterar minnet i en tabell med CCI. När du läser in data ska användaren (eller frågan) dra nytta av en stor resursklass. Undvik att trimma och skapa många små komprimerade radgrupper.
+* Nivån Optimerad för beräkning fungerar bra med CCI.
+* För CCI kan dåliga prestanda uppstå på grund av dålig komprimering av dina radgrupper. Om det sker ska du återskapa eller ordna om din CCI. Du bör ha minst 100 000 rader per komprimerad radgrupp. Det bästa är 1 miljon rader i en radgrupp.
+* Baserat på den stegvisa frekvensen och storleken vill du automatisera när du ordnar om eller återskapar dina index. En vårstädning är aldrig fel.
+* Var strategisk när du vill trimma en radgrupp. Hur stora är öppna radgrupper? Hur mycket data förväntar du dig att läsa in under de kommande dagarna?
 
-Lär dig mer om [index].
+Läs mer om [index].
 
 ## <a name="partitioning"></a>Partitionering
-Du kan partitionera tabellen när du har en stor faktatabell (större än 1 miljard rader). Partitionsnyckeln ska baseras på datum i 99 procent av fall. Var noga med att inte overpartition, särskilt när du har ett grupperat columnstore-index.
+Du kan partitionera tabellen när du har en stor faktatabell (fler än 1 miljard rader). I 99 procent av fallen ska partitionsnyckeln baseras på datum. Var noga så att du inte överpartitionerar, särskilt när du har ett grupperat kolumnlagringsindex.
 
-Med mellanlagringstabeller som kräver ELT, kan du dra nytta partitionering. Det underlättar Livscykelhantering för data.
-Var noga med att inte overpartition dina data, särskilt på ett grupperat columnstore-index.
+Med mellanlagringstabeller som kräver ELT kan du dra nytta av partitionering. Det underlättar hanteringen av datalivscykeln.
+Var noga så att du inte överpartitionerar dina data, särskilt när du har ett grupperat kolumnlagringsindex.
 
-Lär dig mer om [partitioner].
+Läs mer om [partitioner].
 
-## <a name="incremental-load"></a>Inkrementell belastning
+## <a name="incremental-load"></a>Stegvis inläsning
 
-Om du kommer att läsa in dina data inkrementellt, måste du kontrollera att du allokera större resursklasser för att läsa in data. Vi rekommenderar att du använder PolyBase och ADF V2 för att automatisera dina ELT pipelines i SQL Data Warehouse.
+Om du ska läsa in data stegvis ska du först kontrollera att du allokerar större resursklasser för att läsa in dina data. Vi rekommenderar att du använder PolyBase och ADF V2 för att automatisera dina ELT-pipelines i SQL Data Warehouse.
 
-För en stor grupp med uppdateringar i din historiska data du först ta bort de berörda data. Gör sedan en massinfogning av nya data. Den här metoden för tvåstegsverifiering är effektivare.
+För en stor grupp med uppdateringar i dina historiska data bör du först ta bort berörda data. Gör sedan en massinfogning av nya data. Den här metoden för tvåstegsverifiering är effektivare.
 
 ## <a name="maintain-statistics"></a>Underhålla statistik
- Tills automatiskt statistik är allmänt tillgänglig kräver SQL Data Warehouse manuellt underhåll av statistik. Det är viktigt att uppdatera statistik som *betydande* ändringar som sker till dina data. Detta hjälper till att optimera din frågeplaner. Om du tycker att det tar för lång tid att behålla alla dina statistik kan vara mer selektiv om vilka kolumner har statistik. 
+ Tills automatisk statistik är allmänt tillgänglig kräver SQL Data Warehouse manuell underhåll av statistik. Det är viktigt att uppdatera statistik när viktiga dataändringar görs. Detta hjälper till att optimera dina frågeplaner. Om du tycker att det tar för lång tid att behålla all statistik kan du vara mer selektiv med vilka kolumner som ska ha statistik. 
 
-Du kan också definiera frekvensen av uppdateringarna. Du kanske vill uppdatera datumkolumnerna, där nya värden kan läggas till, dagligen. Du får mest nytta av med statistik om kolumner som ingår i kopplingar, kolumner som används i WHERE-satsen och kolumner i GROUP BY.
+Du kan även definiera frekvensen för uppdateringarna. Du kanske till exempel vill uppdatera datumkolumner, där nya värden kan läggas till, varje dag. Du får ut mest genom att använda statistik med kolumner som ingår i kopplingar, kolumner som används i WHERE-satsen och kolumner som finns i GROUP BY.
 
-Lär dig mer om [statistik].
+Läs mer om [statistik].
 
 ## <a name="resource-class"></a>Resursklass
-SQL Data Warehouse använder resursgrupper som ett sätt att allokera minne till frågor. Om du behöver mer minne för att förbättra frågan eller läsa in hastighet, bör du allokera högre resurs klasserna. På sidan Vänd med större resursklasser påverkar samtidighet. Vill du beakta som innan du flyttar alla användare till en stor resursklassen.
+SQL Data Warehouse använder resursgrupper som ett sätt att allokera minne till frågor. Om du behöver mer minne för att förbättra hastigheten för frågor eller inläsning ska du allokera högre resursklasser. Å andra sidan påverkar användning av större klasser samtidigheten. Du bör överväga det innan du flyttar alla dina användare till en stor resursklass.
 
-Om du märker att frågor tar för lång tid, kan du kontrollera att användarna inte kör i stora resursklasser. Stora resursklasser använda många samtidiga platser. De kan orsaka andra frågor till kö.
+Om du märker att frågor tar för lång tid kan du kontrollera att dina användare inte körs i stora resursklasser. Stora resursklasser förbrukar många samtidighetsfack. De kan orsaka att andra frågor placeras i kö.
 
-Med hjälp av Compute optimerade nivån hämtar slutligen varje resursklassen 2,5 gånger så mycket minne på den elastiska optimerade nivån.
+Genom att använda nivån Optimerad databehandling får slutligen varje resursklass 2,5 gånger mer minne än på nivån för elastisk optimering.
 
 Lär dig mer om hur du arbetar med [resursklasser och samtidighet].
 
-## <a name="lower-your-cost"></a>Lägre dina kostnader
-En nyckelfunktion i SQL Data Warehouse är möjligheten att [hantera beräkningsresurser](sql-data-warehouse-manage-compute-overview.md). Du kan pausa datalagret när du inte använder den, vilket avbryter faktureringen av beräkningsresurser. Du kan skala resurser för att möta dina krav på prestanda. Pausa genom att använda den [Azure-portalen](pause-and-resume-compute-portal.md) eller [PowerShell](pause-and-resume-compute-powershell.md). Om du vill skala, Använd den [Azure-portalen](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), eller en [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+## <a name="lower-your-cost"></a>Sänk kostnaderna
+En viktig funktion i SQL Data Warehouse är möjligheten att [hantera beräkningsresurser](sql-data-warehouse-manage-compute-overview.md). Du kan pausa informationslagret när du inte använder det, vilket gör att faktureringen för beräkningsresurser stoppas. Du kan skala resurser för att uppfylla dina prestandakrav. Om du vill pausa använder du [Azure-portalen](pause-and-resume-compute-portal.md) eller [PowerShell](pause-and-resume-compute-powershell.md). Om du vill skala använder du [Azure-portalen](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) eller en [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
-Autoskala nu när du vill med Azure Functions:
+Autoskala nu för den tid du önskar med Azure Functions:
 
 <a href="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
@@ -131,11 +126,11 @@ Autoskala nu när du vill med Azure Functions:
 
 ## <a name="optimize-your-architecture-for-performance"></a>Optimera din arkitektur för prestanda
 
-Vi rekommenderar att SQL Database och Azure Analysis Services i en nav och eker-arkitektur. Den här lösningen kan isolera arbetsbelastningen mellan olika grupper av användare när du använder också funktioner för avancerad säkerhet från SQL Database och Azure Analysis Services. Detta är ett sätt att förse användarna obegränsad samtidighet.
+Vi rekommenderar att du överväger SQL Database och Azure Analysis Services i en nav-och-eker-arkitektur. Den här lösningen kan isolera arbetsbelastningen mellan olika grupper av användare när du även använder avancerade funktioner från SQL Database och Azure Analysis Services. Det här är också ett sätt att tillhandahålla obegränsad samtidighet till dina användare.
 
-Lär dig mer om [vanliga arkitekturer som utnyttjar SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Läs mer om [vanliga arkitekturer som använder SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/).
 
-Distribuera i en klickar du på din ekrar i SQL-databaser från SQL Data Warehouse:
+Distribuera dina ekrar med ett klick i SQL-databaser från SQL Data Warehouse:
 
 <a href="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
@@ -152,6 +147,8 @@ Distribuera i en klickar du på din ekrar i SQL-databaser från SQL Data Warehou
 [partitioner]:sql-data-warehouse-tables-partition.md
 [statistik]:sql-data-warehouse-tables-statistics.md
 [resursklasser och samtidighet]:resource-classes-for-workload-management.md
+[replikerade tabeller]:design-guidance-for-replicated-tables.md
+[distribuerade tabeller]:sql-data-warehouse-tables-distribute.md
 
 <!--MSDN references-->
 
@@ -160,8 +157,7 @@ Distribuera i en klickar du på din ekrar i SQL-databaser från SQL Data Warehou
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
 [datamigrering]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
-[replikerade tabeller]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-guidance-for-replicated-tables
-[distribuerade tabeller]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute
-[Azure Data Lake Store]: https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store
-[sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
-[sys.dm_pdw_request_steps]:https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
+
+[Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
+[sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
+[sys.dm_pdw_request_steps]:/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql

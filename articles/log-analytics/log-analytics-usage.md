@@ -1,27 +1,27 @@
 ---
-title: "Analysera dataanvändning i Log Analytics| Microsoft Docs"
-description: "Använd instrumentpanelen i Log Analytics för att visa hur mycket data som skickas till tjänsten Log Analytics och felsöka anledningen till att stora mängder data skickas."
+title: Analysera dataanvändning i Log Analytics| Microsoft Docs
+description: Med instrumentpanelen för användning och beräknad kostnad i Log Analytics kan du utvärdera hur mycket data som skickas till Log Analytics och identifiera vad som kan orsaka oförutsedda ökningar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2018
+ms.date: 03/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 8d6baa6b46290c7a332f5cf780c7f70680fb6a2c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e141dcf69c1a173c60cb96907cae2ba9f119b03
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
-Log Analytics innehåller information om hur mycket data som samlas in, vilka system som skickade data och vilka typer av data som skickas.  Använd instrumentpanelen för **Log Analytics-användning** för att se hur mycket data som skickas till Log Analytics-tjänsten. Instrumentpanelen visar hur mycket data som samlas in av varje lösning och hur mycket data som skickas av dina datorer.
+Log Analytics innehåller information om hur mycket data som samlas in, vilka källor som skickade data och vilka typer av data som skickas.  Med instrumentpanelen för **Log Analytics-användning** kan du granska och analysera dataanvändning. Instrumentpanelen visar hur mycket data som samlas in av varje lösning och hur mycket data som skickas av dina datorer.
 
 ## <a name="understand-the-usage-dashboard"></a>Förstå instrumentpanelen för användning
 Instrumentpanelen **Log Analytics usage** (Log Analytics-användning) innehåller följande information:
@@ -41,20 +41,17 @@ Instrumentpanelen **Log Analytics usage** (Log Analytics-användning) innehålle
     - Hur lång tid det tar att samla in och indexera data  
 - Lista med frågor
 
-![instrumentpanelen användning](./media/log-analytics-usage/usage-dashboard01.png)
+![Instrumentpanelen för användning och kostnader](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+)
 
 ### <a name="to-work-with-usage-data"></a>Att arbeta med användningsdata
-1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com) med din Azure-prenumeration.
-2. Klicka på **Alla tjänster** och skriv **Log Analytics** i resurslistan. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Log Analytics**.  
-    ![Azure-hubb](./media/log-analytics-usage/hub.png)
-3. Instrumentpanelen för **Log Analytics** visar en lista över dina arbetsytor. Välj en arbetsyta.
-4. På instrumentpanelen för *arbetsytan* klickar du på **Log Analytics usage** (Log Analytics-användning).
-5. På instrumentpanelen **Log Analytics Usage** (Log Analytics-användning) klickar du på **Tid: Senaste 24 timmarna** om du vill ändra tidsintervallet.  
-    ![tidsintervall](./media/log-analytics-usage/time.png)
-6. Öppna de blad för användningskategori som visar de områden som du är intresserad av. Välj ett blad och klicka sedan på ett objekt på det om du vill visa mer information i [Loggsökning](log-analytics-log-searches.md).  
-    ![användningsblad med exempeldata](./media/log-analytics-usage/blade.png)
-7. Granska resultaten som returneras från sökningen på instrumentpanelen Loggsökning.  
-    ![exempel på loggsökning för användning](./media/log-analytics-usage/usage-log-search.png)
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure Portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+3. Välj en arbetsyta som du skapade tidigare i listan med Log Analytics-arbetsytor.
+4. Välj **Användning och beräknade kostnader** i listan i det vänstra fönstret.
+5. På instrumentpanelen för **användning och beräknade kostnader** kan du ändra tidsintervallet genom att välja **Time: Last 24 hours** (Tid: Senaste 24 timmarna) och ändra tidsintervallet.<br><br> ![tidsintervall](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
+6. Öppna de blad för användningskategori som visar de områden som du är intresserad av. Välj ett blad och klicka sedan på ett objekt på det om du vill visa mer information i [Loggsökning](log-analytics-log-searches.md).<br><br> ![KPI för exempeldataanvändning](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+7. Granska resultaten som returneras från sökningen på instrumentpanelen Loggsökning.<br><br> ![exempel på loggsökning för användning](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Skapa en avisering när datainsamlingen är högre än väntat
 I det här avsnittet beskrivs hur du skapar en avisering om:

@@ -1,20 +1,20 @@
 ---
-title: "Azure Snabbstart – Köra Batch-jobb – Python"
-description: "Kör snabbt ett Batch-jobb och aktiviteter med hjälp av Batch Python-klientbiblioteket."
+title: Azure Snabbstart – Köra Batch-jobb – Python
+description: Kör snabbt ett Batch-jobb och aktiviteter med hjälp av Batch Python-klientbiblioteket.
 services: batch
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0e6a631a8d4956e2be9fd14941131968d5f4443f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e843bc0d3a56b9e99cd3fbb865bb0066321475df
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Snabbstart: Kör ditt första Batch-jobb med Python-API
 
@@ -40,7 +40,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-[Hämta eller klona exempelappen](https://github.com/Azure-Samples/batch-python-quickstart) från GitHub. Om du vill klona exempellagringsplatsen med en Git-klient använder du följande kommando:
+[Ladda ned eller klona exempelappen](https://github.com/Azure-Samples/batch-python-quickstart) från GitHub. Om du vill klona exempellagringsplatsen med en Git-klient använder du följande kommando:
 
 ```
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git

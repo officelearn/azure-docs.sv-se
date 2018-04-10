@@ -1,37 +1,48 @@
 ---
-title: "Så här gör du med Azure – Använda olika säkerhetsmoduler för maskinvara med klient-SDK:t för enhetsetableringstjänsten i Azure | Microsoft Docs"
-description: "Så här gör du med Azure – Använda olika säkerhetsmoduler för maskinvara med klient-SDK:t för enhetsetableringstjänsten i Azure"
+title: Så här gör du med Azure – Använda olika säkerhetsmoduler för maskinvara med klient-SDK:t för enhetsetableringstjänsten i Azure
+description: Så här gör du med Azure – Använda olika säkerhetsmoduler för maskinvara med klient-SDK:t för enhetsetableringstjänsten i Azure
 services: iot-dps
-keywords: 
+keywords: ''
 author: yzhong94
 ms.author: yizhon
-ms.date: 08/28/2017
+ms.date: 03/28/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
-manager: 
+documentationcenter: ''
+manager: ''
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 184bbdc0a6bef74d0e5ac79afe3858354c6b1695
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0d392f4a8d935cb37b6f4cfcd69826de58b33880
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk"></a>Använda olika maskinvarusäkerhetsmoduler med klient-SDK:t för enhetsetableringstjänsten
-Stegen nedan visar hur du använder olika [maskinvarusäkerhetsmoduler (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) med klient-SDK:t för enhetsetableringstjänsten (Device Provisioning Service Client SDK) i C med fysiska enheter och simulatorer.  Etableringstjänsten stöder två autentiseringslägen: X**.**509 och TPM (Trusted Platform Module).
+# <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk-for-c"></a>Använda olika maskinvarusäkerhetsmoduler med klient-SDK:t för enhetsetableringstjänsten för C
 
-## <a name="prerequisites"></a>Krav
+Den här artikeln beskriver hur du använder olika [maskinvarusäkerhetsmoduler (HSM:er)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) med Device Provisioning Services Client SDK (klient-SDK för enhetsetableringstjänster) för C. Du kan antingen använda en fysisk enhet eller en simulator. Etableringstjänsten stöder autentisering för två typer av attesteringsmetoder: X**.**509 och TPM (Trusted Platform Module).
 
-Förbered din utvecklingsmiljö enligt avsnittet "Prepare the development environment" (förbereda utvecklingsmiljön) guiden [Create and provision simulated device] (skapa och etablera en simulerad enhet) (./quick-create-simulated-device.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="enable-authentication-with-different-hsms"></a>Aktivera autentisering med olika maskinvarusäkerhetsmoduler
+Förbered din utvecklingsmiljö enligt avsnittet "Prepare the development environment" (förbereda utvecklingsmiljön) i guiden [Create and provision simulated device](./quick-create-simulated-device.md) (Skapa och etablera en simulerad enhet).
 
-Autentiseringsläge (X**.**509 eller TPM) måste aktiveras för den fysiska enheten eller simulatorn innan den kan registreras i Azure Portal.  Navigera till rotmappen för azure-iot-sdk-c.  Kör det angivna kommandot beroende på vilket autentiseringsläge du väljer.
+### <a name="choose-a-hardware-security-module"></a>Välja en maskinvarusäkerhetsmodul
+
+Som enhetens tillverkare måste du först välja maskinvarusäkerhetsmoduler (eller HSM:er) som baseras på någon av typerna som stöds. För närvarande erbjuder [klient-SDK:t för enhetsetableringstjänsten för C](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) stöd för följande HSM:er: 
+
+- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM är en etablerad standard för de flesta plattformar för Windows-baserade enheter, samt några Linux-/Ubuntu-baserade enheter. Som enhetens tillverkare kan du välja denna HSM om du kör något av dessa operativsystem på dina enheter och letar efter en etablerad standard för HSM:er. Med TPM-kretsar kan du endast registrera varje enhet individuellt till enhetsetableringstjänsten. I utvecklingssyfte kan du använda TPM-simulatorn på din Windows- eller Linux-utvecklingsdator.
+
+- [X.509](https://cryptography.io/en/latest/x509/): X.509-baserade HSM:er är relativt nyare kretsar. Arbetet fortlöper också inom Microsoft, på RIoT- eller DICE-kretsar, som implementerar X.509-certifikaten. Med X.509-kretsar kan du göra massregistrering av enheter i portalen. De stöder även vissa icke-Windows-operativsystem som embedOS. I utvecklingssyfte stöder klient-SDK:er för enhetsetableringstjänster en X.509-enhetssimulator. 
+
+Läs mer i informationen om [säkerhetsbegrepp för IoT Hub Device Provisioning-tjänsten](concepts-security.md). 
+
+## <a name="enable-authentication-for-supported-hsms"></a>Aktivera autentisering för HSM:er som stöds
+
+Autentiseringsläge (X**.**509 eller TPM) måste aktiveras för den fysiska enheten eller simulatorn innan den kan registreras i Azure Portal. Navigera först till rotmappen för azure-iot-sdk-c. Kör sedan det angivna kommandot beroende på vilket autentiseringsläge du väljer:
 
 ### <a name="use-x509-with-simulator"></a>Använd X**.**509 med simulator
 
-Etableringstjänsten levereras med en DICE-emulator (Device Identity Composition Engine) som genererar ett X**.**509-certifikat för autentisering av enheten.  Kör följande kommando för att aktivera X**.**509-autentisering:
+Etableringstjänsten levereras med en DICE-emulator (Device Identity Composition Engine) som genererar ett X**.**509-certifikat för autentisering av enheten. Kör följande kommando för att aktivera X**.**509-autentisering: 
 
 ```
 cmake -Ddps_auth_type=x509 ..
@@ -41,11 +52,11 @@ Information om maskinvara med DICE finns [här](https://azure.microsoft.com/blog
 
 ### <a name="use-x509-with-hardware"></a>Använd X**.**509 med maskinvara
 
-Etableringstjänsten kan användas med X**.**509 på annan maskinvara.  Det behövs ett gränssnitt mellan maskinvara och SDK:t för att upprätta anslutningen.  Prata med tillverkaren av din maskinvarusäkerhetsmodul för mer information om gränssnittet.
+Etableringstjänsten kan användas med X**.**509 på annan maskinvara. Det behövs ett gränssnitt mellan maskinvara och SDK:t för att upprätta anslutningen. Prata med tillverkaren av din maskinvarusäkerhetsmodul för mer information om gränssnittet.
 
 ### <a name="use-tpm"></a>Använd TPM
 
-Etableringstjänsten kan ansluta till TPM-kretsar i Windows- och Linux-maskinvara med SAS-Token.  Kör följande kommando för att aktivera TPM-autentisering:
+Etableringstjänsten kan ansluta till TPM-kretsar i Windows- och Linux-maskinvara med SAS-Token. Kör följande kommando för att aktivera TPM-autentisering:
 
 ```
 cmake -Ddps_auth_type=tpm ..
@@ -53,7 +64,7 @@ cmake -Ddps_auth_type=tpm ..
 
 ### <a name="use-tpm-with-simulator"></a>Använd TPM med simulator
 
-Om du inte har en enhet med TPM-krets, kan du använda en simulator för utveckling i Windows-operativsystemet.  Kör följande kommando för att aktivera TPM-autentisering och köra TPM-simulatorn:
+Om du inte har en enhet med TPM-krets, kan du använda en simulator för utveckling i Windows-operativsystemet. Kör följande kommando för att aktivera TPM-autentisering och köra TPM-simulatorn:
 
 ```
 cmake -Ddps_auth_type=tpm_simulator ..
@@ -128,10 +139,10 @@ Bygga SDK:t innan du skapar enhetsregistreringen.
     - Etableringstjänsten: dps_http_transport dps_client, dps_security_client
     - IoTHub-säkerhet: iothub_security_client
 
-## <a name="create-a-device-enrollment-entry-in-dps"></a>Skapa en post för enhetsregistrering i DPS
+## <a name="create-a-device-enrollment-entry-in-device-provisioning-services"></a>Skapa en post för enhetsregistrering i Device Provisioning-tjänsten
 
 ### <a name="tpm"></a>TPM
-Om du använder TPM, följer du anvisningarna i ["Create and provision a simulated device using IoT Hub Device Provisioning Service"](./quick-create-simulated-device.md) (skapa och etablera en simulerad enhet med enhetsetableringstjänsten för IoT-hubb) för att skapa en post för registrering av enheten i enhetsetableringstjänsten (DPS) och simulering av den första starten.
+Om du använder TPM, följer du anvisningarna i ["Create and provision a simulated device using IoT Hub Device Provisioning Service"](./quick-create-simulated-device.md) (skapa och etablera en simulerad enhet med enhetsetableringstjänsten för IoT-hubb) för att skapa en post för registrering av enheten i din enhetsetableringstjänst och simulering av den första starten.
 
 ### <a name="x509"></a>X**.**509
 1. Om du vill registrera en enhet i etableringstjänsten behöver du anteckna bekräftelsenyckel och registrerings-ID för varje enhet. Dessa visas i etableringsverktyget som tillhandahålls av klient-SDK:t. Kör följande kommando för att skriva ut rotcertifikatutfärdarens certifikat (för gruppregistrering) och signeringscertifikatet (för enskild registrering):
@@ -142,9 +153,38 @@ Om du använder TPM, följer du anvisningarna i ["Create and provision a simulat
    - Enskild X**.**509-registrering: välj **Hantera registreringar** på etableringstjänstens sammanfattningsblad. Välj fliken **Individual Enrollments** (Enskilda registreringar) och klicka på knappen **Lägg till** längst upp. Välj **X**.**509** som *mekanism* för styrkande av identitet och överför det signeringscertifikat som krävs av bladet. Klicka på knappen **Spara** när det är klart. 
    - X**.**509-gruppregistrering: välj **Hantera registreringar** på etableringstjänstens sammanfattningsblad. Välj fliken **Group Enrollments** (gruppregistreringar) och klicka på knappen **Lägg till** längst upp. Välj **X**.**509** som *mekanism* för styrkande av identitet, ange ett gruppnamn och ett certifikatnamn, ladda upp det certifikat för rotcertifikatutfärdaren som krävs av bladet. Klicka på knappen **Spara** när det är klart. 
 
+## <a name="enable-authentication-for-custom-tpm-and-x509-devices-optional"></a>Aktivera autentisering för anpassade TPM- och X.509-enheter (valfritt)
+
+> [!NOTE]
+> Det här avsnittet gäller endast enheter som kräver stöd för en anpassad plattform eller HSM, som för närvarande inte stöds av klient-SDK för enhetsetableringstjänster för C.
+
+Först måste du utveckla din egen HSM-databas och -bibliotek:
+
+1. Utveckla ett bibliotek för att få åtkomst till HSM. Det här projektet måste skapa ett statiskt bibliotek som ska användas av enhetsetableringens SDK.
+
+2. Implementera funktionerna som definieras i följande huvudfil i ditt bibliotek: 
+
+    - För en anpassad TPM: implementera de anpassade HSM-funktionerna under [HSM TPM API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).  
+    - För en anpassad X.509: implementera de anpassade HSM-funktionerna under [HSM X509 API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
+
+När biblioteket skapas på egen hand måste du integrera det med klient-SDK för enhetsetableringstjänster genom att länka till ditt bibliotek. :
+
+1. Ange den anpassade HSM GitHub-lagringsplatsen, bibliotekets sökväg och dess namn i följande `cmake`-kommando:
+    ```cmd/sh
+    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
+    ```
+   
+2. Öppna Visual Studio-lösningsfilen som skapats av CMake (`\azure-iot-sdk-c\cmake\azure_iot_sdks.sln`) och skapa den. 
+
+    - Skapandeprocessen kompilerar SDK-biblioteket.
+    - SDK:n försöker länka mot anpassade HSM:er enligt definitionen i kommandot `cmake`.
+
+3. Kör exempelappen ”prov_dev_client_ll_sample” under ”Provision_Samples” (under `\azure-iot-sdk-c\cmake\provisioning_client\samples\prov_dev_client_ll_sample`) för att verifiera att din HSM har implementerats korrekt.
+
 ## <a name="connecting-to-iot-hub-after-provisioning"></a>Ansluta till IoT Hub efter etablering
 
 När enheten har etablerats med etableringstjänsten använder det här API:t HSM-autentiseringsläget för anslutning med IoT Hub: 
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```
+

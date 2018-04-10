@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: eb68993924bff8605fc244f438a686f0142c4762
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 18a8065bba8a4a0ec2025d6b9134fe9fab21eb5f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduktion till Microsoft Azure Storage
 
@@ -143,35 +143,11 @@ Mer information om kryptering på klientsidan finns i [Kryptering på klientsida
 
 ## <a name="replication"></a>Replikering
 
-För att säkerställa att dina data är beständiga kan Azure Storage lagra (och hantera) flera kopior av dina data. Det kallas replikering, eller ibland redundans. När du konfigurerar ditt lagringskonto väljer du en replikeringstyp. I de flesta fall kan den här inställningen ändras efter att lagringskontot har konfigurerats.
+För att säkerställa att dina data är beständiga kan Azure Storage replikera flera kopior av dina data. När du konfigurerar ditt lagringskonto väljer du en replikeringstyp. I de flesta fall kan den här inställningen ändras efter att lagringskontot har skapats. 
 
-**Lokalt redundant lagring (LRS)**
-
-Lokalt redundant lagring (LRS) som är utformad för att tillhandahålla minst 99,999999999 % (elva nior) objektshållbarhet under ett givet år. Det innebär att flera kopior av dina data hanteras av Azure Storage i det datacenter som angavs när lagringskontot konfigurerades. När ändringar har genomförts uppdateras alla kopior innan information om att åtgärden lyckats returneras. Det innebär att alla kopior alltid är synkroniserade. Dessutom finns kopiorna i separata feldomäner och uppgraderingsdomäner, vilket innebär att dina data är tillgängliga även om en lagringsnod med dina data råkar ut för fel eller kopplas från för att uppdateras.
-
-**Zonredundant lagring (ZRS) (Förhandsversion)**
-
-Zonredundant lagring (ZRS) är utformad för att förenkla utvecklingen av program med hög tillgänglighet. ZRS ger hållbarhet för lagringsobjekt på minst 99,9999999999 % (12 nior) under ett visst år. ZRS replikerar dina data synkront i flera tillgänglighetszoner. Överväg ZRS för scenarier som transaktionsprogram där stilleståndstid är oacceptabelt. Med ZRS kan kunder läsa och skriva data även om en enskild zon är otillgänglig eller oåterkallelig. Infogningar och uppdateringar för data görs synkront och mycket konsekvent.    
-
-Den tidigare ZRS-kapaciteten heter nu ZRS Classic. ZRS Classic-konton är endast tillgängliga för blockblobar i allmänna V1-lagringskonton. ZRS Classic replikerar data asynkront i datacenter i en eller två regioner. En replik kanske inte är tillgänglig om inte Microsoft initierar sekundär redundans. Ett ZRS Classic-konto går inte att konvertera till eller från LRS eller GRS, och har inte kapacitet för mått eller loggning.
-
-**Geo-redundant lagring (GRS)**
-
-Geo-redundant lagring (GRS) är utformat för att ge 99,99999999999999 % (16 nior) objektshållbarhet under ett givet år genom att lokala kopior av dina data lagras i en primär region, samtidigt som en annan uppsättning kopior lagras i en sekundär region hundratals mil från den primära regionen. Om det uppstår ett fel i den primära regionen kommer Azure Storage att redundansväxla till den sekundära regionen.
-
-**Geo-redundant lagring med läsbehörighet (RA-GRS)**
-
-Geo-redundant lagring med läsbehörighet är precis som GRS förutom att du får läsbehörighet till data på den sekundära platsen. Om det primära datacentret tillfälligt blir otillgängligt kan du fortsätta att läsa data från den sekundära platsen. Det kan vara mycket användbart. Du kan till exempel ha en webbapp som ändrar till skrivskyddat läge och pekar på den sekundära kopian, vilket ger viss åtkomst även om uppdateringar inte är tillgängliga.
-
-> [!IMPORTANT]
-> Du kan ändra hur dina data replikeras när ditt lagringskonto har skapats. Det kan dock tillkomma ytterligare engångskostnader för dataöverföring om du växlar från LRS till ZRS till GRS eller RA-GRS.
->
-
-Mer information om replikeringsalternativ finns i [Azure Storage-replikering](storage-redundancy.md).
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 Information om haveriberedskap finns i [Vad du gör om ett avbrott i Azure Storage inträffar?](storage-disaster-recovery-guidance.md).
-
-Ett exempel på hur du utnyttjar RA-GRS-lagring för att säkerställa hög tillgänglighet finns i [Utforma högtillgängliga program med hjälp av RA-GRS](storage-designing-ha-apps-with-ragrs.md).
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Överföra data till och från Azure Storage
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/20/2018
+ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: 8858df394885ae7820a4bc72458f4f1d851965e6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 87984859d1f0562149e6700642f7f0a1361d624e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Självstudie: Attitydanalys på strömmad data med hjälp av Azure Databricks
 
@@ -113,7 +113,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
 Om du vill få en dataström med tweets måste du skapa ett program i Twitter. Följ anvisningarna för att skapa ett Twitter-program och registrera de värden som du behöver för självstudien.
 
-1. Från en webbläsare går du till [Twitter Application Management](http://twitter.com/app) (Twitter-programhantering) och väljer **Skapa ny app**.
+1. Från en webbläsare går du till [Twitter Application Management](https://apps.twitter.com/) (Twitter-programhantering) och väljer **Skapa ny app**.
 
     ![Skapa Twitter-program](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-twitter-app.png "Skapa Twitter-program")
 
@@ -395,6 +395,8 @@ Utdatan liknar nu följande kodfragment:
     -------------------------------------------
     ...
     ...
+
+Nu har du strömmat data från Azure Event Hubs till Azure Databricks nästan i realtid med Event Hubs-kopplingen för Apache Spark. Mer information om hur du använder Event Hubs-kopplingen för Apache Spark finns i [kopplingsdokumentationen](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 ## <a name="run-sentiment-analysis-on-tweets"></a>Köra attitydanalys på tweets
 

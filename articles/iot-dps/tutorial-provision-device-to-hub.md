@@ -1,96 +1,94 @@
 ---
-title: "Etablera en enhet med Azure IoT Hub etablering av tjänst | Microsoft Docs"
-description: "Etablera enheten till en enda IoT-hubb med hjälp av Azure IoT-hubb enheten Etableringstjänsten"
+title: Etablera en enhet med tjänsten Azure IoT Hub Device Provisioning | Microsoft Docs
+description: Etablera din enhet till en enda IoT-hubb med tjänsten Azure IoT Hub Device Provisioning
 services: iot-dps
-keywords: 
+keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 03/28/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: bf50699d2dc67294d554ba15713254a8b88d8ade
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 4d98ce103bed7f9d14eb45422b70ceca1328afaa
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Etablerar du enheten till en IoT-hubb med hjälp av Azure IoT-hubb enheten Etableringstjänsten
+# <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Etablera enheten till en IoT-hubb med tjänsten Azure IoT Hub Device Provisioning
 
-Du lärt dig hur du ställer in en enhet för att ansluta till tjänsten Enhetsetableringen i föregående självstudierna. I kursen får du lära dig hur du använder den här tjänsten för att etablera enheten till en enda IoT-hubb med  **_registrering listor_**. I den här självstudiekursen lär du dig att:
+I den förra självstudien lärde du dig att konfigurera en enhet för att ansluta till din enhetsetableringstjänst. I den här självstudien lär du dig att använda den här tjänsten för att etablera enheten till en enda IoT-hubb med **_registreringslistor_**. I den här självstudiekursen lär du dig att:
 
 > [!div class="checklist"]
 > * Registrera enheten
 > * Starta enheten
 > * Kontrollera att enheten är registrerad
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du fortsätter måste du konfigurera din enhet och dess *maskinvarusäkerhetsmodul* enligt beskrivningen i självstudierna [konfigurera en enhet för att etablera med hjälp av Azure IoT-hubb Device etablering Service](./tutorial-set-up-device.md).
+Innan du fortsätter måste du konfigurera din enhet enligt anvisningarna i självstudien [Konfigurera en enhet för etablering med Azure IoT Hub Device Provisioning-tjänsten](./tutorial-set-up-device.md).
 
+Om du inte är bekant med processen för automatisk etablering ska du läsa [Auto-provisioning concepts](concepts-auto-provisioning.md) (Begrepp inom automatisk etablering) innan du fortsätter.
 
 <a id="enrolldevice"></a>
 ## <a name="enroll-the-device"></a>Registrera enheten
 
-Det här steget måste du lägga till enhetens unik säkerhet artefakter till enheten Etableringstjänsten. Dessa artefakter säkerhet är följande:
+I det här steget ska du lägga till enhetens unika säkerhetsartefakter till enhetsetableringstjänsten. Säkerhetsartefakterna baseras på enhetens [attesteringsmekanism](concepts-device.md#attestation-mechanism) enligt följande:
 
-- För TPM-baserade enheter:
-    - Den *bekräftelsenyckel* som är unik för varje TPM-chip eller simuleringen. Läs den [förstå bekräftelsenyckel för TPM](https://technet.microsoft.com/library/cc770443.aspx) för mer information.
-    - Den *registrerings-ID* som används för att unikt identifiera en enhet i namnområdet/omfattning. Detta kan eller kan inte vara samma som enhets-ID. ID: T är obligatorisk för varje enhet. Registrerings-ID kan härledas från TPM, till exempel en SHA-256-hash för TPM-bekräftelsenyckel för TPM-baserade enheter.
+- För TPM-baserade enheter behöver du:
+    - *Bekräftelsenyckeln* som är unik för varje TPM-krets eller -simulering, som hämtas från tillverkaren av TPM-kretsen.  Läs [Understand TPM Endorsement Key](https://technet.microsoft.com/library/cc770443.aspx) (Förstå TPM-bekräftelsenyckeln) för mer information.
+    - *Registrerings-ID:t* som används för att unikt identifiera en enhet i namnrymden/omfattningen. ID:t kanske eller kanske inte är samma som enhetens ID. ID:t är obligatoriskt för alla enheter. För TPM-baserade enheter kan registrerings-ID:t härledas från själv TPM, till exempel en SHA-256-hash för TPM-bekräftelsenyckeln.
 
     ![Registreringsinformation för TPM i portalen](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)
 
-- För X.509-baserade enheter:
-    - Den [certifikat utfärdat till X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) chip eller simulering i form av antingen en *.pem* eller en *.cer* fil. För enskilda registrering måste du använda den *signerat certifikat* för X.509-systemet, medan för registrering av grupper du behöver använda den *rotcertifikat*.
+- För X.509-baserade enheter behöver du:
+    - [Certifikatet som utfärdats till X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx)-kretsen eller -simuleringen, som antingen en *.pem*- eller *.cer*-fil. För enskild registrering måste du använda *undertecknarens certifikat* per enhet för ditt X.509-system, och för registreringsgrupper måste du använda *rotcertifikatet*. 
 
     ![Registreringsinformation för X.509 i portalen](./media/tutorial-provision-device-to-hub/x509-device-enrollment.png)
 
+Det finns två sätt att registrera enheten till enhetsetableringstjänsten:
 
-Det finns två sätt att registrera enheten till tjänsten etablering enhet:
+- **Registreringsgrupper** Det här representerar en grupp med enheter som delar en specifik attesteringsmekanism. Vi rekommenderar att du använder en registreringsgrupp för ett stort antal enheter som delar en önskad inledande konfiguration, eller för enheter som ska till samma klient.
 
-- **Registrering grupper** representerar en grupp av enheter som delar en mekanism för specifika attestering. Vi rekommenderar en grupp för registrering för ett stort antal enheter som delar en önskad inledande konfiguration, eller för enheter alla kommer att samma klientorganisation.
+    ![Registreringsgrupper för X.509 i portalen](./media/tutorial-provision-device-to-hub/x509-enrollment-groups.png)
 
-    ![Registrering av grupper för X.509 i portalen](./media/tutorial-provision-device-to-hub/x509-enrollment-groups.png)
+- **Enskilda registreringar** Detta representerar en inmatning för en enskild enhet som kan registreras med enhetsetableringstjänsten. Enskilda registreringar kan använda antingen x509-certifikat eller SAS-token (i en verklig eller virtuell TPM) som attesteringsmekanismer. Vi rekommenderar att du använder enskilda registreringar för enheter som kräver unika första konfigurationer och enheter som endast kan använda SAS-token via TPM eller virtuella TPM:er som attesteringsmekanism. Enskilda registreringar kan ha angivet önskat enhets-ID för IoT Hub.
 
-- **Enskilda registreringar** representerar en post för en enda enhet som kan registrera med enheten Etableringstjänsten. Enskilda registreringar kan använda antingen x509 certifikat eller SAS token (i TPM verkliga eller virtuella) attestering funktioner. Vi rekommenderar att du använder enskilda registreringar för enheter som kräver unika första konfigurationer eller för enheter som bara kan använda SAS-token via TPM eller virtuella TPM som mekanismen för attestering. Enskilda registreringar kanske önskade IoT-hubb enhets-ID angetts.
-
-Här följer stegen för att registrera enheten i portalen:
-
-1. Observera säkerhet artefakter för HSM på enheten. Du kan behöva använda API: er som anges i avsnittet [extrahera säkerhet artefakter](./tutorial-set-up-device.md#extractsecurity) av föregående kursen finns i en utvecklingsmiljö.
+Nu registrerar du enheten med enhetsetableringstjänstens instans, med de säkerhetsartefakter som krävs baserat på enhetens attesteringsmekanism: 
 
 1. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten.
 
-1. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj antingen **enskilda registreringar** fliken eller **registrering grupper** fliken enligt din enhetskonfiguration. Klicka på den **Lägg till** längst upp. Välj **TPM** eller **X.509** som identitet för bestyrkande *mekanism*, och ange rätt säkerhet artefakter som beskrivits tidigare. Du kan ange en ny **IoT-hubb enhets-ID**. Klicka på knappen **Spara** när det är klart. 
+2. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Markera fliken **Enskilda registreringar** eller **Registreringsgrupper** enligt enhetskonfigurationen. Klicka på knappen **Lägg till** högst upp. Välj **TPM** eller **X.509** som identitet för bestyrkande *mekanism* och ange lämpliga säkerhetsartefakter som diskuterades ovan. Du kan ange ett nytt **Enhets-ID för IoT Hub**. Klicka på knappen **Spara** när det är klart. 
 
-1. När enheten har registrerats, bör du se den visas i portalen enligt följande:
+3. När enheten har registrerats bör du se den i portalen på följande sätt:
 
     ![Lyckad TPM-registrering i portalen](./media/tutorial-provision-device-to-hub/tpm-enrollment-success.png)
 
+Efter registreringen väntar etableringstjänsten tills enheten har startats och ansluter till den vid en senare tidpunkt. När enheten startar för första gången interagerar klient-SDK-biblioteket med din krets för att extrahera säkerhetsuppgifter från enheten och verifierar registreringen med enhetsetableringstjänsten. 
 
 ## <a name="start-the-device"></a>Starta enheten
 
-Följande inställningar är nu klar för registrering av enheten:
+Följande inställningar är nu klara för registrering av enheten:
 
-1. Din enhet eller grupp av enheter som har registrerats till tjänsten Enhetsetableringen och 
-2. Enheten är klar med HSM-chip konfigurerats och är tillgänglig via det program som använder enheten Etableringstjänsten klient-SDK.
+1. Din enhet eller enhetsgrupp har registrerats till enhetsetableringstjänsten, och 
+2. Din enhet är klar och har konfigurerade attesteringsmekanismer och är åtkomlig via programmet med klient-SDK:n för enhetsetableringstjänsten.
 
-Starta enhet så att ditt klientprogram att starta registreringen med tjänsten Enhetsetableringen.  
-
+Starta enheten för att låta klientprogrammet starta registreringen med din enhetsetableringstjänst.  
 
 ## <a name="verify-the-device-is-registered"></a>Kontrollera att enheten är registrerad
 
-När din enhet Starter följande åtgärder ska utföras. Se exempelprogrammet TPM simulator [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) för mer information. 
+När enheten startar ska följande åtgärder utföras. Se exemplet på TPM-simulatorprogrammet [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) för mer information. 
 
-1. Enheten skickar en begäran om registrering till din enhet etableringstjänsten.
-2. Etablering av tjänst skickar tillbaka en registrering utmaning som enheten svarar för TPM-enheter. 
-3. På lyckad registrering skickar enheten Etableringstjänsten IoT-hubb URI, enhets-ID och den krypterade nyckeln tillbaka till enheten. 
-4. IoT-hubb klientprogrammet på enheten sedan ansluter till din hubb. 
-5. Lyckad anslutning till hubben, bör du se enheten visas i IoT-hubben **enheten Explorer**. 
+1. Enheten skickar en registreringsbegäran till enhetsetableringstjänsten.
+2. För TPM-enheten skickar enhetsetableringstjänsten tillbaka en registreringskontroll som enheten svarar på. 
+3. Om registringen har lyckats skickar enhetsetableringstjänsten tillbaka IoT-hubbens URI, enhets-ID och den krypterade nyckeln till enheten. 
+4. IoT Hub-klientprogrammet på enheten ansluter därefter till hubben. 
+5. Om anslutningen till hubben lyckas ska du se enheten i IoT-hubbens **Device Explorer**. 
 
-    ![Anslutning till hubb i portalen](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
+    ![Lyckad anslutning till hubben i portalen](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen lärde du dig att:
@@ -100,7 +98,7 @@ I den här självstudiekursen lärde du dig att:
 > * Starta enheten
 > * Kontrollera att enheten är registrerad
 
-Gå vidare till nästa kurs att lära dig att etablera flera enheter över Utjämning av nätverksbelastning hubs. 
+Gå vidare till nästa självstudiekurs för att lära dig att etablera flera enheter över belastningsutjämnade hubbar. 
 
 > [!div class="nextstepaction"]
-> [Etablera enheter över Utjämning av nätverksbelastning IoT-hubbar](./tutorial-provision-multiple-hubs.md)
+> [Etablera enheter till flera belastningsutjämnade IoT-hubbar](./tutorial-provision-multiple-hubs.md)

@@ -1,25 +1,20 @@
 ---
-title: "Snabbstart: Skapa ett SQL informationslager – Azure Portal | Microsoft Docs"
-description: "Skapa en SQL Server, en brandväggsregel på servernivå och ett informationslager i Azure Portal för att skapa ett Azure SQL Data Warehouse. Skicka sedan frågor till den."
-keywords: "självstudier om SQL data warehouse, skapa ett SQL data warehouse"
-services: sql-database
-documentationcenter: 
-author: barbkess
+title: Skapa och skicka en fråga till ett Azure SQL Data Warehouse – Azure Portal | Microsoft Docs
+description: Skapa ett Azure SQL Data Warehouse i Azure Portal och skicka sedan en fråga till det.
+services: sql-data-warehouse
+author: hirokib
 manager: jhubbard
-editor: 
-ms.service: sql-database
-ms.custom: mvc,DBs & servers
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: na
+ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.date: 11/20/2017
-ms.author: barbkess
-ms.openlocfilehash: a620da9dbe9823b9876fa80dc0200aa91fbf9920
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: implement
+ms.date: 03/28/2018
+ms.author: elbutter
+ms.reviewer: jrj
+ms.openlocfilehash: 97738b37f81cac3e7eef263fecc2095c9ef4b7ff
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabbstart:Skapa och skicka frågor till ett Azure SQL informationslager i Azure-portalen
 

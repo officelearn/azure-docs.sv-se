@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: ce72c1a68c1dbe5cede33dd42adc1b002a81326e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6226fea5001d19a6f0e1f6700d90ea2b9481d43c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Ge programdata hög tillgänglighet med Azure Storage
 
-Den här kursen är första delen i en serie som visar hur du ger dina programdata hög tillgänglighet i Azure. När du är klar har du ett konsolprogram som överför och hämtar en blob till ett [Read-Access Geo Redundant](../common/storage-redundancy.md#read-access-geo-redundant-storage)-lagringskonto (RA-GRS). Med RA-GRS replikeras transaktioner från den primära regionen till den sekundära. Replikeringsprocessen garanterar att data i den sekundära regionen blir konsekventa. I programmet används [kretsbrytarmönstret](/azure/architecture/patterns/circuit-breaker) för att avgöra vilken slutpunkt programmet ska ansluta till. Programmet växlar till den sekundära slutpunkten när ett fel simuleras.
+Den här kursen är första delen i en serie som visar hur du ger dina programdata hög tillgänglighet i Azure. När du är klar har du ett konsolprogram som överför och hämtar en blob till ett [Read-Access Geo Redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)-lagringskonto (RA-GRS). Med RA-GRS replikeras transaktioner från den primära regionen till den sekundära. Replikeringsprocessen garanterar att data i den sekundära regionen blir konsekventa. I programmet används [kretsbrytarmönstret](/azure/architecture/patterns/circuit-breaker) för att avgöra vilken slutpunkt programmet ska ansluta till. Programmet växlar till den sekundära slutpunkten när ett fel simuleras.
 
 I del ett i den här serien lärde du dig att:
 

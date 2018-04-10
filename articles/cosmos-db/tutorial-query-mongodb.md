@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 03/16/2018
+ms.date: 03/29/2018
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7c51a2a1cace89305b971d5fb0f56c360cbf93cb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f47d250bbe6689e19dda5042b335ff1812a790d4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Självstudie: Fråga mot Azure Cosmos DB med hjälp av MongoDB API
 
@@ -30,6 +30,10 @@ I den här artikeln beskrivs följande uppgifter:
 
 > [!div class="checklist"]
 > * Fråga efter data med MongoDB
+
+Kom igång genom att titta på den här videon om hur du frågar efter data med MongoDB med Andy Hoh, Program Manager för Azure Cosmos DB:
+
+>[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
 
 ## <a name="sample-document"></a>Exempeldokument
 
@@ -300,7 +304,7 @@ Nästa fråga returnerar alla familjer där den underordnade matrisens storlek �
 
 **Results**
 
-Inga resultat returneras, eftersom vi inte har mer än 2 underordnade. Endast när parametern är 2 kommer frågan att lyckas och returnera det fullständiga dokumentet.
+Inga resultat returneras eftersom det inte finns några familjer med fler än två underordnade. Endast när parametern är 2 kommer frågan att lyckas och returnera det fullständiga dokumentet.
 
 ## <a name="next-steps"></a>Nästa steg
 

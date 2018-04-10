@@ -1,11 +1,11 @@
 ---
-title: "Övervaka publicerade API:er i Azure API Management | Microsoft Docs"
-description: "Följ stegen i den här kursen lär dig hur du övervakar din API i Azure API Management."
+title: Övervaka publicerade API:er i Azure API Management | Microsoft Docs
+description: Följ stegen i den här kursen lär dig hur du övervakar din API i Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 445723242a76dcef4a6b137439728235d5d6e32a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 93cbcf91af4ecf9425ed43ade400a0c82cea72d8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-published-apis"></a>Övervaka publicerade API:er
 
@@ -44,29 +44,6 @@ Följande video visar hur du övervakar API Management med Azure Monitor.
 + Slutför även följande självstudie: [Importera och publicera ditt första API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
-
-## <a name="diagnostic-logs"></a>Visa aktivitetsloggar
-
-Aktivitetsloggar ger insikt i de åtgärder som vidtogs för dina API Management-tjänster. Med aktivitetsloggar kan du bestämma ”vad, vem och när” för skrivåtgärder (PUT, POST, DELETE) som ska vidtas för dina API Management-tjänster. 
-
-> [!NOTE]
-> Aktivitetsloggar inkluderar inte läsåtgärder (GET), åtgärder som utförs i Azure-portalen eller via ursprungliga hanterings-API:er.
-
-Du kan få åtkomst till aktivitetsloggar i API Management-tjänsten eller få åtkomst till loggar för alla dina Azure-resurser i Azure Monitor. 
-
-Så här visar du aktivitetsloggar:
-
-1. Välj din APIM-tjänstinstans.
-2. Klicka på **Aktivitetslogg**.
-
-## <a name="view-diagnostic-logs"></a>Visa diagnostikloggar
-
-Diagnostikloggar innehåller omfattande information om åtgärder och fel som är viktiga för granskning, samt i felsökningssyfte. Diagnostikloggar skiljer sig från aktivitetsloggar. Aktivitetsloggar ger insikt i de åtgärder som vidtogs för dina Azure-resurser. Diagnostikloggar ger information om åtgärder som din resurs har vidtagit på egen hand.
-
-Så här få du åtkomst till diagnostikloggar:
-
-1. Välj din APIM-tjänstinstans.
-2. Klicka på **Diagnostiklogg**.
 
 ## <a name="view-metrics-of-your-apis"></a>Visa mått för dina API:er
 
@@ -109,6 +86,118 @@ Så här konfigurerar du varningar:
     > Varningsregeln kan också anropa en webbhook eller en Azure Logic App när den utlöses.
 
     ![set-up-alert](./media/api-management-azure-monitor/set-up-alert.png)
+
+## <a name="activity-logs"></a>Aktivitetsloggar
+
+Aktivitetsloggar ger insikt i de åtgärder som vidtogs för dina API Management-tjänster. Med aktivitetsloggar kan du bestämma ”vad, vem och när” för skrivåtgärder (PUT, POST, DELETE) som ska vidtas för dina API Management-tjänster. 
+
+> [!NOTE]
+> Aktivitetsloggar inkluderar inte läsåtgärder (GET), åtgärder som utförs i Azure-portalen eller via ursprungliga hanterings-API:er.
+
+Du kan få åtkomst till aktivitetsloggar i API Management-tjänsten eller få åtkomst till loggar för alla dina Azure-resurser i Azure Monitor. 
+
+Så här visar du aktivitetsloggar:
+
+1. Välj din APIM-tjänstinstans.
+2. Klicka på **Aktivitetslogg**.
+
+## <a name="diagnostic-logs"></a>Diagnostikloggar
+
+Diagnostikloggar innehåller omfattande information om åtgärder och fel som är viktiga för granskning, samt i felsökningssyfte. Diagnostikloggar skiljer sig från aktivitetsloggar. Aktivitetsloggar ger insikt i de åtgärder som vidtogs för dina Azure-resurser. Diagnostikloggar ger information om åtgärder som din resurs har vidtagit på egen hand.
+
+Så här konfigurerar du diagnostikloggar:
+
+1. Välj din APIM-tjänstinstans.
+2. Klicka på **Diagnostiklogg**.
+3. Klicka på **Slå på diagnostik**. Du kan arkivera diagnostikloggar tillsammans med mått i ett lagringskonto, strömma dem till en Event Hub eller skicka dem till Log Analytics. 
+
+API Management tillhandahåller för närvarande diagnostikloggar (i batchar varje timme) om enskilda API-begäran där varje inmatning har följande schema:
+
+```json
+{  
+    "isRequestSuccess" : "",
+    "time": "",   
+    "operationName": "",      
+    "category": "",   
+    "durationMs": ,   
+    "callerIpAddress": "",   
+    "correlationId": "",   
+    "location": "",      
+    "httpStatusCodeCategory": "",      
+    "resourceId": "",      
+    "properties": {   
+        "method": "", 
+        "url": "", 
+        "clientProtocol": "", 
+        "responseCode": , 
+        "backendMethod": "", 
+        "backendUrl": "", 
+        "backendResponseCode": ,
+        "backendProtocol": "",  
+        "requestSize": , 
+        "responseSize": , 
+        "cache": "", 
+        "cacheTime": "", 
+        "backendTime": , 
+        "clientTime": , 
+        "apiId": "",
+        "operationId": "", 
+        "productId": "", 
+        "userId": "", 
+        "apimSubscriptionId": "", 
+        "backendId": "",
+        "lastError": { 
+            "elapsed" : "", 
+            "source" : "", 
+            "scope" : "", 
+            "section" : "" ,
+            "reason" : "", 
+            "message" : ""
+        } 
+    }      
+}  
+```
+
+| Egenskap  | Typ | Beskrivning |
+| ------------- | ------------- | ------------- |
+| isRequestSuccess | boolesk | True om HTTP-begäran slutfördes med svarsstatuskod inom intervallet 2xx eller 3xx |
+| time | date-time | Tidstämpel för mottagande av HTTP-begäran av gatewayen |
+| operationName | sträng | Konstantvärde ”Microsoft.ApiManagement/GatewayLogs” |
+| category | sträng | Konstantvärde ”GatewayLogs” |
+| durationMs | heltal | Antalet millisekunder från att gatewayen fick begäran till då svaret har skickats fullständigt |
+| callerIpAddress | sträng | IP-adress för anropare av omedelbar gateway (kan vara en mellanhand) |
+| correlationId | sträng | Unik http-begäranidentifierare tilldelad av API Management |
+| location | sträng | Namn på Azure-regionen där gatewayen som behandlade begäran hittades |
+| httpStatusCodeCategory | sträng | Kategori för http-svarsstatuskod: Lyckades (301 eller lägre eller 304 eller 307), Ej auktoriserad (401, 403, 429), Felaktig (400, mellan 500 och 600), Annat |
+| resourceId | sträng | ”Id för API Management-resursen /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| properties | objekt | Egenskaper för aktuell begäran |
+| metod | sträng | HTTP-metod för inkommande begäran |
+| url | sträng | URL för inkommande begäran |
+| clientProtocol | sträng | HTTP-protokollversion för inkommande begäran |
+| responseCode | heltal | Statuskod för HTTP-svar som skickas till klient |
+| backendMethod | sträng | HTTP-metod för begäran som skickats till en serverdel |
+| backendUrl | sträng | URL för begäran som skickats till en serverdel |
+| backendResponseCode | heltal | Kod för HTTP-svaret togs emot av en serverdel |
+| backendProtocol | sträng | HTTP-protokollversion för begäran som skickats till en serverdel | 
+| requestSize | heltal | Antalet byte som tagits emot från en klient under bearbetning av begäran | 
+| responseSize | heltal | Antalet byte som har skickats till en klient under bearbetning av begäran | 
+| cache | sträng | Status för API Management cachemedverkan i behandling av begäran (t.ex. träff, miss, ingen) | 
+| cacheTime | heltal | Antalet millisekunder som ägnats åt övergripande API Management cache-IO (ansluta, skicka och ta emot byte) | 
+| backendTime | heltal | Antalet millisekunder som ägnats åt övergripande serverdels-IO (ansluta, skicka och ta emot byte) | 
+| clientTime | heltal | Antalet millisekunder som ägnats åt övergripande klient-IO (ansluta, skicka och ta emot byte) | 
+| apiId | sträng | API-entitetsidentifierare för aktuell begäran | 
+| operationId | sträng | Åtgärdsentitetsidentifierare för aktuell begäran | 
+| productId | sträng | Produktentitetsidentifierare för aktuell begäran | 
+| userId | sträng | Användarentitetsidentifierare för aktuell begäran | 
+| apimSubscriptionId | sträng | Prenumerationsentitetsidentifierare för aktuell begäran | 
+| backendId | sträng | Serverdelentitetsidentifierare för aktuell begäran | 
+| LastError | objekt | Bearbetningsfel för senaste begäran | 
+| elapsed | heltal | Antalet förflutna millisekunder sedan gatewayen tog emot begäran till den tidpunkt då felet inträffade | 
+| källa | sträng | Namn på principen eller behandling av intern hanterare som orsakade felet | 
+| omfång | sträng | Omfattningen för det dokument som innehåller principen som orsakade felet | 
+| avsnitt | sträng | Avsnittet för det dokument som innehåller principen som orsakade felet | 
+| orsak | sträng | Felorsak | 
+| meddelande | sträng | Felmeddelande | 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,8 +1,8 @@
 ---
 title: Installation av Azure AD Connect Health Agent | Microsoft Docs
-description: "Den här sidan om Azure AD Connect Health innehåller information om agentinstallationen för AD FS och Sync."
+description: Den här sidan om Azure AD Connect Health innehåller information om agentinstallationen för AD FS och Sync.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 85a12cbfdad4a1b8fbc7c3e3ea15b91c5267d7c8
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 5a0dadb86b6bdcbf8fc9ba38d09a2bfc9f8ec341
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation av Azure AD Connect Health Agent
 Det här dokumentet beskriver hur du installerar och konfigurerar Azure AD Connect Health-agenterna. Du kan ladda ned agenterna [här](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent).
@@ -136,7 +136,7 @@ För att funktionen Användningsanalys ska kunna samla in och analysera data beh
 9. Markera kryssrutorna för **lyckade och misslyckade granskningar** och klicka sedan på **OK**. Detta bör vara aktiverat som standard.
 10. Öppna ett PowerShell-fönstret och kör följande kommando: ```Set-AdfsProperties -AuditLevel Verbose```.
 
-Observera att granskningsnivån ”basic” är aktiverad som standard. Läs mer om [AD FS-granskningsförbättringen i Windows Server 2016](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
+Observera att granskningsnivån ”basic” är aktiverad som standard. Läs mer om [AD FS-granskningsförbättringen i Windows Server 2016](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
 
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>Så här hittar du AD FS-granskningsloggar
@@ -144,6 +144,8 @@ Observera att granskningsnivån ”basic” är aktiverad som standard. Läs mer
 2. Gå till Windows-loggar och välj **Säkerhet**.
 3. Klicka på **Filtrera aktuella loggar** till höger.
 4. Välj **AD FS-granskning** under Händelsekälla.
+
+    Och [vanliga frågor och svar](active-directory-aadconnect-health-faq.md#operations-questions) för spårningsloggar.
 
 ![AD FS-granskningsloggar](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 

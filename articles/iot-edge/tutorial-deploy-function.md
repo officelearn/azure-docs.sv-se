@@ -5,16 +5,16 @@ services: iot-edge
 keywords: ''
 author: kgremban
 manager: timlt
-ms.author: v-jamebr
+ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a43ae8f28fc32b61fb5db985ffae98f093293798
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3d7dd0986878c747f92afc712301453bc8772ef2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Distribuera Azure-funktioner som en IoT Edge-modul – förhandsgranskning
 Du kan använda Azure Functions för att distribuera kod som implementerar din affärslogik direkt till dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en Azure-funktion som filtrerar sensordata på simulerade IoT Edge-enheter som du skapade i självstudierna Distribuera Azure IoT Edge på en simulerad enhet i [Windows][lnk-tutorial1-win] eller [Linux][lnk-tutorial1-lin]. I den här guiden får du lära dig hur man:     
@@ -58,10 +58,10 @@ Följande steg visar hur du skapar en IoT Edge-funktion med Visual Studio Code o
     ```cmd/sh
     dotnet new -i Microsoft.Azure.IoT.Edge.Function
     ```
-2. Skapa ett projekt för den nya modulen. Följande kommando skapar projektmappen **FilterFunction**, i den aktuella arbetsmappen:
+2. Skapa ett projekt för den nya modulen. Följande kommando skapar projektmappen **FilterFunction** i den aktuella arbetsmappen. Den andra parametern bör ha formatet `<your container registry name>.azurecr.io` om du använder Azure-behållarregistret. Ange följande kommando i den aktuella arbetsmappen:
 
     ```cmd/sh
-    dotnet new aziotedgefunction -n FilterFunction
+    dotnet new aziotedgefunction -n FilterFunction -r <your container registry address>/filterfunction
     ```
 
 3. Välj **Fil** > **Öppna mapp**, bläddra sedan till **FilterFunction**-mappen och öppna projektet i VS Code.
@@ -127,24 +127,19 @@ Följande steg visar hur du skapar en IoT Edge-funktion med Visual Studio Code o
 
 11. Spara filen.
 
-## <a name="publish-a-docker-image"></a>Publicera en Docker-avbildning
+## <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Skapa en Docker-avbildning och publicera den till ditt register
 
-1. Skapa Docker-avbildningen.
-    1. I VS Code-utforskaren expanderar du **Docker**-mappen. Expandera sedan mappen för din behållarplattform, antingen **linux-x64** eller **windows-nano**. 
-    2. Högerklicka på **Dockerfile**-filen och klicka **Skapa IoT Edge-modul Docker-avbildning**. 
-    3. Navigera till projektmappen **FilterFunction** och klicka på **Välj mapp som EXE_DIR**. 
-    4. I popup-textrutan överst på VS Code-fönstret anger du avbildningens namn. Till exempel: `<your container registry address>/filterfunction:latest`. Behållarregistrets adressen är samma som den inloggningsserver som du kopierade från ditt register. Det bör vara i formen `<your container registry name>.azurecr.io`.
- 
-4. Logga in på Docker. Ange följande kommando i den integrerade terminalen: 
-
+1. Logga in på Docker genom att ange följande kommando i den integrerade VS Code-terminalen: 
+     
    ```csh/sh
-   docker login -u <username> -p <password> <Login server>
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-        
    Om du vill hitta användarnamn, lösenord och inloggningsserver som du ska använda i det här kommandot, gå till [Azure Portal] (https://portal.azure.com). Från **Alla resurser**, klickar du på panelen för ditt Azure-behållarregister för att öppna dess egenskaper och klickar sedan på **Åtkomstnycklar**. Kopiera värdena i fälten **Användarnamn**, **lösenord** och **Inloggningsserver**. 
 
-3. Pusha bilden till din Docker-lagringsplats. Välj **Visa** > **Kommandopalett...**  och sök sedan efter **Edge: Pusha IoT Edge-modulens Docker-avbildning**.
-4. Ange samma avbildningsnamn som du använde i steg 1.d i popup-textrutan.
+2. I VS Code-utforskaren högerklickar du på filen **module.json** och klickar sedan på **Docker-avbildning för Build and Push IoT-modul**. I popup-listrutan överst i VS Code-fönstret väljer du din behållarplattform, antingen **amd64** för Linux-behållare eller **windows amd64** för Windows-behållare. VS Code lägger sedan dina funktionskoder i en behållare och push-överför den till det behållarregister som du har angett.
+
+
+3. Den fullständiga adressen med tagg för behållaravbildningen finns i den integrerade VS Code-terminalen. Mer information om versions- och push-definitionen finns i filen `module.json`.
 
 ## <a name="add-registry-credentials-to-your-edge-device"></a>Lägg till autentiseringsuppgifter för registret i din Edge-enhet
 Lägg till autentiseringsuppgifterna för ditt register i Edge-runtimen på den dator där du kör din Edge-enhet. Det ger runtimen åtkomst att hämta behållaren. 
@@ -174,7 +169,7 @@ Lägg till autentiseringsuppgifterna för ditt register i Edge-runtimen på den 
 1. Lägg till **filterFunction**-modulen.
     1. Välj **Lägg till IoT Edge-modul** igen.
     2. I **Namn**-fältet skriver du `filterFunction`.
-    3. I **URI för avbildning**-fältet, anger du adressen till din avbildning, till exempel `<your container registry address>/filtermodule:0.0.1-amd64`. Avbildningens fullständiga adress kan hittas i föregående avsnitt.
+    3. I **URI för avbildning**-fältet, anger du adressen till din avbildning, till exempel `<your container registry address>/filterfunction:0.0.1-amd64`. Avbildningens fullständiga adress kan hittas i föregående avsnitt.
     74. Klicka på **Spara**.
 2. Klicka på **Nästa**.
 3. I steget **Ange vägar** kopierar du den JSON nedanför till textrutan. Den första vägen transporterar meddelanden från temperatursensorn till filtermodulen via slutpunkten input1. Den andra vägen transporterar meddelanden från filtermodulen till IoT Hub. I den här vägen är `$upstream` ett särskilt mål som talar om för Edge-hubben att skicka meddelanden till IoT Hub. 
@@ -198,11 +193,11 @@ Lägg till autentiseringsuppgifterna för ditt register i Edge-runtimen på den 
 1. Konfigurera Azure IoT Toolkit-tillägget med anslutningssträngen för din IoT-hubb: 
     1. Navigera till din IoT-hubb i Azure Portal och välj **principer för delad åtkomst**. 
     2. Välj **iothubowner** och kopiera värdet för **Anslutningssträng-primär nyckel**.
-    1. I VS Code-utforskaren, klickar du på **IOT HUB-ENHETER** och klickar sedan på **...** . 
-    1. Välj **Ange anslutningssträngen för IoT-hubb** och ange anslutningssträngen för IoT Hub i popup-fönstret. 
+    3. I VS Code-utforskaren, klickar du på **IOT HUB-ENHETER** och klickar sedan på **...** . 
+    4. Välj **Ange anslutningssträngen för IoT-hubb** och ange anslutningssträngen för IoT Hub i popup-fönstret. 
 
-1. Om du vill övervaka data som kommer till IoT-hubben, väljer du **Visa** > **Kommandopaletten...** och söker efter **IoT: börja övervaka D2C-meddelande**. 
-2. Om du vill stoppa dataövervakningen, använder du kommandot **IoT: stoppa övervakning av D2C-meddelande** i kommandopaletten. 
+2. Om du vill övervaka data som kommer till IoT-hubben, väljer du **Visa** > **Kommandopaletten...** och söker efter **IoT: börja övervaka D2C-meddelande**. 
+3. Om du vill stoppa dataövervakningen, använder du kommandot **IoT: stoppa övervakning av D2C-meddelande** i kommandopaletten. 
 
 ## <a name="next-steps"></a>Nästa steg
 

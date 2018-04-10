@@ -8,11 +8,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: c2a52a387860de640e290746b25c164090819654
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 19629f383bdab19a2541ca33dd2937574c2ced17
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Självstudier: Autentisera användare med Azure Active Directory B2C i en ASP.NET webbapp
 
@@ -66,7 +66,7 @@ Anteckna det **Programklients-id** som visas. Detta ID identifierar appen och be
 
 ### <a name="create-a-client-password"></a>Skapa ett klientlösenord
 
-Azure AD B2C använder OAuth2-auktorisering för [klientprogram](../active-directory/develop/active-directory-dev-glossary.md#client-application). Webbappar är [konfidentiella klienter](../active-directory/develop/active-directory-dev-glossary.md#web-client) och kräver en klienthemlighet (lösenord). Programklients-id och klienthemlighet används när webbappen autentiserar med Azure Active Directory. 
+Azure AD B2C använder OAuth2-auktorisering för [klientprogram](../active-directory/develop/active-directory-dev-glossary.md#client-application). Webbappar är [konfidentiella klienter](../active-directory/develop/active-directory-dev-glossary.md#web-client) och kräver ett klient-ID eller program-ID och en klienthemlighet, ett klientlösenord eller en programnyckel.
 
 1. Välj sidan Nycklar för den registrerade webbappen och klicka på **Generera nyckel**.
 
@@ -150,7 +150,7 @@ Exempellösningen innehåller två projekt:
 
 **Webb-API-exempelapp (TaskService):** Webb-API med stöd för att skapa, läsa, uppdatera och ta bort en uppgiftslista. Webb-API:n skyddas av Azure AD B2C och anropas av webbappen.
 
-Appen måste ändras så den använder appregistreringen i din klientorganisation. Du måste även konfigurera de principer du ställde in. Exempelwebbappen definierar konfigurationsvärdena som appinställningar i Web.config-filen. Så här ändrar du appinställningarna:
+Du måste ändra appen om du vill använda appregistreringen i din klient, som innehåller klient-ID:t eller program-ID:t och klientlösenordet eller programnyckeln. Du måste även konfigurera de principer du ställde in. Exempelwebbappen definierar konfigurationsvärdena som appinställningar i Web.config-filen. Så här ändrar du appinställningarna:
 
 1. Öppna **B2C-WebAPI-DotNet**-lösningen i Visual Studio.
 
@@ -161,7 +161,7 @@ Appen måste ändras så den använder appregistreringen i din klientorganisatio
     
     <add key="ida:ClientId" value="The Application ID for your web app registered in your tenant" />
     
-    <add key="ida:ClientSecret" value="Client password (client secret)" />
+    <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
 3. Uppdatera principinställningarna med det namn som skapades när du skapade principerna.
 

@@ -4,7 +4,7 @@ description: Distribuera en grundläggande Java-app och lär dig hur du kör web
 services: app-service\web
 documentationcenter: ''
 author: rmcmurray
-manager: routlaw
+manager: mbaldwin
 editor: ''
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -12,18 +12,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/08/2017
+ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e63f8706e28a5d34cc9774cbaecde31415a4b48e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 854ae54992a1389ec7c7f7892c738d070421264d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Skapa din första Java-webbapp i Azure
 
 Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här snabbstarten visar hur du distribuerar en Java-webbapp till App Service med hjälp av [Eclipse IDE för Java EE-utvecklare](http://www.eclipse.org/).
+
+> [!NOTE]
+>
+> Stegen i den här snabbstarten visar hur du använder Eclipse IDE för att publicera en Java-webbapp till App Service, men du kan använda IntelliJ IDEA Ultimate Edition eller Community Edition. Mer information finns i [Create a Hello World web app for Azure using IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) (Skapa en Hello World-webbapp för Azure med IntelliJ).
+>
 
 När du har slutfört den här snabbstarten ser din app ut ungefär som på följande bild när du visar den i en webbläsare:
 
@@ -37,6 +42,11 @@ Installera följande för att slutföra den här snabbstarten:
 
 * Kostnadsfria <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE för Java EE-utvecklare</a>. Den här snabbstarten använder Eclipse Neon.
 * <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Azure Toolkit för Eclipse</a>.
+
+> [!NOTE]
+>
+> Du måste logga in på ditt Azure-konto med hjälp av Azure-verktygen för Eclipse för att slutföra stegen i den här snabbstarten. För att göra det läser du [inloggningsinstruktionerna för Azure Toolkit för Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions).
+>
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Skapa ett dynamiskt webbprojekt i Eclipse
 
@@ -74,15 +84,20 @@ I filen index.jsp ersätter du elementet `<body></body>` med följande kod:
 
 Spara ändringarna.
 
+> [!NOTE]
+>
+> Om du ser ett fel på rad 1 som hänvisar till att en Java Servlet-klass saknas kan du ignorera det.
+> 
+> ![Godartat Java servlet-fel](./media/app-service-web-get-started-java/java-servlet-benign-error.png)
+>
+
 ## <a name="publish-the-web-app-to-azure"></a>Publicera webbappen i Azure
 
 Högerklicka på projektet i projektutforskaren och välj sedan **Azure** > **Publicera som Azure Web App**.
 
 ![Publicera som Azure Web App (snabbmeny)](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
-I dialogrutan för **Azure-inloggning** behåller du alternativet **Interaktiv** och väljer sedan **Logga in**.
-
-Följ anvisningarna för inloggning.
+Om du uppmanas via dialogrutan för **Azure-inloggning** måste du följa stegen i [inloggningsinstruktionerna för Azure Toolkit för Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions) för att ange dina autentiseringsuppgifter.
 
 ### <a name="deploy-web-app-dialog-box"></a>Dialogrutan Distribuera webbapp
 
@@ -100,8 +115,8 @@ Dialogrutan **Skapa App Service** visas med standardvärden. Numret **1706021852
 
 I dialogrutan **Skapa App Service**:
 
-* Behåll det genererade namnet för webbappen. Användarnamnet måste vara unikt inom Azure. Namnet är en del av URL-adressen för webbappen. Exempel: om webbappens namn är **MyJavaWebApp** så är URL-adressen *myjavawebapp.azurewebsites.net*.
-* Behåll webbehållaren som är standard.
+* Ange ett unikt namn för din webbapp eller behåll det genererade namnet. Användarnamnet måste vara unikt inom Azure. Namnet är en del av URL-adressen för webbappen. Exempel: om webbappens namn är **MyJavaWebApp** så är URL-adressen *myjavawebapp.azurewebsites.net*.
+* Behåll webbehållaren som är standard för den här snabbstarten.
 * Välj en Azure-prenumeration.
 * På fliken **App Service-plan**:
 
@@ -187,7 +202,7 @@ Välj **Resursgrupper** på den vänstra menyn.
 
 Välj resursgruppen. På sidan visas resurserna som du skapade i den här snabbstarten.
 
-![Resursgruppen myResourceGroup](media/app-service-web-get-started-java/rg2.png)
+![Resursgrupp](media/app-service-web-get-started-java/rg2.png)
 
 Välj webbappen (**webbapp-170602193915** i den föregående bilden).
 

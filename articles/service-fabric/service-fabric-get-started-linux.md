@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: c98a5e742356e24cee9e9d1414121faabac03084
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9123519217e87494316c1dc6b7f90da1b30ba392
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -28,17 +28,25 @@ ms.lasthandoff: 03/28/2018
 >
 >  
 
-För att kunna skapa och köra [Azure Service Fabric-program](service-fabric-application-model.md) på en Linux-utvecklingsdator måste du installera runtime och SDK. Du kan även installera SDK:er för Java- och .NET Core-utveckling.
+För att kunna skapa och köra [Azure Service Fabric-program](service-fabric-application-model.md) på en Linux-utvecklingsdator måste du installera runtime och SDK. Du kan även installera SDK:er för Java- och .NET Core-utveckling. 
 
-> [!NOTE]
-> Det stöds inte att installera Service Fabric runtime och SDK på Windows-undersystem för Linux. Dock stöds Azure Service Fabric-kommandoradsgränssnittet (CLI), vilket låter dig hantera Service Fabric-entiteter som ligger någon annanstans i molnet eller lokalt. Information om hur du installerar CLI:t finns i [Konfigurera Service Fabric CLI](./service-fabric-cli.md).
->
+Anvisningarna i den här artikeln förutsätter att du installerar internt i Linux eller använder Service Fabric OneBox-behållaravbildningen, `microsoft/service-fabric-onebox`. 
+
+Det stöds inte att installera Service Fabric runtime och SDK på Windows-undersystem för Linux. Dock stöds Azure Service Fabric-kommandoradsgränssnittet (CLI), vilket låter dig hantera Service Fabric-entiteter som ligger någon annanstans i molnet eller lokalt. Information om hur du installerar CLI:t finns i [Konfigurera Service Fabric CLI](./service-fabric-cli.md).
+
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Följande operativsystemversioner stöds för utveckling:
+* Följande operativsystemversioner stöds för utveckling:
 
-* Ubuntu 16.04 (`Xenial Xerus`)
+    * Ubuntu 16.04 (`Xenial Xerus`)
+
+* Se till att `apt-transport-https`-paketet installeras:
+
+      ```bash
+      sudo apt-get install apt-transport-https
+      ```
+
 
 ## <a name="installation-methods"></a>Installationsmetoder
 

@@ -45,6 +45,7 @@
 ### [Hämta ett Twitter-meddelande med Azure Functions](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 ### [Skicka meddelanden till en MQTT-server med Eclipse Paho-API:er](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 ### [Övervaka den magnetiska sensorn och skicka e-postaviseringar med Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
+### [Styra MXChip IoT DevKit RGB LED med hjälp av Azure-enhetstvillingar](iot-hub-arduino-iot-devkit-az3166-devkit-state.md)
 
 # Instruktionsguider
 ## Planera
@@ -173,7 +174,7 @@
 ## [Java (tjänst)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (enheter)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Node.js (enheter)](https://docs.microsoft.com/javascript/api/azure-iot-device/)
-## [Node.js (tjänst)](https://docs.microsoft.com/javascript/api/azure-iothub)
+## [Node.js (tjänst)](https://docs.microsoft.com/javascript/api/azure-iothub/)
 ## [C-enhets-SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (resursprovider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

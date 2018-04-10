@@ -122,6 +122,8 @@
           href: author-visually.md
         - name: Kontinuerlig integrering och distribution
           href: continuous-integration-deployment.md
+        - name: Iterativ utveckling och felsökning
+          href: iterative-development-debugging.md
     - name: Kopiera data
       items:
         - name: Kopiera data med Kopiera aktivitet

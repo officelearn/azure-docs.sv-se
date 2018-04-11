@@ -54,7 +54,7 @@ När arbetsytan har skapats visas den för dig i Azure-portalen.
 
 Log Analytics-arbetsytans ID och nyckel behövs för att konfigurera lösningsagenten på Kubernetes-noderna.
 
-Om du vill hämta värdena väljer du **OMS-arbetsyta** på behållarlösningens vänstra meny. Välj  **	Avancerade inställningar** och anteckna **ARBETSYTANS ID** och **PRIMÄRNYCKELN**.
+Om du vill hämta värdena väljer du **OMS-arbetsyta** på behållarlösningens vänstra meny. Välj **Avancerade inställningar** och anteckna **ARBETSYTANS ID** och **PRIMÄRNYCKELN**.
 
 ## <a name="create-kubernetes-secret"></a>Skapa Kubernetes-hemlighet
 

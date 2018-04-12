@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med SCC livscykel | Microsoft Docs"
-description: "Lär dig hur du använder SCC livscykel med Azure Active Directory för att aktivera enkel inloggning, Automatisk etablering och mycket mer!"
+title: 'Självstudier: Azure Active Directory-integrering med SCC livscykel | Microsoft Docs'
+description: Lär dig hur du använder SCC livscykel med Azure Active Directory för att aktivera enkel inloggning, Automatisk etablering och mycket mer!
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.openlocfilehash: 943698311d10b479879fd92d2482d827650e2b0c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Självstudier: Azure Active Directory-integrering med SCC livscykel
 Syftet med den här kursen är att visa integreringen av Azure och SCC livscykel.  
@@ -36,7 +36,7 @@ Det scenario som beskrivs i den här kursen består av följande byggblock:
 3. Konfigurera användaretablering
 4. Tilldela användare
 
-![Scenario](./media/active-directory-saas-scc-lifecycle-tutorial/IC794120.png "Scenario")
+![Scenariot](./media/active-directory-saas-scc-lifecycle-tutorial/IC794120.png "Scenario")
 
 ## <a name="enable-the-application-integration-for-scc-lifecycle"></a>Aktivera application-integration för SCC livscykel
 Syftet med det här avsnittet är att beskriva hur du aktiverar programintegrationstyp för SCC livscykel.
@@ -75,7 +75,7 @@ Syftet med det här avsnittet är att beskriva hur användarna att autentisera t
 2. På den **hur vill du att användarna kan logga in på SCC livscykel** väljer **Microsoft Azure AD enkel inloggning**, och klicka sedan på **nästa**.
    
     ![Konfigurera enkel inloggning](./media/active-directory-saas-scc-lifecycle-tutorial/IC794123.png "Konfigurera enkel inloggning")
-3. På den **konfigurera App-URL** sidan den **logga URL** textruta, Skriv URL-Adressen används av dina användare logga in i tillämpningsprogrammet SCC livscykel med hjälp av följande mönster ” *https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx* ”, och klicka sedan på **nästa**.
+3. På den **konfigurera App-URL** sidan den **logga URL** textruta, Skriv URL-Adressen används av dina användare logga in i tillämpningsprogrammet SCC livscykel med hjälp av följande mönster ”*https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx*”, och klicka sedan på **nästa**.
    
     ![Konfigurera App-URL](./media/active-directory-saas-scc-lifecycle-tutorial/IC794124.png "konfigurera App-URL")
 4. På den **Konfigurera enkel inloggning på SCC livscykel** klickar du på **hämtar metadata**, och sedan spara metadatafilen lokalt på datorn.

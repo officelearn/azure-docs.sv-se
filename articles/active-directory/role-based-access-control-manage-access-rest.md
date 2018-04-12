@@ -1,11 +1,11 @@
 ---
-title: "Rollbaserad åtkomstkontroll med REST - Azure AD | Microsoft Docs"
-description: "Hantera rollbaserad åtkomstkontroll med REST API"
+title: Rollbaserad åtkomstkontroll med REST - Azure AD | Microsoft Docs
+description: Hantera rollbaserad åtkomstkontroll med REST API
 services: active-directory
 documentationcenter: na
 author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: active-directory
 ms.workload: multiple
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
 ms.openlocfilehash: ba25340e41cefe2b7847a39a6c9182cd0fc057d3
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Hantera rollbaserad åtkomstkontroll med REST API
 > [!div class="op_single_selector"]
@@ -234,7 +234,7 @@ Gör följande ersättningar att anpassa din begäran inom URI:
 
    * Prenumerationen: /subscriptions/ {prenumerations-id}  
    * Resursgrupp: /subscriptions/ {prenumerations-id} / resursgrupper/myresourcegroup1  
-   * Resource /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resursen /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Ersätt *{api-version}* med 2015-07-01.
 3. Ersätt *{filter}* med villkor som du vill använda för att filtrera listan över roller:
 
@@ -438,11 +438,11 @@ För begärantext, anger du värden i följande format:
 | --- | --- | --- | --- |
 | namn |Ja |Sträng |GUID-identifierare för den anpassade rollen. |
 | properties.roleName |Ja |Sträng |Visningsnamn för den anpassade rollen. Maximal storlek 128 tecken. |
-| Properties.Description |Nej |Sträng |Beskrivning av anpassad roll. Maximal storlek 1024 tecken. |
-| Properties.Type |Ja |Sträng |Ange till ”CustomRole”. |
-| Properties.permissions.Actions |Ja |String] |En strängmatris åtgärd anger de åtgärder som tilldelats av den anpassade rollen. |
-| properties.permissions.notActions |Nej |String] |En strängmatris åtgärd anger åtgärderna som ska undantas från de åtgärder som tilldelats av den anpassade rollen. |
-| properties.assignableScopes |Ja |String] |En matris med scope där den anpassade rollen som kan användas. |
+| properties.description |Nej |Sträng |Beskrivning av anpassad roll. Maximal storlek 1024 tecken. |
+| properties.type |Ja |Sträng |Ange till ”CustomRole”. |
+| properties.permissions.actions |Ja |String[] |En strängmatris åtgärd anger de åtgärder som tilldelats av den anpassade rollen. |
+| properties.permissions.notActions |Nej |String[] |En strängmatris åtgärd anger åtgärderna som ska undantas från de åtgärder som tilldelats av den anpassade rollen. |
+| properties.assignableScopes |Ja |String[] |En matris med scope där den anpassade rollen som kan användas. |
 
 ### <a name="response"></a>Svar
 Statuskod: 201
@@ -541,11 +541,11 @@ För begärantext, anger du värden i följande format:
 | --- | --- | --- | --- |
 | namn |Ja |Sträng |GUID-identifierare för den anpassade rollen. |
 | properties.roleName |Ja |Sträng |Visningsnamn för den anpassade rollen som är uppdaterade. |
-| Properties.Description |Nej |Sträng |Beskrivning av den anpassade rollen som är uppdaterade. |
-| Properties.Type |Ja |Sträng |Ange till ”CustomRole”. |
-| Properties.permissions.Actions |Ja |String] |En strängmatris åtgärd anger de åtgärder som den uppdaterade anpassade rollen som ger åtkomst. |
-| properties.permissions.notActions |Nej |String] |En strängmatris åtgärd anger åtgärderna som ska undantas från de åtgärder som den anpassade rollen som uppdaterade ger. |
-| properties.assignableScopes |Ja |String] |En matris med scope där uppdaterade anpassad roll kan användas. |
+| properties.description |Nej |Sträng |Beskrivning av den anpassade rollen som är uppdaterade. |
+| properties.type |Ja |Sträng |Ange till ”CustomRole”. |
+| properties.permissions.actions |Ja |String[] |En strängmatris åtgärd anger de åtgärder som den uppdaterade anpassade rollen som ger åtkomst. |
+| properties.permissions.notActions |Nej |String[] |En strängmatris åtgärd anger åtgärderna som ska undantas från de åtgärder som den anpassade rollen som uppdaterade ger. |
+| properties.assignableScopes |Ja |String[] |En matris med scope där uppdaterade anpassad roll kan användas. |
 
 ### <a name="response"></a>Svar
 Statuskod: 201

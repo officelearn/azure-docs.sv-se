@@ -1,8 +1,8 @@
 ---
-title: "Skapa anpassade roller för Azure RBAC | Microsoft Docs"
-description: "Lär dig hur du definierar anpassade roller med rollbaserad åtkomstkontroll för mer exakta Identitetshantering i din Azure-prenumeration."
+title: Skapa anpassade roller för Azure RBAC | Microsoft Docs
+description: Lär dig hur du definierar anpassade roller med rollbaserad åtkomstkontroll för mer exakta Identitetshantering i din Azure-prenumeration.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2871ff5eea8fb99040dfab2593d1640d79f51092
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Skapa anpassade roller för rollbaserad åtkomstkontroll
 Skapa en anpassad roll i rollbaserad åtkomstkontroll (RBAC) om ingen av de inbyggda rollerna uppfyller dina specifika behov. Anpassade roller kan skapas med [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure-kommandoradsgränssnittet](role-based-access-control-manage-access-azure-cli.md) (CLI) och [REST API](role-based-access-control-manage-access-rest.md). Du kan tilldela anpassade roller till användare, grupper och program på prenumerationen, resursgruppen och resursen omfattningar precis som inbyggda roller. Anpassade roller lagras i Azure AD-klient och kan delas mellan prenumerationer.
@@ -59,11 +59,11 @@ I följande exempel visas en anpassad roll för övervakning och starta om virtu
 ## <a name="actions"></a>Åtgärder
 Den **åtgärder** -egenskapen för en anpassad roll anger Azure operationer som rollen ger åtkomst. Det är en samling med åtgärden strängar som identifierar skyddbara drift av Azure-resursprovidrar. Åtgärden strängar följa formatet för `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Åtgärden strängar som innehåller jokertecken (\*) bevilja åtkomst till alla åtgärder som motsvarar den åtgärd-strängen. Exempel:
 
-* `*/read`ger åtkomst till Läs-och skrivåtgärder för alla typer av resurser för alla Azure-resurs-providers.
-* `Microsoft.Compute/*`ger åtkomst till alla åtgärder för alla typer av resurser i Microsoft.Compute-resursprovidern.
-* `Microsoft.Network/*/read`ger åtkomst till Läs-och skrivåtgärder för alla typer av resurser i resursen Microsoft.Network-providern på Azure.
-* `Microsoft.Compute/virtualMachines/*`ger åtkomst till alla åtgärder för virtuella datorer och dess underordnade resurstyper.
-* `Microsoft.Web/sites/restart/Action`ger åtkomst till att starta om webbplatser.
+* `*/read` ger åtkomst till Läs-och skrivåtgärder för alla typer av resurser för alla Azure-resurs-providers.
+* `Microsoft.Compute/*` ger åtkomst till alla åtgärder för alla typer av resurser i Microsoft.Compute-resursprovidern.
+* `Microsoft.Network/*/read` ger åtkomst till Läs-och skrivåtgärder för alla typer av resurser i resursen Microsoft.Network-providern på Azure.
+* `Microsoft.Compute/virtualMachines/*` ger åtkomst till alla åtgärder för virtuella datorer och dess underordnade resurstyper.
+* `Microsoft.Web/sites/restart/Action` ger åtkomst till att starta om webbplatser.
 
 Använd `Get-AzureRmProviderOperation` (i PowerShell) eller `azure provider operations show` (i Azure CLI) till Liståtgärder över providers som Azure-resurs. Du kan också använda dessa kommandon för att verifiera att en sträng för åtgärden är giltig och att expandera jokertecken åtgärden strängar.
 

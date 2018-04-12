@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
 ms.openlocfilehash: b60b30e3a5a4f5adec4fbef8c4e981ad034a7f6c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="intro-on-role-based-access-control"></a>Introduktion på rollbaserad åtkomstkontroll
 
@@ -28,7 +28,7 @@ Rollbaserad åtkomstkontroll är en Azure portal endast funktionen som tillåter
 
 RBAC kan bättre säkerhetshantering för stora organisationer och för små och medelstora företag arbetar med externa samarbetspartners, leverantörer eller freelancers som behöver åtkomst till specifika resurser i din miljö, men inte nödvändigtvis att hela infrastrukturen eller någon fakturerings-relaterade scope. RBAC kan flexibiliteten för en Azure-prenumeration som äger hanteras av administratörskontot (service administratörsrollen på en prenumerationsnivå) och har flera användare uppmanas för att arbeta under samma prenumeration, men utan några administrativa rättigheter för det. . Från en hanteringen och fakturering perspektiv bevisar RBAC-funktionen ska vara ett tids- och effektivt alternativ för att använda Azure i olika scenarier.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Med RBAC i Azure-miljön kräver:
 
 * Med en fristående Azure-prenumeration tilldelas användaren som ägare (prenumeration roll)

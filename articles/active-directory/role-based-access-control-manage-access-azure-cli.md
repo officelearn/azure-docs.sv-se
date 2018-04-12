@@ -15,10 +15,10 @@ ms.date: 04/03/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.openlocfilehash: 4efae8aa8a016849193b67ea7481e18ee48811d0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Hantera rollbaserad åtkomstkontroll med kommandoradsgränssnittet i Azure
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/05/2018
 
 Med rollbaserad åtkomstkontroll (RBAC) ange åtkomst för användare, grupper och tjänstens huvudnamn genom att tilldela roller för ett visst område. Den här artikeln beskriver hur du hanterar rolltilldelningar med hjälp av Azure-kommandoradsgränssnittet (CLI).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda Azure CLI för att hantera rolltilldelningar, måste du ha följande krav:
 

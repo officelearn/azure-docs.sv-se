@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
 ms.openlocfilehash: 4d9df6743d84310b7db70034d1e84dd3591b3c21
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Inbyggda roller för rollbaserad åtkomstkontroll i Azure
 Azure rollbaserad åtkomstkontroll (RBAC) levereras med följande inbyggda roller som kan tilldelas användare, grupper och tjänster. Du kan inte ändra definitionerna av inbyggda roller. Du kan dock skapa [anpassade roller i Azure RBAC](role-based-access-control-custom-roles.md) så att den passar de specifika behoven i din organisation.
@@ -46,7 +46,7 @@ Den här artikeln tar endast de olika roller som finns idag. När du tilldelar e
 | [Operatörsrollen för API Management-tjänsten](#api-management-service-operator-role) | Kan hantera tjänsten men inte API:er |
 | [Rollen för API Management-tjänsten läsare](#api-management-service-reader-role) | Skrivskyddad åtkomst till tjänst och API:er |
 | [Application Insights Component Contributor](#application-insights-component-contributor) | Kan hantera Application Insights-komponenter |
-| [Application Insights ögonblicksbild felsökare](#application-insights-snapshot-debugger) | Ger användarbehörighet för att använda felsökningsfunktionerna för ögonblicksbilder i Application Insights |
+| [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Ger användarbehörighet för att använda felsökningsfunktionerna för ögonblicksbilder i Application Insights |
 | [Operator för Automation-jobb](#automation-job-operator) | Skapa och hantera jobb med Automation Runbooks. |
 | [Automation-operatorn](#automation-operator) | Automation-operatörer kan starta, stoppa, göra uppehåll i och återuppta jobb |
 | [Automation Runbook-operatör](#automation-runbook-operator) | Läs runbook-egenskaperna för att kunna skapa jobb av den runbooken. |
@@ -57,7 +57,7 @@ Den här artikeln tar endast de olika roller som finns idag. När du tilldelar e
 | [Fakturering läsare](#billing-reader) | Tillåter läsåtkomst till faktureringsdata |
 | [BizTalk-deltagare](#biztalk-contributor) | Låter dig hantera BizTalk-tjänster, men ger dig inte tillgång till dem. |
 | [CDN-slutpunkten deltagare](#cdn-endpoint-contributor) | Kan hantera CDN-slutpunkter, men kan inte bevilja åtkomst till andra användare. |
-| [CDN-slutpunkten läsare](#cdn-endpoint-reader) | Kan visa CDN-slutpunkter, men kan inte göra ändringar. |
+| [CDN Endpoint Reader](#cdn-endpoint-reader) | Kan visa CDN-slutpunkter, men kan inte göra ändringar. |
 | [CDN-profilen deltagare](#cdn-profile-contributor) | Kan hantera CDN-profiler och deras slutpunkter, men kan inte bevilja åtkomst till andra användare. |
 | [CDN-profilen läsare](#cdn-profile-reader) | Kan visa CDN-profiler och deras slutpunkter, men kan inte göra ändringar. |
 | [Klassisk nätverksdeltagare](#classic-network-contributor) | Låter dig hantera klassiska nätverk, men ger dig inte tillgång till dem. |
@@ -67,14 +67,14 @@ Den här artikeln tar endast de olika roller som finns idag. När du tilldelar e
 | [ClearDB MySQL DB-deltagare](#cleardb-mysql-db-contributor) | Låter dig hantera ClearDB MySQL-databaser, men ger dig inte tillgång till dem. |
 | [Rollen för läsare av cosmos DB-konto](#cosmos-db-account-reader-role) | Kan läsa Azure Cosmos DB kontodata. Se [DocumentDB-konto deltagare](#documentdb-account-contributor) för att hantera Azure DB som Cosmos-konton. |
 | [Data Factory deltagare](#data-factory-contributor) | Skapa och hantera datafabriker och deras underordnade resurser. |
-| [Data Lake Analytics Developer](#data-lake-analytics-developer) | Låter dig skicka in, övervaka och hantera dina egna jobb, men inte skapa eller ta bort Data Lake Analytics-konton. |
+| [Data Lake Analytics-utvecklare](#data-lake-analytics-developer) | Låter dig skicka in, övervaka och hantera dina egna jobb, men inte skapa eller ta bort Data Lake Analytics-konton. |
 | [DevTest Labs användare](#devtest-labs-user) | Låter dig ansluta, starta, starta om och stänga av dina virtuella datorer i din Azure DevTest Labs. |
 | [DNS-zonen deltagare](#dns-zone-contributor) | Låter dig hantera DNS-zoner och postuppsättningar i Azure DNS, men låter dig inte kontrollera vem som har åtkomst till dem. |
 | [DocumentDB-konto deltagare](#documentdb-account-contributor) | Hantera Azure DB som Cosmos-konton. Azure Cosmos-DB är kallades DocumentDB. |
 | [Intelligenta System-kontot deltagare](#intelligent-systems-account-contributor) | Låter dig hantera Intelligent Systems-konton, men ger dig inte tillgång till dem. |
 | [Key Vault deltagare](#key-vault-contributor) | Låter dig hantera nyckelvalv, men inte ha åtkomst till dem. |
 | [Lab Creator](#lab-creator) | Kan du skapa, hantera, ta bort dina hanterade labs under din Azure Lab konton. |
-| [Log Analytics Contributor](#log-analytics-contributor) | Log Analytics deltagare kan läsa alla övervakningsdata och redigera inställningarna för övervakning. Redigera inställningarna för övervakning innehåller lägger till VM-tillägget på virtuella datorer; läsa lagringskontonycklar för att kunna konfigurera samlingen loggar från Azure Storage; Skapa och konfigurera Automation-konton lägga till lösningar. och konfigurera Azure-diagnostik på alla Azure-resurser. |
+| [Log Analytics deltagare](#log-analytics-contributor) | Log Analytics deltagare kan läsa alla övervakningsdata och redigera inställningarna för övervakning. Redigera inställningarna för övervakning innehåller lägger till VM-tillägget på virtuella datorer; läsa lagringskontonycklar för att kunna konfigurera samlingen loggar från Azure Storage; Skapa och konfigurera Automation-konton lägga till lösningar. och konfigurera Azure-diagnostik på alla Azure-resurser. |
 | [Log Analytics Reader](#log-analytics-reader) | Log Analytics Reader kan visa och söka i alla övervakningsdata och dessutom visa övervakningsinställningar, bl.a. konfigurationen av Azure Diagnostics på alla Azure-resurser. |
 | [Logik App deltagare](#logic-app-contributor) | Låter dig hantera logikappar, men du kan inte komma åt dem. |
 | [Logik App Operator](#logic-app-operator) | Låter dig läsa, aktivera och inaktivera logikapp. |
@@ -88,7 +88,7 @@ Den här artikeln tar endast de olika roller som finns idag. När du tilldelar e
 | [Schemaläggaren jobbet samlingar deltagare](#scheduler-job-collections-contributor) | Låter dig hantera Scheduler-jobbsystem, men ger dig inte tillgång till dem. |
 | [Sök Service deltagare](#search-service-contributor) | Låter dig hantera söktjänster, men ger dig inte tillgång till dem. |
 | [Säkerhet Admin](#security-admin) | I Security Center endast: Visa säkerhetsprinciper, visa säkerhetsstatus, redigera säkerhetsprinciper, Visa aviseringar och rekommendationerna, stänga aviseringar och rekommendationer |
-| [Säkerhetshantering](#security-manager) | Låter dig hantera säkerhetskomponenter, säkerhetsprinciper och virtuella datorer |
+| [Security Manager](#security-manager) | Låter dig hantera säkerhetskomponenter, säkerhetsprinciper och virtuella datorer |
 | [Säkerhet läsare](#security-reader) | I Security Center endast: Visa rekommendationer och aviseringar, visa säkerhetsprinciper, visa säkerhetsstatus, men det går inte att göra ändringar |
 | [Site Recovery-deltagare](#site-recovery-contributor) | Låter dig hantera Site Recovery-tjänsten förutom att skapa valv och tilldela roller |
 | [Site Recovery-operatorn](#site-recovery-operator) | Låter dig växla vid fel och återställa men inte utföra andra Site Recovery-hanteringsåtgärder |
@@ -134,7 +134,7 @@ Låter dig visa allting, men låter dig inte göra några ändringar.
 
 | **Åtgärder** |  |
 | --- | --- |
-| * / läsa | Läsa resurser av alla typer utom hemligheter. |
+| */read | Läsa resurser av alla typer utom hemligheter. |
 
 ## <a name="api-management-service-contributor"></a>API Management-tjänstdeltagare
 Kan hantera tjänsten och samtliga API:er
@@ -362,7 +362,7 @@ Låter dig hantera säkerhetskopieringstjänster, med undantag för att ta bort 
 | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 | Microsoft.Storage/storageAccounts/read | Returnerar listan med lagringskonton eller hämtar egenskaperna för det angivna lagringskontot. |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/recoveryPoints/provisionInstantItemRecovery/åtgärd | Etablera omedelbar återställning för skyddade objekt |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Återkalla omedelbar återställning för skyddade objekt |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/recoveryPoints/revokeInstantItemRecovery/åtgärd | Återkalla omedelbar återställning för skyddade objekt |
 | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp är en intern åtgärd som används av tjänsten |
 | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Hämtar aviseringar för Recovery services-valvet. |
@@ -558,7 +558,7 @@ Låter dig hantera ClearDB MySQL-databaser, men ger dig inte tillgång till dem.
 | Microsoft.Resources/deployments/* | Skapa och hantera distributionen av resursgrupper |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 | Microsoft.Support/* | Skapa och hantera supportärenden |
-| successbricks.cleardb/databases/* | Skapa och hantera ClearDB MySQL-databaser |
+| successbricks.cleardb/Databases/* | Skapa och hantera ClearDB MySQL-databaser |
 
 ## <a name="cosmos-db-account-reader-role"></a>Läsarroll för Cosmos DB-konto
 Kan läsa Azure Cosmos DB kontodata. Se [DocumentDB-konto deltagare](#documentdb-account-contributor) för att hantera Azure DB som Cosmos-konton.
@@ -728,7 +728,7 @@ Log Analytics deltagare kan läsa alla övervakningsdata och redigera inställni
 
 | **Åtgärder** |  |
 | --- | --- |
-| * / läsa | Läsa resurser av alla typer utom hemligheter. |
+| */read | Läsa resurser av alla typer utom hemligheter. |
 | Microsoft.Automation/automationAccounts/* |  |
 | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
 | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Listar lagringskontots åtkomstnycklar. |
@@ -747,7 +747,7 @@ Log Analytics Reader kan visa och söka i alla övervakningsdata och dessutom vi
 
 | **Åtgärder** |  |
 | --- | --- |
-| * / läsa | Läsa resurser av alla typer utom hemligheter. |
+| */read | Läsa resurser av alla typer utom hemligheter. |
 | Microsoft.OperationalInsights/workspaces/analytics/query/action | Sökningen med nya motorn. |
 | Microsoft.OperationalInsights/workspaces/search/action | Kör en sökfråga |
 | Microsoft.Support/* | Skapa och hantera supportärenden |
@@ -836,7 +836,7 @@ Kan läsa alla övervakningsdata och redigera inställningarna för övervakning
 
 | **Åtgärder** |  |
 | --- | --- |
-| * / läsa | Läsa resurser av alla typer utom hemligheter. |
+| */read | Läsa resurser av alla typer utom hemligheter. |
 | Microsoft.AlertsManagement/alerts/* |  |
 | Microsoft.AlertsManagement/alertsSummary/* |  |
 | Microsoft.Insights/AlertRules/* | Läs/Skriv/ta bort Varningsregler. |
@@ -861,7 +861,7 @@ Kan läsa alla övervakningsdata (mått, loggar osv.). Se även [Kom igång med 
 
 | **Åtgärder** |  |
 | --- | --- |
-| * / läsa | Läsa resurser av alla typer utom hemligheter. |
+| */read | Läsa resurser av alla typer utom hemligheter. |
 | Microsoft.OperationalInsights/workspaces/search/action | Kör en sökfråga |
 | Microsoft.Support/* | Skapa och hantera supportärenden |
 
@@ -940,7 +940,7 @@ I Security Center endast: Visa säkerhetsprinciper, visa säkerhetsstatus, redig
 | Microsoft.Authorization/policyDefinitions/* | Skapa och hantera principdefinitioner |
 | Microsoft.Authorization/policySetDefinitions/* | Skapa och hantera principen anger |
 | Microsoft.Insights/alertRules/* | Skapa och hantera aviseringsregler |
-| Microsoft.operationalInsights/workspaces/*/read | View Log Analytics data |
+| Microsoft.operationalInsights/workspaces/*/read | Visa logganalys data |
 | Microsoft.Resources/deployments/* | Skapa och hantera distributionen av resursgrupper |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 | Microsoft.Security/*/read | Läs säkerhetskomponenter och principer |
@@ -972,7 +972,7 @@ I Security Center endast: Visa rekommendationer och aviseringar, visa säkerhets
 | --- | --- |
 | Microsoft.Insights/alertRules/* | Skapa och hantera aviseringsregler |
 | Microsoft.Resources/deployments/* | Skapa och hantera distributionen av resursgrupper |
-| Microsoft.operationalInsights/workspaces/*/read | View Log Analytics data |
+| Microsoft.operationalInsights/workspaces/*/read | Visa logganalys data |
 | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
 | Microsoft.Support/* | Skapa och hantera supportärenden |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
@@ -1043,8 +1043,8 @@ Låter dig växla vid fel och återställa men inte utföra andra Site Recovery-
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/läsning | Läsa alla återställningspunkter för replikeringen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/repairReplication/åtgärd | Reparera replikering |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/skyddar/åtgärd | Skapa nytt skyddat objekt |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailover/åtgärd | Testa redundans |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/åtgärd | Redundanstestningen |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailover/action | Testa redundans |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Redundanstestningen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/unplannedFailover/åtgärd | Redundans |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/updateMobilityService/åtgärd | Uppdatera Mobilitetstjänsten |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/läsning | Läsa alla mappningar för behållaren skydd |
@@ -1260,7 +1260,7 @@ Låter dig hantera användaråtkomst till Azure-resurser.
 
 | **Åtgärder** |  |
 | --- | --- |
-| * / läsa | Läsa resurser av alla typer utom hemligheter. |
+| */read | Läsa resurser av alla typer utom hemligheter. |
 | Microsoft.Authorization/* | Hantera auktorisering |
 | Microsoft.Support/* | Skapa och hantera supportärenden |
 

@@ -1,8 +1,8 @@
 ---
-title: "Åtkomst reporting - Azure RBAC | Microsoft Docs"
-description: "Generera en rapport som visar alla ändringar i åtkomst till dina Azure-prenumerationer med rollbaserad åtkomstkontroll under de senaste 90 dagarna."
+title: Åtkomst reporting - Azure RBAC | Microsoft Docs
+description: Generera en rapport som visar alla ändringar i åtkomst till dina Azure-prenumerationer med rollbaserad åtkomstkontroll under de senaste 90 dagarna.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 169ed8dd6d14d8d9d0fd49ad7306b1d4fb2c4d90
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>Skapa en access-rapport för rollbaserad åtkomstkontroll
 Varje gång någon tilldelar eller återkallar åtkomst i din prenumeration, får ändringarna loggas i Azure-händelser. Du kan skapa åtkomst ändra historik rapporter för att visa alla ändringar för de senaste 90 dagarna.
@@ -32,7 +32,7 @@ När du anropar det här kommandot, anger du vilken egenskap tilldelningar som d
 | Egenskap | Beskrivning |
 | --- | --- |
 | **Åtgärd** |Anger om åtkomst beviljas eller återkallas |
-| **Anroparen** |Ägaren ansvarar för att ändringen åtkomst |
+| **Caller** |Ägaren ansvarar för att ändringen åtkomst |
 | **PrincipalId** | Den unika identifieraren för användaren, gruppen eller program som har tilldelats rollen |
 | **PrincipalName** |Namnet på användaren, gruppen eller program |
 | **PrincipalType** |Om tilldelningen har för en användare, grupp eller ett program |
@@ -41,7 +41,7 @@ När du anropar det här kommandot, anger du vilken egenskap tilldelningar som d
 | **Omfång** | Den unika identifieraren för prenumerationen, resursgruppen eller resursen som tilldelningen gäller för | 
 | **ScopeName** |Namnet på prenumerationen, resursgruppen eller resursen |
 | **ScopeType** |Om tilldelningen har på prenumerationen, resursgruppen eller resursen omfång |
-| **Tidsstämpel** |Datum och tid då åtkomst har ändrats |
+| **tidsstämpel** |Datum och tid då åtkomst har ändrats |
 
 Detta kommando visar alla ändringar i prenumerationen för de senaste sju dagarna:
 

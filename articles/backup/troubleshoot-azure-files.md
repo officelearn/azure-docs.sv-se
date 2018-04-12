@@ -3,25 +3,24 @@ title: Felsöka Azure Files Backup
 description: Den här artikeln kan användas som felsökningsinformation om det skulle uppstå problem när du skyddar dina Azure (filresurser).
 services: backup
 ms.service: backup
-keywords: Lägg inte till eller redigera nyckelord utan att först kontakta den SEO-ansvarige.
 author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: c803118ccdafa8db0e8f8ddee608f60311f65e05
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2e067e0a1f673480bc08abfee61d2b1b2c92f885
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Felsöka problem med att säkerhetskopiera Azure Files
 Du kan felsöka problem och fel vid användning av Azure Files Backup med hjälp av informationen i följande tabeller.
 
 ## <a name="preview-boundaries"></a>Förhandsversionens begränsningar
 Azure Files Backup är en förhandsversion. Följande säkerhetskopieringsscenarier stöds inte för Azure-filresurser:
-- Skydd av Azure-filresurser i lagringskonton med [zonredundant lagring](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) eller [Read Access Geo-Redundant Storage](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage)-replikering (RA-GRS).
+- Skydd av Azure-filresurser i lagringskonton med [zonredundant lagring](../storage/common/storage-redundancy-zrs.md) (ZRS) eller [Read Access Geo-Redundant Storage](../storage/common/storage-redundancy-grs.md)-replikering (RA-GRS).
 - Skydd av Azure-filresurser i lagringskonton som har virtuella nätverk aktiverade.
 - Säkerhetskopiering av Azure-filresurser med PowerShell eller CLI.
 

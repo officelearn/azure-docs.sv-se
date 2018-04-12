@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: 5572eaafa49200be0b2a8156dbc96bffd48be925
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b288c764c3a6b5821f913170f8f9c88e5cc86956
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Go
 
@@ -39,6 +39,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart
 ```
 
 Det här kommandot klonar lagret till den lokala git-mappen. När du vill öppna Go-exemplet för Blob Storage ska du leta efter filen storage-quickstart.go.  
+
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
 Den här lösningen kräver att ditt lagringskontonamn och nyckel är säkert lagrade i miljövariabler som ligger lokalt på datorn som kör exemplet. Följ något av exemplen nedan beroende på operativsystemet för att skapa miljövariabeln.

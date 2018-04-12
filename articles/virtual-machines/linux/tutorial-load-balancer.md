@@ -1,13 +1,13 @@
 ---
-title: "Belastningsutjämna virtuella Linux-datorer i Azure | Microsoft Docs"
-description: "Lär dig hur du använder Azure Load Balancer för att skapa hög tillgänglighet och säkerhet för program över tre virtuella Linux-datorer"
+title: Belastningsutjämna virtuella Linux-datorer i Azure | Microsoft Docs
+description: Lär dig hur du använder Azure Load Balancer för att skapa hög tillgänglighet och säkerhet för program över tre virtuella Linux-datorer
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: tutorial
@@ -16,23 +16,23 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: feb2c369fc00d37c9a6af0c0be68cbf7d9e59921
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c473a31261337f0b968ca21c85b61dafbf8fa74a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Belastningsutjämna virtuella Linux-datorer i Azure för att skapa ett program med hög tillgänglighet
-Med belastningsutjämning får du högre tillgänglighet genom att inkommande begäranden sprids över flera virtuella datorer. I den här självstudien får du lära dig mer om de olika komponenterna i Azure Load Balancer som distribuerar trafik och ger hög tillgänglighet. Lär dig att:
+Med belastningsutjämning får du högre tillgänglighet genom att inkommande begäranden sprids över flera virtuella datorer. I den här kursen får du lära dig mer om de olika komponenterna i Azure Load Balancer som distribuerar trafik och ger hög tillgänglighet. Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en Azure Load Balancer
-> * Skapa en hälsoavsökning för belastningsutjämnaren
+> * skapa en Azure Load Balancer
+> * skapa en hälsoavsökning för belastningsutjämnaren
 > * Skapa trafikregler för belastningsutjämnaren
 > * Använda cloud-init för att skapa en grundläggande Node.js-app
 > * Skapa virtuella datorer och anslut dem till en belastningsutjämnare
-> * Visa en belastningsutjämnare i praktiken
-> * Lägga till och ta bort virtuella datorer från en belastningsutjämnare
+> * visa en belastningsutjämnare i praktiken
+> * lägga till och ta bort virtuella datorer från en belastningsutjämnare.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -147,7 +147,7 @@ az network nsg rule create \
     --destination-port-range 80
 ```
 
-Virtuella nätverkskort skapas med [az network nic create](/cli/azure/network/nic#az_network_nic_create). I följande exempel skapas tre virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg). Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i belastningsutjämnaren:
+Virtuella nätverkskort skapas med [az network nic create](/cli/azure/network/nic#az_network_nic_create). I följande exempel skapas tre virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i belastningsutjämnaren:
 
 ```bash
 for i in `seq 1 3`; do
@@ -317,12 +317,12 @@ Verifiera att det virtuella nätverkskortet är kopplat till serverdelsadresspoo
 I den här kursen har du skapat en belastningsutjämnare och kopplat virtuella datorer till den. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Skapa en Azure Load Balancer
-> * Skapa en hälsoavsökning för belastningsutjämnaren
+> * skapa en Azure Load Balancer
+> * skapa en hälsoavsökning för belastningsutjämnaren
 > * Skapa trafikregler för belastningsutjämnaren
 > * Använda cloud-init för att skapa en grundläggande Node.js-app
 > * Skapa virtuella datorer och anslut dem till en belastningsutjämnare
-> * Visa en belastningsutjämnare i praktiken
+> * visa en belastningsutjämnare i praktiken
 > * Lägga till och ta bort virtuella datorer från en belastningsutjämnare
 
 Gå vidare till nästa självstudiekurs och lär dig mer om virtuella nätverkskomponenter i Azure.

@@ -11,21 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/26/2017
+ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: fc5dcc945750b4ab4eef337dbd96bd051bb4dd81
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6345fe89a3bf25041621213274ea0c3081848d99
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Visa eller analysera data som samlats in med Log Analytics-loggsökning
 
 I Log Analytics kan du använda loggsökningar genom att konstruera frågor för att analysera insamlade data och använda befintliga instrumentpaneler som du kan anpassa med grafiska vyer över dina mest värdefulla sökningar.  Nu när du har definierat en samling av driftdata från dina virtuella Azure-datorer och aktivitetsloggar får du lära dig i den här självstudien att:
 
 > [!div class="checklist"]
-> * Uppgradera Azure Log Analytics-resursen till det nya frågespråket 
 > * Gör en enkel sökning av händelsedata och använd funktioner för att ändra och filtrera resultatet 
 > * Lär dig att arbeta med prestandadata
 
@@ -42,15 +41,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 Börja med att öppna loggsökningsportalen.   
 
 1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
-2. I prenumerationsfönstret för Log Analytics väljer du en arbetsyta och sedan panelen **Loggsökning**.<br> ![Loggsökningsknapp](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
-
-Du kanske ser en banderoll överst på resurssidan för Log Analytics i portalen som uppmanar dig att uppgradera.<br> ![Meddelande om uppgradering av Log Analytics i Azure Portal](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
-
-Log Analytics introducerade nyligen ett nytt frågespråk för att göra det enklare att skapa frågor, korrelera data från olika källor och analysera för att snabbt identifiera trender eller problem.
-
-Det är enkelt att uppgradera.  Starta processen genom att klicka på banderollen där det står **Lär dig mer och uppgradera**.  Läs igenom informationen om uppgraderingen på uppgraderingsinformationssidan och klicka sedan på **Uppgradera nu**.
-
-Den här processen tar några minuter att slutföra och du kan under tiden spåra förloppet under **Meddelanden** på menyn. Du kan lära dig mer om [fördelarna med det nya frågespråket](log-analytics-log-search-upgrade.md#why-the-new-language).
+2. I prenumerationsfönstret för Log Analytics väljer du en arbetsyta och sedan panelen **Loggsökning**.<br><br> ![Loggsökningsknapp](media/log-analytics-tutorial-viewdata/azure-portal-02.png)
 
 ## <a name="create-a-simple-search"></a>Skapa en enkel sökning
 Det snabbaste sättet att hämta vissa data att arbeta med är en enkel fråga som returnerar alla poster i en tabell.  Om du har några Windows- eller Linux-klienter anslutna till din arbetsyta har du data i antingen tabellen Händelse (Windows) eller Syslog (Linux).

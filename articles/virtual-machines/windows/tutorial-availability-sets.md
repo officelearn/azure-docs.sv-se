@@ -1,13 +1,13 @@
 ---
-title: "Självstudiekurs i tillgänglighetsuppsättningar för virtuella Windows-datorer i Azure | Microsoft Docs"
-description: "Läs mer om tillgänglighetsuppsättningar för virtuella Windows-datorer i Azure."
-documentationcenter: 
+title: Självstudiekurs i tillgänglighetsuppsättningar för virtuella Windows-datorer i Azure | Microsoft Docs
+description: Läs mer om tillgänglighetsuppsättningar för virtuella Windows-datorer i Azure.
+documentationcenter: ''
 services: virtual-machines-windows
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,17 +16,17 @@ ms.topic: tutorial
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 247f86dafe35d69dd742583d246862b739d9fe90
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 980dd0a96cee16598992f184579d2195c2be8b52
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-availability-sets"></a>Använda tillgänglighetsuppsättningar
 
 I den här kursen får du lära dig hur du ökar tillgängligheten och tillförlitligheten för dina VM-lösningar i Azure med en funktion som heter ”tillgänglighetsuppsättningar”. Tillgänglighetsuppsättningarna ser till att de virtuella datorer som du distribuerar i Azure distribueras över flera isolerade maskinvarunoder i ett kluster. Detta innebär att endast en del av de virtuella datorerna påverkas om det skulle uppstå ett maskinvaru- eller programvarufel i Azure, och att din lösning fortfarande är tillgänglig och fungerar. 
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en tillgänglighetsuppsättning
@@ -36,7 +36,7 @@ I den här guiden får du lära dig hur man:
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 5.3 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. 
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien version 5.3 eller senare av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. 
 
 ## <a name="availability-set-overview"></a>Översikt över tillgänglighetsuppsättning
 
@@ -69,7 +69,7 @@ New-AzureRmAvailabilitySet `
 ```
 
 ## <a name="create-vms-inside-an-availability-set"></a>Skapa virtuella datorer i en tillgänglighetsuppsättning
-De virtuella datorerna måste skapas i tillgänglighetsuppsättningen för att säkerställa att de distribueras över maskinvaran. Du kan inte lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning efter att den har skapats. 
+De virtuella datorerna måste skapas i tillgänglighetsuppsättningen för att säkerställa att de distribueras i maskinvaran. Du kan inte lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning efter att den har skapats. 
 
 Maskinvaran på en plats är uppdelad i flera uppdateringsdomäner och feldomäner. En **uppdateringsdomän** är en grupp av underliggande fysisk maskinvara som kan startas om samtidigt. De virtuella datorerna i samma **feldomän** delar samma lagring, strömkälla och nätverksväxel. 
 
@@ -103,7 +103,7 @@ Parametern `-AsJob` skapar den virtuella datorn som en bakgrundsaktivitet så at
 
 Om du tittar på tillgänglighetsuppsättningen i Portal (genom att gå till Resursgrupper > myResourceGroupAvailability > myAvailabilitySet) ser du hur de virtuella datorerna är distribuerade över två feldomäner och uppdateringsdomäner.
 
-![Tillgänglighetsuppsättning i Portal](./media/tutorial-availability-sets/fd-ud.png)
+![Tillgänglighetsuppsättning i portalen](./media/tutorial-availability-sets/fd-ud.png)
 
 ## <a name="check-for-available-vm-sizes"></a>Kontrollera tillgängliga VM-storlekar 
 
@@ -132,7 +132,7 @@ I den här självstudiekursen lärde du dig att:
 > * Kontrollera tillgängliga VM-storlekar
 > * Kontrollera Azure Advisor
 
-Gå vidare till nästa kurs vill veta mer om VM-skalningsuppsättningar.
+Gå vidare till nästa självstudie om du vill veta mer om VM-skalningsuppsättningar.
 
 > [!div class="nextstepaction"]
 > [Skapa en VM-skalningsuppsättning](tutorial-create-vmss.md)

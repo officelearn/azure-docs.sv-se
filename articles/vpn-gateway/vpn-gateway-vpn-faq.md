@@ -1,24 +1,24 @@
 ---
-title: "Vanliga frågor och svar om Azure VPN Gateway | Microsoft Docs"
-description: "Vanliga frågor och svar om VPN Gateway. Vanliga frågor och svar om Microsoft Azure Virtual Network-anslutningar på flera platser, konfiguration av hybridanslutningar och VPN-gateways."
+title: Vanliga frågor och svar om Azure VPN Gateway | Microsoft Docs
+description: Vanliga frågor och svar om VPN Gateway. Vanliga frågor och svar om Microsoft Azure Virtual Network-anslutningar på flera platser, konfiguration av hybridanslutningar och VPN-gateways.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/20/2017
-ms.author: cherylmc,yushwang,anzaman
-ms.openlocfilehash: 2b648caa51eb457a62e846b74f1b95ca84974635
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.date: 04/05/2018
+ms.author: cherylmc
+ms.openlocfilehash: 9ebdbb8958779e074195623aec90b7a6f6de2bb4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="vpn-gateway-faq"></a>Vanliga frågor och svar om VPN Gateway
 
@@ -74,7 +74,7 @@ Routningsbaserade gateways implementerar routningsbaserade VPN:er. Routningsbase
 Nej. En Azure Vnet-gatewaytyp kan inte ändras från principbaserad till routningsbaserad eller tvärtom. Gatewayen måste tas bort och återskapas, en process som tar cirka 60 minuter. IP-adressen till gatewayen bevaras inte och inte heller den i förväg delade nyckeln (PSK).
 1. Ta bort alla anslutningar som är associerade med gatewayen som ska tas bort.
 2. Ta bort gatewayen:
-* [Azure-portalen](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 * [Azure Powershell – klassisk](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 3. [Skapa en ny gateway av efterfrågad typ och slutför VPN-konfigurationen](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)

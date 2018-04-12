@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: a0586b32fd12744c8bfce782583cdc4078979ef1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Stream Analytics Data Lake Store-utdata
 Stream Analytics-jobb stöder flera metoder för utdata, en som en [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store är en företagsomfattande storskalig lagringsplats för analytiska arbetsbelastningar för stordata. Data Lake Store kan du lagra data med en storlek, typ och införandet hastighet för drifts- och undersökande analyser.
@@ -46,7 +46,7 @@ När du har Data Lake Store-kontot autentiseras kan du konfigurera egenskaper f�
 </tr>
 <tr>
 <td>Prefixet sökvägar [<I>valfria</I>]</td>
-<td>Den filsökväg som används för att skriva filer i den angivna Data Lake Store-konto. <BR>{date} {time}<BR>Exempel 1: mapp1/logs / {date} / {time}<BR>Exempel 2: mapp1/logs / {date}</td>
+<td>Den filsökväg som används för att skriva filer i den angivna Data Lake Store-konto. <BR>{date}, {time}<BR>Exempel 1: mapp1/logs / {date} / {time}<BR>Exempel 2: mapp1/logs / {date}</td>
 </tr>
 <tr>
 <td>Datumformat [<I>valfria</I>]</td>

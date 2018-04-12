@@ -2,18 +2,17 @@
 title: Säkerhetskopiera Azure Files till Azure
 description: Den här artikeln beskriver hur du säkerhetskopierar och återställer Azure-filresurser och förklarar hanteringsuppgifterna.
 services: backup
-keywords: Lägg inte till eller redigera nyckelord utan att först kontakta den SEO-ansvarige.
 author: markgalioto
 ms.author: markgal
 ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 3eab85aa4f7fde190a93239fc396cb9c04c2396c
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 440cee4309fad0a22d8964982f3aad2178397124
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="back-up-azure-file-shares"></a>Säkerhetskopiera Azure-filresurser
 Den här artikeln förklarar hur du använder Azure Portal för att säkerhetskopiera och återställa [Azure-filresurser](../storage/files/storage-files-introduction.md).
@@ -32,7 +31,7 @@ Innan du kan säkerhetskopiera en Azure-filresurs bör du kontrollera att den fi
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Begränsningar för säkerhetskopiering av Azure-filresurser i förhandsversionen
 Säkerhetskopiering för Azure-filresurser finns i förhandsversion. Tänk på följande begränsningar i förhandsversionen:
-- Du kan inte skydda Azure-filresurser i lagringskonton med replikering av [zonredundant lagring (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) eller [Read-Access Geo Redundant Storage (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage).
+- Du kan inte skydda Azure-filresurser i lagringskonton med replikering av [zonredundant lagring (ZRS)](../storage/common/storage-redundancy-zrs.md) eller [Read-Access Geo Redundant Storage (RA-GRS)](../storage/common/storage-redundancy-grs.md).
 - Du kan inte skydda Azure-filresurser i lagringskonton som har virtuella nätverk aktiverade.
 - Det finns ingen tillgänglig PowerShell eller CLI som skyddar Azure Files.
 - Det maximala antalet schemalagda säkerhetskopieringar per dag är en.

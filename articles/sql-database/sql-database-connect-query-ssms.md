@@ -8,17 +8,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 91e7759784732320d88a9f22381df265b3eb8aab
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8fede07aea8410cfc2cee120102c9f8c3becd746
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: Använd SQL Server Management Studio för att ansluta och skicka frågor till data
 
-[SQL Server Management Studio][ssms-install-latest-84g] (SSMS) är en integrerad miljö för att hantera all SQL-infrastruktur från SQL Server till SQL Database för Microsoft Windows. Den här snabbsjälvstudien visar hur du använder SSMS för att ansluta till en Azure SQL-databas och sedan använder Transact-SQL-uttryck för att skicka frågor mot, infoga, uppdatera och ta bort data i databasen. 
+[SQL Server Management Studio][ssms-install-latest-84g] (SSMS) är en integrerad miljö för att hantera all SQL-infrastruktur från SQL Server till SQL Database för Microsoft Windows. Den här snabbsjälvstudien visar hur du använder SSMS för att ansluta till en Azure SQL-databas och sedan använder Transact-SQL-uttryck för att skicka frågor, infoga, uppdatera och ta bort data i databasen. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

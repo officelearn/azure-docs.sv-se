@@ -1,11 +1,11 @@
 ---
-title: "Läs in data till Azure SQL Data Warehouse – Data Factory | Microsoft Docs"
-description: "Den här kursen läser in data i Azure SQL Data Warehouse med hjälp av Azure Data Factory och använder en SQL Server-databas som datakälla."
+title: Läs in data till Azure SQL Data Warehouse – Data Factory | Microsoft Docs
+description: Den här kursen läser in data i Azure SQL Data Warehouse med hjälp av Azure Data Factory och använder en SQL Server-databas som datakälla.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-sql-data-warehouse;azure-data-factory
 ms.service: sql-data-warehouse
 ms.workload: data-management
@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
 ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Läs in data till SQL Data Warehouse med Data Factory
 
@@ -27,7 +27,7 @@ Du kan använda Azure Data Factory för att läsa in data till Azure SQL Data Wa
 
 **Tid uppskattning**: den här självstudiekursen tar cirka 10 – 15 minuter för att slutföra när alla krav är uppfyllda.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du behöver en **SQL Server-databas** med tabeller som innehåller data som ska kopieras över till SQL data warehouse.  
 

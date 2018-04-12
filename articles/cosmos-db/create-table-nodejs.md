@@ -1,25 +1,24 @@
 ---
-title: "Snabbstart: Tabell-API med Node.js – Azure Cosmos DB | Microsoft Docs"
-description: "Den här snabbstarten visar hur du använder tabell-API i Azure Cosmos DB för att skapa ett program med Azure-portalen och Node.js"
+title: 'Snabbstart: Tabell-API med Node.js – Azure Cosmos DB | Microsoft Docs'
+description: Den här snabbstarten visar hur du använder tabell-API i Azure Cosmos DB för att skapa ett program med Azure-portalen och Node.js
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: 8cf8820ceea19fe8c4926c65d107d4f770f40926
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 0aa8f31f0c5607c82a2da36db791c29cf8769d9e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell-API-app med Node.js och Azure Cosmos DB
 
@@ -27,7 +26,7 @@ Den här snabbstarten visar hur du använder [tabell-API](table-introduction.md)
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par, breda kolumner och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
@@ -96,7 +95,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 3. Spara filen app.config.
 
-Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
+Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
 
 ## <a name="run-the-app"></a>Kör appen
 

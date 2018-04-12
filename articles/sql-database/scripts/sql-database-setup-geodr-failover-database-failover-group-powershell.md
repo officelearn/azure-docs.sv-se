@@ -1,26 +1,26 @@
 ---
-title: "PowerShell-exempel på geo-replikering av redundans för enkel grupp med Azure SQL Database | Microsoft Docs"
-description: "Azure PowerShell-exempelskript som konfigurerar aktiv geo-replikering av redundansgrupp för en enskild Azure SQL-databas och sedan redundansväxlar den."
+title: PowerShell-exempel på geo-replikering av redundans för enkel grupp med Azure SQL Database | Microsoft Docs
+description: Azure PowerShell-exempelskript som konfigurerar aktiv geo-replikering av redundansgrupp för en enskild Azure SQL-databas och sedan redundansväxlar den.
 services: sql-database
 documentationcenter: sql-database
 author: janeng
 manager: jstrauss
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: business continuity, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: a2f4caf32ae7fa7e2384cbf1b80fd6f25d6a7bf5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5217063dc99868be6777b09042e5aeb1fe9640a2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database"></a>Använd PowerShell för att konfigurera en aktiv geo-replikering av en redundansgrupp för en enda Azure SQL-databas
 
@@ -34,7 +34,7 @@ Det här PowerShell-skriptexemplet konfigurerar en aktiv geo-replikering av en r
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-När skriptexemplet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
+När exempelskriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName $primaryresourcegroupname

@@ -4,7 +4,7 @@ description: Lär dig mer om hur du använder den hanterade Azure Batch AI-tjän
 services: batch-ai
 documentationcenter: ''
 author: alexsuttonms
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: batch-ai
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 10/13/2017
 ms.author: asutton
 ms.custom: ''
-ms.openlocfilehash: 69e7617f1a5918a08e3c692a1a25c4fcdeca536b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9834dbbc2232fc286451bcdcd19dfc639f49d3bf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="what-is-batch-ai-in-azure"></a>Vad är Batch AI i Azure?
 Batch AI är en hanterad tjänst som gör att dataanalytiker och AI-forskare kan träna AI och andra maskininlärningsmodeller på kluster med virtuella Azure-datorer, inklusive virtuella datorer med GPU-stöd. Du beskriver ditt jobbs krav, var indata finns att hitta och var utdata ska lagras, och så hanterar Batch AI resten.  

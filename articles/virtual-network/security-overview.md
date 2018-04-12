@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 950c64ea1ea2edc072650a9f63a6d21ad369c496
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3b935d3a3c37b63386dfb2cbd25ceba59d91a998
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-security"></a>Nätverkssäkerhet
 
@@ -35,7 +35,7 @@ Så här tillämpas nätverkssäkerhetsgrupper när en nätverkssäkerhetsgrupp 
 - **Inkommande trafik**: Den nätverkssäkerhetsgrupp som är associerad med det undernät som nätverksgränssnittet finns i utvärderas först. All trafik som tillåts via den nätverkssäkerhetsgrupp som är associerad med undernätet utvärderas sedan av den nätverkssäkerhetsgrupp som är associerad med nätverksgränssnittet. Du kan till exempel kräva åtkomst för inkommande trafik till en virtuell dator via port 80 från Internet. Om du associerar en nätverkssäkerhetsgrupp med både nätverksgränssnittet och det undernät som nätverksgränssnittet finns i, måste nätverkssäkerhetsgruppen som är associerad med undernätet och nätverksgränssnittet tillåta port 80. Om du bara tillåter port 80 via den nätverkssäkerhetsgrupp som är associerad med undernätet eller det nätverksgränssnitt som undernätet finns i misslyckas kommunikationen på grund av standardsäkerhetsreglerna. Se [standardsäkerhetsregler](#default-security-rules) för mer information. Om du endast tillämpar en nätverkssäkerhetsgrupp för antingen undernätet eller nätverksgränssnittet och nätverkssäkerhetsgruppen innehåller en regel som tillåter inkommande trafik på port 80, lyckas kommunikationen. 
 - **Utgående trafik**: Den nätverkssäkerhetsgrupp som är associerad med nätverksgränssnittet utvärderas först. All trafik som tillåts via den nätverkssäkerhetsgrupp som är associerad med nätverksgränssnittet utvärderas sedan av den nätverkssäkerhetsgrupp som är associerad med undernätet.
 
-Du kanske inte alltid är medveten om när nätverkssäkerhetsgrupper tillämpas för både ett nätverksgränssnitt och ett undernät. Du kan enkelt granska vilka regler som tillämpas för ett nätverksgränssnitt genom att visa [gällande säkerhetsregler](virtual-network-manage-nsg-arm-portal.md) för ett nätverksgränssnitt. Du kan också använda funktionen [Kontrollera IP-flöde](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i Azure Network Watcher för att ta reda på om kommunikation tillåts till eller från ett nätverksgränssnitt. Verktyget visar om kommunikation tillåts, och om nätverkssäkerhetsregeln tillåter eller nekar trafik.
+Du kanske inte alltid är medveten om när nätverkssäkerhetsgrupper tillämpas för både ett nätverksgränssnitt och ett undernät. Du kan enkelt granska vilka regler som tillämpas för ett nätverksgränssnitt genom att visa [gällande säkerhetsregler](virtual-network-nsg-troubleshoot-portal.md) för ett nätverksgränssnitt. Du kan också använda funktionen [Kontrollera IP-flöde](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i Azure Network Watcher för att ta reda på om kommunikation tillåts till eller från ett nätverksgränssnitt. Verktyget visar om kommunikation tillåts, och om nätverkssäkerhetsregeln tillåter eller nekar trafik.
  
 > [!NOTE]
 > Nätverkssäkerhetsgrupper är associerade med undernät eller med virtuella datorer och molntjänster som distribuerats enligt den klassiska distributionsmodellen, inte med nätverksgränssnitt i Resource Manager-distributionsmodellen. Läs mer i avsnittet [om Azures distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

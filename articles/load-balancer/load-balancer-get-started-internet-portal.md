@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 1b7901542a699e74f65527bf734133f73acb0bea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c646b0b1ab0ec62cffb4f7cf7474b48c68dfabb4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-public-basic-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Skapa en offentlig grundläggande belastningsutjämnare som belastningsutjämnar virtuella datorer med Azure Portal
 
@@ -38,8 +38,8 @@ I det här avsnittet skapar du en offentlig grundläggande belastningsutjämning
 1. Längst upp till vänster på skärmen klickar du på **Skapa en resurs** > **Nätverk** > **Belastningsutjämnare**.
 2. Ange dessa värden för belastningsutjämnaren på sidan **Skapa en belastningsutjämnare**:
     - *myLoadBalancer* – namnet på belastningsutjämnaren.
-    - **Public** – för typen av belastningsutjämnare. 
-     - *myPublicIP* – för den offentliga IP-adress som du måste skapa med SKU som **Grundläggande** och **Tilldelning** som **Dynamisk**.
+    - **Public** – typen av belastningsutjämnaren.
+    - *myPublicIP* – för den offentliga IP-adress som du måste skapa med SKU som **Grundläggande** och **Tilldelning** som **Dynamisk**.
     - *myResourceGroupSLB* – för namnet på den nya resursgrupp som du skapar.
 3. Skapa belastningsutjämnaren genom att klicka på **Skapa**.
    

@@ -1,11 +1,11 @@
 ---
 title: Migrera ditt befintliga Azure data warehouse till premium-lagring | Microsoft Docs
-description: "Anvisningar för att migrera ett befintligt informationslager till premium-lagring"
+description: Anvisningar för att migrera ett befintligt informationslager till premium-lagring
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: migrate
 ms.date: 03/15/2018
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 3b43bc17b7f9cf80a9520c5c573be3a48d82e4e7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Migrera ditt data warehouse till premium-lagring
 Azure SQL Data Warehouse som nyligen lades [premium-lagring för bättre prestanda förutsägbarhet][premium storage for greater performance predictability]. Befintligt datalager för närvarande på standardlagring kan nu migreras till premium-lagring. Du kan dra nytta av automatisk migrering av, eller om du föredrar att reglera när du migrerar (som inbegriper vissa avbrott), kan du göra migreringen själv.
@@ -110,7 +110,7 @@ I detta exempel anta att ditt befintliga data warehouse på standardlagring med 
    ```
 2. [Pausa] [ Pause] ”MyDW_BeforeMigration”. 
 3. [Återställa] [ Restore] från din senaste ögonblicksbilden en ny databas med namnet tidigare (till exempel ”MyDW”).
-4. Delete "MyDW_BeforeMigration." **Om du inte gör det här steget, debiteras du för båda datalager.**
+4. Ta bort ”MyDW_BeforeMigration”. **Om du inte gör det här steget, debiteras du för båda datalager.**
 
 
 ## <a name="next-steps"></a>Nästa steg

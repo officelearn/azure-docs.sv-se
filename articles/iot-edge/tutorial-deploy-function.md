@@ -6,18 +6,18 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3d7dd0986878c747f92afc712301453bc8772ef2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f1c6b5cd07752c6b29234a365b3298d76b639b3a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Distribuera Azure-funktioner som en IoT Edge-modul – förhandsgranskning
-Du kan använda Azure Functions för att distribuera kod som implementerar din affärslogik direkt till dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en Azure-funktion som filtrerar sensordata på simulerade IoT Edge-enheter som du skapade i självstudierna Distribuera Azure IoT Edge på en simulerad enhet i [Windows][lnk-tutorial1-win] eller [Linux][lnk-tutorial1-lin]. I den här guiden får du lära dig hur man:     
+Du kan använda Azure Functions för att distribuera kod som implementerar din affärslogik direkt till dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en Azure-funktion som filtrerar sensordata på simulerade IoT Edge-enheter som du skapade i självstudierna Distribuera Azure IoT Edge på en simulerad enhet i [Windows][lnk-tutorial1-win] eller [Linux][lnk-tutorial1-lin]. I den här guiden får du lära dig att:     
 
 > [!div class="checklist"]
 > * Använd Visual Studio Code för att skapa en Azure-funktion
@@ -95,8 +95,7 @@ Följande steg visar hur du skapar en IoT Edge-funktion med Visual Studio Code o
                 // Copy the properties of the original message into the new Message object
                 foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
                 {
-                    filteredMessage.Properties.Add(prop.Key, prop.Value);
-                }
+                    filteredMessage.Properties.Add(prop.Key, prop.Value);                }
                 // Add a new property to the message to indicate it is an alert
                 filteredMessage.Properties.Add("MessageType", "Alert");
                 // Send the message        
@@ -136,10 +135,13 @@ Följande steg visar hur du skapar en IoT Edge-funktion med Visual Studio Code o
    ```
    Om du vill hitta användarnamn, lösenord och inloggningsserver som du ska använda i det här kommandot, gå till [Azure Portal] (https://portal.azure.com). Från **Alla resurser**, klickar du på panelen för ditt Azure-behållarregister för att öppna dess egenskaper och klickar sedan på **Åtkomstnycklar**. Kopiera värdena i fälten **Användarnamn**, **lösenord** och **Inloggningsserver**. 
 
-2. I VS Code-utforskaren högerklickar du på filen **module.json** och klickar sedan på **Docker-avbildning för Build and Push IoT-modul**. I popup-listrutan överst i VS Code-fönstret väljer du din behållarplattform, antingen **amd64** för Linux-behållare eller **windows amd64** för Windows-behållare. VS Code lägger sedan dina funktionskoder i en behållare och push-överför den till det behållarregister som du har angett.
+2. Öppna **module.json**. Du kan också uppdatera `"version"` till exempelvis **1.0**. Dessutom visas namnet på databasen som du skrev in i `-r`-parametern för `dotnet new aziotedgefunction`.
 
+3. Spara filen **module.json**.
 
-3. Den fullständiga adressen med tagg för behållaravbildningen finns i den integrerade VS Code-terminalen. Mer information om versions- och push-definitionen finns i filen `module.json`.
+4. I VS Code-utforskaren högerklickar du på filen **module.json** och klickar sedan på **Docker-avbildning för Build and Push IoT-modul**. I popup-listrutan överst i VS Code-fönstret väljer du din behållarplattform, antingen **amd64** för Linux-behållare eller **windows amd64** för Windows-behållare. VS Code lägger sedan dina funktionskoder i en behållare och push-överför den till det behållarregister som du har angett.
+
+5. Den fullständiga adressen med tagg för behållaravbildningen finns i den integrerade VS Code-terminalen. Mer information om versions- och push-definitionen finns i filen `module.json`.
 
 ## <a name="add-registry-credentials-to-your-edge-device"></a>Lägg till autentiseringsuppgifter för registret i din Edge-enhet
 Lägg till autentiseringsuppgifterna för ditt register i Edge-runtimen på den dator där du kör din Edge-enhet. Det ger runtimen åtkomst att hämta behållaren. 

@@ -1,6 +1,6 @@
 ---
-title: "DNS-alias för Azure SQL Database | Microsoft Docs"
-description: "Dina program kan ansluta till ett alias för namnet på din Azure SQL Database-server. Under tiden kan du ändra SQL-databasen aliaset pekar till när som helst, för att underlätta testning och så vidare."
+title: DNS-alias för Azure SQL Database | Microsoft Docs
+description: Dina program kan ansluta till ett alias för namnet på din Azure SQL Database-server. Under tiden kan du ändra SQL-databasen aliaset pekar till när som helst, för att underlätta testning och så vidare.
 services: sql-database
 author: MightyPen
 manager: craigg
@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi;ayolubek
 ms.author: dmalik
-ms.openlocfilehash: c2a2bce3b385bd5700bf327f283289cf4d94b057
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1793f44026db55d17fabde5fb92bc46795109418
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>DNS-alias för Azure SQL Database
 
@@ -63,7 +63,7 @@ Följande egenskaper gäller för varje DNS-alias för SQL Database-server:
 - *Inte har bundits till en region:* DNS-alias är inte bunden till en region. DNS-alias kan uppdateras för att referera till en Azure SQL Database-server som finns i en geografisk region.
     - Men när du uppdaterar ett alias att referera till en annan server, båda servrarna måste finnas i samma Azure *prenumeration*.
 
-- *Behörigheter:* för att hantera ett DNS-alias, måste användaren ha *Server deltagare* behörigheter, eller högre. Mer information finns i [Kom igång med rollbaserad åtkomstkontroll i Azure portal](../active-directory/role-based-access-control-what-is.md).
+- *Behörigheter:* för att hantera ett DNS-alias, måste användaren ha *Server deltagare* behörigheter, eller högre. Mer information finns i [Kom igång med rollbaserad åtkomstkontroll i Azure portal](../role-based-access-control/overview.md).
 
 
 

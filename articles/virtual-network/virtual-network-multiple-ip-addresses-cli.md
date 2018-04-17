@@ -1,13 +1,13 @@
 ---
-title: "Virtuell dator med flera IP-adresser med hjälp av Azure CLI | Microsoft Docs"
-description: "Lär dig hur du tilldelar flera IP-adresser till en virtuell dator med Azure-kommandoradsgränssnittet (CLI)."
+title: Virtuell dator med flera IP-adresser med hjälp av Azure CLI | Microsoft Docs
+description: Lär dig hur du tilldelar flera IP-adresser till en virtuell dator med Azure-kommandoradsgränssnittet (CLI).
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: aa0f84299dcb4800cd332d8276785f6b08152060
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: a1e78f7fa892586385e1dbd186125630ee1fb307
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Tilldela flera IP-adresser till virtuella datorer med hjälp av Azure CLI
 
@@ -167,7 +167,7 @@ Lägga till privata IP-adresser i Virtuella operativsystem genom att slutföra s
 
 ## <a name="add"></a>Lägg till IP-adresser till en virtuell dator
 
-Du kan lägga till ytterligare privata och offentliga IP-adresser till en befintlig NIC genom att slutföra de steg som följer. Exemplen bygger på den [scenariot](#Scenario) beskrivs i den här artikeln.
+Du kan lägga till ytterligare privata och offentliga IP-adresser till en befintlig Azure nätverksgränssnitt genom att slutföra de steg som följer. Exemplen bygger på den [scenariot](#Scenario) beskrivs i den här artikeln.
 
 1. Öppna en kommandotolk och utföra stegen i det här avsnittet i en enda session. Om du inte redan har installerat och konfigurerat Azure-CLI kan du slutföra stegen i den [installationen Azure CLI 2.0](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel och logga in till din Azure-konto med den `az-login` kommando.
 

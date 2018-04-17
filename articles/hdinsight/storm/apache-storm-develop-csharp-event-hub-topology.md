@@ -1,26 +1,24 @@
 ---
-title: "Bearbeta händelser från Event Hubs med Storm - Azure HDInsight | Microsoft Docs"
-description: "Lär dig mer om att bearbeta data från Azure Event Hubs med en C# Storm-topologi som skapats i Visual Studio med HDInsight tools för Visual Studio."
+title: Bearbeta händelser från Event Hubs med Storm - Azure HDInsight | Microsoft Docs
+description: Lär dig mer om att bearbeta data från Azure Event Hubs med en C# Storm-topologi som skapats i Visual Studio med HDInsight tools för Visual Studio.
 services: hdinsight,notification hubs
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: 
+ms.custom: ''
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: fe1cf3eab1f0ca930b516e4ab44f1e2439cb3e07
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 475a63937ed09b4ce875465c0eb3488ce92c38be
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Bearbeta händelser från Azure Event Hubs med Storm på HDInsight (C#)
 
@@ -51,7 +49,7 @@ C#-topologier måste också ha .NET 4.5.
 
 ## <a name="how-to-work-with-event-hubs"></a>Hur du arbetar med Händelsehubbar
 
-Microsoft tillhandahåller en uppsättning Java-komponenter som kan användas för att kommunicera med Händelsehubbar från en Storm-topologi. Du hittar den Java-arkivfil (JAR) som innehåller ett HDInsight-3,6 kompatibel version av dessa komponenter på [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
+Microsoft tillhandahåller en uppsättning Java-komponenter som kan användas för att kommunicera med Händelsehubbar från en Storm-topologi. Du hittar den Java-arkivfil (JAR) som innehåller ett HDInsight-3,6 kompatibel version av dessa komponenter på [ https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar ](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
 
 > [!IMPORTANT]
 > Medan komponenterna som skrivits i Java, kan du enkelt använda dem från en C#-topologi.
@@ -132,7 +130,7 @@ Du kan hämta en fullständig version av projektet har skapats i den här kursen
 
 ## <a name="download-the-event-hubs-components"></a>Hämta Händelsehubbar-komponenter
 
-Hämta Händelsehubbar kanal och bultar komponenten från [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
+Hämta Händelsehubbar kanal och bultar komponenten från [ https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar ](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
 
 Skapa en katalog med namnet `eventhubspout`, och spara filen i katalogen.
 

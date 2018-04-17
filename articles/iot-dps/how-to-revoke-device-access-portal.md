@@ -1,28 +1,28 @@
 ---
-title: "Hantera Enhetsåtkomst för Azure IoT Hub etablering av tjänst | Microsoft Docs"
-description: "Hur du återkalla Enhetsåtkomst till din DP-tjänst i Azure Portal"
+title: Hur du disenroll en enhet från Azure IoT Hub etablering av tjänst
+description: Hur du disenroll en enhet för att förhindra etablering via Azure IoT Hub etablering av tjänst
 services: iot-dps
-keywords: 
-author: JimacoMS
-ms.author: v-jamebr
-ms.date: 12/22/2017
+keywords: ''
+author: bryanla
+ms.author: v-jamebr;bryanla
+ms.date: 04/05/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 12aebf3a56aa7469a765ab6fc67aa65b254db71a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 50074eaecacf603d2bc6170183fd632b4a1ab2d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="revoke-device-access-to-your-provisioning-service-in-the-azure-portal"></a>Återkalla Enhetsåtkomst till din etablering tjänst i Azure-portalen
+# <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Hur du disenroll en enhet från Azure IoT Hub etablering av tjänst
 
-Rätt hantering av enheten autentiseringsuppgifter är avgörande för hög profil system som IoT-lösningar. Bästa praxis för sådana system är att ha en tydlig plan för hur du återkalla åtkomst för enheter när sina autentiseringsuppgifter, om en token för delad åtkomst (SAS)-signaturer eller ett X.509-certifikat är utsatt för risk. Den här artikeln beskriver hur du återkalla Enhetsåtkomst etablering steget.
+Rätt hantering av enheten autentiseringsuppgifter är avgörande för hög profil system som IoT-lösningar. Bästa praxis för sådana system är att ha en tydlig plan för hur du återkalla åtkomst för enheter när sina autentiseringsuppgifter, om en token för delad åtkomst (SAS)-signaturer eller ett X.509-certifikat är utsatt för risk. 
 
-Läs om återkalla Enhetsåtkomst till en IoT-hubb när enheten har etablerats i [inaktivera enheter med](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
+Registreringen i tjänsten etablering enhet gör att en enhet ska vara [automatiskt etablerade](concepts-auto-provisioning.md). En etablerad enhet är ett som har registrerats med IoT-hubben, så att den kan ta emot första [enheten dubbla](~/articles/iot-hub/iot-hub-devguide-device-twins.md) tillstånd och börja reporting telemetridata. Den här artikeln beskriver hur du disenroll en enhet från din etablering tjänstinstans förhindrar etablerats igen i framtiden.
 
 > [!NOTE] 
 > Tänk på återförsöksprincip för enheter som du har återkallat åtkomst för. Exempelvis kan en enhet som har en oändlig återförsöksprincip kontinuerligt försök att registrera med tjänsten etablering. Denna situation förbrukar resurser och eventuellt påverkar prestanda.
@@ -37,10 +37,10 @@ Tillfälligt svartlista enheten genom att inaktivera trätt registrering:
 2. Välj tjänsten allokering som du vill svartlista enheten från i listan över resurser.
 3. I din etablering tjänst väljer **hantera registreringar**, och välj sedan den **enskilda registreringar** fliken.
 4. Välj posten registreringen för den enhet som du vill svartlista. 
-5. Välj **inaktivera** på den **aktivera** växla och markera **spara**.  
+5. Rulla ned och välj **inaktivera** på den **aktivera** växla och markera **spara**.  
 
-   ![Inaktivera enskilda registrering post i portalen](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
-    
+   [![Inaktivera enskilda registrering post i portalen](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+
 Att svartlista permanent enheten genom att ta bort posten registrering:
 
 1. Logga in på Azure portal och välj **alla resurser** i den vänstra menyn.
@@ -64,9 +64,8 @@ Tillfälligt svartlista certifikatet genom att inaktivera gruppen, registrering:
 1. Logga in på Azure portal och välj **alla resurser** i den vänstra menyn.
 2. Välj tjänsten allokering som du vill svartlista signeringscertifikat från i listan över resurser.
 3. I din etablering tjänst väljer **hantera registreringar**, och välj sedan den **registrering grupper** fliken.
-4. Markera gruppen registrering för det certifikat som du vill svartlista.
-5. Välj i ämnesgruppen registrering **redigera grupp**.
-6. Välj **inaktivera** på den **aktivera** växla och markera **spara**.  
+4. Markera gruppen registrering med det certifikat som du vill svartlista.
+5. Välj **inaktivera** på den **aktivera** växla och markera **spara**.  
 
    ![Inaktivera registrering grupp post i portalen](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
@@ -96,12 +95,15 @@ Följ dessa steg för att svartlista en enskild enhet i en grupp för registreri
 2. Välj tjänsten allokering som innehåller gruppen registreringen för den enhet som du vill svartlista från listan över resurser.
 3. I din etablering tjänst väljer **hantera registreringar**, och välj sedan den **enskilda registreringar** fliken.
 4. Välj den **Lägg till** längst upp. 
-5. Välj **X.509** som säkerhetsmekanism för enheten och överför certifikat för enheten. Det här är den signerade slutenhet vilket certifikat installerat på enheten. Enheten används för att generera certifikat för autentisering.
+5. Välj **X.509** som metod för hälsoattestering för enheten och överför enhetens certifikat. Det här är den signerade slutenhet vilket certifikat installerat på enheten. Enheten används för att generera certifikat för autentisering.
 6. För **IoT-hubb enhets-ID**, ange ID för enheten. 
 7. Välj **inaktivera** på den **aktivera** växla och markera **spara**. 
 
-   ![Inaktivera enskilda registrering post i portalen](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
+    [![Använd inaktiverad enskilda registrering post att inaktivera enheten från gruppen registrering i portalen](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
 När du skapar har din registrering, visas på enheten ska visas i **enskilda registreringar** fliken.
 
+## <a name="next-steps"></a>Nästa steg
+
+Disenrollment är också en del av större avetableringsprocessen. Borttagning av en enhet innehåller både disenrollment från etablering av tjänst och deregistering från IoT-hubb. Mer information om hela processen, se [så ta bort etableringen av enheter som tidigare har etablerats för automatisk](how-to-unprovision-devices.md) 
 

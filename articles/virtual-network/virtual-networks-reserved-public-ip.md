@@ -1,10 +1,10 @@
 ---
 title: Hantera Azure reserverade IP-adresser (klassisk) - PowerShell | Microsoft Docs
-description: "Förstå reserverade IP-adresser (klassisk) och hur du hantera dem med hjälp av PowerShell."
+description: Förstå reserverade IP-adresser (klassisk) och hur du hantera dem med hjälp av PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genli
+manager: cshepard
 editor: tysonn
 ms.assetid: 34652a55-3ab8-4c2d-8fb2-43684033b191
 ms.service: virtual-network
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
-ms.author: jdial
-ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: genli
+ms.openlocfilehash: 370f30a61727e6c349f6e043f1aed2d9dba47fca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="reserved-ip-addresses-classic"></a>Den reserverade IP-adresser (klassisk)
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Mall](virtual-network-deploy-static-pip-arm-template.md)

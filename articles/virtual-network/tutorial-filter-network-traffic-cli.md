@@ -17,15 +17,15 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: dfda95d2340d7dd57ac7b4d7ed7b0665c8e9294e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 11dc0e5f6ee398b2a745ed60cbc166e2a1697c3e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrera nätverkstrafik med en nätverkssäkerhetsgrupp med hjälp av Azure CLI
 
-Du kan filtrera trafik inkommande och utgående från ett undernät för virtuellt nätverk med en nätverkssäkerhetsgrupp. Nätverkssäkerhetsgrupper innehålla säkerhetsregler som filtrera nätverkstrafik av IP-adress, port och protokoll. Säkerhetsregler som tillämpas på resurser har distribuerats i ett undernät. I den här artikeln får du lära dig hur du:
+Du kan filtrera trafik inkommande och utgående från ett undernät för virtuellt nätverk med en nätverkssäkerhetsgrupp. Nätverkssäkerhetsgrupper innehålla säkerhetsregler som filtrera nätverkstrafik av IP-adress, port och protokoll. Säkerhetsregler som tillämpas på resurser har distribuerats i ett undernät. I den här artikeln kan du se hur du:
 
 * Skapa en nätverkssäkerhet regler för gruppen och säkerhet
 * Skapa ett virtuellt nätverk och associera en säkerhetsgrupp för nätverk till ett undernät
@@ -241,6 +241,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln, skapas en nätverkssäkerhetsgrupp och som är kopplad till ett undernät för virtuellt nätverk. Läs mer om nätverkssäkerhetsgrupper i [nätverk Säkerhetsöversikt grupp](security-overview.md) och [hantera en nätverkssäkerhetsgrupp](virtual-network-manage-nsg-arm-ps.md).
+I den här artikeln, skapas en nätverkssäkerhetsgrupp och som är kopplad till ett undernät för virtuellt nätverk. Läs mer om nätverkssäkerhetsgrupper i [nätverk Säkerhetsöversikt grupp](security-overview.md) och [hantera en nätverkssäkerhetsgrupp](manage-network-security-group.md).
 
 Azure vägar trafik mellan undernät som standard. Du kan i stället välja att vidarebefordra trafik mellan undernät via en virtuell dator som fungerar som en brandvägg, till exempel. Mer information finns i avsnittet [skapa en routingtabell](tutorial-create-route-table-cli.md).

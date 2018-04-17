@@ -1,11 +1,11 @@
 ---
-title: "Säker åtkomst till Azure Logic Apps | Microsoft Docs"
-description: "Lägger till säkerhet för att skydda åtkomsten till utlösare, indata och utdata, åtgärdsparametrar och tjänster som används med arbetsflöden i Azure Logic Apps."
+title: Säker åtkomst till Azure Logic Apps | Microsoft Docs
+description: Lägger till säkerhet för att skydda åtkomsten till utlösare, indata och utdata, åtgärdsparametrar och tjänster som används med arbetsflöden i Azure Logic Apps.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042fdaa037fe1928fdb81727968a532ddfae0a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-access-to-your-logic-apps"></a>Säker åtkomst till dina logic apps
 
@@ -77,7 +77,7 @@ Förutom den signatur för delad åtkomst, kan du begränsa anropar en logikapp 
 Den här inställningen kan konfigureras i logik app-inställningar:
 
 1. Öppna logikappen som du vill lägga till IP-adressbegränsningar i Azure-portalen
-1. Klicka på den **konfiguration för behörighetskontroll** menyalternativet **inställningar**
+1. Klicka på den **inställningar för arbetsflöde** menyalternativet **inställningar**
 1. Ange en lista över IP-adressintervall som accepteras av utlösaren
 
 En giltig IP-adressintervall har formatet `192.168.1.1/255`. Om du vill logikappen eller endast som en kapslad logikapp, Välj den **andra logikappar** alternativet. Det här alternativet skrivs en tom matris till resursen, betydelse endast anropas från tjänsten sig själv (överordnade logikappar) eller har.
@@ -119,7 +119,7 @@ Att lägga till flera auktorisering protokoll ovanpå en logikapp [Azure API Man
 
 ## <a name="secure-access-to-manage-or-edit-logic-apps"></a>Säker åtkomst för att hantera eller redigera logikappar
 
-Du kan begränsa åtkomsten till hanteringsåtgärder på en logikapp så att bara vissa användare eller grupper kan utföra åtgärder på resursen. Logikappar använder Azure [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-configure.md) funktion och kan anpassas med samma verktyg.  Det finns några inbyggda roller som du kan tilldela medlemmar i din prenumeration samt:
+Du kan begränsa åtkomsten till hanteringsåtgärder på en logikapp så att bara vissa användare eller grupper kan utföra åtgärder på resursen. Logikappar använder Azure [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md) funktion och kan anpassas med samma verktyg.  Det finns några inbyggda roller som du kan tilldela medlemmar i din prenumeration samt:
 
 * **Logik App deltagare** -ger möjlighet att visa, redigera och uppdatera en logikapp.  Det går inte att ta bort resursen eller utföra administrativa åtgärder.
 * **Logik App operatorn** – kan visa logikappen och kör historik och aktivera/inaktivera.  Det går inte att redigera eller uppdatera definitionen.

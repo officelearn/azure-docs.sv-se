@@ -16,12 +16,12 @@ Dessa klassiska IaaS-resurser som stöds under migreringen
 * Virtuella nätverk
 * VPN-gatewayer
 * Express Route-gatewayer _(i samma prenumeration som virtuellt nätverk endast)_
-* Nätverkssäkerhetsgrupper 
-* Routningstabeller 
-* Reserverade ip-adresser 
+* Nätverkssäkerhetsgrupper
+* Routningstabeller
+* Reserverade ip-adresser
 
 ## <a name="supported-scopes-of-migration"></a>Stöds scope för migrering
-Det finns 4 olika sätt att slutföra migreringen av beräkning, nätverk och lagringsresurser. Dessa är 
+Det finns 4 olika sätt att slutföra migreringen av beräkning, nätverk och lagringsresurser. Dessa är
 
 * Migrering av virtuella datorer (inte i ett virtuellt nätverk)
 * Migrering av virtuella datorer (inom ett virtuellt nätverk)
@@ -77,7 +77,7 @@ Följande funktioner stöds inte för närvarande. Du kan eventuellt ta bort de 
 | Compute | Avbildningar av virtuella datorer. | VHD-blobbar bakom diskarna som ska migreras när Lagringskontot migreras |
 | Nätverk | Slutpunkts-ACL:. | Ta bort slutpunkts-ACL: och gör om migreringen. |
 | Nätverk | Application Gateway | Ta bort Programgatewayen innan du påbörjar migreringen och sedan återskapa Programgatewayen när migreringen är klar. |
-| Nätverk | Virtuella nätverk med hjälp av VNet-Peering. | Migrera det virtuella nätverket till Resource Manager och sedan peer. Lär dig mer om [VNet-Peering](../articles/virtual-network/virtual-network-peering-overview.md). | 
+| Nätverk | Virtuella nätverk med hjälp av VNet-Peering. | Migrera det virtuella nätverket till Resource Manager och sedan peer. Lär dig mer om [VNet-Peering](../articles/virtual-network/virtual-network-peering-overview.md). |
 
 ### <a name="unsupported-configurations"></a>Konfigurationer som inte stöds
 Följande konfigurationer stöds inte för närvarande.
@@ -85,7 +85,7 @@ Följande konfigurationer stöds inte för närvarande.
 | Tjänst | Konfiguration | Rekommendation |
 | --- | --- | --- |
 | Resource Manager |Rollen åtkomstkontroll (RBAC) för klassiska resurser |Eftersom URI för resurserna som har ändrats efter migreringen bör du planera RBAC principuppdateringar som måste utföras efter migreringen. |
-| Compute |Flera undernät som är kopplad till en virtuell dator |Uppdatera konfigurationen av undernät för att referera till bara undernät. |
+| Compute |Flera undernät som är kopplad till en virtuell dator |Uppdatera konfigurationen av undernät för att referera till en enda undernät. Du kan behöva du till ett sekundärt nätverkskort (som refererar till ett annat undernät) från den virtuella datorn och Återanslut den när migreringen har slutförts. |
 | Compute |Virtuella datorer som hör till ett virtuellt nätverk men har inte ett explicit undernät som tilldelats |Alternativt kan du ta bort den virtuella datorn. |
 | Compute |Virtuella datorer som har aviseringar, Autoskala principer |Migreringen går igenom och inställningarna tas bort. Vi rekommenderar starkt att du utvärderar din miljö innan du utför migreringen. Du kan också konfigurera aviseringar när migreringen är klar. |
 | Compute |XML-VM-tillägg (BGInfo-1.*, Visual Studio-felsökaren, Web Deploy och fjärrfelsökning) |Detta stöds inte. Vi rekommenderar att du tar bort de här tilläggen från den virtuella datorn ska fortsätta att migrera eller de kommer att tas bort automatiskt under migreringsprocessen. |
@@ -98,7 +98,7 @@ Följande konfigurationer stöds inte för närvarande.
 | Nätverk | Klassiska Express Route-kretsar |Detta stöds för närvarande inte. Dessa kretsar måste migreras till Azure Resource Manager innan du påbörjar migreringen IaaS. Mer information om detta finns [flytta ExpressRoute-kretsar från klassiskt till Resource Manager-distributionsmodellen](../articles/expressroute/expressroute-move.md).|
 | Azure App Service |Virtuella nätverk som innehåller apptjänstmiljöer |Detta stöds för närvarande inte. |
 | Azure HDInsight |Virtuella nätverk som innehåller HDInsight-tjänster |Detta stöds för närvarande inte. |
-| Microsoft Dynamics Lifecycle Services |Virtuella nätverk som innehåller virtuella datorer som hanteras av Dynamics livscykel Services |Detta stöds för närvarande inte. |
+| Microsoft Dynamics livscykel Services |Virtuella nätverk som innehåller virtuella datorer som hanteras av Dynamics livscykel Services |Detta stöds för närvarande inte. |
 | Azure AD Domain Services |Virtuella nätverk som innehåller Azure AD Domain services |Detta stöds för närvarande inte. |
 | Azure RemoteApp |Virtuella nätverk som innehåller Azure RemoteApp-distributioner |Detta stöds för närvarande inte. |
 | Azure API Management |Virtuella nätverk som innehåller Azure API Management-distributioner |Detta stöds för närvarande inte. Om du vill migrera IaaS VNET, ändra VNET för API Management-distribution som en ingen åtgärd har driftstopp. |

@@ -1,5 +1,5 @@
 ---
-title: "Säkerhetsfunktioner som kan användas med Azure Storage | Microsoft Docs"
+title: Säkerhetsfunktioner som kan användas med Azure Storage | Microsoft Docs
 description: " Den här artikeln innehåller en översikt över grundläggande Azure säkerhetsfunktioner som kan användas med Azure Storage. "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: a118bde2290e68c9a741e40cda210d47db918047
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8160ede71930bf4c15969044deb3fced855f03e6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-security-overview"></a>Översikt över säkerheten i Azure-lagring
 Azure Storage är molnlagringslösningen för moderna program som kräver hållbarhet, tillgänglighet och skalbarhet för att uppfylla kundernas behov. Azure Storage tillhandahåller en omfattande uppsättning säkerhetsfunktioner:
@@ -44,11 +44,11 @@ Här följer core-funktioner som beskrivs i den här artikeln:
 * Azure Key Vault
 
 ## <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
-Du kan skydda ditt lagringskonto med rollbaserad åtkomstkontroll (RBAC). Begränsa åtkomst baserat på de [behöver](https://en.wikipedia.org/wiki/Need_to_know) och [minsta privilegium](https://en.wikipedia.org/wiki/Principle_of_least_privilege) säkerhetsprinciper är viktigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst. Dessa behörigheter beviljas genom att tilldela rollen RBAC grupper och program för ett visst område. Du kan använda [inbyggda RBAC-roller](../active-directory/role-based-access-built-in-roles.md), till exempel lagring konto deltagare att tilldela behörigheter till användare.
+Du kan skydda ditt lagringskonto med rollbaserad åtkomstkontroll (RBAC). Begränsa åtkomst baserat på de [behöver](https://en.wikipedia.org/wiki/Need_to_know) och [minsta privilegium](https://en.wikipedia.org/wiki/Principle_of_least_privilege) säkerhetsprinciper är viktigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst. Dessa behörigheter beviljas genom att tilldela rollen RBAC grupper och program för ett visst område. Du kan använda [inbyggda RBAC-roller](../role-based-access-control/built-in-roles.md), till exempel lagring konto deltagare att tilldela behörigheter till användare.
 
 Läs mer:
 
-* [Azure Active Directory rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="delegated-access-to-storage-objects"></a>Delegerad åtkomst till lagringsobjekt
 En signatur för delad åtkomst (SAS) ger delegerad åtkomst till resurser i ditt lagringskonto. SAS innebär att du ger en klient begränsade behörigheter till objekt i ditt lagringskonto för en angiven tidsperiod och med en angiven uppsättning behörigheter. Du kan bevilja dessa begränsade behörigheter utan att behöva dela åtkomstnycklarna för ditt konto. SAS är en URI som omfattar all information som krävs för autentiserad åtkomst till en lagringsresurs i dess Frågeparametrar. För att komma åt lagringsresurser med SAS behöver klienten bara ange SAS till lämplig konstruktor eller metod.

@@ -1,11 +1,11 @@
 ---
-title: "Flera IP-adresser för virtuella datorer i Azure - PowerShell | Microsoft Docs"
-description: "Lär dig hur du tilldelar flera IP-adresser till en virtuell dator med hjälp av PowerShell | Resource Manager."
+title: Flera IP-adresser för virtuella datorer i Azure - PowerShell | Microsoft Docs
+description: Lär dig hur du tilldelar flera IP-adresser till en virtuell dator med hjälp av PowerShell | Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c44ea62f-7e54-4e3b-81ef-0b132111f1f8
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: b3690ec991add437afdaba3ef22022d49c962b34
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: bfc8f432e868c03d101ca7bfbc6b59f6e98ce29b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Tilldela flera IP-adresser till virtuella datorer med hjälp av PowerShell
 
@@ -194,7 +194,7 @@ De steg som följer beskrivs hur du skapar ett exempel VM med flera IP-adresser,
 
 ## <a name="add"></a>Lägg till IP-adresser till en virtuell dator
 
-Du kan lägga till privata och offentliga IP-adresser till ett nätverkskort genom att slutföra de steg som följer. Exemplen i avsnitten nedan förutsätter att du redan har en virtuell dator med de tre IP-konfigurationerna som beskrivs i den [scenariot](#Scenario) i den här artikeln, men det är inte nödvändigt att du gör.
+Du kan lägga till privata och offentliga IP-adresser till Azure nätverksgränssnittet genom att slutföra de steg som följer. Exemplen i avsnitten nedan förutsätter att du redan har en virtuell dator med de tre IP-konfigurationerna som beskrivs i den [scenariot](#Scenario) i den här artikeln, men det är inte nödvändigt att du gör.
 
 1. Öppna ett PowerShell-Kommandotolken och utföra stegen i det här avsnittet i en enda PowerShell-session. Om du inte redan har PowerShell installerats och konfigurerats kan du slutföra stegen i den [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) artikel.
 2. Ändra följande $Variables ”värdena” till namnet på nätverkskortet som du vill lägga till IP-adressen och den resursgrupp och plats nätverkskortet finns i:

@@ -1,8 +1,8 @@
 ---
-title: "Använd tidsbaserade Hadoop Oozie-koordinator i HDInsight | Microsoft Docs"
-description: "Använd tidsbaserade Hadoop Oozie-koordinator i HDInsight, en stordatatjänst. Lär dig hur du definierar Oozie arbetsflöden och koordinatorer och skicka jobb."
+title: Använd tidsbaserade Hadoop Oozie-koordinator i HDInsight | Microsoft Docs
+description: Använd tidsbaserade Hadoop Oozie-koordinator i HDInsight, en stordatatjänst. Lär dig hur du definierar Oozie arbetsflöden och koordinatorer och skicka jobb.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -10,18 +10,16 @@ editor: cgronlun
 ms.assetid: 00c3a395-d51a-44ff-af2d-1f116c4b1c83
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0fa8e3630610913d909a75bf76236d120c8f1a2b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: db7f1f85601cfcf4531bb11176a21126625ce7f0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Använda tidsbaserad Oozie-koordinator med Hadoop i HDInsight för att definiera arbetsflöden och samordna jobb
 I den här artikeln lär du dig hur du definierar arbetsflöden och koordinatorer och hur du utlöser coordinator jobb, baserat på tid. Är det bra att gå igenom [Använd Oozie med HDInsight] [ hdinsight-use-oozie] innan den här artikeln. Förutom Oozie, kan du också schemalägga jobb med hjälp av Azure Data Factory. Information om Azure Data Factory finns [Use Pig och Hive med Data Factory](../data-factory/transform-data.md).
@@ -62,7 +60,7 @@ Arbetsflödet innehåller två åtgärder:
 >
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar de här självstudierna måste du ha:
 
 * **En arbetsstation med Azure PowerShell**.

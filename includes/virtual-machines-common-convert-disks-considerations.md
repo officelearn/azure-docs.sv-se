@@ -3,7 +3,7 @@
 
 * Omvandlingen kan inte ångras. 
 
-* Tänk på att alla användare med den [Virtual Machine-deltagare](../articles/active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) rollen kommer inte att kunna ändra storleken på virtuella datorn (eftersom de kunde före konvertering). Det beror på att virtuella datorer med hanterade diskar användaren måste ha behörigheten Microsoft.Compute/disks/write på OS-diskar.
+* Tänk på att alla användare med den [Virtual Machine-deltagare](../articles/role-based-access-control/built-in-roles.md#virtual-machine-contributor) rollen kommer inte att kunna ändra storleken på virtuella datorn (eftersom de kunde före konvertering). Det beror på att virtuella datorer med hanterade diskar användaren måste ha behörigheten Microsoft.Compute/disks/write på OS-diskar.
 
 * Testa omvandlingen först. Migrera först en virtuell testdator innan du gör en migrering i produktion.
 

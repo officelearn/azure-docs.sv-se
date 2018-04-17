@@ -1,28 +1,26 @@
 ---
 title: Granskning i Azure SQL Data Warehouse | Microsoft Docs
-description: "Kom igång med granskning i Azure SQL Data Warehouse"
+description: Läs mer om gransknings- och hur du ställer in granskning i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: 
 author: ronortloff
-manager: jhubbard
-editor: 
-ms.assetid: 0e6af148-b218-4b43-bb5f-907917d20330
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.custom: security
-ms.date: 01/16/2018
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 5400f29d8c7579809ef7b2a084115473df7baa85
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/11/2018
+ms.author: rortloff
+ms.reviewer: jrj
+ms.openlocfilehash: 7bce59114dcfef7f9faa7f112c62dbb88044f2ab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Granskning i Azure SQL Data Warehouse
 
+Läs mer om gransknings- och hur du ställer in granskning i Azure SQL Data Warehouse.
+
+## <a name="what-is-auditing"></a>Vad granskning?
 SQL Data Warehouse granskning kan du till post i databasen till en granskningslogg händelselogg i Azure Storage-konto. Granskning kan hjälpa dig att upprätthålla regelefterlevnad, Förstå Databasaktivitet och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser. SQL Data Warehouse granskning är integrerat med Microsoft Power BI för rapportering och analys.
 
 Granskningsverktyg aktivera och underlätta att efterlevnadsstandarder men garantera inte efterlevnad. Mer information om Azure-program som stöd för överensstämmelse med standarder, finns det <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Azure Säkerhetscenter</a>.

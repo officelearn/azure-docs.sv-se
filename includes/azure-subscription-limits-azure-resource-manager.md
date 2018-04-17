@@ -5,7 +5,7 @@
 | VM-kärnor per serie (Dv2, F osv.) per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region | Kontakta supporten |
 | [Medadministratörer](../articles/billing-add-change-azure-subscription-administrator.md) per prenumeration |Obegränsat |Obegränsat |
 | [Storage-konton](../articles/storage/common/storage-create-storage-account.md) per prenumeration |200 |200<sup>2</sup> |
-| [Resursgrupper](../articles/azure-resource-manager/resource-group-overview.md) per prenumeration |800 |800 |
+| [Resursgrupper](../articles/azure-resource-manager/resource-group-overview.md) per prenumeration |980 |980 |
 | [Tillgänglighetsuppsättningar](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per prenumeration |2 000 per region |2 000 per region |
 | Läsningar med Resource Manager API |15 000 per timme |15 000 per timme |
 | Skrivningar med Resource Manager API |1 200 per timme |1 200 per timme |

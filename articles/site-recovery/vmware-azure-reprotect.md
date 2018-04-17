@@ -1,6 +1,6 @@
 ---
-title: "Skyddar virtuella datorer från Azure till en lokal plats | Microsoft Docs"
-description: "Du kan starta en återställning efter fel om du vill flytta virtuella datorer lokala efter redundans för virtuella datorer till Azure. Lär dig att skydda innan en återställning efter fel."
+title: Skyddar virtuella datorer från Azure till en lokal plats | Microsoft Docs
+description: Du kan starta en återställning efter fel om du vill flytta virtuella datorer lokala efter redundans för virtuella datorer till Azure. Lär dig att skydda innan en återställning efter fel.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: cd5e53b49a850acf851e8351b5e14e2993176435
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 499f363dd6241612553e94e43dd56de6cfc8f71f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Skyddar datorer från Azure till en lokal plats
 
@@ -79,7 +79,7 @@ När du har skapat en huvudmålserver kan du göra följande:
 - Du måste lägga till en ny enhet om du använder en befintlig process serverkonfiguration/server-dator eller en skala eller en process server eller huvudtjänsten server måldatorn. Den nya enheten ska kraven ovan. Om kvarhållningsenhetens inte finns, visas den inte i listrutan markeringen på portalen. När du lägger till en enhet till lokala huvudmålservern tar upp till 15 minuter för enheten visas i markeringen på portalen. Du kan också uppdatera konfigurationsservern om enheten inte visas efter 15 minuter.
 - Installera VMware-verktygen på huvudmålservern. Datastores på ESXi-värd på huvudmålservern kan inte identifieras utan VMware-verktyg.
 - Ange den `disk.EnableUUID=true` i konfigurationsparametrar för huvudmålservern virtuell dator i VMware. Om den här raden inte finns, kan du lägga till den. Den här inställningen krävs för att ge en konsekvent UUID till den virtuella disken (VMDK) så att den monterar korrekt.
-- Huvudmålservern bör ha minst en VMFS datastore ansluten. Om det finns ingen, den **Datastore** indata på sidan Skapa nytt är tomt, och du kan inte fortsätta.
+- ESX-värd som huvudmålservern ska skapas bör ha minst en VMFS datalagret som kopplats till den. Om det finns ingen, den **Datastore** indata på sidan Skapa nytt är tomt, och du kan inte fortsätta.
 - Huvudmålservern kan inte ha ögonblicksbilder på diskarna. Om det finns ögonblicksbilder, misslyckas återaktivera skydd och återställning efter fel.
 - Huvudmålservern kan inte ha en Paravirtual SCSI-styrenhet. Kontrollanten kan bara finnas en domänkontrollant för en LSI Logic. Utan en domänkontrollant för en LSI Logic återaktivera skyddet fungerar inte.
 - Huvudmålservern kan ha atmst 60 diskar som är anslutna till den i en viss instans. Om antalet virtuella datorer att återaktivera skyddet till den lokala huvudmålservern har summan totala antal diskar som är mer än 60 och sedan reprotects till huvudmålservern startar misslyckas. Se till att du har tillräckligt med master riktade disken platser eller distribuera ytterligare huvudmålservern servrar.
@@ -92,7 +92,7 @@ Efter att en virtuell dator startar i Azure, tar det lite tid för att agenten s
 
 1. I **valvet** > **replikerade objekt**, högerklicka på den virtuella datorn har växlas över och välj sedan **skydda igen**. Du kan också klicka på datorn och välja **skydda igen** från knapparna.
 2. Kontrollera riktningen för skydd, **Azure till lokala**, har redan valts.
-3. I **Huvudmålserver** och **Processervern**, Välj den lokala huvudmålservern och processervern.
+3. I **Huvudmålserver** och **Processervern**, Välj den lokala huvudmålservern och processervern.  
 4. För **Datastore**, markera databasen som du vill återställa den diskar lokalt. Det här alternativet används när den lokala virtuella datorn tas bort och du behöver skapa nya diskar. Det här alternativet ignoreras om diskarna finns redan, men du måste ange ett värde.
 5. Välj kvarhållningsenhetens.
 6. Failback-principen väljs automatiskt.

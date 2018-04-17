@@ -1,12 +1,12 @@
 ---
-title: "Kom igång med ett exempel"
-description: "I den här artikeln lär dig att Power BI arbetsytan samlingar get igång exempel."
+title: Kom igång med ett exempel
+description: I den här artikeln lär dig att Power BI arbetsytan samlingar get igång exempel.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 9049f95c9f81c0217c96469a45561b6cd0b33ae9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 4daa675092bed1788025e7e3f7e7e11d02ef1671
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Komma igång med Power BI arbetsytan samlingar exemplet
 
@@ -71,7 +71,7 @@ Checking import state... Succeeded
 
 Nu har du en PBIX för Power BI-rapport som importeras till din **arbetsytan**. Nu ska vi titta på hur du kör den **Power BI arbetsytan samlingar** Kom igång exempelwebbapp.
 
-## <a name="run-the-sample-web-app"></a>Köra exemplet webbprogram
+## <a name="run-the-sample-web-app"></a>Kör exempelwebbappen
 
 Web app exempel är ett exempelprogram som återger rapporter som importeras till din **arbetsytan**. Här är hur du konfigurerar web app exemplet.
 
@@ -105,7 +105,7 @@ Den **Microsoft Power BI arbetsytan samlingar** exempelkod avgränsas på följa
 > [!NOTE]
 > Det här avsnittet är en sammanfattning av exempelkod som visar hur koden har skrivits. Om du vill visa hela exemplet, Läs in PowerBI embedded.sln lösningen i Visual Studio.
 
-### <a name="model"></a>Modellen
+### <a name="model"></a>Modell
 
 Exemplet har en **ReportsViewModel** och **ReportViewModel**.
 
@@ -143,7 +143,7 @@ Den **visa** hanterar visningen av Power BI **rapporter** och en Power BI **rapp
 
 | En del | Beskrivning |
 | --- | --- |
-| Rubrik |Namnet på rapporten. |
+| Namn |Namnet på rapporten. |
 | QueryString |En länk till rapporten-ID. |
 
     <div id="reports-nav" class="panel-collapse collapse">
@@ -171,7 +171,7 @@ Report.cshtml: Ange den **Model.AccessToken**, och Lambda-uttrycket för **Power
         @Html.PowerBIReportFor(m => m.Report, new { style = "height:85vh" })
     </div>
 
-### <a name="controller"></a>Domänkontrollant
+### <a name="controller"></a>Kontrollenhet
 
 **DashboardController.cs**: skapar ett PowerBIClient skicka en **apptoken**. En JSON-Webbtoken (JWT) skapas från den **signeringsnyckeln** att hämta den **autentiseringsuppgifter**. Den **autentiseringsuppgifter** används för att skapa en instans av **PowerBIClient**. När du har en instans av **PowerBIClient**, kan du anropa GetReports() och GetReportsAsync().
 
@@ -254,7 +254,7 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 > [!NOTE]
 > {tableName/fieldName} får inte innehålla blanksteg eller specialtecken. {fieldValue} accepterar ett enskilt kategoriskt värde.  
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 [Vanliga scenarier för Microsoft Power BI-Arbetsytesamling](scenarios.md)  
 [Autentisering och auktorisering i Power BI-arbetsytesamlingar](app-token-flow.md)  

@@ -1,11 +1,11 @@
 ---
-title: "Skapa en virtuell dator (klassisk) med flera nätverkskort – Azure CLI 1.0 | Microsoft Docs"
-description: "Lär dig hur du skapar en virtuell dator (klassisk) med flera nätverkskort som använder Azure-kommandoradsgränssnittet (CLI) 1.0."
+title: Skapa en virtuell dator (klassisk) med flera nätverkskort – Azure CLI 1.0 | Microsoft Docs
+description: Lär dig hur du skapar en virtuell dator (klassisk) med flera nätverkskort som använder Azure-kommandoradsgränssnittet (CLI) 1.0.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
+author: genli
+manager: cshepard
+editor: ''
 tags: azure-service-management
 ms.assetid: b436e41e-866c-439f-a7c7-7b4b041725ef
 ms.service: virtual-network
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
-ms.author: jdial
+ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5569209d3628003b3f3e169b227e069b920c03f
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: d2631e531368df4f00d7ffd8fef585038658797b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Skapa en virtuell dator (klassisk) med flera nätverkskort som använder Azure CLI 1.0
 
@@ -45,7 +45,7 @@ Backend-VMs beror på att skapa följande resurser:
 
 * **Storage-konto för datadiskar**. För bättre prestanda använder datadiskar på databasservrarna Solid-State-hårddisk (SSD)-teknik som kräver ett premiumlagringskonto. Kontrollera att den Azure-plats som du distribuerar för att stödja premium-lagring.
 * **Nätverkskort**. Varje virtuell dator har två nätverkskort, ett för åtkomst till databasen, och en för hantering.
-* **Tillgänglighetsuppsättningen**. Alla databasservrar läggs till en enda tillgänglighet ange att se till att minst en av de virtuella datorerna är igång och körs under underhåll.
+* **Tillgänglighetsuppsättning**. Alla databasservrar läggs till en enda tillgänglighet ange att se till att minst en av de virtuella datorerna är igång och körs under underhåll.
 
 ### <a name="step-1---start-your-script"></a>Steg 1 – starta skriptet
 Du kan hämta fullständig bash-skript används [här](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Utför följande steg om du vill ändra skriptet fungerar i din miljö:

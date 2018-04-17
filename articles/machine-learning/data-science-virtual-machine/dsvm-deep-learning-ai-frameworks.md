@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 829095c7f9b92f64fd6204481e68b2594a3a0017
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e2a0bdaf0d12a93dcee5a8a2657bb012095bb283
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Ramverk för djupinlärning och AI
 Den [datavetenskap virtuella](http://aka.ms/dsvm) (DSVM) och [djup Learning VM](http://aka.ms/dsvm/deeplearning) stöder ett antal djup learning ramverk för att bygga program styrs av datorn (AI) med förutsägelseanalyser och kognitiva funktioner som bilden och förstå språk. 
@@ -56,7 +56,7 @@ Här följer information på alla djup learning ramverk som är tillgängliga p�
 | Stöds DSVM versioner      | Windows, Linux     |
 | Hur är det konfigurerade / installerad på DSVM?  | Keras är installerat i Python 2.7 (_rot_), samt Python 3.5 (_py35_) miljö.   |
 | Länkar till exempel      | https://github.com/fchollet/keras/tree/master/examples      |
-| Relaterade verktyg på DSVM      | Microsoft Cognitive Toolkit, TensorFlow, Theano      |
+| Relaterade verktyg på DSVM      | Microsoft kognitiva Toolkit, TensorFlow, Theano      |
 | Hur du använder / kör den?    | Hämta exempel från Github-plats, kopierar den till en katalog under ~/notebooks och öppna den i Jupyter   |
 
 
@@ -205,7 +205,7 @@ Tjänsten tar ungefär en minut för att starta. Starta en webbläsare och gå t
 Kör i en terminal _python_, importera torch. Välj Python 3.5 kernel i Jupyter, och sedan importera torch.
 
 
-## <a name="mxnet-model-server"></a>MXNet Model Server
+## <a name="mxnet-model-server"></a>MXNet Model-Server
 
 |    |           |
 | ------------- | ------------- |

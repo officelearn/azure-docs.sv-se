@@ -1,6 +1,6 @@
 ---
-title: "Diagnostisera och lösa problem i Azure tid serien insikter | Microsoft Docs"
-description: "Den här artikeln beskriver hur du diagnostisera, felsöka och lösa vanliga problem som kan uppstå i din Azure tid serien Insights-miljö."
+title: Diagnostisera och lösa problem i Azure tid serien insikter | Microsoft Docs
+description: Den här artikeln beskriver hur du diagnostisera, felsöka och lösa vanliga problem som kan uppstå i din Azure tid serien Insights-miljö.
 services: time-series-insights
 ms.service: time-series-insights
 author: venkatgct
@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 11/15/2017
-ms.openlocfilehash: 757d37183ad334aca462af59bad261cfa686299e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 04/09/2018
+ms.openlocfilehash: f0c1b8aa99e9ac9c73f57af17490dd3a465a9cac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnostisera och lösa problem i miljön tid serien insikter
 
@@ -45,6 +45,11 @@ Under registreringen av am IoT-hubb eller en händelsehubb kan ange du konsument
 När du kan se data delvis, men data som släpar efter, finns det flera möjligheter att tänka på:
 
 ### <a name="possible-cause-a-your-environment-is-getting-throttled"></a>Möjlig orsak A: miljön komma begränsas
+Detta är ett vanligt problem när miljöer etableras efter skapandet av en händelsekälla med data.  Azure IoT-hubbar och händelser NAV lagra data till sju dagar.  TSD startar alltid från den äldsta händelsen (FIFO) inom händelsekällan.  Så om du har fem miljoner händelser i en händelsekälla när du ansluter till en S1 enskild enhet TSD miljö TSD läser en miljon händelser per dag.  Detta visas ska se ut som om TSD har fem dagar efter fördröjning vid en första titt.  Verkligen det som händer är att miljön har begränsats.  Om du har gamla händelser i dina händelsekälla att närma sig på två sätt:
+
+- Ändra din händelsekälla kvarhållning gränser för att ta bort gamla händelser som du inte vill ska visas i TSD
+- Etablera en större miljö (i antal enheter) för att öka genomflödet av gamla händelser.  Miljön ska med exemplet ovan, om du har ökat samma S1 miljö till fem enheter under en dag, missade till nu inom dagen.  Om din stabilt tillstånd Händelsproduktion är 1 miljon eller mindre händelser per dag, kan du minska kapaciteten för händelsen till en enhet när den har fångats.  
+
 Gränsen tillämpas baserat på SKU miljötyp och kapacitet. Alla händelsekällor i miljön dela den här kapaciteten. Om händelsekällan för din IoT-hubb eller händelsehubb är push-överföring av data utöver de tvingande gränserna, ser du begränsning och en fördröjning.
 
 I följande diagram visas en gång serien insikter miljö som har en SKU S1 och en kapacitet på 3. Det kan 3 miljoner ingångshändelser per dag.
@@ -76,6 +81,12 @@ Om du vill åtgärda fördröjningen gör du följande:
 Kontrollera att namnet och värdet överensstämmer med följande regler:
 * Egenskapsnamnet tidsstämpel är _skiftlägeskänsliga_.
 * Egenskapsvärdet tidsstämpel som kommer från din händelsekälla som JSON-strängen ska ha formatet _åååå-MM-ddTHH. FFFFFFFK_. Ett exempel på sådana sträng är ”2008-04-12T12:53Z”.
+
+Det enklaste sättet att se till att din *tidsstämpel egenskapsnamn* avbildas och fungerar korrekt är att använda TSD explorer.  I TSD-explorer med hjälp av diagram, Välj en tidsperiod när du har angett den *tidsstämpel egenskapsnamn*.  Högerklicka på markeringen och välj den *utforska händelser* alternativet.  Första kolumnrubriken ska vara din *tidsstämpel egenskapsnamn* som måste ha en *($ts)* bredvid ordet *tidsstämpel*, i stället:
+- *(abc)* , vilket skulle innebära att TSD läser datavärden som strängar
+- *Ikon för kalender*, vilket skulle innebära att TSD läser datavärdet som *datetime*
+- *#*, vilket skulle innebära att TSD läser datavärdena som ett heltal
+
 
 ## <a name="next-steps"></a>Nästa steg
 - Om du behöver ytterligare hjälp kan du starta ett samtal på den [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). 

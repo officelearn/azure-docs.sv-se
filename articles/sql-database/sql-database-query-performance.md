@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 85f25946974b7ede64f9f8fb0009eed42c55c25a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c0cff73e8164bd493554b663d4ffbbf20f5155cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL Database Query Performance Insight
 Hantera och finjustera prestanda hos relationsdatabaser är en utmaning som kräver betydande resurser och tid investeringar. Query Performance Insight kan du ägna mindre tid felsökning databasprestanda med hjälp av följande:
@@ -29,7 +29,7 @@ Hantera och finjustera prestanda hos relationsdatabaser är en utmaning som krä
 * Query Performance Insight kräver att [Frågearkivet](https://msdn.microsoft.com/library/dn817826.aspx) är aktiv på din databas. Om Query Store inte körs, uppmanas du att aktivera den i portalen.
 
 ## <a name="permissions"></a>Behörigheter
-Följande [rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-what-is.md) behörigheter som krävs för att använda Query Performance Insight: 
+Följande [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) behörigheter som krävs för att använda Query Performance Insight: 
 
 * **Läsaren**, **ägare**, **deltagare**, **SQL DB-deltagare**, eller **SQL Server-deltagare** behörigheter som krävs Visa översta resursen förbrukar frågor och diagram. 
 * **Ägare**, **deltagare**, **SQL DB-deltagare**, eller **SQL Server-deltagare** behörigheter som krävs för att visa frågetext.
@@ -206,7 +206,7 @@ Query Performance Insight hjälper dig att förstå effekten av din fråga arbet
 ## <a name="next-steps"></a>Nästa steg
 Ytterligare rekommendationer om hur du förbättrar prestandan för SQL-databasen klickar du på [rekommendationer](sql-database-advisor.md) på den **Query Performance Insight** bladet.
 
-![Performance Advisor](./media/sql-database-query-performance/ia.png)
+![Klassificering av prestanda](./media/sql-database-query-performance/ia.png)
 
 <!--Image references-->
 [1]: ./media/sql-database-query-performance/tile.png

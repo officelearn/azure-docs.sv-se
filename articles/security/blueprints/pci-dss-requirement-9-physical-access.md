@@ -1,5 +1,5 @@
 ---
-title: "Azure betalning bearbetning modell - krav för fysisk åtkomst"
+title: Azure betalning bearbetning modell - krav för fysisk åtkomst
 description: PCI DSS krav 9
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 89f7b20a130e988bfe4964d50ae97de788ca4623
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 2dbf4d9e2f4ff7b6cdf8e48c24eeee4d036fe195
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="physical-access-requirements-for-pci-dss-compliant-environments"></a>Fysisk åtkomst krav för PCI DSS-kompatibel miljöer 
 ## <a name="pci-dss-requirement-9"></a>PCI DSS krav 9
@@ -38,8 +38,8 @@ En fysisk åtkomst till data eller system som house Kortinnehavarens data ger m�
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure är ansvarig för att implementera, tillämpa och övervaka fysisk åtkomstsäkerhet för datacenter. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure är ansvarig för att implementera, tillämpa och övervaka fysisk åtkomstsäkerhet för datacenter. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt.|
 
 
 
@@ -54,8 +54,8 @@ En fysisk åtkomst till data eller system som house Kortinnehavarens data ger m�
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure är ansvarig för att implementera, tillämpa och övervakning CCTV och biometrisk åtkomstkontroll för datacenter. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure är ansvarig för att implementera, tillämpa och övervakning CCTV och biometrisk åtkomstkontroll för datacenter. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt.|
 
 
 
@@ -69,8 +69,8 @@ Till exempel nätverk uttag finns i offentliga områden och områden som är til
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Det finns inga allmänt tillgängligt nätverk uttag i Microsoft Azure-plattform. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Det finns inga allmänt tillgängligt nätverk uttag i Microsoft Azure-plattform. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt.|
 
 
 
@@ -82,8 +82,8 @@ Till exempel nätverk uttag finns i offentliga områden och områden som är til
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Fysisk åtkomst till Microsoft Azure nätverksmaskinvara hårt styrda av listor för olika former av autentisering, fysiska hinder för transaktionen och krav för företag måste godkännas för åtkomst till utrustning. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Fysisk åtkomst till Microsoft Azure nätverksmaskinvara hårt styrda av listor för olika former av autentisering, fysiska hinder för transaktionen och krav för företag måste godkännas för åtkomst till utrustning. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt.|
 
 
 
@@ -98,8 +98,8 @@ Till exempel nätverk uttag finns i offentliga områden och områden som är til
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure är ansvarig för att implementera, tillämpa och övervaka fysisk åtkomst säkerhet och medarbetare eller leverantör identifiering när du besöker datacenter. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure är ansvarig för att implementera, tillämpa och övervaka fysisk åtkomst säkerhet och medarbetare eller leverantör identifiering när du besöker datacenter. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt.|
 
 
 
@@ -113,8 +113,8 @@ Till exempel nätverk uttag finns i offentliga områden och områden som är til
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Tillstånd för åtkomst till Microsoft-datacenter kontrolleras med hjälp av en auktoriserad åtkomst lista över godkända av Datacenter-teamet som baseras på principen om minsta behörighet. Access control list granskat, verifiera och uppdatera kvartalsvis.<br /><br />Microsoft Azure-Datacenter använda fysisk åtkomst enheter såsom perimeter portar, elektroniska åtkomst Aktivitetsikon läsare, biometriska läsare, portaler-man-traps och anti pass tillbaka enheter. Åtkomst Aktivitetsikon enheter övervakas kontinuerligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Tillstånd för åtkomst till Microsoft-datacenter kontrolleras med hjälp av en auktoriserad åtkomst lista över godkända av Datacenter-teamet som baseras på principen om minsta behörighet. Access control list granskat, verifiera och uppdatera kvartalsvis.<br /><br />Microsoft Azure-Datacenter använda fysisk åtkomst enheter såsom perimeter portar, elektroniska åtkomst Aktivitetsikon läsare, biometriska läsare, portaler-man-traps och anti pass tillbaka enheter. Åtkomst Aktivitetsikon enheter övervakas kontinuerligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt.|
 
 
 
@@ -126,8 +126,8 @@ Till exempel nätverk uttag finns i offentliga områden och områden som är til
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure är ansvarig för att framtvinga förhandsgodkända leveranser tas emot i en säker inläsning fack som är fysiskt isolerat från bearbeta lokaler och övervakas av auktoriserad personal. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure är ansvarig för att framtvinga förhandsgodkända leveranser tas emot i en säker inläsning fack som är fysiskt isolerat från bearbeta lokaler och övervakas av auktoriserad personal. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt.|
 
 
 
@@ -140,8 +140,8 @@ Till exempel nätverk uttag finns i offentliga områden och områden som är til
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure är ansvarig för att framtvinga förhandsgodkända leveranser tas emot i en säker inläsning fack som är fysiskt isolerat från bearbeta lokaler och övervakas av auktoriserad personal. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure är ansvarig för att framtvinga förhandsgodkända leveranser tas emot i en säker inläsning fack som är fysiskt isolerat från bearbeta lokaler och övervakas av auktoriserad personal. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt.|
 
 
 
@@ -153,8 +153,8 @@ Till exempel nätverk uttag finns i offentliga områden och områden som är til
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Åtkomst till Microsoft data center måste vara förhandsgodkända och behöriga besökare krävs för att checka in med fysisk säkerhet vid ankomst och bekräftar ett giltigt ID innan transaktionen. Aktivitetsikoner tydligt ange anställda. Leverantörer och besökare får tillfällig Aktivitetsikoner som måste överlämnas efter funktionen. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Åtkomst till Microsoft data center måste vara förhandsgodkända och behöriga besökare krävs för att checka in med fysisk säkerhet vid ankomst och bekräftar ett giltigt ID innan transaktionen. Aktivitetsikoner tydligt ange anställda. Leverantörer och besökare får tillfällig Aktivitetsikoner som måste överlämnas efter funktionen. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt.|
 
 
 
@@ -166,8 +166,8 @@ Till exempel nätverk uttag finns i offentliga områden och områden som är til
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Besökare krävs att avstå från märken efter Microsoft anläggningar. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Besökare krävs att avstå från märken efter Microsoft anläggningar. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt.|
 
 
 
@@ -181,8 +181,8 @@ Behåll den här loggfilen under minst tre månader om annars begränsas enligt 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure ansvarar för att underhålla en logg för besökare som en fysisk verifieringskedja för besökare aktivitet lokalen som datorn lokaler och datacenter där kreditkortsinformation lagras eller överförs. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure ansvarar för att underhålla en logg för besökare som en fysisk verifieringskedja för besökare aktivitet lokalen som datorn lokaler och datacenter där kreditkortsinformation lagras eller överförs. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt.|
 
 
 
@@ -194,8 +194,8 @@ Behåll den här loggfilen under minst tre månader om annars begränsas enligt 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -207,8 +207,8 @@ Behåll den här loggfilen under minst tre månader om annars begränsas enligt 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -220,8 +220,8 @@ Behåll den här loggfilen under minst tre månader om annars begränsas enligt 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -233,8 +233,8 @@ Behåll den här loggfilen under minst tre månader om annars begränsas enligt 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -246,8 +246,8 @@ Behåll den här loggfilen under minst tre månader om annars begränsas enligt 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -259,8 +259,8 @@ Behåll den här loggfilen under minst tre månader om annars begränsas enligt 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -272,8 +272,8 @@ Behåll den här loggfilen under minst tre månader om annars begränsas enligt 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -286,8 +286,8 @@ Behåll den här loggfilen under minst tre månader om annars begränsas enligt 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -299,8 +299,8 @@ Behåll den här loggfilen under minst tre månader om annars begränsas enligt 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -312,8 +312,8 @@ Behåll den här loggfilen under minst tre månader om annars begränsas enligt 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore lagrar alla data i Azure SQL Database. En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -325,8 +325,8 @@ Behåll den här loggfilen under minst tre månader om annars begränsas enligt 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Data destruktion tekniker varierar beroende på vilken typ av dataobjekt förstörs, vare sig det är prenumerationer, lagring, virtuella datorer eller databaser. I den Microsoft Azure klientmiljön noggrann åtgärder vidtas för att säkerställa att en kunds data är inte tillåtet att antingen ”läcka” till en annan kundinformation eller när en kund tar bort data, ingen kund som (inklusive i de flesta fall kunden vem som äger en gång data) kan komma åt den borttagna datan.<br /><br />Microsoft Azure följer NIST 800 88 riktlinjer för Media rensning som adressera huvudnamn för att säkerställa att data inte har publicerats oavsiktligt. Dessa riktlinjer omfattar både elektroniska och fysiska rensning. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore kan tas bort helt och hållet genom att ta bort resursgruppen som används under distributionen.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Data destruktion tekniker varierar beroende på vilken typ av dataobjekt förstörs, vare sig det är prenumerationer, lagring, virtuella datorer eller databaser. I den Microsoft Azure klientmiljön noggrann åtgärder vidtas för att säkerställa att en kunds data är inte tillåtet att antingen ”läcka” till en annan kundinformation eller när en kund tar bort data, ingen kund som (inklusive i de flesta fall kunden vem som äger en gång data) kan komma åt den borttagna datan.<br /><br />Microsoft Azure följer NIST 800 88 riktlinjer för Media rensning som adressera huvudnamn för att säkerställa att data inte har publicerats oavsiktligt. Dessa riktlinjer omfattar både elektroniska och fysiska rensning. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore kan tas bort helt och hållet genom att ta bort resursgruppen som används under distributionen.|
 
 
 
@@ -341,8 +341,8 @@ Behåll den här loggfilen under minst tre månader om annars begränsas enligt 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder OMS för att logga alla systemändringar i.<br /><br />[Operations Management Suite (OMS)](/azure/operations-management-suite/) innehåller utförlig loggning av ändringar. Ändringar kan granskas och verifiera noggrannhet. Mer specifika anvisningar finns [PCI - vägledning för Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder Azure för att logga alla systemändringar i.<br /><br />Logganalys innehåller utförlig loggning av ändringar. Ändringar kan granskas och verifiera noggrannhet. Mer specifika anvisningar finns [PCI vägledning - loggning och granskning](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -357,8 +357,8 @@ Behåll den här loggfilen under minst tre månader om annars begränsas enligt 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore innehåller en Referensarkitektur och en lista över alla tjänster som används i dess Distributionsdokumentation.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore innehåller en Referensarkitektur och en lista över alla tjänster som används i dess Distributionsdokumentation.|
 
 
 
@@ -373,8 +373,8 @@ Behåll den här loggfilen under minst tre månader om annars begränsas enligt 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt.|
 
 
 
@@ -390,8 +390,8 @@ Behåll den här loggfilen under minst tre månader om annars begränsas enligt 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt.|
 
 
 
@@ -403,8 +403,8 @@ Behåll den här loggfilen under minst tre månader om annars begränsas enligt 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt.|
 
 
 

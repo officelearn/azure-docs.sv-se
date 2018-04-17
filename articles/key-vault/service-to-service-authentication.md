@@ -1,6 +1,6 @@
 ---
-title: "Tjänst-till-tjänst autentisering till Azure Key Vault med hjälp av .NET"
-description: "Använd Microsoft.Azure.Services.AppAuthentication-biblioteket för att autentisera till Azure Key Vault med hjälp av .NET."
+title: Tjänst-till-tjänst autentisering till Azure Key Vault med hjälp av .NET
+description: Använd Microsoft.Azure.Services.AppAuthentication-biblioteket för att autentisera till Azure Key Vault med hjälp av .NET.
 keywords: Azure key vault lokala autentiseringsuppgifter
 author: lleonard-msft
 manager: mbaldwin
@@ -8,15 +8,15 @@ services: key-vault
 ms.author: alleonar
 ms.date: 11/15/2017
 ms.topic: article
-ms.prod: 
-ms.service: microsoft-keyvault
-ms.technology: 
+ms.prod: ''
+ms.service: key-vault
+ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: bff4b15ca2f1c985c4b4e27d159adaa5fd039553
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: db0b0ca72f41c68e19db6635d9ba0e9144183204
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Tjänst-till-tjänst autentisering till Azure Key Vault med hjälp av .NET
 
@@ -113,7 +113,7 @@ Använda Azure CLI för lokal utveckling:
 
 Använd `az account get-access-token` att verifiera åtkomst.  Om du får ett fel kan du kontrollera att steg 1 har slutförts. 
 
-Om Azure CLI inte är installerad i standardkatalogen kan du få ett felmeddelande som rapporteringen som `AzureServiceTokenProvider` går inte att hitta sökvägen för Azure CLI.  Använd den **AzureCLIPath**miljövariabeln för att definiera Azure CLI-installationsmappen. `AzureServiceTokenProvider`lägger till katalogen som anges i den **AzureCLIPath** miljövariabeln den **sökväg** miljövariabeln vid behov.
+Om Azure CLI inte är installerad i standardkatalogen kan du få ett felmeddelande som rapporteringen som `AzureServiceTokenProvider` går inte att hitta sökvägen för Azure CLI.  Använd den **AzureCLIPath**miljövariabeln för att definiera Azure CLI-installationsmappen. `AzureServiceTokenProvider` lägger till katalogen som anges i den **AzureCLIPath** miljövariabeln den **sökväg** miljövariabeln vid behov.
 
 Om du är inloggad på Azure CLI med flera konton eller ditt konto har åtkomst till flera prenumerationer, måste du ange specifika prenumerationen som ska användas.  Om du vill göra det använder du:
 
@@ -211,7 +211,7 @@ Om du vill logga in med en Azure delade AD hemliga autentiseringsuppgifter:
 
 3. Kör appen. 
 
-När allt har ställts in korrekt inga ytterligare kodändringar krävs.  `AzureServiceTokenProvider`använder miljövariabeln och certifikatet för att autentisera till Azure AD. 
+När allt har ställts in korrekt inga ytterligare kodändringar krävs.  `AzureServiceTokenProvider` använder miljövariabeln och certifikatet för att autentisera till Azure AD. 
 
 <a name="connectionstrings"></a>
 ## <a name="connection-string-support"></a>Stöd för anslutning sträng
@@ -228,9 +228,9 @@ Stöd för följande alternativ:
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Lokal utveckling | AzureServiceTokenProvider använder Visual Studio för att hämta token. |
 | `RunAs=CurrentUser;` | Lokal utveckling | AzureServiceTokenProvider använder Azure AD-integrerad autentisering för att hämta token. |
 | `RunAs=App;` | Hanterad tjänstidentitet | AzureServiceTokenProvider använder hanterade tjänstidentiteten för att hämta token. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint`<br>`   ={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`  | Tjänstens huvudnamn | `AzureServiceTokenProvider`använder certifikat för att hämta token från Azure AD. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};`<br>`   CertificateSubjectName={Subject};CertificateStoreLocation=`<br>`   {LocalMachine or CurrentUser}` | Tjänstens huvudnamn | `AzureServiceTokenProvider`använder certifikat för att hämta token från Azure AD|
-| `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Tjänstens huvudnamn |`AzureServiceTokenProvider`använder hemligheten för att hämta token från Azure AD. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint`<br>`   ={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`  | Tjänstens huvudnamn | `AzureServiceTokenProvider` använder certifikat för att hämta token från Azure AD. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};`<br>`   CertificateSubjectName={Subject};CertificateStoreLocation=`<br>`   {LocalMachine or CurrentUser}` | Tjänstens huvudnamn | `AzureServiceTokenProvider` använder certifikat för att hämta token från Azure AD|
+| `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Tjänstens huvudnamn |`AzureServiceTokenProvider` använder hemligheten för att hämta token från Azure AD. |
 
 
 ## <a name="next-steps"></a>Nästa steg

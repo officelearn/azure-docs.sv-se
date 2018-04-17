@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: ac0b15f120071093fd81de1d83cf2067ecbac269
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c5f3dbd1aa26cbe656b2ff89106819d228cf447d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
 
@@ -49,7 +49,7 @@ Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här ar
         - 255.255.255.255/32 (Broadcast)
         - 127.0.0.0/8 (Loopback)
         - 169.254.0.0/16 (Link-local)
-        - 168.63.129.16/32 (Internal DNS)
+        - 168.63.129.16/32 (interna DNS)
 
       Även om du kan definiera en enda adressintervall när du skapar det virtuella nätverket, du kan lägga till flera adressintervall adressutrymmet när det virtuella nätverket har skapats. Information om hur du lägger till ett adressintervall i ett befintligt virtuellt nätverk finns [Lägg till eller ta bort ett adressintervall](#add-or-remove-an-address-range).
 
@@ -72,7 +72,7 @@ Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här ar
 **Kommandon**
 
 - Azure CLI: [az network vnet skapa](/cli/azure/network/vnet)
-- PowerShell: [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)
+- PowerShell: [nya-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)
 
 ## <a name="view-virtual-networks-and-settings"></a>Visa virtuella nätverk och inställningar
 
@@ -111,7 +111,7 @@ Du kan lägga till och ta bort adressintervall för ett virtuellt nätverk. Ett 
 - 255.255.255.255/32 (Broadcast)
 - 127.0.0.0/8 (Loopback)
 - 169.254.0.0/16 (Link-local)
-- 168.63.129.16/32 (Internal DNS)
+- 168.63.129.16/32 (interna DNS)
 
 Lägga till eller ta bort ett adressintervall:
 
@@ -165,9 +165,9 @@ Du kan ta bort ett virtuellt nätverk endast om det finns inga resurser som är 
 - Azure CLI: [azure network vnet ta bort](/cli/azure/network/vnet#az_network_vnet_delete)
 - PowerShell: [Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork)
 
-## <a name="permissions"></a>Behörighet
+## <a name="permissions"></a>Behörigheter
 
-Om du vill utföra åtgärder på virtuella nätverk måste ditt konto måste ha tilldelats den [network-deltagare](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller en [anpassade](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som har tilldelats rätt behörigheter som anges i följande tabell:
+Om du vill utföra åtgärder på virtuella nätverk måste ditt konto måste ha tilldelats den [network-deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller en [anpassade](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som har tilldelats rätt behörigheter som anges i följande tabell:
 
 |Åtgärd                                    |   Åtgärdsnamn                    |
 |-------------------------------------------  |   --------------------------------  |

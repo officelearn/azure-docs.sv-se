@@ -1,24 +1,24 @@
 ---
 title: Duplicera program med SQL Server och Azure Site Recovery | Microsoft Docs
-description: "Den här artikeln beskriver hur du replikerar SQL Server med Azure Site Recovery för SQL Server-funktioner för katastrofåterställning."
+description: Den här artikeln beskriver hur du replikerar SQL Server med Azure Site Recovery för SQL Server-funktioner för katastrofåterställning.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: prateek9us
 manager: gauravd
-editor: 
+editor: ''
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 04/09/2018
 ms.author: pratshar
-ms.openlocfilehash: 7981173b419632683a40a54bc07f51f0fccab531
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: f0c43eee127857edfd1692dce825ef295be09f7b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Skydda SQL Server med SQL Server-katastrofåterställning och Azure Site Recovery
 
@@ -45,7 +45,7 @@ Många arbetsbelastningar använder SQL Server som grund och den kan integreras 
 ### <a name="supported-scenarios"></a>Scenarier som stöds
 Site Recovery kan skydda SQL Server som sammanfattas i tabellen.
 
-**Scenario** | **Till en sekundär plats** | **Till Azure**
+**scenario** | **Till en sekundär plats** | **Till Azure**
 --- | --- | ---
 **Hyper-V** | Ja | Ja
 **VMware** | Ja | Ja
@@ -95,7 +95,7 @@ Den här tabellen sammanfattas våra rekommendationer för integrering av SQL Se
 
 Konfigurera Active Directory i den sekundära återställningsplatsen för SQL Server ska fungera korrekt.
 
-* **Litet företag**– med ett litet antal program och en enda domänkontrollant för den lokala platsen, om du vill växla över hela platsen, rekommenderar vi du använder Site Recovery replikering för att replikera domänkontrollanten till sekundärt datacenter eller till Azure.
+* **Litet företag**– med ett litet antal program och en enda domänkontrollant för den lokala platsen, om du vill växla över hela platsen, rekommenderar vi du använder Site Recovery replikering replikeras domänkontrollanten till sekundärt datacenter, eller till Azure.
 * **Medelstora till stora företag**– om du har ett stort antal program, en Active Directory-skog och du vill växla över program eller arbetsbelastning, vi rekommenderar att du konfigurerar ytterligare en domänkontrollant i sekundärt datacenter eller i Azure. Om du använder Always On-Tillgänglighetsgrupper för att återställa till en fjärrplats rekommenderar vi att du ställer in en annan ytterligare en domänkontrollant på den sekundära platsen eller i Azure, ska användas för den återställda SQL Server-instansen.
 
 Anvisningarna i den här artikeln förutsätter att en domänkontrollant är tillgänglig på den sekundära platsen. [Läs mer](site-recovery-active-directory.md) om att skydda Active Directory med Site Recovery.

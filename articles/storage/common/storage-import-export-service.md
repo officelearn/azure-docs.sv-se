@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: cc36fdde962ec44d679dc0e96f440b0437a84fa8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1e94466d9d41bbc6a2100256d96e19d0d13600cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Använda tjänsten Microsoft Azure Import/Export för att överföra data till Azure Storage
 I den här artikeln får stegvisa instruktioner om hur du använder Azure Import/Export service att säkert överföra stora mängder data till Azure Blob storage och Azure filer av leverans diskenheterna till ett Azure-datacenter. Den här tjänsten kan också användas för att överföra data från Azure storage hårddiskar och levereras till dina lokala platser. Du kan importera data från en enskild interna SATA-disk till Azure Blob storage eller Azure-filer. 
@@ -45,9 +45,9 @@ Följ de nedanstående steg om data på disken som ska importeras till Azure Sto
     |Alternativ  |Beskrivning  |
     |---------|---------|
     |/j:     |Namnet på journal-fil med filnamnstillägget .jrn. En journal-fil skapas per enhet. Du bör använda disk serienumret som namn på filen.         |
-    |/sk:     |Nyckel för Azure Storage-konto.         |
-    |/t:     |Enhetsbeteckning på disken för att skickas. Till exempel enhet `D`.         |
-    |/bk:     |BitLocker-nyckel för enheten. Dess numeriskt lösenord från utdata från ` manage-bde -protectors -get D: `      |
+    |/Sk:     |Nyckel för Azure Storage-konto.         |
+    |/ t:     |Enhetsbeteckning på disken för att skickas. Till exempel enhet `D`.         |
+    |/BK:     |BitLocker-nyckel för enheten. Dess numeriskt lösenord från utdata från ` manage-bde -protectors -get D: `      |
     |/srcdir:     |Enhetsbeteckningen för disken som ska levereras följt av `:\`. Till exempel `D:\`.         |
     |/dstdir:     |Namnet på målbehållare i Azure Storage         |
     |/skipwrite:     |Det alternativ som anger att det finns inga nya data som krävs för att kopieras och befintliga data på disken är att vara förberedd         |
@@ -431,7 +431,7 @@ Inledande kontroller i följande rekommenderas för att förbereda dina enheter 
    | Börjar med |/Music/ |Exporterar alla blobbar i behållaren **musik** |
    | Börjar med |/ musik/kärlek |Exporterar alla blobbar i behållaren **musik** som börjar med prefixet **gillar** |
    | Lika med |$root/logo.bmp |Export blob **logo.bmp** i behållaren rot |
-   | Lika med |videos/story.mp4 |Export blob **story.mp4** i behållaren **videor** |
+   | Lika med |videos/Story.mp4 |Export blob **story.mp4** i behållaren **videor** |
    
    Du måste ange blob-sökvägar i giltigt format för att undvika fel under bearbetning, som visas i den här skärmbilden.
    
@@ -560,7 +560,7 @@ Max Page Blob är 1TB.
 
 Azure Import/Export-tjänsten som standard krypterar med AES 128 bitlocker-kryptering, men detta kan ökas AES 256 genom att manuellt krypteras med bitlocker innan data kopieras. 
 
-Om du använder [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), nedan visas ett exempel på kommando
+Om du använder [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), nedan visas ett exempel på kommando
 ```
 WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
 ```

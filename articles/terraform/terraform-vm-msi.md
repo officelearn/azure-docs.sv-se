@@ -1,17 +1,17 @@
 ---
 title: Använda en Azure Marketplace-avbildning för att skapa en Terraform Linux-dator med hanterade tjänstidentiteten
 description: Använd Marketplace-avbildning för att skapa Terraform Linux-dator med hanterade tjänstidentiteten och fjärrhantering för tillstånd för att enkelt distribuera resurser till Azure.
-keywords: terraform, devops, MSI, virtual machine, remote state, azure
+keywords: terraform, devops, MSI, virtuell dator, remote tillstånd, azure
 author: VaijanathB
 manager: rloutlaw
 ms.author: tarcher
 ms.date: 3/12/2018
 ms.topic: article
-ms.openlocfilehash: db45e9fe1eb724e6404f5e83bbbe4f62ee32343d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5f0ee2904c1072a5ad8c5f7ae1c90e649cc4813c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Använda en Azure Marketplace-avbildning för att skapa en Terraform Linux-dator med hanterade tjänstidentiteten
 
@@ -21,7 +21,7 @@ Terraform Marketplace-avbildning gör det enkelt att komma igång med Terraform 
 
 Det finns inga avgifter för programvara för den här Terraform VM-avbildning. Du betalar endast Azure maskinvara användning avgifter som utvärderas baserat på storleken på den virtuella dator som har etablerats. Mer information om beräkning avgifter finns i [Linux virtuella datorer sida med priser](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du kan skapa en virtuell dator för Linux Terraform, måste du ha en Azure-prenumeration. Om du inte redan har ett, se [skapa din kostnadsfria Azure-konto idag](https://azure.microsoft.com/free/).  
 
 ## <a name="create-your-terraform-virtual-machine"></a>Skapa den virtuella datorn Terraform 
@@ -88,7 +88,7 @@ Föregående skript använder den [AZ CLI v 2.0 interaktiv inloggning](https://d
 
  `cp  ~/tfTemplate/remoteState.tf .`
 
- Läs mer om hantering av tillstånd, [den här sidan om Terraform remote tillståndet](https://www.terraform.io/docs/state/remote.html). Lagringsåtkomstnyckel exponeras i den här filen och behöver kontrolleras noga till källkontroll.  
+ Läs mer om hantering av tillstånd, [den här sidan om Terraform remote tillståndet](https://www.terraform.io/docs/state/remote.html). Lagringsåtkomstnyckel exponeras i den här filen och måste exkluderas innan du aktiverar Terraform konfigurationsfilerna till källkontroll.
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig hur du ställer in en Terraform Linux-dator på Azure. Nedan följer några ytterligare resurser för att lära dig mer om Terraform i Azure: 

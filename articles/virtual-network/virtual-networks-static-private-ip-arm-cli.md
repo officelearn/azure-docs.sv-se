@@ -1,11 +1,11 @@
 ---
-title: "Konfigurera privata IP-adresser för virtuella datorer – Azure CLI | Microsoft Docs"
-description: "Lär dig hur du konfigurerar den privata IP-adresser för virtuella datorer med hjälp av Azure-kommandoradsgränssnittet (CLI)."
+title: Konfigurera privata IP-adresser för virtuella datorer – Azure CLI | Microsoft Docs
+description: Lär dig hur du konfigurerar den privata IP-adresser för virtuella datorer med hjälp av Azure-kommandoradsgränssnittet (CLI).
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9fe7020719079e11150c62068650aa6ca17b056
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f4f6a40fde23ee70391c5057762f17ce1eb44123
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Konfigurera privat IP-adresser för en virtuell dator med hjälp av Azure CLI
 
@@ -158,6 +158,7 @@ Skapa en virtuell dator med namnet *DNS01* i den *klientdel* undernätet i ett V
 
    * `--nics`: Namnet på nätverkskortet som den virtuella datorn är ansluten.
    
+Vi rekommenderar att du inte statiskt tilldelar privata IP-Adressen som tilldelats den virtuella Azure-datorn i operativsystemet på en virtuell dator, om nödvändigt, t.ex när [tilldela flera IP-adresser till en Windows-VM](virtual-network-multiple-ip-addresses-cli.md). Om du manuellt anger den privata IP-adressen i operativsystemet, kontrollera att det är samma adress som den privata IP-adress som tilldelats i Azure [nätverksgränssnittet](virtual-network-network-interface-addresses.md#change-ip-address-settings), eller du kan förlora anslutningen till den virtuella datorn. Lär dig mer om [privata IP-adressen](virtual-network-network-interface-addresses.md#private) inställningar.
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>Hämta statisk privat IP-adressinformation för en virtuell dator
 
@@ -267,9 +268,7 @@ Om du vill ändra nätverkskortet för den virtuella datorn som används i de f�
 
     > [!NOTE]
     > Om den virtuella datorn är tillräckligt stor för att ha flera nätverkskort, kör den **ta bort azure-nätverk nic** kommando för att ta bort gamla nätverkskortet.
-   
-## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [reserverade offentliga IP-Adressen](virtual-networks-reserved-public-ip.md) adresser.
-* Lär dig mer om [instansnivå offentliga IP-går](virtual-networks-instance-level-public-ip.md) adresser.
-* Läs den [reserverade IP-REST API: er](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
+## <a name="next-steps"></a>Nästa steg
+
+Lär dig mer om hur du hanterar [IP-adressinställningarna](virtual-network-network-interface-addresses.md).

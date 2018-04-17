@@ -1,8 +1,8 @@
 ---
-title: "Distribuera och hantera Apache Storm-topologier på Linux-baserade HDInsight | Microsoft Docs"
-description: "Lär dig mer om att distribuera, övervaka och hantera Apache Storm-topologier med Storm-instrumentpanelen på Linux-baserade HDInsight. Använda Hadoop-verktyg för Visual Studio."
+title: Distribuera och hantera Apache Storm-topologier på Linux-baserade HDInsight | Microsoft Docs
+description: Lär dig mer om att distribuera, övervaka och hantera Apache Storm-topologier med Storm-instrumentpanelen på Linux-baserade HDInsight. Använda Hadoop-verktyg för Visual Studio.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 35086e62-d6d8-4ccf-8cae-00073464a1e1
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9dd63e1f3ec381dd99495ebc6193198611c76c88
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Distribuera och hantera Apache Storm-topologier på HDInsight
 
@@ -95,7 +93,7 @@ HDInsight-verktyg kan användas för att skicka eller hybrid C#-topologier till 
 
 ## <a name="submit-a-topology-programmatically"></a>Skicka en topologi: programmässigt
 
-Programmässigt kan du distribuera en topologi som använder Nimbus-tjänsten. [https://github.com/Azure-Samples/hdinsight-Java-Deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) innehåller ett exempel på Java-program som visar hur du distribuerar och startar en topologi via Nimbus-tjänsten.
+Programmässigt kan du distribuera en topologi som använder Nimbus-tjänsten. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) ger ett exempel på Java-program som visar hur du distribuerar och startar en topologi via Nimbus-tjänsten.
 
 ## <a name="monitor-and-manage-visual-studio"></a>Övervaka och hantera: Visual Studio
 
@@ -220,7 +218,7 @@ Mer information finns i [Storm UI REST API](http://storm.apache.org/releases/0.9
 
 ### <a name="base-uri"></a>Bas-URI
 
-Bas-URI för REST-API på Linux-baserade HDInsight-kluster finns i huvudnod vid **v1-https://HEADNODEFQDN:8744/api/**. Domännamnet för huvudnoden genereras när klustret skapas och är inte statisk.
+Bas-URI för REST-API på Linux-baserade HDInsight-kluster finns i huvudnod vid **https://HEADNODEFQDN:8744/api/v1/**. Domännamnet för huvudnoden genereras när klustret skapas och är inte statisk.
 
 Du hittar det fullständigt kvalificerade domännamnet (FQDN) för klustrets huvudnod på flera olika sätt:
 

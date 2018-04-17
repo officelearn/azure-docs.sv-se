@@ -1,12 +1,12 @@
 ---
-title: "Flera IP-adresser för virtuella datorer i Azure - mall | Microsoft Docs"
-description: "Lär dig hur du tilldelar flera IP-adresser till en virtuell dator med en Azure Resource Manager-mall."
-documentationcenter: 
+title: Flera IP-adresser för virtuella datorer i Azure - mall | Microsoft Docs
+description: Lär dig hur du tilldelar flera IP-adresser till en virtuell dator med en Azure Resource Manager-mall.
+documentationcenter: ''
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 ms.openlocfilehash: d4b189fb23dda1167c4f6b17b618c718d32dd98f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-an-azure-resource-manager-template"></a>Tilldela flera IP-adresser till virtuella datorer med en Azure Resource Manager-mall
 
@@ -68,7 +68,7 @@ Om du vill distribuera mallen med hjälp av Azure portal, gör du följande:
 1. Ändra mallen, om så önskas. Mallen distribuerar resurser och inställningar som anges i den [resurser](#resources) i den här artikeln. Mer information om mallar och hur du redigerar dem i [redigera Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-network%2ftoc.json)artikel.
 2. Distribuera mallen med en av följande metoder:
     - **Välj mallen i portal:** slutföra stegen i den [distribuera resurser från anpassade mall](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template) artikel. Välj den befintliga mallen med namnet *101-vm-flera-ipconfig*.
-    - **Direkt:** Klicka på följande om du vill öppna mallen direkt i portalen:<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-multiple-ipconfig%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+    - **Direkt:** Klicka på följande om du vill öppna mallen direkt i portalen: <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-multiple-ipconfig%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 Oavsett vilken metod du väljer, måste du ange värden för den [parametrar](#parameters) som angavs tidigare i den här artikeln. När den virtuella datorn har distribuerats kan ansluta till den virtuella datorn och Lägg till de privata IP-adresserna för operativsystemet som du har distribuerat genom att slutföra stegen i den [lägga till IP-adresser till ett VM-operativsystem](#os-config) i den här artikeln. Lägg inte till de offentliga IP-adresserna till operativsystemet.
 

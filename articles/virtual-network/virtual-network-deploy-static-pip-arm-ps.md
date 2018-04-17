@@ -1,11 +1,11 @@
 ---
 title: Skapa en virtuell dator med en statisk offentlig IP-adress - Azure PowerShell | Microsoft Docs
-description: "Lär dig hur du skapar en virtuell dator med en statisk offentlig IP-adress med hjälp av PowerShell."
+description: Lär dig hur du skapar en virtuell dator med en statisk offentlig IP-adress med hjälp av PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: ad975ab9-d69f-45c1-9e45-0d3f0f51e87e
 ms.service: virtual-network
@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4c413d3cb5c242a16f3e534dafe322785a35141
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 94d3458fd6ea917347296fdb297ab67f3052f8e0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>Skapa en virtuell dator med en statisk offentlig IP-adress med hjälp av PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Mall](virtual-network-deploy-static-pip-arm-template.md)
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/21/2017
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="step-1---start-your-script"></a>Steg 1 – starta skriptet
+## <a name="start-your-script"></a>Starta skriptet
 Du kan hämta den fullständiga PowerShell-skript som används [här](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Följ stegen nedan för att ändra skriptet fungerar i din miljö.
 
 Ändra värdena för variabler nedan baserat på de värden som du vill använda för din distribution. Följande värden mappas till det scenario som används i den här artikeln:
@@ -74,7 +74,7 @@ $pipName               = "PIPWEB1"
 $dnsName               = "iaasstoryws1"
 ```
 
-## <a name="step-2---create-the-necessary-resources-for-your-vm"></a>Steg 2 – skapa nödvändiga resurser för den virtuella datorn
+## <a name="create-the-necessary-resources-for-your-vm"></a>Skapa nödvändiga resurser för den virtuella datorn
 Innan du skapar en virtuell dator, måste en resursgrupp, virtuella nätverk, offentlig IP-adress och NIC som ska användas av den virtuella datorn.
 
 1. Skapa en ny resursgrupp.
@@ -119,7 +119,7 @@ Innan du skapar en virtuell dator, måste en resursgrupp, virtuella nätverk, of
     -ResourceGroupName $rgName -Type Standard_LRS -Location $location
     ```
 
-## <a name="step-3---create-the-vm"></a>Steg 3 – skapa den virtuella datorn
+## <a name="create-the-vm"></a>Skapa den virtuella datorn
 Nu när alla nödvändiga resurser är på plats kan skapa du en ny virtuell dator.
 
 1. Skapa konfigurationsobjektet för den virtuella datorn.
@@ -169,81 +169,14 @@ Nu när alla nödvändiga resurser är på plats kan skapa du en ny virtuell dat
 
 8. Spara skriptfilen.
 
-## <a name="step-4---run-the-script"></a>Steg 4 – kör skriptet
-Efter att göra nödvändiga ändringar och förstå skriptet visas ovanför genom att köra skriptet. 
+## <a name="run-the-script"></a>Kör skriptet
 
-1. Från PowerShell-konsolen eller PowerShell ISE, kör du skriptet ovan.
-2. Följande utdata ska visas efter några minuter:
-   
-        ResourceGroupName : IaaSStory
-        Location          : westus
-        ProvisioningState : Succeeded
-        Tags              : 
-        ResourceId        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory
-   
-        AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
-        DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
-        Subnets           : {FrontEnd}
-        ProvisioningState : Succeeded
-        AddressSpaceText  : {
-                              "AddressPrefixes": [
-                                "192.168.0.0/16"
-                              ]
-                            }
-        DhcpOptionsText   : {}
-        SubnetsText       : [
-                              {
-                                "Name": "FrontEnd",
-                                "AddressPrefix": "192.168.1.0/24"
-                              }
-                            ]
-        ResourceGroupName : IaaSStory
-        Location          : westus
-        ResourceGuid      : [Id]
-        Tag               : {}
-        TagsTable         : 
-        Name              : WTestVNet
-        Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        Id                : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
-   
-        AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
-        DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
-        Subnets           : {FrontEnd}
-        ProvisioningState : Succeeded
-        AddressSpaceText  : {
-                              "AddressPrefixes": [
-                                "192.168.0.0/16"
-                              ]
-                            }
-        DhcpOptionsText   : {
-                              "DnsServers": []
-                            }
-        SubnetsText       : [
-                              {
-                                "Name": "FrontEnd",
-                                "Etag": [Id],
-                                "Id": "/subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/FrontEnd",
-                                "AddressPrefix": "192.168.1.0/24",
-                                "IpConfigurations": [],
-                                "ProvisioningState": "Succeeded"
-                              }
-                            ]
-        ResourceGroupName : IaaSStory
-        Location          : westus
-        ResourceGuid      : [Id]
-        Tag               : {}
-        TagsTable         : 
-        Name              : WTestVNet
-        Etag              : [Id]
-        Id                : /subscriptions/[Subscription Id]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
-   
-        TrackingOperationId : [Id]
-        RequestId           : [Id]
-        Status              : Succeeded
-        StatusCode          : OK
-        Output              : 
-        StartTime           : [Subscription Id]
-        EndTime             : [Subscription Id]
-        Error               : 
-        ErrorText           : 
+Kör skriptet tidigare när du har gjort nödvändiga ändringar. Den virtuella datorn skapas efter några minuter.
 
+## <a name="set-ip-addresses-within-the-operating-system"></a>Ange IP-adresser inom operativsystemet
+
+Du bör aldrig manuellt tilldela den offentliga IP-adress som tilldelats en virtuell Azure-dator i den virtuella datorns operativsystem. Vi rekommenderar att du inte statiskt tilldelar privata IP-Adressen som tilldelats den virtuella Azure-datorn i operativsystemet på en virtuell dator, om nödvändigt, t.ex när [tilldela flera IP-adresser till en Windows-VM](virtual-network-multiple-ip-addresses-powershell.md). Om du manuellt anger den privata IP-adressen i operativsystemet, kontrollera att det är samma adress som den privata IP-adress som tilldelats i Azure [nätverksgränssnittet](virtual-network-network-interface-addresses.md#change-ip-address-settings), eller du kan förlora anslutningen till den virtuella datorn. Lär dig mer om [privata IP-adressen](virtual-network-network-interface-addresses.md#private) inställningar.
+
+## <a name="next-steps"></a>Nästa steg
+
+All nätverkstrafik kan flöda till och från den virtuella datorn skapas i den här artikeln. Du kan definiera inkommande och utgående säkerhetsregler inom en nätverkssäkerhetsgrupp som begränsar trafiken kan flöda till och från nätverksgränssnittet undernätet eller båda. Läs mer om nätverkssäkerhetsgrupper i [nätverk Säkerhetsöversikt för gruppen](security-overview.md).

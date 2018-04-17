@@ -1,5 +1,5 @@
 ---
-title: Azure Health Analytics Blueprint
+title: Azure Health Analytics plan
 description: Vägledning för distribution av en HIPAA/HITRUST hälsa Analytics plan
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 700378d23f869427fb50b9dee5bcf8448ac73404
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6bc2c63e75e9c750da852b77e4486666c3fc8561
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-säkerhet och efterlevnad modell - HIPAA/HITRUST hälsa Data och AI
 
@@ -79,14 +79,14 @@ Grundläggande arkitektur består av följande komponenter:
 ## <a name="roles"></a>Roller
 
 
-Modell definierar två roller för administrativa användare (operatörer) och tre användarroller i sjukhus hantering och vård. En sjätte roll har definierats för en granskare att utvärdera kompatibiliteten med HIPAA och andra föreskrifter. Azure rollbaserad åtkomstkontroll (RBAC) aktiverar exakt fokuserad åtkomsthantering för varje användare av lösningen via inbyggda och anpassade roller. Se [Kom igång med rollbaserad åtkomstkontroll i Azure portal](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) och [inbyggda roller för rollbaserad åtkomstkontroll i Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) detaljerad information om RBAC, roller och behörigheter.
+Modell definierar två roller för administrativa användare (operatörer) och tre användarroller i sjukhus hantering och vård. En sjätte roll har definierats för en granskare att utvärdera kompatibiliteten med HIPAA och andra föreskrifter. Azure rollbaserad åtkomstkontroll (RBAC) aktiverar exakt fokuserad åtkomsthantering för varje användare av lösningen via inbyggda och anpassade roller. Se [Kom igång med rollbaserad åtkomstkontroll i Azure portal](https://docs.microsoft.com/azure/role-based-access-control/overview) och [inbyggda roller för rollbaserad åtkomstkontroll i Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) detaljerad information om RBAC, roller och behörigheter.
 
 ### <a name="site-administrator"></a>Webbplatsens administratör
 
 
 Webbplatsadministratören ansvarar för kundens Azure-prenumeration. De styr den övergripande distributionen, men har inte behörighet att patientjournaler.
 
--   Standard rolltilldelningar: [ägare](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#owner)
+-   Standard rolltilldelningar: [ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 -   Anpassade rolltilldelningar: ej tillämpligt
 
@@ -97,7 +97,7 @@ Webbplatsadministratören ansvarar för kundens Azure-prenumeration. De styr den
 Databasen analysen administrerar SQL Server-instans och databas.
 De har inte behörighet att patientjournaler.
 
--   Inbyggda rolltilldelningar: [SQL DB-deltagare](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-db-contributor), [SQL Server-deltagare](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-server-contributor)
+-   Inbyggda rolltilldelningar: [SQL DB-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [SQL Server-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   Anpassade rolltilldelningar: ej tillämpligt
 
@@ -108,7 +108,7 @@ De har inte behörighet att patientjournaler.
 
 Forskare data fungerar Azure Machine Learning-tjänsten. De kan importera, exportera, hantera data och köra rapporter. Forskare data har åtkomst till Patientdata, men har inte administratörsbehörighet.
 
--   Inbyggda rolltilldelningar: [Storage-konto deltagare](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#storage-account-contributor)
+-   Inbyggda rolltilldelningar: [Storage-konto deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
 -   Anpassade rolltilldelningar: ej tillämpligt
 
@@ -138,7 +138,7 @@ I den här rollen ingår att övervaka statusen för enskilda patienter och se t
 
 Granskaren utvärderar lösning för kompatibilitet. De har ingen direkt åtkomst till nätverket.
 
--   Inbyggda rolltilldelningar: [läsare](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#reader)
+-   Inbyggda rolltilldelningar: [läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
 -   Anpassade rolltilldelningar: ej tillämpligt
 
@@ -222,7 +222,7 @@ Det här avsnittet beskrivs standardkonfigurationer och säkerhetsåtgärder som
 
 -   [Azure Active Directory-identitetsskydd](/azure/active-directory/active-directory-identityprotection) identifierar potentiella problem som påverkar din organisations identiteter, konfigurerar du automatiska svar på identifierade misstänkta åtgärder som rör din organisations identiteter och undersöker misstänkta incidenter och vidtar lämpliga åtgärder som kan lösas.
 
--   [Azure rollbaserad åtkomstkontroll (RBAC)](/azure/active-directory/role-based-access-control-configure) aktiverar exakt fokuserad åtkomsthantering för Azure. Prenumerationen åtkomst begränsas till administratör för prenumeration och Azure Key Vault åtkomst är begränsad till webbplatsens administratör. Starka lösenord (12 tecken minsta med minst en övre/nedre bokstav, siffra och specialtecken) krävs.
+-   [Azure rollbaserad åtkomstkontroll (RBAC)](/azure/role-based-access-control/role-assignments-portal) aktiverar exakt fokuserad åtkomsthantering för Azure. Prenumerationen åtkomst begränsas till administratör för prenumeration och Azure Key Vault åtkomst är begränsad till webbplatsens administratör. Starka lösenord (12 tecken minsta med minst en övre/nedre bokstav, siffra och specialtecken) krävs.
 
 -   Multifaktorautentisering stöds när växeln - enableMFA aktiveras under distributionen.
 
@@ -230,7 +230,7 @@ Det här avsnittet beskrivs standardkonfigurationer och säkerhetsåtgärder som
 
 **Roller:**
 
--   Lösningen gör att användning av [inbyggda roller](/azure/active-directory/role-based-access-built-in-roles) att hantera åtkomst till resurser.
+-   Lösningen gör att användning av [inbyggda roller](/azure/role-based-access-control/built-in-roles) att hantera åtkomst till resurser.
 
 -   Alla användare tilldelas specifika inbyggda roller som standard.
 
@@ -242,8 +242,8 @@ Det här avsnittet beskrivs standardkonfigurationer och säkerhetsåtgärder som
     -   Patient Data lagringsåtkomst nyckel
     -   Patient anslutningssträngen
     -   Patientdata tabellnamn
-    -   Azure ML Web Service Endpoint
-    -   Azure ML Service API Key
+    -   Azure ML-webbtjänstens slutpunkt
+    -   Azure ML Service API-nyckel
 
 -   Avancerade åtkomstprinciper konfigureras på grundval av behov
 -   Key Vault åtkomstprinciper har definierats med minsta behörighet till nycklar och hemligheter

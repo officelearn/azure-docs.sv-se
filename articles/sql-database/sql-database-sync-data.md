@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: e66adb8b0485e30fded487e18af6b2030f9c7f5b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 365a612b20ed91a6acde566dff12b07ff3b8b676
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synkronisera data över flera molntjänster och lokala databaser med SQL-datasynkronisering (förhandsgranskning)
 
@@ -110,7 +110,7 @@ Data Sync använder Infoga, uppdatera och ta bort utlösare för att spåra änd
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Begränsningar för tjänsten och databasen dimensioner
 
-| **Dimensioner**                                                      | **Limit**              | **Lösning**              |
+| **Dimensioner**                                                      | **Gränsen**              | **Lösning**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Maximalt antal synkroniseringsgrupper alla databaser kan tillhöra.       | 5                      |                             |
 | Maximalt antal slutpunkter i en enda sync-grupp              | 30                     | Skapa flera synkroniseringsgrupper |
@@ -118,7 +118,7 @@ Data Sync använder Infoga, uppdatera och ta bort utlösare för att spåra änd
 | Namn på databasen, tabell, schemat och kolumn                       | 50 tecken per namn |                             |
 | Tabeller i en grupp för synkronisering                                          | 500                    | Skapa flera synkroniseringsgrupper |
 | Kolumner i en tabell i en grupp för synkronisering                              | 1000                   |                             |
-| Datastorlek för rad i en tabell                                        | 24 Mb                  |                             |
+| Datastorlek för rad i en tabell                                        | 24 mb                  |                             |
 | Minsta synkroniseringsintervall                                           | 5 minuter              |                             |
 |||
 
@@ -138,6 +138,11 @@ Ja. Du måste ha ett konto för SQL-databas som värd för NAV-databasen.
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Kan jag använda datasynkronisering ska synkroniseras mellan SQL Server lokala databaser? 
 Inte direkt. Du kan synkronisera mellan lokala SQL Server-databaser indirekt, men genom att skapa en Hub-databas i Azure och sedan lägga till de lokala databaserna i gruppen synkronisering.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>Kan jag använda datasynkronisering ska synkroniseras mellan SQL-databaser som tillhör olika prenumerationer?
+Ja. Du kan synkronisera mellan SQL-databaser som tillhör resursgrupper som ägs av olika prenumerationer.
+-   Om du har behörighet till alla prenumerationer prenumerationerna tillhör samma klientorganisation och kan du konfigurera gruppen synkronisering i Azure-portalen.
+-   I annat fall behöver du använda PowerShell för att lägga till sync-medlemmar som hör till olika prenumerationer.
    
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Kan jag använda datasynkronisering att fördefiniera data från min produktionsdatabasen i en tom databas och hålla dem synkroniserade? 
 Ja. Skapa schemat manuellt i den nya databasen med hjälp av skript från ursprungligt. När du skapar schemat, lägga till tabeller i en synkronisering att kopiera data och hålla den synkroniserad.
@@ -147,6 +152,12 @@ Ja. Skapa schemat manuellt i den nya databasen med hjälp av skript från urspru
 Du bör inte använda SQL-datasynkronisering (förhandsgranskning) för att skapa en säkerhetskopia av dina data. Du kan inte säkerhetskopiera och återställa till en specifik tidpunkt eftersom SQL-datasynkronisering (förhandsgranskning) synkroniseringar inte är en ny version. Dessutom SQL datasynkronisering (förhandsgranskning) säkerhetskopieras inte andra SQL-objekt, till exempel lagrade procedurer och utför inte motsvarigheten till en återställningsåtgärd snabbt.
 
 En rekommenderad säkerhetskopiering tekniken finns [kopiera en Azure SQL database](sql-database-copy.md).
+
+### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Datasynkronisering kan synkronisera krypterade tabeller och kolumner?
+
+-   Om en databas använder Always Encrypted, du kan synkronisera de tabeller och kolumner som är *inte* krypterade. Du kan inte synkronisera krypterade kolumner eftersom datasynkronisering inte kan dekryptera data.
+
+-   Om en kolumn använder kolumnnivå kryptering (r), kan du synkronisera kolumnen så länge Radstorleken är mindre än den maximala storleken på 24 Mb. Datasynkronisering behandlar den kolumn som krypterats med nyckeln (radera) som normala binära data. Du måste ha samma certifikat för att dekryptera data på andra sync-medlemmar.
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>Har stöd för sorteringen i SQL-datasynkronisering?
 
@@ -170,7 +181,7 @@ Mer information om SQL Data Sync finns i:
 -   [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Slutför PowerShell-exempel som visar hur du konfigurerar SQL Data Sync:
-    -   [Använd PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 -   [Ladda ned REST API-dokumentation för SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)

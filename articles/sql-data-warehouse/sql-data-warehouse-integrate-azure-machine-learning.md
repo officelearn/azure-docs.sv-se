@@ -1,11 +1,11 @@
 ---
-title: "Använda Azure Machine Learning med SQL Data Warehouse | Microsoft Docs"
-description: "Självstudier för att använda Azure Machine Learning med Azure SQL Data Warehouse för utveckling av lösningar."
+title: Använda Azure Machine Learning med SQL Data Warehouse | Microsoft Docs
+description: Självstudier för att använda Azure Machine Learning med Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: ac6bc731-6add-47a9-b3fe-68996e656f4d
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: c19860c6b5b1c15d1e29ddc67f9cf9ad4618725b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-machine-learning-with-sql-data-warehouse"></a>Använda Azure Machine Learning med SQL Data Warehouse
 Azure Machine Learning är en helt hanterad förutsägelseanalyser-tjänst som du kan använda för att skapa förutsägelsemodeller mot dina data i SQL Data Warehouse och sedan publicera som redo att använda webbtjänster. Du kan lära dig grunderna i förutsägelseanalyser och maskininlärning genom att läsa [introduktion till Machine Learning på Azure][Introduction to Machine Learning on Azure].  Du kan sedan lära dig att skapa, träna, poängsätta och testa machine learning-modellen med hjälp av den [skapa experiment kursen][Create experiment tutorial].

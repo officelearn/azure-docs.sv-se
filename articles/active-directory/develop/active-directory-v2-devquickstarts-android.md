@@ -1,11 +1,11 @@
 ---
 title: Azure Active Directory v2.0 Android-app | Microsoft Docs
-description: "Hur du skapar en Android-app som loggar in användare med både personliga Microsoft-konto och arbete eller skola konton och Graph API-anrop med hjälp av tredjeparts-bibliotek."
+description: Hur du skapar en Android-app som loggar in användare med både personliga Microsoft-konto och arbete eller skola konton och Graph API-anrop med hjälp av tredjeparts-bibliotek.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: danieldobalian
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 16294c07-f27d-45c9-833f-7dbb12083794
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 05/07/2017
 ms.author: dadobali
 ms.custom: aaddev
 ms.openlocfilehash: b1c30362a7b14c8f7f0c44d911c46c491b3de3c0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/17/2018
 ---
 # <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Lägga till inloggning till en Android-app med hjälp av en tredjeparts-bibliotek med Graph API: et med v2.0-slutpunkten
 Microsofts identitetsplattform använder öppna standarder som OAuth2 och OpenID Connect. Utvecklare kan använda alla bibliotek som de vill integrera med våra tjänster. Vi har skrivit några genomgång som detta att demonstrera hur du konfigurerar tredjeparts-bibliotek för att ansluta till Microsoft identity-plattformen för att hjälpa utvecklare att använda vår plattform med andra bibliotek. De flesta bibliotek som implementerar [RFC6749 OAuth2-specifikationen](https://tools.ietf.org/html/rfc6749) kan ansluta till Microsoft identity-plattformen.

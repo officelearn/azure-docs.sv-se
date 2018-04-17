@@ -9,18 +9,18 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5d6118a47e10763373c9376ca08d328cf22ab3c8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8782befb1548606fe649909a7841eb648c15f1c6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure-databas för MySQL med Azure-portalen
 
 ## <a name="backup-happens-automatically"></a>Säkerhetskopieringen sker automatiskt
 Azure-databas för MySQL-servrar säkerhetskopieras regelbundet för att aktivera funktioner för återställning. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare i tidpunkt, på en ny server.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att slutföra den här instruktioner:
 - En [Azure-databas för MySQL-server och databas](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -85,6 +85,10 @@ Om du har konfigurerat din server för geografiskt redundant säkerhetskopiering
 
 2. I formulärets **Välj källa** listrutan, Välj **säkerhetskopiering**. Den här åtgärden läser in en lista över servrar som har geo-redundant säkerhetskopieringar aktiverad. Välj en av dessa säkerhetskopior som källa för den nya servern.
    ![Välj källa: Säkerhetskopiering och listan över geo-redundant säkerhetskopieringar](./media/howto-restore-server-portal/2-georestore.png)
+
+   > [!NOTE]
+   > När en server först skapas kanske det inte omedelbart tillgängliga för geo-återställning. Det kan ta några timmar för nödvändiga metadata fyllas.
+   >
 
 3. Fyll i resten av formuläret med dina inställningar. Du kan välja en annan **plats**. Markera platsen och du kan välja **prisnivån**. Parametrarna för den befintliga servern som du återställer från visas som standard. Du kan klicka på **OK** utan ändringar ärver inställningarna. Eller så kan du ändra **Compute Generation** (om tillgänglig i regionen du har valt), antal **vCores**, **säkerhetskopiering kvarhållningsperiod**, och **säkerhetskopiering Redundans alternativet**. Ändra **prisnivån** (Basic, generella eller Minnesoptimerade) eller **lagring** storlek under återställning stöds inte.
 

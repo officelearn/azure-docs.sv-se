@@ -12,31 +12,31 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 04/06/2018
 ms.author: genli
-ms.openlocfilehash: 2743a00404a2ee990147dfb6e73e9c2369eb4753
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9026b702e6e0d27817955c70c733bf372005dd4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Felsöka ett problem virtuella Azure-datorn med hjälp av kapslade virtualisering i Azure
 
-Den här artikeln visar hur du skapar en kapslad virtualiseringsmiljö i Microsoft Azure, så du kan montera problemet virtuell disk på Hyper-V-värd (återställning VM) för felsökning.
+Den här artikeln visar hur du skapar en kapslad virtualiseringsmiljö i Microsoft Azure, så du kan montera problemet virtuell disk på Hyper-V-värd (ordningar VM) för felsökning.
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill montera problemet VM måste VM återställning uppfylla följande villkor:
+Om du vill montera problemet VM, uppfyller VM ordningar följande krav:
 
--   Den virtuella datorn återställning måste vara på samma plats som problemet VM.
+-   Den virtuella datorn ordningar måste vara på samma plats som problemet VM.
 
--   Den virtuella datorn återställning måste vara i samma resursgrupp som problemet VM.
+-   Den virtuella datorn ordningar måste vara i samma resursgrupp som problemet VM.
 
--   Den virtuella datorn återställning måste använda samma typ av Lagringskonto (Standard eller Premium) som problemet VM.
+-   Den virtuella datorn ordningar måste använda samma typ av Lagringskonto (Standard eller Premium) som problemet VM.
 
-## <a name="step-1-create-a-recovery-vm-and-install-hyper-v-role"></a>Steg 1: Skapa en återställning av virtuell dator och installera Hyper-V-rollen
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Steg 1: Skapa en virtuell dator ordningar och installera Hyper-V-rollen
 
-1.  Skapa en ny återställning virtuell dator:
+1.  Skapa en ny ordningar virtuell dator:
 
     -  Operativsystem: Windows Server 2016 Datacenter
 
@@ -46,13 +46,13 @@ Om du vill montera problemet VM måste VM återställning uppfylla följande vil
 
     -  Välj samma lagring som är problemet VM (Standard eller Premium).
 
-2.  Efter återställning VM skapas, Fjärrskrivbord för återställning-VM.
+2.  När den virtuella datorn ordningar skapas fjärrskrivbord till den Virtuella datorn ordningar.
 
 3.  I Serverhanteraren väljer **hantera** > **Lägg till roller och funktioner**.
 
 4.  I den **installationstyp** väljer **rollbaserad eller funktionsbaserad installation**.
 
-5.  I den **väljer målservern** Kontrollera att den virtuella datorn återställning har valts.
+5.  I den **väljer målservern** Kontrollera att den virtuella datorn ordningar är markerad.
 
 6.  Välj den **Hyper-V-rollen** > **Lägg till funktioner**.
 
@@ -70,25 +70,25 @@ Om du vill montera problemet VM måste VM återställning uppfylla följande vil
 
 13. Att installera rollen Hyper-V-servern. Detta tar några minuter och servern startas om automatiskt.
 
-## <a name="step-2-create-the-problem-vm-on-the-recovery-vms-hyper-v-server"></a>Steg 2: Skapa problem VM på VM Recovery Hyper-V server
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Steg 2: Skapa problem VM på VM ordningar Hyper-V server
 
 1.  Anteckna namnet på disken i problemet VM och ta sedan bort problemet VM. Kontrollera att du behåller alla anslutna diskar. 
 
-2.  Koppla ditt problem VM OS-disk som en datadisk på VM: en återställning.
+2.  Koppla ditt problem VM OS-disk som en datadisk av ordningar VM.
 
-    1.  När problemet VM tas bort, gå till den Virtuella datorn återställning.
+    1.  När problemet VM tas bort, gå till den Virtuella datorn ordningar.
 
     2.  Välj **diskar**, och sedan **Lägg till datadisk**.
 
     3.  Välj VM problemet disken och välj sedan **spara**.
 
-3.  När disken har kopplats bifogade, remote desktop för återställning-VM.
+3.  När disken har kopplats bifogade, remote desktop för ordningar VM.
 
 4.  Öppna Diskhantering (diskmgmt.msc). Kontrollera att disken problemets VM är inställd på **Offline**.
 
 5.  Öppna Hyper-V Manager: I **Serverhanteraren**, Välj den **Hyper-V-rollen**. Högerklicka på servern och välj sedan den **Hyper-V Manager**.
 
-6.  Högerklicka på den virtuella datorn återställning i Hyper-V-hanteraren och välj sedan **ny** > **virtuella** > **nästa**.
+6.  Högerklicka på den virtuella datorn ordningar i Hyper-V-hanteraren och välj sedan **ny** > **virtuella** > **nästa**.
 
 7.  Skriv ett namn för den virtuella datorn och välj sedan **nästa**.
 
@@ -125,7 +125,7 @@ Om du vill montera problemet VM måste VM återställning uppfylla följande vil
 
 1.  När du får den virtuella datorn online igen kan du stänga av den virtuella datorn i Hyper-V manager.
 
-2.  Gå till den [Azure-portalen](https://portal.azure.com) och välj den virtuella datorn Recovery > diskar, kopierar du namnet på disken. Namnet används i nästa steg. Koppla bort fast disk från den Virtuella återställningsdatorn.
+2.  Gå till den [Azure-portalen](https://portal.azure.com) och välj den virtuella datorn ordningar > diskar, kopierar du namnet på disken. Namnet används i nästa steg. Koppla bort fast disk från den virtuella datorn ordningar.
 
 3.  Gå till **alla resurser**, söka efter namnet på disk och välj sedan disken.
 

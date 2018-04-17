@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 4eeff0d89fa8a73b8f7f4b73fb5bfb85cda26184
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 48c4ee60487ed4a78bf7a823011b833d46db4ecf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 Generella VM-storlekar ange förhållandet mellan belastningsutjämnade CPU-minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. Den här artikeln innehåller information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
@@ -95,15 +95,15 @@ ACU: 210–250
 
 ACU: 210–250
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1_v2 |1 |3.5 |4 |50 |3 000 / 46 / 23 |4 / 4 x 500 |2/750 |
-| Standard_D2_v2 |2 |7 |8 |100 |6 000 / 93 / 46 |8 / 8 x 500 |2/1 500 |
-| Standard_D3_v2 |4 |14 |16 |200 |12 000 / 187 / 93 |16 / 16 x 500 |4/3 000 |
-| Standard_D4_v2 |8 |28 |32 |400 |24 000 / 375 / 187  |32 / 32 x 500 |8/6 000 |
-| Standard_D5_v2 |16 |56 |64 |800 |48 000 / 750 / 375 |64 / 64 x 500 |8 / 12000 |
+| Storlek           | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar | Genomströmning: IOPS | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) |
+|----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
+| Standard_D1_v2 | 1    | 3.5         | 50                     | 3 000 / 46 / 23                                             | 4              | 4 × 500            | 2/750                                      |
+| Standard_D2_v2 | 2    | 7           | 100                    | 6 000 / 93 / 46                                             | 8              | 8 × 500            | 2/1 500                                     |
+| Standard_D3_v2 | 4    | 14          | 200                    | 12 000 / 187 / 93                                           | 16             | 16 × 500           | April 00                                       |
+| Standard_D4_v2 | 8    | 28          | 400                    | 24 000 / 375 / 187                                          | 32             | 32 × 500           | Augusti 00                                       |
+| Standard_D5_v2 | 16   | 56          | 800                    | 48 000 / 750 / 375                                          | 64             | 64 x 500           | 8 / 12000                                    |
 
-<br>
+
 
 ## <a name="ds-series"></a>DS-serien
 
@@ -179,7 +179,7 @@ I den klassiska distributionsmodellen skiljer sig vissa namn på VM-storlekarna 
 
 ## <a name="basic-a"></a>Basic A
 
-|Storlek – Storlek\namn | Virtuell processor |Minne|Nätverkskort (max.)|Högsta temporär diskstorlek |Max. datadiskar (1 023 GB var)|Max. IOPS (300 per disk)|
+|Storlek – Storlek\namn | Virtuell processor |Minne|Nätverkskort (max.)|Högsta temporär diskstorlek |Max. datadiskar (1 023 GB som är varje)|Max. IOPS (300 per disk)|
 |---|---|---|---|---|---|---|
 |A0\Basic_A0|1|768 MB|2| 20 GB|1|1 × 300|
 |A1\Basic_A1|1|1,75 GB|2| 40 GB |2|2 × 300|

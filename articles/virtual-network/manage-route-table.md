@@ -1,13 +1,13 @@
 ---
-title: "Skapa, ändra eller ta bort en Azure routningstabellen | Microsoft Docs"
-description: "Lär dig mer om att skapa, ändra eller ta bort en routningstabell."
+title: Skapa, ändra eller ta bort en Azure routningstabellen | Microsoft Docs
+description: Lär dig mer om att skapa, ändra eller ta bort en routningstabell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: a7e45d6bccfd8113157eba63d311b6609bf35aaa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 73b0c35ac81d9b32cd56a6fd23119f3889867499
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Skapa, ändra eller ta bort en routningstabell
 
@@ -31,8 +31,8 @@ Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här ar
 
 - Om du inte redan har ett Azure-konto, registrera dig för en [ledigt utvärderingskonto](https://azure.microsoft.com/free).
 - Om du använder portalen, öppna https://portal.azure.com, och logga in med ditt Azure-konto.
-- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.2.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
-- Om du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här kursen kräver Azure CLI version 2.0.26 eller senare. Kör `az --version` att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du använder Azure CLI lokalt, måste du också köra `az login` att skapa en anslutning med Azure.
+- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.2.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+- Om du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här kursen kräver Azure CLI version 2.0.26 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du använder Azure CLI lokalt, måste du också köra `az login` att skapa en anslutning med Azure.
 
 ## <a name="create-a-route-table"></a>Skapa en routingtabell
 
@@ -45,7 +45,7 @@ Det finns en gräns för hur många routningstabeller som du kan skapa per Azure
 **Kommandon**
 
 - Azure CLI: [az nätverket routningstabellen skapa](/cli/azure/network/route-table/route#az_network_route_table_create)
-- PowerShell: [New-AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable)
+- PowerShell: [nya AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable)
 
 ## <a name="view-route-tables"></a>Visa vägtabeller
 
@@ -80,7 +80,7 @@ Skriv i sökrutan överst i portalen *routningstabeller* i sökrutan. När **rou
 **Kommandon**
 
 - Azure CLI: [az nätverket routningstabellen uppdatering](/cli/azure/network/route-table/route#az_network_route_table_update)
-- PowerShell: [Set-AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
+- PowerShell: [Set AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associera en routingtabell till ett undernät
 
@@ -95,7 +95,7 @@ Ett undernät kan ha noll eller en vägtabell associerad till den. En routingtab
 **Kommandon**
 
 - Azure CLI: [az network vnet undernät uppdatering](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update)
-- PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
+- PowerShell: [Set AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
 
 ## <a name="dissociate-a-route-table-from-a-subnet"></a>Koppla bort en routingtabell från ett undernät
 
@@ -110,7 +110,7 @@ När du koppla bort en routingtabell från ett undernät Azure dirigerar trafik 
 **Kommandon**
 
 - Azure CLI: [az network vnet undernät uppdatering](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update)
-- PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) 
+- PowerShell: [Set AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) 
 
 ## <a name="delete-a-route-table"></a>Ta bort en routningstabell
 
@@ -123,7 +123,7 @@ Om en routingtabell är kopplad till undernät, kan inte tas bort. [Koppla bort]
 **Kommandon**
 
 - Azure CLI: [az nätverket routningstabellen ta bort](/cli/azure/network/route-table/route#az_network_route_table_delete)
-- PowerShell: [Delete-AzureRmRouteTable](/powershell/module/azurerm.network/delete-azurermroutetable) 
+- PowerShell: [ta bort AzureRmRouteTable](/powershell/module/azurerm.network/delete-azurermroutetable) 
 
 ## <a name="create-a-route"></a>Skapa en väg
 
@@ -180,7 +180,7 @@ En routningstabell innehåller noll eller flera vägar. Mer information om den i
 **Kommandon**
 
 - Azure CLI: [az nätverket routningstabellen väg uppdatering](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_update)
-- PowerShell: [Set-AzureRmRouteConfig](/powershell/module/azurerm.network/set-azurermrouteconfig)
+- PowerShell: [Set AzureRmRouteConfig](/powershell/module/azurerm.network/set-azurermrouteconfig)
 
 ## <a name="delete-a-route"></a>Ta bort en väg
 
@@ -193,7 +193,7 @@ En routningstabell innehåller noll eller flera vägar. Mer information om den i
 **Kommandon**
 
 - Azure CLI: [az datornätverket routningstabellen väg ta bort](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_delete)
-- PowerShell: [Remove-AzureRmRouteConfig](/powershell/module/azurerm.network/remove-azurermrouteconfig)
+- PowerShell: [ta bort AzureRmRouteConfig](/powershell/module/azurerm.network/remove-azurermrouteconfig)
 
 ## <a name="view-effective-routes"></a>Visa effektiva flöden
 
@@ -229,7 +229,7 @@ Du kan fastställa nästa hopptyp mellan en virtuell dator och IP-adressen för 
  
 ## <a name="permissions"></a>Behörigheter
 
-För att utföra aktiviteter på route-tabeller och vägar, ditt konto måste ha tilldelats den [network-deltagare](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller en [anpassade](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som har tilldelats rätt behörigheter som anges i följande tabell:
+För att utföra aktiviteter på route-tabeller och vägar, ditt konto måste ha tilldelats den [network-deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller en [anpassade](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som har tilldelats rätt behörigheter som anges i följande tabell:
 
 |Åtgärd                                                       |   Åtgärdsnamn                               |
 |--------------------------------------------------------------  |   -------------------------------------------  |

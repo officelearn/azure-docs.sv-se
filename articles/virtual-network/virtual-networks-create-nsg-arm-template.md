@@ -1,6 +1,6 @@
 ---
-title: "Skapa nätverkssäkerhetsgrupper - Azure Resource Manager-mall | Microsoft Docs"
-description: "Lär dig hur du skapar och distribuerar nätverkssäkerhetsgrupper med en Azure Resource Manager-mall."
+title: Skapa nätverkssäkerhetsgrupper - Azure Resource Manager-mall | Microsoft Docs
+description: Lär dig hur du skapar och distribuerar nätverkssäkerhetsgrupper med en Azure Resource Manager-mall.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,10 +17,10 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1fc210ac5e28efe10be27f8b5a752788d3d5a5a3
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Skapa nätverk säkerhetsgrupper med en Azure Resource Manager-mall
 
@@ -104,7 +104,7 @@ Exempelmallen som är tillgänglig i den offentliga databasen använder en param
 Följ stegen nedan för att distribuera ARM-mallen som du hämtade med PowerShell.
 
 1. Om du aldrig har använt Azure PowerShell, följ instruktionerna i den [hur installera och konfigurera Azure PowerShell](/powershell/azure/overview) att installera och konfigurera den.
-2. Kör den  **`New-AzureRmResourceGroup`**  för att skapa en resursgrupp med hjälp av mallen.
+2. Kör den **`New-AzureRmResourceGroup`** för att skapa en resursgrupp med hjälp av mallen.
 
     ```powershell
     New-AzureRmResourceGroup -Name TestRG -Location uswest `
@@ -162,7 +162,7 @@ Följ stegen nedan om du vill distribuera ARM-mallen med hjälp av Azure CLI.
 
         info:    New mode is arm
 
-3. Kör cmdleten **`azure group deployment create`** för att distribuera det nya VNet med hjälp av mall- och parameterfilerna som du hämtade och ändrade ovan. Listan som visas efter alla utdata förklarar parametrarna som använts.
+3. Kör cmdleten **`azure group deployment create`** för att distribuera det nya VNet med hjälp av mall- och parameterfilerna som du hämtade och ändrade ovan. Listan som visas efter utdatan beskriver de parametrar som används.
 
     ```azurecli
     azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'

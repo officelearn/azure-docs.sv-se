@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/02/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6ea45398b0bf7fca43c75797313b7e683972b1ab
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 724f027f3f43cd0ad846210b511c8fc1af27153f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimera prestanda genom att uppgradera SQL Data Warehouse
 
@@ -70,9 +70,9 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
    
    Det första steget i uppgraderingsprocessen genomgår åtgärden (”uppgradera - Offline”) där avbryts alla sessioner och anslutningar kommer att tas bort. 
    
-   Det andra steget i uppgraderingsprocessen är datamigrering (”uppgradera - Online”). Migrering av data är bakgrunden online takt vilket för långsamt kolumner data från den gamla Gen1 lagringsarkitekturen nya Gen2 lagringsarkitekturen utnyttja den Gen2 lokala SSD-cachen. Under den här tiden kommer ditt data warehouse vara online för frågor och lästes in. Alla dina data blir tillgängliga att fråga oavsett om den har migrerats eller inte. Migrering av data sker i olika takt beroende på datastorleken på din, prestandanivå och antalet columnstore-segment. 
+   Det andra steget i uppgraderingsprocessen är datamigrering (”uppgradera - Online”). Migrering av data är bakgrunden online takt som långsamt flyttas kolumner data från den gamla lagringsarkitekturen till den nya lagringsarkitekturen i genom att använda en lokal SSD-cache. Under den här tiden kommer ditt data warehouse vara online för frågor och lästes in. Alla dina data blir tillgängliga att fråga oavsett om den har migrerats eller inte. Migrering av data sker i olika takt beroende på datastorleken på din, prestandanivå och antalet columnstore-segment. 
 
-5. **Valfria rekommendation:** för att påskynda bakgrund migrerar data, rekommenderas att tvinga dataflyttning omedelbart genom att köra [Alter Index rebuild](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) för alla columnstore-tabeller i en större SLO och resurs klass. Den här åtgärden är offline jämfört med bakgrunden takt; migrering av data kommer dock att mycket snabbare där du sedan kan dra full nytta av en gång slutfördes med hög kvalitet rowgroups Gen2 lagringsarkitekturen. 
+5. **Valfria rekommendation:** för att påskynda bakgrund migrerar data, rekommenderas att tvinga dataflyttning omedelbart genom att köra [Alter Index rebuild](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) för alla columnstore-tabeller i en större SLO och resurs klass. Den här åtgärden är offline jämfört med bakgrunden takt; migrering av data kommer dock att mycket snabbare där du sedan kan dra nytta av den nya arkitekturen för Förbättrad lagring när slutfördes med hög kvalitet rowgroups. 
 
 Följande frågan genererar krävs Alter Index Rebuild kommandona för att påskynda migrerar data:
 

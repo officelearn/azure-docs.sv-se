@@ -1,26 +1,24 @@
 ---
-title: "Felsöka ett långsamt eller inte alls HDInsight-kluster - Azure HDInsight | Microsoft Docs"
-description: "Diagnostisera och felsöka ett långsamt eller inte alls HDInsight-kluster."
+title: Felsöka ett långsamt eller inte alls HDInsight-kluster - Azure HDInsight | Microsoft Docs
+description: Diagnostisera och felsöka ett långsamt eller inte alls HDInsight-kluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 00c4ac0e2ac059efebbfbe0b2426b27361ad8e37
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: bd026169062788fa7587cb6357b3764fbfdb24fb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Felsöka ett långsamt eller felaktigt HDInsight-kluster
 
@@ -134,7 +132,7 @@ $ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton
 
 Ambari visas ett varningsmeddelande som visar de värdar som WebHCat-tjänsten har stoppats. Du kan försöka att få igång tjänsten WebHCat säkerhetskopiera genom att starta om tjänsten på värden.
 
-![Restart WebHCat Server](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat.png)
+![Starta om servern WebHCat](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat.png)
 
 Om en WebHCat-server inte kommer fortfarande, kontrollerar du operations loggen för misslyckade meddelanden. Mer information finns i `stderr` och `stdout` filer som refereras på noden.
 
@@ -209,7 +207,7 @@ Att diagnostisera problemen:
 
     Det kan finnas fall där interaktioner med WebHCat är lyckades, men jobb misslyckas.
 
-    Templeton samlar in konsolens jobbutdata som `stderr` i `statusdir`, vilket ofta är användbart för felsökning. `stderr`innehåller YARN program-ID för den faktiska frågan.
+    Templeton samlar in konsolens jobbutdata som `stderr` i `statusdir`, vilket ofta är användbart för felsökning. `stderr` innehåller YARN program-ID för den faktiska frågan.
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>Steg 4: Granska miljö stack och versioner
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure identitet och säkerhetsmetoder | Microsoft Docs"
-description: "Den här artikeln innehåller en uppsättning av bästa praxis för Identitetshantering och kontroll med hjälp av inbyggda funktioner i Azure."
+title: Azure identitet och säkerhetsmetoder | Microsoft Docs
+description: Den här artikeln innehåller en uppsättning av bästa praxis för Identitetshantering och kontroll med hjälp av inbyggda funktioner i Azure.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: d80fdd5a2e4339823c05368d76de333f3314d4ec
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ec8eb8759e310e31c7798c54cc95f0170e95cf50
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identitetshantering och åtkomst kontroll säkerhetsmetoder
 Många Överväg identitet till att det nya lagret gräns för säkerhet kan ta över rollen ur ett traditionellt nätverk till Central. Den här utvecklingen av primära pivot för säkerhet kontrolleras och investeringar kommer från det faktum att nätverket ytgränser har blivit allt porös och den perimeterskydd får inte vara så effektiv som de en gång var före expanderingen av [BYOD ](http://aka.ms/byodcg) enheter och molnprogram.
@@ -52,7 +52,7 @@ Ett viktigt steg mot att skydda din identitet är att säkerställa att IT kan h
 Att åstadkomma detta [hybrididentitet](../active-directory/active-directory-hybrid-identity-design-considerations-overview.md) scenariot rekommenderar vi två alternativ:
 
 * Synkronisera din lokala katalog med din molnkatalog med Azure AD Connect
-* Federera din lokala identitet med en molnbaserad katalog med hjälp av [Active Directory Federation Services](https://msdn.microsoft.com/library/bb897402.aspx) (AD FS)
+* Aktivera enkel inloggning med [synkronisering av lösenords-hash-](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization), [direktautentisering](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq) eller federera din lokala identitet med ditt moln directory [Active Directory Federationstjänster](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-federation-servers) (AD FS)
 
 Organisationer som misslyckas att integrera sin lokala identitet med sina molnidentitet får bättre administrativa kostnader i Hantera konton, vilket ökar sannolikheten för fel och säkerhetsintrång.
 
@@ -95,11 +95,11 @@ Mer information om Azure MFA finns i artikel [komma igång med Azure Multi-Facto
 ## <a name="use-role-based-access-control-rbac"></a>Använd rollbaserad åtkomstkontroll (RBAC)
 Begränsa åtkomst baserat på de [behöver](https://en.wikipedia.org/wiki/Need_to_know) och [minsta privilegium](https://en.wikipedia.org/wiki/Principle_of_least_privilege) säkerhetsprinciper är viktigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst. Azure rollbaserad åtkomstkontroll (RBAC) kan användas för att tilldela behörigheter till användare, grupper och program för ett visst område. Omfånget för en rolltilldelning kan vara en prenumeration, resursgrupp eller en enskild resurs.
 
-Du kan utnyttja [inbyggda RBAC](../active-directory/role-based-access-built-in-roles.md) roller i Azure för att tilldela behörigheter till användare. Överväg att använda *Storage-konto deltagare* för molnoperatörer som behöver kunna hantera storage-konton och *klassiska Storage-konto deltagare* att hantera klassiska lagringskonton. Överväg att lägga till dem för molnoperatörer som behöver hantera virtuella datorer och storage-kontot, *Virtual Machine-deltagare* roll.
+Du kan utnyttja [inbyggda RBAC](../role-based-access-control/built-in-roles.md) roller i Azure för att tilldela behörigheter till användare. Överväg att använda *Storage-konto deltagare* för molnoperatörer som behöver kunna hantera storage-konton och *klassiska Storage-konto deltagare* att hantera klassiska lagringskonton. Överväg att lägga till dem för molnoperatörer som behöver hantera virtuella datorer och storage-kontot, *Virtual Machine-deltagare* roll.
 
 Organisationer som inte behöver använda data åtkomstkontroll genom att utnyttja funktioner, till exempel RBAC kan ger fler behörigheter än vad som krävs för sina användare. Detta kan leda till data röjande av ge användarna åtkomst till vissa typer av datatyper (t.ex. stora marknadsfördelar) som de inte borde ha i första hand.
 
-Du kan lära dig mer om Azure RBAC genom att läsa artikeln [rollbaserad åtkomstkontroll i](../active-directory/role-based-access-control-configure.md).
+Du kan lära dig mer om Azure RBAC genom att läsa artikeln [rollbaserad åtkomstkontroll i](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="control-locations-where-resources-are-created-using-resource-manager"></a>Kontrollen platser där resurser skapas med resource manager
 Det är mycket viktigt att aktivera molnoperatörer att utföra uppgifter samtidigt som hindrar dem från att bryta konventioner som behövs för att hantera din organisations resurser. Organisationer som vill styra de platser där resurser skapas bör hård code dessa platser.

@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 224639dcc7da950801c7a5959ec14fc5ac7313e0
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cf54c789d766c4bd3d353028e75e34c961470070
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introduktion till en multitenant SaaS-appar som använder databasen per klient-mönstret med SQL-databas
 
@@ -24,7 +24,7 @@ Programmet källa koden och hantering av skript är tillgängliga i den [Wingtip
 
 ## <a name="application-architecture"></a>Programarkitektur
 
-Wingtip SaaS-appen använder databasen per klient-modellen. SQL elastiska pooler används för att maximera effektiviteten. En katalog databas används för etablering och mappningen klienter till deras data. Core Wingtip SaaS-program använder en pool med tre exempel innehavare plus katalogdatabasen. Slutför många Wingtip SaaS självstudier resultaten i tillägg till den första distributionen. Tillägg som analytiska databaser och schemahantering av flera databaser införs.
+Wingtip SaaS-appen använder databasen per klient-modellen. SQL elastiska pooler används för att maximera effektiviteten. En katalog databas används för etablering och mappningen klienter till deras data. Core Wingtip SaaS-program använder en pool med tre exempel innehavare plus katalogdatabasen. Katalog och klient-servrar har etablerats med DNS-alias. Dessa alias används för att underhålla en referens till de aktiva resurser som används av programmet Wingtip. Dessa alias uppdateras för att peka till recovery resurser i disaster recovery självstudiekurser. Slutför många Wingtip SaaS självstudier resultaten i tillägg till den första distributionen. Tillägg som analytiska databaser och schemahantering av flera databaser införs.
 
 
 ![Wingtip SaaS-arkitekturen](media/saas-dbpertenant-wingtip-app-overview/app-architecture.png)

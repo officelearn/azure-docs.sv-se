@@ -1,12 +1,12 @@
 ---
 title: Isolera i det offentliga Azure-molnet | Microsoft Docs
-description: "Läs mer om molnbaserad databearbetning tjänster som omfattar ett brett urval av compute-instanser och tjänster som kan skalas upp och ned automatiskt så att den passar ditt program-eller enterprise."
+description: Läs mer om molnbaserad databearbetning tjänster som omfattar ett brett urval av compute-instanser och tjänster som kan skalas upp och ned automatiskt så att den passar ditt program-eller enterprise.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a153d70e077ad63a042e76d0c4ae40e3cc067a2a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 996079e0062bf1e24ae2bf24354a94167e6adff3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolera i det offentliga Azure-molnet
 ##  <a name="introduction"></a>Introduktion
@@ -52,7 +52,7 @@ På en arbetsplats i molnet kan en klientorganisation definieras som en klient e
 Varje Azure AD-katalog är separat och åtskild från andra Azure AD-kataloger. Precis som ett företags kontorsbyggnad är en säker resurs som är specifik för din organisation har även Azure AD-katalogen utformats för att vara en säker tillgång för exklusiv användning av din organisation. Azure AD-arkitekturen håller isär kunddata och identitetsinformation. Det innebär att användare och administratörer av en Azure AD-katalog inte oavsiktligt eller illvilligt kan komma åt data i en annan katalog.
 
 ### <a name="azure-tenancy"></a>Azure innehavare
-Azure innehavare (Azure-prenumeration) refererar till en relation med ”kund/billing” och en unik [klient](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) i [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Nivån klientisolering i Microsoft Azure uppnås med hjälp av Azure Active Directory och [rollbaserad kontroller](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) erbjuds av den. Varje Azure-prenumeration är associerad med en katalog i Azure Active Directory (AD).
+Azure innehavare (Azure-prenumeration) refererar till en relation med ”kund/billing” och en unik [klient](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) i [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Nivån klientisolering i Microsoft Azure uppnås med hjälp av Azure Active Directory och [rollbaserad kontroller](https://docs.microsoft.com/azure/role-based-access-control/overview) erbjuds av den. Varje Azure-prenumeration är associerad med en katalog i Azure Active Directory (AD).
 
 Användare, grupper och program från katalogen kan hantera resurser i Azure-prenumerationen. Du kan tilldela behörigheter med Azure-portalen, Azure kommandoradsverktyg och Azure Management-API: er. En Azure AD-klient är logiskt isolerade med säkerhetsgränser så att ingen kund kan komma åt eller kompromettera samtidigt hyresgäster medvetet eller av misstag. Azure AD som körs på ”bare metal”-servrar isolerade i ett separat nätverkssegment där värdnivå paketfilter och Windows-brandväggen blockerar oönskade anslutningar och trafik.
 
@@ -80,7 +80,7 @@ Begreppet klient behållare är djupt ingrained i katalogtjänsten på alla skik
 Även om metadata från flera Azure Active Directory-klienter finns på samma fysiska disk, finns det ingen relation mellan behållare än vad som definieras av katalogtjänsten, som i sin tur styrs av klientorganisationsadministratören.
 
 ### <a name="azure-role-based-access-control-rbac"></a>Azure rollbaserad åtkomstkontroll (RBAC)
-[Azure rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) hjälper dig att dela olika komponenter som är tillgängliga i en Azure-prenumeration genom att tillhandahålla detaljerad åtkomsthantering för Azure. Azure RBAC gör att du kan särskilja uppgifter i din organisation och bevilja åtkomst baserat på vad användarna behöver för att utföra sitt arbete. Istället för att ge alla obegränsad behörighet i Azure-prenumeration eller resurser, kan du tillåta endast vissa åtgärder.
+[Azure rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) hjälper dig att dela olika komponenter som är tillgängliga i en Azure-prenumeration genom att tillhandahålla detaljerad åtkomsthantering för Azure. Azure RBAC gör att du kan särskilja uppgifter i din organisation och bevilja åtkomst baserat på vad användarna behöver för att utföra sitt arbete. Istället för att ge alla obegränsad behörighet i Azure-prenumeration eller resurser, kan du tillåta endast vissa åtgärder.
 
 Azure RBAC har tre grundläggande roller som gäller för alla typer av resurser:
 
@@ -94,7 +94,7 @@ Azure RBAC har tre grundläggande roller som gäller för alla typer av resurser
 
 Resten av rollerna i Azure RBAC kan hanteringen av specifika Azure-resurser. Till exempel tillåter virtuella deltagarrollen användaren att skapa och hantera virtuella datorer. Det ger dem åtkomst till Azure-nätverk eller undernät som den virtuella datorn ansluter till.
 
-[Inbyggda RBAC-roller](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) lista roller i Azure. Det anger åtgärder och scope som varje inbyggd roll som ger användare. Om du behöver för att definiera egna roller för ännu mer kontroll, se hur du skapar [anpassade roller i Azure RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
+[Inbyggda RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) lista roller i Azure. Det anger åtgärder och scope som varje inbyggd roll som ger användare. Om du behöver för att definiera egna roller för ännu mer kontroll, se hur du skapar [anpassade roller i Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
 Vissa funktioner för Azure Active Directory är:
 - Azure AD aktiverar enkel inloggning för SaaS-program, oavsett var de finns. Vissa program federeras med Azure AD och andra använder enkel inloggning med lösenord. Federerade program kan också använda användaretablering och [lösenordsvalv](https://www.techopedia.com/definition/31415/password-vault).

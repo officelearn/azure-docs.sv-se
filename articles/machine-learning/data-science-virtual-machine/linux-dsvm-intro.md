@@ -3,22 +3,22 @@ title: Etablera en Linux CentOS datavetenskap virtuell dator i Azure | Microsoft
 description: Konfigurera och skapa en Linux datavetenskap virtuell dator på Azure för att utföra analyser och maskininlärning.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: bradsev
-ms.openlocfilehash: 7f683fff142a3654249560ed5299ed3cd7cb9cce
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: gokuma
+ms.openlocfilehash: 1a201974749acbbb9607e42e67d1935f437f9ca1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Etablera en Linux CentOS datavetenskap virtuell dator på Azure
 
@@ -32,7 +32,7 @@ Linux datavetenskap virtuella datorn är en CentOS-baserad Azure virtuell dator 
 * JupyterHub - en fleranvändar Jupyter-anteckningsbok server som stöder R, Python, PySpark, Julia kärnor
 * Azure Lagringsutforskaren
 * Azure-kommandoradsgränssnittet (CLI) för att hantera Azure-resurser
-* PostgresSQL Database
+* PostgresSQL databas
 * Machine learning-verktyg
   * [Kognitiva Toolkit](https://github.com/Microsoft/CNTK): en djup learning toolkit för programvara från Microsoft Research.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): snabb machine learning-system som har stöd för tekniker som online, hash, allreduce, minskning, learning2search, aktiv, och interaktiva learning.
@@ -178,7 +178,7 @@ Du kan komma åt Jupyter-anteckningsbok server från valfri värddator. Skriv *h
 
 Vi har paketerat exempel anteckningsböcker--en i Python och en i R. Du kan se länken prov på startsidan för bärbar dator när du autentiserar dig till Jupyter-anteckningsbok med hjälp av din lokala Linux-användarnamn och lösenord. Du kan skapa en ny anteckningsbok genom att välja **ny**, och sedan språket kernel. Om du inte ser den **ny** , klicka på den **Jupyter** ikon på upp till vänster att gå till startsidan för anteckningsboken-servern.
 
-### <a name="apache-spark-standalone"></a>Apache Spark Standalone 
+### <a name="apache-spark-standalone"></a>Apache Väck fristående 
 En fristående instans av Apache Spark är förinstallerat på Linux DSVM som hjälper dig att utveckla Spark-program lokalt först innan du testar och distribuerar stora kluster. Du kan köra PySpark program via Jupyter-kernel. När du öppnar Jupyter och klicka på den **ny** knappen, bör du se en lista över tillgängliga kärnor. ”Spark – Python” är PySpark-kerneln som låter dig skapa Spark program som använder Python språk. Du kan också använda en Python IDE som PyCharm eller Spyder för att skapa du Spark-program. Eftersom detta är en fristående instans, Spark-stacken körs inom det anropande klientprogrammet. Detta gör det snabbare och enklare att felsöka problem jämfört med att utveckla på ett Spark-kluster. 
 
 En bärbar dator PySpark exempel finns på Jupyter som du hittar i katalogen ”SparkML” under arbetskatalogen för Jupyter ($HOME/anteckningsböcker/SparkML/pySpark). 
@@ -217,7 +217,7 @@ Du kan välja mellan flera kod redigerare. Detta inkluderar vi/VIM Emacs, gEdit,
 
 Ställ in drivrutiner och databasen alias innan den första användningen. JDBC-drivrutiner finns på:
 
-*/usr/share/java/jdbcdrivers*
+*/usr/Share/Java/jdbcdrivers*
 
 Mer information finns i [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 

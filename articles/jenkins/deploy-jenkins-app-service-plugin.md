@@ -1,12 +1,12 @@
 ---
-title: "Distribuera till Azure App Service med hjälp av plugin-programmet för Jenkins | Microsoft Docs"
-description: "Lär dig hur du använder Azure App Service Jenkins plugin-programmet för att distribuera en Java-webbapp till Azure i Jenkins"
+title: Distribuera till Azure App Service med hjälp av plugin-programmet för Jenkins | Microsoft Docs
+description: Lär dig hur du använder Azure App Service Jenkins plugin-programmet för att distribuera en Java-webbapp till Azure i Jenkins
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 0e5916b2f8f901ff549ef74fca57cf09dc9fec21
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0128ad37e3ba66710279de42cf4eae0ce5431b5b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Distribuera till Azure App Service med hjälp av Jenkins plugin-programmet 
 
@@ -27,7 +27,7 @@ Om du vill distribuera en Java-webbapp till Azure kan du använda Azure CLI i [J
 * Git och FTP.
 * Docker för Web Apps i Linux.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Konfigurera Jenkins för att distribuera webbprogram via Git eller FTP.
 > * Konfigurera Jenkins för att distribuera webbprogram för behållare.
@@ -39,7 +39,7 @@ Om du inte redan har en Jenkins Master, börja med den [lösningsmall](install-j
 * [Jenkins Git-plugin för klienten](https://plugins.jenkins.io/git-client) version 2.4.6 
 * [Plugin-programmet för docker Commons](https://plugins.jenkins.io/docker-commons) version 1.4.0
 * [Autentiseringsuppgifter för Azure](https://plugins.jenkins.io/azure-credentials) version 1.2
-* [Azure Apptjänst](https://plugins.jenkins.io/azure-app-server) version 0.1
+* [Azure Apptjänst](https://plugins.jenkins.io/azure-app-service) version 0.1
 
 Du kan använda Jenkins plugin-programmet för att distribuera en webbapp i alla språk som stöds av webbprogram, till exempel C#, PHP, Java och Node.js. I den här självstudiekursen kommer vi att använda en [enkel Java-webbapp för Azure](https://github.com/azure-devops/javawebappsample). Om du vill duplicera lagringsplatsen till ditt GitHub-konto, Välj den **Återställningsförgreningar** -knappen i det övre högra hörnet på GitHub-gränssnittet.  
 > [!NOTE]
@@ -54,7 +54,7 @@ sudo apt-get install -y maven
 
 Installera Docker på Jenkins Master eller VM-agenten som används för att bygga om du vill distribuera till webbprogram för behållare. Instruktioner finns i [installera Docker på Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
-##<a name="service-principal"></a>Lägg till en Azure-tjänstens huvudnamn i Jenkins autentiseringsuppgifter
+##<a name="service-principal"></a> Lägg till en Azure-tjänstens huvudnamn i Jenkins autentiseringsuppgifter
 
 Du behöver ett Azure tjänstens huvudnamn för att distribuera till Azure. 
 
@@ -90,7 +90,7 @@ Innan du konfigurerar jobbet i Jenkins behöver du en Azure App Service-plan och
 ### <a name="set-up-the-jenkins-job"></a>Ställ in Jenkins-jobb
 
 1. Skapa en ny **freestyle** projektet på instrumentpanelen Jenkins.
-2. Konfigurera den **källa kod Management** fält som du vill använda din lokala förgrening av den [enkel Java-webbapp för Azure](https://github.com/azure-devops/javawebappsample). Ange den **databasen URL** värde. Till exempel: http://github.com/&lt;your_ID > / javawebappsample.
+2. Konfigurera den **källa kod Management** fält som du vill använda din lokala förgrening av den [enkel Java-webbapp för Azure](https://github.com/azure-devops/javawebappsample). Ange den **databasen URL** värde. Till exempel: http://github.com/ &lt;your_ID > / javawebappsample.
 3. Lägg till ett steg för att bygga projektet med Maven genom att lägga till den **köra shell** kommando. I det här exemplet behöver vi ytterligare ett kommando för att byta namn på den \*.war filen i målmappen för **ROOT.war**:   
     ```bash
     mvn clean package
@@ -143,7 +143,7 @@ Innan du konfigurerar jobbet i Jenkins måste ett webbprogram på Linux. Du mås
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Konfigurera Jenkins jobbet för Docker
 
 1. Skapa en ny **freestyle** projektet på instrumentpanelen Jenkins.
-2. Konfigurera den **källa kod Management** fält som du vill använda din lokala förgrening av den [enkel Java-webbapp för Azure](https://github.com/azure-devops/javawebappsample). Ange den **databasen URL** värde. Till exempel: http://github.com/&lt;your_ID > / javawebappsample.
+2. Konfigurera den **källa kod Management** fält som du vill använda din lokala förgrening av den [enkel Java-webbapp för Azure](https://github.com/azure-devops/javawebappsample). Ange den **databasen URL** värde. Till exempel: http://github.com/ &lt;your_ID > / javawebappsample.
 3. Lägg till ett steg för att bygga projektet med Maven genom att lägga till en **köra shell** kommando. Ta med följande rad i kommandot:
     ```bash
     mvn clean package
@@ -206,7 +206,7 @@ För den **Docker registret URL** värde, ange URL: en med hjälp av formatet ht
     Sun Jun 17 16:39:10 UTC 2017
     ```
 
-3. Go to http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Ersätt &lt;x > och &lt;y > med några siffror för att hämta summan av x + y. Räknaren visar summan: ![Kalkylatorn: Lägg till](./media/execute-cli-jenkins-pipeline/calculator-add.png)
+3. Gå till http://&lt;your_app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y >. Ersätt &lt;x > och &lt;y > med några siffror för att hämta summan av x + y. Räknaren visar summan: ![Kalkylatorn: Lägg till](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ### <a name="for-azure-app-service-on-linux"></a>För Azure App Service på Linux
 
@@ -225,7 +225,7 @@ För den **Docker registret URL** värde, ange URL: en med hjälp av formatet ht
     Sun Jul 09 16:39:10 UTC 2017
     ```
 
-3. Go to http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Ersätt &lt;x > och &lt;y > med några siffror för att hämta summan av x + y.
+3. Gå till http://&lt;your_app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y >. Ersätt &lt;x > och &lt;y > med några siffror för att hämta summan av x + y.
     
 ## <a name="next-steps"></a>Nästa steg
 

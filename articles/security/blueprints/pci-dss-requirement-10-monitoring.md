@@ -1,5 +1,5 @@
 ---
-title: "Azure betalning bearbetning modell - Övervakningskrav"
+title: Azure betalning bearbetning modell - Övervakningskrav
 description: PCI DSS krav 10
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 5fa1d17e68ce04b1f67081479518279be6cca099
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 708c57c1d7b79d3fd3c129de9a7ce4099ab6ac36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-requirements-for-pci-dss-compliant-environments"></a>Övervakningskrav för PCI DSS-kompatibel miljöer 
 ## <a name="pci-dss-requirement-10"></a>PCI DSS krav 10
@@ -38,8 +38,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure begränsar åtkomsten till Administration och diagnostiska verktyg till auktoriserad personal med relevanta jobbet ansvar. Microsoft Azure begränsar privilegierad åtkomst till de verktyg som används i produktionsmiljön baserat på minsta privilegium principer. Microsoft Azure registrerar och upprätthåller en logg över alla användaråtkomst till Microsoft Azure komponenterna i miljön plattform.<br /><br />Microsoft Azure platform-komponenter (inklusive OS, CloudNet, Infrastrukturresurser och så vidare) har konfigurerats för att logga in och samla in säkerhetshändelser. Administratören aktiviteten i Microsoft Azure-plattformen loggas. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore har utförlig loggning för alla system och användaraktivitet (inklusive CHD loggning). Mer information finns i [PCI vägledning - loggning](payment-processing-blueprint.md#logging-and-auditing).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure begränsar åtkomsten till Administration och diagnostiska verktyg till auktoriserad personal med relevanta jobbet ansvar. Microsoft Azure begränsar privilegierad åtkomst till de verktyg som används i produktionsmiljön baserat på minsta privilegium principer. Microsoft Azure registrerar och upprätthåller en logg över alla användaråtkomst till Microsoft Azure komponenterna i miljön plattform.<br /><br />Microsoft Azure platform-komponenter (inklusive OS, CloudNet, Infrastrukturresurser och så vidare) har konfigurerats för att logga in och samla in säkerhetshändelser. Administratören aktiviteten i Microsoft Azure-plattformen loggas. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore har utförlig loggning för alla system och användaraktivitet (inklusive CHD loggning). Mer information finns i [PCI vägledning - loggning](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -58,8 +58,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure begränsar åtkomsten till Administration och diagnostiska verktyg till auktoriserad personal med relevanta jobbet ansvar. Microsoft Azure begränsar privilegierad åtkomst till de verktyg som används i produktionsmiljön baserat på minsta privilegium principer. Microsoft Azure registrerar och upprätthåller en logg över alla användaråtkomst till Microsoft Azure komponenterna i miljön plattform.<br /><br />Microsoft Azure platform-komponenter (inklusive OS, CloudNet, Infrastrukturresurser och så vidare) har konfigurerats för att logga in och samla in säkerhetshändelser. Administratören aktiviteten i Microsoft Azure-plattformen loggas. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore har utförlig loggning för alla system- och användaraktivitet, inklusive CHD loggning. Mer information finns i [PCI vägledning - loggning](payment-processing-blueprint.md#logging-and-auditing).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure begränsar åtkomsten till Administration och diagnostiska verktyg till auktoriserad personal med relevanta jobbet ansvar. Microsoft Azure begränsar privilegierad åtkomst till de verktyg som används i produktionsmiljön baserat på minsta privilegium principer. Microsoft Azure registrerar och upprätthåller en logg över alla användaråtkomst till Microsoft Azure komponenterna i miljön plattform.<br /><br />Microsoft Azure platform-komponenter (inklusive OS, CloudNet, Infrastrukturresurser och så vidare) har konfigurerats för att logga in och samla in säkerhetshändelser. Administratören aktiviteten i Microsoft Azure-plattformen loggas. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore har utförlig loggning för alla system- och användaraktivitet, inklusive CHD loggning. Mer information finns i [PCI vägledning - loggning](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -77,8 +77,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure har upprättat procedurer för att synkronisera servrar och nätverksenheter i Microsoft Azure-miljö med NTP Stratum 1 tidsservrar synkroniseras till globala placering System (GPS) satelliter. Synkronisering utförs automatiskt var femte minut. Microsoft Azure är ansvarig för värdar korrekt synkroniseringstid. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore registrerar användar-ID, händelsetyp, datum tidsstämpel, lyckade misslyckades händelser, källan för händelsen och namnet på resursen som krävs av 10.3 kontrollen.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure har upprättat procedurer för att synkronisera servrar och nätverksenheter i Microsoft Azure-miljö med NTP Stratum 1 tidsservrar synkroniseras till globala placering System (GPS) satelliter. Synkronisering utförs automatiskt var femte minut. Microsoft Azure är ansvarig för värdar korrekt synkroniseringstid. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore registrerar användar-ID, händelsetyp, datum tidsstämpel, lyckade misslyckades händelser, källan för händelsen och namnet på resursen som krävs av 10.3 kontrollen.|
 
 
 
@@ -92,8 +92,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure har upprättat procedurer för att synkronisera servrar och nätverksenheter i Microsoft Azure-miljö med NTP Stratum 1 tidsservrar synkroniseras till globala placering System (GPS) satelliter. Synkronisering utförs automatiskt var femte minut. Microsoft Azure är ansvarig för värdar korrekt synkroniseringstid. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Tidssynkronisering för PaaS-tjänsten utförs av Azure.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure har upprättat procedurer för att synkronisera servrar och nätverksenheter i Microsoft Azure-miljö med NTP Stratum 1 tidsservrar synkroniseras till globala placering System (GPS) satelliter. Synkronisering utförs automatiskt var femte minut. Microsoft Azure är ansvarig för värdar korrekt synkroniseringstid. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Tidssynkronisering för PaaS-tjänsten utförs av Azure.|
 
 
 
@@ -105,8 +105,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.4](#pci-dss-requirement-10-4). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Tidssynkronisering för PaaS-tjänsten utförs av Azure.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.4](#pci-dss-requirement-10-4). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Tidssynkronisering för PaaS-tjänsten utförs av Azure.|
 
 
 
@@ -118,8 +118,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.4](#pci-dss-requirement-10-4). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Tidssynkronisering för PaaS-tjänsten utförs av Azure.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.4](#pci-dss-requirement-10-4). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Tidssynkronisering för PaaS-tjänsten utförs av Azure.|
 
 
 
@@ -131,8 +131,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.4](#pci-dss-requirement-10-4). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Tidssynkronisering för PaaS-tjänsten utförs av Azure.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.4](#pci-dss-requirement-10-4). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Tidssynkronisering för PaaS-tjänsten utförs av Azure.|
 
 
 
@@ -144,8 +144,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | FIM och verktyg för ID: N implementeras i Microsoft Azure-miljön. Microsoft Azure använder EWS för att stödja realtid analys av händelser inom driftsmiljön. Generera nära realtid aviseringar om händelser som potentiellt äventyrar systemet mAs och mål. <br /><br />Loggning av händelser som tjänsten, användare och säkerhetsgrupper (webbserverloggar, FTP-server-loggar och så vidare) är aktiverat och lagras centralt. Azure begränsar åtkomsten för att granska loggarna till auktoriserad personal baserat på ansvarsområden. Händelseloggar arkiveras på Azure säker arkivering infrastruktur och bevaras i 180 dagar. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore tillhandahåller för granskning av alla element till OMS. Säkerhetskopiera till en extern källa kan utföras av [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | FIM och verktyg för ID: N implementeras i Microsoft Azure-miljön. Microsoft Azure använder EWS för att stödja realtid analys av händelser inom driftsmiljön. Generera nära realtid aviseringar om händelser som potentiellt äventyrar systemet mAs och mål. <br /><br />Loggning av händelser som tjänsten, användare och säkerhetsgrupper (webbserverloggar, FTP-server-loggar och så vidare) är aktiverat och lagras centralt. Azure begränsar åtkomsten för att granska loggarna till auktoriserad personal baserat på ansvarsområden. Händelseloggar arkiveras på Azure säker arkivering infrastruktur och bevaras i 180 dagar. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore tillhandahåller för granskning av alla element till Azure. Säkerhetskopiera till en extern källa kan utföras av [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -157,8 +157,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.5](#pci-dss-requirement-10-5). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore tillhandahåller för granskning av alla element till OMS. Säkerhetskopiera till en extern källa kan utföras av [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.5](#pci-dss-requirement-10-5). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore tillhandahåller för granskning av alla element till Azure. Säkerhetskopiera till en extern källa kan utföras av [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -170,8 +170,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.5](#pci-dss-requirement-10-5). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore tillhandahåller för granskning av alla element till OMS. Säkerhetskopiera till en extern källa kan utföras av [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.5](#pci-dss-requirement-10-5). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore tillhandahåller för granskning av alla element till Azure. Säkerhetskopiera till en extern källa kan utföras av [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -183,8 +183,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.5](#pci-dss-requirement-10-5). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore tillhandahåller för granskning av alla element till OMS. Säkerhetskopiera till en extern källa kan utföras av [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.5](#pci-dss-requirement-10-5). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore tillhandahåller för granskning av alla element till Azure. Säkerhetskopiera till en extern källa kan utföras av [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -196,8 +196,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.5](#pci-dss-requirement-10-5). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore tillhandahåller för granskning av alla element till OMS. Säkerhetskopiera till en extern källa kan utföras av [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.5](#pci-dss-requirement-10-5). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore tillhandahåller för granskning av alla element till Azure. Säkerhetskopiera till en extern källa kan utföras av [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -209,8 +209,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.5](#pci-dss-requirement-10-5). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore tillhandahåller för granskning av alla element till OMS. Säkerhetskopiera till en extern källa kan utföras av [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.5](#pci-dss-requirement-10-5). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore tillhandahåller för granskning av alla element till Azure. Säkerhetskopiera till en extern källa kan utföras av [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -225,8 +225,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | FIM och verktyg för ID: N implementeras i Microsoft Azure-miljön. Microsoft Azure använder EWS för att stödja realtid analys av händelser inom driftsmiljön. Generera nära realtid aviseringar om händelser som potentiellt äventyrar systemet mAs och mål. <br /><br />Loggning av händelser som tjänsten, användare och säkerhetsgrupper (webbserverloggar, FTP-server-loggar och så vidare) är aktiverat och lagras centralt. Azure begränsar åtkomsten för att granska loggarna till auktoriserad personal baserat på ansvarsområden. Händelseloggar arkiveras på Azure säker arkivering infrastruktur och bevaras i 180 dagar. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder [Azure Security Center](https://azure.microsoft.com/services/security-center/) att övervaka, rapportera och förhindra avvikelser. [Azure Advisor](/azure/advisor/advisor-security-recommendations) ger en konsekvent konsoliderad vy över rekommendationer för alla dina Azure-resurser.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | FIM och verktyg för ID: N implementeras i Microsoft Azure-miljön. Microsoft Azure använder EWS för att stödja realtid analys av händelser inom driftsmiljön. Generera nära realtid aviseringar om händelser som potentiellt äventyrar systemet mAs och mål. <br /><br />Loggning av händelser som tjänsten, användare och säkerhetsgrupper (webbserverloggar, FTP-server-loggar och så vidare) är aktiverat och lagras centralt. Azure begränsar åtkomsten för att granska loggarna till auktoriserad personal baserat på ansvarsområden. Händelseloggar arkiveras på Azure säker arkivering infrastruktur och bevaras i 180 dagar. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder [Azure Security Center](https://azure.microsoft.com/services/security-center/) att övervaka, rapportera och förhindra avvikelser. [Azure Advisor](/azure/advisor/advisor-security-recommendations) ger en konsekvent konsoliderad vy över rekommendationer för alla dina Azure-resurser.|
 
 
 
@@ -242,8 +242,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.6](#pci-dss-requirement-10-6). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder [Azure Security Center](https://azure.microsoft.com/services/security-center/) att övervaka, rapportera och förhindra avvikelser. [Azure Advisor](/azure/advisor/advisor-security-recommendations) ger en konsekvent konsoliderad vy över rekommendationer för alla dina Azure-resurser.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.6](#pci-dss-requirement-10-6). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder [Azure Security Center](https://azure.microsoft.com/services/security-center/) att övervaka, rapportera och förhindra avvikelser. [Azure Advisor](/azure/advisor/advisor-security-recommendations) ger en konsekvent konsoliderad vy över rekommendationer för alla dina Azure-resurser.|
 
 
 
@@ -255,8 +255,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.6](#pci-dss-requirement-10-6). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder [Azure Security Center](https://azure.microsoft.com/services/security-center/) att övervaka, rapportera och förhindra avvikelser. [Azure Advisor](/azure/advisor/advisor-security-recommendations) ger en konsekvent konsoliderad vy över rekommendationer för alla dina Azure-resurser.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 10.6](#pci-dss-requirement-10-6). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder [Azure Security Center](https://azure.microsoft.com/services/security-center/) att övervaka, rapportera och förhindra avvikelser. [Azure Advisor](/azure/advisor/advisor-security-recommendations) ger en konsekvent konsoliderad vy över rekommendationer för alla dina Azure-resurser.|
 
 
 
@@ -268,8 +268,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se avsnittet ”Microsoft Azure” [krav 10.6](#pci-dss-requirement-10-6). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder [Azure Security Center](https://azure.microsoft.com/services/security-center/) att övervaka, rapportera och förhindra avvikelser. [Azure Advisor](/azure/advisor/advisor-security-recommendations) ger en konsekvent konsoliderad vy över rekommendationer för alla dina Azure-resurser.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se avsnittet ”Microsoft Azure” [krav 10.6](#pci-dss-requirement-10-6). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder [Azure Security Center](https://azure.microsoft.com/services/security-center/) att övervaka, rapportera och förhindra avvikelser. [Azure Advisor](/azure/advisor/advisor-security-recommendations) ger en konsekvent konsoliderad vy över rekommendationer för alla dina Azure-resurser.|
 
 
 
@@ -281,8 +281,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure behåller granskningsloggarna för ett år, med de senaste 3 månaderna omedelbart tillgängligt via deras interna portal. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore har utförlig loggning för alla system och användaraktivitet (inklusive CHD loggning). Mer information finns i [PCI vägledning - loggning](payment-processing-blueprint.md#logging-and-auditing).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure behåller granskningsloggarna för ett år, med de senaste 3 månaderna omedelbart tillgängligt via deras interna portal. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore har utförlig loggning för alla system och användaraktivitet (inklusive CHD loggning). Mer information finns i [PCI vägledning - loggning](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -307,8 +307,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure använder EWS för att stödja realtid analys av händelser inom driftsmiljön. Generera nära realtid aviseringar om händelser som potentiellt äventyrar systemet mAs och mål. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore har utförlig loggning för alla system och användaraktivitet (inklusive CHD loggning). Mer information finns i [PCI vägledning - loggning](payment-processing-blueprint.md#logging-and-auditing).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure använder EWS för att stödja realtid analys av händelser inom driftsmiljön. Generera nära realtid aviseringar om händelser som potentiellt äventyrar systemet mAs och mål. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore har utförlig loggning för alla system och användaraktivitet (inklusive CHD loggning). Mer information finns i [PCI vägledning - loggning](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -330,8 +330,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure använder EWS för att stödja realtid analys av händelser inom driftsmiljön. Generera nära realtid aviseringar om händelser som potentiellt äventyrar systemet mAs och mål. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore har utförlig loggning för alla system och användaraktivitet (inklusive CHD loggning). Mer information finns i [PCI vägledning - loggning](payment-processing-blueprint.md#logging-and-auditing).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure använder EWS för att stödja realtid analys av händelser inom driftsmiljön. Generera nära realtid aviseringar om händelser som potentiellt äventyrar systemet mAs och mål. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore har utförlig loggning för alla system och användaraktivitet (inklusive CHD loggning). Mer information finns i [PCI vägledning - loggning](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -344,8 +344,8 @@ Loggning metoder och möjlighet att spåra användaraktiviteter är viktiga i hi
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore ger ett användningsfall och en beskrivning av hur CHD hanteras och skyddas.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore ger ett användningsfall och en beskrivning av hur CHD hanteras och skyddas.|
 
 
 

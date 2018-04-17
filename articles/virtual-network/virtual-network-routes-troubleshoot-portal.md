@@ -1,11 +1,11 @@
 ---
-title: "Felsöka vägar - Portal | Microsoft Docs"
-description: "Lär dig hur du felsöker vägar i Azure Resource Manager-distributionsmodellen med hjälp av Azure-portalen."
+title: Felsöka vägar - Portal | Microsoft Docs
+description: Lär dig hur du felsöker vägar i Azure Resource Manager-distributionsmodellen med hjälp av Azure-portalen.
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bdd8b6dc-02fb-4057-bb23-8289caa9de89
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: e0b835f4cbad9855bfb7ddccf2d9bf5b4bf88231
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 67da2eae5ea04962cd5adeff8edd070c1a3cf95a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Felsöka flöden med hjälp av Azure Portal
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Samma steg kan användas för att fastställa inkommande och utgående anslutnin
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>Visa effektiva flöden för en virtuell dator
 Om du vill se sammanställd vägar som tillämpas på en virtuell dator, gör du följande:
 
-1. Logga in på Azure-portalen på https://portal.azure.com. Ditt konto ha tilldelats den *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* åtgärden för nätverksgränssnittet. Information om hur du tilldelar åtgärder till konton finns [skapa anpassade roller för rollbaserad åtkomstkontroll i](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Logga in på Azure-portalen på https://portal.azure.com. Ditt konto ha tilldelats den *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* åtgärden för nätverksgränssnittet. Information om hur du tilldelar åtgärder till konton finns [skapa anpassade roller för rollbaserad åtkomstkontroll i](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Klicka på **alla tjänster**, klicka på **virtuella datorer** som visas i listan.
 3. Välj en virtuell dator för att felsöka i listan som visas och en VM-bladet med alternativ visas.
 4. Klicka på **diagnostisera & lösa problem** och välj sedan ett vanligt problem. I det här exemplet **jag kan inte ansluta till en virtuell dator Windows** är markerad.

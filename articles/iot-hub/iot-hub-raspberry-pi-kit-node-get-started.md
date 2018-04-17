@@ -1,11 +1,11 @@
 ---
-title: "Raspberry Pi till molnet (Node.js) – ansluta hallon Pi till Azure IoT Hub | Microsoft Docs"
-description: "Lär dig mer om att konfigurera och ansluta hallon Pi till Azure IoT-hubb för hallon Pi att skicka data till Azure-molnplattform i den här självstudiekursen."
+title: Raspberry Pi till molnet (Node.js) – ansluta hallon Pi till Azure IoT Hub | Microsoft Docs
+description: Lär dig mer om att konfigurera och ansluta hallon Pi till Azure IoT-hubb för hallon Pi att skicka data till Azure-molnplattform i den här självstudiekursen.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
+tags: ''
 keywords: Azure iot raspberry pi, raspberry pi iot-hubb, raspberry pi skickar data till molnet, raspberry pi till molnet
 ms.assetid: b0e14bfa-8e64-440a-a6ec-e507ca0f76ba
 ms.service: iot-hub
@@ -13,14 +13,14 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/14/2017
-ms.author: xshi
+ms.date: 4/11/2018
+ms.author: rangv
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7bf423fd05d6651bf16693e6d6930fada8b5da70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e7db2f78a5c1a942f64a2c0a40068fffe90749d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Ansluta Raspberry Pi till Azure IoT-hubb (Node.js)
 
@@ -197,7 +197,7 @@ Aktivera Pi med hjälp av micro USB-kabel och strömförsörjningen. Använd Eth
    nano config.json
    ```
 
-   ![Config-fil](media/iot-hub-raspberry-pi-kit-node-get-started/6_config-file.png)
+   ![Konfigurationsfil](media/iot-hub-raspberry-pi-kit-node-get-started/6_config-file.png)
 
    Det finns två objekt i den här filen som du kan konfigurera. Den första är `interval`, som definierar tidsintervall (i millisekunder) mellan meddelanden som skickas till molnet. Den andra är `simulatedData`, vilket är ett booleskt värde för om du vill använda simulerade sensordata eller inte.
 
@@ -205,7 +205,7 @@ Aktivera Pi med hjälp av micro USB-kabel och strömförsörjningen. Använd Eth
 
 1. Spara och avsluta genom att skriva kontroll-O > Ange > kontrollen X.
 
-### <a name="run-the-sample-application"></a>Kör exempelprogrammet
+### <a name="run-the-sample-application"></a>Köra exempelprogrammet
 
 Kör exempelprogrammet genom att köra följande kommando:
 

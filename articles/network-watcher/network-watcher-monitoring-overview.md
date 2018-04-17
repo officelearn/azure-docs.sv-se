@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 792b96e4f5ba5dc0f2f943f099a2fee339407d66
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a546296749ba9373355cfe2b857b83d8af94d5a1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Azure-nätverk övervakning-översikt
 
@@ -51,25 +51,25 @@ Nätverksbevakaren har för närvarande följande funktioner:
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Rollbaserad åtkomstkontroll (RBAC) i Nätverksbevakaren
 
-Watcher nätverket i [rollbaserad åtkomstkontroll (RBAC) modellen](../active-directory/role-based-access-control-what-is.md). Följande behörigheter krävs av Nätverksbevakaren. Det är viktigt att se till att den roll som används för att initiera nätverket Watcher API: er eller använda Nätverksbevakaren från portalen har tillräcklig behörighet.
+Watcher nätverket i [rollbaserad åtkomstkontroll (RBAC) modellen](../role-based-access-control/overview.md). Följande behörigheter krävs av Nätverksbevakaren. Det är viktigt att se till att den roll som används för att initiera nätverket Watcher API: er eller använda Nätverksbevakaren från portalen har tillräcklig behörighet.
 
-|Resurs| Behörigheter|
+|Resurs| Behörighet|
 |---|---| 
-|Microsoft.Storage/ |Läs|
-|Microsoft.Authorization/| Läs| 
-|Microsoft.Resources/subscriptions/resourceGroups/| Läs|
-|Microsoft.Storage/storageAccounts/listServiceSas/ | åtgärd|
-|Microsoft.Storage/storageAccounts/listAccountSas/ |åtgärd|
-|Microsoft.Storage/storageAccounts/listKeys/ | åtgärd|
-|Microsoft.Compute/virtualMachines/ |Läs|
-|Microsoft.Compute/virtualMachines/ |Skriv|
-|Microsoft.Compute/virtualMachineScaleSets/ |Läs|
-|Microsoft.Compute/virtualMachineScaleSets/ |Skriv|
-|Microsoft.Network/networkWatchers/packetCaptures/ |Läs|
-|Microsoft.Network/networkWatchers/packetCaptures/| Skriv|
-|Microsoft.Network/networkWatchers/packetCaptures/| Radera|
-|Microsoft.Network/networkWatchers/ |Skriv |
-|Microsoft.Network/networkWatchers/| Läs |
+|Microsoft.Storage/ |Läsa|
+|Microsoft.Authorization/| Läsa| 
+|Microsoft.Resources/subscriptions/resourceGroups/| Läsa|
+|Microsoft.Storage/storageAccounts/listServiceSas/ | Åtgärd|
+|Microsoft.Storage/storageAccounts/listAccountSas/ |Åtgärd|
+|Microsoft.Storage/storageAccounts/listKeys/ | Åtgärd|
+|Microsoft.Compute/virtualMachines/ |Läsa|
+|Microsoft.Compute/virtualMachines/ |Skriva|
+|Microsoft.Compute/virtualMachineScaleSets/ |Läsa|
+|Microsoft.Compute/virtualMachineScaleSets/ |Skriva|
+|Microsoft.Network/networkWatchers/packetCaptures/ |Läsa|
+|Microsoft.Network/networkWatchers/packetCaptures/| Skriva|
+|Microsoft.Network/networkWatchers/packetCaptures/| Ta bort|
+|Microsoft.Network/networkWatchers/ |Skriva |
+|Microsoft.Network/networkWatchers/| Läsa |
 |Microsoft.Insights/alertRules/ |*|
 |Microsoft.Support/ | *|
 
@@ -83,7 +83,7 @@ Nätverket prenumerationsbegränsningar ger dig information om användning av va
 
 Följande funktioner är tillgängliga för nivån Resursövervakning:
 
-### <a name="audit-log"></a>granskningslogg
+### <a name="audit-log"></a>Granskningslogg
 
 Åtgärder som utförs som en del av konfigurationen av nätverk loggas. Dessa loggar kan visas i Azure-portalen eller hämtas med hjälp av Microsoft-verktyg, till exempel Power BI eller verktyg från tredje part. Granskningsloggar är tillgängliga via portalen, PowerShell, CLI och Rest-API. Mer information om granskningsloggarna finns [granskningsåtgärder med Resource Manager](../resource-group-audit.md)
 

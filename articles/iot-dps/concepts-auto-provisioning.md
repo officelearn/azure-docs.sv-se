@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: ''
-ms.openlocfilehash: cd458b1f6d26fbd5f5821a04cd01be5c3a4e4514
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e743f40a1f8ff71fe93f14217b410df348d9903d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="auto-provisioning-concepts"></a>Automatisk etablering begrepp
 
@@ -31,7 +31,7 @@ Azure IoT-auto-etablering kan delas i tre faser:
    > [!NOTE]
    > Oavsett storleken på din IoT-lösning, även om du planerar att stödja miljoner enheter, detta är en **engångskonfiguration**.
 
-2. **Enhetsregistrering** -processen att göra tjänstinstansen enheten etablering medveten om de enheter som kommer att försöka registrera i framtiden. Registrering sker genom att konfigurera enheten identitetsinformation i tjänsten allokering som en ”enskilda registrering” för en enstaka enhet eller en ”grupp registrering” för flera enheter. Identiteten är baserat på den [attestering mekanism](concepts-security.md#attestation-mechanism) enheten är utformat för att använda, vilket gör att tjänsten etablering att bekräfta att enhetens äkthetsbeviset under registreringen:
+2. **Enhetsregistrering** -processen att göra tjänstinstansen enheten etablering medveten om de enheter som kommer att försöka registrera i framtiden. [Registrering](concepts-service.md#enrollment) görs genom att konfigurera enheten identitetsinformation i tjänsten allokering som en ”enskilda registrering” för en enstaka enhet eller en ”grupp registrering” för flera enheter. Identiteten är baserat på den [attestering mekanism](concepts-security.md#attestation-mechanism) enheten är utformat för att använda, vilket gör att tjänsten etablering att bekräfta att enhetens äkthetsbeviset under registreringen:
 
    - **TPM**: konfigurerad som en ”enskilda registrering” enhetens identitet baseras på TPM registrerings-ID och offentliga bekräftelsenyckeln. Med hänsyn till att TPM är en [specifikationen]((https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)), tjänsten bara förväntar att bekräfta per specifikationen oavsett TPM-implementeringen (maskinvara eller programvara). Se [enhetsetableringen: identitet attestering med TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) mer information om TPM-baserade attestering. 
 

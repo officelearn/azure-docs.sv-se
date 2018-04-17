@@ -1,6 +1,6 @@
 ---
-title: "Säkerhetsöversikt för Azure SQL Database | Microsoft Docs"
-description: "Läs mer om Azure SQL Database och SQL Server-säkerhet, inklusive skillnaderna mellan moln och SQL Server lokalt."
+title: Säkerhetsöversikt för Azure SQL Database | Microsoft Docs
+description: Läs mer om Azure SQL Database och SQL Server-säkerhet, inklusive skillnaderna mellan moln och SQL Server lokalt.
 services: sql-database
 author: giladm
 manager: craigg
@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: giladm
-ms.openlocfilehash: 1dc34f021fa6482c65cce0e922951ae329987c43
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6a66c9fe3716935a717dca984d1995ca371d9499
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-your-sql-database"></a>Säkra din SQL Database
 
@@ -48,7 +48,7 @@ Mer information finns i [Kom igång med SQL DB Data Discovery & klassificering](
 SQL Database skyddar dina data genom att begränsa åtkomsten till databasen med hjälp av brandväggsregler, autentiseringsmekanismer som kräver att användare bevisar sin identitet och auktorisering till data via rollbaserade medlemskap och behörigheter, såväl som säkerhet på radnivå och dynamisk datamaskering. En beskrivning av åtkomstkontrollfunktionerna i SQL Database finns i [Kontrollera åtkomst](sql-database-control-access.md).
 
 > [!IMPORTANT]
-> Hantering av databaser och logiska servrar inom Azure kontrolleras av din portalanvändarkontos rolltilldelningar. Mer information om den här artikeln finns [rollbaserad åtkomstkontroll i Azure-portalen](../active-directory/role-based-access-control-what-is.md).
+> Hantering av databaser och logiska servrar inom Azure kontrolleras av din portalanvändarkontos rolltilldelningar. Mer information om den här artikeln finns [rollbaserad åtkomstkontroll i Azure-portalen](../role-based-access-control/overview.md).
 >
 
 ### <a name="firewall-and-firewall-rules"></a>Brandvägg och brandväggsregler

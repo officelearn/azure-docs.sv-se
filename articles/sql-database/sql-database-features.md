@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: bca2629ea4a0c859e92d829b49072fbdf3f9ffe2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bf9069df55352b4d7884e989be741fc42e06bfdf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Funktionsjämförelse: Azure SQL Database och SQL Server 
 
@@ -85,7 +85,7 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [Minnesintern optimering](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja - [Premium- och Business kritiska nivåer](sql-database-in-memory.md) | Nej |
 | [Stöd för JSON-data](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Ja | Ja |
 | [Språkelement](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | De flesta - finns i enskilda element |  Ja - finns [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md) |
-| [Länkade servrar](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Finns inte - [elastisk fråga](sql-database-elastic-query-horizontal-partitioning.md) | Endast till SQLServer |
+| [Länkade servrar](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Finns inte - [elastisk fråga](sql-database-elastic-query-horizontal-partitioning.md) | Endast för SQLServer och SQL-databas |
 | [Loggöverföring](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över verksamhetskontinuitet med Azure SQL Database](sql-database-business-continuity.md) |[Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över verksamhetskontinuitet med Azure SQL Database](sql-database-business-continuity.md) |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Nej | Nej |
 | [Minimal loggning i massimport](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Nej | Nej |
@@ -114,7 +114,7 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [Set-instruktioner](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | De flesta - finns enskilda uttryck | Ja - finns [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md)|
 | [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | Ja | Ja |
 | [Rumslig](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | Ja | Ja |
-| [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Ja | Nej |
+| [SQL-datasynkronisering](sql-database-get-started-sql-data-sync.md) | Ja | Nej |
 | [SQL Operations Studio](https://docs.microsoft.com/sql/sql-operations-studio/what-is) | Ja | Ja |
 | [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Finns inte - [elastiska jobb](sql-database-elastic-jobs-getting-started.md) | Ja - finns [skillnader i SQL Server Agent](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Finns inte - [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | Finns inte - [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
@@ -123,9 +123,9 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ja, med en hanterad SSIS i Azure Data Factory (ADM)-miljö där paket lagras i SSISDB hos Azure SQL Database och köras på [Azure SSIS-integrering Runtime](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). | Ja, med en hanterad SSIS i Azure Data Factory (ADM)-miljö där paket lagras i SSISDB hanteras instans som värd och köras på [Azure SSIS-integrering Runtime](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Ja | Ja |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ja | Ja |
-| [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Finns inte - [utökade händelser](sql-database-xevent-db-diff-from-svr.md) | Ja |
+| [SQL Server-versioner](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Finns inte - [utökade händelser](sql-database-xevent-db-diff-from-svr.md) | Ja |
 | [SQL Server-replikering](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Prenumerant för transaktions-och ögonblicksbildsreplikering endast](sql-database-cloud-migrate.md) | Nej |
-| [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Nej - [finns i Power BI](https://docs.microsoft.com/power-bi/) | Nej - [finns i Power BI](https://docs.microsoft.com/power-bi/) |
+| [SQLServer Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Nej - [finns i Power BI](https://docs.microsoft.com/power-bi/) | Nej - [finns i Power BI](https://docs.microsoft.com/power-bi/) |
 | [Lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Ja | Ja |
 | [Systemfunktioner lagras](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | De flesta - finns enskilda funktioner | Ja - finns [lagrade procedurer, funktioner, utlöser skillnader](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
 | [Systemets lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Vissa - se enskilda lagrade procedurer | Ja - finns [lagrade procedurer, funktioner, utlöser skillnader](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |

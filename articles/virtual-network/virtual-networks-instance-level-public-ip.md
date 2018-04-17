@@ -1,10 +1,10 @@
 ---
-title: "Azure instansnivå offentlig IP-adress (klassisk)-adresser | Microsoft Docs"
-description: "Förstå instans nivån offentliga IP-går adresser och hantera dem med hjälp av PowerShell."
+title: Azure instansnivå offentlig IP-adress (klassisk)-adresser | Microsoft Docs
+description: Förstå instans nivån offentliga IP-går adresser och hantera dem med hjälp av PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: tysonn
 ms.assetid: 07eef6ec-7dfe-4c4d-a2c2-be0abfb48ec5
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
-ms.author: jdial
-ms.openlocfilehash: 773043f2841ec7539b0d49357dec6bcb9f4f78a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: 631b667b12941781a7e69361a0e731f94b7119f8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Instansen offentlig IP (klassisk): översikt
 En instans nivån offentliga IP-går är en offentlig IP-adress som kan tilldelas direkt till en virtuell dator eller molntjänster rollinstans i stället för till Molntjänsten som din Virtuella eller roll instans finns i. En går äga inte rum för den virtuella IP (VIP) som är tilldelad till Molntjänsten. Det är en ytterligare IP-adress som du kan använda för att ansluta direkt till din Virtuella eller roll-instans.
@@ -43,7 +43,7 @@ När du skapar en molnbaserad tjänst i Azure skapas motsvarande DNS A-poster au
 ## <a name="why-would-i-request-an-ilpip"></a>Varför skulle jag för att begära en går?
 Om du vill kunna ansluta till din Virtuella eller roll-instans med en IP-adress som tilldelats till den i stället för att använda molnet tjänsten VIP:&lt;portnummer&gt;, begär en går för din virtuella dator eller din rollinstans.
 
-* **Aktiva FTP** -genom att tilldela en går till en virtuell dator kan den ta emot trafik på alla portar. Slutpunkter krävs inte för den virtuella datorn tar emot trafik.  Information om FTP-protokollet finns i (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) [FTP-Protokollöversikt].
+* **Aktiva FTP** -genom att tilldela en går till en virtuell dator kan den ta emot trafik på alla portar. Slutpunkter krävs inte för den virtuella datorn tar emot trafik.  Se (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP-Protokollöversikt] mer information om FTP-protokollet.
 * **Utgående IP** – utgående trafik från den virtuella datorn är mappad till går som källa och går identifierar den virtuella datorn till externa enheter.
 
 > [!NOTE]

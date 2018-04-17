@@ -1,45 +1,93 @@
 ---
-title: "Resursklasser för hantering av arbetsbelastning - Azure SQL Data Warehouse | Microsoft Docs"
-description: "Riktlinjer för att använda resursklasser för att hantera samtidighet och beräkna resurser för frågor i Azure SQL Data Warehouse."
+title: Resursklasser för hantering av arbetsbelastning - Azure SQL Data Warehouse | Microsoft Docs
+description: Riktlinjer för att använda resursklasser för att hantera samtidighet och beräkna resurser för frågor i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: 
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
-ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 10/23/2017
-ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+author: kevinvngo
+manager: craigg-msft
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/11/2018
+ms.author: kevin
+ms.reviewer: jrj
+ms.openlocfilehash: 289281567eff7f2575f26f1ae7ec2f9ee4389461
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="resource-classes-for-workload-management"></a>Resursklasser för hantering av arbetsbelastning
-Riktlinjer för att hantera antalet samtidiga frågor som körs samtidigt och beräkna resurser för frågor i Azure SQL Data Warehouse med resursklasser.
+# <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Hantering av arbetsbelastning med resursklasser i Azure SQL Data Warehouse
+Riktlinjer för att använda resursklasser för att hantera minne och samtidighet för frågor i din Azure SQL Data Warehouse.  
  
 ## <a name="what-is-workload-management"></a>Vad är hantering av arbetsbelastning?
-Hantering av arbetsbelastning är möjligheten att optimera prestandan för alla frågor. En väl ögonen öppna arbetsbelastning körs frågor och Läs in operations effektivt oavsett om de är beräkningsintensiva eller i/o-intensiva. 
+Hantering av arbetsbelastning är möjligheten att optimera prestandan för alla frågor. En väl ögonen öppna arbetsbelastning körs frågor och Läs in operations effektivt oavsett om de är beräkningsintensiva eller i/o-intensiva.  SQL Data Warehouse innehåller funktioner för hantering av arbetsbelastning för miljöer med flera användare. Ett informationslager är inte avsedd för flera innehavare arbetsbelastningar.
 
-SQL Data Warehouse innehåller funktioner för hantering av arbetsbelastning för miljöer med flera användare. Ett informationslager är inte avsedd för flera innehavare arbetsbelastningar.
+Prestanda för ett datalager bestäms av den [prestandanivån](memory-and-concurrency-limits.md#performance-tiers) och [datalager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md). 
+
+- Om du vill visa gränserna för minne och samtidighet för alla profiler för prestanda finns [minne och samtidighet gränser](memory-and-concurrency-limits.md).
+- Om du vill justera prestanda kan du [skala upp eller ned](quickstart-scale-compute-portal.md).
+
+Prestanda för en fråga bestäms av frågans resursklassen. Den här resten av den här artikeln beskrivs resursklasser är och hur du justerar dem.
+
 
 ## <a name="what-are-resource-classes"></a>Vad är resursklasser?
-Resursklasser är förinställt gränserna som styr Frågekörningen. SQL Data Warehouse begränsar beräkningsresurser för varje fråga enligt resursklassen. 
+Resursklasser bestäms före gränserna i Azure SQL Data Warehouse som styr beräkningsresurser och samtidighet för frågekörning. Resursklasser kan hjälpa dig att hantera din arbetsbelastning genom att ange begränsningar för antalet frågor som körs samtidigt och de beräkningsresurser som tilldelats varje fråga. Det finns en kompromiss mellan minne och samtidighet.
 
-Resursen klasserna hjälper dig att hantera den allmänna prestandan för din arbetsbelastning i informationslager. Använda resursklasser effektivt kan du hantera din arbetsbelastning genom att ange begränsningar för antalet frågor som körs samtidigt och de beräkningsresurser som tilldelats varje fråga. 
+- Mindre resursklasser minskar den maximala mängd minnet per fråga, men öka parallellkörningen.
+- Större resursklasser ökar den maximala mängd minnet per fråga, men minskar. 
 
-- Mindre resursklasser använder mindre beräkningsresurser men aktivera större övergripande frågan samtidighet
-- Större resursklasser ger mer beräkningsresurser men begränsa frågan samtidighet
+Prestanda för en fråga bestäms av användarens resursklassen.
 
-Resursklasser är utformade för aktiviteter för hantering och bearbetning av data. Vissa mycket komplexa frågor får även när det finns stora kopplingar och sorterar så att systemet kör frågan i minnet i stället för att läcka till disk.
+- Om du vill visa resursanvändningen för resursklasser finns [minne och samtidighet gränser](memory-and-concurrency-limits.md#concurrency-maximums).
+- Om du vill justera resursklassen du kör frågan under en annan användare eller [ändra resursklassen för den aktuella användaren](#change-a-user-s-resource-class) medlemskap. 
 
-Följande åtgärder styrs av resursklasser:
+Resursklasser använda samtidighet fack för att mäta resursförbrukning.  [Concurrency fack](#concurrency-slots) beskrivs senare i den här artikeln. 
+
+### <a name="static-resource-classes"></a>Statisk resursklasser
+Statisk resursklasser tilldela samma mängd minne oavsett nuvarande prestandanivå som mäts i [datalager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md). Eftersom frågor få samma minnesallokering oavsett prestandanivån [skala ut datalagret](quickstart-scale-compute-portal.md) tillåter flera frågor som ska köras i en resursklass.
+
+Statisk resursklasser implementeras med de här fördefinierade databasroller:
+
+- staticrc10
+- staticrc20
+- staticrc30
+- staticrc40
+- staticrc50
+- staticrc60
+- staticrc70
+- staticrc80
+
+Dessa resursklasser som passar bäst för lösningar som ökar resursklassen för att få ytterligare beräkningsresurser.
+
+### <a name="dynamic-resource-classes"></a>Dynamisk resursklasser
+Dynamiska resursklasser tilldela en variabel mängd minne beroende på den aktuella nivån för tjänsten. När du skalar upp till en större servicenivå dina frågor att automatiskt få mer minne. 
+
+Dynamisk resursklasser implementeras med de här fördefinierade databasroller:
+
+- smallrc
+- mediumrc
+- largerc
+- xlargerc. 
+
+Dessa resursklasser som passar bäst för lösningar som ökar compute skala få ytterligare resurser. 
+
+
+### <a name="default-resource-class"></a>Standard resursklassen
+Som standard varje användare är medlem i den dynamiska resursklassen **smallrc**. 
+
+Resursklass av tjänstens är fast och kan inte ändras.  Administratören är den användare som skapades under etableringen.
+
+> [!NOTE]
+> Användare eller grupper som har definierats som Active Directory-administratör är också tjänstadministratörer.
+>
+>
+
+## <a name="resource-class-operations"></a>Åtgärder för resurs-klass
+
+Resursklasser är utformade för att förbättra prestanda för aktiviteter för hantering och bearbetning av data. Komplexa frågor kan också dra nytta körs under en stor resursklassen. Till exempel fråga prestanda för stora kopplingar och sorterar kan förbättra när resursklassen är tillräckligt stor för att aktivera frågan som ska köras i minnet.
+
+### <a name="operations-governed-by-resource-classes"></a>Åtgärder som omfattas av resursklasser
+
+Dessa åtgärder omfattas av resursklasser:
 
 * INSERT-MARKERAR, UPPDATERA, TA BORT
 * Välj (när du frågar användartabeller)
@@ -56,50 +104,7 @@ Följande åtgärder styrs av resursklasser:
 > 
 > 
 
-## <a name="static-and-dynamic-resource-classes"></a>Statiska och dynamiska resursklasser
-
-Det finns två typer av resursklasser: dynamiska och statiska.
-
-- **Statiska resursklasser** tilldela samma mängd minne oavsett aktuella tjänstnivå som mäts i [datalager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md). Den här statisk tilldelning innebär på större servicenivåer kan du köra flera frågor i varje resursklassen.  Statisk resursklasser är namngivna staticrc10, staticrc20, staticrc30, staticrc40, staticrc50, staticrc60, staticrc70 och staticrc80. Dessa resursklasser som passar bäst för lösningar som ökar resursklassen för att få ytterligare beräkningsresurser.
-
-- **Dynamiska resursklasser** tilldela en variabel mängd minne beroende på den aktuella nivån för tjänsten. När du skalar upp till en större servicenivå dina frågor att automatiskt få mer minne. Dynamisk resurs-klasser är namngivna smallrc, mediumrc, largerc och xlargerc. Dessa resursklasser som passar bäst för lösningar som ökar compute skala få ytterligare resurser. 
-
-Den [prestandanivåer](performance-tiers.md) använda samma resurs klassnamn, men har olika [minne och samtidighet specifikationer](performance-tiers.md). 
-
-
-## <a name="assigning-resource-classes"></a>Tilldela resursklasser
-
-Resursklasser implementeras genom att tilldela användare till databasroller. När användaren kör en fråga, kör frågan med användarens resursklassen. Till exempel när en användare är medlem i databasrollen smallrc eller staticrc10, köra sina frågor med små mängder minne. När en databasanvändare är en medlem av databasrollerna xlargerc eller staticrc80, kör sina frågor med stora mängder minne. 
-
-Använd den lagrade proceduren för att öka användarens resursklassen [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). 
-
-```sql
-EXEC sp_addrolemember 'largerc', 'loaduser';
-```
-
-Om du vill minska resursklassen använda [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  
-
-```sql
-EXEC sp_droprolemember 'largerc', 'loaduser';
-```
-
-Resursklass av tjänstens är fast och kan inte ändras.  Administratören är den användare som skapades under etableringen.
-
-> [!NOTE]
-> Användare eller grupper som har definierats som Active Directory-administratör är också tjänstadministratörer.
->
->
-
-### <a name="default-resource-class"></a>Standard resursklassen
-Som standard varje användare är medlem i små resursklassen **smallrc**. 
-
-### <a name="resource-class-precedence"></a>Prioritet för resurs-klass
-Användare kan vara medlemmar i flera resursklasser. När en användare tillhör fler än en resursklass:
-
-- Dynamisk resursklasser företräde framför statiska resursklasser. Till exempel om en användare är medlem i både mediumrc(dynamic) och staticrc80 (statisk), köra frågor med mediumrc.
-- Större resursklasser företräde framför mindre resursklasser. Till exempel om en användare är medlem i mediumrc och largerc, köra frågor med largerc. Om en användare är medlem i både staticrc20 och statirc80, körs frågor med staticrc80 resursallokeringar.
-
-### <a name="queries-exempt-from-resource-classes"></a>Frågor som är undantagna från resursklasser
+### <a name="operations-not-governed-by-resource-classes"></a>Åtgärder som inte styrs av resursklasser
 Några frågor körs alltid i resursklassen smallrc trots att användaren är medlem i en större resursklassen. Frågorna undantagna räknas inte mot samtidighet gränsen. Till exempel om samtidighet gränsen är 16, många användare kan vara att välja systemvyer utan att påverka tillgängliga samtidighet fack.
 
 Följande instruktioner är undantagna från resursklasser och körs alltid i smallrc:
@@ -126,6 +131,45 @@ Removed as these two are not confirmed / supported under SQLDW
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE
 -->
+
+## <a name="concurrency-slots"></a>Concurrency-platser
+Concurrency kortplatser är ett bekvämt sätt att spåra resurserna som är tillgängliga för frågekörning. De har liknande biljetter som du köper om du vill reservera platser på en samklang eftersom sittplatser är begränsad. Det totala antalet samtidiga platser per datalagret bestäms av servicenivån. Innan en fråga kan börja köra, måste den kunna reservera tillräckligt med samtidighet platser. När en fråga är klar, släpper samtidighet platserna.  
+
+- Frågor som körs med 10 samtidiga platser kan komma åt 5 gånger fler beräkningsresurser än en fråga som körs med 2 samtidighet platser.
+- Om varje fråga kräver 10 samtidiga platser och det finns 40 samtidighet platser, kan endast 4 frågor köras samtidigt.
+ 
+Endast resurs styrs frågor använda samtidighet platser. System frågor och vissa trivial frågor du inte använda alla platser. Det exakta antalet samtidiga fack förbrukas bestäms av frågans resursklassen.
+
+## <a name="view-the-resource-classes"></a>Visa klasserna resurs
+
+Resursklasser implementeras som fördefinierade databasroller. Det finns två typer av resursklasser: dynamiska och statiska. Om du vill visa en lista med resursklasser, använder du följande fråga:
+
+    ```sql
+    SELECT name FROM sys.database_principals
+    WHERE name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
+    ```
+
+## <a name="change-a-users-resource-class"></a>Ändra en användares resursklassen
+
+Resursklasser implementeras genom att tilldela användare till databasroller. När användaren kör en fråga, kör frågan med användarens resursklassen. Till exempel när en användare är medlem i databasrollen smallrc eller staticrc10, köra sina frågor med små mängder minne. När en databasanvändare är en medlem av databasrollerna xlargerc eller staticrc80, kör sina frågor med stora mängder minne. 
+
+Använd den lagrade proceduren för att öka användarens resursklassen [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). 
+
+```sql
+EXEC sp_addrolemember 'largerc', 'loaduser';
+```
+
+Om du vill minska resursklassen använda [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  
+
+```sql
+EXEC sp_droprolemember 'largerc', 'loaduser';
+```
+
+## <a name="resource-class-precedence"></a>Prioritet för resurs-klass
+Användare kan vara medlemmar i flera resursklasser. När en användare tillhör fler än en resursklass:
+
+- Dynamisk resursklasser företräde framför statiska resursklasser. Till exempel om en användare är medlem i både mediumrc(dynamic) och staticrc80 (statisk), köra frågor med mediumrc.
+- Större resursklasser företräde framför mindre resursklasser. Till exempel om en användare är medlem i mediumrc och largerc, köra frågor med largerc. Om en användare är medlem i både staticrc20 och statirc80, körs frågor med staticrc80 resursallokeringar.
 
 ## <a name="recommendations"></a>Rekommendationer
 Vi rekommenderar att du skapar en användare som är dedikerad till att köra en viss typ av frågan eller läsa in åtgärder. Ger användaren en permanent resursklassen istället för att ändra resursklassen regelbundet. Med tanke på att statiska resursklasser ge större övergripande kontroll på arbetsbelastningen föreslår vi också använda dessa först innan du bestämmer dynamisk resursklasser.

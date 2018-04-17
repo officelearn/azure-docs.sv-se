@@ -1,5 +1,5 @@
 ---
-title: "Azure betalning bearbetning modell - krav på lösenord"
+title: Azure betalning bearbetning modell - krav på lösenord
 description: PCI DSS krav 2
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 4ae9fc7d5b53d33f9feb98c450970e0560afa2af
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 8fafc277d7410ab3f8f54b0defee127fd6ec2f4d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="password-requirements-for-pci-dss-compliant-environments"></a>Lösenordskraven för PCI DSS-kompatibel miljöer 
 ## <a name="pci-dss-requirement-2"></a>PCI DSS krav 2
@@ -39,8 +39,8 @@ Detta gäller för alla standardlösenordet, inklusive men inte begränsat till 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure Active Directory lösenordskrav principen tillämpas för de nya lösenorden som tillhandahålls av kunder i AADUX-portalen. Kund-initierad självbetjäning lösenordsändringar kräver verifiering av tidigare lösenord. Administratören återställa lösenord måste ändras vid efterföljande inloggningen. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore kräver att användare använder ange starka lösenord för alla användare. Inga exempel eller gäst-konton är aktiverade i demonstrationen.<br /><br />Trådlösa och SNMP har inte implementerats i lösningen.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure Active Directory lösenordskrav principen tillämpas för de nya lösenorden som tillhandahålls av kunder i AADUX-portalen. Kund-initierad självbetjäning lösenordsändringar kräver verifiering av tidigare lösenord. Administratören återställa lösenord måste ändras vid efterföljande inloggningen. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore kräver att användare använder ange starka lösenord för alla användare. Inga exempel eller gäst-konton är aktiverade i demonstrationen.<br /><br />Trådlösa och SNMP har inte implementerats i lösningen.|
 
 
 
@@ -52,8 +52,8 @@ Detta gäller för alla standardlösenordet, inklusive men inte begränsat till 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Trådlösa och SNMP har inte implementerats i lösningen.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Trådlösa och SNMP har inte implementerats i lösningen.|
 
 
 
@@ -70,8 +70,8 @@ I branschen accepteras systemhärdning standarder kan innefatta, men är inte be
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | För Microsoft Azure utvecklar OSSC tekniska säkerhetstjänster teamet configuration säkerhetskrav för datorer i Microsoft Azure-miljö som är konsekventa med branschen godkänd härdning standarder. De här konfigurationerna dokumenteras i systemet baslinjer och relevanta konfigurationsändringar förmedlas till påverkas team (t.ex. IPAK team). Procedurer implementeras för att övervaka kompatibilitet mot configuration säkerhetskrav. Säkerhetskrav för konfigurationen för datorer i Microsoft Azure-miljön är konsekventa med standarder i branschen accepteras härdning och granskas minst en gång om året. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore ger Härdning av alla tjänster i omfånget för Kortinnehavarens datamiljö (CDE). <br /><br />Contoso Webstore distribuerar också de [Azure Security Center](https://azure.microsoft.com/services/security-center/), som tillhandahåller en centraliserad översikt över säkerhetsläget för alla dina Azure-resurser. En överblick över kan du kontrollera att lämpliga säkerhetsåtgärder som är installerade och korrekt konfigurerad och att du snabbt kan identifiera alla resurser som kräver uppmärksamhet.<br /><br />Contoso Webstore använder Operations Management Suite för att logga alla systemändringar i. [Operations Management Suite (OMS)](/azure/operations-management-suite/) innehåller utförlig loggning av ändringar. Ändringar kan granskas och verifiera noggrannhet. Mer specifika anvisningar finns [PCI - vägledning för Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | För Microsoft Azure utvecklar OSSC tekniska säkerhetstjänster teamet configuration säkerhetskrav för datorer i Microsoft Azure-miljö som är konsekventa med branschen godkänd härdning standarder. De här konfigurationerna dokumenteras i systemet baslinjer och relevanta konfigurationsändringar förmedlas till påverkas team (t.ex. IPAK team). Procedurer implementeras för att övervaka kompatibilitet mot configuration säkerhetskrav. Säkerhetskrav för konfigurationen för datorer i Microsoft Azure-miljön är konsekventa med standarder i branschen accepteras härdning och granskas minst en gång om året. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore ger Härdning av alla tjänster i omfånget för Kortinnehavarens datamiljö (CDE). <br /><br />Contoso Webstore distribuerar också de [Azure Security Center](https://azure.microsoft.com/services/security-center/), som tillhandahåller en centraliserad översikt över säkerhetsläget för alla dina Azure-resurser. En överblick över kan du kontrollera att lämpliga säkerhetsåtgärder som är installerade och korrekt konfigurerad och att du snabbt kan identifiera alla resurser som kräver uppmärksamhet.<br /><br />Contoso Webstore använder Operations Management Suite för att logga alla systemändringar i. Logganalys innehåller utförlig loggning av ändringar. Ändringar kan granskas och verifiera noggrannhet. Mer specifika anvisningar finns [PCI - vägledning för Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -86,8 +86,8 @@ I branschen accepteras systemhärdning standarder kan innefatta, men är inte be
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore tjänster distribueras som PaaS-tjänster. Alla tjänster isoleras och segmenterade nätverkssegmentering.<br /><br />Contoso Webstore använder också ett [App Service miljö (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) tillämpa viktiga metoder. Mer information finns i [PCI vägledning - Apptjänstmiljö](payment-processing-blueprint.md#app-service-environment).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore tjänster distribueras som PaaS-tjänster. Alla tjänster isoleras och segmenterade nätverkssegmentering.<br /><br />Contoso Webstore använder också ett [App Service miljö (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) tillämpa viktiga metoder. Mer information finns i [PCI vägledning - Apptjänstmiljö](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -99,8 +99,8 @@ I branschen accepteras systemhärdning standarder kan innefatta, men är inte be
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure-program- och maskinvarukonfigurationer granskas åtminstone kvartalsvis för att identifiera och ta bort alla onödiga funktioner, portar, protokoll och tjänster. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore tjänster distribueras som PaaS-tjänster. Alla tjänster isoleras och segmenterade nätverkssegmentering.<br /><br />Contoso Webstore använder också ett [App Service miljö (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) tillämpa viktiga metoder. Mer information finns i [PCI vägledning - Apptjänstmiljö](payment-processing-blueprint.md#app-service-environment).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure-program- och maskinvarukonfigurationer granskas åtminstone kvartalsvis för att identifiera och ta bort alla onödiga funktioner, portar, protokoll och tjänster. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore tjänster distribueras som PaaS-tjänster. Alla tjänster isoleras och segmenterade nätverkssegmentering.<br /><br />Contoso Webstore använder också ett [App Service miljö (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) tillämpa viktiga metoder. Mer information finns i [PCI vägledning - Apptjänstmiljö](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -116,8 +116,8 @@ I branschen accepteras systemhärdning standarder kan innefatta, men är inte be
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore tjänster distribueras som PaaS-tjänster. Alla tjänster isoleras och segmenterade nätverkssegmentering. Distributionen innehåller också Härdning av alla tjänster i omfånget för CDE. <br /><br />Contoso Webstore distribuerar också de [Azure Security Center](https://azure.microsoft.com/services/security-center/), som tillhandahåller en centraliserad översikt över säkerhetsläget för alla dina Azure-resurser. En överblick över kan du kontrollera att lämpliga säkerhetsåtgärder som är installerade och korrekt konfigurerad och att du snabbt kan identifiera alla resurser som kräver uppmärksamhet.<br /><br />Contoso Webstore använder också ett [App Service miljö (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) tillämpa viktiga metoder. Mer information finns i [PCI vägledning - Apptjänstmiljö](payment-processing-blueprint.md#app-service-environment).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore tjänster distribueras som PaaS-tjänster. Alla tjänster isoleras och segmenterade nätverkssegmentering. Distributionen innehåller också Härdning av alla tjänster i omfånget för CDE. <br /><br />Contoso Webstore distribuerar också de [Azure Security Center](https://azure.microsoft.com/services/security-center/), som tillhandahåller en centraliserad översikt över säkerhetsläget för alla dina Azure-resurser. En överblick över kan du kontrollera att lämpliga säkerhetsåtgärder som är installerade och korrekt konfigurerad och att du snabbt kan identifiera alla resurser som kräver uppmärksamhet.<br /><br />Contoso Webstore använder också ett [App Service miljö (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) tillämpa viktiga metoder. Mer information finns i [PCI vägledning - Apptjänstmiljö](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -129,8 +129,8 @@ I branschen accepteras systemhärdning standarder kan innefatta, men är inte be
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Azure garanterar bara auktoriserad personal kan konfigurera Azure-plattformen säkerhetskontroller med flerfunktionsåtkomstkontroll kontroller och dokumenterade affärsbehov. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder AAD och AD RBAC kan du hantera säkerhetsparametrar distribueras på rätt sätt. Mer information finns i [PCI - vägledning för Identitetshantering](payment-processing-blueprint.md#identity-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Azure garanterar bara auktoriserad personal kan konfigurera Azure-plattformen säkerhetskontroller med flerfunktionsåtkomstkontroll kontroller och dokumenterade affärsbehov. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder AAD och AD RBAC kan du hantera säkerhetsparametrar distribueras på rätt sätt. Mer information finns i [PCI - vägledning för Identitetshantering](payment-processing-blueprint.md#identity-management).|
 
 
 
@@ -142,8 +142,8 @@ I branschen accepteras systemhärdning standarder kan innefatta, men är inte be
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore innehåller dokumentation om hur upprättas gränser. Contosos hotmodell och data flow diagram visar alla tjänster som används och kontroller som är aktiverad.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore innehåller dokumentation om hur upprättas gränser. Contosos hotmodell och data flow diagram visar alla tjänster som används och kontroller som är aktiverad.|
 
 
 
@@ -158,8 +158,8 @@ I branschen accepteras systemhärdning standarder kan innefatta, men är inte be
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure innebär användning av stark kryptering krävs vid åtkomst till hypervisor-infrastruktur. Microsoft Azure garanterar även att kunder som använder Microsoft Azure Management Portal har tillgång till sina service/IaaS-konsoler med stark kryptografi. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore visar hur starkt lösenord kan implementeras i en lösning. Dessutom kan du utföra alla tester för att verifiera att kryptering implementeras i hela lösningen.<br /><br />Contoso Webstore använder också ett [App Service miljö (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) tillämpa viktiga metoder. Mer information finns i [PCI vägledning - Apptjänstmiljö](payment-processing-blueprint.md#app-service-environment).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure innebär användning av stark kryptering krävs vid åtkomst till hypervisor-infrastruktur. Microsoft Azure garanterar även att kunder som använder Microsoft Azure Management Portal har tillgång till sina service/IaaS-konsoler med stark kryptografi. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore visar hur starkt lösenord kan implementeras i en lösning. Dessutom kan du utföra alla tester för att verifiera att kryptering implementeras i hela lösningen.<br /><br />Contoso Webstore använder också ett [App Service miljö (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) tillämpa viktiga metoder. Mer information finns i [PCI vägledning - Apptjänstmiljö](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -171,8 +171,8 @@ I branschen accepteras systemhärdning standarder kan innefatta, men är inte be
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore demo PaaS lösning inventeringen kan ses i angivna dokumentationen. Mer information finns i [PCI vägledning - förinstallerat OMS lösningar](payment-processing-blueprint.md#oms-solutions).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore demo PaaS lösning inventeringen kan ses i angivna dokumentationen. Mer information finns i [PCI vägledning - förinstallerat hanteringslösningar](payment-processing-blueprint.md#management-solutions).|
 
 
 
@@ -184,8 +184,8 @@ I branschen accepteras systemhärdning standarder kan innefatta, men är inte be
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore innehåller dokumentation som ger inblick i parametrar och dokument service element. |
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore innehåller dokumentation som ger inblick i parametrar och dokument service element. |
 
 
 
@@ -197,8 +197,8 @@ I branschen accepteras systemhärdning standarder kan innefatta, men är inte be
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. Microsoft Azure är inte en delad värdtjänst. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt. Microsoft Azure är inte en delad värdtjänst.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. Microsoft Azure är inte en delad värdtjänst. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt. Microsoft Azure är inte en delad värdtjänst.|
 
 
 

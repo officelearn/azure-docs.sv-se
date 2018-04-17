@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
-ms.openlocfilehash: 26204d5bd61d193a3d08e26f98faf77ecc367a94
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0eda9012e6b6c7207d200a6e550b6bc0b0b09882
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Använd skrivskyddade repliker att läsa in saldo skrivskyddade frågeresultat arbetsbelastningar (förhandsgranskning)
 
@@ -32,7 +32,7 @@ När Läs skalbar har aktiverats för en databas måste program som ansluter til
 
 ## <a name="data-consistency"></a>Datakonsekvens
 
-En av fördelarna med AlwasyON är att replikerna är alltid i ett konsekvent tillstånd, men vid olika tidpunkter det kan finnas vissa liten fördröjning mellan olika repliker. Läs skalbar stöder session-nivå konsekvenskontroll. Det innebär om skrivskyddad sessionen återansluts när ett anslutningsfel på grund av att repliken, dirigeras till en replik som inte är 100% uppdaterade med skrivskyddad replik. Även om ett program skriver data med hjälp av en skrivskyddad-session och läser den med hjälp av en skrivskyddad session omedelbart, är det möjligt att de senaste uppdateringarna inte visas direkt. Det beror på att transaktionen loggen gör att replikerna är asynkron.
+En av fördelarna med AlwaysON är att replikerna är alltid i ett konsekvent tillstånd, men vid olika tidpunkter det kan finnas vissa liten fördröjning mellan olika repliker. Läs skalbar stöder session-nivå konsekvenskontroll. Det innebär om skrivskyddad sessionen återansluts när ett anslutningsfel på grund av att repliken, dirigeras till en replik som inte är 100% uppdaterade med skrivskyddad replik. Även om ett program skriver data med hjälp av en skrivskyddad-session och läser den med hjälp av en skrivskyddad session omedelbart, är det möjligt att de senaste uppdateringarna inte visas direkt. Det beror på att transaktionen loggen gör att replikerna är asynkron.
 
 > [!NOTE]
 > Replikeringsfördröjningar för regionen är låg och den här situationen är ovanligt.

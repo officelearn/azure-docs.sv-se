@@ -1,11 +1,11 @@
 ---
 title: Azure Relay Hybridanslutningar protokollet guiden | Microsoft Docs
-description: "Guide för Azure Relay Hybridanslutningar-protokollet."
+description: Guide för Azure Relay Hybridanslutningar-protokollet.
 services: service-bus-relay
 documentationcenter: na
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 149f980c-3702-4805-8069-5321275bc3e8
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 43c40baa74b3f7c1f5c9d6626b25bcd45c2f9a10
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1979746d143dbf8c3f4bca3f9a3a7925fe8e3f0d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure Relay Hybridanslutningar protokoll
-Azure Relay är en av kapaciteten för viktiga pelare i Azure Service Bus-plattformen. Den nya *Hybridanslutningar* möjligheterna för vidarebefordran är en säker, öppna protokoll utvecklingen baserat på http- och WebSockets. Det ersätter den tidigare lika med namnet *BizTalk-tjänst* funktion som har byggt på protokoll. Integrering av Hybridanslutningar i Azure App Service fortsätter att fungera som-är.
+Azure Relay är en av kapaciteten för viktiga pelare i Azure Service Bus-plattformen. Den nya *Hybridanslutningar* möjligheterna för vidarebefordran är en säker, öppna protokoll utvecklingen baserat på http- och WebSockets. Det ersätter den tidigare med samma namn *BizTalk-tjänst* funktion som har byggt på protokoll. Integrering av Hybridanslutningar i Azure App Service fortsätter att fungera som-är.
 
 Hybridanslutningar möjliggör dubbelriktad, binär dataström kommunikation mellan två nätverksprogram då ena eller båda parterna kan finnas bakom NAT och brandväggar. Den här artikeln beskriver klientsidan samverkan med Hybridanslutningar relay för att ansluta klienter i lyssnaren och avsändaren roller och hur lyssnare ta emot nya anslutningar.
 
 ## <a name="interaction-model"></a>Interaktion modellen
 Hybridanslutningar relay ansluter två parter genom att tillhandahålla en rendezvous-punkt i Azure-molnet både parter kan identifiera och ansluta till ur sina egna nätverk. Den tidpunkten och rendezvous kallas ”Hybridanslutning” i den här och övrig dokumentation i de API: er och även i Azure-portalen. Tjänstslutpunkten Hybridanslutningar kallas ”tjänst” för resten av den här artikeln. Interaktion modellen leans på nomenklaturen upprättas av många andra nätverksfunktioner API: er.
 
-Det finns en lyssnare som först visar kan hantera inkommande anslutningar och accepterar dem senare när de tas emot. Det finns en anslutande klienter som ansluter till lyssnaren förväntas anslutningen ska godkännas för att upprätta en dubbelriktad kommunikation sökväg på den andra sidan.
+Det finns en lyssnare som först visar kan hantera inkommande anslutningar och accepterar dem senare när de tas emot. Det finns en anslutande klienten som erbjuder en anslutning till lyssnaren förväntas anslutningen ska godkännas för att upprätta en dubbelriktad kommunikation sökväg på den andra sidan.
 ”Anslut”, ”lyssna” och ”accepterar” är samma villkor som du hittar i de flesta socket API: er.
 
-Alla vidarebefordrande kommunikation har någon av parterna utgående anslutningar upprättas mot en tjänstslutpunkt som gör att ”lyssnaren” också ”klient” talspråkliga används och kan göra att andra terminologi överlagringar. De exakta termer som vi därför använda Hybridanslutningar är följande:
+Någon vidarebefordrande kommunikation modell har båda parter upprättar utgående anslutningar till en tjänstslutpunkt, vilket gör ”lyssnaren” också en ”klient” talspråkliga används och kan göra att andra terminologi överlagringar. De exakta termer som vi därför använda Hybridanslutningar är följande:
 
 Program på båda sidor av en anslutning kallas ”klienter”, eftersom de är klienter till tjänsten. Den klient som väntar och accepterar anslutningar är ”lyssnaren” eller anses vara ”lyssnare rollen”. Den klient som initierar en ny anslutning till en lyssnare via service kallas ”avsändaren”, eller finns i ”avsändaren roll”.
 
@@ -40,10 +40,10 @@ Lyssnaren har fyra interaktioner med tjänsten; alla överföring uppgifter besk
 
 #### <a name="listen"></a>Lyssna
 Om du vill ange beredskap för tjänsten som en lyssnare är redo att acceptera anslutningar, skapas en utgående WebSocket-anslutning. Handskakningen anslutningen innehåller namnet på en Hybridanslutning som konfigurerats på Relay-namnområde och en säkerhetstoken som ger ”lyssna” till att namnet.
-När WebSocket accepteras av tjänsten registreringen är klar och etablerade web WebSocket bevaras alive som ”kontrollkanal” för att aktivera alla efterföljande interaktioner. Tjänsten kan upp till 25 samtidiga lyssnare på en Hybrid-anslutning. Om det finns två eller flera aktiva lyssnare, balanseras inkommande anslutningar mellan dem i slumpmässig ordning. rättvis fördelning är inte säkert.
+När WebSocket accepteras av tjänsten registreringen är klar och etablerade WebSocket bevaras alive som ”kontrollkanal” för att aktivera alla efterföljande interaktioner. Tjänsten kan upp till 25 samtidiga lyssnare på en Hybrid-anslutning. Om det finns två eller flera aktiva lyssnare, balanseras inkommande anslutningar mellan dem i slumpmässig ordning. rättvis fördelning är inte säkert.
 
 #### <a name="accept"></a>Acceptera
-När en avsändare öppnas en ny anslutning på tjänsten väljer tjänsten och meddelar en aktiva lyssnare på Hybrid-anslutning. Det här meddelandet skickas till lyssnaren över öppna kontrollkanalen som ett JSON-meddelande med URL för den WebSocket-slutpunkt som lyssnaren måste ansluta till för att acceptera anslutningen.
+När en avsändare öppnas en ny anslutning på tjänsten väljer tjänsten och meddelar en aktiva lyssnare på Hybrid-anslutning. Det här meddelandet skickas till lyssnaren över öppna kontrollkanalen som ett JSON-meddelande med URL för den WebSocket-slutpunkt som lyssnaren måste ansluta till för att godkänna anslutningen.
 
 URL: en kan och måste användas direkt av lyssnare utan någon extra arbete.
 Kodad information är endast giltig för en kort tidsperiod i stort sett under den tid som avsändaren är villigt att vänta för anslutningen ska vara etablerade slutpunkt till slutpunkt, men högst 30 sekunder. URL-Adressen kan bara användas för en lyckade anslutningsförsöket. Så snart WebSocket-anslutningen med rendezvous-URL har upprättats vidarebefordras alla ytterligare aktivitet på den här WebSocket från och till avsändaren, utan några åtgärder eller tolkning av tjänsten.
@@ -52,7 +52,7 @@ Kodad information är endast giltig för en kort tidsperiod i stort sett under d
 Den säkerhetstoken som måste användas för att registrera lyssnaren och underhålla kontrollkanalen kan gälla när lyssnaren är aktiv. Token upphör att gälla påverkar inte pågående anslutningar, men den orsakar kontrollkanal tas bort av tjänsten på eller strax efter den tidpunkt då har upphört att gälla. Åtgärden ”förnya” är ett JSON-meddelande som lyssnaren kan skicka Ersätt token som är associerade med kontrollkanalen, så att kontrollkanalen kan underhållas under långa perioder.
 
 #### <a name="ping"></a>Pinga
-Om kontrollkanalen hålls inaktiv för länge mellanhand på sättet, till exempel belastningen kan belastningsutjämnare eller NAT-enheter släppa TCP-anslutningen. Åtgärden ”pinga” undviker som genom att skicka en liten mängd data på den kanal som påminner alla på nätverksväg som anslutningen ska vara alive och den fungerar också som en ”live” test för lyssnaren. Om pingningen misslyckas kontrollkanalen ska betraktas som inte kan användas och lyssnaren borde återansluta.
+Om kontrollkanalen förblir inaktiv för länge, kan mellanhand på sättet, till exempel belastningsutjämnare eller NAT-enheter, släppa TCP-anslutningen. Åtgärden ”pinga” undviker som genom att skicka en liten mängd data på den kanal som påminner alla på nätverksväg som anslutningen ska vara alive och den fungerar också som en ”live” test för lyssnaren. Om pingningen misslyckas kontrollkanalen ska betraktas som inte kan användas och lyssnaren borde återansluta.
 
 ### <a name="sender-interaction"></a>Avsändaren interaktion
 Avsändaren har bara en enskild interaktion med tjänsten: ansluter den.
@@ -75,7 +75,7 @@ Alla WebSocket-anslutningar görs på port 443 som en uppgradering från HTTPS 1
 Lyssnarprotokollet består av två anslutning gester och tre meddelandeåtgärder.
 
 #### <a name="listener-control-channel-connection"></a>Lyssnare kontrollanslutningen kanal
-Kontrollkanalen har öppnats med att skapa en WebSocket-anslutning till:
+Kontrollkanalen öppnas genom att skapa en WebSocket-anslutning till:
 
 ```
 wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token=...
@@ -147,11 +147,11 @@ URL: en måste användas som-är för att fastställa acceptera socketen men inn
 
 | Parameter | Krävs | Beskrivning |
 | --- | --- | --- |
-| `sb-hc-action` |Ja |Parametern måste vara för att acceptera en socket`sb-hc-action=accept` |
+| `sb-hc-action` |Ja |Parametern måste vara för att acceptera en socket `sb-hc-action=accept` |
 | `{path}` |Ja |(se följande punkt) |
 | `sb-hc-id` |Nej |Se föregående beskrivning av **id**. |
 
-`{path}`är URL-kodade namnområdessökvägen till den förkonfigurerade Hybridanslutning som du vill registrera den här lyssnaren. Det här uttrycket läggs till den fasta `$hc/` sökvägsdelen. 
+`{path}` är URL-kodade namnområdessökvägen till den förkonfigurerade Hybridanslutning som du vill registrera den här lyssnaren. Det här uttrycket läggs till den fasta `$hc/` sökvägsdelen. 
 
 Den `path` uttryck kan utökas med ett suffix och ett stränguttryck för frågan som följer det registrerade namnet efter ett separertratten snedstreck. Detta gör att avsändaren klienten att skicka dispatch argument till lyssnaren accepterar när det inte är möjligt att inkludera HTTP-huvuden. Förväntningen är att lyssnare framework analyserar fast sökvägsdelen och det registrerade namnet från sökvägen och gör resten, möjligen utan någon fråga strängargument föregås av `sb-`, tillgänglig för program för att bestämma om du vill acceptera anslutningen.
 
@@ -195,7 +195,7 @@ När den har slutförts korrekt, misslyckas denna handskakning avsiktligt med en
 | 500 |Internt fel |Något gick fel i tjänsten. |
 
 ### <a name="listener-token-renewal"></a>Lyssnare token förnyelse
-När lyssnare-token upphör snart att gälla, ersätter den den genom att skicka ett SMS ram till tjänsten via etablerade kontrollkanalen. Meddelandet innehåller en JSON-objekt som kallas `renewToken`, som definierar följande egenskap just nu:
+Lyssnare-token upphör snart att gälla, kan lyssnaren ersätta den genom att skicka ett SMS ram till tjänsten via etablerade kontrollkanalen. Meddelandet innehåller en JSON-objekt som kallas `renewToken`, som definierar följande egenskap just nu:
 
 * **token** – en giltig, URL-kodade Service Bus delade åtkomsttoken för namnområdet eller Hybridanslutning som ger den **lyssna** rätt.
 

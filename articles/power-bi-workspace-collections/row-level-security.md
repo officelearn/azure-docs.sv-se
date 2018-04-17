@@ -1,12 +1,12 @@
 ---
-title: "Säkerhet på radnivå med Power BI arbetsytan samlingar"
-description: "Information om säkerhet på radnivå med Power BI arbetsytan samlingar"
+title: Säkerhet på radnivå med Power BI arbetsytan samlingar
+description: Information om säkerhet på radnivå med Power BI arbetsytan samlingar
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.service: power-bi-embedded
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 8c3ce8bc69a098d3133f27a2604f9d564693ea54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 7256e2f798fbc32c098f19f60b62e577300868c7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Säkerhet på radnivå med Power BI arbetsytan samlingar
 
@@ -89,7 +89,7 @@ Filter kan nu också flöda från tabellen försäljning till den **objektet** t
 > [!NOTE]
 > Om du använder DirectQuery-läge för dina data, måste du aktivera dubbelriktad mellan filtrering genom att välja de här två alternativen:
 
-1. **Filen** -> **alternativ och inställningar** -> **förhandsgranskningsfunktioner** -> **aktivera korsfiltrering i båda riktningarna för DirectQuery**.
+1. **Filen** -> **alternativ och inställningar** -> **förhandsgranskningsfunktioner** -> **aktivera korsfiltrering i båda riktningarna för DirectQuery** .
 2. **Filen** -> **alternativ och inställningar** -> **DirectQuery** -> **tillåta obegränsad mått i DirectQuery-läge**.
 
 Om du vill veta mer om dubbelriktad mellan filtrering kan hämta den [dubbelriktad mellan filtrering i SQL Server Analysis Services 2016 och Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx) vitbok.
@@ -117,7 +117,7 @@ Nu, med alla delar tillsammans, när någon loggar in på vår programmet för a
 
 ![Rapporten visas i programmet](media/row-level-security/dashboard-13.png)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 [Säkerhet på radnivå (RLS) med kraften](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
 [Autentisering och auktorisering i Power BI-arbetsytesamlingar](app-token-flow.md)  

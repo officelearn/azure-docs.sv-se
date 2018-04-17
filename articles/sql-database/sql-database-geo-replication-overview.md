@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d241bfb6245eb5a70f1e4fcedc86c969766019f4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: fc3dca82bea17b44f66b433f59e5861da3bb0ca2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Översikt: Redundans grupper och aktiv geo-replikering
 Aktiv geo-replikering kan du konfigurera upp till fyra läsbara sekundära databaser på samma eller olika data center platser (regioner). Sekundära databaser är tillgängliga för frågor och växling vid fel om det finns ett avbrott för data center eller oförmåga att ansluta till den primära databasen. Växling vid fel måste initieras manuellt med hjälp av användaren. Efter växling vid fel har den nya primärt en annan anslutning slutpunkt. 
@@ -131,15 +131,15 @@ På grund av fördröjningar av WAN-nätverk använder kontinuerlig kopiering en
 ## <a name="programmatically-managing-failover-groups-and-active-geo-replication"></a>Programmässigt hantera redundans grupper och aktiv geo-replikering
 Som beskrivits tidigare, automatisk redundans grupper (i förhandsversion) och aktiv kan geo-replikering också hanteras via programmering med Azure PowerShell och REST-API. I följande tabeller beskrivs uppsättningen kommandon som är tillgängliga.
 
-**Azure Resource Manager API och rollbaserad säkerhet**: aktiv geo-replikering innehåller en uppsättning API: er för Azure Resource Manager för hantering, inklusive den [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) och [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview). Dessa API: er kräver användning av resursgrupper och stöder rollbaserad säkerhet (RBAC). Mer information om hur du implementerar åtkomst roller finns [rollbaserad åtkomstkontroll i](../active-directory/role-based-access-control-what-is.md).
+**Azure Resource Manager API och rollbaserad säkerhet**: aktiv geo-replikering innehåller en uppsättning API: er för Azure Resource Manager för hantering, inklusive den [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) och [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview). Dessa API: er kräver användning av resursgrupper och stöder rollbaserad säkerhet (RBAC). Mer information om hur du implementerar åtkomst roller finns [rollbaserad åtkomstkontroll i](../role-based-access-control/overview.md).
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>Hantera SQL-databas redundans med Transact-SQL
 
 | Kommando | Beskrivning |
 | --- | --- |
-| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Använd Lägg till sekundär på SERVER argumentet för att skapa en sekundär databas för en befintlig databas och startar datareplikering |
-| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Använd växling vid fel eller FORCE_FAILOVER_ALLOW_DATA_LOSS för att växla en sekundär databas för att vara primär att initiera redundans |
-| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Använd ta bort sekundär på servern att avbryta en datareplikering mellan en SQL-databas och den angivna sekundära databasen. |
+| [ALTER DATABASE (Azure SQL-databas)](/sql/t-sql/statements/alter-database-azure-sql-database) |Använd Lägg till sekundär på SERVER argumentet för att skapa en sekundär databas för en befintlig databas och startar datareplikering |
+| [ALTER DATABASE (Azure SQL-databas)](/sql/t-sql/statements/alter-database-azure-sql-database) |Använd växling vid fel eller FORCE_FAILOVER_ALLOW_DATA_LOSS för att växla en sekundär databas för att vara primär att initiera redundans |
+| [ALTER DATABASE (Azure SQL-databas)](/sql/t-sql/statements/alter-database-azure-sql-database) |Använd ta bort sekundär på servern att avbryta en datareplikering mellan en SQL-databas och den angivna sekundära databasen. |
 | [sys.geo_replication_links (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Returnerar information om alla befintliga replikeringslänkar för varje databas på den logiska Azure SQL Database-servern. |
 | [sys.dm_geo_replication_link_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Hämtar senast replikering, senaste replikeringsfördröjning och annan information om replikeringslänken för en angiven SQL-databas. |
 | [sys.dm_operation_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Visar status för alla databasåtgärder, inklusive statusen för länkar för databasreplikering. |

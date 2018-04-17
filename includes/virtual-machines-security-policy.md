@@ -28,7 +28,7 @@ När du ansluter till virtuella datorer, använder du offentliga nycklar för at
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-Med hjälp av [rollbaserad åtkomstkontroll (RBAC)](../articles/active-directory/role-based-access-control-what-is.md), du kan särskilja uppgifter i din grupp och ge bara mängden åtkomst till användare på den virtuella datorn som de behöver för att utföra sitt arbete. Istället för att ge alla obegränsad behörighet på den virtuella datorn kan du tillåta endast vissa åtgärder. Du kan konfigurera åtkomstkontroll för den virtuella datorn i den [Azure-portalen](../articles/active-directory/role-based-access-control-configure.md)med hjälp av den [Azure CLI](https://docs.microsoft.com/cli/azure/role), eller[Azure PowerShell](../articles/active-directory/role-based-access-control-manage-access-powershell.md).
+Med hjälp av [rollbaserad åtkomstkontroll (RBAC)](../articles/role-based-access-control/overview.md), du kan särskilja uppgifter i din grupp och ge bara mängden åtkomst till användare på den virtuella datorn som de behöver för att utföra sitt arbete. Istället för att ge alla obegränsad behörighet på den virtuella datorn kan du tillåta endast vissa åtgärder. Du kan konfigurera åtkomstkontroll för den virtuella datorn i den [Azure-portalen](../articles/role-based-access-control/role-assignments-portal.md)med hjälp av den [Azure CLI](https://docs.microsoft.com/cli/azure/role), eller[Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

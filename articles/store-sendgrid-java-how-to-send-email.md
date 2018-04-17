@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c9f7d4841846e41eacb66125bcdeeb29466bb0b8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Hur du skickar e-post med SendGrid från Java
 Den här guiden visar hur du utför vanliga programmeringsuppgifter med SendGrid-e-posttjänsten på Azure. Exemplen är skrivna i Java. Scenarier som tas upp inkluderar **konstruera e-post**, **skicka e-post**, **lägga till bilagor**, **med hjälp av filter**, och **uppdatera egenskaperna för**. Mer information om SendGrid och skicka e-post finns i [nästa steg](#next-steps) avsnitt.
@@ -81,7 +81,7 @@ Hämta javax.mail bibliotek, till exempel från <http://www.oracle.com/technetwo
        Authenticator auth = new SMTPAuthenticator();
        Session mailSession = Session.getDefaultInstance(properties, auth);
 3. Skapa ditt meddelande och tilldela **till**, **från**, **ämne** och innehåll värden. Detta framgår av [hur man: skapa ett e-postmeddelande](#how-to-create-an-email) avsnitt.
-4. Skicka meddelandet via en *javax.mail.Transport* objekt. Detta visas i den [hur man: skickar ett e-] [så här: skicka ett e-postmeddelande] avsnittet.
+4. Skicka meddelandet via en *javax.mail.Transport* objekt. Detta framgår av [hur man: skicka ett e-postmeddelande] [#how-till-send-en-e]-avsnitt.
 
 ## <a name="how-to-create-an-email"></a>Så här: skapa ett e-postmeddelande
 Nedan visas hur du anger värden för ett e-postmeddelande.

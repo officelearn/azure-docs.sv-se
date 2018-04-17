@@ -1,11 +1,11 @@
 ---
 title: Kontrollera routning i ett Azure Virtual Network - PowerShell - klassisk | Microsoft Docs
-description: "Lär dig att styra routning i Vnet med PowerShell | Klassisk"
+description: Lär dig att styra routning i Vnet med PowerShell | Klassisk
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
-editor: 
+author: genli
+manager: cshepard
+editor: ''
 tags: azure-service-management
 ms.assetid: d8d07c16-cbe5-4536-acd6-870269346fe3
 ms.service: virtual-network
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
-ms.author: jdial
-ms.openlocfilehash: 09a8c1bbfc42146098f5f4aa799a39e589c175e7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: genli
+ms.openlocfilehash: 870beabc3f238764e362dc99565f350a2329f4ec
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Kontrollera Routning och använder virtuella installationer (klassisk) med hjälp av PowerShell
 

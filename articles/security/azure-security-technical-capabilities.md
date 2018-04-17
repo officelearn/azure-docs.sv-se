@@ -1,12 +1,12 @@
 ---
 title: De tekniska funktionerna i Azure security | Microsoft Docs
-description: "Läs mer om molnbaserad databearbetning tjänster som omfattar ett brett urval av compute-instanser och tjänster som kan skalas upp och ned automatiskt så att den passar ditt program-eller enterprise."
+description: Läs mer om molnbaserad databearbetning tjänster som omfattar ett brett urval av compute-instanser och tjänster som kan skalas upp och ned automatiskt så att den passar ditt program-eller enterprise.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 536745d869ea3bcd0beedad3712597b00e600796
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 489b2a66cadb77a338f9ae00443c072a4e19edfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>De tekniska funktionerna i Azure-säkerhet
 
@@ -166,7 +166,7 @@ Azure AD Privileged Identity Management kan du:
 
 Prenumerationer har också en association med en katalog. Katalogen definierar en uppsättning användare. Det kan vara användare från arbetet eller skolan som skapade katalogen eller de kan vara externa användare (det vill säga Microsoft Accounts). Prenumerationer är tillgängliga för en delmängd av de directory-användare som har tilldelats som tjänsten systemadministratörskontot (SA) eller Medadministratör (CA); Det enda undantaget är att äldre skäl Microsoft Accounts (tidigare Windows Live ID) kan tilldelas som SA eller Certifikatutfärdare utan att vara närvarande i katalogen.
 
-Säkerhet indatavärdena företag bör tänka på att ge anställda behörigheterna exakt som de behöver. För många behörigheter kan exponera ett konto för attacker. För få behörigheter innebär att anställda kan få arbetet gjort effektivt. [Azure rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) hjälper dig att lösa problemet genom att erbjuda detaljerad åtkomsthantering för Azure.
+Säkerhet indatavärdena företag bör tänka på att ge anställda behörigheterna exakt som de behöver. För många behörigheter kan exponera ett konto för attacker. För få behörigheter innebär att anställda kan få arbetet gjort effektivt. [Azure rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) hjälper dig att lösa problemet genom att erbjuda detaljerad åtkomsthantering för Azure.
 
 ![Åtkomst till skyddade resurser ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
@@ -516,7 +516,7 @@ Lär dig mer om säkerheten genom att läsa in några av våra djupgående säke
 
 - [Granskning och loggning](https://www.microsoft.com/en-us/trustcenter/security/auditingandlogging)
 
-- [Cybercrime](https://www.microsoft.com/en-us/trustcenter/security/cybercrime)
+- [Cyberbrott](https://www.microsoft.com/en-us/trustcenter/security/cybercrime)
 
 - [Design- och operativ säkerhet](https://www.microsoft.com/en-us/trustcenter/security/designopsecurity)
 

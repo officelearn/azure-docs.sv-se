@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/18/2017
-ms.openlocfilehash: afaadc12d056f42a75795073d480fe26757649d8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/09/2018
+ms.openlocfilehash: 8d984c17ab373428b13ed59a598ca8ae4e88136a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>Strömma Analytics utdata: alternativ för lagring och analys
 När du redigerar ett Stream Analytics-jobb kan du överväga hur resulterande data används. Hur kan du visa resultatet av Stream Analytics-jobbet och där kan du lagra den?
@@ -21,18 +21,19 @@ När du redigerar ett Stream Analytics-jobb kan du överväga hur resulterande d
 Azure Stream Analytics har olika alternativ för att lagra utdata och visa analysresultat för att aktivera en mängd olika program mönster. Detta gör det enkelt att visa jobbutdata och ger dig flexibilitet vid användning och lagring av jobbutdata för datalagring och andra ändamål. Inga utdata som konfigurerats i jobbet måste finnas innan jobbet har startats och händelser börjar flöda. Till exempel, om du använder Blob storage som utdata skapa jobbet inte ett lagringskonto automatiskt. Skapa ett lagringskonto innan Stream Analytics-jobbet har startats.
 
 ## <a name="azure-data-lake-store"></a>Azure Data Lake Store
-Strömma Analytics stöder [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Lagringen kan du lagra data med en storlek, typ och införandet hastighet för drifts- och undersökande analyser. Stream Analytics måste dessutom ha behörighet att komma åt Data Lake Store. Information om tillstånd och hur du registrerar dig för Data Lake Store (vid behov) beskrivs i den [Data Lake utdata artikel](stream-analytics-data-lake-output.md).
+Strömma Analytics stöder [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store är en företagsomfattande storskalig lagringsplats för analytiska arbetsbelastningar för stordata. Data Lake Store kan du lagra data med en storlek, typ och införandet hastighet för drifts- och undersökande analyser. Stream Analytics måste dessutom ha behörighet att komma åt Data Lake Store.
 
-### <a name="authorize-an-azure-data-lake-store"></a>Godkänna ett Azure Data Lake Store
-När lagring av Data Lake väljs som utdata i Azure-portalen, uppmanas du att auktorisera en anslutning till en befintlig Data Lake Store.  
+### <a name="authorize-an-azure-data-lake-store-account"></a>Godkänna ett Azure Data Lake Store-konto
 
-![Auktorisera Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+1. När lagring av Data Lake väljs som utdata i Azure-portalen, uppmanas du att auktorisera en anslutning till en befintlig Data Lake Store.  
 
-Fyll i egenskaperna för Data Lake Store-utdata som visas nedan:
+   ![Auktorisera Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
-![Auktorisera Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+2. Om du redan har åtkomst till Data Lake Store, klicka på ”Verifiera nu” och en sida visas som anger ”omdirigera tillstånd”. När tillståndet lyckas, visas sidan där du kan konfigurera Data Lake Store-utdata.  
 
-I tabellen nedan visas vilka egenskapsnamn och deras beskrivning som behövs för att skapa ett Data Lake Store-utdata.
+3. När du har Data Lake Store-kontot autentiseras kan du konfigurera egenskaper för Data Lake Store-utdata. Tabellen nedan är listan över egenskapsnamn och deras beskrivning för att konfigurera din Data Lake Store-utdata.
+
+   ![Auktorisera Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 <table>
 <tbody>
@@ -46,11 +47,11 @@ I tabellen nedan visas vilka egenskapsnamn och deras beskrivning som behövs fö
 </tr>
 <tr>
 <td>Kontonamn</td>
-<td>Namnet på lagring av Data Lake-konto där du skickar din utdata. Visas med listan över Data Lake Store-konton som användaren loggat in på portalen har åtkomst till.</td>
+<td>Namnet på lagring av Data Lake-konto där du skickar din utdata. Visas med listan över Data Lake Store-konton som är tillgängliga i din prenumeration.</td>
 </tr>
 <tr>
 <td>Sökvägar för Prefix</td>
-<td>Filnamngivning följer enligt följande konvention: <BR>{Path Prefix Pattern}/schemaHashcode_Guid_Number.extension <BR> <BR>Exempel utdatafilerna:<BR>Myoutput/20170901/00/45434_gguid_1.csv <BR>Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR>Här finns även i situationer där en ny fil skapas:<BR>1. Ändra utdataschemat <BR>2. Externa eller interna omstart av ett jobb<BR><BR>Dessutom, om sökvägar filen innehåller inte en avslutande ”/”, det senaste mönstret i sökvägen behandlas som ett filnamnsprefix.<BR><BR>Exempel:<BR>För sökvägar: HH-Mapp1/loggar den genererade filen kan se ut: folder1/logs/02_134343_gguid_1.csv</td>
+<td>Den filsökväg som används för att skriva filer i den angivna Data Lake Store-konto. Du kan ange en eller flera instanser av {date} och {time} variabler.<BR> Exempel 1: mapp1/logs / {date} / {time}<BR>Exempel 2: mapp1/logs / {date}<BR>Här finns även i situationer där en ny fil skapas:<BR>1. Ändra utdataschemat <BR>2. Externa eller interna omstart av ett jobb<BR><BR>Dessutom, om sökvägar filen innehåller inte en avslutande ”/”, det senaste mönstret i sökvägen behandlas som ett filnamnsprefix.<BR></td>
 </tr>
 <tr>
 <td>Datumformat [<I>valfria</I>]</td>
@@ -80,12 +81,14 @@ I tabellen nedan visas vilka egenskapsnamn och deras beskrivning som behövs fö
 </table>
 
 ### <a name="renew-data-lake-store-authorization"></a>Förnya auktorisering för Data Lake Store
-Du måste autentiseras ditt Data Lake Store-konto om lösenordet har ändrats sedan jobbet skapades eller senast autentiserad.
+Du måste autentiseras ditt Data Lake Store-konto om lösenordet har ändrats sedan jobbet skapades eller senast autentiserad. Om du inte autentiseras jobbet kommer inte genereras av resultaten och ett felmeddelande om att behovet av återauktorisering loggas i loggarna för åtgärden. För närvarande finns en begränsning där autentiseringstoken måste uppdateras manuellt efter 90 dagar för alla jobb med Data Lake Store-utdata. 
+
+Förnya auktorisering, **stoppa** jobbet > Gå till din Data Lake Store-utdata > klickar du på den **förnya auktorisering** länka och under en kort tid en sida visas som anger ”omdirigera tillstånd..”. Sidan stängs automatiskt och om detta lyckas visar ”tillstånd har förnyats”. Du måste sedan klicka på **spara** längst ned på sidan och kan fortsätta genom att starta om jobbet från den **stoppats senast** att undvika dataförlust.
 
 ![Auktorisera Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>SQL Database
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) kan användas som utdata för data som är relationell natur och för program som är beroende av innehållet finns i en relationsdatabas. Stream Analytics-jobb att skriva till en befintlig tabell i Azure SQL-databas.  Tabellens schema måste exakt matcha fälten och deras typer som utdata från ditt jobb. En [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) kan också anges som utdata via SQL-databas alternativet output samt (detta är en förhandsgranskningsfunktion). I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa en SQL Database-utdata.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) kan användas som utdata för data som är relationell natur och för program som är beroende av innehållet finns i en relationsdatabas. Stream Analytics-jobb att skriva till en befintlig tabell i Azure SQL-databas.  Tabellens schema måste exakt matcha fälten och deras typer som utdata från ditt jobb. En [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) kan också anges som utdata via SQL-databas alternativet output samt. I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa en SQL Database-utdata.
 
 | Egenskapsnamn | Beskrivning |
 | --- | --- |
@@ -130,7 +133,7 @@ I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa 
 </tr>
 <tr>
 <td>Prefixet sökvägar [valfritt]</td>
-<td>Filen sökvägar som används för att skriva dina blobbar i den angivna behållaren. <BR> Du kan välja att använda en eller flera instanser av följande 2 variabler för att ange hur ofta BLOB skrivs i sökväg-mönster: <BR> {date} {time} <BR> Exempel 1: cluster1/logs / {date} / {time} <BR> Exempel 2: cluster1/logs / {date} <BR> <BR> Filnamngivning följer enligt följande konvention: <BR> {Path Prefix Pattern}/schemaHashcode_Guid_Number.extension <BR> <BR> Exempel utdatafilerna: <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> Här finns även i situationer där en ny fil skapas: <BR> 1. Aktuella filen överskrider det maximala tillåtna antalet block (för närvarande 50 000) <BR> 2. Ändra utdataschemat <BR> 3. Externa eller interna omstart av ett jobb  </td>
+<td>Filen sökvägar som används för att skriva dina blobbar i den angivna behållaren. <BR> Du kan välja att använda en eller flera instanser av följande 2 variabler för att ange hur ofta BLOB skrivs i sökväg-mönster: <BR> {date}, {time} <BR> Exempel 1: cluster1/logs / {date} / {time} <BR> Exempel 2: cluster1/logs / {date} <BR> <BR> Filnamngivning följer enligt följande konvention: <BR> {Path Prefix Pattern}/schemaHashcode_Guid_Number.extension <BR> <BR> Exempel utdatafilerna: <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> Här finns även i situationer där en ny fil skapas: <BR> 1. Aktuella filen överskrider det maximala tillåtna antalet block (för närvarande 50 000) <BR> 2. Ändra utdataschemat <BR> 3. Externa eller interna omstart av ett jobb  </td>
 </tr>
 <tr>
 <td>[Valfritt] datumformat</td>
@@ -195,7 +198,7 @@ Det finns några parametrar som behövs för att konfigurera Event Hub-dataströ
    ![Auktorisera Power BI-användare](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 2. Skapa ett nytt konto om du inte ännu har en och sedan klicka på Verifiera nu.  En skärm som liknar följande visas.  
    
-   ![Azure Account Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
+   ![Azure-konto Powerbi](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
 3. I det här steget Ange arbets-eller skolkonto för att auktorisera Power BI-utdata. Om du inte är redan registrerat dig för Power BI, väljer du logga nu. Arbets- eller skolkonto kontot som används för Power BI kan skilja sig från kontot Azure-prenumeration som du är inloggad på för tillfället.
 
 ### <a name="configure-the-power-bi-output-properties"></a>Konfigurera egenskaper för Power BI-utdata
@@ -224,7 +227,7 @@ Azure Stream Analytics uppdaterar datamodellen dynamiskt vid körning om resulta
 Den här tabellen innehåller datatypkonverteringar från [Stream Analytics-datatyper](https://msdn.microsoft.com/library/azure/dn835065.aspx) till Power BIs [Entity Data Model (EDM) typer](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) om en POWER BI dataset och tabellen inte finns.
 
 
-From Stream Analytics | To Power BI
+Från Stream Analytics | Till Powerbi
 -----|-----|------------
 bigint | Int64
 nvarchar(max) | Sträng
@@ -304,19 +307,24 @@ I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa 
 | Avgränsare |Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering av data i CSV-format. Värden som stöds är kommatecken, semikolon, utrymme, fliken och vertikalstreck. |
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos-DB](https://azure.microsoft.com/services/documentdb/) är en global och flera olika modeller databas tjänsten att obegränsad erbjuder elastisk utskalning runt världen, omfattande frågan och automatisk indexering via schema-oberoende datamodeller garanteras låg latens och branschledande omfattande serviceavtal.
+[Azure Cosmos-DB](https://azure.microsoft.com/services/documentdb/) är en global och flera olika modeller databas tjänsten att obegränsad erbjuder elastisk utskalning runt världen, omfattande frågan och automatisk indexering via schema-oberoende datamodeller garanteras låg latens och branschledande omfattande serviceavtal. Mer information om Cosmos DB samling alternativ för Stream Analytics, referera till den [Stream Analytics med Cosmos DB som utdata](stream-analytics-documentdb-output.md) artikel.
 
-I listan nedan innehåller information egenskapsnamnen och deras beskrivning för att skapa ett Azure DB som Cosmos-utdata.
+> [!Note]
+> Just nu är Azure Stream Analytics endast stöd för anslutning till CosmosDB med **SQL API**.
+> Andra Azure Cosmos DB-API: er stöds inte ännu. Om platsen Azure Stream Analytics till Azure DB som Cosmos-konton som har skapats med andra API: er, kanske data inte korrekt lagras. 
 
-* **Utdata Alias** – ett alias att referera den här utdatan i Stream Analytics-fråga  
-* **Kontonamn** – namn eller endpoint-URI för Cosmos-DB-konto.  
-* **Kontot nyckeln** – den delade åtkomstnyckeln för kontot Cosmos DB.  
-* **Databasen** – det Cosmos-DB-databasnamn.  
-* **Samlingsnamnsmönstret** – namnet på samlingen eller deras mönster för samlingar som ska användas. Samlingsnamnsformatet kan konstrueras med valfritt {partition}-token, där partitionerna börjar från 0. Följande är exempel giltiga indata:  
-  1\) MyCollection – en samling med namnet ”MyCollection” måste finnas.  
-  2\) MyCollection {partition} – dessa samlingar måste finnas – ”MyCollection0”, ”MyCollection1”, ”MyCollection2” och så vidare.  
-* **Partitionera nyckeln** – det är valfritt. Det här krävs bara om du använder en partition token i din samlingsnamnsmönstret. Namnet på fältet i utdatahändelserna används för att specificera nyckeln för att partionera utdata över samlingarna. Enda samling utdata för kan en godtycklig utdatakolumnen användas till exempel PartitionId.  
-* **Dokumentera ID** – det är valfritt. Namnet på fältet i utdatahändelserna används för att ange den primära nyckeln operations baseras på vilka insert eller update.  
+I följande tabell beskrivs egenskaperna för att skapa ett Azure DB som Cosmos-utdata.
+| Egenskapsnamn | Beskrivning |
+| --- | --- |
+| Utdataalias | Ett alias till refererar detta utdata i Stream Analytics-fråga. |
+| Mottagare | Cosmos DB |
+| Importalternativ | Välj antingen ”Välj Cosmos DB från prenumerationen”, eller ”ange Cosmos DB-inställningar manuellt”.
+| Konto-ID | Namn eller endpoint-URI för Cosmos-DB-konto. |
+| Kontonyckel | Den delade åtkomstnyckeln för kontot Cosmos DB. |
+| Databas | Databasnamnet Cosmos DB. |
+| Samlingsnamnsmönster | Namnet på samlingen eller deras mönster för samlingar som ska användas. <br/>Samlingsnamnsformatet kan konstrueras med valfritt {partition}-token, där partitionerna börjar från 0. Två exempel:  <br/>1. _MyCollection_ – en samling med namnet ”MyCollection” måste finnas.  <br/>2. _MyCollection {partition}_ – baserat på partitioneringskolumnen. <br/>Partitionering kolumnen samlingarna måste finnas – ”MyCollection0”, ”MyCollection1”, ”MyCollection2” och så vidare. |
+| Partitionsnyckel | Valfri. Det här krävs bara om du använder en {partition}-token i din samlingsnamnsmönstret.<br/> Partitionsnyckeln är namnet på fältet i utdatahändelserna används för att ange nyckel för att partionera utdata över samlingarna.<br/> Enda samling utdata för kan en godtycklig utdatakolumnen användas till exempel PartitionId. |
+| Dokument-ID |Valfri. Namnet på fältet i utdatahändelserna används för att ange den primära nyckeln operations baseras på vilka insert eller update.  
 
 ## <a name="azure-functions-in-preview"></a>Azure Functions (under förhandsgranskning)
 Azure Functions är en serverlös beräkningstjänst som gör det möjligt köra kod på begäran utan att behöva installera eller hantera infrastruktur. Gör det möjligt att implementera kod som utlöses av händelser i Azure eller tjänster från tredje part.  Den här möjligheten i Azure Functions för att svara på utlösare gör det fysiska utdata för ett Azure Stream Analytics. Den här utdataadapter tillåter användare att ansluta Stream Analytics till Azure Functions och köra ett skript eller kodavsnitt som svar på en mängd olika händelser.

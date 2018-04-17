@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: b1fdc364b903ed552f657fcabdadcf209d7c969e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bfbcf8ff3f24b69b49b9a2bd5d567e1ead57d974
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Ändra en skaluppsättning för virtuell dator
 Du kan behöva ändra eller uppdatera skaluppsättning för virtuell dator i hela livscykeln för dina program. Dessa uppdateringar kan innehålla hur du uppdaterar konfigurationen av skaluppsättning eller ändra konfigurationen för programmet. Den här artikeln beskriver hur du ändrar en befintlig skaluppsättningen med REST API: er, Azure PowerShell eller Azure CLI 2.0.
@@ -347,6 +347,7 @@ Vissa egenskaper kan endast anges när du skapar skaluppsättning. Dessa egenska
 - Tillgänglighetszoner
 - avbildningens referens utgivare
 - bild referenserbjudande
+- Hanterade lagringskontotypen för OS-disk
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Egenskaper som kan bara ändras baserat på det aktuella värdet
 Vissa egenskaper kan ändras med undantag beroende på det aktuella värdet. Dessa egenskaper innehåller:

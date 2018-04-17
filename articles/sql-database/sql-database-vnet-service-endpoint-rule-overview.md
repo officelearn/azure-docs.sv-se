@@ -1,6 +1,6 @@
 ---
-title: "Virtuella nätverksslutpunkter och regler för Azure SQL Database | Microsoft Docs"
-description: "Markera ett undernät som ett virtuellt nätverk tjänstslutpunkten. Sedan slutpunkten som en regel för virtuellt nätverk i åtkomstkontrollistan Azure SQL Database. Du SQL-databasen sedan godkänner kommunikation från alla virtuella datorer och andra noder i undernät."
+title: Virtuella nätverksslutpunkter och regler för Azure SQL Database | Microsoft Docs
+description: Markera ett undernät som ett virtuellt nätverk tjänstslutpunkten. Sedan slutpunkten som en regel för virtuellt nätverk i åtkomstkontrollistan Azure SQL Database. Du SQL-databasen sedan godkänner kommunikation från alla virtuella datorer och andra noder i undernät.
 services: sql-database
 ms.service: sql-database
 author: MightyPen
@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 7622c6e6ffb1410cc2cbd42f6ac3601d281832da
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b15b3c7f50c23a1c11b2467bfdd2794d52b451ac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Använd virtuella nätverk slutpunkter och regler för Azure SQL Database
 
@@ -140,7 +140,7 @@ För Azure SQL Database har funktionen virtuellt nätverk regler följande begr�
 Granska följande när du använder Tjänsteslutpunkter för Azure SQL Database:
 
 - **Utgående till Azure SQL Database offentliga IP-adresser krävs**: Nätverkssäkerhetsgrupper (NSG: er) måste öppnas för Azure SQL Database IP-adresser som tillåter anslutningar. Du kan göra detta med hjälp av NSG [Service taggar](../virtual-network/security-overview.md#service-tags) för Azure SQL Database.
-- **Azure-databas för PostgreSQL och MySQL stöds inte**: Tjänsteslutpunkter stöds inte för Azure-databas för PostgreSQL eller MySQL. Aktivera Tjänsteslutpunkter till SQL Database bryts anslutningen till dessa tjänster. Vi har en minskning. Kontakta  *dmalik@microsoft.com* .
+- **Azure-databas för PostgreSQL och MySQL stöds inte**: Tjänsteslutpunkter stöds inte för Azure-databas för PostgreSQL eller MySQL. Aktivera Tjänsteslutpunkter till SQL Database bryts anslutningen till dessa tjänster. Vi har en minskning. Kontakta *dmalik@microsoft.com*.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -159,7 +159,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 Många användare vill du ta bort **Tillåt alla Azure-tjänster** från Azure SQL-servrar och ersätta den med en brandväggsregel för virtuella nätverk.
 Men att ta bort detta påverkar följande funktioner i Azure SQLDB:
 
-#### <a name="import-export-service"></a>Import Export Service
+#### <a name="import-export-service"></a>Importera Export Service
 Azure SQLDB importera exportera-tjänsten körs på virtuella datorer i Azure. Dessa virtuella datorer är inte i ditt virtuella nätverk och därför hämta en Azure-IP-adress vid anslutning till databasen. För att ta bort **Tillåt alla Azure-tjänster** dessa virtuella datorer kommer inte att komma åt dina databaser.
 Du kan undvika problemet. Kör BACPAC importera eller exportera direkt i koden med DACFx API. Se till att det är distribuerat i en virtuell dator som är i VNet-undernät som du har angett brandväggsregeln.
 
@@ -178,7 +178,7 @@ Azure Storage har implementerat samma funktion som låter dig begränsa anslutni
 Om du väljer att använda den här funktionen med ett lagringskonto som används av en Azure SQL Server stöter du på problem. Nästa är en lista och en beskrivning av Azure SQLDB funktioner som påverkas av detta.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase är vanligt att läsa in data i Azure SQLDW från Storage-konton. Om det lagringskonto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät, bryts anslutningen från PolyBase till kontot. Det finns en lösning. Kontakta  *dmalik@microsoft.com*  för mer information.
+PolyBase är vanligt att läsa in data i Azure SQLDW från Storage-konton. Om det lagringskonto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät, bryts anslutningen från PolyBase till kontot. Det finns en lösning. Kontakta *dmalik@microsoft.com* för mer information.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob granskning
 Blobbgranskning skickar granskningsloggar till ditt eget lagringskonto. Om det här lagringskontot använder funktionen för slutpunkter VÄNDNING tjänsten bryts anslutningen från Azure SQLDB till lagringskontot.
@@ -315,7 +315,7 @@ Funktionen för regeln virtuellt nätverk för Azure SQL Database blev tillgäng
 
 [expressroute-indexmd-744v]: ../expressroute/index.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]:../role-based-access-control/overview.md
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
 

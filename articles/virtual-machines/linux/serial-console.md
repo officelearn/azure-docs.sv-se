@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: b7d6e48a6f34472bc38947fd70e850b1c3bf6f8a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Virtuella seriekonsolen (förhandsgranskning) 
 
@@ -32,7 +32,7 @@ Seriekonsolen för virtuell dator i Azure ger tillgång till en textbaserad kons
 ## <a name="prerequisites"></a>Förutsättningar 
 
 * Virtuell dator måste ha [starta diagnostik](boot-diagnostics.md) aktiverad 
-* Det konto som använder seriekonsolen måste ha [deltagarrollen](../../active-directory/role-based-access-built-in-roles.md) för den virtuella datorn och [starta diagnostik](boot-diagnostics.md) storage-konto. 
+* Det konto som använder seriekonsolen måste ha [deltagarrollen](../../role-based-access-control/built-in-roles.md) för den virtuella datorn och [starta diagnostik](boot-diagnostics.md) storage-konto. 
 * Inställningar som är specifika för Linux distro finns [åtkomst till seriekonsolen för Linux](#accessing-serial-console-for-linux)
 
 
@@ -56,7 +56,7 @@ Funktionen seriekonsolen kan inaktiveras för specifika virtuella datorer genom 
 ## <a name="serial-console-security"></a>Seriekonsolen säkerhet 
 
 ### <a name="access-security"></a>Åtkomstsäkerhet 
-Åtkomst till seriekonsol är begränsad till användare som har [VM deltagare](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) eller senare åtkomst till den virtuella datorn. Om din AAD-klient kräver Multi-Factor Authentication sedan åtkomst till seriekonsolen måste också MFA eftersom dess åtkomst [Azure-portalen](https://portal.azure.com).
+Åtkomst till seriekonsol är begränsad till användare som har [VM deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) eller senare åtkomst till den virtuella datorn. Om din AAD-klient kräver Multi-Factor Authentication sedan åtkomst till seriekonsolen måste också MFA eftersom dess åtkomst [Azure-portalen](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Kanalsäkerhet
 Alla data skickas tillbaka och tillbaka är krypterad under överföringen.

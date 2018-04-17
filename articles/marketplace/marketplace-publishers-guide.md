@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 07fb601b2cf6e3fe3cc9bfb7bca3bdcbec7e9ca7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f090bcd56377d167dddab1b8f942d473aecb66a2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guide för Azure Marketplace och AppSource publisher
 
@@ -116,13 +116,12 @@ Varje storefront stöder flera publishing alternativ och erbjudande typer. Välj
 |**Utvärdering**   |     Kostnadsfri utvärderingsversion, SaaS utvärderingsversion, interaktiva demo, Testkör    |  Azure Marketplace, AppSource       |
 |**Transaktionen**     |   Virtuell dator, lösningsmall för, hanterade program      |    Azure Marketplace     |
 
-### <a name="list"></a>Lista
+### <a name="list"></a>Visa lista
 
 Använd kontakta mig när deltagande test- eller transaktionen nivå inte är möjligt. Fördelen med den här metoden är att du kan utgivare med en lösning på marknaden omedelbart tar emot leads som kan vara nurtured i grundläggande avtal att starta business-svänghjul. Nackdelen är dock att kunden engagement är begränsad, jämfört med andra erbjudandetyper av.
 
 >[!IMPORTANT]
-<<<<<<< HEAD kunden engagement är bäst med utvärderingsversion och Transact erbjuder. Värdet för kontakta mig är lead som visas, så om du väljer den här typen av lista, se till att ditt lead mål har konfigurerats och du är redo att maximera lead. === Vi rekommenderar inte att kontakten mig listtyp. Du bör använda endast i situationer där det inte går att upprätta en utvärderingsversionen. Engagera kunder är bäst med test och transaktionen erbjudanden. Om du har någon typ av utvärderingsversionen leder våra onboarding-processen dig till något av dessa alternativ beroende på ditt scenario.
->>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
+>Engagera kunder är bäst med utvärderingsversion och Transact erbjuder. Värdet för kontakta mig är lead som visas, så om du väljer den här typen av lista, se till att ditt lead mål har konfigurerats och du är redo att maximera lead. 
 
 När erbjudandet består i huvudsak av professionella tjänster (till exempel bedömningar implementeringar, diskussionsgrupper), Använd erbjuda tjänster samråd med typen. Erbjudande omfång, varaktighet och pris måste åtgärdas, måste vara för en kund och måste utföras på platsen.
 
@@ -228,7 +227,7 @@ I det här scenariot debiterar Microsoft $0.14 per timme för användning av din
 
 En viktig fördel med transaktionen publicering alternativet är att Microsoft kan en faktura licens kostnaderna samtidigt som den underliggande Azure användningen direkt till kunden. I det här scenariot Microsoft växlar och samlar in för din räkning, vilket eliminerar behovet av du vill skapa egna inköp relation med kunden. Detta kan spara tid och resurser för att fokusera på hamnar försäljning, inte samlar in växeln.
 
-### <a name="enterprise-agreement"></a>Enterprise-avtal
+### <a name="enterprise-agreement"></a>Enterprise Agreement
 
 Microsofts kunder använder ibland ett Enterprise-avtal för Microsoft-produkter, inklusive användning av Azure. Den här betalningsalternativ är utformad för organisationer som vill licens programvara och molntjänster under minst tre år. Kunder har du möjlighet att sprida betalningar i stället för en direkta betalning. När en kund med EA använder betala per användning transaktion lista, följer fakturering för utgivarens programvarukostnader licens kvartalsvis EA-överförbrukning fakturering cykel.
 
@@ -272,8 +271,8 @@ Samtliga Enterprise Agreement-kunder kan nu lägga till Azure i avtalet genom at
 
 |**Krav** |**Detaljer**  |**Publiceringsalternativ**  |
 |---------|---------|---------|
-|**Tjänsten erbjudande egenskaper**     | Rådgivning tjänsten måste vara: <br>-Levereras som en fast omfång, fast varaktighet, fast pris (eller gratis) engagement. <br>-Främst förförsäljnings inriktade. <br>-Begränsat till en kund. <br>-Utförs på platsen.        |    Lista     |
-|**Partnerkrav för samråd tjänster**    |   *Endast AppSource*:  <br>- **Dynamics 365 för kunden Engagement**: har Silver eller guld [moln Customer Relationship Management](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency) kompetensen. <br>- **Dynamics 365 för ekonomi och åtgärder Enterprise edition**: har Silver eller guld [Enterprise resursplanering](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) kompetensen och en minsta intäkter av 25 000 i molnet åtgärder i efterföljande tolv månader. <br>- **Dynamics 365 för ekonomi och åtgärder, Business edition**: fungera som [moln-providers (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) eller [digitala Partner av posten (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) för minst en kund. <br>- **Power BI**: uppfyller kriterierna [samarbetspartner] (file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20 & % 20Incentives.pdf). <br>- **PowerApps**: har en [Partner samlade](https://powerapps.microsoft.com/en-us/partner-showcase/) lösning. |    Lista     |
+|**Tjänsten erbjudande egenskaper**     | Rådgivning tjänsten måste vara: <br>-Levereras som en fast omfång, fast varaktighet, fast pris (eller gratis) engagement. <br>-Främst förförsäljnings inriktade. <br>-Begränsat till en kund. <br>-Utförs på platsen.        |    Visa lista     |
+|**Partnerkrav för samråd tjänster**    |   *Endast AppSource*:  <br>- **Dynamics 365 för kunden Engagement**: har Silver eller guld [moln Customer Relationship Management](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency) kompetensen. <br>- **Dynamics 365 för ekonomi och åtgärder Enterprise edition**: har Silver eller guld [Enterprise resursplanering](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) kompetensen och en minsta intäkter av 25 000 i molnet åtgärder i efterföljande tolv månader. <br>- **Dynamics 365 för ekonomi och åtgärder, Business edition**: fungera som [moln-providers (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) eller [digitala Partner av posten (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) för minst en kund. <br>- **Power BI**: uppfyller kriterierna [samarbetspartner] (file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20 & % 20Incentives.pdf). <br>- **PowerApps**: har en [Partner samlade](https://powerapps.microsoft.com/en-us/partner-showcase/) lösning. |    Visa lista     |
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Använda Azure Active Directory för att aktivera försök
 Azure Active Directory är en molntjänst identitet som aktiverar autentisering med ett Microsoft arbets- eller skolkonto med hjälp av standardiserade protokoll: OAuth och OpenID Connect. Lär dig mer om Azure AD på den [produkten webbsidan](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
@@ -346,7 +345,7 @@ Det är viktigt att förstå de nödvändiga komponenterna för att skapa ett er
 |**Marknadsföring dokument (maximalt 3)**    |  Alla       |
 |**Leda mål**    |   Alla      |
 
-### <a name="contacts"></a>Kontakter
+### <a name="contacts"></a>Contacts
 
 
 |Du behöver den här publishing artefakt  |För den här erbjudandetypen  |
@@ -413,11 +412,11 @@ I det här avsnittet förklarar vi hur du:
 
 |Marketplace-registreringssteget  |Tid  |Beskrivning  |
 |---------|---------|---------|
-| Registrera i Microoft partnernätverk | 15 min | Utgivare måste vara registrerad i Microsoft Partner Network (MPN) för att kunna ha första nivån av konto och ta emot ytterligare fördelar och stöd för att vara en utgivare för Azure Marketplace |
-|Skapa ett Microsoft-ID     |   15 minuter      |   Partner som måste ha ett Microsoft-ID. Den här Microsoft-ID används för att få åtkomst till partnerportalen molnet.       |
+| Registrera i Microsoft Partner Network | 15 min | Utgivare måste vara registrerad i Microsoft Partner Network (MPN) för att kunna ha första nivån av konto och ta emot ytterligare fördelar och stöd för att vara en utgivare för Azure Marketplace |
+|Skapa ett Microsoft-ID     |   15 minuter      |   Partner som måste ha ett Microsoft-ID. Den här Microsoft-ID används för att få åtkomst till partnerportalen molnet.       |
 |Skicka formuläret marketplace kandidat     |  1-3 dagar       |  Partners måste du skicka formuläret kandidat för att starta godkännandeprocessen på Marketplace. När formuläret har skickats, granska programmet marketplace onboarding-teamet och verifiera begäran.       |
 |Registrera i Developer Center     |    5-10 dagar     | Registrering med Microsoft Developer Center krävs för att Microsoft ska du kontrollera att partnern som är en giltig juridisk person med ett giltigt ID för det land där det är registrerat. Developer Center aktiverar partnern som ska vara registrerad Microsoft utvecklare och ge dem åtkomst till Azure developer-programmet. <br><br>Observera att om du inte har slutfört formuläret marketplace kandidat du tillfrågad att betala en avgift för registrering av $99. Om du vill att den här avgiften åsidosättas fylla i marketplace kandidat och du får en kampanjkoden via e-post.  |
-|Logga in på partnerportalen moln     |  15 minuter       |   När partnern som tar emot godkännande från Marketplace-teamet att deras kandidat har godkänts, partner åtkomst till den [moln partnerportalen](https://cloudpartner.azure.com/) är aktiverad. Partnern ska använda Microsoft-ID från formuläret kandidat för att logga in på sin publisher profil i molnet Partner-portalen. Efter registreringen med Developer Center behöver partnern associera Developer Center-konto med sin Azure Marketplace publisher profil att publicera.      |
+|Logga in på partnerportalen moln     |  15 minuter       |   När partnern som tar emot godkännande från Marketplace-teamet att deras kandidat har godkänts, partner åtkomst till den [moln partnerportalen](https://cloudpartner.azure.com/) är aktiverad. Partnern ska använda Microsoft-ID från formuläret kandidat för att logga in på sin publisher profil i molnet Partner-portalen. Efter registreringen med Developer Center behöver partnern associera Developer Center-konto med sin Azure Marketplace publisher profil att publicera.      |
 
 #### <a name="create-a-microsoft-id"></a>Skapa ett Microsoft-ID
 
@@ -451,8 +450,8 @@ Under processen kan vi samla in adressen företagsinformation, bank kontoinforma
 |**Publisher profil**  |**Starta profil**  |**Mellanlagring**  |**Lista och utvärderingsversion**  |**Transact**
 |---------|---------|---------|---------|---------|
 |**Registrering av företagets**     | Måste ha        |  Måste ha       | Måste ha        |  Måste ha       |
-|**Skatt profil-ID**   |    Valfritt     |    Valfritt     |  Valfritt       | Måste ha      |
-|**Konto**     |   Valfritt      |    Valfritt     |  Valfritt       |  Måste ha      |
+|**Skatt profil-ID**   |    Valfri     |    Valfri     |  Valfri       | Måste ha      |
+|**Konto**     |   Valfri      |    Valfri     |  Valfri       |  Måste ha      |
 
 En steg för steg-beskrivning av den här processen finns [instruktioner om hur du registrerar i Developer Center](#instructions-on-how-to-register-in-the-developer-center). 
 
@@ -493,7 +492,6 @@ Detta är listan över alternativ för support för Azure Marketplace:
 
 |Stöd för kanalen  |Beskrivning  |
 |---------|---------|
-|Slack: [ansluta Marketplace Slack](https://join.marketplace.azure.com)    |   Slack miljö för att stödja samarbetar med tekniska problem. Det finns fler än 350 partners arbetar i den här miljön.        |
 |MSDN-forum: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Forum för Microsoft Developer Network.         |
 |Stackspill: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Stacken spill miljö för att få lösningar och ställa frågor om allt som rör Azure och Marketplace:<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
 

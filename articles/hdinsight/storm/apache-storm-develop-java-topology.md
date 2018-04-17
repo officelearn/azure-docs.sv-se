@@ -1,8 +1,8 @@
 ---
 title: Apache Storm Java exempeltopologi - Azure HDInsight | Microsoft Docs
-description: "Lär dig hur du skapar Apache Storm-topologier i Java genom att skapa en exempeltopologi word count."
+description: Lär dig hur du skapar Apache Storm-topologier i Java genom att skapa en exempeltopologi word count.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,17 +11,15 @@ keywords: Apache storm, apache storm exempel storm java, storm-topologi exempel
 ms.assetid: a8838f29-9c08-4fd9-99ef-26655d1bf6d7
 ms.service: hdinsight
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 2403261f05d9e5aab2e50939720b3eb007aecd6e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5f2a6de9737569c75e0350e2aceec19b149d9549
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Skapa en Apache Storm-topologi i Java
 
@@ -30,7 +28,7 @@ Lär dig hur du skapar en Java-baserad topologi för Apache Storm. Du skapar en 
 När du har slutfört stegen i det här dokumentet kan du distribuera topologin till Apache Storm på HDInsight.
 
 > [!NOTE]
-> En fullständig version av Storm-topologi exempel som skapats i det här dokumentet finns på [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
+> En fullständig version av Storm-topologi exempel som skapats i det här dokumentet finns på [ https://github.com/Azure-Samples/hdinsight-java-storm-wordcount ](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -169,7 +167,7 @@ Maven plugin-program kan du anpassa build-faser av projektet. Till exempel hur k
 </build>
 ```
 
-Det här avsnittet används för att lägga till plugin-program, resurser och andra build-konfigurationsalternativ. Fullständiga referenser för den **pom.xml** fil, se [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html).
+Det här avsnittet används för att lägga till plugin-program, resurser och andra build-konfigurationsalternativ. Fullständiga referenser för den **pom.xml** fil, se [ http://maven.apache.org/pom.html ](http://maven.apache.org/pom.html).
 
 ### <a name="add-plug-ins"></a>Lägga till plugin-program
 
@@ -565,10 +563,10 @@ Den här XML konfigurerar en ny loggare för den `com.microsoft.example` -klasse
 
 Den `<Root level="error">` avsnittet konfigurerar loggning rotnivå (allt inte i `com.microsoft.example`) att endast logga information om felet.
 
-Läs mer om hur du konfigurerar loggning för Log4j [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html).
+Läs mer om hur du konfigurerar loggning för Log4j [ http://logging.apache.org/log4j/2.x/manual/configuration.html ](http://logging.apache.org/log4j/2.x/manual/configuration.html).
 
 > [!NOTE]
-> Storm-version 0.10.0 och högre använder Log4j 2.x. Äldre versioner av storm används Log4j 1.x, som används av ett annat format för konfigurationen av loggen. Mer information om konfigurationen av äldre finns [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat).
+> Storm-version 0.10.0 och högre använder Log4j 2.x. Äldre versioner av storm används Log4j 1.x, som används av ett annat format för konfigurationen av loggen. Mer information om konfigurationen av äldre finns [ http://wiki.apache.org/logging-log4j/Log4jXmlFormat ](http://wiki.apache.org/logging-log4j/Log4jXmlFormat).
 
 ## <a name="test-the-topology-locally"></a>Testa topologin lokalt
 
@@ -601,7 +599,7 @@ Filen YAML definierar komponenterna som ska användas för topologi och data fl�
 Mer information om som finns [som framework (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
 
 > [!WARNING]
-> På grund av att en [programfel (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) med Storm 1.0.1, kan du behöva installera en [Storm utvecklingsmiljö](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) att köra som topologier lokalt.
+> På grund av att en [programfel (https://issues.apache.org/jira/browse/STORM-2055) ](https://issues.apache.org/jira/browse/STORM-2055) med Storm 1.0.1, kan du behöva installera en [Storm utvecklingsmiljö](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) att köra som topologier lokalt.
 
 1. Flytta den `WordCountTopology.java` filen utanför projektet. Topologin har definierats tidigare den här filen, men behövs inte med som.
 
@@ -720,7 +718,7 @@ Mer information om som finns [som framework (https://storm.apache.org/releases/0
     ```
 
     > [!WARNING]
-    > Om din topologi använder Storm 1.0.1 bits, misslyckas kommandot. Felet orsakas av [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). I stället [installera Storm i din utvecklingsmiljö](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) och Använd följande steg:
+    > Om din topologi använder Storm 1.0.1 bits, misslyckas kommandot. Felet orsakas av [ https://issues.apache.org/jira/browse/STORM-2055 ](https://issues.apache.org/jira/browse/STORM-2055). I stället [installera Storm i din utvecklingsmiljö](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) och Använd följande steg:
     >
     > Om du har [installerat Storm i din utvecklingsmiljö](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), du kan använda följande kommandon i stället:
     >

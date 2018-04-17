@@ -1,24 +1,24 @@
 ---
-title: "Replikera en SharePoint-flernivåapp med hjälp av Azure Site Recovery | Microsoft Docs"
-description: "Den här artikeln beskriver hur du replikerar en SharePoint-flernivåapp med hjälp av Azure Site Recovery-funktioner."
+title: Replikera en SharePoint-flernivåapp med hjälp av Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du replikerar en SharePoint-flernivåapp med hjälp av Azure Site Recovery-funktioner.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: sujayt
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/23/2017
+ms.date: 04/09/2018
 ms.author: sutalasi
-ms.openlocfilehash: 3610409691b71fcce0c36a3af94184dbe6db8661
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 86a1d53570aeefd57c5133688e67064da6f5dc77
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Replikera en SharePoint-flernivåapp för haveriberedskap med hjälp av Azure Site Recovery
 
@@ -66,7 +66,7 @@ VMware-datorer med Windows Server 2012 R2 Enterprise användes för att skapa de
 
 ### <a name="source-and-target"></a>Källa och mål
 
-**Scenario** | **Till en sekundär plats** | **Till Azure**
+**scenario** | **Till en sekundär plats** | **Till Azure**
 --- | --- | ---
 **Hyper-V** | Ja | Ja
 **VMware** | Ja | Ja
@@ -91,7 +91,7 @@ Följ [vägledningen](site-recovery-vmware-to-azure.md) att starta den virtuella
 
 * När replikeringen är klar måste du gå till varje virtuell dator för varje nivå och välj samma tillgänglighetsuppsättning i ' replikerade objekt > Inställningar > Egenskaper > beräkning och nätverk ”. Till exempel om din webbnivå har 3 virtuella datorer, se till att alla 3 virtuella datorer konfigureras som en del av samma tillgänglighetsuppsättning i Azure.
 
-    ![Set-Availability-Set](./media/site-recovery-sharepoint/select-av-set.png)
+    ![Ange Tillgänglighetsuppsättning](./media/site-recovery-sharepoint/select-av-set.png)
 
 * För anvisningar om hur du skyddar Active Directory och DNS Se [skydda Active Directory och DNS](site-recovery-active-directory.md) dokumentet.
 
@@ -115,7 +115,7 @@ Följ [vägledningen](site-recovery-vmware-to-azure.md) att starta den virtuella
 För platser, mot internet [skapa en trafikhanterarprofil av typen 'Priority'](../traffic-manager/traffic-manager-create-profile.md) i Azure-prenumeration. Och sedan konfigurera din DNS- och Traffic Manager-profil på följande sätt.
 
 
-| **Där** | **Source** | **Mål**|
+| **där** | **Källa** | **mål**|
 | --- | --- | --- |
 | Offentliga DNS | Offentliga DNS för SharePoint-webbplatser <br/><br/> Ex: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.net |
 | Lokal DNS | sharepointonprem.contoso.com | Offentliga IP-adress på den lokala gruppen |
@@ -153,15 +153,15 @@ Du kan distribuera de mest använda Azure Site Recovery-skript i ditt Automation
 
 1. Lägg till ett skript före åtgärden till grupp 1 redundans SQL-tillgänglighetsgruppen. Använda 'ASR-SQL-FailoverAG'-skript som publiceras i skriptexemplen. Se till att du följer du anvisningarna i skriptet och gör nödvändiga ändringar i skriptet på rätt sätt.
 
-    ![Add-AG-Script-Step-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
+    ![Lägg till-AG-skript för-steg-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
 
-    ![Add-AG-Script-Step-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
+    ![Lägg till-AG-skript för-steg-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
 
 2. Lägg till en post åtgärd skript om du vill koppla en belastningsutjämnare på den över virtuella datorer i webbnivå (Grupp2). Använda 'ASR AddSingleLoadBalancer'-skript som publiceras i skriptexemplen. Se till att du följer du anvisningarna i skriptet och gör nödvändiga ändringar i skriptet på rätt sätt.
 
-    ![Add-LB-Script-Step-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
+    ![Lägg till-LB-skript för-steg-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
 
-    ![Add-LB-Script-Step-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
+    ![Lägg till-LB-skript för-steg-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
 
 3. Lägg till ett manuellt steg för att uppdatera DNS-posterna pekar på den nya gruppen i Azure.
 

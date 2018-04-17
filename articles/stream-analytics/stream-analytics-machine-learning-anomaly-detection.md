@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/12/2018
-ms.openlocfilehash: cda5c26d4256720a8cf9af0e9abd604c979422a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/09/2018
+ms.openlocfilehash: e7274e4507d901a209ed5832e98ca630feefda4f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Avvikelseidentifiering i Azure Stream Analytics
 
@@ -65,6 +65,8 @@ Extrahera enskilda värden utanför posten med hjälp av **GetRecordPropertyValu
 `SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
 Avvikelseidentifiering av en typ som har identifierats när något av avvikelseidentifiering poäng överskrider ett tröskelvärde. Tröskelvärdet kan vara ett flyttal tal > = 0. Tröskelvärdet är en kompromiss mellan känslighet och förtroende. Ett lägre tröskelvärde skulle göra identifiering känsliga för ändringar och flera aviseringar genereras ett högre tröskelvärde kan göra identifiering mindre känsliga och lita mer men maskera vissa avvikelser. Det exakta tröskelvärdet som ska använda beror på scenariot. Det finns ingen övre gräns, men det rekommenderade intervallet är 3,25 5. 
+
+Värdet 3,25 som visas i exemplet är bara en föreslagna startpunkt. Finjustera värdet genom att köra åtgärder på en egen datauppsättning och Lägg märke till värdet tills du når ett tröskelvärde som är tillåtna.
 
 ## <a name="anomaly-detection-algorithm"></a>Algoritm för avvikelseidentifiering
 
@@ -118,19 +120,19 @@ Nu ska vi se strangeness beräkningen i detalj (antar historiska windows med hä
    - event_value/90th_percentile om event_value > 90th_percentile  
    - 10th_percentile/event_value, om event_value < 10th_percentile  
 
-2. **Långsam positivt trend:** en trendlinje över händelse värdena i fönstret tidigare beräknas och vi ser för en positiv trend inom raden. Värdet för strangeness beräknas enligt följande:  
+2. **Långsam positivt trend:** en trendlinje över händelse värdena i fönstret tidigare beräknas och åtgärden söker efter en positiv trend inom raden. Värdet för strangeness beräknas enligt följande:  
 
    - Lutning om lutning är positivt  
    - 0, annars 
 
-1. **Långsam negativa utvecklingen:** en trendlinje över händelse värdena i fönstret tidigare beräknas och vi ser för negativa utvecklingen inom raden. Värdet för strangeness beräknas enligt följande: 
+3. **Långsam negativa utvecklingen:** en trendlinje över händelse värdena i fönstret tidigare beräknas och åtgärden söker efter negativa utvecklingen inom raden. Värdet för strangeness beräknas enligt följande: 
 
    - Lutning om lutning är negativt  
    - 0, annars  
 
 När strangeness värde för inkommande händelse beräknas ett martingale värde beräknas utifrån strangeness värdet (finns i [Machine Learning-blogg](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) information om hur martingale värdet beräknas). Det här värdet martingale retuned som avvikelseidentifiering poäng. Värdet martingale ökar långsamt svar på konstigt värden, vilket gör att detektorn förblir stabil sporadiska ändringar och minskar falsklarm. Det finns också en användbar egenskap: 
 
-Sannolikheten [det finns t sådana som M<sub>t</sub> > λ] < 1/λ där M<sub>t</sub> är snabbmeddelanden t martingale värdet och λ är ett verkliga värde. Om vi meddela när exempelvis M<sub>t</sub>> 100 och sannolikheten för falska positiva identifieringar som är mindre än 1/100.  
+Sannolikheten [det finns t sådana som M<sub>t</sub> > λ] < 1/λ där M<sub>t</sub> är snabbmeddelanden t martingale värdet och λ är ett verkliga värde. Om exempelvis en avisering när M<sub>t</sub>> 100 och sannolikheten för falska positiva identifieringar som är mindre än 1/100.  
 
 ## <a name="guidance-for-using-the-bi-directional-level-change-detector"></a>Riktlinjer för att använda nivån dubbelriktad ändra detektor 
 
@@ -140,7 +142,7 @@ Följande punkter ska beaktas när det här detektor:
 
 1. När tidsserien plötsligt ser en ökning eller släppa värde, operatorn AnomalyDetection upptäcks. Men återgå till normal identifiering kräver mer planering. Om en tidsserie var i stabilt tillstånd innan avvikelseidentifiering som kan uppnås genom att ange operatorn AnomalyDetection identifiering fönstret högst hälften så långt som avvikelseidentifiering. Det här scenariot förutsätter att den kortaste varaktigheten för avvikelseidentifiering kan uppskattas i förväg och det finns tillräckligt med händelser i den aktuella tidsperioden för att träna modellen tillräckligt (minst 50 händelser). 
 
-   Detta visas i figur 1 och 2 nedan med en övre gräns ändring (samma logik som gäller för en nedre gräns ändring). I båda bilderna är i vågformer en förändring av avvikande. Orange lodrätt betecknar hopp gränser och hoppstorleken är samma som angetts i operatorn AnomalyDetection identifiering-fönster. Grön linjer anger storleken på fönstret utbildning. I bild 1 är hoppstorleken samma som tiden för vilka avvikelseidentifiering varar. I bild 2 är hoppstorleken hälften av tid som avvikelseidentifiering varar. I samtliga fall måste har en ändring av uppåtgående identifierats eftersom den modell som används för resultatfunktioner har tränats på normala data. Men baserat på hur dubbelriktad förändring detektorn fungerar, vi får inte innehålla normal värdena från fönstret utbildning som används för den modell som poäng återgå till normal. I bild 1 innehåller bedömningsprofil modellen utbildning vissa vanliga händelser så att återgå till normal inte kan identifieras. Men i bild 2 utbildningen endast innehåller den avvikande delen, vilket garanterar att återgå till normal har identifierats. Mindre än hälften fungerar även av samma skäl medan allt större avslutas inklusive lite normal händelser. 
+   Detta visas i figur 1 och 2 nedan med en övre gräns ändring (samma logik som gäller för en nedre gräns ändring). I båda bilderna är i vågformer en förändring av avvikande. Orange lodrätt betecknar hopp gränser och hoppstorleken är samma som angetts i operatorn AnomalyDetection identifiering-fönster. Grön linjer anger storleken på fönstret utbildning. I bild 1 är hoppstorleken samma som tiden för vilka avvikelseidentifiering varar. I bild 2 är hoppstorleken hälften av tid som avvikelseidentifiering varar. I samtliga fall måste har en ändring av uppåtgående identifierats eftersom den modell som används för resultatfunktioner har tränats på normala data. Men baserat på hur dubbelriktad förändring detektorn fungerar, den får inte innehålla normal värdena från fönstret utbildning som används för den modell som poäng återgå till normal. I bild 1 innehåller bedömningsprofil modellen utbildning vissa vanliga händelser så att återgå till normal inte kan identifieras. Men i bild 2 utbildningen endast innehåller den avvikande delen, vilket garanterar att återgå till normal har identifierats. Mindre än hälften fungerar även av samma skäl medan allt större avslutas inklusive lite normal händelser. 
 
    ![AD med storlek lika avvikelseidentifiering längd](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
 

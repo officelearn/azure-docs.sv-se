@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric - Konfigurera övervakning med OMS Log Analytics | Microsoft Docs
-description: Lär dig hur du konfigurerar Operations Management Suite för att visualisera och analysera händelser att övervaka dina Azure Service Fabric-kluster.
+title: Azure Service Fabric - Konfigurera övervakning med Log Analytics | Microsoft Docs
+description: Lär dig hur du ställer in Log Analytics för att visualisera och analysera händelser att övervaka dina Azure Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/30/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: 2589efa1808a394f2e32b842efa2ee70809da232
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 807c703eccf336236846212b8a0cadc20ec2bc4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Konfigurera Operations Management Suite Log Analytics för ett kluster
+# <a name="set-up-log-analytics-for-a-cluster"></a>Ställ in Log Analytics för ett kluster
 
-Du kan ställa in en Operations Management Suite (OMS) arbetsyta via Azure Resource Manager, PowerShell eller Azure Marketplace. Om du sparar en uppdaterad Resource Manager-mall för distributionen för framtida användning kan använda samma mall för att ställa in din OMS-miljö. Distribution via Marketplace är enklare om du redan har ett kluster som distribueras med diagnostik aktiverad. Om du inte har prenumeration behörighet för kontot som du distribuerar OMS distribuera med hjälp av PowerShell eller Resource Manager-mallen.
+Du kan ställa in en logganalys-arbetsytan via Azure Resource Manager, PowerShell eller Azure Marketplace. Om du sparar en uppdaterad Resource Manager-mall för distributionen för framtida användning kan använda samma mall för att ställa in din OMS-miljö. Distribution via Marketplace är enklare om du redan har ett kluster som distribueras med diagnostik aktiverad. Om du inte har prenumeration behörighet för kontot som du distribuerar OMS distribuera med hjälp av PowerShell eller Resource Manager-mallen.
 
 > [!NOTE]
-> Om du vill konfigurera OMS att övervaka ditt kluster behöver du diagnostik aktiverad för att visa händelser för kluster- eller plattform-nivå.
+> Om du vill konfigurera logganalys att övervaka klustret som du behöver ha diagnostik aktiverad för att visa händelser för kluster- eller plattform-nivå.
 
 ## <a name="deploy-oms-by-using-azure-marketplace"></a>Distribuera OMS med hjälp av Azure Marketplace
 

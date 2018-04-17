@@ -8,17 +8,18 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: f11aff2231a5ae6a58d5c9a3f53379a6849d226a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 09c48b92e39aa347c97d42358b50c338851fa59b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Tio saker som du kan göra med datavetenskap, virtuell dator
 
@@ -441,7 +442,7 @@ Visa filinformation:
 
 ![Filen sammanfattning](./media/vm-do-ten-things/USQL_tripdata_summary.png)
 
-### <a name="hdinsight-hadoop-clusters"></a>HDInsight Hadoop Clusters
+### <a name="hdinsight-hadoop-clusters"></a>HDInsight Hadoop-kluster
 Azure HDInsight är en hanterad Apache Hadoop, Spark, HBase eller Storm-tjänst i molnet. Du kan arbeta enkelt med Azure HDInsight-kluster från datavetenskap virtuell dator.
 
 **Krav**
@@ -807,7 +808,7 @@ Följande är per kraven stegen för att komma åt Azure Cosmos DB från DSVM:
 3. Ladda ned ”Azure Cosmos DB Migreringsverktyget” från [här](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) och extrahera till en katalog önskat
 4. Importera JSON-data (vulkanen data) lagras på en [offentlig blob](https://cahandson.blob.core.windows.net/samples/volcano.json) i Cosmos DB med följande parametrar för att Migreringsverktyget (dtui.exe från den katalog där du installerade Cosmos DB Migration Tool). Ange platsen för källan och målet med följande parametrar:
    
-    /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
+    /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/; AccountKey = [[nyckel]; Database = vulkanen /t.Collection:volcano1
 
 När du importerar data, kan du gå till Jupyter och öppna den bärbara datorn med namnet *DocumentDBSample* som innehåller python-kod för åtkomst till Azure Cosmos DB och utföra vissa grundläggande frågor. Du kan lära dig mer om Cosmos DB genom att gå till tjänsten [dokumentationssidan](https://docs.microsoft.com/azure/cosmos-db/).
 

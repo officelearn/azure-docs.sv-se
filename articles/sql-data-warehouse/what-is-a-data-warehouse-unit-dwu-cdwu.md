@@ -1,24 +1,20 @@
 ---
-title: "Vad är Informationslagerenheter (dwu: er, cDWUs) i Azure SQL Data Warehouse? | Microsoft Docs"
-description: "Prestanda skala ut funktioner i Azure SQL Data Warehouse. Skala ut genom att justera dwu: er, cDWUs, eller pausa och återuppta beräkningsresurser för att spara kostnader."
+title: 'Vad är Informationslagerenheter (dwu: er, cDWUs) i Azure SQL Data Warehouse? | Microsoft Docs'
+description: 'Prestanda skala ut funktioner i Azure SQL Data Warehouse. Skala ut genom att justera dwu: er, cDWUs, eller pausa och återuppta beräkningsresurser för att spara kostnader.'
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: 
-ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 03/15/2018
-ms.author: jrj;barbkess
-ms.openlocfilehash: f634bdde2c71f7563df11f686d7ce217311df81d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+author: sqlmojo
+manager: craigg-msft
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/09/2018
+ms.author: joeyong
+ms.reviewer: jrj
+ms.openlocfilehash: 56d59be2074a3047ce19fde3e808354266040864
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
+---
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Informationslagerenheter (dwu: er) och beräkning Informationslagerenheter (cDWUs)
 Beskriver Informationslagerenheter (dwu: er) och beräkna Informationslagerenheter (cDWUS) för Azure SQL Data Warehouse. Innehåller rekommendationer för att välja bästa antalet informationslagerenheter och hur du ändrar antalet. 
@@ -38,6 +34,27 @@ Prestanda för informationslagerenheter baserat på dessa arbetsbelastning mått
 - Linjärt ändras prestanda för sökningar, aggregeringar och CTAS uttryck
 - Ökar antalet läsare och skrivare för PolyBase belastningen åtgärder
 - Ökar det maximala antalet samtidiga frågor och samtidighet platser.
+
+## <a name="service-level-objective"></a>Servicenivåmål
+Den artikel för servicenivåmål (SNM) är skalbarhet-inställning som anger nivån kostnad och prestanda för ditt informationslager. Servicenivåer för optimerad för beräkning prestanda nivå skala mäts i beräkning informationslagerenheter (cDWU), till exempel DW2000c. Optimerad för elasticitet servicenivåer mäts i dwu: er, till exempel DW2000. 
+
+I T-SQL anger inställningen SERVICE_OBJECTIVE servicenivån och nivå för prestanda för ditt informationslager.
+
+```sql
+--Optimized for Elasticity
+CREATE DATABASE myElasticSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000'
+)
+;
+
+--Optimized for Compute
+CREATE DATABASE myComputeSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000c'
+)
+;
+```
 
 ## <a name="performance-tiers-and-data-warehouse-units"></a>Prestandanivåer och Informationslagerenheter
 
@@ -209,7 +226,7 @@ Se följande artiklar för att hjälpa dig förstå några ytterligare KPI-begre
 [Best practices]: ./sql-data-warehouse-best-practices.md
 [development overview]: ./sql-data-warehouse-overview-develop.md
 
-[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
+[SQL DB Contributor]:../role-based-access-control/built-in-roles.md#sql-db-contributor
 
 <!--MSDN references-->
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx

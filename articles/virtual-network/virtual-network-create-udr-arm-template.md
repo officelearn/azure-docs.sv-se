@@ -1,11 +1,11 @@
 ---
 title: Kontrollera Routning och virtuella installationer i Azure - mall | Microsoft Docs
-description: "Lär dig hur du styr Routning och virtuella installationer med en Azure Resource Manager-mall."
+description: Lär dig hur du styr Routning och virtuella installationer med en Azure Resource Manager-mall.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 832c7831-d0e9-449b-b39c-9a09ba051531
 ms.service: virtual-network
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.openlocfilehash: a00b908f9811822f262d2c6113e3ff5fc364b1b4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Skapa användardefinierade vägar (UDR) med hjälp av en mall
 

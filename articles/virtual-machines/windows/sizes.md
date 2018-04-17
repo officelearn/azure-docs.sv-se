@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: ca1c3950c4135f4120c1d361d23746f9bfe95d65
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 91cd1cc746952ef8f442165b167f88f626870c70
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Storlekar för virtuella Windows-datorer i Azure
 
@@ -57,6 +57,10 @@ https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list
 
 Läs mer om hur [Azure compute-enheter (ACU)](acu.md) kan hjälpa dig att jämföra beräkning prestanda över Azure SKU: er.
 
+## <a name="benchmark-scores"></a>Benchmark-resultat
+
+Lär dig mer om compute prestanda för virtuella Windows-datorer med hjälp av den [CoreMark benchmark poäng](compute-benchmark-scores.md).
+
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om de olika VM-storlekar som är tillgängliga:
@@ -66,6 +70,7 @@ Läs mer om de olika VM-storlekar som är tillgängliga:
 - [Lagringsoptimerad](../virtual-machines-windows-sizes-storage.md)
 - [GPU-optimerad](sizes-gpu.md)
 - [Databehandling med höga prestanda](sizes-hpc.md)
+
 
 
 

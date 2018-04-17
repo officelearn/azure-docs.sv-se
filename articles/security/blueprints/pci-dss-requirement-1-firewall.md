@@ -1,5 +1,5 @@
 ---
-title: "Azure betalning bearbetning modell - krav för brandväggen"
+title: Azure betalning bearbetning modell - krav för brandväggen
 description: PCI DSS krav 1
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 995ecd5ef876695145fc6313aba2a46d2cc085cc
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 4e04d6417f1468c1bafada1a93ab63a73e39653d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="firewall-requirements-for-pci-dss-compliant-environments"></a>Krav för brandväggen för PCI DSS-kompatibel miljöer 
 ## <a name="pci-dss-requirement-1"></a>PCI DSS krav 1
@@ -42,8 +42,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore ger firewalling av CDE med PaaS isolering och en Apptjänstmiljö implementering garanterar att CDE ingående och utgående data skyddas.<br /><br />En [App Service miljö (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) är en Premium service-plan som används av kompatibilitetsskäl. Mer information om ASE kontroller och konfiguration finns [PCI vägledning - Apptjänstmiljö](payment-processing-blueprint.md#app-service-environment).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore ger firewalling av CDE med PaaS isolering och en Apptjänstmiljö implementering garanterar att CDE ingående och utgående data skyddas.<br /><br />En [App Service miljö (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) är en Premium service-plan som används av kompatibilitetsskäl. Mer information om ASE kontroller och konfiguration finns [PCI vägledning - Apptjänstmiljö](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -56,8 +56,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | En instans av Contoso Webstore upprättar en CI/CD DevOps-modell för att säkerställa att alla ändringar hanteras korrekt. [Operations Management Suite (OMS)](/azure/operations-management-suite/) innehåller utförlig loggning av ändringar. Ändringar kan granskas och verifiera noggrannhet. Mer specifika anvisningar finns [PCI - vägledning för Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).<br /><br />[Azure Security Center](https://azure.microsoft.com/services/security-center/) innehåller en centraliserad för säkerhetsläget för alla dina Azure-resurser. En överblick över kan du kontrollera att lämpliga säkerhetsåtgärder som är installerade och korrekt konfigurerad och att du snabbt kan identifiera alla resurser som kräver uppmärksamhet.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | En instans av Contoso Webstore upprättar en CI/CD DevOps-modell för att säkerställa att alla ändringar hanteras korrekt. Logganalys innehåller utförlig loggning av ändringar. Ändringar kan granskas och verifiera noggrannhet. Mer specifika anvisningar finns [PCI - vägledning för Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).<br /><br />[Azure Security Center](https://azure.microsoft.com/services/security-center/) innehåller en centraliserad för säkerhetsläget för alla dina Azure-resurser. En överblick över kan du kontrollera att lämpliga säkerhetsåtgärder som är installerade och korrekt konfigurerad och att du snabbt kan identifiera alla resurser som kräver uppmärksamhet.|
 
 
 
@@ -69,8 +69,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Finns i Contoso Webstore referens arkitektur och utformning dokumentationen som en del av installationen mönstret för lösningen.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Finns i Contoso Webstore referens arkitektur och utformning dokumentationen som en del av installationen mönstret för lösningen.|
 
 
 
@@ -82,8 +82,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Referera till Contoso vi besvarar DFD och Hotmodell.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Referera till Contoso vi besvarar DFD och Hotmodell.|
 
 
 
@@ -95,8 +95,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure använder gräns enheter som gateways, ACL: er för nätverket och programmet brandväggar kontrollen kommunikation med externa och interna gränser på nivån plattform. Kunden konfigurerar sedan dessa till sina specifikationer och krav. Microsoft Azure filtrerar kommunikation när i plattformen. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore ger en DMZ med PaaS isolering och en Apptjänstmiljö implementering garanterar att CDE ingående och utgående data skyddas.<br /><br />En [App Service miljö (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) är en Premium service-plan som används av kompatibilitetsskäl. Mer information om ASE kontroller och konfiguration finns [PCI vägledning - Apptjänstmiljö](payment-processing-blueprint.md#app-service-environment).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure använder gräns enheter som gateways, ACL: er för nätverket och programmet brandväggar kontrollen kommunikation med externa och interna gränser på nivån plattform. Kunden konfigurerar sedan dessa till sina specifikationer och krav. Microsoft Azure filtrerar kommunikation när i plattformen. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore ger en DMZ med PaaS isolering och en Apptjänstmiljö implementering garanterar att CDE ingående och utgående data skyddas.<br /><br />En [App Service miljö (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) är en Premium service-plan som används av kompatibilitetsskäl. Mer information om ASE kontroller och konfiguration finns [PCI vägledning - Apptjänstmiljö](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -108,8 +108,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder [rollbaserad åtkomstkontroll (RBAC)](/azure/active-directory/role-based-access-control-configure) att isolera användarroller. RBAC kan exakt fokuserad åtkomsthantering för Azure. Det finns specifika konfigurationer för prenumerationen åtkomst och Azure Key Vault-åtkomst.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder [rollbaserad åtkomstkontroll (RBAC)](/azure/role-based-access-control/role-assignments-portal) att isolera användarroller. RBAC kan exakt fokuserad åtkomsthantering för Azure. Det finns specifika konfigurationer för prenumerationen åtkomst och Azure Key Vault-åtkomst.|
 
 
 
@@ -121,8 +121,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore öppnar endast nödvändiga portarna och protokollen RA-utformningen. Information om dataflöde kan ses i modellen DFD och hot.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore öppnar endast nödvändiga portarna och protokollen RA-utformningen. Information om dataflöde kan ses i modellen DFD och hot.|
 
 
 
@@ -134,8 +134,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | I den Contoso Webstore granskas regeluppsättningar brandväggen för att säkerställa att inga onödiga eller oanvända regler ingår. Avsiktligt distribueras demonstrationen med en minsta privilegium minsta storleken för sökvägen.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | I den Contoso Webstore granskas regeluppsättningar brandväggen för att säkerställa att inga onödiga eller oanvända regler ingår. Avsiktligt distribueras demonstrationen med en minsta privilegium minsta storleken för sökvägen.|
 
 
 
@@ -150,8 +150,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Den Contoso Webstore CDE definieras i dokumentationen för RA och distribution. Ej betrodda nätverk nekas avsiktligt.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Den Contoso Webstore CDE definieras i dokumentationen för RA och distribution. Ej betrodda nätverk nekas avsiktligt.|
 
 
 
@@ -163,8 +163,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Den Contoso Webstore CDE definieras i dokumentationen för RA och distribution. Ej betrodda nätverk nekas avsiktligt. Contoso Webstore demo konfigurerar Microsoft Azure-program brandväggen att tillåta endast angivna intervall med IP-adresser för att få åtkomst till Microsoft Azure-tjänster. Contoso Webstore innehåller en neka alla brandvägg på alla CDE gränser. Alla konfigurationer utförs under installationen av distributionen.
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Den Contoso Webstore CDE definieras i dokumentationen för RA och distribution. Ej betrodda nätverk nekas avsiktligt. Contoso Webstore demo konfigurerar Microsoft Azure-program brandväggen att tillåta endast angivna intervall med IP-adresser för att få åtkomst till Microsoft Azure-tjänster. Contoso Webstore innehåller en neka alla brandvägg på alla CDE gränser. Alla konfigurationer utförs under installationen av distributionen.
 
 > [!NOTE]
 > App Service miljö (ASE) används i den här lösningen att isolera CDE men det är viktigt att din kvalificerade säkerhet utvärderare (QSA) utvärderar den här lösningen som ASE implementerar en DMZ isolering som tillåter utgående anslutningar som ASE. PCI-DSS kräver att alla inkommande och utgående anslutningar som inte krävs blockeras. För ASE ska fungera korrekt, ASE ska upprätta utgående anslutningar som behövs som definierats i [”nätverk att tänka på när en Apptjänst-miljö”](/azure/app-service/app-service-environment/network-info). Kunder bör utvärderas utgående anslutningar med din QSA innan du distribuerar lösningen till en produktionsmiljö för att säkerställa att den uppfyller kraven. |
@@ -179,8 +179,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore innehåller konfigurationer som synkroniserats för Microsoft Azure interna nätverkskontroller.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore innehåller konfigurationer som synkroniserats för Microsoft Azure interna nätverkskontroller.|
 
 
 
@@ -192,8 +192,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore har inte några trådlösa lösningar eller funktioner.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore har inte några trådlösa lösningar eller funktioner.|
 
 
 
@@ -205,8 +205,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure använder gräns för Nätverks- och värd-baserade enheter, till exempel brandväggar och belastningsutjämnare och ACL: er. Enheterna använder mekanismer som VLAN-isolering, NAT och paket filtrering separat kund trafik från Internet och hantering av trafik. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore ger vid tidpunkten för distribution, konfigurationer för Azure-program du vill tillåta endast angivna intervall med IP-adresser till åtkomst till webbplatsen kan du inkludera deras CDE skyddsmiljö virtuella Azure-datorer.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure använder gräns för Nätverks- och värd-baserade enheter, till exempel brandväggar och belastningsutjämnare och ACL: er. Enheterna använder mekanismer som VLAN-isolering, NAT och paket filtrering separat kund trafik från Internet och hantering av trafik. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore ger vid tidpunkten för distribution, konfigurationer för Azure-program du vill tillåta endast angivna intervall med IP-adresser till åtkomst till webbplatsen kan du inkludera deras CDE skyddsmiljö virtuella Azure-datorer.|
 
 
 
@@ -219,8 +219,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore implementeringen av dess DMZ säkerställer att endast auktoriserade tjänster kan ansluta med CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore implementeringen av dess DMZ säkerställer att endast auktoriserade tjänster kan ansluta med CDE.|
 
 
 
@@ -232,8 +232,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore implementeringen av dess DMZ säkerställer att endast auktoriserade tjänster kan ansluta med CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore implementeringen av dess DMZ säkerställer att endast auktoriserade tjänster kan ansluta med CDE.|
 
 
 
@@ -245,8 +245,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure implementerar nätverket filtrering för att förhindra falska trafik och begränsa inkommande och utgående trafik till betrodda platform-komponenter. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure implementerar nätverket filtrering för att förhindra falska trafik och begränsa inkommande och utgående trafik till betrodda platform-komponenter. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt.|
 
 
 
@@ -259,8 +259,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Arkitektur för Contoso Webstore förhindrar obehörig utgående trafik från i scope-miljön till Internet. Detta åstadkoms genom att konfigurera utgående trafik ACL: er för godkända portar och protokoll i Microsoft Azure. De här kontrollerna inkludera åtkomst till CDE i SQL Server-databasen. <br /><br />En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Arkitektur för Contoso Webstore förhindrar obehörig utgående trafik från i scope-miljön till Internet. Detta åstadkoms genom att konfigurera utgående trafik ACL: er för godkända portar och protokoll i Microsoft Azure. De här kontrollerna inkludera åtkomst till CDE i SQL Server-databasen. <br /><br />En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -273,8 +273,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure implementerar nätverket filtrering för att förhindra falska trafik och begränsa inkommande och utgående trafik till betrodda platform-komponenter. Microsoft Azure-nätverk är åtskild skiljer kunden trafik från hantering av trafik. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure implementerar nätverket filtrering för att förhindra falska trafik och begränsa inkommande och utgående trafik till betrodda platform-komponenter. Microsoft Azure-nätverk är åtskild skiljer kunden trafik från hantering av trafik. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt.|
 
 
 
@@ -287,8 +287,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure använder nätverket särskiljning och NAT för att separera kunden trafiken från hantering av trafik. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Arkitektur för Contoso Webstore förhindrar obehörig utgående trafik från i scope-miljön till Internet. Detta åstadkoms genom att konfigurera utgående trafik ACL: er för godkända portar och protokoll i Microsoft Azure. De här kontrollerna inkludera åtkomst till CDE i SQL Server-databasen. <br /><br />En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure använder nätverket särskiljning och NAT för att separera kunden trafiken från hantering av trafik. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Arkitektur för Contoso Webstore förhindrar obehörig utgående trafik från i scope-miljön till Internet. Detta åstadkoms genom att konfigurera utgående trafik ACL: er för godkända portar och protokoll i Microsoft Azure. De här kontrollerna inkludera åtkomst till CDE i SQL Server-databasen. <br /><br />En PaaS SQL-databasinstans för demonstrerar säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -308,8 +308,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure använder NAT (Network Address Translation) och nätverk särskiljning för att separera kunden trafiken från hantering av trafik. Azure enheter identifieras unikt med deras UUID och autentiseras med hjälp av Kerberos. Azure hanterade nätverk enheter identifieras av RFC 1918 IP åtgärdas. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore placeras alla kreditkortsinformation bakom proxy-servrar/brandväggar och används internt av RFC1918 adressutrymme.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure använder NAT (Network Address Translation) och nätverk särskiljning för att separera kunden trafiken från hantering av trafik. Azure enheter identifieras unikt med deras UUID och autentiseras med hjälp av Kerberos. Azure hanterade nätverk enheter identifieras av RFC 1918 IP åtgärdas. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore placeras alla kreditkortsinformation bakom proxy-servrar/brandväggar och används internt av RFC1918 adressutrymme.|
 
 
 
@@ -323,8 +323,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore ger inte skydd av slutanvändar-enheter. [Microsoft Intune](https://www.microsoft.com/cloud-platform/microsoft-intune) kan användas för att hantera mobila enheter som personalen använder för att komma åt företagets data.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore ger inte skydd av slutanvändar-enheter. [Microsoft Intune](https://www.microsoft.com/cloud-platform/microsoft-intune) kan användas för att hantera mobila enheter som personalen använder för att komma åt företagets data.|
 
 
 
@@ -336,8 +336,8 @@ Andra systemkomponenter kan ge brandväggsfunktioner, förutsatt att de uppfylle
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore ger vid tidpunkten för distribution, konfigurationer för Azure-program du vill tillåta endast angivna intervall med IP-adresser till åtkomst till webbplatsen kan du inkludera deras CDE skyddsmiljö virtuella Azure-datorer.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore ger vid tidpunkten för distribution, konfigurationer för Azure-program du vill tillåta endast angivna intervall med IP-adresser till åtkomst till webbplatsen kan du inkludera deras CDE skyddsmiljö virtuella Azure-datorer.|
 
 
 

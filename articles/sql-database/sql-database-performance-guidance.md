@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 89575f94e95c5ae378d95220d63c162e53158069
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c9a04f6ebbca60e969d608e0ad92839b5e04d772
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Justera prestanda i Azure SQL Database
 
@@ -28,7 +28,7 @@ Dessa är manuella metoder eftersom du behöver avgöra vad [tjänstnivåer](sql
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Öka prestandanivån för din databas
 
-Azure SQL Database erbjuder fyra [tjänstnivåer](sql-database-service-tiers.md) som du kan välja mellan: Basic, Standard och Premium (prestanda mäts i dataöverföringsenheter, eller [dtu: er](sql-database-what-is-a-dtu.md). Varje tjänstnivå isolerar strikt resurser att din SQL-databas kan använda och garanterar förutsägbar prestanda för den servicenivån. Vi erbjuder vägledning som hjälper dig att välja tjänstnivån för ditt program i den här artikeln. Dessutom diskuterar vi sätt att du kan finjustera ditt program för att få ut mesta möjliga av Azure SQL Database.
+Azure SQL Database erbjuder två köp modeller, en vCore-baserade inköpsmodell och v-Core-baserade inköpsmodell. Varje modell har flera [tjänstnivåer](sql-database-service-tiers.md) som du kan välja från. Varje tjänstnivå isolerar strikt resurser att din SQL-databas kan använda och garanterar förutsägbar prestanda för den servicenivån. Vi erbjuder vägledning som hjälper dig att välja tjänstnivån för ditt program i den här artikeln. Dessutom diskuterar vi sätt att du kan finjustera ditt program för att få ut mesta möjliga av Azure SQL Database.
 
 > [!NOTE]
 > Den här artikeln fokuserar på prestanda vägledning för enskilda databaser i Azure SQL Database. Anvisningar prestanda rör elastiska pooler finns [pris- och prestandaöverväganden för elastiska pooler](sql-database-elastic-pool-guidance.md). Observera dock att du kan tillämpa många av rekommendationerna i den här artikeln prestandajustering för databaser i en elastisk pool och få liknande prestandafördelarna.

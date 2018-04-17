@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c1d5bc55b132b449ebc2964ef95016a6a4780c19
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Övervaka status, konfigurera diagnostikloggning och aktivera aviseringar för Azure Logic Apps
 
@@ -66,7 +66,7 @@ Om du vill få meddelanden om fel eller andra möjliga problem, Ställ in [avise
    ![Steg-information](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
    > [!NOTE]
-   > Alla runtime information och händelser som är krypterade inom Logic Apps-tjänsten. De dekrypteras endast när en användare begär för att visa dessa data. Du kan också styra åtkomst till dessa händelser med [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-what-is.md).
+   > Alla runtime information och händelser som är krypterade inom Logic Apps-tjänsten. De dekrypteras endast när en användare begär för att visa dessa data. Du kan också styra åtkomst till dessa händelser med [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md).
 
 6. Om du vill få information om en specifik utlösare, gå tillbaka till den **översikt** fönstret. Under **utlösa historik**, Välj händelsen utlösare. Nu kan du granska information som indata och utdata, till exempel:
 
@@ -111,7 +111,7 @@ Om du vill söka efter och visa händelser i din logikapp, t.ex. utlösa händel
 
 1. I den [Azure-portalen](https://portal.azure.com), Välj **alla tjänster**. Sök efter ”logganalys” och välj sedan **logganalys** som visas här:
 
-   ![Choose "Log Analytics"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
+   ![Välj ”logganalys”](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
 2. Under **logganalys**, söka efter och välj logganalys-arbetsytan. 
 
@@ -217,7 +217,7 @@ Ställa in aviseringar utan [Azure logganalys](../log-analytics/log-analytics-ov
 
 ## <a name="azure-diagnostics-event-settings-and-details"></a>Azure Diagnostics händelse inställningar och information
 
-Varje diagnostiska händelsen innehåller information om din logikapp och att händelsen, till exempel status, starttid, Sluttid och så vidare. Om du vill konfigurera övervakning, spårning och loggning, organisationsenheten kan använda dessa uppgifter med den [REST API: et för Azure Logikappar](https://docs.microsoft.com/rest/api/logic) och [REST API för Azure-diagnostik](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
+Varje diagnostiska händelsen innehåller information om din logikapp och att händelsen, till exempel status, starttid, Sluttid och så vidare. Om du vill konfigurera övervakning, spårning och loggning, kan du använda dessa uppgifter med den [REST API: et för Azure Logikappar](https://docs.microsoft.com/rest/api/logic) och [REST API för Azure-diagnostik](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
 
 Till exempel den `ActionCompleted` händelsen har den `clientTrackingId` och `trackedProperties` egenskaper som du kan använda för att spåra och övervaka:
 

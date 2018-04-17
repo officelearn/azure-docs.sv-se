@@ -11,17 +11,15 @@ editor: cgronlun
 ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: ddb6291cdff7e2b65f54e89196c2b07dd6e4aaff
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3fb08a18fea056bc06eed797a2da809d25109cae
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Ladda upp data för Hadoop-jobb i HDInsight
 
@@ -190,7 +188,7 @@ Det finns också flera program som ger ett grafiskt gränssnitt för att arbeta 
 | --- |:---:|:---:|:---:|
 | [Microsoft Visual Studio-verktygen för HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure Storage Explorer](http://storageexplorer.com/) |✔ |✔ |✔ |
-| [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
+| [Molnet lagring Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
 | [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
@@ -198,7 +196,7 @@ Det finns också flera program som ger ett grafiskt gränssnitt för att arbeta 
 #### <a name="visual-studio-tools-for-hdinsight"></a>Visual Studio-verktygen för HDInsight
 Mer information finns i [navigera de länkade resurserna](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources).
 
-#### <a id="storageexplorer"></a>Azure Storage Explorer
+#### <a id="storageexplorer"></a>Azure Lagringsutforskaren
 *Azure Lagringsutforskaren* är användbart för att kontrollera och ändra data i BLOB. Det är ett kostnadsfritt, Öppna källa verktyg som kan hämtas från [ http://storageexplorer.com/ ](http://storageexplorer.com/). Källkoden är tillgänglig från den här länken samt.
 
 Innan du använder verktyget, måste du känna till din Azure storage-konto och nyckel. Anvisningar om hur du får den här informationen finns i ”så här: visa, kopiera och generera lagring åtkomstnycklar” avsnitt i [skapa, hantera eller ta bort ett lagringskonto][azure-create-storage-account].

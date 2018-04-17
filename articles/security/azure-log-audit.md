@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c82b56cdf0fc2cb288986cf8fbf43c2dab5eacb6
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 130bb7f20c030433741a9b9ecebe740fb44f5f81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure-loggning och granskning
 ## <a name="introduction"></a>Introduktion
 ### <a name="overview"></a>Översikt
 Microsoft har utvecklat en serie faktablad, säkerhet översikter, bästa praxis och checklistor som hjälper aktuella och framtida Azure-kunder för att förstå och använda olika säkerhetsrelaterade funktioner tillgängliga i och omgivande Azure-plattformen. Avsnitten intervallet vad gäller bredd och djup och uppdateras regelbundet. Det här dokumentet är en del av serien som sammanfattas i följande avsnitt i abstrakt.
-### <a name="azure-platform"></a>Azure Platform
+### <a name="azure-platform"></a>Azure-plattformen
 Azure är en öppen och flexibla molntjänstplattform som stöder bredaste valet av operativsystem, programmeringsspråk, ramverk, verktyg, databaser, och enheter.
 
 Du kan till exempel:
@@ -72,9 +72,9 @@ I följande tabell listas de viktigaste typ av loggar som är tillgängliga i Az
 |[AAD-rapportering](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Loggar och rapporter|Logga in användaraktiviteter & System aktivitetsinformation om användare och grupphantering|[Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
 |[Virtuella & molntjänster](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Windows-händelseloggen & Linux Syslog|    Samlar in systemdata och loggningsdata på virtuella datorer och överför data till ett lagringskonto som du väljer.|   Windows använder [BOMULLSTUSS](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure-diagnostik lagring) och Linux i Azure-monitor|
 |[Lagringsanalys](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Loggning för lagring och ger mätvärdesdata för ett lagringskonto|Ger inblick i trace-begäranden, analysera användningstrender och diagnostisera problem med ditt lagringskonto.|    REST API eller [klientbibliotek](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
-|[Loggar för flödet av NSG (Nätverkssäkerhetsgrupp)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON-format och visar utgående och inkommande flöden på grundval av per regel|Visa information om ingående och utgående IP-trafik via en Nätverkssäkerhetsgrupp|[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
+|[Loggar för flödet av NSG (Nätverkssäkerhetsgrupp)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON-format och visar utgående och inkommande flöden på grundval av per regel|Visa information om ingående och utgående IP-trafik via en Nätverkssäkerhetsgrupp|[Nätverksbevakaren](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Loggar, undantag och anpassade diagnostik|    Performance Management (APM) programtjänsten för webbutvecklare på flera plattformar.| REST API [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|Bearbeta Data / Säkerhetsvarning| Azure Security Center Alert, Log Analytics Alert|   Information om säkerhet och aviseringar.|   REST API: er, JSON|
+|Bearbeta Data / Säkerhetsvarning| Azure Security Center-avisering, Log Analytics avisering|   Information om säkerhet och aviseringar.|   REST API: er, JSON|
 
 ### <a name="activity-log"></a>Aktivitetslogg
 Den [Azure-aktivitetsloggen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), ger inblick i åtgärder som utfördes på resurser i din prenumeration. Aktivitetsloggen kallades tidigare ”granskningsloggar” eller ”operativa loggar” eftersom den rapporterar [kontroll-plan händelser](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/) för dina prenumerationer. Använder aktivitetsloggen, kan du bestämma den ”vad som, och när” för alla skrivåtgärder (PUT, POST, ta bort) tas för de resurser i din prenumeration. Du kan också få status för åtgärden och andra relevanta egenskaper. Aktivitetsloggen inkluderar inte läsåtgärder (GET).
@@ -101,7 +101,7 @@ Integrationsscenarier
 
 -   Exportera aktivitetsloggen med Log-profiler till [logga Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
-Du kan använda ett lagringskonto eller [event hub namnområde](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) som inte är i samma prenumeration som en ljusavgivande loggen. Den användare som konfigurerar inställningen måste ha rätt [RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) åtkomst till båda prenumerationer
+Du kan använda ett lagringskonto eller [event hub namnområde](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) som inte är i samma prenumeration som en ljusavgivande loggen. Den användare som konfigurerar inställningen måste ha rätt [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) åtkomst till båda prenumerationer
 ### <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 Azure diagnostikloggar orsakat av en resurs som innehåller omfattande, ofta data om användningen av den här resursen. Innehållet i de här loggarna varierar efter resurstyp (till exempel [Windows-händelsesystemloggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events)är en kategori av diagnostiska loggar för virtuella datorer och [blob-, tabell- och kön loggar](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account) finns kategorier av diagnostiska loggar för storage-konton) och skiljer sig från aktivitetsloggen, som ger inblick i åtgärder som utfördes på resurser i din prenumeration.
 
@@ -312,7 +312,7 @@ Application Insights är avsett för utvecklingsteamet och gör det lättare att
 |[REST API](https://dev.applicationinsights.io/)|Skriv kod för att köra frågor mot dina mätvärden och rådata.||
 |[Löpande export](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Massredigera export av rådata till lagring när det kommer fram.||
 
-### <a name="azure-security-center-alerts"></a>Azure Security Center Alerts
+### <a name="azure-security-center-alerts"></a>Azure Security Center-aviseringar
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) automatiskt samlar in, analyseras och integreras loggdata från resurserna i Azure, nätverket och anslutna partnerlösningar som brandväggen och endpoint protection lösningar är att identifiera verkliga hot och minska false positiva identifieringar. En lista över prioriterade säkerhetsvarningar visas i Security Center tillsammans med den information som du behöver för att snabbt undersöka problemet, samt rekommendationer för hur du åtgärdar ett angrepp.
 
 Hotidentifieringen i Security Center sker genom automatisk insamling av säkerhetsinformation från dina Azure-resurser, nätverket och anslutna partnerlösningar. Tjänsten analyserar den här informationen, och korrelerar ofta information från flera källor för att identifiera hot. Säkerhetsaviseringar prioriteras i Security Center tillsammans med rekommendationer om hur hotet kan åtgärdas.
@@ -354,7 +354,7 @@ Det finns fyra olika sätt att [att samla in loggar och mått för Azure-tjänst
 
 | Tjänst | Resurstyp | Logs | Mått | Lösning |
 | :------ | :------------ | :--- | :------ | :------- |
-|Programgateways|  Microsoft.Network/<br>applicationGateways|  Diagnostik|Diagnostik|    [Azure Application](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Gateway Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Programgateways|  Microsoft.Network/<br>applicationGateways|  Diagnostik|Diagnostik|    [Azure-program](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Gateway Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
 |Application Insights||     Anslutning|  Anslutning|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [anslutningsprogrammet (förhandsversion)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Automation-konton|   Microsoft.Automation/<br>AutomationAccounts|    Diagnostik||       [Mer information](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Batch-konton|    Microsoft.Batch/<br>batchAccounts|  Diagnostik|    Diagnostik||
@@ -373,13 +373,13 @@ Det finns fyra olika sätt att [att samla in loggar och mått för Azure-tjänst
 |Söktjänster|   Microsoft.Search/<br>searchServices|    Diagnostik|    Diagnostik||
 |Service Bus-namnområde| Microsoft.ServiceBus/<br>namnområden|    Diagnostik|Diagnostik|    [Service Bus Analytics (förhandsgranskning)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 |Service Fabric||       Lagring||    [Service Fabric Analytics (förhandsgranskning)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
-|SQL (v12)| Microsoft.Sql/<br>servers/<br>databaser||       Diagnostik||
-||Microsoft.Sql/<br>servers/<br>elasticPools||||
+|SQL (v12)| Microsoft.Sql/<br>servrar /<br>databaser||       Diagnostik||
+||Microsoft.Sql/<br>servrar /<br>elasticPools||||
 |Lagring|||         Skript| [Azure Storage Analytics (förhandsgranskning)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
-|Virtuella datorer|  Microsoft.Compute/<br>virtualMachines|  Anknytning|  Anknytning||
+|Virtuella datorer|  Microsoft.Compute/<br>virtuella datorer|  Anknytning|  Anknytning||
 ||||Diagnostik||
-|Skalningsuppsättningar i virtuella datorer|   Microsoft.Compute/<br>virtualMachines    ||Diagnostik||
-||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
+|Skalningsuppsättningar i virtuella datorer|   Microsoft.Compute/<br>virtuella datorer    ||Diagnostik||
+||Microsoft.Compute/<br>virtualMachineScaleSets /<br>virtuella datorer||||
 |Webbservergrupper|Microsoft.Web/<br>serverfarms||   Diagnostik
 |Webbplatser| Microsoft.Web/<br>webbplatser ||      Diagnostik|    [Mer information](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
 ||Microsoft.Web/<br>platser /<br>fack|||||

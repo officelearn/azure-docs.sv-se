@@ -1,11 +1,11 @@
 ---
-title: "Onboarding till Azure Security Center Standard för ökad säkerhet | Microsoft Docs"
+title: Onboarding till Azure Security Center Standard för ökad säkerhet | Microsoft Docs
 description: " Lär dig hur att publicera till Azure Security Center Standard för förbättrad säkerhet. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: terrylan
-ms.openlocfilehash: a6394b1b02ebfe518dc2f2b7f65eb677bb0ba5f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d83beecfc5a8f6b8a01c64e809bc84c6fd0238bf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Onboarding till Azure Security Center Standard för ökad säkerhet
 Uppgradera till Security Center Standard dra nytta av förbättrad säkerhet, hantering och skydd för dina hybrid cloud arbetsbelastningar.  Du kan försöka Standard gratis under 60 dagar. Se Security Center [sida med priser](https://azure.microsoft.com/pricing/details/security-center/) för mer information.
@@ -30,7 +30,7 @@ Security Center Standard omfattar:
 - **Åtkomst-och** -Block skadlig kod och andra oönskade program genom att använda vitlistning rekommendationer anpassade till din specifika arbetsbelastningar och drivs av machine learning. Minska nätverket risken för angrepp med just-in-time, kontrollerad åtkomst till hanteringsportar på Azure Virtual Machines, vilket drastiskt minskar risken för brute force och andra nätverksattacker.
 
 ## <a name="detecting-unprotected-resources"></a>Identifiera oskyddade resurser     
-Security Center identifierar automatiskt alla Azure-prenumerationer eller arbetsytor som inte har aktiverats för Security Center Standard. Detta inkluderar Azure-prenumerationer med hjälp av Security Center ledigt och arbetsytor som inte har säkerhetslösning aktiverad.
+Security Center identifierar automatiskt eventuella Azure-prenumerationer eller arbetsytor som inte är aktiverade för Security Center Standard. Det inkluderar Azure-prenumerationer med Security Center – Kostnadsfri och arbetsytor som inte har någon aktiverad säkerhetslösning.
 
 Du kan uppgradera en hela Azure-prenumeration till standardnivån som ärvs av alla resurser i prenumerationen, eller så kan du definiera en unik princip för att uppgradera en specifik resursgrupp. Om resursen grupprincipinställningar är unika, åsidosätter inte Security Center prisnivå principerna när du uppgraderar prenumerationen till standardnivån. Tillämpning av standarden nivå till en prenumeration gäller bara för de virtuella datorerna i prenumerationen som rapporterar till arbetsytor som skapats av Security Center. Tillämpning av standarden nivån till arbetsytan gäller för alla resurser som rapporterar till arbetsytan.
 
@@ -84,7 +84,7 @@ Security Center kan övervaka säkerhetsstatusen för icke-Azure-datorer men du 
 1. Gå tillbaka till **Onboarding**.   
 2. Välj **du vill lägga till nya Azure-datorer**.
 
-  ![Lägg till Azure-dator][3]
+  ![Lägga till en dator som inte är en Azure-dator][3]
 
 Om du har befintliga arbetsytor de finns under **lägga till nya datorer i icke-Azure**. Du kan lägga till datorer i en befintlig arbetsyta eller skapa en ny arbetsyta. Klicka på länken om du vill skapa en ny arbetsyta **lägga till en ny arbetsyta**.
 

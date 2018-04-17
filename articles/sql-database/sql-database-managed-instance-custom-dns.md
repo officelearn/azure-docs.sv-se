@@ -1,20 +1,20 @@
 ---
 title: Azure SQL Database hanteras instans anpassad DNS | Microsoft Docs
-description: "Det här avsnittet beskriver konfigurationsalternativ för en anpassad DNS med en Azure SQL Database hanteras-instans."
+description: Det här avsnittet beskriver konfigurationsalternativ för en anpassad DNS med en Azure SQL Database hanteras-instans.
 services: sql-database
 author: srdjan-bozovic
 manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 993ff518a1987581ad7de4797611f104080c2c2f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3175b99c0e41cedf313115043b09608496adfdca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Konfigurera en anpassad DNS för Azure SQL Database hanteras instans
 
@@ -51,7 +51,7 @@ DNS-konfigurationen på ett virtuellt Azure-nätverk måste du ange IP-adresser,
 
 1. Öppna nätverksgränssnittet anpassade DNS VM i Azure-portalen.
 
-   ![network-interface](./media/sql-database-managed-instance-custom-dns/network-interface.png) 
+   ![gränssnitt](./media/sql-database-managed-instance-custom-dns/network-interface.png) 
 
 2. I avsnittet för IP-konfigurationer. Välj IP-konfiguration 
 
@@ -79,5 +79,5 @@ DNS-konfigurationen på ett virtuellt Azure-nätverk måste du ange IP-adresser,
 ## <a name="next-steps"></a>Nästa steg
 
 - En översikt finns [vad är en hanterad instans](sql-database-managed-instance.md)
-- Ett exempel för att skapa ett VNet och sedan skapa en instans för hanterade finns [att skapa en instans för hanterade](sql-database-managed-instance-tutorial-portal.md).
-- För att konfigurera VNet finns [konfiguration av virtuellt nätverk för hanterade instanser](sql-database-managed-instance-vnet-configuration.md)
+- En självstudiekurs visar hur du skapar en ny instans av hanterade finns [att skapa en instans för hanterade](sql-database-managed-instance-create-tutorial-portal.md).
+- Information om hur du konfigurerar ett virtuellt nätverk för en hanterad instans finns [konfiguration av virtuellt nätverk för hanterade instanser](sql-database-managed-instance-vnet-configuration.md)

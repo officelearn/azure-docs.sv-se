@@ -1,11 +1,11 @@
 ---
-title: "Vanliga frågor (FAQ) för Azure Security Center | Microsoft Docs"
-description: "Det här avsnittet får du svar frågor om Azure Security Center."
+title: Vanliga frågor (FAQ) för Azure Security Center | Microsoft Docs
+description: Det här avsnittet får du svar frågor om Azure Security Center.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2018
 ms.author: terrylan
-ms.openlocfilehash: 2bbd0a8be891bd472cdc631a1f8dc79471d66a77
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 7bbe0945981370c15fd10e93498fcc3ee0bf1a39
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Det här avsnittet får du svar frågor om Azure Security Center, en tjänst som hjälper dig att förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för din Microsoft Azure-resurser.
@@ -41,10 +41,10 @@ Security Center erbjuds i två nivåer:
 
 Den **kostnadsfria nivån** ger insyn i säkerhetsläget för Azure-resurser, grundläggande säkerhetsprinciper, säkerhetsrekommendationer och integrering med säkerhetsprodukter och tjänster från partner.
 
-Den **standardnivån** lägger till avancerade threat detection funktioner, inklusive hot intelligence, beteendeanalys, avvikelseidentifiering, säkerhetsincidenter och hot tillskrivningar rapporter. Standard-nivån är kostnadsfri de första 60 dagarna. Om du väljer att fortsätta att använda tjänsten efter 60 dagar, starta vi automatiskt debitera för tjänsten.  Om du vill uppgradera, Välj [prisnivån](https://docs.microsoft.com/azure/security-center/security-center-pricing) i säkerhetsprincipen.
+Den **standardnivån** lägger till avancerade threat detection funktioner, inklusive hot intelligence, beteendeanalys, avvikelseidentifiering, säkerhetsincidenter och hot tillskrivningar rapporter. Standardnivån är kostnadsfri de första 60 dagarna. Om du väljer att fortsätta att använda tjänsten efter 60 dagar, starta vi automatiskt debitera för tjänsten.  Om du vill uppgradera, Välj [prisnivån](https://docs.microsoft.com/azure/security-center/security-center-pricing) i säkerhetsprincipen.
 
 ## <a name="permissions"></a>Behörigheter
-I Azure Security Center tillämpas [rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md), vilket innebär att det finns [förinställda roller](../active-directory/role-based-access-built-in-roles.md) som kan ges till användare, grupper och tjänster i Azure.
+Azure Security Center använder [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md), vilket ger [inbyggda roller](../role-based-access-control/built-in-roles.md) som kan tilldelas användare, grupper och tjänster i Azure.
 
 Security Center utvärderar konfigurationen av dina resurser för att identifiera säkerhetsproblem och säkerhetsproblem. I Security Center kan se du bara information relaterad till en resurs när du har tilldelats rollen ägare, deltagare eller läsare för prenumeration eller resursgrupp som en resurs tillhör.
 

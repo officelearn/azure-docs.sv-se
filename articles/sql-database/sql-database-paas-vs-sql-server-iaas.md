@@ -1,6 +1,6 @@
 ---
-title: "SQL (PaaS) Database kontra SQL Server i molnet på virtuella datorer (IaaS) | Microsoft Docs"
-description: "Läs mer om vilket molnbaserat SQL Server-alternativ som passar ditt program: Azure SQL (PaaS) Database eller SQL Server i molnet på Azure Virtual Machines."
+title: SQL (PaaS) Database kontra SQL Server i molnet på virtuella datorer (IaaS) | Microsoft Docs
+description: 'Läs mer om vilket molnbaserat SQL Server-alternativ som passar ditt program: Azure SQL (PaaS) Database eller SQL Server i molnet på Azure Virtual Machines.'
 services: sql-database, virtual-machines
 keywords: SQL Server-moln, SQL Server i molnet, PaaS-databas, moln-SQL Server, DBaaS
 author: CarlRabeler
@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 04/09/2018
 ms.author: carlrab
-ms.openlocfilehash: a7fde828c7a88f440cf69e3a4b26bb6c75cdaafb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 38b7749ae83f1c4b037ec1996c84a9ffca1de50e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Välj ett molnbaserat SQL Server-alternativ: Azure SQL (PaaS) Database eller SQL Server på Azure Virtual Machines (IaaS)
 Azure har två alternativ för att hantera SQL Server-arbetsbelastningar i Microsoft Azure:
@@ -74,7 +74,10 @@ Oavsett om du är en startup med dålig kassa, eller ett team i ett etablerat f�
 #### <a name="billing-and-licensing-basics"></a>Debitering och licensiering
 **SQL Database** säljs till kunder som en tjänst, inte med en licens.  [SQL Server på Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) säljs med en medföljande licens som du betalar per minut. Om du har en befintlig licens kan du också använda den.  
 
-För nuvarande finns **SQL Database** tillgänglig i flera servicenivåer, där alla debiteras timvis till en fast kostnad som baseras på den servicenivå och prestandanivå du valt. Dessutom debiteras du för utgående Internettrafik till normal [dataöverföringskostnad](https://azure.microsoft.com/pricing/details/data-transfers/). Servicenivåerna Basic, Standard och Premium är skapade för att leverera förutsägbar prestanda med flera prestandanivåer som matchar ditt programs högsta krav. Du kan byta mellan servicenivåer och prestandanivåer för att matcha ditt programs ändrade behov för genomströmning. Om din databas har stora transaktionsvolymer och behöver stödja flera samtidiga användare, rekommenderar vi premiumnivån. För den senaste informationen om de servicenivåer som stöds för tillfället, kan du se [Azure SQL Database Servicenivåer](sql-database-service-tiers.md). Du kan också skapa [elastiska pooler](sql-database-elastic-pool.md) för att dela prestandaresurser mellan databasinstanser.
+För nuvarande finns **SQL Database** tillgänglig i flera servicenivåer, där alla debiteras timvis till en fast kostnad som baseras på den servicenivå och prestandanivå du valt. Dessutom debiteras du för utgående Internettrafik till normal [dataöverföringskostnad](https://azure.microsoft.com/pricing/details/data-transfers/). Tjänstnivåerna Basic, Standard, Premium, generella och kommunikations är utformade för att leverera förutsägbar prestanda med flera prestandanivåer som matchar ditt programs högsta krav. Du kan byta mellan servicenivåer och prestandanivåer för att matcha ditt programs ändrade behov för genomströmning. För den senaste informationen om de servicenivåer som stöds för tillfället, kan du se [Azure SQL Database Servicenivåer](sql-database-service-tiers.md). Du kan också skapa [elastiska pooler](sql-database-elastic-pool.md) för att dela prestandaresurser mellan databasinstanser.
+
+> [!IMPORTANT]
+> Om din databas har stora transaktionsvolymer och behöver stödja flera samtidiga användare, rekommenderar vi Premium eller kommunikations-tjänstnivåer. För att minimera fördröjning mellan ditt program och SQL-databasen, leta upp ditt program i samma region som din databas och testa prestanda - öka din servicenivå för tjänstnivå och prestandanivå efter behov.
 
 Med **SQL Database** så konfigureras, korrigeras och uppgraderas databasens programvara automatiskt av Microsoft, vilket minskar dina administrationskostnader. Dessutom gör dess [inbyggda säkerhetskopierings](sql-database-automated-backups.md)-funktioner att du kan uppnå markanta kostnadsbesparingar, speciellt om du har ett stort antal databaser.
 
@@ -112,7 +115,7 @@ Med **SQL Server på Azure Virtual Machines** har du fullständig kontroll över
 ### <a name="service-level-agreement-sla"></a>Serviceavtal (SLA)
 För många IT-avdelningar är det av högsta vikt att uppfylla skyldigheterna på upptid enligt serviceavtalet (SLA). I det här avsnittet tittar vi på de SLA som är tillämpliga för varje databasalternativ.
 
-För **SQL Database**-servicenivåerna Basic, Standard och Premium ger Microsoft en SLA med 99,99 % tillgänglighet. Den senaste informationen finns i [Serviceavtalet](https://azure.microsoft.com/support/legal/sla/sql-database/). Den senaste informationen om servicenivåer för SQL Database och de planer för verksamhetskontinuitet som stöds finns i [servicenivåer](sql-database-service-tiers.md).
+För **SQL-databas** Basic, Standard, Premium, generella och kommunikations tjänstnivåer erbjuder Microsoft en tillgänglighets-SLA på 99,99%. Den senaste informationen finns i [Serviceavtalet](https://azure.microsoft.com/support/legal/sla/sql-database/). Den senaste informationen om servicenivåer för SQL Database och de planer för verksamhetskontinuitet som stöds finns i [servicenivåer](sql-database-service-tiers.md).
 
 För **SQL Server som kör på virtuella Azure-datorer** erbjuder Microsoft en tillgänglighets-SLA på 99,95 %, vilket bara täcker den virtuella datorn. Det här SLA:t omfattar inte de processer som körs på den virtuella datorn (till exempel SQL Server) som kräver att du är värd för minst två VM-instanser i en tillgänglighetsuppsättning. Den senaste informationen finns på [VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). För hög tillgänglighet (HA) för databaser inom VM:ar, bör du konfigurera en av de alternativ för hög tillgänglighet som stöds i SQL Server, som [AlwaysOn-tillgänglighetsgrupper](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Användningen av ett alternativ för hög tillgänglighet som stöds medför inget nytt SLA, men ger > 99,99 % databastillgänglighet.
 

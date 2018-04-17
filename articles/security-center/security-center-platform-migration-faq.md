@@ -1,11 +1,11 @@
 ---
-title: "Security Center-plattformen migrering vanliga frågor och svar | Microsoft Docs"
-description: "Dessa vanliga frågor svar på frågor om Azure Security Center-plattformen migreringen."
+title: Security Center-plattformen migrering vanliga frågor och svar | Microsoft Docs
+description: Dessa vanliga frågor svar på frågor om Azure Security Center-plattformen migreringen.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2017
 ms.author: terrylan
-ms.openlocfilehash: 6ccf104ea09dc1fbce1dd34a06168205d6f5fac8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 197b1a844291f2bef2dd35001d1e6b8807ac9805
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-center-platform-migration-faq"></a>Security Center-plattformen migrering vanliga frågor och svar
 I tidig juni 2017 började Azure Security Center med hjälp av Microsoft Monitoring Agent att samla in och lagra data. Läs mer i [Azure Security Center-plattformen migrering](security-center-platform-migration.md). Dessa vanliga frågor svar på frågor om migreringen plattform.
@@ -34,7 +34,7 @@ Security Center använder Microsoft Monitoring Agent för att samla in säkerhet
 Data som samlas in av agenten lagras i en befintlig logganalys-arbetsyta som är ansluten till den virtuella datorn eller en ny arbetsyta som skapats av Security Center. När Security Center skapar en ny arbetsyta, beaktas geolokalisering av den virtuella datorn.
 
 > [!NOTE]
-> Microsoft Monitoring Agent är samma agent används av den Operations Management Suite (OMS), Log Analytics-tjänsten och System Center Operations Manager (SCOM).
+> Microsoft Monitoring Agent är samma agent används av logganalys-tjänsten och System Center Operations Manager (SCOM).
 >
 >
 
@@ -64,8 +64,8 @@ Platsen för arbetsytan baseras på platsen för den virtuella datorn. Läs mer 
 >
 >
 
-### <a name="am-i-billed-for-log-analytics-or-oms-on-the-workspaces-created-by-security-center"></a>Kan jag debiteras för Log Analytics eller OMS på de arbetsytor som skapats av Security Center?
-Nej. Arbetsytor som skapats av Security Center, samtidigt som konfigurerats för OMS per nod fakturering inte avgifter OMS. Security Center fakturering är alltid baserat på din säkerhetsprincip Security Center och lösningar som installerats på en arbetsyta:
+### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Kan jag debiteras för Log Analytics på de arbetsytor som skapats av Security Center?
+Nej. Arbetsytor som skapats av Security Center, samtidigt som konfigurerats för Log Analytics per nod fakturering, inte avgifter logganalys. Security Center fakturering är alltid baserat på din säkerhetsprincip Security Center och lösningar som installerats på en arbetsyta:
 
 - **Kostnadsfri nivå** – Security Center kan 'SecurityCenterFree' lösningen på standardarbetsytan. Du debiteras inte för den kostnadsfria nivån.
 - **Standardnivån** – Security Center kan ' säkerhetslösning ' på standardarbetsytan.
@@ -73,7 +73,7 @@ Nej. Arbetsytor som skapats av Security Center, samtidigt som konfigurerats för
 Mer information om priser finns [Security Center priser](https://azure.microsoft.com/pricing/details/security-center/). Prissättningssidan adresser ändringar av säkerhet för datalagring och proportionellt fördelad fakturering med början i juni 2017.
 
 > [!NOTE]
-> OMS prisnivån arbetsytor som skapats av Security Center påverkar inte Security Center fakturering.
+> Logganalys prisnivån arbetsytor som skapats av Security Center påverkar inte Security Center fakturering.
 >
 >
 
@@ -204,12 +204,12 @@ Ta bort agenten manuellt:
 >
 >
 
-## <a name="existing-oms-customers"></a>Befintliga OMS-kunder
+## <a name="existing-log-analytics-customers"></a>Befintliga logganalys-kunder
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Security Center åsidosätta alla befintliga anslutningar mellan virtuella datorer och arbetsytor?
 Om en virtuell dator har redan Microsoft Monitoring Agent installeras som en Azure-tillägget, åsidosätter inte den befintliga anslutningen i arbetsytan i Security Center. Security Center används i stället befintlig arbetsyta.
 
-En lösning för Security Center är installerat på arbetsytan om det inte finns redan och lösningen tillämpas endast på de relevanta virtuella datorerna. När du lägger till en lösning distribueras den automatiskt som standard till alla Windows- och Linux-agenter ansluten till logganalys-arbetsytan. [Lösning målinriktning](../operations-management-suite/operations-management-suite-solution-targeting.md), vilket är en OMS-funktion kan du använda ett scope till dina lösningar.
+En lösning för Security Center är installerat på arbetsytan om det inte finns redan och lösningen tillämpas endast på de relevanta virtuella datorerna. När du lägger till en lösning distribueras den automatiskt som standard till alla Windows- och Linux-agenter ansluten till logganalys-arbetsytan. [Lösning målinriktning](../operations-management-suite/operations-management-suite-solution-targeting.md) kan du använda ett scope till dina lösningar.
 
 Om Microsoft Monitoring Agent installeras direkt på den virtuella datorn (inte som en Azure-tillägget), Security Center installera inte Microsoft Monitoring Agent och säkerhetsövervakning är begränsad.
 
@@ -220,18 +220,13 @@ Det borde inte ske. Om det sker, sedan [skapa en supportförfrågan för Azure](
 - Azure-resurs-ID för arbetsytan som konfigurerats på tillägget innan anslutningen har brutits
 - Agenten och version som tidigare har installerats
 
-### <a name="does-security-center-install-solutions-on-my-existing-oms-workspaces-what-are-the-billing-implications"></a>Installeras Security Center lösningar på Mina befintliga OMS-arbetsytor? Vad är fakturering effekterna?
+### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Installeras Security Center lösningar på Mina befintliga logganalys arbetsytor? Vad är fakturering effekterna?
 När Security Center identifierar att en virtuell dator är redan ansluten till en arbetsyta som du skapade, kan Security Center lösningar på den här arbetsytan enligt prisnivå. Lösningarna som endast används för den relevanta virtuella Azure-datorer [lösning riktad](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), så faktureringen är densamma.
 
 - **Kostnadsfri nivå** – Security Center installerar 'SecurityCenterFree' lösningen på arbetsytan. Du debiteras inte för den kostnadsfria nivån.
 - **Standardnivån** – Security Center installerar säkerhetslösningen på arbetsytan.
 
    ![Lösningar i standardarbetsytan][4]
-
-> [!NOTE]
-> ' Säkerhetslösning ' i logganalys är säkerhets- och granska lösningen i OMS.
->
->
 
 ### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Jag har redan arbetsytor i Min miljö, kan jag använda dem för att samla in säkerhetsdata om?
 Om en virtuell dator har redan Microsoft Monitoring Agent installeras som en Azure-tillägget, använder befintliga anslutna arbetsytan i Security Center. En lösning för Security Center är installerat på arbetsytan om det inte finns redan och lösningen tillämpas endast på de relevanta virtuella datorerna via [lösning riktad](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting).

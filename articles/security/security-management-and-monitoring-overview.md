@@ -1,5 +1,5 @@
 ---
-title: "Azure-säkerhetshantering och övervakning av översikt | Microsoft Docs"
+title: Azure-säkerhetshantering och övervakning av översikt | Microsoft Docs
 description: " Azure tillhandahåller säkerhetsmekanismer att underlätta hantering och övervakning av Azure-molntjänster och virtuella datorer.  Den här artikeln innehåller en översikt över dessa kärnfunktioner för säkerhet och tjänster. "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 6787877deabafd0b7308e190cb45b4036049b05b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 99e7a7746ae3f229614c8ac3d059b422a4ee6f74
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure-säkerhetshantering och övervakning av översikt
 Azure tillhandahåller säkerhetsmekanismer att underlätta hantering och övervakning av Azure-molntjänster och virtuella datorer. Den här artikeln innehåller en översikt över dessa kärnfunktioner för säkerhet och tjänster. Länkar som artiklar som ger information om varje så kan du läsa mer.
@@ -50,7 +50,7 @@ Rollbaserad åtkomstkontroll (RBAC) ger detaljerad åtkomsthantering för Azure-
 Läs mer:
 
 * [Active Directory-teamets blogg på RBAC](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
-* [Rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-control-configure.md)
+* [Rollbaserad åtkomstkontroll i Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Programvara mot skadlig kod
 Med Azure, kan du använda program mot skadlig kod från leverantörer av större säkerhet, till exempel Microsoft, Symantec, Trend Micro, McAfee och Kaspersky för att skydda dina virtuella datorer från skadliga filer, annonsprogram och andra hot.
@@ -115,7 +115,7 @@ Läs mer:
 * [Channel 9: Azure AD och Identity visa: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Security Center
-Azure Security Center hjälper dig att förebygga, upptäcka och åtgärda hot och ger du ökad insyn i, och kontroll över säkerheten för dina Azure-resurser. Härifrån kan du övervaka och hantera principer för alla Azureprenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
+Azure Security Center hjälper dig att förebygga, upptäcka och åtgärda hot och ger du ökad insyn i, och kontroll över säkerheten för dina Azure-resurser. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
 
 Security Center hjälper dig att optimera och övervaka säkerheten för dina Azure-resurser genom att:
 

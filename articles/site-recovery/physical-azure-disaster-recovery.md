@@ -1,6 +1,6 @@
 ---
-title: "Ställ in katastrofåterställning till Azure för fysiska lokala servrar med Azure Site Recovery | Microsoft Docs"
-description: "Lär dig hur du ställer in katastrofåterställning till Azure för lokala Windows- och Linux-servrar, med Azure Site Recovery-tjänsten."
+title: Ställ in katastrofåterställning till Azure för fysiska lokala servrar med Azure Site Recovery | Microsoft Docs
+description: Lär dig hur du ställer in katastrofåterställning till Azure för lokala Windows- och Linux-servrar, med Azure Site Recovery-tjänsten.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,17 +8,17 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: d460da197c6e9f0bface402d83d4788f8164cc9c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 207ff17f7b113bf4a94bb6c157cf53e7b1c46b45
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Ställ in haveriberedskap för lokala fysiska servrar till Azure
 
 [Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och virtuella Azure-datorer.
 
-Den här kursen visar hur du ställer in haveriberedskap för lokala fysiska Windows och Linux-servrar till Azure. I den här guiden får du lära dig hur man:
+Den här kursen visar hur du ställer in haveriberedskap för lokala fysiska Windows och Linux-servrar till Azure. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Ställ in krav för Azure och lokalt
@@ -29,7 +29,7 @@ Den här kursen visar hur du ställer in haveriberedskap för lokala fysiska Win
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 - Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](physical-azure-architecture.md).
 - Granska [kraven för stöd](vmware-physical-secondary-support-matrix.md) för alla komponenter.
@@ -54,7 +54,7 @@ Hämta en Microsoft [Azure-konto](http://azure.microsoft.com/).
 Kontrollera att kontot har behörighet för replikering av virtuella datorer till Azure.
 
 - Granska de [behörigheter](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) måste du replikera datorer till Azure.
-- Kontrollera och ändra [rollbaserad åtkomst](../active-directory/role-based-access-control-configure.md) behörigheter. 
+- Kontrollera och ändra [rollbaserad åtkomst](../role-based-access-control/role-assignments-portal.md) behörigheter. 
 
 
 

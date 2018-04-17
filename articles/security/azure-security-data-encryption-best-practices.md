@@ -1,6 +1,6 @@
 ---
-title: "Metodtips för säkerhet för data och kryptering | Microsoft Docs"
-description: "Den här artikeln innehåller en uppsättning av bästa praxis för datasäkerhet och kryptering med hjälp av inbyggda funktioner i Azure."
+title: Metodtips för säkerhet för data och kryptering | Microsoft Docs
+description: Den här artikeln innehåller en uppsättning av bästa praxis för datasäkerhet och kryptering med hjälp av inbyggda funktioner i Azure.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0cebc7ae5279b720e8fd0d6c986e1706d944476f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 159bdf681761b9fc46f77cbcf25a210db11d1d9b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Metodtips för säkerhet för Azure Data och kryptering
 En av nycklar på dataskydd i molnet redovisning för möjliga tillstånd som kan uppstå i dina data och vilka kontroller som är tillgängliga för det aktuella tillståndet. Metodtips för säkerhet och kryptering rekommendationer för Azure data kommer att vara runt följande data tillstånd:
@@ -63,11 +63,11 @@ Mer information om Azure MFA finns i artikel [komma igång med Azure Multi-Facto
 ## <a name="use-role-based-access-control-rbac"></a>Använd rollbaserad åtkomstkontroll (RBAC)
 Begränsa åtkomst baserat på de [behöver](https://en.wikipedia.org/wiki/Need_to_know) och [minsta privilegium](https://en.wikipedia.org/wiki/Principle_of_least_privilege) säkerhetsprinciper. Det här är viktigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst. Azure rollbaserad åtkomstkontroll (RBAC) kan användas för att tilldela behörigheter till användare, grupper och program för ett visst område. Omfånget för en rolltilldelning kan vara en prenumeration, resursgrupp eller en enskild resurs.
 
-Du kan utnyttja [inbyggda RBAC-roller](../active-directory/role-based-access-built-in-roles.md) i Azure för att tilldela behörigheter till användare. Överväg att använda *Storage-konto deltagare* för molnoperatörer som behöver kunna hantera storage-konton och *klassiska Storage-konto deltagare* att hantera klassiska lagringskonton. Överväg att lägga till dem för molnoperatörer som behöver hantera virtuella datorer och storage-kontot, *Virtual Machine-deltagare* roll.
+Du kan utnyttja [inbyggda RBAC-roller](../role-based-access-control/built-in-roles.md) i Azure för att tilldela behörigheter till användare. Överväg att använda *Storage-konto deltagare* för molnoperatörer som behöver kunna hantera storage-konton och *klassiska Storage-konto deltagare* att hantera klassiska lagringskonton. Överväg att lägga till dem för molnoperatörer som behöver hantera virtuella datorer och storage-kontot, *Virtual Machine-deltagare* roll.
 
 Organisationer som inte behöver använda data åtkomstkontroll genom att utnyttja funktioner, till exempel RBAC kan ger fler behörigheter än vad som krävs för sina användare. Detta kan leda till röjande av data genom att vissa användare har åtkomst till data som de inte borde ha i första hand.
 
-Du kan lära dig mer om Azure RBAC genom att läsa artikeln [rollbaserad åtkomstkontroll i](../active-directory/role-based-access-control-configure.md).
+Du kan lära dig mer om Azure RBAC genom att läsa artikeln [rollbaserad åtkomstkontroll i](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="encrypt-azure-virtual-machines"></a>Kryptera virtuella Azure-datorer
 I många organisationer [datakryptering i viloläge](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) är ett obligatoriskt steg mot data sekretess, efterlevnad och data suveränitet. Azure Disk Encryption kan IT-administratörer att kryptera Windows-och Linux IaaS virtuell dator (VM). Azure Disk Encryption använder funktionen industry standard BitLocker i Windows och funktionen DM-Crypt i Linux att tillhandahålla volymkryptering för Operativsystemet och datadiskar.

@@ -1,6 +1,6 @@
 ---
-title: "Skapa nätverk säkerhetsgrupper - Azure-portalen | Microsoft Docs"
-description: "Lär dig hur du skapar och distribuerar nätverkssäkerhetsgrupper med Azure-portalen."
+title: Skapa nätverk säkerhetsgrupper - Azure-portalen | Microsoft Docs
+description: Lär dig hur du skapar och distribuerar nätverkssäkerhetsgrupper med Azure-portalen.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 865032f350735d35668bb199ccf1ef3f0fae81de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd05df542327f9d8dae924b7097d247980a0558b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-portal"></a>Skapa nätverk säkerhetsgrupper i Azure Portal
 
@@ -39,7 +39,7 @@ Exempel PowerShell-kommandona nedan förväntar sig en enkel miljö som redan ha
 ## <a name="create-the-nsg-frontend-nsg"></a>Skapa NSG-klientdel NSG: N
 Att skapa den **NSG-klientdel** NSG enligt scenariot ovan, Följ stegen nedan.
 
-1. Från en webbläsare, navigerar du till http://portal.azure.com och loggar, vid behov, in med ditt Azure-konto.
+1. Navigera till http://portal.azure.com från en webbläsare och logga in med ditt Azure-konto vid behov.
 2. Klicka på **Bläddra >** > **Nätverkssäkerhetsgrupper**.
    
     ![Azure portal – NSG: er](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
@@ -92,6 +92,6 @@ Att skapa den **NSG BackEnd** NSG och koppla den till den **BackEnd** undernät,
 3. Upprepa stegen i [koppla NSG till undernätet FrontEnd](#Associate-the-NSG-to-the-FrontEnd-subnet) att associera den **NSG Backend** NSG till den **BackEnd** undernät.
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur du [hantera befintliga NSG: er](virtual-network-manage-nsg-arm-portal.md)
+* Lär dig hur du [hantera befintliga NSG: er](manage-network-security-group.md)
 * [Aktivera loggning](virtual-network-nsg-manage-log.md) för NSG: er.
 

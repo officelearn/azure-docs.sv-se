@@ -1,24 +1,24 @@
 ---
 title: Etablera en Linux (Ubuntu) datavetenskap virtuell dator i Azure | Microsoft Docs
-description: "Konfigurera och skapa en datavetenskap virtuell dator för Linux (Ubuntu) i Azure för att utföra analyser och maskininlärning."
+description: Konfigurera och skapa en datavetenskap virtuell dator för Linux (Ubuntu) i Azure för att utföra analyser och maskininlärning.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
-editor: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 721b18845a3b839d59c7eb0a04646635fa8d9fe7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f3ddebdd02d4766b83f0834979a54552f88179cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Etablera datavetenskap virtuell dator för Linux (Ubuntu)
 
@@ -221,7 +221,7 @@ Om du vill installera ytterligare Python-bibliotek, måste du köra ```conda``` 
 ### <a name="jupyter-notebook"></a>Jupyter-anteckningsbok
 Anaconda distribution innehåller också en Jupyter-anteckningsbok en miljö att dela kod och analys. Jupyter-anteckningsbok sker via JupyterHub. Du loggar in med ditt lokala Linux-användarnamn och lösenord.
 
-Jupyter-anteckningsbok servern har konfigurerats med Python 2, 3 Python och R kärnor före. Det finns en skrivbordsikon med namnet ”Jupyter Notebook” för att starta webbläsaren för att komma åt servern för bärbar dator. Om du är på den virtuella datorn via SSH eller X2Go klient kan du kan också besöka [https://localhost:8000 /](https://localhost:8000/) Jupyter notebook-servern.
+Jupyter-anteckningsbok servern har konfigurerats med Python 2, 3 Python och R kärnor före. Det finns en skrivbordsikon med namnet ”Jupyter Notebook” för att starta webbläsaren för att komma åt servern för bärbar dator. Om du är på den virtuella datorn via SSH eller X2Go klient kan du kan också besöka [ https://localhost:8000/ ](https://localhost:8000/) Jupyter notebook-servern.
 
 > [!NOTE]
 > Fortsätt om du får några certifikatvarningar.
@@ -237,7 +237,7 @@ Du kan komma åt Jupyter-anteckningsbok server från valfri värddator. Skriv *h
 
 Vi har paketerat exempel anteckningsböcker--en i Python och en i R. Du kan se länken prov på startsidan för bärbar dator när du autentiserar dig till Jupyter-anteckningsbok med hjälp av din lokala Linux-användarnamn och lösenord. Du kan skapa en ny anteckningsbok genom att välja **ny**, och sedan språket kernel. Om du inte ser den **ny** , klicka på den **Jupyter** ikon på upp till vänster att gå till startsidan för anteckningsboken-servern.
 
-### <a name="apache-spark-standalone"></a>Apache Spark Standalone 
+### <a name="apache-spark-standalone"></a>Apache Väck fristående 
 En fristående instans av Apache Spark är förinstallerat på Linux DSVM som hjälper dig att utveckla Spark-program lokalt först innan du testar och distribuerar stora kluster. Du kan köra PySpark program via Jupyter-kernel. När du öppnar Jupyter klickar du på den **ny** knappen och du bör se en lista över tillgängliga kärnor. ”Spark – Python” är PySpark-kerneln som låter dig skapa Spark program som använder Python språk. Du kan också använda en Python IDE som PyCharm eller Spyder för att skapa du Spark-program. Eftersom detta är en fristående instans, Spark-stacken körs inom det anropande klientprogrammet. Detta gör det snabbare och enklare att felsöka problem jämfört med att utveckla på ett Spark-kluster. 
 
 En bärbar dator PySpark exempel finns på Jupyter som du hittar i katalogen ”SparkML” under arbetskatalogen för Jupyter ($HOME/anteckningsböcker/SparkML/pySpark). 
@@ -272,7 +272,7 @@ Du kan välja mellan flera kod redigerare. Detta inkluderar vi/VIM Emacs, PyChar
 
 Ställ in drivrutiner och databasen alias innan den första användningen. JDBC-drivrutiner finns på:
 
-*/usr/share/java/jdbcdrivers*
+*/usr/Share/Java/jdbcdrivers*
 
 Mer information finns i [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 
@@ -404,7 +404,7 @@ Nu ett grafiskt gränssnitt som öppnas med en uppsättning flikar. Här följer
 7. Klicka på den **utvärdera** fliken.
 8. Klicka på den **Risk** alternativknappen och klickar på **Execute** ska visas två Risk (kumulativ) prestanda områden.
 9. Klicka på den **loggen** att visa generera R-koden för föregående operationer.
-   (På grund av ett fel i den aktuella versionen av spännen, måste du infoga ett  *#*  tecknet framför *exportera den här loggen...*  texten i loggen.)
+   (På grund av ett fel i den aktuella versionen av spännen, måste du infoga ett *#* tecknet framför *exportera den här loggen...*  texten i loggen.)
 10. Klicka på den **exportera** för att spara filen R-skript med namnet *weather_script. R* till arbetsmappen.
 
 Du kan avsluta spännen och R. Nu kan du ändra genererade R-skriptet, eller använda den som den är att köra den när som helst om du vill upprepa allt som gjordes i Gränssnittet Rattle. Detta är ett enkelt sätt att snabbt göra analyser och maskininlärning i ett enkelt grafiskt gränssnitt vid automatisk generering av kod i R för att ändra och/eller Läs särskilt för nybörjare i R.

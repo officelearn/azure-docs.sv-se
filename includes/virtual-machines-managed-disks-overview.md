@@ -24,7 +24,7 @@ Azure-diskar har en tillförlitlighet på 99,999 %. REST-lättare att veta att d
 
 ### <a name="granular-access-control"></a>Detaljerad åtkomstkontroll
 
-Du kan använda [rollbaserad åtkomstkontroll (RBAC)](../articles/active-directory/role-based-access-control-what-is.md) tilldela specifika behörigheter för hanterade diskar till en eller flera användare. Hanterade diskar visar olika åtgärder, inklusive läsa, skriva (skapa/uppdatera), ta bort och hämtar en [signatur för delad åtkomst (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) för disken. Du kan bevilja åtkomst till de åtgärder som en person behöver för att utföra sitt jobb. Till exempel om du inte vill att en person för att kopiera en hanterade diskar till ett lagringskonto kan du inte att bevilja åtkomst till export-åtgärd för den hantera disken. På samma sätt om du inte vill att en person för att använda en SAS-URI för att kopiera en hanterade diskar, kan du inte bevilja behörigheten till den hantera disken.
+Du kan använda [rollbaserad åtkomstkontroll (RBAC)](../articles/role-based-access-control/overview.md) tilldela specifika behörigheter för hanterade diskar till en eller flera användare. Hanterade diskar visar olika åtgärder, inklusive läsa, skriva (skapa/uppdatera), ta bort och hämtar en [signatur för delad åtkomst (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) för disken. Du kan bevilja åtkomst till de åtgärder som en person behöver för att utföra sitt jobb. Till exempel om du inte vill att en person för att kopiera en hanterade diskar till ett lagringskonto kan du inte att bevilja åtkomst till export-åtgärd för den hantera disken. På samma sätt om du inte vill att en person för att använda en SAS-URI för att kopiera en hanterade diskar, kan du inte bevilja behörigheten till den hantera disken.
 
 ### <a name="azure-backup-service-support"></a>Stöd för Azure Backup service
 Använda Azure Backup service med hanterade diskar för att skapa en säkerhetskopiering med tidsbaserade säkerhetskopieringar, enkelt VM-återställning och principer för lagring av säkerhetskopior. Hanterade diskar stöder endast lokalt Redundant lagring (LRS) som replikeringsalternativet; Det innebär att den bevarar tre kopior av data inom en enskild region. För regional katastrofåterställning, måste du säkerhetskopiera din Virtuella diskar i en annan region med hjälp av [Azure Backup service](../articles/backup/backup-introduction-to-azure-backup.md) och ett GRS-lagringskonto som säkerhetskopieringsvalvet. För närvarande storlek datadisk för Azure Backup stöder upp till 1TB för säkerhetskopiering. Läs mer om detta i [med hjälp av Azure Backup-tjänsten för virtuella datorer med hanterade diskar](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
@@ -53,14 +53,14 @@ Här är storlekar för diskar som är tillgängliga för en hanterad premium-di
 
 | **Premium hanteras <br>disktyp** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Diskstorlek        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 
+| Diskstorlek        | 32 giB   | 64 giB   | 128 GiB  | 256 giB  | 512 GiB  | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 
 
 
 Här är storlekar för diskar som är tillgängliga för en standard hanterade diskar:
 
 | **Standard hanteras <br>disktyp** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Diskstorlek        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 
+| Diskstorlek        | 32 giB   | 64 giB   | 128 GiB | 512 GiB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 
 
 
 **Antal transaktioner**: du debiteras för antal transaktioner som du kan utföra på en standard hanterade disk. Det kostar inget för transaktioner för en hanterad premium-disk.
@@ -104,8 +104,7 @@ Det finns två typer av kryptering att diskutera förhållande till hanterade di
 
 ### <a name="storage-service-encryption-sse"></a>Storage Service-kryptering (SSE)
 
-[Azure Storage Service-kryptering](../articles/storage/common/storage-service-encryption.md) tillhandahåller kryptering i vila och skydda dina data för att uppfylla din organisations säkerhet och efterlevnad åtaganden. SSE är aktiverat som standard för alla hanterade diskar, ögonblicksbilder och bilder i alla regioner där hanterade diskar är tillgänglig. Startar den 10 juni 2017 samtliga nya hanterade diskar-ögonblicksbilder-avbildningar och nya data skrivs till befintliga hanterade diskar är automatiskt krypterat i vila med nycklar som hanteras av Microsoft som standard. Du kan välja att ta med din egen nyckel för kryptering för Azure-BLOB och filer. Kryptering för tabeller och köer använder alltid Microsoft-hanterade nycklar.
-Observera att efter att aktivera Lagringstjänstens kryptering kan endast nya data krypteras och befintliga filer i det här lagringskontot kommer retroaktivt hämta krypteras med kryptering bakgrunden. Besök den [hanterade diskar vanliga frågor om sidan](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) för mer information.
+[Azure Storage Service-kryptering](../articles/storage/common/storage-service-encryption.md) tillhandahåller kryptering i vila och skydda dina data för att uppfylla din organisations säkerhet och efterlevnad åtaganden. SSE är aktiverat som standard för alla hanterade diskar, ögonblicksbilder och bilder i alla regioner där hanterade diskar är tillgänglig. Startar den 10 juni 2017 samtliga nya hanterade diskar-ögonblicksbilder-avbildningar och nya data skrivs till befintliga hanterade diskar är automatiskt krypterat i vila med nycklar som hanteras av Microsoft som standard. Besök den [hanterade diskar vanliga frågor om sidan](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) för mer information.
 
 
 ### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)

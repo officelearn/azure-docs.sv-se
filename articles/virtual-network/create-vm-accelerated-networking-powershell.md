@@ -1,12 +1,12 @@
 ---
-title: "Skapa en virtuell Azure-dator med snabbare nätverk | Microsoft Docs"
-description: "Lär dig hur du skapar en virtuell Linux-dator med snabbare nätverk."
+title: Skapa en virtuell Azure-dator med snabbare nätverk | Microsoft Docs
+description: Lär dig hur du skapar en virtuell Linux-dator med snabbare nätverk.
 services: virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: jdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: c0017b8759a1f01b010172be562ed869d1d51a25
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f3c8853331121fc1e267f6c569279f7d8df907b5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Skapa en Windows-dator med snabbare nätverk
 
@@ -61,7 +61,7 @@ Följande begränsningar gäller när du använder den här funktionen:
 * **Skapa en virtuell dator:** A nätverkskortet med snabbare nätverksfunktioner som är aktiverad kan endast kopplas till en virtuell dator när den virtuella datorn skapas. Nätverkskortet kan inte kopplas till en befintlig virtuell dator. Om du lägger till den virtuella datorn i en befintlig tillgänglighetsuppsättning måste alla virtuella datorer i tillgänglighetsuppsättningen också ha snabbare nätverk som är aktiverad.
 * **Distribution via Azure Resource Manager:** virtuella datorer (klassisk) kan inte distribueras med snabbare nätverk.
 
-Även om den här artikeln innehåller steg för att skapa en virtuell dator med snabbare nätverk med hjälp av Azure PowerShell, kan du också [skapa en virtuell dator med snabbare nätverk med Azure-portalen](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). När du skapar en virtuell dator med ett operativsystem som stöds och VM-storlek i portalen under **inställningar**väljer **aktiverad** under **snabbare nätverk**. När den virtuella datorn skapas, måste du slutföra anvisningarna i [bekräfta drivrutinen är installerad i operativsystemet](#confirm-the-driver-is-installed-in-the-operating-system).
+Även om den här artikeln innehåller steg för att skapa en virtuell dator med snabbare nätverk med hjälp av Azure PowerShell, kan du också [skapa en virtuell dator med snabbare nätverk med Azure-portalen](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). När du skapar en virtuell dator i portalen under **inställningar**väljer **aktiverad**under **snabbare nätverk**. Att aktivera snabbare nätverksfunktioner inte visas i portalen om du har valt en [operativsystem som stöds](#supported-operating-systems) och [VM-storlek](#supported-vm-instances). När den virtuella datorn skapas, måste du slutföra anvisningarna i [bekräfta drivrutinen är installerad i operativsystemet](#confirm-the-driver-is-installed-in-the-operating-system).
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
@@ -207,6 +207,6 @@ När du skapar den virtuella datorn i Azure kan ansluta till den virtuella dator
 3. Ange användarnamnet och lösenordet du angav i [skapa den virtuella datorn](#create-the-virtual-machine). Om du aldrig har anslutit till en Windows-dator i Azure, se [Anslut till den virtuella datorn](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 4. Högerklicka på Start och klicka på **Enhetshanteraren**. Expandera den **nätverkskort** nod. Bekräfta att den **Mellanox ConnectX 3 virtuella funktionen Ethernet-nätverkskort** visas som i följande bild:
    
-    ![Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
+    ![Enhetshanteraren](./media/create-vm-accelerated-networking/device-manager.png)
 
 Snabbare nätverksfunktioner har nu aktiverats för den virtuella datorn.

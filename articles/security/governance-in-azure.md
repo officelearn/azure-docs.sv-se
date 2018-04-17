@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 04d9e6152c87a49a5f1b1b1a29c16d80de00f4e9
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: af011cb3eea27498107cdfd650518552cd63bdf3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="governance-in-azure"></a>Styrning i Azure
 
@@ -147,7 +147,7 @@ När Azure släpptes ursprungligen, åtkomstkontroller för att en prenumeration
 
 Den här spridning av prenumerationer behövs inte längre. Du kan tilldela användare till standardroller (till exempel ”reader” och ”författare” vanliga roller) med rollbaserad åtkomstkontroll. Du kan också definiera anpassade roller.
 
-[Azure rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) Aktivera detaljerad åtkomsthantering för Azure. Med RBAC kan du bevilja exakt den åtkomstnivå som användarna behöver för att kunna utföra sitt arbete. Säkerhet indatavärdena företag bör tänka på att ge anställda behörigheterna exakt som de behöver. För många behörigheter exponerar ett konto för attacker. För få behörigheter innebär att anställda kan få arbetet gjort effektivt. Azure rollbaserad åtkomstkontroll (RBAC) kan du lösa det här problemet genom att erbjuda detaljerad åtkomsthantering för Azure. RBAC hjälper dig att särskilja uppgifter i din grupp och ge bara mängden åtkomst till användare som de behöver för att utföra sitt arbete. Obegränsad istället för att ge alla behörigheter i din Azure-prenumeration eller resurser, kan du tillåta endast vissa åtgärder.
+[Azure rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) Aktivera detaljerad åtkomsthantering för Azure. Med RBAC kan du bevilja exakt den åtkomstnivå som användarna behöver för att kunna utföra sitt arbete. Säkerhet indatavärdena företag bör tänka på att ge anställda behörigheterna exakt som de behöver. För många behörigheter exponerar ett konto för attacker. För få behörigheter innebär att anställda kan få arbetet gjort effektivt. Azure rollbaserad åtkomstkontroll (RBAC) kan du lösa det här problemet genom att erbjuda detaljerad åtkomsthantering för Azure. RBAC hjälper dig att särskilja uppgifter i din grupp och ge bara mängden åtkomst till användare som de behöver för att utföra sitt arbete. Obegränsad istället för att ge alla behörigheter i din Azure-prenumeration eller resurser, kan du tillåta endast vissa åtgärder.
 
 Till exempel använda RBAC så att en medarbetare som hanterar virtuella datorer i en prenumeration medan en annan kan hantera SQL-databaser inom samma prenumeration.
 
@@ -161,7 +161,7 @@ Azure RBAC har tre grundläggande roller som gäller för alla typer av resurser
 
 Resten av rollerna i Azure RBAC kan hanteringen av specifika Azure-resurser. Till exempel tillåter virtuella deltagarrollen användaren att skapa och hantera virtuella datorer. Det ger dem åtkomst till virtuella nätverk eller undernät som den virtuella datorn ansluter till.
 
-[Inbyggda RBAC-roller](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) listar rollerna som är tillgängliga i Azure. Det anger åtgärder och scope som varje inbyggd roll som ger användare.
+[Inbyggda RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) listar rollerna som är tillgängliga i Azure. Det anger åtgärder och scope som varje inbyggd roll som ger användare.
 
 Bevilja åtkomst genom att tilldela rollen RBAC till användare, grupper och program för ett visst område. Omfånget för en rolltilldelning kan vara en prenumeration, resursgrupp eller en enskild resurs. En roll som tilldelats en överordnad omfattning även ger åtkomst till underordnade som finns i den.
 
@@ -169,9 +169,9 @@ En användare med åtkomst till en resursgrupp kan exempelvis hantera alla resur
 
 Azure RBAC stöder endast hanteringsåtgärder Azure-resurser i Azure-portalen och Azure Resource Manager API: er. Det går inte att tillåta alla data på åtgärder för Azure-resurser. Du kan till exempel auktorisera någon att hantera Storage-konton, men inte till blobbar eller tabeller i ett Lagringskonto kan du inte. På samma sätt kan kan en SQL-databas hanteras, men inte tabellerna i den.
 
-Mer information om hur RBAC kan hjälpa dig att hantera åtkomsten finns i [Vad är rollbaserad åtkomstkontroll?](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)
+Mer information om hur RBAC kan hjälpa dig att hantera åtkomsten finns i [Vad är rollbaserad åtkomstkontroll?](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-Du kan också [skapa en anpassad roll](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) i rollbaserad åtkomstkontroll (RBAC) om ingen av de inbyggda rollerna uppfyller dina specifika åtkomst måste. Anpassade roller kan skapas med [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell), [Azure-kommandoradsgränssnittet (CLI)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli), och [REST API](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-rest). Precis som inbyggda roller kan anpassade roller tilldelas användare, grupper och program på prenumerationen, resursgruppen och resursen omfattningar.
+Du kan också [skapa en anpassad roll](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) i rollbaserad åtkomstkontroll (RBAC) om ingen av de inbyggda rollerna uppfyller dina specifika åtkomst måste. Anpassade roller kan skapas med [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure-kommandoradsgränssnittet (CLI)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), och [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Precis som inbyggda roller kan anpassade roller tilldelas användare, grupper och program på prenumerationen, resursgruppen och resursen omfattningar.
 
 Du kan bevilja upp till 2 000 rolltilldelningar inom varje prenumeration.
 
@@ -271,7 +271,7 @@ Tillämpa **ReadOnly** kan leda till oväntade resultat eftersom vissa åtgärde
 
 För ett annat exempel är förhindrar att placera en ReadOnly-lås på en App Service-resurs Visual Studio Server Explorer visar filer för resursen eftersom den interaktionen kräver skrivåtkomst.
 
-Till skillnad från rollbaserad åtkomstkontroll använder du management Lås för att tillämpa en begränsning för alla användare och roller. Läs om hur du anger behörigheter för användare och roller i [Azure rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+Till skillnad från rollbaserad åtkomstkontroll använder du management Lås för att tillämpa en begränsning för alla användare och roller. Läs om hur du anger behörigheter för användare och roller i [Azure rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 När du använder ett lås på en överordnad omfattning, ärver alla resurser i omfattningen samma låset. Även resurser som du senare lägger till ärver låset från överordnat. Det mest restriktiva låset i ärvda företräde.
 

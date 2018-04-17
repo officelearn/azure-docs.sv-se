@@ -3,7 +3,7 @@ title: Skapa ett Azure Service Fabric-kluster från en mall | Microsoft Docs
 description: Den här artikeln beskriver hur du ställer in en säker Service Fabric-kluster i Azure med Azure Resource Manager, Azure Key Vault och Azure Active Directory (Azure AD) för klientautentisering.
 services: service-fabric
 documentationcenter: .net
-author: chackdan
+author: aljo-microsoft
 manager: timlt
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
-ms.author: chackdan
-ms.openlocfilehash: b245c9e46c994d40a6d0f75eb8494828d0d4d165
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: aljo
+ms.openlocfilehash: 02ff0a8d2b7f594a7e1def23f91426639f52b150
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Skapa ett Service Fabric-kluster med hjälp av Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -376,7 +376,7 @@ Klusternamn används som prefix i Azure AD-program som skapats av skriptet. Det 
 
 WebApplicationReplyUrl är standardslutpunkten som Azure AD tillbaka till användarna när de har loggat in. Ange den här slutpunkten som Service Fabric Explorer-slutpunkt för klustret, vilket som standard är:
 
-https://&lt;cluster_domain&gt;:19080/Explorer
+https://&lt;cluster_domain&gt;: 19080/Explorer
 
 Du uppmanas att logga in på ett konto som har administratörsbehörighet för Azure AD-klient. När du loggar in skapar skriptet webb- och interna program för att representera Service Fabric-klustret. Om du tittar på klientens program i den [Azure-portalen][azure-portal], bör du se två nya poster:
 

@@ -1,11 +1,11 @@
 ---
-title: "Felsöka vägar - PowerShell | Microsoft Docs"
-description: "Lär dig hur du felsöker vägar i Azure Resource Manager-distributionsmodellen med hjälp av Azure PowerShell."
+title: Felsöka vägar - PowerShell | Microsoft Docs
+description: Lär dig hur du felsöker vägar i Azure Resource Manager-distributionsmodellen med hjälp av Azure PowerShell.
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bf7dc5e7-9399-460e-8e0d-8992dbed98a6
 ms.service: virtual-network
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: ac7f8ddaf84ba94075a9c9c3195bd57534c6821b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2d501419dde633f89a5760af9f82604006de6b6f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Felsöka flöden med hjälp av Azure PowerShell
 > [!div class="op_single_selector"]
-> * [Azure-portalen](virtual-network-routes-troubleshoot-portal.md)
+> * [Azure Portal](virtual-network-routes-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 > 
 > 
@@ -57,7 +57,7 @@ Om du vill se sammanställd vägar som tillämpas på en virtuell dator, gör du
 ### <a name="view-effective-routes-for-a-network-interface"></a>Visa effektiva vägar för ett nätverksgränssnitt
 Om du vill se sammanställd vägar som tillämpas på ett nätverksgränssnitt, gör du följande:
 
-1. Starta en Azure PowerShell-sessionen och logga in på Azure. Om du inte är bekant med Azure PowerShell kan du läsa den [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) artikel. Ditt konto ha tilldelats den *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* åtgärden för nätverksgränssnittet. Information om hur du tilldelar åtgärder till konton finns [skapa anpassade roller för rollbaserad åtkomstkontroll i](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Starta en Azure PowerShell-sessionen och logga in på Azure. Om du inte är bekant med Azure PowerShell kan du läsa den [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) artikel. Ditt konto ha tilldelats den *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* åtgärden för nätverksgränssnittet. Information om hur du tilldelar åtgärder till konton finns [skapa anpassade roller för rollbaserad åtkomstkontroll i](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Följande kommando returnerar alla vägar som tillämpas på ett nätverksgränssnitt med namnet *VM1 NIC1* i resursgruppen *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

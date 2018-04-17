@@ -1,23 +1,23 @@
 ---
-title: "Förberedelse av Azure Service Fabric fristående klustret distribution | Microsoft Docs"
-description: "Dokumentation som rör förbereda miljön och skapa klusterkonfigurationen beaktas innan du distribuerar ett kluster som är avsedda för hantering av en produktions-arbetsbelastning."
+title: Förberedelse av Azure Service Fabric fristående klustret distribution | Microsoft Docs
+description: Dokumentation som rör förbereda miljön och skapa klusterkonfigurationen beaktas innan du distribuerar ett kluster som är avsedda för hantering av en produktions-arbetsbelastning.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/12/2017
-ms.author: dekapur;maburlik;chackdan
-ms.openlocfilehash: b1190ec5a3ff70a368b29465699f9082d2b989bf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: dekapur;maburlik;aljo
+ms.openlocfilehash: 62673025f5c597f6ed958ad523190d937a52c912
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 <a id="preparemachines"></a>
 
@@ -49,11 +49,11 @@ Du kan välja namn för varje UD när du anger UDs i ClusterConfig.json. Till ex
 
 Mer detaljerad information om FDs och UDs finns [som beskriver ett Service Fabric-kluster](service-fabric-cluster-resource-manager-cluster-description.md).
 
-Ett kluster i produktionen ska omfatta minst tre FDs för att kunna användas i en produktionsmiljö, om du har fullständig kontroll över underhåll och hantering av noderna, dvs. du ansvarar för uppdatering och ersätta datorer. Du bör ha minst fem FDs för kluster som körs i miljöer (d.v.s. Amazon Web Services VM-instanser) där du inte har fullständig kontroll över datorerna i klustret. Varje FD kan ha en eller flera noder. Detta är att förhindra problem som orsakas av datorn uppgraderingar och uppdateringar som kan beroende på deras tidsinställning intefere med körning av program och tjänster i kluster.
+Ett kluster i produktionen ska omfatta minst tre FDs för att kunna användas i en produktionsmiljö, om du har fullständig kontroll över underhåll och hantering av noder som är du ansvarar för att uppdatera och ersätta datorer. Du bör ha minst fem FDs för kluster som körs i (det vill säga Amazon Web Services VM-instanser) där du inte har fullständig kontroll över datorerna i klustret. Varje FD kan ha en eller flera noder. Detta är att förhindra problem som orsakas av datorn uppgraderingar och uppdateringar som beroende på deras tidsinställning kan störa körning av program och tjänster i kluster.
 
 ## <a name="determine-the-initial-cluster-size"></a>Fastställa inledande klusterstorleken
 
-I allmänhet bestäms antalet noder i klustret baserat på dina behov, d.v.s. hur många tjänster och behållare som körs på klustret och hur många resurser du behöver hantera dina arbetsbelastningar. För kluster för produktion rekommenderar vi att ha minst 5 noder i klustret, utsträckning 5 FDs. Dock som beskrivs ovan, om du har fullständig kontroll över din noder och kan sträcka sig över tre FDs, bör sedan tre noder också göra jobbet.
+I allmänhet antalet noder i klustret bestäms baserat på dina affärsbehov som är, hur många tjänster och behållare som körs i klustret och hur många resurser du behöver hantera dina arbetsbelastningar. För kluster för produktion rekommenderar vi att ha minst fem noder i klustret, utsträckning 5 FDs. Dock som beskrivs ovan, om du har fullständig kontroll över din noder och kan sträcka sig över tre FDs, bör sedan tre noder också göra jobbet.
 
 Testkluster som kör tillståndskänsliga arbetsbelastningar ska ha tre noder testkluster som endast kör tillståndslösa arbetsbelastningar bör en nod. Det bör även noteras att för utveckling, du kan ha fler än en nod på en viss dator. I en produktionsmiljö stöder Service Fabric dock bara en nod per fysiska eller virtuella datorn.
 
@@ -99,7 +99,7 @@ När en Klusteradministratör konfigurerar en fristående Service Fabric-kluster
 * Har avinstallerat Service Fabric SDK
 * Ha Service Fabric runtime avinstalleras 
 * Har aktiverat Windows-brandväggen (mpssvc)
-* Har aktiverat tjänsten Remote Registry (remoteregistry)
+* Har aktiverat tjänsten Remote Registry (fjärregistret)
 * Har aktiverat delning (SMB)-fil
 * Har nödvändiga portarna som öppnas, baserat på klustret configuration portar
 * Har nödvändiga portarna för Windows-SMB- och Remote Registry-tjänsten: 135, 137, 138, 139 och 445

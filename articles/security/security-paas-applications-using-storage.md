@@ -1,12 +1,12 @@
 ---
-title: "Skydda PaaS-program med hjälp av Azure Storage | Microsoft Docs"
+title: Skydda PaaS-program med hjälp av Azure Storage | Microsoft Docs
 description: " Läs mer om Azure Storage Säkerhet Metodtips för att skydda din PaaS webb- och mobilprogram. "
 services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomShinder
-ms.openlocfilehash: 16ee6d9d2f02c758d7682626a8b71a3ff17f841c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9d4251e61b60d8da6ce5072ba66aeaedb60cb33a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Att säkra PaaS-webb- och mobila program med Azure Storage
 I den här artikeln tar vi upp en samling Azure Storage säkerhetsmetoder för att skydda din PaaS webb- och mobilprogram. Följande rekommendationer härleds från våra erfarenhet av Azure och upplevelser för kunder som själv.
@@ -75,7 +75,7 @@ Läs mer i [vanliga frågor och svar om hanterade och ohanterade premiumdiskar](
 
 Vi diskuterade tidigare med hjälp av delade signatur åtkomst (SAS) för att bevilja begränsad åtkomst till objekt i ditt lagringskonto till andra klienter, utan att utsätta din lagringskontonyckel för kontot. Ibland uppväger risker med en viss åtgärd mot ditt lagringskonto fördelarna med SAS. Ibland är det enklare att hantera åtkomst på annat sätt.
 
-Ett annat sätt att hantera åtkomst är att använda [rollbaserad åtkomstkontroll i](../active-directory/role-based-access-control-what-is.md) (RBAC). Baserat på behöver känna till och minsta privilegium säkerhetsprinciper med RBAC du fokusera på att ge anställda behörigheterna exakt som de behöver. För många behörigheter kan exponera ett konto för attacker. För få behörigheter innebär att anställda kan få arbetet gjort effektivt. RBAC kan du lösa det här problemet genom att erbjuda detaljerad åtkomsthantering för Azure. Det här är viktigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst.
+Ett annat sätt att hantera åtkomst är att använda [rollbaserad åtkomstkontroll i](../role-based-access-control/overview.md) (RBAC). Baserat på behöver känna till och minsta privilegium säkerhetsprinciper med RBAC du fokusera på att ge anställda behörigheterna exakt som de behöver. För många behörigheter kan exponera ett konto för attacker. För få behörigheter innebär att anställda kan få arbetet gjort effektivt. RBAC kan du lösa det här problemet genom att erbjuda detaljerad åtkomsthantering för Azure. Det här är viktigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst.
 
 Du kan utnyttja inbyggda RBAC-roller i Azure för att tilldela behörigheter till användare. Överväg att använda Storage-konto deltagare för molnoperatörer som behöver kunna hantera storage-konton och klassiska Storage-konto deltagarrollen till klassiska lagringskonton hantera. För molnoperatörer som behöver för att hantera virtuella datorer men inte den virtuella nätverks- eller konto som de är anslutna, Överväg att lägga till dem till rollen Virtual Machine-deltagare.
 
@@ -83,8 +83,8 @@ Organisationer som inte behöver använda data åtkomstkontroll genom att utnytt
 
 Om du vill veta se mer om RBAC:
 
-- [Rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-control-configure.md)
-- [Inbyggda roller för rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-built-in-roles.md)
+- [Rollbaserad åtkomstkontroll i Azure](../role-based-access-control/role-assignments-portal.md)
+- [Inbyggda roller för rollbaserad åtkomstkontroll i Azure](../role-based-access-control/built-in-roles.md)
 - [Azure Storage-säkerhetsguiden](../storage/common/storage-security-guide.md) information om hur du skyddar ditt lagringskonto med RBAC
 
 ## <a name="storage-encryption"></a>Lagringskryptering

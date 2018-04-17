@@ -1,5 +1,5 @@
 ---
-title: "Azure betalning bearbetning modell - krav på tester"
+title: Azure betalning bearbetning modell - krav på tester
 description: PCI DSS krav 11
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 57429741afd2ffd16c09a0f1485cb1cfbdda5571
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: db9f1022ecb3b727f08bb6f232a8df55476e0755
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="testing-requirements-for-pci-dss-compliant-environments"></a>Testa krav för PCI DSS-kompatibel miljöer 
 ## <a name="pci-dss-requirement-11"></a>PCI DSS krav 11
@@ -43,8 +43,8 @@ Oavsett vilken metoder som används måste de vara tillräcklig för att upptäc
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Azure inte Tillåt eller Tillåt trådlösa anslutningar i Azure nätverksmiljön. Interna säkerheten team söker regelbundet efter falsk trådlösa signaler kvartalsvis och falska signaler undersökas och tas bort. Kunder tillåts inte att distribuera trådlös teknik i Azure-miljön. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Trådlösa och SNMP har inte implementerats i lösningen.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Azure inte Tillåt eller Tillåt trådlösa anslutningar i Azure nätverksmiljön. Interna säkerheten team söker regelbundet efter falsk trådlösa signaler kvartalsvis och falska signaler undersökas och tas bort. Kunder tillåts inte att distribuera trådlös teknik i Azure-miljön. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Trådlösa och SNMP har inte implementerats i lösningen.|
 
 
 
@@ -56,8 +56,8 @@ Oavsett vilken metoder som används måste de vara tillräcklig för att upptäc
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 11,1](#pci-dss-requirement-11-1). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Trådlösa och SNMP har inte implementerats i lösningen.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 11,1](#pci-dss-requirement-11-1). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Trådlösa och SNMP har inte implementerats i lösningen.|
 
 
 
@@ -70,8 +70,8 @@ Oavsett vilken metoder som används måste de vara tillräcklig för att upptäc
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 11,1](#pci-dss-requirement-11-1). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Trådlösa och SNMP har inte implementerats i lösningen.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 11,1](#pci-dss-requirement-11-1). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Trådlösa och SNMP har inte implementerats i lösningen.|
 
 
 
@@ -88,8 +88,8 @@ Oavsett vilken metoder som används måste de vara tillräcklig för att upptäc
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Azure utför kvartalsvis interna och externa sårbarhetsgenomsökningar. Genomsökningar utförs av kvalificerad personal. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore har testats penna och säkerhetsproblem genomsöks vi 'som är'. Testresultaten penna kan dupliceras med hjälp av gemensamma verktyg, till exempel nmap eller pentest tools.com. Resultatet av testet penna ger tveksam attacker med inga utvinningsbara objekt. Dessutom [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations) informera säkerhetsproblem och reparation.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Azure utför kvartalsvis interna och externa sårbarhetsgenomsökningar. Genomsökningar utförs av kvalificerad personal. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore har testats penna och säkerhetsproblem genomsöks vi 'som är'. Testresultaten penna kan dupliceras med hjälp av gemensamma verktyg, till exempel nmap eller pentest tools.com. Resultatet av testet penna ger tveksam attacker med inga utvinningsbara objekt. Dessutom [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations) informera säkerhetsproblem och reparation.|
 
 
 
@@ -101,8 +101,8 @@ Oavsett vilken metoder som används måste de vara tillräcklig för att upptäc
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure utför sökningar för säkerhetsriskerna omfattas underliggande infrastruktur. Microsoft Azure implementerar genomsökning av server-operativsystem, databaser och nätverksenheter med lämpliga säkerhetsproblem genomsökningsverktyg säkerhetsproblem. Azure webbprogram genomsöks med lämpliga industrin genomsökning lösningar. Sårbarhetsgenomsökningar utförs varje kvartal.<br /><br />Söker utförs vid behov mot alla system, tills alla ”hög risk” sårbarheter (som identifieras i kravet 6.1) har åtgärdats. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore har testats penna och säkerhetsproblem genomsöks vi 'som är'. Testresultaten penna kan dupliceras med hjälp av gemensamma verktyg, till exempel nmap eller pentest tools.com. Resultatet av testet penna ger tveksam attacker med inga utvinningsbara objekt. Dessutom [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations) informera säkerhetsproblem och reparation.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure utför sökningar för säkerhetsriskerna omfattas underliggande infrastruktur. Microsoft Azure implementerar genomsökning av server-operativsystem, databaser och nätverksenheter med lämpliga säkerhetsproblem genomsökningsverktyg säkerhetsproblem. Azure webbprogram genomsöks med lämpliga industrin genomsökning lösningar. Sårbarhetsgenomsökningar utförs varje kvartal.<br /><br />Söker utförs vid behov mot alla system, tills alla ”hög risk” sårbarheter (som identifieras i kravet 6.1) har åtgärdats. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore har testats penna och säkerhetsproblem genomsöks vi 'som är'. Testresultaten penna kan dupliceras med hjälp av gemensamma verktyg, till exempel nmap eller pentest tools.com. Resultatet av testet penna ger tveksam attacker med inga utvinningsbara objekt. Dessutom [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations) informera säkerhetsproblem och reparation.|
 
 
 
@@ -118,8 +118,8 @@ Oavsett vilken metoder som används måste de vara tillräcklig för att upptäc
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure utför externa sökningar för säkerhetsriskerna omfattas underliggande infrastruktur som är tillgänglig externt. Genomsökningar utförs av en godkänd skanna leverantör (ASV).<br /><br />Microsoft Azure prenumererar på MSRC/OSSC månatliga korrigering meddelanden och söker efter säkerhetsrisker anställda. Identifierade säkerhetsrisker utvärderas och repareras per etablerade tidslinjen baserat på nivån av risk.<br /><br />Varje kvartal riktade omfattande säkerhetsproblem genomsöker mot prioriterad komponenter i Microsoft Azure-miljön utförs för att identifiera säkerhetsproblem. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | När distribuera Contoso Webstore, kunder i demonstrationen ansvarar för att utföra kvartalsvis externa säkerhetsproblem genomsökningar och söker efter behov mot PaaS alla instanser i sina miljöer för Kortinnehavarens data (CDE) med hjälp av en godkänd genomsökning leverantör (ASV) godkänd av betalningen Card Industry säkerhet standarder rådet.<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure utför externa sökningar för säkerhetsriskerna omfattas underliggande infrastruktur som är tillgänglig externt. Genomsökningar utförs av en godkänd skanna leverantör (ASV).<br /><br />Microsoft Azure prenumererar på MSRC/OSSC månatliga korrigering meddelanden och söker efter säkerhetsrisker anställda. Identifierade säkerhetsrisker utvärderas och repareras per etablerade tidslinjen baserat på nivån av risk.<br /><br />Varje kvartal riktade omfattande säkerhetsproblem genomsöker mot prioriterad komponenter i Microsoft Azure-miljön utförs för att identifiera säkerhetsproblem. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | När distribuera Contoso Webstore, kunder i demonstrationen ansvarar för att utföra kvartalsvis externa säkerhetsproblem genomsökningar och söker efter behov mot PaaS alla instanser i sina miljöer för Kortinnehavarens data (CDE) med hjälp av en godkänd genomsökning leverantör (ASV) godkänd av betalningen Card Industry säkerhet standarder rådet.<br /><br />|
 
 
 
@@ -131,8 +131,8 @@ Oavsett vilken metoder som används måste de vara tillräcklig för att upptäc
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Resultatet rapporteras till intressenter och reparation spåras av Azure Security Team till slut. Azure testresultaten kan delas med kunder sekretessavtal. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att utföra kvartalsvis interna och externa sårbarhetsgenomsökningar och söker efter behov mot alla PaaS-instanser i sina CDE. Genomsökningar ska utföras efter betydande förändringar i i scope-miljö.<br /><br />Genomsökningar måste utföras av en ASV eller personal organisationens oberoende.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Resultatet rapporteras till intressenter och reparation spåras av Azure Security Team till slut. Azure testresultaten kan delas med kunder sekretessavtal. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att utföra kvartalsvis interna och externa sårbarhetsgenomsökningar och söker efter behov mot alla PaaS-instanser i sina CDE. Genomsökningar ska utföras efter betydande förändringar i i scope-miljö.<br /><br />Genomsökningar måste utföras av en ASV eller personal organisationens oberoende.|
 
 
 
@@ -152,8 +152,8 @@ Oavsett vilken metoder som används måste de vara tillräcklig för att upptäc
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure verifierar tjänster med hjälp av intrång i tredje parts tio med CREST-certifierade Testare testa baserat på OWASP (Öppna Security Webbapprojektet) främsta. Resultat av försök spåras via ett register för risker som är granskas och granskas regelbundet för att säkerställa att att säkerhetsåtgärder. <br /><br />Microsoft använder också Red Teaming mot Microsoft-hanterad infrastruktur, tjänster och program. Inga slutet kundinformation riktar avsiktligt under Red Teaming och liveplatsen intrång testning. Testerna är mot Microsoft Azure-infrastrukturen och plattformar som Microsofts egna program och data. Kund-klienter, program och data som finns på Azure riktas aldrig.<br /><br />Microsoft Azure har anställd en oberoende utvärderare att utveckla en plan för riskbedömning av systemet och genomföra en utvärdering av kontroller. Kontroller bedömningar utförs varje år och resultatet rapporteras till relevanta parter. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore har testats penna och säkerhetsproblem genomsöks vi 'som är'. Testresultaten penna kan dupliceras med hjälp av gemensamma verktyg, till exempel nmap eller pentest tools.com. Resultatet av testet penna ger tveksam attacker med inga utvinningsbara objekt. Dessutom [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations) informera säkerhetsproblem och reparation.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure verifierar tjänster med hjälp av intrång i tredje parts tio med CREST-certifierade Testare testa baserat på OWASP (Öppna Security Webbapprojektet) främsta. Resultat av försök spåras via ett register för risker som är granskas och granskas regelbundet för att säkerställa att att säkerhetsåtgärder. <br /><br />Microsoft använder också Red Teaming mot Microsoft-hanterad infrastruktur, tjänster och program. Inga slutet kundinformation riktar avsiktligt under Red Teaming och liveplatsen intrång testning. Testerna är mot Microsoft Azure-infrastrukturen och plattformar som Microsofts egna program och data. Kund-klienter, program och data som finns på Azure riktas aldrig.<br /><br />Microsoft Azure har anställd en oberoende utvärderare att utveckla en plan för riskbedömning av systemet och genomföra en utvärdering av kontroller. Kontroller bedömningar utförs varje år och resultatet rapporteras till relevanta parter. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore har testats penna och säkerhetsproblem genomsöks vi 'som är'. Testresultaten penna kan dupliceras med hjälp av gemensamma verktyg, till exempel nmap eller pentest tools.com. Resultatet av testet penna ger tveksam attacker med inga utvinningsbara objekt. Dessutom [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations) informera säkerhetsproblem och reparation.|
 
 
 
@@ -165,8 +165,8 @@ Oavsett vilken metoder som används måste de vara tillräcklig för att upptäc
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 11,3](#pci-dss-requirement-11-3). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore har testats penna och säkerhetsproblem genomsöks vi 'som är'. Testresultaten penna kan dupliceras med hjälp av gemensamma verktyg, till exempel nmap eller pentest tools.com. Resultatet av testet penna ger tveksam attacker med inga utvinningsbara objekt. Dessutom [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations) informera säkerhetsproblem och reparation.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 11,3](#pci-dss-requirement-11-3). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore har testats penna och säkerhetsproblem genomsöks vi 'som är'. Testresultaten penna kan dupliceras med hjälp av gemensamma verktyg, till exempel nmap eller pentest tools.com. Resultatet av testet penna ger tveksam attacker med inga utvinningsbara objekt. Dessutom [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations) informera säkerhetsproblem och reparation.|
 
 
 
@@ -178,8 +178,8 @@ Oavsett vilken metoder som används måste de vara tillräcklig för att upptäc
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure-kontrakt med oberoende experter att utföra intrång tester för Microsoft Azure-gräns. Röd Team övningarna utförs även regelbundet och resultat som används för att göra förbättringar av säkerhet. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore har testats penna och säkerhetsproblem genomsöks vi 'som är'. Testresultaten penna kan dupliceras med hjälp av gemensamma verktyg, till exempel nmap eller pentest tools.com. Resultatet av testet penna ger tveksam attacker med inga utvinningsbara objekt. Dessutom [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations) informera säkerhetsproblem och reparation.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure-kontrakt med oberoende experter att utföra intrång tester för Microsoft Azure-gräns. Röd Team övningarna utförs även regelbundet och resultat som används för att göra förbättringar av säkerhet. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore har testats penna och säkerhetsproblem genomsöks vi 'som är'. Testresultaten penna kan dupliceras med hjälp av gemensamma verktyg, till exempel nmap eller pentest tools.com. Resultatet av testet penna ger tveksam attacker med inga utvinningsbara objekt. Dessutom [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations) informera säkerhetsproblem och reparation.|
 
 
 
@@ -191,8 +191,8 @@ Oavsett vilken metoder som används måste de vara tillräcklig för att upptäc
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Procedurer har fastställts för att övervaka komponenter i Microsoft Azure-plattformen för kända säkerhetsproblem. <br /><br /><br /><br />Varje kvartal riktade omfattande säkerhetsproblem genomsöker mot prioriterad komponenter i Azure produktionsmiljön utförs för att identifiera säkerhetsproblem. Resultatet rapporteras till intressenter och reparation spåras av team till slut. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations), som ger säkerhetsproblem information och reparationer har använts för att säkerställa att alla återstående frågor har reparerats för Contoso Webstore demo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Procedurer har fastställts för att övervaka komponenter i Microsoft Azure-plattformen för kända säkerhetsproblem. <br /><br /><br /><br />Varje kvartal riktade omfattande säkerhetsproblem genomsöker mot prioriterad komponenter i Azure produktionsmiljön utförs för att identifiera säkerhetsproblem. Resultatet rapporteras till intressenter och reparation spåras av team till slut. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations), som ger säkerhetsproblem information och reparationer har använts för att säkerställa att alla återstående frågor har reparerats för Contoso Webstore demo CDE.|
 
 
 
@@ -204,8 +204,8 @@ Oavsett vilken metoder som används måste de vara tillräcklig för att upptäc
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Procedurer har fastställts för att övervaka komponenter i Microsoft Azure-plattformen för kända säkerhetsproblem. <br /><br /><br /><br />Varje kvartal riktade omfattande säkerhetsproblem genomsöker mot prioriterad komponenter i Azure produktionsmiljön utförs för att identifiera säkerhetsproblem. Resultatet rapporteras till intressenter och reparation spåras av team till slut. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations), som ger säkerhetsproblem information och reparationer har använts för att säkerställa att alla återstående frågor har reparerats för Contoso Webstore demo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Procedurer har fastställts för att övervaka komponenter i Microsoft Azure-plattformen för kända säkerhetsproblem. <br /><br /><br /><br />Varje kvartal riktade omfattande säkerhetsproblem genomsöker mot prioriterad komponenter i Azure produktionsmiljön utförs för att identifiera säkerhetsproblem. Resultatet rapporteras till intressenter och reparation spåras av team till slut. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations), som ger säkerhetsproblem information och reparationer har använts för att säkerställa att alla återstående frågor har reparerats för Contoso Webstore demo CDE.|
 
 
 
@@ -221,8 +221,8 @@ Oavsett vilken metoder som används måste de vara tillräcklig för att upptäc
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 11.3.4](#pci-dss-requirement-11-3-4). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations), som ger säkerhetsproblem information och reparationer har använts för att säkerställa att alla återstående frågor har reparerats för Contoso Webstore demo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 11.3.4](#pci-dss-requirement-11-3-4). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations), som ger säkerhetsproblem information och reparationer har använts för att säkerställa att alla återstående frågor har reparerats för Contoso Webstore demo CDE.|
 
 
 
@@ -235,8 +235,8 @@ Kontinuerligt alla identifiering av adressintrång och förebygga motorer baslin
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure utför realtid analys av händelser inom driftsmiljön och ID: N system genererar nära realtid aviseringar om händelser som potentiellt kan äventyra systemet. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore är en PaaS-tjänst och intrångsidentifiering för nätverket och förebygga refererar till Azures ansvar. [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations) ange intrång varningar och reparation.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure utför realtid analys av händelser inom driftsmiljön och ID: N system genererar nära realtid aviseringar om händelser som potentiellt kan äventyra systemet. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore är en PaaS-tjänst och intrångsidentifiering för nätverket och förebygga refererar till Azures ansvar. [Azure Security Center](https://azure.microsoft.com/services/security-center/) och [Azure Advisor](/azure/advisor/advisor-security-recommendations) ange intrång varningar och reparation.|
 
 
 
@@ -251,8 +251,8 @@ Kontinuerligt alla identifiering av adressintrång och förebygga motorer baslin
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure underhåller och meddelar kunder eventuella ändringar och händelser som kan påverka säkerheten eller tillgängligheten för tjänster via en online-tjänsten-instrumentpanelen. På webbplatsen Microsoft Azure uppdateras ändringar säkerhetsåtaganden och säkerhet skyldigheter av Microsoft Azure-kunder inom rimlig tid.<br /><br />Installationen eller ändringar av programvaran på Microsoft Azure produktionsmiljö är begränsat till auktoriserade administration personal och sätt ändra rutiner. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore demo är en PaaS-tjänst och identifiering av ändring av har implementerats med hjälp av OMS. Mer information finns i [PCI vägledning - förinstallerat OMS lösningar](payment-processing-blueprint.md#oms-solutions).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure underhåller och meddelar kunder eventuella ändringar och händelser som kan påverka säkerheten eller tillgängligheten för tjänster via en online-tjänsten-instrumentpanelen. På webbplatsen Microsoft Azure uppdateras ändringar säkerhetsåtaganden och säkerhet skyldigheter av Microsoft Azure-kunder inom rimlig tid.<br /><br />Installationen eller ändringar av programvaran på Microsoft Azure produktionsmiljö är begränsat till auktoriserade administration personal och sätt ändra rutiner. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore demo är en PaaS-tjänst och identifiering av ändring av har implementerats med hjälp av logganalys. Mer information finns i [PCI vägledning - förinstallerat hanteringslösningar](payment-processing-blueprint.md#management-solutions).<br /><br />|
 
 
 
@@ -264,8 +264,8 @@ Kontinuerligt alla identifiering av adressintrång och förebygga motorer baslin
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Azure övervakning händelseregler ger ökad övervakning för hög risk åtgärder och tillgångar. Azure-hanterade nätverksenheter övervakas för att uppfylla etablerade säkerhetskrav. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore aviseringar för ändringar som tillhandahålls av OMS-implementering. Mer information finns i [PCI vägledning - förinstallerat OMS lösningar](payment-processing-blueprint.md#oms-solutions).<br /><br /><br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Azure övervakning händelseregler ger ökad övervakning för hög risk åtgärder och tillgångar. Azure-hanterade nätverksenheter övervakas för att uppfylla etablerade säkerhetskrav. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore aviseringar för ändringar som tillhandahålls av logganalys-implementering. Mer information finns i [PCI vägledning - förinstallerat hanteringslösningar](payment-processing-blueprint.md#management-solutions).<br /><br /><br /><br />|
 
 
 
@@ -277,8 +277,8 @@ Kontinuerligt alla identifiering av adressintrång och förebygga motorer baslin
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore aviseringar för ändringar som tillhandahålls av OMS-implementering. Mer information finns i [PCI vägledning - förinstallerat OMS lösningar](payment-processing-blueprint.md#oms-solutions).<br /><br /><br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore aviseringar för ändringar som tillhandahålls av logganalys-implementering. Mer information finns i [PCI vägledning - förinstallerat hanteringslösningar](payment-processing-blueprint.md#management-solutions).<br /><br /><br /><br />|
 
 
 

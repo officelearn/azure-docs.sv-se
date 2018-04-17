@@ -1,11 +1,11 @@
 ---
-title: "Tjänsten Azure Security Center och Azure SQL Database | Microsoft Docs"
-description: "Den här artikeln visar hur Security Center kan hjälpa dig att skydda dina databaser i Azure SQL Database."
+title: Tjänsten Azure Security Center och Azure SQL Database | Microsoft Docs
+description: Den här artikeln visar hur Security Center kan hjälpa dig att skydda dina databaser i Azure SQL Database.
 services: sql-database
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
 ms.service: security-center
 ms.devlang: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 46dd298a5664d914e55d45c5b7599d5983287476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b507a62db9a80866005cb63d2008fb14612b516f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Azure Security Center och Azure SQL Database-tjänsten
-[Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) hjälper dig att förebygga, identifiera och reagera på hot. Härifrån kan du övervaka och hantera principer för alla Azureprenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
+[Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) hjälper dig att förebygga, identifiera och reagera på hot. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
 
 Den här artikeln visar hur Security Center kan hjälpa dig att skydda dina databaser i Azure SQL Database.
 
@@ -35,10 +35,10 @@ Security Center hjälper dig att skydda data i SQL-databas genom att tillhandah�
 
 Förutom att bidra till att skydda din SQL Database-resurser, ger också Security Center säkerhetsövervakning och hantering av virtuella datorer i Azure Cloud Services, Apptjänster, virtuella nätverk och mer. Lär dig mer om Security Center [här](security-center-intro.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Den kostnadsfria nivån av Security Center aktiveras med din prenumeration. Läs mer om Security Center lediga och Standard nivåer [Security Center priser](https://azure.microsoft.com/pricing/details/security-center/).
 
-Security Center stöder rollbaserad åtkomst. Mer information om rollbaserad åtkomstkontroll (RBAC) i Azure finns [Azure Active Directory-rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md). Vanliga frågor om med Security Center innehåller information om [hur behörigheter ska hanteras i Security Center](security-center-faq.md#permissions).
+Security Center stöder rollbaserad åtkomst. Mer information om rollbaserad åtkomstkontroll (RBAC) i Azure finns [Azure Active Directory-rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md). Vanliga frågor om med Security Center innehåller information om [hur behörigheter ska hanteras i Security Center](security-center-faq.md#permissions).
 
 ## <a name="access-security-center"></a>Öppna Security Center
 Security Center öppnas från [Azure Portal](https://azure.microsoft.com/features/azure-portal/). [Logga in på portalen](https://portal.azure.com/) och välj den **Security Center alternativet**.

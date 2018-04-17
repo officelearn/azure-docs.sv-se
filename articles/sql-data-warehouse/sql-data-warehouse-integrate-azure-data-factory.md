@@ -1,11 +1,11 @@
 ---
-title: "Använda Azure Data Factory med SQL Data Warehouse | Microsoft Docs"
-description: "Tips för att använda Azure Data Factory (ADM) med Azure SQL Data Warehouse för utveckling av lösningar."
+title: Använda Azure Data Factory med SQL Data Warehouse | Microsoft Docs
+description: Tips för att använda Azure Data Factory (ADM) med Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 492de762-c7a2-4cdb-943f-3135230e94f1
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 6adfa1264c9d196d6c6e57f1d108710b9ee73265
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-data-factory-with-sql-data-warehouse"></a>Använda Azure Data Factory med SQL Data Warehouse
 Azure Data Factory tillhandahåller en helt hanterad metod för att samordna överföring av data och körning av lagrade procedurer i SQL Data Warehouse.  Detta gör att du kan enkelt inställning och schema komplexa extrahera Transform och Load (ETL) procedurer med SQL Data Warehouse. En fullständig översikt över Azure Data Factory finns på [dokumentation för Azure Data Factory][Azure Data Factory documentation].
@@ -27,7 +27,7 @@ Azure Data Factory tillhandahåller en helt hanterad metod för att samordna öv
 ## <a name="data-movement"></a>Dataförflyttning
 Azure Data Factory gör det möjligt för flytt av data mellan både lokala källor och olika Azure-tjänster.  Övergripande, aktuell integrering med Azure Data Factory har stöd för flytt av data till och från följande platser:
 
-* Azure-blobblagring
+* Azure blobblagring
 * Azure SQL Database
 * Lokal SQLServer
 * SQLServer på IaaS

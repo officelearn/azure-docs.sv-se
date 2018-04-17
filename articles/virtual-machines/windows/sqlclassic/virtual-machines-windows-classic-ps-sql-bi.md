@@ -1,9 +1,9 @@
 ---
 title: SQL Server Business Intelligence | Microsoft Docs
-description: "Det här avsnittet använder resurser som har skapats med den klassiska distributionsmodellen och beskriver funktionerna för Business Intelligence (BI) som är tillgängliga för SQL Server som körs på Azure Virtual Machines (virtuella datorer)."
+description: Det här avsnittet använder resurser som har skapats med den klassiska distributionsmodellen och beskriver funktionerna för Business Intelligence (BI) som är tillgängliga för SQL Server som körs på Azure Virtual Machines (virtuella datorer).
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: monicar
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
-ms.author: asaxton
-ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: maghan
+ms.openlocfilehash: 6f1a95e52def9154253192ab9d43d1e7d621cee7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence på Azure Virtuella datorer
 > [!IMPORTANT] 
@@ -80,7 +80,7 @@ I följande tabell sammanfattas de Business Intelligence-funktioner som installe
 | **Reporting Services enhetligt läge** |Ja |Installerats men måste konfigurationen, inklusive URL: en för report manager. Se avsnittet [konfigurera Reporting Services](#configure-reporting-services). |
 | **Reporting Services SharePoint-läge** |Nej |Bild för virtuell dator i Microsoft Azure-galleriet inte innehåller SharePoint- eller SharePoint installationsfilerna. <sup>1</sup> |
 | **Analysis Services flerdimensionella och Data utvinningsmodellen (OLAP)** |Ja |Installeras och konfigureras som standard Analysis Services-instans |
-| **Analysis Services Tabular** |Nej |Stöds i SQL Server 2012, installeras 2014 2016 bilder, men den inte som standard. Installera en annan instans av Analysis Services. Se avsnittet installera andra SQL Server-tjänster och funktioner i det här avsnittet. |
+| **Analysis Services-tabell** |Nej |Stöds i SQL Server 2012, installeras 2014 2016 bilder, men den inte som standard. Installera en annan instans av Analysis Services. Se avsnittet installera andra SQL Server-tjänster och funktioner i det här avsnittet. |
 | **Analysis Services Power Pivot för SharePoint** |Nej |Bild för virtuell dator i Microsoft Azure-galleriet inte innehåller SharePoint- eller SharePoint installationsfilerna. <sup>1</sup> |
 
 <sup>1</sup> ytterligare information om Azure virtuella datorer och SharePoint finns [Microsoft Azure arkitekturer för SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) och [SharePoint-distributionen på Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
@@ -225,7 +225,7 @@ Om du vill ansluta till web-portalen eller Report Manager för 2014 och 2012 på
 2. Öppna port 80 i brandväggen för den virtuella datorn.
 3. Bläddra till webbportalen eller report manager, med hjälp av Azure virtuella **DNS-namnet** som servernamnet i URL: en. Exempel:
    
-    **Rapportservern**: http://uebi.cloudapp.net/reportserver **webbportalen**: http://uebi.cloudapp.net/reports
+    **Rapportservern**: http://uebi.cloudapp.net/reportserver **webbportalen**:   http://uebi.cloudapp.net/reports
    
     [Konfigurera en brandvägg för Report Server Access](https://msdn.microsoft.com/library/bb934283.aspx)
 

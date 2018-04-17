@@ -1,6 +1,6 @@
 ---
-title: "Så här konfigurerar du Azure Redis-Cache | Microsoft Docs"
-description: "Förstå Redis standardkonfigurationen för Azure Redis-Cache och lära dig hur du konfigurerar Azure Redis-Cache-instanser"
+title: Så här konfigurerar du Azure Redis-Cache | Microsoft Docs
+description: Förstå Redis standardkonfigurationen för Azure Redis-Cache och lära dig hur du konfigurerar Azure Redis-Cache-instanser
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 2e2e22c17bce4bdaf4988001db8de31b68f497fc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0cd21c0367a95d3e866137797ac32fc5bdd196c0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Så här konfigurerar du Azure Redis-Cache
 Det här avsnittet beskrivs konfigurationerna som är tillgängliga för Azure Redis-Cache-instanser. Det här avsnittet beskrivs även standardkonfigurationen för Redis-servern för Azure Redis-Cache-instanser.
@@ -79,7 +79,7 @@ Klicka på **aktivitetsloggen** att visa åtgärder som utförs på ditt cachemi
 
 ### <a name="access-control-iam"></a>Åtkomstkontroll (IAM)
 
-Den **åtkomstkontroll (IAM)** avsnittet ger stöd för rollbaserad åtkomstkontroll (RBAC) i Azure-portalen. Den här konfigurationen hjälper organisationer att uppfylla krav deras åtkomst bara och exakt. Mer information finns i [rollbaserad åtkomstkontroll i Azure portal](../active-directory/role-based-access-control-configure.md).
+Den **åtkomstkontroll (IAM)** avsnittet ger stöd för rollbaserad åtkomstkontroll (RBAC) i Azure-portalen. Den här konfigurationen hjälper organisationer att uppfylla krav deras åtkomst bara och exakt. Mer information finns i [rollbaserad åtkomstkontroll i Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="tags"></a>Taggar
 

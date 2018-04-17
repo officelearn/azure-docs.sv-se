@@ -1,5 +1,5 @@
 ---
-title: "Security best practices för IaaS arbetsbelastningar i Azure | Microsoft Docs"
+title: Security best practices för IaaS arbetsbelastningar i Azure | Microsoft Docs
 description: " Migrering av arbetsbelastningar till Azure IaaS ger möjligheter att omvärdera vårt Designer "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 376a3e47e5099aa4d74732e0b6ed14ed9af14091
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8561d9ca2570975f4cd20a0606ce5b9cdee632b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Rekommenderade säkerhetsmetoder för IaaS-arbetsbelastningar i Azure
 
@@ -83,7 +83,7 @@ Du kan använda [Privileged Identity Management](../active-directory/active-dire
 
 Med Azure för labs och utvecklingsmiljöer kan organisationer att bli smidigare i testning och utveckling genom att ta bort fördröjningar som introducerar maskinvara inköp. Tyvärr leda bristande tidigare erfarenhet av Azure eller viljan att påskynda antagandet att administratören kan vara alltför Tillåtande med tilldelning av användarrättigheter. Den här risken kan oavsiktligt exponera organisationen interna attacker. Vissa användare kan beviljas mycket mer åtkomst än de ska ha.
 
-Den [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) tjänsten använder [rollbaserad åtkomstkontroll i](../active-directory/role-based-access-control-what-is.md) (RBAC). Med RBAC kan särskilja du uppgifter i din grupp i roller som ger endast åtkomstnivån krävs för att användarna sköta sitt arbete. RBAC innehåller fördefinierade roller (ägare, lab-användare och deltagare). Du kan även använda dessa roller för att tilldela rättigheter till externa partners och förenklar samarbete.
+Den [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) tjänsten använder [rollbaserad åtkomstkontroll i](../role-based-access-control/overview.md) (RBAC). Med RBAC kan särskilja du uppgifter i din grupp i roller som ger endast åtkomstnivån krävs för att användarna sköta sitt arbete. RBAC innehåller fördefinierade roller (ägare, lab-användare och deltagare). Du kan även använda dessa roller för att tilldela rättigheter till externa partners och förenklar samarbete.
 
 Eftersom DevTest Labs använder RBAC, är det möjligt att skapa extra [anpassade roller](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs inte bara förenklar hanteringen av behörigheter, det gör enklare att komma miljöer som har etablerats. Du kan också hantera andra vanliga utmaningar team som jobbar på utvecklings- och testmiljöer. Det krävs vissa förberedelser, men på lång sikt den ska göra det enklare för din grupp.
 

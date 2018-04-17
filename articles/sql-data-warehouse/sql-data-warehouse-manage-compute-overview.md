@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: c34e37f0c6393c65d4b60705012769608bb7395b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ddd80f2ebfa9d06fcd47c41d337348e01ac112e9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Hantera beräkning i Azure SQL Data Warehouse
 Lär dig mer om hur du hanterar beräkningsresurser i Azure SQL Data Warehouse. Lägre kostnader genom att pausa datalagret eller skala datalagret för att uppfylla krav på prestanda. 
@@ -28,7 +28,7 @@ Lär dig mer om hur du hanterar beräkningsresurser i Azure SQL Data Warehouse. 
 Arkitekturen för SQL Data Warehouse separerar lagring och beräkning, så att varje del kan skalas oberoende av varandra. Därför kan du skala beräknings för att uppfylla prestandakrav oberoende av datalagring. Du kan också pausa och återuppta beräkningsresurser. En naturlig följd av den här arkitekturen är att [fakturering](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) för beräkning och lagring är desamma. Om du inte behöver använda ditt data warehouse på ett tag, kan du spara kostnader för beräkning av pausa beräkning. 
 
 ## <a name="scaling-compute"></a>Skala beräkning
-Du kan skala upp eller skala tillbaka beräkning genom att justera det [datalager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) för ditt informationslager. Läser in och frågeprestanda kan öka linjärt när du lägger till flera informationslagerenheter. SQL Data Warehouse erbjuder [servicenivåer](performance-tiers.md#service-levels) för data warehouse-enheter som garanterar en tydlig förändring i prestanda när du skalar ut eller tillbaka. 
+Du kan skala upp eller skala tillbaka beräkning genom att justera det [datalager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) för ditt informationslager. Läser in och frågeprestanda kan öka linjärt när du lägger till flera informationslagerenheter. 
 
 Skalbar anvisningar finns i [Azure-portalen](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), eller [T-SQL](quickstart-scale-compute-tsql.md) Snabbstart. Du kan också utföra skalbar åtgärder med en [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
@@ -103,19 +103,19 @@ Vi rekommenderar att tillåta att befintliga transaktioner ska slutföras innan 
 
 När du pausar eller skalar SQL Data Warehouse avbryts dina frågor i bakgrunden när du initierar paus- eller skalningsbegäran.  Att avbryta en enkel SELECT-fråga är en snabb åtgärd och påverkar nästan inte alls den tid det tar att pausa eller skala instansen.  Transaktionsfrågor, som ändrar data eller datastrukturen, kan däremot ta längre tid att stoppa.  **Transaktionsfrågor måste per definition slutföras i sin helhet eller så måste ändringarna återställas.**  Det kan ta lång tid att återställa arbetet som en transaktionsfråga har utfört, till och med längre tid än den ursprungliga ändringen som frågan tillämpade.  Om du till exempel avbryter en fråga som tog bort rader och som redan har körts i en timme, kan det ta en timme för systemet att lägga till de borttagna raderna igen.  Om du pausar eller skalar under pågående transaktioner kan det verka som åtgärden tar lång tid eftersom pausningen och skalningen måste vänta tills återställningen har slutförts innan de kan fortsätta.
 
-Se även [förstå transaktioner](sql-data-warehouse-develop-transactions.md), och [optimera transaktioner][optimera transaktioner](sql-data-warehouse-develop-best-practices-transactions.md).
+Se även [förstå transaktioner](sql-data-warehouse-develop-transactions.md), och [optimera transaktioner](sql-data-warehouse-develop-best-practices-transactions.md).
 
 ## <a name="automating-compute-management"></a>Automatisera hantering av beräkning
 För att automatisera hanteringen beräkning finns [hantera beräkning med Azure functions](manage-compute-with-azure-functions.md).
 
 Var och en av skalbara, pausa och återuppta åtgärder kan ta flera minuter att slutföra. Om du skalning, pausa, eller återupptar automatiskt, rekommenderar vi att implementera logik för att säkerställa att har vissa åtgärder slutförts innan du fortsätter med en annan åtgärd. Kontrollera tillstånd för datalager via olika slutpunkter kan du implementera korrekt automatisering av dessa åtgärder. 
 
-Att kontrollera tillståndet för data warehouse, se den [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) eller [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) Snabbstart. Du kan också kontrollera tillstånd för datalager med en [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+Tillstånd för datalager finns i den [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) eller [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) Snabbstart. Du kan också kontrollera tillstånd för datalager med en [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
 ## <a name="permissions"></a>Behörigheter
 
-Skalning datalagret kräver behörigheterna som beskrivs i [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  Pausa och återuppta kräver den [SQL DB-deltagare](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor) behörighet, särskilt Microsoft.Sql/servers/databases/action.
+Skalning datalagret kräver behörigheterna som beskrivs i [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse).  Pausa och återuppta kräver den [SQL DB-deltagare](../role-based-access-control/built-in-roles.md#sql-db-contributor) behörighet, särskilt Microsoft.Sql/servers/databases/action.
 
 
 ## <a name="next-steps"></a>Nästa steg

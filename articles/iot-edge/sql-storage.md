@@ -10,11 +10,11 @@ ms.reviewer: ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c755d171b34d59d2746a965ab3511a0df00c98db
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d464bbfb9f38b184e47911a7224be8ec8679f0be
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Lagra data på kanten med SQL Server-databaser
 
@@ -22,7 +22,7 @@ Använda Azure IoT-gränsenheterna för att lagra de data som genereras vid grä
 
 Den här artikeln innehåller instruktioner för att distribuera en SQL Server-databas till en IoT-enhet. Azure Functions, körs på IoT gränsenheten strukturer inkommande data och skickar dem sedan till databasen. Stegen i den här artikeln kan också tillämpas på andra databaser som fungerar i behållare som MySQL eller PostgreSQL. 
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Innan du börjar instruktionerna i den här artikeln bör du genomföra följande kurser:
 * Distribuera Azure IoT kanten på en simulerad enhet i [Windows](tutorial-simulate-device-windows.md) eller [Linux](tutorial-simulate-device-linux.md)
@@ -36,10 +36,10 @@ När du har slutfört nödvändiga självstudier ska du ha alla nödvändiga kom
 * En aktiv Azure IoT-hubb.
 * En IoT-Edge-enhet med minst 2 GB RAM-minne och en enhet på 2 GB.
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Azure IoT kant-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
-* [C# för Visual Studio Code (drivs av OmniSharp) tillägg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
+* [Azure IoT Edge-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [C# för Visual Studio Code-tillägg (drivs av OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 * [Docker](https://docs.docker.com/engine/installation/)
-* [.NET core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
+* [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 * [Python 2.7](https://www.python.org/downloads/)
 * [IoT-Edge kontrollen skript](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl)
 * AzureIoTEdgeFunction mall (`dotnet new -i Microsoft.Azure.IoT.Edge.Function`)
@@ -98,7 +98,7 @@ I steg 3 måste du lägga till skapa alternativ till SQL Server-behållare som �
 3. Ersätt den `<docker registry address>` med adressen fylls i slutförda kursen [distribuera Azure-funktion som en gräns för IoT-modul - förhandsgranskning](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-function)
 
    >[!NOTE]
-   >Behållaren registret adressen är samma som den inloggningsserver som du kopierade från registret. Det bör vara i form av `<your container registry name>.azurecr.io`
+   >Behållarregistrets adressen är samma som den inloggningsserver som du kopierade från ditt register. Det bör vara i form av `<your container registry name>.azurecr.io`
 
 4. Beroende på operativsystem som du kör uppdatera inställningarna för SQL-modulen med följande kod: 
 
@@ -106,7 +106,7 @@ I steg 3 måste du lägga till skapa alternativ till SQL Server-behållare som �
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
    * Linux:
@@ -297,7 +297,7 @@ Om du vill tillämpa de ändringar som du har gjort Uppdatera behållaren avbild
 2. Beroende på vilken plattform som du använder, expandera antingen den **windows nano** eller **linux x64** mapp. 
 3. Högerklicka på den **Dockerfile** fil och markera **skapa IoT kant modulen Docker bild**.
 4. Navigera till den **FilterFunction** projektmappen, och klicka på **Välj mapp som EXE_DIR**.
-5. Ange avbildningens namn i popup-textrutan längst upp i fönstret VS-kod. Till exempel `<your container registry address>/filterfunction:latest`. Om du distribuerar till lokala registret namnet ska vara `<localhost:5000/filterfunction:latest>`.
+5. I popup-textrutan överst på VS Code-fönstret anger du avbildningens namn. Till exempel `<your container registry address>/filterfunction:latest`. Om du distribuerar till lokala registret namnet ska vara `<localhost:5000/filterfunction:latest>`.
 6. I paletten VS kod kommandot väljer **kant: Push-gräns för IoT-modulen Docker bild**. 
 7. Ange samma avbildningens namn i textrutan popup. 
 8. Markera i paletten VS kod kommandot **kant: starta om Edge**.

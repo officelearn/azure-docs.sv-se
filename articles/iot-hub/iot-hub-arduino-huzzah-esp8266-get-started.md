@@ -1,25 +1,25 @@
 ---
 title: ESP8266 till molnet - ansluta ludd HUZZAH ESP8266 till Azure IoT Hub | Microsoft Docs
-description: "Lär dig mer om att konfigurera och ansluta Adafruit ludd HUZZAH ESP8266 till Azure IoT-hubb för att skicka data till Azure-molnplattform i den här självstudiekursen."
+description: Lär dig mer om att konfigurera och ansluta Adafruit ludd HUZZAH ESP8266 till Azure IoT-hubb för att skicka data till Azure-molnplattform i den här självstudiekursen.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.assetid: c505aacf-89a8-40ed-a853-493b75bec524
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2017
-ms.author: xshi
-ms.openlocfilehash: e8f0397797d8f4c3349afcdfb02de071a6593c72
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: b850bb25d7a6d06a2d0f55ed915321badf76bb39
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Ansluta Adafruit ludd HUZZAH ESP8266 till Azure IoT-hubb i molnet
 
@@ -210,7 +210,7 @@ Exempelprogrammet simulera temperatur- och fuktighetskonsekvens data om du inte 
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Distribuera exempelprogrammet till ludd HUZZAH ESP8266
 
-1. I Visual Studio Code, klickar du på  **<Select Serial Port>**  status, och klicka sedan på den seriella porten för Ludd HUZZAH ESP8266.
+1. I Visual Studio Code, klickar du på **<Select Serial Port>** status, och klicka sedan på den seriella porten för Ludd HUZZAH ESP8266.
 1. Ange `F1`, Skriv **Arduino** och välj **Arduino: Överför** att skapa och distribuera exempelprogrammet till ludd HUZZAH ESP8266.
 
 ### <a name="enter-your-credentials"></a>Ange autentiseringsuppgifter

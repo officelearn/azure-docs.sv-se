@@ -1,24 +1,24 @@
 ---
-title: "Använda Azure Container Service med Kafka på HDInsight | Microsoft Docs"
-description: "Lär dig hur du använder Kafka på HDInsight från behållaren avbildningar finns i Azure Container Service (AKS)."
+title: Använda Azure Container Service med Kafka på HDInsight | Microsoft Docs
+description: Lär dig hur du använder Kafka på HDInsight från behållaren avbildningar finns i Azure Container Service (AKS).
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 53342e11476a307bb6af356eb40fe51928041822
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 16513cbd775e200a0821e8786ae823b82c67e437
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-container-services-with-kafka-on-hdinsight"></a>Använda Azure-Behållartjänster med Kafka på HDInsight
 
@@ -108,7 +108,7 @@ När du skapar Kafka på HDInsight-kluster, måste du ansluta till det virtuella
 
 Använd följande steg för att konfigurera Kafka att annonsera IP-adresser i stället för domännamn:
 
-1. Använd en webbläsare och gå till https://CLUSTERNAME.azurehdinsight.net. Ersätt __KLUSTERNAMN__ med namnet på Kafka på HDInsight-kluster.
+1. Via en webbläsare går du till https://CLUSTERNAME.azurehdinsight.net. Ersätt __KLUSTERNAMN__ med namnet på Kafka på HDInsight-kluster.
 
     När du uppmanas, använda HTTPS-användarnamn och lösenord för klustret. Ambari-Webbgränssnittet för klustret visas.
 
@@ -158,7 +158,7 @@ Kafka och Azure Container Service är nu i kommunikation via peered virtuella n�
 
 1. Skapa ett Kafka ämne som används av testprogrammet. Information om hur du skapar Kafka information finns i [skapa ett kluster med Kafka](apache-kafka-get-started.md) dokumentet.
 
-2. Hämta exempelprogrammet från [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test). 
+2. Hämta exempelprogrammet från [ https://github.com/Blackmist/Kafka-AKS-Test ](https://github.com/Blackmist/Kafka-AKS-Test). 
 
 3. Redigera den `index.js` filen och ändra följande rader:
 

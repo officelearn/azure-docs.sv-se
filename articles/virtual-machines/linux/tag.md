@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: ac63d0f731dcbb393d7bd1cb30e135fdcca095de
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 19e8c11a0051f9d13ef4be3d77fe828a272c3c77
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Hur du tagga en Linux-dator i Azure
 Den här artikeln beskrivs olika sätt att märka en Linux-dator i Azure via Resource Manager-distributionsmodellen. Taggar är användardefinierade nyckel/värde-par som kan placeras direkt på en resurs eller en resursgrupp. Azure stöder för närvarande upp till 15 taggar per resurs och resursgruppen. Taggar kan placeras på en resurs vid tidpunkten för skapandet eller lägga till en befintlig resurs. Observera taggar stöds för resurser som skapats via den Resource Manager distributionsmodellen.
@@ -27,22 +27,30 @@ Den här artikeln beskrivs olika sätt att märka en Linux-dator i Azure via Res
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-azure-cli"></a>Tagga med Azure CLI
-Om du vill börja, behöver du senast [Azure CLI 2.0 (förhandsgranskning)](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/reference-index#az_login).
+Om du vill börja, behöver du senast [Azure CLI 2.0](/cli/azure/install-azure-cli) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/reference-index#az-login).
 
 Du kan också utföra dessa steg med [Azure CLI 1.0](tag-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Du kan visa alla egenskaper för en viss virtuell dator, inklusive taggarna, med det här kommandot:
 
-        az vm show --resource-group MyResourceGroup --name MyTestVM
+```azurecli
+az vm show --resource-group MyResourceGroup --name MyTestVM
+```
 
 Om du vill lägga till en ny VM-tagg med Azure CLI, kan du använda den `azure vm update` kommandot tillsammans med parametern taggen **--ange**:
 
-        az vm update --resource-group MyResourceGroup --name MyTestVM –-set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
+```azurecli
+az vm update \
+    --resource-group MyResourceGroup \
+    --name MyTestVM \
+    --set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
+```
 
 Du kan använda för att ta bort taggar i **--ta bort** parametern i den `azure vm update` kommando.
 
-        az vm update –-resource-group MyResourceGroup –-name MyTestVM --remove tags.myNewTagName1
-
+```azurecli
+az vm update --resource-group MyResourceGroup --name MyTestVM --remove tags.myNewTagName1
+```
 
 Nu när vi har använt taggar i våra resurser Azure CLI och -portalen, låt oss ta en titt på användningsinformation för att se taggar i fakturerings-portalen.
 

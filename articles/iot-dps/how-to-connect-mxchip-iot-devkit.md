@@ -1,26 +1,26 @@
 ---
-title: Hur du använder MXChip IoT DevKit för att ansluta till Azure IoT-hubb enheten Etableringstjänsten | Microsoft Docs
-description: Hur du använder MXChip IoT DevKit för att ansluta till Azure IoT-hubb Device etablering Service
+title: Hur du använder Azure IoT-hubb Device etablering Service automatiskt-etablering för att registrera MXChip IoT DevKit med IoT-hubb | Microsoft Docs
+description: Hur du använder Azure IoT-hubb Device etablering Service automatiskt-etablering för att registrera MXChip IoT DevKit med IoT-hubb.
 services: iot-dps
 keywords: ''
 author: liydu
 ms.author: liydu
-ms.date: 02/20/2018
+ms.date: 04/04/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 502f22a39622e9a8341e1daca8c9899fd8b7d7d1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d60c5766b22e31c33d0dd4a743fa297470109ac6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="connect-the-mxchip-iot-devkit-to-the-azure-iot-hub-device-provisioning-service"></a>Ansluta MXChip IoT DevKit till Azure IoT-hubb enheten etablering av tjänst
+# <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Använd Azure IoT-hubb Device etablering Service automatiskt-etablering för att registrera MXChip IoT DevKit med IoT-hubb
 
-Den här artikeln beskriver hur du konfigurerar MXChip IoT DevKit så att den registreras automatiskt med Azure IoT-hubben med hjälp av Azure IoT-enhet etablering av tjänsten. I den här guiden får du lära dig hur man:
+Den här artikeln beskriver hur du använder Azure IoT-hubb Device etablering Service [Automatisk etablering](concepts-auto-provisioning.md), för att registrera MXChip IoT DevKit med Azure IoT Hub. I den här guiden får du lära dig att:
 
 * Konfigurera globala slutpunkten för enheten etableras på en enhet.
 * Använd ett unikt enhets-hemlighet (UDS) för att generera ett X.509-certifikat.
@@ -33,11 +33,11 @@ Den [MXChip IoT DevKit](https://aka.ms/iot-devkit) är en allt-i-ett Arduino-kom
 
 För att slutföra stegen i den här självstudiekursen måste du först göra följande uppgifter:
 
-* Förbered din DevKit genom att följa stegen i [ansluta IoT DevKit AZ3166 till Azure IoT-hubben i molnet](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* Förbered din DevKit genom att följa stegen i [ansluta IoT DevKit AZ3166 till Azure IoT-hubben i molnet](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
 * Uppgradera till den senaste inbyggda (1.3.0 eller senare) med den [uppdatering DevKit firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) kursen.
-* Skapa och länka en IoT-hubb med en enhet som etablerar tjänstinstans genom att följa stegen i [konfigurera IoT Hub-enhet Etableringstjänsten med Azure-portalen](https://docs.microsoft.com/en-us/azure/iot-dps/quick-setup-auto-provision).
+* Skapa och länka en IoT-hubb med en enhet som etablerar tjänstinstans genom att följa stegen i [konfigurera IoT Hub-enhet Etableringstjänsten med Azure-portalen](/azure/iot-dps/quick-setup-auto-provision).
 
-## <a name="set-up-the-device-provisioning-service-configuration-on-the-device"></a>Ställa in enheten etablering tjänstkonfiguration på enheten
+## <a name="build-and-deploy-auto-provisioning-registration-software-to-the-device"></a>Skapa och distribuera programvara för etablering av automatisk registrering till enheten
 
 Att ansluta DevKit till enheten etablering service-instans som du skapade:
 
@@ -51,7 +51,7 @@ Att ansluta DevKit till enheten etablering service-instans som du skapade:
   git clone https://github.com/DevKitExamples/DevKitDPS.git
   ```
 
-4. Öppna Visual Studio Code ansluta DevKit till din dator och öppna sedan den mapp som innehåller den kod som du har klonat.
+4. Öppna Visual Studio Code, ansluta DevKit till din dator och öppna sedan den mapp som innehåller den kod som du har klonat.
 
 5. Öppna **DevKitDPS.ino**. Sök och Ersätt `[Global Device Endpoint]` och `[ID Scope]` med värden som du antecknade bara ned.
   ![DP Endpoint](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) du kan lämna den **registrationId** tomt. Genereras ett automatiskt baserat på MAC-adress och inbyggd programvara version. Om du vill anpassa registrerings-ID måste du bara använda alfanumeriska, gemener och bindestreck kombinationer med högst 128 tecken. Mer information finns i [hantera enhetsregistrering med Azure-portalen](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-enrollments).
@@ -62,7 +62,7 @@ Att ansluta DevKit till enheten etablering service-instans som du skapade:
 
 ## <a name="save-a-unique-device-secret-on-an-stsafe-security-chip"></a>Spara en hemlighet som unikt enhets på en STSAFE säkerhetschip
 
-Enheten som etablerar tjänsten kan konfigureras på en enhet baserat på dess [maskinvarusäkerhetsmodul](https://azure.microsoft.com/en-us/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/). IoT-DevKit MXChip använder den [enhetens identitet sammansättning motorn](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) från den [Trusted Computing Group](https://trustedcomputinggroup.org). En *unikt enhets hemlighet* (UDS) som sparas i en säkerhetsgrupp för STSAFE krets på DevKit används för att generera enheten har unika [X.509](https://docs.microsoft.com/en-us/azure/iot-dps/tutorial-set-up-device#select-a-hardware-security-module) certifikat. Certifikatet kan användas för registrering i enheten Etablerar tjänsten senare.
+Automatisk etablering kan konfigureras på en enhet baserat på enhetens [attestering mekanism](concepts-security.md#attestation-mechanism). IoT-DevKit MXChip använder den [enhetens identitet sammansättning motorn](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) från den [Trusted Computing Group](https://trustedcomputinggroup.org). En *unikt enhets hemlighet* (UDS) som sparas i en säkerhetsgrupp för STSAFE krets på DevKit används för att generera enheten har unika [X.509-certifikat](concepts-security.md#x509-certificates). Certifikatet används senare för registreringen i enheten etableras och under registreringen vid körning.
 
 En typisk unikt enhets-hemlighet är en sträng med 64 tecken, som visas i följande exempel:
 
@@ -82,7 +82,7 @@ Att spara en hemlighet som unikt enhets på DevKit:
 
 4. I fönstret seriella övervakaren anger *set_dps_uds [your_own_uds_value]* och välj RETUR.
   > [!NOTE]
-  > Om du ställer in en egen UDS genom att ändra de två sista tecknen till exempelvis `f`, måste du ange kommandot som detta: set_dps_uds 19e25a259d0c2be03a02d416c05c48ccd0cc7d1743458aae1cb488b074993eff.
+  > Om du ställer in en egen UDS genom att ändra de två sista tecknen till exempelvis `f`, måste du ange kommandot som detta: `set_dps_uds 19e25a259d0c2be03a02d416c05c48ccd0cc7d1743458aae1cb488b074993eff`.
 
 5. Utan att stänga fönstret seriella trycker du på den **återställa** på DevKit-knappen.
 
@@ -107,16 +107,17 @@ Att spara en hemlighet som unikt enhets på DevKit:
 
 ## <a name="create-a-device-enrollment-entry-in-the-device-provisioning-service"></a>Skapa en post för registrering av enheten i enheten etablering av tjänst
 
-1. Gå till din etablering tjänst i Azure-portalen. Välj **hantera registreringar**, och välj sedan den **enskilda registreringar** fliken. ![Enskilda registreringar](./media/how-to-connect-mxchip-iot-devkit/individual-enrollments.png)
+1. Gå till din enhet etablering tjänstinstansen i Azure-portalen. Välj **hantera registreringar**, och välj sedan den **enskilda registreringar** fliken. ![Enskilda registreringar](./media/how-to-connect-mxchip-iot-devkit/individual-enrollments.png)
 
 2. Välj **Lägg till**.
 
-3. I **mekanism**väljer **X.509**.
-  ![Ladda upp certifikat](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
+3. På panelen ”Lägg till registrering”:
+   - Välj **X.509** under **mekanism**
+   - Klicka på ”Välj en fil” under **certifikatet för primär .pem eller .cer-fil**
+   - i dialogrutan Öppna går du till och ladda upp den **.pem** certifikat som du just genererade
+   - lämna resten som standard och klicka på **spara**
 
-4. I **.pem eller .cer certifikatfilen**, ladda upp den **.pem** certifikat som du just genererade.
-
-5. Lämna resten som standard och välj **spara**.
+   ![Överför certifikat](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
 
 ## <a name="start-the-devkit"></a>Starta DevKit
 
@@ -147,7 +148,7 @@ Standard-enhets-ID som registrerats med Azure IoT-hubben är *AZ3166*. Om du vil
 
 Om du stöter på problem, läser du Iot DevKit [vanliga frågor och svar](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/), eller nå ut till följande kanaler för support:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Nästa steg

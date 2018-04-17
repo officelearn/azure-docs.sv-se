@@ -1,8 +1,8 @@
 ---
 title: Bild klassificering med CNTK i Azure Machine Learning arbetsstationen | Microsoft Docs
-description: "Träna, utvärdera och distribuera en anpassad avbildning klassificering modellen med hjälp av Azure ML-arbetsstationen."
+description: Träna, utvärdera och distribuera en anpassad avbildning klassificering modellen med hjälp av Azure ML-arbetsstationen.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: PatrickBue
 ms.author: pabuehle
 manager: mwinkle
@@ -11,11 +11,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 03fdd1265464355a2787eff897eb4f70faa095b0
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c585609ec8854045e943ae7cd33089021f8f1f2f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Bild klassificering med Azure Machine Learning arbetsstationen
 
@@ -54,7 +54,7 @@ Förutsättningar för att kunna köra det här exemplet är följande:
 4. En dedikerad GPU krävs inte att köra SVM utbildning del 1, men det är nödvändigt för att förfina av DNN som beskrivs i del 2. Om du saknar en stark GPU vill träna på flera GPU-kort eller har inte en Windows-dator, bör du använda Azures djup Learning virtuell dator med Windows-operativsystem. Se [här](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) för en 1-Klicka Distributionsguide. Distribution kan ansluta till den virtuella datorn via en anslutning till fjärrskrivbord, installera arbetsstationen det och kör kod lokalt från den virtuella datorn.
 5. Olika Python-bibliotek, till exempel OpenCV behöver installeras. Klicka på *öppnar du kommandotolken* från den *filen* -menyn i arbetsstationen och kör följande kommandon för att installera dessa beroenden:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` När du har hämtat OpenCV hjul från http://www.lfd.uci.edu/~gohlke/pythonlibs/ (exakt filnamnet och version kan ändra)
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` När du har hämtat OpenCV rulla från http://www.lfd.uci.edu/~gohlke/pythonlibs/ (exakt filnamnet och version kan ändra)
     - `conda install pillow`
     - `pip install -U numpy`
     - `pip install bqplot`
@@ -73,7 +73,7 @@ Förutsättningar för att kunna köra det här exemplet är följande:
 
 Skapa ett nytt projekt med det här exemplet som mall:
 1.  Öppna Azure Machine Learning Workbench.
-2.  På den **projekt** klickar du på den  **+**  och markera **nytt projekt**.
+2.  På den **projekt** klickar du på den **+** och markera **nytt projekt**.
 3.  I den **Skapa nytt projekt** rutan, fyller du i informationen för det nya projektet.
 4.  I den **Sök projektmallar** sökrutan, skriv ”bild klassificering” och välj mallen.
 5.  Klicka på **Skapa**.
@@ -82,7 +82,7 @@ Utför dessa åtgärder skapar projektstrukturen som visas nedan. Projektkatalog
 
   Mapp| Beskrivning
   ---|---
-  aml_config/|                           Katalogen som innehåller konfigurationsfiler Azure Machine Learning arbetsstationen
+  aml_config /|                           Katalogen som innehåller konfigurationsfiler Azure Machine Learning arbetsstationen
   bibliotek /|                              Katalogen som innehåller alla Python och Jupyter hjälpfunktioner
   bärbara datorer /|                              Katalogen som innehåller alla bärbara datorer
   resurser /|                              Katalogen som innehåller alla resurser (till exempel url sätt bilder)
@@ -215,7 +215,7 @@ Vi nu finns flera sätt att förbättra modellen från del 1. Vi förfinar framf
 
 I stället för en SVM något kan du göra klassificeringen direkt i det neurala nätverket. Detta uppnås genom att lägga till ett nytt senaste lager före utbildade DNN, som tar 512-flyttal från det näst sista lagret som indata. Fördelen med att göra klassificering i DNN är nu kan retrained hela nätverket med hjälp av backpropagation. Den här metoden leder ofta till mycket bättre klassificering noggrannhet jämfört med före utbildade DNN som-är, men på bekostnad av mycket längre tid för träning (även med GPU).
 
-Tränar det Neurala nätverket i stället för en SVM görs genom att ändra variabeln `classifier` i `PARAMETERS.py` från `svm` till `dnn`. Sedan enligt beskrivningen i del 1 måste alla skript förutom förberedelse av data (steg 1) och SVM utbildning (steg 3) köras igen. DNN förfining kräver en GPU. Om inga GPU hittades eller om GPU är låst (till exempel av en tidigare körning av CNTK) sedan skriptet `2_refineDNN.py` genererar ett fel. DNN utbildning orsaka fel om minnet är slut på vissa GPU-kort, som kan undvikas genom att minska storleken minibatch (variabeln `cntk_mb_size` i `PARAMETERS.py`).
+Tränar det Neurala nätverket i stället för en SVM görs genom att ändra variabeln `classifier` i `PARAMETERS.py` från `svm` till `dnn`. Sedan enligt beskrivningen i del 1 måste alla skript förutom förberedelse av data (steg 1) och SVM utbildning (steg 4) köras igen. DNN förfining kräver en GPU. Om inga GPU hittades eller om GPU är låst (till exempel av en tidigare körning av CNTK) sedan skriptet `2_refineDNN.py` genererar ett fel. DNN utbildning orsaka fel om minnet är slut på vissa GPU-kort, som kan undvikas genom att minska storleken minibatch (variabeln `cntk_mb_size` i `PARAMETERS.py`).
 
 När utbildning är klar förfinade modellen har sparats till *DATA_DIR/proc/fashionTexture/cntk_refined.model*, och en rityta ritas som visar hur träning och testning klassificering felen ändras vid träning. Observera i den ritytans felet på träningsmängden är mycket mindre än test-mängd. Problemet så kallade över passningsåtgärderna kan minskas, till exempel med ett högre värde för den annullerad hastigheten `rf_dropoutRate`.
 <p align="center">
@@ -234,8 +234,7 @@ Azure Machine Learning arbetsstationen butiker historiken för var och en körs 
 I den första skärmbilden leder DNN förfining till att bättre noggrannhet än SVM utbildning för alla klasser. Andra skärmbilden visar alla mått som spåras, inklusive klassificeraren har. Den här spårning görs i skriptet `5_evaluate.py` genom att anropa loggaren Azure Machine Learning-arbetsstationen. Dessutom skriptet också sparar ROC-kurvan och förvirring matris till den *matar ut* mapp. Detta *matar ut* mappen är speciellt i att innehållet också spåras av funktionen tidigare arbetsstationen och därför utdatafilerna kan nås när som helst, oavsett om det har skrivits över lokala kopior.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/>  
-</p>
+<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/> </p>
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/run_comparison2b.jpg" alt="alt text" width="700"/>

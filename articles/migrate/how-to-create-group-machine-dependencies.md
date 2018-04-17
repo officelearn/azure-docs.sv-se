@@ -1,16 +1,16 @@
 ---
-title: "Gruppera datorer med hjälp av beroenden för datorn med Azure migrera | Microsoft Docs"
-description: "Beskriver hur du skapar en bedömning med tjänsten Azure migrera datorn beroenden."
+title: Gruppera datorer med hjälp av beroenden för datorn med Azure migrera | Microsoft Docs
+description: Beskriver hur du skapar en bedömning med tjänsten Azure migrera datorn beroenden.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/25/2017
 ms.author: raynew
-ms.openlocfilehash: 720380fd14d9eaf4856ad75269a80f2b63a4725f
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 9e8e1fb918d9cd35b12e71abdd23ca101239ae26
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Grupp datorer som använder datorn beroende mappning
 
@@ -33,8 +33,8 @@ Installera agenten på en Windows-dator:
 1. Dubbelklicka på den hämta agenten.
 2. På sidan **Välkommen** klickar du på **Nästa**. På den **licensvillkoren** klickar du på **jag accepterar** att acceptera licensvillkoren.
 3. I **målmappen**, behålla eller ändra standardinstallationsmappen > **nästa**. 
-4. I **installationsalternativ för Agent**väljer **Azure logganalys (OMS)** > **nästa**. 
-5. Klicka på **Lägg till** att lägga till en ny OMS-arbetsyta. Klistra in i arbetsyte-ID och nyckel som du kopierade från portalen. Klicka på **Nästa**.
+4. I **installationsalternativ för Agent**väljer **Azure logganalys** > **nästa**. 
+5. Klicka på **Lägg till** att lägga till en ny logganalys-arbetsyta. Klistra in i arbetsyte-ID och nyckel som du kopierade från portalen. Klicka på **Nästa**.
 
 
 Installera agenten på en Linux-dator:
@@ -82,4 +82,4 @@ När gruppen skapas kan rekommenderas det att installera agenter på alla datore
 ## <a name="next-steps"></a>Nästa steg
 
 - [Lär dig hur](how-to-create-group-dependencies.md) förfina gruppen av visualisera grupp beroenden
-- [Lär dig mer](concepts-assessment-calculation.md) om hur bedömningar beräknas.
+- [Läs mer](concepts-assessment-calculation.md) om hur utvärderingar beräknas.

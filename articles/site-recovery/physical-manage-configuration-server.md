@@ -1,17 +1,17 @@
 ---
 title: " Hantera konfigurationsservern för katastrofåterställning för fysisk server med Azure Site Recovery | Microsoft Docs"
-description: "Den här artikeln beskriver hur du hanterar en befintlig server konfiguration för fysisk server katastrofåterställning till Azure med Azure Site Recovery-tjänsten."
+description: Den här artikeln beskriver hur du hanterar en befintlig server konfiguration för fysisk server katastrofåterställning till Azure med Azure Site Recovery-tjänsten.
 services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 84969ff04684003a04f99b4fbf7f03be4140a277
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurationsservern för fysisk server katastrofåterställning
 
@@ -24,7 +24,7 @@ I tabell sammanfattas de nödvändiga förutsättningar för distribution av den
 | **Komponent** | **Krav** |
 | --- |---|
 | Processorkärnor| 8 |
-| RAM | 12 GB|
+| RAM | 16 GB|
 | Antal diskar | 3, inklusive OS-disk, disk för processen server cache och kvarhållningsenhetens för återställning efter fel |
 | Ledigt diskutrymme (processerverns cacheminne) | 600 GB
 | Ledigt diskutrymme (kvarhållningsdisken) | 600 GB|
@@ -36,7 +36,7 @@ I tabell sammanfattas de nödvändiga förutsättningar för distribution av den
 | IIS | -Ingen befintlig standardwebbplatsen <br> -Aktivera [anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) inställning  <br> -Ingen befintlig webbplats/program som lyssnar på port 443<br>|
 | NIC-typ | VMXNET3 (när distribueras som en VM VMware) |
 | IP-adresstyp | Statisk |
-| Internet-åtkomst | Servern behöver åtkomst till dessa webbadresser: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (krävs inte för skalbara processervrar) <br> - time.nist.gov <br> - time.windows.com |
+| Internet-åtkomst | Servern behöver åtkomst till dessa webbadresser: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> -dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (krävs inte för skalbara servrar) <br> - time.nist.gov <br> - time.windows.com |
 | Portar | 443 (kontrolkanalsorchestration)<br>9443 (dataöverföring)|
 
 ## <a name="download-the-latest-installation-file"></a>Hämta installationsfilen för senaste
@@ -252,10 +252,10 @@ Uppgradera servern på följande sätt:
 3. Avinstallera program i följande ordning:
   * Microsoft Azure Recovery Services-agent
   * Microsoft Azure Site Recovery Mobility tjänsten eller Huvudtjänsten målservern
-  * Microsoft Azure Site Recovery Provider
+  * Microsoft Azure Site Recovery-providern
   * Server-processen för Microsoft Azure Site Recovery konfigurationsservern
   * Microsoft Azure Site Recovery Configuration Server beroenden
-  * MySQL Server 5.5
+  * MySQL-Server 5.5
 4. Kör följande kommando från och admin-kommandotolk.
   ```
   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration

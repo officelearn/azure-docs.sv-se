@@ -64,7 +64,7 @@ Därefter Mät maximala prestandakraven för ditt program under hela sin livslä
 | Min. Svarstid | | | |
 | Genomsnittlig svarstid | | | |
 | Max. Processor | | | |
-| Genomsnittlig CPU | | | |
+| Processorgenomsnitt | | | |
 | Max. Minne | | | |
 | Genomsnittlig minne | | | |
 | Ködjup | | | |
@@ -87,14 +87,14 @@ PerfMon-räknare är tillgängliga för processor, minne och varje logisk disk o
 | --- | --- | --- | --- |
 | **IOPS eller transaktioner per sekund** |Antalet i/o-begäranden som utfärdats till Lagringsdisken per sekund. |Diskläsningar/sek <br> Diskskrivningar/sek |transaktionsprogram <br> r/s <br> w/s |
 | **Diskläsningar och skrivningar** |% av läsåtgärder och skrivåtgärder utföras på disken. |Läs Disktid i procent <br> Skriv Disktid i procent |r/s <br> w/s |
-| **Dataflöde** |Mängd data läses från eller skrivs till disken per sekund. |Disk-lästa byte/sek <br> Disk-skrivna byte/s |kB_read/s <br> kB_wrtn/s |
+| **Dataflöde** |Mängd data läses från eller skrivs till disken per sekund. |Disk – lästa byte/sek <br> Disk – skrivna byte/sek |kB_read/s <br> kB_wrtn/s |
 | **Svarstid** |Total tid för att slutföra en disk-i/o-begäran. |Medel s/diskläsning <br> Medel s/diskskrivning |await <br> svctm |
 | **I/o-storlek** |Storleken på i/o-begäranden problem att diskar med lagringsutrymme. |Genomsnittligt antal byte/diskläsning <br> Genomsnittlig Disk byte/skrivning |avgrq sz |
 | **Ködjup** |Antal utestående i/o-begäranden väntar på att läsas formuläret eller skrivas till lagringsdisk. |Aktuell diskkölängd |avgqu sz |
 | **Max. Minne** |Mängden minne som krävs för att köra programmet smidigt |% Använda dedikerade byte |Använd vmstat |
 | **Max. CPU** |Mängden CPU som krävs för att köra programmet smidigt |% Processortid |% util |
 
-Lär dig mer om [iostat](http://linuxcommand.org/man_pages/iostat1.html) och [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
+Lär dig mer om [iostat](https://linux.die.net/man/1/iostat) och [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
 ## <a name="optimizing-application-performance"></a>Optimera programprestanda för
 De viktigaste faktorerna som påverkar prestanda för ett program som körs på Premium-lagring är natur av i/o-begäranden storlek på Virtuellt minne, diskutrymme, antalet diskar diskcachelagring, Multithreading och ködjup. Du kan kontrollera vissa av dessa faktorer med rattar som tillhandahålls av systemet. De flesta program kanske inte ger ett alternativ för att ändra i/o-storlek och ködjup direkt. Om du använder SQL Server kan välja du inte i/o-storlek och kön djup. SQL Server väljer optimala IO storlek och kön djup värden som ska få de flesta prestanda. Det är viktigt att förstå effekterna av båda typerna av faktorer på ditt programprestanda så att du kan etablera lämpliga resurser för att uppfylla prestandakraven.
@@ -140,10 +140,10 @@ Här är ett exempel på hur du kan beräkna IOPS och genomströmning/bandbredd 
 
 | Programkrav | I/o-storlek | IOPS | Genomströmning/bandbredd |
 | --- | --- | --- | --- |
-| Maximalt antal IOPS |8 kB |5,000 |40 MB per sekund |
-| Max genomflöde |1024 KB |200 |200 MB per sekund |
+| Max IOPS |8 kB |5 000 |40 MB per sekund |
+| Max genomflöde |1 024 kB |200 |200 MB per sekund |
 | Max Throughput + höga IOPS |64 kB |3,200 |200 MB per sekund |
-| Max IOPS + högt genomflöde |32 KB |5,000 |160 MB per sekund |
+| Max IOPS + högt genomflöde |32 KB |5 000 |160 MB per sekund |
 
 Använda flera premiumdiskar stripe används tillsammans för att få IOPS och bandbredd som är högre än det högsta värdet för en enskild premium storage disk. Till exempel stripe två P30 diskar för att hämta en kombinerad IOPS i 10 000 IOPS eller en kombinerad genomströmning på 400 MB per sekund. Som beskrivs i nästa avsnitt, måste du använda en VM-storlek som har stöd för det kombinerade IOPS och genomflöde.
 

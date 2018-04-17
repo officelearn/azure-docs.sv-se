@@ -1,25 +1,25 @@
 ---
 title: ESP8266 till molnet - ansluta Sparkfun ESP8266 sak Dev till Azure IoT Hub | Microsoft Docs
-description: "Lär dig mer om att konfigurera och ansluta Sparkfun ESP8266 sak Dev till Azure IoT-hubb för att skicka data till Azure-molnplattform i den här självstudiekursen."
+description: Lär dig mer om att konfigurera och ansluta Sparkfun ESP8266 sak Dev till Azure IoT-hubb för att skicka data till Azure-molnplattform i den här självstudiekursen.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.assetid: 587fe292-9602-45b4-95ee-f39bba10e716
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2017
-ms.author: xshi
-ms.openlocfilehash: 557f0cdf375b345e0dbe0526f5a5bd3c050dec38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: e6837d0312217d8e27e3639b8220f5016a2505a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>Ansluta Sparkfun ESP8266 sak Dev till Azure IoT-hubb i molnet
 
@@ -119,7 +119,7 @@ Om du använder Ubuntu, kontrollera att normal användare har behörighet att fu
    sudo usermod -a -G <group-owner-name> <username>
    ```
 
-   `<group-owner-name>`är ägare gruppnamnet du hämtade i föregående steg. `<username>`är din Ubuntu användarnamn.
+   `<group-owner-name>` är ägare gruppnamnet du hämtade i föregående steg. `<username>` är din Ubuntu användarnamn.
 
 1. Logga ut Ubuntu och logga in igen för att ändringarna ska börja gälla.
 

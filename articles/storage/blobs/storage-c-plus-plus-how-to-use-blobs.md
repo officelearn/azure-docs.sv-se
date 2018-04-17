@@ -1,39 +1,27 @@
 ---
-title: "Hur du använder blob storage (objektlagring) från C++ | Microsoft Docs"
-description: Lagra ostrukturerade data i molnet med Azure Blob Storage (objektlagring).
+title: Hur du använder objekt (Blob) lagring från C++ - Azure | Microsoft Docs
+description: Lagra Ostrukturerade data i molnet med Azure-blobblagringen (objekt).
 services: storage
-documentationcenter: .net
 author: MichaelHauss
-manager: vamshik
-editor: tysonn
-ms.assetid: 53844120-1c48-4e2f-8f77-5359ed0147a4
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: 9fe2112370f7d29eb0fde856995768660f9871e6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: d3297ae7bc4a5ac7e2a43d9d44a05365004b685f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-use-blob-storage-from-c"></a>Hur du använder Blob Storage från C++
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
+# <a name="how-to-use-blob-storage-from-c"></a>Hur du använder Blob storage från C++
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
-
-## <a name="overview"></a>Översikt
-Azure Blob Storage är en tjänst som lagrar ostrukturerade data i molnet som objekt/blobbar. Blob Storage kan lagra alla slags textdata eller binära data, till exempel ett dokument, en mediefil eller ett installationsprogram. Blob Storage kallas även för objektlagring.
-
-Den här guiden visar hur du utför vanliga scenarier som använder tjänsten Azure Blob storage. Exemplen är skrivna i C++ och Använd den [Azure Storage-klientbibliotek för C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Scenarier som tas upp inkluderar **överför**, **lista**, **hämtar**, och **bort** blobbar.  
+Den här guiden visar hur du utför vanliga scenarier som använder tjänsten Azure Blob storage. Exemplen är skrivna i C++ och Använd den [Azure Storage-klientbibliotek för C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Scenarier som tas upp inkluderar överföringen, lista, hämtar och tar bort blobbar.  
 
 > [!NOTE]
-> Den här handboken riktar sig mot Azure Storage-klientbibliotek för C++ version 1.0.0 och senare. Den rekommenderade versionen är Storage-klientbibliotek 2.2.0, som är tillgängliga via [NuGet](http://www.nuget.org/packages/wastorage) eller [GitHub](https://github.com/Azure/azure-storage-cpp).
-> 
-> 
+> Den här handboken riktar sig mot Azure Storage-klientbibliotek för C++ version 1.0.0 och senare. Microsoft rekommenderar att du använder den senaste versionen av Storage-klientbibliotek för C++, tillgängliga via [NuGet](http://www.nuget.org/packages/wastorage) eller [GitHub](https://github.com/Azure/azure-storage-cpp).
+
+## <a name="what-is-blob-storage"></a>Vad är Blob storage?
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -51,7 +39,7 @@ Om du vill installera Azure Storage-klientbibliotek för C++ kan du använda fö
   
      Install-Package wastorage
 
-## <a name="configure-your-application-to-access-blob-storage"></a>Konfigurera ditt program för att få åtkomst till Blob Storage
+## <a name="configure-your-application-to-access-blob-storage"></a>Konfigurera ditt program för att få åtkomst till Blob storage
 Lägga till följande uttryck överst i filen C++ där du vill använda Azure storage API: er för att få åtkomst till blobbar:  
 
 ```cpp
@@ -88,7 +76,7 @@ Du kan använda den **cloud_storage_account** klass för att representera kontoi
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-Sedan hämta en referens till en **cloud_blob_client** klassen som du kan hämta objekt som representerar behållare och blobbar som lagras i Blob Storage-tjänst. Följande kod skapar en **cloud_blob_client** objekt med kontot lagringsobjektet vi hämta ovan:  
+Sedan hämta en referens till en **cloud_blob_client** klassen som du kan hämta objekt som representerar behållare och blobbar som lagras i Blob storage. Följande kod skapar en **cloud_blob_client** objekt med kontot lagringsobjektet vi hämta ovan:  
 
 ```cpp
 // Create the blob client.
@@ -133,7 +121,7 @@ container.upload_permissions(permissions);
 Alla på Internet kan se blobbar i en offentlig behållare, men du kan ändra eller ta bort dem bara om du har rätt åtkomstnyckel.  
 
 ## <a name="how-to-upload-a-blob-into-a-container"></a>Så här: ladda upp en blobb till en behållare
-Azure Blob Storage stöder blockblobbar och sidblobbar. I de flesta fall är blockblobbar den rekommenderade typen.  
+Azure Blob storage stöder blockera blobbar och sidblobbar. I de flesta fall är blockblobbar den rekommenderade typen.  
 
 Om du vill ladda upp en fil till en blockblobb hämtar du en referens för behållaren och använder den för att hämta en referens för blockblobben. När du har en blobbreferens kan du ladda upp en dataström till den genom att anropa den **upload_from_stream** metod. Med den här åtgärden skapas blobben om den inte fanns tidigare, eller skrivs över om den redan fanns. Följande exempel visar hur du laddar upp en blobb till en behållare och förutsätter att behållaren redan hade skapats.  
 

@@ -6,14 +6,14 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/09/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: a4474aec212084006becd02f317dabae6e731d98
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5ac9623b9089fc0aa8a440196fb7f48cb4963a64
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Vad är Azure SQL Database servicenivåer?
 
@@ -37,16 +37,16 @@ Databasen genomströmning Databastransaktionsenheten (DTU) representerar ett bla
 ### <a name="choosing-a-service-tier-in-the-dtu-based-purchasing-model"></a>Välja en tjänstnivå i DTU-baserade inköpsmodell
 
 Om du väljer en tjänstnivå beror huvudsakligen på kontinuitet för företag-, lagrings- och prestandakrav.
-||Grundläggande|Standard|Premium|
+||Basic|Standard|Premium|
 | :-- | --: |--:| --:| --:| 
 |Mål arbetsbelastning|Utveckling och produktion|Utveckling och produktion|Utveckling och produktion||
 |SLA för drifttid|99,99 %|99,99 %|99,99 %|Ej tillämpligt i preview|
-|Kvarhållningsperiod för säkerhetskopior|7 dagar|35 dagar|35 dagar|
-|CPU|Låg|Låg, medel, hög|Medium, High|
+|Kvarhållning av säkerhetskopior|7 dagar|35 dagar|35 dagar|
+|Processor|Låg|Låg, medel, hög|Medelhög och hög|
 |I/o-genomströmning (CA) |2.5 IOPS per DTU| 2.5 IOPS per DTU | 48 IOPS per DTU|
 |I/o-svarstid (CA)|5 ms (läsa), 10 ms (skriva)|5 ms (läsa), 10 ms (skriva)|2 ms (läsa/skriva)|
-|Columnstore-indexering |Saknas|S3 och senare|Stöds|
-|OLTP i minnet|Saknas|Saknas|Stöds|
+|Columnstore-indexering |Gäller inte|S3 och senare|Stöds|
+|OLTP i minnet|Gäller inte|Gäller inte|Stöds|
 |||||
 
 ### <a name="performance-level-and-storage-size-limits-in-the-dtu-based-purchasing-model"></a>Prestanda nivå och lagring storleksgränser i DTU-baserade inköpsmodell
@@ -55,7 +55,7 @@ Prestandanivåer uttrycks i DTU (Database Transaction Unit) för enkla databaser
 
 #### <a name="single-databases"></a>Enkla databaser
 
-||Grundläggande|Standard|Premium|
+||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
 | Maximalt lagringsutrymme storlek * | 2 GB | 1 TB | 4 TB  | 
 | Maximal dtu: er | 5 | 3000 | 4000 | |
@@ -101,6 +101,12 @@ I den vCore-baserade köp modellen kunder lön för:
 > [!IMPORTANT]
 > Compute-, IOs, data och lagra loggen debiteras per databas eller elastisk pool. Lagring av säkerhetskopior debiteras per varje databas. Mer information om hanterade instans avgifter avser [Azure SQL-hanterade databasinstans](sql-database-managed-instance.md).
 
+> [!IMPORTANT]
+> Region begränsningar: 
+>
+> VCore-baserade inköpsmodell är inte tillgänglig i Australien sydost ännu. Förhandsgranskningen är inte tillgänglig på följande områden: Västeuropa, Frankrike Central, Storbritannien, Syd och Storbritannien, Väst.
+> 
+
 ### <a name="choosing-service-tier-compute-memory-storage-and-io-resources"></a>Att välja tjänstnivån, bearbetning, minne, lagring och i/o-resurser
 
 Konvertera till vCore-baserade inköpsmodell kan du skala beräknings-och lagringsresurser, matchar lokalt prestanda och optimera pris oberoende av varandra. Om den databas eller en elastisk pool förbrukar mer än 300 DTU konvertering till vCore kan minska dina kostnader. Du kan konvertera med hjälp av din API väljer eller Azure-portalen utan avbrott. Dock krävs inte konverteringen. Om DTU-inköpsmodell uppfyller dina företagskrav på prestanda och, ska du fortsätta använda den. Om du vill konvertera från DTU-modellen till vCore-modell, bör du välja prestandanivå med hjälp av följande tumregel: varje 100 DTU i standardnivån kräver minst 1 vCore och varje 125 DTU i Premium-nivån kräver minst 1 vCore.
@@ -109,14 +115,14 @@ Tabellen nedan hjälper dig att förstå skillnaderna mellan dessa två nivåer:
 
 ||**Generella**|**Verksamhetskritiska**|
 |---|---|---|
-|Passar bäst|De flesta arbetsbelastningar. Erbjudanden budget objektorienterad belastningsutjämnade och skalbar beräkning och lagring-alternativ.|Business-program med höga i/o-krav. Ger högsta återhämtning för fel som använder flera isolerade repliker.|
-|Beräkna|1-16 vCore|1-16 vCore|
+|Bäst för|De flesta arbetsbelastningar. Erbjudanden budget objektorienterad belastningsutjämnade och skalbar beräkning och lagring-alternativ.|Affärsprogram med höga I/O-krav. Erbjuder den högsta uthålligheten mot fel tack vare flera isolerade repliker.|
+|Compute|1-16 vCore|1-16 vCore|
 |Minne|7 GB per kärna |7 GB per kärna |
-|Storage|Premium Fjärrlagring, 5 GB – 4 TB|Lokala SSD-lagringen, 5 GB – 1 TB|
+|Lagring|Premium Fjärrlagring, 5 GB – 4 TB|Lokala SSD-lagringen, 5 GB – 1 TB|
 |I/o-genomströmning (CA)|500 IOPS per vCore med 7500 högsta IOPS|5 000 IOPS per kärna|
 |Tillgänglighet|1 repliken, utan läsning skalning|3 repliker, 1 [Läs skala](sql-database-read-scale-out.md), zonen redundant hög tillgänglighet|
 |Säkerhetskopior|RA-GRS, 7-35 dagar (7 dagar som standard)|RA-GRS, 7-35 dagar (7 dagar som standard) *|
-|I minnet|Saknas|Stöds|
+|I minnet|Gäller inte|Stöds|
 |||
 
 \* Under förhandsgranskningen gör säkerhetskopior kvarhållningsperioden kan inte konfigureras och löses till 7 dagar.
@@ -149,10 +155,10 @@ Du övervakar den aktuella totala storleken på MDF-filen och LDF [sp_spaceused]
 
 Lagring för säkerhetskopiering av databaser har allokerats för att stödja punkten i tiden återställa (PITR) och lång sikt Kvarhållning (LTR) funktioner i SQL-databas. Denna lagring är allokerade separat för varje databas och debiteras som två separata per databaser avgifter. 
 
-- **PITR**: individuell databas säkerhetskopiorna kopieras till RA-GRS lagring är automatiskt. Lagringsutrymme ökar storleken dynamiskt när nya säkerhetskopior skapas.  Lagringsutrymmet som används genom veckovisa fullständiga säkerhetskopieringar och dagliga differentiella säkerhetskopieringar transaktion loggsäkerhetskopior kopieras var femte minut. Användningen av lagringsutrymme beror på frekvensen för ändring av databasen och kvarhållningsperioden. Du kan konfigurera en separat kvarhållningsperiod för varje databas mellan 7 och 35 dagar. En minsta lagringsutrymme mängd lika med 1 x datastorleken tillhandahålls utan extra kostnad. För de flesta databaser är beloppet tillräckligt för att lagra 7 dagar för säkerhetskopior.
+- **PITR**: individuell databas säkerhetskopiorna kopieras till RA-GRS lagring är automatiskt. Lagringsutrymme ökar storleken dynamiskt när nya säkerhetskopior skapas.  Lagringsutrymmet används av veckovisa, fullständiga säkerhetskopior, dagliga differentiella säkerhetskopior och säkerhetskopior av transaktionsloggar var femte minut. Användningen av lagringsutrymme beror på frekvensen för ändring av databasen och kvarhållningsperioden. Du kan konfigurera en separat kvarhållningsperiod för varje databas mellan 7 och 35 dagar. En minsta lagringsutrymme mängd lika med 1 x datastorleken tillhandahålls utan extra kostnad. För de flesta databaser är beloppet tillräckligt för att lagra 7 dagar för säkerhetskopior.
 - **LTR**: SQL-databas kan konfigurera långsiktig kvarhållning av fullständiga säkerhetskopieringar för upp till 10 år. Om LTR principen är aktiverad kommer de här säkerhetskopior lagras i RA-GRS lagring automatiskt, men du kan styra hur ofta säkerhetskopiorna kopieras. För att uppfylla olika krav kan välja du olika kvarhållningsperioder för säkerhetskopiering varje vecka, månad och år. Den här konfigurationen definierar hur mycket lagringsutrymme som ska användas för LTR säkerhetskopieringar. Du kan använda LTR prisnivå Kalkylatorn för att beräkna kostnaden för LTR lagring. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
 
-### <a name="azure-hybrid-use-benefit"></a>Azure Hybrid-användningsförmån
+### <a name="azure-hybrid-use-benefit"></a>Azure Hybrid-förmånen
 
 VCore-baserade inköpsmodell utbyta befintliga licenser för rabatterade priser på SQL-databas med hjälp av den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Azure förmånen kan du använda dina lokala SQL Server-licenser för att spara upp till 30% på Azure SQL Database med Software Assurance dina lokala SQL Server-licenser.
 
@@ -168,14 +174,14 @@ Följande tabell innehåller riktlinjer för specifika Migreringsscenarier:
 
 |Aktuella tjänstnivå|Mål-tjänstnivå|Migreringstyp|Användaråtgärder|
 |---|---|---|---|
-|Standard|Allmänt|Laterala|Kan migrera i valfri ordning, men se till en lämplig vCore storlek *|
-|Premium|Verksamhetskritisk|Laterala|Kan migrera i vilken ordning som helst, men måste du se till att lämpliga vCore storlek *|
-|Standard|Verksamhetskritisk|Uppgradera|Migrera sekundära först|
-|Verksamhetskritisk|Standard|Nedgradera|Migrera primära först|
-|Premium|Allmänt|Nedgradera|Migrera primära först|
-|Allmänt|Premium|Uppgradera|Migrera sekundära först|
-|Verksamhetskritisk|Allmänt|Nedgradera|Migrera primära först|
-|Allmänt|Verksamhetskritisk|Uppgradera|Migrera sekundära först|
+|Standard|Generellt syfte|Laterala|Kan migrera i valfri ordning, men se till en lämplig vCore storlek *|
+|Premium|Affärskritisk|Laterala|Kan migrera i vilken ordning som helst, men måste du se till att lämpliga vCore storlek *|
+|Standard|Affärskritisk|Uppgradera|Migrera sekundära först|
+|Affärskritisk|Standard|Nedgradera|Migrera primära först|
+|Premium|Generellt syfte|Nedgradera|Migrera primära först|
+|Generellt syfte|Premium|Uppgradera|Migrera sekundära först|
+|Affärskritisk|Generellt syfte|Nedgradera|Migrera primära först|
+|Generellt syfte|Affärskritisk|Uppgradera|Migrera sekundära först|
 ||||
 
 \* Varje 100 DTU i standardnivån kräver minst 1 vCore och varje 125 DTU i Premium-nivån kräver minst 1 vCore

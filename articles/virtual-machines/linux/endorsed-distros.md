@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: szark
-ms.openlocfilehash: 7c41550d1fe9cf5981406d25599e51aa119eb697
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8ea768c6ba8b404978b78f2cbd272f98af3fa70b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="linux-on-distributions-endorsed-by-azure"></a>Linux på distributioner godkända av Azure
 Partners ger Linux bilder i Azure Marketplace. Vi arbetar med olika Linux communities att lägga till ytterligare varianter i listan över godkända Distribution. Under tiden för distributioner som inte är tillgängliga från Marketplace, du kan alltid ta egna Linux genom att följa riktlinjerna i [skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/create-upload-generic).
@@ -27,21 +27,21 @@ Partners ger Linux bilder i Azure Marketplace. Vi arbetar med olika Linux commun
 ## <a name="supported-distributions-and-versions"></a>Distributioner som stöds och versioner
 I följande tabell visas de Linux-distributioner och versioner som stöds på Azure. Referera till [stöd för Linux-avbildningar i Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) mer detaljerad information om stöd för Linux och öppenkällteknik i Azure.
 
-Linux Integration Services (LIS)-drivrutiner för Hyper-V och Azure är kernel-moduler som Microsoft bidrar direkt till den överordnade Linux-kerneln.  Vissa drivrutiner LIS är inbyggda i kernel för den distribution som standard. Äldre distributioner som är baserade på Red Hat Enterprise (RHEL) och CentOS är tillgängliga som en separat fil på [Linux Integration Services Version 4.1 för Hyper-V](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). Se [Linux kernel krav](create-upload-generic.md#linux-kernel-requirements) för mer information om LIS drivrutiner.
+Linux Integration Services (LIS)-drivrutiner för Hyper-V och Azure är kernel-moduler som Microsoft bidrar direkt till den överordnade Linux-kerneln.  Vissa drivrutiner LIS är inbyggda i kernel för den distribution som standard. Äldre distributioner som är baserade på Red Hat Enterprise (RHEL) och CentOS är tillgängliga som en separat fil på [Linux Integration Services Version 4.2 för Hyper-V och Azure](https://www.microsoft.com/en-us/download/details.aspx?id=55106). Se [Linux kernel krav](create-upload-generic.md#linux-kernel-requirements) för mer information om LIS drivrutiner.
 
 Azure Linux-agenten är redan installerad på Azure Marketplace-bilder och är vanligtvis tillgänglig från den distributionsplatsen paketdatabasen. Källkoden kan hittas på [GitHub](https://github.com/azure/walinuxagent).
 
   
 | Distribution | Version | Drivrutiner | Agent |
 | --- | --- | --- | --- |
-| CentOS |CentOS 6.3 + 7.0 + |CentOS 6.3: [LIS hämta](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4+: In kernel |Paket: I [lagringsplatsen](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) under ”WALinuxAgent” <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| CentOS |CentOS 6.3 + 7.0 + |CentOS 6.3: [LIS hämta](https://www.microsoft.com/en-us/download/details.aspx?id=55106)<p>CentOS 6.4 +: I kernel |Paket: I [lagringsplatsen](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) under ”WALinuxAgent” <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |I kernel |Källkod: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
 | Debian |Debian 7,9 +, 8.2 + |I kernel |Paket: I lagringsplatsen under ”waagent” <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Oracle Linux |6.4+, 7.0+ |I kernel |Paket: I lagringsplatsen under ”WALinuxAgent” <br/>Källkod: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux |RHEL 6.7 +, 7.1 + |I kernel |Paket: I lagringsplatsen under ”WALinuxAgent” <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| SUSE Linux Enterprise |SLES/SLES för SAP<br>11 SP4<br>12 SP1+|I kernel |Paket:<p> för 11 i [molnet: verktyg](https://build.opensuse.org/project/show/Cloud:Tools) lagringsplatsen<br>för 12 ingår i modulen ”offentliga moln” under ”python-azure-agent”<br/>Källkod: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| SUSE Linux Enterprise |SLES/SLES för SAP<br>11 SP4<br>12 SP1 +|I kernel |Paket:<p> för 11 i [molnet: verktyg](https://build.opensuse.org/project/show/Cloud:Tools) lagringsplatsen<br>för 12 ingår i modulen ”offentliga moln” under ”python-azure-agent”<br/>Källkod: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE |openSUSE Leap 42.2 + |I kernel |Paket: I [molnet: verktyg](https://build.opensuse.org/project/show/Cloud:Tools) lagringsplatsen under ”python-azure-agent” <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| Ubuntu |Ubuntu 12.04+ **<sup>1</sup>** |I kernel |Paket: I lagringsplatsen under ”walinuxagent” <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Ubuntu |Ubuntu 12.04 +  **<sup>1</sup>** |I kernel |Paket: I lagringsplatsen under ”walinuxagent” <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
   - **<sup>1</sup>**  stöd för Ubuntu 12.04 på Azure hittar du den [EOL meddelande](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/).
 

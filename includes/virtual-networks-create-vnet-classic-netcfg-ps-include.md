@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: virtual-network
+author: genli
+ms.service: virtual-network
+ms.topic: include
+ms.date: 04/13/2018
+ms.author: genli
+ms.custom: include file
+ms.openlocfilehash: a84b31d64f8f9900d342e245ca66cde3c0395be1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>Så här skapar du ett virtuellt nätverk med en konfigurationsfil för nätverk från PowerShell
 Azure använder en XML-fil för att definiera alla virtuella nätverk som är tillgängliga för en prenumeration. Du kan hämta den här filen, redigera det för att ändra eller ta bort befintliga virtuella nätverk och skapa nya virtuella nätverk. I den här kursen lär du dig hur du hämtar den här filen, som kallas configuration (eller netcfg) nätverksfil, och redigera det för att skapa ett nytt virtuellt nätverk. Mer information om nätverket konfigurationsfilen finns på [virtuella Azure-nätverket Konfigurationsschemat](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
@@ -18,8 +34,8 @@ Utför följande steg för att skapa ett virtuellt nätverk med en netcfg-fil me
       <?xml version="1.0" encoding="utf-8"?>...
       ```
 
-3. Öppna filen som du sparade i steg 2 med XML- eller textredigerare och leta efter den  **<VirtualNetworkSites>**  element. Om du har några nätverk som redan har skapats visas varje nätverk som sin egen  **<VirtualNetworkSite>**  element.
-4. För att skapa det virtuella nätverket som beskrivs i det här scenariot, lägger du till följande XML precis under den  **<VirtualNetworkSites>**  element:
+3. Öppna filen som du sparade i steg 2 med XML- eller textredigerare och leta efter den **<VirtualNetworkSites>** element. Om du har några nätverk som redan har skapats visas varje nätverk som sin egen **<VirtualNetworkSite>** element.
+4. För att skapa det virtuella nätverket som beskrivs i det här scenariot, lägger du till följande XML precis under den **<VirtualNetworkSites>** element:
 
    ```xml
          <?xml version="1.0" encoding="utf-8"?>

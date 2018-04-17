@@ -1,36 +1,24 @@
 ---
-title: "Belastningen från Azure blob till Azure data warehouse | Microsoft Docs"
-description: "Lär dig mer om att använda PolyBase för att läsa in data från Azure blob storage till SQL Data Warehouse. Läsa in några tabeller från offentliga data till datalagret för Contoso Retail-schemat."
+title: Läsa in Contoso Retail-data till Azure SQL Data Warehouse | Microsoft Docs
+description: Använd PolyBase och T-SQL-kommandon för att läsa in två tabeller från Contoso Retail-data i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: barbkess
-editor: 
-ms.assetid: faca0fe7-62e7-4e1f-a86f-032b4ffcb06e
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 10/31/2016
-ms.author: barbkess
-ms.openlocfilehash: 4221bcd5a50fad680427a500e32837c1e75dd990
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: c32068c965810da8e9072094b5832c7943f2841d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a>Läs in data från Azure blob storage till SQL Data Warehouse (PolyBase)
-> [!div class="op_single_selector"]
-> * [Data Factory](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
-> * [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-> 
-> 
+# <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Läsa in Contoso Retail-data till Azure SQL Data Warehouse
 
-Använd PolyBase och T-SQL-kommandon för att läsa in data från Azure blobblagring till Azure SQL Data Warehouse. 
-
-Om du vill göra det enkelt självstudierna läser in två tabeller från en offentlig Azure Storage Blob till datalagret för Contoso Retail-schemat. Om du vill läsa fullständig datauppsättning kör exemplet [läsa in fullständig Contoso Retail datalagret] [ Load the full Contoso Retail Data Warehouse] från exempel för Microsoft SQL Server-databasen.
+Använd PolyBase och T-SQL-kommandon för att läsa in två tabeller från Contoso Retail-data i Azure SQL Data Warehouse. Om du vill läsa fullständig datauppsättning kör exemplet [läsa in fullständig Contoso Retail datalagret](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) från exempel för Microsoft SQL Server-databasen.
 
 I den här självstudiekursen kommer du att:
 

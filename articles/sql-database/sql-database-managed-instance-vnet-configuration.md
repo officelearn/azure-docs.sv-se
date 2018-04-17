@@ -1,20 +1,20 @@
 ---
-title: "Azure SQL Database hanteras instanskonfiguration av virtuellt nätverk | Microsoft Docs"
-description: "Det här avsnittet beskriver konfigurationsalternativ för ett virtuellt nätverk (VNet) med en Azure SQL Database hanteras-instans."
+title: Azure SQL Database hanteras instanskonfiguration av virtuellt nätverk | Microsoft Docs
+description: Det här avsnittet beskriver konfigurationsalternativ för ett virtuellt nätverk (VNet) med en Azure SQL Database hanteras-instans.
 services: sql-database
 author: srdjan-bozovic
 manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: e724a660f8ba2373cefdabe8595908b7bb42f4d6
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: bccc2d52c592101a23338e57791a992441e80047
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Konfigurera ett virtuellt nätverk för Azure SQL-hanterade databasinstans
 
@@ -66,13 +66,13 @@ Om du planerar att distribuera flera hanterade instanser i undernätet och behö
 Skapa ett virtuellt Azure-nätverk är en förutsättning för att skapa en instans som hanteras. Du kan använda Azure-portalen [PowerShell](../virtual-network/quick-create-powershell.md), eller [Azure CLI](../virtual-network/quick-create-cli.md). I följande avsnitt beskrivs de steg som använder Azure portal. Informationen som beskrivs här gäller för var och en av dessa metoder.
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
-2. Leta upp och klicka sedan på **virtuellt nätverk**, kontrollera den **Resource Manager** är markerad som distributionen-läge och klicka sedan på **skapa**.
+2. Leta upp och klicka på **Virtual Network**, kontrollera den **Resource Manager** som är markerad för distributionsläge och klicka sedan på **Skapa**.
 
-   ![Skapa virtuellt nätverk](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
+   ![virtual network create](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
 
 3. Fyll i formuläret virtuellt nätverk med den begärda informationen på ett sätt som följande skärmbild:
 
-   ![Skapa formulär för virtuellt nätverk](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
+   ![virtual network create form](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
 
 4. Klicka på **Skapa**.
 
@@ -88,28 +88,28 @@ Skapa ett virtuellt Azure-nätverk är en förutsättning för att skapa en inst
 
    Kontrollera att alternativet Tjänsteslutpunkter förblir **inaktiverade**. 
 
-   ![Skapa formulär för virtuellt nätverk](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
+   ![virtual network create form](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
 
 ## <a name="create-the-required-route-table-and-associate-it"></a>Skapa nödvändiga routningstabellen och associera den
 
 1. Logga in på Azure Portal  
-2. Leta upp och klicka sedan på **routningstabellen**, och klicka sedan på **skapa** på sidan väg tabell.
+2. Leta upp och klicka på **Routningstabell** och klicka sedan på **Skapa** på sidan Routningstabell.
 
-   ![routningstabellen skapa formulär](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
+   ![route table create form](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
 
 3. Skapa en 0.0.0.0/0 nästa hopp Internet väg på ett sätt som följande skärmbilderna:
 
-   ![Lägg till routningstabellen](./media/sql-database-managed-instance-tutorial/route-table-add.png)
+   ![route table add](./media/sql-database-managed-instance-tutorial/route-table-add.png)
 
-   ![Väg](./media/sql-database-managed-instance-tutorial/route.png)
+   ![route](./media/sql-database-managed-instance-tutorial/route.png)
 
 4. Koppla den här vägen till undernätet för den hanterade instans på ett sätt som följande skärmbilderna:
 
-    ![Undernät](./media/sql-database-managed-instance-tutorial/subnet.png)
+    ![subnet](./media/sql-database-managed-instance-tutorial/subnet.png)
 
-    ![Ange routningstabellen](./media/sql-database-managed-instance-tutorial/set-route-table.png)
+    ![set route table](./media/sql-database-managed-instance-tutorial/set-route-table.png)
 
-    ![Ange vägen tabell-spara](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
+    ![set route table-save](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
 
 
 När ditt VNet har skapats är du redo att skapa din hanteras instans.  
@@ -145,5 +145,5 @@ Om Ja, se [konfigurera en anpassad DNS](sql-database-managed-instance-custom-dns
 ## <a name="next-steps"></a>Nästa steg
 
 - En översikt finns [vad är en hanterad instans](sql-database-managed-instance.md)
-- En självstudiekurs visar hur du skapar ett VNet, skapa en instans som hanteras och återställa en databas från en säkerhetskopia av databasen finns [att skapa en Azure SQL Database hanteras instans](sql-database-managed-instance-tutorial-portal.md).
+- En självstudiekurs visar hur du skapar ett VNet, skapa en instans som hanteras och återställa en databas från en säkerhetskopia av databasen finns [att skapa en Azure SQL Database hanteras instans](sql-database-managed-instance-create-tutorial-portal.md).
 - DNS-problem finns [konfigurera en anpassad DNS](sql-database-managed-instance-custom-dns.md)

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/25/2017
 ms.author: ghogen
-ms.openlocfilehash: 676feb0b01ec5622feff4351ade54e9856e54b13
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: f5205bb158141a3f8e0296fefe2528d1bc5ea64c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>Hantera resurser som är associerade med din Azure-konton i Visual Studio Cloud Explorer
 Cloud Explorer kan du visa dina Azure-resurser och resursgrupper, granska deras egenskaper och utföra åtgärder för viktiga developer diagnostik från Visual Studio. 
 
-Exempel på [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040), Cloud Explorer bygger på Azure Resource Manager-stacken. Därför Cloud Explorer förstår resurser, t.ex Azure-resursgrupper och Azure-tjänster, till exempel Logic apps och API apps och stöder [rollbaserad åtkomstkontroll](active-directory/role-based-access-control-configure.md) (RBAC). 
+Exempel på [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040), Cloud Explorer bygger på Azure Resource Manager-stacken. Därför Cloud Explorer förstår resurser, t.ex Azure-resursgrupper och Azure-tjänster, till exempel Logic apps och API apps och stöder [rollbaserad åtkomstkontroll](role-based-access-control/role-assignments-portal.md) (RBAC). 
 
 ## <a name="prerequisites"></a>Förutsättningar
 - [Visual Studio-2017](https://www.visualstudio.com/downloads/) med den **arbetsbelastning i Azure** valt, eller en tidigare version av Visual Studio med den [Microsoft Azure SDK för .NET 2.9](https://www.microsoft.com/en-us/download/details.aspx?id=51657).

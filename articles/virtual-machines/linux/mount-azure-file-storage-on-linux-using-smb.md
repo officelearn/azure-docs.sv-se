@@ -3,7 +3,7 @@ title: Montera Azure File storage i virtuella Linux-datorer med hjälp av SMB | 
 description: Hur man monterar Azure File storage på virtuella Linux-datorer med hjälp av SMB med Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: vlivech
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
-ms.author: v-livech
-ms.openlocfilehash: de200c9b18b9d27325bcb92e0d27e83ad7c65811
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: iainfou
+ms.openlocfilehash: 01e18103f9e94615357ff3b9c4be7f2473763a57
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montera Azure File storage i virtuella Linux-datorer med hjälp av SMB
 
-Den här artikeln visar hur du använder tjänsten Azure File storage på en Linux-VM i en SMB-montering med Azure CLI 2.0. Azure File storage erbjuder filresurser i molnet genom att använda SMB-standardprotokollet. Du kan också utföra dessa steg med [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Kraven är:
+Den här artikeln visar hur du använder tjänsten Azure File storage på en Linux-VM i en SMB-montering med Azure CLI 2.0. Azure File storage erbjuder filresurser i molnet genom att använda SMB-standardprotokollet. Du kan också utföra dessa steg med [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md). Kraven är:
 
 - [ett Azure-konto](https://azure.microsoft.com/pricing/free-trial/)
 - [offentliga och privata SSH-nyckelfiler](mac-create-ssh-keys.md)
@@ -49,14 +49,14 @@ mkdir -p /mnt/mymountpoint
 ### <a name="mount-the-file-storage-smb-share-to-the-mount-point"></a>Montera fillagring SMB-resurs till monteringspunkten
 
 ```bash
-sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
 ### <a name="persist-the-mount-after-a-reboot"></a>Monteringen är kvar efter en omstart
 Om du vill göra det lägger du till följande rad i den `/etc/fstab`:
 
 ```bash
-//myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+//myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
 ## <a name="detailed-walkthrough"></a>Detaljerad genomgång
@@ -121,7 +121,7 @@ För den här detaljerade genomgången ska vi skapa de förutsättningar som kr�
     Skapa en lokal katalog i filsystemet Linux för att montera SMB-resursen. Något skrivs eller läsa från katalogen för lokal montering vidarebefordras till SMB-resurs som är värd för lagring av filer. Om du vill skapa en lokal katalog i /mnt/mymountdirectory kan du använda följande exempel:
 
     ```bash
-    sudo mkdir -p /mnt/mymountdirectory
+    sudo mkdir -p /mnt/mymountpoint
     ```
 
 6. Montera SMB-resursen till den lokala katalogen.
@@ -129,7 +129,7 @@ För den här detaljerade genomgången ska vi skapa de förutsättningar som kr�
     Ange dina egna lagring Kontoanvändarnamn och lagringskontonyckel för monteringspunkter på följande sätt:
 
     ```azurecli
-    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountdirectory -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
+    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountpoint -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
     ```
 
 7. Spara SMB montera via omstarter.
@@ -137,11 +137,11 @@ För den här detaljerade genomgången ska vi skapa de förutsättningar som kr�
     När du startar om Linux VM är den monterade SMB-resursen omonterade vid avstängningen. Lägga till en rad Linux /etc/fstab om du vill återansluta till SMB-resursen på Start. Linux använder filen fstab för att lista filsystem som krävs för att montera under startprocessen. Lägger till SMB-resursen garanterar att File storage-resurs är en permanent anslutet filsystem för Linux-VM. Det är möjligt att lägga till File storage SMB-resurs i en ny virtuell dator när du använder molntjänster initiering.
 
     ```bash
-    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Med hjälp av molnet init för att anpassa en Linux VM under skapandet](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Lägg till en disk till en virtuell Linux-dator](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Kryptera diskar på en Linux-VM med hjälp av Azure CLI](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Med hjälp av molnet init för att anpassa en Linux VM under skapandet](using-cloud-init.md)
+- [Lägg till en disk till en virtuell Linux-dator](add-disk.md)
+- [Kryptera diskar på en Linux-VM med hjälp av Azure CLI](encrypt-disks.md)

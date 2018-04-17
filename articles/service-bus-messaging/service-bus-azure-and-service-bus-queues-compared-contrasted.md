@@ -1,11 +1,11 @@
 ---
-title: "Azure Storage-köer och Service Bus-köer jämfört med och skillnad från | Microsoft Docs"
-description: "Analyserar likheter mellan två typer av köer som erbjuds av Azure och."
+title: Azure Storage-köer och Service Bus-köer jämfört med och skillnad från | Microsoft Docs
+description: Analyserar likheter mellan två typer av köer som erbjuds av Azure och.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-köer och Service Bus-köer - skillnad från och med
 Den här artikeln analyserar skillnader och likheter mellan de två typerna av köer som erbjuds av Microsoft Azure idag: lagringsköer och Service Bus-köer. Med hjälp av informationen kan du jämföra de olika teknikerna och fatta klokare beslut när du ska avgöra vilken lösning som passar dig bäst.
@@ -39,7 +39,7 @@ När du fastställer vilka queuing teknik passar syftet med en viss lösning bö
 
 Som lösning systemarkitekt/utvecklare, **bör du använda lagringsköer** när:
 
-* Programmet måste lagra över 80 GB meddelanden i en kö, där meddelandena som har en livslängd som är kortare än sju dagar.
+* Programmet måste lagra över 80 GB meddelanden i en kö.
 * Programmet vill följa förloppet för bearbetning av ett meddelande i kön. Detta är användbart om arbetaren bearbetning av ett meddelande kraschar. En efterföljande arbetare kan sedan använda informationen för att fortsätta från där den tidigare worker slutade.
 * Du behöver sida serverloggen för alla transaktioner som körs mot din köer.
 
@@ -51,7 +51,6 @@ Som lösning systemarkitekt/utvecklare, **bör du använda Service Bus-köer** n
 * Din lösning kunna stödja automatisk identifiering av dubbletter.
 * Du vill att programmet för att bearbeta meddelanden som parallella tidskrävande dataströmmar (meddelanden som är kopplad till en dataström med hjälp av den [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) -egenskap). Varje nod i den konsumerande appen konkurrerar om strömmar, till skillnad från meddelanden i den här modellen. När en ström som har tilldelats en lång nod, kan noden Kontrollera status för dataströmmen programtillståndet använder transaktioner.
 * Lösningen kräver transaktionella beteende och gör att skicka eller ta emot flera meddelanden från en kö.
-* Time to live (TTL) egenskap för programspecifika arbetsbelastningen kan överskrida den 7 dagar.
 * Programmet hanterar meddelanden som kan överskrida 64 KB men begränsas inte troligt metoden 256 KB.
 * Du hantera ett krav att tillhandahålla en modell för rollbaserad åtkomst till köer och olika rights/behörigheter för avsändare och mottagare.
 * Din köstorlek växer inte större än 80 GB.
@@ -107,7 +106,7 @@ Det här avsnittet jämför avancerade funktioner som tillhandahålls av lagring
 | Uppdatering på plats |**Ja** |**Ja** |
 | Transaktionsloggen för serversidan |**Ja** |**Nej** |
 | Storage-mätvärden |**Ja**<br/><br/>**Minuters mått**: innehåller realtid mått för tillgänglighet, Transaktionsprogram, API antal fel antal och mer i realtid (sammanställs per minut och rapporterats inom några minuter från vad hände bara i produktion. Mer information finns i [om Storage Analytics mätvärden](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Ja**<br/><br/>(Massredigera frågor genom att anropa [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)) |
-| Hantering av tillstånd |**Nej** |**Ja**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
+| Tillståndshantering |**Nej** |**Ja**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
 | Automatisk vidarebefordring av meddelande |**Nej** |**Ja** |
 | Rensa kön funktion |**Ja** |**Nej** |
 | Meddelande-grupper |**Nej** |**Ja**<br/><br/>(genom att använda messaging sessioner) |
@@ -132,8 +131,8 @@ Det här avsnittet jämför lagringsköer och Service Bus-köer ur [kapacitet oc
 | Jämförelsevillkor | Lagringsköer | Service Bus-köer |
 | --- | --- | --- |
 | Största köstorlek |**500 TB**<br/><br/>(begränsat till en [enkel kapacitet för lagringskonton](../storage/common/storage-introduction.md#queue-storage)) |**1 GB till 80 GB**<br/><br/>(definieras när du skapar en kö och [aktiverar partitionering](service-bus-partitioning.md) – finns i avsnittet ”Mer Information”) |
-| Största meddelandestorlek |**64 KB**<br/><br/>(48 KB när du använder **Base64** kodning)<br/><br/>Azure stöder stora meddelanden genom att kombinera köer och blobbar – nu kan du sätta upp till 200 GB för ett enskilt objekt. |**256 KB** eller **1 MB**<br/><br/>(inklusive både sidhuvud och brödtext, högsta huvudstorlek: 64 KB).<br/><br/>Beror på den [tjänstnivån](service-bus-premium-messaging.md). |
-| Maximal meddelande-TTL |**7 dagar** |**TimeSpan.Max** |
+| Maximal meddelandestorlek |**64 KB**<br/><br/>(48 KB när du använder **Base64** kodning)<br/><br/>Azure stöder stora meddelanden genom att kombinera köer och blobbar – nu kan du sätta upp till 200 GB för ett enskilt objekt. |**256 KB** eller **1 MB**<br/><br/>(inklusive både sidhuvud och brödtext, högsta huvudstorlek: 64 KB).<br/><br/>Beror på den [tjänstnivån](service-bus-premium-messaging.md). |
+| Maximal meddelande-TTL |**Oändlig** (från och med api-version 2017-07-27) |**TimeSpan.Max** |
 | Maximalt antal köer |**Obegränsat** |**10,000**<br/><br/>(per namnområde för tjänsten) |
 | Maximalt antal samtidiga klienter |**Obegränsat** |**Obegränsat**<br/><br/>(100 samtidiga anslutningsgränsen gäller endast för TCP-protokoll-baserad kommunikation) |
 

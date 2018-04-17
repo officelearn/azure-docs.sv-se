@@ -3,7 +3,7 @@ title: Skapa en virtuell dator med en rapportserver i enhetligt läge med hjälp
 description: 'Det här avsnittet beskriver och vägleder dig genom distributionen och konfigurationen av en rapportserver för SQL Server Reporting Services enhetligt läge i en virtuell dator i Azure. '
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: monicar
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
-ms.author: asaxton
-ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: maghan
+ms.openlocfilehash: edfae3a56bc13e4c41a1676bfc0f4e8cf4cd9d30
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Använd PowerShell för att skapa en virtuell Azure-dator med en rapportserver i enhetligt läge
 > [!IMPORTANT] 
@@ -66,7 +66,7 @@ Det här avsnittet beskriver och vägleder dig genom distributionen och konfigur
    * **Storlek: A3** är den rekommenderade VM-storleken för SQL Server-arbetsbelastningar. Om en virtuell dator används endast som en rapportserver, räcker en VM-storlek för A2 om rapportservern påträffar en stor belastning. VM information om priser finns i [prissättning för Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/).
    * **Nytt användarnamn**: namnet som du anger skapas som en administratör på den virtuella datorn.
    * **Nytt lösenord** och **Bekräfta**. Detta lösenord används för det nya administratörskontot och det rekommenderas att du använder ett starkt lösenord.
-   * Klicka på **Nästa**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+   * Klicka på **Nästa**. ![Nästa](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 7. På nästa sida, redigera följande fält:
    
    * **Molntjänsten**: Välj **skapa en ny molntjänst**.

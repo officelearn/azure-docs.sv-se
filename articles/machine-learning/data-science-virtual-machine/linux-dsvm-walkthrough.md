@@ -3,22 +3,23 @@ title: Datavetenskap med den Linux datavetenskap virtuell dator i Azure | Micros
 description: Hur du utför flera gemensamma datavetenskap med Linux datavetenskap VM.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: bradsev
-ms.openlocfilehash: aff0dd17baa72b3f58ed5effbedb3a4c630f22c6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: gokuma
+ms.openlocfilehash: 055d8b1c9884c9525ba15ea9508ab00a5f48a048
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Datavetenskap med en Linux datavetenskap virtuell dator på Azure
 Den här genomgången visar hur du utför flera gemensamma datavetenskap med Linux datavetenskap VM. Linux Data vetenskap virtuell dator (DSVM) är en avbildning av virtuell dator som är tillgängliga på Azure som är förinstallerade med en samling verktyg som används ofta för dataanalys och maskininlärning. Viktiga programkomponenterna specificerade i den [etablera Linux datavetenskap virtuell dator](linux-dsvm-intro.md) avsnittet. VM-avbildning gör det enkelt att komma igång gör datavetenskap i minuter, utan att installera och konfigurera verktygen separat. Du kan enkelt skala upp den virtuella datorn, om det behövs och stoppa den inte under användning. Den här resursen är därför både elastisk och kostnadseffektiv.

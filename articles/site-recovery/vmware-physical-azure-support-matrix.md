@@ -5,37 +5,57 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/29/2018
+ms.topic: conceptual
+ms.date: 04/08/2018
 ms.author: raynew
-ms.openlocfilehash: 28ddecc45faa213d1fd536b5ad8690e151037505
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b2a6e3052c64ab6a2865a0c24a4876cb2b98d1a8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Stöd matrix för VMware och fysiska servrar replikering till Azure
 
 Den här artikeln sammanfattar stöds komponenter och inställningar för katastrofåterställning av virtuella VMware-datorer till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="supported-scenarios"></a>Scenarier som stöds
+## <a name="replication-scenario"></a>Scenario för replikering
 
-**Scenario** | **Detaljer**
+**scenario** | **Detaljer**
 --- | ---
-VMwares virtuella datorer | Du kan utföra katastrofåterställning till Azure för lokala virtuella VMware-datorer. Du kan distribuera det här scenariot i Azure-portalen eller med hjälp av PowerShell.
-Fysiska servrar | Du kan utföra katastrofåterställning till Azure för lokala Windows-/ Linux fysiska servrar. Du kan distribuera det här scenariot i Azure-portalen.
+VMwares virtuella datorer | Replikeringen av lokala virtuella VMware-datorer till Azure. Du kan distribuera det här scenariot i Azure-portalen eller med hjälp av PowerShell.
+Fysiska servrar | Replikeringen av lokala Windows-/ Linux fysiska serversto Azure. Du kan distribuera det här scenariot i Azure-portalen.
 
 ## <a name="on-premises-virtualization-servers"></a>Lokala virtualiseringsservrar
 
 **Server** | **Krav** | **Detaljer**
 --- | --- | ---
-VMware | vCenter Server 6.5 6.0, eller 5.5 eller vSphere 6.5, 6.0 eller 5.5 | Vi rekommenderar att du använder en vCenter-server.
+VMware | vCenter Server 6.5 6.0, eller 5.5 eller vSphere 6.5, 6.0 eller 5.5 | Vi rekommenderar att du använder en vCenter-server.<br/><br/> Vi rekommenderar att vSphere-värdar och vCenter-servrar finns i samma nätverk som processervern. Som standard körs process-serverkomponenter på konfigurationsservern, så att det här nätverket där du ställer in konfigurationsservern och om du inte anger en dedikerad processerver. 
 Fysiska | Gäller inte
 
+## <a name="site-recovery-configuration-server"></a>Site Recovery konfigurationsservern
+
+Konfigurationsservern är en lokal dator som kör Site Recovery-komponenter, inklusive konfigurationsservern, processervern och huvudmålservern. För VMware-replikering upprättar du konfigurationsservern med alla krav, med ett OVF-mall för att skapa en VMware VM. För replikering av fysisk server konfigurerar du configuration server-datorn manuellt.
+
+**Komponent** | **Krav**
+--- |---
+Processorkärnor | 8 
+RAM | 12 GB
+Antal diskar | 3 diskar<br/><br/> Diskar innehåller OS-disk, disk för processen server cache och kvarhållningsenhetens för återställning efter fel.
+Ledigt diskutrymme | 600 GB diskutrymme som krävs för processen serverns cacheminne.
+Ledigt diskutrymme | 600 GB diskutrymme som krävs för kvarhållningsenhetens.
+Operativsystem  | Windows Server 2012 R2 eller Windows Server 2016 | 
+Nationella inställningar för operativsystem | Engelska (en-us) 
+PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") ska installeras.
+Windows Server-roller | Aktivera inte: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
+Grupprinciper| Aktivera inte: <br> -Förhindra åtkomst till Kommandotolken. <br> -Förhindra åtkomst till verktyg för redigering av registret. <br> -Förtroende för bifogade filer. <br> -Aktivera körning av skript. <br> [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+IIS | Se till att du:<br/><br/> -Inte har en befintlig standardwebbplatsen <br> -Aktivera [anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) inställning  <br> -Inte har redan befintliga webbplats/app lyssnar på port 443<br>
+NIC-typ | VMXNET3 (när distribueras som en VM VMware) 
+IP-adresstyp | Statisk 
+Portar | 443 används för kontrollen kanal orchestration)<br>9443 som används för datatransport
 
 ## <a name="replicated-machines"></a>Replikerade datorer
 
-I följande tabell sammanfattas replication stöd för virtuella VMware-datorer och fysiska servrar. Site Recovery har stöd för replikering av alla arbetsbelastningar som körs på en dator med ett operativsystem som stöds.
+Site Recovery har stöd för replikering av alla arbetsbelastningar som körs på en dator som stöds.
 
 **Komponent** | **Detaljer**
 --- | ---
@@ -50,7 +70,7 @@ Linux-operativsystem | Red Hat Enterprise Linux: 5.2 till 5.11, 6.1 6,9, 7.0 7.4
 > - Uppgradering av skyddade datorer över större Linux distribution versioner inte stöds. Om du vill uppgradera, inaktivera replikering, uppgradera operativsystemet och sedan aktivera replikering igen.
 >
 
-### <a name="ubuntu-kernel-versions"></a>Ubuntu kernel versions
+### <a name="ubuntu-kernel-versions"></a>Ubuntu kernel-versioner
 
 
 **Versionen som stöds** | **Azure Site Recovery-Mobilitetstjänsten-versionen** | **Kernel-version** |
@@ -62,7 +82,7 @@ Linux-operativsystem | Red Hat Enterprise Linux: 5.2 till 5.11, 6.1 6,9, 7.0 7.4
 16.04 LTS | 9.11 | 4.4.0-21-Generic till 4.4.0-91-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-32-generic |
 16.04 LTS | 9.12 | 4.4.0-21-Generic till 4.4.0-96-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-35-generic |
 16.04 LTS | 9.13 | 4.4.0-21-Generic till 4.4.0-104-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic |
-16.04 LTS | 9.14 | 4.4.0-21-Generic till 4.4.0-116-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-36-generic,<br/>4.11.0-1009-Azure till 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1011-azure |
+16.04 LTS | 9.14 | 4.4.0-21-Generic till 4.4.0-116-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-36-generic,<br/>4.11.0-1009-Azure till 4.11.0-1016-azure,<br/>4.13.0-1005-Azure till 4.13.0-1011-azure |
 
 
 ### <a name="debian-kernel-versions"></a>Debian kernel-versioner
@@ -155,7 +175,7 @@ Gästen/server multipath (MPIO) | Gäller inte
 **Komponent** | **Stöds**
 --- | ---
 Lokalt redundant lagring | Ja
-Geografiskt redundant lagring. | Ja
+Geografiskt redundant lagring | Ja
 Geo-redundant lagring med läsbehörighet | Ja
 Lågfrekvent | Nej
 Frekvent| Nej
@@ -171,7 +191,7 @@ Generella v2 storage-konton (både frekvent och lågfrekvent nivå) | Nej
 **Funktion** | **Stöds**
 --- | ---
 Tillgänglighetsuppsättningar | Ja
-HUB | Ja
+HUBBEN | Ja
 Hanterade diskar | Ja
 
 ## <a name="azure-vm-requirements"></a>Krav för Azure VM
@@ -181,7 +201,7 @@ Lokala virtuella datorer som du replikerar till Azure måste uppfylla kraven fö
 **Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
 Gästoperativsystemet | Kontrollera [operativsystem](#replicated machines). | Det går inte att kontrollera om stöds inte. 
-Gästen operativsystemets arkitektur | 64-bit. | Det går inte att kontrollera om stöds inte. 
+Gästen operativsystemets arkitektur | 64-bitars. | Det går inte att kontrollera om stöds inte. 
 Operativsystemdisken | Upp till 2 048 GB. | Det går inte att kontrollera om stöds inte. 
 Operativsystemet disk antal | 1 | Det går inte att kontrollera om stöds inte.  
 Datadiskar | 64 eller mindre. | Det går inte att kontrollera om stöds inte.  
@@ -201,12 +221,12 @@ Flytta valvet mellan resursgrupper<br/><br/> Inom och över prenumerationer | Ne
 Flytta lagring, nätverk, virtuella datorer i Azure över resursgrupper<br/><br/> Inom och över prenumerationer | Nej
 
 
-## <a name="mobility-service"></a>Mobility Service
+## <a name="mobility-service"></a>Mobilitetstjänsten
 
 **Namn** | **Beskrivning** | **senaste versionen** | **Detaljer**
 --- | --- | --- | --- | ---
 Azure Site Recovery enhetlig installation | Samordnar kommunikationen mellan lokala VMware-servrar och Azure <br/><br/> Installerad på lokal VMware-servrar | 9.12.4653.1 (tillgänglig från portalen) | [Senaste funktionerna och korrigeringarna](https://aka.ms/latest_asr_updates)
-Mobility Service | Samordnar replikering mellan lokala VMware-servrar/fysiska servrar och Azure/sekundär plats<br/><br/> Installerad på VMware VM eller fysiska servrar som du vill replikera | 9.12.4653.1 (tillgänglig från portalen) | [Senaste funktionerna och korrigeringarna](https://aka.ms/latest_asr_updates)
+Mobilitetstjänsten | Samordnar replikering mellan lokala VMware-servrar/fysiska servrar och Azure/sekundär plats<br/><br/> Installerad på VMware VM eller fysiska servrar som du vill replikera | 9.12.4653.1 (tillgänglig från portalen) | [Senaste funktionerna och korrigeringarna](https://aka.ms/latest_asr_updates)
 
 
 ## <a name="next-steps"></a>Nästa steg

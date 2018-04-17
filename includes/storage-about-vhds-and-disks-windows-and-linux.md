@@ -1,4 +1,19 @@
-
+---
+title: ta med fil
+description: ta med fil
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: b4d208ca28f6287489f104ba4e2ea9696e7a1f58
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="about-vhds"></a>Om virtuella hårddiskar
 
 De virtuella hårddiskarna i Azure är .vhd-filer som lagras som sidblobar i standard- eller premium-lagringskonton i Azure. Mer information om sidblobar finns [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/) (Förstå blockblobar och sidblobar). Mer information om premium-lagring finns i [High-performance premium storage and Azure VMs](../articles/virtual-machines/windows/premium-storage.md) (Premium-lagring och virtuella Azure-datorer med hög prestanda).
@@ -10,10 +25,10 @@ VHD-filer i Azure som du vill använda som källa för att skapa diskar eller av
 När du skapar en virtuell dator från en avbildning skapar Azure en disk för den virtuella datorn som är en kopia av .vhd-filen som används som källa. För att skydda dig mot att du råkar radera dem av misstag placerar Azure en livslängd på alla .vhd-filer som används som källor för att skapa en avbildning, en operativsystemdisk eller en datadisk.
 
 Innan du kan ta bort en .vhd-fil som används som källa måste du ta bort livslängden genom att ta bort disken eller avbildningen. Om du vill ta bort en .vhd-fil som används av en virtuell dator som en operativsystemdisk kan du ta bort den virtuella datorn, operativsystemdisken, och .vhd-filen som används som källa på en gång genom att ta bort den virtuella datorn och alla associerade diskar. Men det krävs att du genomför ett antal steg i en viss ordning för att ta bort en .vhd-fil som är en källa för en datadisk. Först kopplar du bort disken från den virtuella datorn, sedan tar du bort disken och sist tar du bort .vhd-filen.
-
 > [!WARNING]
 > Om du tar bort en .vhd-fil som används som källa från lagringen eller tar bort ditt lagringskonto kan Microsoft inte återställa dessa data åt dig.
 > 
+> Sidblobbar i Premium-lagring är avsedd för användning som virtuella hårddiskar endast. Microsoft rekommenderar inte lagra andra typer av data i sidblobbar i Premium Storage eftersom kostnaden kan vara betydligt större. Använd blockblobbar för att lagra data som inte är i en virtuell Hårddisk.
 
 ## <a name="types-of-disks"></a>Typer av diskar 
 
@@ -30,7 +45,7 @@ Mer information om hur du använder Standard Storage med VM-diskar finns i [Stan
 
 ### <a name="premium-storage"></a>Premium Storage 
 
-Premium Storage stöds av solid state-hårddiskar och levererar högpresterande disksupport med låg fördröjning för virtuella datorer som kör I/O-intensiva arbetsbelastningar. Du kan använda Premium-lagring med DS, DSv2, GS, Ls eller FS serien Azure virtuella datorer. Mer information finns i [Premium Storage](../articles/virtual-machines/windows/premium-storage.md).
+Premium Storage stöds av solid state-hårddiskar och levererar högpresterande disksupport med låg fördröjning för virtuella datorer som kör I/O-intensiva arbetsbelastningar. Vanligtvis kan du använda Premium-lagring med storlekar som innehåller ”s” i serienamn. Till exempel finns Dv3-serien och Dsv3-serien, Dsv3-serien kan användas med Premium-lagring.  Mer information finns i [Premium Storage](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Ohanterade diskar
 

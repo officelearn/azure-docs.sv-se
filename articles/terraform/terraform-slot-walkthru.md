@@ -1,33 +1,35 @@
 ---
-title: Terraform med Azure provider distributionsplatsen
-description: Terraform med vägledning fack Azure providern för distribution
+title: Terraform med distributionsplatser för Azure-providern
+description: Självstudiekurs om att använda Terraform med distributionsplatser för Azure-providern
 keywords: terraform, devops, virtuell dator, Azure, distributionsplatser
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 4/05/2018
 ms.topic: article
-ms.openlocfilehash: 34b16b5fb2b5b574d166693db346ebba15eaa1f9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3a018dbaf90801604b13efcf8bd7afb6dbc68659
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="using-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Använda Terraform för att etablera infrastruktur med Azure distributionsplatser
+# <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Använd Terraform för att etablera infrastruktur med Azure distributionsplatser
 
-[Azure distributionsplatser](/azure/app-service/web-sites-staged-publishing) gör att du kan växla mellan olika versioner av ditt program – till exempel produktion och mellanlagrings - att minimera effekten av bruten distributioner. Den här artikeln visar du använder distributionsplatser genom att guida dig genom distributionen av två appar via GitHub och Azure. En app finns i ”produktionsplatsen”, medan andra appen finns i en ”” mellanlagringsplatsen. (Namn ”produktion” och ”mellanlagring” är valfri och kan vara vad du vill använda som representerar ditt scenario.) När dina distributionsplatser har konfigurerats, kan du sedan använda Terraform för att växla mellan de två platserna efter behov.
+Du kan använda [Azure distributionsplatser](/azure/app-service/web-sites-staged-publishing) att växla mellan olika versioner av appen. Tack hjälper dig att minimera effekten av bruten distributioner. 
+
+Den här artikeln visar du använder distributionsplatser genom att guida dig genom distributionen av två appar via GitHub och Azure. En app finns i en produktionsplatsen. En mellanlagringsplatsen är värd för andra appen. (Namn ”produktion” och ”mellanlagring” är valfri och kan vara vad du vill använda som representerar ditt scenario.) Du kan använda Terraform för att växla mellan de två platserna efter behov när du har konfigurerat dina distributionsplatser.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- **Azure-prenumeration** - om du inte har en Azure-prenumeration, skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
+- **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
-- **GitHub-konto** – en [GitHub](http://www.github.com) konto krävs för att duplicera och Använd GitHub-repo-test.
+- **GitHub-konto**: du behöver en [GitHub](http://www.github.com) kontot för att duplicera och Använd GitHub-repo-test.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Skapa och använda Terraform planen
 
-1. Bläddra till den [Azure-portalen](http://portal.azure.com)
+1. Bläddra till den [Azure-portalen](http://portal.azure.com).
 
-1. Öppna [Azure Cloud Shell](/azure/cloud-shell/overview), och om inte gjort tidigare - väljer **Bash** som din miljö.
+1. Öppna [Azuremolnet Shell](/azure/cloud-shell/overview). Om du inte väljer en miljö tidigare väljer **Bash** som din miljö.
 
     ![Kommandotolken i molnet-gränssnittet](./media/terraform-slot-walkthru/azure-portal-cloud-shell-button-min.png)
 
@@ -49,7 +51,7 @@ ms.lasthandoff: 04/06/2018
     mkdir swap
     ```
 
-1. Kontrollera att båda katalogerna har skapats med hjälp av den `ls` bash kommando.
+1. Använd den `ls` bash-kommando för att kontrollera att du har skapat båda katalogerna.
 
     ![Molnet shell när du har skapat kataloger](./media/terraform-slot-walkthru/cloud-shell-after-creating-dirs.png)
 
@@ -59,18 +61,18 @@ ms.lasthandoff: 04/06/2018
     cd deploy
     ```
 
-1. Med hjälp av den [vi editor](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), skapa en fil med namnet `deploy.tf`, som innehåller den [Terraform configuration](https://www.terraform.io/docs/configuration/index.html).
+1. Med hjälp av den [vi editor](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), skapa en fil med namnet `deploy.tf`. Den här filen innehåller den [Terraform configuration](https://www.terraform.io/docs/configuration/index.html).
 
     ```bash
     vi deploy.tf
     ```
 
-1. Ange infogningsläge genom att trycka på bokstaven `i` nyckel.
+1. Ange infogningsläge genom att välja I nyckeln.
 
 1. Klistra in följande kod i Redigeraren för:
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     resource "azurerm_resource_group" "slotDemo" {
@@ -104,15 +106,15 @@ ms.lasthandoff: 04/06/2018
     }
     ```
 
-1. Tryck på den  **&lt;Esc >** för att avsluta infogningsläget.
+1. Välj på Esc för att avsluta infogningsläget.
 
-1. Spara filen och avsluta redigeraren vi genom att ange följande kommando, följt av trycka på  **&lt;RETUR >**:
+1. Spara filen och avsluta redigeraren vi genom att ange följande kommando:
 
     ```bash
     :wq
     ```
 
-1. När filen har skapats, kan du kontrollera dess innehåll.
+1. Nu när du har skapat filen kan kontrollera innehållet.
 
     ```bash
     cat deploy.tf
@@ -130,7 +132,7 @@ ms.lasthandoff: 04/06/2018
     terraform plan
     ```
 
-1. Tillhandahåller de resurser som definierats i den `deploy.tf` konfigurationsfilen. (Bekräfta åtgärden genom att ange `yes` i Kommandotolken.)
+1. Tillhandahåller de resurser som har definierats i den `deploy.tf` konfigurationsfilen. (Bekräfta åtgärden genom att ange `yes` i Kommandotolken.)
 
     ```bash
     terraform apply
@@ -138,15 +140,15 @@ ms.lasthandoff: 04/06/2018
 
 1. Stäng fönstret molnet Shell.
 
-1. Välj på Azure portal huvudmenyn **resursgrupper**.
+1. På huvudmenyn i Azure-portalen, Välj **resursgrupper**.
 
-    ![Azure-portalen resursgrupper](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
+    ![”Resursgrupper” val i portalen](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
 
 1. På den **resursgrupper** väljer **slotDemoResourceGroup**.
 
     ![Resursgruppen som skapats av Terraform](./media/terraform-slot-walkthru/resource-group.png)
 
-När du är klar kan du se alla resurser som skapats av Terraform.
+Du kan nu se alla resurser som Terraform har skapats.
 
 ![Resurser som skapats av Terraform](./media/terraform-slot-walkthru/resources.png)
 
@@ -156,7 +158,7 @@ Innan du kan testa att skapa och växla till och från respektive distributionsp
 
 1. Bläddra till den [helt otroligt terraform lagringsplatsen på GitHub](https://github.com/Azure/awesome-terraform).
 
-1. Förgrening den **helt otroligt terraform lagringsplatsen**.
+1. Förgrening den **helt otroligt terraform** lagringsplatsen.
 
     ![Duplicera helt otroligt terraform GitHub-repo](./media/terraform-slot-walkthru/fork-repo.png)
 
@@ -164,9 +166,9 @@ Innan du kan testa att skapa och växla till och från respektive distributionsp
 
 ## <a name="deploy-from-github-to-your-deployment-slots"></a>Distribuera från GitHub till dina distributionsplatser
 
-En gång förgrening test projektet lagringsplatsen, konfigurera distributionsplatser via följande steg:
+När du duplicera test projektet lagringsplatsen konfigurera distributionsplatser via följande steg:
 
-1. Välj på Azure portal huvudmenyn **resursgrupper**.
+1. På huvudmenyn i Azure-portalen, Välj **resursgrupper**.
 
 1. Välj **slotDemoResourceGroup**.
 
@@ -182,9 +184,9 @@ En gång förgrening test projektet lagringsplatsen, konfigurera distributionspl
 
 1. När Azure gör anslutningen och visar alla alternativ väljer **auktorisering**.
 
-1. På den **auktorisering** väljer **auktorisera**, och ange de autentiseringsuppgifter som krävs för Azure för att komma åt ditt GitHub-konto. 
+1. På den **auktorisering** väljer **auktorisera**, och ange autentiseringsuppgifter för Azure som behöver åtkomst till dina GitHub-konto. 
 
-1. När Azure verifierar dina GitHub-autentiseringsuppgifter, visas ett meddelande som anger att auktoriseringen har slutförts. Välj **OK** att stänga den **auktorisering** fliken.
+1. När Azure verifierar dina GitHub-autentiseringsuppgifter, visas ett meddelande och säger att auktoriseringen är klar. Välj **OK** att stänga den **auktorisering** fliken.
 
 1. Välj **välja din organisation** och välj din organisation.
 
@@ -204,19 +206,19 @@ En gång förgrening test projektet lagringsplatsen, konfigurera distributionspl
 
 Nu har du distribuerat produktionsplatsen. Om du vill distribuera mellanlagringsplatsen utför alla föregående steg i det här avsnittet med följande ändringar:
 
-- I steg 3, **slotAppServiceSlotOne** resurs.
+- I steg 3, väljer du den **slotAppServiceSlotOne** resurs.
 
-- Välj filialen som ”arbetar” i stället för mastergrenen i steg 13.
+- Välj arbetsgren i stället för mastergrenen i steg 13.
 
-    ![Välj fungerar gren](./media/terraform-slot-walkthru/choose-branch-working.png)
+    ![Välj arbetsgren](./media/terraform-slot-walkthru/choose-branch-working.png)
 
 ## <a name="test-the-app-deployments"></a>Testa appdistributioner
 
-I föregående avsnitt skapar du två fack - **slotAppService** och **slotAppServiceSlotOne** - om du vill distribuera från olika filialer i GitHub. Vi Förhandsgranska webbprogram för att verifiera att de har distribuerats.
+I föregående avsnitt skapar du två platser--**slotAppService** och **slotAppServiceSlotOne**--ska distribueras från olika filialer i GitHub. Vi Förhandsgranska webbprogram för att verifiera att de har distribuerats.
 
-Utför följande steg två gånger i steg 3 väljer du **slotAppService** första gången, och välj sedan **slotAppServiceSlotOne** den andra gången:
+Utför följande steg två gånger. I steg 3, väljer du **slotAppService** första gången, och välj sedan **slotAppServiceSlotOne** en andra gång.
 
-1. Välj på Azure portal huvudmenyn **resursgrupper**.
+1. På huvudmenyn i Azure-portalen, Välj **resursgrupper**.
 
 1. Välj **slotDemoResourceGroup**.
 
@@ -239,7 +241,7 @@ För den **slotAppService** webbapp som du ser en blå sida med en rubrik för *
 
 Om du vill testa växling två distributionsplatser, utför du följande steg:
  
-1. Gå till fliken webbläsaren körs **slotAppService** (app med blå sidan). 
+1. Gå till fliken webbläsare som körs **slotAppService** (app med blå sidan). 
 
 1. Gå tillbaka till Azure-portalen på en separat flik.
 
@@ -251,18 +253,18 @@ Om du vill testa växling två distributionsplatser, utför du följande steg:
     cd clouddrive/swap
     ```
 
-1. Med redigeraren vi skapa en fil med namnet `swap.tf`.
+1. Med hjälp av redigeraren vi skapa en fil med namnet `swap.tf`.
 
     ```bash
     vi swap.tf
     ```
 
-1. Ange infogningsläge genom att trycka på bokstaven `i` nyckel.
+1. Ange infogningsläge genom att välja I nyckeln.
 
 1. Klistra in följande kod i Redigeraren för:
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     # Swap the production slot and the staging slot
@@ -273,9 +275,9 @@ Om du vill testa växling två distributionsplatser, utför du följande steg:
     }
     ```
 
-1. Tryck på den  **&lt;Esc >** för att avsluta infogningsläget.
+1. Välj på Esc för att avsluta infogningsläget.
 
-1. Spara filen och avsluta redigeraren vi genom att ange följande kommando, följt av trycka på  **&lt;RETUR >**:
+1. Spara filen och avsluta redigeraren vi genom att ange följande kommando:
 
     ```bash
     :wq
@@ -293,22 +295,22 @@ Om du vill testa växling två distributionsplatser, utför du följande steg:
     terraform plan
     ```
 
-1. Tillhandahåller de resurser som definierats i den `swap.tf` konfigurationsfilen. (Bekräfta åtgärden genom att ange `yes` i Kommandotolken.)
+1. Tillhandahåller de resurser som har definierats i den `swap.tf` konfigurationsfilen. (Bekräfta åtgärden genom att ange `yes` i Kommandotolken.)
 
     ```bash
     terraform apply
     ```
 
-1. När Terraform har slutfört byta platser, gå tillbaka till webbläsaren som återges av **slotAppService** web app och uppdatera sidan. 
+1. När Terraform har slutförts byta platser, gå tillbaka till webbläsaren som återges av **slotAppService** web app och uppdatera sidan. 
 
-Webbappen i din **slotAppServiceSlotOne** mellanlagringsplatsen har bytts med produktionsplatsen och nu återgivningar grönt. 
+Webbappen i din **slotAppServiceSlotOne** mellanlagringsplatsen har bytts med produktionsplatsen och nu visas i grönt. 
 
 ![Distributionsplatser har bytts](./media/terraform-slot-walkthru/slots-swapped.png)
 
-Gå tillbaka till den ursprungliga produktionsversionen av appen genom att tillämpa Terraform planen som skapas från den `swap.tf` konfigurationsfilen.
+Gå tillbaka till den ursprungliga produktionsversionen av appen genom att tillämpa Terraform planen som du skapade från den `swap.tf` konfigurationsfilen.
 
 ```bash
 terraform apply
 ```
 
-När växlas, finns den ursprungliga konfigurationen.
+När appen växlas, visas den ursprungliga konfigurationen.

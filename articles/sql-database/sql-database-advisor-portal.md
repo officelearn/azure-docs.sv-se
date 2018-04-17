@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: a9b9bec4fd48c44ece9d762b539cd3d6e10c1858
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 92a7b46469bad56af2e08de98a1f79b4b8059eda
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och tillämpa rekommendationer
 
@@ -21,7 +21,7 @@ Du kan använda Azure-portalen för att hitta rekommendationer som kan optimera 
 
 ## <a name="viewing-recommendations"></a>Visa rekommendationer
 
-Om du vill visa och använda rekommendationer, behöver du rätt [rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-what-is.md) behörigheter i Azure. **Läsaren**, **SQL DB-deltagare** behörigheter som krävs för att visa rekommendationer och **ägare**, **SQL DB-deltagare** behörigheter som krävs för att utföra några åtgärder; Skapa eller drop index och avbryta skapandet av index.
+Om du vill visa och använda rekommendationer, behöver du rätt [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) behörigheter i Azure. **Läsaren**, **SQL DB-deltagare** behörigheter som krävs för att visa rekommendationer och **ägare**, **SQL DB-deltagare** behörigheter som krävs för att utföra några åtgärder; Skapa eller drop index och avbryta skapandet av index.
 
 Använd följande steg för att hitta rekommendationer på Azure-portalen:
 
@@ -154,5 +154,5 @@ Azure SQL-databasen innehåller rekommendationer för att förbättra prestanda 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 * [SKAPA INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-what-is.md)
+* [Rollbaserad åtkomstkontroll](../role-based-access-control/overview.md)
 

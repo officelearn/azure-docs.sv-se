@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 30f5fe83c46f2dbe1933e8347242be7fbb30a3e3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3c32b5ce90d4e5aafacb8211ff8f432bc3c78db8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-powershell"></a>Virtual machine-styrning med Azure PowerShell
 
@@ -43,15 +43,15 @@ Resursgruppen är för närvarande är tom.
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-Du vill kontrollera att användare i din organisation har rätt nivå av åtkomst till dessa resurser. Du vill inte bevilja obegränsad åtkomst till användare, men du måste också kontrollera att de kan utföra sitt arbete. [Rollbaserad åtkomstkontroll](../../active-directory/role-based-access-control-what-is.md) kan du hantera vilka användare som har behörighet att utföra specifika åtgärder på ett scope.
+Du vill kontrollera att användare i din organisation har rätt nivå av åtkomst till dessa resurser. Du vill inte bevilja obegränsad åtkomst till användare, men du måste också kontrollera att de kan utföra sitt arbete. [Rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md) kan du hantera vilka användare som har behörighet att utföra specifika åtgärder på ett scope.
 
 Om du vill skapa och ta bort rolltilldelningar, måste användarna ha `Microsoft.Authorization/roleAssignments/*` åtkomst. Den här komma åt via rollerna ägare eller administratör för användaråtkomst.
 
 Det finns tre resursspecifika roller som ger vanligtvis behövs åtkomst för att hantera virtuella lösningar:
 
-* [Virtual Machine-deltagare](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Nätverksdeltagare](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Storage-konto deltagare](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Virtual Machine-deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Nätverksdeltagare](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Storage-konto deltagare](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 I stället för att tilldela roller till enskilda användare, är det ofta lättare att [skapa en Azure Active Directory-grupp](../../active-directory/active-directory-groups-create-azure-portal.md) för användare som behöver vidta liknande åtgärder. Tilldela sedan den gruppen till rätt roll. För att förenkla den här artikeln kan skapa du en Azure Active Directory-grupp utan medlemmar. Du kan fortfarande tilldela den här gruppen till en roll för ett omfång. 
 

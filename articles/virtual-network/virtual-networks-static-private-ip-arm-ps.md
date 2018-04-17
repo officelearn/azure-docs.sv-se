@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera privata IP-adresser för virtuella datorer – Azure PowerShell | Microsoft Docs"
-description: "Lär dig hur du konfigurerar den privata IP-adresser för virtuella datorer med hjälp av PowerShell."
+title: Konfigurera privata IP-adresser för virtuella datorer – Azure PowerShell | Microsoft Docs
+description: Lär dig hur du konfigurerar den privata IP-adresser för virtuella datorer med hjälp av PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8727318c9dff79b795b473caf7b778272134726c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b0e8153f1d0cecd4efe66dc7cce64addd6ed62aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>Konfigurera privat IP-adresser för en virtuell dator med hjälp av PowerShell
 
@@ -68,7 +68,7 @@ Skapa en virtuell dator med namnet *DNS01* i den *klientdel* undernätet i ett V
     -PrivateIpAddress 192.168.1.101
     ```
 
-5. Skapa den virtuella datorn med hjälp av NIC skapade ovan.
+5. Skapa den virtuella datorn med nätverkskortet:
 
     ```powershell
     $vm = New-AzureRmVMConfig -VMName DNS01 -VMSize "Standard_A1"
@@ -83,16 +83,7 @@ Skapa en virtuell dator med namnet *DNS01* i den *klientdel* undernätet i ett V
     New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm 
     ```
 
-    Förväntad utdata:
-    
-        EndTime             : [Date and time]
-        Error               : 
-        Output              : 
-        StartTime           : [Date and time]
-        Status              : Succeeded
-        TrackingOperationId : [Id]
-        RequestId           : [Id]
-        StatusCode          : OK 
+Vi rekommenderar att du inte statiskt tilldelar privata IP-Adressen som tilldelats den virtuella Azure-datorn i operativsystemet på en virtuell dator, om nödvändigt, t.ex när [tilldela flera IP-adresser till en Windows-VM](virtual-network-multiple-ip-addresses-powershell.md). Om du manuellt anger den privata IP-adressen i operativsystemet, kontrollera att det är samma adress som den privata IP-adress som tilldelats i Azure [nätverksgränssnittet](virtual-network-network-interface-addresses.md#change-ip-address-settings), eller du kan förlora anslutningen till den virtuella datorn. Lär dig mer om [privata IP-adressen](virtual-network-network-interface-addresses.md#private) inställningar. Du bör aldrig manuellt tilldela den offentliga IP-adress som tilldelats en virtuell Azure-dator i den virtuella datorns operativsystem.
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-network-interface"></a>Hämta statisk privat IP-adressinformation för ett nätverksgränssnitt
 Kör följande PowerShell-kommando för att visa statisk privat IP-adressinformation för den virtuella datorn skapas med skriptet ovan, och notera att värdena för *PrivateIpAddress* och *PrivateIpAllocationMethod*:
@@ -199,6 +190,9 @@ $nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
 $nic.IpConfigurations[0].PrivateIpAddress = "192.168.1.101"
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
+
+Vi rekommenderar att du inte statiskt tilldelar privata IP-Adressen som tilldelats den virtuella Azure-datorn i operativsystemet på en virtuell dator, om nödvändigt, t.ex när [tilldela flera IP-adresser till en Windows-VM](virtual-network-multiple-ip-addresses-powershell.md). Om du manuellt anger den privata IP-adressen i operativsystemet, kontrollera att det är samma adress som den privata IP-adress som tilldelats i Azure [nätverksgränssnittet](virtual-network-network-interface-addresses.md#change-ip-address-settings), eller du kan förlora anslutningen till den virtuella datorn. Lär dig mer om [privata IP-adressen](virtual-network-network-interface-addresses.md#private) inställningar. Du bör aldrig manuellt tilldela den offentliga IP-adress som tilldelats en virtuell Azure-dator i den virtuella datorns operativsystem.
+
 ## <a name="change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>Ändra allokeringsmetod för en privat IP-adress till ett nätverksgränssnitt
 
 En privat IP-adress har tilldelats ett nätverkskort med statisk eller dynamisk tilldelningsmetod. Dynamiska IP-adresser kan ändra när du har startat en virtuell dator som tidigare var i tillståndet Stoppad (frigjord). Detta kan orsaka problem om den virtuella datorn är värd för en tjänst som behöver samma IP-adress, även efter omstart från en stoppats (frigjorts). Statiska IP-adresser behålls tills den virtuella datorn tas bort. Om du vill ändra allokeringsmetod för en IP-adress, kör du följande skript, som ändrar allokeringsmetoden från dynamisk till statisk. Om allokeringsmetoden för den aktuella privata IP-adressen är statisk, ändra *Statiska* till *dynamiska* innan du kör skriptet.
@@ -222,7 +216,5 @@ Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.Provisioni
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [reserverade offentliga IP-Adressen](virtual-networks-reserved-public-ip.md) adresser.
-* Lär dig mer om [instansnivå offentliga IP-går](virtual-networks-instance-level-public-ip.md) adresser.
-* Läs den [reserverade IP-REST API: er](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
+Lär dig mer om hur du hanterar [IP-adressinställningarna](virtual-network-network-interface-addresses.md).

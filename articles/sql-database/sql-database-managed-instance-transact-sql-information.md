@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 04/10/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b633c3c4a4f476cb8e89afde8adeb94558643d4b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0fe0b5d3120833b8472fcdaee366a5d1f2818600
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database hanteras instans T-SQL-skillnader från SQL Server 
 
@@ -239,7 +239,7 @@ Mer information finns i [FILESTREAM](https://docs.microsoft.com/sql/relational-d
 ### <a name="linked-servers"></a>Länkade servrar
  
 Länkade servrar i hanterade instans stöder begränsat antal mål: 
-- Mål som stöds: SQLServer, SQL-databas, hanterade-instans och SQL Server på en virtuell dator.
+- Mål som stöds: SQLServer och SQL-databas
 - Mål som inte stöds: filer, Analysis Services och andra RDBMS.
 
 Åtgärder
@@ -419,4 +419,4 @@ Det kan finnas en enda database mail-profilen och måste anropas `AzureManagedIn
 
 - Mer information om hanterade instansen finns [vad är en hanterad instans?](sql-database-managed-instance.md)
 - För en funktioner och jämförelse lista, se [SQL vanliga funktioner](sql-database-features.md).
-- En självstudiekurs finns [skapa en instans för hanterade](sql-database-managed-instance-tutorial-portal.md).
+- En självstudiekurs visar hur du skapar en ny instans av hanterade finns [att skapa en instans för hanterade](sql-database-managed-instance-create-tutorial-portal.md).

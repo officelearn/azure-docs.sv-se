@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/18/2018
-ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 5316efb54a12b5ad057d5a0561f36efdfff30884
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: devtiw
+ms.openlocfilehash: cb523b4fbf6e8abdf5c5158ab041d3485add9b23
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk Encryption vanliga frågor och svar
 
@@ -65,7 +65,7 @@ Azure Disk Encryption stöds på följande Linux-server-distributioner och versi
 | SLES | 12 SP1 | Datadisk |
 | SLES | Prioritet: 12-SP1 | Datadisk |
 | SLES | HPC 12 | Datadisk |
-| SLES | Priority:11-SP4 | Datadisk |
+| SLES | Prioritet: 11-SP4 | Datadisk |
 | SLES | 11 SP4 | Datadisk |
 
 *__ADE stöds för RHEL för datadisk. Den aktuella implementeringen ADE fungerar för OS-disken, men stöds inte för närvarande tillsammans. Både Microsoft och Red Hat arbetar på en lösning som gemensamt stöds. Under tiden kan du referera ADE vitboken för Linux OS-diskkryptering [här](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__

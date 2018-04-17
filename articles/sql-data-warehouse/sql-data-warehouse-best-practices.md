@@ -1,27 +1,23 @@
 ---
 title: Metodtips för Azure SQL Data Warehouse | Microsoft Docs
-description: Rekommendationer och metodtips som du bör känna till när du utvecklar lösningar för Azure SQL Data Warehouse. De hjälper dig att lyckas!
+description: Rekommendationer och metodtips som du bör känna till när du utvecklar lösningar för Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 03/15/2018
-ms.author: barbkess
-ms.openlocfilehash: 53ad9f654c498f562d66de461a2a489895d0a46b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
-ms.translationtype: HT
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 7c5eb4d2176e12874a4fd7be8c29f4ce6ffe17ba
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Metodtips för Azure SQL Data Warehouse
-Den här artikeln innehåller en samling metodtips som hjälper dig att uppnå optimala prestanda med Azure SQL Data Warehouse.  Vissa begrepp i artikeln är grundläggande och enkla att förklara. Andra begrepp är mer avancerade och vi kommer bara att skrapa på ytan i den här artikeln.  Avsikten med den här artikeln är att ge dig grundläggande vägledning och att göra dig uppmärksam på viktiga områden som du bör fokusera på när du skapar ditt informationslager.  Varje avsnitt innehåller en introduktion till ett begrepp och hänvisar till mer detaljerade artiklar som beskriver begreppet i mer detalj.
+Den här artikeln är en samling metodtips som hjälper dig att uppnå optimal prestanda från din Azure SQL Data Warehouse.  Vissa begrepp i artikeln är grundläggande och enkla att förklara. Andra begrepp är mer avancerade och vi kommer bara att skrapa på ytan i den här artikeln.  Avsikten med den här artikeln är att ge dig grundläggande vägledning och att göra dig uppmärksam på viktiga områden som du bör fokusera på när du skapar ditt informationslager.  Varje avsnitt innehåller en introduktion till ett begrepp och hänvisar till mer detaljerade artiklar som beskriver begreppet i mer detalj.
 
 Om du precis har satt igång med Azure SQL Data Warehouse kan artikeln kännas överväldigande, men oroa dig inte.  Avsnitten är i hög grad ordnade efter hur viktiga de är.  Om du börjar med att fokusera på några av de första begreppen så är det en bra start.  När du är mer van vid att använda SQL Data Warehouse kan du komma tillbaka och studera fler begrepp.  Det tar inte lång tid innan allt faller på plats.
 
@@ -52,7 +48,7 @@ Se även [Load data][Load data] (Läsa in data), [Guide for using PolyBase][Guid
 Se även [Guide for using PolyBase][Guide for using PolyBase] (Guide för att använda PolyBase)
 
 ## <a name="hash-distribute-large-tables"></a>Hash-distribuera stora tabeller
-Tabeller distribueras som standard med resursallokering (Round Robin).  Detta gör det enkelt för användarna att börja skapa tabeller utan att de behöver bestämma hur tabellerna ska distribueras.  Resursallokeringstabeller kan prestera bra för vissa arbetsbelastningar, men i de flesta fall blir prestanda bättre om du väljer en distributionskolumn.  Det vanligaste exemplet på när en tabell som distribueras med en kolumn presterar avsevärt mycket bättre än en resursallokeringstabell är när två stora faktatabeller kopplas.  Om du till exempel har en ordertabell, som distribueras efter order_id, och en transaktionstabell, som också distribueras efter order_id, och du kopplar ordertabellen till transaktionstabellen baserat på order_id, så blir den här frågan en direktfråga, vilket innebär att vi eliminerar dataflyttningsåtgärder.  Färre steg innebär en snabbare fråga.  Mindre dataflyttning gör också att frågor körs snabbare.  Den här förklaringen skrapar bara på ytan. När du läser in en distribuerad tabell ser du till att inkommande data inte sorteras baserat på distributionsnyckeln eftersom det gör att inläsningarna tar längre tid.  På länkarna nedan hittar du mycket mer information om hur du kan förbättra prestanda genom att välja en distributionskolumn, samt information om hur du definierar en distribuerad tabell i WITH-satsen för CREATE TABLES-instruktionen.
+Tabeller distribueras som standard med resursallokering (Round Robin).  Detta gör det enkelt för användarna att börja skapa tabeller utan att de behöver bestämma hur tabellerna ska distribueras.  Resursallokeringstabeller kan prestera bra för vissa arbetsbelastningar, men i de flesta fall blir prestanda bättre om du väljer en distributionskolumn.  Det vanligaste exemplet på när en tabell som distribueras med en kolumn presterar avsevärt mycket bättre än en resursallokeringstabell är när två stora faktatabeller kopplas.  Om du till exempel har en ordertabell, som distribueras efter order_id, och en transaktionstabell, som också distribueras efter order_id, och du kopplar ordertabellen till transaktionstabellen baserat på order_id, så blir den här frågan en direktfråga, vilket innebär att vi eliminerar dataflyttningsåtgärder.  Färre steg innebär en snabbare fråga.  Mindre dataflyttning gör också att frågor körs snabbare.  Denna förklaring scratches endast ytan. När du läser in en distribuerad tabell ser du till att inkommande data inte sorteras baserat på distributionsnyckeln eftersom det gör att inläsningarna tar längre tid.  På länkarna nedan hittar du mycket mer information om hur du kan förbättra prestanda genom att välja en distributionskolumn, samt information om hur du definierar en distribuerad tabell i WITH-satsen för CREATE TABLES-instruktionen.
 
 Se även [Table overview][Table overview] (Tabellöversikt), [Table distribution][Table distribution] (Tabelldistribution), [Selecting table distribution][Selecting table distribution] (Välja tabelldistribution), [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
@@ -77,7 +73,7 @@ När du tillfälligt hanterar data i SQL Data Warehouse kan processen gå snabba
 Se även [Temporary tables][Temporary tables] (Temporära tabeller), [CREATE TABLE][CREATE TABLE] och [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
 ## <a name="optimize-clustered-columnstore-tables"></a>Optimera grupperade columnstore-tabeller
-Grupperade columnstore-index är ett av de mest effektiva sätten att lagra data i SQL Data Warehouse.  Som standard skapas tabeller i SQL Data Warehouse som grupperade ColumnStore-tabeller.  Det är viktigt att segmentkvaliteten är bra för att uppnå bästa prestanda med frågor mot columnstore-tabeller.  När rader skrivs till columnstore-tabeller när minnet är hårt belastat, kan columnstore-segmentens kvalitet påverkas.  Segmentkvaliteten kan mätas utifrån antalet rader i en komprimerad radgrupp.  Stegvisa anvisningar för hur du identifierar och förbättrar segmentkvaliteten för grupperade columnstore-tabeller finns i avsnittet [Causes of poor columnstore index quality][Causes of poor columnstore index quality] (Orsaker till låg columnstore-indexkvalitet) i artikeln [Table indexes][Table indexes] (Tabellindex).  Eftersom det är viktigt att columnstore-segmenten har hög kvalitet är det en bra idé att använda användar-ID:n som finns i den medelstora eller stora resursklassen för inläsning av data. Om du använder lägre [servicenivåer](performance-tiers.md#service-levels) så vill du tilldela en större resursklass till användaren som läser in.
+Grupperade columnstore-index är ett av de mest effektiva sätten att lagra data i SQL Data Warehouse.  Som standard skapas tabeller i SQL Data Warehouse som grupperade ColumnStore-tabeller.  Det är viktigt att segmentkvaliteten är bra för att uppnå bästa prestanda med frågor mot columnstore-tabeller.  När rader skrivs till columnstore-tabeller när minnet är hårt belastat, kan columnstore-segmentens kvalitet påverkas.  Segmentkvaliteten kan mätas utifrån antalet rader i en komprimerad radgrupp.  Stegvisa anvisningar för hur du identifierar och förbättrar segmentkvaliteten för grupperade columnstore-tabeller finns i avsnittet [Causes of poor columnstore index quality][Causes of poor columnstore index quality] (Orsaker till låg columnstore-indexkvalitet) i artikeln [Table indexes][Table indexes] (Tabellindex).  Eftersom hög kvalitet columnstore segment är viktiga, är det en bra idé att använda användare ID: N som är i medelstora eller stora resursklassen för inläsning av data. Med lägre [datalager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) innebär att du vill tilldela användaren läser in en större resursklassen.
 
 Eftersom columnstore-tabeller normalt inte skickar data till ett komprimerat columnstore-segment förrän det finns fler än 1 miljon rader per tabell och varje SQL Data Warehouse-tabell har partitionerats i 60 tabeller, så är tumregeln att columnstore-tabeller inte har nytta av en fråga om tabellen innehåller färre än 60 miljoner rader.  För tabeller med färre än 60 miljoner rader kanske det inte tjänar något till att ha ett columnstore-index.  Men det skadar inte heller.  Om du partitionerar data bör du dessutom tänka på att varje partition måste innehålla 1 miljon rader för att kunna dra nytta av ett grupperat columnstore-index.  Om en tabell har 100 partitioner måste den innehålla minst 6 miljarder rader för att ha nytta av ett arkiv med grupperade kolumner (60 distributioner * 100 partitioner * 1 miljoner rader).  Om din tabell inte innehåller 6 miljarder rader i det här exemplet minskar du antalet partitioner eller överväger att använda en heap-tabell i stället.  Det kan också vara värt att experimentera och se om du kan förbättra prestanda med en heap-tabell med sekundära index i stället för en columnstore-tabell.
 
@@ -103,7 +99,7 @@ Se även [Monitor your workload using DMVs][Monitor your workload using DMVs] (�
 ## <a name="other-resources"></a>Andra resurser
 Information om vanliga problem och lösningar finns i vår [felsökningsartikel][Troubleshooting].
 
-Om du inte hittar det du letar efter i den här artikeln provar du att använda ”Sök efter dokument” till vänster på den här sidan för att söka igenom alla Azure SQL Data Warehouse-dokument.  [Azure SQL Data Warehouse-forumet på MSDN][Azure SQL Data Warehouse MSDN Forum] är en plats där du kan ställa frågor till andra användare och till SQL Data Warehouse-produktgruppen.  Vi övervakar aktivt detta forum för att kontrollera att dina frågor besvaras antingen av en annan användare eller av någon av oss.  Om du föredrar att ställa dina frågor i Stack Overflow finns det även ett [Stack Overflow-forum för Azure SQL Data Warehouse][Azure SQL Data Warehouse Stack Overflow Forum].
+Om du inte hittar det du letar efter i den här artikeln provar du att använda ”Sök efter dokument” till vänster på den här sidan för att söka igenom alla Azure SQL Data Warehouse-dokument.  Den [Azure SQL Data Warehouse-forumet] [ Azure SQL Data Warehouse MSDN Forum] är en plats för att ställa frågor till SQL Data Warehouse-produktgruppen och andra användare.  Vi övervakar aktivt detta forum för att kontrollera att dina frågor besvaras antingen av en annan användare eller av någon av oss.  Om du föredrar att ställa dina frågor i Stack Overflow finns det även ett [Stack Overflow-forum för Azure SQL Data Warehouse][Azure SQL Data Warehouse Stack Overflow Forum].
 
 Avslutningsvis ber vi dig att använda sidan för [Azure SQL Data Warehouse-feedback][Azure SQL Data Warehouse Feedback] om du har önskemål om nya funktioner.  Genom att skicka in dina egna önskemål eller rösta fram andras förfrågningar hjälper du oss att prioritera funktioner.
 
@@ -124,9 +120,9 @@ Avslutningsvis ber vi dig att använda sidan för [Azure SQL Data Warehouse-feed
 [Guide for using PolyBase]: ./guidance-for-loading-data.md
 [Load data]: ./design-elt-data-loading.md
 [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
-[Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
+[Load data with Azure Data Factory]: ../data-factory/load-azure-sql-data-warehouse.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
-[Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with PolyBase]: ./load-data-wideworldimportersdw.md
 [Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
 [Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk

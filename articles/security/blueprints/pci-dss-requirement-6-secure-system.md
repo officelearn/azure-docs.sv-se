@@ -1,5 +1,5 @@
 ---
-title: "Azure betalning bearbetning modell - säker systemkrav"
+title: Azure betalning bearbetning modell - säker systemkrav
 description: PCI DSS krav 6
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 24c8d90d3fec27258165472e99ba3d36ffcba733
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: cd9054afc359d7568fcd08f983f374e0b2bc3792
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-system-requirements-for-pci-dss-compliant-environments"></a>Säker systemkrav för PCI DSS-kompatibel miljöer 
 ## <a name="pci-dss-requirement-6"></a>PCI DSS krav 6
@@ -46,8 +46,8 @@ Skrupelfria personer använder säkerhetsproblem för att få privilegierad åtk
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Procedurer har upprättats och genomförs för att söka efter säkerhetsproblem i hypervisor-värdar i scope-gräns. Säkerhetsproblem genomsökning utförs på server-operativsystem, databaser och nätverksenheter med lämpliga säkerhetsrisken genomsökning verktyg. Sårbarhetsgenomsökningar utförs på kvartalsbasis som minimum. Microsoft Azure-kontrakt med oberoende experter att utföra intrång tester för Microsoft Azure-gräns. Röd Team övningarna utförs även regelbundet och resultat som används för att göra förbättringar av säkerhet. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore minskar risken för säkerhetsproblem med hjälp av en Programgateway med Brandvägg och OWASP RuleSet-metod aktiverad. Mer information finns i [PCI - vägledning för minskning av Risk säkerhetsproblem](payment-processing-blueprint.md#application-gateway).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Procedurer har upprättats och genomförs för att söka efter säkerhetsproblem i hypervisor-värdar i scope-gräns. Säkerhetsproblem genomsökning utförs på server-operativsystem, databaser och nätverksenheter med lämpliga säkerhetsrisken genomsökning verktyg. Sårbarhetsgenomsökningar utförs på kvartalsbasis som minimum. Microsoft Azure-kontrakt med oberoende experter att utföra intrång tester för Microsoft Azure-gräns. Röd Team övningarna utförs även regelbundet och resultat som används för att göra förbättringar av säkerhet. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore minskar risken för säkerhetsproblem med hjälp av en Programgateway med Brandvägg och OWASP RuleSet-metod aktiverad. Mer information finns i [PCI - vägledning för minskning av Risk säkerhetsproblem](payment-processing-blueprint.md#application-gateway).|
 
 
 
@@ -62,8 +62,8 @@ Skrupelfria personer använder säkerhetsproblem för att få privilegierad åtk
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure är ansvarig för alla nätverksenheter och hypervisor OS programvaran skyddas mot kända säkerhetsrisker genom att installera tillämpliga från leverantören säkerhetskorrigeringar. Om en kund begär att inte använda tjänsten, finns en process för hantering av korrigering för att säkerställa att operativsystemet nivån säkerhetsrisker förhindrade och reparerade inom rimlig tid. Produktionsservrar genomsöks för att validera korrigering efterlevnad månadsvis. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore är en lösning för PaaS-tjänsten. Azure tillhandahåller underhåll av alla service Pack.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure är ansvarig för alla nätverksenheter och hypervisor OS programvaran skyddas mot kända säkerhetsrisker genom att installera tillämpliga från leverantören säkerhetskorrigeringar. Om en kund begär att inte använda tjänsten, finns en process för hantering av korrigering för att säkerställa att operativsystemet nivån säkerhetsrisker förhindrade och reparerade inom rimlig tid. Produktionsservrar genomsöks för att validera korrigering efterlevnad månadsvis. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore är en lösning för PaaS-tjänsten. Azure tillhandahåller underhåll av alla service Pack.|
 
 
 
@@ -81,8 +81,8 @@ Skrupelfria personer använder säkerhetsproblem för att få privilegierad åtk
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure-program och slutpunkter utvecklas i enlighet med den metod som Microsoft Security Development Lifecycle (SDL) som inte motsvarar DSS krav. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore har utformats för att följa branschens bästa praxis för att skydda CHD. Vägledning för distribution innehåller information om säkerhet meassures och loggning är aktiverat.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure-program och slutpunkter utvecklas i enlighet med den metod som Microsoft Security Development Lifecycle (SDL) som inte motsvarar DSS krav. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore har utformats för att följa branschens bästa praxis för att skydda CHD. Vägledning för distribution innehåller information om säkerhet meassures och loggning är aktiverat.|
 
 
 
@@ -94,8 +94,8 @@ Skrupelfria personer använder säkerhetsproblem för att få privilegierad åtk
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | En slutlig säkerhet granska (FSR) utförs för större versioner före Produktionsdistribution av en avsedda Security Advisor utanför Azure Utvecklingsteamet så bara program som är redo för produktion släpps. Som en del av den här slutgiltiga granska säkerställer att alla testkonton och testdata har tagits bort. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore är en fristående tjänst som är inloggade och isolerat. Varje nätverk nivåer har en dedikerad nätverkssäkerhetsgrupp [NSG]. Mer information finns i [PCI - vägledning för Nätverkssäkerhetsgrupper](payment-processing-blueprint.md#network-security-groups).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | En slutlig säkerhet granska (FSR) utförs för större versioner före Produktionsdistribution av en avsedda Security Advisor utanför Azure Utvecklingsteamet så bara program som är redo för produktion släpps. Som en del av den här slutgiltiga granska säkerställer att alla testkonton och testdata har tagits bort. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore är en fristående tjänst som är inloggade och isolerat. Varje nätverk nivåer har en dedikerad nätverkssäkerhetsgrupp [NSG]. Mer information finns i [PCI - vägledning för Nätverkssäkerhetsgrupper](payment-processing-blueprint.md#network-security-groups).|
 
 
 
@@ -116,8 +116,8 @@ Skrupelfria personer använder säkerhetsproblem för att få privilegierad åtk
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure-program och slutpunkter utvecklas i enlighet med metoden som Microsoft Security Development Lifecycle (SDL). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore är en fristående tjänst som är inloggade och isolerat. Varje nätverk nivåer har en dedikerad nätverkssäkerhetsgrupp [NSG]. Mer information finns i [PCI - vägledning för Nätverkssäkerhetsgrupper](payment-processing-blueprint.md#network-security-groups).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure-program och slutpunkter utvecklas i enlighet med metoden som Microsoft Security Development Lifecycle (SDL). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore är en fristående tjänst som är inloggade och isolerat. Varje nätverk nivåer har en dedikerad nätverkssäkerhetsgrupp [NSG]. Mer information finns i [PCI - vägledning för Nätverkssäkerhetsgrupper](payment-processing-blueprint.md#network-security-groups).|
 
 
 
@@ -129,8 +129,8 @@ Skrupelfria personer använder säkerhetsproblem för att få privilegierad åtk
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft följer NIST vägledning om säkerhetsaspekter i programvaruutveckling i den informationssäkerheten integreras i SDLC från system starten. Kontinuerlig integration av säkerhetspraxis i Microsoft-SDL kan:<ul><li>Tidig identifiering och minskning av säkerhetsproblem och felaktig konfiguration</li><li>Medvetenhet om potentiella programvara kodning utmaningar som orsakas av säkerhetsåtgärder som krävs</li><li>Identifiering av delade tjänster och återanvändning av bästa praxis säkerhetsverktyg för vilket förbättrar säkerhetstillståndet via beprövade metoder och tekniker</li><li>Tillämpning av Microsofts redan omfattande risk management-program</li></ul>Microsoft Azure har upprättat ändringen och släpp hanteringsprocesser att styra implementering av större ändringar, inklusive:<ul><li>I dokumentationen för planerad och identifiering</li><li>Identifiering av affärsmål, prioritet och scenarier vid produktplanering</li><li>Specificering av funktionen/komponent design</li><li>Operativ beredskap granska baserat på en fördefinierad kriterier/checklista att utvärdera övergripande risk effekter</li><li>Testar, auktorisering och ändringshantering baserat på kriterier för in-/ utgång för utveckling (utveckling), INT (Integreringstestning), steg (Förproduktion) och PRODUKTPRENUMERATION (produktion) miljöer efter behov. Kunder ansvarar för sina egna program som finns i Microsoft Azure.</li></ul> |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore demo är en fristående tjänst som är inloggade och isolerat. <br /><br />Varje nätverk nivåer har en dedikerad nätverkssäkerhetsgrupp [NSG]. Mer information finns i [PCI - vägledning för Nätverkssäkerhetsgrupper](payment-processing-blueprint.md#network-security-groups).<br /><br />Ändringar loggas med Operations Management Suite och Runbooks som används för att samla in loggar. [Operations Management Suite (OMS)](/azure/operations-management-suite/) innehåller utförlig loggning av ändringar. Ändringar kan granskas och verifiera noggrannhet. Mer specifika anvisningar finns [PCI - vägledning för Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft följer NIST vägledning om säkerhetsaspekter i programvaruutveckling i den informationssäkerheten integreras i SDLC från system starten. Kontinuerlig integration av säkerhetspraxis i Microsoft-SDL kan:<ul><li>Tidig identifiering och minskning av säkerhetsproblem och felaktig konfiguration</li><li>Medvetenhet om potentiella programvara kodning utmaningar som orsakas av säkerhetsåtgärder som krävs</li><li>Identifiering av delade tjänster och återanvändning av bästa praxis säkerhetsverktyg för vilket förbättrar säkerhetstillståndet via beprövade metoder och tekniker</li><li>Tillämpning av Microsofts redan omfattande risk management-program</li></ul>Microsoft Azure har upprättat ändringen och släpp hanteringsprocesser att styra implementering av större ändringar, inklusive:<ul><li>I dokumentationen för planerad och identifiering</li><li>Identifiering av affärsmål, prioritet och scenarier vid produktplanering</li><li>Specificering av funktionen/komponent design</li><li>Operativ beredskap granska baserat på en fördefinierad kriterier/checklista att utvärdera övergripande risk effekter</li><li>Testar, auktorisering och ändringshantering baserat på kriterier för in-/ utgång för utveckling (utveckling), INT (Integreringstestning), steg (Förproduktion) och PRODUKTPRENUMERATION (produktion) miljöer efter behov. Kunder ansvarar för sina egna program som finns i Microsoft Azure.</li></ul> |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore demo är en fristående tjänst som är inloggade och isolerat. <br /><br />Varje nätverk nivåer har en dedikerad nätverkssäkerhetsgrupp [NSG]. Mer information finns i [PCI - vägledning för Nätverkssäkerhetsgrupper](payment-processing-blueprint.md#network-security-groups).<br /><br />Ändringar loggas med Operations Management Suite och Runbooks som används för att samla in loggar. Logganalys innehåller utförlig loggning av ändringar. Ändringar kan granskas och verifiera noggrannhet. Mer specifika anvisningar finns [PCI - vägledning för Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -142,8 +142,8 @@ Skrupelfria personer använder säkerhetsproblem för att få privilegierad åtk
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 6.4](#pci-dss-requirement-6-4). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore är en fristående tjänst som är inloggade och isolerat. Varje nätverk nivåer har en dedikerad nätverkssäkerhetsgrupp [NSG]. Mer information finns i [PCI - vägledning för Nätverkssäkerhetsgrupper](payment-processing-blueprint.md#network-security-groups).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 6.4](#pci-dss-requirement-6-4). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore är en fristående tjänst som är inloggade och isolerat. Varje nätverk nivåer har en dedikerad nätverkssäkerhetsgrupp [NSG]. Mer information finns i [PCI - vägledning för Nätverkssäkerhetsgrupper](payment-processing-blueprint.md#network-security-groups).|
 
 
 
@@ -155,8 +155,8 @@ Skrupelfria personer använder säkerhetsproblem för att få privilegierad åtk
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 6.4](#pci-dss-requirement-6-4). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore är en fristående tjänst som är inloggade och isolerat. Varje nätverk nivåer har en dedikerad nätverkssäkerhetsgrupp [NSG]. Mer information finns i [PCI - vägledning för Nätverkssäkerhetsgrupper](payment-processing-blueprint.md#network-security-groups).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 6.4](#pci-dss-requirement-6-4). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore är en fristående tjänst som är inloggade och isolerat. Varje nätverk nivåer har en dedikerad nätverkssäkerhetsgrupp [NSG]. Mer information finns i [PCI - vägledning för Nätverkssäkerhetsgrupper](payment-processing-blueprint.md#network-security-groups).|
 
 
 
@@ -168,8 +168,8 @@ Skrupelfria personer använder säkerhetsproblem för att få privilegierad åtk
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 6.4](#pci-dss-requirement-6-4). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore inte har någon realtidsdata primära konto-nummer (PANORERA).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 6.4](#pci-dss-requirement-6-4). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore inte har någon realtidsdata primära konto-nummer (PANORERA).|
 
 
 
@@ -181,8 +181,8 @@ Skrupelfria personer använder säkerhetsproblem för att få privilegierad åtk
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 6.4](#pci-dss-requirement-6-4). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore har inte några testkonton.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 6.4](#pci-dss-requirement-6-4). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore har inte några testkonton.|
 
 
 
@@ -198,8 +198,8 @@ Skrupelfria personer använder säkerhetsproblem för att få privilegierad åtk
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 6.4](#pci-dss-requirement-6-4). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore är en lösning för PaaS-tjänsten. Och Azure tillhandahåller underhåll av alla service Pack.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 6.4](#pci-dss-requirement-6-4). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore är en lösning för PaaS-tjänsten. Och Azure tillhandahåller underhåll av alla service Pack.|
 
 
 
@@ -215,8 +215,8 @@ Skrupelfria personer använder säkerhetsproblem för att få privilegierad åtk
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 6.4](#pci-dss-requirement-6-4). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore är en lösning för PaaS-tjänsten. Och Azure tillhandahåller underhåll av alla service Pack.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 6.4](#pci-dss-requirement-6-4). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore är en lösning för PaaS-tjänsten. Och Azure tillhandahåller underhåll av alla service Pack.|
 
 
 
@@ -247,8 +247,8 @@ Skrupelfria personer använder säkerhetsproblem för att få privilegierad åtk
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 6.4](#pci-dss-requirement-6-4). |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore demo vägledning till säker utveckling, en DFD och hot modellen för att illustrera säkerhet i utvecklingsarbetet metoder.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Se ”Microsoft Azure” avsnittet [krav 6.4](#pci-dss-requirement-6-4). |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore demo vägledning till säker utveckling, en DFD och hot modellen för att illustrera säkerhet i utvecklingsarbetet metoder.|
 
 
 
@@ -267,8 +267,8 @@ Skrupelfria personer använder säkerhetsproblem för att få privilegierad åtk
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure testar offentliga webbprogram som en del av dess SDL-processen innan program distribueras till produktionsmiljön. Dessutom Microsoft söker igenom alla offentliga webbprogram i produktion regelbundet att identifiera alla möjliga säkerhetsproblem. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Referens för lösningen minskar risken för säkerhetsproblem med hjälp av en Programgateway med Brandvägg och OWASP RuleSet-metod aktiverad. Mer information finns i [PCI - vägledning för minskning av Risk säkerhetsproblem](payment-processing-blueprint.md#application-gateway).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure testar offentliga webbprogram som en del av dess SDL-processen innan program distribueras till produktionsmiljön. Dessutom Microsoft söker igenom alla offentliga webbprogram i produktion regelbundet att identifiera alla möjliga säkerhetsproblem. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Referens för lösningen minskar risken för säkerhetsproblem med hjälp av en Programgateway med Brandvägg och OWASP RuleSet-metod aktiverad. Mer information finns i [PCI - vägledning för minskning av Risk säkerhetsproblem](payment-processing-blueprint.md#application-gateway).|
 
 
 
@@ -280,8 +280,8 @@ Skrupelfria personer använder säkerhetsproblem för att få privilegierad åtk
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Referens för lösningen minskar risken för säkerhetsproblem med hjälp av en Programgateway med Brandvägg och OWASP RuleSet-metod aktiverad. Mer information finns i [PCI - vägledning för minskning av Risk säkerhetsproblem](payment-processing-blueprint.md#application-gateway).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Referens för lösningen minskar risken för säkerhetsproblem med hjälp av en Programgateway med Brandvägg och OWASP RuleSet-metod aktiverad. Mer information finns i [PCI - vägledning för minskning av Risk säkerhetsproblem](payment-processing-blueprint.md#application-gateway).|
 
 
 

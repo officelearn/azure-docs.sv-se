@@ -1,32 +1,32 @@
 ---
-title: "OpenShift på Azure efter distributionsuppgifter | Microsoft Docs"
-description: "Ytterligare uppgifter för efter ett OpenShift kluster har distribuerats."
+title: OpenShift på Azure efter distributionsuppgifter | Microsoft Docs
+description: Ytterligare uppgifter för efter ett OpenShift kluster har distribuerats.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 77c4719b5cee7f5736d73ee10cf6abf12229ea11
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 1fe44f6d18199fe1a37db566f8b30eeaa4fbfab2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="post-deployment-tasks"></a>Uppgifter efter distributionen
 
 När du distribuerar en OpenShift kluster måste konfigurera du ytterligare objekt. Den här artikeln beskriver följande:
 
 - Hur du konfigurerar enkel inloggning med hjälp av Azure Active Directory (AD Azure)
-- Hur du konfigurerar Operations Management Suite för att övervaka OpenShift
+- Så här konfigurerar du Log Analytics för att övervaka OpenShift
 - Hur du konfigurerar mått och loggning
 
 ## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>Konfigurera enkel inloggning med hjälp av Azure Active Directory
@@ -38,9 +38,9 @@ Om du vill använda Azure Active Directory för autentisering måste du först s
 De här stegen använda Azure CLI för att skapa appregistrering och det grafiska Användargränssnittet (portal) att ange behörigheter. Du behöver följande fem typer av information för att skapa appregistrering:
 
 - Visningsnamn: appens registrering namn (till exempel OCPAzureAD)
-- Startsidan: OpenShift-konsolens URL (till exempel https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- URI-ID: OpenShift-konsolens URL (till exempel https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- Svars-URL: Master offentlig URL och appens registrering namn (till exempel https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
+- Startsidan: OpenShift konsolen URL (t.ex. https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- URI-ID: OpenShift konsolens URL (t.ex. https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- Svars-URL: Master offentlig URL och appens registrering namn (t.ex. https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
 - Lösenord: Säkert lösenord (Använd ett starkt lösenord)
 
 I följande exempel skapas en appregistrering med hjälp av informationen ovan:
@@ -145,7 +145,7 @@ Infoga följande rader omedelbart efter de föregående raderna:
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-Hitta klient-ID med hjälp av följande CLI-kommando:```az account show```
+Hitta klient-ID med hjälp av följande CLI-kommando: ```az account show```
 
 Starta om tjänsterna OpenShift master på alla överordnade noder:
 
@@ -171,11 +171,11 @@ sudo systemctl restart atomic-openshift-master
 
 I konsolen OpenShift visas nu två alternativ för verifiering: htpasswd_auth och [Appregistrering].
 
-## <a name="monitor-openshift-with-operations-management-suite"></a>Övervakaren OpenShift med Operations Management Suite
+## <a name="monitor-openshift-with-log-analytics"></a>Övervakaren OpenShift med logganalys
 
-För att övervaka OpenShift med Operations Management Suite kan du använda ett av två alternativ: OMS-Agent-installation på Virtuella, eller OMS-behållaren. Den här artikeln innehåller instruktioner för distribution av OMS-behållaren.
+Om du vill övervaka OpenShift med logganalys, du kan använda ett av två alternativ: OMS-Agent-installation på Virtuella, eller OMS-behållaren. Den här artikeln innehåller instruktioner för distribution av OMS-behållaren.
 
-## <a name="create-an-openshift-project-for-operations-management-suite-and-set-user-access"></a>Skapa ett OpenShift projekt för Operations Management Suite och ange användaråtkomst
+## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Skapa ett OpenShift projekt för Log Analytics och ange användaråtkomst
 
 ```bash
 oadm new-project omslogging --node-selector='zone=default'
@@ -244,7 +244,7 @@ spec:
 
 ## <a name="create-a-secret-yaml-file"></a>Skapa en hemlig yaml-fil
 
-Den hemliga yaml-fil du behöver för att skapa två typer av information: OMS arbetsyte-ID och OMS arbetsytan delad nyckel. 
+Den hemliga yaml-fil du behöver för att skapa två typer av information: Log Analytics arbetsyte-ID och Log Analytics arbetsytan delad nyckel. 
 
 En exempelfil för ocp-secret.yml följande: 
 
@@ -258,7 +258,7 @@ data:
   KEY: key_data
 ```
 
-Ersätt wsid_data med Base64-kodade OMS arbetsyte-ID. Ersätt key_data med Base64-kodad OMS arbetsytan delad nyckel.
+Ersätt wsid_data med Base64-kodade Log Analytics arbetsyte-ID. Ersätt key_data med Base64-kodad Log Analytics arbetsytan delad nyckel.
 
 ```bash
 wsid_data='11111111-abcd-1111-abcd-111111111111'

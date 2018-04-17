@@ -1,24 +1,20 @@
 ---
-title: "Utforma vägledning för replikerade tabeller - Azure SQL Data Warehouse | Microsoft Docs"
-description: "Rekommendationer för hur man designar replikerade tabeller i Azure SQL Data Warehouse-schemat."
+title: Utforma vägledning för replikerade tabeller - Azure SQL Data Warehouse | Microsoft Docs
+description: Rekommendationer för hur man designar replikerade tabeller i Azure SQL Data Warehouse-schemat.
 services: sql-data-warehouse
-documentationcenter: NA
 author: ronortloff
-manager: jhubbard
-editor: 
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 10/23/2017
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 575b3c5710d744e99c6e02439577a362eb17c67e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.topic: conceptual
+ms.component: design
+ms.date: 04/11/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 271b832f329e33b68f60fbc62005c6ee36bafe69
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Utforma riktlinjer för att använda replikerade tabeller i Azure SQL Data Warehouse
 Den här artikeln ger rekommendationer för att utforma replikerade tabeller i SQL Data Warehouse-schemat. Använd de här rekommendationerna för att förbättra prestanda genom att minska komplexiteten för data movement och fråga.
@@ -27,7 +23,7 @@ Den här artikeln ger rekommendationer för att utforma replikerade tabeller i S
 > Replikerad tabell-funktionen är för närvarande i förhandsversion. Vissa funktioner kan ändras.
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du är bekant med datadistribution och begrepp för flytt av data i SQL Data Warehouse.  Mer information finns i [arkitektur](massively-parallel-processing-mpp-architecture.md) artikel. 
 
 Som en del av tabelldesign, Förstå så mycket som möjligt om dina data och hur data efterfrågas.  Till exempel tänka på följande:
@@ -84,7 +80,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Konvertera befintliga resursallokering tabeller till replikerade tabeller
 Om du redan har resursallokering tabeller, rekommenderar vi att konvertera dem till replikerade tabeller, om de uppfyller med villkor som beskrivs i den här artikeln. Replikerade tabeller förbättra prestanda över resursallokering tabeller eftersom de undanröjer behovet av dataflyttning.  En tabell med resursallokering kräver alltid dataflyttning för kopplingar. 
 
-Det här exemplet används [CTAS](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) ändra tabellen DimSalesTerritory till en replikerad tabell. Det här exemplet fungerar oavsett om DimSalesTerritory är hash-distribuerade eller resursallokering.
+Det här exemplet används [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) ändra tabellen DimSalesTerritory till en replikerad tabell. Det här exemplet fungerar oavsett om DimSalesTerritory är hash-distribuerade eller resursallokering.
 
 ```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]   
@@ -112,7 +108,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 ### <a name="query-performance-example-for-round-robin-versus-replicated"></a>Exempel på frågan resultat för resursallokering jämfört med replikeras 
 
-En replikerad tabell kräver inte någon dataflyttning för kopplingar eftersom det redan finns på varje beräkningsnod hela tabellen. Om dimensionstabellerna resursallokering distribueras, kopieras en koppling dimensionstabellen fullständigt till varje Compute-nod. Om du vill flytta data innehåller en åtgärd som kallas BroadcastMoveOperation i frågeplanen. Den här typen av data movement åtgärden långsammare prestanda för frågor och elimineras med hjälp av replikerade tabeller. Du kan visa plan frågesteg den [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) system katalogvyn. 
+En replikerad tabell kräver inte någon dataflyttning för kopplingar eftersom det redan finns på varje beräkningsnod hela tabellen. Om dimensionstabellerna resursallokering distribueras, kopieras en koppling dimensionstabellen fullständigt till varje Compute-nod. Om du vill flytta data innehåller en åtgärd som kallas BroadcastMoveOperation i frågeplanen. Den här typen av data movement åtgärden långsammare prestanda för frågor och elimineras med hjälp av replikerade tabeller. Du kan visa plan frågesteg den [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) system katalogvyn. 
 
 Till exempel i följande fråga mot AdventureWorks-schemat i ` FactInternetSales` tabellen är hash-distribueras. Den `DimDate` och `DimSalesTerritory` tabeller är mindre dimensionstabeller. Den här frågan returnerar total försäljning i Nordamerika för räkenskapsår 2004:
  
@@ -140,7 +136,7 @@ SQL Data Warehouse implementerar en replikerad tabell genom att underhålla en h
 
 Ombyggnad krävs efter:
 - Data läses in eller ändras
-- Datalagret skalas till en annan [tjänsten nivå](performance-tiers.md#service-levels)
+- Datalagret skalas till en annan nivå
 - Tabelldefinitionen uppdateras
 
 Ombyggnad krävs inte efter:
@@ -178,7 +174,7 @@ Det här mönstret belastningen läser in data från fyra källor men endast anr
 ### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>Återskapa en replikerad tabell efter en batch-inläsning
 För att säkerställa konsekvent körningstider, rekommenderar vi att tvinga en uppdatering av replikerade tabeller efter en batch inläsningen. I annat fall måste den första frågan vänta på tabeller att uppdatera, vilket innefattar återskapa index. Beroende på storleken och antalet replikerade tabeller påverkas vara prestandapåverkan betydande.  
 
-Den här frågan använder den [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV att lista de replikerade tabellerna som har ändrats, men inte återskapas.
+Den här frågan använder den [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV att lista de replikerade tabellerna som har ändrats, men inte återskapas.
 
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
@@ -200,8 +196,8 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 ## <a name="next-steps"></a>Nästa steg 
 Använd någon av dessa instruktioner om du vill skapa en replikerad tabell:
 
-- [Skapa tabell (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [Skapa TABLE AS SELECT (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [Skapa tabell (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [Skapa TABLE AS SELECT (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 En översikt över distribuerade tabeller, se [distribuerade tabeller](sql-data-warehouse-tables-distribute.md).
 

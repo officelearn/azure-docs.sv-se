@@ -1,10 +1,10 @@
 ---
-title: "Konfigurera privata IP-adresser för virtuella datorer (klassisk) - Azure CLI 1.0 | Microsoft Docs"
-description: "Lär dig hur du konfigurerar den privata IP-adresser för virtuella datorer (klassisk) med hjälp av Azure-kommandoradsgränssnittet (CLI) 1.0."
+title: Konfigurera privata IP-adresser för virtuella datorer (klassisk) - Azure CLI 1.0 | Microsoft Docs
+description: Lär dig hur du konfigurerar den privata IP-adresser för virtuella datorer (klassisk) med hjälp av Azure-kommandoradsgränssnittet (CLI) 1.0.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
+ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ed0fe2fea20671063395b9ff089599853278989d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c23419fdee7330d091d4699714f4ec08e72be2df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>Konfigurera privat IP-adresser för en virtuell dator (klassisk) som använder Azure CLI 1.0
 
@@ -48,7 +48,7 @@ Skapa en ny virtuell dator med namnet *DNS01* i en ny molntjänst med namnet *Te
         info:    Creating cloud service
         data:    Cloud service name TestService
         info:    service create command OK
-3. Kör den **azure skapa vm** kommando för att skapa den virtuella datorn. Lägg märke till värdet för en statisk privat IP-adress. Listan som visas efter alla utdata förklarar parametrarna som använts.
+3. Kör den **azure skapa vm** kommando för att skapa den virtuella datorn. Lägg märke till värdet för en statisk privat IP-adress. Listan som visas efter utdatan beskriver de parametrar som används.
    
         azure vm create -l centralus -n DNS01 -w TestVNet -S "192.168.1.101" TestService bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2 adminuser AdminP@ssw0rd
    
@@ -114,6 +114,10 @@ Förväntad utdata:
     info:    Reading network configuration
     info:    Updating network configuration
     info:    vm static-ip set command OK
+
+## <a name="set-ip-addresses-within-the-operating-system"></a>Ange IP-adresser inom operativsystemet
+
+Vi rekommenderar att du inte statiskt tilldelar privata IP-Adressen som tilldelats den virtuella Azure-datorn i operativsystemet på en virtuell dator, om nödvändigt. Om du manuellt anger den privata IP-adressen i operativsystemet, kontrollera att det är samma adress som privat IP-adress som tilldelats den virtuella Azure-datorn eller du kan förlora anslutningen till den virtuella datorn. Du bör aldrig manuellt tilldela den offentliga IP-adress som tilldelats en virtuell Azure-dator i den virtuella datorns operativsystem.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [reserverade offentliga IP-Adressen](virtual-networks-reserved-public-ip.md) adresser.

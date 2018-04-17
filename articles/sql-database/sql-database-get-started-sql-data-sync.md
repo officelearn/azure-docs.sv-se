@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 72e0ed535139c088c4235b43a12ea96da080dc8a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 86b0e78f362d1cf3c2480aad97ef5281c5f3bc95
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Konfigurera synkronisering för SQL-Data (förhandsgranskning)
 Lär dig hur du ställer in Azure SQL Data Sync genom att skapa en hybrid sync-grupp som innehåller både Azure SQL Database och SQL Server-instanser i den här självstudiekursen. Den nya gruppen sync helt har konfigurerats och synkroniserar enligt det schema du anger.
@@ -24,7 +24,7 @@ Den här kursen förutsätter att du har minst tidigare erfarenhet med SQL Datab
 En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync (förhandsversion)](sql-database-sync-data.md).
 
 Fullständig PowerShell-exempel som visar hur du konfigurerar SQL datasynkronisering, finns i följande artiklar:
--   [Använd PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
+-   [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
 -   [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 ## <a name="step-1---create-sync-group"></a>Steg 1 – Skapa sync-grupp
@@ -151,7 +151,7 @@ På den **konfigurera lokalt** gör följande:
         ![Ange autentiseringsuppgifter för agenten nyckel och server](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
         >   [!NOTE] 
-        >   Om du får ett Brandväggsfel nu kan måste du skapa en brandväggsregel i Azure för att tillåta inkommande trafik från SQL Server-datorn. Du kan skapa regeln manuellt i portalen, men det kan vara lättare att skapa den i SQL Server Management Studio (SSMS). I SSMS, försök ansluta till NAV-databas på Azure. Ange namnet som \<hub_database_name\>. database.windows.net. Följ stegen i dialogrutan för att konfigurera Azure brandväggsregeln. Återgå sedan till appen Sync-Klientagenten.
+        >   Om du får ett Brandväggsfel nu kan måste du skapa en brandväggsregel i Azure för att tillåta inkommande trafik från SQL Server-datorn. Du kan skapa regeln manuellt i portalen, men det kan vara lättare att skapa den i SQL Server Management Studio (SSMS). I SSMS, försök ansluta till NAV-databas på Azure. Ange namnet som < hub_database_name >. database.windows.net. Följ stegen i dialogrutan för att konfigurera Azure brandväggsregeln. Återgå sedan till appen Sync-Klientagenten.
 
     9.  Klicka på appen Sync-Klientagenten **registrera** att registrera en SQL Server-databas med agenten. Den **SQL Server-konfigurationsfilen** öppnas.
 
@@ -225,7 +225,16 @@ Inte nödvändigtvis. I en grupp för synkronisering med ett nav och tre ekrar (
 
 ### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>Hur skaffar jag schemaändringar i en grupp för synkronisering
 
-Du måste utföra schemaändringar manuellt.
+Du måste göra och sprida alla schemaändringar manuellt.
+1. Replikera schemaändringar manuellt till hubben och för alla medlemmar i synkronisering.
+2. Uppdatera schemat för synkronisering.
+
+**Lägga till nya tabeller och kolumner**. Nya tabeller och kolumner som påverkar inte den aktuella synkroniseringen. Datasynkronisering ignorerar nya tabeller och kolumner förrän du lägger till dem i sync-schemat. När du lägger till nya databasobjekt är detta den bästa sekvensen att följa:
+1. Lägga till nya tabeller eller kolumner till hubben och alla sync-medlemmar.
+2. Lägga till nya tabeller eller kolumner i sync-schema.
+3. Börja lägga till värden i den nya tabeller och kolumner.
+
+**Datatypen för en kolumn**. När du ändrar datatypen för en befintlig kolumn fortsätter datasynkronisering att fungera så länge som de nya värdena passar ursprungliga datatypen som anges i schemat för synkronisering. Till exempel om du ändrar i källdatabasen från **int** till **bigint**, datasynkronisering fortsätter att fungera tills du infogar ett värde som är för stor för den **int** datatyp . Replikera Schemaändringen manuellt till hubben och för alla medlemmar i synkronisering för att slutföra ändringen och uppdatera sedan synkronisera schemat.
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Hur kan exportera och importera en databas med datasynkronisering?
 När du exporterar en databas som en `.bacpac` filen och importera filen om du vill skapa en ny databas måste du göra följande två saker du kan använda datasynkronisering i den nya databasen:
@@ -279,7 +288,7 @@ Mer information om SQL Data Sync finns i:
 -   [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Slutför PowerShell-exempel som visar hur du konfigurerar SQL Data Sync:
-    -   [Använd PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 -   [Ladda ned REST API-dokumentation för SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)

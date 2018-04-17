@@ -1,6 +1,6 @@
 ---
-title: "Hur du skickar händelser till en Azure tid serien Insights miljö | Microsoft Docs"
-description: "Den här självstudiekursen beskrivs hur du skapa och konfigurera händelsehubb och köra exempelprogrammet push-händelser som ska visas i Azure tid serien insikter."
+title: Hur du skickar händelser till en Azure tid serien Insights miljö | Microsoft Docs
+description: Den här självstudiekursen beskrivs hur du skapa och konfigurera händelsehubb och köra exempelprogrammet push-händelser som ska visas i Azure tid serien insikter.
 services: time-series-insights
 ms.service: time-series-insights
 author: venkatgct
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 2c1b91fb87857eee8ca938be193b61e01bbdb886
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 04/09/2018
+ms.openlocfilehash: c29b90e703a66cbbc25227f9a4307c74d82b03b5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Skicka händelser till en Time Series Insights-miljö med hjälp av Event Hub
 Den här artikeln beskriver hur du skapar och konfigurerar händelsehubb och kör ett exempelprogram push-händelser. Om du har en befintlig händelsehubb med händelser i JSON-format, hoppa över den här kursen och visa din miljö i [tid serien insikter](https://insights.timeseries.azure.com).
@@ -48,6 +48,18 @@ Den här artikeln beskriver hur du skapar och konfigurerar händelsehubb och kö
   ![Välj Policyer för delad åtkomst och klicka på knappen Lägg till](media/send-events/shared-access-policy.png)  
 
   ![Lägg till ny policy för delad åtkomst](media/send-events/shared-access-policy-2.png)  
+
+## <a name="add-time-series-insights-reference-data-set"></a>Lägg till tid serien insikter referens datauppsättning 
+Använda referensdata i TSD contextualizes telemetridata.  Den kontexten lägger till betydelse till dina data och gör det enklare att filtrera och aggregering.  TSD kopplingar referensdata ingång för närvarande och retroaktivt kan inte ansluta till dessa data.  Det är därför viktigt att lägga till referensdata innan du lägger till en händelsekälla med data.  Data som plats-eller sensor är användbar dimensioner som kanske du vill ansluta till en enhet/taggen/sensor-ID för att göra det enklare att segment och filter.  
+
+> [!IMPORTANT]
+> Det är viktigt att ha en referens datauppsättning som konfigurerats när du överför historiska data.
+
+Se till att du har referensdata på plats när du massimportera överför historiska data till TSD.  Kom ihåg, TSD kommer omedelbart börja läsa från en domänansluten händelsekälla om den händelsekällan innehåller data.  Det är praktiskt att vänta med att ansluta till en händelsekälla till TSD tills du har din referensdata på plats, särskilt om den händelsekällan har data i den. Alternativt kan du vänta på att vidarebefordra data till den händelsekällan tills datamängden som referens är på plats.
+
+Om du vill hantera referensdata finns webbaserade användargränssnittet i TSD Explorer och det finns en programmässiga C#-API. TSD Explorer har en visual användarmiljö Överför filer eller klistra in befintliga referens datauppsättningar som JSON- eller CSV-format. Med API, kan du skapa en anpassad app när det behövs.
+
+Mer information om hur du hanterar referensdata i tid serien insikter finns i [data referensartikeln](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## <a name="create-time-series-insights-event-source"></a>Skapa händelsekälla för Time Series Insights
 1. Om du inte har skapat en händelsekälla följer du [dessa instruktioner](time-series-insights-how-to-add-an-event-source-eventhub.md) för att skapa en händelsekälla.
@@ -143,7 +155,7 @@ Ett enda JSON-objekt.
     "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-#### <a name="output---1-event"></a>Resultat – 1 händelse
+#### <a name="output---one-event"></a>Utdata - en händelse
 
 |id|tidsstämpel|
 |--------|---------------|
@@ -165,7 +177,7 @@ En JSON-matris med två JSON-objekt. Varje JSON-objekt konverteras till en händ
     }
 ]
 ```
-#### <a name="output---2-events"></a>Resultat – 2 händelser
+#### <a name="output---two-events"></a>Utdata - två händelser
 
 |id|tidsstämpel|
 |--------|---------------|
@@ -176,7 +188,7 @@ En JSON-matris med två JSON-objekt. Varje JSON-objekt konverteras till en händ
 
 #### <a name="input"></a>Indata
 
-Ett JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt.
+Ett JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt:
 ```json
 {
     "location":"WestUs",
@@ -193,8 +205,8 @@ Ett JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt.
 }
 
 ```
-#### <a name="output---2-events"></a>Resultat – 2 händelser
-Observera att egenskapen "plats" kopieras till varje händelse.
+#### <a name="output---two-events"></a>Utdata - två händelser
+Observera att egenskapen ”plats” kopieras över till var och en av händelsen.
 
 |location|events.id|events.timestamp|
 |--------|---------------|----------------------|
@@ -236,12 +248,185 @@ Ett JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt. Den
     ]
 }
 ```
-#### <a name="output---2-events"></a>Resultat – 2 händelser
+#### <a name="output---two-events"></a>Utdata - två händelser
 
 |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|tryck|psi|108.09|
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
+
+### <a name="json-shaping-strategies"></a>JSON forma strategier
+Använd följande exempel visar en händelse vi en startadress pekar och diskutera problem med den och strategier för hur du minimerar dessa problem.
+
+#### <a name="payload-1"></a>Nyttolasten 1:
+```json
+[{
+            "messageId": "LINE_DATA",
+            "deviceId": "FXXX",
+            "timestamp": 1522355650620,
+            "series": [{
+                        "chId": 3,
+                        "value": -3750.0
+                  }, {
+                        "chId": 13,
+                        "value": 0.58015072345733643
+                  }, {
+                        "chId": 11,
+                        "value": 800.0
+                  }, {
+                        "chId": 21,
+                        "value": 0.0
+                  }, {
+                        "chId": 14,
+                        "value": -999.0
+                  }, {
+                        "chId": 37,
+                        "value": 2.445906400680542
+                  }, {
+                        "chId": 39,
+                        "value": 0.0
+                  }, {
+                        "chId": 40,
+                        "value": 1.0
+                  }, {
+                        "chId": 1,
+                        "value": 1.0172575712203979
+                  }
+            ],
+            "EventProcessedUtcTime": "2018-03-29T20:36:21.3245900Z",
+            "PartitionId": 2,
+            "EventEnqueuedUtcTime": "2018-03-29T20:34:11.0830000Z",
+            "IoTHub": {
+                  "MessageId": "<17xxx2xx-36x0-4875-9x1x-x428x41x1x68>",
+                  "CorrelationId": "<x253x5xx-7xxx-4xx3-91x4-xxx3bx2xx0x3>",
+                  "ConnectionDeviceId": "AAAA-ZZ-001",
+                  "ConnectionDeviceGenerationId": "<123456789012345678>",
+                  "EnqueuedTime": "2018-03-29T20:34:10.7990000Z",
+                  "StreamId": null
+            }
+      }
+]
+ ```
+
+Om du trycker denna matris av händelser som en nyttolast till TSD, lagras den som en händelse per varje måttvärde. Då kan du skapa ett överskott av händelser som inte kanske är optimal. Observera att du kan använda referensdata i TSD för att lägga till meningsfulla namn som egenskaper.  Du kan till exempel skapa referens datauppsättning med nyckelegenskapen = chId:  
+
+chId mått enhet 24 motorn olja trycket PSI 25 BERÄKNA Pump hastighet bbl per minut
+
+Mer information om hur du hanterar referensdata i tid serien insikter finns i [data referensartikeln](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+
+Ett annat problem med den första nyttolasten är tidsstämpeln är i millisekunder. TSD accepterar bara ISO-formaterat tidsstämplar. En lösning är att lämna tidsstämpel standardbeteendet i TSD, vilket är att använda köas tidsstämpel.
+
+Som ett alternativ till nyttolasten ovan ska vi titta på ett annat exempel.  
+
+#### <a name="payload-2"></a>Nyttolasten 2:
+```json
+{
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "STATE Engine State": 1,
+      "unit": "NONE"
+}, {
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "MPC_AAAA-ZZ-001",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "Well Head Px 1": -494162.8515625,
+      "unit": "psi"
+}, {
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "CALC Pump Rate": 0,
+      "unit": "bbl/min"
+}, {
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "Engine Fuel Pressure": 0,
+      "unit": "psi"
+}, {
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "Engine Oil Pressure": 0.58015072345733643,
+      "unit": "psi"
+}
+```
+
+Som nyttolast 1 lagrar TSD varje varje uppmätt värde som en unik händelse.  Den viktiga skillnaden är att TSD läser den *tidsstämpel* som korrekt här som ISO.  
+
+Om du behöver minska antalet händelser som skickas kan du skicka informationen som följer.  
+
+#### <a name="payload-3"></a>Nyttolasten 3:
+```json
+{
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "CALC Pump Rate": 0,
+      "CALC Pump Rate.unit": "bbl/min"
+      "Engine Oil Pressure": 0.58015072345733643,
+      "Engine Oil Pressure.unit": "psi"
+      "Engine Fuel Pressure": 0,
+      "Engine Fuel Pressure.unit": "psi"
+}
+```
+En slutlig är nedan.
+
+#### <a name="payload-4"></a>Nyttolasten 4:
+```json
+{
+              "line": "Line01",
+              "station": "Station 11",
+              "gatewayid": "AAAA-ZZ-001",
+              "deviceid": "F12XX",
+              "timestamp": "2018-03-29T20:34:15.0000000Z",
+              "CALC Pump Rate": {
+                           "value": 0,
+                           "unit": "bbl/min"
+              },
+              "Engine Oil Pressure": {
+                           "value": 0.58015072345733643,
+                           "unit": "psi"
+              },
+              "Engine Fuel Pressure": {
+                           "value": 0,
+                           "unit": "psi"
+              }
+}
+```
+
+Det här exemplet visar utdata efter förenkla JSON:
+
+```json
+{
+      "line": "Line01",
+      "station": "Station 11",,
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "CALC Pump Rate.value": 0,
+      "CALC Pump Rate.unit": "bbl/min"
+      "Engine Oil Pressure.value": 0.58015072345733643,
+      "Engine Oil Pressure.unit": "psi"
+      "Engine Fuel Pressure.value": 0,
+      "Engine Fuel Pressure.unit": "psi"
+}
+```
+
+Har du friheten att definiera olika egenskaper för varje kanaler i sin egen json-objekt samtidigt som händelseantal låg. Den här Flat metoden tar upp mer utrymme, vilket är viktigt att tänka på. TSD kapacitet baseras på både händelser och storlek, beroende på vilket som inträffar först.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

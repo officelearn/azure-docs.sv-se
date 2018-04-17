@@ -1,11 +1,11 @@
 ---
 title: Skala Service Fabric-klustret in eller ut | Microsoft Docs
-description: "Skala Service Fabric-klustret in eller ut för att matcha begäran genom att ange regler för automatisk skalning för varje nod typ/virtuella datorns skaluppsättning. Lägg till eller ta bort noder till ett Service Fabric-kluster"
+description: Skala Service Fabric-klustret in eller ut för att matcha begäran genom att ange regler för automatisk skalning för varje nod typ/virtuella datorns skaluppsättning. Lägg till eller ta bort noder till ett Service Fabric-kluster
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
-ms.author: chackdan
-ms.openlocfilehash: 4813276ea8180aa8bdd385da289e6073f08d400e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: aljo
+ms.openlocfilehash: 506877e12d12ff3b1372cc0360a8df1a1d52744a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Skala Service Fabric-klustret in eller ut använda regler för automatisk skalning
-Skaluppsättningar för den virtuella datorn är en Azure compute-resurs som du kan använda för att distribuera och hantera en samling med virtuella datorer som en uppsättning. Varje nodtyp som definieras i Service Fabric-klustret har konfigurerats som en separat skaluppsättning för virtuell dator. Varje nodtyp kan sedan skalas i ut oberoende av varandra, har olika uppsättningar av öppna portar och kan ha olika kapacitetsdata. Läs mer om den i den [nodetypes får Service Fabric](service-fabric-cluster-nodetypes.md) dokumentet. Eftersom typer för Service Fabric-nod i klustret har skapats på skalningsuppsättningar i virtuella datorer på serverdelen, behöver du ställa in automatisk skalning regler för varje nod typ/virtuella datorns skaluppsättning.
+# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Skala Service Fabric-klustret in eller ut använda regler för automatisk skalning eller manuellt
+Skaluppsättningar för den virtuella datorn är en Azure compute-resurs som du kan använda för att distribuera och hantera en samling med virtuella datorer som en uppsättning. Varje nodtyp som definieras i Service Fabric-klustret har konfigurerats som en separat virtuella datorns skaluppsättning. Varje nodtyp kan sedan skalas i ut oberoende av varandra, har olika uppsättningar av öppna portar och kan ha olika kapacitetsdata. Läs mer om den i den [nodetypes får Service Fabric](service-fabric-cluster-nodetypes.md) dokumentet. Eftersom typer för Service Fabric-nod i klustret görs i skalningsuppsättningar i virtuella datorer på serverdelen måste du ställa in automatisk skalning regler för varje nod typ/virtuella datorns skaluppsättning.
 
 > [!NOTE]
 > Din prenumeration måste ha tillräckligt med kärnor att lägga till de nya virtuella datorer som utgör det här klustret. Det finns ingen modellverifiering, så att du får tid distributionsfel, om någon av kvotgränserna nådde.
@@ -40,7 +40,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 ```
 
 ## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>Ange regler för automatisk skalning för noden typ/virtuella datorns skaluppsättning
-Om klustret har flera nodtyper, upprepar du detta för varje nod typer/virtuella datorn anger att du vill skala (in eller ut). Ta hänsyn till antalet noder som du behöver innan du ställer in automatisk skalning. Det minsta antalet noder som du måste ha för den primära nodtypen drivs av tillförlitlighet-nivå som du har valt. Läs mer om [tillförlitlighetsnivåer](service-fabric-cluster-capacity.md).
+Om klustret har flera nodtyper, upprepar du detta för varje nod typer/virtuella datorn anger att du vill skala (in eller ut). Ta hänsyn till antalet noder som du måste ha innan du ställer in automatisk skalning. Det minsta antalet noder som du måste ha för den primära nodtypen avgörs av tillförlitlighetsnivån som du har valt. Läs mer om [tillförlitlighetsnivåer](service-fabric-cluster-capacity.md).
 
 > [!NOTE]
 > Skala ned den primära noden typ till mindre än det minsta antalet se klustret instabil eller sätta. Detta kan resultera i förlust av data för dina program och systemtjänster.
@@ -74,7 +74,7 @@ Du måste köra den följande steg för en VM-instansen i taget. Detta ger syste
 
 1. Kör [inaktivera ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) med syftet 'RemoveNode' att inaktivera noden ska du ta bort (högsta instans i den nodtypen).
 2. Kör [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) och kontrollera att noden verkligen har övergått till inaktiverad. Om inte, vänta tills noden är inaktiverad. Du kan skynda dig det här steget.
-3. Följ exemplet/instruktionerna i den [Snabbstart mallgalleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) att ändra antal virtuella datorer med en i denna Nodetype. Instansen tas bort är den högsta VM-instansen. 
+3. Följ exemplet/instruktionerna i den [Snabbstart mallgalleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) att ändra antal virtuella datorer med en i den här nodtypen. Instansen tas bort är den högsta VM-instansen. 
 4. Upprepa steg 1 till 3 efter behov, men aldrig skala ned antalet instanser i de primära noden typerna mindre än tillförlitlighetsnivån garanterar. Referera till [information på tillförlitlighet nivåerna här](service-fabric-cluster-capacity.md). 
 
 ## <a name="manually-remove-vms-from-the-non-primary-node-typevirtual-machine-scale-set"></a>Ta manuellt bort virtuella datorer från icke-primär nod typ/virtuella datorns skaluppsättning
@@ -86,8 +86,8 @@ Du måste köra den följande steg för en VM-instansen i taget. Detta ger syste
 Du måste köra de följande stegen en VM-instansen i taget. Detta ger systemtjänsterna (och tillståndskänsliga tjänster) stängs avslutas på VM-instans som du tar bort och nya repliker skapas annan var.
 
 1. Kör [inaktivera ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) med syftet 'RemoveNode' att inaktivera noden ska du ta bort (högsta instans i den nodtypen).
-2. Kör [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) och kontrollera att noden verkligen har övergått till inaktiverad. Om du inte vänta tills noden är inaktiverad. Du kan skynda dig det här steget.
-3. Följ exemplet/instruktionerna i den [Snabbstart mallgalleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) att ändra antal virtuella datorer med en i denna Nodetype. Den högsta VM-instansen tas nu bort. 
+2. Kör [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) och kontrollera att noden verkligen har övergått till inaktiverad. Om inte, vänta tills noden är inaktiverad. Du kan skynda dig det här steget.
+3. Följ exemplet/instruktionerna i den [Snabbstart mallgalleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) att ändra antal virtuella datorer med en i den här nodtypen. Den högsta VM-instansen tas nu bort. 
 4. Upprepa steg 1 till 3 efter behov, men aldrig skala ned antalet instanser i de primära noden typerna mindre än tillförlitlighetsnivån garanterar. Referera till [information på tillförlitlighet nivåerna här](service-fabric-cluster-capacity.md).
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Beteenden som du kan se i Service Fabric Explorer

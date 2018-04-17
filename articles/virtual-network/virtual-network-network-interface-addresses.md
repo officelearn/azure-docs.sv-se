@@ -1,13 +1,13 @@
 ---
-title: "Konfigurera IP-adresser för en Azure nätverksgränssnittet | Microsoft Docs"
-description: "Lär dig mer om att lägga till, ändra och ta bort privata och offentliga IP-adresser för ett nätverksgränssnitt."
+title: Konfigurera IP-adresser för en Azure nätverksgränssnittet | Microsoft Docs
+description: Lär dig mer om att lägga till, ändra och ta bort privata och offentliga IP-adresser för ett nätverksgränssnitt.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 478a2ebfa6a4cc504119734ac2f67b1f7c77dd5a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a6a9b4d2fa0f9baa751c74e3444f44b4013265fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Lägga till, ändra eller ta bort IP-adresser för ett Azure-nätverk-gränssnitt
 
@@ -33,15 +33,15 @@ Om du behöver för att skapa, ändra eller ta bort ett nätverksgränssnitt, ka
 Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här artikeln:
 
 - Om du inte redan har ett Azure-konto, registrera dig för en [ledigt utvärderingskonto](https://azure.microsoft.com/free).
-- Om du använder portalen, öppna https://portal.azure.com och logga in med ditt Azure-konto.
-- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.2.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
-- Om du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här kursen kräver Azure CLI version 2.0.26 eller senare. Kör `az --version` att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du använder Azure CLI lokalt, måste du också köra `az login` att skapa en anslutning med Azure.
+- Om du använder portalen, öppna https://portal.azure.com, och logga in med ditt Azure-konto.
+- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.2.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+- Om du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här kursen kräver Azure CLI version 2.0.26 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du använder Azure CLI lokalt, måste du också köra `az login` att skapa en anslutning med Azure.
 
 ## <a name="add-ip-addresses"></a>Lägg till IP-adresser
 
 Du kan lägga till så många [privata](#private) och [offentliga](#public) [IPv4](#ipv4) adresser som behövs för att ett nätverksgränssnitt inom de gränser som anges i den [Azure begränsar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artikel. Du kan inte använda portalen för att lägga till en IPv6-adress till ett befintligt nätverksgränssnitt (även om du kan använda portalen för att lägga till en privat IPv6-adress till ett nätverksgränssnitt när du skapar nätverksgränssnittet). Du kan använda PowerShell eller CLI för att lägga till en privat IPv6-adress i en [sekundära IP-konfiguration](#secondary) (så länge det finns inga befintliga sekundär IP-konfigurationer) för en befintlig nätverksgränssnitt som inte är kopplad till en virtuell dator. Du kan inte använda ett verktyg för att lägga till en offentlig IPv6-adress till ett nätverksgränssnitt. Se [IPv6](#ipv6) mer information om hur du använder IPv6-adresser. 
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är tilldelade (minst) behörigheter för rollen Network-deltagare för din prenumeration. Läs den [inbyggda roller för rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikeln om du vill veta mer om hur du tilldelar roller och behörigheter till konton.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är tilldelade (minst) behörigheter för rollen Network-deltagare för din prenumeration. Läs den [inbyggda roller för rollbaserad åtkomstkontroll i Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikeln om du vill veta mer om hur du tilldelar roller och behörigheter till konton.
 2. I rutan som innehåller texten *söka resurser* längst upp i Azure-portalen, Skriv *nätverksgränssnitt*. När **nätverksgränssnitt** visas i sökresultaten klickar du på den.
 3. I den **nätverksgränssnitt** bladet som visas, klickar du på nätverksgränssnittet som du vill lägga till en IPv4-adress för.
 4. Klicka på **IP-konfigurationer** i den **inställningar** på bladet för nätverksgränssnittet som du har valt.
@@ -67,7 +67,7 @@ Du kan lägga till så många [privata](#private) och [offentliga](#public) [IPv
 
 Du kan måste ändra tilldelningsmetod av IPv4-adress, ändra statiska IPv4-adress, eller ändra den offentliga IP-adress som tilldelats ett nätverksgränssnitt. Om du ändrar privata IPv4-adressen för en sekundär IP-konfiguration som är kopplad till ett sekundärt nätverksgränssnitt i en virtuell dator (Läs mer om [primära och sekundära nätverksgränssnitt](virtual-network-network-interface-vm.md)), placera den virtuella datorn i tillståndet Stoppad (frigjord) innan du slutför följande steg: 
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är tilldelade (minst) behörigheter för rollen Network-deltagare för din prenumeration. Läs den [inbyggda roller för rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikeln om du vill veta mer om hur du tilldelar roller och behörigheter till konton.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är tilldelade (minst) behörigheter för rollen Network-deltagare för din prenumeration. Läs den [inbyggda roller för rollbaserad åtkomstkontroll i Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikeln om du vill veta mer om hur du tilldelar roller och behörigheter till konton.
 2. I rutan som innehåller texten *söka resurser* längst upp i Azure-portalen, Skriv *nätverksgränssnitt*. När **nätverksgränssnitt** visas i sökresultaten klickar du på den.
 3. I den **nätverksgränssnitt** bladet som visas, klickar du på nätverksgränssnittet som du vill visa eller ändra inställningar för IP-adresser.
 4. Klicka på **IP-konfigurationer** i den **inställningar** på bladet för nätverksgränssnittet som du har valt.
@@ -88,7 +88,7 @@ Du kan måste ändra tilldelningsmetod av IPv4-adress, ändra statiska IPv4-adre
 
 Du kan ta bort [privata](#private) och [offentliga](#public) IP-adresser från ett nätverksgränssnitt, men ett nätverksgränssnitt måste alltid ha minst en privat IPv4-adress tilldelas.
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är tilldelade (minst) behörigheter för rollen Network-deltagare för din prenumeration. Läs den [inbyggda roller för rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikeln om du vill veta mer om hur du tilldelar roller och behörigheter till konton.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är tilldelade (minst) behörigheter för rollen Network-deltagare för din prenumeration. Läs den [inbyggda roller för rollbaserad åtkomstkontroll i Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikeln om du vill veta mer om hur du tilldelar roller och behörigheter till konton.
 2. I rutan som innehåller texten *söka resurser* längst upp i Azure-portalen, Skriv *nätverksgränssnitt*. När **nätverksgränssnitt** visas i sökresultaten klickar du på den.
 3. I den **nätverksgränssnitt** bladet som visas, klicka på nätverksgränssnittet som du vill ta bort IP-adresser från.
 4. Klicka på **IP-konfigurationer** i den **inställningar** på bladet för nätverksgränssnittet som du har valt.

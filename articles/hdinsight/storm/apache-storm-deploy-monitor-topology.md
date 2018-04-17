@@ -1,8 +1,8 @@
 ---
-title: "Distribuera och hantera Apache Storm-topologier på HDInsight | Microsoft Docs"
-description: "Lär dig mer om att distribuera, övervaka och hantera Apache Storm-topologier med Storm-instrumentpanelen på HDInsight. Använda Hadoop-verktyg för Visual Studio."
+title: Distribuera och hantera Apache Storm-topologier på HDInsight | Microsoft Docs
+description: Lär dig mer om att distribuera, övervaka och hantera Apache Storm-topologier med Storm-instrumentpanelen på HDInsight. Använda Hadoop-verktyg för Visual Studio.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5e542072-f014-42aa-82d6-2694a76df520
 ms.service: hdinsight
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 92c1a02cd7d435809914e7f5bb43b2f8d6aa0cdb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 55c92e6408522b8a96a37dbedd99d929af1e49fb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Distribuera och hantera Apache Storm-topologier på Windows-baserade HDInsight
 
@@ -33,7 +31,7 @@ Storm-instrumentpanelen och Storm-funktioner i HDInsight Tools beroende Storm RE
 >
 > Mer information om distribuera och hantera Storm-topologier med ett HDInsight-kluster som använder Linux finns [distribuera och hantera Apache Storm-topologier på Linux-baserat HDInsight](apache-storm-deploy-monitor-topology-linux.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Apache Storm på HDInsight** -finns [Kom igång med Apache Storm på HDInsight](apache-storm-tutorial-get-started-linux.md) anvisningar om hur du skapar ett kluster.
 
@@ -161,7 +159,7 @@ Använd följande steg när du distribuerar ett exempel på till ditt Storm på 
    > Storm-topologier fortsätta köras förrän de har stoppats eller ta bort klustret.
 
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 
 Storm-Användargränssnittet är byggt på REST-API, så att du kan göra liknande hantering och övervakning av funktioner med hjälp av REST API. Du kan använda REST API för att skapa anpassade verktyg för att hantera och övervaka Storm-topologier.
 

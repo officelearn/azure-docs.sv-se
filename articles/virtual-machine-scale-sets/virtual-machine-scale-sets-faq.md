@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: e7fc12c9b4cc79109975e34f64f236394c33af25
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b0a704a6ac4a317e0d8e280a9353b04f9b4d919b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Skala virtuell Azure-dator Anger vanliga frågor och svar
 
@@ -67,10 +67,10 @@ Få svar på vanliga frågor och svar om virtuella datorer i Azure.
 
 **F.** Skala anger fungerar med Azure tillgänglighet zoner?
 
-**S.** Ja! Mer information finns i [skaluppsättning för zonen doc](./virtual-machine-scale-sets-use-availability-zones.md).
+**S.** Visst! Mer information finns i [skaluppsättning för zonen doc](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
-## <a name="autoscale"></a>Autoskalning
+## <a name="autoscale"></a>Automatisk skalning
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Vad är bästa praxis för Azure Autoskala?
 
@@ -262,9 +262,9 @@ Du kan ange offentliga SSH-nycklar i klartext när du skapar en Linux VM:
  
 linuxConfiguration elementnamn | Krävs | Typ | Beskrivning
 --- | --- | --- | --- |  ---
-ssh | Nej | Samling | Anger den nyckel SSH-konfigurationen för ett Linux-operativsystem
+SSH | Nej | Samling | Anger den nyckel SSH-konfigurationen för ett Linux-operativsystem
 sökväg | Ja | Sträng | Anger sökväg till Linux där SSH-nycklar eller certifikat ska hittas
-keyData | Ja | Sträng | Anger en base64-kodad SSH offentlig nyckel
+nyckeldata | Ja | Sträng | Anger en base64-kodad SSH offentlig nyckel
 
 Ett exempel finns [101-vm-sshkey GitHub quickstart mallen](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -335,7 +335,7 @@ Det uppstår inte här problemet när skala ut eftersom det inte finns en cachel
  
 Azure Key Vault-dokumentationen om att hämta hemligheten REST API ska returnera den senaste versionen av hemligheten som om versionen inte har angetts.
  
-Metod | Webbadress
+Metod | URL
 --- | ---
 HÄMTA | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
 
@@ -402,9 +402,9 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 Du hittar en Tilläggsnamn värdet i `$vmss`.
    
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-operations-management-suite"></a>Finns det en virtuell dator skala ange mall-exempel som kan integreras med Operations Management Suite?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Finns det en virtuell dator skala ange mall-exempel som kan integreras med Log Analytics?
 
-En virtuell dator skala ange mall-exempel som kan integreras med Operations Management Suite, finns det andra exemplet i [distribuera ett Azure Service Fabric-kluster och aktivera övervakning genom att använda Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+En virtuell dator skala ange mall-exempel som kan integreras med logganalys, finns det andra exemplet i [distribuera ett Azure Service Fabric-kluster och aktivera övervakning genom att använda Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
    
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Det verkar som om tillägg körs parallellt på virtuella datorer. Detta leder till min tillägget för anpassat skript misslyckas. Vad kan jag göra för att åtgärda detta?
 
@@ -693,9 +693,9 @@ Ja, du kan använda avbildningsåterställning åtgärden för att återställa 
 
 Mer information finns i [hantera alla virtuella datorer i en skaluppsättning för virtuell dator](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>Är det möjligt att integrera skaluppsättningar med Azure OMS (Operations Management Suite)?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>Är det möjligt att integrera skaluppsättningar med Azure Log Analytics?
 
-Ja, du kan installera tillägget OMS på skalan som virtuella datorer. Här är ett exempel på Azure CLI:
+Ja, du kan installera tillägget logganalys på skalan som virtuella datorer. Här är ett exempel på Azure CLI:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
@@ -734,7 +734,7 @@ När en ny virtuell dator skapas visar egenskapen InstanceView för den virtuell
 
 För att få information om egenskaper för varje virtuell dator utan att göra flera anrop, kan du anropa `ListVMInstanceViews` genom att göra ett REST-API `GET` på följande resurs-URI:
 
-/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
+/subscriptions/ < PRENUMERATIONSID > /resourceGroups/ < resource_group_name > /providers/Microsoft.Compute/virtualMachineScaleSets/ < scaleset_name > / virtualMachines? $expand = instanceView & $select = instanceView
 
 ### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>Kan jag skicka annat tillägg argument till olika virtuella datorer i en skaluppsättning för virtuell dator?
 

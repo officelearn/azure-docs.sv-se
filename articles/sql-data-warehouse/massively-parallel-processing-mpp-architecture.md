@@ -1,34 +1,30 @@
 ---
-title: MPP-arkitektur - Azure SQL Data Warehouse? | Microsoft Docs
-description: "Lär dig hur Azure SQL Data Warehouse kombinerar massivt parallell bearbetning (MPP) med Azure storage att uppnå hög prestanda och skalbarhet."
+title: Azure SQL Data Warehouse - MPP-arkitektur | Microsoft Docs
+description: Lär dig hur Azure SQL Data Warehouse kombinerar massivt parallell bearbetning (MPP) med Azure storage att uppnå hög prestanda och skalbarhet.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
+author: acomet
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: architecture
-ms.date: 11/15/2017
-ms.author: jrj;barbkess
-ms.openlocfilehash: 4c230eb0633b2917b90a5c1f9f4176882bfd0290
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.topic: conceptual
+ms.component: design
+ms.date: 04/11/2018
+ms.author: acomet
+ms.reviewer: mausher
+ms.openlocfilehash: a0dad8afa87b3424c8561b2aaf44fbe0f5d5dae6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse - massivt parallell bearbetning (MPP)-arkitektur
 Lär dig hur Azure SQL Data Warehouse kombinerar massivt parallell bearbetning (MPP) med Azure storage att uppnå hög prestanda och skalbarhet. 
 
 ## <a name="mpp-architecture-components"></a>Komponenter för MPP-arkitektur
-SQL Data Warehouse använder en skalbar arkitektur för att distribuera beräkningar bearbetning av data över flera noder. Skala är en abstraktion av datorkraft som kallas en dataenhet för datalager. SQL Data Warehouse avgränsar beräkna från lagring som aktiverar du som användare att skala beräknar oberoende av data i systemet.
+SQL Data Warehouse använder en skalbar arkitektur för att distribuera beräkningar bearbetning av data över flera noder. Skala är en abstraktion av datorkraft som kallas en dataenhet för datalager. SQL Data Warehouse avgränsar beräkna från lagringen, vilket gör det möjligt att skala compute oberoende av data i systemet.
 
 ![SQL Data Warehouse-arkitektur](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL Data Warehouse använder en nod baserat arkitektur. Program ansluta och utfärda T-SQL-kommandon till en Control-noden är den enda post för datalagret. Control-noden körs MPP-motorn som optimerar frågor för parallell bearbetning och skickar sedan operations till Compute-noder att utföra sitt arbete parallellt. Compute-noder lagrar alla användardata i Azure Storage och kör de parallella frågorna. Data Movement Service (DMS) är en tjänst med interna på systemnivå som flyttar data mellan noderna som behövs för att köra frågor parallellt och returnerar exakta resultat. 
+SQL Data Warehouse använder ett nod-baserad arkitektur. Program ansluta och utfärda T-SQL-kommandon till en Control-noden är den enda post för datalagret. Control-noden körs MPP-motorn som optimerar frågor för parallell bearbetning och skickar sedan operations till Compute-noder att utföra sitt arbete parallellt. Compute-noder lagrar alla användardata i Azure Storage och kör de parallella frågorna. Data Movement Service (DMS) är en tjänst med interna på systemnivå som flyttar data mellan noderna som behövs för att köra frågor parallellt och returnerar exakta resultat. 
 
 Med fristående lagringsutrymme och databearbetning kan SQL Data Warehouse:
 
@@ -37,7 +33,7 @@ Med fristående lagringsutrymme och databearbetning kan SQL Data Warehouse:
 * Pausa beräkningskapacitet och medan data kvar, så att du betalar bara för lagring.
 * Återuppta beräkningskapacitet under driftstimmar.
 
-### <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage"></a>Azure-lagring
 SQL Data Warehouse använder Azure-lagring för att skydda användardata.  Eftersom dina data lagras och hanteras av Azure storage, debiterar SQL Data Warehouse separat för användningen av lagringsutrymme. Själva informationen är delat i **distributioner** att optimera prestanda för systemet. Du kan välja vilka horisontell partitionering mönster som ska använda för att distribuera data när du definierar i tabellen. SQL Data Warehouse stöder dessa mönster för horisontell partitionering:
 
 * Hash

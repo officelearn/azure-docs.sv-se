@@ -1,24 +1,24 @@
 ---
 title: Raspberry Pi till molnet (Python) - ansluta hallon Pi till Azure IoT Hub | Microsoft Docs
-description: "Lär dig mer om att konfigurera och ansluta hallon Pi till Azure IoT-hubb för hallon Pi att skicka data till Azure-molnplattform i den här självstudiekursen."
+description: Lär dig mer om att konfigurera och ansluta hallon Pi till Azure IoT-hubb för hallon Pi att skicka data till Azure-molnplattform i den här självstudiekursen.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
+tags: ''
 keywords: Azure iot raspberry pi, raspberry pi iot-hubb, raspberry pi skickar data till molnet, raspberry pi till molnet
 ms.service: iot-hub
 ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/31/2017
-ms.author: xshi
-ms.openlocfilehash: 1b1a9dc960846cbc15ce09d0fd106e1492937439
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 7069748c10f7c98f80fadc008f43a3aa02f7ac0e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-python"></a>Ansluta Raspberry Pi till Azure IoT-hubb (Python)
 
@@ -169,7 +169,7 @@ Använd en av följande SSH-klienter från värddatorn för att ansluta till din
    nano config.py
    ```
 
-   Det finns 5 makron i den här filen kan du configurate. Den första är `MESSAGE_TIMESPAN`, som definierar tidsintervall (i millisekunder) mellan två meddelanden som skickas till molnet. Det andra `SIMULATED_DATA`, vilket är ett booleskt värde för om du vill använda simulerade sensordata eller inte. `I2C_ADDRESS`är I2C adressen som BME280-sensor är ansluten. `GPIO_PIN_ADDRESS`är GPIO-adressen för din Indikator. Den senaste är `BLINK_TIMESPAN`, som definierats timespan när din Indikator är aktiverat i millisekunder.
+   Det finns 5 makron i den här filen kan du configurate. Den första är `MESSAGE_TIMESPAN`, som definierar tidsintervall (i millisekunder) mellan två meddelanden som skickas till molnet. Det andra `SIMULATED_DATA`, vilket är ett booleskt värde för om du vill använda simulerade sensordata eller inte. `I2C_ADDRESS` är I2C adressen som BME280-sensor är ansluten. `GPIO_PIN_ADDRESS` är GPIO-adressen för din Indikator. Den senaste är `BLINK_TIMESPAN`, som definierats timespan när din Indikator är aktiverat i millisekunder.
 
    Om du **saknar sensorn**, ange den `SIMULATED_DATA` värde till `True` för att skapa och använda simulerade sensordata exempelprogrammet.
 

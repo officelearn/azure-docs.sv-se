@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: dfa116981cb0ce912ee83fade54f2502262178bc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9ecd8dc40e168c2fd37e3d58ee588a0d9626a04a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Om konfigurationsinställningar för VPN-Gateway
 
@@ -81,7 +81,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 ###  <a name="resizechange"></a>Ändra storlek på eller ändra en SKU
 
-Ändra storlek på en gateway är SKU ganska enkelt. Har du mycket lite driftstopp som ändrar storlek på gatewayen. Det finns dock regler rörande storleksändring:
+Om du har en VPN-gateway och du vill använda en annan gateway SKU är alternativen att ändra storlek på din gateway-SKU eller ändra till en annan SKU. När du ändrar till en annan gateway SKU du ta bort den befintliga gatewayen helt och hållet och skapa en ny. Detta kan ta upp till 45 minuter att skapa. I jämförelse när du ändrar storlek på en gateway-SKU, har du mycket lite driftstopp eftersom du inte behöver ta bort och återskapa gatewayen. Om du har möjlighet att ändra storlek på din gateway-SKU, i stället för att ändra det, kommer du vill göra det. Det finns dock regler rörande storleksändring:
 
 1. Du kan ändra storlek mellan VpnGw1, VpnGw2 och VpnGw3 SKU: er.
 2. När du arbetar med gamla gatewayen-SKU: er, kan du ändra storlek mellan Basic, Standard och HighPerformance SKU: er.

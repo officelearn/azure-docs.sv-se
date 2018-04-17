@@ -12,11 +12,11 @@ ms.workload: On Demand
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 1f125596a6cc874f285611290d5c42700009afbe
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 46236c11b15f86c26be5e8c1311ba35e8bdd90f2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -28,7 +28,7 @@ SQL Database tillhandahåller flera funktioner för affärskontinuitet, inklusiv
 
 I följande tabell jämförs infoga och Återställningspunktmål för varje tjänstnivå för de tre vanligaste scenarierna.
 
-| Funktion | Grundläggande | Standard | Premium  | Allmän | Verksamhetskritisk
+| Funktion | Basic | Standard | Premium  | Generellt syfte | Affärskritisk
 | --- | --- | --- | --- |--- |--- |
 | Återställning till tidpunkt från säkerhetskopia |En återställningspunkt inom 7 dagar |En återställningspunkt inom 35 dagar |En återställningspunkt inom 35 dagar |En återställningspunkt inom konfigurerade tid (upp till 35 dagar)|En återställningspunkt inom konfigurerade tid (upp till 35 dagar)|
 | GEO-återställning från säkerhetskopior georeplikerad |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme|ERT < 12 timme, RPO < 1 timme|
@@ -44,7 +44,7 @@ Om den högsta bevarandeperioden för stöds PITR inte räcker för ditt program
 Du kan använda dessa automatiska databassäkerhetskopior för att återställa en databas från olika avbrottshändelser, både i ditt datacenter och till ett annat datacenter. Om du använder automatiska databassäkerhetskopieringar beror den beräknade återställningstiden på flera faktorer, inklusive det totala antalet databaser som återställs i samma region vid samma tidpunkt, databasens storlek, transaktionsloggarnas storlek och nätverksbandbredden. Tiden för återställning är vanligtvis mindre än 12 timmar. När du återställer till en annan dataregion är den potentiella dataförlusten begränsad till 1 timme med geo-redundant lagring med differentiella säkerhetskopieringar varje timme.
 
 > [!IMPORTANT]
-> Om du återställer med hjälp av automatisk säkerhetskopior måste du vara medlem i SQL Server-rollen Deltagare eller vara prenumerationsägaren. Mer information finns i [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md) (Rollbaserad åtkomstkontroll: Inbyggda roller). Du kan återställa med hjälp av Azure Portal, PowerShell eller REST-API:et. Du kan inte använda Transact-SQL.
+> Om du återställer med hjälp av automatisk säkerhetskopior måste du vara medlem i SQL Server-rollen Deltagare eller vara prenumerationsägaren. Mer information finns i [RBAC: Built-in roles](../role-based-access-control/built-in-roles.md) (Rollbaserad åtkomstkontroll: Inbyggda roller). Du kan återställa med hjälp av Azure Portal, PowerShell eller REST-API:et. Du kan inte använda Transact-SQL.
 >
 
 Använd automatiska säkerhetskopieringar som din affärskontinuitets- och återställningsmetod om ditt program:

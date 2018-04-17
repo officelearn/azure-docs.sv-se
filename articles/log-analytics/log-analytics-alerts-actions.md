@@ -1,8 +1,8 @@
 ---
-title: "Svar på aviseringar i Azure Log Analytics | Microsoft Docs"
-description: "Aviseringar i Log Analytics kan identifiera viktig information på din arbetsyta för Azure och proaktivt meddelar dig om problem eller anropa åtgärder om du vill försöka åtgärda.  Den här artikeln beskriver hur du skapar en aviseringsregel och information om olika åtgärder som de kan ta."
+title: Svar på aviseringar i Azure Log Analytics | Microsoft Docs
+description: Aviseringar i Log Analytics kan identifiera viktig information på din arbetsyta för Azure och proaktivt meddelar dig om problem eller anropa åtgärder om du vill försöka åtgärda.  Den här artikeln beskriver hur du skapar en aviseringsregel och information om olika åtgärder som de kan ta.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e80481f074bc196caae7c03f54134eaef0fb46d5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 6a48e4c0ab61e5dcf526bb8b1d8bdc6b0d16f9e7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Lägg till åtgärder i Varningsregler i logganalys
 När en [avisering skapas i logganalys](log-analytics-alerts.md), har möjlighet att [konfigurera varningsregeln](log-analytics-alerts.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika åtgärder som är tillgängliga och information om hur du konfigurerar varje slag.
@@ -28,7 +28,7 @@ När en [avisering skapas i logganalys](log-analytics-alerts.md), har möjlighet
 |:--|:--|
 | [E-post](#email-actions) | Skicka ett e-postmeddelande med information om aviseringen till en eller flera mottagare. |
 | [Webhook](#webhook-actions) | Anropa en extern process via en enkel HTTP POST-begäran. |
-| [Runbook](#runbook-actions) | Starta en runbook i Azure Automation. |
+| [runbook](#runbook-actions) | Starta en runbook i Azure Automation. |
 
 
 ## <a name="email-actions"></a>E-post-åtgärder
@@ -39,7 +39,7 @@ E-post-åtgärder kräver egenskaperna i följande tabell.
 | Egenskap | Beskrivning |
 |:--- |:--- |
 | Ämne |Ämne för e-postmeddelandet.  Du kan inte ändra innehållet i e-postmeddelandet. |
-| Mottagare |Tar med alla e-postmottagare.  Om du anger fler än en adress sedan Avgränsa adresserna med semikolon (;). |
+| Mottagare |Tar med alla e-postmottagare.  Om du anger mer än en adress kan du avgränsa dem med semikolon (;). |
 
 
 ## <a name="webhook-actions"></a>Webhook-åtgärder
@@ -70,7 +70,7 @@ Webhooks är en URL och en nyttolast som har formaterats i JSON som är data som
 | SearchIntervalInSeconds |#searchinterval |Tidsfönstret för regeln. |
 | SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Starttid för frågan i UTC-format. |
 | searchQuery |#searchquery |Loggen sökfråga används av regeln. |
-| SearchResults |Nedan finns |Poster som returneras av frågan i JSON-format.  Begränsad till de första 5 000 posterna. |
+| SearchResults |Se nedan |Poster som returneras av frågan i JSON-format.  Begränsad till de första 5 000 posterna. |
 | WorkspaceID |#workspaceid |ID för logganalys-arbetsytan. |
 
 Du kan till exempel ange följande anpassad nyttolast som innehåller en enda parameter med namnet *text*.  Den tjänst som denna webhook anropar skulle förväntas den här parametern.
@@ -603,6 +603,7 @@ Följande är ett exempel nyttolasten för en runbook-åtgärden i en uppgradera
                 "a4e29a95-5b4c-408b-80e3-113f9410566e",
                 "00000000-0000-0000-0000-000000000000",
                 "Usage"
+            ]
             ]
         }
         ]

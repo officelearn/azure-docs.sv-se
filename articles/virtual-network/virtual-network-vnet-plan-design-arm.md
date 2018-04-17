@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Network (VNet) planerings- och designguide | Microsoft Docs
-description: "Lär dig hur du planerar och utformar virtuella nätverk i Azure baserat på dina krav för isolering, anslutning och plats."
+description: Lär dig hur du planerar och utformar virtuella nätverk i Azure baserat på dina krav för isolering, anslutning och plats.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e41dae2f4e93fe2e3cef689596612a6a192c844
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planera och utforma Azure-nätverk
 Det är enkelt att skapa ett virtuellt nätverk om du vill experimentera med, men troligen har du ska distribuera flera virtuella nätverk över tid för att stödja produktion behoven för din organisation. Med lite planering och design, kommer du att kunna distribuera Vnet och ansluta de resurser du behöver mer effektivt. Om du inte är bekant med VNets rekommenderar vi som du [Lär dig mer om Vnet](virtual-networks-overview.md) och [hur du distribuerar](quick-create-portal.md) något innan du fortsätter.
@@ -87,16 +87,16 @@ Som standard används ditt VNet [Azure-tillhandahållna namnmatchning](virtual-n
 Granska de nätverk gränserna i den [Azure begränsar](../azure-subscription-service-limits.md#networking-limits) att tillse att din design inte krockar med någon av gränserna. Vissa begränsningar kan utökas genom att öppna ett supportärende.
 
 ### <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
-Du kan använda [Azure RBAC](../active-directory/role-based-access-built-in-roles.md) att styra åtkomstnivån som olika användare behöva olika resurser i Azure. På så sätt kan du särskilja arbetet som utförs av ditt team utifrån deras behov.
+Du kan använda [Azure RBAC](../role-based-access-control/built-in-roles.md) att styra åtkomstnivån som olika användare behöva olika resurser i Azure. På så sätt kan du särskilja arbetet som utförs av ditt team utifrån deras behov.
 
 När det gäller de virtuella nätverken är berörda användare i den **Network-deltagare** roll har full kontroll över Azure Resource Manager nätverksresurser på virtuella datorer. På liknande sätt kan användare i den **klassiska Network-deltagare** roll har full kontroll över klassiska virtuella nätverksresurser.
 
 > [!NOTE]
-> Du kan också [skapa egna roller](../active-directory/role-based-access-control-configure.md) avgränsa administrativa behov.
+> Du kan också [skapa egna roller](../role-based-access-control/role-assignments-portal.md) avgränsa administrativa behov.
 >
 >
 
-## <a name="design"></a>Designa
+## <a name="design"></a>Design
 När du väl vet svaren på frågorna i den [planera](#Plan) avsnittet kan du granska följande innan du definierar ditt Vnet.
 
 ### <a name="number-of-subscriptions-and-vnets"></a>Antalet prenumerationer och Vnet
@@ -188,7 +188,7 @@ Bör du börja planera genom att besvara frågan i designen i [definiera krav](#
 
     Ja. Nätverk gruppen behöver fullständig behörighet för de virtuella nätverksinställningarna när utvecklare bara ska kunna distribuera sina virtuella datorer till befintlig undernät.
 
-### <a name="design"></a>Designa
+### <a name="design"></a>Design
 Du bör följa designen anger prenumerationer, Vnet, undernät och NSG: er. Diskuteras NSG: er här, men du får lära dig mer om [NSG: er](virtual-networks-nsg.md) innan du avslutar din design.
 
 **Antalet prenumerationer och Vnet**

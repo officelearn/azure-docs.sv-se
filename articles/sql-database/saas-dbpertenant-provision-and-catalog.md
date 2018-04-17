@@ -10,17 +10,17 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 4ddb870d0513d6834aacf0964c240260f18df0fd
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3a4026b56522da6c6efede4b8b7a542efc8a776d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Lär dig att etablera nya klienter och registrerar dem i katalogen
 
 I kursen får lära du att etablera och katalogen SaaS-mönster. Du lär dig också hur de implementeras i databasen per klient Wingtip biljetter SaaS-programmet. Skapa och initiera den nya innehavaren databaser och registrera dem i programkatalogen klient. Katalogen är en databas som underhåller mappningen mellan många hyresgäster i SaaS-program och data. Katalogen spelar en viktig roll i att dirigera programmet och av hanteringsbegäranden till rätt databas.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 
@@ -63,7 +63,7 @@ Databasetablering av måste vara en del av strategin för schemat. Du måste se 
 
 Appen Wingtip biljetter databas per klient etablerar nya klienter genom att kopiera en mall för databas med namnet _basetenantdb_, som distribueras på katalogservern. Etablering kan integreras i programmet som en del av en registrering. Den kan även användas offline med hjälp av skript. Den här självstudiekursen utforskar etablering med hjälp av PowerShell. 
 
-Etablering skript kopiera den _basetenantdb_ databas för att skapa en ny klient-databas i en elastisk pool. Skripten sedan initiera databasen med klient-specifik information och registrera det i katalogen Fragmentera kartan. Klient-databaser är angivet namn baserat på innehavarens namn. Den här namngivningsschemat är en viktig del av mönstret. Katalogen mappar klientnyckeln till namnet på databasen, så en namngivningskonvention kan användas. 
+Etablering skript kopiera den _basetenantdb_ databas för att skapa en ny klient-databas i en elastisk pool. Klient-databas skapas i innehavaren servern som är kopplad till den _newtenant_ DNS-alias. Det här aliaset upprätthåller en referens till den server som används för att etablera nya klienter och uppdateras för att peka till en server för återställning-klient i disaster recovery självstudiekurser ([DR med georestore](saas-dbpertenant-dr-geo-restore.md), [DR med georeplication](saas-dbpertenant-dr-geo-replication.md)). Skripten sedan initiera databasen med klient-specifik information och registrera det i katalogen Fragmentera kartan. Klient-databaser är angivet namn baserat på innehavarens namn. Den här namngivningsschemat är en viktig del av mönstret. Katalogen mappar klientnyckeln till namnet på databasen, så en namngivningskonvention kan användas. 
 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Hämta programskript Wingtip biljetter SaaS databas per klient

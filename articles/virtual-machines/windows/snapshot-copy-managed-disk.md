@@ -3,7 +3,7 @@ title: Skapa en ögonblicksbild av en virtuell Hårddisk i Azure | Microsoft Doc
 description: Lär dig hur du skapar en kopia av en Azure VM ska användas som en tillbaka upp eller för att felsöka problem.
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 15eb778e-fc07-45ef-bdc8-9090193a6d20
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: c5f4c7224e04b601d7d3fe4da7d8f5f0c02c7039
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9f5a8be8a50a8e8168736899b6dba3c143f56219
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-snapshot"></a>Skapa en ögonblicksbild
 
@@ -37,41 +37,52 @@ Ta en ögonblicksbild av ett operativsystem eller disk VHD för säkerhetskopier
 9. Klicka på **Skapa**.
 
 ## <a name="use-powershell-to-take-a-snapshot"></a>Använd PowerShell för att ta en ögonblicksbild
+
 Följande steg visar hur du hämtar VHD-disk som ska kopieras, skapa ögonblicksbild konfigurationer och ta en ögonblicksbild av disken med hjälp av den [ny AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
 
-Kontrollera att du har den senaste versionen av den AzureRM.Compute PowerShell module installerad. Kör följande kommando för att installera den.
+Innan du börjar bör du kontrollera att du har den senaste versionen av AzureRM.Compute PowerShell-modulen. Den här artikeln kräver AzureRM Modulversion 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
 
-```
-Install-Module AzureRM.Compute -MinimumVersion 2.6.0
-```
-Mer information finns i [Azure PowerShell versionshantering](/powershell/azure/overview).
-
-
-1. Ange vissa parametrar. 
+Ange vissa parametrar. 
 
  ```azurepowershell-interactive
 $resourceGroupName = 'myResourceGroup' 
 $location = 'eastus' 
-$dataDiskName = 'myDisk' 
+$vmName = 'myVM'
 $snapshotName = 'mySnapshot'  
 ```
 
-2. Hämta VHD-disk som ska kopieras.
+Hämta den virtuella datorn.
 
  ```azurepowershell-interactive
-$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDiskName 
+$vm = get-azurermvm `
+   -ResourceGroupName $resourceGroupName `
+   -Name $vmName
 ```
-3. Skapa ögonblicksbild konfigurationer. 
+
+Skapa en ögonblicksbild av konfigurationen. I det här exemplet ska vi ögonblicksbild OS-disk.
 
  ```azurepowershell-interactive
-$snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -Location $location 
+$snapshot =  New-AzureRmSnapshotConfig `
+   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
+   -Location $location `
+   -CreateOption copy
 ```
-4. Ta ögonblicksbilden.
+   
+> [!NOTE]
+> Om du vill lagra din ögonblicksbild i zonen flexibel måste du skapa i en region som stöder [tillgänglighet zoner](../../availability-zones/az-overview.md) och inkludera den `-SkuName Standard_ZRS` parameter.   
 
- ```azurepowershell-interactive
-New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
+   
+Ta ögonblicksbilden.
+
+```azurepowershell-interactive
+New-AzureRmSnapshot `
+   -Snapshot $snapshot `
+   -SnapshotName $snapshotName `
+   -ResourceGroupName $resourceGroupName 
 ```
-Om du planerar att använda ögonblicksbilden för att skapa en hanterad Disk och koppla den till en virtuell dator som måste vara höga prestanda, använder du parametern `-AccountType Premium_LRS` med kommandot Ny AzureRmSnapshot. Parametern skapar ögonblicksbilden så att den lagras som en Premium hanteras Disk. Premium-hanterade diskar är dyrare än Standard. Vara säker på att du verkligen behöver Premium innan du använder parametern.
+
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

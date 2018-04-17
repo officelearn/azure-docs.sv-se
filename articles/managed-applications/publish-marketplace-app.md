@@ -1,6 +1,6 @@
 ---
 title: Azure hanterade program i Marketplace | Microsoft Docs
-description: "Beskriver Azure hanterade program som är tillgängliga via Marketplace."
+description: Beskriver Azure hanterade program som är tillgängliga via Marketplace.
 services: azure-resource-manager
 author: tfitzmac
 manager: timlt
@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 61815098a4935983f19b3dcea6e001230aee4771
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 753e13ea0dbfc7fe0c74987e1383f71329b76a63
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Azure hanterade program i Marketplace
 
@@ -107,7 +107,7 @@ En SKU visas under överordnade erbjudandet på marketplace. Det verkar som sin 
 
 Du kan lägga till flera tillstånd. Vi rekommenderar att du skapar en grupp i AD-användare och ange dess ID i **PrincipalId**. På så sätt kan du lägga till fler användare i användargruppen utan att behöva uppdatera SKU: N.
 
-Läs mer om hur RBAC [komma igång med RBAC på Azure portal](../active-directory/role-based-access-control-what-is.md).
+Läs mer om hur RBAC [komma igång med RBAC på Azure portal](../role-based-access-control/overview.md).
 
 ## <a name="marketplace-form"></a>Marketplace-formulär
 

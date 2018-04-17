@@ -3,7 +3,7 @@ title: Intel modern till molnet (C) - ansluta Intel modern till Azure IoT Hub | 
 description: Lär dig mer om att konfigurera och ansluta Intel modern till Azure IoT-hubb för Intel modern att skicka data till Azure-molnplattform i den här självstudiekursen.
 services: iot-hub
 documentationcenter: ''
-author: shizn
+author: rangv
 manager: timlt
 tags: ''
 keywords: Azure iot intel modern, intel modern iot-hubb, intel modern skicka data till molnet, intel modern till molnet
@@ -13,14 +13,14 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2017
-ms.author: xshi
+ms.date: 4/11/2018
+ms.author: rangv
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: edbdbe0230f742cd7228f04a4a83c9bd567527e8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8a1ed0a42fe323183b8985e1530ef102552ae7d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>Ansluta Intel modern till Azure IoT Hub (C)
 

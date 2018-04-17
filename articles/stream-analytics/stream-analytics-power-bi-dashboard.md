@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2017
-ms.openlocfilehash: 15b8548e8b5b6ff8d2f5722d2a4031f8e52d044b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e84903870110091d527e870600d9a67bdc9cc6e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Strömma analyser och Power BI: en analys i realtid instrumentpanel för strömmande data
+# <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Självstudier: Stream Analytics och Power BI: en analys i realtid instrumentpanel för strömmande data
 Azure Stream Analytics gör att du kan dra nytta av en av de inledande verktyg för business intelligence [Microsoft Power BI](https://powerbi.com/). I den här artikeln får du lära dig hur skapa business intelligence-verktyg med hjälp av Power BI som utdata för Azure Stream Analytics-jobb. Du också lära dig hur du skapar och använder en realtid instrumentpanel.
 
 Den här artikeln fortsätter från Stream Analytics [att upptäcka bedrägerier realtid](stream-analytics-real-time-fraud-detection.md) kursen. Den bygger på arbetsflödet som skapats i denna självstudiekurs och lägger till en Power BI utdata så att du kan visualisera bedrägliga telefonsamtal som identifieras av en Streaming Analytics-jobbet. 

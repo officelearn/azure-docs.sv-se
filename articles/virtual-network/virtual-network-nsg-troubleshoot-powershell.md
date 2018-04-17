@@ -1,11 +1,11 @@
 ---
-title: "Felsöka Nätverkssäkerhetsgrupper - PowerShell | Microsoft Docs"
-description: "Lär dig hur du felsöker Nätverkssäkerhetsgrupper i Azure Resource Manager-distributionsmodellen med hjälp av Azure PowerShell."
+title: Felsöka Nätverkssäkerhetsgrupper - PowerShell | Microsoft Docs
+description: Lär dig hur du felsöker Nätverkssäkerhetsgrupper i Azure Resource Manager-distributionsmodellen med hjälp av Azure PowerShell.
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4c732bb7-5cb1-40af-9e6d-a2a307c2a9c4
 ms.service: virtual-network
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: d556f2d6d37956c3b3bca2a2905b2c947e6be0df
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6beaeb4b7e5c9e393427d575f1cf8bc48599dbd5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Felsöka Nätverkssäkerhetsgrupper med hjälp av Azure PowerShell
 > [!div class="op_single_selector"]
-> * [Azure-portalen](virtual-network-nsg-troubleshoot-portal.md)
+> * [Azure Portal](virtual-network-nsg-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 > 
 > 
@@ -44,7 +44,7 @@ Följande steg kan användas för att fastställa inkommande och utgående anslu
 ## <a name="detailed-troubleshooting-steps"></a>Detaljerad felsökning
 Utför följande steg för att felsöka NSG: er för en virtuell dator:
 
-1. Starta en Azure PowerShell-sessionen och logga in på Azure. Om du inte är bekant med Azure PowerShell kan du läsa den [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) artikel. Ditt konto ha tilldelats den *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* åtgärden för nätverksgränssnittet. Information om hur du tilldelar åtgärder till konton finns [skapa anpassade roller för rollbaserad åtkomstkontroll i](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Starta en Azure PowerShell-sessionen och logga in på Azure. Om du inte är bekant med Azure PowerShell kan du läsa den [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) artikel. Ditt konto ha tilldelats den *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* åtgärden för nätverksgränssnittet. Information om hur du tilldelar åtgärder till konton finns [skapa anpassade roller för rollbaserad åtkomstkontroll i](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Ange följande kommando för att returnera alla NSG-regler tillämpas på ett nätverkskort med namnet *VM1 NIC1* i resursgruppen *RG1*:
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

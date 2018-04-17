@@ -1,11 +1,11 @@
 ---
-title: "Skapa en avbildning av virtuell dator för Azure Marketplace | Microsoft Docs"
-description: "Detaljerade anvisningar om hur du skapar en avbildning av virtuell dator på Azure Marketplace för andra att köpa."
+title: Skapa en avbildning av virtuell dator för Azure Marketplace | Microsoft Docs
+description: Detaljerade anvisningar om hur du skapar en avbildning av virtuell dator på Azure Marketplace för andra att köpa.
 services: Azure Marketplace
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
 ms.service: marketplace
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: f7b19066ca3fa156456766ff82afeadadc6b1efa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cb1d529f8e3eaabb4d49e8bbea03cab8e838cfa2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guide för att skapa en avbildning av virtuell dator för Azure Marketplace
 Den här artikeln **steg 2**, vägleder dig genom förbereder de virtuella hårddiskar (VHD) som du ska distribuera till Azure Marketplace. De virtuella hårddiskarna är grunden för dina SKU: N. Processen skiljer sig åt beroende på om du tillhandahåller en Linux- eller Windows-baserade SKU. Den här artikeln täcker båda scenarierna. Den här processen kan utföras parallellt med [skapande av konton och registrering][link-acct-creation].
@@ -302,7 +302,7 @@ SAS-URL kan skapas på flera olika sätt att dela den virtuella Hårddisken för
 Följande är 3 rekommenderade verktyg:
 
 1.  Azure Lagringsutforskaren
-2.  Microsoft Storage Explorer
+2.  Microsoft Lagringsutforskaren
 3.  Azure CLI
 
 **Azure Lagringsutforskaren (rekommenderas för Windows-användare)**
@@ -430,7 +430,7 @@ Nedan följer stegen för att generera SAS-URL genom att använda Microsoft Azur
 
 Nedan följer stegen för att generera SAS-URL med hjälp av Azure CLI
 
-1.  Ladda ned Microsoft Azure CLI från [här](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Du kan också hitta olika länkar för  **[Windows](http://aka.ms/webpi-azure-cli)**  och  **[MAC OS x](http://aka.ms/mac-azure-cli)**.
+1.  Ladda ned Microsoft Azure CLI från [här](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Du kan också hitta olika länkar för **[Windows](http://aka.ms/webpi-azure-cli)** och  **[MAC OS x](http://aka.ms/mac-azure-cli)**.
 
 2.  När du har laddat ned och installera
 
@@ -446,7 +446,7 @@ Nedan följer stegen för att generera SAS-URL med hjälp av Azure CLI
 
     b. **`<Storage Account Key>`**: Ger din lagringskontonyckel
 
-    c. **`<Permission Start Date>`**: Om du vill skydda för UTC-tid, väljer du dag före det aktuella datumet. Till exempel om det aktuella datumet infaller 26 oktober 2016 sedan värdet bör vara 10/25/2016. Om du använder Azure CLI 2.0 (az kommando), ange både datum och tid i Start- och slutdatum, till exempel: 10-25-2016T00:00:00Z.
+    c. **`<Permission Start Date>`**: Om du vill skydda för UTC-tid, väljer du dag före det aktuella datumet. Till exempel om det aktuella datumet infaller 25 oktober 2016 sedan värdet bör vara 10/25/2016. Om du använder Azure CLI 2.0 (az kommando), ange både datum och tid i Start- och slutdatum, till exempel: 10-25-2016T00:00:00Z.
 
     d. **`<Permission End Date>`**: Välj ett datum som är minst tre veckor efter den **startdatum**. Värdet bör vara **2016-02-11**. Om du använder Azure CLI 2.0 (az kommando), ange både datum och tid i Start- och slutdatum, till exempel: 11-02-2016T00:00:00Z.
 

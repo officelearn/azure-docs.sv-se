@@ -1,6 +1,6 @@
 ---
-title: "Azure händelse för aktivitetslogg | Microsoft Docs"
-description: "Förstå Händelseschema för data som sänds till aktivitetsloggen"
+title: Azure händelse för aktivitetslogg | Microsoft Docs
+description: Förstå Händelseschema för data som sänds till aktivitetsloggen
 author: johnkemnetz
 manager: robb
 services: monitoring-and-diagnostics
@@ -10,13 +10,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
-ms.author: johnkem
-ms.openlocfilehash: a5c05466b21184a73d08190856e00ae95ee3727f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 4/12/2018
+ms.author: dukek
+ms.openlocfilehash: 4264bfd733f586dcdabdee8f29494bfffd9a7a76
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure aktivitetsloggen Händelseschema
 Den **Azure-aktivitetsloggen** är en logg som ger inblick i prenumerationsnivån händelser som har inträffat i Azure. Den här artikeln beskriver Händelseschema per kategori av data.
@@ -29,7 +29,7 @@ Den här kategorin innehåller posten för alla skapa, uppdatera, ta bort och å
 {
     "authorization": {
         "action": "Microsoft.Network/networkSecurityGroups/write",
-        "scope": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG"
+        "scope": "/subscriptions/<subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG"
     },
     "caller": "rob@contoso.com",
     "channels": "Operation",
@@ -74,7 +74,7 @@ Den här kategorin innehåller posten för alla skapa, uppdatera, ta bort och å
         "localizedValue": "Administrative"
     },
     "eventTimestamp": "2018-01-29T20:42:31.3810679Z",
-    "id": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG/events/d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d/ticks/636528553513810679",
+    "id": "/subscriptions/<subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG/events/d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d/ticks/636528553513810679",
     "level": "Informational",
     "operationId": "04e575f8-48d0-4c43-a8b3-78c4eb01d287",
     "operationName": {
@@ -90,7 +90,7 @@ Den här kategorin innehåller posten för alla skapa, uppdatera, ta bort och å
         "value": "Microsoft.Network/networkSecurityGroups",
         "localizedValue": "Microsoft.Network/networkSecurityGroups"
     },
-    "resourceId": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
+    "resourceId": "/subscriptions/<subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
     "status": {
         "value": "Succeeded",
         "localizedValue": "Succeeded"
@@ -100,7 +100,7 @@ Den här kategorin innehåller posten för alla skapa, uppdatera, ta bort och å
         "localizedValue": ""
     },
     "submissionTimestamp": "2018-01-29T20:42:50.0724829Z",
-    "subscriptionId": "dd042f02-6b3e-4f79-939a-6a381ffed3c0",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "statusCode": "Created",
         "serviceRequestId": "a4c11dbd-697e-47c5-9663-12362307157d",
@@ -136,7 +136,7 @@ Den här kategorin innehåller posten för alla skapa, uppdatera, ta bort och å
 | submissionTimestamp |Tidsstämpel när händelsen blev tillgängliga för frågor. |
 | subscriptionId |Azure prenumerations-Id. |
 
-## <a name="service-health"></a>Tjänstehälsa
+## <a name="service-health"></a>Service Health
 Den här kategorin innehåller post för varje service hälsa incidenter som har inträffat i Azure. Ett exempel på typen av händelse visas i den här kategorin är ”SQL Azure i östra USA upplever driftstopp”. Hälsa av tjänsten-händelser finns i fem sorter: åtgärd krävs stödd återställning, Incident, underhåll, Information eller säkerhet, och visas endast om du har en resurs i den prenumeration som skulle påverkas av händelsen.
 
 ### <a name="sample-event"></a>Exempelhändelse
@@ -154,7 +154,7 @@ Den här kategorin innehåller post för varje service hälsa incidenter som har
       "localizedValue": "Service Health"
   },
   "eventTimestamp": "2017-07-20T23:30:14.8022297Z",
-  "id": "/subscriptions/mySubscriptionID/events/c5bc4514-6642-2be3-453e-c6a67841b073/ticks/636361902148022297",
+  "id": "/subscriptions/<subscription ID>/events/c5bc4514-6642-2be3-453e-c6a67841b073/ticks/636361902148022297",
   "level": "Warning",
   "operationName": {
       "value": "Microsoft.ServiceHealth/incident/action",
@@ -167,7 +167,7 @@ Den här kategorin innehåller post för varje service hälsa incidenter som har
       "value": null,
       "localizedValue": ""
   },
-  "resourceId": "/subscriptions/mySubscriptionID",
+  "resourceId": "/subscriptions/<subscription ID>",
   "status": {
       "value": "Active",
       "localizedValue": "Active"
@@ -176,7 +176,7 @@ Den här kategorin innehåller post för varje service hälsa incidenter som har
       "value": null
   },
   "submissionTimestamp": "2017-07-20T23:30:34.7431946Z",
-  "subscriptionId": "mySubscriptionID",
+  "subscriptionId": "<subscription ID>",
   "properties": {
     "title": "Network Infrastructure - UK South",
     "service": "Service Fabric",
@@ -194,35 +194,7 @@ Den här kategorin innehåller post för varje service hälsa incidenter som har
   }
 }
 ```
-
-### <a name="property-descriptions"></a>Egenskapsbeskrivningar
-Elementnamn | Beskrivning
--------- | -----------
-kanaler | Är ett av följande värden: ”Admin”, ”åtgärden”
-correlationId | Är vanligtvis ett GUID i strängformatet. Händelser med som tillhör samma uber åtgärd vanligtvis delar samma correlationId.
-description | Beskrivning av händelsen.
-eventDataId | Den unika identifieraren för en händelse.
-eventName | Rubrik på händelsen.
-nivå | Nivå av händelsen. Ett av följande värden: ”kritiska”, ”Error”, ”varning”, ”information” och ”utförlig”
-resourceProviderName | Namnet på resursprovidern för resursen påverkas. Detta kan vara null om det är inte känt.
-resourceType| Typ av resurs för resursen påverkas. Detta kan vara null om det är inte känt.
-subStatus | Vanligtvis är null för händelser för Hälsotjänst.
-eventTimestamp | Tidsstämpel när händelselogg har genererats och skickats till aktivitetsloggen.
-submissionTimestamp |   Tidsstämpel när händelsen blev tillgängliga i aktivitetsloggen.
-subscriptionId | Azure-prenumerationen som den här händelsen loggades.
-status | Sträng som beskriver status för åtgärden. Vissa vanliga värden: aktiva, löst.
-operationName | Namnet på åtgärden. Vanligtvis Microsoft.ServiceHealth/incident/action.
-category | "ServiceHealth"
-resourceId | Resurs-id för påverkas resursen, om den är känd. Prenumerations-ID har angetts på annat sätt.
-Properties.title | Lokaliserade rubriken för den här kommunikationen. Engelska är standardspråk.
-Properties.communication | Lokaliserad information om kommunikationen med HTML-kod. Engelska är standard.
-Properties.incidentType | Möjliga värden: AssistedRecovery, ActionRequired, Information, incidenter, underhåll, säkerhet
-Properties.trackingId | Identifierar den här händelsen är associerad med incidenten. Används för att korrelera händelser relaterade till en incident.
-Properties.impactedServices | En ESC JSON-blob som beskriver de tjänster och regioner som påverkas av incidenten. En lista över tjänster, som har en ServiceName och en lista över ImpactedRegions, som har en RegionName.
-Properties.defaultLanguageTitle | Kommunikation på engelska
-Properties.defaultLanguageContent | Kommunikation på engelska som HTML-kod eller oformaterad text
-Properties.Stage | Möjliga värden för AssistedRecovery, ActionRequired, Information, incidenter, säkerhet: är aktiv, löst. De är för underhåll: aktiv, planerad, InProgress, Avbruten, Rescheduled, löst, Slutför
-Properties.communicationId | Kommunikationen den här händelsen är kopplat.
+Referera till den [tjänsten meddelanden om hälsostatus](./monitoring-service-notifications.md) artikel dokumentation om värdena i egenskaperna.
 
 ## <a name="alert"></a>Varning
 Den här kategorin innehåller posten för alla aktiveringar av Azure-aviseringar. Ett exempel på typen av händelse visas i den här kategorin är ”processor på myVM har varit över 80 under de senaste fem minuterna”. En mängd Azure system har en aviseringar begrepp – du kan definiera en regel av något slag och ett meddelande när villkor matchar regeln. Varje gång en stöds Azure aviseringstyp 'aktiveras,' eller villkoren är uppfyllda för att generera ett meddelande, en post på aktiveringen skickas även till den här kategorin för aktivitetsloggen.
@@ -236,7 +208,7 @@ Den här kategorin innehåller posten för alla aktiveringar av Azure-aviseringa
   "claims": {
     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn": "Microsoft.Insights/alertRules"
   },
-  "correlationId": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert/incidents/L3N1YnNjcmlwdGlvbnMvZGY2MDJjOWMtN2FhMC00MDdkLWE2ZmItZWIyMGM4YmQxMTkyL3Jlc291cmNlR3JvdXBzL0NzbUV2ZW50RE9HRk9PRC1XZXN0VVMvcHJvdmlkZXJzL21pY3Jvc29mdC5pbnNpZ2h0cy9hbGVydHJ1bGVzL215YWxlcnQwNjM2MzYyMjU4NTM1MjIxOTIw",
+  "correlationId": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert/incidents/L3N1YnNjcmlwdGlvbnMvZGY2MDJjOWMtN2FhMC00MDdkLWE2ZmItZWIyMGM4YmQxMTkyL3Jlc291cmNlR3JvdXBzL0NzbUV2ZW50RE9HRk9PRC1XZXN0VVMvcHJvdmlkZXJzL21pY3Jvc29mdC5pbnNpZ2h0cy9hbGVydHJ1bGVzL215YWxlcnQwNjM2MzYyMjU4NTM1MjIxOTIw",
   "description": "'Disk read LessThan 100000 ([Count]) in the last 5 minutes' has been resolved for CloudService: myResourceGroup/Production/Event.BackgroundJobsWorker.razzle (myResourceGroup)",
   "eventDataId": "149d4baf-53dc-4cf4-9e29-17de37405cd9",
   "eventName": {
@@ -247,25 +219,25 @@ Den här kategorin innehåller posten för alla aktiveringar av Azure-aviseringa
     "value": "Alert",
     "localizedValue": "Alert"
   },
-  "id": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/Event.BackgroundJobsWorker.razzle/events/149d4baf-53dc-4cf4-9e29-17de37405cd9/ticks/636362258535221920",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/Event.BackgroundJobsWorker.razzle/events/149d4baf-53dc-4cf4-9e29-17de37405cd9/ticks/636362258535221920",
   "level": "Informational",
   "resourceGroupName": "myResourceGroup",
   "resourceProviderName": {
     "value": "Microsoft.ClassicCompute",
     "localizedValue": "Microsoft.ClassicCompute"
   },
-  "resourceId": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/Event.BackgroundJobsWorker.razzle",
+  "resourceId": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/Event.BackgroundJobsWorker.razzle",
   "resourceType": {
     "value": "Microsoft.ClassicCompute/domainNames/slots/roles",
     "localizedValue": "Microsoft.ClassicCompute/domainNames/slots/roles"
   },
-  "operationId": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert/incidents/L3N1YnNjcmlwdGlvbnMvZGY2MDJjOWMtN2FhMC00MDdkLWE2ZmItZWIyMGM4YmQxMTkyL3Jlc291cmNlR3JvdXBzL0NzbUV2ZW50RE9HRk9PRC1XZXN0VVMvcHJvdmlkZXJzL21pY3Jvc29mdC5pbnNpZ2h0cy9hbGVydHJ1bGVzL215YWxlcnQwNjM2MzYyMjU4NTM1MjIxOTIw",
+  "operationId": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert/incidents/L3N1YnNjcmlwdGlvbnMvZGY2MDJjOWMtN2FhMC00MDdkLWE2ZmItZWIyMGM4YmQxMTkyL3Jlc291cmNlR3JvdXBzL0NzbUV2ZW50RE9HRk9PRC1XZXN0VVMvcHJvdmlkZXJzL21pY3Jvc29mdC5pbnNpZ2h0cy9hbGVydHJ1bGVzL215YWxlcnQwNjM2MzYyMjU4NTM1MjIxOTIw",
   "operationName": {
     "value": "Microsoft.Insights/AlertRules/Resolved/Action",
     "localizedValue": "Microsoft.Insights/AlertRules/Resolved/Action"
   },
   "properties": {
-    "RuleUri": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert",
+    "RuleUri": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert",
     "RuleName": "myalert",
     "RuleDescription": "",
     "Threshold": "100000",
@@ -284,14 +256,14 @@ Den här kategorin innehåller posten för alla aktiveringar av Azure-aviseringa
   },
   "eventTimestamp": "2017-07-21T09:24:13.522192Z",
   "submissionTimestamp": "2017-07-21T09:24:15.6578651Z",
-  "subscriptionId": "mySubscriptionID"
+  "subscriptionId": "<subscription ID>"
 }
 ```
 
 ### <a name="property-descriptions"></a>Egenskapsbeskrivningar
 | Elementnamn | Beskrivning |
 | --- | --- |
-| uppringare | Always Microsoft.Insights/alertRules |
+| uppringare | Alltid Microsoft.Insights/alertRules |
 | kanaler | Alltid ”Admin, åtgärden” |
 | Anspråk | JSON-blob med typen SPN (service principal name) eller resurs varning-motorn. |
 | correlationId | Ett GUID i strängformatet. |
@@ -327,15 +299,15 @@ Egenskapsfältet innehåller olika värden beroende på aviseringen händelsens 
 #### <a name="properties-for-metric-alerts"></a>Egenskaper för mått aviseringar
 | Elementnamn | Beskrivning |
 | --- | --- |
-| properties.RuleUri | Resurs-ID för mått varningsregeln sig själv. |
-| properties.RuleName | Namnet på regeln mått. |
-| properties.RuleDescription | Beskrivning av mått varningsregeln (enligt definitionen i varningsregeln). |
+| Egenskaper. RuleUri | Resurs-ID för mått varningsregeln sig själv. |
+| Egenskaper. Regelnamn | Namnet på regeln mått. |
+| Egenskaper. RuleDescription | Beskrivning av mått varningsregeln (enligt definitionen i varningsregeln). |
 | Egenskaper. Tröskelvärde | Tröskelvärdet används i utvärderingen av mått varningsregeln. |
-| properties.WindowSizeInMinutes | Fönsterstorleken användas vid utvärderingen av mått varningsregeln. |
-| properties.Aggregation | Sammansättningstyp som definierats i regeln mått. |
+| Egenskaper. WindowSizeInMinutes | Fönsterstorleken användas vid utvärderingen av mått varningsregeln. |
+| Egenskaper. Aggregeringen | Sammansättningstyp som definierats i regeln mått. |
 | Egenskaper. Operatorn | Villkorsstyrd operatör som används i utvärderingen av mått varningsregeln. |
-| properties.MetricName | Måttnamnet av måttet används i utvärderingen av mått varningsregeln. |
-| properties.MetricUnit | Mått enhet för måttet används i utvärderingen av mått varningsregeln. |
+| Egenskaper. MetricName | Måttnamnet av måttet används i utvärderingen av mått varningsregeln. |
+| Egenskaper. MetricUnit | Mått enhet för måttet används i utvärderingen av mått varningsregeln. |
 
 ## <a name="autoscale"></a>Automatisk skalning
 Den här kategorin innehåller en förteckning över alla händelser relaterade till åtgärden Autoskala motorns baserat på automatiska inställningar du har definierat i din prenumeration. Ett exempel på typen av händelse visas i den här kategorin är ”Autoskala skalas upp misslyckades”. Använda autoskalning kan du automatiskt skala ut eller skala antalet instanser i en stöds resurstyp baserat på tid på dagen och/eller belastningen (mått) data med hjälp av en autoskalningsinställning. När villkoren är uppfyllda skala upp eller ned början och lyckades eller registreras misslyckade händelser i den här kategorin.
@@ -349,7 +321,7 @@ Den här kategorin innehåller en förteckning över alla händelser relaterade 
     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn": "Microsoft.Insights/autoscaleSettings"
   },
   "correlationId": "fc6a7ff5-ff68-4bb7-81b4-3629212d03d0",
-  "description": "The autoscale engine attempting to scale resource '/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource' from 3 instances count to 2 instances count.",
+  "description": "The autoscale engine attempting to scale resource '/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource' from 3 instances count to 2 instances count.",
   "eventDataId": "a5b92075-1de9-42f1-b52e-6f3e4945a7c7",
   "eventName": {
     "value": "AutoscaleAction",
@@ -359,14 +331,14 @@ Den här kategorin innehåller en förteckning över alla händelser relaterade 
     "value": "Autoscale",
     "localizedValue": "Autoscale"
   },
-  "id": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/autoscalesettings/myResourceGroup-Production-myResource-myResourceGroup/events/a5b92075-1de9-42f1-b52e-6f3e4945a7c7/ticks/636361956518681572",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/autoscalesettings/myResourceGroup-Production-myResource-myResourceGroup/events/a5b92075-1de9-42f1-b52e-6f3e4945a7c7/ticks/636361956518681572",
   "level": "Informational",
   "resourceGroupName": "myResourceGroup",
   "resourceProviderName": {
     "value": "microsoft.insights",
     "localizedValue": "microsoft.insights"
   },
-  "resourceId": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/autoscalesettings/myResourceGroup-Production-myResource-myResourceGroup",
+  "resourceId": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/autoscalesettings/myResourceGroup-Production-myResource-myResourceGroup",
   "resourceType": {
     "value": "microsoft.insights/autoscalesettings",
     "localizedValue": "microsoft.insights/autoscalesettings"
@@ -377,8 +349,8 @@ Den här kategorin innehåller en förteckning över alla händelser relaterade 
     "localizedValue": "Microsoft.Insights/AutoscaleSettings/Scaledown/Action"
   },
   "properties": {
-    "Description": "The autoscale engine attempting to scale resource '/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource' from 3 instances count to 2 instances count.",
-    "ResourceName": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource",
+    "Description": "The autoscale engine attempting to scale resource '/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource' from 3 instances count to 2 instances count.",
+    "ResourceName": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource",
     "OldInstancesCount": "3",
     "NewInstancesCount": "2",
     "LastScaleActionTime": "Fri, 21 Jul 2017 01:00:51 GMT"
@@ -392,7 +364,7 @@ Den här kategorin innehåller en förteckning över alla händelser relaterade 
   },
   "eventTimestamp": "2017-07-21T01:00:51.8681572Z",
   "submissionTimestamp": "2017-07-21T01:00:52.3008754Z",
-  "subscriptionId": "mySubscriptionID"
+  "subscriptionId": "<subscription ID>"
 }
 
 ```
@@ -400,7 +372,7 @@ Den här kategorin innehåller en förteckning över alla händelser relaterade 
 ### <a name="property-descriptions"></a>Egenskapsbeskrivningar
 | Elementnamn | Beskrivning |
 | --- | --- |
-| uppringare | Always Microsoft.Insights/autoscaleSettings |
+| uppringare | Alltid Microsoft.Insights/autoscaleSettings |
 | kanaler | Alltid ”Admin, åtgärden” |
 | Anspråk | JSON-blob med typen SPN (service principal name) eller resurs Autoskala-motorn. |
 | correlationId | Ett GUID i strängformatet. |
@@ -414,10 +386,10 @@ Den här kategorin innehåller en förteckning över alla händelser relaterade 
 | operationName |Namnet på åtgärden. |
 | properties |En uppsättning `<Key, Value>` par (det vill säga en ordlista) som beskriver information om händelsen. |
 | Egenskaper. Beskrivning | Detaljerad beskrivning av vad Autoskala motorn gör. |
-| properties.ResourceName | Resurs-ID för resursen påverkas (den resurs där skalningsåtgärden utfördes) |
+| Egenskaper. ResourceName | Resurs-ID för resursen påverkas (den resurs där skalningsåtgärden utfördes) |
 | Egenskaper. OldInstancesCount | Antalet instanser innan åtgärden Autoskala tog effekt. |
-| properties.NewInstancesCount | Antalet instanser efter åtgärden Autoskala tog effekt. |
-| properties.LastScaleActionTime | Tidsstämpel när Autoskala åtgärden utfördes. |
+| Egenskaper. NewInstancesCount | Antalet instanser efter åtgärden Autoskala tog effekt. |
+| Egenskaper. LastScaleActionTime | Tidsstämpel när Autoskala åtgärden utfördes. |
 | status |Sträng som beskriver status för åtgärden. Vissa vanliga värden: startas i pågår, slutfört, misslyckades, aktiv, löst. |
 | subStatus | Vanligtvis är null för Autoskala. |
 | eventTimestamp |Tidsstämpel när händelsen skapades av tjänsten Azure motsvarande händelsen begäran bearbetades. |
@@ -443,7 +415,7 @@ Den här kategorin innehåller posten några aviseringar som genererats av Azure
         "localizedValue": "Security"
     },
     "eventTimestamp": "2017-10-18T06:02:18.6179339Z",
-    "id": "/subscriptions/d4742bb8-c279-4903-9653-9858b17d0c2e/providers/Microsoft.Security/locations/centralus/alerts/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/events/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/ticks/636439033386179339",
+    "id": "/subscriptions/<subscription ID>/providers/Microsoft.Security/locations/centralus/alerts/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/events/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/ticks/636439033386179339",
     "level": "Informational",
     "operationId": "965d6c6a-a790-4a7e-8e9a-41771b3fbc38",
     "operationName": {
@@ -459,7 +431,7 @@ Den här kategorin innehåller posten några aviseringar som genererats av Azure
         "value": "Microsoft.Security/locations/alerts",
         "localizedValue": "Microsoft.Security/locations/alerts"
     },
-    "resourceId": "/subscriptions/d4742bb8-c279-4903-9653-9858b17d0c2e/providers/Microsoft.Security/locations/centralus/alerts/2518939942613820660_a48f8653-3fc6-4166-9f19-914f030a13d3",
+    "resourceId": "/subscriptions/<subscription ID>/providers/Microsoft.Security/locations/centralus/alerts/2518939942613820660_a48f8653-3fc6-4166-9f19-914f030a13d3",
     "status": {
         "value": "Active",
         "localizedValue": "Active"
@@ -468,7 +440,7 @@ Den här kategorin innehåller posten några aviseringar som genererats av Azure
         "value": null
     },
     "submissionTimestamp": "2017-10-18T06:02:52.2176969Z",
-    "subscriptionId": "d4742bb8-c279-4903-9653-9858b17d0c2e",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "accountLogonId": "0x2r4",
         "commandLine": "c:\\mydirectory\\doubleetension.pdf.exe",
@@ -494,17 +466,17 @@ Den här kategorin innehåller posten några aviseringar som genererats av Azure
 | correlationId | Ett GUID i strängformatet. |
 | description |Statisk textbeskrivning av händelsen säkerhet. |
 | eventDataId |Unik identifierare för händelsen säkerhet. |
-| eventName |Eget namn på händelsen säkerhet. |
+| EventName |Eget namn på händelsen säkerhet. |
 | id |Unik resursidentifierare för händelsen säkerhet. |
 | nivå |Nivå av händelsen. Ett av följande värden: ”kritiska”, ”Error”, ”varning”, ”information” eller ”utförlig” |
 | resourceGroupName |Namnet på resursgruppen för resursen. |
-| resourceProviderName |Namnet på resursprovidern för Azure Security Center. Always "Microsoft.Security". |
+| resourceProviderName |Namnet på resursprovidern för Azure Security Center. Alltid ”Microsoft.Security”. |
 | resourceType |Typ av resurs som genererade händelsen säkerhet, till exempel ”Microsoft.Security/locations/alerts” |
 | resourceId |Resurs-id för säkerhetsvarningen. |
 | operationId |Ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
 | operationName |Namnet på åtgärden. |
 | properties |En uppsättning `<Key, Value>` par (det vill säga en ordlista) som beskriver information om händelsen. De här egenskaperna varierar beroende på vilken typ av säkerhetsavisering. Se [den här sidan](../security-center/security-center-alerts-type.md) en beskrivning av typerna av aviseringar som kommer från Security Center. |
-| properties.Severity |Allvarlighetsgrad. Möjliga värden är ”hög”, ”medel” eller ”låg”. |
+| Egenskaper. Allvarlighetsgrad |Allvarlighetsgrad. Möjliga värden är ”hög”, ”medel” eller ”låg”. |
 | status |Sträng som beskriver status för åtgärden. Vissa vanliga värden: startas i pågår, slutfört, misslyckades, aktiv, löst. |
 | subStatus | Vanligtvis är null för säkerhetshändelser. |
 | eventTimestamp |Tidsstämpel när händelsen skapades av tjänsten Azure motsvarande händelsen begäran bearbetades. |

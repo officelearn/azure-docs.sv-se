@@ -7,14 +7,14 @@ manager: jhubbard
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 18d5f4131718021de82328719e0538db759dde9c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 13189bfe2e2e6db6185c798065dc3bea1fd3d537
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Designa extrahera, Load and Transform (ELT) för Azure SQL Data Warehouse
 
@@ -48,8 +48,8 @@ Du kan använda något av dessa alternativ för inläsning för att läsa in dat
 
 - [PolyBase med T-SQL](load-data-from-azure-blob-storage-using-polybase.md) fungerar bra när dina data i Azure Blob storage eller Azure Data Lake Store. Det ger dig de flesta kontroll över inläsningen, men kräver också att du kan definiera externa dataobjekt. De andra metoderna definiera objekten i bakgrunden som du mappa källtabellerna till måltabell.  Du kan använda Azure Data Factory, SSIS eller Azure functions för att dirigera T-SQL-belastning. 
 - [PolyBase med SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) fungerar bra när datakällan är i SQL Server, antingen SQL Server lokalt eller i molnet. SSIS definierar källan till målet tabell mappningar, och även samordnar belastningen. Om du redan har SSIS-paket kan du ändra paket att arbeta med den nya data warehouse mål. 
-- [PolyBase med Azure Data Factory (ADM)](sql-data-warehouse-load-with-data-factory.md) är ett annat orchestration-verktyg.  Den definierar en pipeline och schemalägger jobb. Du kan använda ADF att parsa JSON-data och läsa in det i SQL Data Warehouse.
-- [PolyBase med Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) överför data från Azure Data Lake Store till SQL Data Warehouse. Du kan använda Azure DataBricks att parsa JSON-data och läsa in data till SQL Data Warehouse. 
+- [PolyBase med Azure Data Factory (ADM)](sql-data-warehouse-load-with-data-factory.md) är ett annat orchestration-verktyg.  Den definierar en pipeline och schemalägger jobb. 
+- [PolyBase med Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) överför data från en SQL Data Warehouse-tabell till en Databricks dataframe och/eller skriver data från en Databricks dataframe till en tabell i SQL Data Warehouse.
 
 ### <a name="polybase-external-file-formats"></a>PolyBase externt filformat
 
@@ -70,11 +70,8 @@ För att hamna data i Azure-lagring kan du flytta den till [Azure Blob storage](
 Dessa är verktyg och tjänster som du kan använda för att flytta data till Azure Storage.
 
 - [Azure ExpressRoute](../expressroute/expressroute-introduction.md) tjänsten förbättrar dataflödet i nätverket, prestanda och förutsägbarhet. ExpressRoute är en tjänst som vidarebefordrar data med en dedikerad privat anslutning till Azure. ExpressRoute anslutningar inte vidarebefordra data via det offentliga internet. Anslutningarna erbjuder flera tillförlitlighet, högre hastighet, lägre latens och högre säkerhet än vanliga anslutningar via det offentliga internet.
-- [AZCopy verktyget](../storage/common/storage-use-azcopy.md) flyttar data till Azure Storage via det offentliga internet. Det fungerar storlekar för dina data är mindre än 10 TB. Testa nätverkets hastighet för att se om den är godkänd för att utföra belastningar regelbundet med AZCopy. 
-- [Azure Data Factory (ADM)](../data-factory/introduction.md) har en gateway som kan installeras på den lokala servern. Du kan skapa en pipeline för att flytta data från den lokala servern upp till Azure Storage.
-
-Mer information finns i [flytta data till och från Azure Storage](../storage/common/storage-moving-data.md)
-
+- [AZCopy verktyget](../storage/common/storage-moving-data.md) flyttar data till Azure Storage via det offentliga internet. Det fungerar storlekar för dina data är mindre än 10 TB. Testa nätverkets hastighet för att se om den är godkänd för att utföra belastningar regelbundet med AZCopy. 
+- [Azure Data Factory (ADM)](../data-factory/introduction.md) har en gateway som kan installeras på den lokala servern. Du kan skapa en pipeline för att flytta data från den lokala servern upp till Azure Storage. Om du vill använda Data Factory med SQL Data Warehouse, se [Läs in data till SQL Data Warehouse](/azure/data-factory/load-azure-sql-data-warehouse).
 
 ## <a name="prepare-data"></a>Förbereda data
 

@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 03/19/2018
 ms.author: raynew
-ms.openlocfilehash: b2c89a980411cac02f46bc91d53620bc94fa845b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bba52534c534ea33c2939d0d9b76b7b4138e13cd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/05/2018
 Detta kan inträffa när den datorn som du använder är bakom en proxyserver. Kontrollera att du anger autentiseringsuppgifterna om proxyn måste en.
 Om du använder alla URL-baserade brandväggen proxy för att styra utgående anslutning, att kontrollera listan över godkända följande obligatoriska URL: er:
 
-**URL** | **Purpose**  
+**URL** | **Syfte**  
 --- | ---
 *.portal.azure.com | Krävs för att kontrollera anslutningen till Azure-tjänsten och validera tidssynkronisering utfärdar.
 *.oneget.org | Krävs för baserad att ladda ned powershell vCenter PowerCLI modul.
@@ -37,7 +37,7 @@ Kontrollera att du har kopieras och klistras in rätt information. Om du vill fe
 2. Dubbelklicka på den hämta filen om du vill starta installationen.
 3. I installationsprogrammet, på den **Välkommen** klickar du på **nästa**. På den **licensvillkoren** klickar du på **jag accepterar** att acceptera licensvillkoren.
 4. I **målmappen**, behålla eller ändra standardinstallationsmappen > **nästa**.
-5. I **installationsalternativ för Agent**väljer **Azure logganalys (OMS)** > **nästa**.
+5. I **installationsalternativ för Agent**väljer **Azure logganalys** > **nästa**.
 6. Klicka på **Lägg till** att lägga till en ny logganalys-arbetsyta. Klistra in i projekt-ID och nyckel som du kopierade. Klicka sedan på **Nästa**.
 7. Kontrollera att agenten kan ansluta till projektet. Om det inte går att kontrollera inställningarna. Om agenten kan ansluta men insamlaren inte kan kontakta Support.
 
@@ -62,12 +62,12 @@ Om du vill aktivera insamling av prestandadata för disk- och ändra statistik i
 
 **Jag installerade agenter och används beroende visualiseringen för att skapa grupper. Nu efter växling vid fel, datorerna visa ”installera agenten” åtgärd i stället för ”Visa beroenden”**
 * Post planerad eller oplanerad växling vid fel, lokala datorer är avstängda och motsvarande datorer skapas i Azure. Dessa datorer få en annan MAC-adress. De kan hämta en annan IP-adress baserat på om användaren valde att behålla lokala IP-adress eller inte. Om både MAC och IP-adresser skiljer sig åt Azure migrera associeras inte lokala datorer med en Tjänstkarta beroendedata och frågar användaren att installera agenter i stället för att visa beroenden.
-* Bokför testa redundans, lokala datorer är aktiverade som förväntat. Motsvarande datorer efter en redundansväxling i Azure få annan MAC-adress och kan hämta annan IP-adress. Om inte användaren blockerar utgående OMS-trafik från de datorerna, Azure migrera associeras inte lokala datorer med en Tjänstkarta beroendedata och frågar användaren att installera agenter i stället för att visa beroenden.
+* Bokför testa redundans, lokala datorer är aktiverade som förväntat. Motsvarande datorer efter en redundansväxling i Azure få annan MAC-adress och kan hämta annan IP-adress. Om inte användaren blockerar utgående logganalys-trafik från de datorerna, Azure migrera associeras inte lokala datorer med en Tjänstkarta beroendedata och frågar användaren att installera agenter i stället för att visa beroenden.
 
 
 ## <a name="troubleshoot-readiness-issues"></a>Felsökning av beredskapsproblem med
 
-**Problemet** | **Fix**
+**Problemet** | **Åtgärda**
 --- | ---
 Starttypen stöds inte | Azure stöder inte virtuella datorer med EFI-start. Det rekommenderas att konvertera typen Start till BIOS innan du kör en migrering. <br/><br/>Du kan använda [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) att göra migreringen av dessa virtuella datorer som den konverterar typen Start av den virtuella datorn till BIOS under migreringen.
 Villkorligt stödda Windows-operativsystem | Operativsystemet har passerat slutet av stöd för datum och behöver en anpassad stöder avtal (CSA) för [stöd i Azure](https://aka.ms/WSosstatement), bör du uppgradera Operativsystemet innan du migrerar till Azure.

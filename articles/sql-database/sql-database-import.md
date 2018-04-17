@@ -1,19 +1,19 @@
 ---
-title: "Importera en BACPAC-fil för att skapa en Azure SQL database | Microsoft Docs"
+title: Importera en BACPAC-fil för att skapa en Azure SQL database | Microsoft Docs
 description: Skapa en newAzure SQL-databas genom att importera en BACPAC-fil.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.date: 01/29/2018
+ms.date: 04/10/2018
 ms.author: carlrab
 ms.topic: article
-ms.openlocfilehash: 9d829bd312bb1ae2468258bc2ec8619b2858394e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4279630816b6d5f7cf15b7555bf951d3f2a5f95a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importera en BACPAC-fil till en ny Azure SQL-databas
 
@@ -31,6 +31,9 @@ Om du vill importera en databas med hjälp av Azure portal, öppna sidan för se
    ![Databasimport](./media/sql-database-import/import.png)
 
 Öppna sidan för den logiska servern som innehåller den databas som importeras för att övervaka förloppet för importen. Rulla ned till **Operations** och klicka sedan på **Import/Export** historik.
+
+> [!NOTE]
+> [Azure SQL-hanterade databasinstans](sql-database-managed-instance.md) stöd för import från en BACPAC-fil med hjälp av de andra metoderna i den här artikeln, men stöder för närvarande inte migrera med hjälp av Azure portal.
 
 ### <a name="monitor-the-progress-of-an-import-operation"></a>Övervaka förloppet för en importåtgärd
 
@@ -98,6 +101,13 @@ $importStatus
 
 > [!TIP]
 Exempel på ett annat skript finns [importera en databas från en BACPAC fil](scripts/sql-database-import-from-bacpac-powershell.md).
+
+## <a name="import-using-other-methods"></a>Importera andra metoder
+
+Du kan också använda dessa guider:
+
+- [Importera Data-tier Application-guiden i SQL Server Management Studio](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database#using-the-import-data-tier-application-wizard).
+- [SQL Server importera och exportera guiden](https://docs.microsoft.com/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard).
 
 ## <a name="next-steps"></a>Nästa steg
 * Information om hur du ansluter till och fråga importerade SQL-databas finns [Anslut till SQL Database med SQL Server Management Studio och utföra en exempelfråga i T-SQL](sql-database-connect-query-ssms.md).

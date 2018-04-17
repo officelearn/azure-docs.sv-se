@@ -1,33 +1,32 @@
 ---
-title: "Skapa tabell som Välj (CTAS) i SQL Data Warehouse | Microsoft Docs"
-description: "Tips för att koda med tabellen skapa som select (CTAS)-instruktionen i Azure SQL Data Warehouse för utveckling av lösningar."
+title: Skapa TABLE AS SELECT (CTAS) i Azure SQL Data Warehouse | Microsoft Docs
+description: Tips för att koda med instruktionen Skapa tabell AS Välj (CTAS) i Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: 68ac9a94-09f9-424b-b536-06a125a653bd
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
-ms.date: 12/06/2017
-ms.author: barbkess
-ms.openlocfilehash: a885ba4f455fecd158696faaee38c83c1e4ec0bf
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: cb36cb7d3dd652608620283fe2ea2e6649406be5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>Skapa en tabell som Select (CTAS) i SQL Data Warehouse
-Skapa tabell som markerar eller `CTAS` är en av de viktigaste T-SQL-funktionerna tillgängliga. Det är en helt parallelized åtgärd som skapar en ny tabell baserat på resultatet av en SELECT-instruktion. `CTAS`är det enklaste och snabbaste sättet att skapa en kopia av en tabell. Det här dokumentet innehåller både exempel och bästa praxis för `CTAS`.
+# <a name="using-create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>Med CREATE TABLE AS SELECT (CTAS) i Azure SQL Data Warehouse
+Tips för att koda med Skapa tabell AS Välj (CTAS) T-SQL-instruktionen i Azure SQL Data Warehouse för utveckling av lösningar.
+
+## <a name="what-is-create-table-as-select-ctas"></a>Vad är att skapa tabellen AS Välj (CTAS)?
+
+Den [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) eller CTAS-instruktionen är en av de viktigaste T-SQL-funktionerna tillgängliga. Det är en parallell åtgärd som skapar en ny tabell baserat på resultatet av en SELECT-instruktion. CTASD är det enklaste och snabbaste sättet att skapa en kopia av en tabell. 
 
 ## <a name="selectinto-vs-ctas"></a>VÄLJ... I vs. CTAS
-Du kan överväga att `CTAS` som en mycket debiteras version av `SELECT..INTO`.
+Du kan överväga att CTAS som en mycket debiteras version av den [Välj... I](/sql/t-sql/queries/select-into-clause-transact-sql) instruktionen.
 
-Nedan visas ett exempel på en enkel `SELECT..INTO` instruktionen:
+Nedan visas ett exempel på ett enkelt SELECT... TILL:
 
 ```sql
 SELECT *
@@ -35,11 +34,11 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-I exemplet ovan `[dbo].[FactInternetSales_new]` skulle skapas som ROUND_ROBIN distribuerade tabell med ett GRUPPERAT COLUMNSTORE-INDEX på den som dessa standardinställningar tabell i Azure SQL Data Warehouse.
+I föregående exempel `[dbo].[FactInternetSales_new]` skapas som ROUND_ROBIN distribuerade tabell med ett GRUPPERAT COLUMNSTORE-INDEX eftersom dessa standardinställningar tabell i Azure SQL Data Warehouse.
 
-`SELECT..INTO`dock tillåter inte att du kan ändra metoden distribution eller Indextypen som en del av åtgärden. Det är där `CTAS` kommer in.
+VÄLJ... I, men tillåter inte att du kan ändra metoden distribution eller Indextypen som en del av åtgärden. Det är där CTAS kommer in.
 
-Konvertera ovan för att `CTAS` är ganska enkel:
+Om du vill konvertera CTAS föregående exempel är ganska enkel:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_new]
@@ -54,7 +53,7 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-Med `CTAS` kan du ändra både fördelningen av tabelldata samt tabelltypen. 
+Med CTAS kan du ändra både fördelningen av tabelldata samt tabelltypen. 
 
 > [!NOTE]
 > Om du bara vill ändra index i din `CTAS` åtgärden och källtabellen är hash distribueras sedan din `CTAS` åtgärden fungerar bäst om du behåller samma kolumn- och distributionstypen. På så sätt undviker mellan distribution dataflyttning under åtgärden, vilket är mer effektivt.
@@ -62,7 +61,7 @@ Med `CTAS` kan du ändra både fördelningen av tabelldata samt tabelltypen.
 > 
 
 ## <a name="using-ctas-to-copy-a-table"></a>Använda CTAS för att kopiera en tabell
-Kanske en av de vanligaste använder av `CTAS` skapar en kopia av en tabell, så att du kan ändra DDL. Om till exempel din tabell som ursprungligen skapades `ROUND_ROBIN` och nu vill ändra den till en tabell som distribueras på en kolumn, `CTAS` är hur du ändrar kolumnen distribution. `CTAS`kan också användas för att ändra partitionering, indexering eller kolumn typer.
+Kanske en av de vanligaste använder av `CTAS` skapar en kopia av en tabell, så att du kan ändra DDL. Om till exempel din tabell som ursprungligen skapades `ROUND_ROBIN` och nu vill ändra den till en tabell som distribueras på en kolumn, `CTAS` är hur du ändrar kolumnen distribution. `CTAS` kan också användas för att ändra partitionering, indexering eller kolumn typer.
 
 Anta att du har skapat den här tabellen med standardtypen för distribution av `ROUND_ROBIN` distribueras eftersom ingen distribution kolumn har angetts i den `CREATE TABLE`.
 
@@ -126,12 +125,12 @@ DROP TABLE FactInternetSales_old;
 ```
 
 > [!NOTE]
-> SQL Data Warehouse stöder inte än automatiskt skapande eller uppdatering av statistik.  För att få bästa möjliga prestanda från dina frågor, är det viktigt att statistik skapas på alla kolumner i alla tabeller efter den första inläsningen eller vid betydande dataändringar.  En detaljerad förklaring av statistik finns i ämnet [Statistik][Statistics] i ämnesgruppen Utveckla.
+> SQL Data Warehouse stöder inte än automatiskt skapande eller uppdatering av statistik.  För att få bästa möjliga prestanda från dina frågor, är det viktigt att statistik skapas på alla kolumner i alla tabeller efter den första inläsningen eller vid betydande dataändringar.  En detaljerad förklaring av statistik finns i avsnittet [statistik] [statistik] i ämnesgruppen.
 > 
 > 
 
 ## <a name="using-ctas-to-work-around-unsupported-features"></a>Använda CTAS för att undvika funktioner som inte stöds
-`CTAS`kan också användas för att undvika ett antal stöds inte funktionerna i listan nedan. Detta kan ofta visar sig vara en win/win-situation som inte bara din kod blir kompatibla men det ofta körs snabbare i SQL Data Warehouse. Detta är på grund av dess fullständigt parallelized design. Scenarier som fungerade runt med CTAS är:
+CTAS kan också användas för att undvika ett antal stöds inte funktionerna i listan nedan. Detta kan ofta visar sig vara en win/win-situation som inte bara din kod blir kompatibla men det ofta körs snabbare i SQL Data Warehouse. Detta är på grund av dess fullständigt parallelized design. Scenarier som fungerade runt med CTAS är:
 
 * ANSI kopplingar uppdateringar
 * ANSI-kopplingar på borttagningar
@@ -246,9 +245,9 @@ RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 ```
 
 ## <a name="replace-merge-statements"></a>Ersätt merge-instruktioner
-Merge-instruktioner kan ersättas, minst del, med hjälp av `CTAS`. Du kan konsolidera den `INSERT` och `UPDATE` i en enskild instruktion. Alla borttagna poster måste vara stängda i ett andra uttryck.
+Merge-instruktioner kan ersättas, minst del, med hjälp av CTAS. Du kan konsolidera INSERT och UPDATE till en enskild instruktion. Alla borttagna poster måste vara stängda i ett andra uttryck.
 
-Ett exempel på en `UPSERT` finns nedan:
+Följande är ett exempel på en UPSERT:
 
 ```sql
 CREATE TABLE dbo.[DimProduct_upsert]
@@ -329,13 +328,13 @@ from ctas_r
 
 Det värde som lagras för resultatet är olika. Det beständiga värdet i resultatkolumnen används i andra uttryck blir felet ännu större.
 
-![][1]
+![CTAS resultat](media/sql-data-warehouse-develop-ctas/ctas-results.png)
 
 Detta är särskilt viktigt för migrering av data. Även om den andra frågan tvekan exaktare finns problemet. Data kan vara olika jämfört med källsystemet och som leder till frågor för migreringen. Detta är en av de sällsynta fall där ”fel” svaret är verkligen det högra!
 
 Det ser vi den här skillnader mellan de två resultaten beror till implicit typ omvandling. I det första exemplet definierar tabellen kolumndefinitionen. En implicit typkonvertering inträffar när raden infogas. I det andra exemplet finns det ingen implicit typkonvertering som uttrycket definierar datatypen för kolumnen. Observera också att kolumnen i det andra exemplet har definierats som en nullbar kolumn i det första exemplet har den inte. När tabellen har skapats i den första exemplet Nullbarheten definierades explicit. I andra resulterar exempel meddelandet är bara kvar i uttrycket och som standard detta i en NULL-definition.  
 
-För att lösa dessa problem måste anges explicit typkonvertering och Nullbarheten i den `SELECT` del av den `CTAS` instruktionen. Du kan inte ange dessa egenskaper i create table-delen.
+Lös problemen måste anges explicit typkonvertering och Nullbarheten i SELECT-delen av instruktionen CTAS. Du kan inte ange dessa egenskaper i create table-delen.
 
 Exemplet nedan visar hur du löser koden:
 
@@ -357,7 +356,7 @@ Observera följande:
 * Den andra delen av ISNULL är en konstant d.v.s. 0
 
 > [!NOTE]
-> För Nullbarheten anges korrekt det är mycket viktigt att `ISNULL` och inte `COALESCE`. `COALESCE`är inte en deterministisk funktion så att resultatet av uttrycket kommer alltid att kan ha värdet null. `ISNULL`är olika. Det är deterministisk. Därför när den andra delen av den `ISNULL` funktionen är en konstant eller en litteral sedan resultatvärdet blir NOT NULL.
+> För Nullbarheten anges korrekt det är viktigt att använda ISNULL och inte COALESCE. COALESCE är inte en deterministisk funktion så att resultatet av uttrycket kommer alltid att kan ha värdet null. ISNULL är olika. Det är deterministisk. Därför när den andra delen av funktionen ISNULL är en konstant eller ett litteralvärde sedan resultatvärdet blir NOT NULL.
 > 
 > 
 
@@ -435,19 +434,8 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 Du kan se därför att typen konsekvens och underhålla Nullbarheten egenskaper för en CTAS är det engineering bästa praxis. Det hjälper dig för att upprätthålla integriteten i beräkningarna och säkerställer också att växla partition är möjligt.
 
-Mer information om hur du använder finns i MSDN [CTAS][CTAS]. Det är en av de viktigaste rapporterna i Azure SQL Data Warehouse. Kontrollera att du verkligen förstår.
+Mer information finns i [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) dokumentation. Det är en av de viktigaste rapporterna i Azure SQL Data Warehouse. Kontrollera att du verkligen förstår.
 
 ## <a name="next-steps"></a>Nästa steg
-För fler utvecklingstips, se [utvecklingsöversikt][development overview].
+För fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-[1]: media/sql-data-warehouse-develop-ctas/ctas-results.png
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-
-<!--MSDN references-->
-[CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
-
-<!--Other Web references-->

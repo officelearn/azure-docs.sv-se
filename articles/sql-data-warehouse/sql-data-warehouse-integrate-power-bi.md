@@ -1,11 +1,11 @@
 ---
-title: "Använda Powerbi med SQL Data Warehouse | Microsoft Docs"
-description: "Tips för att använda Power BI med Azure SQL Data Warehouse för utveckling av lösningar."
+title: Använda Powerbi med SQL Data Warehouse | Microsoft Docs
+description: Tips för att använda Power BI med Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
 documentationcenter: NA
 author: mlee3gsd
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: b12bee87-2268-40c2-81bf-ab27588b32e8
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
 ms.openlocfilehash: 4ea9a2ff0c95a73b348d3b48e9e62957d5cce31c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>Använda Powerbi med SQL Data Warehouse
 Som med Azure SQL Database tillåter SQL Data Warehouse Direct Connect användare att utnyttja kraftfulla logiska pushdown tillsammans med analytiska funktionerna i Power BI.  Med Direct Connect skickas frågor tillbaka till din Azure SQL Data Warehouse i realtid att utforska data.  Detta kan kombineras med skalan för SQL Data Warehouse, kan användare skapa dynamiska rapporter i minuter mot terabyte data.  Dessutom tillåter introduktionen av funktionen Öppna i Power BI-knappen användare att ansluta Power BI direkt till deras SQL Data Warehouse utan att samla in information från andra delar av Azure.

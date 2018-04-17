@@ -1,12 +1,12 @@
 ---
 title: Skydda dina personliga data med Azure identitets- och kontroller | Microsoft Docs
-description: "Azure identitets- och styr hjälper dig att skydda personliga data och kan vara till hjälp som överensstämmer med allmänna Data Protection förordning (BNPR)"
+description: Azure identitets- och styr hjälper dig att skydda personliga data och kan vara till hjälp som överensstämmer med allmänna Data Protection förordning (BNPR)
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.custom: ''
+ms.openlocfilehash: 45b148a9ccbd7c801821f23586810872a4a0d50d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory och Multi-Factor Authentication: skydda personuppgifter med identitets- och kontroller
 
@@ -83,11 +83,11 @@ Mer information och instruktioner för att komma igång med AAD PIM finns [start
 
 ### <a name="azure-role-based-access-control"></a>Rollbaserad åtkomstkontroll i Azure
 
-[Azure rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (RBAC) hjälper Azure administratörer att hantera åtkomst till Azure-resurser genom att aktivera att bevilja åtkomst baserat på användarens tilldelade rollen. Du kan särskilja uppgifter i ett team och ge bara mängden åtkomst till användare, grupper och program som de behöver för att utföra sitt arbete.
+[Azure rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) hjälper Azure administratörer att hantera åtkomst till Azure-resurser genom att aktivera att bevilja åtkomst baserat på användarens tilldelade rollen. Du kan särskilja uppgifter i ett team och ge bara mängden åtkomst till användare, grupper och program som de behöver för att utföra sitt arbete.
 
 Rollbaserad åtkomst kan beviljas till användare som använder Azure-portalen, Azure-kommandoradsverktygen eller Azure Management-API:er.
 
-Läs mer om grunderna i Azure RBAC [Kom igång med rollbaserad åtkomstkontroll i Azure Portal.](https://docs.microsoft.com/active-directory/role-based-access-control-what-is)
+Läs mer om grunderna i Azure RBAC [Kom igång med rollbaserad åtkomstkontroll i Azure Portal.](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 #### <a name="how-do-i-manage-azure-rbac-with-powershell"></a>Hur hanterar Azure RBAC med PowerShell?
 
@@ -111,7 +111,7 @@ Du kan använda PowerShell-cmdlets för att hantera Azure RBAC, inklusive följa
 
 - Lista över anpassade roller
 
-Instruktioner om hur du hanterar Azure RBAC med PowerShell finns i [Hantera rollbaserad åtkomst med Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell).
+Instruktioner om hur du hanterar Azure RBAC med PowerShell finns i [Hantera rollbaserad åtkomst med Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 ### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
@@ -135,7 +135,7 @@ Om du för närvarande inte har licenser som du behöver gå igenom processen at
 
     ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-4. Klicka på **spara**
+4. Klicka på **Spara**
 
 I det här fönstret har också möjlighet att hämta MFA-Server. Du kan få ytterligare information om hur du planerar distributionen genom att granska artikeln och storlek [komma igång med Azure Multi-Factor Authentication-server](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
 
@@ -184,6 +184,6 @@ För information om hur du konfigurerar Azure MFA-inställningar för att ställ
 
 - [Vanliga frågor om Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-faq)
 
-- [Rollbaserad åtkomstkontroll felsökning](https://docs.microsoft.com/azure/active-directory/role-based-access-control-troubleshooting)
+- [Rollbaserad åtkomstkontroll felsökning](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting)
 
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)

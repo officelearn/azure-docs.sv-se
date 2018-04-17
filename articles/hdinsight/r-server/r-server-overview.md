@@ -10,16 +10,14 @@ ms.assetid: 6dc21bf5-4429-435f-a0fb-eea856e0ea96
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: nitinme
-ms.openlocfilehash: 19334e78124d1e388bc760659385388d89953644
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 19c286db9a8a2aa537badc83d98a1b74b73e9873
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introduktion till R Server och öppen källkod R-funktioner på HDInsight
 
@@ -65,7 +63,7 @@ Följande funktioner ingår i R Server på HDInsight.
 | Funktionen kategori | Beskrivning |
 |------------------|-------------|
 | R-aktiverad | [R-paket](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) för lösningar som är skrivna i R, med en öppen källkod fördelning av R och körning infrastrukturen för körning av skript. |
-| Python-enabled | [Python-moduler](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) för lösningar som skrivits i Python, med en öppen källkod fördelning av Python och körning infrastrukturen för körning av skript.  
+| Python-aktiverad | [Python-moduler](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) för lösningar som skrivits i Python, med en öppen källkod fördelning av Python och körning infrastrukturen för körning av skript.  
 | [Före tränade modeller](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | För visuell analys och text sentiment analys redo att samla in data du anger. |
 | [Distribuera och använda](r-server-operationalize.md) | Operationalisera din server och distribuera lösningar som en webbtjänst. |
 | [Fjärrkörning](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-server-or-client) | Starta fjärrsessioner på R Server i nätverket från klientens arbetsstation. |
@@ -147,5 +145,5 @@ De priser som är associerade med ett HDInsight-kluster med R Server är struktu
 Mer information om hur du använder R Server på HDInsight-kluster finns i följande avsnitt:
 
 * [Komma igång med R Server-kluster i HDInsight](r-server-get-started.md)
-* [Compute-kontexten alternativ för R Server-kluster i HDInsight](r-server-compute-contexts.md)
-* [Azure lagringsalternativ för R Server-kluster i HDInsight](r-server-storage.md)
+* [Alternativ för beräkningskontexter för R Server-kluster i HDInsight](r-server-compute-contexts.md)
+* [Alternativ för Azure Storage för R Server-kluster i HDInsight](r-server-storage.md)

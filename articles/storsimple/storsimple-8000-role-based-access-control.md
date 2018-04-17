@@ -1,12 +1,12 @@
 ---
-title: "Använda rollbaserad åtkomstkontroll för StorSimple | Microsoft Docs"
-description: "Beskriver hur du använder Azure rollbaserad åtkomstkontroll (RBAC) i samband med StorSimple."
+title: Använda rollbaserad åtkomstkontroll för StorSimple | Microsoft Docs
+description: Beskriver hur du använder Azure rollbaserad åtkomstkontroll (RBAC) i samband med StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: d040849360a47c611d44b3a5d7649c685dcc8068
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 5d68df424fbedbb9f0d17b87ceb243b079b3da14
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Rollbaserad åtkomstkontroll för StorSimple
 
-Den här artikeln innehåller en kort beskrivning av hur rollbaserad åtkomstkontroll (RBAC) kan användas för din StorSimple-enhet. RBAC ger detaljerad åtkomsthantering för Azure. Använda RBAC och ge bara rätt mängd tillgång till StorSimple användare sköta sitt arbete istället för att ge alla obegränsad åtkomst. Mer information om grunderna för hantering i Azure finns [Kom igång med rollbaserad åtkomstkontroll i Azure portal](../active-directory/role-based-access-control-what-is.md).
+Den här artikeln innehåller en kort beskrivning av hur rollbaserad åtkomstkontroll (RBAC) kan användas för din StorSimple-enhet. RBAC ger detaljerad åtkomsthantering för Azure. Använda RBAC och ge bara rätt mängd tillgång till StorSimple användare sköta sitt arbete istället för att ge alla obegränsad åtkomst. Mer information om grunderna för hantering i Azure finns [Kom igång med rollbaserad åtkomstkontroll i Azure portal](../role-based-access-control/overview.md).
 
 Den här artikeln gäller StorSimple 8000-serien enheter som kör uppdatering 3.0 eller senare i Azure-portalen.
 
@@ -30,9 +30,9 @@ Den här artikeln gäller StorSimple 8000-serien enheter som kör uppdatering 3.
 
 RBAC kan tilldelas baserat på rollerna. Rollerna kontrollera vissa behörighetsnivåer baserat på tillgängliga resurser i miljön. Det finns två typer av roller som StorSimple användare kan välja mellan: inbyggt eller anpassat.
 
-* **Inbyggda roller** -inbyggda roller kan vara ägare, deltagare, reader eller administratör för användaråtkomst. Mer information finns i [inbyggda roller för Azure rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-what-is.md#built-in-roles).
+* **Inbyggda roller** -inbyggda roller kan vara ägare, deltagare, reader eller administratör för användaråtkomst. Mer information finns i [inbyggda roller för Azure rollbaserad åtkomstkontroll](../role-based-access-control/overview.md#built-in-roles).
 
-* **Anpassade roller** -om inbyggda roller inte uppfyller dina behov, kan du skapa anpassade RBAC-roller för StorSimple. Om du vill skapa en anpassad RBAC-roll, börja med en inbyggd roll, redigera den och sedan importera den igen i miljön. Hämtning och överföra rollen som hanteras med hjälp av Azure PowerShell eller Azure CLI. Mer information finns i [skapa anpassade roller för rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-custom-roles.md).
+* **Anpassade roller** -om inbyggda roller inte uppfyller dina behov, kan du skapa anpassade RBAC-roller för StorSimple. Om du vill skapa en anpassad RBAC-roll, börja med en inbyggd roll, redigera den och sedan importera den igen i miljön. Hämtning och överföra rollen som hanteras med hjälp av Azure PowerShell eller Azure CLI. Mer information finns i [skapa anpassade roller för rollbaserad åtkomstkontroll](../role-based-access-control/custom-roles.md).
 
 Om du vill visa olika roller som är tillgängliga för en användare för StorSimple-enheten i Azure portal, gå till Enhetshanteraren för StorSimple-tjänsten och gå sedan till **åtkomstkontroll (IAM) > roller**.
 
@@ -108,7 +108,7 @@ Den här rollen ska nu visas i listan över roller i den **åtkomstkontroll** bl
 
 ![Visa RBAC-roller](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
-Mer information finns på [skapa en anpassad RBAC-roll med hjälp av PowerShell](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell).
+Mer information finns på [skapa en anpassad RBAC-roll med hjälp av PowerShell](../role-based-access-control/role-assignments-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell).
 
 ### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>Exempel på utdata för att skapa en anpassad roll via PowerShell
 
@@ -153,7 +153,7 @@ PS C:\WINDOWS\system32>
 
 ## <a name="add-users-to-the-custom-role"></a>Lägga till användare i den anpassade rollen
 
-Du beviljar åtkomst inifrån resursen, resursgruppen eller prenumerationen som rolltilldelningen omfattar. När åtkomst, Tänk att åtkomst till den överordnade noden ärvs av underordnade. Mer information finns på [resurs hierarkin och åtkomst arv](../active-directory/role-based-access-control-what-is.md#resource-hierarchy-and-access-inheritance).
+Du beviljar åtkomst inifrån resursen, resursgruppen eller prenumerationen som rolltilldelningen omfattar. När åtkomst, Tänk att åtkomst till den överordnade noden ärvs av underordnade. Mer information finns på [resurs hierarkin och åtkomst arv](../role-based-access-control/overview.md#resource-hierarchy-and-access-inheritance).
 
 1. Gå till **åtkomstkontroll (IAM)**. Klicka på **+ Lägg till** i bladet Access control.
 
@@ -186,5 +186,5 @@ När den här rollen har skapats kan visa du de behörigheter som är associerad
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [tilldela anpassade roller för interna och externa användare](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md).
+Lär dig hur du [tilldela anpassade roller för interna och externa användare](../role-based-access-control/role-assignments-external-users.md).
 

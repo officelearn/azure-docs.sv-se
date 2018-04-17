@@ -1,32 +1,26 @@
 ---
-title: "Använda Azure Blob storage från iOS | Microsoft Docs"
+title: Hur du använder objekt (Blob) lagring från iOS - Azure | Microsoft Docs
 description: Lagra ostrukturerade data i molnet med Azure Blob Storage (objektlagring).
 services: storage
 documentationcenter: ios
 author: michaelhauss
-manager: vamshik
-editor: tysonn
-ms.assetid: df188021-86fc-4d31-a810-1b0e7bcd814b
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: f238804e6031fcf3f194695a06bf5b88733a27b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15ba7409b4c5f75729b1b40cd2f333c44ae0368
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Hur du använder Blob storage från iOS
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
+Den här artikeln visar hur du utför vanliga scenarier med hjälp av Microsoft Azure Blob storage. Exemplen är skrivna i Objective-C och använda den [Azure Storage-klientbibliotek för iOS](https://github.com/Azure/azure-storage-ios). Scenarier som tas upp inkluderar överföringen, lista, hämtar och tar bort blobbar. Mer information om blobbar finns i [nästa steg](#next-steps) avsnitt. Du kan också hämta de [exempelapp](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) snabbt se användningen av Azure Storage i ett iOS-program.
 
-## <a name="overview"></a>Översikt
-Den här artikeln visar hur du utför vanliga scenarier med hjälp av Microsoft Azure Blob storage. Exemplen är skrivna i Objective-C och använda den [Azure Storage-klientbibliotek för iOS](https://github.com/Azure/azure-storage-ios). Scenarier som tas upp inkluderar **överför**, **lista**, **hämtar**, och **bort** blobbar. Mer information om blobbar finns i [nästa steg](#next-steps) avsnitt. Du kan också hämta de [exempelapp](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) snabbt se användningen av Azure Storage i ett iOS-program.
+## <a name="what-is-blob-storage"></a>Vad är Blob storage?
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -91,7 +85,7 @@ Om du använder Swift behöver du skapa en datacenterbryggning rubrik och import
 
 1. Skapa en huvudfilen `Bridging-Header.h`, och Lägg till instruktionen ovan import.
 2. Gå till den *Versionsinställningar* fliken och Sök efter *Interimshuvudfilen med Objective-C*.
-3. Dubbelklicka på fältet i *Interimshuvudfilen med Objective-C* och Lägg till sökvägen till huvudfil:`ProjectName/Bridging-Header.h`
+3. Dubbelklicka på fältet i *Interimshuvudfilen med Objective-C* och Lägg till sökvägen till huvudfil: `ProjectName/Bridging-Header.h`
 4. Skapa projektet (⌘ + B) om du vill verifiera att rubriken datacenterbryggning hämtades av Xcode.
 5. Börja använda biblioteket direkt i Swift-filen, om det behövs ingen importuttryck.
 
@@ -222,7 +216,7 @@ I följande exempel visas hur du listar alla blobbar i en behållare. När du ut
 
 * **continuationToken** -fortsättning token representerar i var lista åtgärden ska börja. Om ingen token anges, den visar en lista över blobbar från början. Valfritt antal blobbar kan visas från noll upp till en maximal mängd. Även om den här metoden returnerar resultat, om `results.continuationToken` inte är noll, det kan finnas fler blobbar på tjänsten som inte finns.
 * **prefixet** -du kan ange prefixet som ska användas för blob-lista. Blobbar som börjar med prefixet visas.
-* **useFlatBlobListing** – som anges i den [namnge och referera till behållare och blobbar](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) avsnitt, även om Blob-tjänsten är en platt lagring-schemat, du kan skapa en virtuell hierarki genom att namnge blobbar med sökvägsinformation. Dock stöds inte platt lista för närvarande inte. Den här funktionen kommer snart. Nu är det här värdet ska vara **Ja**.
+* **useFlatBlobListing** – som anges i den [namnge och referera till behållare och blobbar](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) avsnitt, även om Blob-tjänsten är en platt lagring-schemat, du kan skapa en virtuell hierarki genom att namnge blobbar med sökvägen information. Dock stöds inte platt lista för närvarande inte. Den här funktionen kommer snart. Nu är det här värdet ska vara **Ja**.
 * **blobListingDetails** -du kan ange vilka objekt som ska tas med när du visar en lista över blobbar
   * _AZSBlobListingDetailsNone_: Visa endast allokerad blobbar och inte returnerar blobbmetadata.
   * _AZSBlobListingDetailsSnapshots_: Visa spara blobbar och blob ögonblicksbilder.

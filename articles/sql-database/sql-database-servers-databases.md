@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 18f904a2bac70bce3e1208945a7b94b59f6225f7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0466b0e911736d2e1e7fc50649feda932c3163e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Skapa och hantera Azure SQL Database-servrar och databaser
 
@@ -46,7 +46,7 @@ En logisk Azure Database-server:
 - Är den överordnade resursen för databaser, elastiska pooler och informationslager.
 - Ger ett namnområde för databaser och elastiska pooler datalager
 - Är en logisk behållare med starka livstid semantik - ta bort en server och tar bort den inneslutna databaser och elastiska pooler datalager
-- Deltar i [Azure rollbaserad åtkomstkontroll (RBAC)](/active-directory/role-based-access-control-what-is) -databaser och elastiska pooler datalager i en server ärver behörigheter från servern
+- Deltar i [Azure rollbaserad åtkomstkontroll (RBAC)](/azure/role-based-access-control/overview) -databaser och elastiska pooler datalager i en server ärver behörigheter från servern
 - Är ett högsta element för identiteten för databaser och elastiska pooler datalager för Azure-resurs hanteringsändamål (se URL-schemat för databaser och pooler)
 - Samlar resurser i en region.
 - Tillhandahåller en anslutningsslutpunkt för databasåtkomst (<serverName>.database.windows.net)
@@ -79,9 +79,8 @@ Skapa en Azure SQL database med hjälp av den [Azure-portalen](https://portal.az
 
 > [!IMPORTANT]
 > Information om hur du väljer prisnivå för din databas finns [tjänstnivåer](sql-database-service-tiers.md).
->
 
-Om du vill skapa en instans för hanterade finns [skapa en instans som hanteras](sql-database-managed-instance-tutorial-portal.md)
+Om du vill skapa en instans för hanterade finns [skapa en instans som hanteras](sql-database-managed-instance-create-tutorial-portal.md)
 
 ### <a name="manage-an-existing-sql-server"></a>Hantera en befintlig SQLServer
 
@@ -165,7 +164,7 @@ Använd följande T-SQL-kommandon för att skapa och hantera Azure SQL server-da
 | Kommando | Beskrivning |
 | --- | --- |
 |[Skapa databas (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Skapar en ny databas. Du måste vara ansluten till huvuddatabasen för att skapa en ny databas.|
-| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Ändrar en Azure SQL database. |
+| [ALTER DATABASE (Azure SQL-databas)](/sql/t-sql/statements/alter-database-azure-sql-database) |Ändrar en Azure SQL database. |
 |[ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Ändrar ett Azure SQL Data Warehouse.|
 |[Ta bort databasen (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Tar bort en databas.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returnerar edition (tjänstnivån), tjänstmålet (prisnivån) och namn på elastisk pool, för en Azure SQL-databas eller ett Azure SQL Data Warehouse. Returnerar information om alla databaser om inloggad på master-databasen i en Azure SQL Database-server. För Azure SQL Data Warehouse, måste du vara ansluten till master-databasen.|

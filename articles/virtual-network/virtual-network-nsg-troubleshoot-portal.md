@@ -1,11 +1,11 @@
 ---
-title: "Felsöka Nätverkssäkerhetsgrupper - Portal | Microsoft Docs"
-description: "Lär dig hur du felsöker Nätverkssäkerhetsgrupper i Azure Resource Manager-distributionsmodellen med hjälp av Azure-portalen."
+title: Felsöka Nätverkssäkerhetsgrupper - Portal | Microsoft Docs
+description: Lär dig hur du felsöker Nätverkssäkerhetsgrupper i Azure Resource Manager-distributionsmodellen med hjälp av Azure-portalen.
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 5998aa0e0b281ead859c24d792c3e175e3cca899
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: b053993bec74d358dd7a0a8889fa05885b563b16
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Felsöka Nätverkssäkerhetsgrupper i Azure Portal
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Utför följande steg för att felsöka NSG: er för en virtuell dator:
 
 Du kan visa en fullständig lista över giltiga säkerhetsregler på ett nätverkskort från Virtuellt datorn. Du kan också lägga till, ändra och ta bort både nätverkskort och undernät NSG-regler från bladet effektiva regler om du har behörighet att utföra dessa åtgärder.
 
-1. Logga in på Azure-portalen på https://portal.azure.com med ett Azure-konto. Ditt konto ha tilldelats den *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* åtgärden för nätverksgränssnittet. Information om hur du tilldelar åtgärder till konton finns [skapa anpassade roller för rollbaserad åtkomstkontroll i](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Logga in på Azure-portalen på https://portal.azure.com med ett Azure-konto. Ditt konto ha tilldelats den *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* åtgärden för nätverksgränssnittet. Information om hur du tilldelar åtgärder till konton finns [skapa anpassade roller för rollbaserad åtkomstkontroll i](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Klicka på **alla tjänster**, klicka på **virtuella datorer** som visas i listan.
 3. Välj en virtuell dator för att felsöka i listan som visas och en VM-bladet med alternativ visas.
 4. Klicka på **diagnostisera & lösa problem** och välj sedan ett vanligt problem. I det här exemplet **jag kan inte ansluta till en virtuell dator Windows** är markerad. 

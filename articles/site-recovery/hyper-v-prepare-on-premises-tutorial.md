@@ -1,6 +1,6 @@
 ---
-title: "Förbereda lokal Hyper-V-server för katastrofåterställning för Hyper-V virtuella datorer till Azure | Microsoft Docs"
-description: "Lär dig hur du förbereder lokala Hyper-V virtuella datorer som inte hanteras av System Center VMM för katastrofåterställning till Azure med Azure Site Recovery-tjänsten."
+title: Förbereda lokal Hyper-V-server för katastrofåterställning för Hyper-V virtuella datorer till Azure | Microsoft Docs
+description: Lär dig hur du förbereder lokala Hyper-V virtuella datorer som inte hanteras av System Center VMM för katastrofåterställning till Azure med Azure Site Recovery-tjänsten.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1290a186ca8e83b09f53b286e80c5ce75f08d88c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7e0219a662483ef123bdc2889a43dd3d93d23ac2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala Hyper-V-servrar för katastrofåterställning till Azure
 
@@ -35,8 +35,8 @@ Se till att Hyper-V-värdar och virtuella datorer som uppfyller kraven.
 1. [Kontrollera](hyper-v-azure-support-matrix.md#on-premises-servers) lokal server-krav.
 2. [Kontrollera kraven](hyper-v-azure-support-matrix.md#replicated-vms) för Hyper-V virtuella datorer du vill replikera till Azure.
 3. Kontrollera Hyper-V-värd [nätverk](hyper-v-azure-support-matrix.md#hyper-v-network-configuration); och värden och gästen [lagring](hyper-v-azure-support-matrix.md#hyper-v-host-storage) stöd för lokala Hyper-V-värdar.
-4. Kontrollera vad som stöds för [Azure nätverk](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [lagring](hyper-v-azure-support-matrix.md#azure-storage), och [compute](hyper-v-azure-support-matrix.md#azure-compute-features), efter växling vid fel.
-5. Din lokala virtuella datorer som du replikerar till Azure måste vara kompatibel med [krav för Azure VM](hyper-v-azure-support-matrix.md#azure-vm-requirements).
+4. Kontrollera vad som stöds när det gäller [Azure-nätverk](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [lagring](hyper-v-azure-support-matrix.md#azure-storage) och [compute](hyper-v-azure-support-matrix.md#azure-compute-features) efter redundansväxling.
+5. Dina lokala virtuella datorer som du replikerar till Azure måste uppfylla [kraven för virtuella Azure-datorer](hyper-v-azure-support-matrix.md#azure-vm-requirements).
 
 
 ## <a name="prepare-vmm-optional"></a>Förbereda VMM (valfritt)
@@ -58,14 +58,13 @@ Förbered VMM nätverksmappningen på följande sätt:
 
 ## <a name="verify-internet-access"></a>Kontrollera internet-åtkomst
 
-1. Vid tillämpningen av kursen är den enklaste konfigurationen för Hyper-V-värdar och VMM-servern, om tillämpligt, får direkt åtkomst till internet utan att använda en proxyserver. 
+1. Vid tillämpningen av kursen är den enklaste konfigurationen för Hyper-V-värdar och VMM-servern får direkt åtkomst till internet utan att använda en proxyserver. 
 2. Kontrollera att Hyper-V-värdar och VMM-server (om tillämpligt) kan komma åt dessa webbadresser: 
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-3. Se till att:
-    - IP-adressbaserade brandväggsregler ska tillåta kommunikation till Azure.
-    - Tillåt [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) (IP-intervall för Azures datacenter) och HTTPS-port 443.
+3. Om du kontrollera åtkomst efter IP-adress, kontrollerar du att:
+    - IP-adressbaserade brandväggsregler kan ansluta till [IP-intervall för Azure-Datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653), och port för HTTPS (443).
     - Tillåt IP-adressintervall för Azure-regionen för din prenumeration och för USA, västra (används för hantering av kontrollen och identitet).
 
 

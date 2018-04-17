@@ -1,6 +1,6 @@
 ---
-title: "Azure säkerhet och efterlevnad modell - PCI DSS-kompatibel bearbetningen av betalningen miljöer"
-description: "Azure säkerhet och efterlevnad modell - PCI DSS-kompatibel bearbetningen av betalningen miljöer"
+title: Azure säkerhet och efterlevnad modell - PCI DSS-kompatibel bearbetningen av betalningen miljöer
+description: Azure säkerhet och efterlevnad modell - PCI DSS-kompatibel bearbetningen av betalningen miljöer
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5851d5499c61cf99d7f85d07642a292f3b8c19d2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure säkerhet och efterlevnad modell - PCI DSS-kompatibel bearbetningen av betalningen miljöer
 
@@ -119,8 +119,8 @@ Den här lösningen används följande Azure-tjänster. Information om arkitektu
 
 >- Application Gateway
 >- Azure Active Directory
->- App Service Environment v2
->- OMS Log Analytics
+>- Apptjänst-miljö v2
+>- Log Analytics
 >- Azure Key Vault
 >- Nätverkssäkerhetsgrupper
 >- Azure SQL-databas
@@ -149,7 +149,7 @@ I följande avsnitt beskrivs element för utveckling och implementering.
 
 Grundläggande arkitektur minskar risken för säkerhetsproblem med hjälp av en Programgateway med Brandvägg för webbaserade program (Brandvägg) och OWASP RuleSet-metod aktiverad. Ytterligare funktioner är:
 
-- [End-to-End-SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [Slutpunkt till slutpunkt SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Aktivera [SSL-avlastning](/azure/application-gateway/application-gateway-ssl-portal)
 - Inaktivera [TLS version 1.0 och v1.1](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Brandvägg för webbaserade program](/azure/application-gateway/application-gateway-webapplicationfirewall-overview) (Brandvägg läge)
@@ -173,7 +173,7 @@ Var och en av de NSG: er har specifika portar och protokoll öppnas för säker 
 
 Var och en av de NSG: er har specifika portar och protokoll öppnas för en säker och korrekt fungerande lösningen. Dessutom kan är följande konfigurationer aktiverade för varje NSG:
 - Aktiverad [diagnostikloggar och händelser](/azure/virtual-network/virtual-network-nsg-manage-log) lagras i storage-konto 
-- Ansluten OMS logganalys till den [NSGS diagnostik](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- Ansluten logganalys till den [NSGS diagnostik](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 #### <a name="subnets"></a>Undernät
  Kontrollera varje undernät som är associerad med dess motsvarande NSG.
@@ -203,12 +203,12 @@ Azure SQL Database-instans använder följande säkerhetsåtgärder för databas
 
 ### <a name="logging-and-auditing"></a>Granskning och loggning
 
-[Operations Management Suite (OMS)](/azure/operations-management-suite/) kan ge Contoso Webstore utförlig loggning för alla system- och användaraktivitet får innehålla Kortinnehavarens dataloggning. Ändringar kan granskas och verifiera noggrannhet. 
+[Logga Analytics](https://azure.microsoft.com/services/log-analytics) kan ge Contoso Webstore utförlig loggning för alla system- och användaraktivitet får innehålla Kortinnehavarens dataloggning. Ändringar kan granskas och verifiera noggrannhet. 
 
-- **Aktivitetsloggar:**[aktivitetsloggar](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger kunskaper om de åtgärder som utfördes på resurser i din prenumeration.  
-- **Diagnostikloggar:**[diagnostikloggar](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) är alla loggar som orsakat av varje resurs.   Loggarna finns system händelseloggarna i Windows Azure Blob storage, tabeller och kön loggar.
+- **Aktivitetsloggar:**[aktivitetsloggar](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger kunskaper om de åtgärder som utfördes på resurser i din prenumeration.
+- **Diagnostikloggar:**[diagnostikloggar](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) är alla loggar som orsakat av varje resurs. Loggarna finns system händelseloggarna i Windows Azure Blob storage, tabeller och kön loggar.
 - **Brandväggen loggarna:** Programgatewayen ger fullständig diagnostik och komma åt loggar. Brandväggsloggar är tillgängliga för Programgateway resurser som har en Brandvägg är aktiverad.
-- **Loggen arkivering:** alla diagnostikloggar är konfigurerade för att skriva till en central och krypterad Azure storage-konto för arkivering med en definierad period (2 dagar). Loggarna är nu ansluten till Azure Log Analytics för bearbetning, lagring och dashboarding. [Logga Analytics](https://azure.microsoft.com/services/log-analytics) är en OMS-tjänst som hjälper dig att samla in och analysera data som genereras av resurser i molnet och lokala miljöer.
+- **Loggen arkivering:** alla diagnostikloggar är konfigurerade för att skriva till en central och krypterad Azure storage-konto för arkivering med en definierad period (2 dagar). Loggarna är nu ansluten till Azure Log Analytics för bearbetning, lagring och dashboarding. [Logga Analytics](https://azure.microsoft.com/services/log-analytics) är en tjänst som hjälper dig att samla in och analysera data som genereras av resurser i molnet och lokala miljöer.
 
 ### <a name="encryption-and-secrets-management"></a>Kryptering och hemligheter management
 
@@ -224,7 +224,7 @@ Följande tekniker hanteringsfunktioner identitet i Azure-miljön.
 - [Azure Active Directory (AD Azure)](https://azure.microsoft.com/services/active-directory/) är Microsofts flera innehavare molnbaserad katalog och identity management-tjänsten. Alla användare för lösningen har skapats i Azure Active Directory, inklusive användare med åtkomst till SQL-databasen.
 - Tillämpningen utförs autentiseringen med hjälp av Azure AD. Mer information finns i [integrera program med Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications). Dessutom använder kolumnen databaskryptering också Azure AD autentisera programmet till Azure SQL Database. Mer information finns i [Always Encrypted: skydda känsliga data i SQL-databas](/azure/sql-database/sql-database-always-encrypted-azure-key-vault). 
 - [Azure Active Directory-identitetsskydd](/azure/active-directory/active-directory-identityprotection) identifierar potentiella problem som påverkar din organisations identiteter, konfigurerar du automatiska svar på identifierade misstänkta åtgärder som rör din organisations identiteter och undersöker misstänkta incidenter och vidtar lämpliga åtgärder som kan lösas.
-- [Azure rollbaserad åtkomstkontroll (RBAC)](/azure/active-directory/role-based-access-control-configure) aktiverar exakt fokuserad åtkomsthantering för Azure. Prenumerationen åtkomst begränsas till administratör för prenumeration och Azure Key Vault åtkomsten är begränsad till alla användare.
+- [Azure rollbaserad åtkomstkontroll (RBAC)](/azure/role-based-access-control/role-assignments-portal) aktiverar exakt fokuserad åtkomsthantering för Azure. Prenumerationen åtkomst begränsas till administratör för prenumeration och Azure Key Vault åtkomsten är begränsad till alla användare.
 
 Mer information om hur du använder säkerhetsfunktionerna i Azure SQL-databasen finns på [Contoso kurs Demo-programmet](https://github.com/Microsoft/azure-sql-security-sample) exempel.
    
@@ -266,7 +266,7 @@ En virtuell dator har skapats som en jumpbox (skyddsmiljö host) med följande k
 
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) innehåller en centraliserad för säkerhetsläget för alla dina Azure-resurser. En överblick över kan du kontrollera att lämpliga säkerhetsåtgärder som är installerade och korrekt konfigurerad och att du snabbt kan identifiera alla resurser som kräver uppmärksamhet.  
 
-[Azure Advisor](/azure/advisor/advisor-overview) är personliga molnet konsult som hjälper dig att följa bästa praxis för att optimera din Azure-distributioner. Den analyserar dina resurskonfigurationen och telemetri och rekommenderar lösningar som hjälper dig att förbättra kostnadseffektivitet, prestanda, hög tillgänglighet och säkerhet för dina Azure-resurser.
+[Azure Advisor](/azure/advisor/advisor-overview) är personliga molnet konsult som hjälper dig att följa bästa praxis för att optimera din Azure-distributioner. Advisor analyserar din resurskonfiguration och användningstelemetri och rekommenderar sedan lösningar som kan hjälpa dig att förbättra kostnadseffektiviteten, prestanda, tillgängligheten och säkerheten för dina Azure-resurser.
 
 [Microsoft Antimalware](/azure/security/azure-security-antimalware) för Azure-molntjänster och virtuella datorer är realtidsskydd funktion som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig programvara med konfigurerbara aviseringar när kända skadliga eller oönskade programvara försöker installeras eller köras på din Azure-system.
 
@@ -278,11 +278,11 @@ Använd [Programinsikter](https://azure.microsoft.com/services/application-insig
 
 #### <a name="log-analytics"></a>Log Analytics
 
-[Logga Analytics](https://azure.microsoft.com/services/log-analytics/) är en tjänst i Operations Management Suite (OMS) och som hjälper dig att samla in och analysera data som genereras av resurser i molnet och lokala miljöer.
+[Logga Analytics](https://azure.microsoft.com/services/log-analytics/) är en tjänst i Azure som hjälper dig att samla in och analysera data som genereras av resurser i molnet och lokala miljöer.
 
-#### <a name="oms-solutions"></a>OMS-lösningar
+#### <a name="management-solutions"></a>Hanteringslösningar
 
-Dessa ytterligare OMS-lösningar ska anses vara och konfigureras:
+Dessa ytterligare hanteringslösningar ska anses vara och konfigureras:
 - [Activity Log Analytics](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Azure-nätverksanalys](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analytics](/azure/log-analytics/log-analytics-azure-sql)
@@ -338,9 +338,9 @@ Du rekommenderas att en ren installation av PowerShell används för att distrib
     
     Detaljerade instruktioner finns i [skript instruktioner – distribuera och konfigurera Azure-resurser](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. OMS loggning och övervakning. När lösningen har distribuerats, en [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) arbetsytan kan öppnas och exempelmallarna i databasen lösning som kan användas för att illustrera hur en instrumentpanelen för övervakning kan vara konfigurerad. OMS exempelmallarna finns i den [omsDashboards mappen](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Observera att måste samlas in i OMS mallar för att distribuera på rätt sätt. Detta kan ta upp till en timme eller mer beroende på platsaktivitet.
+3. Loggning och övervakning. När lösningen har distribuerats, logganalys-arbetsytan kan öppnas och exempelmallarna i lösningen databasen kan användas för att illustrera hur en instrumentpanelen för övervakning kan konfigureras. Exempelmallarna finns i den [omsDashboards mappen](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Observera att måste samlas in i logganalys mallar för att distribuera på rätt sätt. Detta kan ta upp till en timme eller mer beroende på platsaktivitet.
  
-    När du konfigurerar din OMS-loggning överväga att använda följande resurser:
+    När du konfigurerar logganalys-loggning överväga att använda följande resurser:
  
     - Microsoft.Network/applicationGateways
     - Microsoft.Network/NetworkSecurityGroups

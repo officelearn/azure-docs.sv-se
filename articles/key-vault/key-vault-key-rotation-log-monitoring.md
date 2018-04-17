@@ -1,11 +1,11 @@
 ---
 title: Konfigurera Azure Key Vault slutpunkt till slutpunkt viktiga rotation och granskning | Microsoft Docs
-description: "Använd den här anvisningar som hjälper dig att börja arbeta med viktiga rotation och övervakning nyckelvalv loggar."
+description: Använd den här anvisningar som hjälper dig att börja arbeta med viktiga rotation och övervakning nyckelvalv loggar.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: swgriffith
 manager: mbaldwin
-tags: 
+tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: jodehavi;stgriffi
-ms.openlocfilehash: edc9a870257536235c2bef139dc4d1ead7dd7a8f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.author: stgriffi
+ms.openlocfilehash: 701edc784dcde067e8ec585a3b31d6075207fbbf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Konfigurera Azure Key Vault med nyckelgranskning och -rotation från slutpunkt till slutpunkt
 ## <a name="introduction"></a>Introduktion
@@ -423,7 +423,7 @@ Nu måste du skapa ett Azure logikappen som hämtar händelser att funktionen ä
 
 När logikappen har skapats, navigera till den och välj **redigera**. I Redigeraren för logik-app väljer **Service Bus-kö** och ange dina autentiseringsuppgifter för Service Bus för att ansluta till kön.
 
-![Azure Logic App Service Bus](./media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
+![Logik för Azure App Service Bus](./media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
 
 Välj nästa **Lägg till ett villkor**. Växla till redigeraren i villkoret och ange följande kod, ersätta APP_ID med den faktiska APP_ID av ditt webbprogram:
 

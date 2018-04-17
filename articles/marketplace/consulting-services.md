@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8d414a7a2ad46fbe63cc6eb8e6a6a41bb76aa432
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c8966f3dfa16010b82d1fe9cd02c63bdde65463c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-marketplace-consulting-services"></a>Azure Marketplace rådgivning
 Med ett mål vid anslutning av kunder med stöd för och utöka användningen av Azure-tjänster stöder Azure Marketplace lista över samråd Tjänsterbjudanden från partner System Integrator (SI) av Microsoft. 
@@ -33,9 +33,9 @@ Partners måste också ha en silver eller guld kompetensen i området relevanta 
 
 |Kompetensen  |Lösning område  |
 |---------|---------|
-|Molnplattform och infrastruktur     |   Cloud Platform, Data Center      |
+|Molnplattform och infrastruktur     |   Molnplattform, Datacenter      |
 |Programutveckling och ISV     |  Programmet utveckling, Programintegrationstyp, DevOps       |
-|Datahantering och analys    |  Data Analytics, Data Platform       |
+|Datahantering och analys    |  Dataanalys, dataplattform       |
 
 Erbjudanden måste vara en följande fem typer av tjänster (du kan ange flera): 
 
@@ -48,6 +48,9 @@ Erbjudanden måste vara en följande fem typer av tjänster (du kan ange flera):
 Undantag för den *genomgång* tjänsttypen rådgivning erbjuds person (det vill säga direkt på kundens plats eller en partner anläggning) eller nästan (det vill säga via och telefonkonferenser, web konferens eller fjärr implementering). Genomgångar måste erbjudas personligen.
 
 Mer information finns i [befogenheter via Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies). 
+
+>[!TIP]
+>Den här informationen är för Azure Marketplace-tjänster. Om du vill publicera till Azure Marketplace-storefront, blir det här alternativet genom att välja ”Azure” från listrutan ”primär Product” i molnet partnerportalen. Om du vill publicera till AppSource, ska du göra detta val genom att välja ”Dynamics 365”, ”Power BI” eller ”Power appar” från listrutan ”primär Product” i molnet Partner-portalen. 
 
 ## <a name="supported-countries"></a>Länder som stöds
 
@@ -95,3 +98,31 @@ Visar en lista över ditt samråd tjänsterbjudande på Azure Marketplace omfatt
 4. **Granska**: vårt team marknadsföring och redaktionell går igenom din ansökan och optimerar för läsbarhet, grammatik och effektivitet. 
 5. **Mellanlagring av**: din ansökan mellanlagras för granskning. 
 6. **Publicera**: när du och Microsoft uppfylls med stegvis innehåll, registreringen är klar att publiceras på Azure Marketplace. Go live-datum för din registrering beror på det land som anges i dina erbjudanden. Om katalogen för det valda landet redan är live på Azure Marketplace visas din inom några timmar. I annat fall visas den som lanseras i katalogen.
+
+## <a name="content-review-criteria"></a>Innehållsgranskning villkor
+
+När du har konfigurerat de obligatoriska element som anges ovan, verifierar innehållsgranskning teamet att erbjudande beskrivningen är informativt och fullständig för målgruppen. 
+
+Observera att titelfältet har 50 tecken och måste överföra varaktighet och tjänsten typ av erbjudandet. Detta är att maximera sökmotoroptimering. Formatet som krävs är följande: namn: VARAKTIGHETSTYP
+
+Exempel:
+
+
+|Exempelrubrik  |Rätt Format  |
+|---------|---------|
+|Komma igång med Azure IoT i produktion    |   Tillverkning IoT: 2-dagars utvärdering      |
+|Workshop på Smart brödrostar        |  Smart brödrostar: 1-Wk Workshop       |
+|  SQL Server-migrering PoC    | SQL-migrering: 3 Wk konceptbevis        |
+
+ 
+När du granskar erbjuder beskrivningar och erbjuda sammanfattningar gäller teamet följande villkor:
+
+|Erbjudandetyp  |Krävs |Rekommenderas  |
+|---------|---------|---------|
+|Utvärdering    |   Innehåller en detaljerad ärende för flera dag eller flera vecka bedömningar och förklara vad leverans kunden kan förvänta sig      |    Optimera erbjudandet sammanfattning med högsta sökmotoroptimering nyckelorden     |
+|Genomgång    |   Förklara vad leverans kunden kan vänta. Kom ihåg att genomgångar måste också erbjuds personligen. Om du tillhandahåller en virtuell tjänst, Välj ett annat erbjudande-typ    |  Optimera erbjudandet sammanfattning med högsta sökmotoroptimering nyckelorden       |
+|Implementering    |  Innehåller en detaljerad ärende för implementeringar av flera dag eller flera vecka och förklara vilka tekniska ändringar, tekniska artefakter eller andra artefakter som en kund kan förvänta sig som resultat av hur engagerade       |    Optimera erbjudandet sammanfattning med högsta sökmotoroptimering nyckelorden     |
+|Konceptbevis    |    Definiera vilka tekniska ändringar, tekniska artefakter eller andra artefakter som en kund kan förvänta sig som resultat av hur engagerade     | Optimera erbjudandet sammanfattning med högsta sökmotoroptimering nyckelorden        |
+|Workshop    |   Innehåller en detaljerad ärende dag, vecka eller månadsvis, beroende på den valda varaktigheten för ditt erbjudande. Förklara vad learning mål eller andra leveransfiler är av din workshop     |   Optimera erbjudandet sammanfattning med nyckelorden optimering översta sökmotor      |
+
+I molnet partnerportalen, kan du lägga till formatering för din registrering med hjälp av [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Detta är ett lätt design-språk som hjälper dig att lägga till polska din registrering. 

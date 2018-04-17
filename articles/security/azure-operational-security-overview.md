@@ -1,12 +1,12 @@
 ---
-title: "Översikt över Azure operativ säkerhet | Microsoft Docs"
-description: "Den här artikeln innehåller en översikt över Azure operativ säkerhet."
+title: Översikt över Azure operativ säkerhet | Microsoft Docs
+description: Den här artikeln innehåller en översikt över Azure operativ säkerhet.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ca42e0cc76bc385f04cb2e010ff91dbb27bd627a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-operational-security-overview"></a>Översikt över Azure operativ säkerhet
-Azure operativ säkerhet refererar till tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda sina data, program och andra resurser i Microsoft Azure. [Azure operativ säkerhet](https://docs.microsoft.com/azure/security/azure-operational-security) är ett ramverk som innehåller informationen som gjorts via en mängd funktioner som är unika för Microsoft, inklusive Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center program och djup medvetenhet om cyber security hotbilden i grunden.
+Azure operativ säkerhet refererar till tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda sina data, program och andra resurser i Microsoft Azure. [Azure operativ säkerhet](https://docs.microsoft.com/azure/security/azure-operational-security) är ett ramverk som innehåller informationen som gjorts via en mängd funktioner som är unika för Microsoft, inklusive den Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center programmet och djup medvetenhet om cyber security hotbilden i grunden.
 
 Den här Azure Operational översikt över säkerheten i artikeln fokuserar på följande områden:
 
@@ -65,7 +65,7 @@ Microsoft [Azure Automation](https://docs.microsoft.com/azure/automation/automat
 -   Tillhandahåller centrala hantering, enkel inloggning (SSO) och rapportering
 -   Stöder integrerad åtkomsthantering för [tusentals program](https://azure.microsoft.com/marketplace/active-directory/) i programgalleriet inklusive Salesforce, Google Apps, rutan, Concur och mycket mer.
 
-Azure AD innehåller också en fullständig uppsättning [identitetshanteringsfunktionerna](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports) inklusive [multifaktorautentisering](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), [enhetsregistrering]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview), [självbetjäning lösenordshantering](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/), [grupphantering via självbetjäning](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password), [privilegierad kontohantering](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure), [rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is), [övervakning av programanvändning](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health), [omfattande granskning](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs), och [säkerhet övervakning och avisering](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
+Azure AD innehåller också en fullständig uppsättning [identitetshanteringsfunktionerna](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports) inklusive [multifaktorautentisering](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), [enhetsregistrering]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview), [självbetjäning lösenordshantering](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/), [grupphantering via självbetjäning](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password), [privilegierad kontohantering](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure), [rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/role-based-access-control/overview), [övervakning av programanvändning](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health), [omfattande granskning](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs), och [säkerhet övervakning och avisering](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
 
 Med Azure Active Directory, alla program som du publicerar för partner och kunder (business eller konsumenten) har samma identitet och åtkomst hanteringsfunktioner. Detta gör att du kan avsevärt minska din driftskostnader.
 
@@ -80,7 +80,7 @@ Med hjälp av [Azure Security Center](https://docs.microsoft.com/azure/security-
 -   Verifiering av diskkryptering
 -   Nätverksbaserade attacker
 
-Azure Security Center använder [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure), vilket ger [inbyggda roller](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) som kan tilldelas användare, grupper och tjänster i Azure.
+Azure Security Center använder [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), vilket ger [inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) som kan tilldelas användare, grupper och tjänster i Azure.
 
 Security Center utvärderar konfigurationen av dina resurser för att identifiera säkerhetsproblem och säkerhetsproblem. I Security Center kan se du bara information relaterad till en resurs när du har tilldelats rollen ägare, deltagare eller läsare för prenumeration eller resursgrupp som en resurs tillhör.
 
@@ -109,7 +109,7 @@ Det är en logg som ger inblick i åtgärder som utfördes på resurser i din pr
 
 Till exempel Windows-händelsesystemloggar är en kategori av diagnostiska loggar för virtuella datorer och blob, tabell och kön loggar är kategorier av diagnostiska loggar för lagringskonton.
 
-Diagnostik loggar skiljer sig från den [aktivitetsloggen (kallades granskningsloggen eller arbetsloggen)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Aktivitetsloggen ger inblick i åtgärder som utfördes på resurser i din prenumeration. Diagnostik-loggarna ger information om åtgärder som din resurs utförde sig själv.
+Diagnostik loggar skiljer sig från den [aktivitetsloggen (kallades granskningsloggen eller arbetsloggen)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Aktivitetsloggen ger inblick i åtgärder som utfördes på resurser i din prenumeration. Diagnostikloggar ger information om åtgärder som din resurs har vidtagit på egen hand.
 
 ### <a name="metrics"></a>Mått
 Azure-Monitor kan du använda telemetri för att få insyn i prestanda och hälsotillståndet för dina arbetsbelastningar i Azure. Viktigaste är Azure telemetridata mätvärdena (kallas även prestandaräknare) sänds av mest Azure-resurser. Azure-Monitor finns flera sätt att konfigurera och använda dessa [mått](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) för övervakning och felsökning.

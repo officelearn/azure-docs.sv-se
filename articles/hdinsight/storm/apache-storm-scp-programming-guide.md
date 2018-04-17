@@ -1,8 +1,8 @@
 ---
-title: "Programmeringsguide för SCP.NET | Microsoft Docs"
-description: "Lär dig hur du skapar med hjälp av SCP.NET. NET-baserade Storm-topologier för att använda med Storm på HDInsight."
+title: Programmeringsguide för SCP.NET | Microsoft Docs
+description: Lär dig hur du skapar med hjälp av SCP.NET. NET-baserade Storm-topologier för att använda med Storm på HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: raviperi
 manager: jhubbard
 editor: cgronlun
@@ -11,15 +11,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: raviperi
-ms.openlocfilehash: a0ce92ba58fbcda812a3d4e5e275178b73400d6c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0f4c021bc209c99e1b3f34b34bf5ba0549eb48f9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scp-programming-guide"></a>Programmeringsguide för SCP
 SCP är en plattform för att skapa realtid, tillförlitlig och konsekvent, och program för högpresterande databearbetning. Det är byggt ovanpå [Apache Storm](http://storm.incubator.apache.org/) – en dataström som bearbetar system utformas av OSS communities. Storm är utformat av Nathan Marz och har öppen källkod med Twitter. Den använder [Apache ZooKeeper](http://zookeeper.apache.org/), ett annat Apache-projekt att aktivera hög tillförlitliga distribuerade samordning och tillstånd. 
@@ -76,7 +74,7 @@ ISCPSpout är gränssnittet för icke-transaktionell kanal.
 
 När `NextTuple()` anropas, C\# användarkod kan generera en eller flera tupplar. Om det finns inget att generera ska den här metoden returnera utan avger något. Det bör noteras som `NextTuple()`, `Ack()`, och `Fail()` kallas i en tät loop i en enskild tråd i C\# process. När det finns inga tupplar att generera, är det Välkommen företagspolicy ha NextTuple strömsparläge under en kort tidsperiod (till exempel 10 millisekunder) utan att avfallshantering för mycket CPU.
 
-`Ack()`och `Fail()` anropas endast när ack mekanism är aktiverat i spec filen. Den `seqId` används för att identifiera den tuppel som ADE eller misslyckades. Så om ack är aktiverad i icke-transaktionell topologi, bör följande begär funktion användas i kanal:
+`Ack()` och `Fail()` anropas endast när ack mekanism är aktiverat i spec filen. Den `seqId` används för att identifiera den tuppel som ADE eller misslyckades. Så om ack är aktiverad i icke-transaktionell topologi, bör följande begär funktion användas i kanal:
 
     public abstract void Emit(string streamId, List<object> values, long seqId); 
 
@@ -106,7 +104,7 @@ ISCPTxSpout är gränssnittet för transaktionell kanal.
 
 Precis som i sin icke-transaktionell motparterna del `NextTx()`, `Ack()`, och `Fail()` kallas i en tät loop i en enskild tråd i C\# process. När det finns inga data att generera, är det Välkommen företagspolicy ha `NextTx` strömsparläge under en kort tidsperiod (10 millisekunder) utan att avfallshantering för mycket CPU.
 
-`NextTx()`för att starta en ny transaktion Utdataparametern `seqId` används för att identifiera den transaktion som också används i `Ack()` och `Fail()`. I `NextTx()`, användare som kan sända data till Java-sida. Data lagras i ZooKeeper att stödja repetitionsattacker. Eftersom ZooKeeper kapacitet är begränsad, bör användare genererar endast metadata kan inte masskopiera data i transaktionella kanal.
+`NextTx()` för att starta en ny transaktion Utdataparametern `seqId` används för att identifiera den transaktion som också används i `Ack()` och `Fail()`. I `NextTx()`, användare som kan sända data till Java-sida. Data lagras i ZooKeeper att stödja repetitionsattacker. Eftersom ZooKeeper kapacitet är begränsad, bör användare genererar endast metadata kan inte masskopiera data i transaktionella kanal.
 
 Storm ska spelas upp en transaktion automatiskt om den misslyckas så `Fail()` ska inte anropas i vanliga fall. Men om SCP kan kontrollera metadata som sänds av transaktionella kanal, kan det anropa `Fail()` när metadata är ogiltiga.
 
@@ -121,9 +119,9 @@ ISCPBatchBolt är gränssnittet för transaktionell bulten.
         void FinishBatch(Dictionary<string, Object> parms);  
     }
 
-`Execute()`anropas när det finns nya tuppel anländer till bulten. `FinishBatch()`anropas när transaktionen avslutas. Den `parms` indataparameter är reserverad för framtida användning.
+`Execute()` anropas när det finns nya tuppel anländer till bulten. `FinishBatch()` anropas när transaktionen avslutas. Den `parms` indataparameter är reserverad för framtida användning.
 
-För transaktionell topologi, är ett viktigt begrepp – `StormTxAttempt`. Den har två fält `TxId` och `AttemptId`. `TxId`används för att identifiera en viss transaktion och för en given transaktion, det kan finnas flera försök om transaktionen misslyckas och spelas. SCP.NET skapar ett nytt ISCPBatchBolt-objekt för att bearbeta varje `StormTxAttempt`, precis som Storm finns i Java. Syftet med den här designen är att stödja parallella transaktioner bearbetning. Användaren bör ha det i åtanke att motsvarande ISCPBatchBolt objektet förstörs om transaktionen försök är slutförd och skräpinsamlats.
+För transaktionell topologi, är ett viktigt begrepp – `StormTxAttempt`. Den har två fält `TxId` och `AttemptId`. `TxId` används för att identifiera en viss transaktion och för en given transaktion, det kan finnas flera försök om transaktionen misslyckas och spelas. SCP.NET skapar ett nytt ISCPBatchBolt-objekt för att bearbeta varje `StormTxAttempt`, precis som Storm finns i Java. Syftet med den här designen är att stödja parallella transaktioner bearbetning. Användaren bör ha det i åtanke att motsvarande ISCPBatchBolt objektet förstörs om transaktionen försök är slutförd och skräpinsamlats.
 
 ## <a name="object-model"></a>Objektmodell
 SCP.NET innehåller också en enkel uppsättning objekt för utvecklare att programmera med nycklar. De är **kontexten**, **StateStore**, och **SCPRuntime**. De beskrivs i rest-delen av det här avsnittet.
@@ -137,9 +135,9 @@ Kontexten är en aktiv miljö till programmet. Varje ISCPPlugin-instans (ISCPSpo
     public static Config Config { get; set; }                    
     public static TopologyContext TopologyContext { get; set; }  
 
-`Logger`finns i loggen syfte.
+`Logger` finns i loggen syfte.
 
-`pluginType`används för att ange plugin-typ av C\# process. Om C\# processen körs i lokala testläge (utan Java), plugin-typen är `SCP_NET_LOCAL`.
+`pluginType` används för att ange plugin-typ av C\# process. Om C\# processen körs i lokala testläge (utan Java), plugin-typen är `SCP_NET_LOCAL`.
 
     public enum SCPPluginType 
     {
@@ -150,12 +148,12 @@ Kontexten är en aktiv miljö till programmet. Varje ISCPPlugin-instans (ISCPSpo
         SCP_NET_BATCH_BOLT = 4  
     }
 
-`Config`finns för att hämta konfigurationsparametrar från Java-sida. Parametrarna som skickas från Java sida när C\# plugin-programmet har initierats. Den `Config` parametrar är uppdelat i två delar: `stormConf` och `pluginConf`.
+`Config` finns för att hämta konfigurationsparametrar från Java-sida. Parametrarna som skickas från Java sida när C\# plugin-programmet har initierats. Den `Config` parametrar är uppdelat i två delar: `stormConf` och `pluginConf`.
 
     public Dictionary<string, Object> stormConf { get; set; }  
     public Dictionary<string, Object> pluginConf { get; set; }  
 
-`stormConf`är parametrar som definierats av Storm och `pluginConf` är de parametrar som definierats av SCP. Exempel:
+`stormConf` är parametrar som definierats av Storm och `pluginConf` är de parametrar som definierats av SCP. Exempel:
 
     public class Constants
     {
@@ -169,7 +167,7 @@ Kontexten är en aktiv miljö till programmet. Varje ISCPPlugin-instans (ISCPSpo
         public static readonly String STORM_ZOOKEEPER_PORT = "storm.zookeeper.port";                 
     }
 
-`TopologyContext`har angetts för att få kontexten topologi, är det mest användbar för komponenter med flera parallellitet. Här är ett exempel:
+`TopologyContext` har angetts för att få kontexten topologi, är det mest användbar för komponenter med flera parallellitet. Här är ett exempel:
 
     //demo how to get TopologyContext info
     if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)                      
@@ -210,7 +208,7 @@ För icke-transaktionell bult stöder ack, bör det explicit `Ack()` eller `Fail
     public abstract void Fail(SCPTuple tuple);
 
 ### <a name="statestore"></a>StateStore
-`StateStore`innehåller metadatatjänster, monotonisk sekvensgenerering och vänta utan samordning. Abstraktioner på högre nivåer distribuerade samtidighet kan baseras på `StateStore`, inklusive distribuerade lås, distribuerade köer, barriärer och Transaktionstjänster.
+`StateStore` innehåller metadatatjänster, monotonisk sekvensgenerering och vänta utan samordning. Abstraktioner på högre nivåer distribuerade samtidighet kan baseras på `StateStore`, inklusive distribuerade lås, distribuerade köer, barriärer och Transaktionstjänster.
 
 SCP-program kan använda den `State` objekt att spara information i ZooKeeper, särskilt för transaktionell topologi. Om du gör det transaktionella kanal kraschar och startar om, den kan hämta nödvändig information från ZooKeeper och starta om pipeline.
 
@@ -304,9 +302,9 @@ SCPRuntime innehåller följande två metoder:
 
     public static void LaunchPlugin(newSCPPlugin createDelegate);  
 
-`Initialize()`används för att initiera SCP-körningsmiljön. Den här metoden C\# processen ansluter till Java-sida och hämtar konfigurationsparametrar och topologi kontext.
+`Initialize()` används för att initiera SCP-körningsmiljön. Den här metoden C\# processen ansluter till Java-sida och hämtar konfigurationsparametrar och topologi kontext.
 
-`LaunchPlugin()`används för att startar bearbetning meddelandeloop. I den här loop C\# plugin-programmet tar emot meddelanden formuläret Java-sida (inklusive tupplar och kontroll signaler) och sedan bearbeta meddelanden, kanske anropar gränssnittsmetoden ange av användarkoden. Indataparametern för metoden `LaunchPlugin()` är en delegat som kan returnera ett objekt som implementerar ISCPSpout/IScpBolt/ISCPTxSpout/ISCPBatchBolt-gränssnittet.
+`LaunchPlugin()` används för att startar bearbetning meddelandeloop. I den här loop C\# plugin-programmet tar emot meddelanden formuläret Java-sida (inklusive tupplar och kontroll signaler) och sedan bearbeta meddelanden, kanske anropar gränssnittsmetoden ange av användarkoden. Indataparametern för metoden `LaunchPlugin()` är en delegat som kan returnera ett objekt som implementerar ISCPSpout/IScpBolt/ISCPTxSpout/ISCPBatchBolt-gränssnittet.
 
     public delegate ISCPPlugin newSCPPlugin(Context ctx, Dictionary\<string, Object\> parms); 
 
@@ -314,7 +312,7 @@ För ISCPBatchBolt, kan vi hämta `StormTxAttempt` från `parms`, och använda d
 
 Generellt sett kan SCP-plugin-program köras i två lägen här:
 
-1. Lokala testläge: I det här läget SCP-plugin-program (C\# användarkod) körs i Visual Studio under utvecklingsfasen. `LocalContext`kan användas i det här läget, vilket ger en metod för att serialisera skickade tupplar lokala filer och läsa dem tillbaka till minne.
+1. Lokala testläge: I det här läget SCP-plugin-program (C\# användarkod) körs i Visual Studio under utvecklingsfasen. `LocalContext` kan användas i det här läget, vilket ger en metod för att serialisera skickade tupplar lokala filer och läsa dem tillbaka till minne.
    
         public interface ILocalContext
         {
@@ -360,12 +358,12 @@ SCP.NET har lagt till följande funktioner för att definiera transaktionella to
 | **Nya funktioner** | **Parametrar** | **Beskrivning** |
 | --- | --- | --- |
 | **TX topolopy** |topologi namn<br />kanal-karta<br />bult-karta |Definiera en transaktionell topologi med namnet topologi &nbsp;spouts definitionen mappning och bultar definitionen mappning |
-| **SCP-tx-kanal** |Exec-namn<br />argument<br />Fält |Definiera en transaktionell kanal. Det körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är utdatafält för kanal |
-| **SCP-tx-batch-bult** |Exec-namn<br />argument<br />Fält |Definiera en transaktionell Batch bulten. Det körs programmet med ***exec-name*** med ***argument.***<br /><br />Fälten är utdatafält för bulten. |
-| **SCP-tx-commit-bult** |Exec-namn<br />argument<br />Fält |Definiera en bult transaktionella genomförande. Det körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är utdatafält för bult |
+| **SCP-tx-kanal** |Exec-namn<br />argument<br />fält |Definiera en transaktionell kanal. Det körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är utdatafält för kanal |
+| **SCP-tx-batch-bult** |Exec-namn<br />argument<br />fält |Definiera en transaktionell Batch bulten. Det körs programmet med ***exec-name*** med ***argument.***<br /><br />Fälten är utdatafält för bulten. |
+| **SCP-tx-commit-bult** |Exec-namn<br />argument<br />fält |Definiera en bult transaktionella genomförande. Det körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är utdatafält för bult |
 | **nontx topolopy** |topologi namn<br />kanal-karta<br />bult-karta |Definiera en icke-transaktionell topologi med namnet topologi&nbsp; spouts definitionen mappning och bultar definitionen mappning |
-| **SCP-kanal** |Exec-namn<br />argument<br />Fält<br />parameters |Definiera en icke-transaktionell kanal. Det körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är utdatafält för kanal<br /><br />Den ***parametrar*** är valfria, använder den för att ange vissa parametrar, till exempel ”nontransactional.ack.enabled”. |
-| **SCP-bult** |Exec-namn<br />argument<br />Fält<br />parameters |Definiera en icke-transaktionell bulten. Det körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är utdatafält för bult<br /><br />Den ***parametrar*** är valfria, använder den för att ange vissa parametrar, till exempel ”nontransactional.ack.enabled”. |
+| **SCP-kanal** |Exec-namn<br />argument<br />fält<br />parameters |Definiera en icke-transaktionell kanal. Det körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är utdatafält för kanal<br /><br />Den ***parametrar*** är valfria, använder den för att ange vissa parametrar, till exempel ”nontransactional.ack.enabled”. |
+| **SCP-bult** |Exec-namn<br />argument<br />fält<br />parameters |Definiera en icke-transaktionell bulten. Det körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är utdatafält för bult<br /><br />Den ***parametrar*** är valfria, använder den för att ange vissa parametrar, till exempel ”nontransactional.ack.enabled”. |
 
 SCP.NET har definierats följande nyckelord:
 

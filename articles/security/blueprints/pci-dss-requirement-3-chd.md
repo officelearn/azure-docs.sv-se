@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 356599cbe1e4e1948a5ec16d0d504835fa7dcd43
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 3bbed692bfccaa2a3296ba4697c66e9069b6e914
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="chd-requirements-for-pci-dss-compliant-environments"></a>CHD krav för PCI DSS-kompatibel miljöer
 ## <a name="pci-dss-requirement-3"></a>PCI DSS krav 3
@@ -43,8 +43,8 @@ Se PCI DSS och PA-DSS ordlista, förkortningar och förkortningar för definitio
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Azure ansvarar för att säkerställa den kundinformation som har utsetts för borttagning är inaktiverade på ett säkert sätt med hjälp av NIST 800 88 kompatibla protokoll som anges i dess säkra avyttring principerna. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore tar inte bort eller förstöra alla lagrade CHD. Men alla data som är krypterade och inte primära lagras konto numret (PANORERA) data.<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Azure ansvarar för att säkerställa den kundinformation som har utsetts för borttagning är inaktiverade på ett säkert sätt med hjälp av NIST 800 88 kompatibla protokoll som anges i dess säkra avyttring principerna. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore tar inte bort eller förstöra alla lagrade CHD. Men alla data som är krypterade och inte primära lagras konto numret (PANORERA) data.<br /><br />|
 
 
 
@@ -60,8 +60,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore tar inte bort eller förstöra alla lagrade CHD; exempeldata lagras endast för demonstration. Men alla data som är krypterade och inte primära konto numret (PANORERA) data lagras.<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore tar inte bort eller förstöra alla lagrade CHD; exempeldata lagras endast för demonstration. Men alla data som är krypterade och inte primära konto numret (PANORERA) data lagras.<br /><br />|
 
 
 
@@ -82,8 +82,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore lagrar inte det fullständiga innehållet på alla CHD.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore lagrar inte det fullständiga innehållet på alla CHD.|
 
 
 
@@ -95,8 +95,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore krypterar alla data, inklusive CVV-exempel.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore krypterar alla data, inklusive CVV-exempel.|
 
 
 
@@ -108,8 +108,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore sparas inte PIN-kodinformation.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore sparas inte PIN-kodinformation.|
 
 
 
@@ -124,8 +124,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore döljer primära kontonummer (PANORERA) med transparent datakryptering, alltid krypterade kolumner och dynamisk datamaskning. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore döljer primära kontonummer (PANORERA) med transparent datakryptering, alltid krypterade kolumner och dynamisk datamaskning. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -144,8 +144,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore krypterar alla data som kreditkort och använder Azure Key Vault för hantering av nycklar, hindrar hämtning av CHD.<br /><br />Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore krypterar alla data som kreditkort och använder Azure Key Vault för hantering av nycklar, hindrar hämtning av CHD.<br /><br />Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -160,8 +160,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore krypterar alla lagrade data och segregerar trafiken för att förhindra Privilegierade höjning för DevOps-funktioner.<br /><br />Apptjänst-miljön är skyddad och låst, måste det finnas en mekanism för att tillåta för DevOps-versioner eller ändringar som kan krävas, till exempel möjligheten att övervaka ett webbprogram med hjälp av Kudu.<br /><br />En virtuell dator upprättas som en jumpbox (skyddsmiljö host) med följande konfigurationer:<br /><br /><ul><li>[Tillägg för program mot skadlig kod](/azure/security/azure-security-antimalware)</li><li>[Övervakning av OMS-tillägget](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[Diagnostik för Virtuella datorer tillägg](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[BitLocker-krypterade Disk](/azure/security/azure-security-disk-encryption)</li></ul>Använda Azure Key Vault justerar med Azure Government och PCI DSS HIPAA krav.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore krypterar alla lagrade data och segregerar trafiken för att förhindra Privilegierade höjning för DevOps-funktioner.<br /><br />Apptjänst-miljön är skyddad och låst, måste det finnas en mekanism för att tillåta för DevOps-versioner eller ändringar som kan krävas, till exempel möjligheten att övervaka ett webbprogram med hjälp av Kudu.<br /><br />En virtuell dator upprättas som en jumpbox (skyddsmiljö host) med följande konfigurationer:<br /><br /><ul><li>[Tillägg för program mot skadlig kod](/azure/security/azure-security-antimalware)</li><li>[Log Analytics övervakning tillägg](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[Diagnostik för Virtuella datorer tillägg](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[BitLocker-krypterade Disk](/azure/security/azure-security-disk-encryption)</li></ul>Använda Azure Key Vault justerar med Azure Government och PCI DSS HIPAA krav.|
 
 
 
@@ -176,8 +176,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Microsoft Azure säkerställer att kunden nyckelvalv är logiskt isolerade från varandra och logiskt isolerade från management-plan för Key Vault-tjänsten. Key Vault är utformat så att Microsoft inte har någon stående-åtkomst till kundens nyckelvalvet. <br /><br />Nycklar skyddas av Microsoft Azure med branschstandardalgoritmer, nyckellängder och maskinvarusäkerhetsmoduler (HSM).<br /><br />En nyckel som lagras i Microsoft Azure Key Vault kan användas för att skydda en annan nyckel. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore innehåller dokumentation för att illustrera och för att distribuera en lösning för skyddade nyckel för att skydda demo CHD.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Microsoft Azure säkerställer att kunden nyckelvalv är logiskt isolerade från varandra och logiskt isolerade från management-plan för Key Vault-tjänsten. Key Vault är utformat så att Microsoft inte har någon stående-åtkomst till kundens nyckelvalvet. <br /><br />Nycklar skyddas av Microsoft Azure med branschstandardalgoritmer, nyckellängder och maskinvarusäkerhetsmoduler (HSM).<br /><br />En nyckel som lagras i Microsoft Azure Key Vault kan användas för att skydda en annan nyckel. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore innehåller dokumentation för att illustrera och för att distribuera en lösning för skyddade nyckel för att skydda demo CHD.|
 
 
 
@@ -195,8 +195,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Microsoft Azure säkerställer att kunden nyckelvalv är logiskt isolerade från varandra och logiskt isolerade från management-plan för Key Vault-tjänsten. Key Vault är utformat så att Microsoft inte har någon stående-åtkomst till kundens nyckelvalvet. <br /><br />Nycklar skyddas av Microsoft Azure med branschstandardalgoritmer, nyckellängder och maskinvarusäkerhetsmoduler (HSM).<br /><br />En nyckel som lagras i Microsoft Azure Key Vault kan användas för att skydda en annan nyckel. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore innehåller dokumentation för att illustrera och för att distribuera en lösning för skyddade nyckel för att skydda demo CHD.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Microsoft Azure säkerställer att kunden nyckelvalv är logiskt isolerade från varandra och logiskt isolerade från management-plan för Key Vault-tjänsten. Key Vault är utformat så att Microsoft inte har någon stående-åtkomst till kundens nyckelvalvet. <br /><br />Nycklar skyddas av Microsoft Azure med branschstandardalgoritmer, nyckellängder och maskinvarusäkerhetsmoduler (HSM).<br /><br />En nyckel som lagras i Microsoft Azure Key Vault kan användas för att skydda en annan nyckel. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore innehåller dokumentation för att illustrera och för att distribuera en lösning för skyddade nyckel för att skydda demo CHD.|
 
 
 
@@ -209,8 +209,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Key Vault stöder detaljerade åtkomstprinciper, som tillåter en Key Vault ägare att bevilja åtkomst till specifika funktioner för att utföra specifika åtgärder till specifika enheter. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore nyckelhantering är isolerad till ett användarkonto (admin ##@contosowebstore.com).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Key Vault stöder detaljerade åtkomstprinciper, som tillåter en Key Vault ägare att bevilja åtkomst till specifika funktioner för att utföra specifika åtgärder till specifika enheter. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore nyckelhantering är isolerad till ett användarkonto (admin ##@contosowebstore.com).|
 
 
 
@@ -228,8 +228,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Nycklar lagras i de specifika nyckelvalv som identifieras av kunden.<br /><br />Key Vault kan användas samtidigt och globalt av flera program, vilket minskar behovet av att kopiera en nyckel och lagra på flera platser. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Nycklar lagras i de specifika nyckelvalv som identifieras av kunden.<br /><br />Key Vault kan användas samtidigt och globalt av flera program, vilket minskar behovet av att kopiera en nyckel och lagra på flera platser. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -242,8 +242,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Nycklar lagras i de specifika nyckelvalv som identifieras av kunden. <br /><br />Key Vault kan användas samtidigt och globalt av flera program, vilket minskar behovet av att kopiera en nyckel och lagra på flera platser. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Nycklar lagras i de specifika nyckelvalv som identifieras av kunden. <br /><br />Key Vault kan användas samtidigt och globalt av flera program, vilket minskar behovet av att kopiera en nyckel och lagra på flera platser. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -258,8 +258,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -271,8 +271,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:** <br /><br />Vid generering av nycklar i Nyckelvalvet, ansvarar Azure för att generera nycklar per kundens specifikationer. Nycklar genereras med hjälp av en HSM. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:** <br /><br />Vid generering av nycklar i Nyckelvalvet, ansvarar Azure för att generera nycklar per kundens specifikationer. Nycklar genereras med hjälp av en HSM. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -284,8 +284,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Ta din egen nyckel (BYOK)-verktyget kapslar in nyckeln för kund och riktar sig till en specifik säkerhet valvet som är knutna till en viss Azure-prenumeration. Nyckeln kan bara importeras till definierade prenumerationen nyckelvalv för den angivna regionen. Den här processen använder kryptering-procedurer som erhållits från tillverkaren. Kunderna får ett meddelande om att överföringen lyckades. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Ta din egen nyckel (BYOK)-verktyget kapslar in nyckeln för kund och riktar sig till en specifik säkerhet valvet som är knutna till en viss Azure-prenumeration. Nyckeln kan bara importeras till definierade prenumerationen nyckelvalv för den angivna regionen. Den här processen använder kryptering-procedurer som erhållits från tillverkaren. Kunderna får ett meddelande om att överföringen lyckades. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -297,8 +297,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Nycklar lagras i HSM: er och skyddas med hjälp av maskinvarutillverkarens kryptografiska säkerhet. Metadata i nycklar lagras i Azure Storage i ett krypterat tillstånd som är unik för varje nyckelvalvet. <br /><br /> |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Nycklar lagras i HSM: er och skyddas med hjälp av maskinvarutillverkarens kryptografiska säkerhet. Metadata i nycklar lagras i Azure Storage i ett krypterat tillstånd som är unik för varje nyckelvalvet. <br /><br /> |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -310,8 +310,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Key Vault stöder funktioner för att uppdatera eller återställa nycklar, som definieras av kunden. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Key Vault stöder funktioner för att uppdatera eller återställa nycklar, som definieras av kunden. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -326,8 +326,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Key Vault stöder funktioner för att ta bort eller ersätta, som definieras av kunden. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Key Vault stöder funktioner för att ta bort eller ersätta, som definieras av kunden. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -342,8 +342,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -355,8 +355,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Nyckeln valv avgränsas logiskt och har inte stöd för cross-directory-auktorisering. Därför kan förhindras obehörig ersättning. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **För kunder som använder Key Vault:**<br /><br />Nyckeln valv avgränsas logiskt och har inte stöd för cross-directory-auktorisering. Därför kan förhindras obehörig ersättning. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -368,8 +368,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore nyckelhantering är isolerad till ett användarkonto (admin ##@contosowebstore.com).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore nyckelhantering är isolerad till ett användarkonto (admin ##@contosowebstore.com).|
 
 
 
@@ -381,8 +381,8 @@ Känsliga autentiseringsdata innehåller data som anges i följande krav 3.2.1 v
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder Azure Key Vault för alla nyckelhantering. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 

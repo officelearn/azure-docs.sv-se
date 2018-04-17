@@ -1,11 +1,11 @@
 ---
-title: "Förbättra prestanda för columnstore-index - Azure SQL Data Warehouse | Microsoft Docs"
-description: "Minska minneskrav eller öka mängden tillgängligt minne för att maximera antalet rader som ett columnstore-index komprimeras i varje radgrupps."
+title: Förbättra prestanda för columnstore-index - Azure SQL Data Warehouse | Microsoft Docs
+description: Minska minneskrav eller öka mängden tillgängligt minne för att maximera antalet rader som ett columnstore-index komprimeras i varje radgrupps.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 03/15/2018
 ms.author: barbkess
-ms.openlocfilehash: 74e641f9da418d678bdbef0c69f9f59ccee32303
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6484f457731bb1b97f01df339eaf1b0aebf924c1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximera radgrupps kvalitet för columnstore
 
@@ -121,7 +121,7 @@ Databasen delar minnestilldelningen för en fråga bland alla operatorer i fråg
 
 Utforma belastningen fråga att fokusera på att frågan läses in. Om du behöver köra omvandlingar på data köra dem separat från frågan belastningen. Till exempel mellanlagra data i en heap-tabell, kör omvandlingarna och sedan ladda mellanlagringstabellen i columnstore-indexet. Du kan också läsa in data först och sedan använda MPP-systemet för att omvandla data.
 
-### <a name="adjust-maxdop"></a>Adjust MAXDOP
+### <a name="adjust-maxdop"></a>Justera MAXDOP
 
 Varje distributionsplats komprimerar rowgroups till columnstore parallellt om det inte finns fler än en CPU-kärnor per distribution. Parallellitet kräver ytterligare minne, vilket kan leda till minnesbelastning och radgrupps trimning.
 
@@ -139,7 +139,7 @@ OPTION (MAXDOP 1);
 DWU storlek och användaren resursklassen tillsammans bestämmer du hur mycket minne som är tillgängligt för en användarfråga. För att öka minnestilldelningen för en load-fråga kan du öka antalet dwu: er eller öka resursklassen.
 
 - Om du vill öka de dwu: er Se [hur skala prestanda?](quickstart-scale-compute-portal.md)
-- Om du vill ändra resursklassen för en fråga, se [ändra ett exempel på användaren resurs klassen](resource-classes-for-workload-management.md#assigning-resource-classes).
+- Om du vill ändra resursklassen för en fråga, se [ändra ett exempel på användaren resurs klassen](resource-classes-for-workload-management.md#change-a-users-resource-class).
 
 Till exempel på DWU 100 kan användare i resursklassen smallrc använda 100 MB minne för varje distribution. Mer information, se [samtidighet i SQL Data Warehouse](resource-classes-for-workload-management.md).
 

@@ -1,30 +1,30 @@
 ---
 title: Etablera Windows datavetenskap virtuell dator i Azure | Microsoft Docs
-description: "Konfigurera och skapa en datavetenskap virtuell dator i Azure för analys och maskininlärning."
+description: Konfigurera och skapa en datavetenskap virtuell dator i Azure för analys och maskininlärning.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.author: bradsev
-ms.openlocfilehash: 9f01ba69f6511a3f9a7f99e379522be3c00554f5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: gokuma
+ms.openlocfilehash: 34bdbf6e98d5232bf924f3f32a2acb3460a7737f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Etablera Windows datavetenskap virtuell dator på Azure
 Microsoft datavetenskap virtuella datorn är en avbildning på virtuell dator (VM) för Windows Azure före installeras och konfigureras med flera populära verktyg som används för dataanalys och maskininlärning. Verktygen är:
 
 * [Azure Machine Learning](../preview/index.yml) arbetsstationen
 * [Microsoft Server för Maskininlärning](https://docs.microsoft.com/machine-learning-server/index) Developer Edition
-* Anaconda Python distribution
+* Anaconda Python-distribution
 * Jupyter-anteckningsbok (med R, Python, PySpark kärnor)
 * Visual Studio Community Edition
 * Power BI desktop
@@ -177,9 +177,9 @@ Den [ **Microsoft Web Platform Installer** ](https://www.microsoft.com/web/downl
 | Andra exempel |c:\dsvm\samples |
 | Anaconda (standard: Python 3,6) |c:\Anaconda |
 | Anaconda Python 2.7 miljö |c:\Anaconda\envs\python2 |
-| Microsoft ML Server Standalone Python  | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
+| Microsoft ML Server fristående Python  | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
 | R standardinstansen (ML Server fristående) |C:\Program Files\Microsoft\ML Server\R_SERVER |
-| SQL ML Services i databasen instans directory |C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
+| SQL ML Services i databasen instans directory |C:\Program Files\Microsoft SQL Server\MSSQL14. MSSQLSERVER |
 | Azure Machine Learning arbetsstationen (per användare) | %localappdata%\amlworkbench | 
 | Diverse verktyg |c:\dsvm\tools |
 

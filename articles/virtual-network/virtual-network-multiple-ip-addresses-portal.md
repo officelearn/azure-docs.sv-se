@@ -1,11 +1,11 @@
 ---
-title: "Flera IP-adresser för virtuella datorer i Azure - portalen | Microsoft Docs"
-description: "Lär dig att tilldela flera IP-adresser till en virtuell dator med hjälp av Azure portal | Resource Manager."
+title: Flera IP-adresser för virtuella datorer i Azure - portalen | Microsoft Docs
+description: Lär dig att tilldela flera IP-adresser till en virtuell dator med hjälp av Azure portal | Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3a8cae97-3bed-430d-91b3-274696d91e34
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
-ms.openlocfilehash: 906105e737087de91e7393861e9057f8acb06aa4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 85eefd0d15ed08eaa82983c6901faa0aa1ff303c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Tilldela flera IP-adresser till virtuella datorer med hjälp av Azure portal
 
@@ -35,11 +35,11 @@ Om du vill skapa en virtuell dator med flera IP-adresser eller en statisk privat
 
 ## <a name="add"></a>Lägg till IP-adresser till en virtuell dator
 
-Du kan lägga till privata och offentliga IP-adresser till ett nätverkskort genom att slutföra de steg som följer. Exemplen i avsnitten nedan förutsätter att du redan har en virtuell dator med de tre IP-konfigurationerna som beskrivs i den [scenariot](#Scenario), men det krävs inte.
+Du kan lägga till privata och offentliga IP-adresser till ett gränssnitt för Azure-nätverk genom att slutföra de steg som följer. Exemplen i avsnitten nedan förutsätter att du redan har en virtuell dator med de tre IP-konfigurationerna som beskrivs i den [scenariot](#Scenario), men det krävs inte.
 
 ### <a name="coreadd"></a>Grundläggande steg
 
-1. Bläddra till Azure-portalen på https://portal.azure.com och logga in, om det behövs.
+1. Bläddra till den Azure-portalen på https://portal.azure.com och logga in på det, om det behövs.
 2. I portalen klickar du på **fler tjänster** > typen *virtuella datorer* i filterrutan och klicka sedan på **virtuella datorer**.
 3. I den **virtuella datorer** klickar du på den virtuella datorn som du vill lägga till IP-adresser till. Klicka på **nätverksgränssnitt** fönstret som visas och välj sedan nätverksgränssnittet som du vill lägga till IP-adresser till på den virtuella datorn. I exemplet som visas i följande bild, nätverkskortet med namnet *myNIC* från den virtuella datorn med namnet *myVM* väljs:
 
@@ -75,7 +75,7 @@ En offentlig IP-adress har lagts till genom att associera en offentlig IP-adress
 
 En offentlig IP-adress är en inställning för en offentlig IP-adressresurs. Om du har en offentlig IP-adressresurs som inte för närvarande är kopplad till en IP-konfiguration som du vill koppla till en IP-konfiguration kan hoppa över följande steg och slutför stegen i något av avsnitten som följer, som du behöver. Om du inte har en tillgänglig offentliga IP-adressresurs, utför följande steg för att skapa en:
 
-1. Bläddra till Azure-portalen på https://portal.azure.com och logga in, om det behövs.
+1. Bläddra till den Azure-portalen på https://portal.azure.com och logga in på det, om det behövs.
 3. I portalen klickar du på **skapar du en resurs** > **nätverk** > **offentliga IP-adressen**.
 4. I den **skapa offentlig IP-adress** fönstret som visas, ange en **namn**, Välj en **IP-adresstilldelning** typ, en **prenumeration**, **Resursgruppen**, och en **plats**, klicka på **skapa**som visas i följande bild:
 

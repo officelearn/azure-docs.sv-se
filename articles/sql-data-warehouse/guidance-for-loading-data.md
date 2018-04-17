@@ -1,30 +1,25 @@
 ---
-title: "Metodtips för inläsning av data – Azure SQL Data Warehouse | Microsoft Docs"
-description: "Rekommendationer om hur du läser in data och utför ELT med Azure SQL Data Warehouse."
+title: Metodtips för inläsning av data – Azure SQL Data Warehouse | Microsoft Docs
+description: Rekommendationer och prestandaoptimering för inläsning av data i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 12/13/2017
-ms.author: barbkess
-ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/11/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: a416bf7965a5d297bfea698d318d45f6e47c9c50
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Metodtips för inläsning av data i Azure SQL Data Warehouse
 Rekommendationer och prestandaoptimering för inläsning av data i Azure SQL Data Warehouse. 
 
-- Om du vill veta mer om PolyBase och hur du utformar en ELT-process (extrahering, laddning och transformering) kan du läsa [Designa ELT för SQL Data Warehouse](design-elt-data-loading.md).
+- Om du vill veta mer om PolyBase och hur du utformar en ELT-process (extrahering, inläsning och transformering) kan du läsa [Designa ELT för SQL Data Warehouse](design-elt-data-loading.md).
 - En kurs i inläsning av data hittar du i [Använda PolyBase för att läsa in data från Azure Blob Storage till Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 
 
@@ -62,13 +57,13 @@ Anslut till informationslagret och skapa en användare. Följande kod förutsät
 ```
 När du vill köra en inläsning med resurser för staticRC20-resursklasserna loggar du bara in som LoaderRC20 och kör inläsningen.
 
-Kör inläsningar under statiska i stället för dynamiska resursklasser. Genom att använda statiska resursklasser ser du till att resurserna är desamma oavsett din [servicenivå](performance-tiers.md#service-levels). Om du använder en dynamisk resursklass varierar resurserna beroende på din servicenivå. För dynamiska klasser innebär en lägre servicenivå att du troligtvis behöver använda en större resursklass för din inläsningsanvändare.
+Kör inläsningar under statiska i stället för dynamiska resursklasser. Med hjälp av statiska resursklasser garanterar samma resurser oberoende av din [datalager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md). Om du använder en dynamisk resursklass varierar resurserna beroende på din servicenivå. För dynamiska klasser innebär en lägre servicenivå att du troligtvis behöver använda en större resursklass för din inläsningsanvändare.
 
 ## <a name="allowing-multiple-users-to-load"></a>Tillåta många användare att läsa in
 
-Det finns ofta ett behov av att ha flera användare som kan läsa in data i informationslagret. Att läsa in med [CREATE TABLE AS SELECT (Transact-SQL)] [CREATE TABLE AS SELECT (Transact-SQL)] kräver behörighet på databasen.  CONTROL-behörigheten ger kontrollbehörighet till alla scheman. Du kanske inte vill att alla användare som läser in ska ha behörighet för alla scheman. Om du vill begränsa behörigheten använder du DENY CONTROL-instruktionen.
+Det finns ofta ett behov av att ha flera användare som kan läsa in data i informationslagret. Läser in med den [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) kräver behörighet på databasen.  CONTROL-behörigheten ger kontrollbehörighet till alla scheman. Du kanske inte vill att alla användare som läser in ska ha behörighet för alla scheman. Om du vill begränsa behörigheten använder du DENY CONTROL-instruktionen.
 
-Anta att du har följande databasscheman: schema_A för avdelning A och schema_B för avdelning B. Då låter du användarna användare_A och användare_B vara användare för PolyBase-inläsning i avdelning A respektive avdelning B. Båda har beviljats fullständiga behörigheter till databasen. De som skapat schema_A och B låser nu deras scheman med DENY:
+Anta att du har följande databasscheman: schema_A för avdelning A och schema_B för avdelning B. Då låter du användare_A och användare_B vara användare för PolyBase-inläsning i avdelning A respektive avdelning B. Båda har beviljats kontrollbehörigheter till databasen. De som skapat schema_A och B låser nu deras scheman med DENY:
 
 ```sql
    DENY CONTROL ON SCHEMA :: schema_A TO user_B;
@@ -99,13 +94,13 @@ Vid en inläsning med en extern tabell kan ett felmeddelande som ser ut ungefär
 Du kan åtgärda de ändrade posterna genom att se till att definitionerna för den externa tabellen och det externa filformatet är korrekta och att dina externa data följer dessa definitioner. Om en delmängd av de externa dataposterna är felaktiga kan du välja att avvisa dessa poster för dina frågor genom att använda avvisningsalternativen i CREATE EXTERNAL TABLE.
 
 ## <a name="inserting-data-into-a-production-table"></a>Infoga data i en produktionstabell
-En engångsinläsning i en liten tabell med en [INSERT-instruktion](/sql/t-sql/statements/insert-transact-sql.md) eller till och med en regelbunden inläsning på nytt av en sökning kan fungera tillräckligt bra för dina behov med en instruktion som `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Enskilda infogningar är emellertid inte lika effektiva som en massinläsning. 
+En engångsinläsning i en liten tabell med en [INSERT-instruktion](/sql/t-sql/statements/insert-transact-sql) eller till och med en regelbunden inläsning på nytt av en sökning kan fungera tillräckligt bra för dina behov med en instruktion som `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Enskilda infogningar är emellertid inte lika effektiva som en massinläsning. 
 
 Om du har tusentals eller fler enskilda infogningar under dagen bör du gruppera dem så att du kan infoga dem med en massinläsning.  Utveckla dina processer så att enskilda infogningar bifogas i en fil och skapa sedan en annan process som regelbundet läser in filen.
 
 ## <a name="creating-statistics-after-the-load"></a>Skapa statistik efter inläsningen
 
-För att få bättre frågeprestanda är det viktigt att skapa statistik på alla kolumner i alla tabeller efter den första inläsningen eller efter betydande dataändringar.  En detaljerad förklaring av statistik finns i [Statistics][Statistics]. Följande exempel skapar statistik på fem kolumner i tabellen Customer_Speed.
+För att få bättre frågeprestanda är det viktigt att skapa statistik på alla kolumner i alla tabeller efter den första inläsningen eller efter betydande dataändringar.  En detaljerad förklaring av statistik finns i [Statistik](sql-data-warehouse-tables-statistics.md). Följande exempel skapar statistik på fem kolumner i tabellen Customer_Speed.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -120,17 +115,21 @@ Det är en bra säkerhetsrutin att regelbundet ändra åtkomstnyckeln till din B
 
 Så här roterar du Azure Storage-kontonycklar:
 
-För varje lagringskonto vars nyckel har ändrats utfärdar du [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md).
+För varje lagringskonto vars nyckel har ändrats utfärdar du [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql).
 
 Exempel:
 
 Den ursprungliga nyckeln skapas
 
-CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+    ```sql
+    CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
+    ``` 
 
 Rotera nyckel från nyckel 1 till nyckel 2
 
-ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+    ```sq;
+    ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+    ```
 
 Det behövs inga andra ändringar i underliggande externa datakällor.
 

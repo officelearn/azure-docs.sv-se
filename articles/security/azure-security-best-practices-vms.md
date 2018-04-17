@@ -1,11 +1,11 @@
 ---
-title: "Säkerhetsmetoder för virtuell Azure-dator"
-description: "Den här artikeln innehåller en mängd olika säkerhetsmetoder som ska användas i virtuella datorer i Azure."
+title: Säkerhetsmetoder för virtuell Azure-dator
+description: Den här artikeln innehåller en mängd olika säkerhetsmetoder som ska användas i virtuella datorer i Azure.
 services: security
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5e757abe-16f6-41d5-b1be-e647100036d8
 ms.service: security
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 6541d09d7f1a7e85333f54797dba7db79328e9de
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ddddf72d1ded0fb7952a641c287a4a5696e3aaef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Metodtips för Virtuella Azure-säkerhet
 
@@ -49,14 +49,14 @@ Artikeln går igenom de följande VM säkerhetsmetoderna:
 
 Det första steget för att skydda den virtuella datorn är att se till att endast auktoriserade användare kan konfigurera nya virtuella datorer. Du kan använda [Azure principer](../azure-policy/azure-policy-introduction.md) skapa anpassade principer för att upprätta konventioner för resurser i din organisation, och använda dessa principer till resurser, exempelvis [resursgrupper](../azure-resource-manager/resource-group-overview.md).
 
-Virtuella datorer som tillhör en resursgrupp naturligt ärver dess principer. Även om vi rekommenderar den här metoden för att hantera virtuella datorer, kan du också styra åtkomsten till enskilda VM-principer med hjälp av [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-configure.md).
+Virtuella datorer som tillhör en resursgrupp naturligt ärver dess principer. Även om vi rekommenderar den här metoden för att hantera virtuella datorer, kan du också styra åtkomsten till enskilda VM-principer med hjälp av [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md).
 
 När du aktiverar Resource Manager principer och RBAC för åtkomstkontroll för virtuell dator kan förbättra du övergripande VM-säkerhet. Vi rekommenderar att du sammanställa virtuella datorer med samma livscykel i samma resursgrupp. Med resursgrupper kan du distribuera, övervaka och dyker upp fakturering kostnaderna för dina resurser. Om du vill att användarna ska få åtkomst till och konfigurera virtuella datorer, Använd en [minsta privilegium metoden](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). Och när du tilldelar behörigheter till användare som planerar att använda följande inbyggda Azure roller:
 
-- [Virtual Machine-deltagare](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): hantera virtuella datorer, men inte den virtuella nätverks- eller konto som de är anslutna.
-- [Klassiska Virtual Machine-deltagare](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): hantera virtuella datorer som skapats med hjälp av den klassiska distributionsmodellen, men inte den virtuella nätverks- eller konto som de virtuella datorerna är anslutna.
-- [Säkerhetshanteraren](../active-directory/role-based-access-built-in-roles.md#security-manager): hantera säkerhetskomponenter, säkerhetsprinciper och virtuella datorer.
-- [DevTest Labs användaren](../active-directory/role-based-access-built-in-roles.md#devtest-labs-user): kan visa allt och ansluta, starta, starta om och stänga av virtuella datorer.
+- [Virtual Machine-deltagare](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): hantera virtuella datorer, men inte den virtuella nätverks- eller konto som de är anslutna.
+- [Klassiska Virtual Machine-deltagare](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): hantera virtuella datorer som skapats med hjälp av den klassiska distributionsmodellen, men inte den virtuella nätverks- eller konto som de virtuella datorerna är anslutna.
+- [Säkerhetshanteraren](../role-based-access-control/built-in-roles.md#security-manager): hantera säkerhetskomponenter, säkerhetsprinciper och virtuella datorer.
+- [DevTest Labs användaren](../role-based-access-control/built-in-roles.md#devtest-labs-user): kan visa allt och ansluta, starta, starta om och stänga av virtuella datorer.
 
 Dela inte konton och lösenord för administratörer och inte återanvända lösenord i flera användarkonton eller tjänster, särskilt lösenord för sociala medier eller andra icke-administrativa aktiviteter. Helst bör du använda [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) mallar för att konfigurera dina virtuella datorer på ett säkert sätt. Genom att använda den här metoden kan du förbättra dina val för distribution och tillämpa säkerhetsinställningar under distributionen.
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
-ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 5219ebc22e56ad4b5cdfc125f7fa5882c61adb9f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: devtiw
+ms.openlocfilehash: f42f20893a815640378b9d18186c88b782e61284
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption för Windows och Linux-IaaS-VM
 Microsoft Azure värnar starkt din datasekretess, data suveränitet och aktiverar du att styra dina Azure värdbaserade data via ett intervall med avancerade tekniker för att kryptera, styra och hantera krypteringsnycklar kontroll & granska åtkomsten till data. Det ger Azure-kunder möjlighet att välja den lösning som bäst uppfyller deras behov av företag. I det här dokumentet, vi innehåller en introduktion till en ny tekniklösning ”Azure Disk Encryption för Windows och Linux IaaS VMS” om du vill skydda och skydda dina data för att uppfylla din organisations säkerhet och efterlevnad åtaganden. Dokumentet ger detaljerad information om hur du använder Azure disk encryption-funktioner inklusive scenarierna som stöds och användaren inträffar.
@@ -131,7 +131,7 @@ Om du vill inaktivera hårddiskkryptering för IaaS-VM utför du följande anvis
  > Om du inaktiverar kryptering för OS-disk för Linux stöds inte. Steget dekryptering är endast tillåtna för dataenheter i virtuella Linux-datorer.
 Inaktivera disk datakryptering för Linux stöds inte om OS-enheten är krypterad.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du aktiverar Azure Disk Encryption på Azure IaaS-VM för de scenarier som stöds som beskrivs i avsnittet ”Översikt”, se följande krav:
 
 * Du måste ha en giltig aktiv Azure-prenumeration att skapa resurser i Azure i regionerna som stöds.
@@ -572,7 +572,7 @@ I följande tabell visas Resource Manager mallparametrar för befintlig eller vi
 | volumeType | Typ av krypteringsåtgärden utförs på volymen. Giltiga värden som stöds är _OS_ eller _alla_ (finns stöd för Linux-distributioner och versioner för Operativsystemet och datadiskarna under prerequisiteis tidigare). |
 | sequenceVersion | Sekvens version av BitLocker-åtgärden. Öka det här versionsnumret varje gång en diskkryptering åtgärden utförs på samma virtuella dator. |
 | vmName | Namnet på den virtuella datorn som krypteringsåtgärden ska utföras på. |
-| passPhrase | Ange ett starkt lösenord som datakrypteringsnyckeln. |
+| Lösenfrasen | Ange ett starkt lösenord som datakrypteringsnyckeln. |
 
 > [!NOTE]
 > _KeyEncryptionKeyURL_ är en valfri parameter. Du kan ge din egen KEK ytterligare säkerhetskontroll datakrypteringsnyckeln (lösenfrasen hemlig) i nyckelvalvet.
@@ -1072,7 +1072,7 @@ Och ändra alla förekomster av:
 ```
     if [ -z "$DRACUT_SYSTEMD" ]; then
 ```
-i
+till
 ```
     if [ 1 ]; then
 ```

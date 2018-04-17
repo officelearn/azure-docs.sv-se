@@ -1,26 +1,24 @@
 ---
 title: Skala klusterstorlekar - Azure HDInsight | Microsoft Docs
-description: "Skala ett HDInsight-kluster för din arbetsbelastning."
+description: Skala ett HDInsight-kluster för din arbetsbelastning.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 7e9ee660c07d6265e55e94cf79ed13334fcb3d16
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 8b76d7d0441a5c1c25ad17b73083ec0e4feef1fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scale-hdinsight-clusters"></a>Skala HDInsight-kluster
 
@@ -125,7 +123,7 @@ När du lämnar felsäkert läge du manuellt ta bort temporära filer eller vän
 
 * H100 inte går att skicka instruktionen Visa databaser: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: ansluta till hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername . Det gick inte att internal.cloudapp.NET/1.1.1.1]: **anslutningen nekades**
 
-* H020 gick inte att upprätta någon anslutning till hn0 hdisrv.servername.bx.internal.cloudapp .net: 10001: org.apache.thrift.transport.TTransportException: Det gick inte att skapa http-anslutning till http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 /. org.apache.http.conn.HttpHostConnectException: ansluta till hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] misslyckades: anslutningen nekades: org.apache.thrift.transport.TTransportException: Det gick inte att skapa http-anslutning till http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 /. org.apache.http.conn.HttpHostConnectException: ansluta till hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] misslyckades: **anslutningen nekades**
+* H020 gick inte att upprätta någon anslutning till hn0 hdisrv.servername.bx.internal.cloudapp .net: 10001: org.apache.thrift.transport.TTransportException: Det gick inte att skapa http-anslutning till http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: ansluta till hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] misslyckades: anslutningen nekades: org.apache.thrift.transport.TTransportException: Det gick inte att skapa http-anslutning till http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: ansluta till hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] misslyckades: **anslutningen nekades**
 
 * Från Hive-loggar: Varna [huvudsakliga]: server. HiveServer2 (HiveServer2.java:startHiveServer2(442)) – ett fel inträffade när HiveServer2 vid försöket 21, kommer att försöka igen i 60 sekunder java.lang.RuntimeException: fel vid tillämpningen av auktoriseringsprincip på hive-konfiguration: org.apache.hadoop.ipc.RemoteException ( org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **kan inte skapa katalogen** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **Namn på noden är i felsäkert läge**.
     Rapporterat block 0 måste ytterligare 9 block till når tröskelvärdet 0.9900 totala block 9.
@@ -156,7 +154,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 ![Felsäkert läge av](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
 > [!NOTE]
-> Den `-D` växel är nödvändigt eftersom filsystemet i HDInsight Azure Storage eller Azure Data Lake Store. `-D`Anger att kommandona körs mot det lokala HDFS-filsystemet.
+> Den `-D` växel är nödvändigt eftersom filsystemet i HDInsight Azure Storage eller Azure Data Lake Store. `-D` Anger att kommandona körs mot det lokala HDFS-filsystemet.
 
 Därefter kan du visa en rapport som visar information om HDFS-tillstånd:
 
@@ -247,7 +245,7 @@ Du kan också visa status för HDFS i Ambari UI genom att välja den **HDFS** tj
 
 Du kan också se en eller flera allvarliga fel på NameNodes aktiva eller vänteläge. Välj länken NameNode bredvid aviseringen om du vill visa NameNode block hälsa.
 
-![NameNode Blocks Health](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
+![NameNode block hälsa](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
 
 Att ta bort tillfälliga filer som tar bort block replikeringsfel, SSH till varje huvudnod och kör följande kommando:
 

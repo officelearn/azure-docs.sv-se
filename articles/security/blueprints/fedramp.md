@@ -1,6 +1,6 @@
 ---
-title: "Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation"
-description: "Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation"
+title: Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation
+description: Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 10ed297180f68fcaf006f2778990879be02f994d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation
 
@@ -51,18 +51,18 @@ Den här lösningen använder följande Azure-tjänster. Information om arkitekt
     - (2) active Directory-domänkontrollant (Windows Server 2016 Datacenter)
     - (2) SQL Server-klusternod (SQL Server 2016 på Windows Server 2012 R2)
     - (1) SQL Server-vittne (Windows Server 2016 Datacenter)
-    - (2) Web/IIS (Windows Server 2016 Datacenter)
+    - (2) web/IIS (Windows Server 2016 Datacenter)
 * **Tillgänglighetsuppsättningar**
     - (1) active Directory-domänkontrollanter
     - (1) SQL klusternoderna och vittne
-    - (1) Web/IIS
+    - (1) web/IIS
 * **Azure Virtual Network**
     - ((1) /16 virtuella nätverk
     - (5) /24 undernät
     - DNS-inställningarna är inställda på båda domänkontrollanterna
 * **Azure Load Balancer**
     - (1) SQL belastningsutjämnare
-* **Azure Application Gateway**
+* **Azure Programgateway**
     - (1) Brandvägg Programgateway aktiverad
       - Brandväggen läge: förebyggande
       - Regelsamlingen: OWASP 3.0
@@ -72,14 +72,13 @@ Den här lösningen använder följande Azure-tjänster. Information om arkitekt
 * **Azure Backup**
     - (1) återställningstjänstvalvet
 * **Azure Key Vault**
-    - (1) Key Vault
+    - (1) key Vault
 * **Azure Active Directory**
 * **Azure Resource Manager**
 * **Azure Log Analytics**
+    - (1) log Analytics-arbetsyta
 * **Azure Automation**
     - (1) automation-konto
-* **Operations Management Suite**
-    - (1) OMS-arbetsyta
 
 ## <a name="deployment-architecture"></a>Arkitektur för distribution
 
@@ -91,7 +90,7 @@ I följande avsnitt beskrivs element för utveckling och implementering.
 
 Arkitekturen minskar risken för säkerhetsproblem med hjälp av en Programgateway med Brandvägg för webbaserade program (Brandvägg) och OWASP RuleSet-metod aktiverad. Ytterligare funktioner är:
 
-- [End-to-End-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [Slutpunkt till slutpunkt SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Aktivera [SSL-avlastning](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
 - Inaktivera [TLS version 1.0 och v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Brandvägg för webbaserade program](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (Brandvägg läge)
@@ -136,7 +135,7 @@ Azure Disk Encryption används för krypterad Windows IaaS virtuella diskar. [Az
 
 ### <a name="logging-and-auditing"></a>Granskning och loggning
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) innehåller utförlig loggning av system- och användaraktivitet som systemhälsa. 
+[Logga Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) innehåller utförlig loggning av system- och användaraktivitet som systemhälsa. 
 
 - **Aktivitetsloggar:**[aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger kunskaper om de åtgärder som utfördes på resurser i din prenumeration.
 - **Diagnostikloggar:**[diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) är alla loggar som orsakat av varje resurs. Dessa loggar är Windows-händelsesystemloggar, Azure storage-loggar, Key Vault granskningsloggar och Programgateway loggar för åtkomst och brandväggen.
@@ -154,7 +153,7 @@ Lösningen använder Azure Key Vault för att hantera nycklar och hemligheter.
 Följande tekniker hanteringsfunktioner identitet i Azure-miljön.
 - [Azure Active Directory (AD Azure)](https://azure.microsoft.com/services/active-directory/) är Microsofts flera innehavare molnbaserad katalog och identity management-tjänsten.
 - Autentisering till ett kunden distribuerade webbprogram kan utföras med hjälp av Azure AD. Mer information finns i [integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
-- [Azure rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) aktiverar exakt fokuserad åtkomsthantering för Azure. Prenumerationen åtkomst begränsas till administratör för prenumerationen och åtkomst till resurser kan begränsas baserat på användarrollen.
+- [Azure rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) aktiverar exakt fokuserad åtkomsthantering för Azure. Prenumerationen åtkomst begränsas till administratör för prenumerationen och åtkomst till resurser kan begränsas baserat på användarrollen.
 - En distribuerad IaaS Active Directory-instans innehåller Identitetshantering på OS-nivå för distribuerade IaaS virtuella datorer.
    
 ### <a name="compute-resources"></a>Beräkningsresurser
@@ -182,17 +181,17 @@ Management-jumpbox (skyddsmiljö host) innehåller en säker anslutning för adm
 
 ### <a name="patch-management"></a>Uppdateringshantering
 
-Windows-datorer som distribueras med den här Azure-säkerhet och efterlevnad utkast Automation konfigureras som standard för att ta emot automatiska uppdateringar från Windows Update-tjänsten. Den här lösningen distribuerar också OMS Azure Automation-lösningen som distributioner kan skapas för att distribuera korrigeringsfiler till Windows-servrar när det behövs.
+Windows-datorer som distribueras med den här Azure-säkerhet och efterlevnad utkast Automation konfigureras som standard för att ta emot automatiska uppdateringar från Windows Update-tjänsten. Den här lösningen också distribuerar Azure Automation-lösningen som distributioner kan skapas för att distribuera korrigeringsfiler till Windows-servrar när det behövs.
 
-### <a name="operations-management"></a>Verksamhetsstyrning
+### <a name="operations-management"></a>Åtgärdshantering
 
 #### <a name="log-analytics"></a>Log Analytics
 
-[Logga Analytics](https://azure.microsoft.com/services/log-analytics/) är en tjänst i Operations Management Suite (OMS) och som möjliggör insamling och analys av data som genereras av resurser i Azure och lokala miljöer.
+[Logga Analytics](https://azure.microsoft.com/services/log-analytics/) är en tjänst som möjliggör insamling och analys av data som genereras av resurser i Azure och lokala miljöer.
 
-#### <a name="oms-solutions"></a>OMS-lösningar
+#### <a name="management-solutions"></a>Hanteringslösningar
 
-Följande OMS-lösningar är redan installerat som en del av den här lösningen:
+Följande hanteringslösningarna installeras före som en del av den här lösningen:
 - [AD-bedömning](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)
 - [Utvärdering av program mot skadlig kod](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware)
 - [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)

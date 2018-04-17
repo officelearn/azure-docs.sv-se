@@ -1,12 +1,12 @@
 ---
-title: "Precis i tid virtuella datorn åtkomst till i Azure Security Center | Microsoft Docs"
-description: "Det här dokumentet visar hur precis i tid VM åtkomst i Azure Security Center hjälper dig att styra åtkomsten till din virtuella Azure-datorer."
+title: Precis i tid virtuella datorn åtkomst till i Azure Security Center | Microsoft Docs
+description: Det här dokumentet visar hur precis i tid VM åtkomst i Azure Security Center hjälper dig att styra åtkomsten till din virtuella Azure-datorer.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: terrylan
-ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 22eee6c2253e6b1ff92de0cebf4fea451a0a8fe5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera virtuella åtkomst med hjälp av precis i tid
 
 Precis i tid virtuell dator (VM) kan åtkomst användas för att låsa inkommande trafik till din virtuella Azure-datorer minskar risken för attacker och enkel åtkomst till att ansluta till virtuella datorer när de behövs.
 
 > [!NOTE]
-> Den bara i tiden funktionen är tillgänglig på standardnivån av Security Center.  Se [priser](security-center-pricing.md) att lära dig mer om Security Center prisnivåer.
+> Den bara i tiden funktionen är tillgänglig på standardnivån av Security Center.  Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
 >
 >
 
@@ -41,7 +41,7 @@ Ett sätt att minska risken för ett nyckelsökningsangrepp är att begränsa de
 
 När JIT (Just-In-Time) är aktiverat begränsar Security Center inkommande trafik till dina virtuella Azure-datorer genom att skapa en NSG-regel. Du väljer portar på den virtuella datorn som inkommande trafik ska låsas. Dessa portar som styrs av den bara i Tidslösning.
 
-När en användare begär åtkomst till en virtuell dator, Security Center kontrollerar att användaren har [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-configure.md) behörigheter som ger skrivbehörighet för den virtuella datorn. Om de har behörighet att skriva begäran har godkänts och Security Center automatiskt konfigurerar Nätverkssäkerhetsgrupper (NSG: er) för att tillåta inkommande trafik till hanteringsportar för den tid angett du. När tid har gått ut, återställer Security Center de NSG: er till sitt tidigare tillstånd.
+När en användare begär åtkomst till en virtuell dator, Security Center kontrollerar att användaren har [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md) behörigheter som ger skrivbehörighet för den virtuella datorn. Om de har behörighet att skriva begäran har godkänts och Security Center automatiskt konfigurerar Nätverkssäkerhetsgrupper (NSG: er) för att tillåta inkommande trafik till hanteringsportar för den tid angett du. När tid har gått ut, återställer Security Center de NSG: er till sitt tidigare tillstånd.
 
 > [!NOTE]
 > Security Center just-in-time-åtkomst för VM stöder för närvarande endast virtuella datorer som distribueras via Azure Resource Manager. Mer information om klassiskt och Resource Manager distributionsmodellerna finns [Azure Resource Manager och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md).

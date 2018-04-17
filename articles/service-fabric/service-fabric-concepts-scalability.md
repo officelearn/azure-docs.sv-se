@@ -1,11 +1,11 @@
 ---
-title: "Skalbarheten för Service Fabric-tjänster | Microsoft Docs"
-description: "Beskriver hur du skalar Service Fabric-tjänster"
+title: Skalbarheten för Service Fabric-tjänster | Microsoft Docs
+description: Beskriver hur du skalar Service Fabric-tjänster
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ed324f23-242f-47b7-af1a-e55c839e7d5d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: aeda1184610398c0445238ea2e7ccbea866ed418
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6d8484a4c30fdd17cbb4773e6ff822b73efd5c4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scaling-in-service-fabric"></a>Skalning i Service Fabric
 Azure Service Fabric gör det enkelt att skapa skalbara program genom att hantera tjänster, partitioner och repliker på noderna i klustret. Många arbetsbelastningar som körs på samma maskinvara kan maximalt resursutnyttjande, men ger även flexibilitet i hur du väljer att skala din arbetsbelastning. Den här Channel 9 videon beskrivs hur du kan skapa skalbara mikrotjänster program:
@@ -117,12 +117,7 @@ Om du ökar antalet noder, ska Service Fabric flytta några av de befintliga rep
 ## <a name="scaling-by-adding-and-removing-nodes-from-the-cluster"></a>Skalning genom att lägga till och ta bort noder från klustret 
 Ett annat alternativ för skalning med Service Fabric är att ändra storlek på klustret. Ändra storlek på klustret innebär att lägga till eller ta bort noder för en eller flera av nodtyperna som i klustret. Tänk dig ett fall där alla noder i klustret är aktiva. Det innebär att den klusterresurserna är nästan alla används. I det här fallet lägger till fler noder i klustret är det bästa sättet att skala. När nya noder ansluta till klustret flyttar Service Fabric klustret Resource Manager services, vilket resulterar i mindre totala belastningen på de befintliga noderna. För tillståndslösa tjänster med instansantal =-1, mer service instanser skapas automatiskt. Detta gör att vissa samtal att flytta från de befintliga noderna till de nya noderna. 
 
-Lägga till och ta bort noder i klustret kan utföras via Service Fabric Azure Resource Manager PowerShell-modulen.
-
-```posh
-Add-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName  -NumberOfNodesToAdd 5 
-Remove-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName -NumberOfNodesToRemove 5
-```
+Mer information finns i [skalning av klustret](service-fabric-cluster-scaling.md).
 
 ## <a name="putting-it-all-together"></a>Alltihop
 Låt oss ta idéer som vi nämnt här och prata via ett exempel. Överväg följande tjänst: du försöker skapa en tjänst som fungerar som en adressbok, håller att namn- och kontaktinformation. 

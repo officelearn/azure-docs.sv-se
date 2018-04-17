@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 2ff0dcba0912461d8528fc76c7c67d90febc0324
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Virtuella seriekonsolen (förhandsgranskning) 
 
@@ -33,7 +33,7 @@ Seriekonsolen för virtuell dator i Azure ger tillgång till en textbaserad kons
 ## <a name="prerequisites"></a>Förutsättningar 
 
 * Virtuell dator måste ha [starta diagnostik](boot-diagnostics.md) aktiverad 
-* Det konto som använder seriekonsolen måste ha [deltagarrollen](../../active-directory/role-based-access-built-in-roles.md) för den virtuella datorn och [starta diagnostik](boot-diagnostics.md) storage-konto. 
+* Det konto som använder seriekonsolen måste ha [deltagarrollen](../../role-based-access-control/built-in-roles.md) för den virtuella datorn och [starta diagnostik](boot-diagnostics.md) storage-konto. 
 
 ## <a name="open-the-serial-console"></a>Öppna seriekonsolen
 seriekonsolen för virtuella datorer är endast tillgänglig via [Azure-portalen](https://portal.azure.com). Nedan följer du stegen för att komma åt seriekonsolen för virtuella datorer via portalen 
@@ -51,7 +51,7 @@ Funktionen seriekonsolen kan inaktiveras för specifika virtuella datorer genom 
 ## <a name="serial-console-security"></a>Seriekonsolen säkerhet 
 
 ### <a name="access-security"></a>Åtkomstsäkerhet 
-Åtkomst till seriekonsol är begränsad till användare som har [VM deltagare](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) eller senare åtkomst till den virtuella datorn. Om din AAD-klient kräver Multi-Factor Authentication sedan åtkomst till seriekonsolen måste också MFA eftersom dess åtkomst [Azure-portalen](https://portal.azure.com).
+Åtkomst till seriekonsol är begränsad till användare som har [VM deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) eller senare åtkomst till den virtuella datorn. Om din AAD-klient kräver Multi-Factor Authentication sedan åtkomst till seriekonsolen måste också MFA eftersom dess åtkomst [Azure-portalen](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Kanalsäkerhet
 Alla data skickas tillbaka och tillbaka är krypterad under överföringen.
@@ -323,7 +323,7 @@ Lägga till `/f` tvingar program som körs avslutas utan att användarna.
 #### <a name="detect-safe-mode-boot"></a>Identifiera Start i felsäkert läge
 `bcdedit /enum | find /i "safeboot"` 
 
-## <a name="windows-commands---powershell"></a>Windows Commands - PowerShell
+## <a name="windows-commands---powershell"></a>Kommandon i Windows - PowerShell
 
 För att köra PowerShell i SAC, när du har nått en kommandotolk, skriver du:
 

@@ -1,19 +1,19 @@
 ---
 title: Azure SQL-hanterade databasinstans ansluta program | Microsoft Docs
-description: "Den här artikeln beskrivs hur du ansluter tillämpningsprogrammet till hanterade Azure SQL Database-instans."
+description: Den här artikeln beskrivs hur du ansluter tillämpningsprogrammet till hanterade Azure SQL Database-instans.
 ms.service: sql-database
 author: srdjan-bozovic
 manager: craigg
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: f02311026e3f28d4cf41dfe9b155f928885ae938
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1eecd28d5e7043acae5cfd52edf93e8d301bd31e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Ansluta programmet till hanterade Azure SQL Database-instans
 
@@ -79,4 +79,4 @@ Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med hjäl
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om hanterade instansen finns [vad är en hanterad instans](sql-database-managed-instance.md).
-- En självstudiekurs finns [skapa en instans för hanterade](sql-database-managed-instance-tutorial-portal.md).
+- En självstudiekurs visar hur du skapar en ny instans av hanterade finns [skapa en instans för hanterade](sql-database-managed-instance-create-tutorial-portal.md).

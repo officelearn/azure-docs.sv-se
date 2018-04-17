@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 03/27/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: fa7d8a9880ff97f30dc583d792e39aa914ea5435
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4c49fa082547dc0de76126df17a888c6c32f03e4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapacitetsbegränsningar
 Följande tabeller innehåller de högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
@@ -27,11 +27,11 @@ Följande tabeller innehåller de högsta värden som tillåts för olika kompon
 ## <a name="workload-management"></a>Arbetsbelastningshantering
 | Kategori | Beskrivning | Maximal |
 |:--- |:--- |:--- |
-| [Informationslagerenheter (DWU)][Data Warehouse Units (DWU)] |Max DWU för en enskild SQL Data Warehouse | Optimerad för elasticitet [prestandanivån](performance-tiers.md): DW6000<br></br>Optimerad för beräkning [prestandanivån](performance-tiers.md): DW30000c |
+| [Informationslagerenheter (DWU)][Data Warehouse Units (DWU)] |Max DWU för en enskild SQL Data Warehouse | Optimerad för elasticitet [prestandanivån](memory-and-concurrency-limits.md#performance-tiers): DW6000<br></br>Optimerad för beräkning [prestandanivån](memory-and-concurrency-limits.md#performance-tiers): DW30000c |
 | [Informationslagerenheter (DWU)][Data Warehouse Units (DWU)] |Standard DTU per server |54,000<br></br>Varje SQLServer (till exempel myserver.database.windows.net) har en DTU-kvot för 54 000, vilket gör att upp till DW6000c som standard. Kvoten är helt enkelt en säkerhetsgräns. Du kan öka din kvot genom [skapat ett supportärende] [ creating a support ticket] och välja *kvot* som den Begärandetypen.  Att beräkna dina DTU behöver, multiplicerar 7.5 med det totala antalet DWU behövs eller 9.0 att multiplicera den totala cDWU som behövs. Exempel:<br></br>DW6000 x 7.5 = 45,000 dtu: er<br></br>DW600c x 9.0 = 54 000 dtu: er.<br></br>Du kan visa din aktuella DTU-förbrukning från SQL server-alternativ i portalen. Både pausade och inte pausade databaser räknas i förhållande till DTU-kvoten. |
 | Databasanslutning |Öppna samtidiga sessioner |1024<br/><br/>Var och en av 1024 aktiva sessioner kan skicka begäranden till en SQL Data Warehouse-databas på samma gång. Observera att det finns begränsningar för antalet frågor som kan köras samtidigt. När samtidighet gränsen överskrids, förfrågan som skickas till en intern kö där det väntar på att bearbetas. |
 | Databasanslutning |Största minnesstorlek för förberedda instruktioner |20 MB |
-| [Hantering av arbetsbelastning][Workload management] |Maximalt antal samtidiga frågor |32<br/><br/> Som standard kan SQL Data Warehouse köra maximalt 32 samtidiga frågor och köer återstående frågor.<br/><br/>Antalet samtidiga frågor kan descrease när användare tilldelas högre resursklasser eller när SQL Data Warehouse har en lägre [service level](performance-tiers.md#service-levels). Några frågor som DMV frågor är alltid att kunna köras. |
+| [Arbetsbelastningshantering](resource-classes-for-workload-management.md) |Maximalt antal samtidiga frågor |32<br/><br/> Som standard kan SQL Data Warehouse köra maximalt 32 samtidiga frågor och köer återstående frågor.<br/><br/>Minska antalet samtidiga frågor när användare tilldelas högre resursklasser eller när SQL Data Warehouse har en lägre [data warehouse enhet](memory-and-concurrency-limits.md) inställningen. Några frågor som DMV frågor är alltid att kunna köras. |
 | [TempDB][Tempdb] |Maximal GB |399 GB per DW100. Därför vid DWU1000, även tempdb storlek till 3,99 TB |
 
 ## <a name="database-objects"></a>objekt i databasen

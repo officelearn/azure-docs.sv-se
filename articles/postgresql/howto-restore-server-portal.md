@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 0d67bf5625ee9037c5ec152c8ce8564235018e8e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b4fe1151337dc6f5874e6ad102c6e905e90fd963
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure-databas för PostgreSQL med Azure-portalen
 
@@ -81,6 +81,10 @@ Om du har konfigurerat din server för geografiskt redundant säkerhetskopiering
 
 2. I formulärets **Välj källa** listrutan, Välj **säkerhetskopiering**. Den här åtgärden läser in en lista över servrar som har geo-redundant säkerhetskopieringar aktiverad. Välj en av dessa säkerhetskopior som källa för den nya servern.
    ![Välj källa: Säkerhetskopiering och listan över geo-redundant säkerhetskopieringar](./media/howto-restore-server-portal/2-georestore.png)
+
+   > [!NOTE]
+   > När en server först skapas kanske det inte omedelbart tillgängliga för geo-återställning. Det kan ta några timmar för nödvändiga metadata fyllas.
+   >
 
 3. Fyll i resten av formuläret med dina inställningar. Du kan välja en annan **plats**. Markera platsen och du kan välja **prisnivån**. Parametrarna för den befintliga servern som du återställer från visas som standard. Du kan klicka på **OK** utan ändringar ärver inställningarna. Eller så kan du ändra **Compute Generation** (om tillgänglig i regionen du har valt), antal **vCores**, **säkerhetskopiering kvarhållningsperiod**, och **säkerhetskopiering Redundans alternativet**. Ändra **prisnivån** (Basic, generella eller Minnesoptimerade) eller **lagring** storlek under återställning stöds inte.
 

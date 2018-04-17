@@ -1,11 +1,11 @@
 ---
-title: "Spåra B2B-meddelanden i Operations Management Suite - Azure Logic Apps | Microsoft Docs"
-description: "Spåra B2B-kommunikation för ditt konto och logik integrationsappar i Operations Management Suite (OMS) med Azure logganalys"
+title: Spåra B2B-meddelanden med Azure logganalys - Azure Logic Apps | Microsoft Docs
+description: Spåra B2B-kommunikation för ditt konto och logik integrationsappar med Azure logganalys
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
 ms.workload: integration
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: d62be25678044ead469f65362b6f47c1a2df893b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 48523e1f1bc8d5b810cc7c9d1a7308f1aaadf8bb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Spåra B2B-kommunikation i Microsoft Operations Management Suite (OMS)
+# <a name="track-b2b-communication-with-azure-log-analytics"></a>Spåra B2B-kommunikation med Azure logganalys
 
-När du har skapat B2B-kommunikation mellan två kör affärsprocesser eller program via kontot integration dessa enheter kan utbyta meddelanden med varandra. För att kontrollera om dessa meddelanden bearbetas på rätt sätt kan du spåra AS2-, X12, och EDIFACT meddelanden med [Azure logganalys](../log-analytics/log-analytics-overview.md) i den [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Du kan till exempel använda dessa webbaserade spårningsfunktioner för spårning av meddelanden:
+När du har skapat B2B-kommunikation mellan två kör affärsprocesser eller program via kontot integration dessa enheter kan utbyta meddelanden med varandra. För att kontrollera om dessa meddelanden bearbetas på rätt sätt kan du spåra AS2-, X12, och EDIFACT meddelanden med [Azure logganalys](../log-analytics/log-analytics-overview.md). Du kan till exempel använda dessa webbaserade spårningsfunktioner för spårning av meddelanden:
 
 * Antalet meddelanden och status
 * Bekräftelser status
@@ -36,30 +36,30 @@ När du har skapat B2B-kommunikation mellan två kör affärsprocesser eller pro
 
 * Ett integration-konto som har konfigurerats med övervakning och loggning. Läs [hur du skapar ett konto för integrering](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) och [hur du konfigurerar övervakning och loggning för det kontot](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Om du inte redan har gjort [publicera diagnostikdata till logganalys](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) i OMS.
+* Om du inte redan har gjort [publicera diagnostikdata till logganalys](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 > [!NOTE]
-> När du har uppfyllt kraven tidigare, bör du ha en arbetsyta den [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Du bör använda samma OMS-arbetsyta för att spåra dina B2B-kommunikation i OMS. 
+> När du har uppfyllt kraven tidigare, bör du ha en arbetsyta i logganalys. Du bör använda samma arbetsyta för att spåra dina B2B-kommunikation i logganalys. 
 >  
-> Lär dig mer om du inte har en OMS-arbetsyta [hur du skapar en OMS-arbetsyta](../log-analytics/log-analytics-get-started.md).
+> Lär dig mer om du inte har en logganalys-arbetsytan [hur du skapar en logganalys-arbetsytan](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="add-the-logic-apps-b2b-solution-to-the-operations-management-suite-oms"></a>Lägg till Logic Apps B2B-lösning till Operations Management Suite (OMS)
+## <a name="add-the-logic-apps-b2b-solution-to-log-analytics"></a>Lägg till Logic Apps B2B-lösning till logganalys
 
-Om du vill att OMS spåra B2B-meddelanden för din logikapp, måste du lägga till den **Logic Apps B2B** lösning till OMS-portalen. Lär dig mer om [att lägga till lösningar till OMS](../log-analytics/log-analytics-get-started.md).
+Om du vill att logganalys spåra B2B-meddelanden för din logikapp, måste du lägga till den **Logic Apps B2B** lösning till OMS-portalen. Lär dig mer om [att lägga till lösningar till logganalys](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. I den [Azure-portalen](https://portal.azure.com), Välj **alla tjänster**. Sök efter ”logganalys” och välj sedan **logganalys** som visas här:
 
-   ![Find Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
+   ![Hitta logganalys](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
-2. Under **logganalys**, söka efter och välj din OMS-arbetsyta. 
+2. Under **logganalys**, söka efter och välj logganalys-arbetsytan. 
 
-   ![Välj din OMS-arbetsyta](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+   ![Välj logganalys-arbetsytan](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
 3. Under **Management**, Välj **OMS-portalen**.
 
    ![Välj OMS-portalen](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. När sidan OMS öppnar väljer **lösningar galleriet**.    
+4. När sidan öppnas och välja **lösningar galleriet**.    
 
    ![Välj lösningar galleri](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
 
@@ -71,21 +71,21 @@ Om du vill att OMS spåra B2B-meddelanden för din logikapp, måste du lägga ti
 
    ![Välj Lägg till](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
 
-   På OMS-startsidan panelen för **Logic Apps B2B-meddelanden** visas nu. 
+   På startsidan, panelen för **Logic Apps B2B-meddelanden** visas nu. 
    Den här panelen uppdaterar antalet meddelanden när dina B2B-meddelanden bearbetas.
 
-   ![OMS-startsidan, panelen Logic Apps B2B-meddelanden](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
+   ![Startsidan för Logic Apps B2B-meddelanden sida vid sida](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
-## <a name="track-message-status-and-details-in-the-operations-management-suite"></a>Spåra meddelandestatus och information i Operations Management Suite
+## <a name="track-message-status-and-details-in-log-analytics"></a>Spåra meddelandestatus och information i logganalys
 
-1. När dina B2B-meddelanden bearbetas visa du status och information om dessa meddelanden. På startsidan OMS väljer du den **Logic Apps B2B-meddelanden** panelen.
+1. När dina B2B-meddelanden bearbetas visa du status och information om dessa meddelanden. På startsidan, väljer du den **Logic Apps B2B-meddelanden** panelen.
 
    ![Antal uppdaterade meddelande](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
 
    > [!NOTE]
-   > Som standard den **Logic Apps B2B-meddelanden** innehåller data baserat på en dag. Välj scope kontrollen överst på sidan OMS om du vill ändra vilka data till ett annat intervall:
+   > Som standard den **Logic Apps B2B-meddelanden** innehåller data baserat på en dag. Välj scope kontrollen överst på sidan om du vill ändra vilka data till ett annat intervall:
    > 
    > ![Ändra omfång för data](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
    >
@@ -168,7 +168,7 @@ Här följer namnformat för varje mapp för hämtade AS2-meddelanden och filer.
 
 | Mapp eller fil | Format för namn |
 | :------------- | :---------- |
-| Meddelande-mappen | [sender]\_[receiver]\_AS2\_[correlation-ID]\_[message-ID]\_[timestamp] |
+| Meddelande-mappen | [avsändaren] \_[mottagaren]\_AS2\_[Korrelations-ID]\_[meddelande-ID]\_[tidsstämpel] |
 | Indata, utdata och om att ställa in bekräftelse filer | **Nyttolasten indata**: [avsändaren]\_[mottagaren]\_AS2\_[Korrelations-ID]\_input_payload.txt </p>**Utdata nyttolast**: [avsändaren]\_[mottagaren]\_AS2\_[Korrelations-ID]\_utdata\_payload.txt </p></p>**Indata**: [avsändaren]\_[mottagaren]\_AS2\_[Korrelations-ID]\_inputs.txt </p></p>**Utdata**: [avsändaren]\_[mottagaren]\_AS2\_[Korrelations-ID]\_outputs.txt |
 |          |             |
 
@@ -234,13 +234,13 @@ Här följer namnformat för varje mapp för hämtade EDIFACT-meddelanden och fi
 
 | Mapp eller fil | Format för namn |
 | :------------- | :---------- |
-| Meddelande-mappen | [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
+| Meddelande-mappen | [avsändaren] \_[mottagaren]\_EDIFACT\_[interchange-kontroll-nummer]\_[globala-kontroll-nummer]\_[-set-kontroll-transaktionsnumret]\_[tidsstämpel] |
 | Indata, utdata och om att ställa in bekräftelse filer | **Nyttolasten indata**: [avsändaren]\_[mottagaren]\_EDIFACT\_[interchange-kontroll-nummer]\_input_payload.txt </p>**Utdata nyttolast**: [avsändaren]\_[mottagaren]\_EDIFACT\_[interchange-kontroll-nummer]\_utdata\_payload.txt </p></p>**Indata**: [avsändaren]\_[mottagaren]\_EDIFACT\_[interchange-kontroll-nummer]\_inputs.txt </p></p>**Utdata**: [avsändaren]\_[mottagaren]\_EDIFACT\_[interchange-kontroll-nummer]\_outputs.txt |
 |          |             |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Frågan för B2B-meddelanden i Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Frågan för B2B-meddelanden i logganalys](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [AS2-spårningsscheman](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [X12-spårningsscheman](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [Spårning av anpassade scheman](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

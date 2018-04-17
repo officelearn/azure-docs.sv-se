@@ -1,12 +1,12 @@
 ---
-title: "Säkerhetsmetoder för Azure-databas | Microsoft Docs"
-description: "Den här artikeln innehåller en uppsättning Metodtips för säkerhet i Azure-databas."
+title: Säkerhetsmetoder för Azure-databas | Microsoft Docs
+description: Den här artikeln innehåller en uppsättning Metodtips för säkerhet i Azure-databas.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3c019e8e1518c661eb75065f061ee681f0231efa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-database-security-best-practices"></a>Säkerhetsmetoder för Azure-databas
 
@@ -103,7 +103,7 @@ Du hittar information information [här](https://docs.microsoft.com/azure/sql-da
 
 ## <a name="protect-your-data-using-encryption"></a>Skydda dina data med hjälp av kryptering
 
-[Azure SQL Database transparent datakryptering (TDE)](https://msdn.microsoft.com/library/dn948096.aspx) skyddar mot hot från skadlig aktivitet genom att utföra realtid kryptering och dekryptering av databas, tillhörande säkerhetskopior och transaktionsloggfiler vilande utan ändringar i programmet. TDE krypterar lagring av en hel databas med hjälp av en symmetrisk nyckel som heter databaskrypteringsnyckeln.
+[Azure SQL Database transparent datakryptering (TDE)](https://msdn.microsoft.com/library/dn948096.aspx) skyddar mot hot från skadlig aktivitet genom att utföra realtid kryptering och dekryptering av databas, tillhörande säkerhetskopior och transaktionsloggfiler utan vilande kräver ändringar i programmet. TDE krypterar lagring av en hel databas med hjälp av en symmetrisk nyckel som heter databaskrypteringsnyckeln.
 
 Även om hela lagring krypteras är det mycket viktigt att kryptera även själva databasen. Det här är en implementering av skydd på djupet metod för att skydda data. Om du använder Azure SQL Database och vill skydda känsliga data, till exempel kreditkort eller personnummer, kan du kryptera databaser med FIPS 140-2-validerade 256-bitars AES-kryptering som uppfyller kraven för många branschstandarder (till exempel HIPAA, PCI).
 
@@ -112,7 +112,7 @@ Det är viktigt att förstå att filer relaterade till [bufferten pool-tillägg 
 Eftersom en behörig användare som en administratör eller en databasadministratör kan komma åt data även om databasen är krypterad med TDE, bör du också följa rekommendationerna nedan:
 
 -   Aktivera SQL-autentisering på databasnivå.
--   Använda Azure AD för autentisering med [RBAC-roller](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
+-   Använda Azure AD för autentisering med [RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/overview).
 -   Användare och program bör använda separata konton för att autentisera. Det här sättet kan du begränsa behörigheterna för användare och program och minska riskerna med skadlig aktivitet.
 -   Implementera databasen säkerhetsnivå via fasta databasroller (till exempel db_datareader eller db_datawriter) eller du kan skapa anpassade roller för programmet att bevilja explicit behörighet till valda databasobjekt.
 
@@ -163,7 +163,7 @@ Dessutom kan SQL Hotidentifiering integreras med [Azure Security Center](https:/
 
 Mer information om databasen Hotidentifiering och hur du aktiverar det finns i artikel [aktivera granskning och hotidentifiering identifiering på SQL-servrar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-auditing-on-sql-servers).
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Azure-databas är en robust databasplattform, med en fullständig uppsättning funktioner som uppfyller kraven för många organisationens och regelmässig efterlevnad. Du kan skydda data genom att kontrollera fysisk tillgång till dina data och använda en mängd olika alternativ för datasäkerhet på fil-, kolumn- eller radnivå med Transparent datakryptering, cellnivå kryptering eller säkerhet på radnivå. Alltid gör krypterat också att åtgärder mot krypterade data, förenkla processen för programuppdateringar. I sin tur ger åtkomst till granskningsloggar för SQL-databas aktivitet dig den information du behöver, så att du vet hur och när data används.
 
 ## <a name="next-steps"></a>Nästa steg

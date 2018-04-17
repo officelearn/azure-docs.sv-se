@@ -5,22 +5,22 @@ services: iot-dps
 keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 03/27/2018
+ms.date: 03/30/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5e35a802349bd85b50a13a3d9a7e0c78945937bd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f6410aa3ab21e7c50ec6918930f31b9e1455c464
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT-hubb enheten Etableringstjänsten säkerhetsbegrepp 
 
-IoT-hubb Device etablering Service är en helper-tjänsten för IoT-hubb som används för att konfigurera zero touch enhet etablering till en angiven IoT-hubb. Med enhetsetableringstjänsten kan du etablera miljontals enheter på ett säkert och skalbart sätt. Den här artikeln ger en översikt över de *säkerhet* begrepp som är involverad i enhetsetableringen. Den här artikeln är relevant för alla personer som är inblandade i att förbereda en enhet för distribution.
+IoT-hubb Device etablering Service är en helper-tjänsten för IoT-hubb som används för att konfigurera zero touch enhet etablering till en angiven IoT-hubb. Med tjänsten etablering enhet kan du [automatiskt etablera](concepts-auto-provisioning.md) miljoner enheter på en säker och skalbar sätt. Den här artikeln ger en översikt över de *säkerhet* begrepp som är involverad i enhetsetableringen. Den här artikeln är relevant för alla personer som är inblandade i att förbereda en enhet för distribution.
 
 ## <a name="attestation-mechanism"></a>Mekanism för hälsoattestering
 
@@ -46,6 +46,8 @@ Enheten hemligheter kan också lagras i programvaran (minne), men det är en min
 
 TPM kan referera till en standard för säker lagring av nycklar som används för att autentisera plattformen eller den kan referera till i/o-gränssnitt som används för att interagera med moduler som implementerar standarden. TPM: er kan finnas som diskreta maskinvara, inbyggd maskinvara, inbyggd programvara eller programvara. Lär dig mer om [TPM: er och TPM-nyckelattestering](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Etablering av tjänst stöder endast TPM 2.0.
 
+TPM-nyckelattestering baseras på en temporärt ID utmaning som använder rotnycklar attestering och lagring för att presentera en signerad delade signatur åtkomst (SAS)-token.
+
 ### <a name="endorsement-key"></a>Bekräftelsenyckel
 
 Bekräftelsenyckeln är en asymmetrisk nyckel finns inuti TPM, som internt genererats eller matas in vid tillverkning tid och är unikt för varje TPM. Bekräftelsenyckeln kan inte ändras eller tas bort. Den privata delen av bekräftelsenyckeln är inte tillgänglig utanför TPM, medan den offentliga delen av bekräftelsenyckeln används för att identifiera en äkta TPM. Lär dig mer om den [bekräftelsenyckel](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
@@ -56,21 +58,27 @@ Lagringsrotnyckel lagras i TPM och används för att skydda TPM-nycklar som skap
 
 ## <a name="x509-certificates"></a>X.509-certifikat
 
-Med X.509-certifikat som en mekanism för attestering är en utmärkt sätt att skala produktion och förenkla enhetsetableringen. X.509-certifikat är vanligtvis ordnade i en certifikatkedja med förtroenden där varje certifikat i kedjan är signerat av den privata nyckeln för nästa högre certifikat och så vidare, avslutar i ett självsignerat rotcertifikat. Detta skapar en delegerad förtroendekedja för från rotcertifikatet som genererats av en betrodd rotcertifikatutfärdare (CA) ned via varje mellanliggande Certifikatutfärdare till slutanvändare certifikatet på enheten. Läs mer i [autentisering med X.509-certifikat](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
+Med X.509-certifikat som en mekanism för attestering är en utmärkt sätt att skala produktion och förenkla enhetsetableringen. X.509-certifikat är vanligtvis ordnade i en certifikatkedja med förtroenden där varje certifikat i kedjan är signerat av den privata nyckeln för nästa högre certifikat och så vidare, avslutar i ett självsignerat rotcertifikat. Detta skapar en delegerad förtroendekedja för från rotcertifikatet som genererats av en betrodd rotcertifikatutfärdare (CA) ned via varje mellanliggande Certifikatutfärdare till slutanvändare ”lägsta” certifikatet på enheten. Läs mer i [autentisering med X.509-certifikat](/azure/iot-hub/iot-hub-x509ca-overview). 
 
-Certifikatkedjan representerar ofta vissa logisk eller fysisk hierarki har associerats med enheter. Till exempel kan en tillverkare utfärda ett självsignerat rotcertifikat, använda certifikatet för att generera en unik mellanliggande CA-certifikat för varje factory, använder certifikat för varje factory för att generera en unik mellanliggande CA-certifikat för varje produktion rad i anläggningen och slutligen använder certifikatet produktionen för att generera ett unikt enhets (slutenhet)-certifikat för varje enhet som tillverkats på raden. Läs mer i [grundläggande förståelse för X.509-certifikat i branschen IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-concept). 
+Certifikatkedjan representerar ofta vissa logisk eller fysisk hierarki har associerats med enheter. Exempelvis kan en tillverkare:
+- utfärda ett självsignerat rot-CA-certifikat
+- Använd rotcertifikatet för att generera en unik mellanliggande CA-certifikat för varje factory
+- Använd certifikat för varje factory för att generera en unik mellanliggande CA-certifikat för varje rad i produktion i anläggningen
+- och slutligen använder produktionen-certifikat för att generera ett unikt enhets (slutenhet)-certifikat för varje enhet som tillverkats på raden. 
+
+Läs mer i [grundläggande förståelse för X.509-certifikat i branschen IoT](/azure/iot-hub/iot-hub-x509ca-concept). 
 
 ### <a name="root-certificate"></a>Rotcertifikat
 
-Ett rotcertifikat är ett självsignerat X.509-certifikat som representerar en certifikatutfärdare (CA). Det är terminus eller förtroendeankare av certifikatkedjan. Rotcertifikat kan själva är utfärdat av en organisation eller köpts från en rotcertifikatutfärdare. Läs mer i [hämta X.509-certifikat](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Rotcertifikatet kan också kallas en Certifikatutfärdares rotcertifikat.
+Ett rotcertifikat är ett självsignerat X.509-certifikat som representerar en certifikatutfärdare (CA). Det är terminus eller förtroendeankare av certifikatkedjan. Rotcertifikat kan själva är utfärdat av en organisation eller köpts från en rotcertifikatutfärdare. Läs mer i [hämta X.509-certifikat](/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Rotcertifikatet kan också kallas en Certifikatutfärdares rotcertifikat.
 
 ### <a name="intermediate-certificate"></a>Mellanliggande certifikat
 
 En mellanliggande certifikat är ett X.509-certifikat som har signerats av rotcertifikatet (eller av en annan mellanliggande certifikat med rotcertifikat i kedjan). Senaste mellanliggande certifikat i en kedja används för att signera certifikatet lövmedlemmar. Ett mellanliggande certifikat kan också kallas en mellanliggande certifikatutfärdare.
 
-### <a name="leaf-certificate"></a>Lövcertifikatet
+### <a name="end-entity-leaf-certificate"></a>Slutanvändare ”” lövcertifikatet
 
-Lövcertifikatet eller slutentitetscertifikat, identifierar certifikatinnehavarens. Den har rotcertifikat i dess certifikatkedja samt noll eller flera mellanliggande certifikat. Lägsta certifikatet används inte för att signera andra certifikat. Unikt identifierar enheten till tjänsten etablering och ibland kallas enhetens certifikat. Under autentiseringen använder enheten den privata nyckeln som associeras med det här certifikatet ska svara på ett bevis på tillgång challenge från tjänsten. Läs mer i [autentisera enheter signerad med X.509-certifikat](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+Lövcertifikatet eller slutentitetscertifikat, identifierar certifikatinnehavarens. Den har rotcertifikat i dess certifikatkedja samt noll eller flera mellanliggande certifikat. Lägsta certifikatet används inte för att signera andra certifikat. Unikt identifierar enheten till tjänsten etablering och ibland kallas enhetens certifikat. Under autentiseringen använder enheten den privata nyckeln som associeras med det här certifikatet ska svara på ett bevis på tillgång challenge från tjänsten. Läs mer i [autentisera enheter signerad med X.509-certifikat](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Kontrollera Enhetsåtkomst till tjänsten etablering med X.509-certifikat
 

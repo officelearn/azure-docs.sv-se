@@ -1,12 +1,12 @@
 ---
-title: "Power BI arbetsytan samlingar vanliga frågor och svar"
-description: "Vanliga frågor och svar för Power BI arbetsytan samlingar."
+title: Power BI arbetsytan samlingar vanliga frågor och svar
+description: Vanliga frågor och svar för Power BI arbetsytan samlingar.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1475ed4f-fc84-4865-b243-e8a47d8bda59
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 6b33f497a5dbc889945e2147586f79edf1bd9aeb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 6915538e47207ee9a45f2647a84924d79c7b2851
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI arbetsytan samlingar vanliga frågor och svar
 
@@ -43,7 +43,7 @@ Programmen är betydligt kraftfullare när du kan utnyttja snygg, interaktiva da
 Power BI arbetsytan samlingar är avsedda för dina program som tillhandahålls för tredje part. Om du vill använda tjänsten Power BI arbetsytan samlingar för att skapa ett internt business-program var och en av dina interna användare behöver en Power BI Pro USL och din organisation kommer att debiteras för deras användning av tjänsten Power BI arbetsytan samlingar Förutom sina avgifter för Power BI Pro USL. För att undvika både Power BI Pro USL avgifter eller Power BI arbetsytan samlingar förbrukningen för interna program, erbjuder Power BI-tjänsten ett eget innehåll bädda in funktioner utanför Power BI arbetsytan samlingar för utan ytterligare kostnad Power BI USL innehavare (dev.powerbi.com).
 
 ## <a name="can-power-bi-workspace-collections-be-used-to-create-internal-applications"></a>Kan Power BI arbetsytan samlingar användas för att skapa interna program?
-Nej, Power BI arbetsytan samlingar är endast avsedda att användas av externa användare och ska inte användas i interna affärsprogram. För att bädda in Power BI-innehåll för bruk i interna affärsprogram, ska du använda Power BI-tjänsten och alla användare som använder detta innehåll måste ha en giltig prenumerationslicens för Power BI Free eller Power BI Pro. Mer information om hur du integrerar interna program med Power BI-tjänsten är tillgänglig på [https://dev.powerbi.com](https://dev.powerbi.com).
+Nej, Power BI arbetsytan samlingar är endast avsedda att användas av externa användare och ska inte användas i interna affärsprogram. För att bädda in Power BI-innehåll för bruk i interna affärsprogram, ska du använda Power BI-tjänsten och alla användare som använder detta innehåll måste ha en giltig prenumerationslicens för Power BI Free eller Power BI Pro. Mer information om hur du integrerar interna program med Power BI-tjänsten är tillgänglig på [ https://dev.powerbi.com ](https://dev.powerbi.com).
 
 ## <a name="is-this-service-available-globally"></a>Är den här tjänsten tillgängligt globalt?
 Tjänsten Power BI arbetsytan samlingar finns i de flesta Datacenter nu. Du kan alltid kontrollera senaste tillgängligheten [här](https://azure.microsoft.com/status/).
@@ -87,7 +87,7 @@ Du kan besöka den [dokumentationssidan för Power BI arbetsytan samlingar](get-
 ## <a name="how-do-i-get-started"></a>Hur kommer jag igång?
 Du kan komma igång gratis nu! Om du har en Azure-prenumeration kan etablera du nu Power BI arbetsytan samlingar från Azure portal direkt. Du kan också skapa din [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). När du har etablerat tjänsten Power BI arbetsytan samlingar, du kan enkelt använda Power BI REST API: er direkt eller använda utvecklaren SDK på [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). Exempel som tillhandahålls på hur man utnyttjar utvecklaren SDK.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 [Vad är Microsoft Power BI arbetsytan samlingar](what-are-power-bi-workspace-collections.md)
 [komma igång med Microsoft Power BI arbetsytan samlingar](get-started.md)

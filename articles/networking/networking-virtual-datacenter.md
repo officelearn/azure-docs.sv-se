@@ -9,13 +9,13 @@ ms.service: virtual-network
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
+ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: 7fcd8e12a7109218387788e47eddad48e72797bb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 1aab466a06711a334df0584334e5229b33f57754
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Virtuella Microsoft Azure-Datacenter: Ett Nätverksperspektiv
 **Microsoft Azure**: flytta snabbare, spara pengar, integrera lokala appar och data
@@ -97,7 +97,7 @@ En [ **Azure plats-till-plats-VPN** ] [ VPN] är en samtrafik tjänst via Intern
 Distribuera ExpressRoute anslutningar innebär att arbeta med en ExpressRoute-leverantör. För kunder som behöver komma igång snabbt, det är vanligt att använda ursprungligen plats-till-plats VPN för att upprätta en anslutning mellan vDC lokala resurser och migrera sedan till ExpressRoute-anslutning.
 
 ##### <a name="connectivity-within-the-cloud"></a>*Anslutning i molnet*
-[Vnet] [ VNet] och [VNet-Peering] [ VNetPeering] är grundläggande anslutningsmöjligheter för nätverkstjänster inuti en vDC. Ett VNet garanterar en naturlig gräns för isolering för vDC-resurser och VNet-peering tillåter inbördes kommunikation mellan olika Vnet i samma Azure-region. Trafikkontroll i ett virtuellt nätverk och mellan virtuella nätverk måste matcha en uppsättning säkerhetsregler som angetts via åtkomstkontrollistor ([Nätverkssäkerhetsgruppen][NSG]), [virtuella nätverksinstallationer][NVA], och anpassade routningstabeller ([UDR][UDR]).
+[Vnet] [ VNet] och [VNet-Peering] [ VNetPeering] är grundläggande anslutningsmöjligheter för nätverkstjänster inuti en vDC. Ett VNet garanterar en naturlig gräns för isolering för vDC-resurser och VNet-peering tillåter inbördes kommunikation mellan olika Vnet i samma Azure-region eller över regioner. Trafikkontroll i ett virtuellt nätverk och mellan virtuella nätverk måste matcha en uppsättning säkerhetsregler som angetts via åtkomstkontrollistor ([Nätverkssäkerhetsgruppen][NSG]), [virtuella nätverksinstallationer][NVA], och anpassade routningstabeller ([UDR][UDR]).
 
 ## <a name="virtual-data-center-overview"></a>Översikt över virtuella Datacenter
 
@@ -124,7 +124,7 @@ Rollen för varje ekrar kan vara till värden olika typer av arbetsbelastningar.
 ##### <a name="subscription-limits-and-multiple-hubs"></a>Prenumerationsbegränsningar och flera nav
 I Azure distribueras varje komponent, oavsett vilken typ i en Azure-prenumeration. Isolering av Azure komponenter i olika Azure-prenumerationer kan uppfylla kraven för olika LOB, till exempel konfigurera olika nivåer av åtkomst och auktorisering.
 
-En enda vDC kan skala upp till stort antal ekrar, även om som varje IT-system är plattformar gränser. Hubb-distributionen är bunden till en viss Azure-prenumeration som har begränsningar och gränser (till exempel en max antal VNet peerkopplingar - finns [Azure-prenumeration och tjänsten gränser, kvoter och begränsningar] [ Limits] mer information). I fall där gränser kan vara ett problem arkitekturen kan skalas upp ytterligare genom att utöka modellen från en enda hubb ekrar till ett kluster med nav och ekrar. Flera nav i en eller flera Azure-regioner samman med hjälp av Express Route eller plats-till-plats-VPN.
+En enda vDC kan skala upp till stort antal ekrar, även om som varje IT-system är plattformar gränser. Hubb-distributionen är bunden till en viss Azure-prenumeration som har begränsningar och gränser (till exempel en max antal VNet peerkopplingar - finns [Azure-prenumeration och tjänsten gränser, kvoter och begränsningar] [ Limits] mer information). I fall där gränser kan vara ett problem arkitekturen kan skalas upp ytterligare genom att utöka modellen från en enda hubb ekrar till ett kluster med nav och ekrar. Flera nav i en eller flera Azure-regioner samman med VNet-Peering, ExpressRoute eller plats-till-plats-VPN.
 
 [![2]][2]
 
@@ -191,10 +191,10 @@ Infrastruktur innehåller följande funktioner:
 -   [**Virtuellt nätverk**][VPN]. Virtuella nätverk är en av huvudkomponenterna i en vDC och gör att du kan skapa en gräns för isolering av trafik på Azure-plattformen. Ett virtuellt nätverk består av en eller flera virtuella nätverkssegment, var och en med ett specifikt IP-nätverksprefix (undernät). Det virtuella nätverket definierar ett internt perimeter område där IaaS virtuella datorer och PaaS-tjänster kan upprätta privata meddelanden. Virtuella datorer (och PaaS-tjänster) i ett virtuellt nätverk inte kan kommunicera direkt med virtuella datorer (och PaaS-tjänster) i ett annat virtuellt nätverk, även om båda virtuella nätverken skapas av samma kund under samma prenumeration. Isolering är en kritisk egenskap som garanterar kundens virtuella datorer och kommunikation förblir privat inom ett virtuellt nätverk.
 -   [**UDR**][UDR]. Som standard utifrån system routningstabellen omdirigeras trafik i ett virtuellt nätverk. En användardefinierad väg är en anpassad routningstabell som nätverksadministratörer kan koppla till en eller flera undernät kan du skriva över beteendet i routningstabellen system och definiera en sökväg för kommunikation inom ett virtuellt nätverk. Förekomsten av udr: er garanterar att utgående trafik från eker-överföring via specifika egna virtuella datorer och/eller nätverket virtuella installationer och belastningsutjämnare finns i hubben och ekrarna.
 -   [**NSG**][NSG]. En Nätverkssäkerhetsgrupp är en lista över säkerhetsregler som fungerar som trafik filtrering på IP-källor, IP-målet, protokoll, IP-källportar och IP-målet portar. NSG: N kan tillämpas på ett undernät, en virtuell NIC-kort som är associerade med en Azure VM, eller båda. De NSG: er är nödvändiga för att implementera rätt flödeskontroll i hubben och ekrarna. Säkerhetsnivån som tillhandahålls av NSG: N är en funktion av vilka portar som du öppnar och för vilket syfte. Kunder bör installera ytterligare per virtuell filter med värdbaserade brandväggar, till exempel IPtables eller Windows-brandväggen.
--   **DNS**. Namnmatchning för resurser i Vnet av en vDC tillhandahålls via DNS. Omfånget för namnmatchning av standard-DNS är begränsad till VNet. Vanligtvis en anpassad DNS-tjänsten måste distribueras i hubben som en del av gemensamma tjänster, men de huvudsakliga konsumenterna av DNS-tjänster finns i ekrar. Om det behövs kan kunderna skapa en hierarkisk struktur för DNS-med delegering av DNS-zoner till ekrarna.
+-   [**DNS**][DNS]. Namnmatchning för resurser i Vnet av en vDC tillhandahålls via DNS. Azure tillhandahåller DNS-tjänster för både [offentliga][DNS] och [privata] [ PrivateDNS] namnmatchning. Privata zoner ange namnmatchning både inom ett virtuellt nätverk och mellan virtuella nätverk. Du kan ha privata zoner som inte bara span över virtuella nätverk i samma region, utan även över regioner och prenumerationer. För matchning av offentliga Azure DNS ger värdtjänsten för DNS-domäner att tillhandahålla namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster.
 -   [** Prenumeration] [ SubMgmt] och [resursgruppen Management][RGMgmt]**. En prenumeration definierar en naturlig gräns för att skapa flera grupper av resurser i Azure. Resurser i en prenumeration är sammanfogas i logiska behållare med namnet resursgrupper. Resursgruppen representerar en logisk grupp att ordna resurser av en vDC.
 -   [**RBAC**][RBAC]. Via RBAC är det möjligt att mappa organisationsroller tillsammans med behörighet att komma åt specifika Azure-resurser, så att du kan begränsa användare till endast en viss delmängd av åtgärder. Med RBAC, kan du bevilja åtkomst genom att tilldela användare, grupper och program inom relevanta omfånget rätt roll. Omfånget för en rolltilldelning kan vara en Azure-prenumeration, resursgrupp eller en enskild resurs. RBAC kan arv av behörigheter. En roll som tilldelats en överordnad omfattning även ger åtkomst till underordnade som finns i den. Med RBAC kan du särskilja uppgifter och ge bara mängden åtkomst till användare som de behöver för att utföra sitt arbete. Till exempel använda RBAC så att en medarbetare som hanterar virtuella datorer i en prenumeration medan en annan kan hantera SQL DBs inom samma prenumeration.
--   [**VNet-Peering**][VNetPeering]. Grundläggande funktion som används för att skapa en vDC-infrastruktur är VNet-Peering, en funktion som ansluter två virtuella nätverk (Vnet) i samma region via nätverket av Azure-datacentret.
+-   [**VNet-Peering**][VNetPeering]. Grundläggande funktion som används för att skapa en vDC-infrastruktur är VNet-Peering, en funktion som ansluter två virtuella nätverk (Vnet) i samma region via Azure datacenternätverket eller med hjälp av Azure globalt basen mellan regioner.
 
 #### <a name="component-type-perimeter-networks"></a>Komponenttyp: Perimeternätverk
 [Perimeternätverk] [ DMZ] komponenter (även kallat DMZ nätverk) kan du ange nätverksanslutning med din lokala eller fysiska datacenternätverk, tillsammans med någon anslutning till och från Internet. Det är också där din nätverks- och team som är sannolikt tillbringar större delen av tiden.
@@ -206,7 +206,7 @@ Perimeternätverk nätverkskomponenter innehåller följande funktioner:
 -   [Virtuella nätverk][VNet], [UDR][UDR], [NSG][NSG]
 -   [Virtuell nätverksenhet][NVA]
 -   [Belastningsutjämnare][ALB]
--   [Application Gateway][AppGW] / [WAF][WAF]
+-   [Programgateway][AppGW] / [Brandvägg][WAF]
 -   [Offentliga IP-adresser][PIP]
 
 Vanligtvis central IT och säkerhet team har ansvar för Kravdefinition av och drift av perimeternätverk.
@@ -244,6 +244,8 @@ Azure belastningsutjämnare kan avsökning hälsotillståndet för de olika serv
 
 Azure erbjuder olika typer av loggning och övervakning av tjänster för att spåra beteendet för Azure värdbaserade resurser. Styrning och kontroll av arbetsbelastningar i Azure är baserat inte bara på att samla in loggdata, men också möjligheten att utlösaråtgärder baserat på specifika rapporterade händelser.
 
+[**Azure-Monitor** ] [ Monitor] -Azure innehåller flera tjänster som utför en specifik roll eller aktivitet individuellt i övervakningsutrymmet. Tillsammans levererar tjänsterna en heltäckande lösning för att samla in, analysera och fungerar på telemetri från ditt program och Azure-resurser som stöder dessa. De kan också fungera om du vill övervaka kritiska lokala resurser för att tillhandahålla en hybrid övervakning miljö. Det första steget i att utveckla en fullständig övervakning strategi för ditt program är att förstå de verktyg och data som är tillgängliga.
+
 Det finns två typer av loggar i Azure:
 
 -   [**Aktivitetsloggar** ] [ ActLog] (kallas även ”arbetsloggen”) ger kunskaper om de åtgärder som utfördes på resurser i Azure-prenumerationen. De här loggarna rapporterar kontroll-plan händelser för dina prenumerationer. Alla resurser i Azure ger granskningsloggar.
@@ -259,9 +261,11 @@ Det är mycket viktigt att spåra NSG: er loggar, särskilt informationen i en v
 
 Alla loggar kan lagras i Azure Storage-konton för granskning, statiska analys eller säkerhetskopiering. När loggarna lagras i ett Azure storage-konto, kan kunder använda olika typer av ramverk för att hämta, Förbered dig, analysera och visualisera informationen om du vill rapportera statusen och hälsan på molnresurser.
 
-Stora företag bör redan har fått ett ramverk som standard för att övervaka lokalt system och kan utöka ramverket för att integrera loggar som genereras av distributioner. För organisationer som vill behålla all loggning i molnet, [logganalys] [ LogAnalytics] är ett bra alternativ. Eftersom logganalys implementeras som en molnbaserad tjänst kan du låta det igång snabbt med minimal investering i infrastrukturtjänster. Log Analytics kan också integreras med System Center-komponenter, till exempel System Center Operations Manager för att utöka din befintliga management investeringar i molnet.
+Stora företag bör redan har fått ett ramverk som standard för att övervaka lokalt system och kan utöka ramverket för att integrera loggar som genereras av distributioner. För organisationer som vill hålla all loggning i molnet, är [logganalys] [LogAnalytics] ett bra alternativ. Eftersom logganalys implementeras som en molnbaserad tjänst kan du låta det igång snabbt med minimal investering i infrastrukturtjänster. Log Analytics kan också integreras med System Center-komponenter, till exempel System Center Operations Manager för att utöka din befintliga management investeringar i molnet.
 
 Log Analytics är en tjänst i Azure som hjälper dig att samla in, korrelera, söka och fungerar på loggen och prestanda data som genereras av operativsystem, program och infrastrukturkomponenter för molnet. Den ger kunder realtid åtgärdsinformation som använder integrerad sökning och anpassade instrumentpaneler för att analysera alla poster över alla arbetsbelastningar i en vDC.
+
+Den [Network Performance Monitor (NPM)] [ NPM] lösning i OMS kan tillhandahålla detaljerad network information slutpunkt till slutpunkt, inklusive en enda vy av dina Azure-nätverk och lokala nätverk. Med specifika Övervakare för ExpressRoute- och offentliga tjänster.
 
 #### <a name="component-type-workloads"></a>Komponenttyp: arbetsbelastningar
 Komponenter för arbetsbelastningen är där dina faktiska program och tjänster finns. Det är också där dina program utvecklingsgrupper tillbringar större delen av tiden.
@@ -276,7 +280,7 @@ Line-of-business-program är datorn kritiska till den pågående åtgärden på 
 -   **Datadrivna**. LOB-program är data beräkningsintensiva ofta åtkomst till databaserna eller annat lagringsutrymme.
 -   **Integrerad**. LOB-program erbjudande integrering med andra system inom eller utanför organisationen.
 
-**Kundinriktade webbplatser (Internet eller internt inriktad)** de flesta program som kommunicerar med Internet är webbplatser. Azure erbjuder möjligheten att köra en webbplats på en IaaS-VM eller från en [Azure Web Apps] [ WebApps] plats (PaaS). Azure Web Apps stöd för integrering med Vnet som gör att distributionen av Web Apps i ekrar av en vDC. Med VNET-integreringen behöver du inte visa en Internet-slutpunkt för dina program, men kan använda resurser privata icke-dirigerbara Internetadressen från ditt privata virtuella nätverk i stället.
+**Kundinriktade webbplatser (Internet eller internt inriktad)** de flesta program som kommunicerar med Internet är webbplatser. Azure erbjuder möjligheten att köra en webbplats på en IaaS-VM eller från en [Azure Web Apps] [ WebApps] plats (PaaS). Azure Web Apps stöd för integrering med Vnet som gör att distributionen av Web Apps i ekrar av en vDC. När du tittar på interna Internetriktade webbplatser med VNET-integreringen behöver du inte visa en Internet-slutpunkt för dina program, men kan använda resurser via privata icke-dirigerbara Internetadresser från ditt privata virtuella nätverk i stället.
 
 **Stor dataanalys** när data behöver skala upp till en mycket stor volym databaser kan inte skalas upp korrekt. Hadoop-teknik ger ett system för att köra distribuerade frågor parallellt på många noder. Kunder har möjlighet att köra arbetsbelastningar för data i IaaS-VM eller PaaS ([HDInsight][HDI]). HDInsight stöder distribution i en plats-baserade virtuella nätverk, kan distribueras till ett kluster i en talade vDC.
 
@@ -308,11 +312,12 @@ Implementeringen av en plan för katastrofåterställning är starkt relaterad t
 
 Synkronisering eller heartbeat-övervakning av program i olika VDC kräver kommunikation mellan dem. Två VDC i olika regioner kan vara ansluten via:
 
+-   VNet-Peering - VNet-Peering kan ansluta hubbar över regioner
 -   ExpressRoute privat peering när vDC hubbarna är anslutna till samma ExpressRoute-krets
 -   flera ExpressRoute-kretsar kopplad via din företagets stamnät och vDC-nät för ExpressRoute-kretsar
 -   Plats-till-plats VPN-anslutningar mellan vDC-hubbar i varje Azure-Region
 
-ExpressRoute-anslutningen är vanligtvis den förvalda mekanismen på grund av högre bandbredd och konsekvent fördröjning när transporteras via Microsoft-stamnät.
+VNet-Peering eller ExpressRoute kopplingar är vanligtvis den förvalda mekanismen på grund av högre bandbredd och konsekvent fördröjning när transporteras via Microsoft-stamnät.
 
 Det finns inga magiskt recept att validera ett program som distribueras mellan två (eller fler) olika VDC i olika områden. Kunder bör köra kriteriet nätverkstester för att verifiera den latens och bandbredden för anslutningar och mål om synkron eller asynkron replikering är rätt och den optimala recovery tid mål för Återställningstid kan vara för din arbetsbelastning.
 
@@ -330,11 +335,11 @@ Följande funktioner beskrivs i det här dokumentet. Klicka på länkarna om du 
 | | | |
 |-|-|-|
 |Nätverksfunktioner|Belastningsutjämning|Anslutning|
-|[Virtuella Azure-nätverk][VNet]</br>[Nätverkssäkerhetsgrupper][NSG]</br>[NSG-loggar][NSGLog]</br>[Användardefinierade Routning][UDR]</br>[Virtuella nätverksenheter][NVA]</br>[Offentliga IP-adresser][PIP]|[Azure belastningsutjämnare (L3) ][ALB]</br>[Programgateway (L7) ][AppGW]</br>[Brandvägg för webbaserade program][WAF]</br>[Azure Traffic Manager][TM] |[VNet-Peering][VNetPeering]</br>[Virtuellt privat nätverk][VPN]</br>[ExpressRoute][ExR]
+|[Virtuella Azure-nätverk][VNet]</br>[Nätverkssäkerhetsgrupper][NSG]</br>[NSG-loggar][NSGLog]</br>[Användardefinierade Routning][UDR]</br>[Virtuella nätverksenheter][NVA]</br>[Offentliga IP-adresser][PIP]</br>[DNS]|[Azure belastningsutjämnare (L3) ][ALB]</br>[Programgateway (L7) ][AppGW]</br>[Brandvägg för webbaserade program][WAF]</br>[Azure Traffic Manager][TM] |[VNet-Peering][VNetPeering]</br>[Virtuellt privat nätverk][VPN]</br>[ExpressRoute][ExR]
 |Identitet</br>|Övervakning</br>|Metodtips</br>|
-|[Azure Active Directory][AAD]</br>[Multifaktorautentisering][MFA]</br>[Rollen grundläggande åtkomstkontroller][RBAC]</br>[Standardroller i AAD][Roles] |[Aktivitetsloggar][ActLog]</br>[Diagnostikloggar][DiagLog]</br>[Log Analytics][LogAnalytics]</br> |[Metodtips för perimeter-nätverk][DMZ]</br>[Prenumerationshantering][SubMgmt]</br>[Hantering av resursgruppen.][RGMgmt]</br>[Azure-prenumerationsbegränsningar][Limits] |
+|[Azure Active Directory][AAD]</br>[Multifaktorautentisering][MFA]</br>[Rollen grundläggande åtkomstkontroller][RBAC]</br>[Standardroller i AAD][Roles] |[Övervakare för Azure][Monitor]</br>[Aktivitetsloggar][ActLog]</br>[Diagnostikloggar][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br>[Network Performance Monitor][NPM]|[Metodtips för perimeter-nätverk][DMZ]</br>[Prenumerationshantering][SubMgmt]</br>[Hantering av resursgruppen.][RGMgmt]</br>[Azure-prenumerationsbegränsningar][Limits] |
 |Andra Azure-tjänster|
-|[Azure Web Apps][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
+|[Azure-Webbappar][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
 
 
 
@@ -358,12 +363,14 @@ Följande funktioner beskrivs i det här dokumentet. Klicka på länkarna om du 
 
 <!--Link References-->
 [Limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits
-[Roles]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles
+[Roles]: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
 [VNet]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
-[NSG]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg 
+[NSG]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
+[DNS]: https://docs.microsoft.com/azure/dns/dns-overview
+[PrivateDNS]: https://docs.microsoft.com/azure/dns/private-dns-overview
 [VNetPeering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview 
 [UDR]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview 
-[RBAC]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
+[RBAC]: https://docs.microsoft.com/azure/role-based-access-control/overview
 [MFA]: https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication
 [AAD]: https://docs.microsoft.com/azure/active-directory/active-directory-whatis
 [VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways 
@@ -376,10 +383,12 @@ Följande funktioner beskrivs i det här dokumentet. Klicka på länkarna om du 
 [PIP]: https://docs.microsoft.com/azure/virtual-network/resource-groups-networking#public-ip-address
 [AppGW]: https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
 [WAF]: https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview
+[Monitor]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/
 [ActLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs 
 [DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
-[LogAnalytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-overview
+[OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
+[NPM]: https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor
 [WebApps]: https://docs.microsoft.com/azure/app-service/
 [HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 

@@ -1,6 +1,6 @@
 ---
-title: "Kom igång med enheten simuleringen lösningen - Azure | Microsoft Docs"
-description: "IoT Suite simuleringen lösningen är ett verktyg som kan användas för att hjälpa utvecklingen och testningen av en IoT-lösning. Tjänsten simuleringen är ett fristående erbjudande som kan användas tillsammans med andra förkonfigurerade lösningar eller användas med din egen anpassade lösningar."
+title: Kom igång med enheten simuleringen lösningen - Azure | Microsoft Docs
+description: IoT Suite simuleringen lösningen är ett verktyg som kan användas för att hjälpa utvecklingen och testningen av en IoT-lösning. Tjänsten simuleringen är ett fristående erbjudande som kan användas tillsammans med andra förkonfigurerade lösningar eller användas med din egen anpassade lösningar.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 2a9a6f3387b7f9fb4e3896fc55a06ac4a902ad24
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1452508822f08d4554f419a72f7e9e6018a52469
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="device-simulation-walkthrough"></a>Enheten simuleringen genomgång
 
@@ -24,7 +24,7 @@ Azure IoT-enhet simuleringen är ett verktyg som kan användas för att hjälpa 
 
 Den här självstudiekursen vägleder dig igenom några av funktionerna i enheten simuleringen. Den visar hur det fungerar och gör att du kan använda den för att testa din egen IoT-lösningar.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 >[!div class="checklist"]
 > * Konfigurera en simulering
@@ -41,11 +41,11 @@ Om du inte har distribuerat enheten simuleringen ännu, bör du genomföra den [
 
 Du kan konfigurera och köra enheten simuleringen helt från instrumentpanelen. Öppna instrumentpanelen från IoT Suite [etablerade lösningar](https://www.azureiotsuite.com/) sidan. Klicka på **starta** under distributionen av nya enheter simuleringen.
 
-### <a name="target-iot-hub"></a>Target IoT Hub
+### <a name="target-iot-hub"></a>Målet IoT-hubb
 
 Du kan använda enheten simuleringen företablerad IoT-hubb eller med andra IoT-hubb:
 
-![Target IoT Hub](media/iot-suite-device-simulation-explore/targethub.png)
+![Målet IoT-hubb](media/iot-suite-device-simulation-explore/targethub.png)
 
 > [!NOTE]
 > Alternativet att använda en företablerad IoT-hubb är endast tillgängligt om du valde att skapa en ny IoT-hubb när du distribuerade enheten simuleringen. Om du inte har en IoT-hubb, kan du alltid skapa en ny från den [Azure-portalen](https://portal.azure.com).
@@ -69,22 +69,22 @@ Enhetsmodellen kan du välja vilken typ av enhet för att simulera. Du kan välj
 
 Enheten simuleringen innehåller tre förkonfigurerade enhetsmodeller. Enhetsmodeller för Chillers och hissar lastbilar är tillgängliga.
 
-Förkonfigurerade enhetsmodeller innehåller flera med en frekvens som är förinställt telemetri. Du kan anpassa telemetri frekvensen för dessa enheter.
+Förkonfigurerade enhetsmodeller inkluderar flera sensorer med avancerade funktioner som definierats i en JavaScript-fil. Dessa anpassade beteenden stöds inte i webbgränssnittet. 
 
 I följande tabell visas en lista över konfigurationer för varje förkonfigurerade enhetsmodell:
 
-| Enhetsmodell | Sensor | Enhet | Telemetri frekvens
-| -------------| ------ | -----| --------------------|
-| Kylaggregat | fuktighet | % | 5 sekunder |
-| | tryck | psig | 5 sekunder |
-| | Temperatur | F | 5 sekunder |
-| Snabba | våning | | 5 sekunder |
-| | Vibration | mm | 5 sekunder |
-| | Temperatur | F | 5 sekunder |
-| Lastbil | Latitud | | 3 sekunder |
-| | Longitud | | 3 sekunder |
-| | Hastighet | mph | 5 sekunder |
-| | cargotemperature | F | 5 sekunder |
+| Enhetsmodell | Temperatursensor | Enhet | 
+| -------------| ------ | -----| 
+| Kylaggregat | fuktighet | % |
+| | tryck | psig | 
+| | Temperatur | F | 
+| Snabba | våning | 
+| | Vibration | mm | 
+| | Temperatur | F | 
+| Lastbil | Latitud | |
+| | Longitud | | 
+| | Hastighet | mph | 
+| | cargotemperature | F | 
 
 #### <a name="custom-device-model"></a>Anpassade enhetsmodell
 
@@ -106,7 +106,7 @@ Anpassade sensorer har följande egenskaper:
 
 ### <a name="number-of-devices"></a>Antal enheter
 
-Enheten simuleringen kan för närvarande du simulera upp till 1 000 enheter.
+Enheten simuleringen kan för närvarande du simulera upp till 20 000 enheter.
 
 ![Antal enheter](media/iot-suite-device-simulation-explore/numberofdevices.png)
 

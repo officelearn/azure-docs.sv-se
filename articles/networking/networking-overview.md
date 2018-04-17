@@ -1,13 +1,13 @@
 ---
-title: "Azure-nätverk | Microsoft Docs"
-description: "Lär dig mer om Azure nätverkstjänster och funktioner."
+title: Azure-nätverk | Microsoft Docs
+description: Lär dig mer om Azure nätverkstjänster och funktioner.
 services: networking
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a4f1c7c3342a2a78a2a5b765bd688bed4c85392f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-networking"></a>Azure-nätverk
 
@@ -138,7 +138,7 @@ Azure tillhandahåller följande verktyg för att övervaka och hantera nätverk
 - **Diagnostikloggar:** Periodisk och eget initiativ händelser har skapats av nätverksresurser och loggas i Azure storage-konton, skickas till en Azure-Händelsehubb eller skickas till Azure logganalys. Diagnostikloggar ger information om hälsotillståndet för en resurs. Diagnostikloggar har angetts för belastningsutjämnaren (Internet-inriktad), Nätverkssäkerhetsgrupper, vägar och Application Gateway. Mer information om diagnostiska loggar den [diagnostikloggar översikt](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - **Mått:** är prestandamått och räknare som samlas in under en tidsperiod på resurser. Mått kan användas för att utlösa varningar baserat på tröskelvärden. Mått är för närvarande tillgängliga på Application Gateway. Mer information om mått på [mått översikt](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - **Felsökning:** felsökningsinformation är tillgänglig direkt i Azure-portalen. Informationen kan felsöka vanliga problem med ExpressRoute, VPN-Gateway, Programgateway, säkerhetsloggar i nätverket, vägar, DNS, belastningsutjämnare och Traffic Manager.
-- **Rollbaserad åtkomstkontroll (RBAC):** styra vem som kan skapa och hantera nätverksresurser med rollbaserad åtkomstkontroll (RBAC). Mer information om RBAC genom att läsa den [Kom igång med RBAC](../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel. 
+- **Rollbaserad åtkomstkontroll (RBAC):** styra vem som kan skapa och hantera nätverksresurser med rollbaserad åtkomstkontroll (RBAC). Mer information om RBAC genom att läsa den [Kom igång med RBAC](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel. 
 - **Paketinsamling:** Nätverksbevakaren i Azure service ger dig möjlighet att köra en paketinsamling på en virtuell dator via ett tillägg i den virtuella datorn. Den här funktionen är tillgänglig för Linux och Windows-datorer. Mer information om paketinsamling den [paket avbilda översikt](../network-watcher/network-watcher-packet-capture-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - **Kontrollera IP-flöden:** Nätverksbevakaren kan du kontrollera IP-flöden mellan en Azure VM och en fjärresurs för att fastställa om paket tillåts eller nekas. Den här funktionen ger administratörer möjlighet att snabbt diagnostisera problem med nätverksanslutningen. Mer information om hur du kontrollerar IP-flöden på [IP-flöde Kontrollera översikt](../network-watcher/network-watcher-ip-flow-verify-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - **Felsökning av VPN-anslutningar:** VPN-felsökaren möjligheterna för Nätverksbevakaren ger möjlighet att fråga en anslutning eller gateway och kontrollera hälsotillståndet för resurser. Mer information om felsökning av VPN-anslutningar i [felsökning översikt över VPN-anslutning](../network-watcher/network-watcher-troubleshoot-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.

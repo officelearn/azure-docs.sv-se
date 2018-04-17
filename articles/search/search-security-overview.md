@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: 35f875e5f6345b9ebb9abc4deb71b7bf9c78907d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 95c1f209d51093c3f2bf2555f987983a85f2bf09
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-and-controlled-access-in-azure-search"></a>Säkerhet och kontrollerad åtkomst i Azure Search
 
@@ -51,7 +51,7 @@ Kryptering i vila har angivits i 24 januari 2018 och gäller för alla serviceni
 Flera säkerhetsmekanismer finns tillgängliga via Azure-stacken och därmed automatiskt tillgängliga i Azure Search-resurser som du skapar.
 
 + [Lås i prenumerationen eller resursen nivå för att förhindra att tas bort](../azure-resource-manager/resource-group-lock-resources.md)
-+ [Rollbaserad åtkomstkontroll (RBAC) att styra åtkomsten till information och administrativa åtgärder](../active-directory/role-based-access-control-what-is.md)
++ [Rollbaserad åtkomstkontroll (RBAC) att styra åtkomsten till information och administrativa åtgärder](../role-based-access-control/overview.md)
 
 Alla Azure-tjänster stöder rollbaserad åtkomstkontroll (RBAC) för att ställa in åtkomstnivåer konsekvent över alla tjänster. Till exempel är visa känsliga data, till exempel admin-nyckel begränsad till ägare och deltagare roller, visa Tjänststatus för är tillgänglig för medlemmar i någon roll. RBAC ger ägare, deltagare och läsare. Som standard är alla administratörer medlemmar i rollen som ägare.
 

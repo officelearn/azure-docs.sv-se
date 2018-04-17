@@ -1,11 +1,11 @@
 ---
 title: Migrera dina data till SQL Data Warehouse | Microsoft Docs
-description: "Tips för att migrera dina data till Azure SQL Data Warehouse för utveckling av lösningar."
+description: Tips för att migrera dina data till Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: d78f954a-f54c-4aa4-9040-919bc6414887
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 06/29/2017
 ms.author: joeyong;barbkess
-ms.openlocfilehash: 0d156bc2eecf8220bd5ff4eb811d91482f216837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fbab223963989eab16cecea2facd9c15ba646d4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-your-data"></a>Migrera dina Data
 Data kan flyttas från olika källor till din SQL Data Warehouse med en olika verktyg.  ADF kopiera, SSIS och bcp kan alla användas för att uppnå det här målet. Som mängden data ökar bör du dock tänka bryta ned migrering av data i steg. Detta ger möjlighet att optimera varje steg både för prestanda och återhämtning att säkerställa en smidig datamigrering.
@@ -190,10 +190,11 @@ För fler utvecklingstips, se [utvecklingsöversikt][development overview].
 [ADF samples]: ../data-factory/v1/data-factory-samples.md
 [ADF Copy examples]: ../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md
 [development overview]: sql-data-warehouse-overview-develop.md
+[migrera schemat]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
-[Use PolyBase to load data into SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
+[Use PolyBase to load data into SQL Data Warehouse]: load-data-wideworldimportersdw.md
 
 
 <!--MSDN references-->

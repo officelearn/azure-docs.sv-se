@@ -1,6 +1,6 @@
 ---
-title: Reagera på Azure Blob Storage-händelser | Microsoft Docs
-description: Använda Azure händelse rutnätet för att prenumerera på Blob Storage-händelser.
+title: Reagera på Azure Blob storage-händelser | Microsoft Docs
+description: Använd Azure Event Grid för att prenumerera på Blob Storage-händelser.
 services: storage,event-grid
 keywords: ''
 author: cbrooksmsft
@@ -8,17 +8,17 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: ea2ec712c8d8b5f85f020535ab0544986f0da53a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2762466c0130ead36372a93f4c3b852cb378a02a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="reacting-to-blob-storage-events"></a>Reagera på Blob Storage-händelser
+# <a name="reacting-to-blob-storage-events"></a>Reagera på Blob storage-händelser
 
 Azure Storage-händelser kan reagera på Skapa och ta bort blobbar med moderna serverlösa arkitekturer program. Detta sker utan att behöva komplicerad kod eller dyrt och ineffektiv avsökning tjänster.  I stället händelser skickas [Azure händelse rutnätet](https://azure.microsoft.com/services/event-grid/) till prenumeranter som [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logikappar](https://azure.microsoft.com/services/logic-apps/), eller till och med din egen anpassade http-lyssnare och du bara betala för det du använder. 
 
-Vanliga scenarier för Blob Storage-händelse innehåller bild- eller bearbetning, Sökindexeringen eller något filen indatavärdena arbetsflöde.  Asynkrona filöverföringar är ett bra val för händelser.  När ändringarna är ovanligt, men din situation kräver omedelbara svarstider, kan händelse-baserad arkitektur vara särskilt effektivt.
+Vanliga scenarier för Blob storage händelse innehåller bild- eller bearbetning, Sökindexeringen eller något filen indatavärdena arbetsflöde.  Asynkrona filöverföringar är ett bra val för händelser.  När ändringarna är ovanligt, men din situation kräver omedelbara svarstider, kan händelse-baserad arkitektur vara särskilt effektivt.
 
 Tillgänglighet för Storage-händelser som är knutna till händelse rutnätet [tillgänglighet](../../event-grid/overview.md) och ska vara tillgänglig i andra regioner som händelsen rutnätet. Ta en titt på [väg Blob storage-händelser till en egen webbserver endpoint - CLI](storage-blob-event-quickstart.md) eller [väg Blob storage-händelser till en egen webbserver endpoint - PowerShell](storage-blob-event-quickstart-powershell.md) för ett enkelt exempel. 
 
@@ -51,7 +51,7 @@ Mer information om användningen av händelse rutnätet händelseegenskaper doku
 > |data|objekt|Insamling av data för blob storage-händelse|
 > |data.contentType|sträng|Innehållstypen för blob, som returneras i Content-Type-huvudet från blob|
 > |data.contentLength|nummer|Storleken på blobben som heltal som representerar ett antal byte som returneras i Content-Length-huvudet från blob.  Skickas med BlobCreated händelse, men inte med BlobDeleted.|
-> |data.url|sträng|URL-adressen för det objekt som omfattas av händelsen|
+> |data.URL|sträng|URL-adressen för det objekt som omfattas av händelsen|
 > |data.eTag|sträng|Etag för objektet när den här händelsen utlöses.  Inte tillgängligt för händelsen BlobDeleted.|
 > |data.api|sträng|Namnet på api-åtgärden som utlöste händelsen.  Det här värdet är ”PutBlob”, ”PutBlockList” eller ”CopyBlob” för BlobCreated händelser.  Det här värdet är ”DeleteBlob” för BlobDeleted händelser.  Dessa värden är samma api-namn som finns i Azure Storage diagnostikloggar.  Se [loggade åtgärder och statusmeddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
 > |data.sequencer|sträng|En täckande värde som representerar logiska händelsesekvens för namn på en viss blob.  Användarna kan använda standard strängjämförelse för att förstå relativa sekvensen av två händelser i samma blob-namn.|
@@ -92,7 +92,7 @@ BLOB händelseprenumerationer kan filtreras baserat på vilken typ av händelse 
 
 Ämnet för Blob storage-händelser använder formatet:
 
-```json
+```
 /blobServices/default/containers/<containername>/blobs/<blobname>
 ```
 
@@ -100,19 +100,19 @@ Om du vill matcha alla händelser för ett lagringskonto kan du lämna ämne fil
 
 Om du vill matcha händelser från BLOB som skapats i en behållare som delar ett prefix, använda en `subjectBeginsWith` filtrera som:
 
-```json
+```
 /blobServices/default/containers/containerprefix
 ```
 
 Om du vill matcha händelser från BLOB som skapats i en specifik behållare använder en `subjectBeginsWith` filtrera som:
 
-```json
+```
 /blobServices/default/containers/containername/
 ```
 
 Om du vill matcha händelser från BLOB som skapats i en specifik behållare som delar ett blob-namnprefix använder en `subjectBeginsWith` filtrera som:
 
-```json
+```
 /blobServices/default/containers/containername/blobs/blobprefix
 ```
 

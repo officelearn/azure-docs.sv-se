@@ -16,21 +16,19 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b0cb9b4003faa2ccdd07ccc78c2095472690f0e7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 89a4216a3893892eedd6c216c7e0e5d51cf64749
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>Azure skriva snabbtangenten för SAP-distributioner
 Azure skriva Accelerator är en funktion som hämtar lyfts för virtuella datorer M-serien exklusivt. Azure skriva Accelerator är inte tillgänglig i alla andra VM-serien i Azure, förutom M-serien. Som namnet tillstånd, är syftet med funktionen för att förbättra i/o-fördröjningen för skrivningar mot Azure Premium-lagring. 
 
->[!NOTE]
-> Nu Azure skriva Accelerator är tillgänglig som förhandsversion och kräver vitt-lista över Azure prenumerations-ID
-
 Azure skriva Accelerator-funktionen är tillgänglig för distribution av M-serien som förhandsversion i:
 
 - Västra US2
+- Östra US2
 - Västeuropa
 - Sydostasien
 
@@ -44,8 +42,15 @@ Azure skriva Accelerator fungerar bara tillsammans med [Azure hanterade diskar](
 
 Det finns begränsningar för Azure Premium Storage virtuella hårddiskar per virtuell dator som stöds av Azure skriva Accelerator. Aktuella begränsningar är:
 
-- 16 virtuella hårddiskar för en M128xx VM
-- 8 virtuella hårddiskar för en M64xx VM
+
+| VM-SKU | Antal skriva Accelerator diskar | Skriva Accelerator IOPS per VM |
+| --- | --- | --- |
+| M128ms | 16 | 8000 |
+| M128s | 16 | 8000 |
+| M64ms | 8 | 4000 |
+| M64s | 8 | 4000 | 
+
+
 
 > [!IMPORTANT]
 > Om du vill aktivera eller inaktivera Azure skriva snabbtangenten för en befintlig volym som har skapats utanför flera Azure Premium Storage diskar och stripe-volymer med hjälp av Windows-disken eller volymen chefer lagringsutrymmen för Windows, Windows skalbar filserver (SOFS), Linux LVM eller MDADM alla diskar skapa volymen måste vara aktiverat eller inaktiverat för skriva Accelerator i separata steg. **Innan du aktiverar eller inaktiverar skriva Accelerator i en sådan konfiguration, stänga av Virtuella Azure**. 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: ac9c762327dd8d2eb9e4dd9a79fc2bfa87241f14
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 55de110c61b2b7603c2f01483e28d12032b732c3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort ett virtuellt nätverk-peering
 
@@ -71,7 +71,7 @@ Stegvisa instruktioner för att implementera peering mellan virtuella nätverk f
 ### <a name="commands"></a>Kommandon
 
 - **Azure CLI**: [az network vnet-peering skapa](/cli/azure/network/vnet/peering#create)
-- **PowerShell**: [Add-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering)
+- **PowerShell**: [lägga till AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering)
 
 ## <a name="view-or-change-peering-settings"></a>Visa eller ändra peering inställningar
 
@@ -108,7 +108,7 @@ Om du vill att virtuella nätverk ska kunna kommunicera ibland, men inte alltid,
 **Kommandon**
 
 - **Azure CLI**: [az network vnet peering ta bort](/cli/azure/network/vnet/peering#az_network_vnet_peering_delete)
-- **PowerShell**: [Remove-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering)
+- **PowerShell**: [ta bort AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering)
 
 ## <a name="requirements-and-constraints"></a>Krav och begränsningar 
 
@@ -134,18 +134,18 @@ Om du vill att virtuella nätverk ska kunna kommunicera ibland, men inte alltid,
     - Resurser i ett virtuellt nätverk inte kan kommunicera med IP-adressen för en Azure intern belastningsutjämnare i peered virtuella nätverk. Belastningsutjämnaren och resurser som kommunicerar med den måste vara i samma virtuella nätverk.
     - Du kan inte använda remote gateways eller tillåta gateway-överföring. För att använda remote gateways eller tillåta överföring av gateway, måste båda virtuella nätverken i peering finns i samma region. 
 
-## <a name="permissions"></a>Behörighet
+## <a name="permissions"></a>Behörigheter
 
 De konton som du använder för att skapa ett virtuellt nätverk som peering måste ha rollen eller nödvändiga behörigheter. Om du peering två virtuella nätverk med namnet till exempel *myVnetA* och *myVnetB*, ditt konto måste tilldelas rollen följande minsta eller behörigheter för varje virtuellt nätverk:
     
-|Virtuellt nätverk|Distributionsmodell|Roll|Behörighet|
+|Virtuellt nätverk|Distributionsmodell|Roll|Behörigheter|
 |---|---|---|---|
-|myVnetA|Resource Manager|[Nätverksdeltagare](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Klassisk|[Klassisk nätverksdeltagare](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Saknas|
-|myVnetB|Resource Manager|[Nätverksdeltagare](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||Klassisk|[Klassisk nätverksdeltagare](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
+|myVnetA|Resource Manager|[Nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+| |Klassisk|[Klassisk nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Gäller inte|
+|myVnetB|Resource Manager|[Nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+||Klassisk|[Klassisk nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
-Lär dig mer om [inbyggda roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) och tilldela särskilda behörigheter till [anpassade roller](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (enbart Resource Manager).
+Lär dig mer om [inbyggda roller](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) och tilldela särskilda behörigheter till [anpassade roller](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (enbart Resource Manager).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -158,4 +158,4 @@ Lär dig mer om [inbyggda roller](../active-directory/role-based-access-built-in
     |En Resource Manager, en klassisk  |[Samma](create-peering-different-deployment-models.md)|
     |                                   |[Olika](create-peering-different-deployment-models-subscriptions.md)|
 
-* Lär dig hur du skapar en [nätverkets topologi för NAV och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+* Lär dig hur du skapar en [nätverkstopologi med nav och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).

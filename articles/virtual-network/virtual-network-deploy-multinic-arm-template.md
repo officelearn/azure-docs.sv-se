@@ -1,11 +1,11 @@
 ---
-title: "Skapa en virtuell dator med flera nätverkskort – Azure Resource Manager-mall | Microsoft Docs"
-description: "Skapa en virtuell dator med flera nätverkskort med en Azure Resource Manager-mall."
+title: Skapa en virtuell dator med flera nätverkskort – Azure Resource Manager-mall | Microsoft Docs
+description: Skapa en virtuell dator med flera nätverkskort med en Azure Resource Manager-mall.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 486f7dd5-cf2f-434c-85d1-b3e85c427def
 ms.service: virtual-network
@@ -17,10 +17,10 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 85bfa264c6cf2b0586816a47b3ab72f3aee8ec96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-vm-with-multiple-nics-using-a-template"></a>Skapa en virtuell dator med flera nätverkskort med en mall
 [!INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 Följande steg använder en resursgrupp med namnet *IaaSStory* för webbservrar och en resursgrupp med namnet *IaaSStory BackEnd* för DB-servrar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du kan skapa DB-servrar, måste du skapa den *IaaSStory* resursgrupp med alla nödvändiga resurser för det här scenariot. För att skapa dessa resurser, gör du följande:
 
 1. Gå till [på mallsidan](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
@@ -248,7 +248,7 @@ Bilden nedan visar innehållet i den nya resursgruppen efter distributionen.
 ## <a name="deploy-the-template-by-using-powershell"></a>Distribuera mallen med hjälp av PowerShell
 Om du vill distribuera mallen som du hämtade med hjälp av PowerShell, installerar och konfigurerar PowerShell genom att slutföra stegen i den [installerar och konfigurerar PowerShell](/powershell/azure/overview) artikel och utför sedan följande steg:
 
-Kör den  **`New-AzureRmResourceGroup`**  för att skapa en resursgrupp med hjälp av mallen.
+Kör den **`New-AzureRmResourceGroup`** för att skapa en resursgrupp med hjälp av mallen.
 
 ```powershell
 New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
@@ -294,7 +294,7 @@ Följ stegen nedan om du vill distribuera mallen med hjälp av Azure CLI.
         info:    New mode is arm
 
 3. Öppna den [parameterfilen](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json), Välj dess innehåll och spara den till en fil i datorn. I det här exemplet sparade vi parameterfilen till *parameters.json*.
-4. Kör cmdleten **`azure group deployment create`** för att distribuera det nya VNet med hjälp av mall- och parameterfilerna som du hämtade och ändrade ovan. Listan som visas efter alla utdata förklarar parametrarna som använts.
+4. Kör cmdleten **`azure group deployment create`** för att distribuera det nya VNet med hjälp av mall- och parameterfilerna som du hämtade och ändrade ovan. Listan som visas efter utdatan beskriver de parametrar som används.
 
     ```azurecli
     azure group create -n IaaSStory-Backend -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json -e parameters.json

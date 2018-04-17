@@ -1,8 +1,8 @@
 ---
-title: "Azure SQL database mått och diagnostikloggning | Microsoft Docs"
-description: "Lär dig mer om hur du konfigurerar Azure SQL Database för att lagra Resursanvändning, anslutning och statistik för körning av frågan."
+title: Azure SQL database mått och diagnostikloggning | Microsoft Docs
+description: Lär dig mer om hur du konfigurerar Azure SQL Database för att lagra Resursanvändning, anslutning och statistik för körning av frågan.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: veljko-msft
 manager: craigg
 ms.service: sql-database
@@ -10,11 +10,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b1ac34c97d94f0b8759cb3e6f229ba0f7a2be7c9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mätvärden och diagnostikloggning 
 Azure SQL Database kan generera mätvärden och diagnostikfunktionerna loggar för lättare övervakning. Du kan konfigurera SQL-databasen för att lagra resursanvändning, personal och sessioner och anslutning till en av dessa Azure-resurser:
@@ -32,7 +32,7 @@ Mätvärden och diagnostikfunktionerna loggning är inte aktiverad som standard.
 - Azure Portal
 - PowerShell
 - Azure CLI
-- Azure Monitor REST API 
+- Azure-Monitor REST API 
 - Azure Resource Manager-mall
 
 Du måste ange Azure-resurs där valda data samlas in när du aktiverar mått och diagnostikloggning. Alternativen är:
@@ -191,11 +191,11 @@ Det enklaste sättet att konfigurera där databaserna registrera sina mått är 
 
 ### <a name="install-the-sql-analytics-solution-from-the-gallery"></a>Installera SQL Analytics-lösning från galleriet
 
-1. När du skapar resursen logganalys och dina data flödar till den, installerar du SQL Analytics-lösning. Välj på sidan Operations Management Suite startsida på menyn sida **lösningar galleriet**. I galleriet, väljer du den **Azure SQL Analytics** lösning och välj **Lägg till**.
+1. När du skapar resursen logganalys och dina data flödar till den, installerar du SQL Analytics-lösning. På startsidan på menyn sida väljer **lösningar galleriet**. I galleriet, väljer du den **Azure SQL Analytics** lösning och välj **Lägg till**.
 
    ![övervakningslösning](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
-2. På startsidan Operations Management Suite den **Azure SQL Analytics** panelen visas. Välj den här rutan för att öppna SQL Analytics-instrumentpanelen.
+2. På startsidan, den **Azure SQL Analytics** panelen visas. Välj den här rutan för att öppna SQL Analytics-instrumentpanelen.
 
 ### <a name="use-the-sql-analytics-solution"></a>Använda SQL Analytics-lösning
 
@@ -268,7 +268,7 @@ Lär dig hur du [hämta mätvärden och diagnostikfunktionerna loggar från lagr
 
 |Egenskap|Beskrivning|
 |---|---|
-|TenantId|Klient-ID.|
+|Klient-ID|Klient-ID.|
 |SourceSystem|Alltid: Azure|
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades.|
 |Typ|Alltid: AzureDiagnostics|
@@ -319,7 +319,7 @@ Lär dig mer om [Frågearkivet Körningsdata statistik](https://docs.microsoft.c
 
 |Egenskap|Beskrivning|
 |---|---|
-|TenantId|Klient-ID.|
+|Klient-ID|Klient-ID.|
 |SourceSystem|Alltid: Azure|
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades.|
 |Typ|Alltid: AzureDiagnostics|
@@ -357,7 +357,7 @@ Lär dig mer om [Query Store vänta statistikdata](https://docs.microsoft.com/sq
 
 |Egenskap|Beskrivning|
 |---|---|
-|TenantId|Klient-ID.|
+|Klient-ID|Klient-ID.|
 |SourceSystem|Alltid: Azure|
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades.|
 |Typ|Alltid: AzureDiagnostics|
@@ -386,13 +386,13 @@ Lär dig mer om [felmeddelanden i SQL Server](https://msdn.microsoft.com/library
 
 |Egenskap|Beskrivning|
 |---|---|
-|TenantId|Klient-ID.|
+|Klient-ID|Klient-ID.|
 |SourceSystem|Alltid: Azure|
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades.|
 |Typ|Alltid: AzureDiagnostics|
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL|
 |Kategori|Namnet på kategorin. Alltid: DatabaseWaitStatistics|
-|OperationName|Namnet på åtgärden. Always: DatabaseWaitStatisticsEvent|
+|OperationName|Namnet på åtgärden. Alltid: DatabaseWaitStatisticsEvent|
 |Resurs|Namnet på resursen|
 |ResourceType|Namnet på resurstypen. Alltid: Servrar/databaser|
 |SubscriptionId|Prenumeration GUID som databasen tillhör.|
@@ -415,7 +415,7 @@ Lär dig mer om [databasen vänta statistik](https://docs.microsoft.com/sql/rela
 
 |Egenskap|Beskrivning|
 |---|---|
-|TenantId|Klient-ID.|
+|Klient-ID|Klient-ID.|
 |SourceSystem|Alltid: Azure|
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades.|
 |Typ|Alltid: AzureDiagnostics|
@@ -438,7 +438,7 @@ Lär dig mer om [databasen vänta statistik](https://docs.microsoft.com/sql/rela
 
 |Egenskap|Beskrivning|
 |---|---|
-|TenantId|Klient-ID.|
+|Klient-ID|Klient-ID.|
 |SourceSystem|Alltid: Azure|
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades.|
 |Typ|Alltid: AzureDiagnostics|

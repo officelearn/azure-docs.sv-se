@@ -1,6 +1,6 @@
 ---
-title: "Azure-säkerhet och efterlevnad modell - Storbritannien officiella tre skikt Web Applications Automation"
-description: "Azure-säkerhet och efterlevnad modell - Storbritannien officiella tre skikt Web Applications Automation"
+title: Azure-säkerhet och efterlevnad modell - Storbritannien officiella tre skikt Web Applications Automation
+description: Azure-säkerhet och efterlevnad modell - Storbritannien officiella tre skikt Web Applications Automation
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure-säkerhet och efterlevnad modell - Storbritannien officiella tre skikt Web Applications Automation
 
@@ -44,22 +44,22 @@ ms.lasthandoff: 02/11/2018
 
  Den här lösningen använder följande Azure-tjänster. Information om arkitektur för distribution finns i den [distributionsarkitektur](#deployment-architecture) avsnitt.
 
-(1) /16 Virtual Network - Operational VNet
+((1) /16 virtuellt nätverk - operativa VNet
 - (3) /24 undernät - 3-skikts (webb-, Biz, Data)
 - (1) minst/27 undernät - lägger till
 - ((1) minst/27 undernät - Gateway-undernät
-- (1) /29 subnet - Application Gateway Subnet
+- ((1) /29 undernät - programmet Gateway-undernät
 - Använder som standard (Azure-tillhandahållna) DNS
 - Peering aktiverad till hantering av virtuellt nätverk
 - Nätverkssäkerhetsgrupp (NSG) för att hantera trafikflöde
 
-(1) /24 Virtual Network - Management VNet
+((1) /24 virtuellt nätverk – hantering av virtuellt nätverk
 - ((1) minst/27 undernät
 - Använder (2) lägger till DNS- och (1) Azure DNS-poster
 - Aktiverade till operativa VNet-peering
 - Nätverkssäkerhetsgrupp (NSG) för att hantera trafikflöde
 
-(1) Application Gateway
+(1) Programgateway
 - Brandvägg - aktiverad
 - Brandvägg läge - förebyggande
 - Regelsamlingen: OWASP 3.0
@@ -185,7 +185,7 @@ Dessa Vnet fortfarande hanteras som separata resurser, men visas som en gäller 
 
 ### <a name="identity"></a>Identitet
 
-**Active Directory Domain Services**: den här arkitekturen ger en distribution av Active Directory Domain Services i Azure. För specifika rekommendationer om hur du implementerar Active Directory i Azure finns i följande artiklar:
+**Active Directory Domain Services**: den här arkitekturen ger en distribution av Active Directory Domain Services i Azure. Specifika rekommendationer för att implementera Active Directory i Azure finns i följande artiklar:
 
 [Utöka Active Directory Domain Services (AD DS) till Azure](https://docs.microsoft.com/azure/guidance/guidance-identity-adds-extend-domain).
 
@@ -211,7 +211,7 @@ Kunder kan också överväga att använda en [förbättrad administrativ säkerh
 
 **Resurshantering**: Azure-resurser som virtuella datorer, virtuella nätverk och belastningsutjämnare som hanteras genom att gruppera dem tillsammans i [Azure-resursgrupper](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource). Åtkomstkontroll resursroller kan tilldelas till varje resursgrupp för att begränsa åtkomsten till endast behöriga användare.
 
-**Komma åt Åtkomstkontrollsbegränsningar**: Använd [rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (RBAC) för att hantera resurser i appen med [anpassade roller](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) RBAC kan användas för att begränsa åtgärder som DevOps kan utföra på varje nivå. När du beviljar behörighet, använda den [principen om minsta behörighet](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Logga alla administrativa åtgärder och utföra vanliga granskningar för att säkerställa att inga ändringar i konfigurationen har planerat.
+**Komma åt Åtkomstkontrollsbegränsningar**: Använd [rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) för att hantera resurser i appen med [anpassade roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) RBAC kan användas för att begränsa åtgärder som DevOps kan utföra på varje nivå. När du beviljar behörighet, använda den [principen om minsta behörighet](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Logga alla administrativa åtgärder och utför regelbundna granskningar för att säkerställa att inga ändringar i konfigurationen har planerats.
 
 **Internetåtkomst**: denna Referensarkitektur utnyttjar [Azure Programgateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) som internet facing gateway och läsa in belastningsutjämning. Vissa kunder kan också överväga att använda virtuella nätverksinstallationer från tredje part för ytterligare skyddslager för nätverk säkerhet som ett alternativ till den [Azure Programgateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
 

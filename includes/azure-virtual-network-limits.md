@@ -26,12 +26,12 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Undernät per virtuellt nätverk |1000 |10000 |
 | Peerkopplingar mellan virtuella nätverk per virtuellt nätverk |10 |50 |
 | DNS-servrar per virtuellt nätverk |9 |25 |
-| Privata IP-adresser per virtuellt nätverk |4096 |8192 |
+| Privata IP-adresser per virtuellt nätverk |16384 ** |16384 |
 | Privata IP-adresser per nätverksgränssnitt |256 |1024 |
 | Samtidiga TCP eller UDP flödar per nätverkskort på en virtuell dator eller rollinstans |500 000 |500 000 |
-| Nätverksgränssnitt (NIC) |350 |20000 |
+| Nätverksgränssnitt (NIC) |24000 ** |24000 |
 | Nätverkssäkerhetsgrupper (NSG) |100 |5000 |
-| NSG-regler per NSG |200 |1000 |
+| NSG-regler per NSG |1000 ** |1000 |
 | IP-adresser och intervall som angetts för källan eller målet i en säkerhetsgrupp |2000 |4000 |
 | Programsäkerhetsgrupper |200 |500 |
 | Programmet säkerhetsgrupper per IP-konfiguration per NIC |10 |20 |
@@ -39,10 +39,12 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Säkerhetsgrupper för program som kan anges i alla säkerhetsregler för en nätverkssäkerhetsgrupp |50 |100 |
 | Användardefinierade vägtabeller |100 |200 |
 | Användardefinierade vägar vägtabell |100 |400 |
-| Offentliga IP-adresser – dynamisk |(Basic) 60 |kontakta supporten |
-| Offentliga IP-adresser – statiska |(Basic) 20 |kontakta supporten |
-| Offentliga IP-adresser – statiska |(Standard) 20 |kontakta supporten |
+| Offentliga IP-adresser – dynamisk |60 (grundläggande) |kontakta supporten |
+| Offentliga IP-adresser – statiska |20 (grundläggande) |kontakta supporten |
+| Offentliga IP-adresser – statiska |20 (standard) |kontakta supporten |
 | Punkt-till-plats-rotcertifikat per VPN-gateway |20 |20 |
+
+** Standard begränsningar gäller för prenumerationer som inte tidigare har dessa gränser ökat genom stöd
 
 #### <a name="load-balancer"></a>Belastningsutjämnaren begränsar
 

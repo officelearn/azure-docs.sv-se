@@ -1,9 +1,9 @@
 ---
-title: "Skapa aktivitet loggen aviseringar och hantera dem med hjälp av den nya aviseringar (förhandsgranskning)-miljön i Azure-Monitor | Microsoft Docs"
-description: "Den här artikeln innehåller information om hur du skapar aktiviteten loggen aviseringar från fliken aviseringar (förhandsgranskning) under Azure-Monitor. Den här artikeln beskrivs den nya användarupplevelsen för den här funktionen."
+title: Skapa aktivitet loggen aviseringar och hantera dem med hjälp av den nya aviseringar (förhandsgranskning)-miljön i Azure-Monitor | Microsoft Docs
+description: Den här artikeln innehåller information om hur du skapar aktiviteten loggen aviseringar från fliken aviseringar (förhandsgranskning) under Azure-Monitor. Den här artikeln beskrivs den nya användarupplevelsen för den här funktionen.
 author: JYOTHIRMAISURI
 manager: vvithal
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: aabc0e57-78cd-44dd-a8d1-af5e1e567360
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
-ms.custom: 
-ms.openlocfilehash: a7553e4155df0d4ee49b798f44ca636dc7ecdcd2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: ''
+ms.openlocfilehash: 740edfd158d56fcb224cf93d1720a2330779bfd6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Skapa aktivitetsloggen får aviseringar via de nya aviseringarna (förhandsgranskning)
 
@@ -103,13 +103,13 @@ Följ dessa steg:
 
     **Varna logik**:
 
-        - **Event Level**- The severity level of the event.**Verbose,Informational, Warning, Error**, or **Critical**.
-        - **Status**: The status of the event.**Started, Failed**, or **Succeeded**.
-        - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
+     - **Händelsenivå**-allvarlighetsgrad för händelsen. **Utförlig, information, varning, fel**, eller **kritiska**.
+     - **Status för**: status för händelsen. **Igång, kunde inte**, eller **lyckades**.
+     - **Händelse som initieras av**: kallas även anroparens E-postadressen eller Azure Active Directory-identifieraren för användaren som utförde åtgärden.
 
-        **Sample signal graph with alert logic applied** :
+        **Exempel signal diagram med aviseringen logik tillämpas** :
 
-        ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+        ![ valt villkor](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
 4. Under **definiera Varningsregler information**, ange följande information:
 

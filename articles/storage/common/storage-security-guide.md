@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-säkerhetsguiden
 
@@ -85,16 +85,16 @@ Här är de viktigaste aspekterna som du behöver veta om att använda RBAC att 
 * Du kan skapa en rapport över som beviljats/återkallas vilken typ av åtkomst till och från vilken och på vilka scope med PowerShell eller Azure CLI.
 
 #### <a name="resources"></a>Resurser
-* [Azure Active Directory rollbaserad åtkomstkontroll](../../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory rollbaserad åtkomstkontroll](../../role-based-access-control/role-assignments-portal.md)
 
   Den här artikeln förklarar Azure Active Directorys rollbaserade åtkomstkontroll och hur den fungerar.
-* [RBAC: inbyggda roller](../../active-directory/role-based-access-built-in-roles.md)
+* [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md)
 
   Den här artikeln beskrivs alla inbyggda roller finns i RBAC.
 * [Förstå Resource Manager-distribution och klassisk distribution](../../azure-resource-manager/resource-manager-deployment-model.md)
 
   Den här artikeln beskriver Resource Manager-distribution och klassiska distributionsmodeller och förklarar fördelarna med att använda Resource Manager och resursgrupper. Den förklarar hur Azure Compute, nätverk och lagring leverantörer fungerar med Resource Manager-modellen.
-* [Hantera rollbaserad åtkomstkontroll med REST API](../../active-directory/role-based-access-control-manage-access-rest.md)
+* [Hantera rollbaserad åtkomstkontroll med REST API](../../role-based-access-control/role-assignments-rest.md)
 
   Den här artikeln visar hur du använder REST API för att hantera RBAC.
 * [Azure Storage Resource Provider REST API-referens](https://msdn.microsoft.com/library/azure/mt163683.aspx)
@@ -236,7 +236,7 @@ Mer detaljerad information om hur du använder signaturer för delad åtkomst oc
 
 * Dessa är referensartiklar.
 
-  * [Service SAS](https://msdn.microsoft.com/library/dn140256.aspx)
+  * [Tjänst-SAS](https://msdn.microsoft.com/library/dn140256.aspx)
 
     Den här artikeln innehåller exempel på användning av en tjänstnivå SAS med blobbar, Kömeddelanden, tabell intervall och filer.
   * [Hur du skapar en tjänst-SAS](https://msdn.microsoft.com/library/dn140255.aspx)
@@ -421,10 +421,10 @@ Vi har tre fall som vi är intresserad av.
 
 1. Blobben är offentlig och den kan nås med hjälp av en URL utan en signatur för delad åtkomst. I det här fallet begäran-status är ”AnonymousSuccess” och typen tillståndet är ”anonym”.
 
-   1.0;2015-11-17T02:01:29.0488963Z;GetBlob;**AnonymousSuccess**;200;124;37;**anonymous**;;mystorage…
+   1.0; 2015-11-17T02:01:29.0488963Z; GetBlob; **AnonymousSuccess**; 200; 124; 37; **anonym**; mystorage...
 2. Blobben är privata och användes med en signatur för delad åtkomst. I det här fallet begäran-status är ”SASSuccess” och auktorisering-typen är ”sas”.
 
-   1.0;2015-11-16T18:30:05.6556115Z;GetBlob;**SASSuccess**;200;416;64;**sas**;;mystorage…
+   1.0; 2015-11-16T18:30:05.6556115Z; GetBlob; **SASSuccess**; 200; 416; 64; **SAS**; mystorage...
 3. Blob är privat nyckel för säkerhetslagring användes för att komma åt den. I det här fallet begäran-status är ”**lyckade**” och auktorisering-typen är ”**autentiserade**”.
 
    1.0; 2015-11-16T18:32:24.3174537Z; GetBlob; **Lyckade**; 206; 59; 22; **autentiserad**; mystorage...

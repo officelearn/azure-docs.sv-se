@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: b84a56996a335f8a137c4219c55b9878e39b5a3b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a34a94a9421c65a2b1d4ce5c390732e0adbb69d6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med .NET
 
@@ -56,26 +56,15 @@ Använd [git](https://git-scm.com/) för att ladda ned en kopia av programmet ti
 git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 ```
 
-Det här kommandot klonar lagret till den lokala git-mappen. Öppna Visual Studio-lösningen genom att leta reda på mappen storage-blobs-dotnet-quickstart, öppna den och dubbelklicka på storage-blobs-dotnet-quickstart.sln. 
+Det här kommandot klonar lagret till den lokala git-mappen. Öppna Visual Studio-lösningen genom att leta reda på mappen *storage-blobs-dotnet-quickstart*, öppna den och dubbelklicka på *storage-blobs-dotnet-quickstart.sln*. 
+
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
 
-För att kunna köra programmet måste du ange anslutningssträngen för ditt lagringskonto. Kopiera anslutningssträngen från Azure Portal och skriv den till en ny miljövariabel. I exemplet läses anslutningssträngen från miljövariabeln som använder den för att autentisera dina förfrågningar till Azure Storage.
+För att kunna köra programmet måste du ange anslutningssträngen för ditt lagringskonto. Exempelprogrammet läser anslutningssträngen från en miljövariabel och använder den till att autentisera dina begäranden till Azure Storage.
 
-### <a name="copy-your-connection-string-from-the-azure-portal"></a>Kopiera anslutningssträngen från Azure Portal
-
-Kopiera anslutningssträngen:
-
-1. Navigera till [Azure-portalen](https://portal.azure.com).
-2. Leta rätt på ditt lagringskonto.
-3. Välj **Åtkomstnycklar** i avsnittet **Inställningar** i lagringskontoöversikten.
-4. Sök efter värdet för **Anslutningssträng** under **key1** och kopiera anslutningssträngen genom att klicka på **Kopiera**.  
-
-    ![Skärmbild som visar hur man kopierar en anslutningssträng från Azure Portal](media/storage-quickstart-blobs-dotnet/portal-connection-string.png)
-
-## <a name="write-your-connection-string-to-an-environment-variable"></a>Skriv anslutningssträngen till en miljövariabel
-
-Skriv sedan den nya miljövariabeln på den lokala dator som kör programmet. Konfigurera miljövariabeln genom att öppna ett konsolfönster och följa anvisningarna för ditt operativsystem. Ersätt `<yourconnectionstring>` med den faktiska anslutningssträngen:
+När du har kopierat anslutningssträngen ska du skriva den till en ny miljövariabel på den lokala dator där programmet körs. Konfigurera miljövariabeln genom att öppna ett konsolfönster och följa anvisningarna för ditt operativsystem. Ersätt `<yourconnectionstring>` med den faktiska anslutningssträngen:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 

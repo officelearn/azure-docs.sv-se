@@ -1,13 +1,13 @@
 ---
-title: "Distribuera LEMP på en Linux-dator i Azure | Microsoft Docs"
-description: "Självstudiekurs – installera LEMP stacken på en Linux-VM i Azure"
+title: Distribuera LEMP på en virtuell Linux-dator i Azure | Microsoft Docs
+description: 'Självstudier: Installera LEMP-stacken på en virtuell Linux-dator i Azure'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,82 +15,82 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: c77cd0148a7e3e7b99e90e29bc1499dae8f95028
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
-ms.translationtype: MT
+ms.openlocfilehash: f907b468a409135d4b45e76297fc7cd86eeead78
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Installera en LEMP webbserver på en Azure VM
-Den här artikeln får du veta hur du distribuerar en NGINX-webbservern, MySQL och PHP (LEMP stack) på en Ubuntu VM i Azure. LEMP-stacken är ett alternativ till att den populära [LYKTA stack](tutorial-lamp-stack.md), där du kan också installera i Azure. Om du vill se LEMP servern i praktiken du om du vill installera och konfigurera en WordPress-webbplats. I den här självstudiekursen får du lära du dig att:
+# <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Installera en LEMP-webbserver på en virtuell Azure-dator
+I den här artikeln får du veta hur du distribuerar en NGINX-webbserver, MySQL och PHP (LEMP-stacken) på en virtuell Ubuntu-dator i Azure. LEMP-stacken är ett alternativ till den populära [LAMP-stacken](tutorial-lamp-stack.md) som du också kan installera i Azure. Om du vill se LEMP-servern i praktiken kan du installera och konfigurera en WordPress-webbplats. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Skapa en Ubuntu VM (den ”L” i LEMP stack)
+> * Skapa en virtuell Ubuntu-dator (L:et i LEMP-stacken)
 > * Öppna port 80 för webbtrafik
 > * Installera NGINX, MySQL och PHP
 > * Verifiera installation och konfiguration
-> * Installera WordPress på servern LEMP
+> * Installera WordPress på LEMP-servern
 
 
-Den här installationen är för snabb tester eller konceptbevis.
+Den här installationen är avsedd för snabbtester och konceptbevis.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kursen krävs att du använder Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 
 ## <a name="install-nginx-mysql-and-php"></a>Installera NGINX, MySQL och PHP
 
-Kör följande kommando för att uppdatera Ubuntu paketet källor och installera NGINX, MySQL och PHP. 
+Kör följande kommandon för att uppdatera Ubuntu-paketkällorna och installera NGINX, MySQL och PHP. 
 
 ```bash
 sudo apt update && sudo apt install nginx mysql-server php-mysql php php-fpm
 ```
 
-Du uppmanas att installera paket och andra beroenden. När du uppmanas, anger du ett rotlösenord för MySQL, och sedan [Retur] för att fortsätta. Följ anvisningarna för återstående. Den här processen installerar de minsta nödvändiga PHP-tillägg för att kunna använda PHP med MySQL. 
+Du uppmanas att installera paketen och andra beroenden. När du uppmanas anger du ett rotlösenord för MySQL. Välj [Retur] för att fortsätta. Följ återstående anvisningar. Den här processen installerar lägsta nödvändiga PHP-tillägg för användning av PHP med MySQL. 
 
-![MySQL-rot lösenordssidan][1]
+![MySQL-rotlösenordssida][1]
 
 ## <a name="verify-installation-and-configuration"></a>Verifiera installation och konfiguration
 
 
 ### <a name="nginx"></a>NGINX
 
-Kontrollera vilken version av NGINX med följande kommando:
+Kontrollera version av NGINX med följande kommando:
 ```bash
 nginx -v
 ```
 
-Med NGINX installerat, och port 80 är öppen för den virtuella datorn, kan du nu åt webbservern från internet. Om du vill visa NGINX välkomstsidan, öppna en webbläsare och ange offentliga IP-adressen för den virtuella datorn. Använd den offentliga IP-adressen som du använde för att SSH till den virtuella datorn:
+När NGINX är installerat och port 80 är öppen för den virtuella datorn kan webbservern nås från internet. När du vill visa NGINX-startsidan öppnar du en webbläsare och anger den virtuella datorns offentliga IP-adress. Använd den offentliga IP-adressen som du använde för SSH till den virtuella datorn:
 
-![NGINX standardsida][3]
+![NGINX-standardsida][3]
 
 
 ### <a name="mysql"></a>MySQL
 
-Kontrollera vilken version av MySQL med följande kommando (Observera kapital `V` parametern):
+Kontrollera versionen av MySQL med följande kommando (observera versal i parameter `V`):
 
 ```bash
 mysql -V
 ```
 
-Om du vill skydda installationen av MySQL kör den `mysql_secure_installation` skript. Om du bara konfigurerar en tillfällig server, kan du hoppa över det här steget. 
+Kör skriptet `mysql_secure_installation` för att skydda installationen av MySQL. Om du bara konfigurerar en tillfällig server kan du hoppa över det här steget. 
 
 ```bash
 mysql_secure_installation
 ```
 
-Ange ett rotlösenord för MySQL och konfigurera säkerhetsinställningarna för din miljö.
+Ange ett rotlösenord för MySQL och konfigurera säkerhetsinställningarna för miljön.
 
-Om du vill prova MySQL-funktioner (skapa en MySQL-databas, lägga till användare eller ändra konfigurationsinställningarna), logga in på MySQL. Det här steget krävs inte för att slutföra den här självstudiekursen. 
+Om du vill prova MySQL-funktioner (skapa en MySQL-databas, lägga till användare eller ändra konfigurationsinställningar) loggar du in på MySQL. Det här steget krävs inte för att genomföra kursen. 
 
 
 ```bash
 mysql -u root -p
 ```
 
-När du är klar avsluta mysql-Kommandotolken genom att skriva `\q`.
+När du är klar lämnar du mysql-frågan genom att skriva `\q`.
 
 ### <a name="php"></a>PHP
 
@@ -100,7 +100,7 @@ Kontrollera versionen av PHP med följande kommando:
 php -v
 ```
 
-Konfigurera NGINX om du vill använda PHP FastCGI Process Manager (PHP-: FPM). Kör följande kommandon för att säkerhetskopiera den ursprungliga NGINX server block config-fil och sedan redigera den ursprungliga filen i ett redigeringsprogram:
+Konfigurera NGINX för att använda PHP FastCGI Process Manager (PHP-FPM). Kör följande kommandon för att säkerhetskopiera den ursprungliga NGINX-serverblockkonfigurationsfilen. Redigera sedan den ursprungliga filen i valfritt redigeringsprogram:
 
 ```bash
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_backup
@@ -108,7 +108,7 @@ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_ba
 sudo sensible-editor /etc/nginx/sites-available/default
 ```
 
-I redigeraren, ersätter du innehållet i `/etc/nginx/sites-available/default` med följande. Visa kommentarerna förklaring av inställningarna. Ersätt offentliga IP-adressen för den virtuella datorn för *yourPublicIPAddress*, och lämna de återstående inställningarna. Spara sedan filen.
+I redigeringsprogrammet byter du ut innehållet i `/etc/nginx/sites-available/default` mot följande. Visa kommentarerna för att få en förklaring av inställningarna. Ersätt den offentliga IP-adressen för den virtuella datorn med *din offentliga IP-adress*, och låt de övriga inställningarna stå. Spara sedan filen.
 
 ```
 server {
@@ -133,19 +133,19 @@ server {
 }
 ```
 
-Kontrollera NGINX-konfigurationen för Syntaxfel:
+Sök i NGINX-konfigurationen efter syntaxfel:
 
 ```bash
 sudo nginx -t
 ```
 
-Om syntax är korrekt kan du starta om NGINX med följande kommando:
+Om syntax stämmer startar du om NGINX med följande kommando:
 
 ```bash
 sudo service nginx restart
 ```
 
-Om du vill testa ytterligare skapar du en snabb PHP info sida för att visa i en webbläsare. Följande kommando skapar sidan PHP:
+Om du vill testa ytterligare skapar du en snabb PHP-informationssida som visas i en webbläsare. Följande kommando skapar PHP-informationssidan:
 
 ```bash
 sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
@@ -153,25 +153,25 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 
 
 
-Nu kan du kontrollera PHP Infosidan som du skapat. Öppna en webbläsare och gå till `http://yourPublicIPAddress/info.php`. Ersätt offentliga IP-adressen för den virtuella datorn. Det bör likna den här avbildningen.
+Nu kan du kontrollera PHP-informationssidan som du har skapat. Öppna en webbläsare och navigera till `http://yourPublicIPAddress/info.php`. Ersätt den offentliga IP-adressen för den virtuella datorn. Det bör se ut ungefär som den här bilden:
 
-![Information om PHP-sida][2]
+![PHP-informationssida][2]
 
 
 [!INCLUDE [virtual-machines-linux-tutorial-wordpress.md](../../../includes/virtual-machines-linux-tutorial-wordpress.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får du har distribuerat en LEMP server i Azure. Du har lärt dig att:
+Under den här kursen distribuerade du en LEMP-server i Azure. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Skapa en virtuell Ubuntu-dator
 > * Öppna port 80 för webbtrafik
 > * Installera NGINX, MySQL och PHP
 > * Verifiera installation och konfiguration
-> * Installera WordPress LEMP-stacken
+> * Installera WordPress på LEMP-stacken
 
-Gå vidare till nästa kurs att lära dig säker webbserver med SSL-certifikat.
+Gå vidare till nästa självstudiekurs där du får lära dig att skydda webbservrar med SSL-certifikat.
 
 > [!div class="nextstepaction"]
 > [Säker webbserver med SSL](tutorial-secure-web-server.md)

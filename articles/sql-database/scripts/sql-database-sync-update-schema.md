@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 01/10/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 5f9f0a5921951669d451a9755c5da2091287c909
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6b117484eaa1a9ac3ed85dfe547b3f6163d702cf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp
 
@@ -97,7 +97,7 @@ Mer information om SQL Data Sync finns i:
 -   [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](../sql-database-sync-data.md)
 -   [Konfigurera Azure SQL Data Sync](../sql-database-get-started-sql-data-sync.md)
 -   [Metodtips för Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
--   [Övervaka Azure SQL Data Sync med OMS Log Analytics](../sql-database-sync-monitor-oms.md)
+-   [Övervaka Azure SQL Data Sync med Log Analytics](../sql-database-sync-monitor-oms.md)
 -   [Felsöka problem med Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
 
 -   Slutför PowerShell-exempel som visar hur du konfigurerar SQL Data Sync:
